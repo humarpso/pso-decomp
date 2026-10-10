@@ -89,7 +89,7 @@ s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
 s32 rand();
 __declspec(section ".rodata") char lbl_8047ACD8[] = "TBoss6RockChase";
-__declspec(section ".rodata") RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8 = {
+__declspec(section ".rodata") RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table = {
     4, { 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0xF0, 0x00, 0x00 }
 };
 extern M2C_UNK __vt__15TBoss6RockChase[];
@@ -121,7 +121,7 @@ s32 is_active__14TBoss6PlotFalzFPv(void *);
 s32 rand_vary_count__14TBoss6PlotFalzFif(s32, f32);
 f32 vector_length(void *);
 int subtract_vector(void *, void *);
-extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 lbl_8047ACE8;
+extern RecoveredGlobal_8036D4E0_lbl_8047ACE8 boss6_rock_chase_model_radius_table;
 extern const f32 TBoss6RockChase__data_805E03B8;
 extern const f32 lbl_805E03BC;
 M2C_UNK damage_players_in_range__15TBoss6RockChaseFPv(void *arg0);
@@ -154,7 +154,7 @@ M2C_UNK damage_players_in_range__15TBoss6RockChaseFPv(void *arg0) {
     f32 range;
     n = get_game_mode__6TLobbyFv();
     {
-        Ent_8036D1B4 *tbl = (Ent_8036D1B4 *)&lbl_8047ACE8;
+        Ent_8036D1B4 *tbl = (Ent_8036D1B4 *)&boss6_rock_chase_model_radius_table;
         range = tbl[self->xB0].range;
     }
     dmg = dispatch_shared_handler_a__6TLobbyFPv(0x2C)->v;
@@ -245,7 +245,7 @@ u8 *TBoss6RockChase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (lbl_805E03E0 * ((lbl_805E03D0 * (f32) rand()) - lbl_805E03D8));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) TBoss6RockChase__data_805E03B8;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0xC0) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (M2C_FIELD(&lbl_8047ACE8.value, M2C_UNK *, (arg3 * 8))));
+    M2C_FIELD(arg0, s32 *, 0xC0) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (int) (M2C_FIELD(&boss6_rock_chase_model_radius_table.value, M2C_UNK *, (arg3 * 8))));
     M2C_FIELD(arg0, s32 *, 0xC4) = TBoss6Rock__sub_80353A04();
     return arg0;
 }

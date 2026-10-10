@@ -54,7 +54,7 @@ void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
 void set_all_technique_levels__10TObjPlayerFPvPv(void *, s32);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, TPlyCharData *);
-extern Tbl_80071BC0 lbl_8048A088[];
+extern Tbl_80071BC0 force_stage_start_parameters[];
 extern Tbl_80071BC0 lbl_8048B0F4[];
 extern Tbl_80071BC0 lobby_stage_table[];
 extern s32 local_client_id;
@@ -112,7 +112,7 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
                 t = &lobby_stage_table[arg0];
                 break;
             case 0x80:
-                t = &lbl_8048A088[arg0];
+                t = &force_stage_start_parameters[arg0];
                 break;
             default:
                 t = &lbl_8048B0F4[arg0];

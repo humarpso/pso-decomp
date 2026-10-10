@@ -50,7 +50,7 @@ void *__nw__7TObjectFUl(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_8035BACC_lbl_804F1D98 lbl_804F1D98;
+extern RecoveredGlobal_8035BACC_lbl_804F1D98 lobby_curtain_resource_descriptor;
 extern u32 TObjCurtainLobby__data_805D6F58;
 extern s32 lbl_805D6F5C;
 void load_resources__16TObjCurtainLobbyFv(void);
@@ -150,7 +150,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F1D98.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjCurtainLobby__data_805D6F58) = var_r0;
     lbl_805D6F5C = get_lobby_type__6TLobbyFv();

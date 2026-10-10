@@ -119,7 +119,7 @@ s32 get_card_serial_and_code__15TAdPlayerLoadGCFiPv(int chan, u8 *out);
 u32 calc_crc32(Save_803F3F64 *arg0, s32 arg1);
 s32 fn_803F7254(u8 *arg0, u8 *arg1, u32 arg2, void *arg3);
 
-extern u8 lbl_805A5F00[];
+extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
 extern AdLoadState_805A82C0 lbl_805A82C0;
 extern u8 lbl_805A82E4[];
 extern u8 lbl_805A86E4[];
@@ -258,9 +258,9 @@ void update_network_info_load__15TAdPlayerLoadGCFv(void) {
                         lbl_805A82C0.result = -32;
                         s->x8 = 27;
                     } else {
-                        memcpy(lbl_805A5F00, lbl_805D79A0->data, 0x23B8);
+                        memcpy(TAdPlayerLoadGC__network_info_payload_buffer, lbl_805D79A0->data, 0x23B8);
                         memset((*(s16 * *)&lobby_net_config_buffer), 0, 0x19D4);
-                        lbl_805A82C0.a = fn_803F7254(key, lbl_805A5F00, lbl_805D79A0->size, (*(s16 * *)&lobby_net_config_buffer));
+                        lbl_805A82C0.a = fn_803F7254(key, TAdPlayerLoadGC__network_info_payload_buffer, lbl_805D79A0->size, (*(s16 * *)&lobby_net_config_buffer));
                         if (lbl_805A82C0.a != 0) {
                             init_net_config_defaults__23TAdSinglePlyChrSelectGCFv();
                             close_card_slot__15TAdPlayerLoadGCFi(lbl_805A82C0.x10);

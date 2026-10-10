@@ -16,8 +16,8 @@ void TObjDoor__sub_801F3754(void) {
     TObjDoor__data_805D5BC8 = 1;
 }
 
-    extern int lbl_805D58F8;
-void TObjDoor__sub_801F3760(void) { lbl_805D58F8 = 1; }
+    extern int switch_doors_force_closed;
+void TObjDoor__sub_801F3760(void) { switch_doors_force_closed = 1; }
 
     extern int lbl_805D5B60;
 void set_main_warp_id__8TObjDoorFi(int a0) { lbl_805D5B60 = a0; }

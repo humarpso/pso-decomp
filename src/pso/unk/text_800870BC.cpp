@@ -3,8 +3,8 @@ struct Ent_800870BC { u8 data[0x98]; };
 
 extern "C" {
 extern s32 particle_pool_limit;
-extern Ent_800870BC *lbl_805D4EF8;
-extern Ent_800870BC *lbl_805D4EFC;
+extern Ent_800870BC *particle_global_entry_table;
+extern Ent_800870BC *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *__ct__13TParticleCtrlFv(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d, int e);
 void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e);
@@ -20,7 +20,7 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = __ct__13TParticleCtrlFv(p, pos, dir, &lbl_805D4EF8[idx], 0, 0, 0, 0, e);
+            p = __ct__13TParticleCtrlFv(p, pos, dir, &particle_global_entry_table[idx], 0, 0, 0, 0, e);
         }
         return p;
     }
@@ -28,7 +28,7 @@ void *spawn_particle_effect_with_rotation(void *pos, void *dir, s32 id, int e) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = __ct__13TParticleCtrlFv(p, pos, dir, &lbl_805D4EFC[idx], 0, 0, 0, 0, e);
+            p = __ct__13TParticleCtrlFv(p, pos, dir, &particle_area_entry_table[idx], 0, 0, 0, 0, e);
         }
         return p;
     }

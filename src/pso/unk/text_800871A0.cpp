@@ -3,8 +3,8 @@ struct Ent_80086D50 { u8 data[0x98]; };
 
 extern "C" {
 extern s32 particle_pool_limit;
-extern Ent_80086D50 *lbl_805D4EF8;
-extern Ent_80086D50 *lbl_805D4EFC;
+extern Ent_80086D50 *particle_global_entry_table;
+extern Ent_80086D50 *particle_area_entry_table;
 void *__nw__7TObjectFUl(int);
 void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d);
 void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id);
@@ -20,7 +20,7 @@ void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &lbl_805D4EF8[idx], 0x0, 0, 0, 0);
+            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &particle_global_entry_table[idx], 0x0, 0, 0, 0);
         }
         return p;
     }
@@ -28,7 +28,7 @@ void *spawn_continuous_particle_with_direction(void *pos, void *dir, s32 id) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &lbl_805D4EFC[idx], 0x0, 0, 0, 0);
+            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &particle_area_entry_table[idx], 0x0, 0, 0, 0);
         }
         return p;
     }

@@ -284,7 +284,7 @@ M2C_UNK get_time_ms__6TLobbyFPv(void *);
 u16 str_length__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
-extern u8 lbl_805C3094[];
+extern u8 dhcp_hostname[];
 extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B4C;
 extern u32 lbl_805D7B50;
@@ -294,7 +294,7 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0);
 u16 str_length__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
-extern u8 lbl_805C3094[];
+extern u8 dhcp_hostname[];
 extern volatile s32 lbl_805D4820;
 extern u8 lbl_805D7B1C[6];
 extern u8 lbl_805D7B24[4];
@@ -307,7 +307,7 @@ M2C_UNK get_time_ms__6TLobbyFPv(void *);
 u16 str_length__6TLobbyFi(void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
 M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
-extern u8 lbl_805C3094[];
+extern u8 dhcp_hostname[];
 extern u8 lbl_805D7B1C[6];
 extern u8 lbl_805D7B24[4];
 extern s32 lbl_805D7B28;
@@ -988,12 +988,12 @@ s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
     *p++ = 4;
     TLobby__sub_803F9F04(p, lbl_805D7B24, 4);
     p += 4;
-    len = str_length__6TLobbyFi(lbl_805C3094);
+    len = str_length__6TLobbyFi(dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
         *p++ = m;
-        TLobby__sub_803F9F04(p, lbl_805C3094, m);
+        TLobby__sub_803F9F04(p, dhcp_hostname, m);
         p += m;
     }
     *p++ = 0xFF;
@@ -1053,12 +1053,12 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
         TLobby__sub_803F9F04(p, &lbl_805D7B28, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFi(((char *)&lbl_805C3094));
+    len = str_length__6TLobbyFi(((char *)&dhcp_hostname));
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
         *p++ = m;
-        TLobby__sub_803F9F04(p, ((char *)&lbl_805C3094), m);
+        TLobby__sub_803F9F04(p, ((char *)&dhcp_hostname), m);
         p += m;
     }
     *p++ = 0xFF;
@@ -1105,12 +1105,12 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
         TLobby__sub_803F9F04(p, &spC, 4);
         p += 4;
     }
-    len = str_length__6TLobbyFi(lbl_805C3094);
+    len = str_length__6TLobbyFi(dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         n = len + 1;
         *p++ = n;
-        TLobby__sub_803F9F04(p, lbl_805C3094, n);
+        TLobby__sub_803F9F04(p, dhcp_hostname, n);
         p += n;
     }
     *p++ = 0xFF;

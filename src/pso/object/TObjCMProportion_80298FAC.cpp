@@ -26,7 +26,7 @@ u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
 u8 *get_creation_pad();
 extern s32 lbl_804DBDC0[];
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
 void poll_pad_buttons__16TObjCMProportionFv(void);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
@@ -106,17 +106,17 @@ void poll_pad_buttons__16TObjCMProportionFv(void) {
             G_80299238(0xC) |= 0x20;
         } else {
             for (i = 0; i < 4; i++) {
-                if (is_flag_set__11TLoadingCurFPv(lbl_8050E208 + 0x160, lbl_804DBDC0[i]) != 0) {
+                if (is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, lbl_804DBDC0[i]) != 0) {
                     G_80299238(0xC) |= lbl_804DBDC0[i];
                     break;
                 }
             }
         }
     }
-    if (!(G_80299238(0xC) & 4) && is_flag_set__11TLoadingCurFPv(lbl_8050E208 + 0x160, 4) != 0) {
+    if (!(G_80299238(0xC) & 4) && is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, 4) != 0) {
         G_80299238(0xC) |= 4;
     }
-    if (!(G_80299238(0xC) & 2) && is_flag_set__11TLoadingCurFPv(lbl_8050E208 + 0x160, 2) != 0) {
+    if (!(G_80299238(0xC) & 2) && is_flag_set__11TLoadingCurFPv(controller_input_state + 0x160, 2) != 0) {
         G_80299238(0xC) |= 2;
     }
     G_80299238(0x10) = G_80299238(0xC) & ~old;

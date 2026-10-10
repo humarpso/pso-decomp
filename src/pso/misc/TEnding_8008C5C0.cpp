@@ -32,10 +32,10 @@ int start_ending_scene__7TEndingFv();
 }
 
 extern "C" {
-extern s32 lbl_805D4F0C;
+extern s32 ending_scene_active;
 
 void set_flag_and_advance__7TEndingFv() {
-    lbl_805D4F0C = 1;
+    ending_scene_active = 1;
     start_ending_scene__7TEndingFv();
 }
 

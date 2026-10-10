@@ -34,12 +34,12 @@ void *__dt__12TOVS2Wreck06Fv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__12TOVS2Wreck06[];
-extern void *lbl_805D31DC;
+extern void *TOVS2Wreck06__class_name;
 
 void *TOVS2Wreck06__ct(void *arg0, void *arg1) {
     init_wreck_object__11TOVS2Wall01FPvii(arg0, arg1, 5);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOVS2Wreck06;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D31DC;
+    M2C_FIELD(arg0, void **, 0x0) = TOVS2Wreck06__class_name;
     return arg0;
 }
 

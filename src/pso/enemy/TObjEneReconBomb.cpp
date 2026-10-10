@@ -115,7 +115,7 @@ s32 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 Ctrl_8031B618 *get_player_by_client_id(s32);
 s32 fn_8031B618(Obj_8031B618 *arg0);
-extern u32 lbl_805D6AE8;
+extern u32 recon_bomb_bml_resource;
 void render__16TObjEneReconBombFv(u8 *arg0);
 }
 
@@ -164,12 +164,12 @@ void render__16TObjEneReconBombFv(u8 *arg0) {
     f32 var_f1;
     s32 temp_r31;
     s32 temp_r30;
-    if ((u32) lbl_805D6AE8 == 0U) {
+    if ((u32) recon_bomb_bml_resource == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    temp_r31 = get_bml_model((void *) (lbl_805D6AE8), (int) (2));
-    temp_r30 = TObjFish__sub_8001EDB0((void *) (lbl_805D6AE8), (int) (2));
+    temp_r31 = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
+    temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
     push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) ((2.0f) + M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
     rotate_matrix_zyx((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));

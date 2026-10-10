@@ -137,13 +137,13 @@ M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
     extern int evt2_random_enemies_mode;
 void set_enemy_mode_0__22THunterGuildSeqOfflineFv(void) { clear_counter__6TLobbyFv(); evt2_random_enemies_mode = 0; TKeyBoardControl__sub_8000F950(); }
 
-extern struct VObj_80212858_8021282C *THunterGuildSeqOffline__data_805D6188;
+extern struct VObj_80212858_8021282C *THunterGuildSeqOffline__active_instance;
 
 void request_close__22THunterGuildSeqOfflineFv(void) {
-    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
-        THunterGuildSeqOffline__data_805D6188->m7(6, 1);
-        M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 2;
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__data_805D6188, 5);
+    if (THunterGuildSeqOffline__active_instance != NULL) {
+        THunterGuildSeqOffline__active_instance->m7(6, 1);
+        M2C_FIELD(THunterGuildSeqOffline__active_instance, s32 *, 0x38) = 2;
+        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
     }
 }
 

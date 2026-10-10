@@ -32,13 +32,13 @@ void *__dt__18TObjMapWarpAncientFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TObjMapWarpAncient[];
-extern s32 lbl_805D31E8;
+extern s32 TObjMapWarpAncient__class_name;
 extern const f32 lbl_805DBAC4;
 
 u8 *TObjMapWarpAncient__ct(u8 *arg0) {
     TObjMapWarp__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjMapWarpAncient;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31E8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMapWarpAncient__class_name;
     M2C_FIELD(arg0, f32 *, 0xFC) = (f32) lbl_805DBAC4;
     M2C_FIELD(arg0, s32 *, 0x100) = TObjGoalWarpAncient__sub_8017D2D4(2);
     M2C_FIELD(arg0, s32 *, 0x104) = TObjGoalWarpAncient__sub_8017D2D4(0);

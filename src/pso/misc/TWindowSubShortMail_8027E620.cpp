@@ -400,7 +400,7 @@ s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
 void close__19TWindowSubShortMailFPv(void *);
 void TWindowSubShortMail__sub_8027E620(void *p);
 void open__17TWindowOptionCtrlFPv(void *);
-void TLobby__sub_80225A74(s32);
+void remove_short_mail_by_id(s32);
 s32 is_active__6TLobbyFv(void);
 s32 set_flag_bit0__6TLobbyFi(s32);
 void get_keyboard_field_6c__15TWindowMakeTeamFPv(void *, void *);
@@ -598,7 +598,7 @@ void run_task__19TWindowSubShortMailFv(ShortMail_8027EF98 *o) {
             o->state = 9;
         } else if (is_child_visible__17TWindowSubComCardFPv(o->w50) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->w50) == 0) {
-                TLobby__sub_80225A74(((s32 (*)(void *)) select_cursor_entry__6TLobbyFPv)(o->w38));
+                remove_short_mail_by_id(((s32 (*)(void *)) select_cursor_entry__6TLobbyFPv)(o->w38));
                 o->state = 7;
             } else {
                 o->state = 9;
@@ -746,12 +746,12 @@ void *__dt__19TWindowSubShortMailFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__19TWindowSubShortMail[];
-extern void *lbl_805D3A98;
+extern void *TWindowSubShortMail__class_name;
 
 void *TWindowSubShortMail__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubShortMail;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3A98;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowSubShortMail__class_name;
     M2C_FIELD(arg0, void **, 0x34) = arg1;
     M2C_FIELD(arg0, void **, 0x20) = arg2;
     M2C_FIELD(arg0, u32 *, 0x40) = 0;

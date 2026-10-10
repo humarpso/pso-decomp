@@ -860,7 +860,7 @@ void TWindow__close(void *);
 void send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
-extern Flags_801C3AF4 *lbl_8050E208[];
+extern Flags_801C3AF4 *controller_input_state[];
 extern s32 local_client_id;
 void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self);
 u32 get_player_by_client_id(u16);
@@ -944,7 +944,7 @@ void send_battle_mode_state__6TLobbyFPv(Lobby_801C484C *);
 M2C_UNK send_6x7D_set_battle_mode_data(void *);
 M2C_UNK init__6TLobbyFPv();
 void send_neg50__6TLobbyFPvPv(void* p, void* a1);
-M2C_UNK TLobby__sub_801C32B4(void *);
+M2C_UNK record_local_battle_placement(void *);
 void send_battle_mode_params__6TLobbyFcii(s8 arg0, s32 arg1, s32 arg2);
 void handle_battle_result__6TLobbyFii(int arg0, s32 arg1);
 void close_and_play_effect__6TLobbyFii(int arg0, s32 arg1);
@@ -964,7 +964,7 @@ void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
 extern u8 lbl_80447008[];
 extern u8 lbl_80447010[];
-extern Flags_801C3AF4 *lbl_8050E208[];
+extern Flags_801C3AF4 *controller_input_state[];
 extern M2C_UNK TLobby__duel_result_table[];
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
@@ -1111,7 +1111,7 @@ s32 assign_player_id__6TLobbyFv(void) {
 void send_neg50__6TLobbyFPvPv(void* p, void* a1) { play_cue_stream_file(p); show_duel_result_window((void*)-50, a1); }
 
 #define TBL_801C32B4 ((Ent_801C32B4 *)TLobby__duel_result_table)
-M2C_UNK TLobby__sub_801C32B4(void *arg0) {
+M2C_UNK record_local_battle_placement(void *arg0) {
     s32 slot;
     s32 i;
     s32 n;
@@ -1396,7 +1396,7 @@ void TLobby__sub_801C3AF4(Lobby_801C3AF4 *self) {
         break;
     }
     case 1:
-        if (lbl_8050E208[0]->flags & 8) {
+        if (controller_input_state[0]->flags & 8) {
             self->next = 4;
         }
         break;
@@ -1539,7 +1539,7 @@ s32 TLobby__sub_801C417C(void) {
 
 struct Lobby_801C484C;
 struct Flags_801C3AF4;
-#define G28 (((u32 *)lbl_8050E208)[10])
+#define G28 (((u32 *)controller_input_state)[10])
 
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0) {
     switch (*(s32 *)((u8 *)arg0 + 0x20)) {
@@ -1609,7 +1609,7 @@ void update_duel_result__6TLobbyFPv(u8 *arg0) {
         if (check_timeout__6TLobbyFPv(arg0, M2C_FIELD(arg0, s32 *, 0x44)--) != 0 || M2C_FIELD(arg0, s32 *, 0x44) <= 0) {
             clear_counter__6TLobbyFPv(arg0);
             calc_player_rankings__6TLobbyFPv((Lobby_801C484C *)((Lobby_801C484C *)arg0));
-            TLobby__sub_801C32B4(arg0);
+            record_local_battle_placement(arg0);
             if (((u16 *)TLobby__duel_result_table)[0] == local_client_id) {
                 send_neg50__6TLobbyFPvPv(lbl_80447008, (void *)0x96);
             } else {

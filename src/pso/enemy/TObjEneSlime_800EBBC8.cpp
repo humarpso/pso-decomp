@@ -129,7 +129,7 @@ void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 lbl_805D52B0;
+extern u32 slime_bml_resource;
 
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
 u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
@@ -156,9 +156,9 @@ u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
 }
 
 void free_instance__12TObjEneSlimeFv(void) {
-    if ((u32) lbl_805D52B0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D52B0, 1);
-        lbl_805D52B0 = 0U;
+    if ((u32) slime_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)slime_bml_resource, 1);
+        slime_bml_resource = 0U;
     }
 }
 

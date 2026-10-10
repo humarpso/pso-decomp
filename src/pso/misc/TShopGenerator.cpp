@@ -96,7 +96,7 @@ u8 is_slot_active__14TShopGeneratorFi(s32 arg0);
 s32 TShopGenerator__sub_80222DAC(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 extern Tbl_8021E1FC TShopGenerator__service_dispatch_table;
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 extern const f32 lbl_805DC6EC;
@@ -194,7 +194,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
             if (check_flag_100__10TObjPlayerFPv(p) == 1) continue;
             fn = e->f10;
             if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(p))) == 1) continue;
-            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + get_map_id__13TRaderMapCoreFPv(p) * 0x50 + 0x20, 4) == 0) continue;
+            if (TWindowShortListCtrl__check_controller_button(controller_input_state + get_map_id__13TRaderMapCoreFPv(p) * 0x50 + 0x20, 4) == 0) continue;
             e->fc(p);
         }
     } else {
@@ -210,7 +210,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
         fn2 = e->f10;
         if (fn2(TShopGenerator__sub_80222DAC(obj_getField1c(q))) == 1) return;
         if (((s32 (*)(u8 *, u8 *, f32))is_player_in_service_range__14TShopGeneratorFPvPvf)(self, (u8 *)q, lbl_805DC6EC) == 0) return;
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + get_map_id__13TRaderMapCoreFPv(q) * 0x50 + 0x20, 4) == 0) return;
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + get_map_id__13TRaderMapCoreFPv(q) * 0x50 + 0x20, 4) == 0) return;
         e->fc(q);
     }
 }

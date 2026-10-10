@@ -2776,7 +2776,7 @@ extern const f32 TObjEneMe1Canadin__data_805D98B4;
 extern const f32 TObjEneMe1Canadin__data_805D98BC;
 extern M2C_UNK __vt__17TObjEneMe1Canadin[];
 extern const M2C_UNK canadin_formation_reset_vec4[];
-extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 lbl_8043A2A0;
+extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 canadin_formation_fade_start_color;
 extern RecoveredGlobal_8009E1D4_lbl_8043A32C lbl_8043A32C;
 extern u8 lbl_8043A340[];
 extern const f64 lbl_8043A3C8;
@@ -4848,7 +4848,7 @@ void pack_color_rgba__17TObjEneMe1CanadinFPv(u8 *arg0) {
 void reset_map_core__17TObjEneMe1CanadinFPv(void* p, void * _w1) { ((int (*)(void*))copy_vec4__13TRaderMapCoreFPvPv)((char*)p + 0x4a4); pack_color_rgba__17TObjEneMe1CanadinFPv((u8 *)(p)); }
 
 void TObjEneMe1CanadinLeader__sub_8009E4AC(u8 *arg0, s32 arg1) {
-    reset_map_core__17TObjEneMe1CanadinFPv((void *)((void *) (arg0)), (void *)((void *) (&lbl_8043A2A0.value)));
+    reset_map_core__17TObjEneMe1CanadinFPv((void *)((void *) (arg0)), (void *)((void *) (&canadin_formation_fade_start_color.value)));
     M2C_FIELD(arg0, s32 *, 0x4B8) = 3;
     M2C_FIELD(arg0, s32 *, 0x4BC) = arg1;
     M2C_FIELD(arg0, s32 *, 0x4C0) = 2;

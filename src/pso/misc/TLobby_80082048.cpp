@@ -53,7 +53,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80082080_lbl_8048E194 enemy_freeze_ice_resource_descriptor;
-extern u32 lbl_805D4ED0;
+extern u32 freeze_shell_bml_resource;
 void load_freeze_ice_resource__6TLobbyFv(void);
 M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -64,7 +64,7 @@ u8 *get_quest_id__12TQuestListVMFPv(void *);
 s32 create_particle_emitter(void *, int);
 M2C_UNK refresh_collision_body_centers(void *);
 extern M2C_UNK lbl_8048E1A4[];
-extern u32 lbl_805D4ED0;
+extern u32 freeze_shell_bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805D9378;
 extern const f32 lbl_805D9398;
@@ -86,12 +86,12 @@ void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 void request_destroy__11TBoss4Type2FUi(void *);
 
-extern u32 lbl_805D4ED0;
+extern u32 freeze_shell_bml_resource;
 
 void destroy_global_singleton__6TLobbyFv(void) {
-    if ((u32) lbl_805D4ED0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D4ED0, 1);
-        lbl_805D4ED0 = 0U;
+    if ((u32) freeze_shell_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)freeze_shell_bml_resource, 1);
+        freeze_shell_bml_resource = 0U;
     }
 }
 
@@ -105,7 +105,7 @@ void load_freeze_ice_resource__6TLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &enemy_freeze_ice_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D4ED0) = var_r0;
+    (*(s32 *)&freeze_shell_bml_resource) = var_r0;
 }
 
 void *TObjPlayer__sub_800820D0(void *arg0, s16 arg1) {
@@ -146,7 +146,7 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (void *) (tl_05));
     ((RecoveredFields_8008213C_arg0 *)arg0)->field_18 = lbl_8048E1A4;
-    ((RecoveredFields_8008213C_arg0 *)arg0)->field_34 = get_bml_model((void *) ((*(s32 *)&lbl_805D4ED0)), (int) (1));
+    ((RecoveredFields_8008213C_arg0 *)arg0)->field_34 = get_bml_model((void *) ((*(s32 *)&freeze_shell_bml_resource)), (int) (1));
     if (arg1 != NULL) {
         ((RecoveredFields_8008213C_arg0 *)arg0)->field_358 = obj_getField1c((void *) (arg1));
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x35C), (void *) (arg1 + 0x38));

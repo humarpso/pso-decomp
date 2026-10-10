@@ -78,7 +78,7 @@ s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440CEC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 lbl_804B1238;
-extern u32 lbl_805D5950;
+extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__data_805D5954;
 void load_resources__15TODoorAncient09Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -401,7 +401,7 @@ void *create__15TODoorAncient09FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5950;
+extern u32 door_ancient09_bml_resource;
 extern void *TODoorAncient09__data_805D5954;
 
 void free_rocks__15TODoorAncient09Fv(void) {
@@ -412,9 +412,9 @@ void free_rocks__15TODoorAncient09Fv(void) {
             TODoorAncient09__data_805D5954 = NULL;
         }
     }
-    if ((u32) lbl_805D5950 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5950, 1);
-        lbl_805D5950 = 0U;
+    if ((u32) door_ancient09_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)door_ancient09_bml_resource, 1);
+        door_ancient09_bml_resource = 0U;
     }
 }
 
@@ -431,10 +431,10 @@ void load_resources__15TODoorAncient09Fv(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B1238.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5950) = var_r0;
+    (*(u8 * *)&door_ancient09_bml_resource) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     (*(s32 * *)&TODoorAncient09__data_805D5954) = temp_r3_2;
-    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5950), u8 **, 0x42C), s32 *, 0xC);
+    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&door_ancient09_bml_resource), u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD((*(s32 * *)&TODoorAncient09__data_805D5954), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80440CEC.value));
 }
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];

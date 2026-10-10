@@ -29,7 +29,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void *);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-extern void *lbl_805D5C28;
+extern void *lazer_fence_norm_texture_list;
 void draw_model__15TObjLazerFence4FPv(u8 *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 u8 is_current_floor_switch_set(int);
@@ -38,7 +38,7 @@ extern const f32 lbl_805DBE6C;
 void TObjLazerFence4__sub_801933C8(Obj_801933C8 *arg0);
 s32 get_bml_motion(s32, s32);
 Node_80193188 *get_bml_model(s32, s32);
-extern s32 lbl_805D5C2C;
+extern s32 lazer_fence_norm_bml_resource;
 void init_models__15TObjLazerFence4FPv(Fence_80193188 *arg0);
 }
 
@@ -72,20 +72,20 @@ s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     return update_object_view_visibility(arg0, farg0, farg1);
 }
 
-extern void *lbl_805D5C28;
+extern void *lazer_fence_norm_texture_list;
 
 void init_models__15TObjLazerFence4FPv(Fence_80193188 *arg0) {
     Node_80193188 *node;
     s32 i;
     s32 j;
     if (arg0->f8C % 2 == 0) {
-        arg0->fBC = get_bml_model(lbl_805D5C2C, 4);
-        arg0->fC0 = get_bml_model(lbl_805D5C2C, 5);
-        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 2);
+        arg0->fBC = get_bml_model(lazer_fence_norm_bml_resource, 4);
+        arg0->fC0 = get_bml_model(lazer_fence_norm_bml_resource, 5);
+        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 2);
     } else {
-        arg0->fBC = get_bml_model(lbl_805D5C2C, 6);
-        arg0->fC0 = get_bml_model(lbl_805D5C2C, 7);
-        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 3);
+        arg0->fBC = get_bml_model(lazer_fence_norm_bml_resource, 6);
+        arg0->fC0 = get_bml_model(lazer_fence_norm_bml_resource, 7);
+        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 3);
     }
     for (j = 0; j < 12; j++) {
         arg0->fC8[j] = 0;
@@ -101,7 +101,7 @@ void init_models__15TObjLazerFence4FPv(Fence_80193188 *arg0) {
 }
 
 void draw__15TObjLazerFence4FPv(void *arg0) {
-    set_global_param__8TObjFishFi(lbl_805D5C28);
+    set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
@@ -124,7 +124,7 @@ void draw_model__15TObjLazerFence4FPv(u8 *arg0) {
     var_r31 += 4;
   }
   while (var_r30 < 0xC);
-  set_global_param__8TObjFishFi((void *)((*(s32 *)&lbl_805D5C28)));
+  set_global_param__8TObjFishFi((void *)((*(s32 *)&lazer_fence_norm_texture_list)));
   push_matrix();
   post_translate_matrix(arg0 + 0x38);
   rotate_matrix_y((int)(0), (void *)(*((s32 *) (((s8 *) arg0) + 0x60))));

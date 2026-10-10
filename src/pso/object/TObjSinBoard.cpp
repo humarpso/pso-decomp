@@ -45,7 +45,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
-extern s32 lbl_805D5C60;
+extern s32 gogo_ball_bml_resource;
 void draw_hinged_model__10TObjPlayerFPv(u8 *arg0);
 s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
 extern M2C_UNK __vt__12TObjSinBoard[];
@@ -67,11 +67,11 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 void set_texture_num(int);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
 extern Uv_8019806C lbl_80445FD0;
-extern u8 lbl_8050DD24[];
-extern u32 lbl_805D5C58;
+extern u8 signboard_texture_list[];
+extern u32 TObjSinBoard__texture_buffer;
 void render__12TObjSinBoardFv(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-extern u8 lbl_8050DDAC[];
+extern u8 gogo_ball_sync_state[];
 void update_input_hold__12TWindowTimerFPv(void *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
@@ -80,7 +80,7 @@ M2C_UNK TWindowTimer__sub_80198CF8(void *, void *, s16, s32, s32, s32);
 M2C_UNK play_sound_effect(int, void *, int, int);
 void *__nw__7TObjectFUl(int);
 M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, s32);
-extern u8 lbl_8050DD58[];
+extern u8 gogo_ball_configuration[];
 extern void *tl_05;
 extern s32 tl_06;
 extern const f32 lbl_805DBF40;
@@ -101,7 +101,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
     Uv_8019806C uv;
     Desc_8019806C d;
     s16 col[8];
-    if (get_state_flag__9TMainTaskFv() != 1 && lbl_805D5C58 != 0) {
+    if (get_state_flag__9TMainTaskFv() != 1 && TObjSinBoard__texture_buffer != 0) {
         pos = TObjSinBoard__quad_position_table;
         uv = lbl_80445FD0;
         col[0] = 0;
@@ -117,7 +117,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
         d.col = col;
         d.count = 4;
         reset_transform_state__10TObjPlayerFv();
-        set_global_param__8TObjFishFi((int) lbl_8050DD24);
+        set_global_param__8TObjFishFi((int) signboard_texture_list);
         set_texture_num(0);
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
@@ -178,7 +178,7 @@ void draw_hinged_model__10TObjPlayerFPv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x38) = 0;
         }
     }
-    temp_r3 = (u8 *)(get_bml_model(lbl_805D5C60, 1));
+    temp_r3 = (u8 *)(get_bml_model(gogo_ball_bml_resource, 1));
     if (temp_r3 != NULL) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, s32 *, 0x1C)));
@@ -206,7 +206,7 @@ void draw_hinged_model__10TObjPlayerFPv(u8 *arg0) {
 void update_input_hold__12TWindowTimerFPv(void *arg0) {
     s32 t;
     if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
-        if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x10 : 1)) {
+        if (M2C_FIELD(gogo_ball_sync_state, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x10 : 1)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
             update_effects__14TOSwitchAttackFPv((void *)(arg0));
         } else {
@@ -214,7 +214,7 @@ void update_input_hold__12TWindowTimerFPv(void *arg0) {
             M2C_FIELD(arg0, s32 *, 0x30) = 0;
         }
     } else {
-        if (M2C_FIELD(lbl_8050DDAC, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x20 : 2)) {
+        if (M2C_FIELD(gogo_ball_sync_state, s16 *, 0x10) & (M2C_FIELD(arg0, s32 *, 0x40) != 0 ? 0x20 : 2)) {
             M2C_FIELD(arg0, s32 *, 0x3C) = 1;
             update_effects__14TOSwitchAttackFPv((void *)(arg0));
         } else {
@@ -236,15 +236,15 @@ void update_effects__14TOSwitchAttackFPv(void *self) {
     Vec_80198504 vda;
     Vec_80198504 vdb;
     void *o;
-    if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 0) {
+    if (M2C_FIELD(gogo_ball_configuration, u16 *, 0x48) == 0) {
         M2C_FIELD(arg0, s32 *, 0x30)++;
         if (M2C_FIELD(arg0, s32 *, 0x30) == 1) {
             o = (void *)__nw__7TObjectFUl(0x58);
             if (o != NULL) {
-                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x40), tl_06);
+                TWindowTimer__sub_80198CF8(o, arg0 + 0x1C, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x40), tl_06);
             }
         }
-    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 6) {
+    } else if (M2C_FIELD(gogo_ball_configuration, u16 *, 0x48) == 6) {
         M2C_FIELD(arg0, s32 *, 0x30)++;
         if (M2C_FIELD(arg0, s32 *, 0x30) % 5 == 0 && M2C_FIELD(arg0, s32 *, 0x30) <= 0x1E) {
             VecCopy__FP3VecPC3Vec(&v6, arg0 + 0x1C);
@@ -252,7 +252,7 @@ void update_effects__14TOSwitchAttackFPv(void *self) {
             spawn_particle_effect_with_flags(&v6, 0x20D, 0x40);
             play_sound_effect(0x4001A82E, arg0 + 0x1C, 0, 0);
         }
-    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) == 2) {
+    } else if (M2C_FIELD(gogo_ball_configuration, u16 *, 0x48) == 2) {
         M2C_FIELD(arg0, s32 *, 0x30)++;
         if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
             if (M2C_FIELD(arg0, s32 *, 0x30) == 1) {
@@ -273,7 +273,7 @@ void update_effects__14TOSwitchAttackFPv(void *self) {
                 play_sound_effect(0x4001C112, arg0 + 0x1C, 0, 0);
             }
         }
-    } else if (M2C_FIELD(lbl_8050DD58, u16 *, 0x48) != 0) {
+    } else if (M2C_FIELD(gogo_ball_configuration, u16 *, 0x48) != 0) {
         M2C_FIELD(arg0, s32 *, 0x30)++;
         if (M2C_FIELD(arg0, s32 *, 0x28) != 0) {
             if (M2C_FIELD(arg0, s32 *, 0x30) % 5 == 0 && M2C_FIELD(arg0, s32 *, 0x30) <= 0x32) {

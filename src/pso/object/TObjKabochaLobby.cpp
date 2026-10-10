@@ -57,7 +57,7 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_80353684_lbl_804F11E8 lbl_804F11E8;
+extern RecoveredGlobal_80353684_lbl_804F11E8 lobby_pumpkin_resource_descriptor;
 extern u32 TObjKabochaLobby__data_805D6EE8;
 void load_resources__16TObjKabochaLobbyFv(void);
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
@@ -144,7 +144,7 @@ void load_resources__16TObjKabochaLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F11E8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjKabochaLobby__data_805D6EE8) = var_r0;
     TObjKabochaLobby__data_805D6EEC = get_lobby_type__6TLobbyFv();

@@ -82,7 +82,7 @@ s32 get_map_count__10TObjMapCsnFv();
 
 void render__10TObjMapCsnFv(void) {  }
 
-extern M2C_UNK lbl_804B84C0[];
+extern M2C_UNK map_csn_collision_flag_table[];
 
 void update_state__10TObjMapCsnFPv(void *arg0) {
     s32 temp_r0;
@@ -96,7 +96,7 @@ void update_state__10TObjMapCsnFPv(void *arg0) {
         if ((u32) temp_r0 > 5U) {
             M2C_FIELD(arg0, s32 *, 0x84) = 1;
         }
-        M2C_FIELD(arg0, s32 *, 0x88) = (s32) lbl_804B84C0[M2C_FIELD(arg0, s32 *, 0x84)];
+        M2C_FIELD(arg0, s32 *, 0x88) = (s32) map_csn_collision_flag_table[M2C_FIELD(arg0, s32 *, 0x84)];
     }
     M2C_FIELD(arg0, s32 *, 0x88) = (s32) (M2C_FIELD(arg0, s32 *, 0x88) | 0x40000000);
 }

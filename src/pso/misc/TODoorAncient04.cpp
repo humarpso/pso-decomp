@@ -95,7 +95,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(int);
 M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
-extern void *TODoorAncient04__data_805D5914;
+extern void *TODoorAncient04__texture_lists;
 extern const f32 lbl_805DB408;
 void render__15TODoorAncient04Fv(u8 *arg0);
 u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
@@ -104,8 +104,8 @@ s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440ADC;
 extern RecoveredGlobal_8016BC84_lbl_804B2B30 door_ancient04_resource_descriptor;
-extern u32 lbl_805D5910;
-extern void *TODoorAncient04__data_805D5914;
+extern u32 TODoorAncient04__bml_resource;
+extern void *TODoorAncient04__texture_lists;
 void load_resources__15TODoorAncient04Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -114,8 +114,8 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_8015EAE0_lbl_804B0EA8 TODoorAncient04__collision_body;
 extern M2C_UNK __vt__15TODoorAncient04[];
 extern s32 lbl_805D2F30;
-extern u32 lbl_805D5910;
-extern void *TODoorAncient04__data_805D5914;
+extern u32 TODoorAncient04__bml_resource;
+extern void *TODoorAncient04__texture_lists;
 extern const f32 lbl_805DB408;
 extern const f32 lbl_805DB40C;
 u8 *TODoorAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -175,7 +175,7 @@ void render__15TODoorAncient04Fv(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&TODoorAncient04__data_805D5914), M2C_UNK *, ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4))));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD((*(s32 *)&TODoorAncient04__texture_lists), M2C_UNK *, ((M2C_FIELD(arg0, s32 *, 0xD0) * 4) & 4))));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xAC) == 0) {
             temp_r31 = M2C_FIELD(arg0, u8 **, 0x34);
             post_translate_matrix((void *) (temp_r31 + 8));
@@ -212,20 +212,20 @@ void *create__15TODoorAncient04FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5910;
-extern void *TODoorAncient04__data_805D5914;
+extern u32 TODoorAncient04__bml_resource;
+extern void *TODoorAncient04__texture_lists;
 
 void cleanup_refs__15TODoorAncient04Fv(void) {
-    if ((void *) TODoorAncient04__data_805D5914 != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient04__data_805D5914, s32 *, 4));
-        if ((void *) TODoorAncient04__data_805D5914 != NULL) {
-            free__11TOBoss4RockFUi((void*)TODoorAncient04__data_805D5914);
-            TODoorAncient04__data_805D5914 = NULL;
+    if ((void *) TODoorAncient04__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient04__texture_lists, s32 *, 4));
+        if ((void *) TODoorAncient04__texture_lists != NULL) {
+            free__11TOBoss4RockFUi((void*)TODoorAncient04__texture_lists);
+            TODoorAncient04__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5910 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5910, 1);
-        lbl_805D5910 = 0U;
+    if ((u32) TODoorAncient04__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TODoorAncient04__bml_resource, 1);
+        TODoorAncient04__bml_resource = 0U;
     }
 }
 
@@ -242,11 +242,11 @@ void load_resources__15TODoorAncient04Fv(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &door_ancient04_resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5910) = var_r0;
+    (*(u8 * *)&TODoorAncient04__bml_resource) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
-    (*(s32 * *)&TODoorAncient04__data_805D5914) = temp_r3_2;
-    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5910), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD((*(s32 * *)&TODoorAncient04__data_805D5914), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80440ADC.value));
+    (*(s32 * *)&TODoorAncient04__texture_lists) = temp_r3_2;
+    *temp_r3_2 = M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorAncient04__bml_resource), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD((*(s32 * *)&TODoorAncient04__texture_lists), s32 *, 4) = load_gvm_texture_file((void *) (&lbl_80440ADC.value));
 }
 typedef char RecoveredGlobal_8016BF68_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016BF68_lbl_80441B4C) == 0x90 ? 1 : -1];
 typedef char RecoveredGlobal_8016C010_lbl_80441B4C_size[sizeof(RecoveredGlobal_8016C010_lbl_80441B4C) == 0x90 ? 1 : -1];
@@ -270,9 +270,9 @@ u8 *TODoorAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015EAE0___vt__15TODoorAncient04 *)&__vt__15TODoorAncient04).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F30;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5910), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD((*(u8 * *)&TODoorAncient04__data_805D5914), s32 *, 4);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5910), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorAncient04__bml_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD((*(u8 * *)&TODoorAncient04__texture_lists), s32 *, 4);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorAncient04__bml_resource), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB40C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB408);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient04__collision_body.value), (int) (1));

@@ -55,13 +55,13 @@ M2C_UNK TWindow__close(void *);
 s32 close__17TWindowSubComCardFPv(int);
 s32 get_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(int);
-extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
 void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK TWindow__close(void *);
 s32 get_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(int);
-extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_8030EBD0_lbl_8050E3B8 controller_physical_port_bank;
 void check_cancel_and_close__16TAdChrSelBSlotGCFPv(u8 *arg0);
 M2C_UNK push_plate_position__19TAdPlyChrSelPlateGCFPv(int, void *);
 s32 get_global_state__16TAdChrSelBSlotGCFv(void *);
@@ -318,7 +318,7 @@ void TAdChrSelBSlotGC__sub_8030EBD0(u8 *arg0) {
     close__17TWindowSubComCardFPv((int) temp_r3);
     *((u32 *) (((s8 *) arg0) + 0x70)) = 0U;
   }
-  temp_r31 = ((u8 *) (&lbl_8050E3B8.value)) + (get_state_result__22TAdMultiPlyChrSelectGCFPv((int) get_state__22TAdMultiPlyChrSelectGCFv()) * 0x50);
+  temp_r31 = ((u8 *) (&controller_physical_port_bank.value)) + (get_state_result__22TAdMultiPlyChrSelectGCFPv((int) get_state__22TAdMultiPlyChrSelectGCFv()) * 0x50);
   temp_r31 = temp_r31 + 0x20;
   if ((((TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 4) != 0) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 2) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x400) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x200) != 0))
   {
@@ -343,7 +343,7 @@ void check_cancel_and_close__16TAdChrSelBSlotGCFPv(u8 *arg0) {
   s32 new_var;
   u8 *temp_r31;
   new_var = get_state_result__22TAdMultiPlyChrSelectGCFPv((int) get_state__22TAdMultiPlyChrSelectGCFv());
-  temp_r31 = (((u8 *) (&(*(RecoveredGlobal_8030ECB8_lbl_8050E3B8 *)&lbl_8050E3B8).value)) + (new_var * 0x50)) + 0x20;
+  temp_r31 = (((u8 *) (&(*(RecoveredGlobal_8030ECB8_lbl_8050E3B8 *)&controller_physical_port_bank).value)) + (new_var * 0x50)) + 0x20;
   if ((((TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 4) != 0) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 2) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x400) != 0)) || (TWindowShortListCtrl__check_controller_button((int) temp_r31, (int) 0x200) != 0))
   {
     *((s32 *) (((s8 *) arg0) + 0x1C)) = 1;

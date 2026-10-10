@@ -100,7 +100,7 @@ extern "C" {
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804495E8[];
-void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src);
+void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src);
 void bswap_cmd_D3_item_bank(void *);
 int sprintf(char *, const char *, ...);
 extern char lbl_804495FC[];
@@ -116,7 +116,7 @@ typedef void (*Fn_801DA240)(char *);
 typedef void (*Fn_801DA5E4)(void *);
 void bswap_cmd_d8_header__6TLobbyFPv(void *);
 
-void handle_cmd_D5(u8 *arg0, Text_801DA240 *arg1) {
+void handle_cmd_D5__9TProtocolFR6packet(u8 *arg0, Text_801DA240 *arg1) {
     Text_801DA240 tmp = *arg1;
     Fn_801DA240 f = *(Fn_801DA240 *)(arg0 + 0xBBF8);
     if (f != NULL) {
@@ -142,7 +142,7 @@ void TProtocol::recv_trade_result(packet &pkt) {
     }
 }
 
-void handle_cmd_D3(u8 *arg0, Pkt_801DA35C *src) {
+void handle_cmd_D3__9TProtocolFR6packet(u8 *arg0, Pkt_801DA35C *src) {
     char buf[0x80];
     Pkt_801DA35C pkt;
     void (*cb)(void *);
@@ -199,7 +199,7 @@ void send_text_packet_D9__6TLobbyFPvPv(VObj_18_801DA548 *obj, char *str) {
     obj->m8(&pkt, n);
 }
 
-void handle_cmd_D8(u8 *arg0, Pkt_801DA5E4 *arg1) {
+void handle_cmd_D8__9TProtocolFR6packet(u8 *arg0, Pkt_801DA5E4 *arg1) {
     Pkt_801DA5E4 tmp = *arg1;
     bswap_cmd_d8_header__6TLobbyFPv(&tmp);
     Fn_801DA5E4 f = *(Fn_801DA5E4 *)(arg0 + 0xBC54);

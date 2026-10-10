@@ -70,7 +70,7 @@ s32 create_serial_info_window__17TWindowOptionCtrlFPvi(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 void play_sound_effect(int, int, int, int);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self);
 }
 
@@ -320,8 +320,8 @@ void run_task__17TWindowOptionCtrlFv(Opt_8026BCC0 *self) {
         open__17TWindowOptionCtrlFPv(self->f28);
         self->state = 0x1A;
     case 26:
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 6) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 6) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 6) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 6) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 1;
         }

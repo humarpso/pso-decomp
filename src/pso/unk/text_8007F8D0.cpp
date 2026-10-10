@@ -28,7 +28,7 @@ void *memset(void *, s32, u32);
 u32 strlen(const char *);
 extern u8 lbl_80438D20[];
 extern s32 resource_decompress_buffer;
-s32 fn_8007F970(const char *arg0);
+s32 launch_switcher_dol(const char *arg0);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ void init_disc_error_messages(void) {
 }
 #pragma pop
 
-s32 fn_8007F970(const char *arg0) {
+s32 launch_switcher_dol(const char *arg0) {
     char buf[0x100];
     s32 r;
     s32 v;

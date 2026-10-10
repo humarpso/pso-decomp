@@ -127,7 +127,7 @@ void make_room_in_buffer__19TWindowKeyBoardSoftFPvii(void *, s32, s32);
 void check_text_overflow__19TWindowKeyBoardSoftFPvPv(void *, u16 *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
-M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *self);
+M2C_UNK commit_composition_text__19TWindowKeyBoardSoftFPv(void *self);
 }
 
 extern "C" {
@@ -587,7 +587,7 @@ void TWindowKeyBoardSoft__vt0(u8 *arg0) {
             M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 1);
         }
     } else {
-        TWindowKeyBoardSoft__sub_8025C804((void *)((void *)(arg0)));
+        commit_composition_text__19TWindowKeyBoardSoftFPv((void *)((void *)(arg0)));
     }
 }
 
@@ -600,7 +600,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
         if (temp_r4 & 4) {
             TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
         }
-        TWindowKeyBoardSoft__sub_8025C804((void *)((void *)(arg0)));
+        commit_composition_text__19TWindowKeyBoardSoftFPv((void *)((void *)(arg0)));
     }
     temp_r3 = TWindowCtrl__sub_8024B7D4(arg1);
     if (temp_r3 != NULL) {
@@ -638,11 +638,11 @@ void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
             M2C_FIELD(arg0, u16 *, 0x60) |= 0x80;
         }
         if (M2C_FIELD(arg0, u8 *, 0x64) == 3 && (M2C_FIELD(arg0, u16 *, 0x60) & 2)) {
-            TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
+            commit_composition_text__19TWindowKeyBoardSoftFPv((void *)(arg0));
         }
     }
     if ((M2C_FIELD(arg0, u16 *, 0x60) & 4) || (M2C_FIELD(arg0, s32 *, 0xB4) & 0x40)) {
-        TWindowKeyBoardSoft__sub_8025C804((void *)(arg0));
+        commit_composition_text__19TWindowKeyBoardSoftFPv((void *)(arg0));
     }
     f = M2C_FIELD(arg0, s32 *, 0xB4);
     if ((f & 0x10) && arg1 >= 0x80U) {
@@ -680,7 +680,7 @@ void init__19TWindowKeyBoardSoftFPv(u8 *arg0) {
 
 #pragma push
 #pragma opt_propagation off
-M2C_UNK TWindowKeyBoardSoft__sub_8025C804(void *self) {
+M2C_UNK commit_composition_text__19TWindowKeyBoardSoftFPv(void *self) {
     Kbd_8025C804 *arg0 = (Kbd_8025C804 *)self;
     s32 n;
     s32 nx;

@@ -2152,7 +2152,7 @@ extern const f32 lbl_805D80BC;
 void calc_forward_point__12TBoss1DragonFPvPvPv(u8 *arg0, f32 *arg1, f32 *arg2);
 struct Obj_80027320;
 void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern u8 TBoss1Dragon__head_fall_effect_params[];
 M2C_UNK request_state_change__12TBoss1DragonFPvs(void *, s16);
 void TBoss1Dragon__sub_80026C98(u8 *arg0, u32 arg1);
@@ -6277,8 +6277,8 @@ void init_control_mode__12TBoss1DragonFPv(Obj_80027320 *self) {
         return;
     }
     self->f768 = 0x96;
-    self->f6e4 = lbl_8050E208 + 0x20;
-    if (((s32 (*)(void *))is_main_phase_15__9TObjEneDDFv)(lbl_8050E208) != 0) {
+    self->f6e4 = controller_input_state + 0x20;
+    if (((s32 (*)(void *))is_main_phase_15__9TObjEneDDFv)(controller_input_state) != 0) {
         if (TBoss1Dragon__data_805D4B3C == 0xFFFF) {
             id = find_player_on_floor__12TBoss1DragonFPv((void *)(self));
         } else {
@@ -7857,7 +7857,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     F_29DE4(arg0, s32, 0x8AC) = 0;
     F_29DE4(arg0, s32, 0x8B0) = 0;
     F_29DE4(arg0, s32, 0x8B4) = 0;
-    F_29DE4(arg0, u8 *, 0x6E4) = lbl_8050E208 + 0xC0;
+    F_29DE4(arg0, u8 *, 0x6E4) = controller_input_state + 0xC0;
     F_29DE4(arg0, s32, 0x6E0) = 0;
     F_29DE4(arg0, s16, 0x326) = 0;
     if (is_main_phase_15__9TObjEneDDFv() != 0) {

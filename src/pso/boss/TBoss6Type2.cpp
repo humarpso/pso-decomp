@@ -814,10 +814,10 @@ extern RecoveredGlobal_802BB180_lbl_804DFAD0 lbl_804DFAD0;
 extern Tb_802BD014 lbl_804E00DC[];
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
-extern f32 lbl_805D6740;
-extern u8 lbl_805D6744;
-extern f32 lbl_805D6748;
-extern u8 lbl_805D674C;
+extern f32 TBoss6Type2__foot_lift_height;
+extern u8 TBoss6Type2__foot_lift_height_initialized;
+extern f32 boss6_type2_footstep_height_threshold;
+extern u8 boss6_type2_footstep_threshold_initialized;
 extern const f32 lbl_805DE414;
 extern const f32 lbl_805DE418;
 extern const f32 lbl_805DE420;
@@ -1011,15 +1011,15 @@ void update_footstep_effects__11TBoss6Type2FPv(u8 *arg0) {
   s32 var_r30;
   u8 *temp_r29;
   s32 var_r28;
-  if (((s8) lbl_805D6744) == 0)
+  if (((s8) TBoss6Type2__foot_lift_height_initialized) == 0)
   {
-    lbl_805D6744 = 1;
-    lbl_805D6740 = lbl_805DE424;
+    TBoss6Type2__foot_lift_height_initialized = 1;
+    TBoss6Type2__foot_lift_height = lbl_805DE424;
   }
-  if (((s8) lbl_805D674C) == 0)
+  if (((s8) boss6_type2_footstep_threshold_initialized) == 0)
   {
-    lbl_805D674C = 1;
-    lbl_805D6748 = lbl_805DE428;
+    boss6_type2_footstep_threshold_initialized = 1;
+    boss6_type2_footstep_height_threshold = lbl_805DE428;
   }
   stack.sp8 = (long) (((u8 *) arg0) + 0x614);
   var_r28 = 0;
@@ -1030,7 +1030,7 @@ void update_footstep_effects__11TBoss6Type2FPv(u8 *arg0) {
     temp_r4 = var_r30 + 0x554;
     if (((s32) (*((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)))) != 0)
     {
-      if ((*((f32 *) (((s8 *) (*((u8 **) (((s8 *) (((u8 *) (&stack.sp8)) + var_r30)) + 0)))) + 4))) > lbl_805D6740)
+      if ((*((f32 *) (((s8 *) (*((u8 **) (((s8 *) (((u8 *) (&stack.sp8)) + var_r30)) + 0)))) + 4))) > TBoss6Type2__foot_lift_height)
       {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 0;
       }
@@ -1038,7 +1038,7 @@ void update_footstep_effects__11TBoss6Type2FPv(u8 *arg0) {
     else
     {
       temp_r29 = (u8 *) (*((u8 **) (((s8 *) (((u8 *) (&stack.sp8)) + var_r30)) + 0)));
-      if ((*((f32 *) (((s8 *) temp_r29) + 4))) < lbl_805D6748)
+      if ((*((f32 *) (((s8 *) temp_r29) + 4))) < boss6_type2_footstep_height_threshold)
       {
         *((s32 *) (((s8 *) (((u8 *) arg0) + temp_r4)) + 0)) = 1;
         ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4006A300, (u32) temp_r29, 0, 0);

@@ -19,8 +19,8 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
 s8 get_opening_movie_purpose();
 s8 func_801A5E54__Fv();
 
-extern s8 lbl_8050E208[];
-extern s8 lbl_8050E3B8[];
+extern s8 controller_input_state[];
+extern s8 controller_physical_port_bank[];
 
 s32 check_skip_input__6TMovieFPv(void *arg0) {
     void *var_r31;
@@ -39,7 +39,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
     temp_r3 = get_opening_movie_purpose();
     switch (temp_r3) {
     case 0:
-        var_r31 = lbl_8050E3B8 + 0x20;
+        var_r31 = controller_physical_port_bank + 0x20;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 4) != 0) goto block_fn_8000F91C;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x400) != 0) goto block_fn_8000F91C;
@@ -51,7 +51,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x80) != 0) goto block_fn_8000F91C;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x20000) != 0) goto block_fn_8000F91C;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 0x10000) != 0) goto block_fn_8000F91C;
-        var_r31 = lbl_8050E208 + 0x160;
+        var_r31 = controller_input_state + 0x160;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 4) != 0) goto block_fn_8000F91C;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (run_disk_error_check__6TLobbyFv() == 0) goto block_fn_8000F91C;
@@ -65,10 +65,10 @@ block_fn_8000F91C:
         if (check_reset_button__16TKeyBoardControlFv() != 0) {
             var_r30 = 1;
         }
-        var_r31 = lbl_8050E3B8 + 0x20;
+        var_r31 = controller_physical_port_bank + 0x20;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 2) != 0) goto block_call_func;
         if (TWindowShortListCtrl__check_controller_button(var_r31, 8) != 0) goto block_call_func;
-        var_r31 = lbl_8050E208 + 0x160;
+        var_r31 = controller_input_state + 0x160;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 4) != 0) goto block_call_func;
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_call_func;
         if (run_disk_error_check__6TLobbyFv() == 0) goto block_call_func;

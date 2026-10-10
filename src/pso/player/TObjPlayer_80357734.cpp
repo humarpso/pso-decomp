@@ -220,7 +220,7 @@ u32 test_flags_1b8__10TObjPlayerFPvUi(int, int);
 u8 TObjPlayer__sub_8011E29C(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
-extern RecoveredGlobal_803589F8_lbl_804F15C8 lbl_804F15C8;
+extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
 void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_with_direction(void *, void *, int);
@@ -228,7 +228,7 @@ s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 extern RecoveredGlobal_80358048_lbl_804793E4 lbl_804793E4;
-extern M2C_UNK lbl_804F166C[];
+extern M2C_UNK inward_orbit_effect_vtable[];
 extern const f32 lbl_805E0068;
 extern const f32 lbl_805E0070;
 u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
@@ -419,11 +419,11 @@ void TObjPlayer__sub_80357954(u8 *arg0) {
 int clear_field1f8_flag8192__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, 1820, 8192); }
 int TObjPlayer__sub_803579F4(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, -3640, 0); }
 
-extern M2C_UNK lbl_804F14A8[];
+extern M2C_UNK item_equip_variant_vtable[];
 
 void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F14A8;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = item_equip_variant_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -432,12 +432,12 @@ void *item_equip_variant_deleting_dtor_80357A20(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804F14A8[];
+extern M2C_UNK item_equip_variant_vtable[];
 extern M2C_UNK spawn_shoot_particle__10TItemShootFv[];
 
 void *init_state_34_alt__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F14A8;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = item_equip_variant_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
     M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = spawn_shoot_particle__10TItemShootFv;
@@ -557,7 +557,7 @@ void update_inward_orbit_point(u8 *arg0) {
 
 void TObjPlayer__sub_80357F5C(void) {  }
 
-extern M2C_UNK lbl_804F166C[];
+extern M2C_UNK inward_orbit_effect_vtable[];
 
 void update_inward_orbit_effect(u8 *arg0) {
     s32 temp_r3_2;
@@ -579,7 +579,7 @@ void update_inward_orbit_effect(u8 *arg0) {
 
 void *dt_with_child_queue__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F166C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = inward_orbit_effect_vtable;
         if (M2C_FIELD(arg0, void **, 0x4C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C)); }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -599,7 +599,7 @@ u8 *create_inward_orbit_effect(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     typedef char sp10_offset[(offsetof(Stack_80358048, sp10) == 0x8) ? 1 : -1];
     Stack_80358048 stack;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&lbl_804F166C).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80358048_lbl_804F166C *)&inward_orbit_effect_vtable).value;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg2));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) ((lbl_805E0068 * sin_table_lookup((void *) (arg3))) + M2C_FIELD(arg2, f32 *, 0));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg2, f32 *, 4);
@@ -898,7 +898,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
         }
         temp_r3_2 = TObjPlayer__sub_8011E29C((int) (temp_r3));
         if (temp_r3_2 < 0x29U) {
-            temp_r12 = M2C_FIELD(((u8 *)(&lbl_804F15C8.value) + ((temp_r3_2 * 4) & 0x3FC)), M2C_UNK (**)(s32, u32, s32, s32), 0);
+            temp_r12 = M2C_FIELD(((u8 *)(&weapon_special_effect_callbacks.value) + ((temp_r3_2 * 4) & 0x3FC)), M2C_UNK (**)(s32, u32, s32, s32), 0);
             if (temp_r12 != NULL) {
                 temp_r12(arg0, arg1, arg2, arg3);
             }

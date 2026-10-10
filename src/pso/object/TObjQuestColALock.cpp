@@ -48,7 +48,7 @@ s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
 
 void TObjQuestColALock__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
-extern M2C_UNK lbl_8050E208[];
+extern M2C_UNK controller_input_state[];
 extern s32 local_client_id;
 
 s32 TObjQuestColALock__vt13(void *arg0) {
@@ -75,7 +75,7 @@ s32 TObjQuestColALock__vt13(void *arg0) {
         }
         if (temp_r3_2 == 0) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
-            if (TWindowShortListCtrl__check_controller_button((void *)((s8 *)lbl_8050E208 + 0x20), 4) != 0) {
+            if (TWindowShortListCtrl__check_controller_button((void *)((s8 *)controller_input_state + 0x20), 4) != 0) {
                 return 1;
             }
         }

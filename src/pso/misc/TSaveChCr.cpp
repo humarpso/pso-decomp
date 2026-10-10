@@ -16,7 +16,7 @@ struct RecoveredGlobal_80339F98_lbl_80477CBC {
 
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
-extern RecoveredGlobal_80339F98_lbl_80477CBC lbl_80477CBC;
+extern RecoveredGlobal_80339F98_lbl_80477CBC TSaveChCr__message_text_ids;
 void set_message_by_index__9TSaveChCrFii(s32 arg0, s32 arg1);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 M2C_UNK send_and_handle__6TLobbyFPvii(u32, u32, M2C_UNK);
@@ -84,7 +84,7 @@ typedef char RecoveredGlobal_80339F98_lbl_80477CBC_size[sizeof(RecoveredGlobal_8
 void set_message_by_index__9TSaveChCrFii(s32 arg0, s32 arg1) {
     M2CCopy_20 sp8;
     u8 *temp_r4;
-    sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)(&lbl_80477CBC.value) + -4) + 4);
+    sp8 = *(const M2CCopy_20 *)((s32) ((u8 *)(&TSaveChCr__message_text_ids.value) + -4) + 4);
     temp_r4 = (u8 *)(&sp8) + (arg1 * 8);
     open_message_window__9TSaveChCrFPvUi((void *)((void *) (arg0)), (u32)((int) (get_localized_text_entry(M2C_FIELD(temp_r4, s32 *, 0), M2C_FIELD(temp_r4, s32 *, 4)))));
 }

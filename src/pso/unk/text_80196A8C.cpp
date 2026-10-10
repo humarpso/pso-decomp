@@ -8,12 +8,12 @@ void *TObjQuestCol__create(void *arg0);
 void *TObjQuestCol__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern void *lbl_805D5C50;
+extern void *quest_collision_task_root;
 
 void *TObjQuestCol__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xBC);
     if (o != NULL) {
-        o = TObjQuestCol__ct(o, lbl_805D5C50, arg0);
+        o = TObjQuestCol__ct(o, quest_collision_task_root, arg0);
     }
     return o;
 }

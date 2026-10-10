@@ -188,7 +188,7 @@ struct VObj2_8019f358_8019F22C : Base2_8019f358_8019F22C { virtual void m0(); vi
 
 extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
-extern RecoveredGlobal_8019E418_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8019E418_lbl_8050E208 controller_input_state;
 extern u32 player_slot_table[];
 extern s32 lbl_805D348C;
 extern s32 camera_ctrl_instance;
@@ -524,7 +524,7 @@ s32 TObjWarpBossMulti__sub_8019E418(u8 *arg0) {
     if (is_lobby_active__17TObjWarpBossMultiFv() == 0) {
         return 0;
     }
-    if ((M2C_FIELD(&lbl_8050E208.value, f32 *, 0x44) > lbl_805DC01C) || (TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) == 0U)) {
+    if ((M2C_FIELD(&controller_input_state.value, f32 *, 0x44) > lbl_805DC01C) || (TObjWarpBossMulti__sub_8019E570((s32) arg0, M2C_FIELD(arg0, f32 *, 0xAC)) == 0U)) {
         return 1;
     }
     return 0;

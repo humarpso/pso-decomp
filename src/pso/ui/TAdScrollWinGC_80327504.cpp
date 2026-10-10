@@ -16,7 +16,7 @@ u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 void advance_scroll__14TAdScrollWinGCFPvf(void *, f32);
 void fn_8026A61C(void *, f32);
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF69C;
 extern const f32 lbl_805DF6A0;
 extern const f32 lbl_805DF6A4;
@@ -71,7 +71,7 @@ void run_task__14TAdScrollWinGCFv(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x20) = lbl_805DF6A4;
     M2C_FIELD(arg0, f32 *, 0x24) = lbl_805DF6A8;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DF6AC;
-    d = M2C_FIELD(lbl_8050E3B8, s16 *, 0x3A);
+    d = M2C_FIELD(controller_physical_port_bank, s16 *, 0x3A);
     if (d < 0) {
         d += 0x19;
         if (M2C_FIELD(arg0, void **, 0x40) != 0) {

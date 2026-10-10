@@ -56,7 +56,7 @@ M2C_UNK set_flag4_and_field1c__15TWindowHelpItemFPvi(void *, s32);
 M2C_UNK refresh_status_display__9TWindowDDFv(void *);
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(void *);
 extern u8 lbl_804CF30C[];
-extern PM_80253D10 lbl_804CF874;
+extern PM_80253D10 TWindowHelpItem__mag_growth_update_callback;
 extern const f32 lbl_805DCDF4;
 extern const f32 lbl_805DCDF8;
 void TWindowHelpItem__vt10(u8 *arg0);
@@ -141,7 +141,7 @@ void TWindowHelpItem__vt10(u8 *arg0) {
     s32 up;
     initialize_mag_data__9TItemDataFPv(sp8);
     init_window_layout_entries(arg0 + 0x24, lbl_804CF30C, M2C_FIELD(arg0, s16 *, 0x20));
-    M2C_FIELD(arg0, PM_80253D10 *, 0xB0) = lbl_804CF874;
+    M2C_FIELD(arg0, PM_80253D10 *, 0xB0) = TWindowHelpItem__mag_growth_update_callback;
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(arg0, s32 *, 0x68), sp8);
     lv = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     sy = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);

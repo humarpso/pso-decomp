@@ -119,7 +119,7 @@ s32 update_menu_cursor__6TLobbyFv();
 s32 reset_counter__6TLobbyFv();
 s32 set_current_floor_area(int);
 s32 TLobby__sub_8023E4B4(void *, void *);
-extern const Tbl_80336750 lbl_80477804;
+extern const Tbl_80336750 title_texture_filename_table;
 extern u8 title_texture_list[];
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 current_language;
@@ -332,7 +332,7 @@ void destroy_global_object__6TLobbyFv(void) {
 void TLobby__sub_80336750(void) {
     lbl_805D6D40 = 0;
     update_menu_cursor__6TLobbyFv();
-    Tbl_80336750 t = lbl_80477804;
+    Tbl_80336750 t = title_texture_filename_table;
     lobby_title_texture_list = title_texture_list;
     TLobby__sub_8023E4B4((void *)t.s[current_language], title_texture_list);
     run_load_callback_table(&lobby_load_callback_table, 0x20);

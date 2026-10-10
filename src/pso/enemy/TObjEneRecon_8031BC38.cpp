@@ -22,7 +22,7 @@ void * create_bomb__12TObjEneReconFPvPvPv(void *arg0, void *arg1, void *arg2) {
     return o;
 }
 
-    extern int lbl_805D6AE8;
-void TObjEneRecon__sub_8031BC94(void) { lbl_805D6AE8 = TObjEneRecobox__sub_803201D0(); }
+    extern int recon_bomb_bml_resource;
+void TObjEneRecon__sub_8031BC94(void) { recon_bomb_bml_resource = TObjEneRecobox__sub_803201D0(); }
 
 }

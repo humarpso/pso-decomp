@@ -8,13 +8,13 @@ extern "C" {
 
 s32 check_demo_mode__10TObjPlayerFv(void);
 
-extern s16 lbl_805D4EC8;
+extern s16 demo_camera_controller_index;
 extern u8 lbl_805D4ECA;
 
 s32 check_demo_mode__10TObjPlayerFv(void) {
     s16 v;
     if ((s8) lbl_805D4ECA != 0) {
-        v = lbl_805D4EC8;
+        v = demo_camera_controller_index;
         if (v == 4) {
             goto ret0;
         }

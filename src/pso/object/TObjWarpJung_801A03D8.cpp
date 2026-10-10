@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 void free_children__12TObjDoorJungFPvPv(void *, u16);
-extern void *lbl_8050DDC8[];
+extern void *warp_jung_beam_models[];
 extern s32 warp_jung_beam_entry_index;
 extern s32 lbl_805D5CC0;
 s32 TObjWarpJung__sub_801A0404(s32 arg0);
@@ -34,14 +34,14 @@ s32 TObjWarpJung__sub_801A0404(s32 arg0) {
     case 0:
         if (warp_jung_beam_entry_index >= 0) {
             for (i = 0; i < 6; i++) {
-                free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], warp_jung_beam_entry_index);
+                free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
             }
         }
         break;
     case 1:
         if (lbl_805D5CC0 >= 0) {
             for (i = 0; i < 6; i++) {
-                free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CC0);
+                free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], lbl_805D5CC0);
             }
         }
         break;

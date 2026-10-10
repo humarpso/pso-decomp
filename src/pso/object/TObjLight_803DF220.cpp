@@ -45,7 +45,7 @@ extern s32 gx_chan_ctrl_light_mask;
 void submit_light0(s32 arg0, s32 arg1);
 M2C_UNK GXLoadLightObjImm(void *, int);
 extern M2C_UNK light_slot_mask_table[];
-extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
+extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void load_gx_light_slot(s32 arg0);
 extern char lbl_804FC75C[];
 extern char lbl_804FC768[];
@@ -58,12 +58,12 @@ void GXSetChanAmbColor(s32 chan, GXColor_803DF268 color);
 void set_light_ambient_color(f32 r, f32 g, f32 b);
 void GXInitLightColor(void *, GXColor_803DF268);
 void assert_light_id__9TObjLightFi(s32 arg0);
-extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
+extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
 M2C_UNK GXInitLightPos(void *, f32, f32, f32);
 M2C_UNK GXInitLightDir(void *, f32, f32, f32);
 void assert_light_id__9TObjLightFi(s32 arg0);
-extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__data_8058D528;
+extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 extern const f32 light_position_distance;
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z);
 void GXBegin(int, int, u16);
@@ -129,7 +129,7 @@ void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
     c.g = (u8)(255.0f * g);
     c.b = (u8)(255.0f * b);
     c.a = 0xFF;
-    GXInitLightColor((u8 *)&TObjLight__data_8058D528 + (idx << 6), c);
+    GXInitLightColor((u8 *)&TObjLight__gx_light_objects + (idx << 6), c);
 }
 #pragma pop
 
@@ -140,16 +140,16 @@ void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b) {
 void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
     assert_light_id__9TObjLightFi(idx);
     if (idx == 0) {
-        GXInitLightPos((u8 *)&TObjLight__data_8058D528 + (idx << 6), light_position_distance * -x, light_position_distance * -y, light_position_distance * -z);
+        GXInitLightPos((u8 *)&TObjLight__gx_light_objects + (idx << 6), light_position_distance * -x, light_position_distance * -y, light_position_distance * -z);
     } else {
-        GXInitLightDir((u8 *)&TObjLight__data_8058D528 + (idx << 6), x, y, z);
+        GXInitLightDir((u8 *)&TObjLight__gx_light_objects + (idx << 6), x, y, z);
     }
 }
 #pragma pop
 
 void load_gx_light_slot(s32 arg0) {
     assert_light_id__9TObjLightFi((s32)(arg0));
-    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__data_8058D528.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0)));
+    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0)));
 }
 
 

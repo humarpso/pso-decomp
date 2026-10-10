@@ -15,7 +15,7 @@ void init_float_table__9TEndingABFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8008CE80___vt__9TEndingAB __vt__9TEndingAB;
 extern s32 lbl_805D2958;
-extern s32 TEndingAB__data_805D4F10;
+extern s32 TEndingAB__fade_sequence_state;
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1);
 s32 fn_8001A988(void);
 void bind_gvm_texture_list(void *, void *);
@@ -24,7 +24,7 @@ extern u8 lbl_804398A4[];
 extern u8 lbl_804398B8[];
 extern u8 lbl_804398CC[];
 extern u8 ending_wall_texture_table[];
-extern u32 lbl_805D4F14;
+extern u32 ending_ab_wall_texture_list;
 extern s32 game_difficulty_selection;
 void bind_ending_wall_textures__6TSceneFv(void);
 }
@@ -38,7 +38,7 @@ int advance_fade_sequence__9TEndingABFPv(void*);
 
 int run_task__9TEndingABFv(void* p) { return advance_fade_sequence__9TEndingABFPv(p); }
 
-extern u32 lbl_805D4F14;
+extern u32 ending_ab_wall_texture_list;
 
 TEndingAB::~TEndingAB() {}
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
@@ -47,7 +47,7 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TEndingAB.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2958;
     M2C_FIELD(arg0, s32 *, 0x1C) = -1;
-    TEndingAB__data_805D4F10 = 0;
+    TEndingAB__fade_sequence_state = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0xFF;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
@@ -65,9 +65,9 @@ u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
 }
 
 void destroy_instance__9TEndingABFv(void) {
-    if ((u32) lbl_805D4F14 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4F14);
-        lbl_805D4F14 = 0U;
+    if ((u32) ending_ab_wall_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)ending_ab_wall_texture_list);
+        ending_ab_wall_texture_list = 0U;
     }
 }
 void bind_ending_wall_textures__6TSceneFv(void) {
@@ -75,24 +75,24 @@ void bind_ending_wall_textures__6TSceneFv(void) {
     u8 *t;
     if (fn_8001A988() != 0) {
         t = base + 0x2B8;
-        (*(u8 * *)&lbl_805D4F14) = t;
+        (*(u8 * *)&ending_ab_wall_texture_list) = t;
         bind_gvm_texture_list(lbl_8043988C, t);
     } else {
         switch (game_difficulty_selection) {
         case 0:
         case 1:
             t = base + 0xA8;
-            (*(u8 * *)&lbl_805D4F14) = t;
+            (*(u8 * *)&ending_ab_wall_texture_list) = t;
             bind_gvm_texture_list(lbl_804398A4, t);
             break;
         case 2:
             t = base + 0x158;
-            (*(u8 * *)&lbl_805D4F14) = t;
+            (*(u8 * *)&ending_ab_wall_texture_list) = t;
             bind_gvm_texture_list(lbl_804398B8, t);
             break;
         case 3:
             t = base + 0x208;
-            (*(u8 * *)&lbl_805D4F14) = t;
+            (*(u8 * *)&ending_ab_wall_texture_list) = t;
             bind_gvm_texture_list(lbl_804398CC, t);
             break;
         }

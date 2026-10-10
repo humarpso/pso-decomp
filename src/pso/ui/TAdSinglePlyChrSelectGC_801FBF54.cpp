@@ -2281,7 +2281,7 @@ void func_803DCDFC__Fv(void);
 extern V2_801FEE14 lbl_8044A7D0[];
 extern V2_801FEE14 lbl_8044A7D8[];
 extern V2_801FEE14 lbl_804C8A44[];
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern RecoveredGlobal_801FF200_lbl_80513910 chr_select_serial_seeds;
 extern u32 lbl_805D5F58;
 extern s32 lbl_805D5F78;
@@ -2400,7 +2400,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
             controller_stuff__Fv();
             wait_ready_loop__6TLobbyFv();
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&lbl_8050E208[0x20], 8) != 0) {
+            if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&controller_input_state[0x20], 8) != 0) {
                 if (w != NULL) {
             delete w;
         }
@@ -2487,7 +2487,7 @@ s32 save_character_to_card__23TAdSinglePlyChrSelectGCFv(void) {
             controller_stuff__Fv();
             wait_ready_loop__6TLobbyFv();
             render_frame__23TAdSinglePlyChrSelectGCFv();
-            if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&lbl_8050E208[0x20], 0x60E) != 0) {
+            if (func_801A5E54__Fv() != 0 || TWindowShortListCtrl__check_controller_button(&controller_input_state[0x20], 0x60E) != 0) {
                 break;
             }
             render_tick__Fv();

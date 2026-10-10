@@ -120,7 +120,7 @@ f32 horizontal_distance_squared(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv(void *);
 s32 check_flag_100__10TObjPlayerFPv(void *);
-extern Pad_801A0F34 lbl_8050E208[];
+extern Pad_801A0F34 controller_input_state[];
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
@@ -141,7 +141,7 @@ void *create_telepipe_visual(void *, void *, int, int);
 M2C_UNK offset_point_toward_camera(void *, void *, f32);
 M2C_UNK init_all_slots__11TWindowCtrlFv();
 M2C_UNK init_all_slots2__11TWindowCtrlFv();
-extern Pad_801A0F34 lbl_8050E208[];
+extern Pad_801A0F34 controller_input_state[];
 extern s32 local_client_id;
 extern s32 tl_07;
 extern const f32 lbl_805DC080;
@@ -300,7 +300,7 @@ s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range) {
         for (j = 0; j < get_instance__11TCameraCtrlFv(); j++) {
             p = (Plr_801A0F34 *)((Ctrl_801A0E38 *(*)(s32))get_player_by_client_id)(get_nth_view_player_id__11TCameraCtrlFi(j));
             if (p != NULL &&
-                TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
+                TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].btn, 4) != 0) {
                 found = 1;
                 if (arg1 != NULL) {
                     *arg1 = j;
@@ -486,7 +486,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                     } else {
                         p = PBC_801A1418(local_client_id);
                         if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
-                            TWindowShortListCtrl__check_controller_button(lbl_8050E208[sp8].btn, 4) != 0) {
+                            TWindowShortListCtrl__check_controller_button(controller_input_state[sp8].btn, 4) != 0) {
                             flag = 1;
                         }
                     }

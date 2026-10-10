@@ -21,7 +21,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 s32 get_instance__10TObjPlayerFv(void);
 extern M2C_UNK __vt__20TAdGameStartShadowGC[];
 extern s32 lbl_805D4148;
-extern s32 lbl_805D6C10;
+extern s32 TAdGameStartShadowGC__texture_list;
 extern const f32 lbl_805DF47C;
 extern const f32 lbl_805DF480;
 extern const f32 lbl_805DF484;
@@ -74,7 +74,7 @@ Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *par
     arg0->fbc = -1;
     arg0->fc0 = 0;
     arg0->fc4 = -1;
-    lbl_805D6C10 = get_instance__10TObjPlayerFv();
+    TAdGameStartShadowGC__texture_list = get_instance__10TObjPlayerFv();
     for (i = 0; i < 5; i++) {
         arg0->r[i].x = lbl_805DF47C * (f32)i;
         arg0->r[i].x2 = lbl_805DF47C + arg0->r[i].x;

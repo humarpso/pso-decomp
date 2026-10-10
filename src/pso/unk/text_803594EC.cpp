@@ -33,7 +33,7 @@ void run_task__10TBoss4FadeFv(O_8035959C *self);
 M2C_UNK set_depth_buffer_settings_1__Fv(void);
 M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
-extern u8 lbl_804F19F0[];
+extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;
 void render__10TBoss4FadeFv(Fade_803594EC *self);
@@ -60,7 +60,7 @@ void render__10TBoss4FadeFv(Fade_803594EC *self) {
     q.col[new_var] = c;
     q.a = new_var;
     q.b = 4;
-    q.tex = lbl_804F19F0;
+    q.tex = TBoss4Fade__fullscreen_vertices;
     set_depth_buffer_settings_1__Fv();
     draw_strip_swap_color__15TWindowCtrlMainFPviif(&q, 4, 6, lbl_805E009C);
     restore_saved_depth_alpha_state();

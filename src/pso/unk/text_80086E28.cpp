@@ -7,14 +7,14 @@ extern "C" {
 void *initialize__13TParticleCtrlFPvPviiiii(void *, void *, void *, s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
-extern Rec_80086E28 *lbl_805D4EF8;
-extern Rec_80086E28 *lbl_805D4EFC;
+extern Rec_80086E28 *particle_global_entry_table;
+extern Rec_80086E28 *particle_area_entry_table;
 void *create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void *__ct__13TParticleCtrlFv(void *, void *, void *, void *, s32, s32, s32, s32, u16);
 void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
-extern Rec_80086E28 *lbl_805D4EF8;
-extern Rec_80086E28 *lbl_805D4EFC;
+extern Rec_80086E28 *particle_global_entry_table;
+extern Rec_80086E28 *particle_area_entry_table;
 void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s32 arg3, u16 arg4);
 }
 
@@ -25,7 +25,7 @@ void *create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *arg0, s32 arg1, s32 arg
     if (particle_pool_limit > arg1) {
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &lbl_805D4EF8[arg1], 0, 0, 0, arg2);
+            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &particle_global_entry_table[arg1], 0, 0, 0, arg2);
         }
         return o;
     }
@@ -33,7 +33,7 @@ void *create_particle__20TAdLoadQuestPrtTxtGCFPvii(void *arg0, s32 arg1, s32 arg
         s32 idx = arg1 - 0x200;
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &lbl_805D4EFC[idx], 0, 0, 0, arg2);
+            o = initialize__13TParticleCtrlFPvPviiiii(o, arg0, &particle_area_entry_table[idx], 0, 0, 0, arg2);
         }
         return o;
     }
@@ -44,7 +44,7 @@ void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s
     if (particle_pool_limit > arg2) {
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&lbl_805D4EF8)[arg2], 0, 0, 0, arg3, arg4);
+            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&particle_global_entry_table)[arg2], 0, 0, 0, arg3, arg4);
         }
         return o;
     }
@@ -52,7 +52,7 @@ void *create_particle_controller_with_angles(void *arg0, void *arg1, s32 arg2, s
         s32 idx = arg2 - 0x200;
         o = __nw__7TObjectFUl(0x78);
         if (o != NULL) {
-            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&lbl_805D4EFC)[idx], 0, 0, 0, arg3, arg4);
+            o = __ct__13TParticleCtrlFv(o, arg0, arg1, &(*(Rec_80086EF8 * *)&particle_area_entry_table)[idx], 0, 0, 0, arg3, arg4);
         }
         return o;
     }

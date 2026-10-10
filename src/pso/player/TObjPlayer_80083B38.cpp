@@ -56,24 +56,24 @@ u32 get_player_by_client_id(s32);
 s32 get_main_phase();
 s32 is_inactive__10TObjPlayerFPv();
 s32 check_all_players_ready__10TObjPlayerFv(void);
-    extern unsigned char lbl_805D4EE4;
+    extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084614(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_8008463C(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void reset_movie_state__10TObjPlayerFv(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084744(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084754(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084764(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 s32 get_camera_flag__10TObjPlayerFv(void);
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084780(void);
 extern u8 lbl_805D2910;
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 void TObjPlayer__sub_80084790(void);
 void **TLobby__sub_803DA16C();
 extern M2C_UNK lbl_8048E5C8[];
@@ -169,7 +169,7 @@ M2C_UNK GXSetTexCopyDst(int, int, int, int);
 void GXSetCopyClear(GXColor_80083B8C, u32);
 M2C_UNK GXCopyTex(void *, int);
 extern G_800845F8 shared_capture_texture_list;
-extern unsigned char lbl_805D4EE4;
+extern unsigned char camera_capture_flags;
 extern GXColor_80083B8C lbl_805E1208;
 void capture_viewport_texture(void);
 M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -493,12 +493,12 @@ void TObjPlayer__sub_80084500(void) {
 }
 
 void capture_viewport_texture(void) {
-    if (!(lbl_805D4EE4 & 4)) {
+    if (!(camera_capture_flags & 4)) {
         GXColor_80083B8C c = lbl_805E1208;
         GXSetCopyClear(c, 0xFFFFFF);
         GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
         GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
-        if (lbl_805D4EE4 & 8) {
+        if (camera_capture_flags & 8) {
             GXCopyTex((void *)shared_capture_texture_list.a->b->c->x20, 1);
         } else {
             GXCopyTex((void *)shared_capture_texture_list.a->b->c->x20, 0);
@@ -511,9 +511,9 @@ s32 TObjPlayer__sub_800845F8(void) {
     return shared_capture_texture_list.a->b->c->x20;
 }
 
-void TObjPlayer__sub_80084614(void) { lbl_805D4EE4 = 0; TObjPlayer__sub_80084694(); }
-void TObjPlayer__sub_8008463C(void) { lbl_805D4EE4 = 0; init_capture_texture((s32)((void*)0)); }
-void reset_movie_state__10TObjPlayerFv(void) { lbl_805D4EE4 = 0; init_capture_texture((s32)((void*)1)); }
+void TObjPlayer__sub_80084614(void) { camera_capture_flags = 0; TObjPlayer__sub_80084694(); }
+void TObjPlayer__sub_8008463C(void) { camera_capture_flags = 0; init_capture_texture((s32)((void*)0)); }
+void reset_movie_state__10TObjPlayerFv(void) { camera_capture_flags = 0; init_capture_texture((s32)((void*)1)); }
 
 void **TObjPlayer__sub_80084694(void) {
     void **var_r3;
@@ -543,16 +543,16 @@ void init_capture_texture(s32 wide) {
     load_texture_list(&shared_capture_texture_list);
 }
 
-void TObjPlayer__sub_80084744(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xfffffffb); }
-void TObjPlayer__sub_80084754(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) | 0x4); }
-void TObjPlayer__sub_80084764(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) & 0xffffffef); }
+void TObjPlayer__sub_80084744(void) { (*(u8 *)&camera_capture_flags) = ((*(u8 *)&camera_capture_flags) & 0xfffffffb); }
+void TObjPlayer__sub_80084754(void) { (*(u8 *)&camera_capture_flags) = ((*(u8 *)&camera_capture_flags) | 0x4); }
+void TObjPlayer__sub_80084764(void) { (*(u8 *)&camera_capture_flags) = ((*(u8 *)&camera_capture_flags) & 0xffffffef); }
 s32 get_camera_flag__10TObjPlayerFv(void) {
-    return ((u8) (*(u8 *)&lbl_805D4EE4) >> 4U) & 1;
+    return ((u8) (*(u8 *)&camera_capture_flags) >> 4U) & 1;
 }
-void TObjPlayer__sub_80084780(void) { (*(u8 *)&lbl_805D4EE4) = ((*(u8 *)&lbl_805D4EE4) | 0x1); }
+void TObjPlayer__sub_80084780(void) { (*(u8 *)&camera_capture_flags) = ((*(u8 *)&camera_capture_flags) | 0x1); }
 void TObjPlayer__sub_80084790(void) {
-  int temp = (*(u8 *)&lbl_805D4EE4);
-  (*(u8 *)&lbl_805D4EE4) = temp & (~2);
+  int temp = (*(u8 *)&camera_capture_flags);
+  (*(u8 *)&camera_capture_flags) = temp & (~2);
   lbl_805D2910 = 0x8F;
 }
 

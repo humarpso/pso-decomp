@@ -40,7 +40,7 @@ M2C_UNK advance_scroll__14TAdScrollWinGCFPvf(void *, f32);
 M2C_UNK fn_8026A61C(void *, f32);
 M2C_UNK TWindowSubLog__sub_8026A664(void *, f32);
 void clear_flag4c_bit8__13TWindowSubLogFPv(void* p);
-extern RecoveredGlobal_8027AF58_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8027AF58_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DD638;
 extern const f32 lbl_805DD63C;
 extern const f32 lbl_805DD640;
@@ -57,7 +57,7 @@ void fn_8027B2A8(void* p);
 extern u8 lbl_8044F9C8[];
 extern u8 lbl_8044F9D0[];
 extern M2C_UNK __vt__13TWindowSubLog[];
-extern s32 lbl_805D3A60;
+extern s32 TWindowSubLog__class_name;
 Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2);
 }
 
@@ -98,15 +98,15 @@ void run_task__13TWindowSubLogFv(u8 *arg0) {
         return;
     }
     TWindowSubLog__sub_8026A664((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD63C));
-    temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
-    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10)) != 0)) {
+    temp_r31 = (u8 *)&controller_input_state.value + 0x20;
+    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x10)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10)) != 0)) {
         fn_8026A61C((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD640));
     }
-    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20)) != 0)) {
+    if ((is_on_current_screen__11TCameraCtrlFPv((int) (temp_r31), (int) (0x20)) != 0) || (is_flag_set__11TLoadingCurFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20)) != 0)) {
         advance_scroll__14TAdScrollWinGCFPvf((void *) (M2C_FIELD(arg0, u8 **, 0x24)), (f32) (lbl_805DD644));
     }
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
-    if ((M2C_FIELD(temp_r3, f32 *, 0x3C) == M2C_FIELD(temp_r3, f32 *, 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0))) {
+    if ((M2C_FIELD(temp_r3, f32 *, 0x3C) == M2C_FIELD(temp_r3, f32 *, 0x4C)) && ((TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0))) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x20));
         ((VObj_18_204a81 *)(temp_r3_2))->m7();
@@ -133,7 +133,7 @@ Lg_8027B194 *TWindowSubLog__ct(Lg_8027B194 *arg0, void *arg1, void *arg2) {
     void *w;
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vt = ((u8 *)&__vt__13TWindowSubLog);
-    arg0->f0 = lbl_805D3A60;
+    arg0->f0 = TWindowSubLog__class_name;
     arg0->f20 = arg1;
     arg0->f1c = arg2;
     TWindowCtrl__sub_8024ADAC(arg0->f1c);

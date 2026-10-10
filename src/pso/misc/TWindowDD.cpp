@@ -31,9 +31,9 @@ extern const f32 lbl_805DFC3C;
 void set_quad_corners_scaled__9TWindowDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, void *);
-extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, void *, int, int);
-extern RecoveredGlobal_80340508_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80340508_lbl_8050E208 controller_input_state;
 s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1);
 s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1);
 M2C_UNK spawn_window__9TWindowDDFv();
@@ -129,12 +129,12 @@ typedef char RecoveredGlobal_80340508_lbl_8050E208_size[((sizeof(RecoveredGlobal
 typedef struct RecoveredGlobal_803404A4_lbl_8050E208 RecoveredGlobal_803404A4_lbl_8050E208;
 typedef char RecoveredGlobal_803404A4_lbl_8050E208_size[((sizeof(RecoveredGlobal_803404A4_lbl_8050E208)) == 0x1B0) ? (1) : (-1)];
 s32 apply_both_choices__9TWindowDDFii(M2C_UNK arg0, s32 arg1) {
-  return apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&lbl_8050E208).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&lbl_8050E208).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
+  return apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x20), (void *) arg1, (int) 6, (int) 1) | apply_choice__20TWindowChoiceSettingFiiii((void *) (((u8 *) (&(*(RecoveredGlobal_803404A4_lbl_8050E208 *)&controller_input_state).value)) + 0x160), (void *) arg1, (int) 6, (int) 1);
 }
 #pragma pop
 
 s32 TWindowDD_check_input_mask(void *input_context, s32 arg1) {
-  return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), (void *) arg1);
+  return TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (void *) arg1) | test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (void *) arg1);
 }
 
 void update_draw__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }

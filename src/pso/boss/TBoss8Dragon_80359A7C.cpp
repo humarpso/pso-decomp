@@ -140,7 +140,7 @@ extern const f32 lbl_805E00B0;
 extern const f32 lbl_805E00B4;
 void TBoss8Dragon__sub_80359A7C(u8 *arg0);
 u8 * TBoss8Dragon__ct(void *, M2C_UNK, s32);
-extern M2C_UNK lbl_804F1A78[];
+extern M2C_UNK boss8_dragon_attack_object_vtable[];
 u8 *ct_attack_object__12TBoss8DragonFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -150,7 +150,7 @@ void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1);
 void __dt__12TBoss8DragonFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 
-extern M2C_UNK lbl_804F1A78[];
+extern M2C_UNK boss8_dragon_attack_object_vtable[];
 
 void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
     s16 temp_r0;
@@ -233,7 +233,7 @@ void TBoss8Dragon__sub_80359A7C(u8 *arg0) {
 
 void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1A78;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = boss8_dragon_attack_object_vtable;
         __dt__12TBoss8DragonFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -244,7 +244,7 @@ void *TBoss8Dragon__sub_80359D6C(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80359DC4_lbl_804F1A78_size[sizeof(RecoveredGlobal_80359DC4_lbl_804F1A78) == 0x1B0 ? 1 : -1];
 u8 *ct_attack_object__12TBoss8DragonFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     TBoss8Dragon__ct(arg0, arg1, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&lbl_804F1A78).value;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80359DC4_lbl_804F1A78 *)&boss8_dragon_attack_object_vtable).value;
     M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x40);
     M2C_FIELD(arg0, s16 *, 0x67A) = -1;
     M2C_FIELD(arg0, s16 *, 0x32C) = arg3;

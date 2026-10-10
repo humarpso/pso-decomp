@@ -122,7 +122,7 @@ s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, s32, M2C_UNK);
 M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
-extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_801F7CC0_lbl_8050E208 controller_input_state;
 void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 init_single_player_chr_select__6TLobbyFPv(s32);
 void TQuestVmDownLoadServer__sub_801F8FA4(void);
@@ -270,7 +270,7 @@ M2C_UNK select_if_mc_present__13TAdMcSelectGCFv();
 u32 create__13TAdMcSelectGCFPv(s32);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
 M2C_UNK show_status_message__22TQuestVmDownLoadServerFPvii(void *, s32, M2C_UNK);
-extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_801F7CC0_lbl_8050E208 controller_input_state;
 extern u32 lobby_player_construction_window;
 extern s32 tl_03;
 void update_mc_select__22TQuestVmDownLoadServerFPv(u8 *arg0);
@@ -291,7 +291,7 @@ M2C_UNK update_state__13TAdMcSelectGCFv();
 s32 get_selected_slot_index__13TAdMcSelectGCFv();
 void clear_field2A0__22TQuestVmDownLoadServerFv(void);
 void TQuestVmDownLoadServer__sub_801F6B98(void);
-extern RecoveredGlobal_801F7CC0_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_801F7CC0_lbl_8050E208 controller_input_state;
 void check_memcard_slot__22TQuestVmDownLoadServerFPv(u8 *arg0);
 }
 
@@ -672,7 +672,7 @@ void check_memcard_slot__22TQuestVmDownLoadServerFPv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x2A0) = 6;
             return;
         }
-    } else if (TWindowShortListCtrl__check_controller_button((int)((u8 *)&lbl_8050E208 + 0x20), 2) != 0) {
+    } else if (TWindowShortListCtrl__check_controller_button((int)((u8 *)&controller_input_state + 0x20), 2) != 0) {
         update_state__13TAdMcSelectGCFv();
         show_status_message__22TQuestVmDownLoadServerFPvii(arg0, get_localized_text_entry(0x29, 1), 1);
         M2C_FIELD(arg0, s32 *, 0x2A0) = 4;
@@ -682,7 +682,7 @@ void check_memcard_slot__22TQuestVmDownLoadServerFPv(u8 *arg0) {
 
 void handle_confirm_input__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)&lbl_8050E208.value + 0x20;
+    temp_r31 = (u8 *)&controller_input_state.value + 0x20;
     if (TWindowShortListCtrl__check_controller_button((int) (temp_r31), (int) (4)) != 0) {
         select_if_mc_present__13TAdMcSelectGCFv();
         M2C_FIELD(arg0, s32 *, 0x2A0) = 5;
@@ -721,7 +721,7 @@ void update_mc_select__22TQuestVmDownLoadServerFPv(u8 *arg0) {
         if ((void *) M2C_FIELD(arg0, u8 **, 0x29C) != NULL) {
             select_if_mc_present__13TAdMcSelectGCFv();
         }
-        if (TWindowShortListCtrl__check_controller_button((int)((u8 *)&lbl_8050E208.value + 0x20), 2) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((int)((u8 *)&controller_input_state.value + 0x20), 2) != 0) {
             select_if_mc_present__13TAdMcSelectGCFv();
             show_status_message__22TQuestVmDownLoadServerFPvii((void *) (arg0), (int) (TQuestVmDownLoadServer__sub_8006EF6C(0x42)), (int) (1));
             M2C_FIELD(arg0, s32 *, 0x2A0) = 0x14;

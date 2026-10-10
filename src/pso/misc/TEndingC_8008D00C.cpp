@@ -302,12 +302,12 @@ extern "C" {
 void release_lobby__8TEndingCFv(void);
 void TLobby__sub_803DA16C(void*);
 
-extern u32 lbl_805D4F18;
+extern u32 TEndingC__wall_texture_list;
 
 void release_lobby__8TEndingCFv(void) {
-    if ((u32) lbl_805D4F18 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4F18);
-        lbl_805D4F18 = 0U;
+    if ((u32) TEndingC__wall_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)TEndingC__wall_texture_list);
+        TEndingC__wall_texture_list = 0U;
     }
 }
 
@@ -316,7 +316,7 @@ void release_lobby__8TEndingCFv(void) {
 extern "C" {
     int bind_gvm_texture_list(void*, void*);
     extern unsigned char lbl_804398EC[];
-void register_texture_ed_512kabe_c(void) { lbl_805D4F18 = (int)lbl_8048EB30; bind_gvm_texture_list(lbl_804398EC, lbl_8048EB30); }
+void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)lbl_8048EB30; bind_gvm_texture_list(lbl_804398EC, lbl_8048EB30); }
 }
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -417,14 +417,14 @@ s32 TObjEneBalClaw__vt37(s32 arg0);
 s32 update_movement_status__10TObjPlayerFv();
 s32 update_action_hold_status__10TObjPlayerFv();
 
-    extern int TEndingAB__data_805D4F10;
-void TEndingAB__sub_8008D5A0(void) { TEndingAB__data_805D4F10 = 1; }
+    extern int TEndingAB__fade_sequence_state;
+void TEndingAB__sub_8008D5A0(void) { TEndingAB__fade_sequence_state = 1; }
 
     extern int TEndingPic__data_805D6EE0;
 void TEndingPic__sub_8008D5AC(void) { TEndingPic__data_805D6EE0 = 1; }
 
-    extern int lbl_805D4F08;
-int TEnding__sub_8008D5B8(void) {  return lbl_805D4F08; }
+    extern int ending_frame_counter;
+int TEnding__sub_8008D5B8(void) {  return ending_frame_counter; }
 
 void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {

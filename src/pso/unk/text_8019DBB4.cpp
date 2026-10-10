@@ -18,9 +18,9 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019DBB4_lbl_80446470 lbl_80446470;
-extern RecoveredGlobal_8019DBB4_lbl_804B90FC lbl_804B90FC;
-extern s32 lbl_805D5C78;
-extern u8 *lbl_805D5C7C;
+extern RecoveredGlobal_8019DBB4_lbl_804B90FC forest_warp_resource_descriptor;
+extern s32 forest_warp_bml_resource;
+extern u8 *forest_warp_texture_list;
 void load_forest_warp_resources(void);
 }
 
@@ -34,10 +34,10 @@ void load_forest_warp_resources(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B90FC.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &forest_warp_resource_descriptor.value, 0, 0, 0));
     }
-    lbl_805D5C78 = var_r0;
-    lbl_805D5C7C = load_gvm_texture_file((s32) &lbl_80446470.value);
+    forest_warp_bml_resource = var_r0;
+    forest_warp_texture_list = load_gvm_texture_file((s32) &lbl_80446470.value);
 }
 
 }

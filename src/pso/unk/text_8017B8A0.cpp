@@ -68,7 +68,7 @@ void init__11TOVS2Wall01Fi(void *);
 void TOVS2Wall01__sub_8017CA48(void *, s32);
 s32 TOVS2Wall01__sub_8017CA50(void *);
 void byteswap_hit_packet__11TOVS2Wall01FPv(void *);
-extern s32 lbl_805D31E0;
+extern s32 TOVS2Wall01__class_name;
 extern Ent_8017B9B0 *TLobby__data_805D6140;
 void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0);
 }
@@ -140,7 +140,7 @@ void handle_6x86_hit_destructible_object(Pkt_8017B9B0 *arg0) {
     }
     o = ((VObj_8017B9B0 *(*)(u16))find_entity_by_id)(id);
     if (o != NULL) {
-        if (check_value_equals__13TQuestColCtrlFPvi(o, lbl_805D31E0) == 0) {
+        if (check_value_equals__13TQuestColCtrlFPvi(o, TOVS2Wall01__class_name) == 0) {
             return;
         }
         switch (arg0->e) {

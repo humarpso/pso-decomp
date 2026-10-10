@@ -33,7 +33,7 @@ M2C_UNK post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void*);
 M2C_UNK draw_ginja_object(s32);
 M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-extern s32 lbl_8050DDC8[];
+extern s32 warp_jung_beam_models[];
 extern s32 actor_frame_tick;
 extern s32 TObjWarpJung__beam_bml_resource;
 extern void *warp_jung_beam_motion;
@@ -198,14 +198,14 @@ void render__16TObjWarpJungMainFv(VObj_18_8019FB8C *arg0) {
         case 0:
             if (warp_jung_beam_entry_index >= 0) {
                 for (i = 0; i < 6; i++) {
-                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], warp_jung_beam_entry_index);
+                    free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], warp_jung_beam_entry_index);
                 }
             }
             break;
         case 1:
             if (lbl_805D5CC0 >= 0) {
                 for (i = 0; i < 6; i++) {
-                    free_children__12TObjDoorJungFPvPv(lbl_8050DDC8[i], lbl_805D5CC0);
+                    free_children__12TObjDoorJungFPvPv(warp_jung_beam_models[i], lbl_805D5CC0);
                 }
             }
             break;

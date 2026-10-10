@@ -24,7 +24,7 @@ void create_window__13TObjResultWinFPv(u8 *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-extern RecoveredGlobal_8007445C_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8007445C_lbl_8050E208 controller_input_state;
 void run_task__13TObjResultWinFv(u8 *arg0);
 Rec_80074664 *copy_record__13TObjResultWinFPvPv(Rec_80074664 *d, Rec_80074664 *s);
 }
@@ -65,7 +65,7 @@ void run_task__13TObjResultWinFv(u8 *arg0) {
                 TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
                 queue_destruction__7TObjectFv((void *) (arg0));
             }
-        } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (4)) != 0) {
+        } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
             M2C_FIELD(arg0, s32 *, 0x20) = 1;
         }
     }

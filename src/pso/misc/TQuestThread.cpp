@@ -277,7 +277,7 @@ extern Row_lbl_804C8230 lbl_804C8230[];
 extern Row_lbl_804C8320 lbl_804C8320[];
 extern Entry_801F4DFC lbl_804C8410[];
 extern Entry_801F4DFC lbl_804C8488[];
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern RecoveredGlobal_801F5E7C_lbl_805129F8 lbl_805129F8;
 extern RecoveredGlobal_801F4F20_lbl_80512B18 lbl_80512B18;
 extern s32 lbl_805D35D0;
@@ -438,7 +438,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     case 4: {
         void *p = get_player_by_client_id(local_client_id);
         if (p != NULL && check_flag_100__10TObjPlayerFPv(p) == 0 &&
-            TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0) {
+            TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
             s32 id = get_window_id__11TWindowCtrlFv();
             if (is_actor_speech_balloon_done(id) == 0) {
                 complete_actor_speech_balloons(id);
@@ -450,10 +450,10 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
     }
     case 5:
         if (get_player_by_client_id(local_client_id) != NULL &&
-            TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0) {
+            TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0) {
             o->state = 0;
         }
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0 ||
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0 ||
             has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) {
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();
@@ -473,7 +473,7 @@ void run_task__17TQuestThreadBoardFv(Board_801F526C *o) {
             clear_flag__11TWindowCtrlFv();
             clear_flag_2__11TWindowCtrlFv();
         }
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0 ||
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0 ||
             has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) {
             if (o->win28 != NULL) {
                 TWindow__close(o->win28);
@@ -662,7 +662,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         break;
     case 4:
         if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0 && ((s32 (*)(void))check_flag_100__10TObjPlayerFPv)() == 0 &&
-            ((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(lbl_8050E208 + 0x20, 4) != 0) {
+            ((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(controller_input_state + 0x20, 4) != 0) {
             s32 id = get_window_id__11TWindowCtrlFv();
             if (((s32 (*)(void))is_actor_speech_balloon_done)() == 0) {
                 complete_actor_speech_balloons(id);
@@ -673,7 +673,7 @@ void run_task__12TQuestThreadFv(TQuestThread_801F5828 *t) {
         break;
     case 5:
         if (((u32 (*)(void *))get_player_by_client_id)((*(void * *)&local_client_id)) != 0) {
-            void *pad = lbl_8050E208 + 0x20;
+            void *pad = controller_input_state + 0x20;
             if (((s32 (*)(void *, int))TWindowShortListCtrl__check_controller_button)(pad, 4) != 0) {
                 t->state = 0;
             }

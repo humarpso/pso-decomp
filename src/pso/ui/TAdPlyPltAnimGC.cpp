@@ -65,7 +65,7 @@ extern const f32 lbl_805DFFD4;
 extern const f32 lbl_805DFFD8;
 M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
-extern RecoveredGlobal_803560F0_lbl_804F142C lbl_804F142C;
+extern RecoveredGlobal_803560F0_lbl_804F142C TAdPlyPltAnimGC__instances;
 extern void *__vt__15TAdPlyPltAnimGC[];
 void __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_805D43A0;
@@ -144,8 +144,8 @@ void *__dt__15TAdPlyPltAnimGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, void ***, 0x18) = __vt__15TAdPlyPltAnimGC;
         for (i = 0; i < 5; i++) {
-            if ((u32)(&lbl_804F142C.value)[i] != 0U) {
-                (&lbl_804F142C.value)[i] = 0;
+            if ((u32)(&TAdPlyPltAnimGC__instances.value)[i] != 0U) {
+                (&TAdPlyPltAnimGC__instances.value)[i] = 0;
             }
         }
         __dt__7TObjectFv(arg0, 0);
@@ -187,15 +187,15 @@ s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD(&lbl_804F142C.value, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x7C));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = TAdPlyPltAnimGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));
         }
-        M2C_FIELD(&lbl_804F142C.value, M2C_UNK *, temp_r30) = var_r0;
+        M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30) = var_r0;
     }
-    return M2C_FIELD(&lbl_804F142C.value, M2C_UNK *, temp_r30);
+    return M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30);
 }
 
 void TAdPlyPltAnimGC__sub_8035615C(void) {

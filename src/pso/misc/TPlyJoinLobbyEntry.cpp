@@ -499,7 +499,7 @@ extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
 extern Mgr_801361E8 *game_protocol_instance;
-extern s32 lbl_805D61AC;
+extern s32 quest_download_active;
 extern const f32 lbl_805DB0A8;
 extern RecoveredGlobal_8013630C_main_task main_task;
 struct VBase_18_9029aa { char pad[0x18]; };
@@ -547,13 +547,13 @@ Server_801399B8 lbl_804A6FF8[2] = { { lbl_8043EDD4, 0x2329 }, { lbl_8043EDD4, 0x
 void *lbl_804A7008[6] = { 0, 0, (void *)TLobby__sub_801349C8, (void *)update_idle_timeout__6TLobbyFPv, (void *)TLobby__sub_8013A2DC, (void *)render_shadows__7TObjectFv };
 }
 }
-u32 TLobby__data_80506A60[3];
+u32 TLobby__join_entries_dtor_registration[3];
 u32 TLobby__data_80506A6C[3252];
 u32 lbl_80509D3C[8];
-u32 lbl_80509D5C[852];
+u32 lobby_player_status_records[852];
 char TLobby__data_8050AAAC[0x28];
 u32 lbl_8050AAD4[5];
-Row_TLobby__data_8050AAE8 TLobby__data_8050AAE8[12];
+Row_TLobby__data_8050AAE8 TLobby__player_names[12];
 s32 lbl_8050ABA8[4];
 Row_80135208 lbl_8050ABB8[4];
 u32 lbl_8050AC38[64];
@@ -688,7 +688,7 @@ void handle_6x71_unblock_game_join(void) {
         copy_header_struct__6TLobbyFPvPv(p + 0xDAC, (u8 *)TLobby__protocol_instance + 0x1900);
         ((VObj_18_9029aa *)p)->m6();
         {
-            s32 nm = (s32)TLobby__data_8050AAE8;
+            s32 nm = (s32)TLobby__player_names;
             strncpy((char *)(nm + local_client_id * 16), (const char *)((VObj_18_9029aa *)p)->m10(), 0x10);
         }
         TLobby__sub_8013A170(lbl_8043EE48, local_client_id);
@@ -738,7 +738,7 @@ void handle_6x70_sync_player_disp_and_inventory(Pkt_801354AC *arg0) {
                 delete p;
             }
             plr = create_remote_player_object(disp);
-            strncpy(TLobby__data_8050AAE8[obj_getField1c(plr)], plr->m10(), 0x10);
+            strncpy(TLobby__player_names[obj_getField1c(plr)], plr->m10(), 0x10);
             open_udp_socket_for_player__6TLobbyFi(disp->id);
             TLobby__sub_8013A170(lbl_8043EE7C, obj_getField1c(plr));
         }
@@ -1069,7 +1069,7 @@ void retire_lobby_player__6TLobbyFii(s32 idx, s32 v) {
         delete p;
         TLobby__sub_8013A170(lbl_8043EF04, idx);
     }
-    strncpy(TLobby__data_8050AAE8[idx], TLobby__data_805DB0B0, 0x10);
+    strncpy(TLobby__player_names[idx], TLobby__data_805DB0B0, 0x10);
 }
 
 void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1) {
@@ -1088,7 +1088,7 @@ void on_lobby_player_add__6TLobbyFii(s32 arg0, s32 arg1) {
         delete p;
         TLobby__sub_8013A170(TLobby__data_8043EF38, e.client_id);
     }
-    strncpy(TLobby__data_8050AAE8[e.client_id], e.name, 0x10);
+    strncpy(TLobby__player_names[e.client_id], e.name, 0x10);
     plr = create_player_object(e.client_id, 4, e.char_data);
     copy_header_struct__6TLobbyFPvPv(plr + 0xDAC, &e);
     ((Plr_80136080 *)plr)->m6();
@@ -1122,7 +1122,7 @@ void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2) {
         }
         delete p;
     }
-    strncpy(TLobby__data_8050AAE8[arg0], TLobby__data_805DB0B0, 0x10);
+    strncpy(TLobby__player_names[arg0], TLobby__data_805DB0B0, 0x10);
     if (TLobby__data_805D5594 == 0xE) {
         TLobby__data_805D5CE8 = 1;
     }
@@ -1130,7 +1130,7 @@ void remove_player__6TLobbyFUiii(u32 arg0, s32 arg1, s32 arg2) {
         TWindow__close(TLobby__current_dialog_window);
         TLobby__current_dialog_window = 0;
     }
-    if (lbl_805D61AC == 0) {
+    if (quest_download_active == 0) {
         clear_flag3_all_tasks__9TMainTaskFv(&main_task.value);
     }
 }
@@ -1248,10 +1248,10 @@ void handle_lobby_enter__6TLobbyFPviiiiiii(Ent_801368B0 *ents, s32 n, s32 client
         delete (Obj_801368B0 *)node;
     }
     for (j = 0; j < 12; j++) {
-        TLobby__data_8050AAE8[j][0] = 0;
+        TLobby__player_names[j][0] = 0;
     }
     for (i = 0; i < n; i++) {
-        strncpy(TLobby__data_8050AAE8[ents[i].id], ents[i].name, 0x10);
+        strncpy(TLobby__player_names[ents[i].id], ents[i].name, 0x10);
     }
     for (i = 0; i < 12; i++) {
         p = (Obj_801368B0 *)get_player_by_client_id((void *)i);
@@ -1277,7 +1277,7 @@ void make_players__6TLobbyFv(void) {
         p = (Ply_80136A8C *)create_player_object(local_client_id, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
         copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xDAC, (u8 *)(*(void * *)&TLobby__protocol_instance) + 0x1900);
         p->m6();
-        strncpy(TLobby__data_8050AAE8[local_client_id], p->m10(), 0x10);
+        strncpy(TLobby__player_names[local_client_id], p->m10(), 0x10);
         TLobby__sub_8013A170(lbl_8043EE48, local_client_id);
         send_6F_burst_done__6TLobbyFPv((*(void * *)&TLobby__protocol_instance));
         TLobby__data_805D5594 = 0xF;
@@ -1298,7 +1298,7 @@ void make_players__6TLobbyFv(void) {
         p = (Ply_80136A8C *)create_player_object(local_client_id, 0, get_char_index__23TAdSinglePlyChrSelectGCFUi(0xFFFF));
         copy_header_struct__6TLobbyFPvPv((u8 *)p + 0xDAC, (u8 *)(*(void * *)&TLobby__protocol_instance) + 0x1900);
         p->m6();
-        strncpy(TLobby__data_8050AAE8[local_client_id], p->m10(), 0x10);
+        strncpy(TLobby__player_names[local_client_id], p->m10(), 0x10);
         TLobby__sub_8013A170(lbl_8043EE48, local_client_id);
         send_6F_burst_done__6TLobbyFPv((*(void * *)&TLobby__protocol_instance));
         TLobby__data_805D5594 = 0xF;
@@ -2785,7 +2785,7 @@ void send_action__9TProtocolFR13GameListEntryPcPc(s32, void *, void *, void *);
 M2C_UNK TWindow__close(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern s32 TLobby__card_list_selected_index;
 extern u32 TLobby__card_list_window;
 extern u32 TLobby__download_list_window;
@@ -2808,12 +2808,12 @@ M2C_UNK send_message_box_closed__9TProtocolFv(s32);
 s32 is_message_window_ready(u32);
 M2C_UNK complete_reveal__14TWindowMessageFPv(u32);
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 lbl_805D55F8;
 
 void update_scroll_close__6TLobbyFv(void) {
     if ((u32) lbl_805D55F8 != 0U) {
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 0xE) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 0xE) != 0) {
             close__14TAdScrollWinGCFPv(lbl_805D55F8);
             lbl_805D55F8 = 0U;
             ((M2C_UNK (*)())destroy_lobby_ui__6TLobbyFv)();
@@ -2825,14 +2825,14 @@ void update_scroll_close__6TLobbyFv(void) {
     }
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__join_entry_window_obj;
 
 void handle_short_list_input__6TLobbyFv(void) {
     void *temp_r31;
 
     if ((u32) TLobby__join_entry_window_obj != 0U) {
-        temp_r31 = lbl_8050E208 + 0x20;
+        temp_r31 = controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
             if (is_message_window_ready(TLobby__join_entry_window_obj) == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__join_entry_window_obj);
@@ -2852,14 +2852,14 @@ void handle_short_list_input__6TLobbyFv(void) {
     reset_controller_input_state();
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__download_list_window;
 
 void update_short_list__6TLobbyFv(void) {
     void *temp_r31;
 
     if ((u32) TLobby__download_list_window != 0U) {
-        temp_r31 = lbl_8050E208 + 0x20;
+        temp_r31 = controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) {
             if (is_message_window_ready(TLobby__download_list_window) == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__download_list_window);
@@ -2912,7 +2912,7 @@ void update_card_list_window__6TLobbyFv(void) {
             return;
         }
     }
-    btn = (*(u32 **)lbl_8050E208)[4];
+    btn = (*(u32 **)controller_input_state)[4];
     if (btn & 0x400) {
         Entry_80138B7C e2;
         sel = select_cursor_entry__6TLobbyFPv(TLobby__list_window);
@@ -3062,7 +3062,7 @@ struct Lst_801392F8 { u8 pad[0x1920]; s32 count; u8 pad2[0x1DA8 - 0x1924]; Ent_8
 struct Pad_801392F8 { u8 pad[0x10]; u32 flags; };
 
 extern "C" {
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern s32 TLobby__join_lobby_idle_timer;
 void init__23TAdSinglePlyChrSelectGCFv(void);
 void TKeyBoardControl__sub_8000F91C(s32);
@@ -3073,7 +3073,7 @@ s32 get_status_flag__6TLobbyFPv(u32);
 M2C_UNK TWindow__close(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 extern char lbl_8043F06C[];
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__list_window;
 void update_block_jump_list__6TLobbyFv(void);
 void close_and_set_state_12__6TLobbyFv();
@@ -3081,7 +3081,7 @@ s32 get_status_flag__6TLobbyFPv(u32);
 M2C_UNK TWindow__close(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 extern char lbl_8043F078[];
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__list_window;
 void update_ship_select_window__6TLobbyFv(void);
 void close_all_windows__6TLobbyFv(void);
@@ -3089,7 +3089,7 @@ s32 get_status_flag__6TLobbyFPv(u32);
 s32 get_flag_bit2__6TLobbyFPv(u32);
 M2C_UNK TWindow__close(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__list_window;
 extern s32 lbl_805D5600;
 void update_game_list_menu__6TLobbyFv(void);
@@ -3150,12 +3150,12 @@ void handle_create_game_window__6TLobbyFv(void) {
     }
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__join_entry_window_obj;
 
 void update__6TLobbyFv(void) {
     if ((u32) TLobby__join_entry_window_obj != 0U) {
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 8) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 8) != 0) {
             if (is_message_window_ready(TLobby__join_entry_window_obj) == 0) {
                 complete_reveal__14TWindowMessageFPv(TLobby__join_entry_window_obj);
             } else {
@@ -3174,7 +3174,7 @@ void update__6TLobbyFv(void) {
 extern u32 lobby_com_card_window;
 
 void TLobby__sub_80139094(void *self) {
-    if (((*(Pad_80139094 **)lbl_8050E208)->flags & 8) || TLobby__join_lobby_idle_timer++ > 0xe10) {
+    if (((*(Pad_80139094 **)controller_input_state)->flags & 8) || TLobby__join_lobby_idle_timer++ > 0xe10) {
         init__23TAdSinglePlyChrSelectGCFv();
         TKeyBoardControl__sub_8000F91C(2);
         TKeyBoardControl__sub_8000F9CC(0x12);
@@ -3193,7 +3193,7 @@ void update_block_jump_list__6TLobbyFv(void) {
             close_and_set_state_12__6TLobbyFv();
             return;
         }
-        if ((*(Pad_80139104 **)lbl_8050E208)->flags & 0x400) {
+        if ((*(Pad_80139104 **)controller_input_state)->flags & 0x400) {
             idx = select_cursor_entry__6TLobbyFPv(TLobby__list_window);
             ((void (*)(void *, void *))send_info__9TProtocolFR16TPlyGuildCardTag)((*(Lst_80139104 * *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance)))))), &(*(Lst_80139104 * *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance))))))->e[idx]);
         }
@@ -3211,7 +3211,7 @@ void update_ship_select_window__6TLobbyFv(void) {
             close_and_set_state_12__6TLobbyFv();
             return;
         }
-        if ((*(Pad_801391BC **)lbl_8050E208)->flags & 0x400) {
+        if ((*(Pad_801391BC **)controller_input_state)->flags & 0x400) {
             idx = select_cursor_entry__6TLobbyFPv(TLobby__list_window);
             ((void (*)(void *, void *))send_info__9TProtocolFR16TPlyGuildCardTag)((*(Lst_801391BC * *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance)))))), &(*(Lst_801391BC * *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance))))))->e[idx]);
         }
@@ -3260,7 +3260,7 @@ void update_game_list_menu__6TLobbyFv(void) {
             close_all_windows__6TLobbyFv();
             return;
         }
-        if ((*(Pad_801392F8 **)lbl_8050E208)->flags & 0x400) {
+        if ((*(Pad_801392F8 **)controller_input_state)->flags & 0x400) {
             lbl_805D5600 = select_cursor_entry__6TLobbyFPv(TLobby__list_window);
             if (lbl_805D5600 < (*(Lst_801392F8 **)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance))))))->count) {
                 ((void (*)(void *, void *))send_info__9TProtocolFR16TPlyGuildCardTag)((*(Lst_801392F8 **)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance)))))), &(*(Lst_801392F8 **)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&(*(s32 *)&TLobby__protocol_instance))))))->e[lbl_805D5600]);
@@ -3325,7 +3325,7 @@ void set_field_1c__6TLobbyFPvf(u32 p, f32 f);
 s32 get_status_flag__6TLobbyFPv(u32);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 extern char lbl_8043F084[];
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern u32 TLobby__list_window;
 void handle_team_select__6TLobbyFv(void);
 void func_80019A68__Fv(void);
@@ -3352,7 +3352,7 @@ s32 query_task_active__6TLobbyFv(void);
 s32 get_link_status__Fv(void);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 void close_windows_and_reset__16TQuestListOnlineFv(void *);
-extern s32 lbl_805D61AC;
+extern s32 quest_download_active;
 void run_task__6TLobbyFv(void *self);
 }
 
@@ -3459,7 +3459,7 @@ void handle_team_select__6TLobbyFv(void) {
             ((M2C_UNK (*)())close_and_set_state_12__6TLobbyFv)();
             return;
         }
-        if ((*(Pad_801395D8 **)lbl_8050E208)->flags & 0x400) {
+        if ((*(Pad_801395D8 **)controller_input_state)->flags & 0x400) {
             idx = select_cursor_entry__6TLobbyFPv(TLobby__list_window);
             ((void (*)(void *, void *))send_info__9TProtocolFR16TPlyGuildCardTag)((*(Lst_801395D8 * *)&(*(struct Root_80139538_80137188 * *)&(*(struct Root_80139538_80137188 * *)&(*(struct Root_80139538_80137188 * *)&TLobby__protocol_instance)))), &(*(Lst_801395D8 * *)&(*(struct Root_80139538_80137188 * *)&(*(struct Root_80139538_80137188 * *)&(*(struct Root_80139538_80137188 * *)&TLobby__protocol_instance))))->e[idx]);
         }
@@ -3531,7 +3531,7 @@ void run_task__6TLobbyFv(void *self) {
     case 23:
         return;
     }
-    if (lbl_805D61AC != 0) {
+    if (quest_download_active != 0) {
         func_80019A68__Fv();
     }
     r = query_task_active__6TLobbyFv();
@@ -3856,8 +3856,8 @@ u8 *TLobby__ct(u8 *arg0, void *arg1) {
     local_client_id = 0;
     TLobby__designated_client_id = 0;
     memset(lbl_80509D3C, 0, 0x20);
-    memset(TLobby__data_8050AAE8, 0, 0xC0);
-    memset(lbl_80509D5C, 0, 0xD50);
+    memset(TLobby__player_names, 0, 0xC0);
+    memset(lobby_player_status_records, 0, 0xD50);
     var_r27 = (u8 *)(heap_alloc__6TLobbyFPv(0xBCA4));
     if (var_r27 != NULL) {
         temp_r26 = TAdEnterPasswordGC__sub_8013ADE4();
@@ -3936,7 +3936,7 @@ void destroy_join_entries__6TLobbyFv();
 void init_char_data__6TLobbyFPv();
 void construct_global_arrays__6TLobbyFv(void) {
     __construct_array(TLobby__data_80506A6C, (void *)init_char_data__6TLobbyFPv, (void *)__dt__18TPlyJoinLobbyEntryFv, 0x43C, 0xC);
-    __register_global_object(0, (void *)destroy_join_entries__6TLobbyFv, TLobby__data_80506A60);
+    __register_global_object(0, (void *)destroy_join_entries__6TLobbyFv, TLobby__join_entries_dtor_registration);
     __construct_array(lbl_8050ABB8, (void *)TLobby__sub_8013A23C, 0, 0x20, 4);
 }
 }

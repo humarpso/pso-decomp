@@ -37,13 +37,13 @@ extern u32 lbl_805D5C20;
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern u8 lbl_804B7ED8[];
+extern u8 TKomorebi__resource_descriptor[];
 extern u32 lbl_805D5C20;
-extern s32 lbl_805D5C24;
+extern s32 komorebi_last_uv_update_frame;
 void load_resources__9TKomorebiFv(void);
 s32 get_bml_motion(s32, s32);
 s32 get_bml_model(void *, int);
-extern s32 lbl_805D5C2C;
+extern s32 lazer_fence_norm_bml_resource;
 void init_models__8TObjFishFPv(Fish_80192434 *arg0);
 }
 
@@ -72,7 +72,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 camera_ctrl_instance;
 extern s32 actor_frame_tick;
-extern s32 lbl_805D5C24;
+extern s32 komorebi_last_uv_update_frame;
 extern const f32 lbl_805DBE48;
 extern const f32 lbl_805DBE4C;
 extern const f32 lbl_805DBE50;
@@ -82,9 +82,9 @@ void render__9TKomorebiFv(u8 *arg0) {
 
     if ((((VObj_80192174*)arg0)->m8(lbl_805DBE48, lbl_805DBE4C) != 0) && !(xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < lbl_805DBE50)) {
         begin_effect_render__13TParticleCtrlFv();
-        if ((s32) actor_frame_tick != (s32) lbl_805D5C24) {
+        if ((s32) actor_frame_tick != (s32) komorebi_last_uv_update_frame) {
             scroll_ginja_mesh_uvs(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), s32 *, 4), 0, (s32) M2C_FIELD(arg0, f32 *, 0x68), 0, 1);
-            lbl_805D5C24 = actor_frame_tick;
+            komorebi_last_uv_update_frame = actor_frame_tick;
         }
         push_matrix();
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
@@ -137,35 +137,35 @@ void *TKomorebi__create(void *arg0) {
 }
 
 extern u32 lbl_805D5C20;
-extern s32 lbl_805D5C24;
+extern s32 komorebi_last_uv_update_frame;
 
 void free_static__9TKomorebiFv(void) {
     if ((u32) lbl_805D5C20 != 0U) {
         TLobby__sub_8001FE7C((void*)lbl_805D5C20, 1);
         lbl_805D5C20 = 0U;
     }
-    lbl_805D5C24 = 0;
+    komorebi_last_uv_update_frame = 0;
 }
 void load_resources__9TKomorebiFv(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = load_resource_from_descriptor(p, 1, lbl_804B7ED8, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, TKomorebi__resource_descriptor, 0, 0, 0);
     }
     lbl_805D5C20 = (u32)p;
-    lbl_805D5C24 = 0;
+    komorebi_last_uv_update_frame = 0;
 }
 void init_models__8TObjFishFPv(Fish_80192434 *arg0) {
     s32 i;
     Node_80192434 *node;
     s32 j;
     if (arg0->f8C % 2 == 0) {
-        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 1);
-        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 0);
-        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 0);
+        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lazer_fence_norm_bml_resource, 1);
+        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lazer_fence_norm_bml_resource, 0);
+        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 0);
     } else {
-        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 3);
-        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lbl_805D5C2C, 2);
-        arg0->fC4 = get_bml_motion(lbl_805D5C2C, 1);
+        arg0->fBC = (Node_80192434 *)get_bml_model((void *)lazer_fence_norm_bml_resource, 3);
+        arg0->fC0 = (Node_80192434 *)get_bml_model((void *)lazer_fence_norm_bml_resource, 2);
+        arg0->fC4 = get_bml_motion(lazer_fence_norm_bml_resource, 1);
     }
     for (j = 0; j < 4; j++) {
         arg0->fC8[j] = 0;

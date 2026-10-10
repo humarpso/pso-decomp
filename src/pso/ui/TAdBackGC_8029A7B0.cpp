@@ -48,13 +48,13 @@ void run_task__9TAdBackGCFv(void) {  }
 
 extern const f32 lbl_805DDC68;
 extern M2C_UNK __vt__9TAdBackGC[];
-extern void *lbl_805D3D00;
+extern void *TAdBackGC__class_name;
 
 TAdBackGC::~TAdBackGC() {}
 void *__ct__9TAdBackGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TAdBackGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D00;
+    M2C_FIELD(arg0, void **, 0x0) = TAdBackGC__class_name;
     M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805DDC68;
     M2C_FIELD(arg0, u32 *, 0x20) = 1;
     return arg0;

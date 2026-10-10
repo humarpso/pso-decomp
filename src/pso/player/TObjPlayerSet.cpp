@@ -74,7 +74,7 @@ void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern void *lbl_805D5C50;
+extern void *quest_collision_task_root;
 
 #pragma push
 #pragma opt_common_subs off
@@ -98,7 +98,7 @@ u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 void *TObjQuestCol2__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC4);
     if (o != NULL) {
-        o = TObjQuestCol2__ct(o, lbl_805D5C50, arg0);
+        o = TObjQuestCol2__ct(o, quest_collision_task_root, arg0);
     }
     return o;
 }

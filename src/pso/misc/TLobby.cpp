@@ -69,7 +69,7 @@ int render__6TLobbyFv(void* p) { return get_instance__15TAdPlayerLoadGCFv(p); }
 
 struct E_80134B58 { u8 d[0x11C]; };
 struct In_80134B58 { u32 type; u8 rest[0x118]; };
-extern E_80134B58 lbl_80509D5C[];
+extern E_80134B58 lobby_player_status_records[];
 void copy_player_record__6TLobbyFPvPv(u8 *, u8 *);
 void copy_player_records__6TLobbyFPvi(In_80134B58 *arg0, s32 arg1) {
     s32 i;
@@ -77,7 +77,7 @@ void copy_player_records__6TLobbyFPvi(In_80134B58 *arg0, s32 arg1) {
         if (arg0[i].type > 0xC) {
             return;
         }
-        copy_player_record__6TLobbyFPvPv((u8 *)&lbl_80509D5C[arg0[i].type], (u8 *)&arg0[i]);
+        copy_player_record__6TLobbyFPvPv((u8 *)&lobby_player_status_records[arg0[i].type], (u8 *)&arg0[i]);
     }
 }
 

@@ -13,7 +13,7 @@ void TLobby__send_and_handle_60(u8 *arg0);
 M2C_UNK TProtocol__send_60(int, int, int);
 extern u32 TLobby__protocol_instance;
 void send_60_sized__6TLobbyFPv(u8 *arg0);
-M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
+M2C_UNK send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
 M2C_UNK dispatch_6x_subcommand(void *);
 extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
@@ -51,7 +51,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0);
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 void update_players__6TLobbyFi(s32 arg0);
 M2C_UNK dispatch_6x_subcommand(void *);
-M2C_UNK TProtocol__sub_801DC084(u32, s32, void *, s32);
+M2C_UNK send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
 M2C_UNK bswap_32__FPUl(s32 *);
 M2C_UNK append_command_to_batch_buffer(void *, s32);
@@ -94,7 +94,7 @@ void dispatch_packet__6TLobbyFPv(void *arg0) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        TProtocol__sub_801DC084(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
+        send_subcommand_to_client__9TProtocolFPviPvi(TLobby__protocol_instance, TLobby__designated_client_id, arg0, temp_r31);
     }
 }
 
@@ -114,7 +114,7 @@ void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
         return;
     }
     if ((u32) TLobby__protocol_instance != 0U) {
-        TProtocol__sub_801DC084(TLobby__protocol_instance, arg1, arg0, size);
+        send_subcommand_to_client__9TProtocolFPviPvi(TLobby__protocol_instance, arg1, arg0, size);
     }
 }
 

@@ -35,7 +35,7 @@ s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
 M2C_UNK memset(void *, int, int);
-extern Slot_803F3478 lbl_805A28E0[];
+extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 extern S_803F3328 lbl_805A29B0[];
 s32 CARDClose(void *);
@@ -45,17 +45,17 @@ s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 M2C_UNK memset(void *, int, int);
-extern Slot_803F3478 lbl_805A28E0[];
+extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
-extern Slot_803F3478 lbl_805A28E0[];
+extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
 M2C_UNK memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
-extern Slot_803F3478 lbl_805A28E0[];
+extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 extern S_803F3328 lbl_805A29B0[];
 s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name);
 }
@@ -75,21 +75,21 @@ s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
         return -1;
     }
-    if (lbl_805A28E0[arg0].f44 == 0x4) {
-        *arg1 = lbl_805A28E0[arg0].f5C;
-        t = lbl_805A28E0[arg0].f58;
+    if (TAdPlayerLoadGC__load_request_slots[arg0].f44 == 0x4) {
+        *arg1 = TAdPlayerLoadGC__load_request_slots[arg0].f5C;
+        t = TAdPlayerLoadGC__load_request_slots[arg0].f58;
         r = t;
         if (t != 200) {
-            lbl_805A28E0[arg0].f0 = 0;
-            memset(lbl_805A28E0[arg0].name, 0, 0x20);
-            memset(lbl_805A28E0[arg0].name2, 0, 0x20);
-            lbl_805A28E0[arg0].f44 = 0;
-            lbl_805A28E0[arg0].f48 = 0;
-            lbl_805A28E0[arg0].f4C = 0;
-            lbl_805A28E0[arg0].f50 = 0;
-            lbl_805A28E0[arg0].f54 = -1;
-            lbl_805A28E0[arg0].f58 = 0;
-            lbl_805A28E0[arg0].f5C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f0 = 0;
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name, 0, 0x20);
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name2, 0, 0x20);
+            TAdPlayerLoadGC__load_request_slots[arg0].f44 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f48 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f4C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f50 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f54 = -1;
+            TAdPlayerLoadGC__load_request_slots[arg0].f58 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f5C = 0;
         }
     } else {
         *arg1 = 0;
@@ -107,16 +107,16 @@ s32 queue_network_request__15TAdPlayerLoadGCFiiii(s32 arg0, s32 arg1, s32 arg2, 
     if (arg0 < 0 || arg0 >= 100 || ((chan = lbl_805A29B0[arg0].state) != 0 && chan != 1)) {
         return -2;
     }
-    if (lbl_805A28E0[chan].f44 != 0) {
+    if (TAdPlayerLoadGC__load_request_slots[chan].f44 != 0) {
         return -4;
     }
-    lbl_805A28E0[chan].f44 = 4;
-    lbl_805A28E0[chan].f48 = 9;
-    lbl_805A28E0[chan].f58 = 200;
-    lbl_805A28E0[chan].f0 = arg1;
-    lbl_805A28E0[chan].f50 = arg2;
-    lbl_805A28E0[chan].f4C = arg3;
-    lbl_805A28E0[chan].f54 = arg0;
+    TAdPlayerLoadGC__load_request_slots[chan].f44 = 4;
+    TAdPlayerLoadGC__load_request_slots[chan].f48 = 9;
+    TAdPlayerLoadGC__load_request_slots[chan].f58 = 200;
+    TAdPlayerLoadGC__load_request_slots[chan].f0 = arg1;
+    TAdPlayerLoadGC__load_request_slots[chan].f50 = arg2;
+    TAdPlayerLoadGC__load_request_slots[chan].f4C = arg3;
+    TAdPlayerLoadGC__load_request_slots[chan].f54 = arg0;
     return 0;
 }
 s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
@@ -126,25 +126,25 @@ s32 finish_load_slot_state3__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
         return -1;
     }
-    if (lbl_805A28E0[arg0].f44 == 3) {
-        *arg1 = lbl_805A28E0[arg0].f5C;
-        t = lbl_805A28E0[arg0].f58;
+    if (TAdPlayerLoadGC__load_request_slots[arg0].f44 == 3) {
+        *arg1 = TAdPlayerLoadGC__load_request_slots[arg0].f5C;
+        t = TAdPlayerLoadGC__load_request_slots[arg0].f58;
         r = t;
         if (t != 200) {
             if (r != 0) {
-                memset(&lbl_805A29B0[lbl_805A28E0[arg0].f54], 0, 0x88);
-                lbl_805A29B0[lbl_805A28E0[arg0].f54].state = 2;
+                memset(&lbl_805A29B0[TAdPlayerLoadGC__load_request_slots[arg0].f54], 0, 0x88);
+                lbl_805A29B0[TAdPlayerLoadGC__load_request_slots[arg0].f54].state = 2;
             }
-            lbl_805A28E0[arg0].f0 = 0;
-            memset(lbl_805A28E0[arg0].name, 0, 0x20);
-            memset(lbl_805A28E0[arg0].name2, 0, 0x20);
-            lbl_805A28E0[arg0].f44 = 0;
-            lbl_805A28E0[arg0].f48 = 0;
-            lbl_805A28E0[arg0].f4C = 0;
-            lbl_805A28E0[arg0].f50 = 0;
-            lbl_805A28E0[arg0].f54 = -1;
-            lbl_805A28E0[arg0].f58 = 0;
-            lbl_805A28E0[arg0].f5C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f0 = 0;
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name, 0, 0x20);
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name2, 0, 0x20);
+            TAdPlayerLoadGC__load_request_slots[arg0].f44 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f48 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f4C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f50 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f54 = -1;
+            TAdPlayerLoadGC__load_request_slots[arg0].f58 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f5C = 0;
         }
     } else {
         *arg1 = 0;
@@ -166,7 +166,7 @@ s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
     if (strlen(name) >= 0x20) {
         return -2;
     }
-    if (lbl_805A28E0[chan].f44 != 0) {
+    if (TAdPlayerLoadGC__load_request_slots[chan].f44 != 0) {
         return -4;
     }
     i = 0;
@@ -183,12 +183,12 @@ s32 begin_card_file_request__15TAdPlayerLoadGCFiPv(s32 chan, const char *name) {
     pc = &((S_803F3690 *)&lbl_805A29B0)[i].state;
     *pc = chan;
     idx = *pc;
-    lbl_805A28E0[idx].f44 = 3;
-    lbl_805A28E0[idx].f48 = 8;
-    lbl_805A28E0[idx].f58 = 200;
-    memset(lbl_805A28E0[idx].name, 0, 0x20);
-    strcpy(lbl_805A28E0[*pc].name, name);
-    lbl_805A28E0[*pc].f54 = i;
+    TAdPlayerLoadGC__load_request_slots[idx].f44 = 3;
+    TAdPlayerLoadGC__load_request_slots[idx].f48 = 8;
+    TAdPlayerLoadGC__load_request_slots[idx].f58 = 200;
+    memset(TAdPlayerLoadGC__load_request_slots[idx].name, 0, 0x20);
+    strcpy(TAdPlayerLoadGC__load_request_slots[*pc].name, name);
+    TAdPlayerLoadGC__load_request_slots[*pc].f54 = i;
     return i;
 }
 #pragma pop
@@ -203,21 +203,21 @@ s32 take_network_info_load_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
         return -1;
     }
-    if (lbl_805A28E0[arg0].f44 == 1) {
-        *arg1 = lbl_805A28E0[arg0].f5C;
-        t = lbl_805A28E0[arg0].f58;
+    if (TAdPlayerLoadGC__load_request_slots[arg0].f44 == 1) {
+        *arg1 = TAdPlayerLoadGC__load_request_slots[arg0].f5C;
+        t = TAdPlayerLoadGC__load_request_slots[arg0].f58;
         r = t;
         if (t != 200) {
-            lbl_805A28E0[arg0].f0 = 0;
-            memset(lbl_805A28E0[arg0].name, 0, 0x20);
-            memset(lbl_805A28E0[arg0].name2, 0, 0x20);
-            lbl_805A28E0[arg0].f44 = 0;
-            lbl_805A28E0[arg0].f48 = 0;
-            lbl_805A28E0[arg0].f4C = 0;
-            lbl_805A28E0[arg0].f50 = 0;
-            lbl_805A28E0[arg0].f54 = -1;
-            lbl_805A28E0[arg0].f58 = 0;
-            lbl_805A28E0[arg0].f5C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f0 = 0;
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name, 0, 0x20);
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name2, 0, 0x20);
+            TAdPlayerLoadGC__load_request_slots[arg0].f44 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f48 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f4C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f50 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f54 = -1;
+            TAdPlayerLoadGC__load_request_slots[arg0].f58 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f5C = 0;
         }
     } else {
         *arg1 = 0;
@@ -231,13 +231,13 @@ s32 TAdPlayerLoadGC__sub_803F3998(s32 chan) {
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
         return -1;
     }
-    if (lbl_805A28E0[chan].f44 != 0) {
+    if (TAdPlayerLoadGC__load_request_slots[chan].f44 != 0) {
         r = -4;
     } else {
-        lbl_805A28E0[chan].f44 = 1;
-        lbl_805A28E0[chan].f48 = 1;
+        TAdPlayerLoadGC__load_request_slots[chan].f44 = 1;
+        TAdPlayerLoadGC__load_request_slots[chan].f48 = 1;
         r = 0;
-        lbl_805A28E0[chan].f58 = 200;
+        TAdPlayerLoadGC__load_request_slots[chan].f58 = 200;
     }
     return r;
 }
@@ -249,21 +249,21 @@ s32 take_network_info_poll_result__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1) {
     if (get_load_state__15TAdPlayerLoadGCFv() < 1) {
         return -1;
     }
-    if (lbl_805A28E0[arg0].f44 == 9) {
-        *arg1 = lbl_805A28E0[arg0].f5C;
-        t = lbl_805A28E0[arg0].f58;
+    if (TAdPlayerLoadGC__load_request_slots[arg0].f44 == 9) {
+        *arg1 = TAdPlayerLoadGC__load_request_slots[arg0].f5C;
+        t = TAdPlayerLoadGC__load_request_slots[arg0].f58;
         r = t;
         if (t != 200) {
-            lbl_805A28E0[arg0].f0 = 0;
-            memset(lbl_805A28E0[arg0].name, 0, 0x20);
-            memset(lbl_805A28E0[arg0].name2, 0, 0x20);
-            lbl_805A28E0[arg0].f44 = 0;
-            lbl_805A28E0[arg0].f48 = 0;
-            lbl_805A28E0[arg0].f4C = 0;
-            lbl_805A28E0[arg0].f50 = 0;
-            lbl_805A28E0[arg0].f54 = -1;
-            lbl_805A28E0[arg0].f58 = 0;
-            lbl_805A28E0[arg0].f5C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f0 = 0;
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name, 0, 0x20);
+            memset(TAdPlayerLoadGC__load_request_slots[arg0].name2, 0, 0x20);
+            TAdPlayerLoadGC__load_request_slots[arg0].f44 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f48 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f4C = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f50 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f54 = -1;
+            TAdPlayerLoadGC__load_request_slots[arg0].f58 = 0;
+            TAdPlayerLoadGC__load_request_slots[arg0].f5C = 0;
         }
     } else {
         *arg1 = 0;
@@ -281,7 +281,7 @@ s32 request_card_open__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1) {
     if (strlen(arg1) >= 0x20) {
         return -2;
     }
-    if (lbl_805A28E0[arg0].f44 != 0) {
+    if (TAdPlayerLoadGC__load_request_slots[arg0].f44 != 0) {
         return -4;
     }
     while (r != 1) {
@@ -294,11 +294,11 @@ s32 request_card_open__15TAdPlayerLoadGCFiPv(s32 arg0, const char *arg1) {
     if (r != 1) {
         return -100;
     }
-    lbl_805A28E0[arg0].f44 = 9;
-    lbl_805A28E0[arg0].f48 = 1;
-    lbl_805A28E0[arg0].f58 = 200;
-    memset(lbl_805A28E0[arg0].name, 0, 0x20);
-    strcpy(lbl_805A28E0[arg0].name, arg1);
+    TAdPlayerLoadGC__load_request_slots[arg0].f44 = 9;
+    TAdPlayerLoadGC__load_request_slots[arg0].f48 = 1;
+    TAdPlayerLoadGC__load_request_slots[arg0].f58 = 200;
+    memset(TAdPlayerLoadGC__load_request_slots[arg0].name, 0, 0x20);
+    strcpy(TAdPlayerLoadGC__load_request_slots[arg0].name, arg1);
     return 0;
 }
 

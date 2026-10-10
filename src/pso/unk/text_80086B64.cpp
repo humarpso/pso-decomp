@@ -5,8 +5,8 @@ extern "C" {
 void *initialize_with_direction__13TParticleCtrlFPvPvPviiiii(void *self, void *pos, void *dir, void *ent, int a, int b, int c, int d);
 void *__nw__7TObjectFUl(int);
 extern s32 particle_pool_limit;
-extern Ent_800868C4 *lbl_805D4EF8;
-extern Ent_800868C4 *lbl_805D4EFC;
+extern Ent_800868C4 *particle_global_entry_table;
+extern Ent_800868C4 *particle_area_entry_table;
 void *fn_80086B64(void *pos, void *dir, s32 id, s32 a, s32 b);
 }
 
@@ -20,7 +20,7 @@ void *fn_80086B64(void *pos, void *dir, s32 id, s32 a, s32 b) {
     if (particle_pool_limit > idx) {
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &lbl_805D4EF8[idx], 0, a, b, 0);
+            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &particle_global_entry_table[idx], 0, a, b, 0);
         }
         return p;
     }
@@ -28,7 +28,7 @@ void *fn_80086B64(void *pos, void *dir, s32 id, s32 a, s32 b) {
         idx -= 0x200;
         p = __nw__7TObjectFUl(0x78);
         if (p != 0) {
-            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &lbl_805D4EFC[idx], 0, a, b, 0);
+            p = initialize_with_direction__13TParticleCtrlFPvPvPviiiii(p, pos, dir, &particle_area_entry_table[idx], 0, a, b, 0);
         }
         return p;
     }

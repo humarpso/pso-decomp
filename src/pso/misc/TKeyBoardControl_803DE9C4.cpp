@@ -59,7 +59,7 @@ extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
 s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 extern V4_803DECFC lbl_8058D4C0;
-extern u8 TObjLight__data_8058D528[];
+extern u8 TObjLight__gx_light_objects[];
 extern s32 lbl_805D7780;
 extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
@@ -251,7 +251,7 @@ void init_light_globals(void) {
     lbl_8058D4C0.d = lbl_805E0FB4;
     gx_chan_ctrl_light_mask = 0;
     light_position_distance = lbl_805E0FB8;
-    GXInitLightAttnK(TObjLight__data_8058D528, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
+    GXInitLightAttnK(TObjLight__gx_light_objects, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
     reset_scene_fog();
 }
 

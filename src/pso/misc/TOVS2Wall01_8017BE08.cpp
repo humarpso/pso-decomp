@@ -78,7 +78,7 @@ void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, s32);
 extern u8 ovs2wall01_collision_parts[];
 extern M2C_UNK __vt__11TOVS2Wall01[];
-extern s32 lbl_805D31E0;
+extern s32 TOVS2Wall01__class_name;
 extern s32 TOVS2Wall01__bml_resource;
 extern void *tl_05;
 extern const f32 lbl_805DBAAC;
@@ -185,7 +185,7 @@ void *TOVS2Wall01__ct(void *arg0, void *arg1) {
     construct_actor_base__10TObjPlayerFPvPv(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOVS2Wall01;
     init_and_activate__10TObjPlayerFPv((u8 *)arg0 + 0x340);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D31E0;
+    M2C_FIELD(arg0, s32 *, 0) = TOVS2Wall01__class_name;
     ((VObj_8017C0A4 *)arg0)->m5(arg1);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     obj_setFlags30(arg0, 0x60000000);

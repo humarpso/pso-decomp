@@ -150,7 +150,7 @@ s32 init_collision_body_parts(void *, void *, int);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
 void init_models__15TObjLazerFence4FPv(void *);
 extern u16 lbl_80445BE0[];
-extern u8 lbl_804B8128[];
+extern u8 laser_fence4_collision_body_sets[];
 extern M2C_UNK __vt__15TObjLazerFence4[];
 extern s32 lazer_fence4_class_name;
 extern const f32 lbl_805DBE6C;
@@ -163,12 +163,12 @@ s32 load_gvm_texture_file(void *);
 s32 get_bml_model(void *, s32);
 s32 get_bml_motion(void *, s32);
 u8 *count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, int);
-extern void *lbl_805D5C30;
-extern s32 TLazerFenceSw__data_805D5C34;
-extern u8 *lbl_805D5C38;
+extern void *lazer_fence_switch_bml_resource;
+extern s32 TLazerFenceSw__texture_list;
+extern u8 *lazer_fence_switch_scroll_node;
 extern s32 game_difficulty_selection;
 extern u8 lbl_804B8360[];
-extern u8 lbl_804B8334[];
+extern u8 laser_fence_switch_resource_descriptor[];
 extern u8 lbl_80445CF0[];
 extern u8 lbl_80445D08[];
 extern u8 lbl_80445D20[];
@@ -249,7 +249,7 @@ void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2) {
     }
     self->fB8 = lbl_80445BE0[i];
     init_models__15TObjLazerFence4FPv(self);
-    init_collision_body_parts(self, lbl_804B8128 + (self->f8C % 2) * 0xDC, 5);
+    init_collision_body_parts(self, laser_fence4_collision_body_sets + (self->f8C % 2) * 0xDC, 5);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(self);
     refresh_collision_body_centers(self);
@@ -292,11 +292,11 @@ M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 void pop_matrix(void);
-extern u8 *lbl_805D5C38;
+extern u8 *lazer_fence_switch_scroll_node;
 extern u32 actor_frame_tick;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805DBE78;
-extern s32 TLazerFenceSw__data_805D5C34;
+extern s32 TLazerFenceSw__texture_list;
 void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
     Sw_801936E0 *self = (Sw_801936E0 *)arg0;
     s32 i;
@@ -304,10 +304,10 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
     for (i = 0; i < 3; i++) {
         free_children__12TObjDoorJungFPvPv(lbl_8050DCF8[i], self->fE8);
     }
-    set_global_param__8TObjFishFi(TLazerFenceSw__data_805D5C34);
+    set_global_param__8TObjFishFi(TLazerFenceSw__texture_list);
     if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {
         self->f114 = actor_frame_tick;
-        scroll_ginja_mesh_uvs(*(u32 *)(lbl_805D5C38 + 4), 0, (s32)self->f110, 5, 1);
+        scroll_ginja_mesh_uvs(*(u32 *)(lazer_fence_switch_scroll_node + 4), 0, (s32)self->f110, 5, 1);
         PPCSync();
         self->f110 = self->f110 - (f32)(s32)self->f110;
     }
@@ -428,16 +428,16 @@ void *create__13TLazerFenceSwFPv(void *arg0) {
     return o;
 }
 
-extern void *lbl_805D5C30;
-extern s32 TLazerFenceSw__data_805D5C34;
+extern void *lazer_fence_switch_bml_resource;
+extern s32 TLazerFenceSw__texture_list;
 
 void TLazerFenceSw__sub_80193C5C(void) {
-    if (lbl_805D5C30 != 0) {
-        TLobby__sub_8001FE7C(lbl_805D5C30, 1);
-        lbl_805D5C30 = 0;
+    if (lazer_fence_switch_bml_resource != 0) {
+        TLobby__sub_8001FE7C(lazer_fence_switch_bml_resource, 1);
+        lazer_fence_switch_bml_resource = 0;
     }
-    free_if_valid__10TObjPlayerFi(TLazerFenceSw__data_805D5C34);
-    TLazerFenceSw__data_805D5C34 = 0;
+    free_if_valid__10TObjPlayerFi(TLazerFenceSw__texture_list);
+    TLazerFenceSw__texture_list = 0;
 }
 
 extern M2C_UNK __vt__13TLazerFenceSw[];
@@ -450,31 +450,31 @@ void load_resources__13TLazerFenceSwFv(void) {
     s32 j;
     s32 i;
     Node_80193CA4 *n;
-    lbl_805D5C30 = 0;
+    lazer_fence_switch_bml_resource = 0;
     state = get_global_state__14TOKeyMachine01Fv();
     if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || state == 0x1C || state == 0x1D) {
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != NULL) {
             obj = load_resource_from_descriptor(obj, 5, lbl_804B8360, 0, 0, 0);
         }
-        lbl_805D5C30 = obj;
-        TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445CF0);
+        lazer_fence_switch_bml_resource = obj;
+        TLazerFenceSw__texture_list = load_gvm_texture_file(lbl_80445CF0);
     } else {
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != NULL) {
-            obj = load_resource_from_descriptor(obj, 5, lbl_804B8334, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, laser_fence_switch_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5C30 = obj;
+        lazer_fence_switch_bml_resource = obj;
         if (game_difficulty_selection == 3) {
-            TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D08);
+            TLazerFenceSw__texture_list = load_gvm_texture_file(lbl_80445D08);
         } else {
-            TLazerFenceSw__data_805D5C34 = load_gvm_texture_file(lbl_80445D20);
+            TLazerFenceSw__texture_list = load_gvm_texture_file(lbl_80445D20);
         }
     }
-    lazer_fence_sw_ginja_model_table[0] = get_bml_model(lbl_805D5C30, 0);
-    lazer_fence_sw_ginja_model_table[1] = get_bml_model(lbl_805D5C30, 1);
-    ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion(lbl_805D5C30, 0);
-    ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion(lbl_805D5C30, 1);
+    lazer_fence_sw_ginja_model_table[0] = get_bml_model(lazer_fence_switch_bml_resource, 0);
+    lazer_fence_sw_ginja_model_table[1] = get_bml_model(lazer_fence_switch_bml_resource, 1);
+    ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion(lazer_fence_switch_bml_resource, 0);
+    ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion(lazer_fence_switch_bml_resource, 1);
     for (j = 0; j < 3; j++) {
         lbl_8050DCF8[j] = 0;
     }
@@ -490,7 +490,7 @@ void load_resources__13TLazerFenceSwFv(void) {
             n = n->next;
         }
     }
-    lbl_805D5C38 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(lazer_fence_sw_ginja_model_table[1], 3);
+    lazer_fence_switch_scroll_node = count_linked_switches__23TObjSeabedSuisoBrakableFUii(lazer_fence_sw_ginja_model_table[1], 3);
 }
 #pragma pop
 

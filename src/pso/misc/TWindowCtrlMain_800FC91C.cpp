@@ -38,7 +38,7 @@ void TWindowSubStatusDisp__sub_80228F5C(s32);
 void text_builder_append(void *);
 void text_builder_reset(void);
 extern char *status_text_label_table[];
-extern Ent_800FC968 lbl_80509D5C[];
+extern Ent_800FC968 lobby_player_status_records[];
 extern char lbl_805DA9F4[4];
 extern char lbl_805DA9F8[4];
 s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0);
@@ -112,15 +112,15 @@ s32 build_status_text__20TWindowSubStatusDispFi(s32 arg0) {
             return 0;
         }
         text_builder_append(lbl_805DA9F4);
-        TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].a);
+        TWindowSubStatusDisp__sub_80228F5C(lobby_player_status_records[arg0].a);
         text_builder_append(lbl_805DA9F8);
-        TWindowSubStatusDisp__sub_80228F5C(lbl_80509D5C[arg0].b);
+        TWindowSubStatusDisp__sub_80228F5C(lobby_player_status_records[arg0].b);
         break;
     case 3:
         if ((s8)info[0x33] < 2) {
             return 0;
         }
-        text_builder_append(TWindowSubStatusDisp__sub_80071820(lbl_80509D5C[arg0].name));
+        text_builder_append(TWindowSubStatusDisp__sub_80071820(lobby_player_status_records[arg0].name));
         break;
     case 4:
         return 0;
@@ -155,7 +155,7 @@ void update_help_text__14TFontSmallHelpFPv(void *arg0) {
         if (temp_r3_3 != 0U) {
             if ((s32) M2C_FIELD(arg0, s32 *, 0x60) == 3) {
                 temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
-                TFontSmallHelp__sub_800FC424(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv((s8 *)lbl_80509D5C + (temp_r4 * 0x11C) + 4, temp_r4));
+                TFontSmallHelp__sub_800FC424(arg0, get_status_index_or_default__20TWindowSubStatusDispFPv((s8 *)lobby_player_status_records + (temp_r4 * 0x11C) + 4, temp_r4));
             } else {
                 TFontSmallHelp__sub_800FC424(arg0, fn_800FCCF4(temp_r3));
             }

@@ -87,8 +87,8 @@ extern "C" u8 lbl_804465AC[];
 extern "C" u8 lbl_804465C4[];
 extern "C" u8 lbl_804465E0[];
 extern "C" u8 lbl_804465FC[];
-extern void *lbl_804B9490[4];
-extern void *lbl_804B94A0[3];
+extern void *boss_warp_model_names[4];
+extern void *boss_warp_motion_names[3];
 extern void *lbl_804B94BC[4];
 extern void *lbl_804B94CC[3];
 extern void *lbl_804B94E8[3];
@@ -197,14 +197,14 @@ void TObjFish__sub_8019F72C(void) {
 
     extern int lbl_805D5CA4;
 
-void *lbl_804B9490[4] = {
+void *boss_warp_model_names[4] = {
     (void *)&lbl_80446480, (void *)&lbl_80446494, (void *)&lbl_804464AC, (void *)0x0,
 };
-void *lbl_804B94A0[3] = {
+void *boss_warp_motion_names[3] = {
     (void *)&lbl_804464C8, (void *)&lbl_804464E4, (void *)0x0,
 };
 void *lbl_804B94AC[4] = {
-    (void *)&lbl_80446500, (void *)&lbl_804B9490, (void *)&lbl_804B94A0, (void *)0x30002,
+    (void *)&lbl_80446500, (void *)&boss_warp_model_names, (void *)&boss_warp_motion_names, (void *)0x30002,
 };
 void *lbl_804B94BC[4] = {
     (void *)&lbl_80446514, (void *)&lbl_8044652C, (void *)&lbl_80446544, (void *)0x0,

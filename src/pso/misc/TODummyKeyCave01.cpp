@@ -57,7 +57,7 @@ extern "C" {
 u8 * TPhotonMagicSquare__sub_801A2640(void *);
 M2C_UNK fn_80165940(void *, f32);
 extern M2C_UNK __vt__16TODummyKeyCave01[];
-extern s32 lbl_805D2FA8;
+extern s32 TODummyKeyCave01__class_name;
 u8 *TODummyKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
@@ -222,7 +222,7 @@ void *__dt__16TODummyKeyCave01Fv(void *arg0, s16 arg1) {
 u8 *TODummyKeyCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TPhotonMagicSquare__sub_801A2640(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80165EE8___vt__16TODummyKeyCave01 *)&__vt__16TODummyKeyCave01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FA8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODummyKeyCave01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xA8) = (f32) 1.0f;
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) 1.0f;

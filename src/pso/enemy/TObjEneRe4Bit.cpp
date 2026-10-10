@@ -1594,8 +1594,8 @@ int set_state_8__9TObjEneDDFPv(void *);
 int init_model__9TObjEneDDFPv(void *, void *, int);
 int init_position_vectors__9TObjEneDDFPv(void *);
 struct Tbl_800ED7FC { s32 a[2]; s32 b[2]; s32 c[2]; };
-extern s32 lbl_805D52C8;
-extern s32 lbl_805D52CC;
+extern s32 TObjEneRe4Bit__model;
+extern s32 re4_bit_texture_list;
 extern const f32 TObjEneRe4Bit__data_805DA770;
 extern const f32 lbl_805DA784;
 
@@ -1603,8 +1603,8 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     s32 i;
 
     init_position_vectors__9TObjEneDDFPv(self);
-    self->x34 = lbl_805D52C8;
-    self->x24 = lbl_805D52CC;
+    self->x34 = TObjEneRe4Bit__model;
+    self->x24 = re4_bit_texture_list;
     init_model__9TObjEneDDFPv(self, lbl_80496CEC, 1);
     i = self->kind == 1 ? 0 : 1;
     reset_hp__9TObjEneDDFPv(self, TObjEneRe4Bit_boss_handles[i], lbl_80501058[i], lbl_80501060[i]);
@@ -1668,8 +1668,8 @@ extern s32 lbl_8043D2B0[];
 extern s32 lbl_8043D2B8[];
 extern s32 lbl_8043D2C0[];
 extern s32 lbl_8043D2C8[];
-extern s32 lbl_805D52C8;
-extern s32 lbl_805D52CC;
+extern s32 TObjEneRe4Bit__model;
+extern s32 re4_bit_texture_list;
 extern Obj_800EDAB4 *lbl_805D52E0;
 }
 
@@ -1703,8 +1703,8 @@ void * create__13TObjEneRe4BitFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
 void TObjEneRe4Bit__sub_800EDAB0(void) {  }
 void TObjEneRe4Bit__sub_800EDAB4(void) {
     s32 i;
-    lbl_805D52C8 = lbl_805D52E0->f42C->f18;
-    lbl_805D52CC = lbl_805D52E0->f42C->fC;
+    TObjEneRe4Bit__model = lbl_805D52E0->f42C->f18;
+    re4_bit_texture_list = lbl_805D52E0->f42C->fC;
     for (i = 0; i < 2; i++) {
         TObjEneRe4Bit_boss_handles[i] = register_boss__6TLobbyFPv(lbl_8043D2B0[i]);
         lbl_80501058[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043D2B8[i]);

@@ -34,7 +34,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(int);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0);
 extern M2C_UNK TChallenge4PResult__slot_entries[];
 void clear_slot_entries__18TChallenge4PResultFv(void);
@@ -167,14 +167,14 @@ void TChallenge4PResult__sub_8034BA2C(u8 *arg0) {
 
 int queue_destruction__18TChallenge4PResultFPv(void* p) { return queue_destruction__7TObjectFv(p); }
 
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 
 typedef char RecoveredGlobal_8034BA68_lbl_8050E208_size[sizeof(RecoveredGlobal_8034BA68_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0) {
     s32 temp_r5;
     if (get_player_by_client_id((int) (arg0->slot_index)) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&lbl_8050E208).value + temp_r5 + 0x20)), (M2C_UNK)((int) (4)), (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), (M2C_UNK)((int) (4)), (s32)((int) (temp_r5))) != 0) {
             arg0->state_1c = 3;
         }
     } else {
@@ -231,7 +231,7 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
         }
         if (get_player_by_client_id((u16)(M2C_FIELD(arg0, u16 *, 0x24))) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
-            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 4, temp_r5) != 0) {
+            if (TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 4, temp_r5) != 0) {
                 M2C_FIELD(arg0, s32 *, 0x1C) = 1;
             }
         } else {

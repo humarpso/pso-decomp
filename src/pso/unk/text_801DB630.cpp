@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK bswap__13packet_headerFv(s32 *);
 
-void handle_cmd_97(void *arg0, s32 *arg1) {
+void handle_cmd_97__9TProtocolFR6packet(void *arg0, s32 *arg1) {
     s32 sp8;
     u8 temp_r3;
     M2C_UNK (*temp_r12)(u8);

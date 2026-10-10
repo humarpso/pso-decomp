@@ -199,7 +199,7 @@ void TWindowSubItem__sub_8027AA30(u8 *arg0);
 void reset_selected__14TWindowSubItemFPv(void* p);
 void set_field_74__14TWindowSubItemFPvs(void* p, s16 v);
 void refresh__14TWindowSubItemFPv(void* p);
-extern Pad_80279FFC lbl_8050E208[];
+extern Pad_80279FFC controller_input_state[];
 void run_task__14TWindowSubItemFv(u8 *arg0);
 void set_cursor_row_for_mode__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 }
@@ -522,7 +522,7 @@ extern M2C_UNK __vt__14TWindowSubItem[];
 
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 #define LIST F(s32, 0x30)
-#define BACK_PRESSED(idx) (TWindowShortListCtrl__check_controller_button(lbl_8050E208[idx].f20, 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].f20, 2) != 0)
+#define BACK_PRESSED(idx) (TWindowShortListCtrl__check_controller_button(controller_input_state[idx].f20, 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].f20, 2) != 0)
 void run_task__14TWindowSubItemFv(u8 *arg0) {
     s32 p;
     s32 idx;
@@ -801,12 +801,12 @@ void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_8044F998[];
 extern M2C_UNK __vt__14TWindowSubItem[];
-extern s32 lbl_805D3A50;
+extern s32 TWindowSubItem__class_name;
 
 void *TWindowSubItem__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TWindowSubItem;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A50;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubItem__class_name;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x30) = create_sub_item_list_window(get_window_layout_position(3), lbl_8044F998, M2C_FIELD(arg0, s32 *, 0x24));

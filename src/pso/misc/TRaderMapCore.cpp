@@ -482,7 +482,7 @@ u32 get_player_by_client_id(s32);
 void add_zoom_distance__13TRaderMapCoreFf(f32 farg0);
 void pan_vertical__13TRaderMapCoreFv(f32 farg0);
 void pan_horizontal__13TRaderMapCoreFv(f32 farg0);
-extern Pad_801FAF24 lbl_8050E208[];
+extern Pad_801FAF24 controller_input_state[];
 extern RecoveredGlobal_801F9720_TRaderMapCore__data_80513708 TRaderMapCore__map_view_state;
 extern const f32 TRaderMapCore__data_805DC528;
 extern const f32 TRaderMapCore__data_805DC58C;
@@ -1204,27 +1204,27 @@ void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0) {
     if (self->f184 != 0) {
         for (j = 0; j < 4; j++) {
             p = get_player_by_client_id(j);
-            if (p != 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0) {
+            if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0) {
                 self->f184 = 0;
                 return;
             }
         }
-        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10) != 0) {
             self->f18C += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20) != 0) {
             self->f18C -= lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x40) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x40) != 0) {
             self->f188 += lbl_805DC598;
         }
-        if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x80) != 0) {
+        if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x80) != 0) {
             self->f188 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFiiii(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFiiii(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x20000, 0x27, 1) != 0) {
             self->f190 -= lbl_805DC598;
         }
-        if (apply_packed_flags__13TRaderMapCoreFiiii(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
+        if (apply_packed_flags__13TRaderMapCoreFiiii(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f184)].ctl, 0x10000, 0x27, 1) != 0) {
             self->f190 += lbl_805DC598;
         }
         pan_horizontal__13TRaderMapCoreFv(self->f188);
@@ -1237,8 +1237,8 @@ void update_pan_zoom_input__13TRaderMapCoreFPv(u8 *arg0) {
     }
     for (k = 0; k < 4; k++) {
         p = get_player_by_client_id(k);
-        if (p != 0 && TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0 &&
-            has_flag__13TRaderMapCoreFPv(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x10000) != 0) {
+        if (p != 0 && TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x200) != 0 &&
+            has_flag__13TRaderMapCoreFPv(controller_input_state[get_map_id__13TRaderMapCoreFPv(p)].ctl, 0x10000) != 0) {
             self->f184 = p;
             u8 *cam = (u8 *)&TRaderMapCore__map_view_state;
             M2C_FIELD(cam, f32 *, 0x28) = M2C_FIELD(self->f184, f32 *, 0x38);

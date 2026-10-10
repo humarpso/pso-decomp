@@ -19,7 +19,7 @@ void ensure_status_display__20TWindowSubStatusDispFPvi(void *, void *);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFPviii(void *, s8, s32, s32);
 extern M2C_UNK __vt__22TWindowSubShortCutList[];
-extern s32 lbl_805D3A90;
+extern s32 TWindowSubShortCutList__class_name;
 extern s32 local_client_id;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
 s32 get_shared_text_buffer();
@@ -144,7 +144,7 @@ void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2) {
     void *p;
     fn_802683F4(arg0, arg1, 4, local_client_id);
     ((Obj_8027E558 *)arg0)->vt = ((s32 *)&__vt__22TWindowSubShortCutList);
-    ((Obj_8027E558 *)arg0)->f0 = lbl_805D3A90;
+    ((Obj_8027E558 *)arg0)->f0 = TWindowSubShortCutList__class_name;
     row = (s32)arg2 / 4;
     col = (s32)arg2 % 4;
     ensure_status_display__20TWindowSubStatusDispFPvi(arg0, get_message_10__20TWindowSubStatusDispFPv(0x2D));

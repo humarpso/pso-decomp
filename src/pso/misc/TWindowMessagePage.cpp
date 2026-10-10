@@ -29,7 +29,7 @@ s32 is_message_window_ready(void *);
 M2C_UNK complete_reveal__14TWindowMessageFPv(void *);
 M2C_UNK draw__14TWindowMessageFPv();
 void update_message__18TWindowMessagePageFPv(void *arg0);
-extern RecoveredGlobal_8026AF24_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8026AF24_lbl_8050E208 controller_input_state;
 void run_task__18TWindowMessagePageFv(u8 *arg0);
 void update_message__18TWindowMessagePageFPv(void *arg0);
 void set_message__18TWindowMessagePageFPvPvi(Page_8026AE20 *self, void *msg, s32 flags);
@@ -101,7 +101,7 @@ void run_task__18TWindowMessagePageFv(u8 *arg0) {
     s32 temp_r5;
     draw__14TWindowMessageFPv();
     temp_r5 = is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x20))) * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (4), (int) (temp_r5)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         if (is_message_window_ready((void *)((void *) (arg0))) != 0) {
             update_message__18TWindowMessagePageFPv((void *) (arg0));
             return;

@@ -65,7 +65,7 @@ s32 check_can_open__16TObjBagWarnWin4PFv(void * _w0) {
     return var_r31;
 }
 
-extern M2C_UNK lbl_80488E48[];
+extern M2C_UNK TObjBagWarnWin4P__message_window_size[];
 
 void run_task__16TObjBagWarnWin4PFv(u8 *arg0) {
     s32 temp_r0;
@@ -93,7 +93,7 @@ void run_task__16TObjBagWarnWin4PFv(u8 *arg0) {
 
 void create_window__16TObjBagWarnWin4PFPv(u8 *arg0) {
     M2C_UNK r3 = get_window_layout_position(0x5B);
-    M2C_FIELD(arg0, u32 *, 0x1C) = create_message_window__6TLobbyFiiUis(r3, lbl_80488E48, 1, 4);
+    M2C_FIELD(arg0, u32 *, 0x1C) = create_message_window__6TLobbyFiiUis(r3, TObjBagWarnWin4P__message_window_size, 1, 4);
     if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
         strncpy(arg0 + 0x20, TQuestVmDownLoadServer__sub_8006EF6C(0x69), 0x7F);
         M2C_FIELD(arg0, s8 *, 0x9F) = 0;

@@ -38,8 +38,8 @@ s32 TAdSinglePlyChrSelectGC__sub_801334DC(int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK TWindow__close(void *);
-extern RecoveredGlobal_80329830_lbl_8050E208 lbl_8050E208;
-extern RecoveredGlobal_80329830_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_80329830_lbl_8050E208 controller_input_state;
+extern RecoveredGlobal_80329830_lbl_8050E3B8 controller_physical_port_bank;
 extern const f32 lbl_805DF710;
 void update_state__18TAdAgreementBaseGCFPv(u8 *arg0);
 void create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *, void *, void *);
@@ -139,7 +139,7 @@ void update_state__18TAdAgreementBaseGCFPv(u8 *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x24) = 4;
                 break;
             }
-        } else if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+        } else if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
             M2C_FIELD(arg0, s32 *, 0x24) = 5;
         }

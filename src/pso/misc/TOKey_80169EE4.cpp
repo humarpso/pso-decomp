@@ -171,7 +171,7 @@ void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
     }
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 
 void send_switch_on__5TOKeyFv(void* key) {
     SwitchPacket packet;
@@ -222,7 +222,7 @@ s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     if ((temp_r0 == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1)) {
         return 0;
     }
-    if ((is_local_player_in_range__5TOKeyFPv((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
+    if ((is_local_player_in_range__5TOKeyFPv((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {
         return 1;
     }
     return 0;

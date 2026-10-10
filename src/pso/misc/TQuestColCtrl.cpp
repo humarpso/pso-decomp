@@ -15,18 +15,18 @@ extern "C" {
 int run_tasks__7TObjectFv(void*);
 void run_task__13TQuestColCtrlFv(void);
 M2C_UNK TQuestColCtrl__sub_80196EC0();
-extern u32 lbl_805D5C50;
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
+extern u32 quest_collision_task_root;
 int run_tasks__7TObjectFv(void*);
 void run_task__13TQuestColCtrlFv(void);
 void *__nw__7TObjectFUl(int);
 void *TObjQuestColApcINW__ct(void *self, void *parent, void *arg);
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id);
 void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
 extern M2C_UNK __vt__13TQuestColCtrl[];
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
 void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
 }
 
@@ -43,17 +43,17 @@ extern void *lbl_805D3404;
 
 void run_task__13TQuestColCtrlFv(void) {
     TQuestColCtrl__sub_80196EC0();
-    if ((u32) lbl_805D5C50 != 0U) {
-        run_tasks__7TObjectFv((void*)((void*)lbl_805D5C50));
+    if ((u32) quest_collision_task_root != 0U) {
+        run_tasks__7TObjectFv((void*)((void*)quest_collision_task_root));
     }
 }
 
 void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         *(void **)((u8 *)arg0 + 0x18) = ((s32 *)&__vt__13TQuestColCtrl);
-        if (lbl_805D5C50 != 0U) {
-            delete (Obj_80195F50 *)lbl_805D5C50;
-            lbl_805D5C50 = 0;
+        if (quest_collision_task_root != 0U) {
+            delete (Obj_80195F50 *)quest_collision_task_root;
+            quest_collision_task_root = 0;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -72,7 +72,7 @@ void *TQuestColCtrl__ct(void *arg0) {
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id) {
     Obj_8019601C *o = (Obj_8019601C *)__nw__7TObjectFUl(0xcc);
     if (o != 0) {
-        o = (Obj_8019601C *)TObjQuestColApcINW__ct(o, (void *)lbl_805D5C50, arg);
+        o = (Obj_8019601C *)TObjQuestColApcINW__ct(o, (void *)quest_collision_task_root, arg);
     }
     if (o != 0) {
         *out_id = o->id;

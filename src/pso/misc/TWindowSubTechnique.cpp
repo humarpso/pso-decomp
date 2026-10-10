@@ -77,7 +77,7 @@ void update_selected_help__19TWindowSubTechniqueFPvi(u8 *arg0, s32 arg1);
 void clear_flag70_bit80__19TWindowSubTechniqueFPv(void* p);
 void clear_trade_flag__19TWindowSubTradeMainFPv(void* p);
 extern u8 lbl_8044FC54[];
-extern Pad_802870C4 lbl_8050E208[];
+extern Pad_802870C4 controller_input_state[];
 void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self);
 }
 
@@ -227,8 +227,8 @@ void run_task__19TWindowSubTechniqueFv(Tech_802870C4 *self) {
     case 5:
         update_cursor__10TObjPlayerFPvi(ply, get_selected_menu_value(self->sel));
         if (is_technique_available__19TWindowSubTechniqueFii(get_selected_menu_value(self->sel), self->player) == 0 ||
-            TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
+            TWindowShortListCtrl__check_controller_button(controller_input_state[port].m20, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].m20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             rebuildTechniqueList__19TWindowSubTechniqueFll(self, self->sel, get_selected_menu_value(self->list));
             self->state = 1;

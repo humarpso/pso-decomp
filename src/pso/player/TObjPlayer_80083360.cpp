@@ -12,7 +12,7 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 s32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK init_render_target__10TObjPlayerFPv();
 M2C_UNK reset_lobby_subobject__10TObjPlayerFPv(void*);
-extern u32 lbl_805D4EE8;
+extern u32 camera_render_target_singleton;
 void update_camera_effect__10TObjPlayerFPv(void *arg0);
 M2C_UNK TCameraCtrl__sub_80068EF0();
 M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
@@ -39,20 +39,20 @@ s32 get_camera_flag__10TObjPlayerFv(void);
 extern M2C_UNK lbl_8048E5F4[];
 
 void free_singleton__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D4EE8 != 0U) {
-        reset_lobby_subobject__10TObjPlayerFPv((void*)lbl_805D4EE8);
+    if ((u32) camera_render_target_singleton != 0U) {
+        reset_lobby_subobject__10TObjPlayerFPv((void*)camera_render_target_singleton);
     }
-    if ((u32) lbl_805D4EE8 != 0U) {
-        __dl__FPv((void*)lbl_805D4EE8);
-        lbl_805D4EE8 = 0U;
+    if ((u32) camera_render_target_singleton != 0U) {
+        __dl__FPv((void*)camera_render_target_singleton);
+        camera_render_target_singleton = 0U;
     }
 }
 void init_render_target_singleton__10TObjPlayerFv(void) {
     u32 temp_r3;
-    lbl_805D4EE8 = 0U;
+    camera_render_target_singleton = 0U;
     if (get_global_state__14TOKeyMachine01Fv() == 0x21) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv(0x28);
-        lbl_805D4EE8 = temp_r3;
+        camera_render_target_singleton = temp_r3;
         if (temp_r3 != 0U) {
             init_render_target__10TObjPlayerFPv();
         }

@@ -138,7 +138,7 @@ int TWindowSubMag__sub_8027C0E8(void* p);
 int get_active_flag__13TWindowSubMagFPv(void* p);
 u32 is_action_active__10TObjPlayerFPv(void *);
 extern u8 lbl_8044F9E8[];
-extern Pad_8027B888 lbl_8050E208[];
+extern Pad_8027B888 controller_input_state[];
 void run_task__13TWindowSubMagFv(void *arg0);
 }
 
@@ -463,8 +463,8 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         }
         break;
     case 7:
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].sub, 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].sub, 2) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state[port].sub, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].sub, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 5;
         } else if (is_usable__14TWindowSubItemFi(player) != 0) {
@@ -602,12 +602,12 @@ void *__dt__13TWindowSubMagFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__13TWindowSubMag[];
-extern s32 lbl_805D3A68;
+extern s32 TWindowSubMag__class_name;
 
 void *TWindowSubMag__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowSubMag;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A68;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubMag__class_name;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
     M2C_FIELD(arg0, s32 *, 0x34) = setup_list__13TWindowSubMagFPv((void *)(arg0));

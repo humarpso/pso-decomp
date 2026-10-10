@@ -62,7 +62,7 @@ extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
 M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
-s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
+s32 poll_keyboard_port(s32, M2C_UNK *);
 void disable_disconnected_ports__16TKeyBoardControlFv(void);
 bool TKeyBoardControl__sub_801321B4(s32);
 s32 check_input_ready__16TKeyBoardControlFi(s32 arg0);
@@ -76,7 +76,7 @@ M2C_UNK init_pad_states__16TKeyBoardControlFv();
 M2C_UNK fn_803F1864(M2C_UNK *);
 void reset_input__16TKeyBoardControlFi(s32 arg0);
 M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
-s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
+s32 poll_keyboard_port(s32, M2C_UNK *);
 void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
 int is_key_held__16TKeyBoardControlFPv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
@@ -84,7 +84,7 @@ M2C_UNK request_close__19TWindowSubTradeMainFPv(void *);
 M2C_UNK window_request_show(void *);
 s32 is_player_input_active(int);
 M2C_UNK TKeyBoardControl__sub_8025EC04(int);
-extern RecoveredGlobal_80131C5C_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80131C5C_lbl_8050E208 controller_input_state;
 void run_task__16TKeyBoardControlFv(u8 *arg0);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void append_next_char_global__16TKeyBoardControlFv(void);
@@ -103,7 +103,7 @@ u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
 void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 s8 TKeyBoardControl__sub_803F1548(s32);
-s32 TKeyBoardControl__sub_803F1604(s32, M2C_UNK *);
+s32 poll_keyboard_port(s32, M2C_UNK *);
 s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1);
 void tick_key_repeat_timer__16TKeyBoardControlFPvUc(Kb_801324F8 *arg0, u8 arg1);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
@@ -154,7 +154,7 @@ void run_task__16TKeyBoardControlFv(u8 *arg0) {
     temp_r3 = is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x1E)));
     if (M2C_FIELD(arg0, u16 *, 0x1C) & 1) {
         temp_r5 = temp_r3 * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (0x200), (int) (temp_r5)) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (0x200), (int) (temp_r5)) != 0) {
             M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
             TKeyBoardControl__sub_8025EC04((int) (M2C_FIELD(arg0, s32 *, 0x24)));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
@@ -201,7 +201,7 @@ s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1) {
     if (arg0->f3 >= 0x7C) {
         return 1;
     }
-    r = TKeyBoardControl__sub_803F1604((s32)(arg1), (M2C_UNK *)((s32 *)&arg0->buf[arg0->f3]));
+    r = poll_keyboard_port((s32)(arg1), (M2C_UNK *)((s32 *)&arg0->buf[arg0->f3]));
     if (r == -1) {
         return 0;
     }
@@ -237,7 +237,7 @@ void disable_disconnected_ports__16TKeyBoardControlFv(void) {
     s32 var_r31;
     var_r31 = 0;
     do {
-        temp_r3 = TKeyBoardControl__sub_803F1604(var_r31, &sp8);
+        temp_r3 = poll_keyboard_port(var_r31, &sp8);
         if ((temp_r3 == -1) || (temp_r3 == -0x80)) {
             TKeyBoardControl__sub_803F0E90(var_r31, 0);
         }
@@ -419,7 +419,7 @@ void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0) {
 
 void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
     M2C_UNK sp8;
-    if (TKeyBoardControl__sub_803F1604((s32)((void *) (arg1)), (M2C_UNK *)((void *) (&sp8))) == 0) {
+    if (poll_keyboard_port((s32)((void *) (arg1)), (M2C_UNK *)((void *) (&sp8))) == 0) {
         TKeyBoardControl__sub_803F0E90((s32)((void *) (arg1)), (M2C_UNK)((int) (0)));
     }
 }

@@ -42,7 +42,7 @@ void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
-extern Pad_80306DF4 lbl_8050E3B8[];
+extern Pad_80306DF4 controller_physical_port_bank[];
 void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK begin_screen_draw(int);
@@ -132,7 +132,7 @@ void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
 void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     O_80306DF4 *o = (O_80306DF4 *)arg0;
     Ports_80306DF4 ports = lbl_80475410;
-    if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8[ports.v[o->port[arg1]]].btn, 4) != 0) {
+    if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank[ports.v[o->port[arg1]]].btn, 4) != 0) {
         E_80306DF4 *e = &o->e[arg1];
         if (e->flags & 4) {
             e->t = -1;
@@ -145,7 +145,7 @@ void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
             e->flags |= 2;
             play_sound_effect(0x52D01, 0, 0, 0);
         }
-    } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8[ports.v[o->port[arg1]]].btn, 2) != 0) {
+    } else if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank[ports.v[o->port[arg1]]].btn, 2) != 0) {
         if (!(o->e[arg1].flags & 2)) {
             o->flags |= 1;
             play_sound_effect(0x52F16, 0, 0, 0);

@@ -44,7 +44,7 @@ u32 show_card_a7__26TWindowSubInformationBoardFPv(void *);
 u32 open_card_info_window__17TWindowSubComCardFPv(void *);
 u32 TWindowSubComCard__sub_8034CDE0(void *);
 u32 create_info_board_menu(void *);
-extern M2C_UNK lbl_8050E208[];
+extern M2C_UNK controller_input_state[];
 void run_task__26TWindowSubInformationBoardFv(u8 *arg0);
 }
 
@@ -98,7 +98,7 @@ void run_task__26TWindowSubInformationBoardFv(u8 *arg0) {
         init_once_data__6TLobbyFUi((void *) ((u8 *)(arg0) + 0x40));
         M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
     case 4:
-        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(lbl_8050E208) + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (2)) != 0)) {
             play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
             M2C_FIELD(arg0, u8 *, 0x1C) = 5U;
         }

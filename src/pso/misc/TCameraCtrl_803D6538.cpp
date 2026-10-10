@@ -137,7 +137,7 @@ f64 atan(f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern Proj_803D676C lbl_8058CA60;
-extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
+extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern G_803D6688 lbl_8058D4F8;
 extern Disp_803D676C *lbl_805D7734;
 extern const f32 lbl_805E0E18;
@@ -154,7 +154,7 @@ void interpolate_motion_quaternion_keys(u32 keys, u32 count, s32 output,
                                         f32 frame);
 u32 find_motion_key_partition_u32(u8 *base, u32 stride, u32 hi, u32 key);
 void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count, f32 frame, f32 *output);
-extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
+extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern G_803D6688 lbl_8058D4F8;
 extern const f32 lbl_805E0E10;
 void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0);
@@ -179,7 +179,7 @@ extern u8 *current_matrix;
 void set_camera_look_at(u8 *arg0, u8 *arg1, u8 *arg2);
 extern f32 motion_blend_factor;
 void bind_motion_blend_channels(u8 *arg0, f32 farg0);
-extern RecoveredGlobal_803D662C_lbl_8058D4D0 lbl_8058D4D0;
+extern RecoveredGlobal_803D662C_lbl_8058D4D0 camera_clip_parameters;
 extern const f32 lbl_805E0E00;
 extern const f32 lbl_805E0E04;
 void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1);
@@ -308,8 +308,8 @@ void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1) {
     if (var_f2 < lbl_805E0E04) {
         var_f2 = lbl_805E0E04;
     }
-    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 4) = (f32) -var_f1;
-    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 0) = (f32) -var_f2;
+    M2C_FIELD(&camera_clip_parameters.value, f32 *, 4) = (f32) -var_f1;
+    M2C_FIELD(&camera_clip_parameters.value, f32 *, 0) = (f32) -var_f2;
 }
 #pragma pop
 
@@ -342,10 +342,10 @@ void update_projection_params__11TCameraCtrlFPv(Cam_803D66DC *arg0) {
     (*(Cam_803D66DC *)&lbl_8058D4F8).f4 = -((*(Cam_803D66DC *)&lbl_8058D4F8).f20 * a);
     (*(Cam_803D66DC *)&lbl_8058D4F8).f10 = lbl_805E0E10 / (*(Cam_803D66DC *)&lbl_8058D4F8).f0;
     (*(Cam_803D66DC *)&lbl_8058D4F8).f14 = lbl_805E0E10 / (*(Cam_803D66DC *)&lbl_8058D4F8).f4;
-    (*(Cam_803D66DC *)&lbl_8058D4D0).f8 = (*(Cam_803D66DC *)&lbl_8058D4D0).f20 - b;
-    (*(Cam_803D66DC *)&lbl_8058D4D0).fC = (*(Cam_803D66DC *)&lbl_8058D4D0).f18 - b;
-    (*(Cam_803D66DC *)&lbl_8058D4D0).f10 = (*(Cam_803D66DC *)&lbl_8058D4D0).f24 - c;
-    (*(Cam_803D66DC *)&lbl_8058D4D0).f14 = (*(Cam_803D66DC *)&lbl_8058D4D0).f1C - c;
+    (*(Cam_803D66DC *)&camera_clip_parameters).f8 = (*(Cam_803D66DC *)&camera_clip_parameters).f20 - b;
+    (*(Cam_803D66DC *)&camera_clip_parameters).fC = (*(Cam_803D66DC *)&camera_clip_parameters).f18 - b;
+    (*(Cam_803D66DC *)&camera_clip_parameters).f10 = (*(Cam_803D66DC *)&camera_clip_parameters).f24 - c;
+    (*(Cam_803D66DC *)&camera_clip_parameters).f14 = (*(Cam_803D66DC *)&camera_clip_parameters).f1C - c;
 }
 #pragma pop
 
@@ -382,8 +382,8 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     lbl_8058D4F8.f4 = b;
     lbl_8058D4F8.f10 = one / a;
     lbl_8058D4F8.f14 = one / (f32)(f64)b;
-    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 0) = farg2;
-    M2C_FIELD(&lbl_8058D4D0.value, f32 *, 4) = farg1;
+    M2C_FIELD(&camera_clip_parameters.value, f32 *, 0) = farg2;
+    M2C_FIELD(&camera_clip_parameters.value, f32 *, 4) = farg1;
 }
 
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {

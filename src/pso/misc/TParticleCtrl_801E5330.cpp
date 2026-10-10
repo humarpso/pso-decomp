@@ -17,7 +17,7 @@ void *TQuadSpriteSclColRot__ct(void *, void *, ParticleDefinition *);
 extern ParticleDefinition lbl_804C5820[];
 extern void *TParticleCtrl__data_80511F70[];
 extern void *tl_particle;
-extern f32 lbl_80512120[][4];
+extern f32 particle_sprite_atlas_uv_rects[][4];
 extern s32 lbl_805D35A0[2];
 extern const f32 lbl_805DC458;
 extern const f32 lbl_805DC45C;
@@ -97,7 +97,7 @@ void init_particle_sprite_atlas(void) {
     f32 top;
     f32 v;
 
-    p = lbl_80512120;
+    p = particle_sprite_atlas_uv_rects;
     v = lbl_805DC458;
     for (y = 0; y < 4; y++) {
         top = v;

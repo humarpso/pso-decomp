@@ -32,8 +32,8 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(u32);
 M2C_UNK draw_ginja_object();
-extern u32 lbl_805D5C68;
-extern u32 lbl_805D5C6C;
+extern u32 tank_bml_resource;
+extern u32 TObjTank__texture_list;
 extern const f32 lbl_805DBFA0;
 extern const f32 lbl_805DBFA4;
 void render__8TObjTankFv(u8 *arg0);
@@ -42,8 +42,8 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80446184;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B8F60;
-extern u32 lbl_805D5C68;
-extern u32 lbl_805D5C6C;
+extern u32 tank_bml_resource;
+extern u32 TObjTank__texture_list;
 void load_globals__8TObjTankFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
@@ -85,12 +85,12 @@ struct VObj : Base {
 };
 void render__8TObjTankFv(u8 *arg0) {
     void *p;
-    if ((((VObj *)arg0)->m8(lbl_805DBFA0, lbl_805DBFA4) != 0) && (p = (*(void * *)&lbl_805D5C6C))) {
+    if ((((VObj *)arg0)->m8(lbl_805DBFA0, lbl_805DBFA4) != 0) && (p = (*(void * *)&TObjTank__texture_list))) {
         set_global_param__8TObjFishFi((u32)p);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        get_bml_model((*(s32 *)&lbl_805D5C68), 0);
+        get_bml_model((*(s32 *)&tank_bml_resource), 0);
         draw_ginja_object();
         pop_matrix();
     }
@@ -138,18 +138,18 @@ void *TObjTank__create(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5C68;
-extern u32 lbl_805D5C6C;
+extern u32 tank_bml_resource;
+extern u32 TObjTank__texture_list;
 
 void free_globals__8TObjTankFv(void) {
-    if ((u32) lbl_805D5C6C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5C6C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5C6C);
-        lbl_805D5C6C = 0U;
+    if ((u32) TObjTank__texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)TObjTank__texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjTank__texture_list);
+        TObjTank__texture_list = 0U;
     }
-    if ((u32) lbl_805D5C68 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5C68, 1);
-        lbl_805D5C68 = 0U;
+    if ((u32) tank_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)tank_bml_resource, 1);
+        tank_bml_resource = 0U;
     }
 }
 typedef char RecoveredGlobal_8019A9B8_lbl_80446184_size[sizeof(RecoveredGlobal_8019A9B8_lbl_80446184) == 0x10 ? 1 : -1];
@@ -162,8 +162,8 @@ void load_globals__8TObjTankFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B8F60.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5C68) = var_r0;
-    (*(u8 * *)&lbl_805D5C6C) = load_gvm_texture_file((s32) &lbl_80446184.value);
+    (*(s32 *)&tank_bml_resource) = var_r0;
+    (*(u8 * *)&TObjTank__texture_list) = load_gvm_texture_file((s32) &lbl_80446184.value);
 }
 
 }

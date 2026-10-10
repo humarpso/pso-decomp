@@ -71,7 +71,7 @@ s32 initialize_subwindow__9TWindowDDFPv(void *);
 s32 is_player_input_active(int);
 s32 update_window_entry_list(void *, void *);
 s32 TObjPlayer__sub_80354D5C(int);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 void run_task__20TWindowActionPaletteFv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv(void);
 void set_slot__20TWindowActionPaletteFPvUc(void *, u8);
@@ -289,7 +289,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
     slot = is_player_input_active(M2C_FIELD(arg0, s16 *, 0x20));
-    if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208 + slot * 0x50 + 0x20, fn_8002AE08(M2C_FIELD(arg0, s16 *, 0x20))) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + slot * 0x50 + 0x20, fn_8002AE08(M2C_FIELD(arg0, s16 *, 0x20))) != 0) {
         M2C_FIELD(arg0, u8 *, 0x6C) = 3;
     }
     help = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(SELF, 0);

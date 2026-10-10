@@ -67,7 +67,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0);
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0);
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
-extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0);
 s32 get_card_window__17TWindowSubComCardFUi(int);
 void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
@@ -95,7 +95,7 @@ void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2)
 M2C_UNK TWindow__close(void *);
 M2C_UNK clear_flag_8__11TWindowCtrlFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
-extern RecoveredGlobal_8026EA60_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__6TLobbyFPv(void *);
@@ -262,7 +262,7 @@ void cycle_list_page__20TWindowShortListCtrlFPv(u8 *arg0) {
   u8 temp_r3_6;
   u8 *temp_r29;
   temp_r31 = is_player_input_active((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24);
-  if (TWindowShortListCtrl__check_controller_button((void *) ((((u8 *) (&lbl_8050E208.value)) + (temp_r31 * 0x50)) + 0x20), (int) fn_8002AE08((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)) != 0)
+  if (TWindowShortListCtrl__check_controller_button((void *) ((((u8 *) (&controller_input_state.value)) + (temp_r31 * 0x50)) + 0x20), (int) fn_8002AE08((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)) != 0)
   {
     temp_r31_2 = ((RecoveredFields_8026EA60_arg0 *) arg0)->field_1C;
     temp_r3 = ((u32)get_player_by_client_id((s32)((int) ((RecoveredFields_8026EA60_arg0 *) arg0)->field_24)));
@@ -340,8 +340,8 @@ void render__20TWindowShortListCtrlFv(void) {  }
 
 extern void *__vt__20TWindowShortListCtrl[];
 
-#define PAD(i) ((void *) ((((u8 *) (&lbl_8050E208.value)) + ((i) * 0x50)) + 0x20))
-#define BACK_PRESSED(i) (TWindowShortListCtrl__check_controller_button(PAD(i), 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), 2) != 0)
+#define PAD(i) ((void *) ((((u8 *) (&controller_input_state.value)) + ((i) * 0x50)) + 0x20))
+#define BACK_PRESSED(i) (TWindowShortListCtrl__check_controller_button(PAD(i), 2) != 0 || test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), 2) != 0)
 void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
     Ctrl_8026ECBC *self = (Ctrl_8026ECBC *) arg0;
     s32 idx;

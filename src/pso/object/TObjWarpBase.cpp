@@ -100,8 +100,8 @@ void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D5C78;
-extern u32 lbl_805D5C7C;
+extern s32 forest_warp_bml_resource;
+extern u32 forest_warp_texture_list;
 
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     void *o;
@@ -121,13 +121,13 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
 }
 
 void free_globals__12TObjWarpBaseFv(void) {
-    if ((u32) lbl_805D5C7C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5C7C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5C7C);
-        lbl_805D5C7C = 0U;
+    if ((u32) forest_warp_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)forest_warp_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(forest_warp_texture_list);
+        forest_warp_texture_list = 0U;
     }
-    TLobby__sub_8001FE7C(lbl_805D5C78, 1);
-    lbl_805D5C78 = 0;
+    TLobby__sub_8001FE7C(forest_warp_bml_resource, 1);
+    forest_warp_bml_resource = 0;
 }
 
 }

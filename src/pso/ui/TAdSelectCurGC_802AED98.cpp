@@ -62,8 +62,8 @@ s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 apply_choice__20TWindowChoiceSettingFiiii(void *, int, int, int);
 void play_sound_effect(int, int, int, int);
 void fn_802AEAA4(void *, s32);
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -92,8 +92,8 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
     if (o->fB0 == 0 && o->fAC == 0 && (s32)o->fA8 != 0) {
         if (o->fB8 != 0) {
             u8 t = 0;
-            if (check_flag_0x48__14TAdSelectCurGCFPv(lbl_8050E208 + 0x20, 0x10) == 0 &&
-                check_flag_0x48__14TAdSelectCurGCFPv(lbl_8050E208 + 0x20, 0x20) == 0) {
+            if (check_flag_0x48__14TAdSelectCurGCFPv(controller_input_state + 0x20, 0x10) == 0 &&
+                check_flag_0x48__14TAdSelectCurGCFPv(controller_input_state + 0x20, 0x20) == 0) {
                 t = 1;
             }
             ok = t;
@@ -101,13 +101,13 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
             ok = 1;
         }
         if (ok != 0) {
-            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E208 + 0x20, 0x10, 6, 1) != 0 ||
-                apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x10, 6, 1) != 0) {
+            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(controller_input_state + 0x20, 0x10, 6, 1) != 0 ||
+                apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, 0x10, 6, 1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4--;
             }
-            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E208 + 0x20, 0x20, 6, 1) != 0 ||
-                apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x20, 6, 1) != 0) {
+            if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(controller_input_state + 0x20, 0x20, 6, 1) != 0 ||
+                apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, 0x20, 6, 1) != 0) {
                 play_sound_effect(0x54100, 0, 0, 0);
                 o->fA4++;
             }
@@ -119,8 +119,8 @@ void run_task__14TAdSelectCurGCFv(TAdSelectCurGC_802AED98 *o) {
             o->fA4 = o->fA8 - 1;
         }
         if (o->fB4 == 0 &&
-            (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 4) != 0 ||
-             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 4) != 0)) {
+            (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 4) != 0 ||
+             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 4) != 0)) {
             play_sound_effect(0x52D01, 0, 0, 0);
             o->fAC = 1;
         }

@@ -129,7 +129,7 @@ extern const float lbl_805E012C;
 void run_task__15TPlyPhotonChairFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 lbl_804F1CB8;
+extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 photon_chair_resource_descriptor;
 extern u32 TPlyPhotonChair__data_805D6F40;
 s32 load_resources__15TPlyPhotonChairFv(void);
 void TPlyPhotonChair__sub_8035B66C(void* p);
@@ -283,7 +283,7 @@ s32 load_resources__15TPlyPhotonChairFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F1CB8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &photon_chair_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TPlyPhotonChair__data_805D6F40) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {

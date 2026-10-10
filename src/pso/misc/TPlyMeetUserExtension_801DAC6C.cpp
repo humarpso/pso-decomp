@@ -48,7 +48,7 @@ struct VObjDAD38 : BaseDAD38 {
 
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
-void handle_cmd_9A(u8 *arg0, s32 *arg1);
+void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
 void bswap__21TRecvPsoRegistConnectFv(void *);
@@ -59,7 +59,7 @@ s32 strcmp(const char *, const char *);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
 extern char *port_map_copyright;
-void handle_cmd_9B(u8 *arg0, Regist_801DAD38 *arg1);
+void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1);
 }
 
 extern "C" {
@@ -91,7 +91,7 @@ Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC
     return arg0;
 }
 
-void handle_cmd_9A(u8 *arg0, s32 *arg1) {
+void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
     sp8 = M2C_FIELD(arg1, s32 *, 0);
@@ -103,7 +103,7 @@ void handle_cmd_9A(u8 *arg0, s32 *arg1) {
     }
 }
 
-void handle_cmd_9B(u8 *arg0, Regist_801DAD38 *arg1) {
+void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
     Regist_801DAD38 r = *arg1;
     Pkt_801DAD38 pkt;
     bswap__21TRecvPsoRegistConnectFv(&r);

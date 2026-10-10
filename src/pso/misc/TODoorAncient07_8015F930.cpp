@@ -45,8 +45,8 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_8015FB38_lbl_804B1048 door_ancient07_collision_parts;
 extern M2C_UNK __vt__15TODoorAncient07[];
 extern s32 lbl_805D2F48;
-extern void *lbl_805D5938;
-extern void *TODoorAncient07__data_805D593C;
+extern void *TODoorAncient07__bml_resource;
+extern void *TODoorAncient07__texture_lists;
 extern const f32 lbl_805DB458;
 extern const f32 lbl_805DB468;
 u8 *TODoorAncient07__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -58,9 +58,9 @@ s32 load_gvm_texture_file(void *);
 extern u8 lbl_80440BDC[];
 extern u8 lbl_80440BF8[];
 extern u8 door_ancient_567_resource_descriptor[];
-extern void *lbl_805D5938;
-extern void *TODoorAncient07__data_805D593C;
-extern void *lbl_805D5940;
+extern void *TODoorAncient07__bml_resource;
+extern void *TODoorAncient07__texture_lists;
+extern void *TODoorAncient07__render_nodes;
 void load_resources__15TODoorAncient07Fv(void);
 }
 
@@ -76,34 +76,34 @@ M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
-extern void *lbl_805D5938;
-extern void *TODoorAncient07__data_805D593C;
-extern void *lbl_805D5940;
+extern void *TODoorAncient07__bml_resource;
+extern void *TODoorAncient07__texture_lists;
+extern void *TODoorAncient07__render_nodes;
 
 void cleanup__15TODoorAncient07Fv(void) {
-    if (lbl_805D5940 != NULL) {
-        free__11TOBoss4RockFUi(lbl_805D5940);
-        lbl_805D5940 = NULL;
+    if (TODoorAncient07__render_nodes != NULL) {
+        free__11TOBoss4RockFUi(TODoorAncient07__render_nodes);
+        TODoorAncient07__render_nodes = NULL;
     }
-    if (TODoorAncient07__data_805D593C != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient07__data_805D593C, s32 *, 4));
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient07__data_805D593C, s32 *, 0));
-        if (TODoorAncient07__data_805D593C != NULL) {
-            free__11TOBoss4RockFUi(TODoorAncient07__data_805D593C);
-            TODoorAncient07__data_805D593C = NULL;
+    if (TODoorAncient07__texture_lists != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient07__texture_lists, s32 *, 4));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(TODoorAncient07__texture_lists, s32 *, 0));
+        if (TODoorAncient07__texture_lists != NULL) {
+            free__11TOBoss4RockFUi(TODoorAncient07__texture_lists);
+            TODoorAncient07__texture_lists = NULL;
         }
     }
-    if (lbl_805D5938 != NULL) {
-        TLobby__sub_8001FE7C(lbl_805D5938, 1);
-        lbl_805D5938 = NULL;
+    if (TODoorAncient07__bml_resource != NULL) {
+        TLobby__sub_8001FE7C(TODoorAncient07__bml_resource, 1);
+        TODoorAncient07__bml_resource = NULL;
     }
 }
 
 extern M2C_UNK __vt__15TODoorAncient07[];
 
-#define G5918 (*(u8 **)&lbl_805D5938)
-#define G591C (*(s32 **)&TODoorAncient07__data_805D593C)
-#define G5920 (*(u8 **)&lbl_805D5940)
+#define G5918 (*(u8 **)&TODoorAncient07__bml_resource)
+#define G591C (*(s32 **)&TODoorAncient07__texture_lists)
+#define G5920 (*(u8 **)&TODoorAncient07__render_nodes)
 #define NODE(p, o) (*(u8 **)((u8 *)(p) + (o)))
 void load_resources__15TODoorAncient07Fv(void) {
     u8 *p;
@@ -145,9 +145,9 @@ u8 *TODoorAncient07__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015FB38___vt__15TODoorAncient07 *)&__vt__15TODoorAncient07).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F48;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5938), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TODoorAncient07__data_805D593C);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5938), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorAncient07__bml_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *(*(s32 * *)&TODoorAncient07__texture_lists);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorAncient07__bml_resource), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB468);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB458);
     init_collision_body_parts((void *) (arg0), (void *) (&door_ancient07_collision_parts.value), (int) (1));

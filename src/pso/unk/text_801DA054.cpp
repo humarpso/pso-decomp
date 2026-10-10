@@ -25,19 +25,19 @@ struct Pkt_801DA054 { u8 cmd; u8 flag; u16 size; struct Cfg_801DA054 cfg; };
 
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
-void handle_cmd_DA(u8 *arg0, s32 *arg1);
+void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 M2C_UNK bswap_packet_header__9TProtocolFPv(void *);
 M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 M2C_UNK memset(void *, int, int);
-void handle_cmd_9F(u8 *arg0);
+void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0);
 }
 
 extern "C" {
 
-int handle_cmd_D7(void* p);
+int handle_cmd_D7__9TProtocolFR6packet(void* p);
 int fn_801E08F4(void*);
 
-void handle_cmd_9F(u8 *arg0) {
+void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0) {
     struct Pkt_801DA054 pkt;
     memset(&pkt, 0, 0x24);
     pkt.cmd = 0x9F;
@@ -47,7 +47,7 @@ void handle_cmd_9F(u8 *arg0) {
     ((VObj_18 *)(arg0))->m8((s8 *)&pkt, 0x24);
 }
 
-void handle_cmd_DA(u8 *arg0, s32 *arg1) {
+void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
     sp8 = M2C_FIELD(arg1, s32 *, 0);
@@ -58,6 +58,6 @@ void handle_cmd_DA(u8 *arg0, s32 *arg1) {
     }
 }
 
-int handle_cmd_D7(void* p) { return fn_801E08F4(p); }
+int handle_cmd_D7__9TProtocolFR6packet(void* p) { return fn_801E08F4(p); }
 
 }

@@ -50,7 +50,7 @@ M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
 M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
 M2C_UNK update_window_entry_list(void *, void *);
 void play_open_sound__15TWindowSnapShotFPv(void *arg0);
-extern RecoveredGlobal_802A7FB0_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802A7FB0_lbl_8050E208 controller_input_state;
 void run_task__15TWindowSnapShotFv(u8 *arg0);
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
 s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
@@ -144,7 +144,7 @@ void run_task__15TWindowSnapShotFv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
         M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
     }
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_open_sound__15TWindowSnapShotFPv((void *) (arg0));
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));

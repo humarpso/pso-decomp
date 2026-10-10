@@ -59,7 +59,7 @@ void *init_shop_judgment_window(void *);
 s32 is_message_window_ready(void *);
 void complete_reveal__14TWindowMessageFPv(void *);
 extern u8 TWindowGetComCard__window_rect[];
-extern Pad_80252CCC lbl_8050E208[];
+extern Pad_80252CCC controller_input_state[];
 extern s32 local_client_id;
 void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self);
 }
@@ -114,7 +114,7 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
         if (is_message_window_ready(self->fmt) != 0) {
             self->state = 2;
         }
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {
             complete_reveal__14TWindowMessageFPv(self->fmt);
             self->state = 2;
         }
@@ -154,14 +154,14 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
             TWindowGetComCard__sub_8007B54C();
             queue_destruction__7TObjectFv(self);
             self->state = 6;
-        } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[port].m20, 2) != 0 ||
-                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].m20, 2) != 0) {
+        } else if (TWindowShortListCtrl__check_controller_button(controller_input_state[port].m20, 2) != 0 ||
+                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].m20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->state = 2;
         }
         break;
     case 5:
-        if (self->timer-- <= 0 || TWindowShortListCtrl__check_controller_button(lbl_8050E208[0].m20, 4) != 0) {
+        if (self->timer-- <= 0 || TWindowShortListCtrl__check_controller_button(controller_input_state[0].m20, 4) != 0) {
             TWindowGetComCard__sub_8007B54C();
             queue_destruction__7TObjectFv(self);
             self->state = 6;

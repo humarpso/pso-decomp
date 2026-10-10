@@ -37,7 +37,7 @@ s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void debug_printf_at(s32, const char *, ...);
-extern Ctl_8006C964 lbl_8050E208;
+extern Ctl_8006C964 controller_input_state;
 void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self);
 }
 
@@ -81,9 +81,9 @@ extern const f64 lbl_80438518;
 void update_debug_camera__11TCameraCtrlFPv(Cam_8006C964 *self) {
     Vec_8006C964 target = lbl_804384F4;
     Vec_8006C964 v;
-    Pad_8006C964 *pad = &lbl_8050E208.pad;
-    s16 sx = lbl_8050E208.pad.sx;
-    s16 sy = lbl_8050E208.pad.sy;
+    Pad_8006C964 *pad = &controller_input_state.pad;
+    s16 sx = controller_input_state.pad.sx;
+    s16 sy = controller_input_state.pad.sy;
     f32 r;
     if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x100) != 0) {
         debug_printf_at(0xC0014, lbl_80438500, (s32)(lbl_80438518 * (f64)self->x54 + lbl_80438510));
@@ -143,11 +143,11 @@ void* TCameraCtrl__sub_8006CC30(void* a0) { TCameraCtrl__sub_80068714(); *(int*)
 
 struct O_8006CC7C { u8 pad[0x1c]; V_8006CC7C pos; };
 extern O_8006CC7C *lbl_805005D0[];
-extern s16 lbl_805D4EC8;
+extern s16 demo_camera_controller_index;
 
 V_8006CC7C get_target_position__11TCameraCtrlFv(void) {
     V_8006CC7C def = lbl_804384E8;
-    O_8006CC7C *o = lbl_805005D0[lbl_805D4EC8];
+    O_8006CC7C *o = lbl_805005D0[demo_camera_controller_index];
     if (o != 0) {
         return o->pos;
     }

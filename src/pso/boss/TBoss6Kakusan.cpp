@@ -93,10 +93,10 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 f32 normalize_vector(void *);
-extern s32 lbl_805D6C28;
-extern u8 lbl_805D6C2C;
-extern s32 lbl_805D6C30;
-extern u8 lbl_805D6C34;
+extern s32 TBoss6Kakusan__homing_start_frame;
+extern u8 boss6_kakusan_homing_start_initialized;
+extern s32 boss6_kakusan_homing_end_frame;
+extern u8 TBoss6Kakusan__homing_end_frame_initialized;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF538;
 s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0);
@@ -226,15 +226,15 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() != 0) return;
     if (query_teammate_state__9TObjEneDDFPv() != 0) return;
     VecCopy__FP3VecPC3Vec(arg0 + 0x48, arg0 + 0x30);
-    if ((s8)lbl_805D6C2C == 0) {
-        lbl_805D6C28 = 7;
-        lbl_805D6C2C = 1;
+    if ((s8)boss6_kakusan_homing_start_initialized == 0) {
+        TBoss6Kakusan__homing_start_frame = 7;
+        boss6_kakusan_homing_start_initialized = 1;
     }
-    if ((s8)lbl_805D6C34 == 0) {
-        lbl_805D6C30 = 0x25;
-        lbl_805D6C34 = 1;
+    if ((s8)TBoss6Kakusan__homing_end_frame_initialized == 0) {
+        boss6_kakusan_homing_end_frame = 0x25;
+        TBoss6Kakusan__homing_end_frame_initialized = 1;
     }
-    if (M2C_FIELD(arg0, s32 *, 0x2C) >= lbl_805D6C28 && M2C_FIELD(arg0, s32 *, 0x2C) <= lbl_805D6C30) {
+    if (M2C_FIELD(arg0, s32 *, 0x2C) >= TBoss6Kakusan__homing_start_frame && M2C_FIELD(arg0, s32 *, 0x2C) <= boss6_kakusan_homing_end_frame) {
         speed = vector_length(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
             pl = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x20));

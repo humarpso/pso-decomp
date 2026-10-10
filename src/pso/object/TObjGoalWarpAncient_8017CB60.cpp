@@ -50,7 +50,7 @@ s32 TObjAreaWarp__ct(void *, void *, void *);
 s32 init__13TAdVIConfigGCFPvf(int, void *, f32);
 s32 get_game_play_mode();
 extern M2C_UNK __vt__19TObjGoalWarpAncient[];
-extern s32 lbl_805D31EC;
+extern s32 TObjGoalWarpAncient__class_name;
 extern const f32 lbl_805DBABC;
 extern const f32 lbl_805DBAC4;
 u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -204,7 +204,7 @@ u8 *TObjGoalWarpAncient__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r0;
     TObjAreaWarp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017CDB4___vt__19TObjGoalWarpAncient *)&__vt__19TObjGoalWarpAncient).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31EC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjGoalWarpAncient__class_name;
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DBAC4;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBAC4;
     M2C_FIELD(arg0, s32 *, 0xCC) = TObjGoalWarpAncient__sub_8017D2D4((int) (1));

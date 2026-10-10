@@ -42,8 +42,8 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 void play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 TAdWarningBaseGC__sub_8032D214(V_8032D214 *arg0);
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF7B0;
 void TAdWarningBaseGC__vt4(u8 *arg0);
 }
@@ -97,8 +97,8 @@ void TAdWarningBaseGC__vt4(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
         break;
     case 2:
-        if (TWindowShortListCtrl__check_controller_button(a = lbl_8050E3B8 + 0x20, 4) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b = lbl_8050E208 + 0x160, 4) != 0 ||
+        if (TWindowShortListCtrl__check_controller_button(a = controller_physical_port_bank + 0x20, 4) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b = controller_input_state + 0x160, 4) != 0 ||
             TWindowShortListCtrl__check_controller_button(a, 2) != 0 ||
             test_flag_4c__23TAdSinglePlyChrSelectGCFPv(b, 2) != 0) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 3;

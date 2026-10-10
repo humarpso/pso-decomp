@@ -19,7 +19,7 @@ u8 *TODragonfly__ct(u8 *arg0);
 f32 sin_table_lookup(s32);
 s32 rand(void);
 extern M2C_UNK __vt__17TODragonflyCave01[];
-extern s32 lbl_805D2F9C;
+extern s32 TODragonflyCave01__class_name;
 extern u32 TODragonflyCave01__data_805D5990;
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB564;
@@ -110,7 +110,7 @@ void *__dt__17TODragonflyCave01Fv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__17TODragonflyCave01[];
-extern s32 lbl_805D2F9C;
+extern s32 TODragonflyCave01__class_name;
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB564;
 extern const f32 lbl_805DB568;
@@ -199,7 +199,7 @@ s32 init_map_object_base(void *, int);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__11TODragonfly[];
-extern s32 lbl_805D2F98;
+extern s32 TODragonfly__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB560;
 extern const f32 lbl_805DB56C;
@@ -261,7 +261,7 @@ M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
 u8 *TODragonflyCave01__ct(u8 *arg0, void *arg1) {
     TODragonfly__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TODragonflyCave01;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2F9C;
+    M2C_FIELD(arg0, s32 *, 0) = TODragonflyCave01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, void **, 0x34) = M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyCave01__data_805D5990), u8 **, 0x42C), void **, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyCave01__data_805D5990), u8 **, 0x42C), s32 *, 0xC);
@@ -435,7 +435,7 @@ void *__dt__11TODragonflyFv(void *arg0, s16 arg1) {
 u8 *TODragonfly__ct(u8 *arg0) {
     init_map_object_base((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80164DEC___vt__11TODragonfly *)&__vt__11TODragonfly).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F98;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODragonfly__class_name;
     M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (lbl_805DB594 + M2C_FIELD(arg0, f32 *, 0x68));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xD4), (void *) (arg0 + 0x38));

@@ -88,8 +88,8 @@ void init_parts__14TAdYesNoBaseGCFPvPvPv(void *arg0, void *arg1, void *arg2) {
 }
 
 extern const f64 lbl_804772F0;
-extern s8 lbl_8050E208[];
-extern s8 lbl_8050E3B8[];
+extern s8 controller_input_state[];
+extern s8 controller_physical_port_bank[];
 extern const f32 lbl_805DF78C;
 
 void TAdYesNoBaseGC__vt6(void *arg0) {
@@ -120,7 +120,7 @@ void TAdYesNoBaseGC__vt6(void *arg0) {
                 M2C_FIELD(arg0, s32 *, 0x24) = 4;
                 break;
             }
-        } else if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
+        } else if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 2;
             M2C_FIELD(arg0, s32 *, 0x24) = 4;
         }

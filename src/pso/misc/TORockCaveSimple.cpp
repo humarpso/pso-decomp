@@ -51,12 +51,12 @@ void *__dt__16TORockCaveSimpleFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__16TORockCaveSimple[];
-extern void *lbl_805D30FC;
+extern void *TORockCaveSimple__class_name;
 
 void *TORockCaveSimple__ct(void *arg0) {
     TORockCave__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TORockCaveSimple;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D30FC;
+    M2C_FIELD(arg0, void **, 0x0) = TORockCaveSimple__class_name;
     return arg0;
 }
 

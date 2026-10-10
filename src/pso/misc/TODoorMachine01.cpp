@@ -104,7 +104,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80163158_lbl_804B1608 TODoorMachine01__collision_body_parts;
 extern M2C_UNK __vt__15TODoorMachine01[];
-extern s32 lbl_805D2F78;
+extern s32 TODoorMachine01__class_name;
 extern u32 lbl_805D5970;
 extern const f32 lbl_805DB4FC;
 extern const f32 lbl_805DB508;
@@ -406,7 +406,7 @@ u8 *TODoorMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r0;
     init_door_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80163158___vt__15TODoorMachine01 *)&__vt__15TODoorMachine01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F78;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorMachine01__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5970), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5970), u8 **, 0x42C), s32 *, 0xC);

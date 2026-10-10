@@ -82,7 +82,7 @@ void suppress_slot__11TWindowCtrlFi(u16);
 void unsuppress_slot__11TWindowCtrlFi(u16);
 s32 get_window_layout_position(s32);
 extern Pair_802160B4 lbl_8044BD94[];
-extern Map_802160B4 lbl_8050E208[];
+extern Map_802160B4 controller_input_state[];
 extern s32 local_client_id;
 void TMedicalCenterMes__vt1(Med_802160B4 *self);
 }
@@ -146,7 +146,7 @@ void TMedicalCenterMes__vt1(Med_802160B4 *self) {
     }
     case 1:
         if (poll_field_20c__22TQuestVmDownLoadServerFPv(self->sub) != 0 && self->f22c != NULL) {
-            if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv(self->f22c)].btn, 4) != 0) {
+            if (TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv(self->f22c)].btn, 4) != 0) {
                 self->f230 = 2;
             }
         }

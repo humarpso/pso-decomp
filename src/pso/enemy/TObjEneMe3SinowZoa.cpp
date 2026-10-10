@@ -115,7 +115,7 @@ M2C_UNK transition_enemy_state(void *, int);
 void advance_animation_playback(void *);
 void play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DF334;
-void TObjEneMe3SinowZoa__sub_803181A8(u8 *arg0, s32 arg1);
+void state_knockback__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -2251,7 +2251,7 @@ void set_field_378__9TObjEneDDFPvi(void *, s32);
 M2C_UNK transition_enemy_state(void *, int);
 void advance_animation_playback(void *);
 
-void TObjEneMe3SinowZoa__sub_803181A8(u8 *arg0, s32 arg1) {
+void state_knockback__18TObjEneMe3SinowZoaFPvi(u8 *arg0, s32 arg1) {
     Vec_803181A8 v;
     f32 len;
     switch (arg1) {
@@ -4052,7 +4052,7 @@ void dispatch_state__18TObjEneMe3SinowZoaFPvUii(u8 *arg0, u32 arg1, s32 arg2) {
         TObjEneMe3SinowZoa__sub_80318564(arg0, arg2);
         return;
     case 14:
-        TObjEneMe3SinowZoa__sub_803181A8((u8 *)(arg0), (s32)(arg2));
+        state_knockback__18TObjEneMe3SinowZoaFPvi((u8 *)(arg0), (s32)(arg2));
         return;
     case 15:
         ((M2C_UNK (*)(void *, s32))TObjEneMe3SinowZoa__sub_80317F90)(arg0, arg2);

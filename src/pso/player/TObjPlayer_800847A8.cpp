@@ -66,23 +66,23 @@ void TObjPlayer__sub_80084834(s32 arg0);
 void TObjPlayer__sub_80084840(f32 farg0, f32 farg1, f32 farg2);
 void set_tex_coord_gen__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 unsigned char TObjPlayer__sub_800847CC(void);
-    extern unsigned char lbl_805D4EE4;
+    extern unsigned char camera_capture_flags;
 unsigned char TObjPlayer__sub_800847CC(void);
 s32 TObjPlayer__sub_800847A8(void);
-extern u8 lbl_805D4EE4;
+extern u8 camera_capture_flags;
 s32 TObjPlayer__sub_800847A8(void);
 }
 
 extern "C" {
 s32 TObjPlayer__sub_800847A8(void) {
-    if ((lbl_805D4EE4 & 2) && (lbl_805D4EE4 & 1)) {
+    if ((camera_capture_flags & 2) && (camera_capture_flags & 1)) {
         return 1;
     }
     return 0;
 }
 }
 extern "C" {
-unsigned char TObjPlayer__sub_800847CC(void) {  return lbl_805D4EE4; }
+unsigned char TObjPlayer__sub_800847CC(void) {  return camera_capture_flags; }
 }
 extern "C" {
 void set_tex_coord_gen__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {

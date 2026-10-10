@@ -20,7 +20,7 @@ struct RecoveredGlobal_8006EF98_lbl_8048C244 {
 };
 
 extern "C" {
-extern RecoveredGlobal_8006EF98_lbl_8048A088 lbl_8048A088;
+extern RecoveredGlobal_8006EF98_lbl_8048A088 force_stage_start_parameters;
 extern RecoveredGlobal_8006EF98_lbl_8048B0F4 lbl_8048B0F4;
 extern RecoveredGlobal_8006EF98_lbl_8048C244 lobby_stage_table;
 u8 *get_stage_table_entry__6TLobbyFii(s32 arg0, s32 arg1);
@@ -44,7 +44,7 @@ u8 *get_stage_table_entry__6TLobbyFii(s32 arg0, s32 arg1) {
     case 1:
         return (u8 *)&lobby_stage_table.value + (arg1 * 0x10);
     case 2:
-        return (u8 *)&lbl_8048A088.value + (arg1 * 0x10);
+        return (u8 *)&force_stage_start_parameters.value + (arg1 * 0x10);
     default:
         return (u8 *)&lbl_8048B0F4.value + (arg1 * 0x10);
     }

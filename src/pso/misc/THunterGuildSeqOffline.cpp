@@ -150,7 +150,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(int);
 extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
-extern s32 THunterGuildSeqOffline__data_805D6188;
+extern s32 THunterGuildSeqOffline__active_instance;
 u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1);
 s32 is_quest_active(void);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -166,7 +166,7 @@ s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_80213220___vt__22THunterGuildSeqOffline __vt__22THunterGuildSeqOffline;
 extern RecoveredGlobal_80213220_THunterGuildSeqOffline__data_80513DD8 THunterGuildSeqOffline__instance_table;
 extern s32 lbl_805D3658;
-extern s32 THunterGuildSeqOffline__data_805D6188;
+extern s32 THunterGuildSeqOffline__active_instance;
 u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
@@ -345,7 +345,7 @@ u8 *__dt__22THunterGuildSeqOfflineFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x34) = 0U;
         }
         M2C_FIELD(&THunterGuildSeqOffline__instance_table.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
-        THunterGuildSeqOffline__data_805D6188 = 0;
+        THunterGuildSeqOffline__active_instance = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -366,7 +366,7 @@ u8 *THunterGuildSeqOffline__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    (*(u8 * *)&THunterGuildSeqOffline__data_805D6188) = arg0;
+    (*(u8 * *)&THunterGuildSeqOffline__active_instance) = arg0;
     M2C_FIELD(&(*(RecoveredGlobal_802132F0_THunterGuildSeqOffline__data_80513DD8 *)&THunterGuildSeqOffline__instance_table).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
 }

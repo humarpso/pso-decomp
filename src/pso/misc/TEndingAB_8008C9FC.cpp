@@ -11,11 +11,11 @@ M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(s32, M2C_UNK);
-extern s32 TEndingAB__data_805D4F10;
+extern s32 TEndingAB__fade_sequence_state;
 extern const f32 lbl_805D9580;
 void draw_overlay__9TEndingABFPv(u8 *arg0);
 extern s32 game_difficulty_selection;
-extern s32 lbl_805D4F14;
+extern s32 ending_ab_wall_texture_list;
 s32 set_global_param__8TObjFishFi(s32);
 void set_fish_global_param__9TEndingABFv(void);
 }
@@ -25,7 +25,7 @@ extern "C" {
 void advance_fade_sequence__9TEndingABFPv(void *arg0);
 M2C_UNK update_flag890_state__10TObjPlayerFi(s32);
 
-extern s32 TEndingAB__data_805D4F10;
+extern s32 TEndingAB__fade_sequence_state;
 
 void advance_fade_sequence__9TEndingABFPv(void *arg0) {
     s32 temp_r0;
@@ -36,13 +36,13 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
     s32 temp_r4;
     s32 temp_r4_2;
 
-    switch ((s32) TEndingAB__data_805D4F10) {
+    switch ((s32) TEndingAB__fade_sequence_state) {
     case 1:
         temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
         M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3;
         temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
-            TEndingAB__data_805D4F10 = 2;
+            TEndingAB__fade_sequence_state = 2;
             update_flag890_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
             return;
@@ -52,7 +52,7 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
         temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
         M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_2;
         if (temp_r3_2 > (s32) (M2C_FIELD(arg0, s32 *, 0xEC) * 0xD)) {
-            TEndingAB__data_805D4F10 = 3;
+            TEndingAB__fade_sequence_state = 3;
             return;
         }
         break;
@@ -61,7 +61,7 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_3;
         temp_r4_2 = M2C_FIELD(arg0, s32 *, 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
-            TEndingAB__data_805D4F10 = 4;
+            TEndingAB__fade_sequence_state = 4;
             update_flag890_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
             M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
             return;
@@ -72,12 +72,12 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_4;
         if (temp_r3_4 > (s32) (M2C_FIELD(arg0, s32 *, 0xEC) * 0x18)) {
             M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-            TEndingAB__data_805D4F10 = 1;
+            TEndingAB__fade_sequence_state = 1;
             temp_r0 = M2C_FIELD(arg0, s32 *, 0x28) + 1;
             M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
             if (temp_r0 > 5) {
                 M2C_FIELD(arg0, s32 *, 0x28) = 5;
-                TEndingAB__data_805D4F10 = 5;
+                TEndingAB__fade_sequence_state = 5;
                 return;
             }
         }
@@ -90,7 +90,7 @@ void advance_fade_sequence__9TEndingABFPv(void *arg0) {
 #pragma push
 #pragma fp_contract on
 void draw_overlay__9TEndingABFPv(u8 *arg0) {
-    switch ((s32) TEndingAB__data_805D4F10) {
+    switch ((s32) TEndingAB__fade_sequence_state) {
     case 1:
     case 3:
         break;
@@ -127,13 +127,13 @@ void set_fish_global_param__9TEndingABFv(void) {
     switch (game_difficulty_selection) {
     case 0:
     case 1:
-        set_global_param__8TObjFishFi(lbl_805D4F14);
+        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
         break;
     case 2:
-        set_global_param__8TObjFishFi(lbl_805D4F14);
+        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
         break;
     case 3:
-        set_global_param__8TObjFishFi(lbl_805D4F14);
+        set_global_param__8TObjFishFi(ending_ab_wall_texture_list);
         break;
     }
 }

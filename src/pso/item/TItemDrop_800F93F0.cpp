@@ -14,7 +14,7 @@ struct N_800F957C : B_800F957C {
 struct Head_800F957C { u8 pad[0x14]; N_800F957C *first; };
 
 extern "C" {
-extern Head_800F957C lbl_8050113C[];
+extern Head_800F957C resource_load_task_root[];
 int safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 void free_nodes_with_id__6TLobbyFUi(u32 arg0);
 }
@@ -97,7 +97,7 @@ extern "C" {
 int fn_800F953C(void* p) { return safe_free__23TAdSinglePlyChrSelectGCFUi(p); }
 int fn_800F955C(void* p) { return set_stream_and_load_file__6TLobbyFi(p); }
 void free_nodes_with_id__6TLobbyFUi(u32 arg0) {
-    N_800F957C *n = lbl_8050113C->first;
+    N_800F957C *n = resource_load_task_root->first;
     while (n != 0) {
         if (n->id24 == arg0) {
             safe_free__23TAdSinglePlyChrSelectGCFUi(n->p1C);

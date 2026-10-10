@@ -39,7 +39,7 @@ M2C_UNK free_member__17TWindowSubComCardFPv(s32, M2C_UNK);
 M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(s32, s32, s32, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 extern M2C_UNK __vt__17TWindowSubGameEnd[];
-extern s32 lbl_805D3A48;
+extern s32 TWindowSubGameEnd__class_name;
 extern const f32 lbl_805DD628;
 extern const f32 lbl_805DD62C;
 void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2);
@@ -128,7 +128,7 @@ void *TWindowSubGameEnd__ct(void *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowSubGameEnd;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A48;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubGameEnd__class_name;
     M2C_FIELD(arg0, s32 *, 0x24) = arg1;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     if (get_main_phase() == 0xF) {

@@ -39,7 +39,7 @@ extern s32 TAdMultiPlyChrSelectGC__data_805D67D8;
 void TAdMultiPlyChrSelectGC__sub_802E0024(O_802E0024 *self, s32 v);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 extern s32 lbl_805D68C8;
-void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *arg0, s32 arg1);
+void initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -99,7 +99,7 @@ typedef char RecoveredGlobal_802DFF0C___vt__22TAdMultiPlyChrSelectGC_size[sizeof
 #pragma optimization_level 2
 #pragma opt_propagation off
 #pragma dont_inline on
-void TAdMultiPlyChrSelectGC__sub_802DFCCC(void *arg0, s32 arg1) {
+void initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi(void *arg0, s32 arg1) {
     s32 v;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
@@ -222,7 +222,7 @@ u8 *TAdMultiPlyChrSelectGC__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TAdMultiPlyChrSelectGC.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F68;
-    TAdMultiPlyChrSelectGC__sub_802DFCCC((void *)(arg0), (s32)(arg2));
+    initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi((void *)(arg0), (s32)(arg2));
     create_widgets__22TAdMultiPlyChrSelectGCFPv(arg0);
     handle_event__22TAdMultiPlyChrSelectGCFPvi(arg0, get_select_flag__22TAdMultiPlyChrSelectGCFv());
     return arg0;

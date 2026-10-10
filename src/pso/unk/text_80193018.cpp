@@ -10,10 +10,10 @@ s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
-extern u8 lbl_804B7F58[];
-extern u8 lbl_804B7FA0[];
-extern s32 lbl_805D5C28;
-extern void *lbl_805D5C2C;
+extern u8 lazer_fence_norm_episode1_resource_descriptor[];
+extern u8 lazer_fence_norm_episode2_resource_descriptor[];
+extern s32 lazer_fence_norm_texture_list;
+extern void *lazer_fence_norm_bml_resource;
 void load_lazer_fence_norm_resources(void);
 }
 
@@ -33,18 +33,18 @@ void load_lazer_fence_norm_resources(void) {
     case 35:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = load_resource_from_descriptor(obj, 5, lbl_804B7FA0, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, lazer_fence_norm_episode2_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5C2C = obj;
-        lbl_805D5C28 = load_gvm_texture_file(lbl_80445BB8);
+        lazer_fence_norm_bml_resource = obj;
+        lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BB8);
         break;
     default:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = load_resource_from_descriptor(obj, 5, lbl_804B7F58, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, lazer_fence_norm_episode1_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5C2C = obj;
-        lbl_805D5C28 = load_gvm_texture_file(lbl_80445BCC);
+        lazer_fence_norm_bml_resource = obj;
+        lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BCC);
         break;
     }
 }

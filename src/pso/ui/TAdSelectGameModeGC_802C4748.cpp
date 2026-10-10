@@ -46,8 +46,8 @@ M2C_UNK set_change_game_mode__21TAdMultiChgGameModeGCFv();
 M2C_UNK set_game_mode__21TAdMultiChgGameModeGCFv();
 s32 get_mode_data__19TAdSelectGameModeGCFv();
 M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, int);
-extern RecoveredGlobal_802C47E8_lbl_8050E208 lbl_8050E208;
-extern RecoveredGlobal_802C47E8_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_802C47E8_lbl_8050E208 controller_input_state;
+extern RecoveredGlobal_802C47E8_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 lbl_805D67C8;
 void run_task__19TAdSelectGameModeGCFv(u8 *arg0);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
@@ -132,7 +132,7 @@ void run_task__19TAdSelectGameModeGCFv(u8 *arg0) {
         set_entry_value__22TAdMultiPlyChrSelectGCFiiUi((int) (M2C_FIELD(arg0, s32 *, 0x20)), (int) (1), (int) (get_localized_text_entry((int) (0x15), (int) (TAdSinglePlyChrSelectGC__sub_801334DC((int) (M2C_FIELD(arg0, s32 *, 0x1C))) + 1))));
     }
     lbl_805D67C8 = TAdSinglePlyChrSelectGC__sub_801334DC((int) (M2C_FIELD(arg0, s32 *, 0x1C)));
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         request_scene_change__21TAdMultiChgGameModeGCFv();
         return;

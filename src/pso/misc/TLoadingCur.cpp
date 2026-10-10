@@ -61,7 +61,7 @@ s32 direction_to_rotation_xz(void *, void *, void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__11TLoadingCur[];
 extern RecoveredGlobal_8001D0A0_lbl_804FF5E8 lbl_804FF5E8;
-extern s32 lbl_805D2638;
+extern s32 TLoadingCur__class_name;
 extern const f32 lbl_805D7E90;
 extern const f32 TLoadingCur__data_805D7E9C;
 u8 *TLoadingCur__ct(u8 *arg0, s32 arg1);
@@ -71,7 +71,7 @@ void update_camera_facing_offset(void *);
 void calc_loading_cursor_pos(void *, void *);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-extern Pad_8001CD90 lbl_8050E208;
+extern Pad_8001CD90 controller_input_state;
 extern const f32 TLoadingCur__data_805D7E9C;
 extern const f32 lbl_805D7EB0;
 extern const f32 lbl_805D7EB4;
@@ -159,11 +159,11 @@ void run_task__11TLoadingCurFv(void *arg0) {
     void *p;
     x = TLoadingCur__data_805D7E9C;
     y = x;
-    x += lbl_805D7EB0 * (f32)lbl_8050E208.s34;
-    y -= lbl_805D7EB0 * (f32)lbl_8050E208.s36;
-    x += lbl_805D7EB0 * (f32)lbl_8050E208.s38;
-    y -= lbl_805D7EB0 * (f32)lbl_8050E208.s3A;
-    flags = lbl_8050E208.f20;
+    x += lbl_805D7EB0 * (f32)controller_input_state.s34;
+    y -= lbl_805D7EB0 * (f32)controller_input_state.s36;
+    x += lbl_805D7EB0 * (f32)controller_input_state.s38;
+    y -= lbl_805D7EB0 * (f32)controller_input_state.s3A;
+    flags = controller_input_state.f20;
     if (flags & 0x10) {
         y += lbl_805D7EB4;
     }
@@ -176,7 +176,7 @@ void run_task__11TLoadingCurFv(void *arg0) {
     if (flags & 0x40) {
         x -= lbl_805D7EB4;
     }
-    p = lbl_8050E208.f160;
+    p = controller_input_state.f160;
     if (is_flag_set__11TLoadingCurFPv(p, 0x10) != 0) {
         y += lbl_805D7EB4;
     }
@@ -233,7 +233,7 @@ u8 *TLoadingCur__ct(u8 *arg0, s32 arg1) {
     Stack_8001D0A0 stack;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8001D0A0___vt__11TLoadingCur *)&__vt__11TLoadingCur).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2638;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TLoadingCur__class_name;
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) TLoadingCur__data_805D7E9C;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) TLoadingCur__data_805D7E9C;
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) TLoadingCur__data_805D7E9C;

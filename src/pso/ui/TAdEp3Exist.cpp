@@ -95,8 +95,8 @@ int request_game_mode_transition__11TAdEp3ExistFPv(void* p);
 int request_scene_change__11TAdEp3ExistFPv(void* p);
 int TAdEp3Exist__sub_8036F0AC(void* p);
 void close_window__11TAdEp3ExistFPv(void* p);
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805E044C;
 void __OSEnableBarnacle(Ep3_8036F10C *o);
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0);
@@ -165,8 +165,8 @@ void __OSEnableBarnacle(Ep3_8036F10C *o) {
                 o->next = 4;
                 break;
             }
-        } else if (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0 ||
-                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0) {
+        } else if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0 ||
+                   test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0) {
             o->state = 2;
             o->next = 5;
         }

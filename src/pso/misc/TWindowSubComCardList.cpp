@@ -68,7 +68,7 @@ void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
-extern s32 lbl_805D3A18;
+extern s32 TWindowSubComCardList__class_name;
 extern s32 local_client_id;
 extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
@@ -85,7 +85,7 @@ void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
 M2C_UNK TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
 extern M2C_UNK __vt__21TWindowSubComCardList[];
-extern s32 lbl_805D3A18;
+extern s32 TWindowSubComCardList__class_name;
 extern s32 local_client_id;
 extern const f32 lbl_805DD540;
 extern const f32 lbl_805DD544;
@@ -173,7 +173,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     s32 n;
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
-    *(s32 *)(arg0 + 0) = lbl_805D3A18;
+    *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_active_cards__17TWindowSubComCardFv() / lbl_805DD540);
     if (n <= 0) {
         n = 1;
@@ -200,7 +200,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     s32 n;
     TWindowMenu__ct(arg0, 7, 4, arg1);
     *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
-    *(s32 *)(arg0 + 0) = lbl_805D3A18;
+    *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_leading_active__17TWindowSubComCardFPvi(arg2, arg3) / lbl_805DD540);
     if (n <= 0) {
         n = 1;

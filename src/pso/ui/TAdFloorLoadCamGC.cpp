@@ -32,7 +32,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vec_squared_length(void *);
 void normalize_vector(void *);
-extern Pad_8034BE5C lbl_8050E3B8;
+extern Pad_8034BE5C controller_physical_port_bank;
 extern const f32 lbl_805DFDB8;
 void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s);
 }
@@ -85,8 +85,8 @@ void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
     s32 a;
     activate_camera_mode(9);
     s->ticks++;
-    tilt = lbl_8050E3B8.tilt;
-    s->angle += (s32)(lbl_805DFDA8 * (f32)(s32)(lbl_805DFDAC * (f32)lbl_8050E3B8.speed)) / 10 + 0x1B4;
+    tilt = controller_physical_port_bank.tilt;
+    s->angle += (s32)(lbl_805DFDA8 * (f32)(s32)(lbl_805DFDAC * (f32)controller_physical_port_bank.speed)) / 10 + 0x1B4;
     a = s->angle;
     if (a >= 0x10000) {
         a -= 0x10000;

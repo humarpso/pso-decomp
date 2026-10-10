@@ -313,12 +313,12 @@ void *__dt__18TWindowSubShortCutFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TWindowSubShortCut[];
-extern void *lbl_805D3A88;
+extern void *TWindowSubShortCut__class_name;
 
 void *TWindowSubShortCut__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TWindowSubShortCut;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3A88;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowSubShortCut__class_name;
     M2C_FIELD(arg0, void **, 0x28) = arg1;
     M2C_FIELD(arg0, void **, 0x20) = arg2;
     M2C_FIELD(arg0, u32 *, 0x2C) = 0;

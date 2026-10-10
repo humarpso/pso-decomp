@@ -94,7 +94,7 @@ extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 save_snapshot_to_card__15TObjBoss2TunnelFv(void);
 s32 get_main_phase(void);
 void setup_default_view__11TCameraCtrlFPvPv(u32, s32);
-void TObjBoss2Tunnel__sub_8007D828(void);
+void draw_snapshot_capture_overlay(void);
 void set_graph_param__8TDLGraphFPvi(void *, s32);
 void update_graph__8TDLGraphFii(s32, s32);
 VObj_8007C5C0 *create__8TDLGraphFv(void);
@@ -117,7 +117,7 @@ void func_803DCDFC__Fv(void);
 extern f32 lbl_80438A78[];
 extern f32 lbl_80438A80[];
 extern f32 lbl_8048DF4C[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern u8 main_task[];
 extern u32 camera_ctrl_instance;
 extern s8 boss2_tunnel_confirm_loop_flag;
@@ -197,7 +197,7 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
     if (get_main_phase() == 0xF) {
         reset_state_flags__6TLobbyFv();
     }
-    pad = lbl_8050E3B8 + 0x110;
+    pad = controller_physical_port_bank + 0x110;
     for (;;) {
         frames++;
         func_803DCDFC__Fv();
@@ -206,7 +206,7 @@ s32 run_confirm_message_loop__15TObjBoss2TunnelFv(void) {
             setup_default_view__11TCameraCtrlFPvPv(camera_ctrl_instance, 0);
         }
         render__9TMainTaskFv(main_task);
-        TObjBoss2Tunnel__sub_8007D828();
+        draw_snapshot_capture_overlay();
         wait_ready_loop__6TLobbyFv();
         if (func_801A5E54__Fv() != 0) {
             break;

@@ -25,13 +25,13 @@ int TKeyBoardControl__sub_8000F950(void);
 int set_enemy_mode_flag__6TLobbyFv(void);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 
-extern struct VObj_8021277C *THunterGuildSeqOffline__data_805D6188;
+extern struct VObj_8021277C *THunterGuildSeqOffline__active_instance;
 
 void set_state_close2__22THunterGuildSeqOfflineFv(void) {
-    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
-        THunterGuildSeqOffline__data_805D6188->m7(0xC, 1);
-        M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 0;
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__data_805D6188, 5);
+    if (THunterGuildSeqOffline__active_instance != NULL) {
+        THunterGuildSeqOffline__active_instance->m7(0xC, 1);
+        M2C_FIELD(THunterGuildSeqOffline__active_instance, s32 *, 0x38) = 0;
+        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
     }
 }
 

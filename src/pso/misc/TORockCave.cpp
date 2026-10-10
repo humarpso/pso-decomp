@@ -128,12 +128,12 @@ extern void *tl_05;
 extern const f32 lbl_805DB974;
 extern M2C_UNK __vt__10TORockCave[];
 extern const f32 lbl_805DB978;
-extern void *lbl_805D30F8;
+extern void *TORockCave__class_name;
 
 void *TORockCave__ct(void *arg0) {
     construct_collider_proxy__10TObjPlayerFPv(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TORockCave;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D30F8;
+    M2C_FIELD(arg0, void **, 0x0) = TORockCave__class_name;
     M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DB974;
     M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DB978;
     return arg0;

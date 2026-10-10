@@ -72,7 +72,7 @@ s32 is_enabled__11TWindowCtrlFPv(void *);
 s32 is_visible__11TWindowCtrlFPv(void *);
 s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 void *TWindowShortListCtrl__ct(void *, void *, int);
-extern Pad_8024DCE8 lbl_8050E208[];
+extern Pad_8024DCE8 controller_input_state[];
 void update_short_list_request__11TWindowCtrlFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_inactive__10TObjPlayerFPv(void *);
@@ -88,7 +88,7 @@ s32 get_active_menu__11TWindowCtrlFPv(void *arg0);
 s32 get_function_key_menu__16TKeyBoardControlFPv(void *arg0);
 s32 TWindowMainMenu__sub_8024E3F4(void *);
 M2C_UNK try_open_battle_menu__15TWindowMainMenuFPvs(void *, s16);
-extern Pad_8024DCE8 lbl_8050E208[];
+extern Pad_8024DCE8 controller_input_state[];
 void update_main_menu_request__11TWindowCtrlFPv(void *arg0);
 }
 
@@ -193,7 +193,7 @@ void update_short_list_request__11TWindowCtrlFPv(void *arg0) {
                     M2C_FIELD(arg0, void **, 0x3C) = NULL;
                 }
             } else if (M2C_FIELD(arg0, void **, 0x3C) == NULL && is_enabled__11TWindowCtrlFPv(arg0) == 0) {
-                if (is_on_current_screen__11TCameraCtrlFPv(btn = lbl_8050E208[idx].btn, fn_8002AE08(M2C_FIELD(arg0, s32 *, 0x24))) != 0 &&
+                if (is_on_current_screen__11TCameraCtrlFPv(btn = controller_input_state[idx].btn, fn_8002AE08(M2C_FIELD(arg0, s32 *, 0x24))) != 0 &&
                     TWindowShortListCtrl__check_controller_button(btn, 0x200) != 0) {
                     o = __nw__7TObjectFUl(0x3C);
                     if (o != NULL) {
@@ -241,7 +241,7 @@ void update_main_menu_request__11TWindowCtrlFPv(void *arg0) {
     {
         s32 idx = is_player_input_active(M2C_FIELD(arg0, s32 *, 0x24));
         key = ((s16 (*)(void *))get_function_key_menu__16TKeyBoardControlFPv)(arg0);
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[idx].btn, 0x108) == 0 && key == 0x1F) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state[idx].btn, 0x108) == 0 && key == 0x1F) {
             return;
         }
     }

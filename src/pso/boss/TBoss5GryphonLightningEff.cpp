@@ -54,7 +54,7 @@ void subtract_vector(void *, void *);
 extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
-extern L1_80325070 **lbl_805D6C50;
+extern L1_80325070 **inazuma_texture_list;
 s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_);
 }
 
@@ -103,9 +103,9 @@ s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_) {
         u += step;
     }
     if (flags & 8) {
-        return *(*lbl_805D6C50)->a->p;
+        return *(*inazuma_texture_list)->a->p;
     }
-    return *(*lbl_805D6C50)->b->p;
+    return *(*inazuma_texture_list)->b->p;
 }
 #undef arg0
 

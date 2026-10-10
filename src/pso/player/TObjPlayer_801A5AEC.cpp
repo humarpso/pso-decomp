@@ -71,7 +71,7 @@ s32 is_split_screen();
 M2C_UNK TKeyBoardControl__sub_80132650(void *);
 M2C_UNK update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
-extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 void update_input_frame__16TKeyBoardControlFv(void);
 s32 TKeyBoardControl__sub_80132310(s32);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
@@ -88,7 +88,7 @@ s32 check_reset_button__16TKeyBoardControlFv();
 M2C_UNK PADRecalibrate(u32);
 extern Masks_801A5C4C pad_recalibration_bit_masks;
 extern const f64 lbl_804469E8[];
-extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u32 pad_recalibration_counters[];
 extern u8 lbl_805D5D09;
 extern s8 pad_recalibration_hold_frames[4];
@@ -103,8 +103,8 @@ void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 M2C_UNK update_button_hold_counters(int);
 extern const f64 lbl_80446A00[];
-extern RecoveredGlobal_801A5EC4_lbl_8050E208 lbl_8050E208;
-extern u8 lbl_8050E3B8[];
+extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
+extern u8 controller_physical_port_bank[];
 extern s32 lbl_805D34C8;
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC0B8;
@@ -222,7 +222,7 @@ void update_pad_recalibration(void) {
     s32 j;
     Masks_801A5C4C masks = { 0x80000000, 0x40000000, 0x20000000, 0x10000000 };
     for (i = 0; i < 4; i++) {
-        if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x40A) == 0x40A) {
+        if ((((Pad_801A5C4C *)&controller_input_state)[i].hold & 0x40A) == 0x40A) {
             pad_recalibration_hold_frames[i]++;
             if (15.0 == (f64)pad_recalibration_hold_frames[i]) {
                 lbl_805D5D09 = 1;
@@ -237,7 +237,7 @@ void update_pad_recalibration(void) {
         }
     }
     for (i = 0; i < 4; i++) {
-        if ((((Pad_801A5C4C *)&lbl_8050E208)[i].hold & 0x608) == 0x608) {
+        if ((((Pad_801A5C4C *)&controller_input_state)[i].hold & 0x608) == 0x608) {
             pad_recalibration_counters[i]++;
             if ((f32)pad_recalibration_counters[i] >= lbl_805DC0B4) {
                 pad_recalibration_counters[i] = 0;
@@ -271,7 +271,7 @@ void update_input_frame__16TKeyBoardControlFv(void) {
     u8 *temp_r31;
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__global_key_state.value));
     if (is_split_screen() == 0) {
-        temp_r31 = (u8 *)&lbl_8050E208.value + 0x160;
+        temp_r31 = (u8 *)&controller_input_state.value + 0x160;
         ((M2C_UNK (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
         update_button_hold_counters((int) (temp_r31));
     }
@@ -298,13 +298,13 @@ void controller_stuff__Fv(void) {
         bind_controller_devices();
         for (k = 0; k < 2; k++) {
             if (k == 0) {
-                pad = ((Set_801A5F1C *)&lbl_8050E208)->pads;
-                pp = (Src_801A5F1C **)&lbl_8050E208;
-                set = (Set_801A5F1C *)&lbl_8050E208;
+                pad = ((Set_801A5F1C *)&controller_input_state)->pads;
+                pp = (Src_801A5F1C **)&controller_input_state;
+                set = (Set_801A5F1C *)&controller_input_state;
             } else {
-                pad = ((Set_801A5F1C *)lbl_8050E3B8)->pads;
-                pp = (Src_801A5F1C **)lbl_8050E3B8;
-                set = (Set_801A5F1C *)lbl_8050E3B8;
+                pad = ((Set_801A5F1C *)controller_physical_port_bank)->pads;
+                pp = (Src_801A5F1C **)controller_physical_port_bank;
+                set = (Set_801A5F1C *)controller_physical_port_bank;
             }
             for (i = 0; i < 4; pad++, i++) {
                 src = *pp++;
@@ -431,8 +431,8 @@ void controller_stuff__Fv(void) {
 }
 
 #pragma push
-#define lbl_8050E208 ((s32 *)&lbl_8050E208)
-#define lbl_8050E3B8 ((s32 *)lbl_8050E3B8)
+#define controller_input_state ((s32 *)&controller_input_state)
+#define controller_physical_port_bank ((s32 *)controller_physical_port_bank)
 #define pad_recalibration_counters ((s32 *)pad_recalibration_counters)
 #define lbl_805D5D09 (*(s8 *)&lbl_805D5D09)
 #define TKeyBoardControl__global_key_state ((u8 *)&TKeyBoardControl__global_key_state)
@@ -530,11 +530,11 @@ void bind_controller_devices(void) {
     s32 *ids;
     s32 *fa;
     s32 n;
-    pb = (void **)lbl_8050E208;
-    pa = (void **)lbl_8050E3B8;
-    fb = &lbl_8050E208[4];
+    pb = (void **)controller_input_state;
+    pa = (void **)controller_physical_port_bank;
+    fb = &controller_input_state[4];
     ids = lbl_804C236C;
-    fa = &lbl_8050E3B8[4];
+    fa = &controller_physical_port_bank[4];
     for (i = 0; i < 4; i++) {
         p = (Ctl_801A6510 *)TKeyBoardControl__sub_803DEB74(*ids++);
         if (*p->f30 & 1) {
@@ -580,7 +580,7 @@ void reset_controller_input_state(void) {
     s32 j;
     Pad_801A66B8 *p;
 
-    p = (Pad_801A66B8 *)((u8 *)lbl_8050E208 + 0x20);
+    p = (Pad_801A66B8 *)((u8 *)controller_input_state + 0x20);
     for (i = 0; i < 4; i++) {
         p->f0 = ((Src_801A66B8 *)&controller_default_pad_state)[0].f8;
         p->f4 = ((Src_801A66B8 *)&controller_default_pad_state)[0].fC;
@@ -601,7 +601,7 @@ void reset_controller_input_state(void) {
         p->f4C = 0;
         p++;
     }
-    copy_state__16TKeyBoardControlFPvPv((Rec_801A67A4 *)&lbl_8050E208[0x58], (Rec_801A67A4 *)((u8 *)lbl_8050E208 + 0x20));
+    copy_state__16TKeyBoardControlFPvPv((Rec_801A67A4 *)&controller_input_state[0x58], (Rec_801A67A4 *)((u8 *)controller_input_state + 0x20));
     reset__16TKeyBoardControlFv();
 }
 
@@ -642,10 +642,10 @@ void init_pad_state__16TKeyBoardControlFv(void) {
     for (i = 0; i < 4; i++) {
         pad_recalibration_counters[i] = 0;
     }
-    lbl_8050E208[0] = TKeyBoardControl__sub_803DEB74(0);
-    lbl_8050E208[1] = TKeyBoardControl__sub_803DEB74(6);
-    lbl_8050E208[2] = TKeyBoardControl__sub_803DEB74(0xC);
-    lbl_8050E208[3] = TKeyBoardControl__sub_803DEB74(0x12);
+    controller_input_state[0] = TKeyBoardControl__sub_803DEB74(0);
+    controller_input_state[1] = TKeyBoardControl__sub_803DEB74(6);
+    controller_input_state[2] = TKeyBoardControl__sub_803DEB74(0xC);
+    controller_input_state[3] = TKeyBoardControl__sub_803DEB74(0x12);
     lbl_805D5D08 = 0;
     lbl_805D5D09 = 0;
     keyboard_reset_button_pressed = 0;
@@ -676,8 +676,8 @@ s32 poll_key_state__16TKeyBoardControlFPv(Kb_801A6910 *self) {
 
 }
 
-#undef lbl_8050E208
-#undef lbl_8050E3B8
+#undef controller_input_state
+#undef controller_physical_port_bank
 #undef pad_recalibration_counters
 #undef lbl_805D5D09
 #undef TKeyBoardControl__global_key_state

@@ -27,7 +27,7 @@ extern s32 lbl_805D2968;
 extern const f32 lbl_805D960C;
 u8 *TObjEneBalClaw__ct(u8 *arg0);
 extern Ent_8008D68C lbl_8048EC1C[];
-extern s32 lbl_805D4F24;
+extern s32 balclaw_last_shared_update_frame;
 extern s32 actor_frame_tick;
 void TObjPlayer__sub_8023DEE0(void *obj, s32 a, s32 b, u16 c);
 void TObjEneBalClaw__sub_8008D68C(void);
@@ -60,8 +60,8 @@ extern f32 lbl_805D9600;
 
 void TObjEneBalClaw__sub_8008D68C(void) {
     s32 i;
-    if (lbl_805D4F24 != actor_frame_tick) {
-        lbl_805D4F24 = actor_frame_tick;
+    if (balclaw_last_shared_update_frame != actor_frame_tick) {
+        balclaw_last_shared_update_frame = actor_frame_tick;
         for (i = 0; i < 7; i++) {
             Ent_8008D68C *e = &lbl_8048EC1C[i];
             TObjPlayer__sub_8023DEE0(e->obj, e->a, e->b, e->c);

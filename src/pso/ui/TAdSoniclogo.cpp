@@ -14,7 +14,7 @@ void *init_fade__6TLobbyFPvPvPv(void *, void *, void *);
 void init_logo_state__23TAdSinglePlyChrSelectGCFi(int);
 
 extern M2C_UNK __vt__12TAdSoniclogo[];
-extern void *lbl_805D2628;
+extern void *TAdSoniclogo__class_name;
 extern u32 TAdSoniclogo__state;
 extern u32 TLogo__exit_requested_flag;
 extern void *tl_00;
@@ -24,7 +24,7 @@ void *__ct__12TAdSoniclogoFv(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdSoniclogo;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2628;
+    M2C_FIELD(arg0, void **, 0x0) = TAdSoniclogo__class_name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     TAdSoniclogo__state = 0;
     TLogo__exit_requested_flag = 0;

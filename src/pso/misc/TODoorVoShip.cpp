@@ -44,7 +44,7 @@ M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 M2C_UNK refresh_collision_body_centers(void *);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern M2C_UNK __vt__12TODoorVoShip[];
-extern s32 lbl_805D2F88;
+extern s32 TODoorVoShip__class_name;
 extern u32 TODoorVoShip__data_805D5980;
 extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB53C;
@@ -219,7 +219,7 @@ void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
 u8 *TODoorVoShip__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80163C44___vt__12TODoorVoShip *)&__vt__12TODoorVoShip).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F88;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorVoShip__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__data_805D5980), 1);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__data_805D5980), 1);

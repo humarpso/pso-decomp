@@ -648,7 +648,7 @@ extern s32 game_difficulty_selection;
 extern int TObjEneMorfos__param_table;
 extern const f32 TObjEneMorfos__data_805DF884;
 extern const f32 lbl_805DF88C;
-void TObjEneMorfos__sub_80333290(u8 *arg0, s32 arg1);
+void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -2537,7 +2537,7 @@ void TObjEneMorfos__sub_80332FD4(u8 *arg0, s32 arg1) {
 #pragma opt_common_subs off
 #define F(o, t) M2C_FIELD(arg0, t *, o)
 #define D (*(D_80333290 * *)&TObjEneMorfos__param_table)
-void TObjEneMorfos__sub_80333290(u8 *arg0, s32 arg1) {
+void state_rotating_projectile_burst__13TObjEneMorfosFPvi(u8 *arg0, s32 arg1) {
     s32 old;
     void *p;
     s32 n;
@@ -3037,7 +3037,7 @@ void TObjEneMorfos__vt85(u8 *arg0, u32 arg1, s32 arg2) {
     case 4: TObjEneMorfos__sub_80333AD0((u8 *)(arg0), (s32)(arg2)); break;
     case 5: TObjEneMorfos__sub_80332FD4((u8 *)(arg0), (s32)(arg2)); break;
     case 6: TObjEneMorfos__sub_80333690((u8 *)(arg0), (s32)(arg2)); break;
-    case 9: TObjEneMorfos__sub_80333290((u8 *)(arg0), (s32)(arg2)); break;
+    case 9: state_rotating_projectile_burst__13TObjEneMorfosFPvi((u8 *)(arg0), (s32)(arg2)); break;
     case 8: state_patrol__13TObjEneMorfosFPvi(arg0, arg2); break;
     case 10: TObjEneMorfos__sub_80332DBC(arg0, arg2); break;
     case 11: state_death__13TObjEneMorfosFPvi(arg0, arg2); break;

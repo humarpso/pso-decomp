@@ -74,7 +74,7 @@ M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, M2C_UNK, M2C_UNK *);
 M2C_UNK set_field_100__22TAdMultiPlyChrSelectGCFPvi(s32, M2C_UNK);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
 
-extern char lbl_8050E208[];
+extern char controller_input_state[];
 extern M2C_UNK lbl_805DE784;
 
 void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
@@ -115,7 +115,7 @@ void cleanup__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         queue_destruction__7TObjectFv((void *)(M2C_FIELD(arg0, void **, 0x54)));
         M2C_FIELD(arg0, u32 *, 0x54) = 0U;
     }
-    if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;

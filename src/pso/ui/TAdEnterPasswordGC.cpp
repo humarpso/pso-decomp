@@ -129,8 +129,8 @@ M2C_UNK memset(void *, int, int);
 s32 strlen(s32);
 extern RecoveredGlobal_8032B904_lbl_80477278 enter_password_item_rect_table;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__data_804EDA20;
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 extern u8 *lbl_805D6CA0;
 extern s32 lbl_805D6CA4;
 void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self);
@@ -190,7 +190,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   s32 buf = realloc_buffer__17TWindowSubComCardFPv(lbl_805D6CA0);
   s32 prev;
   int cur;
-  if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)))
+  if (((self->len == 0) && (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) || ((self->len == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)))
   {
     free__11TOBoss4RockFUi(buf);
     memset(&TAdEnterPasswordGC__data_804EDA20.value, 0, 9);
@@ -203,7 +203,7 @@ void update_password_input__18TAdEnterPasswordGCFPv(Pw_8032B6A0 *self) {
   {
     if (update_keyboard__17TWindowSubComCardFPv(lbl_805D6CA0) != 0)
     {
-      if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0))
+      if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0))
       {
         free_menu_object(lbl_805D6CA0);
         self->f38 = 0;

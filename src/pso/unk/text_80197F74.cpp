@@ -12,8 +12,8 @@ struct RecoveredGlobal_80197F78_lbl_8050DD24 {
 extern "C" {
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi();
 void **TLobby__sub_803DA16C();
-extern RecoveredGlobal_80197F78_lbl_8050DD24 lbl_8050DD24;
-extern int lbl_805D5C58;
+extern RecoveredGlobal_80197F78_lbl_8050DD24 signboard_texture_list;
+extern int TObjSinBoard__texture_buffer;
 void **free_global_buffer__6TLobbyFv(void);
 }
 
@@ -24,23 +24,23 @@ void TLobby__sub_80197FC4(void);
 
 void TLobby__sub_80197F74(void) {  }
 
-    extern int lbl_805D5C58;
+    extern int TObjSinBoard__texture_buffer;
 
 typedef char RecoveredGlobal_80197F78_lbl_8050DD24_size[sizeof(RecoveredGlobal_80197F78_lbl_8050DD24) == 0x2C ? 1 : -1];
 void **free_global_buffer__6TLobbyFv(void) {
     void **var_r3;
-    var_r3 = (void **)((u8 *)((*(void ** *)&lbl_805D5C58)));
+    var_r3 = (void **)((u8 *)((*(void ** *)&TObjSinBoard__texture_buffer)));
     if (var_r3 != NULL) {
         safe_free__23TAdSinglePlyChrSelectGCFUi();
-        (*(void ** *)&lbl_805D5C58) = NULL;
-        var_r3 = (void **)(&lbl_8050DD24.value);
-        if ((u32) M2C_FIELD(lbl_8050DD24.value, u32 *, 8) != 0U) {
+        (*(void ** *)&TObjSinBoard__texture_buffer) = NULL;
+        var_r3 = (void **)(&signboard_texture_list.value);
+        if ((u32) M2C_FIELD(signboard_texture_list.value, u32 *, 8) != 0U) {
             var_r3 = (void **)(TLobby__sub_803DA16C());
         }
     }
     return var_r3;
 }
 
-void TLobby__sub_80197FC4(void) { lbl_805D5C58 = 0; }
+void TLobby__sub_80197FC4(void) { TObjSinBoard__texture_buffer = 0; }
 
 }

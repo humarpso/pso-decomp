@@ -27,7 +27,7 @@ s32 ensure_status_display__20TWindowSubStatusDispFPvi(void *, int);
 s32 fn_802683F4(void *, void *, int, void *);
 s32 reset_selected__14TWindowSubItemFPv(void *);
 extern M2C_UNK __vt__18TWindowSubItemList[];
-extern s32 lbl_805D3A58;
+extern s32 TWindowSubItemList__class_name;
 u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2);
 }
 
@@ -87,7 +87,7 @@ void *__dt__18TWindowSubItemListFv(void *arg0, s16 arg1) {
 u8 *TWindowSubItemList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x24), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8027AEDC___vt__18TWindowSubItemList *)&__vt__18TWindowSubItemList).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A58;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubItemList__class_name;
     ensure_status_display__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x24))));
     create_menu_scroll_bar((void *) (arg0));
     reset_selected__14TWindowSubItemFPv((void *) (arg0));

@@ -21,7 +21,7 @@ s32 get_card_data__17TWindowSubComCardFPv(int);
 s32 is_child_visible__17TWindowSubComCardFPv(int);
 void open_confirm_dialog__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
 void set_option_and_confirm__17TWindowOptionCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
-extern M2C_UNK lbl_8050E208[];
+extern M2C_UNK controller_input_state[];
 void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0);
 }
 
@@ -177,7 +177,7 @@ void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0) {
             M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
             M2C_FIELD(arg0, s32 *, 0x1C) = 4;
         case 4:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(lbl_8050E208) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (6)) != 0)) {
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (6)) != 0)) {
                 play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
                 M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) & 0xFFFFFFFD);
                 M2C_FIELD(arg0, s32 *, 0x24) = 2;
@@ -285,7 +285,7 @@ void handle_save_result__17TWindowOptionCtrlFPv(u8 *arg0) {
             }
             break;
         case 15:
-            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(lbl_8050E208) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(lbl_8050E208) + 0x160), (int) (6)) != 0)) {
+            if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)(controller_input_state) + 0x20), (int) (6)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)(controller_input_state) + 0x160), (int) (6)) != 0)) {
                 play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
                 M2C_FIELD(arg0, s32 *, 0x1C) = 3;
             }

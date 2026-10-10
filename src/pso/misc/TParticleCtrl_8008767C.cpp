@@ -145,17 +145,17 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK TLobby__sub_803DA16C(void*);
 int free__11TOBoss4RockFUi(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
-extern s32 lbl_805D4EFC;
-extern u32 TParticleCtrl__data_805D4F00;
-extern u32 TParticleCtrl__data_805D4F04;
+extern s32 particle_area_entry_table;
+extern u32 TParticleCtrl__regular_bml_resource;
+extern u32 TParticleCtrl__texture_list;
 void free_all__13TParticleCtrlFv(void);
 s32 read_disc_file(s32, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 extern u32 particle_pool_limit;
-extern int lbl_805D4EF8;
+extern int particle_global_entry_table;
 void init_particle_buffer__13TParticleCtrlFv(void);
-extern s32 lbl_805D4EFC;
-extern int lbl_805D4EF8;
+extern s32 particle_area_entry_table;
+extern int particle_global_entry_table;
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0);
 void *alloc_particle_memory(int);
 u8 * construct_ballistic_particle(void *, void *, void *, void *, s32, u16, s16);
@@ -234,9 +234,9 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 int sprintf(char *, const char *, ...);
 char *strcpy(char *, const char *);
 void *memset(void *, int, u32);
-extern s32 lbl_805D4EFC;
-extern u32 TParticleCtrl__data_805D4F00;
-extern u32 TParticleCtrl__data_805D4F04;
+extern s32 particle_area_entry_table;
+extern u32 TParticleCtrl__regular_bml_resource;
+extern u32 TParticleCtrl__texture_list;
 void load_particle_entry_resources(void);
 extern char lbl_80439494[];
 extern char lbl_804394A4[];
@@ -782,24 +782,24 @@ void set_particle_tint_color(u8 *arg0, void *arg1) {
 
 void set_particle_draw_scale(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0xa4) = a; *(f32*)((char*)p + 0xa8) = b; }
 
-    extern int lbl_805D4EF8;
-void free_system__13TParticleCtrlFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D4EF8)); lbl_805D4EF8 = 0; }
+    extern int particle_global_entry_table;
+void free_system__13TParticleCtrlFv(void) { free__11TOBoss4RockFUi((void*)(particle_global_entry_table)); particle_global_entry_table = 0; }
 void free_all__13TParticleCtrlFv(void) {
-    free__11TOBoss4RockFUi((void*)(lbl_805D4EFC));
-    lbl_805D4EFC = 0;
-    if ((u32) TParticleCtrl__data_805D4F00 != 0U) {
-        TLobby__sub_8001FE7C((void*)TParticleCtrl__data_805D4F00, 1);
-        TParticleCtrl__data_805D4F00 = 0U;
+    free__11TOBoss4RockFUi((void*)(particle_area_entry_table));
+    particle_area_entry_table = 0;
+    if ((u32) TParticleCtrl__regular_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TParticleCtrl__regular_bml_resource, 1);
+        TParticleCtrl__regular_bml_resource = 0U;
     }
-    if ((u32) TParticleCtrl__data_805D4F04 != 0U) {
-        TLobby__sub_803DA16C((void*)TParticleCtrl__data_805D4F04);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TParticleCtrl__data_805D4F04);
-        TParticleCtrl__data_805D4F04 = 0U;
+    if ((u32) TParticleCtrl__texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)TParticleCtrl__texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TParticleCtrl__texture_list);
+        TParticleCtrl__texture_list = 0U;
     }
 }
 void init_particle_buffer__13TParticleCtrlFv(void) {
     s32 temp_r3;
-    temp_r3 = read_disc_file((s32)TParticleCtrl__particle_entry_path, ((*(s32 *)&lbl_805D4EF8) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
+    temp_r3 = read_disc_file((s32)TParticleCtrl__particle_entry_path, ((*(s32 *)&particle_global_entry_table) = alloc_buffer__11TOBoss4RockFPv(0x13000)));
     particle_pool_limit = 0;
     if (temp_r3 >= 0) {
         particle_pool_limit = (u32) temp_r3 / 152U;
@@ -807,9 +807,9 @@ void init_particle_buffer__13TParticleCtrlFv(void) {
 }
 s32 get_particle_by_index__13TParticleCtrlFi(s32 arg0) {
     if (arg0 >= 0x200) {
-        return lbl_805D4EFC + ((arg0 - 0x200) * 0x98);
+        return particle_area_entry_table + ((arg0 - 0x200) * 0x98);
     }
-    return (*(s32 *)&lbl_805D4EF8) + (arg0 * 0x98);
+    return (*(s32 *)&particle_global_entry_table) + (arg0 * 0x98);
 }
 
 void load_particle_entry_resources(void) {
@@ -827,13 +827,13 @@ void load_particle_entry_resources(void) {
     } else {
         sprintf(name, lbl_804394BC, state);
     }
-    read_disc_file((s32)name, lbl_805D4EFC = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x2600)));
+    read_disc_file((s32)name, particle_area_entry_table = alloc_buffer__11TOBoss4RockFPv((M2C_UNK)(0x2600)));
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != 0) {
         p = load_resource_from_descriptor(p, 1, particle_regular_bml_descriptor, 0, 0, 0);
     }
-    TParticleCtrl__data_805D4F00 = (u32)p;
-    TParticleCtrl__data_805D4F04 = load_gvm_texture_file(lbl_804394D4);
+    TParticleCtrl__regular_bml_resource = (u32)p;
+    TParticleCtrl__texture_list = load_gvm_texture_file(lbl_804394D4);
 }
 
 }

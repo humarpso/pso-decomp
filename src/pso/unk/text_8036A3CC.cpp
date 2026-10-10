@@ -11,7 +11,7 @@ struct Inst_8036A3CC { u8 pad0[0x1155C]; u32 flags[2]; };
 extern "C" {
 s32 fn_8036A514(int);
 s32 check_flag_index_set(int);
-extern RecoveredGlobal_8036A450_lbl_8047AC1C lbl_8047AC1C;
+extern RecoveredGlobal_8036A450_lbl_8047AC1C music_sequencer_flag_ids;
 void fn_8036A450(s32 arg0);
 Inst_8036A3CC *get_instance__23TAdSinglePlyChrSelectGCFv(void);
 u32 *fn_8036A3CC(s32 arg0, u32 *mask);
@@ -38,7 +38,7 @@ u32 *fn_8036A3CC(s32 arg0, u32 *mask) {
 void fn_8036A450(s32 arg0) {
     s32 temp_r31;
     if ((arg0 >= 0) && (arg0 < 9)) {
-        temp_r31 = M2C_FIELD(&lbl_8047AC1C.value, M2C_UNK *, (arg0 * 4));
+        temp_r31 = M2C_FIELD(&music_sequencer_flag_ids.value, M2C_UNK *, (arg0 * 4));
         if (check_flag_index_set((int) (temp_r31)) != 1) {
             fn_8036A514((int) (temp_r31));
         }

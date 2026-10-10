@@ -36,13 +36,13 @@ int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 int set_field_20__12TQuestListVMFPvi(void *, int);
 
-extern struct VObj_80212564 *THunterGuildSeqOffline__data_805D6188;
+extern struct VObj_80212564 *THunterGuildSeqOffline__active_instance;
 
 void set_state_4__22THunterGuildSeqOfflineFv(void) {
-    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
-        THunterGuildSeqOffline__data_805D6188->m7(6, 1);
-        M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 4;
-        set_field_20__12TQuestListVMFPvi((void *)(THunterGuildSeqOffline__data_805D6188), (int)(5));
+    if (THunterGuildSeqOffline__active_instance != NULL) {
+        THunterGuildSeqOffline__active_instance->m7(6, 1);
+        M2C_FIELD(THunterGuildSeqOffline__active_instance, s32 *, 0x38) = 4;
+        set_field_20__12TQuestListVMFPvi((void *)(THunterGuildSeqOffline__active_instance), (int)(5));
     }
 }
 

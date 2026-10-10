@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void handle_cmd_88(void *arg0);
-void handle_cmd_C4(void *arg0);
+void handle_cmd_88__9TProtocolFR6packet(void *arg0);
+void handle_cmd_C4__9TProtocolFR6packet(void *arg0);
 M2C_UNK bswap_cmd_88_body(M2C_UNK *);
 M2C_UNK copy_entry_table(M2C_UNK *);
 M2C_UNK fn_801DF42C(M2C_UNK *);
 M2C_UNK fn_801DF4FC(M2C_UNK *);
 
-void handle_cmd_88(void *arg0) {
+void handle_cmd_88__9TProtocolFR6packet(void *arg0) {
     char sp8[0xC4];
     M2C_UNK (*temp_r12)(M2C_UNK *);
 
@@ -25,7 +25,7 @@ void handle_cmd_88(void *arg0) {
     }
 }
 
-void handle_cmd_C4(void *arg0) {
+void handle_cmd_C4__9TProtocolFR6packet(void *arg0) {
     char sp8[0x1A84];
     M2C_UNK (*temp_r12)(M2C_UNK *);
 

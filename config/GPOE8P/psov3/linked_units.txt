@@ -752,6 +752,7 @@ pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
 pso/misc/CreationMotion.cpp
+pso/misc/ShopWeaponStock.cpp
 pso/misc/TAttackTrace.cpp
 pso/misc/TBGLightningCtrl.cpp
 pso/misc/TBreakUpMdl.cpp
@@ -1707,6 +1708,7 @@ pso/misc/TWindowGetComCard.cpp
 pso/misc/TWindowGetComCard_8007B54C.cpp
 pso/misc/TWindowHelpItem.cpp
 pso/misc/TWindowHelpItem_802531A0.cpp
+pso/misc/TWindowHelpItem_802540AC.cpp
 pso/misc/TWindowHelpItem_80255AB4.cpp
 pso/misc/TWindowHelpItem_8025A12C.cpp
 pso/misc/TWindowHelpItem_8025A60C.cpp
@@ -1955,6 +1957,7 @@ pso/misc/pso_const_ids5.cpp
 pso/misc/pso_const_ids6.cpp
 pso/misc/pso_const_ids7.cpp
 pso/network/TGameProtocol.cpp
+pso/network/TProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
 pso/network/TProtocol_801D9EEC.cpp
 pso/network/TProtocol_801DA140.cpp

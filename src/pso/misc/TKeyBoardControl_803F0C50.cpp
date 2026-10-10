@@ -187,7 +187,7 @@ s32 SIIsChanBusy(s32);
 u32 SIGetStatus(s32);
 s32 SIDisablePolling(u32);
 s32 SIGetResponse(s32, void *);
-s32 TKeyBoardControl__sub_803F1604(s32 chan, u8 *out);
+s32 poll_keyboard_port(s32 chan, u8 *out);
 }
 
 extern "C" {
@@ -528,7 +528,7 @@ inline u32 kb_sum_803F1604(u32 *p) {
     sum ^= (u8)(p[1] >> 8);
     return sum == (u8)p[1];
 }
-s32 TKeyBoardControl__sub_803F1604(s32 chan, u8 *out) {
+s32 poll_keyboard_port(s32 chan, u8 *out) {
     u32 resp[2];
     u8 unused[4];
     u32 bit;

@@ -28,7 +28,7 @@ M2C_UNK update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, 
 M2C_UNK select_next__26TWindowSubQuestBoardSelectFPv(void *);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 lbl_804D19A8;
 extern RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect __vt__26TWindowSubQuestBoardSelect;
-extern s32 lbl_805D3A80;
+extern s32 TWindowSubQuestBoardSelect__class_name;
 extern const f32 lbl_805DD6B8;
 extern const f32 lbl_805DD6BC;
 u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0);
@@ -46,7 +46,7 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     s32 var_r30;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D19A8.value), (int) (4), (int) (get_window_layout_position(0x70)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A80;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubQuestBoardSelect__class_name;
     var_r30 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);
     if (var_r30 != 0) {
         var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFPv((int) (0x2B)), (s32) M2C_FIELD(arg0, s16 *, 0x20));

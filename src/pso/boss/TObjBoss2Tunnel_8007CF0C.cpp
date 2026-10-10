@@ -33,7 +33,7 @@ void draw_projected_quads__15TObjBoss2TunnelFPvi(Vtx_8007D828 *, s32);
 void TObjBoss2Tunnel__sub_803E2D10(s32);
 extern Vec2_8007DD28 TObjBoss2Tunnel__data_8048DF2C;
 extern s32 lbl_805D63F0;
-void TObjBoss2Tunnel__sub_8007D828(void);
+void draw_snapshot_capture_overlay(void);
 }
 
 extern "C" {
@@ -166,7 +166,7 @@ s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     return 1;
 }
 
-void TObjBoss2Tunnel__sub_8007D828(void) {
+void draw_snapshot_capture_overlay(void) {
     Quad_8007D828 q;
     Vtx_8007D828 v[4];
     s32 i;

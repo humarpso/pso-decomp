@@ -11,8 +11,8 @@ u32 load_gvm_texture_file(void *);
 M2C_UNK reset_state__10TBoss6TubeFv();
 extern u8 lbl_80470A68[];
 extern u8 lbl_804DE888[];
-extern u32 lbl_805D6718;
-extern u32 lbl_805D671C;
+extern u32 boss6_tube_bml_resource;
+extern u32 boss6_tube_texture_list;
 void load_resources__10TBoss6TubeFv(void);
 }
 
@@ -35,18 +35,18 @@ void *create__10TBoss6TubeFPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D6718;
-extern u32 lbl_805D671C;
+extern u32 boss6_tube_bml_resource;
+extern u32 boss6_tube_texture_list;
 
 void free_resources__10TBoss6TubeFv(void) {
-    if ((u32) lbl_805D6718 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D6718, 1);
-        lbl_805D6718 = 0U;
+    if ((u32) boss6_tube_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)boss6_tube_bml_resource, 1);
+        boss6_tube_bml_resource = 0U;
     }
-    if ((u32) lbl_805D671C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D671C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D671C);
-        lbl_805D671C = 0U;
+    if ((u32) boss6_tube_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)boss6_tube_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(boss6_tube_texture_list);
+        boss6_tube_texture_list = 0U;
     }
     reset_state__10TBoss6TubeFv();
 }
@@ -57,9 +57,9 @@ void load_resources__10TBoss6TubeFv(void) {
     if (r != 0) {
         r = load_resource_from_descriptor(r, 5, lbl_804DE888, 0, 0, 0);
     }
-    lbl_805D6718 = r;
-    lbl_805D671C = load_gvm_texture_file(lbl_80470A68);
-    if (lbl_805D6718 != 0 && lbl_805D671C != 0) {
+    boss6_tube_bml_resource = r;
+    boss6_tube_texture_list = load_gvm_texture_file(lbl_80470A68);
+    if (boss6_tube_bml_resource != 0 && boss6_tube_texture_list != 0) {
         return;
     }
 }

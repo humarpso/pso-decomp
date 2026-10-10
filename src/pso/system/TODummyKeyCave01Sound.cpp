@@ -19,7 +19,7 @@ M2C_UNK __ct__7TObjectFP7TObject();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern M2C_UNK __vt__21TODummyKeyCave01Sound[];
-extern s32 lbl_805D2FAC;
+extern s32 TODummyKeyCave01Sound__class_name;
 
 void run_task__21TODummyKeyCave01SoundFv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) - 1);
@@ -33,7 +33,7 @@ TODummyKeyCave01Sound::~TODummyKeyCave01Sound() {}
 void *TODummyKeyCave01Sound__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TODummyKeyCave01Sound;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FAC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODummyKeyCave01Sound__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) <= 0) {

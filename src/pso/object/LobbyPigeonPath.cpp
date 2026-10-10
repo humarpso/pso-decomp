@@ -217,7 +217,7 @@ s32 get_bml_model(void *, s32);
 s32 get_bml_motion(void *, s32);
 
 s32 rand();
-extern M2C_UNK lbl_804E0898[];
+extern M2C_UNK lobby_pigeon_vtable[];
 extern void* lbl_805D67B8;
 LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
 
@@ -620,11 +620,11 @@ extern u8 lbl_804E07C4[];
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E07F0;
 extern RecoveredGlobal_802C1B9C_lbl_804E081C lbl_804E081C;
 extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E0848;
-extern M2C_UNK lbl_804E0898[];
-extern M2C_UNK lbl_804E08D4[];
+extern M2C_UNK lobby_pigeon_vtable[];
+extern M2C_UNK jungle_seagull_vtable[];
 extern M2C_UNK lbl_804E0910[];
 extern M2C_UNK lbl_804E094C[];
-extern M2C_UNK lbl_804E0988[];
+extern M2C_UNK seabed_dolphin_vtable[];
 extern u32 lbl_805D6798;
 extern s32 lbl_805D679C;
 extern u32 lbl_805D67A0;
@@ -728,7 +728,7 @@ void update_lobby_pigeon_visibility(LobbyPigeon *self) {
 
 void *destroy_lobby_pigeon(void *arg0, s16 arg1) {
   if (arg0 != NULL) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0898;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lobby_pigeon_vtable;
     ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
     if (arg1 > 0) {
       __dl__7TObjectFPv(arg0);
@@ -742,7 +742,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     s32 movement;
     s32 selector;
     ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(self), (void*)(parent), (const void*)(source));
-    self->vtable = ((void* *)&lbl_804E0898);
+    self->vtable = ((void* *)&lobby_pigeon_vtable);
     ((void (*)(LobbyPigeon *))select_lobby_pigeon_model)(self);
     self->scale = (1.0f);
     self->model = ((void*)get_bml_model((void *)(lbl_805D67B8), (s32)(self->modelIndex)));
@@ -929,7 +929,7 @@ extern int fold_flush_1;
 
 void *dt_path_obj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E08D4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = jungle_seagull_vtable;
         ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -945,7 +945,7 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
     s32 var_r0;
 
     ((M2C_UNK (*)(void))TObjPathObj__ct)();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E08D4;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = jungle_seagull_vtable;
     M2C_FIELD(arg0, s32 *, 0x98) = ((s32 (*)(s32, M2C_UNK))get_bml_model)((*(s32 *)&lbl_805D67B0), 0);
     M2C_FIELD(arg0, s32 *, 0x9C) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lbl_805D67B0), 0);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x84);
@@ -1509,7 +1509,7 @@ void advance_path_follow_b__10TObjPlayerFPv(Pl_802C2DEC *arg0) {
 
 void *TObjPlayer__sub_802C2EAC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0988;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = seabed_dolphin_vtable;
         ((void (*)(void *, int))__dt__11TObjPathObjFv)(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1522,7 +1522,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   s32 var_r0;
   s32 temp_r3;
   ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
-  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C2F04_lbl_804E0988 *)&lbl_804E0988).value;
+  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C2F04_lbl_804E0988 *)&seabed_dolphin_vtable).value;
   *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D6798), 0);
   *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D6798), 5);
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x84));

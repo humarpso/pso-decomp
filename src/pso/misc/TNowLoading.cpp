@@ -52,7 +52,7 @@ M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK TAdLoadNetworkGC__ct(void *, void *, void *);
 extern M2C_UNK __vt__11TNowLoading[];
 extern RecoveredGlobal_8001D19C_lbl_804FF5E8 lbl_804FF5E8;
-extern s32 lbl_805D2640;
+extern s32 TNowLoading__class_name;
 extern const f32 lbl_805D7EC0;
 TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Vec_8001D3A8 *arg2);
 void DCInvalidateRange(void *, u32);
@@ -166,7 +166,7 @@ TNowLoading_8001D3A8 *TNowLoading__ct(TNowLoading_8001D3A8 *arg0, void *arg1, Ve
     void *p;
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vtable = __vt__11TNowLoading;
-    arg0->unk0 = lbl_805D2640;
+    arg0->unk0 = TNowLoading__class_name;
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
     cam = (Cam_8001D3A8 *) &lbl_804FF5E8;
     out[0] = 0;

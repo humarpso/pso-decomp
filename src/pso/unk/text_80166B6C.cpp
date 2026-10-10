@@ -47,7 +47,7 @@ s32 fn_80166E64(u8 *arg0);
 s32 fn_80166EA8(u8 *arg0, int);
 extern RecoveredGlobal_80166D5C_lbl_804B1BE8 fence_ancient01_collision_parts;
 extern M2C_UNK __vt__16TOFenceAncient01[];
-extern s32 lbl_805D2FC8;
+extern s32 TOFenceAncient01__class_name;
 extern u8 *TOFenceAncient01__data_805D59B0;
 extern u32 TOFenceAncient01__data_805D59B4;
 extern const f32 lbl_805DB610;
@@ -158,7 +158,7 @@ u8 *TOFenceAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *temp_r6;
     init_fields__16TOFenceAncient01FPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80166D5C___vt__16TOFenceAncient01 *)&__vt__16TOFenceAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FC8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOFenceAncient01__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     temp_r4 = (u8 *)(M2C_FIELD(TOFenceAncient01__data_805D59B0, u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(temp_r4, s32 *, 8);

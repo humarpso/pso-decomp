@@ -528,7 +528,7 @@ s32 open_confirm_yes_no__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 create_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 s32 build_trade_menu__19TWindowSubTradeMainFPv(u8 *arg0);
 void TWindowSubTradeMain__sub_803323C8(void *);
-extern Ctrl_8033162C lbl_8050E208[];
+extern Ctrl_8033162C controller_input_state[];
 void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o);
 }
 
@@ -929,8 +929,8 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
     case 28:
         if (TWindowSubTradeMain__sub_802D2808() == 0 ||
             (!(o->flags & 1) &&
-             (TWindowShortListCtrl__check_controller_button(lbl_8050E208[player].btn, 2) != 0 ||
-              test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].btn, 2) != 0))) {
+             (TWindowShortListCtrl__check_controller_button(controller_input_state[player].btn, 2) != 0 ||
+              test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].btn, 2) != 0))) {
             play_sound_effect(0x52F16, 0, 0, 0);
             TWindowSubTradeMain__sub_802D2824();
             o->state = 0x1D;
@@ -955,8 +955,8 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         if (o->timer > 0) {
             o->timer--;
         } else if (!(o->flags & 1) &&
-                   (TWindowShortListCtrl__check_controller_button(lbl_8050E208[player].btn, 2) != 0 ||
-                    test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].btn, 2) != 0)) {
+                   (TWindowShortListCtrl__check_controller_button(controller_input_state[player].btn, 2) != 0 ||
+                    test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].btn, 2) != 0)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             clear_flag400__6TLobbyFv();
             o->timer = 900;

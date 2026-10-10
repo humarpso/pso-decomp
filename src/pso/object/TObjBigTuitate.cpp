@@ -68,7 +68,7 @@ void pop_matrix(void);
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void);
 void draw_ginja_object(void);
-extern u32 lbl_805D5C74;
+extern u32 TObjBigTuitate__bml_resource;
 extern const f32 lbl_805DBFA8;
 extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFB0;
@@ -80,7 +80,7 @@ M2C_UNK refresh_collision_body_centers(void *);
 M2C_UNK init_collision_body_parts(void *, void *, int);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *);
-extern M2C_UNK lbl_804B9034[];
+extern M2C_UNK big_tuitate_collision_body[];
 extern M2C_UNK __vt__14TObjBigTuitate[];
 extern s32 lbl_805D3454;
 extern const f32 lbl_805DBFB4;
@@ -127,12 +127,12 @@ void render__14TObjBigTuitateFv(Obj_8019AA18 *self) {
     if (fading != 0) {
         ((Fade_8019AA18 *)(arg0 + 0xAC))->begin();
     }
-    TObjFish__sub_8001EDB0((*(s32 *)&lbl_805D5C74), 0);
+    TObjFish__sub_8001EDB0((*(s32 *)&TObjBigTuitate__bml_resource), 0);
     set_global_param__8TObjFishFi();
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)(arg0 + 0x60));
-    get_bml_model((*(s32 *)&lbl_805D5C74), 0);
+    get_bml_model((*(s32 *)&TObjBigTuitate__bml_resource), 0);
     draw_ginja_object();
     pop_matrix();
     if (fading != 0) {
@@ -173,7 +173,7 @@ void *TObjBigTuitate__ct(void *arg0, void *arg1, void *arg2) {
     init_and_activate__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3454;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
-    init_collision_body_parts((void *) (arg0), (void *) (lbl_804B9034), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (big_tuitate_collision_body), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r4 = (s32)arg2 - 4;
@@ -195,12 +195,12 @@ void *TObjBigTuitate__create(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5C74;
+extern u32 TObjBigTuitate__bml_resource;
 
 void free_instance__14TObjBigTuitateFv(void) {
-    if ((u32) lbl_805D5C74 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5C74, 1);
-        lbl_805D5C74 = 0U;
+    if ((u32) TObjBigTuitate__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjBigTuitate__bml_resource, 1);
+        TObjBigTuitate__bml_resource = 0U;
     }
 }
 

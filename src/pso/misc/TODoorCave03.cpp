@@ -98,7 +98,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80162848_lbl_804B1548 lbl_804B1548;
 extern M2C_UNK __vt__12TODoorCave03[];
-extern s32 lbl_805D2F70;
+extern s32 TODoorCave03__class_name;
 extern u32 TODoorCave03__data_805D5968;
 extern const f32 TODoorCave03__data_805DB4D4;
 u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -290,7 +290,7 @@ typedef char RecoveredGlobal_80162848___vt__12TODoorCave03_size[sizeof(Recovered
 u8 *TODoorCave03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_door_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80162848___vt__12TODoorCave03 *)&__vt__12TODoorCave03).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F70;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorCave03__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODoorCave03__data_805D5968), u8 **, 0x42C), s32 *, 0xC);

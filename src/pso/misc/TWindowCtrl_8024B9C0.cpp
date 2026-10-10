@@ -45,11 +45,11 @@ void update_trade_window__11TWindowCtrlFPv(void *arg0) {
     }
 }
 
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern s32 local_client_id;
 
 void handle_controller__11TWindowCtrlFi(s32 arg0) {
-    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_slot_visible__11TWindowCtrlFi(local_client_id) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(local_client_id)) == 0) && (has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, fn_8002AE08(local_client_id), (M2C_UNK *)lbl_8050E208) != 0)) {
+    if ((get_global_state__14TOKeyMachine01Fv() == 0xF) && (is_slot_visible__11TWindowCtrlFi(local_client_id) == 0) && (TWindowCtrl__sub_8024B000((void *)(arg0), (s32)(local_client_id)) == 0) && (has_player_active_menu__11TWindowCtrlFi(local_client_id) == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, fn_8002AE08(local_client_id), (M2C_UNK *)controller_input_state) != 0)) {
         advance_card_status__15TWindowCtrlMainFi(local_client_id);
     }
 }

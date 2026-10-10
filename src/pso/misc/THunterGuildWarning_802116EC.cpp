@@ -8,10 +8,10 @@ extern "C" {
 
 u8 is_active__19THunterGuildWarningFv(void);
 
-extern s32 THunterGuildWarning__data_805D6178;
+extern s32 THunterGuildWarning__instance;
 
 u8 is_active__19THunterGuildWarningFv(void) {
-    return (u8) (THunterGuildWarning__data_805D6178 != 0);
+    return (u8) (THunterGuildWarning__instance != 0);
 }
 
 }

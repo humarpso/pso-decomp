@@ -53,7 +53,7 @@ f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 extern s32 camera_ctrl_instance;
-extern void *lbl_805D5C28;
+extern void *lazer_fence_norm_texture_list;
 extern const f32 lbl_805DBE70;
 extern const f32 lbl_805DBE74;
 s16 TObjLaboDesignBase__vt8(u8 *arg0, f32 farg0, f32 farg1);

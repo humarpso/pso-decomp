@@ -41,7 +41,7 @@ void TWindow__close(void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 TAdChrSelASlotGC__sub_8030CB08(int, int, int);
 extern RecoveredGlobal_802D4730_lbl_804C89BC lbl_804C89BC;
-extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0);
 s32 get_instance__15TAdPlayerLoadGCFv();
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -49,7 +49,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 void TWindow__close(void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
-extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -57,7 +57,7 @@ M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 extern RecoveredGlobal_802D4570_lbl_80472510 lbl_80472510;
-extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
 M2C_UNK TKeyBoardControl__sub_8000F9CC(M2C_UNK);
@@ -106,8 +106,8 @@ u32 TAdChrSelASlotGC__sub_8030CA84(s32, M2C_UNK *);
 extern M2C_UNK lbl_80472540[];
 extern M2C_UNK lbl_80472548[];
 extern M2C_UNK lbl_80472550[];
-extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
-extern M2C_UNK lbl_8050E3B8[];
+extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
+extern M2C_UNK controller_physical_port_bank[];
 extern s32 tl_fade;
 extern M2C_UNK lbl_805DE784;
 void handle_slot_selection__23TAdSinglePlyChrSelectGCFPv(void *arg0);
@@ -120,7 +120,7 @@ void TWindow__close(void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 TAdChrSelASlotGC__sub_8030CB08(int, int, int);
 extern RecoveredGlobal_802D4730_lbl_804C89BC lbl_804C89BC;
-extern RecoveredGlobal_802D4730_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0);
 }
 
@@ -417,7 +417,7 @@ void handle_slot_selection__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
         queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x54));
         M2C_FIELD(arg0, u32 *, 0x54) = 0U;
     }
-    if ((TWindowShortListCtrl__check_controller_button((void *)((u8 *)lbl_8050E3B8 + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), 2) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *)((u8 *)controller_physical_port_bank + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;
@@ -471,7 +471,7 @@ void handle_slot_selection__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&lbl_8050E208).value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&lbl_8050E208).value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_802D4570_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;
@@ -488,7 +488,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;
@@ -508,7 +508,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4664(u8 *arg0) {
 
 void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
     s32 temp_r0;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;
@@ -540,7 +540,7 @@ void TAdSinglePlyChrSelectGC__sub_802D4730(u8 *arg0) {
 }
 void TAdSinglePlyChrSelectGC__sub_802D486C(void *arg0) {
     s32 temp_r0;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), 2) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), 2) != 0)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0xB;
         return;

@@ -20,12 +20,12 @@ struct VObj_802126C4 : Base_802126C4 {
     virtual void m6();
     virtual void m7(int, int);
 };
-extern VObj_802126C4 *THunterGuildSeqOffline__data_805D6188;
+extern VObj_802126C4 *THunterGuildSeqOffline__active_instance;
 
 void notify_close__22THunterGuildSeqOfflineFv(void) {
-    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
-        THunterGuildSeqOffline__data_805D6188->m7(0x19, 1);
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__data_805D6188, 4);
+    if (THunterGuildSeqOffline__active_instance != NULL) {
+        THunterGuildSeqOffline__active_instance->m7(0x19, 1);
+        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 4);
     }
 }
 
@@ -39,7 +39,7 @@ extern s32 tl_05;
 void create_quest_list_vm__22THunterGuildSeqOfflineFv(void) {
     Q_80212710 *p = (Q_80212710 *)__nw__7TObjectFUl(0x23C4);
     if (p != 0) {
-        p = (Q_80212710 *)TQuestListVM__ct((u8 *)p, tl_05, (s32)THunterGuildSeqOffline__data_805D6188, ((G_80212710 *)THunterGuildSeqOffline__data_805D6188)->f24);
+        p = (Q_80212710 *)TQuestListVM__ct((u8 *)p, tl_05, (s32)THunterGuildSeqOffline__active_instance, ((G_80212710 *)THunterGuildSeqOffline__active_instance)->f24);
     }
     if (p != 0) {
         p->cb0 = (void *)notify_close__22THunterGuildSeqOfflineFv;

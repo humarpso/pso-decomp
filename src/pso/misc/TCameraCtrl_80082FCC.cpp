@@ -53,7 +53,7 @@ s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern RecoveredGlobal_800830B0_lbl_80439348 lbl_80439348;
 extern RecoveredGlobal_800830B0_main_task main_task;
 extern u8 *camera_ctrl_instance;
-extern u32 lbl_805D4EE8;
+extern u32 camera_render_target_singleton;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93D8;
 extern const f32 lbl_805D9404;
@@ -101,11 +101,11 @@ void copy_position_vectors__11TCameraCtrlFPvPvPv(void *arg0, void *arg1, void *a
     ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)((void *)((char *)arg0 + 44), arg2);
 }
 
-extern u32 lbl_805D4EE8;
+extern u32 camera_render_target_singleton;
 
 void update_single_screen__11TCameraCtrlFv(void) {
-    if ((is_split_screen() == 0) && ((u32) lbl_805D4EE8 != 0U)) {
-        set_global_param__8TObjFishFi(lbl_805D4EE8 + 0x1C);
+    if ((is_split_screen() == 0) && ((u32) camera_render_target_singleton != 0U)) {
+        set_global_param__8TObjFishFi(camera_render_target_singleton + 0x1C);
         load_list_texture(0, 0, 0, 0);
     }
 }
@@ -149,13 +149,13 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         TObjPlayer__sub_80084754();
         render_scene_passes__9TMainTaskFv((void *) (&main_task.value));
         TObjPlayer__sub_80084744();
-        if ((void *) (*(u8 * *)&lbl_805D4EE8) != NULL) {
+        if ((void *) (*(u8 * *)&camera_render_target_singleton) != NULL) {
             stack.sp8 = lbl_805E1210;
             GXSetCopyClear((void *) (&stack.sp8), (int) (0xFFFFFF));
             GXSetZMode((int) (1U), (int) (7), (int) (1));
             GXSetTexCopySrc((int) (0U), (int) (0), (int) (0x280U), (int) (0x1E0U));
             GXSetTexCopyDst((int) (0x280), (int) (0x1E0), (int) (4), (int) (0));
-            GXCopyTex((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D4EE8), u8 **, 0x1C), void **, 8), void **, 0xC), s32 *, 0x20)), (int) (1U));
+            GXCopyTex((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD((*(u8 * *)&camera_render_target_singleton), u8 **, 0x1C), void **, 8), void **, 0xC), s32 *, 0x20)), (int) (1U));
             GXPixModeSync();
         }
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));

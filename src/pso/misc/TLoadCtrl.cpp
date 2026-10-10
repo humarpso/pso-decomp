@@ -25,7 +25,7 @@ s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 __ct__9TAdFadeGCFv(int, int, int);
 extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
-extern s32 lbl_805D2630;
+extern s32 TLoadCtrl__class_name;
 extern s32 TLoadCtrl__data_805D4A84;
 extern s32 TLoadCtrl__data_805D4A88;
 extern s32 tl_fade;
@@ -176,7 +176,7 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     TLoadCtrl__data_805D4A88 = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2630;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__data_805D4A84) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__data_805D4A84) == 1U)) {
         temp_r3 = __nw__7TObjectFUl((int) (0x38));
         var_r0 = temp_r3;

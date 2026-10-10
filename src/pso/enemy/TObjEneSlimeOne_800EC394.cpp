@@ -64,8 +64,8 @@ s32 find_nearest_hittable_enemy__10TObjPlayerFiPvf(void *, void *, f32);
 int find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(u8 *arg0, f32 farg0);
 s32 is_in_water_bomb_states__15TObjEneSlimeOneFPv(O_800EC39C *self);
 void advance_animation_playback(s32);
-extern s8 lbl_805D52C4;
-extern f32 lbl_805D52C0;
+extern s8 slime_one_animation_end_initialized;
+extern f32 slime_one_animation_end_frame;
 extern f32 lbl_805DA760;
 void advance_animation_state__15TObjEneSlimeOneFPv(Obj_800EC6D0 *arg0);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -115,13 +115,13 @@ int __dl__FPv();
 
 s32 get_attack_target__15TObjEneSlimeOneFPv(void* p) { return *(s32*)((char*)p + 0x3f4); }
 
-    extern int lbl_805D52B0;
+    extern int slime_bml_resource;
 
 s32 is_in_water_bomb_states__15TObjEneSlimeOneFPv(O_800EC39C *self) {
     return self->state == 11 || self->state == 12 || self->state == 13;
 }
 
-int get_instance__15TObjEneSlimeOneFv(void) {  return lbl_805D52B0; }
+int get_instance__15TObjEneSlimeOneFv(void) {  return slime_bml_resource; }
 
 int find_nearest_enemy_masked__15TObjEneSlimeOneFPvf(u8 *arg0, f32 farg0) {
     u16 temp_r3;
@@ -145,8 +145,8 @@ void TObjEneSlimeOne__sub_800EC470(void* p) { *(s32*)((char*)p + 0x3f0) = 0; }
 
 int check_player_field_7cc__15TObjEneSlimeOneFPv(void* p) { return get_validated_attack_stage((char*)p + 0x7cc); }
 
-extern f32 lbl_805D52B8;
-extern u8 lbl_805D52BC;
+extern f32 TObjEneSlimeOne__target_depth;
+extern u8 TObjEneSlimeOne__target_depth_initialized;
 extern f32 lbl_805DA760;
 
 void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
@@ -233,13 +233,13 @@ void advance_animation_state__15TObjEneSlimeOneFPv(Obj_800EC6D0 *arg0) {
             arg0->f30 = arg0->f30 - arg0->f2C;
         }
     } else {
-        if (lbl_805D52C4 == 0) {
+        if (slime_one_animation_end_initialized == 0) {
             f32 tmp = arg0->f2C;
-            lbl_805D52C4 = 1;
-            lbl_805D52C0 = tmp - lbl_805DA760;
+            slime_one_animation_end_initialized = 1;
+            slime_one_animation_end_frame = tmp - lbl_805DA760;
         }
         f32 v = arg0->f30 + arg0->f28;
-        f32 lim = lbl_805D52C0;
+        f32 lim = slime_one_animation_end_frame;
         arg0->f30 = v;
         if (v >= lim) {
             arg0->f30 = lim;
@@ -257,12 +257,12 @@ s32 is_reached_target_depth__15TObjEneSlimeOneFPv(void *arg0) {
     if (temp_r0 < 7) {
         return 0;
     }
-    if ((s8) lbl_805D52BC == 0) {
+    if ((s8) TObjEneSlimeOne__target_depth_initialized == 0) {
         f32 tmp = M2C_FIELD(arg0, f32 *, 0x2C);
-        lbl_805D52BC = 1;
-        lbl_805D52B8 = tmp - lbl_805DA760;
+        TObjEneSlimeOne__target_depth_initialized = 1;
+        TObjEneSlimeOne__target_depth = tmp - lbl_805DA760;
     }
-    if (M2C_FIELD(arg0, f32 *, 0x30) == lbl_805D52B8) {
+    if (M2C_FIELD(arg0, f32 *, 0x30) == TObjEneSlimeOne__target_depth) {
         return 1;
     }
     return 0;

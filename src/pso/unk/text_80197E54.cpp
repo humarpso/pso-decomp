@@ -9,7 +9,7 @@ struct Stat_80197E64 { u8 pad0[4]; u16 blocks; u8 pad6[0xE]; };
 struct Hdr_80197E64 { u8 pad0[0x58]; s32 f58; s32 f5C; u8 pad60[0xC]; };
 
 extern "C" {
-extern s32 lbl_805D5C58;
+extern s32 TObjSinBoard__texture_buffer;
 bool fn_80197E54(void);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
@@ -30,7 +30,7 @@ void load_memcard_file(void);
 extern "C" {
 
 bool fn_80197E54(void) {
-    return lbl_805D5C58 == 0;
+    return TObjSinBoard__texture_buffer == 0;
 }
 void load_memcard_file(void) {
     Stat_80197E64 stat;

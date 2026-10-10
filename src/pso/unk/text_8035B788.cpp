@@ -11,7 +11,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Rec_8035B788 lbl_804798CC;
 extern Rec_8035B788 lbl_804798DC;
-extern u8 lbl_804F1D5C[];
+extern u8 nights_npc_resource_descriptor[];
 extern Obj_8035B788 *lbl_805D6F50;
 extern const f32 lbl_805E0140;
 extern const f32 lbl_805E0144;
@@ -23,7 +23,7 @@ extern "C" {
 void fn_8035B788(void) {
     Obj_8035B788 *o = (Obj_8035B788 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = (Obj_8035B788 *)load_resource_from_descriptor(o, 1, lbl_804F1D5C, 0, 0, 0);
+        o = (Obj_8035B788 *)load_resource_from_descriptor(o, 1, nights_npc_resource_descriptor, 0, 0, 0);
     }
     lbl_805D6F50 = o;
     {

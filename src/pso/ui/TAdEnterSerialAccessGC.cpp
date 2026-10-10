@@ -187,10 +187,10 @@ s32 strlen(int);
 extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__data_804764E8;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__data_804EC9B8;
 extern RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterSerialAccessGC__data_804EC9C4;
-extern RecoveredGlobal_80321B28_lbl_8050E208 lbl_8050E208;
-extern RecoveredGlobal_80321B28_lbl_8050E3B8 lbl_8050E3B8;
-extern u32 TAdEnterSerialAccessGC__data_805D6C20;
-extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern RecoveredGlobal_80321B28_lbl_8050E208 controller_input_state;
+extern RecoveredGlobal_80321B28_lbl_8050E3B8 controller_physical_port_bank;
+extern u32 TAdEnterSerialAccessGC__keyboard_control;
+extern s32 TAdEnterSerialAccessGC__input_state;
 void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1);
 s32 get_state_flag__9TMainTaskFv();
 void render__22TAdEnterSerialAccessGCFv(void *self);
@@ -237,8 +237,8 @@ extern u8 lbl_804764F8[];
 extern M2C_UNK __vt__22TAdEnterSerialAccessGC[];
 extern s32 lbl_805D4158;
 extern s32 tl_clipout;
-extern u32 TAdEnterSerialAccessGC__data_805D6C20;
-extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern u32 TAdEnterSerialAccessGC__keyboard_control;
+extern s32 TAdEnterSerialAccessGC__input_state;
 u8 *TAdEnterSerialAccessGC__ct(u8 *arg0);
 void TAdEnterSerialAccessGC__sub_802C4B64(void *, void *, Col_803214C4, int);
 void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
@@ -247,7 +247,7 @@ void draw_serial_separators__22TAdEnterSerialAccessGCFv(void);
 extern Vec2_803214C4 lbl_80476548[];
 extern Vec2_803214C4 lbl_80476550[];
 extern s32 tl_clipout;
-extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern s32 TAdEnterSerialAccessGC__input_state;
 extern Col_803214C4 lbl_805DF4D8;
 extern const f32 lbl_805DF4F4;
 extern const f32 lbl_805DF4F8;
@@ -264,8 +264,8 @@ int sprintf(char *, const char *, ...);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 extern f32 lbl_80476568[][13];
-extern u32 TAdEnterSerialAccessGC__data_805D6C20;
-extern s32 TAdEnterSerialAccessGC__data_805D6C24;
+extern u32 TAdEnterSerialAccessGC__keyboard_control;
+extern s32 TAdEnterSerialAccessGC__input_state;
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
 extern char lbl_805DF4E0[4];
 extern const f32 lbl_805DF4E4;
@@ -326,13 +326,13 @@ void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0) {
     s32 str;
     u32 i;
     s32 r;
-    if (TAdEnterSerialAccessGC__data_805D6C20 != 0) {
-        str = realloc_buffer__17TWindowSubComCardFPv(TAdEnterSerialAccessGC__data_805D6C20);
+    if (TAdEnterSerialAccessGC__keyboard_control != 0) {
+        str = realloc_buffer__17TWindowSubComCardFPv(TAdEnterSerialAccessGC__keyboard_control);
         memset(text, 0, 0xFF);
         strncpy((s32) text, str, 0xFF);
         free__11TOBoss4RockFUi(str);
         p = text;
-        r = TAdEnterSerialAccessGC__data_805D6C24 == 2 ? 0 : 1;
+        r = TAdEnterSerialAccessGC__input_state == 2 ? 0 : 1;
         row = lbl_80476568[r];
         n = r * 2 + 10;
         for (i = 0; i < n; i++, p++) {
@@ -340,7 +340,7 @@ void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0) {
             sprintf(buf, lbl_805DF4E0, *p);
             render_status_line__15TAdSubPlyItemGCFPvi(buf, -1, row[i], lbl_805DF4E4, TAdEnterSerialAccessGC__data_805DF4DC);
         }
-        pos.x = row[get_field20_state__22TAdEnterSerialAccessGCFPv((void *) TAdEnterSerialAccessGC__data_805D6C20)];
+        pos.x = row[get_field20_state__22TAdEnterSerialAccessGCFPv((void *) TAdEnterSerialAccessGC__keyboard_control)];
         pos.y = lbl_805DF4E4;
         fn_8025DE10(arg0, &pos);
     }
@@ -371,7 +371,7 @@ void draw_serial_plates__22TAdEnterSerialAccessGCFv(void) {
     {
         Vec2_803214C4 pos = lbl_80476548[0];
         Col_803214C4 c = lbl_805DF4D8;
-        switch (TAdEnterSerialAccessGC__data_805D6C24) {
+        switch (TAdEnterSerialAccessGC__input_state) {
         case 3:
             break;
         case 2:
@@ -544,10 +544,10 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
   unsigned int temp_r3_6;
   unsigned int temp_r3_7;
   unsigned int temp_r3_9;
-  temp_r30 = realloc_buffer__17TWindowSubComCardFPv((int) TAdEnterSerialAccessGC__data_805D6C20);
-  if (((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E3B8.value)) + 0x20), (int) 2) != 0)) || ((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), (int) 2) != 0)))
+  temp_r30 = realloc_buffer__17TWindowSubComCardFPv((int) TAdEnterSerialAccessGC__keyboard_control);
+  if (((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_physical_port_bank.value)) + 0x20), (int) 2) != 0)) || ((((int) (*((int *) (((s8 *) arg0) + 0x4C)))) == 0) && (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (int) 2) != 0)))
   {
-    switch ((int) TAdEnterSerialAccessGC__data_805D6C24)
+    switch ((int) TAdEnterSerialAccessGC__input_state)
     {
       case 3:
         break;
@@ -564,14 +564,14 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
         TWindow__close((int) temp_r3_2);
         *((unsigned int *) (((s8 *) arg0) + 0x5C)) = 0U;
       }
-        if (((unsigned int) TAdEnterSerialAccessGC__data_805D6C20) != 0U)
+        if (((unsigned int) TAdEnterSerialAccessGC__keyboard_control) != 0U)
       {
-        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__data_805D6C20));
-        TAdEnterSerialAccessGC__data_805D6C20 = 0U;
+        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__keyboard_control));
+        TAdEnterSerialAccessGC__keyboard_control = 0U;
       }
         memset((void *) (&(*(RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__data_804EC9B8).value), (int) 0, (int) 0xB);
         *((int *) (((s8 *) arg0) + 0x44)) = 6;
-        TAdEnterSerialAccessGC__data_805D6C24 = 5;
+        TAdEnterSerialAccessGC__input_state = 5;
         break;
       case 4:
         temp_r3_3 = *((unsigned int *) (((s8 *) arg0) + 0x50));
@@ -592,22 +592,22 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
         TWindow__close((int) temp_r3_5);
         *((unsigned int *) (((s8 *) arg0) + 0x5C)) = 0U;
       }
-        if (((unsigned int) TAdEnterSerialAccessGC__data_805D6C20) != 0U)
+        if (((unsigned int) TAdEnterSerialAccessGC__keyboard_control) != 0U)
       {
-        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__data_805D6C20));
-        TAdEnterSerialAccessGC__data_805D6C20 = 0U;
+        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__keyboard_control));
+        TAdEnterSerialAccessGC__keyboard_control = 0U;
       }
         reset_input_state__22TAdEnterSerialAccessGCFPv((int) (*((unsigned int *) (((s8 *) arg0) + 0x54))));
         memset((void *) (&(*(RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value), (int) 0, (int) 0xD);
         *((int *) (((s8 *) arg0) + 0x44)) = 1;
-        TAdEnterSerialAccessGC__data_805D6C24 = 5;
+        TAdEnterSerialAccessGC__input_state = 5;
         break;
     }
     free__11TOBoss4RockFUi((int) temp_r30);
     return;
   }
   *((int *) (((s8 *) arg0) + 0x64)) = (int) (*((int *) (((s8 *) arg0) + 0x60)));
-  if (((unsigned int) TAdEnterSerialAccessGC__data_805D6C20) != 0U)
+  if (((unsigned int) TAdEnterSerialAccessGC__keyboard_control) != 0U)
   {
     if (forward_input__22TAdEnterSerialAccessGCFPv((void *) arg0, (void *) arg1, (int) temp_r30) != 0)
     {
@@ -627,9 +627,9 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
         set_active__22TAdEnterSerialAccessGCFPv((int) temp_r3_7);
       }
     }
-    if ((update_keyboard__17TWindowSubComCardFPv((int) TAdEnterSerialAccessGC__data_805D6C20) != 0) && (forward_input__22TAdEnterSerialAccessGCFPv((void *) arg0, (void *) arg1, (int) temp_r30) == 0))
+    if ((update_keyboard__17TWindowSubComCardFPv((int) TAdEnterSerialAccessGC__keyboard_control) != 0) && (forward_input__22TAdEnterSerialAccessGCFPv((void *) arg0, (void *) arg1, (int) temp_r30) == 0))
     {
-      free_menu_object((int) TAdEnterSerialAccessGC__data_805D6C20);
+      free_menu_object((int) TAdEnterSerialAccessGC__keyboard_control);
       play_sound_effect((int) 0x53F06, (int) 0, (int) 0, (int) 0);
     }
   }
@@ -678,26 +678,26 @@ void TAdEnterSerialAccessGC__sub_80321B28(u8 *arg0, int arg1) {
         queue_destruction__7TObjectFv((void *)((int) temp_r3_13));
         *((unsigned int *) (((s8 *) arg0) + 0x50)) = 0U;
       }
-        if (((unsigned int) TAdEnterSerialAccessGC__data_805D6C20) != 0U)
+        if (((unsigned int) TAdEnterSerialAccessGC__keyboard_control) != 0U)
       {
-        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__data_805D6C20));
-        TAdEnterSerialAccessGC__data_805D6C20 = 0U;
+        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__keyboard_control));
+        TAdEnterSerialAccessGC__keyboard_control = 0U;
       }
         strncpy((s32)((void *) (&(*(RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804EC9B8 *)&TAdEnterSerialAccessGC__data_804EC9B8).value)), (s32)((int) temp_r30), (s32)((int) 0xB));
         TAdEnterSerialAccessGC__sub_80322418((s32)((int) get_field_118__22TAdEnterSerialAccessGCFv()), (s32)((int) 0));
         *((int *) (((s8 *) arg0) + 0x44)) = 3;
-        TAdEnterSerialAccessGC__data_805D6C24 = 5;
+        TAdEnterSerialAccessGC__input_state = 5;
         break;
       case 1:
-        if (((unsigned int) TAdEnterSerialAccessGC__data_805D6C20) != 0U)
+        if (((unsigned int) TAdEnterSerialAccessGC__keyboard_control) != 0U)
       {
-        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__data_805D6C20));
-        TAdEnterSerialAccessGC__data_805D6C20 = 0U;
+        queue_destruction__7TObjectFv((void *)((int) TAdEnterSerialAccessGC__keyboard_control));
+        TAdEnterSerialAccessGC__keyboard_control = 0U;
       }
         strncpy((s32)((void *) (&(*(RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804EC9C4 *)&TAdEnterSerialAccessGC__data_804EC9C4).value)), (s32)((int) temp_r30), (s32)((int) 0xD));
         TAdEnterSerialAccessGC__sub_80322418((s32)((int) get_field_118__22TAdEnterSerialAccessGCFv()), (s32)((int) 1));
         *((int *) (((s8 *) arg0) + 0x44)) = 7;
-        TAdEnterSerialAccessGC__data_805D6C24 = 5;
+        TAdEnterSerialAccessGC__input_state = 5;
         break;
     }
   }
@@ -731,10 +731,10 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
     w = 320.0f - (f32)(calc_text_width((void *)get_localized_text_entry(0x17, (void *)4)) >> 1);
     lbl_804EC9B0[0].b = 250.0f;
     lbl_804EC9B0[0].a = w;
-    self->field_40 = TAdEnterSerialAccessGC__data_805D6C24;
-    switch (TAdEnterSerialAccessGC__data_805D6C24) {
+    self->field_40 = TAdEnterSerialAccessGC__input_state;
+    switch (TAdEnterSerialAccessGC__input_state) {
     case 0:
-        TAdEnterSerialAccessGC__data_805D6C24 = 1;
+        TAdEnterSerialAccessGC__input_state = 1;
         break;
     case 1:
         self->field_60 = 0;
@@ -750,8 +750,8 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
             add_item_rect__12TLevelSelectFPvPv((int)self->field_54, &TAdEnterSerialAccessGC__data_804764E8);
             set_active__22TAdEnterSerialAccessGCFPv((int)self->field_54);
         }
-        TAdEnterSerialAccessGC__data_805D6C20 = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 0);
-        TAdEnterSerialAccessGC__data_805D6C24 = 2;
+        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 0);
+        TAdEnterSerialAccessGC__input_state = 2;
         break;
     case 2:
         TAdEnterSerialAccessGC__sub_80321F3C(self);
@@ -770,15 +770,15 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         self->field_50 = p;
         self->field_58 = open_message_window__22TAdEnterSerialAccessGCFPvPv(self, (void *)1);
         self->field_5C = ((s32 (*)(void *))create_draw_callback__22TAdEnterSerialAccessGCFv)(self);
-        TAdEnterSerialAccessGC__data_805D6C20 = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 1);
-        TAdEnterSerialAccessGC__data_805D6C24 = 4;
+        TAdEnterSerialAccessGC__keyboard_control = create_keyboard_control__22TAdEnterSerialAccessGCFii(self, 1);
+        TAdEnterSerialAccessGC__input_state = 4;
         break;
     case 4:
         TAdEnterSerialAccessGC__sub_80321F18(self);
         break;
     case 5:
         if ((f32)++self->field_48 > 4.5f) {
-            TAdEnterSerialAccessGC__data_805D6C24 = self->field_44;
+            TAdEnterSerialAccessGC__input_state = self->field_44;
         }
         break;
     case 6:
@@ -796,7 +796,7 @@ void run_task__22TAdEnterSerialAccessGCFv(TAdEnterSerialAccessGC_80321F60 *self)
         init_state__22TAdEnterSerialAccessGCFv();
         break;
     }
-    if (self->field_40 != TAdEnterSerialAccessGC__data_805D6C24) {
+    if (self->field_40 != TAdEnterSerialAccessGC__input_state) {
         self->field_48 = 0;
     }
 }
@@ -825,7 +825,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TAdEnterSerialAccessGC;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D4158;
     M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    TAdEnterSerialAccessGC__data_805D6C24 = 0;
+    TAdEnterSerialAccessGC__input_state = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;
     M2C_FIELD(arg0, s32 *, 0x4C) = 0;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;
@@ -834,7 +834,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x54) = 0;
     M2C_FIELD(arg0, s32 *, 0x58) = 0;
     M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-    TAdEnterSerialAccessGC__data_805D6C20 = 0;
+    TAdEnterSerialAccessGC__keyboard_control = 0;
     if (*(s8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C) != 0) {
         ((void (*)(s32)) init__22TAdEnterSerialAccessGCFv)(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1152C);
         TAdEnterSerialAccessGC__sub_8032190C(get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1153C);

@@ -14,13 +14,13 @@ void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__20TWindowSubQuestBoard[];
-extern void *lbl_805D3A78;
+extern void *TWindowSubQuestBoard__class_name;
 
 void *TWindowSubQuestBoard__ct(void *arg0, void *arg1, void *arg2) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowSubQuestBoard;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3A78;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowSubQuestBoard__class_name;
     M2C_FIELD(arg0, void **, 0x24) = arg1;
     M2C_FIELD(arg0, void **, 0x20) = arg2;
     o = __nw__7TObjectFUl(0x68);

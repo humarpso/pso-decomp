@@ -372,7 +372,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern IVec_800F1098 lbl_8043D680;
-extern Tbl_800F1098 *TObjEneMe3Stelth__data_80501104[];
+extern Tbl_800F1098 *TObjEneMe3Stelth__behavior_params_by_variant[];
 extern u8 identity_matrix[];
 extern s32 game_difficulty_selection;
 extern u8 *anim_model_matrix_array;
@@ -521,9 +521,9 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1) {
                 }
                 if (r < F(s32 *, 0x318)[3] / 2 && F(u32, 0x390) != 0) {
                     if (game_difficulty_selection == 3) {
-                        create__10TTecRaFoieFPvPvPvPv(arg0, &out, arg0 + 0x394, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__data_80501104[F(s32, 0x3C8)]->lvl));
+                        create__10TTecRaFoieFPvPvPvPv(arg0, &out, arg0 + 0x394, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
                     } else {
-                        create__10TTecGiFoieFPvPvPv(arg0, &out, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__data_80501104[F(s32, 0x3C8)]->lvl));
+                        create__10TTecGiFoieFPvPvPv(arg0, &out, clamp_frame_index__9TObjEneDDFi(TObjEneMe3Stelth__behavior_params_by_variant[F(s32, 0x3C8)]->lvl));
                     }
                 } else {
                     F(s32, 0x424) = 3;

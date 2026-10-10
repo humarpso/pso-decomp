@@ -198,7 +198,7 @@ u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0) {
     return lbl_805D6F08;
 }
 
-    extern int lbl_804F142C[];
-int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0) {  return lbl_804F142C[a0]; }
+    extern int TAdPlyPltAnimGC__instances[];
+int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0) {  return TAdPlyPltAnimGC__instances[a0]; }
 
 }

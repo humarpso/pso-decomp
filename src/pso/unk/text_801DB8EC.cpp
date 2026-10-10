@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(s32 *);
-void handle_cmd_92(u8 *arg0, s32 *arg1);
+void handle_cmd_92__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
 
 M2C_UNK bswap__13packet_headerFv(s32 *);
 
-void handle_cmd_95(void *arg0, s32 *arg1) {
+void handle_cmd_95__9TProtocolFR6packet(void *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)();
 
@@ -24,7 +24,7 @@ void handle_cmd_95(void *arg0, s32 *arg1) {
         temp_r12();
     }
 }
-void handle_cmd_92(u8 *arg0, s32 *arg1) {
+void handle_cmd_92__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
     sp8 = M2C_FIELD(arg1, s32 *, 0);

@@ -7235,6 +7235,8 @@ pso/unk/text_801DBA58.cpp:
 
 pso/network/TProtocol.cpp:
 	.text       start:0x801DBAB4 end:0x801DEF7C
+	.data       start:0x804C4A50 end:0x804C5234
+	.sbss       start:0x805D5E28 end:0x805D5E30
 
 pso/misc/TPlyClientConfig.cpp:
 	.text       start:0x801DEF7C end:0x801DEFA4
@@ -8161,11 +8163,22 @@ pso/unk/text_80223B98.cpp:
 	.rodata     start:0x8044C468 end:0x8044C478
 	.sdata2     start:0x805DC730 end:0x805DC738
 
-pso/misc/TLobby_8022448C.cpp:
-	.text       start:0x8022448C end:0x80225CD8
+pso/misc/ShopToolStock.cpp:
+	.text       start:0x8022448C end:0x80224660
+	.bss        start:0x80513EF0 end:0x80513F30
+	.sbss       start:0x805D6260 end:0x805D6268
+
+pso/misc/ShopWeaponStock.cpp:
+	.text       start:0x80224660 end:0x802257EC
 	.rodata     start:0x8044C7B8 end:0x8044C7C0
-	.bss        start:0x80513EF0 end:0x80513F10
-	.sdata2     start:0x805DC738 end:0x805DC740
+	.bss        start:0x80513F30 end:0x80513F70
+	.sbss       start:0x805D6268 end:0x805D6270
+	.sdata2     start:0x805DC738 end:0x805DC73C
+
+pso/misc/ShortMail.cpp:
+	.text       start:0x802257EC end:0x80225CD8
+	.bss        start:0x80513F70 end:0x805145F0
+	.sbss       start:0x805D6270 end:0x805D6278
 
 pso/unk/text_80225CD8.cpp:
 	.text       start:0x80225CD8 end:0x80225E0C
@@ -9380,11 +9393,13 @@ pso/misc/TWindowSoundBalance_802708B8.cpp:
 	.text       start:0x802708B8 end:0x80270910
 
 pso/misc/TWindowSoundBalance.cpp:
-	.text       start:0x80270910 end:0x80271280
+	.text       start:0x80270910 end:0x80270F14
 	.rodata     start:0x8044F638 end:0x8044F640
 
 pso/misc/TWindowStatus.cpp:
-	.text       start:0x80271280 end:0x80271400
+	.text       start:0x80270F14 end:0x80271400
+	.rodata     start:0x8044F658 end:0x8044F660
+	.sdata2     start:0x805DD438 end:0x805DD470
 
 pso/unk/text_80271400.cpp:
 	.text       start:0x80271400 end:0x8027147C

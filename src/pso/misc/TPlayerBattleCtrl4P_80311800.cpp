@@ -166,7 +166,7 @@ void TPlayerBattleCtrl4P__vt30(void *arg0) {
     set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(1));
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 extern s32 local_client_id;
 
 typedef char RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90_size[sizeof(RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90) == 0x20 ? 1 : -1];
@@ -214,7 +214,7 @@ void TPlayerBattleCtrl4P__vt25(u8 *arg0) {
 }
 
 void TPlayerBattleCtrl4P__vt24(s32 arg0) {
-    if ((get_player_by_client_id(local_client_id) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 6) != 0)) {
+    if ((get_player_by_client_id(local_client_id) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 6) != 0)) {
         set_score__19TPlayerBattleCtrl4PFPvi((void*)(arg0), (void*)(5));
     }
 }

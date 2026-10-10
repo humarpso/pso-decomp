@@ -61,7 +61,7 @@ u32 __nw__7TObjectFUl(int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 void destroy_windows__14TAdGameStartGCFPv(Obj_802E6380 *o);
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 void run_task__14TAdGameStartGCFv(u8 *arg0);
 }
 
@@ -186,7 +186,7 @@ void run_task__14TAdGameStartGCFv(u8 *arg0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
             return;
         }
-        pad = lbl_8050E3B8 + get_clamped_cursor__22TAdMultiPlyChrSelectGCFv() * 0x50 + 0x20;
+        pad = controller_physical_port_bank + get_clamped_cursor__22TAdMultiPlyChrSelectGCFv() * 0x50 + 0x20;
         if (TWindowShortListCtrl__check_controller_button(pad, 4) != 0) {
             destroy_windows__14TAdGameStartGCFPv((Obj_802E6380 *) arg0);
         }

@@ -35,7 +35,7 @@ void update_door_switch_state(u8 *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK minimap_render_gate(void *, u32, u16, s32, s32);
-extern s32 lbl_805D58F8;
+extern s32 switch_doors_force_closed;
 void run_switch_door_task(u8 *arg0);
 }
 
@@ -74,7 +74,7 @@ void run_switch_door_task(u8 *arg0) {
         ((VObj_18 *)(arg0))->m18();
         return;
     }
-    if ((s32) lbl_805D58F8 != 0) {
+    if ((s32) switch_doors_force_closed != 0) {
         M2C_FIELD(arg0, s32 *, 0xAC) = 0;
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
         clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (8));

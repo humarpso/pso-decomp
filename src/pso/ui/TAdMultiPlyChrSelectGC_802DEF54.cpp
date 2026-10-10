@@ -57,7 +57,7 @@ M2C_UNK set_state_ready__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 extern u32 lbl_805D68CC;
 
 void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
@@ -93,7 +93,7 @@ void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     temp_r5 = M2C_FIELD(arg0, s32 *, 0x1C);
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r5 + 1);
-    if ((TWindowShortListCtrl__check_controller_button((void *)(lbl_8050E3B8 + 0x20), 2, temp_r5) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *)(controller_physical_port_bank + 0x20), 2, temp_r5) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0)) {
         if ((get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) != 0xE) && ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0xA)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;

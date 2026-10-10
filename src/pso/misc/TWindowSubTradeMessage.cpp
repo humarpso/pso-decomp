@@ -30,7 +30,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
-extern Ent_803399B4 lbl_8050E208[];
+extern Ent_803399B4 controller_input_state[];
 void run_task__22TWindowSubTradeMessageFv(Win_803399B4 *self);
 }
 
@@ -56,8 +56,8 @@ void run_task__22TWindowSubTradeMessageFv(Win_803399B4 *self) {
     case 0:
         self->state = 1;
     case 1:
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[idx].f20, 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208[4].f20, 2) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state[idx].f20, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].f20, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             self->f24->m7();
             self->state = 2;

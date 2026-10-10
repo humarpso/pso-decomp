@@ -51,7 +51,7 @@ block_5:
 }
 
 extern M2C_UNK __vt__15TAdDrawLineCtrl[];
-extern void *lbl_805D260C;
+extern void *TAdDrawLineCtrl__class_name;
 
 void run_task__15TAdDrawLineCtrlFv(u8 *arg0) {
     u32 temp_r0;
@@ -74,7 +74,7 @@ void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TAdDrawLineCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D260C;
+    M2C_FIELD(arg0, void **, 0x0) = TAdDrawLineCtrl__class_name;
     M2C_FIELD(arg0, void **, 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {

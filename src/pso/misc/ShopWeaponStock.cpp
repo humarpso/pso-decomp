@@ -75,6 +75,45 @@ struct Hdr_80224DF0 { u8 pad[4]; Ent_80224DF0 *ents; u8 pad2[4]; Rng_80224DF0 *r
 
 struct Obj_80224DF0 { u8 pad[6]; u8 b6; u8 b7; };
 
+typedef struct Item_8022525C
+{
+  u8 b0;
+  u8 b1;
+  u8 b2;
+  u8 pad3[7];
+  u8 b12;
+  u8 b13;
+  u8 padC[8];
+} Item_8022525C;
+
+typedef struct Pool_8022525C
+{
+  u8 b[0x68];
+} Pool_8022525C;
+
+typedef struct Pair_8022525C
+{
+  s32 a;
+  s32 b;
+} Pair_8022525C;
+
+typedef struct Ent_8022525C
+{
+  u8 id;
+  u8 count;
+} Ent_8022525C;
+
+typedef struct Tier_8022525C
+{
+  Ent_8022525C *ents;
+  u8 n;
+} Tier_8022525C;
+
+typedef struct Hdr_8022525C
+{
+  Tier_8022525C *tiers;
+} Hdr_8022525C;
+
 extern "C" {
 extern unsigned char lbl_80513F70[];
 void *TLobby__sub_8022598C(int a0);
@@ -162,7 +201,6 @@ extern s32 section_id_favored_grind_table[];
 extern s32 lbl_805D6238;
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
-extern const f32 lbl_805DC738;
 void roll_shop_weapon_grind(Item_80225064 *it);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
@@ -190,6 +228,27 @@ void generate_shop_rare_tool_pool(s32);
 void generate_shop_common_tool_pool(s32);
 extern u32 lobby_tool_random_rel;
 void generate_shop_inventory__6TLobbyFi(s32 idx);
+void copy_item_data__6TLobbyFPvPv(void *, void *);
+void init__9TItemDataFv(void *);
+s32 pop_byte__6TLobbyFPv(void *);
+void shuffle_shop_pool_n_times(void *, s32);
+void push_shop_pool_entry(void *, u8);
+void reset_counter_64__6TLobbyFPv(void *);
+void sort_shop_items(s32, s32, s32);
+s32 get_level_tier__6TLobbyFi(s32 arg0);
+s32 level_to_reward__6TLobbyFi(s32 arg0);
+s32 is_duplicate_shop_weapon(C14_80224B7C *item, s32 tbl);
+void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
+void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
+void roll_shop_weapon_special(Obj_80224F7C *obj);
+void roll_shop_weapon_grind(Item_80225064 *it);
+extern Pair_8022525C lbl_8044C488[];
+extern Pair_8022525C lbl_8044C6C8[];
+extern Pair_8022525C lbl_8044C718[];
+extern s32 lbl_805D6238;
+extern u32 lobby_weapon_random_tables_ptr;
+extern int shop_weapon_stock_level;
+void generate_shop_weapon_stock(s32 tbl);
 }
 
 extern "C" {
@@ -214,69 +273,11 @@ s32 level_to_reward__6TLobbyFi(s32 arg0);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
 M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
-int generate_shop_weapon_stock(void);
 int TLobby__sub_80225A08(void*);
 M2C_UNK free__11TOBoss4RockFUi(u32);
 
-    extern int lbl_805D6264;
-void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { lbl_805D6264 = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
-
-extern M2C_UNK lbl_80513F20[];
-extern u32 lobby_tool_random_rel;
-
-s32 lbl_80513EF0[4];
-s32 lbl_80513F00[4];
-s32 shop_tool_flags[4];
-s32 lbl_80513F20[4];
-void generate_shop_inventory__6TLobbyFi(s32 idx) {
-    if (lobby_tool_random_rel != 0) {
-        if (shop_tool_flags[idx] == 0) {
-            shop_tool_flags[idx] = 1;
-            lbl_80513EF0[idx] = 0;
-            lbl_80513F00[idx] = 0;
-            generate_shop_common_tool_pool(idx);
-            generate_shop_rare_tool_pool(idx);
-            generate_shop_technique_pool(idx);
-            sort_shop_items(lbl_80513F20[idx], lbl_80513EF0[idx], 2);
-        }
-    }
-}
-
-void free_all_rocks__6TLobbyFv(void) {
-    s32 var_r28 = 3;
-    M2C_UNK *var_r29 = lbl_80513F20;
-    s32 var_r30 = 0;
-    s32 var_r31 = 3;
-    do {
-        u32 v = (u32)var_r29[var_r31];
-        if (v != 0U) {
-            free__11TOBoss4RockFUi(v);
-            var_r29[var_r31] = (M2C_UNK)var_r30;
-        }
-        var_r28 -= 1;
-        var_r31 -= 1;
-    } while (var_r28 >= 0);
-    if ((u32) lobby_tool_random_rel != 0U) {
-        free_nodes_with_id__6TLobbyFUi(lobby_tool_random_rel);
-        lobby_tool_random_rel = var_r30;
-    }
-}
-
-void load_tool_random_rel(void) {
-    s32 i;
-    (*(s32 *)&lobby_tool_random_rel) = create_named_object(lbl_8044C478);
-    for (i = 0; i < 4; i++) {
-        ((s32 *)&lbl_80513F20)[i] = 0;
-    }
-    if (is_split_screen() == 1) {
-        for (i = 0; i < 4; i++) {
-            ((s32 *)&lbl_80513F20)[i] = alloc_buffer__11TOBoss4RockFPv(0x168);
-        }
-    } else {
-        ((s32 *)&lbl_80513F20)[0] = alloc_buffer__11TOBoss4RockFPv(0x168);
-    }
-    (*(s32 *)&lbl_805D6264) = 0;
-}
+u32 lobby_weapon_random_tables_ptr;
+int shop_weapon_stock_level;
 
 s32 classify_level_bracket_wide__6TLobbyFi(s32 arg0) {
     if ((arg0 >= 1) && (arg0 <= 5)) {
@@ -653,12 +654,12 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
     b = classify_level_bracket_narrow__6TLobbyFi(shop_weapon_stock_level);
     if (b != -1) {
         if (section_id_favored_grind_table[lbl_805D6238] != -1 && it->f1 == section_id_favored_grind_table[lbl_805D6238]) {
-            v = (f32)(hi[b].max + 1) * (lbl_805DC738 * (f32)rand());
+            v = (f32)(hi[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
             if (v < hi[b].min) {
                 v = hi[b].min;
             }
         } else {
-            v = (f32)(lo[b].max + 1) * (lbl_805DC738 * (f32)rand());
+            v = (f32)(lo[b].max + 1) * ((1.0f / 32768.0f) * (f32)rand());
             if (v < lo[b].min) {
                 v = lo[b].min;
             }
@@ -672,9 +673,107 @@ void roll_shop_weapon_grind(Item_80225064 *it) {
 }
 #pragma pop
 
-void TLobby__sub_80225238(int a0, int a1) { shop_weapon_stock_level = a1; generate_shop_weapon_stock(); }
+void TLobby__sub_80225238(int a0, int a1) { shop_weapon_stock_level = a1; generate_shop_weapon_stock((s32)(a0)); }
 
 typedef char RecoveredGlobal_8022559C_lbl_80513F50_size[sizeof(RecoveredGlobal_8022559C_lbl_80513F50) == 0x10 ? 1 : -1];
+
+#pragma push
+#pragma optimization_level 1
+#pragma dont_inline on
+typedef struct Ent_8022525C Ent_8022525C;
+typedef struct Hdr_8022525C Hdr_8022525C;
+typedef struct Item_8022525C Item_8022525C;
+typedef struct Pair_8022525C Pair_8022525C;
+typedef struct Pool_8022525C Pool_8022525C;
+typedef struct Tier_8022525C Tier_8022525C;
+s32 lbl_80513F30[4];
+Cnt_80224B7C lbl_80513F40[4];
+RecoveredGlobal_8022559C_lbl_80513F50 lbl_80513F50;
+G_80225550 lbl_80513F60;
+void generate_shop_weapon_stock(s32 tbl) {
+  long long new_var;
+  Item_8022525C item;
+  Pool_8022525C pool;
+  u8 *buf;
+  s32 n;
+  Ent_8022525C *e;
+  s32 i;
+  u8 c;
+  s32 id;
+  Tier_8022525C *t;
+  Ent_8022525C *ents;
+  if ((lobby_weapon_random_tables_ptr != 0) && (((s32 *)&lbl_80513F50)[tbl] == 0))
+  {
+    ((s32 *)&lbl_80513F50)[tbl] = 1;
+    lbl_80513F30[tbl] = 0;
+    ((s32 *)lbl_80513F40)[tbl] = 0;
+    buf = ((u8 **)&lbl_80513F60)[tbl];
+    lbl_80513F30[tbl] = level_to_reward__6TLobbyFi(shop_weapon_stock_level);
+    reset_counter_64__6TLobbyFPv(&pool);
+    id = get_level_tier__6TLobbyFi(shop_weapon_stock_level);
+    t = &((Hdr_8022525C *) lobby_weapon_random_tables_ptr)->tiers[id];
+    i = 0;
+    n = t->n;
+    ents = t->ents;
+    new_var = n * lbl_805D6238;
+    e = ents + new_var;
+    while ((i++) < n)
+    {
+      for (c = e->count; c != 0; c--)
+      {
+        push_shop_pool_entry(&pool, e->id);
+      }
+      e++;
+    }
+    shuffle_shop_pool_n_times(&pool, 4);
+    while (((s32 *)lbl_80513F40)[tbl] < lbl_80513F30[tbl])
+    {
+      id = pop_byte__6TLobbyFPv(&pool);
+      if (id == (-1))
+      {
+        continue;
+      }
+      init__9TItemDataFv(&item);
+      if (id == 0x39)
+      {
+        if (lbl_8044C6C8[lbl_805D6238].a != (-1))
+        {
+          item.b0 = 0;
+          item.b1 = lbl_8044C6C8[lbl_805D6238].a;
+          item.b2 = lbl_8044C6C8[lbl_805D6238].b;
+        }
+      }
+      else
+        if (id == 0x3A)
+      {
+        if (lbl_8044C718[lbl_805D6238].a != (-1))
+        {
+          item.b0 = 0;
+          item.b1 = lbl_8044C718[lbl_805D6238].a;
+          item.b2 = lbl_8044C718[lbl_805D6238].b;
+        }
+      }
+      else
+      {
+        item.b0 = 0;
+        item.b1 = lbl_8044C488[id].a;
+        item.b2 = lbl_8044C488[id].b;
+      }
+      roll_shop_weapon_grind((Item_80225064 *)(&item));
+      roll_shop_weapon_special((Obj_80224F7C *)(&item));
+      roll_shop_weapon_first_bonus((Obj_80224DF0 *)(&item));
+      roll_shop_weapon_second_bonus((Obj_80224C68 *)(&item));
+      item.b12 = 0;
+      item.b13 = 0;
+      if (is_duplicate_shop_weapon((C14_80224B7C *)(&item), (s32)(tbl)) == 1)
+      {
+        copy_item_data__6TLobbyFPvPv(buf + ((((s32 *)lbl_80513F40)[tbl]++) * 0x14), &item);
+      }
+    }
+    sort_shop_items((s32)(buf), (s32)(((s32 *)lbl_80513F40)[tbl]), (s32)(2));
+  }
+}
+#pragma pop
 
 #pragma push
 #pragma optimization_level 1
@@ -752,155 +851,5 @@ void load_weapon_random_tables(void) {
     shop_weapon_stock_level = 0;
 }
 #pragma pop
-
-void try_close__6TLobbyFPv(void* p) { if (is_name_too_long__6TLobbyFPv((O_80225B90 *)(p)) == 0) { TLobby__sub_80225A08(p); } }
-
-typedef struct RecoveredGlobal_802258C8_lbl_80513F70 RecoveredGlobal_802258C8_lbl_80513F70;
-typedef char RecoveredGlobal_802258C8_lbl_80513F70_size[((sizeof(RecoveredGlobal_802258C8_lbl_80513F70)) == 0x680) ? (1) : (-1)];
-
-void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
-    Tag_80225828 t;
-    s32 mode;
-    init_guild_card_tag__6TLobbyFi(&t);
-    if (TLobby__protocol_instance != 0) {
-        mode = get_keyboard_mode__17TWindowSubComCardFv();
-        __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(&t.b[4], TLobby__protocol_instance + 0x1900);
-        strncpy((void *)(&t.b[0xC]), (void *)(((void *)get_com_card_list__6TLobbyFPv((void*)((void *)mode)))), (int)(0x17));
-        *(s32 *)&t.b[0x1C] = arg0;
-        t.b[0x23] = 0;
-        strncpy((void *)(&t.b[0x20]), (void *)(arg1), (int)(0xAB));
-        t.b[0xCB] = 0;
-        fn_801DB878(TLobby__protocol_instance, &t);
-    }
-}
-
-void TLobby__sub_802258C8(void) {
-  s32 var_r31;
-  M2C_UNK *var_r30;
-  var_r31 = 0;
-  var_r30 = (M2C_UNK *) (&(*(RecoveredGlobal_802258C8_lbl_80513F70 *)&lbl_80513F70).value);
-  do
-  {
-    if (((s32)is_flag_set__6TLobbyFPv((void*)(var_r30))) != 0)
-    {
-      TLobby__sub_80225C8C((void*)((int) var_r30));
-    }
-    var_r31 += 1;
-    var_r30 = (M2C_UNK *) (((u8 *) var_r30) + 0xD0);
-  }
-  while (var_r31 < 8);
-}
-
-void *find_short_mail_by_id__6TLobbyFUi(u32 id) {
-    s32 count = ((s32)get_short_mail_ctrl__6TLobbyFv());
-    s32 i;
-    for (i = 0; i < count; i++) {
-        void *o = TLobby__sub_8022598C((int)(i));
-        if (id == get_lobby_id__6TLobbyFPv((void*)(o))) {
-            return o;
-        }
-    }
-    return 0;
-}
-
-void *TLobby__sub_8022598C(int a0) {
-  unsigned char *new_var;
-  new_var = lbl_80513F70;
-  if ((!new_var) && (!new_var))
-  {
-  }
-  return ((char *) new_var) + (a0 * 0xd0);
-}
-
-typedef struct RecoveredGlobal_802259A0_lbl_80513F70 RecoveredGlobal_802259A0_lbl_80513F70;
-typedef char RecoveredGlobal_802259A0_lbl_80513F70_size[((sizeof(RecoveredGlobal_802259A0_lbl_80513F70)) == 0x680) ? (1) : (-1)];
-s32 find_free_slot__6TLobbyFv(void) {
-  s32 var_r31;
-  M2C_UNK *var_r30;
-  var_r31 = 0;
-  var_r30 = (M2C_UNK *) (&(*(RecoveredGlobal_802259A0_lbl_80513F70 *)&lbl_80513F70).value);
-  loop_1:
-  if (is_flag_set__6TLobbyFPv((void*)(var_r30)) == 0)
-  {
-    return var_r31;
-  }
-  var_r31 += 1;
-  var_r30 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) var_r30) + 0xD0)));
-  if (var_r31 >= 8)
-  {
-    remove_entry_at__6TLobbyFi((s32)(0));
-    return 7;
-  }
-  goto loop_1;
-}
-
-void remove_entry_at__6TLobbyFi(s32 idx) {
-    if (idx < 7) {
-        L_80225AD8 *p = &((L_80225AD8 *)&lbl_80513F70)[idx];
-        move_words__6TLobbyFPvPvi((int)p, p + 1, (void *)(((7 - idx) * sizeof(L_80225AD8)) >> 2));
-    }
-    ((L_80225AD8 *)&lbl_80513F70)[7].flags &= ~1;
-    (*(s32 *)&lobby_short_mail_entry_count) = (*(s32 *)&lobby_short_mail_entry_count) - 1;
-}
-
-void clear_all_entries__6TLobbyFPv(void* _w0) {
-    s32 i;
-    L_80225B40 *p;
-    lbl_805D6270 = 0;
-    (*(s32 *)&lobby_short_mail_entry_count) = 0;
-    clear_lobby_flag__6TLobbyFv();
-    p = ((L_80225B40 *)&lbl_80513F70);
-    for (i = 0; i < 8; i++) {
-        p->flags &= ~1;
-        p++;
-    }
-}
-
-s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o) {
-    s32 i = 0;
-    char *p = o->name;
-    while (*p++ != 0) {
-        if (i > 0xaa) {
-            return 1;
-        }
-        i++;
-    }
-    return 0;
-}
-
-void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
-    s32 temp_r7;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    temp_r7 = lbl_805D6270;
-    lbl_805D6270 = temp_r7 + 1;
-    M2C_FIELD(arg0, s32 *, 4) = temp_r7;
-    M2C_FIELD(arg0, s8 *, 0xCC) = 0xB;
-    strncpy((void *) (arg0 + 8), (void *) (arg1 + 0xC), (int) (0x17));
-    M2C_FIELD(arg0, s8 *, 0x1F) = 0;
-    strncpy((void *) (arg0 + 0x20), (void *) (arg1 + 0x20), (int) (0xAB));
-    M2C_FIELD(arg0, s8 *, 0xCB) = 0;
-}
-
-void TLobby__sub_80225C44(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
-void TLobby__sub_80225C64(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }
-void* get_com_card_list__6TLobbyFPv(void* p) { return (char*)p + 0x8; }
-void TLobby__sub_80225C8C(void* p) { *(u8*)((char*)p + 0xcc) &= 0xfffffffd; }
-int is_flag_set__6TLobbyFPv(void* p) { return *(u8*)((char*)p + 0xcc) & 0x1; }
-s32 get_lobby_id__6TLobbyFPv(void* p) { return *(s32*)((char*)p + 0x4); }
-
-    extern int lobby_short_mail_entry_count;
-int get_short_mail_ctrl__6TLobbyFv(void) {  return lobby_short_mail_entry_count; }
-
-extern u16 lbl_805D63FC;
-
-void TLobby__sub_80225CB8(void) {
-    lbl_805D63FC |= 1;
-}
-
-extern u16 lbl_805D63FC;
-
-void clear_lobby_flag__6TLobbyFv(void) {
-    lbl_805D63FC &= 0xFFFE;
-}
 
 }

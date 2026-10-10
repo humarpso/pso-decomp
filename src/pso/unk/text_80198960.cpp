@@ -23,8 +23,8 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object();
 extern RecoveredGlobal_80198960_lbl_804B8DAC lobby_gvm_texture_handles;
-extern RecoveredGlobal_80198960_lbl_8050DD58 lbl_8050DD58;
-extern u32 lbl_805D5C60;
+extern RecoveredGlobal_80198960_lbl_8050DD58 gogo_ball_configuration;
+extern u32 gogo_ball_bml_resource;
 extern const f32 lbl_805DBF44;
 void TWindowTimer__sub_80198960(u8 *arg0);
 }
@@ -34,7 +34,7 @@ extern "C" {
 typedef char RecoveredGlobal_80198960_lbl_804B8DAC_size[sizeof(RecoveredGlobal_80198960_lbl_804B8DAC) == 0x24 ? 1 : -1];
 typedef char RecoveredGlobal_80198960_lbl_8050DD58_size[sizeof(RecoveredGlobal_80198960_lbl_8050DD58) == 0x54 ? 1 : -1];
 void TWindowTimer__sub_80198960(u8 *arg0) {
-    if ((((u32) lbl_805D5C60 != 0U) || ((u32) M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x10) != 0U)) && ((u16) M2C_FIELD(&lbl_8050DD58.value, u16 *, 0x48) != 6)) {
+    if ((((u32) gogo_ball_bml_resource != 0U) || ((u32) M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x10) != 0U)) && ((u16) M2C_FIELD(&gogo_ball_configuration.value, u16 *, 0x48) != 6)) {
         if ((s32) M2C_FIELD(arg0, s32 *, 0x50) == 1) {
             set_global_param__8TObjFishFi((int) (M2C_FIELD(&lobby_gvm_texture_handles.value, u32 *, 0x10)));
         } else {
@@ -44,7 +44,7 @@ void TWindowTimer__sub_80198960(u8 *arg0) {
         post_translate_matrix((void *) (arg0 + 0x1C));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
         scale_matrix((int) (0), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44), (f32) (lbl_805DBF44));
-        get_bml_model((void *) (lbl_805D5C60), (int) (4));
+        get_bml_model((void *) (gogo_ball_bml_resource), (int) (4));
         draw_chunk_object();
         pop_matrix();
     }

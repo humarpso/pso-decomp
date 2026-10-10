@@ -91,7 +91,7 @@ void run_task__16TObjQuestColBaseFPv(u8 *arg0);
 u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
-extern s32 lbl_805D5C54;
+extern s32 TObjQuestColBase__instance_count;
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
 M2C_UNK TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
@@ -103,8 +103,8 @@ u16 alloc_actor_ids__6TLobbyFi(u16);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 quest_col_base_class_name;
-extern u16 lbl_805D5C48;
-extern s32 lbl_805D5C54;
+extern u16 quest_collision_next_id;
+extern s32 TObjQuestColBase__instance_count;
 u8 *TObjQuestColBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -148,7 +148,7 @@ void run_task__16TObjQuestColBaseFPv(u8 *arg0) {
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TObjQuestColBase.value;
-        lbl_805D5C54 -= 1;
+        TObjQuestColBase__instance_count -= 1;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -173,14 +173,14 @@ u8 *TObjQuestColBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
   {
     ((RecoveredFields_80196DB4_arg0 *) arg0)->field_1C = alloc_actor_ids__6TLobbyFi(0);
   }
-  temp_r6 = lbl_805D5C48;
-  lbl_805D5C48 = temp_r6 + 1;
+  temp_r6 = quest_collision_next_id;
+  quest_collision_next_id = temp_r6 + 1;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_6 = temp_r6;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_AC = ((RecoveredFields_80196DB4_arg0 *) arg0)->field_68;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B0 = ((RecoveredFields_80196DB4_arg0 *) arg0)->field_84;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B4 = 1;
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_B8 = 0;
-  lbl_805D5C54 += 1;
+  TObjQuestColBase__instance_count += 1;
   return arg0;
 }
 

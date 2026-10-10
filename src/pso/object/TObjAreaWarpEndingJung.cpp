@@ -483,8 +483,8 @@ extern char lbl_80446430[];
 extern char lbl_80446440[];
 extern char lbl_80446450[];
 extern char lbl_80446460[];
-extern Vec_8019D0A8 lbl_804B910C[];
-extern s64 lbl_804B913C[];
+extern Vec_8019D0A8 map_warp_destination_offsets[];
+extern s64 warp_string_screen_position_table[];
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
 extern u8 identity_matrix[];
 extern s32 lbl_805D3464;
@@ -614,17 +614,17 @@ void * create_TObjWarpString(void *arg0, void *arg1) {
 }
 
 s64 fn_8019B480(void *arg0, void *arg1) {
-    s64 *p = lbl_804B913C;
+    s64 *p = warp_string_screen_position_table;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         switch (get_camera_id__11TCameraCtrlFv()) {
         case 2:
-            p = lbl_804B913C + 1;
+            p = warp_string_screen_position_table + 1;
             break;
         case 3:
-            p = lbl_804B913C + 3;
+            p = warp_string_screen_position_table + 3;
             break;
         case 4:
-            p = lbl_804B913C + 6;
+            p = warp_string_screen_position_table + 6;
             break;
         }
         p += get_split_screen_view_index__11TCameraCtrlFUs(arg1);
@@ -1385,7 +1385,7 @@ void draw_debug_destinations__11TObjMapWarpFPv(u8 *arg0) {
         post_translate_matrix(&self->pos);
         rotate_matrix_y((M2C_UNK)(0), (s32)(self->yaw));
         end = &self->ends[i];
-        matrix_mult_vec(0, &lbl_804B910C[i], end);
+        matrix_mult_vec(0, &map_warp_destination_offsets[i], end);
         pop_matrix();
         push_matrix_from(identity_matrix);
         post_translate_matrix(end);

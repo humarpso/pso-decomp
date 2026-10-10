@@ -1,7 +1,7 @@
 #include "types.h"
 extern "C" {
-extern u8 lbl_8050DDEC[];
-extern u8 lbl_8050DDE0[];
+extern u8 TPlyCharData__global_character_data[];
+extern u8 TPlyCharData__global_destructor_registration[];
 void *__ct__12TPlyCharDataFv(void *p);
 void __dt__12TPlyCharDataFv(void *p, s32 d);
 void __register_global_object(void *obj, void *dtor, void *link);
@@ -11,7 +11,7 @@ void fn_801A3BB8(void);
 extern "C" {
 
 void fn_801A3BB8(void) {
-    __register_global_object(__ct__12TPlyCharDataFv(lbl_8050DDEC), (void *)__dt__12TPlyCharDataFv, lbl_8050DDE0);
+    __register_global_object(__ct__12TPlyCharDataFv(TPlyCharData__global_character_data), (void *)__dt__12TPlyCharDataFv, TPlyCharData__global_destructor_registration);
 }
 
 }

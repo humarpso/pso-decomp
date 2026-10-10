@@ -74,7 +74,7 @@ char *build_text_from_comma_list__6TLobbyFPv(char *list);
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
 extern u8 lbl_80517EE0[];
-void TLobby__sub_8024220C(Src_8024220C *arg0);
+void load_selected_guild_card_record(Src_8024220C *arg0);
 }
 
 extern "C" {
@@ -1224,7 +1224,7 @@ void send_find_user_self_tag__6TLobbyFi(s32 arg0) {
 
 typedef struct Entry_8024220C Entry_8024220C;
 typedef struct Src_8024220C Src_8024220C;
-void TLobby__sub_8024220C(Src_8024220C *arg0) {
+void load_selected_guild_card_record(Src_8024220C *arg0) {
   char *new_var;
   void *p;
   (*(Entry_8024220C *)&lbl_80517EE0).id = arg0->id;

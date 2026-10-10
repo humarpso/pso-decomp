@@ -261,13 +261,13 @@ s32 is_anim_6__12TObjEneReconFPv(int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 
-extern s32 TObjEneRecon__data_805D6AF4;
+extern s32 TObjEneRecon__attack_params;
 extern u8 *TObjEneRecon__recobox_static_instance;
 extern const f32 TObjEneRecon__data_805DF3C0;
 extern const f32 TObjEneRecon__data_805DF3C4;
 extern const f32 TObjEneRecon__data_805DF3D4;
 extern s32 lbl_805D6AF0;
-extern s32 lbl_805D6AF8;
+extern s32 TObjEneRecon__resistance_params;
 extern const f32 lbl_805DF400;
 extern const f32 lbl_805DF424;
 extern const f32 lbl_805DF428;
@@ -559,7 +559,7 @@ void init_state__12TObjEneReconFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
-    reset_hp__9TObjEneDDFPv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__data_805D6AF4), (void *) (lbl_805D6AF8));
+    reset_hp__9TObjEneDDFPv((void *) (arg0), (void *) (lbl_805D6AF0), (int) (TObjEneRecon__attack_params), (void *) (TObjEneRecon__resistance_params));
     check_state_flag_4__9TObjEneDDFPv((void *) (arg0));
     M2C_FIELD(arg0, void **, 0x350) = (void *) lbl_804EC3F0;
     initialize_enemy_state__9TObjEneDDFPv((void *) (arg0), (int) (0x44));

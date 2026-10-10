@@ -143,7 +143,7 @@ s32 TKeyBoardControl__sub_8000F828();
 s32 TAdEndText__sub_8001B41C(void);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
-extern s32 lbl_805D2610;
+extern s32 TAdEndText__class_name;
 extern s32 TAdEndText__font_loaded_flag;
 extern u32 TAdEndText__data_805D49F8;
 extern const f32 lbl_805D7DF0;
@@ -165,10 +165,10 @@ void free_resources__10TAdEndTextFv(void);
 void free_nodes_with_id__6TLobbyFUi(void*);
 void TLobby__sub_803DA16C(void*);
 
-extern s32 lbl_805D4F0C;
+extern s32 ending_scene_active;
 
 s32 fn_8001A988(void) {
-    return lbl_805D4F0C;
+    return ending_scene_active;
 }
 
 extern s32 TAdEndText__font_loaded_flag;
@@ -283,7 +283,7 @@ u8 *__ct__10TAdEndTextFv(u8 *arg0) {
   s32 c;
   __ct__7TObjectFP7TObject(arg0);
   self->vtable = __vt__10TAdEndText;
-  self->name = lbl_805D2610;
+  self->name = TAdEndText__class_name;
   self->f1C = 0;
   self->scroll = lbl_805D7DFC;
   TAdEndText__font_loaded_flag = 0;

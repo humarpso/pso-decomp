@@ -38,7 +38,7 @@ u8 * TODragonfly__ct(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__20TODragonflyMachine01[];
-extern s32 lbl_805D2FA0;
+extern s32 TODragonflyMachine01__class_name;
 extern u32 TODragonflyMachine01__data_805D5998;
 extern const f32 lbl_805DB598;
 extern const f32 lbl_805DB5B8;
@@ -180,7 +180,7 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     struct Fields_arg0 { int field_0; u8 pad_4[20]; M2C_UNK * field_18; u8 pad_1C[8]; int field_24; u8 pad_28[12]; u8 * field_34; u8 pad_38[76]; int field_84; int field_88; u8 pad_8C[32]; int field_AC; u8 pad_B0[4]; f32 field_B4; f32 field_B8; u8 * field_BC; f32 field_C0; f32 field_C4; u8 pad_C8[36]; f32 field_EC; f32 field_F0; f32 field_F4; int field_F8; int field_FC; s16 field_100; s16 field_102; int field_104; };
     TODragonfly__ct(arg0);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_80165538___vt__20TODragonflyMachine01 *)&__vt__20TODragonflyMachine01).value;
-    ((Fields_arg0*)arg0)->field_0 = (int) lbl_805D2FA0;
+    ((Fields_arg0*)arg0)->field_0 = (int) TODragonflyMachine01__class_name;
     ((VObj_18_c5489a *)(arg0))->m5(arg1);
     ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__data_805D5998), u8 **, 0x42C), void **, 8));
     ((Fields_arg0*)arg0)->field_24 = (int) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__data_805D5998), u8 **, 0x42C), int *, 0xC);

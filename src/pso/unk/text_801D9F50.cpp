@@ -8,7 +8,7 @@ extern "C" {
 
 M2C_UNK bswap_cmd_AB__9TProtocolFPv(void *);
 
-void handle_cmd_AB(void *arg0, void *arg1) {
+void handle_cmd_AB__9TProtocolFR6packet(void *arg0, void *arg1) {
     M2C_UNK (*temp_r12)(u16);
 
     bswap_cmd_AB__9TProtocolFPv(arg1);

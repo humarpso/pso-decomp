@@ -123,7 +123,7 @@ void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *, Info_
 M2C_UNK TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 extern S_803DA7E0 lbl_8058D470;
-extern u8 lbl_8058D860[];
+extern u8 gvrt_header_read_buffer[];
 extern char lbl_805D46D8[4];
 extern Slot_803DD784 *record_array_ptr;
 s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx);
@@ -180,7 +180,7 @@ s32 TObjPlayer__sub_803DD784(Obj_803DDA68 *obj, s32 idx) {
     FileInfo_803DD784 fi;
     u32 n;
     s32 r;
-    u32 base = (u32)lbl_8058D860;
+    u32 base = (u32)gvrt_header_read_buffer;
     FileInfo_803DD784 *pfi;
     u32 size;
     TObjPlayer__sub_803DA7E0();

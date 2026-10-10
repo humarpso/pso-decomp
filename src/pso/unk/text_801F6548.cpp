@@ -25,12 +25,12 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_message_window_ready();
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 is_message_window_ready();
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
 M2C_UNK *TQuestThread__sub_801F6548(void);
@@ -79,7 +79,7 @@ void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);
-    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
         temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x20);
         if (temp_r12 != NULL) {
             temp_r12(self);
@@ -92,7 +92,7 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
     M2C_UNK (*temp_r12)(void *);
     void *self = arg0;
     arg0 = M2C_FIELD(arg0, void **, 0x34);
-    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0))) {
+    if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
         temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x1C);
         if (temp_r12 != NULL) {
             temp_r12(self);

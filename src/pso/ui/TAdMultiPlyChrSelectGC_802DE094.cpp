@@ -51,7 +51,7 @@ u32 open_yes_no_window__16TAdChrSelASlotGCFiii(u32, M2C_UNK *, s32);
 u32 TAdChrSelASlotGC__sub_8030CA84(u32, M2C_UNK *);
 extern M2C_UNK lbl_80472850[];
 extern M2C_UNK lbl_80472858[];
-extern M2C_UNK lbl_8050E3B8[];
+extern M2C_UNK controller_physical_port_bank[];
 extern s32 tl_fade;
 void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0);
 }
@@ -369,10 +369,10 @@ void TAdMultiPlyChrSelectGC__sub_802DE7D0(void *arg0) {
     }
     if (TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
         temp_r5 = TAdMultiPlyChrSelectGC__sub_802C6920() * 0x50;
-        var_r3 = TWindowShortListCtrl__check_controller_button((s8 *)lbl_8050E3B8 + temp_r5 + 0x20, 2, temp_r5);
+        var_r3 = TWindowShortListCtrl__check_controller_button((s8 *)controller_physical_port_bank + temp_r5 + 0x20, 2, temp_r5);
     } else {
         temp_r5_2 = ((s32)get_clamped_cursor__22TAdMultiPlyChrSelectGCFv()) * 0x50;
-        var_r3 = TWindowShortListCtrl__check_controller_button((s8 *)lbl_8050E3B8 + temp_r5_2 + 0x20, 2, temp_r5_2);
+        var_r3 = TWindowShortListCtrl__check_controller_button((s8 *)controller_physical_port_bank + temp_r5_2 + 0x20, 2, temp_r5_2);
     }
     if (var_r3 != 0) {
         play_sound_effect(0x52F16, 0, 0, 0);

@@ -50,7 +50,7 @@ s32 request_scene_change__21TAdMultiChgGameModeGCFv();
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, int);
 s32 reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
 s32 check_players_ready__21TAdMultiChgGameModeGCFv(void *);
-extern RecoveredGlobal_802FFCE4_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_802FFCE4_lbl_8050E208 controller_input_state;
 extern s32 lbl_805D69E8;
 void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0);
 void create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
@@ -114,7 +114,7 @@ void run_task__21TAdMultiChgGameModeGCFv(RecoveredFields_802FFCE4_arg0 *arg0) {
   {
     set_entry_value__22TAdMultiPlyChrSelectGCFiiUi((int) arg0->field_28, (int) 0, (int) get_localized_text_entry((int) 0x21, (int) arg0->field_20));
   }
-  if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&lbl_8050E208.value)) + 0x160), (int) 2) != 0))
+  if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 2) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) (((u8 *) (&controller_input_state.value)) + 0x160), (int) 2) != 0))
   {
     request_scene_change__21TAdMultiChgGameModeGCFv();
   }

@@ -46,17 +46,17 @@ u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void draw_action_palette_icon(void *, int, u16);
 void init_window_layout_entries(void *, const void *, s16);
 extern u8 lbl_804CF4E4[];
-extern Callback_80253564 lbl_804CF880;
+extern Callback_80253564 TWindowHelpItem__photon_blast_update_callback;
 void TWindowHelpItem__vt11(u8 *window);
-extern u8 lbl_804CF6BC[];
-extern V3_802531A4 lbl_804CF8A4;
+extern u8 TWindowHelpItem__description_text_layout[];
+extern V3_802531A4 TWindowHelpItem__description_update_callback;
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
 void init_window_layout_entries(void *, const void *, s16);
 s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 set_text_entry_string(void *, void *, s32);
 void init_text__15TWindowHelpItemFPvPv(u8 *arg0, void *arg1);
 extern u8 window_help_item_layout_entries[];
-extern V3_802534B0 lbl_804CF88C;
+extern V3_802534B0 item_help_description_idle_callback;
 s32 get_shared_text_buffer();
 u8 calc_display_grade__9TItemDataFPv(void *);
 u8 *get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
@@ -80,7 +80,7 @@ s32 reset_float_field__15TWindowHelpItemFPv(void *);
 s32 set_text_entry_string(void *, void *, s32);
 void set_sprite_uv_from_pixels(void *, f32, f32);
 extern u8 help_item_tech_disk_window_layout_table[];
-extern V3_802532E8 lbl_804CF898;
+extern V3_802532E8 item_help_tech_disk_stats_callback;
 extern s32 current_language;
 extern const f32 TWindowHelpItem__data_805DCDE4;
 extern const f32 lbl_805DCDE8;
@@ -98,8 +98,8 @@ void TWindowHelpItem__sub_802531A0(void) {  }
 
 void init_text__15TWindowHelpItemFPvPv(u8 *arg0, void *arg1) {
     u8 *e;
-    init_window_layout_entries(arg0 + 0x24, lbl_804CF6BC, *(s16 *)(arg0 + 0x20));
-    *(V3_802531A4 *)(arg0 + 0xB0) = lbl_804CF8A4;
+    init_window_layout_entries(arg0 + 0x24, TWindowHelpItem__description_text_layout, *(s16 *)(arg0 + 0x20));
+    *(V3_802531A4 *)(arg0 + 0xB0) = TWindowHelpItem__description_update_callback;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
     set_text_entry_string(e, arg1, 0x20);
     reset_float_field__15TWindowHelpItemFPv(e);
@@ -142,7 +142,7 @@ void update_tech_disk_details__15TWindowHelpItemFPv(u8 *arg0) {
     temp_r3 = get_player_by_client_id(*(s16 *)(arg0 + 0x20));
     if (temp_r3 != 0) {
         init_window_layout_entries(arg0 + 0x24, help_item_tech_disk_window_layout_table, *(s16 *)(arg0 + 0x20));
-        *(V3_802532E8 *)(arg0 + 0xB0) = lbl_804CF898;
+        *(V3_802532E8 *)(arg0 + 0xB0) = item_help_tech_disk_stats_callback;
         e0 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
         text_builder_reset();
         format_item_description(*(void **)(arg0 + 0x68));
@@ -181,7 +181,7 @@ void TWindowHelpItem__vt2(u8 *arg0) {
     u8 *e;
     u8 *e2;
     init_window_layout_entries(arg0 + 0x24, window_help_item_layout_entries, *(s16 *)(arg0 + 0x20));
-    *(V3_802534B0 *)(arg0 + 0xB0) = lbl_804CF88C;
+    *(V3_802534B0 *)(arg0 + 0xB0) = item_help_description_idle_callback;
     e = get_array_entry__20TWindowSubStatusDispFPvi((void *)(arg0), (M2C_UNK)(0));
     format_description_with_price__15TWindowHelpItemFPv((void *)(arg0));
     set_text_entry_string((void *)(e), (void *)(get_shared_text_buffer()), (s32)(0x20));
@@ -196,7 +196,7 @@ void TWindowHelpItem__vt11(u8 *window) {
     s32 blast;
     initialize_mag_data__9TItemDataFPv(&mag);
     init_window_layout_entries(window + 0x24, lbl_804CF4E4, M2C_FIELD(window, s16 *, 0x20));
-    *(Callback_80253564 *) (window + 0xB0) = lbl_804CF880;
+    *(Callback_80253564 *) (window + 0xB0) = TWindowHelpItem__photon_blast_update_callback;
     deserialize_mag__9TItemDataFPvPv(M2C_FIELD(window, void **, 0x68), &mag);
     for (slot = 0; slot < 3; slot++) {
         blast = get_photon_blast_at_slot__8TItemMagFPvi(&mag, slot);

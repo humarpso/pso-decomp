@@ -164,11 +164,11 @@ void *TCameraCtrl__vt12(void) {
     return o;
 }
 
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 
 void init_state__11TCameraCtrlFPv(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x38) = 0x15;
-    if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208 + 0x20, 0x10000) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + 0x20, 0x10000) != 0) {
         update_follow_camera__11TCameraCtrlFv(arg0);
     } else {
         update_target_follow__11TCameraCtrlFPv((void *)(arg0));

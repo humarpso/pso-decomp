@@ -171,7 +171,7 @@ void free_shared_resources__14TObjNpcNgcBaseFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern Rec_803592B8 lbl_804F1688[];
+extern Rec_803592B8 npc_delta_w_body_model_names[];
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 void load_resources__14TObjNpcNgcBaseFv(void);
 }
@@ -557,7 +557,7 @@ void load_resources__14TObjNpcNgcBaseFv(void) {
     Rec_803592B8 *p;
     s32 i;
     void *obj;
-    Rec_803592B8 *tbl = lbl_804F1688;
+    Rec_803592B8 *tbl = npc_delta_w_body_model_names;
     for (i = 0; i < 14; i++) {
         ((u32 *)&TObjNpcNgcBase__data_805439A8)[i] = 0;
     }

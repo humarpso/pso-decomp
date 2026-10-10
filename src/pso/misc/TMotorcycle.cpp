@@ -37,8 +37,8 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK draw_ginja_object();
-extern u32 lbl_805D5C40;
-extern u32 lbl_805D5C44;
+extern u32 TMotorcycle__bml_resource;
+extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED0;
 extern const f32 lbl_805DBED4;
 void render__11TMotorcycleFv(u8 *arg0);
@@ -48,9 +48,9 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, void *, void *, f32, f32);
 extern RecoveredGlobal_801950B8_lbl_80445E18 lbl_80445E18;
-extern RecoveredGlobal_801950B8_lbl_804B8564 lbl_804B8564;
-extern u32 lbl_805D5C40;
-extern u32 lbl_805D5C44;
+extern RecoveredGlobal_801950B8_lbl_804B8564 motorcycle_resource_descriptor;
+extern u32 TMotorcycle__bml_resource;
+extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED8;
 extern const f32 lbl_805DBEDC;
 void load_resources__11TMotorcycleFv(void);
@@ -59,7 +59,7 @@ void reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 M2C_UNK TObjMesBase__ct(void *, void *, void *);
 extern s32 lbl_80445DF4[];
-extern M2C_UNK lbl_804B8574[];
+extern M2C_UNK TMotorcycle__collision_parts[];
 extern M2C_UNK __vt__11TMotorcycle[];
 extern s32 motorcycle_class_name;
 void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2);
@@ -83,12 +83,12 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void render__11TMotorcycleFv(u8 *arg0) {
     if ((get_state_flag__9TMainTaskFv() != 1) && (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBED0, lbl_805DBED4) != 0)) {
         set_depth_buffer_settings_id__FUl((int) (3));
-        if ((u32) lbl_805D5C44 != 0U) {
-            set_global_param__8TObjFishFi((s32) lbl_805D5C44);
+        if ((u32) TMotorcycle__texture_list != 0U) {
+            set_global_param__8TObjFishFi((s32) TMotorcycle__texture_list);
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_yxz((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-            get_bml_model((void *) ((*(s32 *)&lbl_805D5C40)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
+            get_bml_model((void *) ((*(s32 *)&TMotorcycle__bml_resource)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)));
             draw_ginja_object();
             pop_matrix();
         }
@@ -108,18 +108,18 @@ void *create__11TMotorcycleFPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5C40;
-extern u32 lbl_805D5C44;
+extern u32 TMotorcycle__bml_resource;
+extern u32 TMotorcycle__texture_list;
 
 void free_statics__11TMotorcycleFv(void) {
-    if ((u32) lbl_805D5C44 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5C44);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5C44);
-        lbl_805D5C44 = 0U;
+    if ((u32) TMotorcycle__texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)TMotorcycle__texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TMotorcycle__texture_list);
+        TMotorcycle__texture_list = 0U;
     }
-    if ((u32) lbl_805D5C40 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5C40, 1);
-        lbl_805D5C40 = 0U;
+    if ((u32) TMotorcycle__bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TMotorcycle__bml_resource, 1);
+        TMotorcycle__bml_resource = 0U;
     }
 }
 
@@ -131,12 +131,12 @@ void load_resources__11TMotorcycleFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B8564.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &motorcycle_resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5C40) = (unsigned char *) ((void *) var_r0);
-    (*(u8 * *)&lbl_805D5C44) = load_gvm_texture_file((s32) &lbl_80445E18.value);
-    add_entry__11TMotorcycleFsiiff((int) (0x3C), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&lbl_805D5C40)), (int)(0)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
-    add_entry__11TMotorcycleFsiiff((int) (0x3D), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&lbl_805D5C40)), (int)(1)))), (void *) ((*(u8 * *)&lbl_805D5C44)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    (*(u8 * *)&TMotorcycle__bml_resource) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TMotorcycle__texture_list) = load_gvm_texture_file((s32) &lbl_80445E18.value);
+    add_entry__11TMotorcycleFsiiff((int) (0x3C), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(0)))), (void *) ((*(u8 * *)&TMotorcycle__texture_list)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
+    add_entry__11TMotorcycleFsiiff((int) (0x3D), (void *) (((s32)get_bml_model((void *)((*(u8 * *)&TMotorcycle__bml_resource)), (int)(1)))), (void *) ((*(u8 * *)&TMotorcycle__texture_list)), (f32) (lbl_805DBED8), (f32) (lbl_805DBEDC));
 }
 
 void *__dt__11TMotorcycleFv(void *arg0, s16 arg1) {
@@ -159,7 +159,7 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     self->xBC = get_random_float__8TObjFishFv(self->x68);
     self->xBC = self->xBC % 2;
     self->xBC = lbl_80445DF4[self->xBC];
-    init_collision_body_parts(arg0, lbl_804B8574, 1);
+    init_collision_body_parts(arg0, TMotorcycle__collision_parts, 1);
     self->flags |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;

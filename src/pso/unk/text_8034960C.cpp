@@ -42,17 +42,17 @@ void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, s32, s32, f32);
 extern const Vec2_80349728 lbl_80478718[2];
 extern const Vec2_80349728 lbl_80478728[2];
 extern const f32 lbl_805DFD00;
-void fn_80349728(void);
+void draw_quest_load_letterbox_bars(void);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, s32, s32, f32);
 extern const Vec2_8034960C lbl_80478738[2];
 extern const Vec2_8034960C lbl_80478748[2];
 extern const f32 lbl_805DFD00;
-void fn_8034960C(void);
+void draw_quest_load_panel_overlays(void);
 }
 
 extern "C" {
 
-void fn_8034960C(void) {
+void draw_quest_load_panel_overlays(void) {
     f32 pos[8];
     Desc_8034960C d;
     s32 col[4];
@@ -80,7 +80,7 @@ void fn_8034960C(void) {
     } while (i < 2);
 }
 
-void fn_80349728(void) {
+void draw_quest_load_letterbox_bars(void) {
     f32 pos[8];
     Desc_80349728 d;
     s32 col[4];

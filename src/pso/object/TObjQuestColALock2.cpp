@@ -81,17 +81,17 @@ void *__nw__7TObjectFUl(int);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
 
-extern void *lbl_805D5C50;
+extern void *quest_collision_task_root;
 
 void *TObjQuestColALock2__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0xC4);
     if (o != NULL) {
-        o = TObjQuestColALock2__ct((u8 *)(o), (s32)(lbl_805D5C50), (s32)(arg0));
+        o = TObjQuestColALock2__ct((u8 *)(o), (s32)(quest_collision_task_root), (s32)(arg0));
     }
     return o;
 }
 
-extern M2C_UNK lbl_8050E208[];
+extern M2C_UNK controller_input_state[];
 extern s32 local_client_id;
 
 typedef char RecoveredGlobal_801959A0_lbl_804A7428_size[sizeof(RecoveredGlobal_801959A0_lbl_804A7428) == 0x10 ? 1 : -1];
@@ -149,7 +149,7 @@ s32 TObjQuestColALock2__vt13(void *arg0) {
         }
         if (temp_r3_2 == 0) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
-            if (TWindowShortListCtrl__check_controller_button((void *)((s8 *)lbl_8050E208 + 0x20), 4) != 0) {
+            if (TWindowShortListCtrl__check_controller_button((void *)((s8 *)controller_input_state + 0x20), 4) != 0) {
                 return 1;
             }
         }

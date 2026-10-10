@@ -261,11 +261,11 @@ void TLobby__sub_8007BBF8(void);
 void send_status_packet__6TLobbyFv(void);
 M2C_UNK send_c6_packet__6TLobbyFPvPv(s32, M2C_UNK *);
 
-    extern short lbl_805D5C48;
-void TLobby__sub_8007BBEC(void) { lbl_805D5C48 = 0; }
+    extern short quest_collision_next_id;
+void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
 
-    extern short lbl_805D5C48;
-void TLobby__sub_8007BBF8(void) { lbl_805D5C48 = 0; }
+    extern short quest_collision_next_id;
+void TLobby__sub_8007BBF8(void) { quest_collision_next_id = 0; }
 
 extern s32 TLobby__protocol_instance;
 

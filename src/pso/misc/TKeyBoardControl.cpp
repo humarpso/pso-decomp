@@ -102,7 +102,7 @@ extern const f32 TWindowKeyBoardSoft__data_805DD07C;
 extern const f32 TWindowKeyBoardSoft__data_805DD080;
 extern const f32 TWindowKeyBoardSoft__data_805DD088;
 extern const f32 TWindowKeyBoardSoft__data_805DD094;
-extern RecoveredGlobal_80260808_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80260808_lbl_8050E208 controller_input_state;
 extern void *local_client_id;
 extern s32 current_language;
 extern const f32 lbl_805DD084;
@@ -214,7 +214,7 @@ extern int fold_flush_4;
 void TWindowKeyBoardSoft__sub_80260808(u8 *arg0, s32 arg1) {
     s32 temp_r5;
     temp_r5 = arg1 * 0x50;
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (2), (int) (temp_r5)) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U)) {
         M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) & 0xFFFFFFEF);
         play_sound_effect((int) (0x52F16), (int) (0), (int) (0), (int) (0));
         handle_backspace__19TWindowKeyBoardSoftFPv((int) (M2C_FIELD(arg0, u32 *, 0x6C)));
@@ -258,7 +258,7 @@ void handle_page_cycle_input__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1) {
     s32 spC;
     s32 sp8;
     u8 *temp_r30;
-    temp_r30 = (u8 *)&lbl_8050E208.value + (arg1 * 0x50) + 0x20;
+    temp_r30 = (u8 *)&controller_input_state.value + (arg1 * 0x50) + 0x20;
     if (((s32 (*)(int, int))TWindowShortListCtrl__check_controller_button)((int) (temp_r30), (int) (0x30000)) != 0) {
         play_sound_effect((int) (0x54100), (int) (0), (int) (0), (int) (0));
         calc_cursor_step__19TWindowKeyBoardSoftFiPvPv((s32) (arg0), &spC, &sp8);

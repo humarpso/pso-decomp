@@ -13,7 +13,7 @@ s32 THunterGuildSeqOffline__sub_80212000(s32);
 s32 THunterGuildSeqOffline__sub_80212060(s32);
 s32 get_game_play_mode();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-extern u8 lbl_8050E208[][0x50];
+extern u8 controller_input_state[][0x50];
 extern s32 lbl_805D55C0;
 s32 TLobby__sub_80211D58(s32 arg0);
 }
@@ -38,7 +38,7 @@ s32 TLobby__sub_80211D58(s32 arg0) {
             kind = TPlayerBattleCtrl4P__sub_80211B10(player);
             if (kind != 0) {
                 if (get_player_by_client_id((u16)player) != 0) {
-                    if (TWindowShortListCtrl__check_controller_button(&lbl_8050E208[get_map_id__13TRaderMapCoreFPv()][0x20], 4) != 0 &&
+                    if (TWindowShortListCtrl__check_controller_button(&controller_input_state[get_map_id__13TRaderMapCoreFPv()][0x20], 4) != 0 &&
                         is_active__19THunterGuildWarningFv() == 0) {
                         switch (kind) {
                         case 1:

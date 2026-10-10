@@ -17,7 +17,7 @@ extern s32 obj_quest_col_alock_class_name;
 extern s32 obj_quest_col_apc_class_name;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
@@ -27,7 +27,7 @@ extern s32 obj_quest_col_alock_class_name;
 extern s32 obj_quest_col_apc_class_name;
 extern s32 lbl_805D33FC;
 extern s32 lbl_805D3400;
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
 void delete_by_param__13TQuestColCtrlFi(s32 arg0);
 }
 
@@ -38,14 +38,14 @@ M2C_UNK TQuestColCtrl__ct(M2C_UNK, s32);
 u32 __ct__7TObjectFP7TObject(M2C_UNK, M2C_UNK);
 u32 __nw__7TObjectFUl(M2C_UNK);
 
-extern u32 lbl_805D5C50;
+extern u32 quest_collision_task_root;
 extern s32 tl_05;
 
 Obj_80195CF0 *find_by_id__13TQuestColCtrlFUs(u16 arg0) {
     Obj_80195CF0 *next;
     Obj_80195CF0 *cur;
-    next = (*(Obj_80195CF0 * *)&lbl_805D5C50)->child;
-    while ((*(Obj_80195CF0 * *)&lbl_805D5C50)->child != 0 && next != 0) {
+    next = (*(Obj_80195CF0 * *)&quest_collision_task_root)->child;
+    while ((*(Obj_80195CF0 * *)&quest_collision_task_root)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
         if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
@@ -67,8 +67,8 @@ void delete_by_param__13TQuestColCtrlFi(s32 arg0) {
     if (arg0 < 0) {
         return;
     }
-    next = (*(Obj_80195DE0 * *)&lbl_805D5C50)->child;
-    while ((*(Obj_80195DE0 * *)&lbl_805D5C50)->child != 0 && next != 0) {
+    next = (*(Obj_80195DE0 * *)&quest_collision_task_root)->child;
+    while ((*(Obj_80195DE0 * *)&quest_collision_task_root)->child != 0 && next != 0) {
         cur = next;
         next = cur->next;
         if ((check_value_equals__13TQuestColCtrlFPvi(cur, TObjQuestCol__class_name) != 0
@@ -91,7 +91,7 @@ void init__13TQuestColCtrlFv(void) {
     if (var_r3 != 0U) {
         var_r3 = __ct__7TObjectFP7TObject(var_r3, 0);
     }
-    lbl_805D5C50 = var_r3;
+    quest_collision_task_root = var_r3;
     var_r3 = __nw__7TObjectFUl(0x1C);
     if (var_r3 != 0U) {
         TQuestColCtrl__ct(var_r3, tl_05);

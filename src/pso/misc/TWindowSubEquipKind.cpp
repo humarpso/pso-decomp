@@ -13,7 +13,7 @@ extern "C" {
 s32 create_menu_scroll_bar(void *);
 s32 fn_802683F4(void *, void *, int, void *);
 extern M2C_UNK __vt__19TWindowSubEquipKind[];
-extern s32 lbl_805D3A38;
+extern s32 TWindowSubEquipKind__class_name;
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2);
 }
 
@@ -77,7 +77,7 @@ typedef char RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind_size[sizeof(Re
 u8 *TWindowSubEquipKind__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (0x1F), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80278FE0___vt__19TWindowSubEquipKind *)&__vt__19TWindowSubEquipKind).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A38;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubEquipKind__class_name;
     create_menu_scroll_bar((void *) (arg0));
     M2C_FIELD(arg0, s16 *, 0x88) = 4;
     M2C_FIELD(arg0, s16 *, 0x8A) = 0;

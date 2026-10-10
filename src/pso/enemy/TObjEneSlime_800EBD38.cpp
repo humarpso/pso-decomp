@@ -16,7 +16,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK spawn_child__12TObjEneSlimeFsiiff(M2C_UNK, s32, s32, f32, f32);
 
 extern M2C_UNK slime_pair_resource_descriptor[];
-extern void *lbl_805D52B0;
+extern void *slime_bml_resource;
 extern f32 lbl_805DA66C;
 extern f32 lbl_805DA6B4;
 
@@ -29,10 +29,10 @@ void spawn_pair__12TObjEneSlimeFv(void) {
     if (temp_r4 != NULL) {
         temp_r4 = load_resource_from_descriptor(temp_r4, 1, slime_pair_resource_descriptor, 0, 0, 0);
     }
-    lbl_805D52B0 = temp_r4;
+    slime_bml_resource = temp_r4;
     temp_r5 = M2C_FIELD(temp_r4, void **, 0x42C);
     spawn_child__12TObjEneSlimeFsiiff(0x28, M2C_FIELD(temp_r5, s32 *, 0x48), M2C_FIELD(temp_r5, s32 *, 0x4C), lbl_805DA66C, lbl_805DA6B4);
-    temp_r5_2 = M2C_FIELD(lbl_805D52B0, void **, 0x42C);
+    temp_r5_2 = M2C_FIELD(slime_bml_resource, void **, 0x42C);
     spawn_child__12TObjEneSlimeFsiiff(0x29, M2C_FIELD(temp_r5_2, s32 *, 0x58), M2C_FIELD(temp_r5_2, s32 *, 0x5C), lbl_805DA66C, lbl_805DA6B4);
 }
 

@@ -63,7 +63,7 @@ M2C_UNK begin_player_keyboard_hold(void *);
 M2C_UNK end_player_keyboard_hold(s32);
 s32 TWindowChat__sub_8025CB10(int);
 s32 reset_input__11TWindowChatFPv(void *);
-extern RecoveredGlobal_8024775C_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8024775C_lbl_8050E208 controller_input_state;
 extern s32 local_client_id;
 void TWindowChat__sub_8024775C(u8 *arg0);
 }
@@ -180,7 +180,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
   {
     if (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 2)
     {
-      temp_r30 = ((u8 *) (&lbl_8050E208.value)) + 0x20;
+      temp_r30 = ((u8 *) (&controller_input_state.value)) + 0x20;
       if ((TWindowShortListCtrl__check_controller_button((void *) temp_r30, (int) 0x200) != 0) && (is_on_current_screen__11TCameraCtrlFPv((int) temp_r30, (void *) fn_8002AE08((void *) local_client_id)) == 0))
       {
         ((RecoveredFields_8024775C_arg0 *) arg0)->field_1E = (u16) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1E & 0xFFFFFFFD);
@@ -194,9 +194,9 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       }
     }
     else
-      if ((is_key_held__16TKeyBoardControlFPv((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28) == 0) || ((TWindowChat__sub_80247EC0((void *) arg0) != 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 0x200) != 0)))
+      if ((is_key_held__16TKeyBoardControlFPv((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_28) == 0) || ((TWindowChat__sub_80247EC0((void *) arg0) != 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 0x200) != 0)))
     {
-      if ((TWindowChat__sub_80247EC0((void *) arg0) != 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 0x200) != 0))
+      if ((TWindowChat__sub_80247EC0((void *) arg0) != 0) && (TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 0x200) != 0))
       {
         reset_input__11TWindowChatFPv((void *)((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20));
       }
@@ -210,7 +210,7 @@ void TWindowChat__sub_8024775C(u8 *arg0) {
       }
     }
     else
-      if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&lbl_8050E208.value)) + 0x20), (int) 0x400) != 0) && (TWindowChat__sub_8025CB10((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20) == 0))
+      if ((TWindowShortListCtrl__check_controller_button((void *) (((u8 *) (&controller_input_state.value)) + 0x20), (int) 0x400) != 0) && (TWindowChat__sub_8025CB10((int) ((RecoveredFields_8024775C_arg0 *) arg0)->field_20) == 0))
     {
       close_all_children__11TWindowChatFPv((void *) arg0);
       ((RecoveredFields_8024775C_arg0 *) arg0)->field_1C = (u8) (((RecoveredFields_8024775C_arg0 *) arg0)->field_1C + 1);

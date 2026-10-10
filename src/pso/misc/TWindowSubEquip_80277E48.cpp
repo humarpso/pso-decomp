@@ -47,7 +47,7 @@ M2C_UNK update__15TWindowSubEquipFPv(void *);
 M2C_UNK apply_slot_selection__15TWindowSubEquipFPv(void *);
 s32 open_equip_kind_list__15TWindowSubEquipFPvUi(u8 *arg0, u32 arg1);
 M2C_UNK update_window__15TWindowSubEquipFPv(u32);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern const f32 lbl_805DD5F0;
 void run_task__15TWindowSubEquipFv(void *arg0);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
@@ -60,7 +60,7 @@ s32 TWindowHelpItem__ct(void *, void *, s32);
 s32 create_equip_list_window(void *, void *, s32);
 extern M2C_UNK lbl_8044F918[];
 extern M2C_UNK __vt__15TWindowSubEquip[];
-extern s32 lbl_805D3A30;
+extern s32 TWindowSubEquip__class_name;
 u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -161,7 +161,7 @@ void run_task__15TWindowSubEquipFv(void *arg0) {
         break;
     case 5:
         temp_r5 = temp_r3 * 0x50;
-        if ((TWindowShortListCtrl__check_controller_button(lbl_8050E208 + temp_r5 + 0x20, 2, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 2, temp_r5) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
             play_sound_effect(0x52F16, 0, 0, 0);
             M2C_FIELD(arg0, u8 *, 0x1C) = 3U;
             return;
@@ -193,7 +193,7 @@ u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, (void *)arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TWindowSubEquip;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3A30;
+    M2C_FIELD(arg0, s32 *, 0) = TWindowSubEquip__class_name;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
     M2C_FIELD(arg0, s32 *, 0x34) = create_equip_list_window(get_window_layout_position(0), lbl_8044F918, M2C_FIELD(arg0, s32 *, 0x28));

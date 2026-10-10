@@ -138,7 +138,7 @@ s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C64D0(s32);
 s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
 u8 * TKeyBoardControl__sub_803DEB74(u32);
-extern RecoveredGlobal_802C6848_lbl_804E0B00 lbl_804E0B00;
+extern RecoveredGlobal_802C6848_lbl_804E0B00 multiplayer_controller_device_codes;
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 extern const f32 TAdMultiPlyChrSelectGC__data_805DE56C;
@@ -178,7 +178,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__selected_slot;
 void update_option_cursor__22TAdMultiPlyChrSelectGCFPv(S_802C6008 *self);
@@ -187,7 +187,7 @@ s32 dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 M2C_UNK TAdMultiPlyChrSelectGC__sub_802C5F1C(void *, int);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -205,7 +205,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void);
 s32 find_active_slot__22TAdMultiPlyChrSelectGCFv(void);
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 extern s32 TAdMultiPlyChrSelectGC__select_mode;
 void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o);
@@ -223,7 +223,7 @@ extern s32 TAdMultiPlyChrSelectGC__select_mode;
 void *TAdMultiPlyChrSelectGC__data_804E0A48[4] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *TAdMultiPlyChrSelectGC__data_804E0A58[4] = {
+void *TAdMultiPlyChrSelectGC__selected_slot_order[4] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 s32 TAdMultiPlyChrSelectGC__data_804E0A68[6][5] = {
@@ -241,7 +241,7 @@ void *TAdMultiPlyChrSelectGC__data_804E0AF0[4] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
 #define TAdMultiPlyChrSelectGC__data_804E0A48 (*(RecoveredGlobal_802C658C_TAdMultiPlyChrSelectGC__data_804E0A48 *)TAdMultiPlyChrSelectGC__data_804E0A48)
-#define TAdMultiPlyChrSelectGC__data_804E0A58 ((s32 *)TAdMultiPlyChrSelectGC__data_804E0A58)
+#define TAdMultiPlyChrSelectGC__selected_slot_order ((s32 *)TAdMultiPlyChrSelectGC__selected_slot_order)
 #define TAdMultiPlyChrSelectGC__data_804E0AE0 ((s32 *)TAdMultiPlyChrSelectGC__data_804E0AE0)
 #define TAdMultiPlyChrSelectGC__data_804E0AF0 ((f32 *)TAdMultiPlyChrSelectGC__data_804E0AF0)
 
@@ -377,7 +377,7 @@ void find_first_open_cell__22TAdMultiPlyChrSelectGCFiPv(s32 arg0, u32 *arg1) {
     }
 }
 
-#define WIN_802C6008 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__selected_slot * 0x50 + 0x20))
+#define WIN_802C6008 ((void *)(controller_physical_port_bank + TAdMultiPlyChrSelectGC__selected_slot * 0x50 + 0x20))
 
 void move_cursor__22TAdMultiPlyChrSelectGCFPviiiii(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth) {
     s32 x = x_;
@@ -492,7 +492,7 @@ void update_option_cursor__22TAdMultiPlyChrSelectGCFPv(S_802C6008 *self) {
     }
 }
 
-#define WIN_802C61E4 ((void *)(lbl_8050E3B8 + TAdMultiPlyChrSelectGC__data_805D67D8 * 0x50 + 0x20))
+#define WIN_802C61E4 ((void *)(controller_physical_port_bank + TAdMultiPlyChrSelectGC__data_805D67D8 * 0x50 + 0x20))
 void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self) {
     s32 n;
     s32 m;
@@ -597,20 +597,20 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6848(s32 arg0) {
     if ((arg0 < 0) || (arg0 > 3)) {
         return 0;
     }
-    return M2C_FIELD(M2C_FIELD(TKeyBoardControl__sub_803DEB74(M2C_FIELD(((u8 *)(&lbl_804E0B00.value) + (arg0 * 4)), u32 *, 0)), s32 **, 0x30), s32 *, 0) & 1;
+    return M2C_FIELD(M2C_FIELD(TKeyBoardControl__sub_803DEB74(M2C_FIELD(((u8 *)(&multiplayer_controller_device_codes.value) + (arg0 * 4)), u32 *, 0)), s32 **, 0x30), s32 *, 0) & 1;
 }
 
 void remove_selected_slot__22TAdMultiPlyChrSelectGCFi(s32 arg0) {
     u32 i;
     u32 j;
     for (i = 0; i < 4; i++) {
-        if (arg0 == TAdMultiPlyChrSelectGC__data_804E0A58[i]) {
+        if (arg0 == TAdMultiPlyChrSelectGC__selected_slot_order[i]) {
             for (j = i; j < 4; j++) {
                 if (j < 3) {
-                    TAdMultiPlyChrSelectGC__data_804E0A58[j] = TAdMultiPlyChrSelectGC__data_804E0A58[j + 1];
+                    TAdMultiPlyChrSelectGC__selected_slot_order[j] = TAdMultiPlyChrSelectGC__selected_slot_order[j + 1];
                 }
             }
-            TAdMultiPlyChrSelectGC__data_804E0A58[3] = -1;
+            TAdMultiPlyChrSelectGC__selected_slot_order[3] = -1;
             return;
         }
     }
@@ -622,12 +622,12 @@ void add_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {
         (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) = 0;
     }
     for (i = 0; i < 4; i++) {
-        if (TAdMultiPlyChrSelectGC__data_804E0A58[i] == -1) {
-            TAdMultiPlyChrSelectGC__data_804E0A58[i] = (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8);
+        if (TAdMultiPlyChrSelectGC__selected_slot_order[i] == -1) {
+            TAdMultiPlyChrSelectGC__selected_slot_order[i] = (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8);
             return;
         }
     }
-    TAdMultiPlyChrSelectGC__data_804E0A58[3] = (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8);
+    TAdMultiPlyChrSelectGC__selected_slot_order[3] = (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8);
 }
 
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv(void) {
@@ -641,7 +641,7 @@ void reset_slot_selections__22TAdMultiPlyChrSelectGCFv(void) {
     s32 i;
     for (i = 0; i < 4; i++) {
         ((s32 *)&TAdMultiPlyChrSelectGC__data_804E0A48)[i] = -1;
-        TAdMultiPlyChrSelectGC__data_804E0A58[i] = -1;
+        TAdMultiPlyChrSelectGC__selected_slot_order[i] = -1;
     }
     reset_slot_selection_table__22TAdMultiPlyChrSelectGCFv();
     (*(s32 *)&TAdMultiPlyChrSelectGC__data_805D67D8) = 0;
@@ -703,7 +703,7 @@ void update_selection__22TAdMultiPlyChrSelectGCFPv(S_802C6AC8 *o) {
     o->f530 = 0;
     if (o->f534 != 0) {
         for (i = 0; i < 4; i++) {
-            if (TWindowShortListCtrl__check_controller_button(((Pad_802C6AC8 *)lbl_8050E3B8)[i].ctl, 8) != 0 && TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
+            if (TWindowShortListCtrl__check_controller_button(((Pad_802C6AC8 *)controller_physical_port_bank)[i].ctl, 8) != 0 && TAdMultiPlyChrSelectGC__sub_802C6558() > 0) {
                 o->f530 = 1;
             }
         }

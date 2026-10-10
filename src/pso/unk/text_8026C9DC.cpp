@@ -17,7 +17,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, u32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 is_player_input_active(s32);
 void decay_page_arrow_offset(void);
-extern Pad_8026C9DC lbl_8050E208[];
+extern Pad_8026C9DC controller_input_state[];
 extern const f32 lbl_805DD294;
 extern const f32 lbl_805DD298;
 s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0);
@@ -30,7 +30,7 @@ s32 handle_list_page_flip_input(Ctl_8026C9DC *arg0) {
     s8 cur;
     decay_page_arrow_offset();
     cur = arg0->cur;
-    pad = lbl_8050E208[is_player_input_active(arg0->port)].buttons;
+    pad = controller_input_state[is_player_input_active(arg0->port)].buttons;
     if (TWindowShortListCtrl__check_controller_button(pad, 0x30000) == 0) {
         return 0;
     }

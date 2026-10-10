@@ -13,7 +13,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 s32 get_player_by_client_id(s32);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern s32 local_client_id;
 void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0);
 }
@@ -73,7 +73,7 @@ void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0) {
     if (arg0->flags & 8) {
         return;
     }
-    pad = lbl_8050E208 + 0x20;
+    pad = controller_input_state + 0x20;
     if (TWindowShortListCtrl__check_controller_button(pad, 0xF0) == 0) {
         return;
     }

@@ -123,7 +123,7 @@ M2C_UNK func_803e11f0__Fv();
 extern char lbl_8043D298[];
 extern M2C_UNK slime_debug_label_table[];
 extern M2C_UNK lbl_80496368[];
-extern s32 lbl_805D52B0;
+extern s32 slime_bml_resource;
 extern u32 some_id_805c6f74;
 void render__12TObjEneSlimeFv(u8 *arg0);
 }
@@ -176,22 +176,22 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
         push_matrix();
         temp_r30_2 = M2C_FIELD(((u8 *)(lbl_80496368) + temp_r30), s32 *, 0);
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38), (void *) (lbl_80496368));
-        TObjFish__sub_8001EDB0((void *) (lbl_805D52B0), (int) (temp_r30_2));
+        TObjFish__sub_8001EDB0((void *) (slime_bml_resource), (int) (temp_r30_2));
         set_global_param__8TObjFishFi();
         if (temp_r31 != 0) {
             some_id_805c6f74 |= 0x400000;
             func_803e11e8__FUl((int) (1));
-            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             func_803e11f0__Fv();
             some_id_805c6f74 &= 0xFFBFFFFF;
         } else {
             func_803e11e8__FUl((int) (2));
             set_cull_back__8TObjFishFv();
-            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             set_cull_mode_front__8TObjFishFv();
-            get_bml_model((void *) (lbl_805D52B0), (int) (temp_r30_2));
+            get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             set_cull_none__8TObjFishFv();
             func_803e11f0__Fv();

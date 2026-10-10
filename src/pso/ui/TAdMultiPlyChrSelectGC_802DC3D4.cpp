@@ -22,7 +22,7 @@ M2C_UNK set_status_value__22TAdMultiPlyChrSelectGCFPvi(s32, u32);
 M2C_UNK setup_move_effect_params__18TAdChrMoveEffectGCFPvii(u32, s32, s32);
 extern s8 lbl_80472880[];
 extern s8 lbl_80472888[];
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0);
 }
 
@@ -42,10 +42,10 @@ s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 u32 get_global_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 
 void check_cancel_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    if ((get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) || (TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0)) {
+    if ((get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) || (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0)) {
         set_state__15TAdPlayerLoadGCFi(1);
         M2C_FIELD(arg0, s32 *, 0x58) = 0;
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
@@ -81,7 +81,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC440(void *arg0) {
     }
 }
 
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 
 void handle_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     void *temp_r31;
@@ -97,7 +97,7 @@ void handle_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
         return;
     }
-    temp_r31 = lbl_8050E3B8 + 0x20;
+    temp_r31 = controller_physical_port_bank + 0x20;
     if ((TWindowShortListCtrl__check_controller_button(temp_r31, 4) != 0) || (TWindowShortListCtrl__check_controller_button(temp_r31, 2) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1F;
     }
@@ -109,7 +109,7 @@ void TAdMultiPlyChrSelectGC__sub_802DC5CC(void *arg0) {
         close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x94));
         M2C_FIELD(arg0, u32 *, 0x94) = 0U;
     }
-    if (TWindowShortListCtrl__check_controller_button((void *)(lbl_8050E3B8 + 0x20), (M2C_UNK)(2)) != 0) {
+    if (TWindowShortListCtrl__check_controller_button((void *)(controller_physical_port_bank + 0x20), (M2C_UNK)(2)) != 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x28) = 0x1B;
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1A;

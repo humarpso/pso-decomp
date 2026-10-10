@@ -97,9 +97,9 @@ struct Pkt_801DAA70 {
 
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
-void handle_cmd_9C(u8 *arg0, s32 *arg1);
+void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 void bswap_cmd_c5(void *);
-void handle_cmd_C5(u8 *arg0, Pkt_801DA848 *arg1);
+void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1);
 M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
 M2C_UNK bswap_guild_card_meet_user__6TLobbyFPv(void *);
@@ -121,7 +121,7 @@ M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
 extern u8 meet_user_settings[];
 extern char *lbl_805D3570;
-void handle_cmd_02(u8 *arg0, Recv_801DAA70 *arg1);
+void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
 }
 
 extern "C" {
@@ -139,7 +139,7 @@ void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
 }
 
 typedef void (*Fn_801DA848)(void *, u8);
-void handle_cmd_C5(u8 *arg0, Pkt_801DA848 *arg1) {
+void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1) {
     Pkt_801DA848 tmp = *arg1;
     bswap_cmd_c5(&tmp);
     Fn_801DA848 f = *(Fn_801DA848 *)(arg0 + 0xBC8C);
@@ -175,7 +175,7 @@ s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     return 0;
 }
 
-void handle_cmd_9C(u8 *arg0, s32 *arg1) {
+void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
     sp8 = M2C_FIELD(arg1, s32 *, 0);
@@ -186,7 +186,7 @@ void handle_cmd_9C(u8 *arg0, s32 *arg1) {
         temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
     }
 }
-void handle_cmd_02(u8 *arg0, Recv_801DAA70 *arg1) {
+void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {
     Recv_801DAA70 r = *arg1;
     Pkt_801DAA70 pkt;
     bswap__21TRecvPsoRegistConnectFv(&r);

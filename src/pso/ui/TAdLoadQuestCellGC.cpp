@@ -21,8 +21,8 @@ void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2);
 void render_state__18TAdLoadQuestCellGCFPv(void *arg0);
 
 void __ct__7TObjectFP7TObject(void *);
-s32 fn_8034960C();
-s32 fn_80349728();
+s32 draw_quest_load_panel_overlays();
+s32 draw_quest_load_letterbox_bars();
 s32 fn_80349844();
 
 void render_state__18TAdLoadQuestCellGCFPv(void *arg0) {
@@ -34,10 +34,10 @@ void render_state__18TAdLoadQuestCellGCFPv(void *arg0) {
         fn_80349844();
         return;
     case 1:
-        fn_80349728();
+        draw_quest_load_letterbox_bars();
         return;
     case 2:
-        fn_8034960C();
+        draw_quest_load_panel_overlays();
         return;
     }
 }

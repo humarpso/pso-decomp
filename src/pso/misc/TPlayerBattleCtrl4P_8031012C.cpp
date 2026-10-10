@@ -107,7 +107,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 get_map_id__13TRaderMapCoreFPv();
 void *get_player_by_client_id(s32);
 void TWindow__close(void *);
-extern MapEnt_8031012C lbl_8050E208[];
+extern MapEnt_8031012C controller_input_state[];
 s32 close_windows_on_button__19TPlayerBattleCtrl4PFPv(Ctl_8031012C *self);
 void *get_player_by_client_id(s32);
 s32 get_state__19TPlayerBattleCtrl4PFPv(void *);
@@ -238,7 +238,7 @@ extern const f32 lbl_805D354C;
 extern const f32 lbl_805D3550;
 extern const f32 lbl_805D5DC4;
 extern const f32 lbl_805D5DC8;
-void TPlayerBattleCtrl4P__sub_80310F10(Ctl_80310F10 *o, s32 arg1);
+void apply_rule_configuration__19TPlayerBattleCtrl4PFPvi(Ctl_80310F10 *o, s32 arg1);
 }
 
 extern "C" {
@@ -291,7 +291,7 @@ s32 close_windows_on_button__19TPlayerBattleCtrl4PFPv(Ctl_8031012C *self) {
     for (i = 0; i < 4; i++) {
         if (get_player_by_client_id(i) != 0) {
             if (self->win[i] != NULL) {
-                if (TWindowShortListCtrl__check_controller_button(lbl_8050E208[get_map_id__13TRaderMapCoreFPv()].sub, 2) != 0) {
+                if (TWindowShortListCtrl__check_controller_button(controller_input_state[get_map_id__13TRaderMapCoreFPv()].sub, 2) != 0) {
                     TWindow__close(self->win[i]);
                     self->win[i] = 0;
                 } else {
@@ -634,7 +634,7 @@ void remove_player__19TPlayerBattleCtrl4PFPvUsi(void *arg0, u16 arg1, s32 arg2) 
 #pragma push
 #pragma opt_lifetimes off
 typedef struct Ctl_80310F10 Ctl_80310F10;
-void TPlayerBattleCtrl4P__sub_80310F10(Ctl_80310F10 *o, s32 arg1) {
+void apply_rule_configuration__19TPlayerBattleCtrl4PFPvi(Ctl_80310F10 *o, s32 arg1) {
   s32 w;
   s32 i;
   s32 flag;
@@ -879,7 +879,7 @@ void init_battle__19TPlayerBattleCtrl4PFPv(Ctl_8031171C *o) {
     create_alt_timer__11TWindowCtrlFv();
     set_timer_window_time__11TWindowCtrlFi(o->f244);
     destroy_matching_traps__10TOMineTrapFv();
-    TPlayerBattleCtrl4P__sub_80310F10((Ctl_80310F10 *)(o), (s32)(1));
+    apply_rule_configuration__19TPlayerBattleCtrl4PFPvi((Ctl_80310F10 *)(o), (s32)(1));
     for (i = 0; i < 4; i++) {
         remove_player__19TPlayerBattleCtrl4PFPvUsi(o, i, 1);
         p = (u8 *)get_player_by_client_id(i);

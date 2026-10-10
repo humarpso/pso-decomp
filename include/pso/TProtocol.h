@@ -206,6 +206,28 @@ public:
     virtual short send(u8 *data, size_t size);
 
     void some_stub();
+    void handle_cmd_90(packet &pkt);
+    void handle_cmd_9B(packet &pkt);
+    void handle_cmd_88(packet &pkt);
+    void handle_cmd_8A(packet &pkt);
+    void handle_cmd_92(packet &pkt);
+    void handle_cmd_95(packet &pkt);
+    void handle_cmd_97(packet &pkt);
+    void handle_cmd_B1(packet &pkt);
+    void handle_cmd_C0(packet &pkt);
+    void handle_cmd_C4(packet &pkt);
+    void handle_cmd_02(packet &pkt);
+    void handle_cmd_9A(packet &pkt);
+    void handle_cmd_9C(packet &pkt);
+    void handle_cmd_C5(packet &pkt);
+    void handle_cmd_D3(packet &pkt);
+    void handle_cmd_D5(packet &pkt);
+    void handle_cmd_D7(packet &pkt);
+    void handle_cmd_D8(packet &pkt);
+    void handle_cmd_DA(packet &pkt);
+    void handle_cmd_9F(packet &pkt);
+    void handle_cmd_AB(packet &pkt);
+    void handle_cmd_AC(packet &pkt);
     int handle_command(struct packet *pkt);
     void parse_packet();
     void seq_jump(u8 *some_struct, TPlyMeetUserExtension &extension);

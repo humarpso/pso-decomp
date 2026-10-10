@@ -418,9 +418,9 @@ extern s32 panarms_sound_effect_pair[];
 extern s32 TObjEnePanarms__sound_ids[];
 extern u8 lbl_80495934[];
 extern s8 lbl_805D5288;
-extern s8 lbl_805D5289;
-extern f32 lbl_805D528C;
-extern u8 lbl_805D5290;
+extern s8 TObjEnePanarms__sound_ids_initialized;
+extern f32 panarms_particle_frame_window;
+extern u8 panarms_particle_frame_window_initialized;
 extern s32 lbl_805D5660;
 extern const f32 lbl_805DA520;
 extern const f32 lbl_805DA528;
@@ -836,12 +836,12 @@ void TObjEnePanarms__sub_800E0950(u8 *arg0) {
     f32 temp_f2;
     s32 temp_r0;
     M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3B4) - 1);
-    if ((s8) lbl_805D5290 == 0) {
-        lbl_805D5290 = 1;
-        lbl_805D528C = M2C_FIELD(&lbl_80495484.value, f32 *, 0x68);
+    if ((s8) panarms_particle_frame_window_initialized == 0) {
+        panarms_particle_frame_window_initialized = 1;
+        panarms_particle_frame_window = M2C_FIELD(&lbl_80495484.value, f32 *, 0x68);
     }
     temp_f2 = M2C_FIELD(arg0, f32 *, 0xC0);
-    if ((temp_f2 >= lbl_805DA558) && (temp_f2 < (lbl_805DA558 + lbl_805D528C))) {
+    if ((temp_f2 >= lbl_805DA558) && (temp_f2 < (lbl_805DA558 + panarms_particle_frame_window))) {
         VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x3A4));
         temp_f1 = stack.spC;
         stack.spC = temp_f1 + TObjEnePanarms__data_805DA544;
@@ -876,10 +876,10 @@ void TObjEnePanarms__sub_800E0A44(u8 *arg0) {
         }
     }
     set_field_b8__14TObjEnePanarmsFPvs(arg0, var_r30);
-    if (lbl_805D5289 == 0) {
+    if (TObjEnePanarms__sound_ids_initialized == 0) {
         TObjEnePanarms__sound_ids[0] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003B836);
         TObjEnePanarms__sound_ids[1] = copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003BB35);
-        lbl_805D5289 = 1;
+        TObjEnePanarms__sound_ids_initialized = 1;
     }
     play_sound_effect(TObjEnePanarms__sound_ids[M2C_FIELD(arg0, s32 *, 0x380)], arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x3B4) = 0xA4;

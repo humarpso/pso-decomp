@@ -433,7 +433,7 @@ extern u16 lbl_805D271A;
 extern u16 lbl_805D271C;
 extern s32 lbl_805D2720;
 extern s32 lbl_805D2ECC;
-extern s32 lbl_805D2F88;
+extern s32 TODoorVoShip__class_name;
 extern u32 boss3_volopt_resources;
 extern int lbl_805D4C14;
 extern int lbl_805D4C1C;
@@ -634,7 +634,7 @@ void TBoss3Volopt__sub_8003CE38(s32 arg0) {
         if (p == NULL) continue;
         if (M2C_FIELD(p, u8 **, 0xA4) == NULL) continue;
         if (check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D2ECC) != 0) continue;
-        if (check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D2F88) != 0) continue;
+        if (check_value_equals__13TQuestColCtrlFPvi(p, TODoorVoShip__class_name) != 0) continue;
         if (!(M2C_FIELD(M2C_FIELD(p, u8 **, 0xA4), u32 *, 0x18) & 0x20000)) continue;
         if (get_random_float__8TObjFishFv(M2C_FIELD(p, f32 *, 0x40) - base) > lbl_805D865C) {
             V3_8003CC18 pos = *(V3_8003CC18 *)(p + 0x38);

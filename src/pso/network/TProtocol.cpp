@@ -13,15 +13,8 @@
 #include "pso/TProtocol.h"
 #include "pso/TSocket.h"
 
-OBJECT_NAME(TProtocol);
-
-packet *server_packet = nullptr;
-int enable_v2_features = 1;
-u32 new_ip_addr;
-u16 new_port;
-TPlyMeetUserExtension meet_user_settings;
-u32 game_variations[16][2];
-const char *port_map_copyright = "DreamCast Port Map. Copyright SEGA Enterprises. 1999";
+extern packet *server_packet;
+extern const char *port_map_copyright;
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -45,10 +38,6 @@ struct RecoveredFields_801DD33C_arg1 {
 extern "C" {
 u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1);
 void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(u8 *arg0, u8 *arg1);
-}
-
-void copy_packet(struct packet *pkt) {
-
 }
 
 void TProtocol::recv_pso_regist_check(packet &pkt) {
@@ -224,7 +213,7 @@ void bswap__12TRecvPsoDataFv(void *);
 extern char lbl_80449610[];
 extern char lbl_80449628[];
 
-void TProtocol__sub_801DC084(VObj_18_801DC084 *obj, s32 flag, s8 *src, s32 len) {
+void send_subcommand_to_client__9TProtocolFPviPvi(VObj_18_801DC084 *obj, s32 flag, s8 *src, s32 len) {
     char buf[0x80];
     sprintf(buf, lbl_80449610, *src, len, flag);
     if (*(s32 *)((char *)obj + 0x1910) != 0) {
@@ -756,6 +745,18 @@ void TProtocol::recv_generate_id(packet &pkt) {
 	}
 };
 
+u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1) {
+    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
+    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    __ct__16TGenGuildCardTagFRC16TGenGuildCardTag((u8 *)(arg0 + 8), (u8 *)(arg1 + 8));
+    return arg0;
+}
+void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(u8 *arg0, u8 *arg1) {
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_0 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_0;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_1 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_1;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_2 = (u16) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_2;
+    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_4 = (s32) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_4;
+}
 void TProtocol::recv_pso_data_long(packet &pkt) {
 	TRecvPsoDataLong &tmp = as(TRecvPsoDataLong &, pkt);
 	tmp.bswap();
@@ -1082,57 +1083,81 @@ void TProtocol::recv_error(packet &pkt) {
 
 int TProtocol::handle_command(struct packet *pkt) {
 	static const command_handler_entry handlers[] = {
-		{ 0x01, &recv_error },
-		{ 0x03, &recv_regist },
-		{ 0x04, &recv_login },
-		{ 0x05, &recv_logout },
-		{ 0x06, &recv_chat },
-		{ 0x07, &recv_dir_list },
-		{ 0x08, &recv_game_list },
-		{ 0x0E, &recv_start_game },
-		{ 0x64, &recv_start_game3 },
-		{ 0x12, &recv_banner },
-		{ 0x16, &recv_banner_head },
-		{ 0x44, &recv_download_head },
-		{ 0x13, &recv_download },
-		{ 0x14, &recv_upload },
-		{ 0x11, &recv_message },
-		{ 0x18, &recv_pso_regist_check },
-		{ 0x19, &recv_port },
-		{ 0x1A, &recv_text },
-		{ 0x1B, &recv_battle_data },
-		{ 0x1C, &recv_system_file },
-		{ 0x60, &recv_pso_data },
-		{ 0x62, &recv_pso_data },
-		{ 0x6C, &recv_pso_data_long },
-		{ 0x6D, &recv_pso_data_long },
-		{ 0x81, &recv_chat_message },
-		{ 0x41, &recv_user_ans },
-		{ 0x80, &recv_generate_id },
-		{ 0x67, &recv_start_lobby2 },
-		{ 0x83, &recv_room_info },
-		{ 0x1D, &recv_ping },
-		{ 0x65, &recv_burst_game },
-		{ 0x66, &recv_exit_game },
-		{ 0x68, &recv_burst_lobby },
-		{ 0x69, &recv_exit_lobby },
-		{ 0x90, &recv_pso_regist_check },
-		{ 0x91, &recv_pso_regist_connect },
-		{ 0xA0, &recv_dir_list },
-		{ 0xA1, &recv_dir_list },
-		{ 0xA2, &recv_quest_menu_list },
-		{ 0xA3, &recv_quest_menu_info },
-		{ 0xA4, &recv_quest_list },
-		{ 0xA5, &recv_quest_info },
-		{ 0xA6, &recv_vm_download_head },
-		{ 0xA7, &recv_vm_download },
-		{ 0xB0, &recv_emergency_call },
-		{ 0x1F, &recv_text_list },
-		{ 0xD5, &recv_text },
+		{ 0x01, &TProtocol::recv_error },
+		{ 0x03, &TProtocol::recv_regist },
+		{ 0x04, &TProtocol::recv_login },
+		{ 0x05, &TProtocol::recv_logout },
+		{ 0x06, &TProtocol::recv_chat },
+		{ 0x07, &TProtocol::recv_dir_list },
+		{ 0x08, &TProtocol::recv_game_list },
+		{ 0x0E, &TProtocol::recv_start_game },
+		{ 0x64, &TProtocol::recv_start_game3 },
+		{ 0x12, &TProtocol::recv_banner },
+		{ 0x16, &TProtocol::recv_banner_head },
+		{ 0x44, &TProtocol::recv_download_head },
+		{ 0x13, &TProtocol::recv_download },
+		{ 0x14, &TProtocol::recv_upload },
+		{ 0x11, &TProtocol::recv_message },
+		{ 0x18, &TProtocol::handle_cmd_90 },
+		{ 0x17, &TProtocol::handle_cmd_9B },
+		{ 0x19, &TProtocol::recv_port },
+		{ 0x1A, &TProtocol::recv_text },
+		{ 0x1B, &TProtocol::recv_battle_data },
+		{ 0x1C, &TProtocol::recv_system_file },
+		{ 0x60, &TProtocol::recv_pso_data },
+		{ 0x62, &TProtocol::recv_pso_data },
+		{ 0x6C, &TProtocol::recv_pso_data_long },
+		{ 0x6D, &TProtocol::recv_pso_data_long },
+		{ 0x81, &TProtocol::recv_chat_message },
+		{ 0x41, &TProtocol::recv_user_ans },
+		{ 0x88, &TProtocol::handle_cmd_88 },
+		{ 0x8A, &TProtocol::handle_cmd_8A },
+		{ 0x80, &TProtocol::recv_generate_id },
+		{ 0x67, &TProtocol::recv_start_lobby2 },
+		{ 0x83, &TProtocol::recv_room_info },
+		{ 0x1D, &TProtocol::recv_ping },
+		{ 0x65, &TProtocol::recv_burst_game },
+		{ 0x66, &TProtocol::recv_exit_game },
+		{ 0x68, &TProtocol::recv_burst_lobby },
+		{ 0x69, &TProtocol::recv_exit_lobby },
+		{ 0x90, &TProtocol::handle_cmd_90 },
+		{ 0x91, &TProtocol::recv_pso_regist_connect },
+		{ 0x92, &TProtocol::handle_cmd_92 },
+		{ 0x95, &TProtocol::handle_cmd_95 },
+		{ 0xA0, &TProtocol::recv_dir_list },
+		{ 0xA1, &TProtocol::recv_dir_list },
+		{ 0xA2, &TProtocol::recv_quest_menu_list },
+		{ 0xA3, &TProtocol::recv_quest_menu_info },
+		{ 0xA4, &TProtocol::recv_quest_list },
+		{ 0xA5, &TProtocol::recv_quest_info },
+		{ 0xA6, &TProtocol::recv_vm_download_head },
+		{ 0xA7, &TProtocol::recv_vm_download },
+		{ 0x97, &TProtocol::handle_cmd_97 },
+		{ 0xB0, &TProtocol::recv_emergency_call },
+		{ 0x1F, &TProtocol::recv_text_list },
+		{ 0xB1, &TProtocol::handle_cmd_B1 },
+		{ 0xC0, &TProtocol::handle_cmd_C0 },
+		{ 0xC4, &TProtocol::handle_cmd_C4 },
+		{ 0x02, &TProtocol::handle_cmd_02 },
+		{ 0x9A, &TProtocol::handle_cmd_9A },
+		{ 0x9B, &TProtocol::handle_cmd_9B },
+		{ 0x9C, &TProtocol::handle_cmd_9C },
+		{ 0xC5, &TProtocol::handle_cmd_C5 },
+		{ 0xD1, &TProtocol::recv_advance_trade_state },
+		{ 0xD4, &TProtocol::recv_trade_result },
+		{ 0xD3, &TProtocol::handle_cmd_D3 },
+		{ 0xD5, &TProtocol::handle_cmd_D5 },
+		{ 0xD7, &TProtocol::handle_cmd_D7 },
+		{ 0xD8, &TProtocol::handle_cmd_D8 },
+		{ 0xDA, &TProtocol::handle_cmd_DA },
+		{ 0x9F, &TProtocol::handle_cmd_9F },
+		{ 0xAB, &TProtocol::handle_cmd_AB },
+		{ 0xAC, &TProtocol::handle_cmd_AC },
 		{ 0, nullptr }
 	};
+	u8 command = pkt->pkt.header.command;
 	for (int i = 0; handlers[i].command; ++i) {
-		if (pkt->pkt.header.command == handlers[i].command) {
+		if (command == handlers[i].command) {
 			(this->*handlers[i].handler)(*pkt);
 			return 0;
 		}
@@ -1308,13 +1333,6 @@ void packet_header::bswap() {
     bswap_16(&size);
 }
 
-u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    __ct__16TGenGuildCardTagFRC16TGenGuildCardTag((u8 *)(arg0 + 8), (u8 *)(arg1 + 8));
-    return arg0;
-}
-
 typedef char RecoveredFields_801DD33C_arg0_0_offset[offsetof(RecoveredFields_801DD33C_arg0, field_0) == 0x0 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg0_1_offset[offsetof(RecoveredFields_801DD33C_arg0, field_1) == 0x1 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg0_2_offset[offsetof(RecoveredFields_801DD33C_arg0, field_2) == 0x2 ? 1 : -1];
@@ -1323,12 +1341,6 @@ typedef char RecoveredFields_801DD33C_arg1_0_offset[offsetof(RecoveredFields_801
 typedef char RecoveredFields_801DD33C_arg1_1_offset[offsetof(RecoveredFields_801DD33C_arg1, field_1) == 0x1 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg1_2_offset[offsetof(RecoveredFields_801DD33C_arg1, field_2) == 0x2 ? 1 : -1];
 typedef char RecoveredFields_801DD33C_arg1_4_offset[offsetof(RecoveredFields_801DD33C_arg1, field_4) == 0x4 ? 1 : -1];
-void __ct__16TGenGuildCardTagFRC16TGenGuildCardTag(u8 *arg0, u8 *arg1) {
-    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_0 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_0;
-    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_1 = (u8) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_1;
-    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_2 = (u16) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_2;
-    ((RecoveredFields_801DD33C_arg0 *)arg0)->field_4 = (s32) ((RecoveredFields_801DD33C_arg1 *)arg1)->field_4;
-}
 
 extern "C" void bswap_cmd_AB__9TProtocolFPv(void *p) {
 	((packet_header *)p)->bswap();

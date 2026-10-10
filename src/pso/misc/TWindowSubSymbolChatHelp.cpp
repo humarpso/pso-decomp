@@ -54,7 +54,7 @@ extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
 extern s32 lbl_805D3AB8;
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 void handle_page_input__24TWindowSubSymbolChatHelpFPv(u8 *arg0);
 int TWindowSubSymbolChatHelp__sub_80247EE8(int);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int);
@@ -237,7 +237,7 @@ void draw_help_entries__24TWindowSubSymbolChatHelpFPvPv(void *arg0, void *arg1) 
     }
 }
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 
 void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
     s32 *temp_r3;
@@ -245,7 +245,7 @@ void handle_toggle_input__24TWindowSubSymbolChatHelpFPv(void *arg0) {
     void *temp_r31;
 
     if (M2C_FIELD(arg0, u8 *, 0x60) & 4) {
-        temp_r31 = lbl_8050E208 + 0x20;
+        temp_r31 = controller_input_state + 0x20;
         if (TWindowShortListCtrl__check_controller_button(temp_r31, 0x10000) != 0) {
             temp_r3 = M2C_FIELD(arg0, s32 **, 0x6C);
             if ((s32) *temp_r3 != 0) {
@@ -275,7 +275,7 @@ void handle_page_input__24TWindowSubSymbolChatHelpFPv(u8 *arg0) {
   int new_var;
   u8 temp_r3;
   new_var = (int) 0x200;
-  if (((*((u8 *) (((s8 *) arg0) + 0x60))) & 2) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_80284A28_lbl_8050E208 *)&lbl_8050E208).value)) + 0x20)), (M2C_UNK)(new_var)) != 0))
+  if (((*((u8 *) (((s8 *) arg0) + 0x60))) & 2) && (TWindowShortListCtrl__check_controller_button((void *)((void *) (((u8 *) (&(*(RecoveredGlobal_80284A28_lbl_8050E208 *)&controller_input_state).value)) + 0x20)), (M2C_UNK)(new_var)) != 0))
   {
     temp_r4 = (u8 *) (*((u8 **) (((s8 *) arg0) + 0x64)));
     *temp_r4 += 1;

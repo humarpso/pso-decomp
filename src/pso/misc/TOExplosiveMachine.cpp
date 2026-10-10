@@ -67,7 +67,7 @@ extern char __vt__18TOExplosiveMachine[];
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
 void TPhotonMagicSquare__sub_801A2640(void *, s32);
 extern char __vt__18TOExplosiveMachine[];
-extern s32 lbl_805D2FB4;
+extern s32 TOExplosiveMachine__class_name;
 extern s32 tl_05;
 extern const f32 lbl_805DB5F0;
 extern const f32 lbl_805DB5F4;
@@ -152,7 +152,7 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     s32 i;
     TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
     arg0->vt = __vt__18TOExplosiveMachine;
-    arg0->id = lbl_805D2FB4;
+    arg0->id = TOExplosiveMachine__class_name;
     arg0->f90 = lbl_805DB5F0;
     arg0->f94 = lbl_805DB5F4;
     arg0->f98 = lbl_805DB5F8 + arg0->f68;

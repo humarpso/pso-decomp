@@ -54,7 +54,7 @@ M2C_UNK attach_particle_model(s32, s32, s32, s32, M2C_UNK, f32);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(s32, f32, f32);
 s32 spawn_particle_effect(void *, M2C_UNK);
 u32 find_active_entity_by_id(u16);
-extern s32 lbl_805D4ED0;
+extern s32 freeze_shell_bml_resource;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
 extern const f32 lbl_805D9378;
@@ -73,7 +73,7 @@ M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
-extern s32 lbl_805D4ED0;
+extern s32 freeze_shell_bml_resource;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 extern const f32 lbl_805D9390;
@@ -102,7 +102,7 @@ M2C_UNK freeze_shell_hold(void *arg0) {
     }
     p = spawn_particle_effect((u8 *)arg0 + 0x38, 0x33);
     if (p != 0) {
-        attach_particle_model(p, get_bml_model(lbl_805D4ED0, 0), TObjFish__sub_8001EDB0(lbl_805D4ED0, 1), get_bml_motion(lbl_805D4ED0, 0), 0, lbl_805D9384);
+        attach_particle_model(p, get_bml_model(freeze_shell_bml_resource, 0), TObjFish__sub_8001EDB0(freeze_shell_bml_resource, 1), get_bml_motion(freeze_shell_bml_resource, 0), 0, lbl_805D9384);
         set_position_xy__10TObjPlayerFPvff(p, M2C_FIELD(arg0, f32 *, 0x68), M2C_FIELD(arg0, f32 *, 0x6C));
     }
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805D9378;
@@ -180,7 +180,7 @@ void freeze_shell_draw(u8 *arg0) {
         ok = p->m8(lbl_805D9390, lbl_805D9394);
     }
     if (ok != 0) {
-        TObjFish__sub_8001EDB0((s32)((void *)lbl_805D4ED0), (M2C_UNK)(1));
+        TObjFish__sub_8001EDB0((s32)((void *)freeze_shell_bml_resource), (M2C_UNK)(1));
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);

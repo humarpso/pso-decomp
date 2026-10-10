@@ -28,7 +28,7 @@ void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
 void set_game_mode__21TAdMultiChgGameModeGCFv(void);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, s32);
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern s32 lbl_805D67C0;
 void run_task__16TAdStorySelectGCFv(Obj_802C3288 *self);
 void queue_destruction__7TObjectFv(void *);
@@ -91,8 +91,8 @@ void run_task__16TAdStorySelectGCFv(Obj_802C3288 *self) {
         break;
     case 0:
     default:
-        if (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(lbl_8050E208 + 0x160, 2) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0) {
             play_sound_effect(0x52F16, 0, 0, 0);
             set_game_mode__21TAdMultiChgGameModeGCFv();
         }

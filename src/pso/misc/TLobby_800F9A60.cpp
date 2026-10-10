@@ -11,14 +11,14 @@ void *ct_object__9TItemDropFPv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
 
-extern M2C_UNK lbl_8050113C[];
+extern M2C_UNK resource_load_task_root[];
 struct VOff_800F9A60_o_800f9a60 { char pad_0[0x28]; char f_28[1]; };
 
 void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
     struct VOff_800F9A60_o_800f9a60 *o;
     o = (struct VOff_800F9A60_o_800f9a60 *)__nw__7TObjectFUl(0x3C);
     if (o != NULL) {
-        o = (struct VOff_800F9A60_o_800f9a60 *)ct_object__9TItemDropFPv(o, lbl_8050113C);
+        o = (struct VOff_800F9A60_o_800f9a60 *)ct_object__9TItemDropFPv(o, resource_load_task_root);
     }
     memset(o->f_28, 0, 17);
     strncpy(o->f_28, arg0, 16);

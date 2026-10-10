@@ -244,7 +244,7 @@ void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
-extern u32 TOCtrlDubchik__data_805D58F0;
+extern u32 TOCtrlDubchik__shared_resource;
 void load_shared_resource__13TOCtrlDubchikFv(void);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
@@ -268,7 +268,7 @@ s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
 extern M2C_UNK __vt__13TOCtrlDubchik[];
 extern s32 lbl_805D2F1C;
-extern u32 TOCtrlDubchik__data_805D58F0;
+extern u32 TOCtrlDubchik__shared_resource;
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 lbl_805DB3BC;
 extern const f32 lbl_805DB3C8;
@@ -525,12 +525,12 @@ void *create__13TOCtrlDubchikFPv(void *arg0) {
     return o;
 }
 
-extern u32 TOCtrlDubchik__data_805D58F0;
+extern u32 TOCtrlDubchik__shared_resource;
 
 void destroy_instance__13TOCtrlDubchikFv(void) {
-    if ((u32) TOCtrlDubchik__data_805D58F0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOCtrlDubchik__data_805D58F0, 1);
-        TOCtrlDubchik__data_805D58F0 = 0U;
+    if ((u32) TOCtrlDubchik__shared_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOCtrlDubchik__shared_resource, 1);
+        TOCtrlDubchik__shared_resource = 0U;
     }
 }
 
@@ -544,7 +544,7 @@ void load_shared_resource__13TOCtrlDubchikFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B0A10.value, 0, 0, 0));
     }
-    (*(s32 *)&TOCtrlDubchik__data_805D58F0) = var_r0;
+    (*(s32 *)&TOCtrlDubchik__shared_resource) = var_r0;
 }
 
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
@@ -568,8 +568,8 @@ u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F1C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), void **, 8));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__data_805D58F0), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__shared_resource), u8 **, 0x42C), void **, 8));
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__shared_resource), u8 **, 0x42C), s32 *, 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

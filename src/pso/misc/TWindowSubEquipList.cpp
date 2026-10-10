@@ -22,7 +22,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 ensure_status_display__20TWindowSubStatusDispFPvi(void *, int);
 s32 fn_802683F4(void *, void *, int, void *);
 extern M2C_UNK __vt__19TWindowSubEquipList[];
-extern s32 lbl_805D3A40;
+extern s32 TWindowSubEquipList__class_name;
 u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2);
 }
 
@@ -77,7 +77,7 @@ void *__dt__19TWindowSubEquipListFv(void *arg0, s16 arg1) {
 u8 *TWindowSubEquipList__ct(u8 *arg0, s32 arg1, s16 arg2) {
     fn_802683F4((void *) (arg0), (void *) (arg1), (int) (8), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802793E4___vt__19TWindowSubEquipList *)&__vt__19TWindowSubEquipList).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3A40;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubEquipList__class_name;
     ensure_status_display__20TWindowSubStatusDispFPvi((void *) (arg0), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x25))));
     return arg0;
 }

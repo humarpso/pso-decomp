@@ -36,7 +36,7 @@ s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(int, int);
 extern RecoveredGlobal_802DEDA8_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__data_804727B0;
 extern RecoveredGlobal_802DEDA8_lbl_804727D0 lbl_804727D0;
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 }
 
@@ -56,11 +56,11 @@ s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
 
 void update_button_input__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
-    if ((TWindowShortListCtrl__check_controller_button(lbl_8050E3B8 + 0x20, 2) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
+    if ((TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
         play_sound_effect(0x52F16, 0, 0, 0);
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
         return;
@@ -94,7 +94,7 @@ typedef char RecoveredGlobal_802DEDA8_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
     s32 var_r30;
     set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi((int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (0));
-    if ((TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DEDA8_lbl_8050E3B8 *)&lbl_8050E3B8).value + 0x20)), (M2C_UNK)((int) (2))) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DEDA8_lbl_8050E3B8 *)&controller_physical_port_bank).value + 0x20)), (M2C_UNK)((int) (2))) != 0) && (get_chr_select_state__22TAdMultiPlyChrSelectGCFv() == 0) && (TAdMultiPlyChrSelectGC__sub_802C6558() < 1)) {
         play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         M2C_FIELD(arg0, s32 *, 0x20) = 0x1B;
         return;

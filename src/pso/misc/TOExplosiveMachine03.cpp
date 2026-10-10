@@ -44,13 +44,13 @@ void *__dt__20TOExplosiveMachine03Fv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__20TOExplosiveMachine03[];
-extern s32 lbl_805D2FC0;
+extern s32 TOExplosiveMachine03__class_name;
 extern s32 lbl_805D59A8;
 
 void *TOExplosiveMachine03__ct(void *arg0, s32 arg1) {
     TOExplosiveMachine__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TOExplosiveMachine03;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2FC0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOExplosiveMachine03__class_name;
     ((VObj_80166024_80165F84 *)arg0)->m5(arg1);
     M2C_FIELD(arg0, void **, 0x34) = get_bml_model(lbl_805D59A8, 6);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D59A8, 6);

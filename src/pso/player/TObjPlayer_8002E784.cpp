@@ -169,7 +169,7 @@ M2C_UNK draw_model_motion(int, void *, f32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002EFE8 lbl_804359E4;
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
@@ -444,7 +444,7 @@ void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
         idx = 0x10;
     }
     model = self->anims[self->motions[idx].anim].model;
-    if (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E208 + 0xC0, 4) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + 0xC0, 4) != 0) {
         max = model->frames - 1;
         self->frame = self->frame + self->speed;
         while (self->frame < TBoss2DeRolLe__data_805D827C) {

@@ -72,7 +72,7 @@ void set_part_sprite__28TWindowSubSymbolChatPartsSetFPvsii(void *arg0, s16 id, s
 void set_sprite_uv_from_pixels(void *, f32, f32);
 int get_parts_entry__28TWindowSubSymbolChatPartsSetFi(int a0);
 extern const V2_80248374 lbl_8044E7EC[];
-int fn_80248374(void *arg0, u8 b);
+int set_symbol_chat_face_sprite(void *arg0, u8 b);
 }
 
 extern "C" {
@@ -237,7 +237,7 @@ void fn_80248324(Ctl_80248324 *c, s32 arg1, s32 arg2) {
 }
 
 #define w ((Win_80248374 *)arg0)
-int fn_80248374(void *arg0, u8 b) {
+int set_symbol_chat_face_sprite(void *arg0, u8 b) {
     const V2_80248374 *e;
     e = &lbl_8044E7EC[b & 3];
     set_sprite_uv_from_pixels(w, e->x, e->y);
@@ -246,7 +246,7 @@ int fn_80248374(void *arg0, u8 b) {
 #undef w
 
 void fn_802483C8(void *arg0, u8 _w1) {
-    fn_80248374((void *)((void*)(M2C_FIELD(M2C_FIELD(arg0, void **, 0x4), s32 *, 0x0))), _w1);
+    set_symbol_chat_face_sprite((void *)((void*)(M2C_FIELD(M2C_FIELD(arg0, void **, 0x4), s32 *, 0x0))), _w1);
 }
 
 void TWindowSubSymbolChat__sub_802483F0(int a0, void* a1) { *(float*)((char*)a1 + 0x0) = lbl_805DCB94; *(float*)((char*)a1 + 0x4) = lbl_805DCB98; }

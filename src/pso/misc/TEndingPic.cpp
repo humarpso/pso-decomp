@@ -215,7 +215,7 @@ void render__10TEndingPicFv(s32 arg0) {
 
 void run_task__10TEndingPicFv(void* p) { advance_animation_state__10TEndingPicFPv((void *)(p)); }
 
-    extern int lbl_805D4F14;
+    extern int ending_ab_wall_texture_list;
 
 TEndingPic::~TEndingPic() {}
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
@@ -242,7 +242,7 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
-int TEndingPic__sub_80353010(void) {  return lbl_805D4F14; }
+int TEndingPic__sub_80353010(void) {  return ending_ab_wall_texture_list; }
 
 void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1) {
     VObj_18_c82b17 *o = arg0->obj;

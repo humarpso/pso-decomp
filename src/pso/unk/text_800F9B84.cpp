@@ -21,7 +21,7 @@ s32 update_lobby_scene__6TSceneFPv();
 u8 *__nw__7TObjectFUl(M2C_UNK);
 M2C_UNK strncpy(void *, s32, M2C_UNK);
 M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
-extern RecoveredGlobal_800F9B84_lbl_8050113C lbl_8050113C;
+extern RecoveredGlobal_800F9B84_lbl_8050113C resource_load_task_root;
 void clear_resource_load_tasks(void);
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
 }
@@ -36,7 +36,7 @@ s32 create_named_object(s32 arg0) {
     if (temp_r3 > 0) {
         var_r30 = __nw__7TObjectFUl(0x3C);
         if (var_r30 != NULL) {
-            var_r30 = ct_object__9TItemDropFPv(var_r30, (M2C_UNK *)&lbl_8050113C);
+            var_r30 = ct_object__9TItemDropFPv(var_r30, (M2C_UNK *)&resource_load_task_root);
         }
         memset(var_r30 + 0x28, 0, 0x11);
         strncpy(var_r30 + 0x28, arg0, 0x10);
@@ -50,7 +50,7 @@ s32 create_named_object(s32 arg0) {
 
 typedef char RecoveredGlobal_800F9B84_lbl_8050113C_size[sizeof(RecoveredGlobal_800F9B84_lbl_8050113C) == 0x3C ? 1 : -1];
 void clear_resource_load_tasks(void) {
-    delete_children__7TObjectFv(&lbl_8050113C.value);
+    delete_children__7TObjectFv(&resource_load_task_root.value);
 }
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr) {
     u32 i;

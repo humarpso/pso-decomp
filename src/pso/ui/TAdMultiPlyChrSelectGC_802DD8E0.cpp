@@ -64,7 +64,7 @@ s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 s32 is_state_closing__22TAdMultiPlyChrSelectGCFPv(int);
 extern RecoveredGlobal_802DDD08_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__data_804727B0;
-extern M2C_UNK lbl_8050E3B8[];
+extern M2C_UNK controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
@@ -75,7 +75,7 @@ s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(u32);
 s32 get_instance__22TAdMultiPlyChrSelectGCFv(s32);
 s32 get_mode__22TAdMultiPlyChrSelectGCFPv(s32);
 extern RecoveredGlobal_802DDBA8_lbl_804727E8 lbl_804727E8;
-extern M2C_UNK lbl_8050E3B8[];
+extern M2C_UNK controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0);
 }
 
@@ -108,7 +108,7 @@ M2C_UNK queue_destruction__7TObjectFv(void *);
 
 M2C_UNK load_tables(s32);
 extern M2C_UNK lbl_80472860[];
-extern M2C_UNK lbl_8050E3B8[];
+extern M2C_UNK controller_physical_port_bank[];
 extern s32 tl_fade;
 
 void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
@@ -129,7 +129,7 @@ void update_select__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
         M2C_FIELD(arg0, u32 *, 0x74) = 0U;
     }
     temp_r5 = get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C)) * 0x50;
-    if (TWindowShortListCtrl__check_controller_button((M2C_UNK *)((s8 *)lbl_8050E3B8 + temp_r5 + 0x20), 2, temp_r5) != 0) {
+    if (TWindowShortListCtrl__check_controller_button((M2C_UNK *)((s8 *)controller_physical_port_bank + temp_r5 + 0x20), 2, temp_r5) != 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
@@ -200,7 +200,7 @@ typedef char RecoveredGlobal_802DDBA8_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8
 void TAdMultiPlyChrSelectGC__sub_802DDBA8(u8 *arg0) {
     s32 temp_r5;
     temp_r5 = get_instance__22TAdMultiPlyChrSelectGCFv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x5C)))) * 0x50;
-    if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DDBA8_lbl_8050E3B8 *)&lbl_8050E3B8).value + temp_r5 + 0x20)), (M2C_UNK)((int) (2)), (s32)((int) (temp_r5))) != 0) {
+    if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DDBA8_lbl_8050E3B8 *)&controller_physical_port_bank).value + temp_r5 + 0x20)), (M2C_UNK)((int) (2)), (s32)((int) (temp_r5))) != 0) {
         play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
         if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
             queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));
@@ -249,7 +249,7 @@ void TAdMultiPlyChrSelectGC__sub_802DDD08(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x30) = -1;
     if (is_state_closing__22TAdMultiPlyChrSelectGCFPv((int) (M2C_FIELD(arg0, s32 *, 0x6C))) == 0) {
         temp_r5 = get_instance__22TAdMultiPlyChrSelectGCFv((s32)((int) (M2C_FIELD(arg0, s32 *, 0x5C)))) * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DDD08_lbl_8050E3B8 *)&lbl_8050E3B8).value + temp_r5 + 0x20)), (M2C_UNK)((int) (2)), (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_802DDD08_lbl_8050E3B8 *)&controller_physical_port_bank).value + temp_r5 + 0x20)), (M2C_UNK)((int) (2)), (s32)((int) (temp_r5))) != 0) {
             play_sound_effect((M2C_UNK)((int) (0x52F16)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
             if ((u32) M2C_FIELD(arg0, u32 *, 0x68) != 0U) {
                 queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x68));

@@ -22,7 +22,7 @@ void *__dt__13TObjQuestCol2Fv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-    extern int lbl_805D5C4C;
-void TQuestColCtrl__sub_80196EC0(void) { lbl_805D5C4C = 0; }
+    extern int quest_collision_warp_pending;
+void TQuestColCtrl__sub_80196EC0(void) { quest_collision_warp_pending = 0; }
 
 }

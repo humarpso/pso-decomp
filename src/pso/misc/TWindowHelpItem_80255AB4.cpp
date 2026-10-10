@@ -35,7 +35,7 @@ extern "C" {
 extern u8 *text_language_group_table;
 s32 get_help_text_string(s32 arg0);
 extern void *__vt__15TWindowHelpItem[];
-extern M2C_UNK lbl_804CF8B0[];
+extern M2C_UNK TWindowHelpItem__object_vtable[];
 extern u32 lbl_805D3910;
 extern V3_80255CCC __ptmf_null;
 extern const f32 lbl_805DCE10;
@@ -134,11 +134,11 @@ void update_display__15TWindowHelpItemFPv(u8 *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804CF8B0[];
+extern M2C_UNK TWindowHelpItem__object_vtable[];
 
 void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF8B0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TWindowHelpItem__object_vtable;
         delete_if_allocated(M2C_FIELD(arg0, void **, 0x64), 1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -151,7 +151,7 @@ void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
 THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
     void *p;
     construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
-    self->vt18 = ((s32 *)&lbl_804CF8B0);
+    self->vt18 = ((s32 *)&TWindowHelpItem__object_vtable);
     self->w0 = lbl_805D3910;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)self + 0x30, pos);
     save_position__17TWindowSubComCardFPv(self);

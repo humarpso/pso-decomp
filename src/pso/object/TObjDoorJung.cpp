@@ -190,7 +190,7 @@ void render__12TObjDoorJungFv(u8 *arg0) {
     }
 }
 
-extern s32 lbl_805D58F8;
+extern s32 switch_doors_force_closed;
 
 void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
     s32 ok = 1;
@@ -210,7 +210,7 @@ void TObjDoorJung__vt12(Jung_8018F808 *arg0) {
 }
 
 void run_task__12TObjDoorJungFv(u8 *arg0) {
-    if ((s32) lbl_805D58F8 != 0) {
+    if ((s32) switch_doors_force_closed != 0) {
         M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFFFFFFE);
         clear_player_status_flag__10TObjPlayerFPviUi((M2C_UNK)arg0, 0, 8);
     } else {

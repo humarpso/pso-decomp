@@ -74,8 +74,8 @@ s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 s32 is_card_file_absent_b__23TAdSinglePlyChrSelectGCFv(void);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-extern RecoveredGlobal_802E1868_lbl_8050E208 lbl_8050E208;
-extern RecoveredGlobal_802E1868_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_802E1868_lbl_8050E208 controller_input_state;
+extern RecoveredGlobal_802E1868_lbl_8050E3B8 controller_physical_port_bank;
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32);
 extern RecoveredGlobal_802E14B8_lbl_804C89BC lbl_804C8914;
 s32 TAdSinglePlyChrSelectGC__sub_802E1528(void);
@@ -298,7 +298,7 @@ block_43:
 typedef char RecoveredGlobal_802E1868_lbl_8050E208_size[sizeof(RecoveredGlobal_802E1868_lbl_8050E208) == 0x1B0 ? 1 : -1];
 typedef char RecoveredGlobal_802E1868_lbl_8050E3B8_size[sizeof(RecoveredGlobal_802E1868_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 s32 TAdSinglePlyChrSelectGC__sub_802E1868(void) {
-    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E3B8.value + 0x20), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+    if ((TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + 0x20), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
         return 1;
     }
     return 0;

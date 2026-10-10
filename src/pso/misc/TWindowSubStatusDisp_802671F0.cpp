@@ -91,7 +91,7 @@ extern const f32 lbl_805DD1D0;
 extern s32 lbl_805D3968;
 extern RecoveredGlobal_80267704_lbl_804D0604 lbl_804D0604;
 extern s32 lbl_804D05F8[];
-extern RecoveredGlobal_80268048_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80268048_lbl_8050E208 controller_input_state;
 extern M2C_UNK lbl_804D0618[];
 
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -776,27 +776,27 @@ void update_item_list_window(u8 *arg0) {
     temp_r31 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
     if ((get_flag__20TWindowSubStatusDispFPv((void *) (arg0)) == 0) && (get_status_flag__6TLobbyFPv((void *) (arg0)) == 0) && (fn_80244994((void *) (arg0)) != 0)) {
         if (M2C_FIELD(arg0, u16 *, 0x70) & 0x10) {
-            temp_r29 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+            temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
                 ((s32 (*)(void *))move_cursor__20TWindowSubStatusDispFPv)((void *) (arg0));
             }
-            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+            if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
                 ((s32 (*)(void *))move_cursor_next__20TWindowSubStatusDispFPv)((void *) (arg0));
             }
         } else {
-            temp_r29_2 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
+            temp_r29_2 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
                 ((s32 (*)(void *))move_cursor__20TWindowSubStatusDispFPv)((void *) (arg0));
             }
-            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
+            if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii((int) (temp_r29_2), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
                 ((s32 (*)(void *))move_cursor_next__20TWindowSubStatusDispFPv)((void *) (arg0));
             }
         }
-        temp_r29_3 = (u8 *)&lbl_8050E208.value + (temp_r31 * 0x50) + 0x20;
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (4)) != 0)) {
+        temp_r29_3 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (4)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (4)) != 0)) {
             ((s32 (*)(void *))handle_open__20TWindowSubStatusDispFPv)((void *) (arg0));
         }
-        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&lbl_8050E208.value + 0x160), (int) (2)) != 0)) {
+        if ((TWindowShortListCtrl__check_controller_button((int) (temp_r29_3), (int) (2)) != 0) || (test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0)) {
             ((s32 (*)(void *))set_flag4__20TWindowSubStatusDispFPv)((void *) (arg0));
         }
     }

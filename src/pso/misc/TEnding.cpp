@@ -19,8 +19,8 @@ void __ct__8TEndingCFv(void *, TObject *);
 TAdRicoRingCtrl *TAdRicoRingCtrl__ct(void *, TObject *);
 void start_fade_all__15TAdRicoRingCtrlFPvf(TAdRicoRingCtrl *, f32);
 void __ct__10TAdEndTextFv(void *, TObject *);
-extern u32 lbl_805D4F08;
-extern s32 lbl_805D4F0C;
+extern u32 ending_frame_counter;
+extern s32 ending_scene_active;
 extern TObject *tl_fade;
 extern TObject *tl_window;
 extern TObject *tl_01;
@@ -32,8 +32,8 @@ void TEnding::run_task() {
     switch (phase) {
     case 0: {
         set_default_camera__21TAdMultiChgGameModeGCFv();
-        u32 ticks = lbl_805D4F08 + 1;
-        lbl_805D4F08 = ticks;
+        u32 ticks = ending_frame_counter + 1;
+        ending_frame_counter = ticks;
         s32 rate = timing_rate;
         if (ticks > (u32)(rate * 140)) {
             void *child = TObject::operator new(0x1C);
@@ -42,7 +42,7 @@ void TEnding::run_task() {
             return;
         }
         f32 duration = lbl_805D9578 * (f32)rate;
-        if (lbl_805D4F08 > (u32)((rate * 139) - __cvt_fp2unsigned(duration)))
+        if (ending_frame_counter > (u32)((rate * 139) - __cvt_fp2unsigned(duration)))
             TAdRicoRingCtrl__sub_8001B4A0(ring_controller, duration);
         return;
     }
@@ -64,7 +64,7 @@ void TEnding::run_task() {
 }
 
 TEnding::~TEnding() {
-    lbl_805D4F0C = 0;
+    ending_scene_active = 0;
     stop_audio_streams__6TLobbyFv();
 }
 
@@ -83,7 +83,7 @@ TEnding::TEnding() : TObject(tl_window) {
     if (first != NULL) __ct__9TEndingABFv(first, this);
     void *second = TObject::operator new(0x9C);
     if (second != NULL) __ct__8TEndingCFv(second, this);
-    lbl_805D4F08 = 0;
+    ending_frame_counter = 0;
     phase = 0;
     elapsed_ticks = 0;
     TAdRicoRingCtrl *ring = (TAdRicoRingCtrl *)TObject::operator new(0x2C);

@@ -20,13 +20,13 @@ struct VObj_8021250C : Base_8021250C {
     virtual void m6();
     virtual void m7(int, int);
 };
-extern struct VObj_8021250C *THunterGuildSeqOffline__data_805D6188;
+extern struct VObj_8021250C *THunterGuildSeqOffline__active_instance;
 
 void set_state_close__22THunterGuildSeqOfflineFv(void) {
-    if (THunterGuildSeqOffline__data_805D6188 != NULL) {
-        THunterGuildSeqOffline__data_805D6188->m7(0xC, 1);
-        M2C_FIELD(THunterGuildSeqOffline__data_805D6188, s32 *, 0x38) = 0;
-        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__data_805D6188, 5);
+    if (THunterGuildSeqOffline__active_instance != NULL) {
+        THunterGuildSeqOffline__active_instance->m7(0xC, 1);
+        M2C_FIELD(THunterGuildSeqOffline__active_instance, s32 *, 0x38) = 0;
+        set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
     }
 }
 

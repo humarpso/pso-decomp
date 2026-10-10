@@ -93,7 +93,7 @@ extern s32 TAdPlayerLoadGC__card_slot_state_flags;
 void unmount_card_and_clear_flags__15TAdPlayerLoadGCFi(s32 n);
 s32 read_disc_file(const char*, void*);
 void* xmalloc__FUl(u32);
-extern Names_801E13C4 lbl_80449690;
+extern Names_801E13C4 memory_card_banner_filenames;
 extern char lbl_804496A8[];
 extern RecoveredGlobal_801E14E8_TAdPlayerLoadGC__data_80511ED0 TAdPlayerLoadGC__banner_buffers;
 extern s32 TAdPlayerLoadGC__banner_file_buf;
@@ -300,7 +300,7 @@ void TAdPlayerLoadGC__sub_801E1350(void) {
 }
 
 void load_banner_files__15TAdPlayerLoadGCFv(void) {
-    Names_801E13C4 names = lbl_80449690;
+    Names_801E13C4 names = memory_card_banner_filenames;
     const char* path = lbl_804496A8;
     s32 i;
     for (i = 0; i < 6; i++) {

@@ -529,7 +529,7 @@ extern Cols_80297DB8 lbl_804DBC68[2];
 extern Quad_80297DB8 lbl_804DBC88[2];
 extern u8 lbl_804DBCC8[];
 extern M2C_UNK lbl_804DBDA8[];
-extern RecoveredGlobal_80298F08_lbl_8050E3B8 lbl_8050E3B8;
+extern RecoveredGlobal_80298F08_lbl_8050E3B8 controller_physical_port_bank;
 extern RecoveredGlobal_80298DD4_lbl_8051C07C lbl_8051C07C;
 extern f32 ui_sprite_scale;
 extern f32 lbl_805D3CA0;
@@ -2208,7 +2208,7 @@ M2C_UNK *TObjCMMainMenu__sub_80298DD4(void) {
 }
 
 s32 get_creation_pad(void) {
-    return M2C_FIELD(&lbl_8050E3B8.value, M2C_UNK *, (get_clamped_player_index__14TChCrEffCtrlPlFv() * 4));
+    return M2C_FIELD(&controller_physical_port_bank.value, M2C_UNK *, (get_clamped_player_index__14TChCrEffCtrlPlFv() * 4));
 }
 
 }

@@ -37,8 +37,8 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 void set_game_mode_changed__21TAdMultiChgGameModeGCFv(void);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, u32);
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 extern s32 game_difficulty_selection;
 void run_task__12TLevelSelectFv(Self_80133068 *self);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -107,8 +107,8 @@ void run_task__12TLevelSelectFv(Self_80133068 *self) {
         break;
     case 0:
     default:
-        if (TWindowShortListCtrl__check_controller_button(&lbl_8050E3B8[0x20], 2) != 0 ||
-            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(&lbl_8050E208[0x160], 2) != 0) {
+        if (TWindowShortListCtrl__check_controller_button(&controller_physical_port_bank[0x20], 2) != 0 ||
+            test_flag_4c__23TAdSinglePlyChrSelectGCFPv(&controller_input_state[0x160], 2) != 0) {
             queue_destruction__7TObjectFv(self);
             set_game_mode_changed__21TAdMultiChgGameModeGCFv();
         }

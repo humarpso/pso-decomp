@@ -36,8 +36,8 @@ s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
 void play_sound_effect(s32, s32, s32, s32);
 s32 TAdMcSelectCursorGC__sub_8032A6D8(u32);
 u32 get_cursor_type__19TAdMcSelectCursorGCFi(s32);
-extern u8 lbl_8050E208[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_input_state[];
+extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805DF72C;
 extern const f32 lbl_805DF730;
 extern const f32 lbl_805DF734;
@@ -106,16 +106,16 @@ void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
     s32 i;
     if (self->f1C == 0) {
         t = get_cursor_type__19TAdMcSelectCursorGCFi(1 - self->f20);
-        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E3B8 + 0x20, 0x80, 6, 1) != 0 ||
-            apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x80, 6, 1) != 0) {
+        if (dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(controller_physical_port_bank + 0x20, 0x80, 6, 1) != 0 ||
+            apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, 0x80, 6, 1) != 0) {
             if (TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
                 self->f20++;
                 if (self->f20 > 1) {
                     self->f20 = 1;
                 }
             }
-        } else if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(lbl_8050E3B8 + 0x20, 0x40, 6, 1) != 0 ||
-                    apply_choice__20TWindowChoiceSettingFiiii(lbl_8050E208 + 0x160, 0x40, 6, 1) != 0) &&
+        } else if ((dispatch_draw_command__22TAdMultiPlyChrSelectGCFiiii(controller_physical_port_bank + 0x20, 0x40, 6, 1) != 0 ||
+                    apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, 0x40, 6, 1) != 0) &&
                    TAdMcSelectCursorGC__sub_8032A6D8(t) >= 4) {
             self->f20--;
             if (self->f20 < 0) {

@@ -108,17 +108,17 @@ extern Col_8022C738 technique_charge_light_params;
 extern Vec_8022C738 lbl_8044CFA8;
 extern Col_8022C738 lbl_8044CFB4;
 extern Vec_8022C738 lbl_8044CFC4;
-extern Col_8022C738 lbl_8044CFD0;
+extern Col_8022C738 rabarta_charge_light_color;
 extern Vec_8022C738 lbl_8044CFE0;
-extern Col_8022C738 lbl_8044CFEC;
+extern Col_8022C738 zonde_charge_light_color;
 extern Vec_8022C738 lbl_8044CFFC;
-extern Col_8022C738 lbl_8044D008;
+extern Col_8022C738 resta_charge_light_color;
 extern Vec_8022C738 lbl_8044D018;
-extern Col_8022C738 lbl_8044D024;
+extern Col_8022C738 ryuker_charge_light_color;
 extern Vec_8022C738 lbl_8044D034;
-extern Col_8022C738 lbl_8044D040;
+extern Col_8022C738 shifta_charge_light_color;
 extern Vec_8022C738 lbl_8044D050;
-extern Col_8022C738 lbl_8044D05C;
+extern Col_8022C738 megid_charge_light_color;
 extern Vec_8022C738 lbl_8044D06C;
 extern LightData_8022C738 TObjLight__scene_light_state;
 extern s32 tl_07;
@@ -223,30 +223,30 @@ void create_technique_charge_light(u32 kind, void *owner) {
         CHARGE_LIGHT_8022C738(lbl_8044CFB4, lbl_8044CFC4, init__9TObjLightFPvii)
         break;
     case 5:
-        CHARGE_LIGHT_8022C738(lbl_8044CFD0, lbl_8044CFE0, init__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(rabarta_charge_light_color, lbl_8044CFE0, init__9TObjLightFPvii)
         break;
     case 6:
     case 7:
     case 8:
-        CHARGE_LIGHT_8022C738(lbl_8044CFEC, lbl_8044CFFC, init_from_owner__10TTecSlicerFPvii)
+        CHARGE_LIGHT_8022C738(zonde_charge_light_color, lbl_8044CFFC, init_from_owner__10TTecSlicerFPvii)
         break;
     case 9:
     case 15:
     case 16:
     case 17:
-        CHARGE_LIGHT_8022C738(lbl_8044D008, lbl_8044D018, construct_resta_charge_sound)
+        CHARGE_LIGHT_8022C738(resta_charge_light_color, lbl_8044D018, construct_resta_charge_sound)
         break;
     case 10:
     case 11:
     case 12:
     case 14:
-        CHARGE_LIGHT_8022C738(lbl_8044D024, lbl_8044D034, init_6e6c__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(ryuker_charge_light_color, lbl_8044D034, init_6e6c__9TObjLightFPvii)
         break;
     case 13:
-        CHARGE_LIGHT_8022C738(lbl_8044D040, lbl_8044D050, init_6e6c__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(shifta_charge_light_color, lbl_8044D050, init_6e6c__9TObjLightFPvii)
         break;
     case 18:
-        CHARGE_LIGHT_8022C738(lbl_8044D05C, lbl_8044D06C, init_from_source__9TObjLightFPvii)
+        CHARGE_LIGHT_8022C738(megid_charge_light_color, lbl_8044D06C, init_from_source__9TObjLightFPvii)
         break;
     }
 }

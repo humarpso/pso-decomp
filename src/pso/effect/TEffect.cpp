@@ -55,7 +55,7 @@ void GXSetTexCopyDst(u16, u16, s32, u8);
 void GXSetCopyClear(Color_80082CDC, u32);
 void GXCopyTex(void *, u8);
 extern A_80082CDC *shared_capture_texture_list[];
-extern u8 lbl_8050E3B8[];
+extern u8 controller_physical_port_bank[];
 extern const f32 lbl_805D93C0;
 extern const f32 lbl_805D93C8;
 extern const f32 lbl_805D93E0;
@@ -158,7 +158,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         GXSetTexCopyDst(0x100, 0xC0, 4, 0);
         GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
-        cam = lbl_8050E3B8 + 0x110;
+        cam = controller_physical_port_bank + 0x110;
         a.x = lbl_805D93C0;
         a.y = lbl_805D93E8;
         b.x = lbl_805D93C8;
@@ -182,7 +182,7 @@ void copy_screen_to_texture__10TObjPlayerFiPv(s32 mode, void *src) {
         GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
         GXCopyTex(shared_capture_texture_list[0]->b->c->tex, 1);
         GXPixModeSync();
-        cam = lbl_8050E3B8 + 0x110;
+        cam = controller_physical_port_bank + 0x110;
         a.x = lbl_805D93C0;
         a.y = lbl_805D93E8;
         b.x = lbl_805D93C8;

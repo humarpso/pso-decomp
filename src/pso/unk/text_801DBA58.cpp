@@ -5,12 +5,12 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 M2C_UNK bswap__13packet_headerFv(void *);
-void handle_cmd_90(u8 *arg0, s32 *arg1);
+void handle_cmd_90__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 }
 
 extern "C" {
 
-void handle_cmd_90(u8 *arg0, s32 *arg1) {
+void handle_cmd_90__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
     M2C_UNK (*temp_r12)(u8);
     sp8 = M2C_FIELD(arg1, s32 *, 0);

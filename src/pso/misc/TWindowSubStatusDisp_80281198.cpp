@@ -23,7 +23,7 @@ s32 get_window_layout_position(int);
 M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
 extern u8 __vt__20TWindowSubStatusDisp[];
 extern M2C_UNK lbl_804D2B30[];
-extern s32 lbl_805D3AA0;
+extern s32 TWindowSubStatusDisp__class_name;
 extern const f32 lbl_805DD70C;
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
 }
@@ -91,7 +91,7 @@ SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1) {
     void *w;
     construct_base__9TWindowDDFPvPvsPv(arg0, __vt__20TWindowSubStatusDisp, arg1, get_window_layout_position(0x19));
     arg0->vt = ((u8 *)&lbl_804D2B30);
-    arg0->f0 = lbl_805D3AA0;
+    arg0->f0 = TWindowSubStatusDisp__class_name;
     arg0->f20 = arg1;
     arg0->f60 = 0;
     arg0->f62 = arg0->f60;

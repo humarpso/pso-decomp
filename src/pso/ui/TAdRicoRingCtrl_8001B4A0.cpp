@@ -38,7 +38,7 @@ s32 TAdRicoRingCtrl__sub_8001BED0(int, f32);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001B8AC_lbl_8043481C lbl_8043481C;
 extern RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl __vt__15TAdRicoRingCtrl;
-extern s32 lbl_805D261C;
+extern s32 TAdRicoRingCtrl__class_name;
 extern s32 tl_04;
 extern const f32 lbl_805D7E4C;
 extern const f32 TAdRicoRingCtrl__data_805D7E50;
@@ -143,7 +143,7 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     u32 temp_r3_2;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TAdRicoRingCtrl.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D261C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdRicoRingCtrl__class_name;
     M2C_FIELD(arg0, u32 *, 0x1C) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
     temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
     if (temp_r3 != 0U) {

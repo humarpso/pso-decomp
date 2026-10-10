@@ -17,7 +17,7 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 load_gvm_texture_file(void *);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
-extern u8 lbl_804F1250[];
+extern u8 boss6_rock_resource_descriptor[];
 extern s32 TBoss6Rock__instance_table[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
@@ -66,7 +66,7 @@ void load_resources__10TBoss6RockFv(void) {
     s32 i;
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, lbl_804F1250, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, boss6_rock_resource_descriptor, 0, 0, 0);
     }
     TBoss6Rock__data_805D6EF0 = r;
     TBoss6Rock__data_805D6EF4 = load_gvm_texture_file(lbl_80479298);

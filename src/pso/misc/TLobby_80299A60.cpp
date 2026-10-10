@@ -503,11 +503,11 @@ void update_challenge_4p_retry__6TLobbyFPv(void *arg0);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 s32 check_flag_100__10TObjPlayerFPv();
 
-extern s8 lbl_8050E208[];
+extern s8 controller_input_state[];
 
 void update_challenge_4p_retry__6TLobbyFPv(void *arg0) {
     ((M2C_UNK (*)())play_all_players_effect__6TLobbyFPv)();
-    if ((get_player_by_client_id(local_client_id) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(lbl_8050E208 + 0x20, 4) != 0)) {
+    if ((get_player_by_client_id(local_client_id) != 0U) && (check_flag_100__10TObjPlayerFPv() == 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {
         ((M2C_UNK (*)(void *))send_giveup_to_all_players__6TLobbyFv)(arg0);
         close_giveup_window__6TLobbyFPv(arg0);
         M2C_FIELD(arg0, s32 *, 0x1C) = 2;
@@ -569,7 +569,7 @@ extern "C" {
 
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__20TObjChallenge4PRetry[];
-extern s32 lbl_805D3CF8;
+extern s32 TObjChallenge4PRetry__class_name;
 void *create__20TObjChallenge4PRetryFPv(void *arg0);
 void *TObjChallenge4PRetry__ct(void *, void *);
 
@@ -611,7 +611,7 @@ TObjChallenge4PRetry::~TObjChallenge4PRetry() {
 void *TObjChallenge4PRetry__ct(void *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjChallenge4PRetry;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3CF8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjChallenge4PRetry__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = ((s32 (*)(void *))TLobby__sub_8029A16C)(arg0);
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;

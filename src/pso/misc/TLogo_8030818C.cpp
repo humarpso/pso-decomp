@@ -17,14 +17,14 @@ u32 VIGetDTVStatus();
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
 void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
 
-extern s8 lbl_8050E3B8[];
+extern s8 controller_physical_port_bank[];
 
 s32 check_progressive_ready__5TLogoFv(void) {
     if (VIGetDTVStatus() == 0U) {
         disable_progressive_mode__13TAdVIConfigGCFv();
         return 0;
     }
-    if ((OSGetProgressiveMode() != 1U) && (is_on_current_screen__11TCameraCtrlFPv(lbl_8050E3B8 + 0x20, 2) == 0)) {
+    if ((OSGetProgressiveMode() != 1U) && (is_on_current_screen__11TCameraCtrlFPv(controller_physical_port_bank + 0x20, 2) == 0)) {
         disable_progressive_mode__13TAdVIConfigGCFv();
         return 0;
     }

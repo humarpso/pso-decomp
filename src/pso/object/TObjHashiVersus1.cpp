@@ -20,7 +20,7 @@ struct RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8019153C_lbl_804B7C78 lbl_804B7C78;
+extern RecoveredGlobal_8019153C_lbl_804B7C78 TObjHashiVersus1__resource_descriptor;
 extern u32 TObjHashiVersus1__data_805D5C14;
 void load_shared_resource__16TObjHashiVersus1Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -29,7 +29,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
 M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
 u8 is_current_floor_switch_set(int);
-extern RecoveredGlobal_801915F4_lbl_804B7CCC lbl_804B7CCC;
+extern RecoveredGlobal_801915F4_lbl_804B7CCC versus_bridge_collision_bodies;
 extern M2C_UNK __vt__16TObjHashiVersus1[];
 extern s32 lbl_805D337C;
 extern u32 TObjHashiVersus1__data_805D5C14;
@@ -75,7 +75,7 @@ void load_shared_resource__16TObjHashiVersus1Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7C78.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjHashiVersus1__resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjHashiVersus1__data_805D5C14) = var_r0;
 }
@@ -104,7 +104,7 @@ u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2) {
     M2C_FIELD(arg0, f32 *, 0xD0) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__data_805D5C14), 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__data_805D5C14), 0);
-    init_collision_body_parts(arg0, (s32) &lbl_804B7CCC.value, 2);
+    init_collision_body_parts(arg0, (s32) &versus_bridge_collision_bodies.value, 2);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

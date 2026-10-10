@@ -1921,7 +1921,7 @@ extern const RecoveredGlobal_802FBA84_lbl_804746CC lbl_804746CC;
 extern Eff_802FB828 boss8_dragon_breath_eff_params;
 extern S_802FB290 TBoss8Dragon__breath_params;
 extern M2C_UNK lbl_80474B40[];
-extern u8 lbl_8050E208[];
+extern u8 controller_input_state[];
 extern RecoveredGlobal_802F45A0_lbl_80541DE8 lbl_80541DE8;
 extern RecoveredGlobal_802F45A0_lbl_80541DF4 lbl_80541DF4;
 extern RecoveredGlobal_802F4760_lbl_80541E30 lbl_80541E30;
@@ -6259,8 +6259,8 @@ void select_freeze_target__12TBoss8DragonFPv(u8 *arg0) {
         return;
     }
     M2C_FIELD(arg0, s32 *, 0x754) = 0x96;
-    M2C_FIELD(arg0, u8 **, 0x6D8) = lbl_8050E208 + 0x20;
-    if (is_main_phase_15__9TObjEneDDFv(lbl_8050E208) != 0) {
+    M2C_FIELD(arg0, u8 **, 0x6D8) = controller_input_state + 0x20;
+    if (is_main_phase_15__9TObjEneDDFv(controller_input_state) != 0) {
         if (TBoss8Dragon__data_805D69BC == 0xFFFFU) {
             var_r31 = find_player_on_floor__12TBoss8DragonFPv((void *)(arg0));
         } else {
@@ -7436,10 +7436,10 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, s32 *, 0x894) = 0;
     M2C_FIELD(arg0, s32 *, 0x898) = 0;
     M2C_FIELD(arg0, s32 *, 0x89C) = 0;
-    M2C_FIELD(arg0, u8 **, 0x6D8) = lbl_8050E208 + 0xC0;
+    M2C_FIELD(arg0, u8 **, 0x6D8) = controller_input_state + 0xC0;
     M2C_FIELD(arg0, s32 *, 0x6D4) = 0;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    if (is_main_phase_15__9TObjEneDDFv(lbl_8050E208) != 0) {
+    if (is_main_phase_15__9TObjEneDDFv(controller_input_state) != 0) {
         if (update_lobby_state__9TObjEneDDFPv(arg0) != 0) {
             M2C_FIELD(arg0, s32 *, 0x3E0) = 0;
         } else {

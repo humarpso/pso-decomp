@@ -57,10 +57,10 @@ struct W_8019D764 {
 
 extern "C" {
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
-extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
 void TObjWarpBase__vt14(void);
 u8 TWindowShortListCtrl__check_controller_button(void *, int);
-extern RecoveredGlobal_8019D850_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_8019D850_lbl_8050E208 controller_input_state;
 void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1);
 s32 fn_8019DD24(void *, int);
 void *get_player_by_client_id(u32);
@@ -83,7 +83,7 @@ void matrix_mult_vec(void *, void *, void *);
 void pop_matrix();
 extern M2C_UNK __vt__11TObjMapWarp[];
 extern u8 identity_matrix[];
-extern V3_8019D764 lbl_804B910C[];
+extern V3_8019D764 map_warp_destination_offsets[];
 extern s32 lbl_805D3460;
 void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set);
 }
@@ -205,7 +205,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
         push_matrix_from(identity_matrix);
         post_translate_matrix(self->destination);
         rotate_matrix_y(0, self->sourceYaw);
-        matrix_mult_vec(0, &lbl_804B910C[i], &self->destinations[i]);
+        matrix_mult_vec(0, &map_warp_destination_offsets[i], &self->destinations[i]);
         pop_matrix();
         self->playerPopups[i] = 0;
     }
@@ -213,11 +213,11 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
 }
 
 void TObjWarpBase__vt15(M2C_UNK arg0, s32 arg1) {
-    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&lbl_8050E208).value + (arg1 * 0x50) + 0x20), (int) (4));
+    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&(*(RecoveredGlobal_8019D818_lbl_8050E208 *)&controller_input_state).value + (arg1 * 0x50) + 0x20), (int) (4));
 }
 
 void TObjWarpBase__vt14(void) {
-    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (4));
+    TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4));
 }
 
 u8 TObjWarpBase__vt13(void *arg0) {

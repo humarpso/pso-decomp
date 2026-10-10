@@ -12,19 +12,19 @@ extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void*,void*);
 M2C_UNK queue_destruction__7TObjectFv(void*);
 M2C_UNK spawn_particle_effect_with_flags(void*,int,int);
-extern Sys_80198A2C lbl_8050DD58;
-extern Vec_80198E84 lbl_8050DDAC[];
+extern Sys_80198A2C gogo_ball_configuration;
+extern Vec_80198E84 gogo_ball_sync_state[];
 void send_gogo_ball__12TWindowTimerFi(s32);
 void TWindowTimer__sub_8019A6F8(void*);
-extern RecoveredGlobal_80198DCC_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80198DCC_lbl_8050E208 controller_input_state;
 void throw_gogo_ball__12TWindowTimerFPvii(u8*,s32,s32);
 u8* TWindowTimer__sub_80199410(u8*,u8*);
 void __dl__7TObjectFPv(void*);
 void* __nw__7TObjectFUl(M2C_UNK);
 extern s32 tl_03;
-extern s32 lbl_805D5C60;
+extern s32 gogo_ball_bml_resource;
 extern void* language_lobby_texture_descriptor[];
-extern Pair_80198F14 lbl_8050DD50[];
+extern Pair_80198F14 gogo_ball_team_scores[];
 int set_timer_value__12TWindowTimerFii(int,int);
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32);
 M2C_UNK rotate_matrix_y(int,s32);
@@ -39,7 +39,7 @@ void draw_shadow_on_ground(u8*);
 extern void* lbl_804B8D94[];
 extern void* lbl_804B8DA0[];
 }
-#define lbl_8050DDAC (*(Pad_80198A2C *)&lbl_8050DDAC)
+#define gogo_ball_sync_state (*(Pad_80198A2C *)&gogo_ball_sync_state)
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -76,7 +76,7 @@ M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
 M2C_UNK play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C lbl_80446070;
-extern Sys_80198A2C lbl_8050DD58;
+extern Sys_80198A2C gogo_ball_configuration;
 void TBoss3Volopt__sub_80198A2C(u8 *arg0);
 }
 
@@ -96,14 +96,14 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
     state = self->state;
     if (state == 0) {
         if (self->f50 != 0) {
-            if (lbl_8050DDAC.buttons & (self->f54 != 0 ? 0x10 : 1)) {
+            if (gogo_ball_sync_state.buttons & (self->f54 != 0 ? 0x10 : 1)) {
                 play_sound_effect(0x4002A605, &self->pos, 0, 0);
                 play_sound_effect(0x40052D15, &self->pos, 0, 0);
                 self->state = 1;
                 return;
             }
         } else {
-            if (lbl_8050DDAC.buttons & (self->f54 != 0 ? 0x20 : 2)) {
+            if (gogo_ball_sync_state.buttons & (self->f54 != 0 ? 0x20 : 2)) {
                 play_sound_effect(0x4002A605, &self->pos, 0, 0);
                 play_sound_effect(0x40052D15, &self->pos, 0, 0);
                 self->state = 1;
@@ -114,7 +114,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
     if (state != 0) {
         if (self->effect == NULL) {
             Vec_80198A2C init = lbl_80446070;
-            if (lbl_8050DD58.mode != 6) {
+            if (gogo_ball_configuration.mode != 6) {
                 self->effect = spawn_particle_effect_with_rotation(&self->pos, &init, 0xC0, 2);
             }
         }
@@ -139,7 +139,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
 
 }
 
-#undef lbl_8050DDAC
+#undef gogo_ball_sync_state
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define send_gogo_ball__12TWindowTimerFi ((M2C_UNK (*)(void*))send_gogo_ball__12TWindowTimerFi)
@@ -174,7 +174,7 @@ struct RecoveredGlobal_80198CF8_lbl_804B8DE8 {
 extern "C" {
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
 M2C_UNK play_sound_effect(int, void *, int, int);
-extern RecoveredGlobal_80198DCC_lbl_8050E208 lbl_8050E208;
+extern RecoveredGlobal_80198DCC_lbl_8050E208 controller_input_state;
 void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804B8DE8[];
@@ -243,7 +243,7 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     stack.sp10 = arg1;
     stack.sp14 = M2C_FIELD(arg0, f32 *, 0);
     stack.sp18 = M2C_FIELD(arg0, f32 *, 8);
-    if (is_on_current_screen__11TCameraCtrlFPv((void *) ((u8 *)&lbl_8050E208.value + 0x20), (int) (4)) != 0) {
+    if (is_on_current_screen__11TCameraCtrlFPv((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
         play_sound_effect((int) (0x4001A311), (void *) (arg0), (int) (0), (int) (0));
         stack.sp1C = 1;
     } else {
@@ -268,8 +268,8 @@ extern "C" {
 void TLobby__sub_8001FE7C(s32, int, void *, f32);
 void free_if_valid__10TObjPlayerFi(int);
 extern s32 lobby_gvm_texture_handles[];
-extern Vec_80198E84 lbl_8050DDAC[];
-extern s32 lbl_805D5C60;
+extern Vec_80198E84 gogo_ball_sync_state[];
+extern s32 gogo_ball_bml_resource;
 void fn_80198E84(void);
 }
 
@@ -279,13 +279,13 @@ void fn_80198E84(void) {
     s32 off;
     s32 i;
     s32 z;
-    lbl_8050DDAC->f12 = 1;
-    lbl_8050DDAC->x = (63.0f);
-    lbl_8050DDAC->y = (0.0f);
-    lbl_8050DDAC->z = (63.0f);
-    lbl_8050DDAC->w = 0;
-    TLobby__sub_8001FE7C(lbl_805D5C60, 1, lbl_8050DDAC, (63.0f));
-    lbl_805D5C60 = 0;
+    gogo_ball_sync_state->f12 = 1;
+    gogo_ball_sync_state->x = (63.0f);
+    gogo_ball_sync_state->y = (0.0f);
+    gogo_ball_sync_state->z = (63.0f);
+    gogo_ball_sync_state->w = 0;
+    TLobby__sub_8001FE7C(gogo_ball_bml_resource, 1, gogo_ball_sync_state, (63.0f));
+    gogo_ball_bml_resource = 0;
     for (i = 0; i < 9; i++) {
         free_if_valid__10TObjPlayerFi(lobby_gvm_texture_handles[i]);
         lobby_gvm_texture_handles[i] = 0;
@@ -294,8 +294,8 @@ void fn_80198E84(void) {
 
 }
 
-#define lbl_8050DDAC (*(Cfg_80198F14 *)&lbl_8050DDAC)
-#define lbl_805D5C60 (*(void* *)&lbl_805D5C60)
+#define gogo_ball_sync_state (*(Cfg_80198F14 *)&gogo_ball_sync_state)
+#define gogo_ball_bml_resource (*(void* *)&gogo_ball_bml_resource)
 #define language_lobby_texture_descriptor (*(u8 (*)[1])&language_lobby_texture_descriptor)
 
 #include "types.h"
@@ -317,15 +317,15 @@ extern char lbl_804460FC[];
 extern char lbl_8044610C[];
 extern char lbl_80446124[];
 extern s32 lobby_gvm_texture_handles[];
-extern Pair_80198F14 lbl_8050DD50[];
+extern Pair_80198F14 gogo_ball_team_scores[];
 void load_lobby_textures__9TLanguageFv(void);
 }
 
 extern "C" {
 
 void load_lobby_textures__9TLanguageFv(void) {
-    Pair_80198F14 *p = lbl_8050DD50;
-    Cfg_80198F14 *c = &lbl_8050DDAC;
+    Pair_80198F14 *p = gogo_ball_team_scores;
+    Cfg_80198F14 *c = &gogo_ball_sync_state;
     void *obj;
     c->f12 = 1;
     c->f0 = (63.0f);
@@ -339,7 +339,7 @@ void load_lobby_textures__9TLanguageFv(void) {
     if (obj != 0) {
         obj = load_resource_from_descriptor(obj, 5, language_lobby_texture_descriptor, 0, 0, 0);
     }
-    lbl_805D5C60 = obj;
+    gogo_ball_bml_resource = obj;
     lobby_gvm_texture_handles[0] = load_gvm_texture_file(lbl_80446088);
     lobby_gvm_texture_handles[1] = load_gvm_texture_file(lbl_80446098);
     lobby_gvm_texture_handles[2] = load_gvm_texture_file(lbl_804460A8);
@@ -353,12 +353,12 @@ void load_lobby_textures__9TLanguageFv(void) {
 
 }
 
-#undef lbl_8050DDAC
-#undef lbl_805D5C60
+#undef gogo_ball_sync_state
+#undef gogo_ball_bml_resource
 #undef language_lobby_texture_descriptor
-#define lbl_8050DD58 (*(u8 (*)[1])&lbl_8050DD58)
-#define lbl_8050DDAC (*(RecoveredGlobal_80199470_lbl_8050DDAC *)&lbl_8050DDAC)
-#define lbl_8050E208 (*(s32 (*)[1])&lbl_8050E208)
+#define gogo_ball_configuration (*(u8 (*)[1])&gogo_ball_configuration)
+#define gogo_ball_sync_state (*(RecoveredGlobal_80199470_lbl_8050DDAC *)&gogo_ball_sync_state)
+#define controller_input_state (*(s32 (*)[1])&controller_input_state)
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define tl_03 (*(void* *)&tl_03)
 #define set_timer_value__12TWindowTimerFii ((void (*)(s32,s32))set_timer_value__12TWindowTimerFii)
@@ -437,10 +437,10 @@ void __dt__7TObjectFv(void *, int);
 extern M2C_UNK lbl_804B8E00[];
 
 void clear_status_flags__12TWindowTimerFv(void) {
-    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~1;
-    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~2;
-    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~0x10;
-    (*(G_80199078 *)&lbl_8050DDAC).flags &= ~0x20;
+    (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~1;
+    (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~2;
+    (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~0x10;
+    (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~0x20;
 }
 
 }
@@ -556,7 +556,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
     s32 idx;
     void *o;
 
-    pad = (u8 *)lbl_8050E208 + 0x20;
+    pad = (u8 *)controller_input_state + 0x20;
     if (is_on_current_screen__11TCameraCtrlFPv(pad, 0x10000) != 0 && TWindowShortListCtrl__check_controller_button(pad, 0x400) != 0) {
         set_timer_value__12TWindowTimerFii(1, 0);
         set_timer_value__12TWindowTimerFii(0, 0);
@@ -569,28 +569,28 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
     m = get_minutes__6TLobbyFv();
     r = (s32)get_random_float__8TObjFishFv((f32)(m - M2C_FIELD(arg0, s32 *, 0x1C)));
     if (r == 1 || r == 999) {
-        M2C_FIELD(&lbl_8050DDAC.value, s16 *, 0x12) = 1;
+        M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 1;
         idx = m % 10;
         if (idx >= 10) {
             idx = 9;
         } else if (idx < 0) {
             idx = 0;
         }
-        copy_state__12TWindowTimerFPvPv(lbl_8050DD58, ((E54_801990B4 *)lbl_804B8A10)[idx].b);
+        copy_state__12TWindowTimerFPvPv(gogo_ball_configuration, ((E54_801990B4 *)lbl_804B8A10)[idx].b);
         if ((o = __nw__7TObjectFUl(0x3A4)) != NULL) {
             ((u8 *(*)(void *, void *))TWindowTimer__sub_8019A574)(o, tl_03);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_801988E8((u8 *)o, lbl_8050DD58 + 0x38, 1, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), (u8 *)tl_04);
+            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x38, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), (u8 *)tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_801988E8((u8 *)o, lbl_8050DD58 + 0x2C, 0, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), (u8 *)tl_04);
+            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x2C, 0, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), (u8 *)tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8D94, 1, 1, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), tl_04);
+            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8D94, 1, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8DA0, 0, 1, M2C_FIELD(lbl_8050DD58, s16 *, 0x14), tl_04);
+            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8DA0, 0, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), tl_04);
         }
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = m;
@@ -643,13 +643,13 @@ u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
 typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];
 void handle_6x79_gogo_ball(u8 *arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi();
-    M2C_FIELD(&lbl_8050DDAC.value, s16 *, 0x12) = 0;
-    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 4) = (f32) (0.0f);
-    M2C_FIELD(&lbl_8050DDAC.value, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
-    M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 8);
-    M2C_FIELD(&lbl_8050DDAC.value, u8 *, 0x18) = (u8) M2C_FIELD(arg0, u8 *, 0x14);
-    M2C_FIELD(&lbl_8050DDAC.value, s32 *, 0x14) = (s32) M2C_FIELD(arg0, s32 *, 4);
+    M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 0;
+    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
+    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 4) = (f32) (0.0f);
+    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
+    M2C_FIELD(&gogo_ball_sync_state.value, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 8);
+    M2C_FIELD(&gogo_ball_sync_state.value, u8 *, 0x18) = (u8) M2C_FIELD(arg0, u8 *, 0x14);
+    M2C_FIELD(&gogo_ball_sync_state.value, s32 *, 0x14) = (s32) M2C_FIELD(arg0, s32 *, 4);
 }
 void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0) {
     Ang_801994DC ang;
@@ -700,9 +700,9 @@ void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, vo
 
 }
 
-#undef lbl_8050DD58
-#undef lbl_8050DDAC
-#undef lbl_8050E208
+#undef gogo_ball_configuration
+#undef gogo_ball_sync_state
+#undef controller_input_state
 #undef __nw__7TObjectFUl
 #undef tl_03
 #undef set_timer_value__12TWindowTimerFii
@@ -866,8 +866,8 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
 
 #undef VecCopy__FP3VecPC3Vec
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
-#define lbl_8050DD58 (*(Glob_80199A44 *)&lbl_8050DD58)
-#define lbl_805D5C60 (*(void* *)&lbl_805D5C60)
+#define gogo_ball_configuration (*(Glob_80199A44 *)&gogo_ball_configuration)
+#define gogo_ball_bml_resource (*(void* *)&gogo_ball_bml_resource)
 #define rotate_matrix_y ((M2C_UNK (*)(int,int))rotate_matrix_y)
 #define vector_length ((f32 (*)(void*))vector_length)
 #define normalize_vector ((M2C_UNK (*)(void*))normalize_vector)
@@ -925,7 +925,7 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     s32 step;
 
     VecCopy__FP3VecPC3Vec(&pos, arg0 + 0x38);
-    pos.y += lbl_8050DD58.scale - (2.0f * lbl_8050DD58.scale) / 10.0f;
+    pos.y += gogo_ball_configuration.scale - (2.0f * gogo_ball_configuration.scale) / 10.0f;
     color.a = (F(s32, 0x358) != 0) ? 0.0f : -0.75f;
     VecCopy__FP3VecPC3Vec(&dir, arg0 + 0x344);
     dir.y = 0.0f;
@@ -958,53 +958,53 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     F(s32, 0x5C) += (s32)(182.04445f * (lbl_805DBF40 * len));
     push_matrix_from(0);
     translate_matrix_vec3(0, &pos);
-    rate = 0.15f * lbl_8050DD58.scale;
+    rate = 0.15f * gogo_ball_configuration.scale;
     scale_matrix(0, rate, rate, rate);
     set_chunk_material_color(&color);
     if (vec_squared_length(&dir)) {
         rotate_matrix_about_axis(0, &dir, F(s32, 0x338));
     }
     rotate_matrix_y(0, F(s32, 0x334));
-    if (lobby_gvm_texture_handles != 0 && lbl_805D5C60 != 0) {
-        switch (lbl_8050DD58.kind) {
+    if (lobby_gvm_texture_handles != 0 && gogo_ball_bml_resource != 0) {
+        switch (gogo_ball_configuration.kind) {
         case 0:
             set_global_param__8TObjFishFi(lobby_gvm_texture_handles[0]);
             set_cull_back__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 3));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 3));
             set_cull_mode_front__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 3));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 3));
             set_cull_none__8TObjFishFv();
             break;
         case 1:
             set_global_param__8TObjFishFi(lobby_gvm_texture_handles[1]);
             set_cull_back__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_none__8TObjFishFv();
             break;
         case 2:
             set_global_param__8TObjFishFi(lobby_gvm_texture_handles[2]);
             set_cull_back__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_none__8TObjFishFv();
             break;
         case 3:
             set_global_param__8TObjFishFi(lobby_gvm_texture_handles[3]);
             set_cull_back__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_mode_front__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 0));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 0));
             set_cull_none__8TObjFishFv();
             break;
         case 6:
             set_global_param__8TObjFishFi(lobby_gvm_texture_handles[6]);
             set_cull_back__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 2));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 2));
             set_cull_mode_front__8TObjFishFv();
-            draw_chunk_object(get_bml_model(lbl_805D5C60, 2));
+            draw_chunk_object(get_bml_model(gogo_ball_bml_resource, 2));
             set_cull_none__8TObjFishFv();
             break;
         }
@@ -1021,8 +1021,8 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 }
 
 #undef VecCopy__FP3VecPC3Vec
-#undef lbl_8050DD58
-#undef lbl_805D5C60
+#undef gogo_ball_configuration
+#undef gogo_ball_bml_resource
 #undef rotate_matrix_y
 #undef vector_length
 #undef normalize_vector
@@ -1030,11 +1030,11 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)
-#define lbl_8050DD58 (*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&lbl_8050DD58)
-#define lbl_8050DDAC (*(M2C_UNK (*)[1])&lbl_8050DDAC)
+#define gogo_ball_configuration (*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration)
+#define gogo_ball_sync_state (*(M2C_UNK (*)[1])&gogo_ball_sync_state)
 #define throw_gogo_ball__12TWindowTimerFPvii ((void (*)(void*,s32,s32))throw_gogo_ball__12TWindowTimerFPvii)
 #define __dl__7TObjectFPv ((M2C_UNK (*)(void*))__dl__7TObjectFPv)
-#define lbl_8050DD50 (*(int (*)[1])&lbl_8050DD50)
+#define gogo_ball_team_scores (*(int (*)[1])&gogo_ball_team_scores)
 #define xyz_distance ((f32 (*)(void*,void*))xyz_distance)
 #define vector_length ((f32 (*)(void*,f32))vector_length)
 #define reflect_velocity_off_collision ((s32 (*)(void*,void*,void*))reflect_velocity_off_collision)
@@ -1162,14 +1162,14 @@ M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
 s32 read_be16_field2__10TObjPlayerFPv();
 
 void update_best_time__12TWindowTimerFPv(void *arg0) {
-    if ((M2C_FIELD(lbl_8050DDAC, s16 *, 0x12) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x354) <= (s32) M2C_FIELD(lbl_8050DDAC, s32 *, 0x14))) {
-        M2C_FIELD(arg0, s32 *, 0x354) = (s32) M2C_FIELD(lbl_8050DDAC, s32 *, 0x14);
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 0);
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 4);
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(lbl_8050DDAC, f32 *, 8);
-        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(M2C_FIELD(lbl_8050DDAC, s32 *, 0xC)));
+    if ((M2C_FIELD(gogo_ball_sync_state, s16 *, 0x12) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x354) <= (s32) M2C_FIELD(gogo_ball_sync_state, s32 *, 0x14))) {
+        M2C_FIELD(arg0, s32 *, 0x354) = (s32) M2C_FIELD(gogo_ball_sync_state, s32 *, 0x14);
+        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 0);
+        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 4);
+        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 8);
+        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(M2C_FIELD(gogo_ball_sync_state, s32 *, 0xC)));
     }
-    M2C_FIELD(lbl_8050DDAC, s16 *, 0x12) = 1;
+    M2C_FIELD(gogo_ball_sync_state, s16 *, 0x12) = 1;
 }
 
 extern M2C_UNK lbl_804B8E18[];
@@ -1180,9 +1180,9 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     Vec_80199F14 p;
     i = 0;
     self->time = get_time_of_day_seconds__6TLobbyFv() % 2592;
-    if (self->time >= ((Tbl_80199F14 *)&lbl_8050DD58)->limit) {
+    if (self->time >= ((Tbl_80199F14 *)&gogo_ball_configuration)->limit) {
         VecCopy__FP3VecPC3Vec(&p, &self->pos);
-        p.y += ((Tbl_80199F14 *)&lbl_8050DD58)->yofs;
+        p.y += ((Tbl_80199F14 *)&gogo_ball_configuration)->yofs;
         spawn_particle_effect_with_flags(&p, 0x45, 0x40);
         spawn_particle_effect_with_flags(&p, 0x46, 0x40);
         open__11TWindowCtrlFiii(obj_getField1c(self), lbl_8044613C, 0x1B);
@@ -1225,8 +1225,8 @@ void TWindowTimer__sub_8019A098(void) {
     }
 }
 
-#define CFG (*(Cfg_8019A104 *)&lbl_8050DD58)
-#define ST (*(State_8019A104 *)lbl_8050DDAC)
+#define CFG (*(Cfg_8019A104 *)&gogo_ball_configuration)
+#define ST (*(State_8019A104 *)gogo_ball_sync_state)
 extern const char lbl_805DBF94[] = "Go!";
 void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
     Timer_8019A104 *self;
@@ -1296,11 +1296,11 @@ void update_goal_checks__12TWindowTimerFPvUs(void *arg0, u16 id) {
 }
 
 void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
-    arg0->f390 = ((f32 *)&lbl_8050DD58)[3];
-    arg0->f394 = ((f32 *)&lbl_8050DD58)[4];
-    if ((s32)((u8 *)&lbl_8050DDAC)[0x18] == 1) {
-        arg0->f390 = ((f32 *)&lbl_8050DD58)[0x13];
-        arg0->f394 = ((f32 *)&lbl_8050DD58)[0x14];
+    arg0->f390 = ((f32 *)&gogo_ball_configuration)[3];
+    arg0->f394 = ((f32 *)&gogo_ball_configuration)[4];
+    if ((s32)((u8 *)&gogo_ball_sync_state)[0x18] == 1) {
+        arg0->f390 = ((f32 *)&gogo_ball_configuration)[0x13];
+        arg0->f394 = ((f32 *)&gogo_ball_configuration)[0x14];
     }
     arg0->f398 = (0.1f);
     arg0->f39C = (0.1f);
@@ -1347,15 +1347,15 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x344) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x348) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x24);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0x28);
+    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x20);
+    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x24);
+    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x28);
     M2C_FIELD(arg0, s32 *, 0x350) = 0;
     M2C_FIELD(arg0, s32 *, 0x354) = 0;
     M2C_FIELD(arg0, s32 *, 0x334) = 0;
     M2C_FIELD(arg0, s32 *, 0x338) = 0;
-    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 0x340) = (f32) M2C_FIELD(&lbl_8050DD58.value, f32 *, 4);
+    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0);
+    M2C_FIELD(arg0, f32 *, 0x340) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 4);
     M2C_FIELD(arg0, s32 *, 0x358) = 0;
     M2C_FIELD(arg0, f32 *, 0x364) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0x368) = (f32) (0.0f);
@@ -1367,8 +1367,8 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     M2C_FIELD(arg0, s32 *, 0x35C) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&lbl_8050DDAC).value, s16 *, 0x10) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&lbl_8050DDAC).value, s8 *, 0x18) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value, s16 *, 0x10) = 0;
+    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value, s8 *, 0x18) = 0;
     M2C_FIELD(arg0, s32 *, 0x360) = 0;
     return arg0;
 }
@@ -1387,17 +1387,17 @@ void bswap_6x79_gogo_ball__12TWindowTimerFi(s32 arg0) {
 void TWindowTimer__sub_8019A6F8(void* p) { *(u8*)((char*)p + 0x0) = 121; *(u8*)((char*)p + 0x1) = 6; }
 
 s16 get_timer_value__12TWindowTimerFi(s32 i) {
-    return ((s32 *)&lbl_8050DD50)[i];
+    return ((s32 *)&gogo_ball_team_scores)[i];
 }
 
-int set_timer_value__12TWindowTimerFii(int a0, int a1) { lbl_8050DD50[a0] = a1; return (int)lbl_8050DD50; }
+int set_timer_value__12TWindowTimerFii(int a0, int a1) { gogo_ball_team_scores[a0] = a1; return (int)gogo_ball_team_scores; }
 
 void TWindowTimer__sub_8019A738(s32 i) {
-    ((s32 *)&lbl_8050DD50)[i] += 3;
+    ((s32 *)&gogo_ball_team_scores)[i] += 3;
 }
 
 void TWindowTimer__sub_8019A754(s32 i) {
-    ((s32 *)&lbl_8050DD50)[i] += 1;
+    ((s32 *)&gogo_ball_team_scores)[i] += 1;
 }
 
 int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCtrlFv(p); }
@@ -1409,11 +1409,11 @@ int TWindowTimer__sub_8019A770(void* p) { return close_timer_window__11TWindowCt
 #undef VecCopy__FP3VecPC3Vec
 #undef queue_destruction__7TObjectFv
 #undef spawn_particle_effect_with_flags
-#undef lbl_8050DD58
-#undef lbl_8050DDAC
+#undef gogo_ball_configuration
+#undef gogo_ball_sync_state
 #undef throw_gogo_ball__12TWindowTimerFPvii
 #undef __dl__7TObjectFPv
-#undef lbl_8050DD50
+#undef gogo_ball_team_scores
 #undef xyz_distance
 #undef vector_length
 #undef reflect_velocity_off_collision

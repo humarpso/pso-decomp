@@ -45,7 +45,7 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
-extern RecoveredGlobal_802AF300_lbl_804DE440 lbl_804DE440;
+extern RecoveredGlobal_802AF300_lbl_804DE440 TOCapsuleLabo__resource_descriptor;
 extern u32 TOCapsuleLabo__data_805D6708;
 extern s32 *lbl_805D670C;
 void load_resources__13TOCapsuleLaboFv(void);
@@ -60,7 +60,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
 s32 get_game_play_mode();
-extern RecoveredGlobal_802AF4F4_lbl_804DE450 lbl_804DE450;
+extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern M2C_UNK __vt__13TOCapsuleLabo[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D3E7C;
@@ -109,7 +109,7 @@ void load_resources__13TOCapsuleLaboFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804DE440.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOCapsuleLabo__data_805D6708) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = get_bml_model((void *) var_r0, 0);
@@ -181,7 +181,7 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708))), (s32)((int) (0)));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708)), (int) (0));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804DE450.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

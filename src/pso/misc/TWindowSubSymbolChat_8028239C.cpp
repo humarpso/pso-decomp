@@ -253,7 +253,7 @@ void render__20TWindowSubSymbolChatFv(void) {  }
 
 extern M2C_UNK close_child__20TWindowSubSymbolChatFv[];
 extern M2C_UNK __vt__20TWindowSubSymbolChat[];
-extern s32 lbl_805D3AA8;
+extern s32 TWindowSubSymbolChat__class_name;
 extern void *TWindowSubSymbolChat__instance;
 extern s8 TWindowSubSymbolChat__data_805D6494;
 extern s32 TWindowSubSymbolChat__data_805D6498;
@@ -885,7 +885,7 @@ u8 *__dt__20TWindowSubSymbolChatFv(u8 *arg0, s16 arg1) {
 void *TWindowSubSymbolChat__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowSubSymbolChat;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AA8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubSymbolChat__class_name;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;

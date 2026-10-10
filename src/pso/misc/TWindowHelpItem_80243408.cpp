@@ -113,7 +113,7 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
 #pragma pop
 
 #define TB(x) (x)
-UV_80243630 lbl_804CDCA8[19] = {
+UV_80243630 action_palette_icon_uv_tables[19] = {
     {50.0f, 0.0f}, {50.0f, 43.0f}, {50.0f, 86.0f}, {100.0f, 0.0f},
     {100.0f, 43.0f}, {100.0f, 86.0f}, {0.0f, 0.0f}, {0.0f, 43.0f},
     {0.0f, 86.0f}, {200.0f, 0.0f}, {0.0f, 129.0f}, {50.0f, 172.0f},
@@ -154,7 +154,7 @@ void draw_action_palette_icon(Icon_80243630 *icon, u16 group, u16 index) {
         break;
     case 3:
         icon->kind = 3;
-        row = TB(lbl_804CDCA8);
+        row = TB(action_palette_icon_uv_tables);
         icon->u0 = row[index].u;
         icon->v0 = row[index].v;
         break;

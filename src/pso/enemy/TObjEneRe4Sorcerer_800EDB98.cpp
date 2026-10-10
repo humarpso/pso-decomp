@@ -1455,8 +1455,8 @@ extern Map_800F06B4 lbl_80497438[];
 extern Vec_800F0464 lbl_80501070;
 extern void *lbl_805D2AF0;
 extern s32 lbl_805D52D0;
-extern s32 lbl_805D52D4;
-extern s32 lbl_805D52D8;
+extern s32 TObjEneRe4Sorcerer__attack_params;
+extern s32 TObjEneRe4Sorcerer__resistance_params;
 extern u8 *lbl_805D52DC;
 extern u32 lbl_805D52E0;
 extern s32 lbl_805D52F0;
@@ -3004,7 +3004,7 @@ void init_enemy__18TObjEneRe4SorcererFPv(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
-    reset_hp__9TObjEneDDFPv((void *) (arg0), (void *) (lbl_805D52D0), (void *) (lbl_805D52D4), (void *) (lbl_805D52D8));
+    reset_hp__9TObjEneDDFPv((void *) (arg0), (void *) (lbl_805D52D0), (void *) (TObjEneRe4Sorcerer__attack_params), (void *) (TObjEneRe4Sorcerer__resistance_params));
     set_state_8__9TObjEneDDFPv((void *) (arg0));
     M2C_FIELD(arg0, void **, 0x350) = (void *) lbl_80496EE0;
     initialize_enemy_state__9TObjEneDDFPv((void *) (arg0), (int) (0x1F));
@@ -3086,8 +3086,8 @@ void load_resources__18TObjEneRe4SorcererFv(void) {
         lbl_805D52E0 = load_enemy_bml_resource(lbl_80496F58);
     }
     lbl_805D52D0 = register_boss__6TLobbyFPv(0xA);
-    lbl_805D52D4 = dispatch_shared_handler_b__6TLobbyFPv(0xA);
-    lbl_805D52D8 = register_object__6TLobbyFPv(0xA);
+    TObjEneRe4Sorcerer__attack_params = dispatch_shared_handler_b__6TLobbyFPv(0xA);
+    TObjEneRe4Sorcerer__resistance_params = register_object__6TLobbyFPv(0xA);
     (*(s32 *)&lbl_805D52DC) = dispatch_shared_handler_a__6TLobbyFPv(0xA);
     TObjEneRe4Sorcerer__data_805D52E4 = 0;
     TObjEneRe4Sorcerer__data_805D52E8 = 0;
