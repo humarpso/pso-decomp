@@ -88,7 +88,7 @@ extern const f32 lbl_805DACA0;
 void advance_weapon_photon_phase(u8 *arg0);
 extern s16 weapon_node_material_index;
 extern s16 TObjPlayer__weapon_node_ids[];
-extern u8* lbl_805D5514;
+extern u8* weapon_render_callback_object;
 extern u32 lbl_805D53EC;
 s32 get_player_list__10TObjPlayerFv();
 void TObjPlayer__sub_80101088();
@@ -108,7 +108,7 @@ extern const f32 lbl_805DAC9C;
 WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon);
 void copy_entry_bytes__10TObjPlayerFPvPv(void *, void *);
 extern u8 lbl_805DACA4;
-void TItemWeapon__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1);
+void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1);
 }
 
 extern "C" {
@@ -117,17 +117,17 @@ void apply_weapon_node_material() {
     const s32 node = get_player_list__10TObjPlayerFv();
     TObjPlayer__sub_80101088();
     end_particle_effect__10TObjPlayerFv();
-    draw_shield_particle__10TObjPlayerFPv(lbl_805D5514);
-    update_screen_particle_effect__10TObjPlayerFPv(lbl_805D5514);
-    ((WeaponCallbackObject*)lbl_805D5514)->materialCallback();
+    draw_shield_particle__10TObjPlayerFPv(weapon_render_callback_object);
+    update_screen_particle_effect__10TObjPlayerFPv(weapon_render_callback_object);
+    ((WeaponCallbackObject*)weapon_render_callback_object)->materialCallback();
     if(node == weapon_node_material_index) {
-        WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
+        WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(weapon_render_callback_object));
         enable_first_time_flag__10TObjPlayerFi(&color);
     }
     if(node == TObjPlayer__weapon_node_ids[0] || node == TObjPlayer__weapon_node_ids[1] || node == TObjPlayer__weapon_node_ids[2]) {
         play_particle_effect_once__10TObjPlayerFv();
         if(test_flags_any(&lbl_805D53EC,4)) {
-            WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(lbl_805D5514));
+            WeaponArgb color = get_weapon_color__11TItemWeaponFPv((void *)(weapon_render_callback_object));
             enable_first_time_flag__10TObjPlayerFi(&color);
         }
     }
@@ -185,7 +185,7 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
 }
 #pragma pop
 
-void TItemWeapon__sub_80120454(Src_80120454 *arg0, Dst_80120454 *arg1) {
+void TItemWeapon__write_item_data(Src_80120454 *arg0, Dst_80120454 *arg1) {
     s32 off;
     u32 i;
     u8 t;

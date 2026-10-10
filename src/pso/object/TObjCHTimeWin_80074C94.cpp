@@ -18,7 +18,7 @@ void *__nw__7TObjectFUl(int);
 
 extern s32 lbl_805D4E40;
 extern M2C_UNK __vt__13TObjCHTimeWin[];
-extern void *lbl_805D2890;
+extern void *TObjCHTimeWin__class_name;
 
 void run_task__13TObjCHTimeWinFv(void *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) {
@@ -42,7 +42,7 @@ extern "C" {
 void *__ct__13TObjCHTimeWinFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjCHTimeWin;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2890;
+    M2C_FIELD(arg0, void **, 0x0) = TObjCHTimeWin__class_name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     return arg0;
 }

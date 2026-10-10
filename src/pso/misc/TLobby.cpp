@@ -24,7 +24,7 @@ void *TAdScrollWinGC__ct(void *, s32, s32, void *);
 s32 strncpy(void *, s32, s32);
 extern u8 lbl_8050AEB8[];
 extern s32 TLobby__data_805D5594;
-extern void *lbl_805D55F8;
+extern void *lobby_scroll_text_window;
 extern s32 tl_window;
 void on_game_player_add__6TLobbyFiii();
 void handle_game_join__6TLobbyFPv();
@@ -53,14 +53,14 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
 
 void open_scroll_text_window__6TLobbyFi(s32 arg0) {
     void *obj;
-    if (lbl_805D55F8 == 0) {
+    if (lobby_scroll_text_window == 0) {
         strncpy(lbl_8050AEB8, arg0, 0x1000);
         lbl_8050AEB8[0xFFF] = 0;
         obj = __nw__7TObjectFUl(0x54);
         if (obj != 0) {
             obj = TAdScrollWinGC__ct(obj, tl_window, 2, lbl_8050AEB8);
         }
-        lbl_805D55F8 = obj;
+        lobby_scroll_text_window = obj;
     }
     TLobby__data_805D5594 = 0x1A;
 }

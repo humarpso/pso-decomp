@@ -138,7 +138,7 @@ void set_action_palette_slot__10TObjPlayerFPviUc(S_802C457C *self, s32 i, u8 v);
 extern "C" {
 
 void set_current_time__10TObjPlayerFi(s32 arg0);
-int TObjPlayer__sub_802C46BC(void* p);
+int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 void clear_item_slots__10TObjPlayerFPv(void* p);
 void* get_action_data__10TObjPlayerFPv(void* p);
@@ -255,7 +255,7 @@ E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i) {
 }
 
 void set_flag_40__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x7) |= 0x40; }
-int TObjPlayer__sub_802C46BC(void* p) { return init_action_config__10TObjPlayerFPv((char*)p + 0x24); }
+int init_character_action_config(void* p) { return init_action_config__10TObjPlayerFPv((char*)p + 0x24); }
 
 int TObjPlayer__sub_802C46E0(void* p) { return set_palette_entry__20TWindowActionPaletteFiiiii(p); }
 

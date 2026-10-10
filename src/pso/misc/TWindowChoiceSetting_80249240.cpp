@@ -18,7 +18,7 @@ M2C_UNK draw_visible_window_entries(void *, void *, s32);
 M2C_UNK draw_window_scrollbar(s32, s32, void *);
 M2C_UNK draw_setting__20TWindowChoiceSettingFPvi(void *, s32);
 M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
-extern M2C_UNK lbl_804D0658[];
+extern M2C_UNK choice_setting_popup_vtable[];
 void render__20TWindowChoiceSettingFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);

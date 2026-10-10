@@ -411,7 +411,7 @@ extern s32 lbl_805D2A98;
 void destroy_matching_children__6TLobbyFPv(void *arg0);
 s32 obj_getField1c();
 M2C_UNK reset_cameras_to_actor(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_801BC068(s32, u16);
+M2C_UNK TObjPlayer__send_selected_spawn_position(s32, u16);
 s32 update_battle_controller__10TObjPlayerFv();
 void destroy_matching_children__6TLobbyFPv(void *arg0);
 M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
@@ -520,7 +520,7 @@ void finish_chr_select_scene_init__6TLobbyFv(void) {
     init_scene_objects__6TLobbyFv();
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 != 0) {
-        TObjPlayer__sub_801BC068(temp_r3, battle_mode_data_table[(u16)obj_getField1c()]);
+        TObjPlayer__send_selected_spawn_position(temp_r3, battle_mode_data_table[(u16)obj_getField1c()]);
         reset_cameras_to_actor(temp_r3, 0);
     }
     destroy_matching_children__6TLobbyFPv((void *)tl_05);

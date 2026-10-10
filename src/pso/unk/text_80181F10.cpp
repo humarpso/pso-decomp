@@ -32,7 +32,7 @@ u32 get_map_count__10TObjMapCsnFv();
 void register_slot(u32, void *);
 void build_door_collision_triangles__10TObjPlayerFi(void *);
 s32 is_phase_e__9TObjEneDDFPv(void *);
-void TPhotonMagicSquare__sub_801A2640(void *, void *);
+void construct_world_actor_base(void *, void *);
 extern s32 lbl_804B5A00[];
 extern s32 lbl_805D3260;
 extern const f32 lbl_805DBBF0;
@@ -42,7 +42,7 @@ Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2);
 extern "C" {
 
 Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640(self, arg1);
+    construct_world_actor_base(self, arg1);
     *(void **)((u8 *)self + 0x18) = lbl_804B5A00;
     *(s32 *)self = lbl_805D3260;
     self->m5(arg2);

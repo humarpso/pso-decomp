@@ -48,8 +48,8 @@ void init_buffers__6TLobbyFii(s32 arg0, s32 arg1) {
     }
 }
 
-    extern int lbl_805D60A0;
+    extern int item_drop_rng;
     extern int lbl_805D60A4;
-void free_boss4rock__6TLobbyFv(void) { free_boss4rock__6TLobbyFPvs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; __dl__FPv((void*)(lbl_805D60A0)); lbl_805D60A0 = 0; }
+void free_boss4rock__6TLobbyFv(void) { free_boss4rock__6TLobbyFPvs((void*)(lbl_805D60A4), (void*)1); lbl_805D60A4 = 0; __dl__FPv((void*)(item_drop_rng)); item_drop_rng = 0; }
 
 }

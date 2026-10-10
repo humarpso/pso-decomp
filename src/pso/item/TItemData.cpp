@@ -1001,7 +1001,7 @@ void format_item_name__9TItemDataFv(u8 *arg0, char *buf);
 
 extern "C" {
 
-void TItemData__sub_8010EC6C(void *arg0);
+void TItemData__clear_unidentified_flag(void *arg0);
 void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 void bswap_fields__9TItemDataFPv(void* p);
 s32 calc_buy_price__9TItemDataFPv(void *arg0);
@@ -2090,7 +2090,7 @@ s32 get_base_rarity__9TItemDataFPv(u8 *item) {
     return 0;
 }
 
-void TItemData__sub_8010EC6C(void *arg0) {
+void TItemData__clear_unidentified_flag(void *arg0) {
     if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
         M2C_FIELD(arg0, u8 *, 4) = (u8) (M2C_FIELD(arg0, u8 *, 4) & 0x7F);
     }

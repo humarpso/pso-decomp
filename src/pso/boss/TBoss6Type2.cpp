@@ -176,7 +176,6 @@ void update_parts_flags__11TBoss6Type2FPv(void *arg0);
 M2C_UNK TBoss6Type2__sub_802BBE20(void *);
 void advance_position__11TBoss6Type2FPv(u8 *arg0);
 void copy_vec_array__11TBoss6Type2FPv(u8 *arg0);
-M2C_UNK TBoss6Type2__sub_802BC124(void *);
 void update_countdown__11TBoss6Type2FPv(void *arg0);
 void update_motion_tracks__11TBoss6Type2FPv(Obj_802BCD2C *self);
 extern const f32 lbl_805DE4C0;
@@ -287,6 +286,9 @@ int TBoss6Type2__sub_802BB694(void);
 void TBoss6Type2__sub_802BD938(u8 *arg0, u8 *arg1);
 void send_action_packet_if_idle__11TBoss6Type2FPviPv(void *arg0, s32 arg1, M2C_UNK *arg2);
 void send_state_action_packet__11TBoss6Type2FPv(u8 *arg0);
+extern const f32 TBoss6Type2__data_805DE410;
+extern const f32 lbl_805DE4A8;
+void TBoss6Type2__sub_802BC124(u8 *arg0);
 }
 
 extern "C" {
@@ -1879,6 +1881,17 @@ void init_segment_range__11TBoss6Type2FPv(Obj_802BC050 *o) {
     update_segments__11TBoss6Type2FPv(o);
 }
 
+#pragma push
+#pragma opt_common_subs off
+void TBoss6Type2__sub_802BC124(u8 *arg0) {
+    M2C_FIELD(arg0, f32 *, 0x4FC) = (f32) (M2C_FIELD(arg0, f32 *, 0x4FC) + lbl_805DE4A8);
+    if (M2C_FIELD(arg0, f32 *, 0x4FC) < TBoss6Type2__data_805DE410) {
+        M2C_FIELD(arg0, f32 *, 0x4FC) = (f32) TBoss6Type2__data_805DE410;
+    }
+    M2C_FIELD(arg0, f32 *, 0x500) = (f32) ((f32) M2C_FIELD(arg0, s16 *, 0x32C) / (f32) M2C_FIELD(arg0, s16 *, 0x33E));
+}
+#pragma pop
+
 s32 choose_turn_motion__11TBoss6Type2FPv(void *arg0) {
     f32 temp_f3;
     f64 temp_f0;
@@ -2408,7 +2421,7 @@ void run_task__11TBoss6Type2Fv(u8 *arg0) {
     add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DE4C0));
     apply_rock_hits_to_players__11TBoss6Type2FPv((Obj_802BBAB0 *)((void *) (arg0)));
     TBoss6Type2__sub_802BB498((T2_802BB498 *) (arg0));
-    TBoss6Type2__sub_802BC124((void *) (arg0));
+    TBoss6Type2__sub_802BC124((u8 *)((void *) (arg0)));
     scroll_strips_uv__14TBoss6PlotFalzFPvii((void *) (arg0 + 0x768), (int) (8), (int) (0));
     TObjPlayer__sub_8023DEE0((void *) (M2C_FIELD(M2C_FIELD(collect_and_count__12TBoss3VoloptFUii(get_bml_model((s32)(M2C_FIELD(arg0, s32 *, 0x3FC)), (M2C_UNK)(1)), 1), u8 **, 4), s32 *, 4)), (int) (8), (int) (0), (int) (0));
     TBoss6Type2__sub_802BB554((T2_802BB554 *) (arg0));

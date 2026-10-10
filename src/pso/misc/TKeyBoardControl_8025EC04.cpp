@@ -311,7 +311,7 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
 }
 
 s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, s32 arg1, u8 arg2) {
-    extern u8 lbl_804CFAE4[];
+    extern u8 keyboard_repeat_key_codes[];
     extern u8 lbl_805D392C[8];
     u32 st;
     u32 i;
@@ -321,7 +321,7 @@ s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, s32 arg1, u8 a
         return 0;
     }
     for (i = 0; i < 7; i++) {
-        if (arg2 == lbl_804CFAE4[i]) {
+        if (arg2 == keyboard_repeat_key_codes[i]) {
             if (!(lbl_805D392C[st] & (1 << i))) {
                 return 0;
             }

@@ -18,7 +18,7 @@ extern "C" {
 
 void *TCameraCtrl__vt8(void);
 int update_camera__16TObjCMProportionFPv(void* p);
-void *TCameraCtrl__sub_80291CBC(void *);
+void *construct_creation_camera(void *);
 void *__nw__7TObjectFUl(int);
 int update_creation_camera_auto(void*);
 
@@ -125,7 +125,7 @@ void advance_creation_manual_camera(CreationCameraFields *arg0) {
 void *TCameraCtrl__vt8(void) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TCameraCtrl__sub_80291CBC(o);
+        o = construct_creation_camera(o);
     }
     return o;
 }

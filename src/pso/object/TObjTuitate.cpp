@@ -82,7 +82,7 @@ M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *);
 extern M2C_UNK TObjTuitate__collision_parts[];
 extern M2C_UNK __vt__11TObjTuitate[];
-extern s32 lbl_805D3450;
+extern s32 TObjTuitate__class_name;
 extern const f32 lbl_805DBFB4;
 extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFBC;
@@ -171,7 +171,7 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     construct_collider_proxy__10TObjPlayerFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjTuitate;
     init_and_activate__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3450;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTuitate__class_name;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
     init_collision_body_parts((void *) (arg0), (void *) (TObjTuitate__collision_parts), (int) (1));
     refresh_collision_body_centers((void *) (arg0));

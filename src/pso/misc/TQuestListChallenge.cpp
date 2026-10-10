@@ -382,12 +382,12 @@ extern "C" void TShopWindowBase__sub_802115F0();
 extern "C" void TShopWindowBase__sub_80217454();
 extern "C" void TShopWindowBase__sub_80216080();
 extern "C" void TShopWindowBase__sub_80217458();
-extern "C" void TShopWindowBase__sub_8021745C();
+extern "C" void TShopWindowBase__is_ready();
 void *__vt__19TQuestListChallenge[12] = {
     0, 0, (void *)&__dt__19TQuestListChallengeFv, (void *)&draw_if_ready__15TShopWindowBaseFPv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0,
     (void *)&TShopWindowBase__sub_80217454, (void *)&TShopWindowBase__sub_80216080,
-    (void *)&TShopWindowBase__sub_80217458, (void *)&TShopWindowBase__sub_8021745C,
+    (void *)&TShopWindowBase__sub_80217458, (void *)&TShopWindowBase__is_ready,
     (void *)&TQuestListChallenge__vt9,
 };
 

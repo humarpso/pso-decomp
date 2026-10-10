@@ -127,7 +127,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 void destroy_key_base__5TOKeyFPvs(void *, int);
-int fn_8016AD3C(void* a0 = 0);
+int init_6x04_packet(void* a0 = 0);
 void* init_6x05_switch_changed__6TLobbyFPv(void* p);
 void init_map_object_base(void *);
 int read_be16_field2__10TObjPlayerFPv(void*);

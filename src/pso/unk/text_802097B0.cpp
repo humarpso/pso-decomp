@@ -36,7 +36,7 @@ extern u8 *lbl_805D60B0;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
 u32 item_drop_rng_below(s32, u32);
 void TLobby__sub_8020A568(void *p);
-extern s32 lbl_805D60A0;
+extern s32 item_drop_rng;
 extern u8 *lbl_805D60B0;
 void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 void TLobby__sub_8020A48C(void *p);
@@ -118,7 +118,7 @@ void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
     for (i = 0; i < n; i++) {
         total += tbl[i].weight;
     }
-    r = item_drop_rng_below(lbl_805D60A0, total);
+    r = item_drop_rng_below(item_drop_rng, total);
     for (i = 0; i < n; i++) {
         if (tbl[i].weight != 0) {
             if (r < tbl[i].weight) {

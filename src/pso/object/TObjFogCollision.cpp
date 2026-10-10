@@ -22,7 +22,7 @@ struct RecoveredGlobal_80153FD0___vt__16TObjFogCollision {
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__16TObjFogCollision[];
 extern s32 lbl_805D2E78;
 u8 *TObjFogCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -53,7 +53,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_80153FD0___vt__16TObjFogCollision_size[sizeof(RecoveredGlobal_80153FD0___vt__16TObjFogCollision) == 0x40 ? 1 : -1];
 u8 *TObjFogCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80153FD0___vt__16TObjFogCollision *)&__vt__16TObjFogCollision).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E78;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

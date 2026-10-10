@@ -3459,6 +3459,7 @@ pso/unk/text_802437C4.cpp
 pso/unk/text_80244238.cpp
 pso/unk/text_8024450C.cpp
 pso/unk/text_80246CE8.cpp
+pso/unk/text_80248840.cpp
 pso/unk/text_80248A14.cpp
 pso/unk/text_80249004.cpp
 pso/unk/text_802497A8.cpp
@@ -3695,6 +3696,7 @@ pso/unk/text_8036A894.cpp
 pso/unk/text_8036AE2C.cpp
 pso/unk/text_8036B748.cpp
 pso/unk/text_8036BBF4.cpp
+pso/unk/text_8036BDA0.cpp
 pso/unk/text_8036BF10.cpp
 pso/unk/text_8036C9D8.cpp
 pso/unk/text_8036D0C0.cpp

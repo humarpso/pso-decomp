@@ -13,8 +13,8 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK free_texture_if_valid(void *, void *);
 
 extern M2C_UNK lbl_8049F3F4[];
-extern s32 lbl_805D549C;
-extern s32 lbl_805D54A0;
+extern s32 item_texture_archive_loader;
+extern s32 item_model_chunk_loader;
 
 void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
     s32 temp_r0;
@@ -25,10 +25,10 @@ void *TItemLoad__sub_8010F3D8(void *arg0, s16 arg1) {
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
         switch (temp_r0) {
         case 2:
-            reset_ring_state__9TItemLoadFPv(lbl_805D54A0);
+            reset_ring_state__9TItemLoadFPv(item_model_chunk_loader);
             break;
         case 3:
-            reset_ring_state__9TItemLoadFPv(lbl_805D549C);
+            reset_ring_state__9TItemLoadFPv(item_texture_archive_loader);
             break;
         }
         temp_r3 = M2C_FIELD(arg0, void ***, 0x3C);

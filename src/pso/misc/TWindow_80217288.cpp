@@ -56,7 +56,7 @@ extern "C" void TShopWindowBase__sub_802115F0();
 extern "C" void TShopWindowBase__sub_80216080();
 extern "C" void TShopWindowBase__sub_80217454();
 extern "C" void TShopWindowBase__sub_80217458();
-extern "C" void TShopWindowBase__sub_8021745C();
+extern "C" void TShopWindowBase__is_ready();
 extern "C" void draw_if_ready__15TShopWindowBaseFPv();
 extern "C" u8 lbl_8044BDA0[];
 extern "C" u8 lbl_8044BDA8[];
@@ -155,7 +155,7 @@ void *lbl_804C9C10[35] = {
 void *lbl_804C9C9C[12] = {
     (void *)0x0, (void *)0x0, (void *)&close_shop_subwindows__7TWindowFPvs, (void *)&draw_if_ready__15TShopWindowBaseFPv,
     (void *)&render__7TObjectFv, (void *)&render_shadows__7TObjectFv, (void *)&TShopWindowBase__sub_802115F0, (void *)&TShopWindowBase__sub_80217454,
-    (void *)&TShopWindowBase__sub_80216080, (void *)&TShopWindowBase__sub_80217458, (void *)&TShopWindowBase__sub_8021745C, (void *)&dispatch_list_state__17TQuestListOfflineFPv,
+    (void *)&TShopWindowBase__sub_80216080, (void *)&TShopWindowBase__sub_80217458, (void *)&TShopWindowBase__is_ready, (void *)&dispatch_list_state__17TQuestListOfflineFPv,
 };
 #define lbl_804C9C9C ((M2C_UNK *)lbl_804C9C9C)
 

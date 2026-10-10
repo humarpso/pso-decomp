@@ -136,7 +136,7 @@ void init_window_layout_entries(void *, void *, int);
 M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 void update_for_player_index__13TWindowLockOnFPvi(void *, s32);
-extern Cb_802634E8 lbl_804D027C;
+extern Cb_802634E8 lockon_photon_blast_marker_callback;
 extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD124;
 extern const f32 lbl_805DD128;
@@ -463,7 +463,7 @@ M2C_UNK TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
     Ent_802634E8 *w;
     u16 id;
     init_window_layout_entries(arg0->sub, &lock_on_window_params, arg0->player);
-    arg0->cb = lbl_804D027C;
+    arg0->cb = lockon_photon_blast_marker_callback;
     w = (Ent_802634E8 *)get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1);
     id = obj_getField1c(arg1);
     update_for_player_index__13TWindowLockOnFPvi(w, id);

@@ -171,7 +171,7 @@ void reset__9TCineCtrlFi(s32 arg0) {
 extern void *tl_fade;
 extern const f32 TCineCtrl__data_805D91D0;
 extern M2C_UNK __vt__9TCineCtrl[];
-extern void *lbl_805D28A8;
+extern void *TCineCtrl__class_name;
 extern void * lbl_805D4E60;
 
 typedef char RecoveredGlobal_80077FA0___vt__9TCineCtrl_size[sizeof(RecoveredGlobal_80077FA0___vt__9TCineCtrl) == 0x18 ? 1 : -1];
@@ -204,7 +204,7 @@ u8 *__dt__9TCineCtrlFv(u8 *arg0, s16 arg1) {
 void *TCineCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_fade);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TCineCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D28A8;
+    M2C_FIELD(arg0, void **, 0x0) = TCineCtrl__class_name;
     M2C_FIELD(arg0, f32 *, 0x1C) = TCineCtrl__data_805D91D0;
     M2C_FIELD(arg0, f32 *, 0x20) = TCineCtrl__data_805D91D0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

@@ -5,7 +5,7 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 extern "C" {
 
 void *TObjPlayer__sub_8012E760(void *arg0, s16 arg1);
-int TObjPlayer__sub_8012E7B8(void* p);
+int expire_weapon_casing(void* p);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
@@ -23,6 +23,6 @@ void *TObjPlayer__sub_8012E760(void *arg0, s16 arg1) {
     return arg0;
 }
 
-int TObjPlayer__sub_8012E7B8(void* p) { return queue_destruction__7TObjectFv(p); }
+int expire_weapon_casing(void* p) { return queue_destruction__7TObjectFv(p); }
 
 }

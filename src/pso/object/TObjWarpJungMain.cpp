@@ -55,7 +55,7 @@ M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, s32);
 u32 create_window_menu(M2C_UNK, M2C_UNK, s16);
 M2C_UNK get_window_layout_position(M2C_UNK);
-extern s32 lbl_804B964C[];
+extern s32 jungle_warp_destination_text_ids[];
 void TObjWarpJungMain__vt13(void *arg0, s16 arg1);
 }
 
@@ -170,7 +170,7 @@ M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
 
 extern M2C_UNK __vt__12TObjWarpJung[];
 extern M2C_UNK __vt__16TObjWarpJungMain[];
-extern RecoveredGlobal_8019FCFC_lbl_804B9658 lbl_804B9658;
+extern RecoveredGlobal_8019FCFC_lbl_804B9658 jungle_warp_destination_ids;
 extern s32 lbl_805D3498;
 extern s32 lbl_805D349C;
 extern s32 TObjWarpJung__beam_bml_resource;
@@ -226,7 +226,7 @@ s32 TObjWarpJungMain__vt16(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB0));
     if ((temp_r3 != NULL) && (is_visible__17TWindowSubComCardFPv(temp_r3) != 0)) {
-        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(&lbl_804B9658.value, M2C_UNK *, (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0xB0)) * 4));
+        M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(&jungle_warp_destination_ids.value, M2C_UNK *, (get_selected_menu_value(M2C_FIELD(arg0, u8 **, 0xB0)) * 4));
         return 1;
     }
     return 0;
@@ -241,7 +241,7 @@ void TObjWarpJungMain__vt13(void *arg0, s16 arg1) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) == 0U) {
         M2C_FIELD(arg0, u32 *, 0xB0) = create_window_menu(get_window_layout_position(0x32), 3, arg1);
         for (var_r29 = 0; var_r29 < 3; var_r29++) {
-            forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, lbl_804B964C[var_r29]), 0xE, var_r29);
+            forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u32 *, 0xB0), get_localized_text_entry(9, jungle_warp_destination_text_ids[var_r29]), 0xE, var_r29);
         }
         calc_window_size__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0xB0));
         align_menu_entry_positions(M2C_FIELD(arg0, u32 *, 0xB0));

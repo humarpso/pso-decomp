@@ -40,7 +40,7 @@ extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
 s32 __nw__7TObjectFUl(int);
 s32 fn_80247ED8(int);
-s32 fn_80248840(int, void *);
+s32 construct_symbol_chat_selection(int, void *);
 s32 reset_input__11TWindowChatFPv(void *);
 M2C_UNK TKeyBoardControl__sub_8025EC04(s32);
 s32 TWindowKeyBoardSoft__ct(int, void *, void *);
@@ -270,7 +270,7 @@ void open_next_input_window__11TWindowChatFPv(u8 *arg0) {
         temp_r3_3 = __nw__7TObjectFUl((int) (0x24));
         var_r0_3 = temp_r3_3;
         if (var_r0_3 != 0) {
-            var_r0_3 = fn_80248840((int) (temp_r3_3), (void *) (arg0));
+            var_r0_3 = construct_symbol_chat_selection((int) (temp_r3_3), (void *) (arg0));
         }
         ((RecoveredFields_8024792C_arg0 *)arg0)->field_30 = var_r0_3;
         TKeyBoardControl__sub_8025EC04((s32)((int) (((RecoveredFields_8024792C_arg0 *)arg0)->field_28)));

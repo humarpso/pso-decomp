@@ -2415,7 +2415,7 @@ void clear_action_flag__10TObjPlayerFPv(void *arg0);
 void apply_material_color_override__10TObjPlayerFi(s32 arg0);
 s32 get_battle_ctrl_flag__10TObjPlayerFUs(u16 arg0);
 void fill_player_record__10TObjPlayerFPvPv(Src_801B4CE4 *src, Dst_801B4CE4 *dst);
-Obj_801B4FD8 * TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self);
+Obj_801B4FD8 * init_player_join_record(Obj_801B4FD8 *self);
 s32 is_outside_movement_hold__10TObjPlayerFPvPv(u8 *self, f32 *pos);
 void handle_6x2D_release_hold(void *arg0);
 s32 draw_small_font__10TObjPlayerFi(s32 arg0, void * _w1);
@@ -2579,7 +2579,7 @@ int clear_links__10TObjPlayerFPv(void* p);
 void init_collision_body__10TObjPlayerFPv(Player_801BBD58 *self);
 M2C_UNK send_respawn_position__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BC050(O_801BC050 *p);
-void TObjPlayer__sub_801BC068(void *self, u16 id);
+void TObjPlayer__send_selected_spawn_position(void *self, u16 id);
 M2C_UNK place_on_area_entry__10TObjPlayerFPv(void *);
 M2C_UNK reset_state__10TObjPlayerFPv(void *);
 M2C_UNK reset_area_entry_state__10TObjPlayerFPv(void *);
@@ -2830,11 +2830,11 @@ void send_player_floor_packet__10TObjPlayerFPvPv(void *, s32);
 void send_player_floor_packet_u32x5__10TObjPlayerFPv(void *);
 void bswap_set_floor_packet__10TObjPlayerFPv(void *);
 void handle_6x1F_set_floor__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_801C17D0(void *);
+void init_6x1F_floor_packet(void *);
 M2C_UNK bswap_and_send_set_floor__10TObjPlayerFPv(M2C_UNK *);
 void bswap_warp_packet__10TObjPlayerFPv(void *);
 void copy_warp_target__10TObjPlayerFPvPv(void *, void *);
-void TObjPlayer__sub_801C1890(void *m);
+void init_6x21_inter_level_warp_packet(void *m);
 void send_warp_packet__10TObjPlayerFPv(Msg_801BAB1C *m);
 void TObjPlayer__sub_801C18E0(void *);
 void init_set_position_packet__10TObjPlayerFPv(void *);
@@ -2878,7 +2878,7 @@ s32 TObjPlayer__sub_801C2044(s32);
 TItemData* TObjPlayer__sub_801C2058(DeathDropRecord*);
 void set_field4__10TObjPlayerFPvi(DeathDropRecord*,s32);
 void* init_c2098_return_self__10TObjPlayerFPv(void*);
-void TObjPlayer__sub_801C20A4(void *);
+void init_player_telepipe_record(void *);
 s16 TObjPlayer__sub_801C2114(void);
 u8 get_field_5__10TObjPlayerFPv(s32);
 u8 get_byte_4__10TObjPlayerFPv(s32);
@@ -5747,12 +5747,12 @@ void fill_player_record__10TObjPlayerFPvPv(Src_801B4CE4 *src, Dst_801B4CE4 *dst)
     bswap_player_data__6TLobbyFi(dst);
 }
 
-Obj_801B4FD8 *TObjPlayer__sub_801B4FD8(Obj_801B4FD8 *self) {
+Obj_801B4FD8 *init_player_join_record(Obj_801B4FD8 *self) {
     s32 i;
     __construct_array(self->f28, init_192dc_return_self__10TObjPlayerFPv, 0, 0xC, 5);
     clear_header_struct__10TObjPlayerFPv(self->f68);
     TObjPlayer__sub_801C1A00(self->f70);
-    TObjPlayer__sub_801C20A4(self->f78);
+    init_player_telepipe_record(self->f78);
     init_forward__10TObjPlayerFPv(self->f94);
     TObjPlayer__sub_801BF660(self->f98);
     init_inventory_list__10TObjPlayerFPv(self->f13C);
@@ -7801,7 +7801,7 @@ void handle_6x1F_set_player_floor(void *arg0) {
     Msg20_801BA8D4 m3;
     void *p;
     Player_801BA8D4 *pl;
-    TObjPlayer__sub_801C17D0(&m);
+    init_6x1F_floor_packet(&m);
     handle_6x1F_set_floor__10TObjPlayerFPvPv(&m, arg0);
     bswap_set_floor_packet__10TObjPlayerFPv(&m);
     if (validate_6x1F_set_player_floor(&m) != 0) {
@@ -7835,7 +7835,7 @@ void apply_state_transform__10TObjPlayerFUi(u32 arg0) {
 
     ((M2C_UNK (*)(void))set_flag_400000__10TObjPlayerFi)();
     if ((arg0 == 0U) || (((s32 (*)(u32))obj_isState2_324)(arg0) == 0)) {
-        ((M2C_UNK (*)(M2C_UNK *))TObjPlayer__sub_801C17D0)((M2C_UNK *)&sp8);
+        ((M2C_UNK (*)(M2C_UNK *))init_6x1F_floor_packet)((M2C_UNK *)&sp8);
         sp8.fA = ((s16 (*)(u32))obj_getField1c)(arg0);
         sp8.fC = ((s32 (*)(u32))get_field_3e4__10TObjPlayerFPv)(arg0);
         bswap_and_send_set_floor__10TObjPlayerFPv((M2C_UNK *)&sp8);
@@ -7846,7 +7846,7 @@ void handle_6x21_inter_level_warp(void *arg0) {
     Msg_801BAA6C m;
     void *p;
 
-    TObjPlayer__sub_801C1890(&m);
+    init_6x21_inter_level_warp_packet(&m);
     copy_warp_target__10TObjPlayerFPvPv(&m, arg0);
     bswap_warp_packet__10TObjPlayerFPv(&m);
     if (validate_6x21_inter_level_warp(&m) != 0) {
@@ -7864,7 +7864,7 @@ void handle_6x21_inter_level_warp(void *arg0) {
 void send_6x21_inter_level_warp(void *obj, s32 value) {
     if (obj == 0 || ((s32 (*)(void *))obj_isState2_324)(obj) == 0) {
         Msg_801BAB1C m;
-        TObjPlayer__sub_801C1890(&m);
+        init_6x21_inter_level_warp_packet(&m);
         m.id = ((u16 (*)(void *))obj_getField1c)(obj);
         m.value = value;
         send_warp_packet__10TObjPlayerFPv(&m);
@@ -8470,7 +8470,7 @@ void TObjPlayer__sub_801BC050(O_801BC050 *p) {
     p->b = 0;
 }
 
-void TObjPlayer__sub_801BC068(void *self, u16 id) {
+void TObjPlayer__send_selected_spawn_position(void *self, u16 id) {
     Msg_801BC068 m;
     s32 found;
     Obj_801BC068 *o;

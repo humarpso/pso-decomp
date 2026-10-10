@@ -3,7 +3,7 @@ struct Obj_8018FA6C { u8 pad0[0x6]; u16 id; u8 pad8[0x4]; Obj_8018FA6C *next; u8
 
 extern "C" {
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-extern s32 lbl_805D3344;
+extern s32 TObjDoorKey__class_name;
 extern Obj_8018FA6C *tl_05;
 Obj_8018FA6C *fn_8018FA6C(u16 id);
 }
@@ -16,7 +16,7 @@ Obj_8018FA6C *fn_8018FA6C(u16 id) {
     while (tl_05->children != 0 && next != 0) {
         cur = next;
         next = cur->next;
-        if (check_value_equals__13TQuestColCtrlFPvi(cur, lbl_805D3344) != 0 && cur->id == id) {
+        if (check_value_equals__13TQuestColCtrlFPvi(cur, TObjDoorKey__class_name) != 0 && cur->id == id) {
             return cur;
         }
     }

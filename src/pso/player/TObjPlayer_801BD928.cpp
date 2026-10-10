@@ -37,7 +37,7 @@ M2C_UNK set_vec4_const_wrapper__10TObjPlayerFPv(void *);
 M2C_UNK init_members__10TObjPlayerFPv(void *);
 M2C_UNK init_state__10TObjPlayerFi(void *);
 M2C_UNK TObjPlayer__sub_801C1A00(void *);
-M2C_UNK TObjPlayer__sub_801C20A4(void *);
+M2C_UNK init_player_telepipe_record(void *);
 s32 TObjPlayer__sub_801C221C(void *);
 s32 TObjPlayer__sub_801C2224(void *);
 s32 TObjPlayer__sub_801C222C(void *);
@@ -107,7 +107,7 @@ u8 *construct_player_instance__10TObjPlayerFPvisiPv(u8 *arg0, s32 arg1, s16 arg2
     clear_base__10TObjPlayerFPv((void *) (arg0 + 0x7C8));
     init__10TObjPlayerFPv((void *) (arg0 + 0x7CC));
     TObjPlayer__sub_801C1A00((void *) (arg0 + 0x828));
-    TObjPlayer__sub_801C20A4((void *) (arg0 + 0x830));
+    init_player_telepipe_record((void *) (arg0 + 0x830));
     TObjPlayer__sub_801BFB4C((void *) (arg0 + 0x84C));
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x858));
     reset_and_return__10TObjPlayerFi((void *) (arg0 + 0xD04));

@@ -230,12 +230,12 @@ void *__dt__13TAdVIConfigGCFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__13TAdVIConfigGC[];
-extern void *lbl_805D4094;
+extern void *TAdVIConfigGC__class_name;
 
 void *TAdVIConfigGC__ct(void *arg0) {
     TAdYesNoBaseGC__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdVIConfigGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4094;
+    M2C_FIELD(arg0, void **, 0x0) = TAdVIConfigGC__class_name;
     set_field_2c__13TAdVIConfigGCFPvi(arg0, 0);
     M2C_FIELD(arg0, u32 *, 0x48) = 0;
     return arg0;

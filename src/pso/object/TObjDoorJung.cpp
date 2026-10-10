@@ -54,7 +54,7 @@ s32 init_door_base(void *);
 void clamp_state__12TObjDoorJungFPv(void *arg0);
 extern RecoveredGlobal_8018F9CC_lbl_804B788C TObjDoorJung__collision_desc;
 extern M2C_UNK __vt__12TObjDoorJung[];
-extern s32 lbl_805D333C;
+extern s32 TObjDoorJung__class_name;
 u8 *TObjDoorJung__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(M2C_UNK, M2C_UNK, M2C_UNK);
 void set_indexed_flags(void *, int, int);
@@ -242,7 +242,7 @@ typedef char RecoveredGlobal_8018F9CC___vt__12TObjDoorJung_size[sizeof(Recovered
 u8 *TObjDoorJung__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_door_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018F9CC___vt__12TObjDoorJung *)&__vt__12TObjDoorJung).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D333C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDoorJung__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoorJung__collision_desc.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));

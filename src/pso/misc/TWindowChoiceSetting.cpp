@@ -190,7 +190,7 @@ void TWindowMenuInfomation__ct(u8 *arg0, u32 arg1) {
 struct V_80268C5C { f32 x; f32 y; };
 
 extern "C" {
-extern V_80268C5C lbl_804D0644[];
+extern V_80268C5C choice_setting_popup_window_descriptor[];
 extern s32 lbl_804D0638[];
 void fn_80268C5C(V_80268C5C v, s32 x);
 s32 __nw__7TObjectFUl(s32);
@@ -215,7 +215,7 @@ s32 create_information_counter_window(s32 arg0) {
 }
 
 void fn_80268C5C(V_80268C5C v, s32 x) {
-    lbl_804D0644[0] = v;
+    choice_setting_popup_window_descriptor[0] = v;
     lbl_804D0638[1] = x;
 }
 
@@ -271,7 +271,7 @@ void TWindowSubStatusDisp__sub_80268C80(u8 *arg0) {
     }
 }
 
-extern M2C_UNK lbl_804D0658[];
+extern M2C_UNK choice_setting_popup_vtable[];
 
 typedef char RecoveredGlobal_80268D08_lbl_8050E208_size[sizeof(RecoveredGlobal_80268D08_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0) {
@@ -325,7 +325,7 @@ void handle_choice_input__20TWindowSubStatusDispFPv(u8 *arg0) {
 
 void *destroy_children__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D0658;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = choice_setting_popup_vtable;
         destroy_allocation__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x7C), 1);
         destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x78), 1);
         destroy_window__15TWindowAdditionFPvs(arg0, 0);

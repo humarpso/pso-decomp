@@ -14,13 +14,13 @@ M2C_UNK draw_weapon_at_joint(s32, M2C_UNK);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
-extern s32 lbl_805D5518;
+extern s32 knuckle_second_hand_pass;
 
 void update_shield_ready__10TObjPlayerFi(s32 arg0) {
     if (get_slot_count__14TItemProShieldFPv() == 3) {
-        lbl_805D5518 = 0;
+        knuckle_second_hand_pass = 0;
         draw_weapon_model(arg0);
-        lbl_805D5518 = 1;
+        knuckle_second_hand_pass = 1;
         draw_weapon_at_joint(arg0, 0x23);
     }
 }

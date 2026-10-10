@@ -227,7 +227,7 @@ extern s32 lbl_805D5FC0;
 extern s32 lobby_player_count;
 void TObjPlayer__sub_801C18E0(void* p);
 s32 TWindowDuelResult__sub_801C19AC(f32 *arg0);
-void TObjPlayer__sub_801C1890(u8 *arg0);
+void init_6x21_inter_level_warp_packet(u8 *arg0);
 void init_set_position_packet__10TObjPlayerFPv(u8 *arg0);
 void reset_settings_to_default__6TLobbyFPv(void *);
 void *reset_lobby_settings__10TObjPlayerFPv(void *arg0);
@@ -373,7 +373,7 @@ int TFontSmallLobby__sub_801C0228(void*);
 s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
 
-void TObjPlayer__sub_801C1890(u8 *arg0) {
+void init_6x21_inter_level_warp_packet(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x21;
     M2C_FIELD(arg0, s8 *, 1) = 2;

@@ -38,7 +38,7 @@ extern s32 lbl_805D5A48;
 void load_assets__16TOLightMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
-s32 TPhotonMagicSquare__sub_801A2640(void *, int);
+s32 construct_world_actor_base(void *, int);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__16TOLightMachine01[];
@@ -154,7 +154,7 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
 #pragma push
 #pragma fp_contract on
 u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (int) (tl_05));
+    construct_world_actor_base((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D306C;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);

@@ -347,12 +347,12 @@ void byteswap_and_send__6TLobbyFi(void *);
 void init_packet_67_04__6TLobbyFPv(void *);
 void set_destroy_event__6TLobbyFi(int a0);
 extern s32 local_client_id;
-extern s32 lbl_805D6084;
+extern s32 wave_event_trigger_count;
 void send_6x67_wave_trigger_event(s32 arg0);
 s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
 void init_6x05_switch_changed__6TLobbyFPv(void *);
-extern s32 lbl_805D6088;
+extern s32 wave_event_first_switch_set;
 void send_6x05_wave_set_switch(s16 arg0);
 s32 get_current_floor();
 void finalize_and_send_60__6TLobbyFPv(void *);
@@ -400,12 +400,12 @@ void load_item_data__6TLobbyFv(void) {
     }
 }
 
-    extern int lbl_805D6080;
-void relink_objects__6TLobbyFv(void) { link_matching_objects__6TLobbyFss(); lbl_805D6080 = 1; }
+    extern int wave_event_stop_requested;
+void relink_objects__6TLobbyFv(void) { link_matching_objects__6TLobbyFss(); wave_event_stop_requested = 1; }
 void send_6x67_wave_trigger_event(s32 arg0) {
     Pkt_802084B0 pkt;
-    s32 t = lbl_805D6084;
-    lbl_805D6084 = t + 1;
+    s32 t = wave_event_trigger_count;
+    wave_event_trigger_count = t + 1;
     ((void (*)(int, int))set_destroy_event__6TLobbyFi)(1, t);
     init_packet_67_04__6TLobbyFPv(&pkt);
     pkt.a = 0xFFFF;
@@ -433,9 +433,9 @@ void send_6x05_wave_set_switch(s16 arg0) {
     pkt.b = 0;
     pkt.c = arg0;
     pkt.d = ((s8)get_current_floor());
-    if (lbl_805D6088 != 0) {
+    if (wave_event_first_switch_set != 0) {
         pkt.e = 3;
-        lbl_805D6088 = 0;
+        wave_event_first_switch_set = 0;
     } else {
         pkt.e = 1;
     }
@@ -463,8 +463,8 @@ int spawn_objects_at_pos__6TLobbyFss(void*);
 int link_matching_objects__6TLobbyFPv(void* p) { return ((int (*)(void *))link_matching_objects__6TLobbyFss)(p); }
 int spawn_objects_at_pos__6TLobbyFPv(void* p) { return spawn_objects_at_pos__6TLobbyFss(p); }
 
-    extern int lbl_805D6080;
-void TLobby__sub_8020863C(void) { lbl_805D6080 = 1; }
+    extern int wave_event_stop_requested;
+void TLobby__sub_8020863C(void) { wave_event_stop_requested = 1; }
 
 void TLobby__sub_80208648(void) {  }
 
@@ -554,16 +554,16 @@ extern "C" {
 
 M2C_UNK bswap_32__FPUl(s32 *, s32);
 M2C_UNK memcpy(s32 *, s32, M2C_UNK);
-extern s32 lbl_805D6078;
-extern s32 lbl_805D607C;
+extern s32 wave_event_stream_base;
+extern s32 wave_event_stream_cursor;
 
 s32 read_be_u32(void) {
     s32 sp8;
     s32 temp_r4;
 
-    memcpy(&sp8, lbl_805D6078 + lbl_805D607C, 4);
-    temp_r4 = lbl_805D607C;
-    lbl_805D607C = temp_r4 + 4;
+    memcpy(&sp8, wave_event_stream_base + wave_event_stream_cursor, 4);
+    temp_r4 = wave_event_stream_cursor;
+    wave_event_stream_cursor = temp_r4 + 4;
     bswap_32__FPUl(&sp8, temp_r4);
     return sp8;
 }
@@ -580,16 +580,16 @@ extern "C" {
 
 M2C_UNK bswap_16__FPUs(u16 *, s32);
 
-extern s32 lbl_805D6078;
-extern s32 lbl_805D607C;
+extern s32 wave_event_stream_base;
+extern s32 wave_event_stream_cursor;
 
 u16 read_stream_u16(void) {
     u16 sp8;
     s32 temp_r4;
 
-    ((M2C_UNK (*)(u16 *, s32, M2C_UNK))memcpy)(&sp8, lbl_805D6078 + lbl_805D607C, 2);
-    temp_r4 = lbl_805D607C;
-    lbl_805D607C = temp_r4 + 2;
+    ((M2C_UNK (*)(u16 *, s32, M2C_UNK))memcpy)(&sp8, wave_event_stream_base + wave_event_stream_cursor, 2);
+    temp_r4 = wave_event_stream_cursor;
+    wave_event_stream_cursor = temp_r4 + 2;
     ((M2C_UNK (*)(u16 *, s32))bswap_16__FPUs)(&sp8, temp_r4);
     return sp8;
 }
@@ -604,31 +604,31 @@ unsigned char read_stream_u8(void);
 typedef void (*Fn_8020881C)();
 struct H_8020881C { Fn_8020881C fn; u32 b; };
 #define wave_event_action_table (*(H_8020881C (*)[1])&wave_event_action_table)
-#define lbl_805D6080 (*(s32 *)&lbl_805D6080)
-extern s32 lbl_805D6084;
-extern s32 lbl_805D6088;
+#define wave_event_stop_requested (*(s32 *)&wave_event_stop_requested)
+extern s32 wave_event_trigger_count;
+extern s32 wave_event_first_switch_set;
 s32 run_wave_event_actions(void);
 
-#define lbl_805D6078 (*(unsigned char * *)&lbl_805D6078)
-#define lbl_805D607C (*(int *)&lbl_805D607C)
-unsigned char read_stream_u8(void) { return lbl_805D6078[lbl_805D607C++]; }
+#define wave_event_stream_base (*(unsigned char * *)&wave_event_stream_base)
+#define wave_event_stream_cursor (*(int *)&wave_event_stream_cursor)
+unsigned char read_stream_u8(void) { return wave_event_stream_base[wave_event_stream_cursor++]; }
 
 s32 run_wave_event_actions(void) {
-    lbl_805D6080 = 0;
-    lbl_805D6084 = 0;
-    lbl_805D6088 = 1;
-    while (lbl_805D6080 == 0) {
+    wave_event_stop_requested = 0;
+    wave_event_trigger_count = 0;
+    wave_event_first_switch_set = 1;
+    while (wave_event_stop_requested == 0) {
         wave_event_action_table[read_stream_u8()].fn();
     }
-    return lbl_805D6084;
+    return wave_event_trigger_count;
 }
 
 }
 
 #undef wave_event_action_table
-#undef lbl_805D6078
-#undef lbl_805D607C
-#undef lbl_805D6080
+#undef wave_event_stream_base
+#undef wave_event_stream_cursor
+#undef wave_event_stop_requested
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -675,7 +675,7 @@ void activate_triggered_floor_events(void);
 s32 activate_first_floor_event(s32 idx, s32 id);
 u8 * heap_alloc__5THeapFUl(void *, s32);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
-extern u8 *lbl_805D6094;
+extern u8 *area_event_set_heap;
 u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_80208D28_lbl_805139F8 lobby_slot_ptr_table;
 s32 count_sync_record_bytes__6TLobbyFv(void);
@@ -707,9 +707,9 @@ M2C_UNK show_partner_chatter_for_key(s16);
 M2C_UNK TSetEvtDestroy__ct(void *, s32, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 
-#define lbl_805D6078 (*(int *)&lbl_805D6078)
-#define lbl_805D607C (*(int *)&lbl_805D607C)
-void TLobby__sub_80208884(void* a0) { lbl_805D6078 = *(int*)((char*)a0 + 0x0); lbl_805D607C = *(int*)((char*)a0 + 0x4); }
+#define wave_event_stream_base (*(int *)&wave_event_stream_base)
+#define wave_event_stream_cursor (*(int *)&wave_event_stream_cursor)
+void TLobby__sub_80208884(void* a0) { wave_event_stream_base = *(int*)((char*)a0 + 0x0); wave_event_stream_cursor = *(int*)((char*)a0 + 0x4); }
 
     extern int lbl_805D6090;
 void set_destroy_event__6TLobbyFi(int a0) { lbl_805D6090 = a0; }
@@ -909,7 +909,7 @@ u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1) {
     if ((u32) M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, temp_r30) != 0U) {
         return NULL;
     }
-    temp_r3 = (u8 *)(heap_alloc__5THeapFUl(lbl_805D6094, arg1));
+    temp_r3 = (u8 *)(heap_alloc__5THeapFUl(area_event_set_heap, arg1));
     if (temp_r3 != NULL) {
         M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, temp_r30) = (long) (temp_r3);
         return temp_r3;
@@ -919,8 +919,8 @@ u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1) {
 
 }
 
-#undef lbl_805D6078
-#undef lbl_805D607C
+#undef wave_event_stream_base
+#undef wave_event_stream_cursor
 
 #include "types.h"
 #pragma fp_contract on
@@ -940,7 +940,7 @@ struct Buf_80208E8C { u8 data[0x20]; };
 extern "C" {
 #define TLobby__data_805D6068 (*(Area_80208E8C * *)&TLobby__data_805D6068)
 extern u8 lbl_8044BAC8[];
-#define lbl_805D6094 (*(s32 *)&lbl_805D6094)
+#define area_event_set_heap (*(s32 *)&area_event_set_heap)
 #define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
 void replace_file_extension__6TLobbyFPvPvPv(Buf_80208E8C *, void *, void *);
 
@@ -950,7 +950,7 @@ void read_disc_file(Buf_80208E8C *, void *);
 s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
 #define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
-#define lbl_805D6094 (*(s32 *)&lbl_805D6094)
+#define area_event_set_heap (*(s32 *)&area_event_set_heap)
 void free_team_buffers__6TLobbyFv(void);
 }
 
@@ -961,7 +961,7 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
 
 #define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
-#define lbl_805D6094 (*(s32 *)&lbl_805D6094)
+#define area_event_set_heap (*(s32 *)&area_event_set_heap)
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp_r29;
@@ -974,7 +974,7 @@ s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     if ((u32) *((s32 *)((s8 *)lobby_slot_ptr_table + temp_r29)) != 0U) {
         return 0;
     }
-    temp_r3 = HA2(lbl_805D6094, arg2);
+    temp_r3 = HA2(area_event_set_heap, arg2);
     if (temp_r3 != 0) {
         move_data__6TLobbyFv(temp_r3, arg1, arg2);
         *((s32 *)((s8 *)lobby_slot_ptr_table + temp_r29)) = temp_r3;
@@ -988,7 +988,7 @@ void free_team_buffers__6TLobbyFv(void) {
     s32 i;
     for (i = 17; i >= 0; i--) {
         if ((u32)((s32 *)&lobby_slot_ptr_table)[i] != 0) {
-            heap_free__5THeapFPv((void *)lbl_805D6094, (void *)((s32 *)&lobby_slot_ptr_table)[i]);
+            heap_free__5THeapFPv((void *)area_event_set_heap, (void *)((s32 *)&lobby_slot_ptr_table)[i]);
             ((s32 *)&lobby_slot_ptr_table)[i] = 0;
         }
     }
@@ -1007,7 +1007,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
     replace_file_extension__6TLobbyFPvPvPv(&buf, TLobby__data_805D6068[area].terrs[terrain].ents[entities].data, lbl_8044BAC8);
     n = ((s32 (*)(Buf_80208E8C *))update_lobby_scene__6TSceneFPv)(&buf);
     if (n > 0) {
-        p = ((void *)HA2((s32)((*(void * *)&lbl_805D6094)), (s32)(n)));
+        p = ((void *)HA2((s32)((*(void * *)&area_event_set_heap)), (s32)(n)));
         if (p != 0) {
             read_disc_file(&buf, p);
             ((void * *)&lobby_slot_ptr_table)[floor] = p;
@@ -1021,7 +1021,7 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
 }
 
 #undef TLobby__data_805D6068
-#undef lbl_805D6094
+#undef area_event_set_heap
 #undef lobby_slot_ptr_table
 
 #include "types.h"
@@ -1079,7 +1079,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 u8 * __ct__5THeapFUli(void *, s32, s32);
 u8 *__nw__5THeapFUl(M2C_UNK);
-#define lbl_805D6094 (*(int *)&lbl_805D6094)
+#define area_event_set_heap (*(int *)&area_event_set_heap)
 void create_heap_8000__6TLobbyFv(void);
 void TItemDrop__sub_800FDDF4();
 void TItemDrop__sub_800FDE7C(void *);
@@ -1101,7 +1101,7 @@ int __dt__5THeapFv(void*, void*);
 
 int get_team_state__6TLobbyFPv(void* p) { return ((int (*)(void *))free_team_buffers__6TLobbyFv)(p); }
 
-#define lbl_805D6094 (*(int *)&lbl_805D6094)
+#define area_event_set_heap (*(int *)&area_event_set_heap)
 
 void load_set_event_gsl__6TLobbyFv(void) {
     s32 i;
@@ -1118,7 +1118,7 @@ void load_set_event_gsl__6TLobbyFv(void) {
     TItemDrop__sub_800FDDF4();
 }
 
-void free_heap__6TLobbyFv(void) { __dt__5THeapFv((void*)(lbl_805D6094), (void*)1); lbl_805D6094 = 0; }
+void free_heap__6TLobbyFv(void) { __dt__5THeapFv((void*)(area_event_set_heap), (void*)1); area_event_set_heap = 0; }
 
     extern int lbl_805D6090;
 
@@ -1130,12 +1130,12 @@ void create_heap_8000__6TLobbyFv(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__5THeapFUli(temp_r3, 0x8000, 0x20));
     }
-    (*(u8 * *)&lbl_805D6094) = var_r0;
+    (*(u8 * *)&area_event_set_heap) = var_r0;
 }
 
 int get_destroy_event_obj__6TLobbyFv(void) {  return lbl_805D6090; }
 
 }
 
-#undef lbl_805D6094
+#undef area_event_set_heap
 #undef lobby_slot_ptr_table

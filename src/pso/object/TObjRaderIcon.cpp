@@ -24,7 +24,7 @@ struct Icon_80197110 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x1C]; s32 f60; u8 pa
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__13TObjRaderIcon[];
 extern s32 lbl_805D3418;
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -127,7 +127,7 @@ void *__dt__13TObjRaderIconFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8019733C___vt__13TObjRaderIcon_size[sizeof(RecoveredGlobal_8019733C___vt__13TObjRaderIcon) == 0x34 ? 1 : -1];
 u8 *TObjRaderIcon__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019733C___vt__13TObjRaderIcon *)&__vt__13TObjRaderIcon).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3418;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

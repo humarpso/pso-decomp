@@ -24,7 +24,7 @@ s32 find_entry_by_name__12TObjDoorJungFPvPv(s32, void *);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
-extern u8 lbl_804B963C[];
+extern u8 jungle_warp_beam_resource_descriptor[];
 extern s32 warp_jung_beam_models[6];
 extern void *TObjWarpJung__beam_bml_resource;
 extern s32 warp_jung_beam_motion;
@@ -54,7 +54,7 @@ void load_warp_beam_resources(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, lbl_804B963C, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, jungle_warp_beam_resource_descriptor, 0, 0, 0);
     }
     TObjWarpJung__beam_bml_resource = p;
     warp_jung_beam_motion = get_bml_motion(p, 0);

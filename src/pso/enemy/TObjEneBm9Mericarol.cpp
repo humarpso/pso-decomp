@@ -574,7 +574,7 @@ void *lbl_804E1634[36] = {
     (void *)0x10000, (void *)0x4, (void *)0x3f19999a, (void *)0x0,
     (void *)0x10000, (void *)0x0, (void *)0x3f333333, (void *)0x0,
 };
-void *lbl_804E16C4[107] = {
+void *TObjEneBm9Mericarol__vtable[107] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__19TObjEneBm9MericarolFPvs, (void *)&TObjEneBm9Mericarol__sub_802D0B04,
     (void *)&TObjPlayer__sub_802CE8CC, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -603,7 +603,7 @@ void *lbl_804E16C4[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneBm9Mericarol__sub_802CED3C, (void *)&draw_color_variant__10TObjPlayerFPv,
 };
-#define lbl_804E16C4 ((u8 *)lbl_804E16C4)
+#define TObjEneBm9Mericarol__vtable ((u8 *)TObjEneBm9Mericarol__vtable)
 u32 bm9_mericarol_phase_hp_table[3];
 u32 lbl_80540B64[3];
 u32 lbl_80540B70[3];
@@ -786,7 +786,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
     void *p;
 
     init_object__9TObjEneDDFPv(self, parent);
-    self->vt18 = lbl_804E16C4;
+    self->vt18 = TObjEneBm9Mericarol__vtable;
     __construct_array(self->a3C8, (void *)init_and_activate__10TObjPlayerFPv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
     init_common__18TObjEneMe3SinowZoaFPv(self->o46C);
     self->f0 = lbl_805D3F28;
@@ -864,7 +864,7 @@ Obj_802D0D3C *TObjEneBm9Mericarol__ct(Obj_802D0D3C *self, void *parent, s32 arg2
 u8 *__dt__19TObjEneBm9MericarolFPvs(u8 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = lbl_804E16C4;
+        M2C_FIELD(arg0, void **, 0x18) = TObjEneBm9Mericarol__vtable;
         for (i = 0; i < 2; i++) {
             if (((S_802D0C14 *)arg0)->arr[i] != NULL) {
                 queue_destruction__7TObjectFv(((S_802D0C14 *)arg0)->arr[i]);

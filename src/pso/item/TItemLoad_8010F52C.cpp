@@ -21,8 +21,8 @@ void * construct__9TItemLoadFPv(void *, void *, int, int);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 extern s32 lbl_805D2BE8;
 extern s32 lbl_805D2BEC;
-extern void *lbl_805D549C;
-extern void *lbl_805D54A0;
+extern void *item_texture_archive_loader;
+extern void *item_model_chunk_loader;
 extern s32 item_load_model_buffer;
 void TItemLoad__sub_8010F5A0(void);
 void init__9TItemLoadFPv(void *, void *, int, int);
@@ -65,20 +65,20 @@ M2C_UNK free__11TOBoss4RockFUi(s32);
 void init__9TItemLoadFPv(void *, void *, int, int);
 M2C_UNK reset_state__9TItemLoadFPv(void *);
 
-extern void *lbl_805D549C;
-extern void *lbl_805D54A0;
+extern void *item_texture_archive_loader;
+extern void *item_model_chunk_loader;
 extern s32 item_load_model_buffer;
 
 void free_all_models__9TItemLoadFv(void) {
     free__11TOBoss4RockFUi(item_load_model_buffer);
-    if (lbl_805D54A0 != NULL) {
-        ((struct VObj_8010F52C *)lbl_805D54A0)->m0(1);
+    if (item_model_chunk_loader != NULL) {
+        ((struct VObj_8010F52C *)item_model_chunk_loader)->m0(1);
     }
-    if (lbl_805D549C != NULL) {
-        ((struct VObj_8010F52C *)lbl_805D549C)->m0(1);
+    if (item_texture_archive_loader != NULL) {
+        ((struct VObj_8010F52C *)item_texture_archive_loader)->m0(1);
     }
-    lbl_805D549C = NULL;
-    lbl_805D54A0 = NULL;
+    item_texture_archive_loader = NULL;
+    item_model_chunk_loader = NULL;
     item_load_model_buffer = 0;
 }
 
@@ -94,13 +94,13 @@ void TItemLoad__sub_8010F5A0(void) {
     if (var_r0 != 0) {
         var_r0 = ((s32)construct__9TItemLoadFPv((void *)((int) (temp_r3)), (void *)((void *) (lbl_805D2BE8)), (int)((int) (0xB5)), (int)((int) (0x144))));
     }
-    (*(s32 *)&lbl_805D549C) = var_r0;
+    (*(s32 *)&item_texture_archive_loader) = var_r0;
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x40));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
         var_r0_2 = construct_with_vtable__9TItemLoadFiPvii((int)((int) (temp_r3_2)), (void *)((void *) (lbl_805D2BEC)), (int)((int) (0xB4)), (int)((int) (0x12F)));
     }
-    (*(s32 *)&lbl_805D54A0) = var_r0_2;
+    (*(s32 *)&item_model_chunk_loader) = var_r0_2;
     item_load_model_buffer = alloc_buffer__11TOBoss4RockFPv((int) (0x21000));
 }
 

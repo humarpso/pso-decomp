@@ -34,7 +34,7 @@ void create_instance__14TObjBoss1FloorFv(void) {
 void TObjBoss1Floor__sub_8002CB78(void) {  }
 
 extern u8 *lbl_805D4B50;
-extern s32 lbl_805D4B54;
+extern s32 dragon_common_texture_list;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -43,7 +43,7 @@ extern s32 lbl_805D7784;
 extern s32 some_id_805c6f74;
 
 void render_boss_effect_object(u8 *arg0) {
-    set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
+    set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
     update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));

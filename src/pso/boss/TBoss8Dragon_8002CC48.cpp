@@ -143,7 +143,7 @@ extern M2C_UNK lbl_80482048[];
 extern M2C_UNK lbl_80482060[];
 extern s32 lbl_805D2698;
 extern u8 *lbl_805D4B50;
-extern s32 lbl_805D4B54;
+extern s32 dragon_common_texture_list;
 extern int lbl_805D4B60;
 extern int lbl_805D4B64;
 extern int lbl_805D4B68;
@@ -151,8 +151,8 @@ extern int lbl_805D4B6C;
 extern Hdr_8002D4C0 *lbl_805D4B70;
 extern s32 lbl_805D4B74;
 extern int lbl_805D4B78;
-extern s32 lbl_805D4B7C;
-extern s32 lbl_805D4B80;
+extern s32 dragon_trail_position_source;
+extern s32 dragon_trail_heading_source;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -257,7 +257,7 @@ void update_dragon_trail_piece(Trail_8002CC48 *self) {
 }
 
 s32 get_state__12TBoss8DragonFv(void) {
-    return lbl_805D4B7C;
+    return dragon_trail_position_source;
 }
 
 void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
@@ -301,13 +301,13 @@ void render_dragon_trail(Obj_8002CE78 *arg0) {
     Ent_8002CE78 *p;
     s32 i;
     if (arg0->active != 0) {
-        set_global_param__8TObjFishFi(lbl_805D4B54);
-        update_dragon_trail_uvs((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)lbl_805D4B7C));
+        set_global_param__8TObjFishFi(dragon_common_texture_list);
+        update_dragon_trail_uvs((Obj_8002D4C0 *)((struct Obj_8002D4C0 *)dragon_trail_position_source));
         for (p = (Ent_8002CE78 *)lbl_805D4B78, i = 0; i < lbl_805D4B74; i++, p++) {
             *p->dst = p->base + p->ofs;
         }
         push_matrix();
-        post_translate_matrix((void *)lbl_805D4B7C);
+        post_translate_matrix((void *)dragon_trail_position_source);
         translate_matrix(0, lbl_805D8198, arg0->unk34, lbl_805D8198);
         if (arg0->unk38 != 0) {
             lbl_805D5660 = some_id_805c6f74;
@@ -349,7 +349,7 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
         if (self->f30 > 0.0f) {
             self->f30 = 0.0f;
         }
-        d = calc_nearest_crater_distance((void *)lbl_805D4B7C);
+        d = calc_nearest_crater_distance((void *)dragon_trail_position_source);
         self->f34 = self->f30;
         if (0.0f != d && d < 95.0f) {
             self->f34 = -(-0.31578946f * d - -30.0f);
@@ -358,8 +358,8 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
             }
         }
         if (self->f34 >= 0.0f) {
-            self->f2C += newton_sqrtf(horizontal_distance_squared((void *)lbl_805D4B7C, &self->pos));
-            VecCopy__FP3VecPC3Vec(&self->pos, (void *)lbl_805D4B7C);
+            self->f2C += newton_sqrtf(horizontal_distance_squared((void *)dragon_trail_position_source, &self->pos));
+            VecCopy__FP3VecPC3Vec(&self->pos, (void *)dragon_trail_position_source);
             if (self->f2C >= 10.0f) {
                 self->f2C = 0.0f;
                 if (self->f3C != 0) {
@@ -374,17 +374,17 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
                     }
                 }
             }
-            ang = *(s32 *)lbl_805D4B80;
+            ang = *(s32 *)dragon_trail_heading_source;
             s = ((f32 (*)(s32))cos_table_lookup)(ang);
             c = sin_table_lookup(ang);
-            ax = c * lbl_805D81AC + ((Vec_8002CFB8 *)lbl_805D4B7C)->x;
-            az = s * lbl_805D81AC + ((Vec_8002CFB8 *)lbl_805D4B7C)->z;
+            ax = c * lbl_805D81AC + ((Vec_8002CFB8 *)dragon_trail_position_source)->x;
+            az = s * lbl_805D81AC + ((Vec_8002CFB8 *)dragon_trail_position_source)->z;
             ang += (s32)(10000.0f * rand_signed_unit());
             s = ((f32 (*)(s32))cos_table_lookup)(ang);
             c = sin_table_lookup(ang);
-            pos.x = c * lbl_805D81B4 + ((Vec_8002CFB8 *)lbl_805D4B7C)->x;
+            pos.x = c * lbl_805D81B4 + ((Vec_8002CFB8 *)dragon_trail_position_source)->x;
             pos.y = 0.0f;
-            pos.z = s * lbl_805D81B4 + ((Vec_8002CFB8 *)lbl_805D4B7C)->z;
+            pos.z = s * lbl_805D81B4 + ((Vec_8002CFB8 *)dragon_trail_position_source)->z;
             vel.x = pos.x - ax;
             vel.z = pos.z - az;
             clamp_velocity__15TObjBoss2TunnelFPv(&vel);
@@ -458,8 +458,8 @@ u8 *construct_trail__12TBoss8DragonFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 ar
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&lbl_80482060).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2698;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    (*(u8 * *)&lbl_805D4B7C) = arg2;
-    lbl_805D4B80 = arg3;
+    (*(u8 * *)&dragon_trail_position_source) = arg2;
+    dragon_trail_heading_source = arg3;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805D8198;
     M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805D81A0;
@@ -652,7 +652,7 @@ void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0x800);
         set_chunk_material_color(&self->color);
         push_matrix();
-        set_global_param__8TObjFishFi(lbl_805D4B54);
+        set_global_param__8TObjFishFi(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);
@@ -662,7 +662,7 @@ void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
         some_id_805c6f74 = lbl_805D5660;
     } else {
         push_matrix();
-        set_global_param__8TObjFishFi(lbl_805D4B54);
+        set_global_param__8TObjFishFi(dragon_common_texture_list);
         post_translate_matrix(self->pos);
         rotate_matrix_y(0, self->ry);
         rotate_matrix_x(0, self->rx);

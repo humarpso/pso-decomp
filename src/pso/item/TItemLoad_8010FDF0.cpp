@@ -41,9 +41,9 @@ M2C_UNK destroy__9TItemDropFPvs(M2C_UNK *, M2C_UNK);
 s32 prs_decompress_alloc(s32, u32, s32);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 
-    extern int lbl_805D5494;
-    extern int lbl_805D5498;
-void alloc_work_buffer__9TItemLoadFv(void) { lbl_805D5494 = alloc_buffer__11TOBoss4RockFPv((void*)((void*)24576)); lbl_805D5498 = 0; }
+    extern int item_load_compressed_work_buffer;
+    extern int item_load_work_buffer_busy;
+void alloc_work_buffer__9TItemLoadFv(void) { item_load_compressed_work_buffer = alloc_buffer__11TOBoss4RockFPv((void*)((void*)24576)); item_load_work_buffer_busy = 0; }
 
 s32 *__dt__9TItemLoadFPvs(s32 *arg0, s16 arg1) {
     if (arg0 != NULL) {

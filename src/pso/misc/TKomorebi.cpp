@@ -30,7 +30,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__9TKomorebi[];
 extern s32 komorebi_class_name;
 extern u32 lbl_805D5C20;
@@ -117,7 +117,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801922C4___vt__9TKomorebi_size[sizeof(RecoveredGlobal_801922C4___vt__9TKomorebi) == 0x38 ? 1 : -1];
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801922C4___vt__9TKomorebi *)&__vt__9TKomorebi).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) komorebi_class_name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));

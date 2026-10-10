@@ -90,9 +90,9 @@ extern "C" u8 lbl_804465FC[];
 extern void *boss_warp_model_names[4];
 extern void *boss_warp_motion_names[3];
 extern void *lbl_804B94BC[4];
-extern void *lbl_804B94CC[3];
+extern void *ancient_boss_warp_resource_block[3];
 extern void *lbl_804B94E8[3];
-extern __declspec(section ".data") void *lbl_804B94F4[2];
+extern __declspec(section ".data") void *jungle_boss_warp_resource_block[2];
 void load_models__8TObjFishFv(void);
 }
 
@@ -209,20 +209,20 @@ void *lbl_804B94AC[4] = {
 void *lbl_804B94BC[4] = {
     (void *)&lbl_80446514, (void *)&lbl_8044652C, (void *)&lbl_80446544, (void *)0x0,
 };
-void *lbl_804B94CC[3] = {
+void *ancient_boss_warp_resource_block[3] = {
     (void *)&lbl_8044655C, (void *)&lbl_80446574, (void *)0x0,
 };
 void *lbl_804B94D8[4] = {
-    (void *)&lbl_80446590, (void *)&lbl_804B94BC, (void *)&lbl_804B94CC, (void *)0x30002,
+    (void *)&lbl_80446590, (void *)&lbl_804B94BC, (void *)&ancient_boss_warp_resource_block, (void *)0x30002,
 };
 void *lbl_804B94E8[3] = {
     (void *)&lbl_804465AC, (void *)&lbl_804465C4, (void *)0x0,
 };
-__declspec(section ".data") void *lbl_804B94F4[2] = {
+__declspec(section ".data") void *jungle_boss_warp_resource_block[2] = {
     (void *)&lbl_804465E0, (void *)0x0,
 };
 void *lbl_804B94FC[4] = {
-    (void *)&lbl_804465FC, (void *)&lbl_804B94E8, (void *)&lbl_804B94F4, (void *)0x20001,
+    (void *)&lbl_804465FC, (void *)&lbl_804B94E8, (void *)&jungle_boss_warp_resource_block, (void *)0x20001,
 };
 void load_models__8TObjFishFv(void) {
     s32 st;

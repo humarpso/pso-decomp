@@ -80,7 +80,7 @@ s32 get_instance_count__9TBoss4UroFv();
 s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern s32 boss4_zanzo_bml_index_table[];
 }
 
@@ -196,7 +196,7 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
     s32 cnt;
     s32 i;
 
-    TPhotonMagicSquare__sub_801A2640(self, arg1);
+    construct_world_actor_base(self, arg1);
     self->vt18 = (u8 *)lbl_8048568C;
     self->vt0 = (s32) lbl_805D2788;
     VecCopy__FP3VecPC3Vec(self->pos, arg2);

@@ -65,7 +65,7 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
 extern char __vt__18TOExplosiveMachine[];
 O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1);
-void TPhotonMagicSquare__sub_801A2640(void *, s32);
+void construct_world_actor_base(void *, s32);
 extern char __vt__18TOExplosiveMachine[];
 extern s32 TOExplosiveMachine__class_name;
 extern s32 tl_05;
@@ -150,7 +150,7 @@ O_80166664 *__dt__18TOExplosiveMachineFv(O_80166664 *arg0, s16 arg1) {
 
 O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     s32 i;
-    TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
+    construct_world_actor_base(arg0, tl_05);
     arg0->vt = __vt__18TOExplosiveMachine;
     arg0->id = TOExplosiveMachine__class_name;
     arg0->f90 = lbl_805DB5F0;

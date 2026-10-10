@@ -25,7 +25,7 @@ void *TWindowCtrlClipOut__ct(void *, void *);
 void *TWindowCtrlSub__ct(void *, void *);
 void *TWindowCtrlScreen__ct(void *, void *);
 extern u8 __vt__15TWindowCtrlMain[];
-extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern s32 lbl_805D38D0;
 extern void *tl_01;
 extern void *tl_window;
@@ -41,7 +41,7 @@ M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
 extern u8 __vt__15TWindowCtrlMain[];
-extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
 extern void *TWindowCtrlMain__data_805D6408;
 extern void *TWindowCtrlMain__data_805D640C;
@@ -51,7 +51,7 @@ void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
 M2C_UNK free_window__15TWindowCtrlMainFv();
 M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
 M2C_UNK free_keyboard_soft__15TWindowCtrlMainFv();
-extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
 extern void *TWindowCtrlMain__data_805D6408;
 extern void *TWindowCtrlMain__data_805D640C;
@@ -62,7 +62,7 @@ M2C_UNK load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
 M2C_UNK get_or_create_instance__19TWindowKeyBoardSoftFv();
 M2C_UNK TWindowCtrlMain__sub_8024EF30();
-extern Ent_8024D520 TWindowCtrlMain__data_80518730[6];
+extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__display_flags;
 extern void *TWindowCtrlMain__instance;
 extern void *TWindowCtrlMain__data_805D6408;
@@ -123,7 +123,7 @@ void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
             TWindowCtrlMain__data_805D640C = NULL;
         }
         for (i = 5; i >= 0; i--) {
-            release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+            release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
         }
         if (TWindowCtrlMain__instance != NULL) {
             delete (W_8024D3C0 *)TWindowCtrlMain__instance;
@@ -162,7 +162,7 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
         TWindowCtrlMain__instance = p;
     }
     for (i = 0; i < 6; i++) {
-        e = &TWindowCtrlMain__data_80518730[i];
+        e = &TWindowCtrlMain__viewport_states[i];
         init_fields__15TWindowCtrlMainFPv(e);
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {
@@ -212,7 +212,7 @@ void free_all_windows__15TWindowCtrlMainFv(void) {
         TWindowCtrlMain__data_805D640C = NULL;
     }
     for (i = 5; i >= 0; i--) {
-        release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+        release_ptr__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
     }
     if (TWindowCtrlMain__instance != NULL) {
         delete (W_8024D690 *)TWindowCtrlMain__instance;
@@ -238,7 +238,7 @@ void reset_all__15TWindowCtrlMainFPv(void* _w0) {
     TWindowCtrlMain__instance = 0;
     lbl_805D6418 = lbl_805DCC58;
     for (i = 0; i < 6; i++) {
-        init_fields__15TWindowCtrlMainFPv(&TWindowCtrlMain__data_80518730[i]);
+        init_fields__15TWindowCtrlMainFPv(&TWindowCtrlMain__viewport_states[i]);
     }
 }
 

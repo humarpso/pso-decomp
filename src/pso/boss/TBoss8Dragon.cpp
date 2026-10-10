@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss8Dragon.h"
 #include <stddef.h>
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -232,6 +233,24 @@ struct Obj_802FC674 {
     s16 f32C;
 };
 
+struct Induction_802F46F4_var_r31 { u8 bytes[0x1C]; };
+
+struct Induction_802F46F4_var_r31_owner { u8 padding[0x6DC]; Induction_802F46F4_var_r31 elements[4]; };
+
+struct VBase_14_8d1630 { char pad[0x14]; };
+
+struct VObj_14_8d1630 : VBase_14_8d1630 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual s32 m8();
+};
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -455,6 +474,7 @@ extern const f32 TBoss8Dragon__data_805DEDA8;
 extern const f32 TBoss8Dragon__data_805DEDB0;
 extern const f32 lbl_805DEED8;
 s32 TBoss8Dragon__sub_802FC674(Obj_802FC674 *self, f32 *out);
+s32 TBoss8Dragon__sub_802F46F4(s32 arg0);
 }
 
 extern "C" {
@@ -1749,8 +1769,6 @@ s32 is_near_other_part__12TBoss8DragonFPv(void *);
 void set_mode_params__12TBoss8DragonFPvc(void *, unsigned char);
 void render_body_model__12TBoss8DragonFPv(Obj_802F44D8 *o);
 void update_camera_script__12TBoss8DragonFv(void);
-s32 TBoss8Dragon__sub_802F4694();
-s32 TBoss8Dragon__sub_802F46F4();
 s32 TBoss8Dragon__sub_802F4760(f32 farg0);
 void apply_ground_movement__12TBoss8DragonFPvPv(u8 *arg0, f32 *arg1);
 M2C_UNK TBoss8Dragon__sub_802F48DC(void *, void *);
@@ -2715,6 +2733,37 @@ void update_camera_script__12TBoss8DragonFv(void) {
     TBoss8Dragon__data_805D698C += 1;
 }
 
+}
+
+s32 TBoss8Dragon::hasActiveRenderFade() {
+    for (s32 i = 0; i < 4; ++i) {
+        if (renderFadeStates[i].isFading() != 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+extern "C" {
+
+typedef char Induction_802F46F4_var_r31_size_check[sizeof(Induction_802F46F4_var_r31) == 0x1C ? 1 : -1];
+typedef char Induction_802F46F4_var_r31_offset_check[offsetof(Induction_802F46F4_var_r31_owner, elements) == 0x6DC ? 1 : -1];
+s32 TBoss8Dragon__sub_802F46F4(s32 arg0) {
+    s32 var_r30;
+    u8 *temp_r3;
+    var_r30 = 0;
+    loop_1:
+    temp_r3 = (unsigned char *) ((s32)&((Induction_802F46F4_var_r31_owner *)arg0)->elements[var_r30]);
+    if (((VObj_14_8d1630 *)(temp_r3))->m8() != 0) {
+        return 1;
+    }
+    var_r30 += 1;
+    if (var_r30 >= 4) {
+        return 0;
+    }
+    goto loop_1;
+}
+
 #pragma push
 #pragma fp_contract on
 s32 TBoss8Dragon__sub_802F4760(f32 farg0) {
@@ -3085,7 +3134,7 @@ void TBoss8Dragon__sub_802F51DC(u8 *arg0, u32 arg1) {
         ((M2C_UNK (*)(void *, int))send_action_packet__12TBoss8DragonFPvi)((void *) (arg0), (int) (0x18));
         return;
     case 9:
-        if (TBoss8Dragon__sub_802F4694() == 0) {
+        if (((TBoss8Dragon *)arg0)->hasActiveRenderFade() == 0) {
             ((M2C_UNK (*)(void *))pick_next_action__12TBoss8DragonFPv)((void *) (arg0));
         }
     default:
@@ -3157,7 +3206,7 @@ void TBoss8Dragon__sub_802F5434(u8 *arg0, u32 arg1) {
         ((M2C_UNK (*)(void *, int))send_action_packet__12TBoss8DragonFPvi)((void *) (arg0), (int) (0x18));
         return;
     case 9:
-        if (TBoss8Dragon__sub_802F46F4() == 0) {
+        if (TBoss8Dragon__sub_802F46F4((s32)(arg0)) == 0) {
             ((M2C_UNK (*)(void *))pick_next_action__12TBoss8DragonFPv)((void *) (arg0));
         }
     default:

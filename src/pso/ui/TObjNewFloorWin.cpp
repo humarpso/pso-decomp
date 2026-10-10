@@ -24,12 +24,12 @@ int close_active_window__11TWindowCtrlFv(void*);
 void set_flag_40__16TAdChrSelASlotGCFPv(void* p);
 
 extern M2C_UNK __vt__15TObjNewFloorWin[];
-extern void *lbl_805D2870;
+extern void *TObjNewFloorWin__class_name;
 
 void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjNewFloorWin;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2870;
+    M2C_FIELD(arg0, void **, 0x0) = TObjNewFloorWin__class_name;
     M2C_FIELD(arg0, void **, 0x4C) = arg2;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 450;

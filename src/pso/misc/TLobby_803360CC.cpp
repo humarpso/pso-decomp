@@ -125,7 +125,7 @@ extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern const s32 current_language;
 extern u32 lbl_805D6D40;
 extern u8 *lobby_title_texture_list;
-void TLobby__sub_80336750(void);
+void initialize_lobby_title_scene(void);
 s32 TAdTrialAgreementGC__sub_80335958(int);
 s32 TLobby__sub_80336030(void *);
 extern PMF_803362A4 TLobby__state_handler_pmf_table[];
@@ -329,7 +329,7 @@ void destroy_global_object__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_80336750(void) {
+void initialize_lobby_title_scene(void) {
     lbl_805D6D40 = 0;
     update_menu_cursor__6TLobbyFv();
     Tbl_80336750 t = title_texture_filename_table;

@@ -79,7 +79,7 @@ int forward_floor_2CB44__6TLobbyFPv(void* p) { return create_instance__14TObjBos
 void init_bosses__6TLobbyFv(void) { load_dragon_ground_assets(); TObjBoss1Floor__sub_8002CB78(); TObjBoss1Crater__sub_8002C7B8(); TObjBoss1Rock__sub_8002E3D0(); TBoss8Dragon__sub_8002D5F8(); }
 
 extern u8 *lbl_805D4B50;
-extern s32 lbl_805D4B54;
+extern s32 dragon_common_texture_list;
 extern s32 lbl_805D5660;
 extern s32 some_id_805c6f74;
 
@@ -96,7 +96,7 @@ void render__14TObjBoss1FloorFv(void) {
         some_id_805c6f74 = 1;
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();
-        set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
+        set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
         temp_r31 = (unsigned char *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), void **, 0x58));
         render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
         draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));

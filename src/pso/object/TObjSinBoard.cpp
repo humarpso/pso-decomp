@@ -47,9 +47,9 @@ M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_801982D4_lbl_804B8DAC lobby_gvm_texture_handles;
 extern s32 gogo_ball_bml_resource;
 void draw_hinged_model__10TObjPlayerFPv(u8 *arg0);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__12TObjSinBoard[];
-extern s32 lbl_805D3430;
+extern s32 TObjSinBoard__class_name;
 u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void reset_transform_state__10TObjPlayerFv();
@@ -151,9 +151,9 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_80198228___vt__12TObjSinBoard_size[sizeof(RecoveredGlobal_80198228___vt__12TObjSinBoard) == 0x38 ? 1 : -1];
 u8 *TObjSinBoard__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80198228___vt__12TObjSinBoard *)&__vt__12TObjSinBoard).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3430;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjSinBoard__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     return arg0;
 }

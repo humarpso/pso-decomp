@@ -1956,7 +1956,7 @@ struct RecoveredGlobal_80275228_lbl_80517EE0 {
 };
 
 extern "C" {
-extern RecoveredGlobal_80275228_lbl_80517EE0 lbl_80517EE0;
+extern RecoveredGlobal_80275228_lbl_80517EE0 selected_guild_card_record;
 M2C_UNK *TWindowSubComCard__sub_80275228(void);
 }
 
@@ -1980,7 +1980,7 @@ void set_com_param__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_80275228_lbl_80517EE0_size[sizeof(RecoveredGlobal_80275228_lbl_80517EE0) == 0xBC ? 1 : -1];
 M2C_UNK *TWindowSubComCard__sub_80275228(void) {
-    return &lbl_80517EE0.value;
+    return &selected_guild_card_record.value;
 }
 
 void* get_card_data_ptr__17TWindowSubComCardFPv(void* p) { return (char*)p + 0x3b; }

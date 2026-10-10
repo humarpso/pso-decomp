@@ -165,7 +165,7 @@ extern s32 lbl_805D2A98;
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
 s32 obj_getField1c(void);
 void reset_cameras_to_actor(void *, int);
-void TObjPlayer__sub_801BC068(void *, int);
+void TObjPlayer__send_selected_spawn_position(void *, int);
 void destroy__23TAdSinglePlyChrSelectGCFv(void);
 void init_scene_objects__6TLobbyFv(void);
 void destroy_matching_children__19TPlayerBattleCtrl4PFPvPv(void *self, Par_80311304 *p);
@@ -771,7 +771,7 @@ void reset_players__19TPlayerBattleCtrl4PFPv(Ctl_80311380 *o) {
     for (i = 0; i < 4; i++) {
         p = (void *)get_player_by_client_id(i);
         if (p != 0) {
-            TObjPlayer__sub_801BC068(p, o->tbl[(u16)obj_getField1c()]);
+            TObjPlayer__send_selected_spawn_position(p, o->tbl[(u16)obj_getField1c()]);
             reset_cameras_to_actor(p, 0);
         }
     }

@@ -97,7 +97,7 @@ void set_params__6TLobbyFii(s32 arg0, s32 arg1);
 M2C_UNK clear_session_buffer__6TLobbyFv();
 M2C_UNK decode_adx_stereo_downmix();
 M2C_UNK decode_adx_stereo();
-M2C_UNK TLobby__sub_803C8610();
+M2C_UNK update_active_stream_reads();
 M2C_UNK dec_ref_and_reset_tables__6TLobbyFv();
 M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
@@ -365,11 +365,11 @@ void ARAlloc(void) {
     if ((s32) lbl_805D7530 == 0) {
         init_once__6TLobbyFv();
         lbl_805D7530 = 1;
-        TLobby__sub_803C8610();
+        update_active_stream_reads();
         lbl_805D7530 = 2;
         TLobby__sub_803CEF60();
         lbl_805D7530 = 5;
-        TLobby__sub_803C8610();
+        update_active_stream_reads();
         lbl_805D7530 = 6;
         TLobby__sub_803CC884();
         lbl_805D7530 = 0;

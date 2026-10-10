@@ -612,7 +612,7 @@ void bswap_set_floor_packet__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void* p);
 void bswap_set_floor_packet__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801C17D0(u8 *arg0);
+void init_6x1F_floor_packet(u8 *arg0);
 void bswap_set_floor_packet__10TObjPlayerFPv(void* p);
 void bswap_and_send_set_floor__10TObjPlayerFPv(void* p);
 s32 send_60_sized__6TLobbyFPv(s32);
@@ -647,7 +647,7 @@ void bswap_set_floor_packet__10TObjPlayerFPv(void* p) { read_be16_field2__10TObj
 
 void* handle_6x1F_set_floor__10TObjPlayerFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 
-void TObjPlayer__sub_801C17D0(u8 *arg0) {
+void init_6x1F_floor_packet(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x1F;
     M2C_FIELD(arg0, s8 *, 1) = 2;

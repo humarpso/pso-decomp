@@ -89,7 +89,7 @@ struct Obj_80076A9C {
 extern "C" {
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern char __vt__13TObjWarnChime[];
-extern const char *lbl_805D28A0;
+extern const char *TObjWarnChime__class_name;
 void *TObjWarnChime__ct(Obj_80076A9C *self, void *parent);
 }
 
@@ -155,7 +155,7 @@ void *TObjWarnChime__ct(Obj_80076A9C *self, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__13TObjWarnChime;
-    self->name = lbl_805D28A0;
+    self->name = TObjWarnChime__class_name;
     self->f20 = -1;
     self->f24 = 0;
     for (i = 0; i < 4; i++) {

@@ -342,7 +342,7 @@ void free_resources__10TAdEndTextFv(void) {
     }
 }
 
-extern s32 lbl_805D6A58;
+extern s32 ending_sequence_active;
 
 typedef char RecoveredGlobal_8001B3BC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3BC_lbl_804F5800) == 0x100 ? 1 : -1];
 
@@ -374,7 +374,7 @@ s32 TAdEndText__sub_8001B404(u8 arg0) {
 }
 
 s32 TAdEndText__sub_8001B41C(void) {
-    return lbl_805D6A58;
+    return ending_sequence_active;
 }
 
 }

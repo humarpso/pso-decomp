@@ -83,7 +83,7 @@ s32 free_sub_ctrls__19TAdSelectGameModeGCFPv();
 int clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(void*);
 int TObjPlayer__sub_8011E204(void*, void*);
 int init_action_config__10TObjPlayerFPv(void*);
-int TObjPlayer__sub_802C46BC(void* p);
+int init_character_action_config(void* p);
 int TObjPlayer__sub_802C46E0(void* p);
 int set_palette_entry__20TWindowActionPaletteFiiiii(void*);
 int enable_camera__19TAdSelectGameModeGCFv(void);

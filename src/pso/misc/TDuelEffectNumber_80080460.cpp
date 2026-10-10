@@ -72,7 +72,7 @@ void __ct__7TObjectFP7TObject(void *);
 f64 pow();
 
 extern M2C_UNK __vt__17TDuelEffectString[];
-extern void *lbl_805D28E8;
+extern void *TDuelEffectString__class_name;
 
 #pragma push
 #pragma opt_common_subs off
@@ -113,7 +113,7 @@ TDuelEffectString::~TDuelEffectString() {}
 void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TDuelEffectString;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D28E8;
+    M2C_FIELD(arg0, void **, 0x0) = TDuelEffectString__class_name;
     M2C_FIELD(arg0, f32 *, 0x1C) = M2C_FIELD(arg2, f32 *, 0x0);
     M2C_FIELD(arg0, f32 *, 0x20) = M2C_FIELD(arg2, f32 *, 0x4);
     M2C_FIELD(arg0, void **, 0x24) = arg3;

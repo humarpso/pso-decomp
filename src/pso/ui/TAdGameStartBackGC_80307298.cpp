@@ -9,12 +9,12 @@ extern "C" {
 void destroy_instance__18TAdGameStartBackGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
-extern u32 lbl_805D6A48;
+extern u32 multi_confirm_texture_list;
 
 void destroy_instance__18TAdGameStartBackGCFv(void) {
-    if ((u32) lbl_805D6A48 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6A48);
-        lbl_805D6A48 = 0U;
+    if ((u32) multi_confirm_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)multi_confirm_texture_list);
+        multi_confirm_texture_list = 0U;
     }
 }
 

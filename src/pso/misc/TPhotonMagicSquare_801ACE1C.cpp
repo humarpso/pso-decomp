@@ -155,7 +155,7 @@ struct RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare { M2C_UNK value; u8 r
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
@@ -163,7 +163,7 @@ extern u8 *photon_blast_shared_resource;
 u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
 extern s32 TPhotonMagicSquare__data_805D3508;
@@ -172,7 +172,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 a
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_entity_by_id(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 s32 play_sound_effect(int, int, int, int);
 extern RecoveredGlobal_801AD0F0_TPhotonMagicSquare__data_804C3940 TPhotonMagicSquare__data_804C3940;
 extern RecoveredGlobal_801AD0F0___vt__18TPhotonMagicSquare __vt__18TPhotonMagicSquare;
@@ -203,7 +203,7 @@ void *__dt__18TPhotonMagicSquareFv(void *arg0, s16 arg1) {
 extern "C" {
 
 u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TPhotonMagicSquare.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x28);
@@ -225,7 +225,7 @@ u8 *TPhotonMagicSquare__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4,
     return arg0;
 }
 u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801AD218___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x28);
@@ -248,7 +248,7 @@ u8 *construct_photon_magic_square_normal(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 a
 }
 u8 *construct_at_owner__18TPhotonMagicSquareFPviii(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 temp_r3;
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801AD330___vt__18TPhotonMagicSquare *)&__vt__18TPhotonMagicSquare).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TPhotonMagicSquare__data_805D3508;
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x28);

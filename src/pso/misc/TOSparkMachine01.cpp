@@ -76,7 +76,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80177330_lbl_804B43F0 lbl_804B43F0;
 extern u32 TOSparkMachine01__static_resource;
 void load_static_resource__16TOSparkMachine01Fv(void);
-void TPhotonMagicSquare__sub_801A2640(void *, s32);
+void construct_world_actor_base(void *, s32);
 extern M2C_UNK __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
 extern u32 TOSparkMachine01__static_resource;
@@ -218,7 +218,7 @@ void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1) {
 void *TOSparkMachine01__ct(void *arg0, void *arg1) {
     Obj_801773D8 *self = (Obj_801773D8 *)arg0;
     s32 i;
-    TPhotonMagicSquare__sub_801A2640(self, tl_05);
+    construct_world_actor_base(self, tl_05);
     *(void **)((u8 *)self + 0x18) = ((s32 *)&__vt__16TOSparkMachine01);
     *(s32 *)self = lbl_805D3174;
     self->m5(arg1);

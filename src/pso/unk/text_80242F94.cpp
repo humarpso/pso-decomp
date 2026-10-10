@@ -27,17 +27,17 @@ struct Ent_802430F4 { u8 pad[0x18]; };
 struct Sp_802430F4 { u32 a; u32 b; };
 
 extern "C" {
-extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
+extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void);
 s32 is_active__12TBoss3VoloptFPv(int);
-extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
+extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0);
 s32 is_active__12TBoss3VoloptFPv(int);
-extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
+extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
 M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void);
 void reset_state__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
-extern Pt_80243070 lbl_80518700[];
+extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
+extern Pt_80243070 pad_rumble_channel_states[];
 extern const f32 lbl_805DCA04;
 void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0);
 void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(Sp_802430F4 *, u32, s32);
@@ -46,8 +46,8 @@ s32 update_rumble_pattern__23TAdSinglePlyChrSelectGCFPvPv(Pt_80243070 *, Sp_8024
 void fn_80242C54(Ent_802430F4 *);
 s32 fn_80242F0C(s32);
 void PADControlMotor(s32, u32);
-extern RecoveredGlobal_802430E8_lbl_80518580 lbl_80518580;
-extern Pt_80243070 lbl_80518700[];
+extern RecoveredGlobal_802430E8_lbl_80518580 pad_rumble_effect_slots;
+extern Pt_80243070 pad_rumble_channel_states[];
 void update_pad_rumble(void);
 }
 
@@ -60,7 +60,7 @@ M2C_UNK *find_active_node_by_id__12TBoss3VoloptFUi(u32 arg0) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
-    var_r31 = (M2C_UNK *)(&(*(RecoveredGlobal_80242F94_lbl_80518580 *)&lbl_80518580).value);
+    var_r31 = (M2C_UNK *)(&(*(RecoveredGlobal_80242F94_lbl_80518580 *)&pad_rumble_effect_slots).value);
 loop_1:
     if ((is_active__12TBoss3VoloptFPv((int) (var_r31)) != 0) && (M2C_FIELD(var_r31, u8 *, 0) & 0x80) && ((u32) M2C_FIELD(var_r31, u32 *, 0x14) == arg0)) {
         return var_r31;
@@ -78,7 +78,7 @@ M2C_UNK *find_free_effect_slot__12TBoss3VoloptFv(void) {
     M2C_UNK *var_r31;
     s32 var_r30;
     var_r30 = 0;
-    var_r31 = (M2C_UNK *)(&(*(RecoveredGlobal_80243010_lbl_80518580 *)&lbl_80518580).value);
+    var_r31 = (M2C_UNK *)(&(*(RecoveredGlobal_80243010_lbl_80518580 *)&pad_rumble_effect_slots).value);
 loop_1:
     if (is_active__12TBoss3VoloptFPv((int)(var_r31)) == 0) {
         return var_r31;
@@ -92,13 +92,13 @@ loop_1:
 }
 
 void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0) {
-    Ent_80243070 *p = ((Ent_80243070 *)&lbl_80518580);
+    Ent_80243070 *p = ((Ent_80243070 *)&pad_rumble_effect_slots);
     s32 i;
     Pt_80243070 *q;
     for (i = 0; i < 16; i++, p++) {
         reset_state__23TAdSinglePlyChrSelectGCFPv(p);
     }
-    q = lbl_80518700;
+    q = pad_rumble_channel_states;
     for (i = 0; i < 4; i++, q++) {
         q->h = arg0;
         q->x = lbl_805DCA04;
@@ -107,7 +107,7 @@ void reset_all_slots__23TAdSinglePlyChrSelectGCFs(s16 arg0) {
 }
 
 M2C_UNK *TAdSinglePlyChrSelectGC__sub_802430E8(void) {
-    return &lbl_80518580.value;
+    return &pad_rumble_effect_slots.value;
 }
 void update_pad_rumble(void) {
     s32 j;
@@ -116,7 +116,7 @@ void update_pad_rumble(void) {
     Pt_80243070 *q;
     s32 i;
     Sp_802430F4 sp;
-    q = lbl_80518700;
+    q = pad_rumble_channel_states;
     for (i = 0; i < 4; i++, q++) {
         t = fn_80242F0C(i);
         if (t == 0xFFFF) {
@@ -131,7 +131,7 @@ void update_pad_rumble(void) {
             }
         }
     }
-    p = (Ent_802430F4 *)&lbl_80518580;
+    p = (Ent_802430F4 *)&pad_rumble_effect_slots;
     for (j = 0; j < 16; j++, p++) {
         fn_80242C54(p);
     }

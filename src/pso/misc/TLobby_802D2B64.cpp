@@ -20,7 +20,7 @@ typedef struct S_802D2BC0 {
 extern "C" {
 void TLobby__sub_802D30E8(s32 arg0);
 M2C_UNK byteswap_trade_packet__6TLobbyFPv();
-extern RecoveredGlobal_802D2C38_lbl_804E1920 lbl_804E1920;
+extern RecoveredGlobal_802D2C38_lbl_804E1920 trade_proposal_state_handlers;
 extern u8 TLobby__data_805D688A;
 extern u8 TLobby__data_805D688B;
 void handle_6xA6_modify_trade_proposal(u8 *arg0);
@@ -93,7 +93,7 @@ void handle_6xA6_modify_trade_proposal(u8 *arg0) {
                 ((M2C_UNK (*)())TLobby__sub_802D30E8)();
             }
         } else {
-            temp_r12 = M2C_FIELD(((u8 *)(((u8 *)(&lbl_804E1920.value) + ((s8) TLobby__data_805D688B << 5))) + ((temp_r5 * 4) & 0x3FC)), M2C_UNK (**)(void *), 0);
+            temp_r12 = M2C_FIELD(((u8 *)(((u8 *)(&trade_proposal_state_handlers.value) + ((s8) TLobby__data_805D688B << 5))) + ((temp_r5 * 4) & 0x3FC)), M2C_UNK (**)(void *), 0);
             if (temp_r12 != NULL) {
                 temp_r12(arg0);
             }

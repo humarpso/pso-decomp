@@ -414,7 +414,7 @@ extern const f32 lbl_805DAA20;
 
 extern "C" {
 
-void TFontSmallTask__sub_800FD5F4(void* p, s32 v);
+void set_world_section_id(void* p, s32 v);
 void reset_leader_selection(void* p);
 s32 get_task_id__14TFontSmallTaskFPv(void* p);
 
@@ -445,7 +445,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 }
 #pragma pop
 
-void TFontSmallTask__sub_800FD5F4(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
+void set_world_section_id(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }
 s32 get_task_id__14TFontSmallTaskFPv(void* p) { return *(s32*)((char*)p + 0x4); }
 void reset_leader_selection(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];

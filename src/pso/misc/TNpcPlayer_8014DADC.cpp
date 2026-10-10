@@ -33,11 +33,11 @@ u32 get_npc_state__10TNpcPlayerFPv(s32);
 s16 get_npc_type__10TNpcPlayerFPv(void *);
 s16 get_partner_counter(void *, s32);
 void update__10TNpcPlayerFPv(void *);
-void TNpcPlayer__sub_80152B08(void *);
+void init_6x45_attack_packet(void *);
 void update_players__10TNpcPlayerFPv(void *);
-void TNpcPlayer__sub_80152B98(void *);
+void init_6x44_attack_packet(void *);
 void update_lobby__10TNpcPlayerFPv(void *);
-void TNpcPlayer__sub_80152C28(void *);
+void init_6x43_attack_packet(void *);
 void set_field2__10TNpcPlayerFPvs(void *, s32);
 void set_field_0__10TNpcPlayerFPvs(void *, s32);
 void set_state__10TNpcPlayerFPvi(void *, s32);
@@ -95,7 +95,7 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
     u8 *tgt;
     switch (get_partner_counter(self->f5C, 1)) {
     case 0:
-        TNpcPlayer__sub_80152C28(&m0);
+        init_6x43_attack_packet(&m0);
         if (self->npc != NULL) {
             m0.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m0.flag = 0;
@@ -112,7 +112,7 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
         }
         break;
     case 1:
-        TNpcPlayer__sub_80152B98(&m1);
+        init_6x44_attack_packet(&m1);
         if (self->npc != NULL) {
             m1.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m1.flag = 1;
@@ -129,7 +129,7 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
         }
         break;
     case 2:
-        TNpcPlayer__sub_80152B08(&m2);
+        init_6x45_attack_packet(&m2);
         if (self->npc != NULL) {
             m2.type = get_npc_type__10TNpcPlayerFPv(self->npc);
             m2.flag = 1;

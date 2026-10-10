@@ -2142,7 +2142,7 @@ void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
 int TLobby__sub_80142944(void *);
 int TNpcPlayer__sub_8014DC30(void*);
 void sync_from_lobby__10TNpcPlayerFPv(WalkCmd_801F09EC *);
-void TNpcPlayer__sub_80152E74(WalkCmd_801F09EC *);
+void init_6x40_walk_packet(WalkCmd_801F09EC *);
 u8 * find_entity_by_id(u16);
 void set_trigger_text__12TOChatSensorFPvPv(void *, s32);
 void * TOChatSensor__create(Spawn_801EA508 *);
@@ -8695,7 +8695,7 @@ void qst_op_pl_walk(u8 arg0) {
     player = TLobby__script_reg_array[i];
     obj = (Obj_801F09EC *)((s32 (*)(s32))get_player_by_client_id)(player);
     if (obj != NULL) {
-        TNpcPlayer__sub_80152E74(&cmd);
+        init_6x40_walk_packet(&cmd);
         cmd.player = player;
         cmd.x = x;
         cmd.z = z;

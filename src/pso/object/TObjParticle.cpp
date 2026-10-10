@@ -43,7 +43,7 @@ M2C_UNK disallow_rendering__7TObjectFv(void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
-M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
+M2C_UNK construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
@@ -118,7 +118,7 @@ Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 
     u16 flags;
     u16 base;
     u16 other;
-    TPhotonMagicSquare__sub_801A2640(arg0, (void *) arg1);
+    construct_world_actor_base(arg0, (void *) arg1);
     arg0->vt = __vt__12TObjParticle;
     other = 0;
     arg0->f0 = obj_particle_class_name;

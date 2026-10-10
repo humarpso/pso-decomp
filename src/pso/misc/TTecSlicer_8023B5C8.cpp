@@ -233,7 +233,7 @@ s8 TObjPlayer__sub_80121238(s32);
 s32 get_uid__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_80121248(s32, s32);
 s32 TObjPlayer__sub_8012125C(s32);
-void TPhotonMagicSquare__sub_801A2640(void *, s32);
+void construct_world_actor_base(void *, s32);
 void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
@@ -455,7 +455,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     s32 ext;
     s32 i;
     s32 e;
-    TPhotonMagicSquare__sub_801A2640(self, tl_05);
+    construct_world_actor_base(self, tl_05);
     self->vt = __vt__10TTecSlicer;
     init_forward__10TObjPlayerFPv(self->fwd);
     reset_fields_1e__10TTecSlicerFPv(self->fc8);

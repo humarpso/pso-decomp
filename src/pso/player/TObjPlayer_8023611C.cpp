@@ -103,14 +103,14 @@ void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
 M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
@@ -121,7 +121,7 @@ extern const f32 lbl_805DC89C;
 s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 s32 get_game_mode__6TLobbyFv();
@@ -130,7 +130,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DC898;
 u16 obj_getField1c(void *);
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 find_actor_body_contact(void *, int, f32);
@@ -141,7 +141,7 @@ s32 get_field_3e4__10TObjPlayerFPv(void *);
 u8 *find_entity_by_id(u16);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC890;
 extern const f32 lbl_805DC898;
 extern const f32 lbl_805DC89C;
@@ -157,7 +157,7 @@ f32 vector_length(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 PlayerData_80236154 *get_player_data__10TObjPlayerFi(s32);
 u8 *query_technique_enemy_contacts(void *self, s32 arg);
-extern RecoveredGlobal_80236290_lbl_80516150 lbl_80516150;
+extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC890;
 extern const f64 lbl_8044D8D0[];
 u8 *find_entity_by_id(u16);
@@ -209,7 +209,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
     resetTechniqueContactQuery();
     if ((u32)target == 0) {
-        return (s32)&lbl_80516150;
+        return (s32)&technique_contact_query_results;
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
     for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
@@ -217,16 +217,16 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
         if (pd != 0 && (pd->flags & 0x20000000)) {
             c = (Contact_80236154 *)find_actor_body_contact((void *)target, (int)pd, range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
-                ((List_80236154 *)&lbl_80516150)->bodies[((List_80236154 *)&lbl_80516150)->count] = c;
-                ((List_80236154 *)&lbl_80516150)->actors[((List_80236154 *)&lbl_80516150)->count] = pd;
-                if (++((List_80236154 *)&lbl_80516150)->count >= 16) {
-                    ((List_80236154 *)&lbl_80516150)->count = 15;
+                ((List_80236154 *)&technique_contact_query_results)->bodies[((List_80236154 *)&technique_contact_query_results)->count] = c;
+                ((List_80236154 *)&technique_contact_query_results)->actors[((List_80236154 *)&technique_contact_query_results)->count] = pd;
+                if (++((List_80236154 *)&technique_contact_query_results)->count >= 16) {
+                    ((List_80236154 *)&technique_contact_query_results)->count = 15;
                     break;
                 }
             }
         }
     }
-    return (s32)&lbl_80516150;
+    return (s32)&technique_contact_query_results;
 }
 
 M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
@@ -238,21 +238,21 @@ M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2,
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x20));
     resetTechniqueContactQuery();
     if (arg1 == 0U) {
-        return &lbl_80516150.value;
+        return &technique_contact_query_results.value;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg1 + 0x38), (void *) (&stack.sp8));
     var_r29 = 0;
 loop_3:
     temp_r3 = get_player_by_client_id((int) (var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&lbl_80516150.value + (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&lbl_80516150.value, M2C_UNK *, (M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) + 1, M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
-        M2C_FIELD(&lbl_80516150.value, s32 *, 0x80) = 0xF;
+    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&technique_contact_query_results.value + (M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&technique_contact_query_results.value, M2C_UNK *, (M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) + 1, M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+        M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) = 0xF;
     } else {
         var_r29 += 1;
         if (var_r29 < 4) {
             goto loop_3;
         }
     }
-    return &lbl_80516150.value;
+    return &technique_contact_query_results.value;
 }
 
 s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
@@ -269,7 +269,7 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
     VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
     resetTechniqueContactQuery();
     if ((u32)target == 0) {
-        return (s32)&lbl_80516150;
+        return (s32)&technique_contact_query_results;
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
     for (i = get_game_mode__6TLobbyFv(); i < get_lobby_flag__6TLobbyFv(); i++) {
@@ -277,16 +277,16 @@ s32 find_area_technique_contact(void *self, int target, void *_w2, void *arg3) {
         if (pd != 0 && (pd->flags & 0x20000000) && obj_getField1c(pd) != obj_getField1c(arg3)) {
             c = (Contact_80236378 *)find_actor_body_contact((void *)target, (int)pd, range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
-                ((List_80236378 *)&lbl_80516150)->bodies[((List_80236378 *)&lbl_80516150)->count] = c;
-                ((List_80236378 *)&lbl_80516150)->actors[((List_80236378 *)&lbl_80516150)->count] = pd;
-                if (++((List_80236378 *)&lbl_80516150)->count >= 16) {
-                    ((List_80236378 *)&lbl_80516150)->count = 15;
+                ((List_80236378 *)&technique_contact_query_results)->bodies[((List_80236378 *)&technique_contact_query_results)->count] = c;
+                ((List_80236378 *)&technique_contact_query_results)->actors[((List_80236378 *)&technique_contact_query_results)->count] = pd;
+                if (++((List_80236378 *)&technique_contact_query_results)->count >= 16) {
+                    ((List_80236378 *)&technique_contact_query_results)->count = 15;
                     break;
                 }
             }
         }
     }
-    return (s32)&lbl_80516150;
+    return (s32)&technique_contact_query_results;
 }
 
 s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w2, void *arg3) {
@@ -301,7 +301,7 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
     VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
     resetTechniqueContactQuery();
     if ((u32)target == 0) {
-        return (s32)&lbl_80516150;
+        return (s32)&technique_contact_query_results;
     }
     VecCopy__FP3VecPC3Vec((u8 *)target + 0x38, &pos);
     if (obj_getField1c(arg3) < 4) {
@@ -320,10 +320,10 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
                 if (ok != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000))) {
                     c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)pd, lbl_805DC89C);
                     if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
-                        ((List_802364D8 *)&lbl_80516150)->bodies[((List_802364D8 *)&lbl_80516150)->count] = c;
-                        ((List_802364D8 *)&lbl_80516150)->actors[((List_802364D8 *)&lbl_80516150)->count] = pd;
-                        if (++((List_802364D8 *)&lbl_80516150)->count >= 16) {
-                            ((List_802364D8 *)&lbl_80516150)->count = 15;
+                        ((List_802364D8 *)&technique_contact_query_results)->bodies[((List_802364D8 *)&technique_contact_query_results)->count] = c;
+                        ((List_802364D8 *)&technique_contact_query_results)->actors[((List_802364D8 *)&technique_contact_query_results)->count] = pd;
+                        if (++((List_802364D8 *)&technique_contact_query_results)->count >= 16) {
+                            ((List_802364D8 *)&technique_contact_query_results)->count = 15;
                             break;
                         }
                     }
@@ -336,17 +336,17 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
             if (e != 0 && obj_getField1c(e) != obj_getField1c(arg3) && (e->flags & 0x10000000)) {
                 c = (Contact_802364D8 *)find_actor_body_contact((void *)target, (int)e, lbl_805DC89C);
                 if (c != 0) {
-                    ((List_802364D8 *)&lbl_80516150)->bodies[((List_802364D8 *)&lbl_80516150)->count] = c;
-                    ((List_802364D8 *)&lbl_80516150)->actors[((List_802364D8 *)&lbl_80516150)->count] = e;
-                    if (++((List_802364D8 *)&lbl_80516150)->count >= 16) {
-                        ((List_802364D8 *)&lbl_80516150)->count = 15;
+                    ((List_802364D8 *)&technique_contact_query_results)->bodies[((List_802364D8 *)&technique_contact_query_results)->count] = c;
+                    ((List_802364D8 *)&technique_contact_query_results)->actors[((List_802364D8 *)&technique_contact_query_results)->count] = e;
+                    if (++((List_802364D8 *)&technique_contact_query_results)->count >= 16) {
+                        ((List_802364D8 *)&technique_contact_query_results)->count = 15;
                         break;
                     }
                 }
             }
         }
     }
-    return (s32)&lbl_80516150;
+    return (s32)&technique_contact_query_results;
 }
 
 void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
@@ -382,7 +382,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
     VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
     resetTechniqueContactQuery();
     if (s->proxy == 0) {
-        return (u8 *)&lbl_80516150;
+        return (u8 *)&technique_contact_query_results;
     }
     pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
     d.x = pos.x - pp[0];
@@ -405,10 +405,10 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
             if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
             c = (Contact_802367D8 *)find_actor_body_contact(s->proxy, (int)pd, range);
             if (c != 0 && ((c->flags & 1) || !(c->flags & 0x02000000))) {
-                ((List_802367D8 *)&lbl_80516150)->bodies[((List_802367D8 *)&lbl_80516150)->count] = c;
-                ((List_802367D8 *)&lbl_80516150)->actors[((List_802367D8 *)&lbl_80516150)->count] = pd;
-                if (++((List_802367D8 *)&lbl_80516150)->count >= 16) {
-                    ((List_802367D8 *)&lbl_80516150)->count = 15;
+                ((List_802367D8 *)&technique_contact_query_results)->bodies[((List_802367D8 *)&technique_contact_query_results)->count] = c;
+                ((List_802367D8 *)&technique_contact_query_results)->actors[((List_802367D8 *)&technique_contact_query_results)->count] = pd;
+                if (++((List_802367D8 *)&technique_contact_query_results)->count >= 16) {
+                    ((List_802367D8 *)&technique_contact_query_results)->count = 15;
                     break;
                 }
             }
@@ -418,7 +418,7 @@ u8 *query_technique_enemy_contacts(void *self, s32 arg) {
             }
         }
     }
-    return (u8 *)&lbl_80516150;
+    return (u8 *)&technique_contact_query_results;
 }
 
 u8 *query_technique_player_contacts(void *self, s32 arg) {
@@ -441,7 +441,7 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
     VecCopy__FP3VecPC3Vec(&pos, (u8 *)self + 0x20);
     resetTechniqueContactQuery();
     if (s->proxy == 0) {
-        return (u8 *)&lbl_80516150;
+        return (u8 *)&technique_contact_query_results;
     }
     pp = (f32 *)((void *)get_pos_ptr__10TObjPlayerFPv((void*)(self)));
     d.x = pos.x - pp[0];
@@ -465,10 +465,10 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
             if (obj_getField1c(pd) == obj_getField1c((void *)arg)) continue;
             c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)pd, range);
             if (c != 0 && ((pd->flags & 0x20000000) || (pd->flags & 0x10000000)) && ((c->flags & 1) || !(c->flags & 0x02000000))) {
-                ((List_80236A20 *)&lbl_80516150)->bodies[((List_80236A20 *)&lbl_80516150)->count] = c;
-                ((List_80236A20 *)&lbl_80516150)->actors[((List_80236A20 *)&lbl_80516150)->count] = pd;
-                if (++((List_80236A20 *)&lbl_80516150)->count >= 16) {
-                    ((List_80236A20 *)&lbl_80516150)->count = 15;
+                ((List_80236A20 *)&technique_contact_query_results)->bodies[((List_80236A20 *)&technique_contact_query_results)->count] = c;
+                ((List_80236A20 *)&technique_contact_query_results)->actors[((List_80236A20 *)&technique_contact_query_results)->count] = pd;
+                if (++((List_80236A20 *)&technique_contact_query_results)->count >= 16) {
+                    ((List_80236A20 *)&technique_contact_query_results)->count = 15;
                     break;
                 }
             }
@@ -480,24 +480,24 @@ u8 *query_technique_player_contacts(void *self, s32 arg) {
             if (obj_getField1c(e) == obj_getField1c((void *)arg)) continue;
             c = (Contact_80236A20 *)find_actor_body_contact(s->proxy, (int)e, lbl_805DC89C);
             if (c != 0 && (e->flags & 0x10000000)) {
-                ((List_80236A20 *)&lbl_80516150)->bodies[((List_80236A20 *)&lbl_80516150)->count] = c;
-                ((List_80236A20 *)&lbl_80516150)->actors[((List_80236A20 *)&lbl_80516150)->count] = e;
-                if (++((List_80236A20 *)&lbl_80516150)->count >= 16) {
-                    ((List_80236A20 *)&lbl_80516150)->count = 15;
+                ((List_80236A20 *)&technique_contact_query_results)->bodies[((List_80236A20 *)&technique_contact_query_results)->count] = c;
+                ((List_80236A20 *)&technique_contact_query_results)->actors[((List_80236A20 *)&technique_contact_query_results)->count] = e;
+                if (++((List_80236A20 *)&technique_contact_query_results)->count >= 16) {
+                    ((List_80236A20 *)&technique_contact_query_results)->count = 15;
                     break;
                 }
             }
         }
     }
-    return (u8 *)&lbl_80516150;
+    return (u8 *)&technique_contact_query_results;
 }
 
 void resetTechniqueContactQuery() {
     for (s32 i=0;i<16;++i) {
-        (*(TechniqueContactList *)&lbl_80516150).actors[i]=0;
-        (*(TechniqueContactList *)&lbl_80516150).bodies[i]=0;
+        (*(TechniqueContactList *)&technique_contact_query_results).actors[i]=0;
+        (*(TechniqueContactList *)&technique_contact_query_results).bodies[i]=0;
     }
-    (*(TechniqueContactList *)&lbl_80516150).count=0;
+    (*(TechniqueContactList *)&technique_contact_query_results).count=0;
 }
 
 void* get_pos_ptr__10TObjPlayerFPv(void* p) { return (char*)p + 0x78; }

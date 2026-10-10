@@ -71,7 +71,7 @@ extern RecoveredGlobal_80084C10_lbl_804393AC lbl_804393AC;
 extern const f32 lbl_805D9450;
 void TEffStarLight2D_Base__sub_80084C10(s32 arg0);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
-u8 * TPhotonMagicSquare__sub_801A2640(void *);
+u8 * construct_world_actor_base(void *);
 void * __nw__7TObjectFUl(M2C_UNK, s32);
 extern M2C_UNK lbl_8048E640[];
 extern void *tl_particle;
@@ -154,7 +154,7 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *var_r0;
-    TPhotonMagicSquare__sub_801A2640(arg0);
+    construct_world_actor_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     stack.sp8 = M2C_FIELD(arg0, f32 *, 0x68);

@@ -12,13 +12,13 @@ M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern s32 lbl_805D4B50;
-extern u32 lbl_805D4B54;
+extern u32 dragon_common_texture_list;
 
 void free_char_select__6TLobbyFv(void) {
-    if ((u32) lbl_805D4B54 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D4B54);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D4B54);
-        lbl_805D4B54 = 0U;
+    if ((u32) dragon_common_texture_list != 0U) {
+        TLobby__sub_803DA16C((void*)dragon_common_texture_list);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(dragon_common_texture_list);
+        dragon_common_texture_list = 0U;
     }
     TLobby__sub_8001FE7C(lbl_805D4B50, 1);
     lbl_805D4B50 = 0;

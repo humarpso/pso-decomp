@@ -2070,11 +2070,11 @@ extern M2C_UNK lbl_804E6B54[];
 extern M2C_UNK lbl_804E6FA8[];
 extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
 extern s32 lbl_805D4070;
-extern void *lbl_805D4078;
+extern void *TObjEneDellBiter__class_name;
 extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
-extern s32 lbl_805D6A40;
-extern s32 lbl_805D6A44;
+extern s32 TObjEneDellBiter__scrolling_uv_polygon_list;
+extern s32 TObjEneDellBiter__last_uv_scroll_tick;
 extern const f32 lbl_805DEFAC;
 extern const f32 lbl_805DEFB0;
 extern const f32 lbl_805DEFB4;
@@ -3804,9 +3804,9 @@ void run_task__16TObjEneDellBiterFv(u8 *arg0) {
     }
     if (((VObj_18 *)(arg0))->m81() != 4) {
         ((VObj_18 *)(arg0))->m83();
-        if ((s32) lbl_805D6A44 != (s32) actor_frame_tick) {
-            lbl_805D6A44 = actor_frame_tick;
-            TObjPlayer__sub_8023DEE0((void *) (lbl_805D6A40), (int) (0xC), (int) (0), (int) (0));
+        if ((s32) TObjEneDellBiter__last_uv_scroll_tick != (s32) actor_frame_tick) {
+            TObjEneDellBiter__last_uv_scroll_tick = actor_frame_tick;
+            TObjPlayer__sub_8023DEE0((void *) (TObjEneDellBiter__scrolling_uv_polygon_list), (int) (0xC), (int) (0), (int) (0));
         }
     }
     update_particle_emitters__16TObjEneDellBiterFPv((u8 *)((void *) (arg0)));
@@ -3944,7 +3944,7 @@ void *TObjEneDellBiter__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneDellBiter;
     init_vtable_and_field18__10TObjPlayerFPv((void *)((char *)arg0 + 980));
     __construct_array((void *)((char *)arg0 + 1008), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4078;
+    M2C_FIELD(arg0, void **, 0x0) = TObjEneDellBiter__class_name;
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     init_target_offsets__16TObjEneDellBiterFPv((u8 *)(arg0));
     init_params__16TObjEneDellBiterFPv(arg0);
@@ -4001,8 +4001,8 @@ void load_resources__16TObjEneDellBiterFv(void) {
     {
         Obj_80306858 *o = (Obj_80306858 *)TObjEneDellBiter__data_805D6A30;
         Ent_80306858 *ent = (Ent_80306858 *)lbl_804E6B8C;
-        lbl_805D6A40 = o->p->p->p->p->v;
-        lbl_805D6A44 = 0;
+        TObjEneDellBiter__scrolling_uv_polygon_list = o->p->p->p->p->v;
+        TObjEneDellBiter__last_uv_scroll_tick = 0;
         S16_80306858 sp = ene_dell_biter_attack_def;
         sp.a = o->v;
         spawn_npc_enemy__6TLobbyFsiiiff(0x46, (int)o->p->p, o->p->c, &sp, ent->f, TObjEneDellBiter__data_805DEFF4);

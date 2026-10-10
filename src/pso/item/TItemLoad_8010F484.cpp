@@ -26,16 +26,16 @@ void *init__9TItemLoadFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
     return arg0;
 }
 
-extern void *lbl_805D549C;
-extern void *lbl_805D54A0;
+extern void *item_texture_archive_loader;
+extern void *item_model_chunk_loader;
 
 void update_all__9TItemLoadFv(void) {
     void *temp_r3;
-    temp_r3 = lbl_805D549C;
+    temp_r3 = item_texture_archive_loader;
     if (temp_r3 != 0) {
         update_state__9TItemLoadFPv(temp_r3);
     }
-    temp_r3 = lbl_805D54A0;
+    temp_r3 = item_model_chunk_loader;
     if (temp_r3 != 0) {
         update_state__9TItemLoadFPv(temp_r3);
     }

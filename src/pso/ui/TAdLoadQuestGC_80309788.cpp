@@ -15,13 +15,13 @@ void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 
 extern M2C_UNK __vt__14TAdLoadQuestGC[];
-extern void *lbl_805D40B0;
+extern void *TAdLoadQuestGC__class_name;
 
 void *TAdLoadQuestGC__ct(void *arg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdLoadQuestGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D40B0;
+    M2C_FIELD(arg0, void **, 0x0) = TAdLoadQuestGC__class_name;
     get_or_create_cell__14TAdLoadQuestGCFii(arg0, 0);
     get_or_create_prt_txt__14TAdLoadQuestGCFii(arg0, 0);
     get_or_create_cell__14TAdLoadQuestGCFii(arg0, 1);

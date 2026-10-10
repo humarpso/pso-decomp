@@ -31,10 +31,10 @@ struct RecoveredGlobal_800818D8_lbl_8048E130 {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern RecoveredGlobal_800818D8_lbl_8048E040 lens_flare_reflected_element_descriptors;
 extern M2C_UNK lbl_8048E130[];
-extern s32 lbl_805D28F0;
+extern s32 TEF_LensFlare__class_name;
 u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -63,9 +63,9 @@ void *__dt_deleting__13TEF_LensFlareFPvs(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_800818D8_lbl_8048E040_size[sizeof(RecoveredGlobal_800818D8_lbl_8048E040) == 0xF0 ? 1 : -1];
 typedef char RecoveredGlobal_800818D8_lbl_8048E130_size[sizeof(RecoveredGlobal_800818D8_lbl_8048E130) == 0x38 ? 1 : -1];
 u8 *TEF_LensFlare__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800818D8_lbl_8048E130 *)&lbl_8048E130).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D28F0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TEF_LensFlare__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x90) = &lens_flare_reflected_element_descriptors.value;
     return arg0;

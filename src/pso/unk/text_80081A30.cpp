@@ -37,7 +37,7 @@ void *construct_texture_wave(void *, void *);
 void init_image_buffer__23TAdSinglePlyChrSelectGCFPvPvi(void *, void *, s32);
 s32 TScene__sub_80081B24(void);
 extern u8 lbl_8048E168[];
-extern void *lbl_805D28F8;
+extern void *TEF_PvrWave__class_name;
 Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *parent, void *image, s32 size, s32 index);
 }
 
@@ -52,7 +52,7 @@ Wave_80081A30 *construct_pvr_wave__6TSceneFPvPvPvii(Wave_80081A30 *self, void *p
     TexList_80081A30 *list;
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = lbl_8048E168;
-    self->name = lbl_805D28F8;
+    self->name = TEF_PvrWave__class_name;
     self->index = index;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x54);
     if (p != NULL) {

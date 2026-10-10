@@ -209,7 +209,7 @@ M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
 u16 obj_getField1c(s32);
 s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 dispatch_item_by_type__6TLobbyFPv(void *);
-M2C_UNK TItemData__sub_8010EC6C(void *);
+M2C_UNK TItemData__clear_unidentified_flag(void *);
 s32 advance_item_id_counter(void *);
 M2C_UNK set_close_flag__19TWindowSubTradeMainFPv(int);
 M2C_UNK set_visible__19TWindowSubTradeMainFPv(int);
@@ -544,7 +544,7 @@ void create_result_windows__23TShopJudgmentItemWindowFPv(u8 *arg0) {
                 M2C_FIELD(arg0, u32 *, 0x154) = (u32) ((void *(*)(int, int, int)) create_item_list_window)((int) (lbl_8044C1CC), 1, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x24)));
                 break;
             }
-            TItemData__sub_8010EC6C((void *) (arg0 + 0x28));
+            TItemData__clear_unidentified_flag((void *) (arg0 + 0x28));
             M2C_FIELD(arg0, s32 *, 0x34) = advance_item_id_counter((void *) ((u16) local_client_id));
             M2C_FIELD(arg0, s32 *, 0x50) = dispatch_item_by_type__6TLobbyFPv((void *) (arg0 + 0x28));
             add_list_entry__23TShopJudgmentItemWindowFPvii((void *) (M2C_FIELD(arg0, u32 *, 0x154)), (int) (M2C_FIELD(arg0, s32 *, 0x50)), (int) (0));

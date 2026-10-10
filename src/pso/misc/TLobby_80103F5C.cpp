@@ -1,4 +1,6 @@
 #include "types.h"
+#include "pso/protocol/subcmd_6x.h"
+#include <stddef.h>
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -122,6 +124,9 @@ s32 is_quest_active();
 s32 TItemDropSub__sub_80107B74();
 extern Tbl_801044B8 item_drop_area_remap_table;
 void normalize_drop_area(s32 *p);
+int bswap_16__FPUs(void*);
+int bswap_32__FPUl(void*);
+void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header);
 }
 
 extern "C" {
@@ -192,6 +197,22 @@ void TLobby__sub_801041D8(void) {
     set_flags__10TObjPlayerFPvUi(&lbl_805D5430, 1);
 }
 void bswap_item__6TLobbyFPv(void* p) { bswap_16__FPUs((char*)p + 0x2); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_16__FPUs((char*)p + 0xc); bswap_16__FPUs((char*)p + 0xe); bswap__9TItemDataFv((char*)p + 0x10); }
+
+typedef char SyncItemHeaderPlayerIds[offsetof(G_SyncItemState_6x6D_Decompressed, next_item_id_per_player) == 0x20 ? 1 : -1];
+typedef char SyncItemHeaderFloorCounts[offsetof(G_SyncItemState_6x6D_Decompressed, floor_item_count_per_floor) == 0x50 ? 1 : -1];
+typedef char SyncItemHeaderSize[sizeof(G_SyncItemState_6x6D_Decompressed) == 0x8C ? 1 : -1];
+void bswap_sync_item_state_header(G_SyncItemState_6x6D_Decompressed *header) {
+    for (s32 i = 0; i < 16; ++i) {
+        bswap_16__FPUs((void*)(&header->next_drop_number_per_floor[i]));
+    }
+    for (s32 i = 0; i < 12; ++i) {
+        bswap_32__FPUl((void*)(&header->next_item_id_per_player[i]));
+    }
+    for (s32 i = 0; i < 15; ++i) {
+        bswap_32__FPUl((void*)(&header->floor_item_count_per_floor[i]));
+    }
+}
+
 void TLobby__sub_80104350(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D5430);
 }

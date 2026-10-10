@@ -26,7 +26,7 @@ M2C_UNK pop_matrix();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 s32 is_split_screen();
 
-extern u8 *TObjBoss8Piller__data_805D6A78;
+extern u8 *TObjBoss8Piller__shared_resource;
 extern const f32 lbl_805DF150;
 
 void render__15TObjBoss8PillerFv(u8 *arg0) {
@@ -34,11 +34,11 @@ void render__15TObjBoss8PillerFv(u8 *arg0) {
 
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         if (is_split_screen() != 0) {
-            var_r31 = M2C_FIELD(M2C_FIELD(TObjBoss8Piller__data_805D6A78, void **, 0x42C), s32 *, 0x28);
+            var_r31 = M2C_FIELD(M2C_FIELD(TObjBoss8Piller__shared_resource, void **, 0x42C), s32 *, 0x28);
         } else {
-            var_r31 = M2C_FIELD(M2C_FIELD(TObjBoss8Piller__data_805D6A78, void **, 0x42C), s32 *, 8);
+            var_r31 = M2C_FIELD(M2C_FIELD(TObjBoss8Piller__shared_resource, void **, 0x42C), s32 *, 8);
         }
-        set_global_param__8TObjFishFi((void *) (M2C_FIELD(M2C_FIELD(TObjBoss8Piller__data_805D6A78, void **, 0x42C), s32 *, 0xC)));
+        set_global_param__8TObjFishFi((void *) (M2C_FIELD(M2C_FIELD(TObjBoss8Piller__shared_resource, void **, 0x42C), s32 *, 0xC)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x1C));
         scale_matrix((int) (0), (f32) (lbl_805DF150), (f32) (lbl_805DF150), (f32) (lbl_805DF150));

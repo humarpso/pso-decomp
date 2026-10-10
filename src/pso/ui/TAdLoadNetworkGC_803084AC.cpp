@@ -24,7 +24,7 @@ extern const s32 lbl_80475478[];
 extern V_803084AC lbl_804E72F0[];
 extern u8 __vt__16TAdLoadNetworkGC[];
 extern Ray_803085A0 lbl_804FF5E8;
-extern s32 lbl_805D4098;
+extern s32 TAdLoadNetworkGC__class_name;
 extern const f32 lbl_805DF0C0;
 Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC *pos);
 }
@@ -60,7 +60,7 @@ Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC 
     u32 i;
     __ct__7TObjectFP7TObject(self, parent);
     *(void **)((u8 *)self + 0x18) = __vt__16TAdLoadNetworkGC;
-    *(s32 *)self = lbl_805D4098;
+    *(s32 *)self = TAdLoadNetworkGC__class_name;
     VecCopy__FP3VecPC3Vec(&self->pos, pos);
     self->pos.x = lbl_805DF0C0 * lbl_804FF5E8.b.x + lbl_804FF5E8.a.x;
     self->pos.y = lbl_805DF0C0 * lbl_804FF5E8.b.y + lbl_804FF5E8.a.y;

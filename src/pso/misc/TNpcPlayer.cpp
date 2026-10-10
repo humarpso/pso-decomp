@@ -490,16 +490,16 @@ void* init__10TNpcPlayerFPv(void* p);
 void TNpcPlayer__sub_80152A78(s16 *self);
 void update__10TNpcPlayerFPv(void* p);
 void bswap_6x45_packet(void* p);
-void TNpcPlayer__sub_80152B08(u8 *arg0);
+void init_6x45_attack_packet(u8 *arg0);
 void update_players__10TNpcPlayerFPv(void* p);
 void bswap_6x44_packet(void* p);
-void TNpcPlayer__sub_80152B98(u8 *arg0);
+void init_6x44_attack_packet(u8 *arg0);
 void update_lobby__10TNpcPlayerFPv(void* p);
 void bswap_6x43_packet(void* p);
-void TNpcPlayer__sub_80152C28(u8 *arg0);
+void init_6x43_attack_packet(u8 *arg0);
 void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0);
 void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0);
-u8 TNpcPlayer__sub_80152CE8(u8 *arg0);
+u8 get_6x47_cast_packet_size(u8 *arg0);
 void * init_cast_technique_cmd__10TNpcPlayerFPv(void *arg0);
 void TNpcPlayer__sub_80152D64(void* p);
 void reset_model__10TNpcPlayerFPv(void* p);
@@ -507,7 +507,7 @@ void init_model__10TNpcPlayerFPv(void* p);
 void reset_move_state__10TNpcPlayerFPv(void* a0);
 void sync_from_lobby__10TNpcPlayerFPv(void* p);
 void swap_endian__10TNpcPlayerFPv(void* p);
-void TNpcPlayer__sub_80152E74(void* a0);
+void init_6x40_walk_packet(void* a0);
 void set_field2__10TNpcPlayerFPvs(void* p, s16 v);
 void set_field_0__10TNpcPlayerFPvs(void* p, s16 v);
 void set_state__10TNpcPlayerFPvi(void* p, s32 v);
@@ -3023,7 +3023,7 @@ void send_run_request__10TNpcPlayerFPv(Npc_80150DE8 *self) {
 
 void send_walk_request__10TNpcPlayerFPv(Npc_80150E44 *self) {
     Msg_80150E44 m;
-    TNpcPlayer__sub_80152E74(&m);
+    init_6x40_walk_packet(&m);
     if (self->owner != 0) {
         m.type = get_npc_type__10TNpcPlayerFPv(self->owner);
         m.x = self->x;
@@ -3740,7 +3740,7 @@ void update__10TNpcPlayerFPv(void* p) { bswap_6x45_packet((void*)(p)); update_pl
 
 void bswap_6x45_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
-void TNpcPlayer__sub_80152B08(u8 *arg0) {
+void init_6x45_attack_packet(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x45;
@@ -3751,7 +3751,7 @@ void update_players__10TNpcPlayerFPv(void* p) { bswap_6x44_packet((void*)(p)); u
 
 void bswap_6x44_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
-void TNpcPlayer__sub_80152B98(u8 *arg0) {
+void init_6x44_attack_packet(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x44;
@@ -3762,7 +3762,7 @@ void update_lobby__10TNpcPlayerFPv(void* p) { bswap_6x43_packet((void*)(p)); upd
 
 void bswap_6x43_packet(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_16__FPUs((void*)((char*)p + 0x4)); bswap_16__FPUs((void*)((char*)p + 0x6)); }
 
-void TNpcPlayer__sub_80152C28(u8 *arg0) {
+void init_6x43_attack_packet(u8 *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0;
     M2C_FIELD(arg0, s16 *, 6) = 0;
     M2C_FIELD(arg0, s8 *, 0) = 0x43;
@@ -3770,7 +3770,7 @@ void TNpcPlayer__sub_80152C28(u8 *arg0) {
 }
 
 void finalize_and_send_packet__10TNpcPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)TNpcPlayer__sub_80152CE8((u8 *)(arg0))) >> 2U) & 0x3F);
+    M2C_FIELD(arg0, s8 *, 1) = (s8) ((((u32)get_6x47_cast_packet_size((u8 *)(arg0))) >> 2U) & 0x3F);
     byteswap_positions__10TNpcPlayerFPv((N_80152C8C *)((void*)((void*)((void *) (arg0)))));
     TLobby__send_and_handle_60((void*)((void *) (arg0)));
 }
@@ -3783,7 +3783,7 @@ void byteswap_positions__10TNpcPlayerFPv(N_80152C8C *arg0) {
     }
 }
 
-u8 TNpcPlayer__sub_80152CE8(u8 *arg0) {
+u8 get_6x47_cast_packet_size(u8 *arg0) {
     return (u8) (0x30 - ((0xA - (s8) M2C_FIELD(arg0, u8 *, 7)) * 4));
 }
 
@@ -3807,7 +3807,7 @@ void sync_from_lobby__10TNpcPlayerFPv(void* p) { swap_endian__10TNpcPlayerFPv((v
 
 void swap_endian__10TNpcPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv((void*)(p)); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x4); bswap_32__FPUl((char*)p + 0xc); }
 
-void TNpcPlayer__sub_80152E74(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(int*)((char*)a0 + 0xc) = 0; *(unsigned char*)((char*)a0 + 0x0) = 64; *(unsigned char*)((char*)a0 + 0x1) = 4; }
+void init_6x40_walk_packet(void* a0) { *(float*)((char*)a0 + 0x8) = TNpcPlayer__data_805DB1F0; *(float*)((char*)a0 + 0x4) = TNpcPlayer__data_805DB1F0; *(int*)((char*)a0 + 0xc) = 0; *(unsigned char*)((char*)a0 + 0x0) = 64; *(unsigned char*)((char*)a0 + 0x1) = 4; }
 
 void set_field2__10TNpcPlayerFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x2) = v; }
 

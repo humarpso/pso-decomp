@@ -138,7 +138,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 int bswap_16__FPUs(void*);
-int fn_8016AD3C(void* a0 = 0);
+int init_6x04_packet(void* a0 = 0);
 void* init_6x05_switch_changed__6TLobbyFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
 

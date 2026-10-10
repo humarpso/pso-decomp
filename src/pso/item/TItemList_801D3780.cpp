@@ -86,8 +86,8 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804C4498[];
 extern const f32 lbl_805DC3D4;
-u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
-u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
+u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
+u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 s32 check_player_action_allowed(void);
 s32 fn_801D4270(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv(void);
@@ -97,7 +97,7 @@ M2C_UNK TItemList__sub_801D5884(void *, int);
 u8 *run_item_count_update__9TItemListFPv(void *);
 extern M2C_UNK lbl_804C4468[];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5);
-u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
+u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4);
 M2C_UNK TItemList__sub_801D5884(void *, int);
 extern M2C_UNK lbl_804C4480[];
 u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5);
@@ -153,7 +153,7 @@ s32 step_placement_search(Search_801D3C38 *s);
 extern "C" {
 
 void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3);
-void *TItemList__sub_801D3B64(void *arg0, s16 arg1);
+void *destroy_placement_search_task(void *arg0, s16 arg1);
 void *TItemList__sub_801D3FC4(void *arg0, s16 arg1);
 void * create_node__9TItemListFPvPvPvPv(void *arg0, void *arg1, void *arg2, s8 arg3);
 void *destroy__9TItemListFPvs(void *arg0, s16 arg1);
@@ -229,7 +229,7 @@ extern void *tl_07;
 typedef char RecoveredGlobal_801D39C8_lbl_804C4468_size[sizeof(RecoveredGlobal_801D39C8_lbl_804C4468) == 0x18 ? 1 : -1];
 u8 *TItemList__sub_801D39C8(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, s32 arg4, s8 arg5) {
     u8 *temp_r3;
-    TItemList__sub_801D401C((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
+    construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D39C8_lbl_804C4468 *)&lbl_804C4468).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *) (arg0), (int) (1));
@@ -276,7 +276,7 @@ void * TItemList__sub_801D3B00(void *arg0, void *arg1, void *arg2, s8 arg3) {
 
 extern M2C_UNK lbl_804C4480[];
 
-void *TItemList__sub_801D3B64(void *arg0, s16 arg1) {
+void *destroy_placement_search_task(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C4480;
         clear_placement_search_slot(arg0, M2C_FIELD(arg0, s32 *, 0x54));
@@ -293,7 +293,7 @@ extern M2C_UNK lbl_804C4498[];
 
 typedef char RecoveredGlobal_801D3BD4_lbl_804C4480_size[sizeof(RecoveredGlobal_801D3BD4_lbl_804C4480) == 0x18 ? 1 : -1];
 u8 *ct_init_placement_ring__9TItemListFPvPviPvPvc(u8 *arg0, u8 *arg1, s32 arg2, u8 *arg3, u8 *arg4, s8 arg5) {
-    TItemList__sub_801D401C((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
+    construct_placement_search_base((u8 *)(arg0), (u8 *)(arg1), (u8 *)(arg3), (u8 *)(arg4), arg5);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D3BD4_lbl_804C4480 *)&lbl_804C4480).value;
     M2C_FIELD(arg0, s32 *, 0x54) = arg2;
     TItemList__sub_801D5884((void *)(arg0), (int)(0U));
@@ -393,7 +393,7 @@ void *TItemList__sub_801D3FC4(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TItemList__sub_801D401C(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
+u8 *construct_placement_search_base(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s8 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801D401C_lbl_804C4498 *)&lbl_804C4498).value;
     if (arg2 == NULL) {

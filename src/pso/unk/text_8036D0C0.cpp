@@ -20,7 +20,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 void *create_particle_emitter(void *, int);
-void TPhotonMagicSquare__sub_801A2640(void *, s32);
+void construct_world_actor_base(void *, s32);
 extern void *__vt__17TObjEneHoldEffect[];
 extern s32 lbl_805D44E8;
 extern s32 tl_07;
@@ -30,7 +30,7 @@ Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32
 extern "C" {
 
 Hold_8036D0C0 *TObjEneHoldEffect__ct(Hold_8036D0C0 *o, u8 *parent, s32 type, s32 arg3) {
-    TPhotonMagicSquare__sub_801A2640(o, tl_07);
+    construct_world_actor_base(o, tl_07);
     o->vt = __vt__17TObjEneHoldEffect;
     o->x90 = NULL;
     if (parent != NULL) {

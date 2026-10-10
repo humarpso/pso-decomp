@@ -17,7 +17,7 @@ extern "C" {
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1);
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
@@ -38,7 +38,7 @@ extern M2C_UNK __vt__10TObjBgmCol[];
 extern s32 lbl_805D3228;
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjBgmCol;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3228;
     ((TObjBgmCol8017E8_8017E7F0 *)arg0)->ct(arg2);

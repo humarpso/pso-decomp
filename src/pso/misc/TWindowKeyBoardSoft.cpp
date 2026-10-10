@@ -139,7 +139,7 @@ M2C_UNK dispatch_request_0x28__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
 M2C_UNK dispatch_request_0x27__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
 M2C_UNK dispatch_request_0x26__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
 int strcmp(const char *, const char *);
-extern u16 lbl_804CFA90[];
+extern u16 soft_keyboard_conversion_exclusions[];
 M2C_UNK dispatch_request_0x25__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
 s32 dispatch_request_0x23__19TWindowKeyBoardSoftFii(void *, void *);
 s32 dispatch_request_0x22__19TWindowKeyBoardSoftFii(void *, void *);
@@ -223,7 +223,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
         if ((ch & 0xE0) == 0x80 && (ch & 0xE0) == 0x80) {
             ch <<= 8;
             ch |= *p++ & 0xFF;
-            for (t = lbl_804CFA90; *t != 0; t++) {
+            for (t = soft_keyboard_conversion_exclusions; *t != 0; t++) {
                 if ((u16)ch == *t) {
                     return;
                 }

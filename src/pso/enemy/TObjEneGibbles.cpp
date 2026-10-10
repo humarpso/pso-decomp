@@ -102,6 +102,17 @@ struct Part_802DBA18 { u8 pad[0x1C]; };
 
 struct G_802DBA18 { u8 pad[0x3DC]; Part_802DBA18 parts[4]; };
 
+struct Base14 { char pad[0x14]; };
+
+struct VObj14 : Base14 {
+    virtual M2C_UNK m0();
+    virtual M2C_UNK m1();
+    virtual M2C_UNK m2();
+    virtual M2C_UNK m3();
+    virtual M2C_UNK m4();
+    virtual M2C_UNK m5();
+};
+
 extern "C" {
 f32 calc_xz_distance_sq__10TObjPlayerFiUiPv(void *, void *, Vec_802D9EB4 *);
 s32 get_field_0c__10TObjPlayerFPv(void *);
@@ -312,6 +323,12 @@ extern s32 lbl_805D68B0;
 extern u32 TObjEneGibbles__data_805D68B8;
 extern const f32 TObjEneGibbles__data_805DE7EC;
 u8 *TObjEneGibbles__ct(u8 *arg0, void *arg1, s32 arg2);
+s32 update_movement_status__10TObjPlayerFv();
+M2C_UNK obj_clearFlags30(void *, int);
+s32 TObjEneGibbles__sub_802DABD0(u8 *arg0);
+s32 update_action_hold_status__10TObjPlayerFv();
+M2C_UNK obj_clearFlags30(void *, int);
+s32 TObjEneGibbles__sub_802DAC90(u8 *arg0);
 }
 
 extern "C" {
@@ -688,10 +705,8 @@ extern "C" {
 void TObjEneGibbles__sub_802D8464();
 }
 extern "C" {
-void TObjEneGibbles__sub_802DABD0();
 }
 extern "C" {
-void TObjEneGibbles__sub_802DAC90();
 }
 extern "C" {
 struct Gib_802DB920;
@@ -934,21 +949,21 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_804E2828[2];
-extern void *lbl_804E2830[11];
+extern void *TObjEneGibbles__model_filenames[2];
+extern void *TObjEneGibbles__motion_names_and_resource_descriptor[11];
 extern void *lbl_804E286C[2];
 extern void *lbl_804E2874[11];
 void update_state__14TObjEneGibblesFPv(void *arg0);
-__declspec(section ".data") void *lbl_804E2828[2] = {
+__declspec(section ".data") void *TObjEneGibbles__model_filenames[2] = {
     (void *)&lbl_80472628, (void *)0x0,
 };
-void *lbl_804E2830[11] = {
+void *TObjEneGibbles__motion_names_and_resource_descriptor[11] = {
     (void *)&lbl_80472638, (void *)&lbl_80472650, (void *)&lbl_80472668, (void *)&lbl_8047267C,
     (void *)&lbl_80472690, (void *)&lbl_804726A4, (void *)&lbl_804726B8, (void *)&lbl_804726D0,
     (void *)&lbl_804726E4, (void *)&lbl_804726F8, (void *)0x0,
 };
 void *lbl_804E285C[4] = {
-    (void *)&lbl_8047270C, (void *)&lbl_804E2828, (void *)&lbl_804E2830, (void *)0x1000a,
+    (void *)&lbl_8047270C, (void *)&TObjEneGibbles__model_filenames, (void *)&TObjEneGibbles__motion_names_and_resource_descriptor, (void *)0x1000a,
 };
 __declspec(section ".data") void *lbl_804E286C[2] = {
     (void *)&lbl_80472720, (void *)0x0,
@@ -2260,6 +2275,51 @@ void TObjEneGibbles__sub_802DAAC8(u8 *arg0) {
 }
 
 #define P_802DAD50(p) ((Obj_802DAD50 *)(p))
+
+s32 TObjEneGibbles__sub_802DABD0(u8 *arg0) {
+    if (update_movement_status__10TObjPlayerFv() != 0) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+        case 1:
+        case 2:
+        case 0xa:
+            if (((VObj14 *)(arg0 + 0x3c0))->m5() == 1) {
+                M2C_FIELD(arg0, s32 *, 0x374) &= ~0x143;
+                M2C_FIELD(arg0, s32 *, 0x374) |= 4;
+                M2C_FIELD(arg0, s16 *, 0x326) = 3;
+                M2C_FIELD(arg0, s16 *, 0x328) = 0;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+                obj_clearFlags30(arg0, 0x06240000);
+            }
+            break;
+        }
+        return 1;
+    }
+    return 0;
+}
+
+s32 TObjEneGibbles__sub_802DAC90(u8 *arg0) {
+    if (update_action_hold_status__10TObjPlayerFv() != 0) {
+        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        case 0:
+        case 1:
+        case 2:
+        case 0xa:
+            if (((VObj14 *)(arg0 + 0x3c0))->m5() == 1) {
+                M2C_FIELD(arg0, s32 *, 0x374) &= ~0x143;
+                M2C_FIELD(arg0, s32 *, 0x374) |= 4;
+                M2C_FIELD(arg0, s16 *, 0x326) = 3;
+                M2C_FIELD(arg0, s16 *, 0x328) = 0;
+                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+                obj_clearFlags30(arg0, 0x06240000);
+            }
+            break;
+        }
+        return 1;
+    }
+    return 0;
+}
+
 void update_target__14TObjEneGibblesFPv(Obj_802DAD50 *self) {
     if (self->f374 & 0x40) {
         self->f338 = 0xFFFF;

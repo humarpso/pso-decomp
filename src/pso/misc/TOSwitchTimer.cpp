@@ -44,7 +44,7 @@ void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1);
 s32 fn_801782A0(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 extern s32 lbl_805D3188;
 u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -140,7 +140,7 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80178604___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_80178604___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
 u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3188;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

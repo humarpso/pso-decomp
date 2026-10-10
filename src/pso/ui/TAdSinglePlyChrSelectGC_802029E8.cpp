@@ -94,6 +94,14 @@ struct S_80202DD4 {
     B21FC_80202DD4 b1390;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct S_801FE010;
+struct B8_801FDFB8 { u32 w[2]; };
+
+struct P_801FDFB8 { u8 pad[0x41C]; u8 a[0x39A8 - 0x41C]; B8_801FDFB8 f278C; s32 f2794; };
+
 extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
@@ -125,11 +133,13 @@ void __construct_array(void *, void *, void *, int, int);
 void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p);
 void TAdSinglePlyChrSelectGC__sub_802115C0();
 u8 *TAdSinglePlyChrSelectGC__sub_80203190(u8 *arg0);
-void TAdSinglePlyChrSelectGC__sub_80202D7C(void *, void *);
 Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg0, Save_80202C68 *arg1);
 void TAdSinglePlyChrSelectGC__sub_80076D9C(void *, void *);
 void* copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void* p, void* a1);
 u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
+void copy_player_data__9TProtocolFPvPv();
+u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1);
+void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1);
 }
 
 extern "C" {
@@ -283,7 +293,7 @@ Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg
     d = arg0->slots;
     s = arg1->slots;
     do {
-        TAdSinglePlyChrSelectGC__sub_80202D7C(d, s);
+        TAdSinglePlyChrSelectGC__sub_80202D7C((void *)(d), (void *)(s));
         d++;
         s++;
     } while (d < &arg0->slots[7]);
@@ -292,6 +302,18 @@ Save_80202C68 *copy_save_data__23TAdSinglePlyChrSelectGCFPvPv(Save_80202C68 *arg
     arg0->f194AC = arg1->f194AC;
     return arg0;
 }
+
+#define arg0 ((P_801FDFB8 *)a0)
+#define arg1 ((P_801FDFB8 *)a1)
+void *TAdSinglePlyChrSelectGC__sub_80202D7C(void *a0, void *a1) {
+    copy_player_data__9TProtocolFPvPv();
+    copy_character_data__23TAdSinglePlyChrSelectGCFPvPv((u8 *)((S_801FE010 *)arg0->a), (u8 *)((S_801FE010 *)arg1->a));
+    arg0->f278C = arg1->f278C;
+    arg0->f2794 = arg1->f2794;
+    return a0;
+}
+#undef arg0
+#undef arg1
 
 u8 *copy_character_data__23TAdSinglePlyChrSelectGCFPvPv(u8 *arg0, u8 *arg1) {
     S_80202DD4 *d = (S_80202DD4 *)arg0;

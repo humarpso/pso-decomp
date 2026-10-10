@@ -76,7 +76,7 @@ M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK reset_transform_state__10TObjPlayerFv();
 M2C_UNK init_xyz_limits__10TObjPlayerFv();
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 int load_gvm_texture_file(void*);
@@ -171,7 +171,7 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
 }
 
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TBGLightningCtrl;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E3C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

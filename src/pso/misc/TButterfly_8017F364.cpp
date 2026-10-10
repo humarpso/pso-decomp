@@ -10,7 +10,7 @@ void *TButterfly__create(void *arg0);
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2);
 void destroy_instance__10TButterflyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TPhotonMagicSquare__sub_801A2640(void *);
+void construct_world_actor_base(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
@@ -20,7 +20,7 @@ extern M2C_UNK __vt__10TButterfly[];
 extern void *lbl_805D3230;
 
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
-    TPhotonMagicSquare__sub_801A2640(arg0);
+    construct_world_actor_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TButterfly;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D3230;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 56), (void *)((char *)arg2 + 12));

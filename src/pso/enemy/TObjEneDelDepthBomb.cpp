@@ -59,6 +59,8 @@ struct Obj_80314758 {
 
 typedef struct Vec_803142DC { f32 x; f32 y; f32 z; } Vec_803142DC;
 
+struct Obj_800E9DC8 { u8 pad0[0x60]; s32 f60; u8 pad1[0x384 - 0x64]; s32 f390; u8 pad2[0x3BC - 0x388]; s32 f3C4; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK calc_distance_to_client__10TObjPlayerFiUsUi(void *, u16, void *);
@@ -134,6 +136,12 @@ extern const float TObjEneDelDepth__data_805DF258;
 extern const f32 TObjEneDelDepth__data_805DF298;
 extern const f32 lbl_805DF29C;
 void TObjEneDelDepth__sub_803142DC(u8 *arg0);
+f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
+s32 find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(void *, f32 *, f32);
+s32 angle_difference_abs(s32, s32);
+extern const f64 TObjEneDelDepth__data_80475DD0;
+extern const f32 lbl_805DF294;
+void TObjEneDelDepth__sub_803141A8(Obj_800E9DC8 *arg0);
 }
 
 extern "C" {
@@ -713,6 +721,10 @@ extern "C" {
 void set_action_state__15TObjEneDelDepthFPvi(Ene_803154A8 *o, s32 i);
 }
 
+extern "C" {
+void set_action_state__15TObjEneDelDepthFPvi(Ene_803154A8 *o, s32 i);
+}
+
 int TObjEneDelDepthBomb__sub_80313268(void) { return 0; }
 
 #pragma push
@@ -1135,6 +1147,24 @@ void move_toward_target__15TObjEneDelDepthFPv(u8 *arg0) {
 }
 
 void setup_depth_draw__15TObjEneDelDepthFPv(void* p) { ((int (*)(void*, void*, void*))set_depth_offset__15TObjEneDelDepthFPvii)((void*)(p), (void*)((void*)30), (void*)((void*)30)); set_motion__15TObjEneDelDepthFPvi((void*)(*(void**)((char*)p + 0x37c)), (void*)((void*)0)); ((int (*)(void*, void*))set_draw_mode__15TObjEneDelDepthFPvi)((void*)(p), (void*)((void*)2)); }
+
+void TObjEneDelDepth__sub_803141A8(Obj_800E9DC8 *arg0) {
+    f32 sp[3];
+    s32 r = 0;
+    s32 t;
+    arg0->f60 = arg0->f60 + arg0->f3C4;
+    if (find_nearest_enemy_with_flag__15TObjEneDelDepthFPvif(arg0, sp, lbl_805DF294) != 0xFFFF) {
+        t = (s32) (((const f64 *)&TObjEneDelDepth__data_80475DD0)[0] * get_ad_end_text_start__10TObjPlayerFv(sp[0], sp[2]));
+        if (angle_difference_abs(arg0->f60, t) < 0x444) {
+            arg0->f60 = t;
+            r = 1;
+        }
+    }
+    arg0->f390 = arg0->f390 - 1;
+    if (r != 0 || arg0->f390 < 0) {
+        set_action_state__15TObjEneDelDepthFPvi((Ene_803154A8 *)(arg0), (s32)(9));
+    }
+}
 
 void init_depth__15TObjEneDelDepthFPv(void *arg0) {
     ((int (*)(void*, void*, void*))set_depth_offset__15TObjEneDelDepthFPvii)((void*)(arg0), (void*)(0x1E), (void*)(0x1E));

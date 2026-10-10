@@ -52,7 +52,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_8019A880_lbl_804B8F70 tobjtank_collision_body_parts;
 extern M2C_UNK __vt__8TObjTank[];
-extern s32 lbl_805D3444;
+extern s32 TObjTank__class_name;
 u8 *TObjTank__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -120,7 +120,7 @@ typedef char RecoveredGlobal_8019A880___vt__8TObjTank_size[sizeof(RecoveredGloba
 u8 *TObjTank__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019A880___vt__8TObjTank *)&__vt__8TObjTank).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3444;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTank__class_name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
     copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));

@@ -4,10 +4,10 @@ extern "C" {
 
 void TShopWindowBase__sub_80217454(void);
 void TShopWindowBase__sub_80217458(void);
-int TShopWindowBase__sub_8021745C(void);
+int TShopWindowBase__is_ready(void);
 
 void TShopWindowBase__sub_80217454(void) {  }
 void TShopWindowBase__sub_80217458(void) {  }
-int TShopWindowBase__sub_8021745C(void) { return 1; }
+int TShopWindowBase__is_ready(void) { return 1; }
 
 }

@@ -105,7 +105,7 @@ void update_duel_start_countdown(Obj_8007FB14 *self) {
 
 extern "C" {
 extern TObject* tl_clipout;
-extern const char* lbl_805D28D8;
+extern const char* TDuelEffectCtrl__class_name;
 }
 
 void TDuelEffectCtrl::render() {}
@@ -130,7 +130,7 @@ TDuelEffectCtrl::~TDuelEffectCtrl() {
 }
 
 TDuelEffectCtrl::TDuelEffectCtrl(TObject* parent, u8 state) : TObject(parent) {
-    m_name = lbl_805D28D8;
+    m_name = TDuelEffectCtrl__class_name;
     m_state = state;
     m_frameCount = 0;
     m_effect = new TObject(tl_clipout);

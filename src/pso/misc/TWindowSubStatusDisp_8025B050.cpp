@@ -40,7 +40,7 @@ u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
 M2C_UNK TWindowSubStatusDisp__sub_80256BDC(void *, void *);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 
-void *lbl_804CFA40[6] = {
+void *window_uv_sprite_part_vtable[6] = {
     0, 0,
     (void *)TWindowSubStatusDisp__sub_8025B2DC,
     (void *)update_palette_sprite__20TWindowSubStatusDispFv,
@@ -139,7 +139,7 @@ void update_palette_sprite__20TWindowSubStatusDispFv(void) {  }
 
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+        M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
         destroy__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -150,7 +150,7 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
-    M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+    M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 0x14);
@@ -167,7 +167,7 @@ u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2)
 
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
-    M2C_FIELD(arg0, void ***, 4) = lbl_804CFA40;
+    M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg1, f32 *, 0x14) / 256.0f);

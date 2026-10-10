@@ -58,7 +58,7 @@ s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv(s32);
 u32 xmalloc__FUl(M2C_UNK);
 
-extern s32 lbl_805D28C0;
+extern s32 screen_binary_filename;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern u32 boss2_tunnel_snapshot_buffer;
 extern u32 TObjBoss2Tunnel__snapshot_buffer;
@@ -78,9 +78,9 @@ void load_data_buffers(void) {
     if (temp_r3 != 0U) {
         memset((void *)temp_r3, 0, 0x1818C);
     }
-    temp_r31 = update_lobby_scene__6TSceneFPv(lbl_805D28C0);
+    temp_r31 = update_lobby_scene__6TSceneFPv(screen_binary_filename);
     if (temp_r31 <= 0x1818C) {
-        temp_r30 = set_stream_and_load_file__6TLobbyFi(lbl_805D28C0);
+        temp_r30 = set_stream_and_load_file__6TLobbyFi(screen_binary_filename);
         if (temp_r30 != 0) {
             if ((u32) boss2_tunnel_snapshot_buffer != 0U) {
                 memmove((void *)boss2_tunnel_snapshot_buffer, (void *)temp_r30, temp_r31);

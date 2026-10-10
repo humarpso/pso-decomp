@@ -25,10 +25,10 @@ extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
 M2C_UNK heap_free__5THeapFPv(s32, void *);
 s32 move_words__6TLobbyFPvPvi(int, void *, void *);
-extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
+extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 extern s32 TAdScrollWinGC__chat_log_heap;
 void chat_log_remove_line(s32 arg0);
-extern RecoveredGlobal_8026A6DC_lbl_805187D8 lbl_805187D8;
+extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 void chat_log_remove_line(s32 arg0);
 s32 find_free_chat_log_slot__6TLobbyFv(void);
 s32 strlen();
@@ -66,7 +66,7 @@ typedef char RecoveredGlobal_8026A6DC_lbl_805187D8_size[sizeof(RecoveredGlobal_8
 s32 find_free_chat_log_slot__6TLobbyFv(void) {
     s32 i;
     for (i = 0; i < 30; i++) {
-        if (((char * *)&lbl_805187D8)[i] == 0) {
+        if (((char * *)&chat_log_lines)[i] == 0) {
             return i;
         }
     }
@@ -77,15 +77,15 @@ s32 find_free_chat_log_slot__6TLobbyFv(void) {
 void chat_log_remove_line(s32 arg0) {
     u32 *temp_r31;
     u32 temp_r4;
-    temp_r31 = (u32 *)((u8 *)&lbl_805187D8.value + (arg0 * 4));
+    temp_r31 = (u32 *)((u8 *)&chat_log_lines.value + (arg0 * 4));
     temp_r4 = *temp_r31;
     if (temp_r4 != 0U) {
         heap_free__5THeapFPv((s32)((void *) (TAdScrollWinGC__chat_log_heap)), (void *)((int) (temp_r4)));
         *temp_r31 = 0U;
         if (arg0 < 0x1D) {
-            move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&lbl_805187D8.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
+            move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&chat_log_lines.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
         }
-        M2C_FIELD(&lbl_805187D8.value, s32 *, 0x74) = 0;
+        M2C_FIELD(&chat_log_lines.value, s32 *, 0x74) = 0;
     }
 }
 
@@ -154,9 +154,9 @@ void chat_log_add_line(s32 arg0) {
         var_r30 = find_free_chat_log_slot__6TLobbyFv();
     }
     temp_r30 = var_r30 * 4;
-    M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0) = var_r28;
-    strncpy((int) (M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0)), (void *) (arg0), (int) (temp_r29));
-    M2C_FIELD((temp_r29 + M2C_FIELD(((u8 *)(&lbl_805187D8.value) + temp_r30), s32 *, 0)), s8 *, 0) = 0;
+    M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0) = var_r28;
+    strncpy((int) (M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0)), (void *) (arg0), (int) (temp_r29));
+    M2C_FIELD((temp_r29 + M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0)), s8 *, 0) = 0;
 }
 
 }

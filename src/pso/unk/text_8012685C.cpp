@@ -88,7 +88,7 @@ extern "C" {
 u8 get_slot_count__14TItemProShieldFPv(s32);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK reflect_matrix_in_plane(M2C_UNK, f32 *, f32);
-extern s32 lbl_805D5518;
+extern s32 knuckle_second_hand_pass;
 extern const f32 lbl_805DAD80;
 extern const f32 lbl_805DAD94;
 void reflect_knuckle_second_hand(s32 arg0);
@@ -106,7 +106,7 @@ extern "C" {
 
 void reflect_knuckle_second_hand(s32 arg0) {
     Stack_8012685C stack;
-    if ((get_player_list__10TObjPlayerFv() == 0) && (get_slot_count__14TItemProShieldFPv(arg0) == 3) && ((s32) lbl_805D5518 != 0)) {
+    if ((get_player_list__10TObjPlayerFv() == 0) && (get_slot_count__14TItemProShieldFPv(arg0) == 3) && ((s32) knuckle_second_hand_pass != 0)) {
         stack.sp10 = lbl_805DAD94;
         stack.spC = lbl_805DAD94;
         stack.sp8 = lbl_805DAD94;

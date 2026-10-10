@@ -32,7 +32,7 @@ void set_all_values__20TWindowSubStatusDispFPvi(void *, s32);
 void set_text_entry_string(void *, s32, s32);
 s32 get_meseta_value__13TWindowMesetaFPv();
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
-extern M2C_UNK lbl_804D06CC[];
+extern M2C_UNK TWindowMeseta__window_descriptor[];
 extern M2C_UNK __vt__13TWindowMeseta[];
 extern s32 TWindowMeseta__class_name;
 extern const f32 lbl_805DD204;
@@ -84,7 +84,7 @@ void *__dt__13TWindowMesetaFv(void *arg0, s16 arg1) {
 void *TWindowMeseta__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     Sub_80269244 *a;
     Sub_80269244 *b;
-    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D06CC, arg2, arg1);
+    construct_base__9TWindowDDFPvPvsPv(arg0, TWindowMeseta__window_descriptor, arg2, arg1);
     self->vt = __vt__13TWindowMeseta;
     self->name = TWindowMeseta__class_name;
     self->x64 = arg2;

@@ -686,7 +686,7 @@ u8 *TObjFish__create(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 extern s32 lbl_805D3D58;
 u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -718,7 +718,7 @@ void *__dt__8TObjFishFv(void *arg0, s16 arg1) {
 u8 *TObjFish__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     f32 temp_f0;
     f32 var_f1;
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TObjFish;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D58;
     M2C_FIELD(arg0, s32 *, 0xA0) = 0;

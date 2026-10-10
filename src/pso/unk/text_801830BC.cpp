@@ -22,7 +22,7 @@ struct RecoveredGlobal_801830BC_lbl_804B5C08 {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern RecoveredGlobal_801830BC_lbl_804B5C08 lbl_804B5C08;
 extern const f32 lbl_805DBC00;
 u8 *fn_801830BC(u8 *arg0, s32 arg1, s32 arg2);
@@ -32,7 +32,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_801830BC_lbl_804B5C08_size[sizeof(RecoveredGlobal_801830BC_lbl_804B5C08) == 0x38 ? 1 : -1];
 u8 *fn_801830BC(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5C08.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = 1;
@@ -423,7 +423,7 @@ struct RecoveredGlobal_8018386C_lbl_804B5C58 {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 #define lbl_804B5C58 (*(RecoveredGlobal_8018386C_lbl_804B5C58 *)&lbl_804B5C58)
 extern s32 lbl_805D3288;
 u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -433,7 +433,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_8018386C_lbl_804B5C58_size[sizeof(RecoveredGlobal_8018386C_lbl_804B5C58) == 0x38 ? 1 : -1];
 u8 *TObjCity_Season_FireWorkCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5C58.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3288;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -649,7 +649,7 @@ struct Obj_80183AF0 : VBase_80183AF0 {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 #define lbl_804B5C90 (*(RecoveredGlobal_80183A38_lbl_804B5C90 *)&lbl_804B5C90)
 extern s32 lbl_805D3284;
 u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -671,7 +671,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80183A38_lbl_804B5C90_size[sizeof(RecoveredGlobal_80183A38_lbl_804B5C90) == 0x34 ? 1 : -1];
 u8 *TObjCity_Season_Board__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5C90.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3284;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -1157,7 +1157,7 @@ M2C_UNK post_translate_matrix(void *);
 #define city_season_xmas_model_table (*(RecoveredGlobal_8018417C_lbl_8050DC50 *)&city_season_xmas_model_table)
 #define lbl_805DBC4C (*(const f32 *)&lbl_805DBC4C)
 void TLobby__sub_8018417C(u8 *arg0);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 #define lbl_804B5D38 (*(RecoveredGlobal_8018411C_lbl_804B5D38 *)&lbl_804B5D38)
 extern s32 lbl_805D3278;
 u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -1170,7 +1170,7 @@ typedef char RecoveredGlobal_8018417C_lbl_8050DC50_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8018411C_lbl_804B5D38_size[sizeof(RecoveredGlobal_8018411C_lbl_804B5D38) == 0x34 ? 1 : -1];
 u8 *TObjCity_Season_HalloweenPumpkin__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5D38.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3278;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
@@ -1231,7 +1231,7 @@ struct RecoveredGlobal_801842B4_lbl_804B5D6C {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK lbl_804B5D6C[];
 extern s32 lbl_805D3274;
 u8 *TObjCity_Season_XmasWreath__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -1285,7 +1285,7 @@ extern M2C_UNK city_season_xmas_model_table[];
 
 typedef char RecoveredGlobal_801842B4_lbl_804B5D6C_size[sizeof(RecoveredGlobal_801842B4_lbl_804B5D6C) == 0x34 ? 1 : -1];
 u8 *TObjCity_Season_XmasWreath__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801842B4_lbl_804B5D6C *)&lbl_804B5D6C).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3274;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

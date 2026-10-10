@@ -25,7 +25,7 @@ s32 begin_load__9TItemLoadFPvi(u8 *arg0, s32 arg1) {
     return 0;
 }
 
-extern u32 lbl_805D5498;
+extern u32 item_load_work_buffer_busy;
 
 void reset_state__9TItemLoadFPv(void *arg0) {
     s32 x;
@@ -34,7 +34,7 @@ void reset_state__9TItemLoadFPv(void *arg0) {
     set_flags__10TObjPlayerFPvUi(self->f_1C, 2);
     x = test_flags_any(self->f_1C, 4);
     if (x != 0) {
-        lbl_805D5498 = 0;
+        item_load_work_buffer_busy = 0;
         clear_flags__11TAdRicoRingFPvUi((void *)(self->f_1C), (int)(4));
     }
     M2C_FIELD(arg0, u32 *, 0x18) = 0;

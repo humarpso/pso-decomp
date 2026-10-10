@@ -140,7 +140,7 @@ extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
-void TLobby__sub_8021599C(Obj_8021599C *obj);
+void adjust_appraisal_special(Obj_8021599C *obj);
 s32 pop_byte__6TLobbyFPv(void *);
 void shuffle_shop_pool_n_times(void *, s32);
 void push_shop_pool_entry(void *, u8);
@@ -151,7 +151,7 @@ extern G_802156E0 *lbl_805D61C0;
 extern s32 lbl_805D61C4;
 extern s32 lbl_805D61C8;
 extern s32 lbl_805D6238;
-void TLobby__sub_80215720(Obj_80215720 *arg0);
+void adjust_appraisal_percentages(Obj_80215720 *arg0);
 void update_graph__8TDLGraphFii(s32, s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void render_tick__Fv();
@@ -402,7 +402,7 @@ u8 lookup_key_value__6TLobbyFc(s8 x) {
 
 struct G_802156E0;
 
-void TLobby__sub_80215720(Obj_80215720 *arg0) {
+void adjust_appraisal_percentages(Obj_80215720 *arg0) {
     Ctr_80215720 ctr;
     Ent_80215720 *e;
     s32 count;
@@ -485,7 +485,7 @@ void roll_item_grind_bonus__6TLobbyFPv(Item_8021587C *item) {
     }
 }
 
-void TLobby__sub_8021599C(Obj_8021599C *obj) {
+void adjust_appraisal_special(Obj_8021599C *obj) {
     u8 buf[0x68];
     Ent_8021599C *e;
     s32 n;

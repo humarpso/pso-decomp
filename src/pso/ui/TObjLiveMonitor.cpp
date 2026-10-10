@@ -105,14 +105,14 @@ M2C_UNK __ct__7TObjectFP7TObject();
 
 extern M2C_UNK __vt__15TObjLiveMonitor[];
 extern s32 lbl_805D40EC;
-extern int lbl_805D6A80;
+extern int live_monitor_shared_resource;
 
 void *__ct__15TObjLiveMonitorFv(void *arg0) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__15TObjLiveMonitor;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40EC;
-    M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model(lbl_805D6A80, 1);
-    M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(lbl_805D6A80, 0);
+    M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model(live_monitor_shared_resource, 1);
+    M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(live_monitor_shared_resource, 0);
     M2C_FIELD(arg0, s32 *, 0x24) = 5;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     return arg0;
@@ -168,11 +168,11 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8030B658_lbl_804E76C0 lbl_804E76C0;
-extern int lbl_805D6A80;
+extern int live_monitor_shared_resource;
 void load_static_resource__14TObjLiveCameraFv(void);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__14TObjLiveCamera[];
-extern s32 lbl_805D40E8;
+extern s32 TObjLiveCamera__class_name;
 u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -188,8 +188,8 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-    extern int lbl_805D6A80;
-void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(lbl_805D6A80), (void*)1); }
+    extern int live_monitor_shared_resource;
+void TObjLiveCamera__sub_8030B630(void) { TLobby__sub_8001FE7C((void*)(live_monitor_shared_resource), (void*)1); }
 
 void load_static_resource__14TObjLiveCameraFv(void) {
     s32 temp_r3;
@@ -199,7 +199,7 @@ void load_static_resource__14TObjLiveCameraFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E76C0.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D6A80) = var_r0;
+    (*(s32 *)&live_monitor_shared_resource) = var_r0;
 }
 
 void render__14TObjLiveCameraFv(void) {  }
@@ -222,9 +222,9 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_8030B708___vt__14TObjLiveCamera_size[sizeof(RecoveredGlobal_8030B708___vt__14TObjLiveCamera) == 0x34 ? 1 : -1];
 u8 *TObjLiveCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8030B708___vt__14TObjLiveCamera *)&__vt__14TObjLiveCamera).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40E8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjLiveCamera__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     return arg0;
 }

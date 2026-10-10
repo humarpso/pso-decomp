@@ -75,7 +75,7 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 
 extern "C" {
 
-void *TObjPlayer__sub_800820D0(void *arg0, s16 arg1);
+void *destroy_freeze_shell(void *arg0, s16 arg1);
 int TObjPlayer__sub_800822B0(void);
 int TObjPlayer__sub_800822B8(void);
 f32 TObjPlayer__sub_800822C0(void);
@@ -108,7 +108,7 @@ void load_freeze_ice_resource__6TLobbyFv(void) {
     (*(s32 *)&freeze_shell_bml_resource) = var_r0;
 }
 
-void *TObjPlayer__sub_800820D0(void *arg0, s16 arg1) {
+void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048E1A4;
         if (M2C_FIELD(arg0, void **, 0x350) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x350)); }

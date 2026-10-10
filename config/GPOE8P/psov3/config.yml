@@ -108,7 +108,6 @@ force_active:
   - TLobby__disk_error_msg_last
   - TLobby__disk_error_msg_table
   - TLobby__sub_800F9F08
-  - TLobby__sub_801037A0
   - TLobby__sub_803CBE40
   - TLobby__sub_803D0F1C
   - TLobby__sub_803D2E90
@@ -138,6 +137,7 @@ force_active:
   - TObjDoor__collision_desc
   - TObjDoor__label_color_table
   - TObjDoor__resource_param
+  - TObjEneBm3Fly__play_orbit_flight_sound
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
   - TObjEneEpsilonGuard__model_desc
@@ -419,6 +419,7 @@ force_active:
   - alloc_boss_target_slot__10TObjPlayerFPvi
   - alloc_breakup_piece_records
   - anchor_state__14TObjEneBm5WolfFPvi
+  - ancient_boss_warp_resource_block
   - appearing_state__14TObjEneBm5WolfFPvi
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFPv
@@ -578,6 +579,7 @@ force_active:
   - construct_handgun_weapon
   - construct_load_quest__12TQuestThreadFPvPvPv
   - construct_material__13TItemProArmorFPvPvPv
+  - construct_placement_search_base
   - construct_scene_object__8TObjFishFPvi
   - construct_self_effect__8TTecAntiFPvPvPviPv
   - construct_self_recovery__9TTecRestaFPvPviPv
@@ -772,6 +774,7 @@ force_active:
   - enter_hit_reaction_state__15TObjEneMe1GiGueFPv
   - enter_request_state__16TAdWarningBaseGCFv
   - enter_state_5_save_prev__15TObjEneMe1GiGueFPv
+  - evict_lowest_key_floor_item
   - explode__13TBoss6MagMineFPv
   - explode__22TObjEneMe1GiGueMissileFPvPv
   - fade_alpha_step__17TObjEneMe1CanadinFPvif
@@ -797,7 +800,6 @@ force_active:
   - fn_8007F560
   - fn_8010EFE8
   - fn_8013F288
-  - fn_8016AD3C
   - fn_801A3BB8
   - fn_801C1E98
   - fn_801C1EE8
@@ -894,6 +896,7 @@ force_active:
   - hurt_state__14TObjEneBm5WolfFPvi
   - hwSetITDMode
   - hwSetTimeOffset
+  - init_6x04_packet
   - init__13TObjEneRe4BitFPv
   - init__18TObjAreaWarpForestFPvPvPv
   - init__23TObjSeabedSuisoBrakableFPvii
@@ -993,6 +996,7 @@ force_active:
   - is_within_range__19TContainerAncient01Fii
   - item_help_level_requirement_callback
   - item_object_variant_deleting_dtor_80116F10
+  - jungle_boss_warp_resource_block
   - keyboard_poll_key_codes
   - labo_design_entry_table
   - language_lobby_texture_descriptor
@@ -1156,9 +1160,7 @@ force_active:
   - lbl_804B7630
   - lbl_804B8D58
   - lbl_804B94BC
-  - lbl_804B94CC
   - lbl_804B94E8
-  - lbl_804B94F4
   - lbl_804CE820
   - lbl_804CE918
   - lbl_804DC098
@@ -1887,6 +1889,8 @@ force_active:
   - wait_aram_request__16TAdWarningBaseGCFv
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
+  - window_label_value_part_vtable
+  - window_uv_sprite_part_vtable
   - worker_callback_flag_table
   - worker_callback_slots
   - write_telepipe_record

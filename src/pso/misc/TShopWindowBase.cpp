@@ -141,7 +141,7 @@ void TShopWindowBase__sub_802115F0();
 void TShopWindowBase__sub_80217454();
 void TShopWindowBase__sub_80216080();
 void TShopWindowBase__sub_80217458();
-void TShopWindowBase__sub_8021745C();
+void TShopWindowBase__is_ready();
 M2C_UNK __vt__15TShopWindowBase[12] = {
     0,
     0,
@@ -153,7 +153,7 @@ M2C_UNK __vt__15TShopWindowBase[12] = {
     (M2C_UNK)TShopWindowBase__sub_80217454,
     (M2C_UNK)TShopWindowBase__sub_80216080,
     (M2C_UNK)TShopWindowBase__sub_80217458,
-    (M2C_UNK)TShopWindowBase__sub_8021745C,
+    (M2C_UNK)TShopWindowBase__is_ready,
     (M2C_UNK)TShopWindowBase__vt9,
 };
 }

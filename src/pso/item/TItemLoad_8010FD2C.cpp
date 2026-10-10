@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 prs_decompress_buffer(s32, s32);
-extern int lbl_805D5494;
+extern int item_load_compressed_work_buffer;
 s32 decompress_buffer__9TItemLoadFUi(u32 arg0);
 }
 
@@ -33,15 +33,15 @@ void *init__9TItemLoadFPv(void *arg0) {
     return arg0;
 }
 
-    extern int lbl_805D5494;
+    extern int item_load_compressed_work_buffer;
 
 s32 decompress_buffer__9TItemLoadFUi(u32 arg0) {
-    if (((u32) (*(u32 *)&lbl_805D5494) != 0U) && (arg0 != 0U)) {
-        return prs_decompress_buffer((s32) (*(u32 *)&lbl_805D5494), (s32) arg0);
+    if (((u32) (*(u32 *)&item_load_compressed_work_buffer) != 0U) && (arg0 != 0U)) {
+        return prs_decompress_buffer((s32) (*(u32 *)&item_load_compressed_work_buffer), (s32) arg0);
     }
     return 0;
 }
 
-void free_boss4_rock__9TItemLoadFv(void) { free__11TOBoss4RockFUi((void*)(lbl_805D5494)); lbl_805D5494 = 0; }
+void free_boss4_rock__9TItemLoadFv(void) { free__11TOBoss4RockFUi((void*)(item_load_compressed_work_buffer)); item_load_compressed_work_buffer = 0; }
 
 }

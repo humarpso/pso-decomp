@@ -37,10 +37,10 @@ void *__nw__7TObjectFUl(u32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804757E0[];
 extern M2C_UNK __vt__18TObjLiveCameraCtrl[];
-extern s32 lbl_805D40E4;
+extern s32 TObjLiveCameraCtrl__class_name;
 extern s32 tl_particlemodel;
-extern s32 lbl_805D6A84;
-extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
+extern s32 live_camera_controller_next_slot;
+extern M2C_UNK TObjLiveCameraCtrl__instances;
 extern const f32 lbl_805DF168;
 extern const f32 lbl_805DF19C;
 extern const f32 lbl_805DF1B4;
@@ -58,7 +58,7 @@ s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0);
 void reset_globals_805D6A84(void);
 M2C_UNK memset(M2C_UNK *, M2C_UNK, M2C_UNK);
 
-extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
+extern M2C_UNK TObjLiveCameraCtrl__instances;
 
 }
 
@@ -78,7 +78,7 @@ void __dl__7TObjectFPv(void *);
 TObjLiveCameraCtrl *__dt__18TObjLiveCameraCtrlFv(TObjLiveCameraCtrl *self, s16 flag) {
     if (self != NULL) {
         M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__18TObjLiveCameraCtrl;
-        ((TObject **)&TObjLiveCameraCtrl__data_805D6A88)[self->slot_index] = NULL;
+        ((TObject **)&TObjLiveCameraCtrl__instances)[self->slot_index] = NULL;
         if (self->camera_object != NULL) queue_destruction__7TObjectFv(self->camera_object);
         __dt__7TObjectFv(self, 0);
         if (flag > 0) {
@@ -97,10 +97,10 @@ Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__18TObjLiveCameraCtrl;
     init_single_player_chr_select__6TLobbyFPv(arg0->f54);
-    arg0->f0 = lbl_805D40E4;
-    n = lbl_805D6A84;
-    M2C_FIELD(((u8 *)(&TObjLiveCameraCtrl__data_805D6A88) + n * 4), Cam_8030BED4 **, 0) = arg0;
-    lbl_805D6A84 = n + 1;
+    arg0->f0 = TObjLiveCameraCtrl__class_name;
+    n = live_camera_controller_next_slot;
+    M2C_FIELD(((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4), Cam_8030BED4 **, 0) = arg0;
+    live_camera_controller_next_slot = n + 1;
     arg0->f4c = n;
     arg0->f1c = 0;
     arg0->f1e = 0;
@@ -141,18 +141,18 @@ s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0) {
     if (arg0 > 1) {
         return 0;
     }
-    return *(s32 *)((s8 *)&TObjLiveCameraCtrl__data_805D6A88 + (arg0 * 4));
+    return *(s32 *)((s8 *)&TObjLiveCameraCtrl__instances + (arg0 * 4));
 }
 
 s32 TObjLiveMonitor__sub_8030C050(void* p) { return *(s32*)((char*)p + 0x20); }
 void fn_8030C058(void) {  }
 
-extern s32 lbl_805D6A84;
-extern M2C_UNK TObjLiveCameraCtrl__data_805D6A88;
+extern s32 live_camera_controller_next_slot;
+extern M2C_UNK TObjLiveCameraCtrl__instances;
 
 void reset_globals_805D6A84(void) {
-    lbl_805D6A84 = 0;
-    memset(&TObjLiveCameraCtrl__data_805D6A88, 0, 4);
+    live_camera_controller_next_slot = 0;
+    memset(&TObjLiveCameraCtrl__instances, 0, 4);
 }
 
 }

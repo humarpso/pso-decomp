@@ -21,7 +21,7 @@ void *TOBoss4__ct(void *arg0);
 void *__dt__7TOBoss4Fv(void *arg0, s16 arg1);
 void free_instance__7TOBoss4Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-void TPhotonMagicSquare__sub_801A2640(void *, void *);
+void construct_world_actor_base(void *, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
@@ -65,7 +65,7 @@ extern const f32 lbl_805DB31C;
 extern void *lbl_805D2EB0;
 
 void *TOBoss4__ct(void *arg0) {
-    TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
+    construct_world_actor_base(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TOBoss4;
     M2C_FIELD(arg0, void **, 0x0) = lbl_805D2EB0;
     M2C_FIELD(arg0, f32 *, 0x90) = lbl_805DB310;

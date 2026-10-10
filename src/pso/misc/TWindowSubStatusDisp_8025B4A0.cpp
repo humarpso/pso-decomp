@@ -31,7 +31,7 @@ M2C_UNK deleting_destructor__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
 M2C_UNK __dl__FPv(void *);
 void reset_entry__20TWindowSubStatusDispFPv(void*, int);
 
-void *lbl_804CFA58[6] = {
+void *window_label_value_part_vtable[6] = {
     0, 0,
     (void *)destroy_free_buffers__20TWindowSubStatusDispFPvs,
     (void *)TWindowSubStatusDisp__sub_8025B760,
@@ -104,7 +104,7 @@ void TWindowSubStatusDisp__sub_8025B760(void *p) {
 
 void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 4) = lbl_804CFA58;
+        M2C_FIELD(arg0, void ***, 4) = window_label_value_part_vtable;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x20));
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x1C));
         deleting_destructor__20TWindowSubStatusDispFPvs(arg0, 0);
@@ -115,7 +115,7 @@ void *destroy_free_buffers__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-void* init_fields__17TWindowSubComCardFPvii(void* a0, int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(a0, a2); *(int*)((char*)a0 + 0x4) = (int)lbl_804CFA58; *(float*)((char*)a0 + 0x14) = (18.0f); *(int*)((char*)a0 + 0x24) = -1; *(int*)((char*)a0 + 0x1c) = 0; *(int*)((char*)a0 + 0x20) = 0; *(int*)((char*)a0 + 0x18) = 0; return a0; }
+void* init_fields__17TWindowSubComCardFPvii(void* a0, int a1, int a2) { reset_entry__20TWindowSubStatusDispFPv(a0, a2); *(int*)((char*)a0 + 0x4) = (int)window_label_value_part_vtable; *(float*)((char*)a0 + 0x14) = (18.0f); *(int*)((char*)a0 + 0x24) = -1; *(int*)((char*)a0 + 0x1c) = 0; *(int*)((char*)a0 + 0x20) = 0; *(int*)((char*)a0 + 0x18) = 0; return a0; }
 
 int is_flag_4_set__17TWindowSubComCardFPv(void* p) { return *(u16*)((char*)p + 0x0) & 0x4; }
 

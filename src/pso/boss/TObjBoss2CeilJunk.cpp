@@ -103,7 +103,7 @@ M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 f32 rand_signed_unit();
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(void *, void *, void *, f32, f32);
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
@@ -317,7 +317,7 @@ typedef char RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk_size[sizeof(Reco
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f1;
     f32 temp_f2;
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     arg0->unk18 = &(*(RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk *)&__vt__17TObjBoss2CeilJunk).value;
     arg0->field_0 = lbl_805D26E8;
     VecCopy__FP3VecPC3Vec(&arg0->unknown_1C[0x1C], (void *) arg2);

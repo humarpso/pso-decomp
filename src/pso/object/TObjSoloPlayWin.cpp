@@ -29,7 +29,7 @@ void start_win_timer__15TObjSoloPlayWinFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__15TObjSoloPlayWin[];
-extern void *lbl_805D2880;
+extern void *TObjSoloPlayWin__class_name;
 
 }
 
@@ -51,7 +51,7 @@ extern "C" {
 void *TObjSoloPlayWin__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjSoloPlayWin;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2880;
+    M2C_FIELD(arg0, void **, 0x0) = TObjSoloPlayWin__class_name;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     return arg0;

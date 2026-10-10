@@ -17,7 +17,7 @@ u8 * get_window_layout_position(s32);
 M2C_UNK init_keyboard_text_buffer(void *, int, int);
 M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 M2C_UNK init_keyboard_text_field(void *, int, int);
-extern RecoveredGlobal_8025E9E4_lbl_804CFA70 lbl_804CFA70;
+extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
 extern M2C_UNK __vt__19TWindowKeyBoardBase[];
 extern s32 lbl_805D3920;
 extern s32 current_language;
@@ -81,7 +81,7 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
 }
 u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
-    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804CFA70.value), (int) (4), (int) (get_window_layout_position(0xB7)));
+    construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowKeyBoardBase__window_descriptor.value), (int) (4), (int) (get_window_layout_position(0xB7)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x6C);
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x84);

@@ -297,7 +297,7 @@ extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
 M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 s32 is_lobby_event_active();
 extern M2C_UNK __vt__18TObjButterflyLobby[];
 extern s32 lbl_805D4360;
@@ -330,7 +330,7 @@ void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
 extern void *tl_05;
 
 u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjButterflyLobby;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4360;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));

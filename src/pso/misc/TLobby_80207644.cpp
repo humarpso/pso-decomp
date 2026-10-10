@@ -119,7 +119,7 @@ s32 get_player_floor__6TLobbyFi(s32 idx) {
 
 extern s32 story_select_pending_state;
 
-void TLobby__sub_80207750(s32 arg0, s32 arg1) {
+void set_floor_map_variant(s32 arg0, s32 arg1) {
     if (arg0 <= 0x11) {
         s32 *p = (s32 *)&floor_map_registry;
         p[arg0 * 3 + 1] = arg1;

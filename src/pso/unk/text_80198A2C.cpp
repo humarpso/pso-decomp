@@ -1121,7 +1121,7 @@ u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s16 get_timer_value__12TWindowTimerFi(s32 i);
 void TWindowTimer__sub_8019A738(s32 i);
 void TWindowTimer__sub_8019A754(s32 i);
-void TNpcPlayer__sub_80152E74(void *cmd);
+void init_6x40_walk_packet(void *cmd);
 Player_8019A098 *get_player_by_client_id(s32);
 void calc_movement_target__10TObjPlayerFPviPvPv(void *arg0, s32 arg1, f32 *arg2, f32 *arg3);
 void sync_from_lobby__10TNpcPlayerFPv(void *p);
@@ -1213,7 +1213,7 @@ void TWindowTimer__sub_8019A098(void) {
     f32 x;
     f32 z;
     Player_8019A098 *p;
-    TNpcPlayer__sub_80152E74(&pkt);
+    init_6x40_walk_packet(&pkt);
     p = get_player_by_client_id(local_client_id);
     if (p != 0) {
         pkt.id = local_client_id;

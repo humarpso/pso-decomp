@@ -2,10 +2,13 @@
 #define PSO_BOSS_TBOSS8DRAGON_H
 
 #include "types.h"
+#include "pso/misc/RenderFadeState.h"
 
 struct TBoss8Dragon
 {
-    u8 _pad1C[0x8];
+    s32 hasActiveRenderFade();
+
+    u8 _pad00[0x24];
     u32 m_24;
     u8 _pad28[0xC];
     u32 m_34;
@@ -62,8 +65,7 @@ struct TBoss8Dragon
     u32 m_6d0;
     u32 m_6d4;
     u32 m_6d8;
-    void* m_6dc;
-    u8 _pad6E0[0x6C];
+    RenderFadeState renderFadeStates[4];
     u32 m_74c;
     u16 m_750;
     u8 _pad752[0x2];
@@ -85,5 +87,10 @@ struct TBoss8Dragon
     u32 m_89c;
     u32 m_8a0;
 };
+
+#include <stddef.h>
+typedef char TBoss8DragonFadeStride[(sizeof(RenderFadeState) == 0x1C) ? 1 : -1];
+typedef char TBoss8DragonFadeOffset[(offsetof(TBoss8Dragon, renderFadeStates) == 0x6DC) ? 1 : -1];
+typedef char TBoss8DragonAfterFadeOffset[(offsetof(TBoss8Dragon, m_74c) == 0x74C) ? 1 : -1];
 
 #endif

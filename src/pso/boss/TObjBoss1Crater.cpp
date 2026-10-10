@@ -105,7 +105,7 @@ extern const V3_8002C544 lbl_80435560;
 extern M2C_UNK __vt__15TObjBoss1Crater[];
 extern Crater_8002C544 *TObjBoss1Crater__instance_list[];
 extern s32 lbl_805D2688;
-extern s32 TObjBoss1Crater__data_805D4B58;
+extern s32 TObjBoss1Crater__instance_count;
 extern const f32 lbl_805D8160;
 extern const f32 lbl_805D8164;
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3);
@@ -134,12 +134,12 @@ void queue_destruction__7TObjectFv(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
 extern u8 *lbl_805D4B50;
-extern s32 lbl_805D4B54;
+extern s32 dragon_common_texture_list;
 extern s32 some_id_805c6f74;
 
 void render__15TObjBoss1CraterFv(u8 *arg0) {
     push_matrix();
-    set_global_param__8TObjFishFi((void *) (lbl_805D4B54));
+    set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     some_id_805c6f74 |= 0x01000000;
@@ -219,7 +219,7 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 TObjBoss1Crater__data_805D4B58;
+extern s32 TObjBoss1Crater__instance_count;
 
 Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *arg2, void *arg3) {
     f32 r;
@@ -242,8 +242,8 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     for (i = 0; i < 4; i++) {
         self->fB8[i] = 0;
     }
-    if (TObjBoss1Crater__data_805D4B58 < 0x14) {
-        TObjBoss1Crater__instance_list[TObjBoss1Crater__data_805D4B58++] = self;
+    if (TObjBoss1Crater__instance_count < 0x14) {
+        TObjBoss1Crater__instance_list[TObjBoss1Crater__instance_count++] = self;
     }
     switch (isV2Mode__12TBoss1DragonFv()) {
     case 0:
@@ -257,7 +257,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
 }
 
 s32 is_count_below_limit__15TObjBoss1CraterFv(void) {
-    return TObjBoss1Crater__data_805D4B58 < 0x14;
+    return TObjBoss1Crater__instance_count < 0x14;
 }
 
 }

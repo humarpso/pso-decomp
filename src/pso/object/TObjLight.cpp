@@ -72,7 +72,7 @@ u8 *TObjLight__create(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__9TObjLight[];
 extern RecoveredGlobal_80194528_TObjLight__data_80506320 TObjLight__scene_light_state;
 extern s32 lbl_805D33B8;
@@ -234,7 +234,7 @@ void *__dt__9TObjLightFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80194528___vt__9TObjLight_size[sizeof(RecoveredGlobal_80194528___vt__9TObjLight) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80194528_TObjLight__data_80506320_size[sizeof(RecoveredGlobal_80194528_TObjLight__data_80506320) == 0x50 ? 1 : -1];
 u8 *TObjLight__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80194528___vt__9TObjLight *)&__vt__9TObjLight).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D33B8;
     ((VObj_18_8322b3 *)(arg0))->m5(arg2);

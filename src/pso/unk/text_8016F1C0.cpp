@@ -18,7 +18,7 @@ struct VO_8016F320 : VB_8016F320 {
 };
 
 extern "C" {
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 lbl_805D3084;
 extern const f32 lbl_805DB85C;
@@ -48,7 +48,7 @@ extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGlobal_8016F1C0___vt__10TOMineDisp) == 0x34 ? 1 : -1];
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2) {
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TOMineDisp.value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3084;
     M2C_FIELD(arg0, s16 *, 0xA8) = arg2;

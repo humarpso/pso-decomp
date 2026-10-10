@@ -113,7 +113,7 @@ s32 spawn_dropped_item_from_msg(void *, int);
 extern Source_8011AB64 *TLobby__data_805D6144;
 extern Source_8011AA68 *TLobby__data_805D6140;
 void handle_6x5F_drop_item(Pkt_8011ADF4 *pkt);
-void TLobby__sub_80105A60(void *);
+void bswap_6x60_drop_request_fields(void *);
 void drop_item_from_source__6TLobbyFsisiff(s16 source, int client, s16 room, int slot, f32 x, f32 z);
 void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int slot, f32 x, f32 z);
 s32 get_player_floor__6TLobbyFi(s32);
@@ -257,7 +257,7 @@ void handle_6x60_standard_drop_item_request(void *arg0) {
     s32 client;
     s32 slot;
     s8 area;
-    TLobby__sub_80105A60(arg0);
+    bswap_6x60_drop_request_fields(arg0);
     if ((u32)(req->size * 4) == 0x14) {
         client = req->client;
         slot = get_player_floor__6TLobbyFi(client);

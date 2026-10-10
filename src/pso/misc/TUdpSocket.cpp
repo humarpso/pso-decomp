@@ -8,12 +8,12 @@ void *TUdpSocket__ct(void *arg0);
 void __ct__7TSocketFP7TObject(void *);
 
 extern M2C_UNK __vt__10TUdpSocket[];
-extern void *lbl_805D28B4;
+extern void *TUdpSocket__class_name;
 
 void *TUdpSocket__ct(void *arg0) {
     __ct__7TSocketFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TUdpSocket;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D28B4;
+    M2C_FIELD(arg0, void **, 0x0) = TUdpSocket__class_name;
     return arg0;
 }
 

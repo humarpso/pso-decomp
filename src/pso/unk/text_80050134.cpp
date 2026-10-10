@@ -40,7 +40,7 @@ int get_instance_count__9TBoss4UroFv(void);
 void activate_camera_mode(s32);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
-void TPhotonMagicSquare__sub_801A2640(void *, void *);
+void construct_world_actor_base(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 extern s32 lbl_805D27A8;
@@ -84,7 +84,7 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   s32 h;
   Obj_80050194 *new_var;
   s32 i;
-  TPhotonMagicSquare__sub_801A2640(arg0, arg1);
+  construct_world_actor_base(arg0, arg1);
   new_var = arg0;
   new_var->vt = (void *) lbl_80485870;
   new_var->f0 = lbl_805D27A8;

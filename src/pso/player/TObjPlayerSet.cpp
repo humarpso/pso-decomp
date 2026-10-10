@@ -29,7 +29,7 @@ M2C_UNK set_parent__7TObjectFP7TObject(int, int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
-u8 * TPhotonMagicSquare__sub_801A2640(void *);
+u8 * construct_world_actor_base(void *);
 extern M2C_UNK __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;
 extern const f32 lbl_805DBEF0;
@@ -80,7 +80,7 @@ extern void *quest_collision_task_root;
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80195720___vt__13TObjPlayerSet_size[sizeof(RecoveredGlobal_80195720___vt__13TObjPlayerSet) == 0x38 ? 1 : -1];
 u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640(arg0);
+    construct_world_actor_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjPlayer__player_set_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

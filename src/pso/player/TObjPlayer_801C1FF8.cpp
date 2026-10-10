@@ -39,7 +39,7 @@ void *fn_801C2360(void *arg0);
 int init_forward__10TObjPlayerFPv(void*);
 void set_state__9TTecLukerFPvi(void *, s32);
 extern const f32 TObjPlayer__data_805DC278;
-S_801C20A4 *TObjPlayer__sub_801C20A4(S_801C20A4 *arg0);
+S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0);
 }
 
 extern "C" {
@@ -101,7 +101,7 @@ void set_field4__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v;
 void* init_c2098_return_self__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801C2098((void*)(p)); return p; }
 void TObjPlayer__sub_801C2098(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
-S_801C20A4 *TObjPlayer__sub_801C20A4(S_801C20A4 *arg0) {
+S_801C20A4 *init_player_telepipe_record(S_801C20A4 *arg0) {
     init_forward__10TObjPlayerFPv(arg0->f18);
     arg0->f0 = 0xFFFF;
     arg0->f4 = 0;

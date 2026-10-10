@@ -112,7 +112,7 @@ extern "C" {
 void *TShopGenerator__create(void *arg0);
 void *TShopGenerator__ct(void *arg0, s32 arg1);
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
-M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, s32);
+M2C_UNK construct_world_actor_base(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
@@ -233,7 +233,7 @@ extern s32 tl_05;
 void *TShopGenerator__ct(void *arg0, s32 arg1) {
     s32 temp_r0;
 
-    TPhotonMagicSquare__sub_801A2640(arg0, tl_05);
+    construct_world_actor_base(arg0, tl_05);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TShopGenerator;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D36C0;
     ((VObj_8021E068_8021E010 *)arg0)->m5(arg1);

@@ -72,6 +72,10 @@ struct S_803C8A14 {
     s32 f34;
 };
 
+struct PointerRecords_803C5E78_var_r31 { u8 bytes[0x2D0]; };
+
+struct PointerRecords_803C8610_var_r31 { u8 bytes[0x40]; };
+
 extern "C" {
 s32 cv_fs_get_stat__6TLobbyFPv(u32);
 s32 cv_fs_req_rd__6TLobbyFPvii(u32, s32, s32);
@@ -83,6 +87,10 @@ M2C_UNK memset(void *, int, int);
 s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2);
 s32 cv_fs_tell__6TLobbyFPv(int);
 s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0);
+M2C_UNK TLobby__sub_803C5ED4(int);
+void TLobby__sub_803C5E78(void);
+void update_stream_read__6TLobbyFPv(S_803C8678 *s);
+void update_active_stream_reads(void);
 }
 
 struct RecoveredGlobal_803C90B0_lbl_80575140 {
@@ -294,7 +302,6 @@ void clear_buffer_1680__6TLobbyFv(void);
 void clear_net_buffer_1680__6TLobbyFv(void);
 void TLobby__sub_803C6138(S_803C6138 *arg0);
 void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK TLobby__sub_803C5E78();
 void TLobby__sub_803C610C(u8 *arg0);
 void TLobby__sub_803C6118(u8 *arg0);
 u8 *TLobby__sub_803C61C4(s32, Strm_803C5B50 **, Strm_803C5B50 *);
@@ -348,6 +355,14 @@ s32 cv_fs_tell__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803D13C0(int);
 M2C_UNK poll_active_connections__6TLobbyFv();
 M2C_UNK set_global_805D7520__6TLobbyFi();
+
+extern "C" {
+extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+}
+
+extern "C" {
+extern RecoveredGlobal_803C90B0_lbl_80575140 lbl_80575140;
+}
 
 s32 ar_alloc__6TLobbyFv(void) {
     ARAlloc();
@@ -460,6 +475,20 @@ extern s32 lbl_805D7548;
 
 void TLobby__sub_803C5E68(void) {
     lbl_805D7548 += 1;
+}
+
+typedef char PointerRecords_803C5E78_var_r31_size[sizeof(PointerRecords_803C5E78_var_r31)==0x2D0?1:-1];
+void TLobby__sub_803C5E78(void) {
+    s32 var_r30;
+    u8 *var_r31;
+    var_r31 = (u8 *)(((u8 *)&lbl_80573AC0));
+    var_r30 = 0;
+    do {
+        if ((s32) M2C_FIELD(((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30]), u8 *, 0) == 1) {
+            TLobby__sub_803C5ED4((int) (((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30])));
+        }
+        var_r30 += 1;
+    } while (var_r30 < 8);
 }
 
 void TLobby__sub_803C6064(u8 *arg0) {
@@ -879,6 +908,20 @@ inline s32 pos_803C8678(S_803C8678 *s) {
         return cv_fs_tell__6TLobbyFPv(s->h) - s->base;
     }
     return 0;
+}
+
+typedef char PointerRecords_803C8610_var_r31_size[sizeof(PointerRecords_803C8610_var_r31)==0x40?1:-1];
+void update_active_stream_reads(void) {
+    M2C_UNK *var_r31;
+    s32 var_r30;
+    var_r31 = (M2C_UNK *)(((M2C_UNK *)&lbl_80575140));
+    var_r30 = 0;
+    do {
+        if (((s32) M2C_FIELD(((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]), u8 *, 0) == 1) && ((s32) M2C_FIELD(((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]), u8 *, 1) == 2)) {
+            update_stream_read__6TLobbyFPv((S_803C8678 *)((int) (((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]))));
+        }
+        var_r30 += 1;
+    } while (var_r30 < 0x28);
 }
 
 void update_stream_read__6TLobbyFPv(S_803C8678 *s) {

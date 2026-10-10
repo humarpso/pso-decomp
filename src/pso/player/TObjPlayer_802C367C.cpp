@@ -55,12 +55,12 @@ void clear_30_slots__10TObjPlayerFPv(void* p);
 void setup_effect_slots__10TObjPlayerFii(s32 arg0, s32 arg1);
 int init_class_starting_inventory(void*);
 int TObjPlayer__sub_802C456C(void*, void*, void*);
-int TObjPlayer__sub_802C46BC(void*);
+int init_character_action_config(void*);
 M2C_UNK TObjPlayer__sub_802C46E0(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 int clear_item_slots__10TObjPlayerFPv(void*);
 int set_action_state__10TObjPlayerFPvUc(void*, void*);
 
-int init_new_character_data(void* p) { *(unsigned char*)(p) = 0; clear_item_slots__10TObjPlayerFPv(p); TObjPlayer__sub_802C46BC((char*)p + 0x3c0); init_class_starting_inventory(p); *(int*)((char*)p + 0x36c) = 300; set_action_state__10TObjPlayerFPvUc(p, (void*)1); return 1; }
+int init_new_character_data(void* p) { *(unsigned char*)(p) = 0; clear_item_slots__10TObjPlayerFPv(p); init_character_action_config((char*)p + 0x3c0); init_class_starting_inventory(p); *(int*)((char*)p + 0x36c) = 300; set_action_state__10TObjPlayerFPvUc(p, (void*)1); return 1; }
 
 void clear_30_slots__10TObjPlayerFPv(void* p) { { int i; for (i = 0; i < 30; i++) { TObjPlayer__sub_802C456C(p, (void*)i, (void*)0); } } }
 

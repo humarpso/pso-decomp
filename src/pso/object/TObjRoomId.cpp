@@ -52,7 +52,7 @@ struct RoomId_801A18EC {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__10TObjRoomId[];
 extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
@@ -216,7 +216,7 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D34B0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

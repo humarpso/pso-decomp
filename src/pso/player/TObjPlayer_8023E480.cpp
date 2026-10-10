@@ -22,8 +22,8 @@ void prs_decompress_buffer(s32, s32);
 s32 set_stream_and_load_file__6TLobbyFi(void *);
 s32 sprintf(char *, const char *, ...);
 void load_gvm_texture_archive(s32, s32);
-extern char lbl_8044DCE0[];
-extern char lbl_80516260[];
+extern char texture_prs_filename_format[];
+extern char texture_prs_stream_filename_buffer[];
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1);
 void prs_decompress_buffer(s32, s32);
 s32 update_lobby_scene__6TSceneFPv(void *);
@@ -35,8 +35,8 @@ s32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(s32, s32);
 s32 xmalloc__FUl(M2C_UNK);
 void xfree__FPv(s32);
-extern char lbl_8044DCE0[];
-extern char lbl_805161E0[];
+extern char texture_prs_filename_format[];
+extern char texture_prs_disc_filename_buffer[];
 s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
 s32 load_texture_pvm_file__6TLobbyFPvi(s32, void *);
 void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
@@ -69,8 +69,8 @@ s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0) {
 s32 TLobby__sub_8023E4B4(s32 arg0, s32 arg1) {
     s32 h;
     s32 buf;
-    sprintf(lbl_80516260, lbl_8044DCE0, arg0);
-    h = set_stream_and_load_file__6TLobbyFi(lbl_80516260);
+    sprintf(texture_prs_stream_filename_buffer, texture_prs_filename_format, arg0);
+    h = set_stream_and_load_file__6TLobbyFi(texture_prs_stream_filename_buffer);
     if (h == 0) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(h);
         return 0;
@@ -87,13 +87,13 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
     s32 a;
     s32 b;
     s32 c;
-    sprintf(lbl_805161E0, lbl_8044DCE0, arg0);
-    if (update_lobby_scene__6TSceneFPv(lbl_805161E0) != -1) {
-        a = adxf_open__6TLobbyFUii(lbl_805161E0, 0);
+    sprintf(texture_prs_disc_filename_buffer, texture_prs_filename_format, arg0);
+    if (update_lobby_scene__6TSceneFPv(texture_prs_disc_filename_buffer) != -1) {
+        a = adxf_open__6TLobbyFUii(texture_prs_disc_filename_buffer, 0);
         b = TLobby__sub_803CC53C();
         close_adxf_handle__6TLobbyFPv(a);
         b = xmalloc__FUl((M2C_UNK)(b << 11));
-        if (read_disc_file(lbl_805161E0, b) != -1) {
+        if (read_disc_file(texture_prs_disc_filename_buffer, b) != -1) {
             c = xmalloc__FUl((M2C_UNK)(0x200000));
             prs_decompress_buffer(b, c);
             load_gvm_texture_archive(c, arg1);

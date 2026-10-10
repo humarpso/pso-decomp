@@ -58,7 +58,7 @@ void prepare_adventure_maps(void);
 s32 get_bml_motion(int, int);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 lbl_805D3624;
 extern u32 TSceneSora__data_805D6054;
@@ -160,7 +160,7 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
     M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__data_805D6054)), (int) (0));

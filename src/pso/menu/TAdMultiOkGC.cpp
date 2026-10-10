@@ -49,7 +49,7 @@ M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
 M2C_UNK set_draw_texture_and_color(int, s32);
-extern s32 lbl_805D6A48;
+extern s32 multi_confirm_texture_list;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;
 extern const f32 lbl_805DF048;
@@ -67,7 +67,7 @@ void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     e = (E_80306B04 *)arg0;
     if (e[arg1].flags & 2) {
         begin_screen_draw(1);
-        set_global_param__8TObjFishFi(lbl_805D6A48);
+        set_global_param__8TObjFishFi(multi_confirm_texture_list);
         e += arg1;
         base = lbl_805DF040 * (f32)arg1;
         for (i = 0; i < 5; i++) {

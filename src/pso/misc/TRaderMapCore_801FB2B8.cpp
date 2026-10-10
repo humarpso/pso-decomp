@@ -55,7 +55,7 @@ extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__data_805D5F40;
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
+M2C_UNK construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 M2C_UNK fn_803D64F8(void *);
@@ -153,7 +153,7 @@ Core_801FB490 *TRaderMapCore__ct(Core_801FB490 *arg0, void *parent) {
     u32 j;
     s32 off;
     s32 t8, t6, t5, t0;
-    TPhotonMagicSquare__sub_801A2640(arg0, parent);
+    construct_world_actor_base(arg0, parent);
     arg0->vt = &__vt__13TRaderMapCore.value;
     arg0->f0 = rader_map_core_name_ptr;
     arg0->f178 = init_map_ptr__13TRaderMapCoreFv(&arg0->f90, 2);

@@ -268,7 +268,7 @@ void update_body_contact_flag__10TObjPlayerFPvf(TObjPlayer_801561C4 *self, f32 r
 void init_forward__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_80156A68(void* p);
 void TObjPlayer__sub_80156A74(void* p);
-void TPhotonMagicSquare__sub_801A2640(void);
+void construct_world_actor_base(void);
 extern M2C_UNK lbl_804AF8A0[];
 u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0);
 extern unsigned char lbl_8050DAD0[];
@@ -1262,7 +1262,7 @@ void *destroy_particle_controller__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 
 u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0) {
     struct Actor_801569F4 *s = (struct Actor_801569F4 *) arg0;
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     s->vtable = ((void * *)&lbl_804AF8A0);
     TObjPlayer__sub_80156A74((void*)(arg0 + 0x98));
     init_forward__10TObjPlayerFPv(arg0 + 0xA0);

@@ -26,7 +26,7 @@ struct Ply_8019750C { u8 pad0[0x38]; f32 pos[3]; };
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
 u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -127,7 +127,7 @@ extern M2C_UNK __vt__12TObjRaderCol[];
 
 typedef char RecoveredGlobal_801976F4___vt__12TObjRaderCol_size[sizeof(RecoveredGlobal_801976F4___vt__12TObjRaderCol) == 0x38 ? 1 : -1];
 u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3410;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

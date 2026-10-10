@@ -25,12 +25,12 @@ void *__dt__11TWindowCostFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__11TWindowCost[];
-extern void *lbl_805D40A8;
+extern void *TWindowCost__class_name;
 
 void *TWindowCost__ct(void *arg0) {
     TWindowMeseta__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowCost;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D40A8;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowCost__class_name;
     get_item_count__24TShopEquipmentSellWindowFPv(arg0, 0);
     return arg0;
 }

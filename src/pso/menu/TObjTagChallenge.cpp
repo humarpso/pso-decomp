@@ -29,12 +29,12 @@ void *TObjTagChallenge__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__16TObjTagChallenge[];
-extern void *lbl_805D2888;
+extern void *TObjTagChallenge__class_name;
 
 void *TObjTagChallenge__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjTagChallenge;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2888;
+    M2C_FIELD(arg0, void **, 0x0) = TObjTagChallenge__class_name;
     return arg0;
 }
 

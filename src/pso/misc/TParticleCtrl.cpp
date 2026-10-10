@@ -169,10 +169,10 @@ u8 * __dt__7TObjectFv(void *, s16);
 void free_from_heap__13TParticleCtrlFPv(void *);
 extern RecoveredGlobal_8008655C_lbl_8048E728 lbl_8048E728;
 u8 *TParticleCtrl__sub_8008655C(u8 *arg0, s16 arg1);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK lbl_8048E6A8[];
 u8 *construct_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK lbl_8048E6DC[];
 extern s32 lbl_805D2930;
 extern const f32 lbl_805D9484;
@@ -306,7 +306,7 @@ extern M2C_UNK lbl_8048E6DC[];
 
 typedef char RecoveredGlobal_800858D0_lbl_8048E6A8_size[sizeof(RecoveredGlobal_800858D0_lbl_8048E6A8) == 0x34 ? 1 : -1];
 u8 *construct_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    construct_world_actor_base((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800858D0_lbl_8048E6A8 *)&lbl_8048E6A8).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     return arg0;
@@ -393,7 +393,7 @@ typedef char RecoveredGlobal_800861F4_TParticleCtrl__data_80511F70_size[sizeof(R
 
 typedef char RecoveredGlobal_80085E78_lbl_8048E6DC_size[sizeof(RecoveredGlobal_80085E78_lbl_8048E6DC) == 0x34 ? 1 : -1];
 u8 *init_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    construct_world_actor_base((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80085E78_lbl_8048E6DC *)&lbl_8048E6DC).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) lbl_805D9484;

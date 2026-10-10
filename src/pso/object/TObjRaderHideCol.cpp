@@ -26,7 +26,7 @@ struct Hide_801973B0 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x4C]; f32 f90; s32 f
 
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__16TObjRaderHideCol[];
 extern s32 lbl_805D3414;
 u8 *TObjRaderHideCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -76,7 +76,7 @@ void *__dt__16TObjRaderHideColFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_80197490___vt__16TObjRaderHideCol_size[sizeof(RecoveredGlobal_80197490___vt__16TObjRaderHideCol) == 0x34 ? 1 : -1];
 u8 *TObjRaderHideCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80197490___vt__16TObjRaderHideCol *)&__vt__16TObjRaderHideCol).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3414;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

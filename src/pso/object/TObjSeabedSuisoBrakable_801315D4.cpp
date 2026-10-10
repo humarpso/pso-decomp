@@ -10,9 +10,9 @@ extern s32 linked_switch_walk_index;
 extern s32 linked_switch_count;
 extern void *TObjSeabedSuisoBrakable__linked_switch_count;
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1);
-extern s32 lbl_805D5520;
-extern s32 lbl_805D5524;
-extern void *lbl_805D5528;
+extern s32 model_node_search_walk_index;
+extern s32 model_node_search_target_index;
+extern void *model_node_search_result;
 void collect_recursive__23TObjSeabedSuisoBrakableFPv(void *arg0);
 }
 
@@ -47,11 +47,11 @@ s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32 arg0, s32 arg1) {
     return (*(s32 *)&TObjSeabedSuisoBrakable__linked_switch_count);
 }
 void collect_recursive__23TObjSeabedSuisoBrakableFPv(void *arg0) {
-    if ((s32) lbl_805D5520 == (s32) lbl_805D5524) {
-        lbl_805D5528 = arg0;
+    if ((s32) model_node_search_walk_index == (s32) model_node_search_target_index) {
+        model_node_search_result = arg0;
     }
-    lbl_805D5520 += 1;
-    if ((void *) lbl_805D5528 == NULL) {
+    model_node_search_walk_index += 1;
+    if ((void *) model_node_search_result == NULL) {
         if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
             collect_recursive__23TObjSeabedSuisoBrakableFPv((void *)(M2C_FIELD(arg0, void **, 0x2C)));
         }

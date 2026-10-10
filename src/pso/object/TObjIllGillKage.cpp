@@ -17,7 +17,7 @@ void run_task__15TObjIllGillKageFv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 int queue_destruction__7TObjectFv(void*);
-s32 TPhotonMagicSquare__sub_801A2640(void *);
+s32 construct_world_actor_base(void *);
 extern M2C_UNK __vt__15TObjIllGillKage[];
 extern s32 lbl_805D44AC;
 u8 *TObjIllGillKage__ct(u8 *arg0, M2C_UNK arg1, u32 arg2);
@@ -91,7 +91,7 @@ void *__dt__15TObjIllGillKageFv(void *arg0, s16 arg1) {
     return arg0;
 }
 u8 *TObjIllGillKage__ct(u8 *arg0, M2C_UNK arg1, u32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0));
+    construct_world_actor_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803655F8___vt__15TObjIllGillKage *)&__vt__15TObjIllGillKage).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44AC;
     if (arg2 != 0U) {

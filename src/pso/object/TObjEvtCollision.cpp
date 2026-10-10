@@ -28,7 +28,7 @@ extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__16TObjEvtCollision[];
-extern s32 lbl_805D3358;
+extern s32 TObjEvtCollision__class_name;
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 get_current_floor();
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -121,7 +121,7 @@ typedef char RecoveredGlobal_80190DE4___vt__16TObjEvtCollision_size[sizeof(Recov
 u8 *TObjEvtCollision__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80190DE4___vt__16TObjEvtCollision *)&__vt__16TObjEvtCollision).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3358;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEvtCollision__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
     M2C_FIELD(arg0, s32 *, 0xB0) = (s32) M2C_FIELD(arg0, s32 *, 0x84);

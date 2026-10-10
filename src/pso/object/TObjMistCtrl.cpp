@@ -38,7 +38,7 @@ struct TPlayerFootStamp_802AF8BC {
 
 extern "C" {
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
@@ -87,7 +87,7 @@ extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {

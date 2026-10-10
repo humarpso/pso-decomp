@@ -29,7 +29,7 @@ f32 sin_table_lookup(void *);
 f32 cos_table_lookup(void *);
 extern RecoveredGlobal_80302FD8_lbl_8047512C lbl_8047512C;
 extern RecoveredGlobal_80302FD8_lbl_804E6AF8 lbl_804E6AF8;
-extern s32 lbl_805D4074;
+extern s32 TObjEneDellBiter_Eff_TpAbsorb1__class_name;
 extern const f32 lbl_805DEFAC;
 u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
 }
@@ -45,7 +45,7 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     Stack_80302FD8 stack;
     construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804E6AF8.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4074;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneDellBiter_Eff_TpAbsorb1__class_name;
     M2C_FIELD(arg0, f32 *, 0xC8) = farg0;
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEFAC;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DEFAC;

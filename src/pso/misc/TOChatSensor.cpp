@@ -19,7 +19,7 @@ extern s32 tl_05;
 u32 TOChatSensor__create(s32 arg0);
 M2C_UNK set_trigger_text__12TOChatSensorFPvPv(void *, s32);
 M2C_UNK init_params__12TOChatSensorFPv(void *);
-M2C_UNK TPhotonMagicSquare__sub_801A2640(void *, void *);
+M2C_UNK construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__12TOChatSensor[];
 extern s32 lbl_805D2ED8;
 extern u32 lbl_805D58D4;
@@ -55,7 +55,7 @@ extern u32 lbl_805D58D4;
 u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
     s32 n;
     s32 *t;
-    TPhotonMagicSquare__sub_801A2640((void *) arg0, arg1);
+    construct_world_actor_base((void *) arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOChatSensor;
     M2C_FIELD(arg0, s32 *, 0) = lbl_805D2ED8;
     ((VO_8015B06C *) arg0)->m5(arg2);

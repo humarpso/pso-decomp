@@ -36,7 +36,7 @@ int render_tick__Fv(void);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK init_ending_movie();
 M2C_UNK set_screen_size(f32, f32);
-extern int lbl_805D6A58;
+extern int ending_sequence_active;
 extern const f32 lbl_805DF0B0;
 extern const f32 lbl_805DF0B4;
 void start_ending_sequence(void);
@@ -52,8 +52,8 @@ int free_resources__10TAdEndTextFv(void);
 int render_tick__Fv(void);
 
     extern unsigned char main_task[];
-    extern int lbl_805D6A58;
-void cleanup__10TAdEndTextFv(void) { lbl_805D6A58 = 0; delete_all_task_children__9TMainTaskFv(main_task); TLobby__sub_800FC3CC(); free_keyboard_soft_resources__6TLobbyFv(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
+    extern int ending_sequence_active;
+void cleanup__10TAdEndTextFv(void) { ending_sequence_active = 0; delete_all_task_children__9TMainTaskFv(main_task); TLobby__sub_800FC3CC(); free_keyboard_soft_resources__6TLobbyFv(); free_resources__10TAdEndTextFv(); render_tick__Fv(); }
 typedef char RecoveredGlobal_80307A74_main_task_size[sizeof(RecoveredGlobal_80307A74_main_task) == 0x34 ? 1 : -1];
 void run_main_frame__16TKeyBoardControlFv(void) {
     M2C_UNK *var_r3;
@@ -83,7 +83,7 @@ void run_main_frame__16TKeyBoardControlFv(void) {
     render_tick__Fv();
 }
 void start_ending_sequence(void) {
-    (*(s32 *)&lbl_805D6A58) = 1;
+    (*(s32 *)&ending_sequence_active) = 1;
     set_screen_size(lbl_805DF0B0, lbl_805DF0B4);
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();

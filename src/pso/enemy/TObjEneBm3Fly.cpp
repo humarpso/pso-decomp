@@ -1181,7 +1181,7 @@ struct Vec_800B0F70 { f32 x, y, z; };
 extern "C" {
 M2C_UNK play_effect_if_v2__10TObjPlayerFi(int);
 s32 play_persistent_sound(void *, void *, void *, int, int);
-void TObjEneBm3Fly__sub_800B1574(s32 arg0);
+void TObjEneBm3Fly__play_orbit_flight_sound(s32 arg0);
 void play_pitched_cue__13TObjEneBm3FlyFi(s32 arg0);
 f32 calc_scaled_value__15TObjBoss2TunnelFif(int, int, f32, f32);
 void TObjEneBm3Fly__sub_800B1634(u8 *arg0);
@@ -1754,7 +1754,7 @@ void TObjEneBm3Fly__sub_800B0F70(u8 *arg0, s32 arg1) {
         R(0x44) = R(0x2FC);
         R(0x4C) = R(0x304);
         ((VObj_18_aab587 *)(arg0))->m86();
-        TObjEneBm3Fly__sub_800B1574((s32)arg0);
+        TObjEneBm3Fly__play_orbit_flight_sound((s32)arg0);
         break;
     case 5:
         R(0x430) = R(0x38) - R(0x44);
@@ -1845,7 +1845,7 @@ void TObjEneBm3Fly__vt102(void *arg0, f32 farg0) {
     }
     spawn_part__14TObjEneEpsilonFi(arg0, farg0);
 }
-void TObjEneBm3Fly__sub_800B1574(s32 arg0) {
+void TObjEneBm3Fly__play_orbit_flight_sound(s32 arg0) {
     play_persistent_sound((void *) (((s32)copy_target_state__14TObjEnePanarmsFPvPv((void *) (arg0), (int) (0x4003AB23)))), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     play_effect_if_v2__10TObjPlayerFi((int) (-0x400));
 }
@@ -3623,7 +3623,7 @@ void free_fly__17TObjEneBm3FlyNestFv(void);
 void * create__17TObjEneBm3FlyNestFPv(void *arg0);
 void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
-void * TObjEneBm3FlyNest__sub_800B4630(void *arg0, s16 arg1);
+void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();

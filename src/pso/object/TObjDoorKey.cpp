@@ -119,7 +119,7 @@ u8 *TOKey__ct(void *);
 void set_type__14TOKeyAncient01FPv(void *);
 extern u8 TObjDoorKey__collision_body_parts[];
 extern M2C_UNK __vt__11TObjDoorKey[];
-extern s32 lbl_805D3344;
+extern s32 TObjDoorKey__class_name;
 extern s16 door_key_id_counter;
 extern const f32 lbl_805DBE0C;
 void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2);
@@ -311,7 +311,7 @@ extern void *tl_05;
 void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     TOKey__ct(arg0);
     M2C_FIELD(arg0, u8 **, 0x18) = ((u8 *)&__vt__11TObjDoorKey);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3344;
+    M2C_FIELD(arg0, s32 *, 0) = TObjDoorKey__class_name;
     init_key__5TOKeyFPv(arg0, arg2);
     M2C_FIELD(arg0, s32 *, 0xE8) = 0;
     M2C_FIELD(arg0, s32 *, 0xF0) = 0;

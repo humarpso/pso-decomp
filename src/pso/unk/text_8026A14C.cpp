@@ -2,7 +2,7 @@
 
 extern "C" {
 void heap_free__5THeapFPv(void *, void *);
-extern void *lbl_805187D8[];
+extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
 void fn_8026A14C(void);
@@ -18,9 +18,9 @@ extern "C" {
 void fn_8026A14C(void) {
     s32 i;
     for (i = 0x1D; i >= 0; i--) {
-        if (lbl_805187D8[i] != NULL) {
-            heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, lbl_805187D8[i]);
-            lbl_805187D8[i] = NULL;
+        if (chat_log_lines[i] != NULL) {
+            heap_free__5THeapFPv(TAdScrollWinGC__chat_log_heap, chat_log_lines[i]);
+            chat_log_lines[i] = NULL;
         }
     }
     if (chat_last_line_buffer != NULL) {

@@ -39,7 +39,7 @@ extern "C" {
 s32 isV2Mode__12TBoss1DragonFv(void);
 extern RecoveredGlobal_8002BCE0_lbl_80435410 lbl_80435410;
 extern RecoveredGlobal_8002BCE0_lbl_8043541C lbl_8043541C;
-extern M2C_UNK *lbl_805D4B48;
+extern M2C_UNK *dragon_fireball_particle_ids;
 void select_fireball_particle_table__12TBoss1DragonFv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
@@ -57,7 +57,7 @@ s32 spawn_particle_effect_with_flags(void *, int, int);
 u8 * spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 play_sound_effect(int, void *, int, int);
-extern M2C_UNK *lbl_805D4B48;
+extern M2C_UNK *dragon_fireball_particle_ids;
 extern const f32 lbl_805D8140;
 void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *arg0);
 }
@@ -101,7 +101,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_44 == NULL) {
-            arg0->field_44 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 0), 0x40);
+            arg0->field_44 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&dragon_fireball_particle_ids), s32 *, 0), 0x40);
         }
         temp_r3 = (u8 *)(arg0->field_44);
         if (temp_r3 != NULL) {
@@ -115,7 +115,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
     case 1:
         arg0->field_34 += 1;
         if ((s32) arg0->field_34 == 1) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 4), 0x40);
+            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&dragon_fireball_particle_ids), s32 *, 4), 0x40);
             temp_r3_3 = (u8 *)(arg0->field_48);
             if (temp_r3_3 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_3);
@@ -130,7 +130,7 @@ void run_task__21TBoss1DragonEffBulletFv(struct RecoveredFields_8002B9D0_arg0 *a
             apply_fireball_impact_damage__12TBoss1DragonFPvi(get_instance__12TBoss1DragonFv(), &arg0->field_1C);
         }
         if ((s32) arg0->field_34 <= 2) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&lbl_805D4B48), s32 *, 8), 0x40);
+            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD((*(u8 * *)&dragon_fireball_particle_ids), s32 *, 8), 0x40);
             return;
         }
         arg0->field_38 = 2;
@@ -183,10 +183,10 @@ void select_fireball_particle_table__12TBoss1DragonFv(void) {
     temp_r3 = isV2Mode__12TBoss1DragonFv();
     switch (temp_r3) {
     case 0:
-        lbl_805D4B48 = &lbl_80435410.value;
+        dragon_fireball_particle_ids = &lbl_80435410.value;
         return;
     case 1:
-        lbl_805D4B48 = &lbl_8043541C.value;
+        dragon_fireball_particle_ids = &lbl_8043541C.value;
         return;
     }
 }

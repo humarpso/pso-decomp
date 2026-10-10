@@ -34,7 +34,7 @@ void VecCopy__FP3VecPC3Vec(Vec_801A2640 *, Vec_801A2640 *);
 extern u8 lbl_804B9870[];
 extern const f32 lbl_805DC098;
 extern const f32 lbl_805DC0A0;
-Obj_801A2640 *TPhotonMagicSquare__sub_801A2640(Obj_801A2640 *self, void *parent);
+Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent);
 }
 
 extern "C" {
@@ -69,7 +69,7 @@ void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
 
-Obj_801A2640 *TPhotonMagicSquare__sub_801A2640(Obj_801A2640 *self, void *parent) {
+Obj_801A2640 *construct_world_actor_base(Obj_801A2640 *self, void *parent) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vtable = lbl_804B9870;
     self->f30 = 0;

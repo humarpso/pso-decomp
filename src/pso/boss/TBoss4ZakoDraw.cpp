@@ -10,8 +10,8 @@ extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 extern u8 lbl_80541E58[];
 extern u32 lbl_805D4D74;
-extern s32 lbl_805D6A70;
-extern s32 lbl_805D6A74;
+extern s32 TBoss4ZakoDraw__draw_buffer_index;
+extern s32 TBoss4ZakoDraw__rotation_phase;
 void run_task__14TBoss4ZakoDrawFv(void *arg0);
 }
 
@@ -29,11 +29,11 @@ void run_task__14TBoss4ZakoDrawFv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    old = lbl_805D6A70;
+    old = TBoss4ZakoDraw__draw_buffer_index;
     *(s32 *)(lbl_80541E58 + old * 0x784) = 0;
-    lbl_805D6A70 = old ^ 1;
-    if (++lbl_805D6A74 >= 4) {
-        lbl_805D6A74 = 0;
+    TBoss4ZakoDraw__draw_buffer_index = old ^ 1;
+    if (++TBoss4ZakoDraw__rotation_phase >= 4) {
+        TBoss4ZakoDraw__rotation_phase = 0;
     }
 }
 TBoss4ZakoDraw::~TBoss4ZakoDraw() {}

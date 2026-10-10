@@ -73,7 +73,7 @@ char *parse_csv_token__6TLobbyFPvPv(char *src, char *dst);
 char *build_text_from_comma_list__6TLobbyFPv(char *list);
 M2C_UNK strncpy(void *, void *, int);
 M2C_UNK memset(void *, int, int);
-extern u8 lbl_80517EE0[];
+extern u8 selected_guild_card_record[];
 void load_selected_guild_card_record(Src_8024220C *arg0);
 }
 
@@ -1184,7 +1184,7 @@ void send_find_user_self_tag__6TLobbyFi(s32 arg0);
 void* get_com_card_entry__6TLobbyFi(int a0);
 s32 TLobby__sub_802428F8(void* p);
 int get_com_card_data__6TLobbyFv(void);
-extern u8 lbl_80517EE0[];
+extern u8 selected_guild_card_record[];
 extern unsigned char lbl_80517F9C[];
 void find_and_load_com_card__6TLobbyFUi(u32 arg0);
 void __copy(void *, void *, int);
@@ -1227,20 +1227,20 @@ typedef struct Src_8024220C Src_8024220C;
 void load_selected_guild_card_record(Src_8024220C *arg0) {
   char *new_var;
   void *p;
-  (*(Entry_8024220C *)&lbl_80517EE0).id = arg0->id;
-  (*(Entry_8024220C *)&lbl_80517EE0).f4 = 0;
-  memset((*(Entry_8024220C *)&lbl_80517EE0).name, 0, 0x11);
-  strncpy((*(Entry_8024220C *)&lbl_80517EE0).name, arg0->name, 0x10);
-  (*(Entry_8024220C *)&lbl_80517EE0).name[0x10] = 0;
+  (*(Entry_8024220C *)&selected_guild_card_record).id = arg0->id;
+  (*(Entry_8024220C *)&selected_guild_card_record).f4 = 0;
+  memset((*(Entry_8024220C *)&selected_guild_card_record).name, 0, 0x11);
+  strncpy((*(Entry_8024220C *)&selected_guild_card_record).name, arg0->name, 0x10);
+  (*(Entry_8024220C *)&selected_guild_card_record).name[0x10] = 0;
   new_var = arg0->list;
   new_var = build_text_from_comma_list__6TLobbyFPv(new_var);
   p = new_var;
-  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s19)));
-  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s2A)));
-  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s2A)));
-  parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&lbl_80517EE0).s3B));
-  TLobby__sub_802422EC((*(Entry_8024220C *)&lbl_80517EE0).f4C, arg0->f64);
-  __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((*(Entry_8024220C *)&lbl_80517EE0).ext, arg0->ext);
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&selected_guild_card_record).s19)));
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&selected_guild_card_record).s2A)));
+  p = ((void *)parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&selected_guild_card_record).s2A)));
+  parse_csv_token__6TLobbyFPvPv((char *)(p), (char *)((*(Entry_8024220C *)&selected_guild_card_record).s3B));
+  TLobby__sub_802422EC((*(Entry_8024220C *)&selected_guild_card_record).f4C, arg0->f64);
+  __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension((*(Entry_8024220C *)&selected_guild_card_record).ext, arg0->ext);
 }
 
 void TLobby__sub_802422EC(void *arg0, void *arg1) {
@@ -1260,7 +1260,7 @@ void find_and_load_com_card__6TLobbyFUi(u32 arg0) {
         if (arg0 == ((u32 (*)(void))TLobby__sub_802428F8)()) break;
     }
     if (i < n) {
-        copy_com_card_entry__6TLobbyFPvPv((Entry_80242380 *)(lbl_80517EE0), (Entry_80242380 *)(get_com_card_entry__6TLobbyFi(i)));
+        copy_com_card_entry__6TLobbyFPvPv((Entry_80242380 *)(selected_guild_card_record), (Entry_80242380 *)(get_com_card_entry__6TLobbyFi(i)));
     }
 }
 
@@ -1373,7 +1373,7 @@ M2C_UNK move_words__6TLobbyFPvPvi(int, void *, void *);
 extern int com_card_entry_count;
 void remove_com_card_entry__6TLobbyFi(s32 arg0);
 void* TLobby__sub_802428C4(void* p);
-#define lbl_80517EE0 (*(RecoveredGlobal_8024287C_lbl_80517EE0 *)lbl_80517EE0)
+#define selected_guild_card_record (*(RecoveredGlobal_8024287C_lbl_80517EE0 *)selected_guild_card_record)
 #define lbl_80517F9C (*(RecoveredGlobal_802426E8_lbl_80517F9C *)lbl_80517F9C)
 void construct_entry_arrays__6TLobbyFv(void);
 void remove_com_card_entry__6TLobbyFi(s32 arg0);
@@ -1462,7 +1462,7 @@ void TLobby__sub_8024285C(void* p) { reset_state_805D63DC__6TLobbyFv((void*)((vo
 typedef char RecoveredGlobal_8024287C_lbl_80517EE0_size[sizeof(RecoveredGlobal_8024287C_lbl_80517EE0) == 0xBC ? 1 : -1];
 typedef char RecoveredGlobal_8024287C_lbl_80517F9C_size[sizeof(RecoveredGlobal_8024287C_lbl_80517F9C) == 0x5E4 ? 1 : -1];
 void construct_entry_arrays__6TLobbyFv(void) {
-    TLobby__sub_802428C4((void*)((void *) &lbl_80517EE0.value));
+    TLobby__sub_802428C4((void*)((void *) &selected_guild_card_record.value));
     ((M2C_UNK (*)(M2C_UNK *, void *(*)(void *), M2C_UNK, M2C_UNK, M2C_UNK))__construct_array)(&(*(RecoveredGlobal_8024287C_lbl_80517F9C *)&lbl_80517F9C).value, TLobby__sub_802428C4, 0, 0xBC, 8);
 }
 
@@ -1474,4 +1474,4 @@ int get_com_card_data__6TLobbyFv(void) {  return com_card_entry_count; }
 
 }
 #undef lbl_80517F9C
-#undef lbl_80517EE0
+#undef selected_guild_card_record

@@ -56,8 +56,8 @@ extern E14_80316488 lbl_804E8780[];
 extern const f32 lbl_805DF2EC;
 void set_motion__15TObjEneDelDepthFPvi(Self_80316488 *self, s32 arg1);
 void advance_animation_playback(void *);
-extern f32 lbl_805D6AD0;
-extern u8 lbl_805D6AD4;
+extern f32 TObjEneDelDepth__animation_end_frame;
+extern u8 TObjEneDelDepth__animation_end_frame_initialized;
 }
 
 extern "C" {
@@ -125,12 +125,12 @@ void update_animation_frame__15TObjEneDelDepthFPv(Anim_80316364 *a) {
             a->cur -= a->max;
         }
     } else {
-        if ((s8)lbl_805D6AD4 == 0) {
+        if ((s8)TObjEneDelDepth__animation_end_frame_initialized == 0) {
             f32 m = a->max;
-            lbl_805D6AD4 = 1;
-            lbl_805D6AD0 = m - lbl_805DF2E8;
+            TObjEneDelDepth__animation_end_frame_initialized = 1;
+            TObjEneDelDepth__animation_end_frame = m - lbl_805DF2E8;
         }
-        f32 lim = lbl_805D6AD0;
+        f32 lim = TObjEneDelDepth__animation_end_frame;
         if ((a->cur += a->step) >= lim) {
             a->cur = lim;
         }

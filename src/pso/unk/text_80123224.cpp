@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct Vec_8012327C { f32 x, y, z; };
 
 extern "C" {
-u8 * TObjPlayer__sub_801231DC(void *, M2C_UNK, void *);
+u8 * construct_twin_chakram(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_twin_chakram__10TObjPlayerFPv(u8 *arg0);
@@ -26,7 +26,7 @@ u8 *create_twin_chakram__10TObjPlayerFPv(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_801231DC(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(construct_twin_chakram(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

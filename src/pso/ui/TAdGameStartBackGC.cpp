@@ -17,8 +17,8 @@ void TObjPlayer__sub_803075EC(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_instance__10TObjPlayerFv(void);
 extern RecoveredGlobal_803074FC___vt__18TAdGameStartBackGC __vt__18TAdGameStartBackGC;
-extern s32 lbl_805D4088;
-extern s32 lbl_805D6A50;
+extern s32 TAdGameStartBackGC__class_name;
+extern s32 game_start_background_texture_list;
 extern const f32 lbl_805DF07C;
 extern const f32 lbl_805DF084;
 extern const f32 lbl_805DF088;
@@ -47,12 +47,12 @@ int init_xyz_limits__10TObjPlayerFv(void);
 int reset_transform_state__10TObjPlayerFv(void);
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
-extern s32 lbl_805D6A50;
+extern s32 game_start_background_texture_list;
 extern const f32 lbl_805DF078;
 
 void render_background_status__18TAdGameStartBackGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (lbl_805D6A50));
+    set_global_param__8TObjFishFi((void *) (game_start_background_texture_list));
     set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x78) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x3C), (f32) (lbl_805DF078));
     get_player__20TWindowSubStatusDispFv();
@@ -103,14 +103,14 @@ u8 *__ct__18TAdGameStartBackGCFv(u8 *arg0, u8 *arg1) {
     f32 temp_f5_2;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TAdGameStartBackGC.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4088;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdGameStartBackGC__class_name;
     M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805DF084;
     M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805DF088;
     M2C_FIELD(arg0, s32 *, 0x78) = 0xFF;
     M2C_FIELD(arg0, s32 *, 0x7C) = -1;
     M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DF07C;
     M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805DF07C;
-    lbl_805D6A50 = get_instance__10TObjPlayerFv();
+    game_start_background_texture_list = get_instance__10TObjPlayerFv();
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x5C);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x60);
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) (lbl_805DF08C + M2C_FIELD(arg0, f32 *, 0x5C));

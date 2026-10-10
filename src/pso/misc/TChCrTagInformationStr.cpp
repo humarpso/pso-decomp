@@ -36,7 +36,7 @@ void * create__22TChCrTagInformationStrFPvPv(void *arg0, void *arg1) {
 }
 
 extern M2C_UNK __vt__22TChCrTagInformationStr[];
-extern s32 lbl_805D40B8;
+extern s32 TChCrTagInformationStr__class_name;
 extern const f32 TChCrTagInformationStr__data_805DF108;
 
 #pragma push
@@ -84,7 +84,7 @@ void run_task__22TChCrTagInformationStrFv(u8 *arg0) {
 void *__ct__22TChCrTagInformationStrFv(void *arg0, M2C_UNK arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TChCrTagInformationStr;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40B8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TChCrTagInformationStr__class_name;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x20) <= 2) {
         M2C_FIELD(arg0, s32 *, 0x24) = 0x11;

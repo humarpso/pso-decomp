@@ -81,9 +81,9 @@ extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
-void TLobby__sub_801037A0(s32 n);
+void evict_lowest_key_floor_item(s32 n);
 void reset_floor_items__6TLobbyFv(void);
-void TLobby__sub_801042C0(void *);
+void bswap_sync_item_state_header(void *);
 void set_boss_buf_entry__6TLobbyFii(s32, u16);
 void TLobby__sub_80104258(void *, void *);
 void bswap_item__6TLobbyFPv(void *);
@@ -107,7 +107,7 @@ extern char lbl_8043E048[];
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 Ent_801037A0 *find_item_condition_entry__6TLobbyFii(s32 n, s32 val);
-void TLobby__sub_801037A0(s32 n);
+void evict_lowest_key_floor_item(s32 n);
 s32 is_stat_over_limit__6TLobbyFi(s32 arg0);
 s32 is_entry_valid__6TLobbyFi(s32 arg0);
 void TLobby__sub_80104258(void *, void *);
@@ -121,7 +121,7 @@ void spawn_dropped_item_from_msg(void *, s32);
 extern Ent_801037A0 **lbl_805D541C;
 extern s32 lbl_805D5420;
 void respawn_missing_floor_items__6TLobbyFi(s32 n);
-void TLobby__sub_801042C0(void *);
+void bswap_sync_item_state_header(void *);
 s32 get_sync_counter__6TLobbyFi(u16);
 void TLobby__sub_80104258(void *, void *);
 void bswap_item__6TLobbyFPv(void *);
@@ -160,7 +160,7 @@ void handle_6x63_destroy_floor_item(void *arg0) {
     }
 }
 
-void TLobby__sub_801037A0(s32 n) {
+void evict_lowest_key_floor_item(s32 n) {
     Msg_801037A0 m;
     s32 best;
     u16 bestKey;
@@ -199,7 +199,7 @@ void apply_sync_item_state__6TLobbyFPv(Save_80103890 *src) {
     Ent_801037A0 *p;
     s32 n;
     reset_floor_items__6TLobbyFv();
-    TLobby__sub_801042C0(src);
+    bswap_sync_item_state_header(src);
     for (i = 0; i < 0x10; i++) {
         lbl_805D542C[i] = src->slots[i];
     }
@@ -259,7 +259,7 @@ s32 write_sync_item_state__6TLobbyFPv(void *arg0) {
         }
     }
     i = k * 0x24 + 0x8C;
-    TLobby__sub_801042C0(dst);
+    bswap_sync_item_state_header(dst);
     return i;
 }
 #pragma pop
@@ -388,7 +388,7 @@ s32 insert_sorted_entry__6TLobbyFPv(Ent_80103DD8 *e) {
     Ent_80103DD8 *p;
     if (e != NULL) {
         if (is_stat_over_limit__6TLobbyFi(e->n) != 0) {
-            TLobby__sub_801037A0(e->n);
+            evict_lowest_key_floor_item(e->n);
         }
         if (e->n < 0x12 && is_entry_valid__6TLobbyFi(e->n) != 0) {
             idx = e->n;

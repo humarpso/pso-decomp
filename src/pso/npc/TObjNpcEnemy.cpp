@@ -137,7 +137,7 @@ s16 *get_entry_by_index__12TObjNpcEnemyFs(s16 arg0);
 void set_npc_data__12TObjNpcEnemyFPvPv(void *arg0, void *arg1);
 extern RecoveredGlobal_802D78A0_lbl_804A7CB8 lbl_804A7CB8;
 extern RecoveredGlobal_802D78A0_lbl_804A7CDC lbl_804A7CDC;
-extern RecoveredGlobal_802D78A0_lbl_804E2680 lbl_804E2680;
+extern RecoveredGlobal_802D78A0_lbl_804E2680 TObjNpcEnemy__collision_body_parts;
 extern M2C_UNK __vt__12TObjNpcEnemy[];
 extern s32 TObjNpcEnemy_class_name;
 u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -421,7 +421,7 @@ u8 *TObjNpcEnemy__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_cff70e *)(arg0))->m85(0, 1);
     M2C_FIELD(arg0, M2C_UNK **, 0x350) = &lbl_804A7CDC.value;
     set_motion_params__10TObjPlayerFPvPv((void *) (arg0), (void *) (&lbl_804A7CB8.value));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_804E2680.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TObjNpcEnemy__collision_body_parts.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
     copy_position__20TBoss3VoloptHiraisinFi((void *) (arg0));

@@ -142,7 +142,7 @@ s32 get_bml_model(int, int);
 s32 get_actor_section_id(int);
 s32 get_rader_map__11TMainCursorFPv(void *, void *);
 s32 TMainCursor__sub_8013F1F0(void *);
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 u32 get_player_by_client_id(int);
 void set_field90__15TPlyPhotonChairFPvs(void* p, s32 v);
 void TPlyPhotonChair__sub_8035B56C(void* p, f32 v);
@@ -308,7 +308,7 @@ void *__dt__15TPlyPhotonChairFv(void *arg0, s16 arg1) {
 
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg2));
+    construct_world_actor_base((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035B3C0___vt__15TPlyPhotonChair *)&__vt__15TPlyPhotonChair).value;
     init__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
     init__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));

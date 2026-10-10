@@ -23,7 +23,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 void load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, s32, void *);
 s32 fn_802432F0(s32);
 void memset(void *, int, int);
-extern s32 lbl_805D3434;
+extern s32 memcard_file_099_name;
 void load_memcard_file(void);
 }
 
@@ -45,7 +45,7 @@ void load_memcard_file(void) {
         return;
     }
     while (1) {
-        slot = fn_802432F0(lbl_805D3434);
+        slot = fn_802432F0(memcard_file_099_name);
         if (slot != -2) {
             break;
         }
@@ -55,7 +55,7 @@ void load_memcard_file(void) {
         return;
     }
     do {
-        r = get_card_file_info__15TAdPlayerLoadGCFiPvPv(slot, lbl_805D3434, &stat);
+        r = get_card_file_info__15TAdPlayerLoadGCFiPvPv(slot, memcard_file_099_name, &stat);
     } while ((u32)r == 0xFFFFFFFF);
     if (r != 0) {
         return;
@@ -65,7 +65,7 @@ void load_memcard_file(void) {
         return;
     }
     memset(buf, 0, stat.blocks << 13);
-    load_player_slot__23TAdSinglePlyChrSelectGCFPvii(slot, lbl_805D3434, buf);
+    load_player_slot__23TAdSinglePlyChrSelectGCFPvii(slot, memcard_file_099_name, buf);
     while (TAdPlayerLoadGC__sub_801E1B50(slot) != 0) {
         run_frame__6TLobbyFv();
     }

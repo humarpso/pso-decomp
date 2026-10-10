@@ -38,19 +38,19 @@ struct Lz_8013F99C {
 };
 
 extern "C" {
-void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r);
+void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
-u8 TLobby__sub_8013FF94(u8 *arg0);
-u8 TLobby__sub_8013FF78(u8 *arg0);
+u8 lzss_read_byte(u8 *arg0);
+u8 lzss_input_exhausted(u8 *arg0);
 void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0);
-void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p);
+void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
 void debug_print__FPCc(const char *);
-void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p);
-void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r);
+void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p);
+void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r);
 void init_lookup_tables__6TLobbyFPv(L_8013FF20 *arg0);
 void TLobby__sub_8013FF64(u8 *arg0, s8 arg1);
-u8 TLobby__sub_8013FF78(u8 *arg0);
-u8 TLobby__sub_8013FF94(u8 *arg0);
+u8 lzss_input_exhausted(u8 *arg0);
+u8 lzss_read_byte(u8 *arg0);
 void set_range__6TLobbyFPviii(void *, int, int, int);
 void bswap_32__FPUl(u32 *);
 int sprintf(char *, const char *, ...);
@@ -72,9 +72,9 @@ int refresh_render_state__6TLobbyFv(void);
 
 #pragma push
 #pragma opt_propagation off
-#define EOF_8013F99C(c) (((s32 (*)(u8 *))TLobby__sub_8013FF78)(c))
+#define EOF_8013F99C(c) (((s32 (*)(u8 *))lzss_input_exhausted)(c))
 #define PUT_8013F99C(c, v) (((void (*)(u8 *, s32))TLobby__sub_8013FF64)(c, v))
-#define GET_8013F99C(c) (((s32 (*)(u8 *))TLobby__sub_8013FF94)(c))
+#define GET_8013F99C(c) (((s32 (*)(u8 *))lzss_read_byte)(c))
 s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s32 *hdr) {
     u8 code_buf[17];
     char msg[256];
@@ -112,9 +112,9 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
         return lz->codesize;
     }
     for (i = 1; i <= 0x12; i++) {
-        TLobby__sub_8013FDC4((Lz_8013FDC4 *)lz, r - i);
+        lzss_insert_ring_node((Lz_8013FDC4 *)lz, r - i);
     }
-    TLobby__sub_8013FDC4((Lz_8013FDC4 *)lz, r);
+    lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
     do {
         if (lz->match_length > len) {
             lz->match_length = len;
@@ -141,21 +141,21 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
             if (EOF_8013F99C((u8 *)lz) != 0) {
                 break;
             }
-            TLobby__sub_8013FCB0((Lz_8013FCB0 *)lz, s);
+            lzss_remove_ring_node((Lz_8013FCB0 *)lz, s);
             lz->text_buf[s] = c;
             if (s < 0x11) {
                 lz->text_buf[s + 0x1000] = c;
             }
             s = (s + 1) & 0xFFF;
             r = (r + 1) & 0xFFF;
-            TLobby__sub_8013FDC4((Lz_8013FDC4 *)lz, r);
+            lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
         }
         while (m++ < i) {
-            TLobby__sub_8013FCB0((Lz_8013FCB0 *)lz, s);
+            lzss_remove_ring_node((Lz_8013FCB0 *)lz, s);
             s = (s + 1) & 0xFFF;
             r = (r + 1) & 0xFFF;
             if (--len) {
-                TLobby__sub_8013FDC4((Lz_8013FDC4 *)lz, r);
+                lzss_insert_ring_node((Lz_8013FDC4 *)lz, r);
             }
         }
     } while (len > 0);
@@ -178,7 +178,7 @@ s32 lz_compress_packet__6TLobbyFPvPviPv(Lz_8013F99C *lz, void *src, s32 size, s3
 }
 #pragma pop
 
-void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p) {
+void lzss_remove_ring_node(Lz_8013FCB0 *t, s32 p) {
     s32 q;
     if (t->dad[p] == NIL_8013FCB0) {
         return;
@@ -210,7 +210,7 @@ void TLobby__sub_8013FCB0(Lz_8013FCB0 *t, s32 p) {
     t->dad[p] = NIL_8013FCB0;
 }
 
-void TLobby__sub_8013FDC4(Lz_8013FDC4 *lz, s32 r) {
+void lzss_insert_ring_node(Lz_8013FDC4 *lz, s32 r) {
     u8 *key;
     s32 i;
     s32 p;
@@ -281,11 +281,11 @@ void TLobby__sub_8013FF64(u8 *arg0, s8 arg1) {
     *temp_r5 = arg1;
 }
 
-u8 TLobby__sub_8013FF78(u8 *arg0) {
+u8 lzss_input_exhausted(u8 *arg0) {
     return (u8) ((u32) M2C_FIELD(arg0, u32 *, 0x7220) > (u32) M2C_FIELD(arg0, u32 *, 0x7228));
 }
 
-u8 TLobby__sub_8013FF94(u8 *arg0) {
+u8 lzss_read_byte(u8 *arg0) {
     u8 *temp_r4;
     temp_r4 = M2C_FIELD(arg0, u8 **, 0x7220);
     M2C_FIELD(arg0, u8 **, 0x7220) = (u8 *) (temp_r4 + 1);

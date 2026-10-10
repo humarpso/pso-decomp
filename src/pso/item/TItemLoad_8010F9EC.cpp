@@ -20,11 +20,11 @@ M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK clear_id__10TObjPlayerFPv(void *);
 M2C_UNK update_ring__9TItemLoadFi();
 
-extern s32 lbl_805D5498;
+extern s32 item_load_work_buffer_busy;
 
 void reset_ring_state__9TItemLoadFPv(u8 *arg0) {
     if (test_flags_any(arg0 + 0x1C, 4) != 0) {
-        lbl_805D5498 = 0;
+        item_load_work_buffer_busy = 0;
         clear_flags__11TAdRicoRingFPvUi(arg0 + 0x1C, 4);
     }
     M2C_FIELD(arg0, s32 *, 0x18) = 0;

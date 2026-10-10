@@ -10,7 +10,7 @@ void TObjPlayer__sub_801AE724(void);
 void TObjPlayer__sub_801AE728(void);
 void TObjPlayer__sub_801AE72C(void* a0);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
-M2C_UNK TPhotonMagicSquare__sub_801A2640();
+M2C_UNK construct_world_actor_base();
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 
 extern void *__vt__14TPhotonRainbow[];
@@ -18,7 +18,7 @@ extern s32 lbl_805D3520;
 extern u8 *photon_blast_shared_resource;
 
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640();
+    construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)&__vt__14TPhotonRainbow;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3520;
     if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) == 1) {

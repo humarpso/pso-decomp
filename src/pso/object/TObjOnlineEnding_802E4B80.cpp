@@ -401,7 +401,7 @@ s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
 s32 get_field_3e0__12TBoss3VoloptFPv(void *);
-void TPhotonMagicSquare__sub_801A2640(void *, void *);
+void construct_world_actor_base(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_area_music(void *);
 void fn_802E6218(void *);
@@ -421,7 +421,7 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     Ent_802E4FFC *e;
     TObject_802E4FFC *obj;
 
-    TPhotonMagicSquare__sub_801A2640(arg0, parent);
+    construct_world_actor_base(arg0, parent);
     SELF->vt = (void *)lbl_804E3A64;
     SELF->f0 = lbl_805D3F90;
     SELF->fA0 = get_global_state__14TOKeyMachine01Fv();

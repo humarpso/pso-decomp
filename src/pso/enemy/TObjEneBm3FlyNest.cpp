@@ -1528,7 +1528,7 @@ void free_fly__17TObjEneBm3FlyNestFv(void);
 void * create__17TObjEneBm3FlyNestFPv(void *arg0);
 void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
-void * TObjEneBm3FlyNest__sub_800B4630(void *arg0, s16 arg1);
+void * destroy_monest_carrier(void *arg0, s16 arg1);
 u8 * construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
@@ -2905,7 +2905,7 @@ void update_monest_carrier(u8 *self) {
 extern int fold_flush_5;
 #pragma pop
 
-void *TObjEneBm3FlyNest__sub_800B4630(void *arg0, s16 arg1) {
+void *destroy_monest_carrier(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804920B4;
         __dt__7TObjectFv(arg0, 0);

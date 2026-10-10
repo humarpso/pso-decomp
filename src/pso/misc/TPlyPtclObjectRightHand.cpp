@@ -24,12 +24,12 @@ void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__23TPlyPtclObjectRightHand[];
-extern void *lbl_805D40C8;
+extern void *TPlyPtclObjectRightHand__class_name;
 
 void *TPlyPtclObjectRightHand__ct(void *arg0) {
     TPlyFollowParticleCtrl__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TPlyPtclObjectRightHand;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D40C8;
+    M2C_FIELD(arg0, void **, 0x0) = TPlyPtclObjectRightHand__class_name;
     return arg0;
 }
 

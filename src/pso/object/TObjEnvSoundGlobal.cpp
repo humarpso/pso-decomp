@@ -36,9 +36,9 @@ struct Env_80190624 {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__18TObjEnvSoundGlobal[];
-extern s32 lbl_805D3350;
+extern s32 TObjEnvSoundGlobal__class_name;
 u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2);
 u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void copy_pair__18TObjEnvSoundGlobalFPvPv(void* p, void* q);
@@ -124,9 +124,9 @@ extern void *tl_05;
 
 typedef char RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal_size[sizeof(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal) == 0x34 ? 1 : -1];
 u8 *TObjEnvSoundGlobal__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80190484___vt__18TObjEnvSoundGlobal *)&__vt__18TObjEnvSoundGlobal).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3350;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEnvSoundGlobal__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     setup_sound__18TObjEnvSoundGlobalFPv((u8 *)((void *) (arg0)));
     return arg0;
@@ -148,7 +148,7 @@ f32 get_random_float__8TObjFishFv(f32);
 s32 init_sound_params__14TObjEnvSoundExFPv(u8 *arg0);
 s32 disallow_rendering__7TObjectFv(void *);
 extern M2C_UNK __vt__14TObjEnvSoundEx[];
-extern s32 lbl_805D334C;
+extern s32 TObjEnvSoundEx__class_name;
 void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1);
 void render__14TObjEnvSoundExFv(void);
 f32 xz_distance_squared(void *, void *);
@@ -243,9 +243,9 @@ void *__dt__14TObjEnvSoundExFv(void *arg0, s16 arg1) {
 }
 typedef char RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx_size[sizeof(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx) == 0x34 ? 1 : -1];
 u8 *TObjEnvSoundEx__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
-    ((s32 (*)(void *))TPhotonMagicSquare__sub_801A2640)((void *) (arg0));
+    ((s32 (*)(void *))construct_world_actor_base)((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019080C___vt__14TObjEnvSoundEx *)&__vt__14TObjEnvSoundEx).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D334C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEnvSoundEx__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_sound_params__14TObjEnvSoundExFPv((u8 *)((void *) (arg0)));
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) (-127.0f);

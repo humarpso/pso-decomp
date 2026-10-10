@@ -21,7 +21,7 @@ struct RecoveredGlobal_8029CE64___vt__13TOGrassJungle {
 };
 
 extern "C" {
-s32 TPhotonMagicSquare__sub_801A2640(void *, void *);
+s32 construct_world_actor_base(void *, void *);
 extern M2C_UNK __vt__13TOGrassJungle[];
 extern s32 grass_jungle_class_name;
 u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -89,7 +89,7 @@ void *__dt__13TOGrassJungleFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8029CE64___vt__13TOGrassJungle_size[sizeof(RecoveredGlobal_8029CE64___vt__13TOGrassJungle) == 0x34 ? 1 : -1];
 u8 *TOGrassJungle__ct(u8 *arg0, s32 arg1, s32 arg2) {
-    TPhotonMagicSquare__sub_801A2640((void *) (arg0), (void *) (arg1));
+    construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029CE64___vt__13TOGrassJungle *)&__vt__13TOGrassJungle).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) grass_jungle_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);

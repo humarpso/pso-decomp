@@ -126,7 +126,7 @@ void init_state__10TObjPlayerFi(void *);
 void init_subobject__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801C1A00(void *);
 void init__10TObjPlayerFPv(void *);
-void TObjPlayer__sub_801C20A4(void *);
+void init_player_telepipe_record(void *);
 void setup_ctrl__10TObjPlayerFPv(void *);
 void init_partial__10TObjPlayerFi(void *);
 void init_sub_objects__10TObjPlayerFPv(void *);
@@ -173,7 +173,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     clear_base__10TObjPlayerFPv((void *)((char *)arg0 + 1992));
     init__10TObjPlayerFPv((void *)((char *)arg0 + 1996));
     TObjPlayer__sub_801C1A00((void *)((char *)arg0 + 2088));
-    TObjPlayer__sub_801C20A4((void *)((char *)arg0 + 2096));
+    init_player_telepipe_record((void *)((char *)arg0 + 2096));
     TObjPlayer__sub_801BFB4C((void *)((char *)arg0 + 2124));
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
@@ -221,7 +221,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     clear_base__10TObjPlayerFPv((void *)((char *)arg0 + 1992));
     init__10TObjPlayerFPv((void *)((char *)arg0 + 1996));
     TObjPlayer__sub_801C1A00((void *)((char *)arg0 + 2088));
-    TObjPlayer__sub_801C20A4((void *)((char *)arg0 + 2096));
+    init_player_telepipe_record((void *)((char *)arg0 + 2096));
     TObjPlayer__sub_801BFB4C((void *)((char *)arg0 + 2124));
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));

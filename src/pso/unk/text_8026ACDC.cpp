@@ -2,7 +2,7 @@
 extern "C" {
 void *__nw__5THeapFUl(u32);
 void *__ct__5THeapFUli(void *, u32, s32);
-extern void *lbl_805187D8[];
+extern void *chat_log_lines[];
 extern void *TAdScrollWinGC__chat_log_heap;
 extern void *chat_last_line_buffer;
 void TLobby__sub_8026ACDC(void);
@@ -20,7 +20,7 @@ void TLobby__sub_8026ACDC(void) {
     TAdScrollWinGC__chat_log_heap = heap;
     chat_last_line_buffer = NULL;
     for (i = 0; i < 0x1E; i++) {
-        lbl_805187D8[i] = NULL;
+        chat_log_lines[i] = NULL;
     }
 }
 
