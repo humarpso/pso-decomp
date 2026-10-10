@@ -71,10 +71,10 @@ extern "C" {
 s32 fn_801E0900(s32);
 int bswap_32__FPUl(void* a0);
 void fn_801DF280(void *arg0);
-void fn_801DF360(void* p);
+void bswap_cmd_88_marker_record(void* p);
 int bswap_32__FPUl(void* a0);
 s32 bswap__16TPlyGuildCardTagFv(s32);
-void fn_801DF360(void* p);
+void bswap_cmd_88_marker_record(void* p);
 int bswap_32__FPUl(void* a0);
 void bswap__21TPlyMeetUserExtensionFv(void *);
 void fn_801DF47C(void *arg0);
@@ -166,9 +166,9 @@ s32 fn_801DF2BC(s32 arg0) {
     return arg0;
 }
 int bswap_cmd_8a_header(void* p) { return bswap__13packet_headerFv(p); }
-void bswap_cmd_88_body(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 16; i++) { fn_801DF360((void*)((char*)p + 0x4 + i * 12)); } } }
+void bswap_cmd_88_body(void* p) { bswap__13packet_headerFv(p); { int i; for (i = 0; i < 16; i++) { bswap_cmd_88_marker_record((void*)((char*)p + 0x4 + i * 12)); } } }
 
-void fn_801DF360(void* p) { bswap__16TPlyGuildCardTagFv((s32)(p)); bswap_32__FPUl((char*)p + 0x8); }
+void bswap_cmd_88_marker_record(void* p) { bswap__16TPlyGuildCardTagFv((s32)(p)); bswap_32__FPUl((char*)p + 0x8); }
 
 typedef struct RecoveredFields_801DF394_arg0 RecoveredFields_801DF394_arg0;
 typedef struct RecoveredFields_801DF394_arg1 RecoveredFields_801DF394_arg1;

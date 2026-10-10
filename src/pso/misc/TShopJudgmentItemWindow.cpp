@@ -174,7 +174,7 @@ s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 apply_shop_judgment__10TObjPlayerFPvi(s32, void *);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
 M2C_UNK fn_80221838(void *, void *, s32);
-M2C_UNK TLobby__sub_80222CBC(int);
+M2C_UNK get_appraisal_text(int);
 M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 M2C_UNK calc_list_content_extent(void *);
 M2C_UNK add_list_entry__23TShopJudgmentItemWindowFPvii(void *, s32, s32);
@@ -676,7 +676,7 @@ M2C_UNK build_item_list__23TShopJudgmentItemWindowFPv(void *arg0) {
         return;
     }
     if (W->list == NULL) {
-        W->list = create_item_list_window(TLobby__sub_80222CBC(0), W->count, (u16)((s32 (*)(s32))obj_getField1c)((s32)W->player));
+        W->list = create_item_list_window(get_appraisal_text(0), W->count, (u16)((s32 (*)(s32))obj_getField1c)((s32)W->player));
         for (j = 0; j < W->count; j++) {
             add_list_entry__23TShopJudgmentItemWindowFPvii(W->list, W->ents[j].item, j);
         }

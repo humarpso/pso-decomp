@@ -39,7 +39,7 @@ u8 *get_player_by_client_id(s32);
 s32 run_and_get_result__10TObjPlayerFPvi(int, void *);
 void update_both_halves__6TLobbyFPv(void* p);
 void *get_trade_obj_ptr__6TLobbyFPv(s32);
-void TLobby__sub_802D1F30(s32 arg0, s32 arg1);
+void snapshot_player_trade_inventory(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -55,7 +55,7 @@ void set_trade_field_4__6TLobbyFii(s32 arg0, s32 arg1) {
     M2C_FIELD(get_trade_obj_ptr__6TLobbyFPv(arg0 + 0xF8), s32 *, 4) = arg1;
 }
 
-void TLobby__sub_802D1F30(s32 arg0, s32 arg1) {
+void snapshot_player_trade_inventory(s32 arg0, s32 arg1) {
     s32 ids[0x1E];
     s32 temp_r29;
     s32 var_r31;

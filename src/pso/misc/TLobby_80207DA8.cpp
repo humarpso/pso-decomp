@@ -456,7 +456,7 @@ int link_matching_objects__6TLobbyFPv(void* p);
 int spawn_objects_at_pos__6TLobbyFPv(void* p);
 void request_wave_event_stop(void);
 void TLobby__sub_80208648(void);
-void TLobby__sub_8020864C(s32 arg0);
+void dispatch_wave_event_action(s32 arg0);
 void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0);
 int spawn_objects_at_pos__6TLobbyFss(void*);
 
@@ -476,7 +476,7 @@ typedef struct {
 s32 read_be_u32(void);
 extern Ent_8020864C wave_event_action_table[];
 
-void TLobby__sub_8020864C(s32 arg0) {
+void dispatch_wave_event_action(s32 arg0) {
     Ent_8020864C *temp_r3;
     M2C_UNK (*temp_r31)(M2C_UNK);
 

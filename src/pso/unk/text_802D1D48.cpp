@@ -18,12 +18,12 @@ u8 * TLobby__sub_802D2334(void *, u32);
 void move_trade_item_amount__6TLobbyFPvUii(u8 *arg0, u32 arg1, s32 arg2);
 void clear_stale_entries__6TLobbyFPv(void *);
 s32 add_trade_item__6TLobbyFPvUii(void *, s32, s32);
-s32 TLobby__sub_802D1D48(S_802D1D48 *arg0, s32 *arg1);
+s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1);
 }
 
 extern "C" {
 
-s32 TLobby__sub_802D1D48(S_802D1D48 *arg0, s32 *arg1) {
+s32 check_trade_offer_inventory(S_802D1D48 *arg0, s32 *arg1) {
     E_802D1D48 *p;
     s32 i;
     s32 id;

@@ -1497,7 +1497,7 @@ M2C_UNK send_neg50__6TLobbyFPvPv(void *, int);
 M2C_UNK calc_death_pose_height_offset(s32, s32);
 M2C_UNK calc_death_sink_offset(void *);
 M2C_UNK enter_battle_state__10TObjPlayerFPv(void *);
-int TObjPlayer__sub_801C5B18(void*);
+int reset_player_appearance_opacity(void*);
 int set_vec4_const__10TObjPlayerFPv(void*);
 M2C_UNK revive_or_spawn_marker__10TObjPlayerFi(void *);
 M2C_UNK apply_stat_multipliers_and_reset__10TObjPlayerFPv(void *, void *, f32);
@@ -2723,7 +2723,7 @@ void TObjPlayer__sub_801C869C(s32 arg0, s16 arg1) {
   }
 }
 
-void init_effects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BE9A8(p); TObjPlayer__sub_8011E204(p, (void*)5); activate_body_collision__10TObjPlayerFPv(p); set_indexed_flags(p, (void*)0, (void*)1); TObjPlayer__sub_801C5B18((char*)p + 0x608); }
+void init_effects__10TObjPlayerFPv(void* p) { TObjPlayer__sub_801BE9A8(p); TObjPlayer__sub_8011E204(p, (void*)5); activate_body_collision__10TObjPlayerFPv(p); set_indexed_flags(p, (void*)0, (void*)1); reset_player_appearance_opacity((char*)p + 0x608); }
 
 int TObjPlayer__deactivate_off_floor_body(void* p) { return deactivate_body_collision__10TObjPlayerFPv(p); }
 

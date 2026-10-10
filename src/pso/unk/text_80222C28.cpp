@@ -32,7 +32,7 @@ extern RecoveredGlobal_80222CBC_lbl_8044C308 lbl_8044C308;
 extern s32 quest_and_shop_error_text;
 extern s32 lbl_805D6238;
 extern s32 **lbl_805D6258;
-s32 TLobby__sub_80222CBC(s32 arg0);
+s32 get_appraisal_text(s32 arg0);
 }
 
 extern "C" {
@@ -58,7 +58,7 @@ s32 get_guild_text(s32 arg0) {
 
 typedef struct RecoveredGlobal_80222CBC_lbl_8044C308 RecoveredGlobal_80222CBC_lbl_8044C308;
 typedef char RecoveredGlobal_80222CBC_lbl_8044C308_size[((sizeof(RecoveredGlobal_80222CBC_lbl_8044C308)) == 0x28) ? (1) : (-1)];
-s32 TLobby__sub_80222CBC(s32 arg0) {
+s32 get_appraisal_text(s32 arg0) {
   if (((s32 *) (*(s32 * *)&lbl_805D6258)) != 0)
   {
     return *((s32 *) (((s8 *) ((*((s32 *) (((s8 *) ((*((s32 *) (((s8 *) (*(s32 * *)&lbl_805D6258)) + 0))) + ((*((s32 *) (((s8 *) (((u8 *) (&lbl_8044C308.value)) + (lbl_805D6238 * 4))) + 0))) * 4))) + 0))) + (2 * (2 * arg0)))) + 0));

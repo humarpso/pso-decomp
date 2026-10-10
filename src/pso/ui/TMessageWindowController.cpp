@@ -16,7 +16,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 const char *get_quest_name__12TQuestThreadFv();
 const char *get_guild_text(s32);
 const char *get_shop_text(s32);
-const char *TLobby__sub_80222CBC(s32);
+const char *get_appraisal_text(s32);
 s32 set_message__18TWindowMessagePageFPvPvi(TWindowMessagePage *, const char *, s32);
 s32 is_ready__18TWindowMessagePageFPv(TWindowMessagePage *);
 TWindowMessagePage *create__18TWindowMessagePageFiiii(s32, s32, s32, s32);
@@ -156,7 +156,7 @@ s32 TMessageWindowController::is_ready() {
 }
 void TMessageWindowController::send_message(s32 index, s32 flags) {
     if (window != NULL) {
-        set_message__18TWindowMessagePageFPvPvi(window, TLobby__sub_80222CBC(index), flags | 0x80);
+        set_message__18TWindowMessagePageFPvPvi(window, get_appraisal_text(index), flags | 0x80);
     }
 }
 void TMessageWindowController::format_guild_message(s32 index, s32 flags) {

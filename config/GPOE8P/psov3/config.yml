@@ -1488,7 +1488,7 @@ force_active:
   - fn_801C1F40
   - fn_801D34E0
   - fn_801D371C
-  - fn_801DF360
+  - bswap_cmd_88_marker_record
   - fn_801DF3F0
   - fn_801DF47C
   - fn_801DF4B8

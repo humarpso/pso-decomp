@@ -166,7 +166,7 @@ void send_swapped_packet_6x30__10TObjPlayerFPv(void* p);
 void build_6x30_change_level_packet__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C0D7C(u8 *arg0);
 void bswap_and_send_body_dwords2__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_801C0E40(u8 *arg0);
+void init_6x27_use_item_cmd(u8 *arg0);
 void send_use_item_cmd__10TObjPlayerFPv(void* p);
 void bswap_and_send_packet__10TObjPlayerFi(s32 arg0);
 void bswap_body_dwords2__10TObjPlayerFi(s32 arg0);
@@ -263,7 +263,7 @@ void *copy_field_4__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     return arg0;
 }
 
-void TObjPlayer__sub_801C0E40(u8 *arg0) {
+void init_6x27_use_item_cmd(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = -1;
     M2C_FIELD(arg0, s8 *, 0) = 0x27;
     M2C_FIELD(arg0, s8 *, 1) = 2;

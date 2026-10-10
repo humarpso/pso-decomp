@@ -2861,7 +2861,7 @@ void TObjPlayer__sub_801C0D7C(void *);
 void bswap_and_send_body_dwords2__10TObjPlayerFPv(void *);
 M2C_UNK bswap_cmd_u32__10TObjPlayerFi(void *);
 M2C_UNK copy_field_4__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK TObjPlayer__sub_801C0E40(void *);
+M2C_UNK init_6x27_use_item_cmd(void *);
 M2C_UNK send_use_item_cmd__10TObjPlayerFPv(void *);
 M2C_UNK bswap_cmd_item_data__10TObjPlayerFi(void *);
 M2C_UNK copy__10TObjPlayerFPvPv(void *, void *);
@@ -6811,7 +6811,7 @@ void handle_6x27_use_item(s32 arg0) {
     Pkt_801B7EB8 pkt;
     u8 *temp_r3;
     u8 *temp_r3_2;
-    TObjPlayer__sub_801C0E40((void *) (&pkt));
+    init_6x27_use_item_cmd((void *) (&pkt));
     copy_field_4__10TObjPlayerFPvPv((void *) (&pkt), (void *) (arg0));
     bswap_cmd_u32__10TObjPlayerFi((void *) (&pkt));
     if (validate_6x27_use_item((void *) (&pkt)) != 0) {
@@ -6845,7 +6845,7 @@ s32 try_send_6x27_use_item(void *arg0, s32 arg1) {
     if ((arg0 != NULL) && (((s32 (*)(void *))obj_isState2_324)(arg0) != 0)) {
         return 0;
     }
-    TObjPlayer__sub_801C0E40(&sp8);
+    init_6x27_use_item_cmd(&sp8);
     sp8.h = ((s16 (*)(void *))obj_getField1c)(arg0);
     sp8.w = arg1;
     send_use_item_cmd__10TObjPlayerFPv(&sp8);

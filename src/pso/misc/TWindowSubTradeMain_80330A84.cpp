@@ -512,12 +512,12 @@ s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 s32 get_state__19TWindowSubTradeMainFv(void *, void *);
 s32 check_trade_items_and_show_error__6TLobbyFv();
-s32 TWindowSubTradeMain__sub_802D2808();
-void TWindowSubTradeMain__sub_802D2824();
-void TWindowSubTradeMain__sub_802D2834();
-s32 TWindowSubTradeMain__sub_802D2844();
-void TWindowSubTradeMain__sub_802D2850();
-void TWindowSubTradeMain__sub_802D2860();
+s32 are_both_trade_offers_confirmed();
+void clear_local_trade_final_confirmation();
+void set_local_trade_final_confirmation();
+s32 is_local_trade_offer_confirmation_requested();
+void clear_local_trade_offer_confirmation();
+void set_local_trade_offer_confirmation();
 void draw_offer__19TWindowSubTradeMainFPvPv(void *, s32);
 void draw_request__19TWindowSubTradeMainFPvPv(void *, s32);
 void clear_flag400__6TLobbyFv();
@@ -816,7 +816,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             TWindowSubTradeMain__sub_803323C8(o->offer);
             ((void (*)(void *))close__19TWindowSubTradeMainFPv)(o->offer);
         }
-        if (TWindowSubTradeMain__sub_802D2844() != 0) {
+        if (is_local_trade_offer_confirmation_requested() != 0) {
             o->state = 0x14;
         } else {
             o->state = 1;
@@ -832,10 +832,10 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         }
         window_request_show(o->confirm);
         clear_flag_and_release__17TWindowSubComCardFPv(o->confirm);
-        TWindowSubTradeMain__sub_802D2860();
+        set_local_trade_offer_confirmation();
         o->state = 0x15;
     case 21:
-        if (TWindowSubTradeMain__sub_802D2808() != 0) {
+        if (are_both_trade_offers_confirmed() != 0) {
             set_entry_value_clear_flag__17TWindowSubComCardFPvii(o->confirm, 2, 0xFFEE946E);
         } else {
             TWindowSubComCard__sub_80265680(o->confirm, 2);
@@ -860,7 +860,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         if (o->menu != 0) {
             clear_transition_flag__17TWindowSubComCardFPv(o->menu);
         }
-        TWindowSubTradeMain__sub_802D2850();
+        clear_local_trade_offer_confirmation();
         o->state = 1;
         break;
     case 23:
@@ -888,7 +888,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             close__17TWindowSubComCardFPv(o->card);
             o->card = 0;
         }
-        if (TWindowSubTradeMain__sub_802D2844() != 0) {
+        if (is_local_trade_offer_confirmation_requested() != 0) {
             o->state = 0x14;
         } else {
             o->state = 1;
@@ -910,7 +910,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             o->state = 0x1B;
         }
     case 27:
-        if (TWindowSubTradeMain__sub_802D2808() == 0) {
+        if (are_both_trade_offers_confirmed() == 0) {
             o->state = 0x1D;
         }
         if (get_card_data__17TWindowSubComCardFPv(o->card) != 0) {
@@ -919,7 +919,7 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv(o->card) == 0) {
                 close__17TWindowSubComCardFPv(o->card);
                 o->card = ((void *(*)(void *))update_from_lobby__19TWindowSubTradeMainFi)(o);
-                TWindowSubTradeMain__sub_802D2834();
+                set_local_trade_final_confirmation();
                 o->state = 0x1C;
             } else {
                 o->state = 0x1D;
@@ -927,12 +927,12 @@ void run_task__19TWindowSubTradeMainFv(TWindowSubTradeMain_8033162C *o) {
         }
         break;
     case 28:
-        if (TWindowSubTradeMain__sub_802D2808() == 0 ||
+        if (are_both_trade_offers_confirmed() == 0 ||
             (!(o->flags & 1) &&
              (TWindowShortListCtrl__check_controller_button(controller_input_state[player].btn, 2) != 0 ||
               test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state[4].btn, 2) != 0))) {
             play_sound_effect(0x52F16, 0, 0, 0);
-            TWindowSubTradeMain__sub_802D2824();
+            clear_local_trade_final_confirmation();
             o->state = 0x1D;
         }
         break;

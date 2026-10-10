@@ -264,7 +264,7 @@ s32 tick_battle_music_timer(Obj_801C5C38 *p);
 
 extern "C" {
 
-void TObjPlayer__sub_801C5B18(void* a0);
+void reset_player_appearance_opacity(void* a0);
 void clear_target_lock__10TObjPlayerFPv(void* p);
 void enter_battle_state__10TObjPlayerFPv(void *arg0);
 void reset_ring__10TObjPlayerFPv(void* p);
@@ -298,7 +298,7 @@ void enter_battle_state__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801C5B18(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
+void reset_player_appearance_opacity(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; }
 
 void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p + 0x0)); set_chunk_material_override_pair(*(void**)((char*)p + 0x4), *(void**)((char*)p + 0x8)); set_chunk_material_color((char*)p + 0xc); }
 
