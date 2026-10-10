@@ -4,6 +4,12 @@ typedef s32 M2C_UNK;
 #pragma optimize_for_size off
 
 extern "C" {
+s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer* buffer) { return buffer->extra_buffer_size; }
+s32 sj_ring_buffer_get_buffer_size(SjRingBuffer* buffer) { return buffer->buffer_size; }
+u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer) { return buffer->buffer; }
+}
+
+extern "C" {
 void restore_interrupts_nested__6TLobbyFv(void);
 void lock_enter__6TLobbyFv(void);
 void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);

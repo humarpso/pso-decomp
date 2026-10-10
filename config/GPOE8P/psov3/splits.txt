@@ -907,12 +907,12 @@ pso/ui/TObjNewFloorWin.cpp:
 	.text       start:0x80073F74 end:0x800740FC
 	.data       start:0x8048D188 end:0x8048D1A0
 
-pso/ui/TAdChrSelASlotGC_800740FC.cpp:
-	.text       start:0x800740FC end:0x8007445C
-
 pso/object/TObjResultWin.cpp:
-	.text       start:0x8007445C end:0x80074724
-	.data       start:0x8048D1B8 end:0x8048D1D0
+	.text       start:0x800740FC end:0x80074724
+	.rodata     start:0x80438668 end:0x80438710
+	.data       start:0x8048D1A0 end:0x8048D1D0
+	.sdata      start:0x805D2878 end:0x805D2880
+	.sdata2     start:0x805D9148 end:0x805D9168
 
 pso/object/TObjSoloPlayWin.cpp:
 	.text       start:0x80074724 end:0x80074AA4
@@ -13893,26 +13893,15 @@ pso/unk/text_803D0F90.cpp:
 pso/misc/TLobby_803D2010.cpp:
 	.text       start:0x803D2010 end:0x803D204C
 
-pso/unk/text_803D204C.cpp:
-	.text       start:0x803D204C end:0x803D23B0
-
-pso/misc/TLobby_803D23B0.cpp:
-	.text       start:0x803D23B0 end:0x803D2434
-
-pso/unk/text_803D2434.cpp:
-	.text       start:0x803D2434 end:0x803D25DC
-
-pso/misc/TLobby_803D25DC.cpp:
-	.text       start:0x803D25DC end:0x803D2624
-
-pso/unk/text_803D2624.cpp:
-	.text       start:0x803D2624 end:0x803D2628
-
-pso/misc/TLobby_803D2628.cpp:
-	.text       start:0x803D2628 end:0x803D2640
+pso/system/SjMemoryBuffer.cpp:
+	.text       start:0x803D204C end:0x803D2628
+	.rodata     start:0x8047DEA0 end:0x8047DEB0
+	.data       start:0x804F9E00 end:0x804F9E30
+	.bss        start:0x80587400 end:0x80587880
+	.sbss       start:0x805D7640 end:0x805D7648
 
 pso/system/SjRingBuffer.cpp:
-	.text       start:0x803D2640 end:0x803D2E94
+	.text       start:0x803D2628 end:0x803D2E94
 	.rodata     start:0x8047DEB0 end:0x8047DEF0
 	.data       start:0x804F9E30 end:0x804F9E60
 	.bss        start:0x80587880 end:0x8058A880

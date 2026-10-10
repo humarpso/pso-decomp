@@ -1,118 +1,193 @@
-#include "pso/TObjResultWin.h"
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_8007445C_lbl_8050E208 { M2C_UNK value; u8 remaining[0x1AC]; };
-typedef char RecoveredGlobal_8007445C_lbl_8050E208_size[sizeof(RecoveredGlobal_8007445C_lbl_8050E208) == 0x1B0 ? 1 : -1];
-
+#include "pso/object/TObjResultWin.h"
+#pragma defer_codegen off
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct V_80074664 { s32 x, y, z; };
 
-struct Sub_80074664 { s32 w[5]; };
-
-struct Rec_80074664 { V_80074664 v; Sub_80074664 a; Sub_80074664 b; };
-
+struct ControllerInputStateResultWin { s32 value; u8 remaining[0x1AC]; };
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-void create_window__13TObjResultWinFPv(u8 *arg0);
-s32 TWindowShortListCtrl__check_controller_button(void *, int);
-M2C_UNK TWindow__close(int);
+char* TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
+s32 split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(s32, s32*, s32*, s32*);
+int sprintf(char*, const char*, ...);
+int strncmp(const char*, const char*, unsigned long);
+char* strncat(char*, const char*, unsigned long);
+s32 queue_destruction__7TObjectFv(void*);
+s32 TWindowShortListCtrl__check_controller_button(void*, int);
+s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
-extern RecoveredGlobal_8007445C_lbl_8050E208 controller_input_state;
-void run_task__13TObjResultWinFv(u8 *arg0);
-Rec_80074664 *copy_record__13TObjResultWinFPvPv(Rec_80074664 *d, Rec_80074664 *s);
+s32 get_window_layout_position(s32);
+s32 get_camera_id__11TCameraCtrlFv();
+s32 send_and_handle__6TLobbyFPvii(u32, void*, s32);
+s32 set_field_1c__6TLobbyFPvf(u32, f32);
+s32 set_position_xy(u32, f32, f32);
+u32 set_window_mode_4__6TLobbyFPvii(s32, void*, s32);
+extern ControllerInputStateResultWin controller_input_state;
+extern s32 lbl_805D5FD8;
+extern TObject* tl_07;
+ChallengeResultRecord* copy_challenge_result_record(ChallengeResultRecord*, const ChallengeResultRecord*);
+__declspec(section ".rodata") extern const char TObjResultWin_class_name[];
+__declspec(section ".rodata") extern const char challenge_result_time_format[];
+__declspec(section ".rodata") extern const char challenge_result_total_time_format[];
+__declspec(section ".rodata") extern const char challenge_result_indent[];
+__declspec(section ".rodata") extern const char challenge_result_equal_time_text[];
+__declspec(section ".rodata") extern const char challenge_result_slower_time_format[];
+__declspec(section ".rodata") extern const char challenge_result_faster_time_format[];
+__declspec(section ".rodata") extern const char challenge_result_value_format[];
+__declspec(section ".rodata") extern const char challenge_result_changed_value_format[];
+const char* TObjResultWin_name = TObjResultWin_class_name;
+__declspec(section ".data") f32 challenge_result_window_extent[2] = {270.0f, 256.0f};
+__declspec(section ".sdata2") extern const char challenge_result_rank_none[] = "";
+__declspec(section ".sdata2") extern const char challenge_result_rank_b[] = "B";
+__declspec(section ".sdata2") extern const char challenge_result_rank_a[] = "A";
+__declspec(section ".sdata2") extern const char challenge_result_rank_s[] = "S";
+__declspec(section ".data") const char* challenge_result_rank_labels[4] = {
+    challenge_result_rank_none, challenge_result_rank_b,
+    challenge_result_rank_a, challenge_result_rank_s
+};
+__declspec(section ".sdata2") extern const char challenge_result_newline[] = "\n";
+__declspec(section ".sdata2") extern const f32 challenge_result_split_screen_position;
+__declspec(section ".sdata2") extern const f32 challenge_result_window_depth;
+
+void set_flag_40__16TAdChrSelASlotGCFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x40; }
+int TObjNewFloorWin__sub_8007410C(void) {  return lbl_805D5FD8; }
 }
 
-extern "C" {
-
-void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2);
-void *create__13TObjResultWinFPv(void *arg0);
-void create_window__13TObjResultWinFPv(u8 *arg0);
-void build_result_text__22TQuestVmDownLoadServerFPv(void *);
-M2C_UNK get_window_layout_position(M2C_UNK);
-void __ct__7TObjectFP7TObject(void *);
-void *__nw__7TObjectFUl(int);
-s32 get_camera_id__11TCameraCtrlFv();
-M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
-M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
-M2C_UNK set_position_xy(u32, f32, f32);
-u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
-
-extern M2C_UNK lbl_8048D1A0[];
-extern const f32 lbl_805D915C;
-extern const f32 lbl_805D9160;
-
-void run_task__13TObjResultWinFv(u8 *arg0) {
+void TObjResultWin::build_result_text() {
+    char tmp[0x28];
+    s32 h;
+    s32 m;
+    s32 sec;
+    s32 h2;
+    s32 m2;
+    s32 s2;
+    s32 h3;
+    s32 m3;
+    s32 s3;
+    s32 i;
+    s32 d;
+    char c;
+    char *n;
+    for (i = 0; i < 0x100; i++) {
+        m_text[i] = 0;
+    }
+    c = m_result.summary.stage_index + '1';
+    split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(m_result.current.time, &h, &m, &sec);
+    sprintf(tmp, challenge_result_time_format, TQuestVmDownLoadServer__sub_8006EF6C(0x54), TQuestVmDownLoadServer__sub_8006EF6C(0x53), c, h, m, sec);
+    strncat(m_text, tmp, 0x30);
+    if (m_result.summary.total_time != 0) {
+        split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(m_result.summary.total_time, &h2, &m2, &s2);
+        sprintf(tmp, challenge_result_total_time_format, TQuestVmDownLoadServer__sub_8006EF6C(0x55), h2, m2, s2);
+        strncat(m_text, tmp, 0x30);
+    }
+    if (m_result.previous.time == 0) {
+        strncat(m_text, challenge_result_indent, 0x30);
+        strncat(m_text, TQuestVmDownLoadServer__sub_8006EF6C(0x56), 0x30);
+    } else {
+        d = m_result.current.time - m_result.previous.time;
+        if (d == 0) {
+            sprintf(tmp, challenge_result_equal_time_text);
+        } else if (d >= 0) {
+            split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(d, &h3, &m3, &s3);
+            sprintf(tmp, challenge_result_slower_time_format, h3, m3, s3);
+        } else {
+            split_time_hms__22TQuestVmDownLoadServerFiPvPvPv(-d, &h3, &m3, &s3);
+            sprintf(tmp, challenge_result_faster_time_format, h3, m3, s3, TQuestVmDownLoadServer__sub_8006EF6C(0x56));
+        }
+        strncat(m_text, tmp, 0x30);
+    }
+    strncat(m_text, challenge_result_newline, 2);
+    if (resolve_player_slot__20TWindowSubStatusDispFi(-1) == 0) {
+        n = TQuestVmDownLoadServer__sub_8006EF6C(0x57);
+        if (m_result.previous.award_name[0] == 0 || strncmp(m_result.previous.award_name, m_result.current.award_name, 0xC) == 0) {
+            sprintf(tmp, challenge_result_value_format, n, m_result.current.award_name);
+        } else {
+            sprintf(tmp, challenge_result_changed_value_format, n, m_result.previous.award_name, m_result.current.award_name);
+        }
+        strncat(m_text, tmp, 0x30);
+        strncat(m_text, challenge_result_newline, 2);
+    }
+    if (m_result.current.rank != 0) {
+        n = TQuestVmDownLoadServer__sub_8006EF6C(0x58);
+        if (m_result.previous.rank == 0 || m_result.previous.rank == m_result.current.rank) {
+            sprintf(tmp, challenge_result_value_format, n, challenge_result_rank_labels[m_result.current.rank]);
+        } else {
+            sprintf(tmp, challenge_result_changed_value_format, n, challenge_result_rank_labels[m_result.previous.rank], challenge_result_rank_labels[m_result.current.rank]);
+        }
+        strncat(m_text, tmp, 0x30);
+    }
+}
+void TObjResultWin::run_task() {
     s32 temp_r0;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    if ((u32) m_window == 0U) {
         if (TWindowCtrlMain__sub_8024CE58() != 0) {
-            create_window__13TObjResultWinFPv((u8 *)((void *) (arg0)));
+            create_window();
         }
     } else {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x24) - 1;
-        M2C_FIELD(arg0, s32 *, 0x24) = temp_r0;
+        temp_r0 = m_countdown - 1;
+        m_countdown = temp_r0;
         if (temp_r0 < 0) {
-            M2C_FIELD(arg0, s32 *, 0x24) = 0;
+            m_countdown = 0;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 0) {
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-                TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
-                queue_destruction__7TObjectFv((void *) (arg0));
+        if ((s32) m_close_requested != 0) {
+            if ((s32) m_countdown == 0) {
+                TWindow__close((int) (m_window));
+                queue_destruction__7TObjectFv(this);
             }
         } else if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
-            M2C_FIELD(arg0, s32 *, 0x20) = 1;
+            m_close_requested = 1;
         }
     }
 }
-
-void create_window__13TObjResultWinFPv(u8 *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x41), lbl_8048D1A0, 1);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+void TObjResultWin::create_window() {
+    m_window = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x41), challenge_result_window_extent, 1);
+    if ((u32) m_window != 0U) {
         if (get_camera_id__11TCameraCtrlFv() == 4) {
-            set_position_xy(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D915C, lbl_805D915C);
+            set_position_xy(m_window, challenge_result_split_screen_position, challenge_result_split_screen_position);
         }
-        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x28, 0);
-        set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D9160);
+        send_and_handle__6TLobbyFPvii(m_window, m_text, 0);
+        set_field_1c__6TLobbyFPvf(m_window, challenge_result_window_depth);
     }
 }
-
-extern M2C_UNK __vt__13TObjResultWin[];
-extern void *TObjResultWin__class_name;
-
 TObjResultWin::~TObjResultWin() {}
-void *__ct__13TObjResultWinFv(void *arg0, void *arg1, void *arg2) {
-    __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjResultWin;
-    M2C_FIELD(arg0, void **, 0x0) = TObjResultWin__class_name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    copy_record__13TObjResultWinFPvPv((Rec_80074664 *)((void *)((char *)arg0 + 296)), (Rec_80074664 *)(arg2));
-    M2C_FIELD(arg0, u32 *, 0x24) = 60;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    build_result_text__22TQuestVmDownLoadServerFPv(arg0);
-    return arg0;
+TObjResultWin::TObjResultWin(TObject* parent, const ChallengeResultRecord* result) : TObject(parent) {
+    m_name = TObjResultWin_name;
+    m_window = 0;
+    copy_challenge_result_record(&m_result, result);
+    m_countdown = 60;
+    m_close_requested = 0;
+    build_result_text();
+}
+struct ResultCopySummary { s32 stage_index, reserved, total_time; };
+struct ResultCopyEntry { s32 words[5]; };
+struct ResultCopyRecord { ResultCopySummary summary; ResultCopyEntry previous, current; };
+extern "C" {
+ChallengeResultRecord* copy_challenge_result_record(ChallengeResultRecord* destination, const ChallengeResultRecord* source) {
+    ResultCopyRecord* d = (ResultCopyRecord*)destination;
+    const ResultCopyRecord* s = (const ResultCopyRecord*)source;
+    d->summary = s->summary;
+    d->previous = s->previous;
+    d->current = s->current;
+    return destination;
+}
 }
 
-extern void *tl_07;
-
-Rec_80074664 *copy_record__13TObjResultWinFPvPv(Rec_80074664 *d, Rec_80074664 *s) {
-    d->v = s->v;
-    d->a = s->a;
-    d->b = s->b;
-    return d;
+TObjResultWin* TObjResultWin::create(const ChallengeResultRecord* result) {
+    return new TObjResultWin(tl_07, result);
+}
+extern "C" {
+__declspec(section ".sdata2") extern const f32 challenge_result_split_screen_position = 0.75f;
+__declspec(section ".sdata2") extern const f32 challenge_result_window_depth = 36999.0f;
 }
 
-void *create__13TObjResultWinFPv(void *arg0) {
-    void *o = __nw__7TObjectFUl(0x15C);
-    if (o != NULL) {
-        o = __ct__13TObjResultWinFv((void *)(o), (void *)(tl_07), (void *)(arg0));
-    }
-    return o;
-}
-
+extern "C" {
+__declspec(section ".rodata") extern const char TObjResultWin_class_name[] = "TObjResultWin";
+__declspec(section ".rodata") extern const char challenge_result_time_format[] = "%s < %s%c >\n   %1d'%02d\"%02d\n";
+__declspec(section ".rodata") extern const char challenge_result_total_time_format[] = "%s\n  %02d'%02d\"%02d\n";
+__declspec(section ".rodata") extern const char challenge_result_indent[] = "    ";
+__declspec(section ".rodata") extern const char challenge_result_equal_time_text[] = "   0'00\"00\n";
+__declspec(section ".rodata") extern const char challenge_result_slower_time_format[] = "  +%1d'%02d\"%02d\n";
+__declspec(section ".rodata") extern const char challenge_result_faster_time_format[] = "  -%1d'%02d\"%02d  %s\n";
+__declspec(section ".rodata") extern const char challenge_result_value_format[] = "%s\n  %s\n";
+__declspec(section ".rodata") extern const char challenge_result_changed_value_format[] = "%s\n  %s -> %s\n";
 }

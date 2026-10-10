@@ -290,6 +290,8 @@ force_active:
   - TObjPlayer__sub_803E5378
   - TObjPlayer__sub_803E53F8
   - TObjPlayer__sub_803E5458
+  - TObjResultWin_class_name
+  - TObjResultWin_name
   - TObjSeabedSuisoBrakable__break_model_entries
   - TObjSeabedSuisoBrakable__model12_render_nodes
   - TObjSeabedSuisoBrakable__vt12
@@ -373,6 +375,7 @@ force_active:
   - __ct__11TPlayerSoulFP7TObjectUs
   - __ct__12TChatMessageFRC12TChatMessage
   - __ct__12TItemTexLoadFP7TObject
+  - __ct__13TObjResultWinFP7TObjectPC21ChallengeResultRecord
   - __ct__13TObjWarnChimeFP7TObject
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
@@ -906,6 +909,7 @@ force_active:
   - build_item_list__23TShopJudgmentItemWindowFPv
   - build_menu__19TWindowSubShortMailFv
   - build_node_records__11TBreakUpMdlFPvPvi
+  - build_result_text__13TObjResultWinFv
   - build_sell_list__24TShopEquipmentSellWindowFPv
   - build_trade_menu__19TWindowSubTradeMainFPv
   - byteswap_6x75_packet__6TLobbyFPv
@@ -998,6 +1002,23 @@ force_active:
   - challenge_ranger_items_stage_13
   - challenge_ranger_items_stage_14
   - challenge_ranger_items_stage_15
+  - challenge_result_changed_value_format
+  - challenge_result_equal_time_text
+  - challenge_result_faster_time_format
+  - challenge_result_indent
+  - challenge_result_newline
+  - challenge_result_rank_a
+  - challenge_result_rank_b
+  - challenge_result_rank_labels
+  - challenge_result_rank_none
+  - challenge_result_rank_s
+  - challenge_result_slower_time_format
+  - challenge_result_split_screen_position
+  - challenge_result_time_format
+  - challenge_result_total_time_format
+  - challenge_result_value_format
+  - challenge_result_window_depth
+  - challenge_result_window_extent
   - challenge_retry_cmd_table
   - challenge_retry_window_pos
   - change_floor_reload_area
@@ -1084,6 +1105,7 @@ force_active:
   - consume_counter__14TOTrapChainSawFPvPv
   - controller_default_pad_state
   - convert_serial_hex_to_decimal__22TAdEnterSerialAccessGCFi
+  - copy_challenge_result_record
   - copy_character_data__23TAdSinglePlyChrSelectGCFPvPv
   - copy_chat_entry__20TWindowSubSymbolChatFPvPv
   - copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi
@@ -1099,7 +1121,6 @@ force_active:
   - copy_origin_with_y_offset__8TObjFishFv
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_pos_with_height_offset__18TObjEneMe3SinowZoaFPv
-  - copy_record__13TObjResultWinFPvPv
   - copy_record__13TObjTombstoneFPvi
   - copy_resource_desc__9TObjEneDDFPvPv
   - copy_ring_buffer_window__15TObjBoss2TunnelFPv
@@ -1147,6 +1168,7 @@ force_active:
   - create_sphere_chain__17TBoss1DragonColliFiPviPvf
   - create_symbol_list_card__20TWindowSubSymbolChatFPv
   - create_trade_menu__19TWindowSubTradeMainFPv
+  - create_window__13TObjResultWinFv
   - ct_init_placement_ring__9TItemListFPvPviPvPvc
   - curvecmp
   - damage_players_in_radius
@@ -2519,6 +2541,20 @@ force_active:
   - show_part__9TObjLukerFii
   - shuffle_event_entries
   - shuffle_shop_pool
+  - sj_memory_buffer_destroy
+  - sj_memory_buffer_error_halt
+  - sj_memory_buffer_get_available
+  - sj_memory_buffer_get_chunk
+  - sj_memory_buffer_get_uuid
+  - sj_memory_buffer_init_count
+  - sj_memory_buffer_interface
+  - sj_memory_buffer_is_chunk_available
+  - sj_memory_buffer_pool
+  - sj_memory_buffer_put_chunk
+  - sj_memory_buffer_reset
+  - sj_memory_buffer_set_error_callback
+  - sj_memory_buffer_unget_chunk
+  - sj_memory_buffer_uuid
   - sj_ring_buffer_destroy
   - sj_ring_buffer_error_halt
   - sj_ring_buffer_get_available

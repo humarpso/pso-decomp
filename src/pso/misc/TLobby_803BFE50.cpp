@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/system/SjRingBuffer.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -204,7 +205,7 @@ extern s32 lbl_805E0CB8;
 s32 is_riff_wave__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_803C3B38(int);
 s32 get_field_0x3c__6TLobbyFPv(int);
-s32 TLobby__sub_803D2638(int);
+
 void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3);
 s32 get_client_count__6TLobbyFPv(int);
 void convert_pcm_u8_to_s16__6TLobbyFPv(Snd_803C0F98 *arg0);
@@ -347,7 +348,7 @@ void TLobby__sub_803C0628(void *arg0_, s32 *arg1, s32 *arg2, s32 *arg3) {
     for (i = 0; i < ((s32)TLobby__sub_803C3B38(arg0->f4)); i++) {
         arg0->objs[i]->vt->fn18(arg0->objs[i], 0, 0x4000, &arg0->recs[i]);
     }
-    *arg1 = (arg0->recs[0].a - TLobby__sub_803D2638(h)) / 2;
+    *arg1 = (arg0->recs[0].a - (s32)sj_ring_buffer_get_buffer((SjRingBuffer*)h)) / 2;
     v = arg0->f38;
     t = arg0->recs[0].b / 2;
     if (t < v) {

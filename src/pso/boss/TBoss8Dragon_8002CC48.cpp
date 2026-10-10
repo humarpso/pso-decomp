@@ -225,8 +225,8 @@ s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
 s32 TBoss8Dragon__sub_8002DB04(void *arg0);
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1);
 Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 width, s32 strips, s32 materialWords, s16 *material);
-void apply_default_velocity_scale__12TBoss8DragonFv(void);
-f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1);
+f32 apply_default_velocity_scale__12TBoss8DragonFv(f32 *vector);
+f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1);
 f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 f32 rand_signed_unit(void);
 void render__13TObjBoss1RockFPv(Obj_8002DF7C *self);
@@ -599,18 +599,18 @@ Grid_8002DB7C *init_grid_mesh__12TBoss8DragonFPviiiPv(Grid_8002DB7C *g, s32 widt
     return g;
 }
 
-void apply_default_velocity_scale__12TBoss8DragonFv(void) {
-    ((M2C_UNK (*)(f32, f32))apply_velocity_scale__12TBoss8DragonFPvff)(lbl_805D81E4, lbl_805D81D4);
+f32 apply_default_velocity_scale__12TBoss8DragonFv(f32 *vector) {
+    return apply_velocity_scale__12TBoss8DragonFPvff(vector, lbl_805D81E4, lbl_805D81D4);
 }
 
-f32 apply_velocity_scale__12TBoss8DragonFPvff(void *arg0, f32 farg0, f32 farg1) {
+f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
     f32 temp_f1;
     f32 temp_f1_2;
     f32 temp_f2;
     f32 var_f31;
     s32 temp_r31;
 
-    temp_f1 = ((f32 (*)(void))clamp_velocity__15TObjBoss2TunnelFPv)();
+    temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv(arg0);
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
         M2C_FIELD(arg0, f32 *, 0) = var_f31;

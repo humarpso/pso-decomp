@@ -1661,7 +1661,8 @@ extern s32 lbl_805D7564;
 void TLobby__sub_803C9608(void);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 void stop_audio_stream(u8 *arg0);
-s32 alloc_adx_stream_slot__6TLobbyFii(void *, int);
+struct SjMemoryBuffer;
+SjMemoryBuffer* sj_memory_buffer_create(void *, int);
 extern char adxt_start_mem_idx_stream_create_error[];
 void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
@@ -2293,7 +2294,7 @@ void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
         return;
     }
     init_once__6TLobbyFv();
-    r = alloc_adx_stream_slot__6TLobbyFii(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
+    r = (s32)sj_memory_buffer_create(arg1 + *(s32 *)(arg1 + (arg2 + 1) * 8), 0x40000000);
     if (r == 0) {
         release_ref__6TLobbyFv();
         notify_error__6TLobbyFPv(adxt_start_mem_idx_stream_create_error);

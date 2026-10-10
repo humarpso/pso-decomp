@@ -1122,9 +1122,6 @@ pso/misc/TLobby_803D0C28.cpp
 pso/misc/TLobby_803D0EB8.cpp
 pso/misc/TLobby_803D0F58.cpp
 pso/misc/TLobby_803D2010.cpp
-pso/misc/TLobby_803D23B0.cpp
-pso/misc/TLobby_803D25DC.cpp
-pso/misc/TLobby_803D2628.cpp
 pso/misc/TLobby_803D3194.cpp
 pso/misc/TLobby_803D3988.cpp
 pso/misc/TLobby_803D3B84.cpp
@@ -2667,6 +2664,7 @@ pso/system/ItemEffects.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/PadRumble.cpp
 pso/system/RefCountedWorkBuffer.cpp
+pso/system/SjMemoryBuffer.cpp
 pso/system/SjRingBuffer.cpp
 pso/system/THeap.cpp
 pso/system/TMemberCheck.cpp
@@ -2684,7 +2682,6 @@ pso/ui/TAdBackGC.cpp
 pso/ui/TAdBackGC_8029A7B0.cpp
 pso/ui/TAdBackTxtGC.cpp
 pso/ui/TAdChrMoveEffectGC.cpp
-pso/ui/TAdChrSelASlotGC_800740FC.cpp
 pso/ui/TAdChrSelASlotGC_802A596C.cpp
 pso/ui/TAdChrSelBSlotGC.cpp
 pso/ui/TAdChrSelBSlotGC_8030ED88.cpp
@@ -3734,9 +3731,6 @@ pso/unk/text_803CC134.cpp
 pso/unk/text_803CE1D8.cpp
 pso/unk/text_803CE1F4.cpp
 pso/unk/text_803D0F1C.cpp
-pso/unk/text_803D204C.cpp
-pso/unk/text_803D2434.cpp
-pso/unk/text_803D2624.cpp
 pso/unk/text_803D2F1C.cpp
 pso/unk/text_803D31A4.cpp
 pso/unk/text_803D39F8.cpp

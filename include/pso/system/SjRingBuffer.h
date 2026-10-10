@@ -50,4 +50,9 @@ const u8* sj_ring_buffer_get_uuid(SjRingBuffer* buffer);
 void sj_ring_buffer_init(void);
 void sj_ring_buffer_shutdown(void);
 }
+extern "C" {
+s32 sj_ring_buffer_get_extra_buffer_size(SjRingBuffer* buffer);
+s32 sj_ring_buffer_get_buffer_size(SjRingBuffer* buffer);
+u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer);
+}
 #endif
