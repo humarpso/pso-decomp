@@ -1578,12 +1578,12 @@ void notify_lobby__10TObjPlayerFi(s32 arg0);
 void ensure_default__10TObjPlayerFPv(void *arg0);
 void init_action__10TObjPlayerFPv(u8 *arg0);
 s32 handle_6x4F_revived__10TObjPlayerFi(s32 arg0);
-void update_lobby_display__10TObjPlayerFUi(u32 arg0);
+void send_6x4F_revived__10TObjPlayerFUi(u32 arg0);
 void update_timer_state__10TObjPlayerFPv(void *arg0);
 void update_timer_action__10TObjPlayerFPv(u8 *arg0);
 void TObjPlayer__sub_801C9F64(void);
 void TObjPlayer__sub_801C9F68(void);
-void TObjPlayer__sub_801C9F6C(s32 arg0, s16 arg1);
+void run_revival_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void handle_6x89_set_killer_entity_id(void *arg0);
 void init_subobject__10TObjPlayerFi(s32 arg0);
 void queue_player_injured_pose(s32 arg0);
@@ -3479,7 +3479,7 @@ s32 handle_6x4F_revived__10TObjPlayerFi(s32 arg0) {
     return arg0;
 }
 
-void update_lobby_display__10TObjPlayerFUi(u32 arg0) {
+void send_6x4F_revived__10TObjPlayerFUi(u32 arg0) {
     struct Local801C9D3C sp8;
 
     if (((s32 (*)(s32, M2C_UNK))test_flags_any)(arg0 + 0x858, 4) != 0) {
@@ -3559,7 +3559,7 @@ void TObjPlayer__sub_801C9F64(void) {  }
 
 void TObjPlayer__sub_801C9F68(void) {  }
 
-void TObjPlayer__sub_801C9F6C(s32 arg0, s16 arg1) {
+void run_revival_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1) {
   unsigned int new_var2;
   unsigned int new_var;
   {
@@ -3580,7 +3580,7 @@ void TObjPlayer__sub_801C9F6C(s32 arg0, s16 arg1) {
         ((s32 (*)(void))update_timer_state__10TObjPlayerFPv)();
         return;
       case 5:
-        ((s32 (*)(void *))update_lobby_display__10TObjPlayerFUi)((void *) arg0);
+        ((s32 (*)(void *))send_6x4F_revived__10TObjPlayerFUi)((void *) arg0);
         return;
       case 0:
         ((s32 (*)(void *))init_action__10TObjPlayerFPv)((void *) arg0);
@@ -6595,7 +6595,7 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
         ((void (*)(s32, s32))run_death_state_phase__10TObjPlayerFis)(arg0, arg2);
         break;
     case 18:
-        ((void (*)(s32, s32))TObjPlayer__sub_801C9F6C)(arg0, arg2);
+        ((void (*)(s32, s32))run_revival_state_phase__10TObjPlayerFis)(arg0, arg2);
         break;
     case 16:
         ((void (*)(s32, s32))run_service_hold_state_phase__10TObjPlayerFis)(arg0, arg2);
