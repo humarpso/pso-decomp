@@ -1,3 +1,5 @@
+#include "pso/map/FloorResourceCallbacks.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -197,7 +199,6 @@ s32 run_lobby_load_tables__6TLobbyFv(void) {
 extern "C" {
 
 s32 run_lobby_load_tables__6TLobbyFv();
-s32 handle_disconnect_cleanup();
 s32 is_area_transfer_pending();
 s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
@@ -220,7 +221,7 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
-    if (handle_disconnect_cleanup() == 0) {
+    if (load_current_floor_resources() == 0) {
         TItemDrop__sub_800FDDF4();
         reset_and_invoke__6TLobbyFv();
         return 1;

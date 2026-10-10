@@ -9,16 +9,16 @@ s32 get_percent__9TItemDataFPv(void *);
 s32 get_stat_percent__9TItemDataFPv(void *);
 s32 get_mag_mind_level__9TItemDataFPv(void *);
 s32 get_level__9TItemDataFPv(void *);
-s16 get_total_level__11TItemMagSubFPv(void *mag);
+s16 get_mag_total_level(void *mag);
 }
 
 extern "C" {
 
-void reset_initial_stats__11TItemMagSubFPv(void *arg0);
-void update_stat__11TItemMagSubFPv(void *arg0);
-s32 is_level_maxed__11TItemMagSubFPv();
+void initialize_mag_item_data(void *arg0);
+void update_mag_node_oscillation_state(void *arg0);
+s32 mag_node_oscillation_is_disabled();
 
-void reset_initial_stats__11TItemMagSubFPv(void *arg0) {
+void initialize_mag_item_data(void *arg0) {
     M2C_FIELD(arg0, s16 *, 4) = 0x1F4;
     M2C_FIELD(arg0, s16 *, 0xA) = 0;
     M2C_FIELD(arg0, s16 *, 8) = 0;
@@ -30,17 +30,17 @@ void reset_initial_stats__11TItemMagSubFPv(void *arg0) {
     M2C_FIELD(arg0, s8 *, 0xE) = 0x12;
 }
 
-s16 get_total_level__11TItemMagSubFPv(void *mag) {
+s16 get_mag_total_level(void *mag) {
     return get_stat_percent__9TItemDataFPv(mag) + get_percent__9TItemDataFPv(mag) + get_mag_mind_level__9TItemDataFPv(mag) + get_level__9TItemDataFPv(mag);
 }
 
-void update_stat__11TItemMagSubFPv(void *arg0) {
+void update_mag_node_oscillation_state(void *arg0) {
     s8 temp_r3;
     s32 temp_r3_2;
     s16 temp_r3_3;
     s16 temp_r0;
 
-    if (is_level_maxed__11TItemMagSubFPv() == 0) {
+    if (mag_node_oscillation_is_disabled() == 0) {
         temp_r3 = M2C_FIELD(arg0, s8 *, 0);
         if (temp_r3 & 0x10) {
             temp_r3_2 = M2C_FIELD(arg0, s16 *, 2) + M2C_FIELD(arg0, s16 *, 6);

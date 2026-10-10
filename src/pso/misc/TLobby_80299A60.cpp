@@ -1,3 +1,5 @@
+#include "pso/map/FloorResourceCallbacks.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -54,10 +56,9 @@ M2C_UNK get_global_state__14TOKeyMachine01Fv();
 M2C_UNK init_scene_boss2_tunnel();
 s32 is_split_screen();
 int refresh_render_state__6TLobbyFv(void);
-int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 
-void refresh_lobby_state__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void refresh_lobby_state__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
 
 extern s32 tl_particlemodel;
 
@@ -77,7 +78,7 @@ s32 init_particle_model__6TLobbyFv(void) {
     return 1;
 }
 
-void update_field_state__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); fn_802FE9E0(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void update_field_state__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); fn_802FE9E0(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
 
 extern M2C_UNK lbl_804651A0[];
 
@@ -95,7 +96,7 @@ s32 load_dragon2_scene(void) {
     return 1;
 }
 
-void update_subsystems__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); fn_802F105C(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void update_subsystems__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); stop_cue_stream(); fn_802F105C(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
 
 extern M2C_UNK lbl_804651B0[];
 extern s32 tl_particlemodel;
@@ -119,7 +120,7 @@ s32 init_scene_delo2(void) {
     return 1;
 }
 
-void update_floor_state_deferred__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void update_floor_state_deferred__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
 
 s32 TLobby__sub_80299C7C(void) {
     get_global_state__14TOKeyMachine01Fv();
@@ -147,7 +148,7 @@ s32 TLobby__sub_80299C7C(void) {
     return 1;
 }
 
-void update_scene_alt__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); reset_keyboard_control__6TLobbyFv(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
+void update_scene_alt__6TLobbyFv(void) { refresh_render_state__6TLobbyFv(); stop_audio_streams__6TLobbyFv(); unload_current_floor_resources(); update_current_floor__6TLobbyFv(); clear_session_buffers__6TLobbyFv(); }
 
 }
 

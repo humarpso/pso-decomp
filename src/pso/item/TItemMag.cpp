@@ -1,3 +1,6 @@
+#define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/item/TItemMagSub.h"
+
 #include "types.h"
 #include "pso/item/TItemMag.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -165,8 +168,8 @@ s32 check_feed_state__8TItemMagFPvi(void *arg0, s32 arg1);
 void copy_owner_data__8TItemMagFPv(u8 *arg0);
 void register_photon_blasts__8TItemMagFPv(u8 *arg0);
 void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self);
-u8 has_feed_flag__11TItemMagSubFPv(void *arg0);
-s32 is_mag_active__11TItemMagSubFPv(void *arg0);
+u8 mag_owner_has_motion_action(void *arg0);
+s32 mag_owner_freezes_follow(void *arg0);
 s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1);
 void copy_owner_pair__8TItemMagFPvPvPv(TItemMag_80111140 *self, void *a, void *b);
 void apply_transform_action__8TItemMagFPvUc(u8 *arg0, u8 arg1);
@@ -199,7 +202,7 @@ void update_feed__8TItemMagFPv(void *arg0);
 void check_level_cap__8TItemMagFPv(void *arg0);
 void check_level_evolve__8TItemMagFPv(void *arg0);
 void apply_auto_support_techniques__8TItemMagFPv(struct RecoveredFields_80113244_arg0 *arg0);
-void set_flags64__8TItemMagFPvUi(void *p, u32 v);
+void set_flags__11TItemMagSubFUl(void *p, u32 v);
 s16 TObjPlayer__sub_80113D90(s32);
 s16 get_mag_data__10TObjPlayerFPv(s32);
 s16 get_mag_item_data(s32);
@@ -224,10 +227,10 @@ M2C_UNK TItemMag__sub_80114198(void *, int);
 M2C_UNK add_stat_level_capped__8TItemMagFPvs(void *, int);
 M2C_UNK mag_feed_add_def(void *, int);
 s32 get_photon_blast_at_slot__8TItemMagFPvi(void *, s32);
-s16 get_total_level__11TItemMagSubFPv(void *);
-void set_type__8TItemMagFPvi(u8 *arg0, s32 arg1);
-void clear_flag2__11TItemMagSubFPv(void *arg0);
-s32 get_world_position__11TItemMagSubFPvUi(u8 *arg0, u32 arg1);
+s16 get_mag_total_level(void *);
+void transition_motion_type__11TItemMagSubFl(u8 *arg0, s32 arg1);
+void clear_optional_oscillation_flag__11TItemMagSubFPv(void *arg0);
+s32 get_world_position__11TItemMagSubFPv(u8 *arg0, u32 arg1);
 u8 * get_mag_feed_result(s32, s32);
 u8 * get_pmt_record__10TObjPlayerFi(u8);
 M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
@@ -364,8 +367,8 @@ void TItemMag__vt40(TItemMag_80110B94 *self) {
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != 0) {
-            set_flags64__8TItemMagFPvUi(self->subs[i], 2);
-            spawn_item_timer__13TItemAttackerFiii(self->subs[i], (void *)clear_flag2__11TItemMagSubFPv, 0x1e);
+            set_flags__11TItemMagSubFUl(self->subs[i], 2);
+            spawn_item_timer__13TItemAttackerFiii(self->subs[i], (void *)clear_optional_oscillation_flag__11TItemMagSubFPv, 0x1e);
         }
     }
 }
@@ -476,7 +479,7 @@ void tick_fullness_timer__8TItemMagFPv(O_80110F04 *self) {
     }
 }
 
-u8 has_feed_flag__11TItemMagSubFPv(void *arg0) {
+u8 mag_owner_has_motion_action(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
@@ -486,7 +489,7 @@ u8 has_feed_flag__11TItemMagSubFPv(void *arg0) {
     return (u8) var_r31;
 }
 
-s32 is_mag_active__11TItemMagSubFPv(void *arg0) {
+s32 mag_owner_freezes_follow(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
@@ -607,11 +610,11 @@ void select_action_motion__8TItemMagFPv(TItemMag_801112B8 *self) {
         if (o != NULL) {
             lv = self->f18C & 0xF;
             if (lv > 0 && lv < 6) {
-                set_type__8TItemMagFPvi(o, self->types[i][lv - 1]);
+                transition_motion_type__11TItemMagSubFl(o, self->types[i][lv - 1]);
             } else if (lv >= 6 && lv < 8) {
-                set_type__8TItemMagFPvi(o, self->types[i][5]);
+                transition_motion_type__11TItemMagSubFl(o, self->types[i][5]);
             } else if (lv == 8) {
-                set_type__8TItemMagFPvi(o, self->types[i][3]);
+                transition_motion_type__11TItemMagSubFl(o, self->types[i][3]);
             }
         }
     }
@@ -706,7 +709,7 @@ u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
     s16 pct;
     s8 group;
     before = ((u8 (*)(void *))get_field_ed__10TObjPlayerFPv)(arg0);
-    if (M2C_FIELD(arg0, u8 **, 0xF0) != NULL && get_total_level__11TItemMagSubFPv(arg0 + 0x198) >= 100) {
+    if (M2C_FIELD(arg0, u8 **, 0xF0) != NULL && get_mag_total_level(arg0 + 0x198) >= 100) {
         group = (s8)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), u8 *, 0x88C) % 3;
         pct = ((s16 (*)(s32))get_mag_item_percent)((s32)arg0);
         level = get_mag_level((s32)arg0);
@@ -1049,7 +1052,7 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
   s16 level;
   u8 before;
   stage = ((s8 (*)(void *))get_evolution_stage__8TItemMagFPv)(self);
-  level = get_total_level__11TItemMagSubFPv(self->data);
+  level = get_mag_total_level(self->data);
   before = get_field_ed__10TObjPlayerFPv((s32) self);
   {
     new_var = (s32) self;
@@ -1236,7 +1239,7 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
     if (((s32 (*)(void *))get_flag_40__8TItemMagFPv)(arg0) == 0) {
         for (i = 0; i != 2; i++) {
             if (((Mag_80112A3C *)arg0)->subs[i] != NULL &&
-                ((s32 (*)(u8 *, void *))get_world_position__11TItemMagSubFPvUi)(((Mag_80112A3C *)arg0)->subs[i], pos) != 0) {
+                ((s32 (*)(u8 *, void *))get_world_position__11TItemMagSubFPv)(((Mag_80112A3C *)arg0)->subs[i], pos) != 0) {
                 spawn_particle_effect(pos, 0x9B);
             }
         }
@@ -1287,7 +1290,7 @@ s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
         TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 8)));
         add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0)));
         add_clamped_stat__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 2)));
-        set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (((u8 (*)(void *))get_total_level__11TItemMagSubFPv)((void *) (arg0 + 0x198))));
+        set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             refresh_owner_stats__5TItemFPv((void *) (arg0));
             if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {
@@ -1546,7 +1549,7 @@ int get_mag_mind_level__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 void TItemMag__vt12(s32 arg0);
 s16 obj_getS16_32E(void *);
 s32 test_flags_any(void *, int);
@@ -1560,21 +1563,21 @@ void TItemMag__vt43(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create__8TItemMagFi(s32 arg0);
-void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v);
+void set_node_id__11TItemMagSubFll(Obj_80113CA8 *self, s32 i, s32 v);
 extern s32 lbl_805D2C00;
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 lbl_805DABB0;
 extern const f32 lbl_805DABB8;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 void deserialize_mag__9TItemDataFPvPv(void *src, void *dst);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
-void fn_8011491C(void *);
+void release_model_and_destroy__11TItemMagSubFv(void *);
 void release__14TItemEquipBaseFPv(void *arg0);
 void TItemMag__vt45(TItemMag_801138F0 *self);
 s32 obj_testFlags30(void *, M2C_UNK);
-void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
-int is_feed_empty__8TItemMagFPv(void* p);
+void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
+int is_growth_inactive__11TItemMagSubFv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
 s32 push_matrix();
@@ -1593,8 +1596,8 @@ void update__8TItemMagFPv(void *arg0);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
 s32 obj_testFlags30(void *, M2C_UNK);
-void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
-int is_feed_empty__8TItemMagFPv(void* p);
+void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
+int is_growth_inactive__11TItemMagSubFv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
 s32 check_state_flag_1__8TItemMagFPv(void *);
 s32 push_matrix();
@@ -1619,16 +1622,16 @@ void load_data_files__8TItemMagFv(void);
 
 extern "C" {
 
-void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2);
+void set_material_node__11TItemMagSubFlPv(u8 *arg0, s32 arg1, u32 arg2);
 int TItemMag__vt13(void* p);
 void serialize_to_item__8TItemMagFPv(TItemMag *, void *);
 void TItemMag__vt44(s32 arg0);
 void *__dt__8TItemMagFv(void *arg0, s16 arg1);
 void cleanup__8TItemMagFv(void);
-int is_feed_empty__8TItemMagFPv(void* p);
-void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
-void set_flags64__8TItemMagFPvUi(void* p, u32 v);
-void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
+int is_growth_inactive__11TItemMagSubFv(void* p);
+void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
+void set_flags__11TItemMagSubFUl(void* p, u32 v);
+void set_model__11TItemMagSubFPvUlPv(void *arg0, s32 arg1, s32 arg2, void *arg3);
 void update__8TItemMagFPv(void *arg0);
 void serialize_mag__9TItemDataFPvPv(void *, const void *);
 int get_mag_mind_level__9TItemDataFPv(void*);
@@ -1645,7 +1648,7 @@ int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 s32 obj_testFlags30(void *, M2C_UNK);
-int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m);
+int test_flags__11TItemMagSubFUl(void* p, u32 m);
 
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
@@ -1712,7 +1715,7 @@ void TItemMag__vt14(Self_80113310 *self) {
 int TItemMag__vt13(void* p) { return ((int (*)(void*))tick_fullness_timer__8TItemMagFPv)(p); }
 
 void TItemMag__vt12(s32 arg0) {
-    if ((get_total_level__11TItemMagSubFPv((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
+    if ((get_mag_total_level((void *) (arg0 + 0x198)) > 0xC8) || (((s16)get_stat_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_percent__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0) || (((s16)get_mag_mind_level__9TItemDataFPv((void*)((void *) (arg0 + 0x198)))) < 0)) {
         refresh_if_current_player__20TWindowSubStatusDispFPv((void *) (arg0));
     }
 }
@@ -1727,12 +1730,12 @@ void TItemMag__vt25(Self_801134CC *self) {
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
     push_matrix();
     for (i = 0; i != 2; i++) {
-        if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
+        if (self->subs[i] != NULL && is_growth_inactive__11TItemMagSubFv((void*)(self->subs[i])) != 0) {
             child = self->subs[i];
             if (scaled != 0) {
-                scale_field_c8__8TItemMagFPvf((void*)(child), scale);
+                scale_owner_height__11TItemMagSubFf((void*)(child), scale);
                 child->m3();
-                scale_field_c8__8TItemMagFPvf((void*)(child), TItemMag__data_805DABA8 / scale);
+                scale_owner_height__11TItemMagSubFf((void*)(child), TItemMag__data_805DABA8 / scale);
             } else {
                 child->m3();
             }
@@ -1754,12 +1757,12 @@ void TItemMag__vt24(Self_801135E0 *self) {
     TObjPlayer__sub_80364198();
     set_model_fade_alpha__10TObjPlayerFf(get_mag_scale__10TObjPlayerFPv(self));
     for (i = 0; i != 2; i++) {
-        if (self->subs[i] != NULL && is_feed_empty__8TItemMagFPv((void*)(self->subs[i])) != 0) {
+        if (self->subs[i] != NULL && is_growth_inactive__11TItemMagSubFv((void*)(self->subs[i])) != 0) {
             child = self->subs[i];
             if (scaled != 0) {
-                scale_field_c8__8TItemMagFPvf((void*)(child), scale);
+                scale_owner_height__11TItemMagSubFf((void*)(child), scale);
                 child->m2();
-                scale_field_c8__8TItemMagFPvf((void*)(child), TItemMag__data_805DABA8 / scale);
+                scale_owner_height__11TItemMagSubFf((void*)(child), TItemMag__data_805DABA8 / scale);
             } else {
                 child->m2();
             }
@@ -1834,7 +1837,7 @@ void TItemMag__vt45(TItemMag_801138F0 *self) {
     s32 i;
     for (i = 0; i != 2; i++) {
         if (self->subs[i] != 0) {
-            fn_8011491C(self->subs[i]);
+            release_model_and_destroy__11TItemMagSubFv(self->subs[i]);
             self->subs[i] = 0;
         }
     }
@@ -1880,7 +1883,7 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src) {
     self->x194 = lbl_805DABB8;
     deserialize_mag__9TItemDataFPvPv((void *)src, self->data198);
     self->flags1a4 &= ~0x40;
-    ((void (*)(void *p, u8 v))set_field_EE__8TItemMagFPvUc)(self, get_total_level__11TItemMagSubFPv(self->data198));
+    ((void (*)(void *p, u8 v))set_field_EE__8TItemMagFPvUc)(self, get_mag_total_level(self->data198));
     self->m17(1);
     self->x18c = 0;
     for (i = 0; i < 2; i++) {
@@ -1951,7 +1954,9 @@ void load_data_files__8TItemMagFv(void) {
     }
 }
 
-void set_flags64__8TItemMagFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x64) |= v; }
+}
+void TItemMagSub::set_flags(u32 value) { flags |= value; }
+extern "C" {
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -1969,16 +1974,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 
-void TItemMag__sub_80113CA8(Obj_80113CA8 *self, s32 i, s32 v) {
-    self->arr[i] = v;
 }
+void TItemMagSub::set_node_id(s32 index, s32 id) { node_ids[index] = id; }
+extern "C" {
 
-void TItemMag__sub_80113CB8(u8 *arg0, s32 arg1, u32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x70) = arg1;
-    if (arg2 != 0U) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xB8), (void *) (arg2));
-    }
 }
+void TItemMagSub::set_material_node(s32 node, void* parameters) { node_ids[0] = node; if (parameters != 0) copy_vec4__13TRaderMapCoreFPvPv(material_parameters, parameters); }
+extern "C" {
 
 }
 
@@ -1986,7 +1988,9 @@ extern M2C_UNK lbl_8043E560;
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
 
-void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3) {
+}
+void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {
+    void* arg0=this; s32 arg1=(s32)model_arg; s32 arg2=(s32)textures_arg; void* arg3=animation_arg;
     M2C_FIELD(arg0, s32 *, 0x24) = arg1;
     M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
     M2C_FIELD(arg0, void **, 0x28) = arg3;
@@ -1995,9 +1999,15 @@ void set_target__8TItemMagFPviiPv(void *arg0, s32 arg1, s32 arg2, void *arg3) {
         M2C_FIELD(arg0, f32 *, 0x84) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), u32 *, 4) - TItemMag__data_805DABA8);
     }
 }
+extern "C" {
 
-void scale_field_c8__8TItemMagFPvf(void* p, f32 v) { *(f32*)((char*)p + 0xc8) *= v; }
-int is_feed_empty__8TItemMagFPv(void* p) { return (test_feed_flags__11TItemMagSubFPvUi(p, 64)) == 0; }
+}
+void TItemMagSub::scale_owner_height(f32 factor) { owner_height_scale *= factor; }
+extern "C" {
+}
+int TItemMagSub::is_growth_inactive() {
+    void* p=this; return (test_flags__11TItemMagSubFUl(p, 64)) == 0; }
+extern "C" {
 
 }
 #pragma pop

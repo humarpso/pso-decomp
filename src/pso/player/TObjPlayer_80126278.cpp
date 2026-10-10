@@ -9,7 +9,7 @@ extern "C" {
 void create_armor_effect__10TObjPlayerFPv(void *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 
 extern f32 lbl_805DAD74;
 
@@ -17,7 +17,7 @@ void create_armor_effect__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = alloc__13TItemProArmorFi(0x30);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
             TObjPlayer__sub_80126414(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0xE10, lbl_805DAD74);
         }

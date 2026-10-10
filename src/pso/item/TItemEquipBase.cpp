@@ -499,8 +499,8 @@ s32 clear_id__10TObjPlayerFPv(void *);
 s32 TItem__ct(void *, void *, void *);
 s32 add_item_flags__10TObjPlayerFPvUi(void *, int);
 void reset__14TItemEquipBaseFPv(void* p);
-s32 alloc__13TItemProArmorFi(int);
-s32 init_object__21TItemEffArmorParticleFPv(int, void *);
+s32 __nw__15TItemHeapObjectFUl(int);
+s32 __ct__15TItemHeapObjectFP7TObject(int, void *);
 extern M2C_UNK __vt__14TItemEquipBase[];
 extern s32 item_equip_base_class_name;
 u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -982,10 +982,10 @@ u8 *TItemEquipBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x172) = -1;
     clear_id__10TObjPlayerFPv((void *) (arg0 + 0x178));
     add_item_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (4));
-    temp_r3 = alloc__13TItemProArmorFi((int) (0x1C));
+    temp_r3 = __nw__15TItemHeapObjectFUl((int) (0x1C));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = init_object__21TItemEffArmorParticleFPv((int) (temp_r3), (void *) (arg0));
+        var_r0 = __ct__15TItemHeapObjectFP7TObject((int) (temp_r3), (void *) (arg0));
     }
     M2C_FIELD(arg0, s32 *, 0x174) = var_r0;
     M2C_FIELD(arg0, s32 *, 0x17C) = 0;

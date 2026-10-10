@@ -532,7 +532,6 @@ pso/item/TItemDrop_800F9C00.cpp
 pso/item/TItemDrop_800FDD70.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
-pso/item/TItemEffArmorParticle_80364328.cpp
 pso/item/TItemEffArmor_80107DA4.cpp
 pso/item/TItemEffBringer.cpp
 pso/item/TItemEffCane.cpp
@@ -660,6 +659,7 @@ pso/item/TItemEquipVariant_80130178.cpp
 pso/item/TItemEquipVariant_80130658.cpp
 pso/item/TItemEquipVariant_80130AC4.cpp
 pso/item/TItemEquipVariant_80130D84.cpp
+pso/item/TItemHeapObject.cpp
 pso/item/TItemList_8010ED0C.cpp
 pso/item/TItemList_801D3780.cpp
 pso/item/TItemList_801D57B0.cpp
@@ -687,11 +687,9 @@ pso/item/TItemMagSub.cpp
 pso/item/TItemMagSub_80113D84.cpp
 pso/item/TItemMagSub_80114524.cpp
 pso/item/TItemMagSub_80114714.cpp
-pso/item/TItemMagSub_803642D8.cpp
 pso/item/TItemMag_8001A468.cpp
 pso/item/TItemMag_80102C4C.cpp
 pso/item/TItemMag_80113E30.cpp
-pso/item/TItemMag_80114950.cpp
 pso/item/TItemMenuCtrl.cpp
 pso/item/TItemMenuCtrl_801059E8.cpp
 pso/item/TItemMenuCtrl_80115A28.cpp
@@ -708,7 +706,6 @@ pso/item/TItemProArmor_80116F68.cpp
 pso/item/TItemProArmor_801172A4.cpp
 pso/item/TItemProArmor_801172D8.cpp
 pso/item/TItemProArmor_801173C0.cpp
-pso/item/TItemProArmor_80364300.cpp
 pso/item/TItemProShield.cpp
 pso/item/TItemProShield_80076B5C.cpp
 pso/item/TItemProShield_8010A650.cpp
@@ -1121,7 +1118,6 @@ pso/misc/TLobby_803CFE68.cpp
 pso/misc/TLobby_803D0C28.cpp
 pso/misc/TLobby_803D0EB8.cpp
 pso/misc/TLobby_803D0F58.cpp
-pso/misc/TLobby_803D2010.cpp
 pso/misc/TLobby_803D3194.cpp
 pso/misc/TLobby_803D3988.cpp
 pso/misc/TLobby_803D3B84.cpp
@@ -2661,6 +2657,7 @@ pso/quest/QuestOpcodeTables.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp
+pso/system/MiddlewareInterruptLock.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/PadRumble.cpp
 pso/system/RefCountedWorkBuffer.cpp
@@ -3027,7 +3024,6 @@ pso/unk/text_8010EF14.cpp
 pso/unk/text_8010F168.cpp
 pso/unk/text_8010F210.cpp
 pso/unk/text_8011085C.cpp
-pso/unk/text_8011491C.cpp
 pso/unk/text_80115CA8.cpp
 pso/unk/text_80115D68.cpp
 pso/unk/text_80116D90.cpp

@@ -59,7 +59,7 @@ M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK ct_init__14TItemEffShieldFPvPvs(int, int, void *);
 M2C_UNK TObjPlayer__sub_8010A1D0(int, int, void *, int);
 s32 __nw__7TObjectFUl(int);
-s32 alloc__13TItemProArmorFi(int);
+s32 __nw__15TItemHeapObjectFUl(int);
 M2C_UNK construct_timer_event__10TObjPlayerFPv(int, int, void *, int);
 s32 get_flag_40__8TItemMagFPv(void *);
 s32 get_id__13TItemProArmorFPv(void *);
@@ -201,11 +201,11 @@ void TItemProShield__vt42(u8 *arg0) {
         switch ((s32) temp_r3) {
         case 39:
             if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-                temp_r3_2 = alloc__13TItemProArmorFi((int) (0x2C));
+                temp_r3_2 = __nw__15TItemHeapObjectFUl((int) (0x2C));
                 if (temp_r3_2 != 0) {
                     init_item_timer_event__10TObjPlayerFPv((int) (temp_r3_2), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (get_id__13TItemProArmorFPv((void *) (arg0))), (int) (0x1C2));
                 }
-                temp_r3_3 = alloc__13TItemProArmorFi((int) (0x2C));
+                temp_r3_3 = __nw__15TItemHeapObjectFUl((int) (0x2C));
                 if (temp_r3_3 != 0) {
                     construct_timer_event__10TObjPlayerFPv((int) (temp_r3_3), (int) (M2C_FIELD(arg0, u32 *, 0x174)), (void *) (get_id__13TItemProArmorFPv((void *) (arg0))), (int) (0x1C2));
                 }

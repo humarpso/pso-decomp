@@ -1,3 +1,4 @@
+#include "pso/system/MiddlewareInterruptLock.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -9,15 +10,13 @@ extern "C" {
 void process_pending_request__6TLobbyFv(void);
 void acquire_lock__6TLobbyFv(void);
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1);
-M2C_UNK restore_interrupts_nested__6TLobbyFv();
-M2C_UNK lock_enter__6TLobbyFv();
 
 void process_pending_request__6TLobbyFv(void) {
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 void acquire_lock__6TLobbyFv(void) {
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
 }
 
 void TLobby__sub_803D4408(u8 *arg0, s32 arg1) {

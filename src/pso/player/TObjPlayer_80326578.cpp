@@ -71,7 +71,7 @@ void set_weapon_trail_joints(void *, int, int, int);
 M2C_UNK TObjPlayer__sub_80126414(s32, u32, s32, M2C_UNK, f32);
 M2C_UNK TObjPlayer__sub_80127F40(s32, u32, s32, M2C_UNK, f32);
 s32 TObjectV8047c128_subtract_hp(s32, s16);
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_id__13TItemProArmorFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -174,15 +174,15 @@ void spawn_armor_effects__10TObjPlayerFPv(void *arg0) {
     M2C_FIELD(arg0, s16 *, 0x1FC) = obj_getS16_32E(M2C_FIELD(arg0, s32 *, 0xF0));
     M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = alloc__13TItemProArmorFi(0x30);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
             TObjPlayer__sub_80126414(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
-        temp_r3_2 = alloc__13TItemProArmorFi(0x30);
+        temp_r3_2 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_2 != 0) {
             TObjPlayer__sub_80127F40(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
-        temp_r3_3 = alloc__13TItemProArmorFi(0x30);
+        temp_r3_3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_3 != 0) {
             init_timer_event_value__10TObjPlayerFPvUiiif((u8 *)(temp_r3_3), (u32)(M2C_FIELD(arg0, u32 *, 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
         }

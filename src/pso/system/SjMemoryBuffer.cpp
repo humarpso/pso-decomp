@@ -1,7 +1,6 @@
+#include "pso/system/MiddlewareInterruptLock.h"
 #include "pso/system/SjMemoryBuffer.h"
 extern "C" {
-void lock_enter__6TLobbyFv(void);
-void restore_interrupts_nested__6TLobbyFv(void);
 s32 memset(void*, int, int);
 extern SjMemoryBuffer sj_memory_buffer_pool[32];
 extern s32 sj_memory_buffer_init_count;
@@ -23,7 +22,7 @@ void sj_memory_buffer_error_halt(void*, s32);
 
 s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, s32* arg3) {
     s32 n;
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (arg1 == 0) {
         n = 0;
     } else if (arg1 == 1) {
@@ -35,7 +34,7 @@ s32 sj_memory_buffer_is_chunk_available(SjMemoryBuffer* arg0, s32 arg1, s32 arg2
         }
     }
     *arg3 = n;
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
     { u32 r = (u32)__cntlzw(arg2 - n) >> 5; return r; }
 }
 
@@ -49,7 +48,7 @@ void sj_memory_buffer_unget_chunk(SjMemoryBuffer* arg0, s32 arg1, SjChunk* arg2)
   {
     return;
   }
-  lock_enter__6TLobbyFv();
+  middleware_interrupt_lock_enter();
   if (arg1 == 0)
   {
     if (arg0->error_callback != 0)
@@ -93,14 +92,14 @@ void sj_memory_buffer_unget_chunk(SjMemoryBuffer* arg0, s32 arg1, SjChunk* arg2)
       arg0->error_callback(arg0->error_context, -3);
     }
   }
-  restore_interrupts_nested__6TLobbyFv();
+  middleware_interrupt_lock_leave();
 }
 
 void sj_memory_buffer_put_chunk(SjMemoryBuffer* arg0, u32 arg1, SjChunk* arg2) {
     if (arg2->size <= 0 || arg2->data == 0) {
         return;
     }
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (arg1 > 1) {
         arg2->size = 0;
         arg2->data = 0;
@@ -108,11 +107,11 @@ void sj_memory_buffer_put_chunk(SjMemoryBuffer* arg0, u32 arg1, SjChunk* arg2) {
             arg0->error_callback(arg0->error_context, -3);
         }
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 void sj_memory_buffer_get_chunk(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, SjChunk* arg3) {
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (arg1 == 0) {
         arg3->size = 0;
         arg3->data = 0;
@@ -128,7 +127,7 @@ void sj_memory_buffer_get_chunk(SjMemoryBuffer* arg0, s32 arg1, s32 arg2, SjChun
             arg0->error_callback(arg0->error_context, -3);
         }
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 #pragma optimize_for_size on

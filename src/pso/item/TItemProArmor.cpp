@@ -170,7 +170,7 @@ void *ct__13TItemProArmorFPv(void *arg0);
 void *construct_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
 void *init_item_timer_event__10TObjPlayerFPv(void *, void *, s32, s32);
 void *__nw__7TObjectFUl(int);
-void *alloc__13TItemProArmorFi(int);
+void *__nw__15TItemHeapObjectFUl(int);
 void TItemProArmor__vt42(Armor_80117954 *self);
 }
 
@@ -490,43 +490,43 @@ void TItemProArmor__vt42(Armor_80117954 *self) {
     }
     switch (get_slot_count__14TItemProShieldFPv(self)) {
     case 27:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             init_item_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
         }
         break;
     case 28:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             construct_timer_event__10TObjPlayerFPv(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
         }
         break;
     case 32:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 300);
         }
         break;
     case 33:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 240);
         }
         break;
     case 34:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 210);
         }
         break;
     case 43:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             ((Ctor4_80117954)ct__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
         }
         break;
     case 49:
-        o = alloc__13TItemProArmorFi(0x2C);
+        o = __nw__15TItemHeapObjectFUl(0x2C);
         if (o != NULL) {
             ((Ctor4_80117954)init_vtable__13TItemProArmorFPv)(o, self->owner, get_id__13TItemProArmorFPv(self), 150);
         }

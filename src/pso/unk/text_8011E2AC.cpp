@@ -434,7 +434,7 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 s16 TObjPlayer__sub_801D2F4C(int);
 void push_trail_interpolated__17TItemEffectWeaponFv(void *, Vec_8011E87C *, Vec_8011E87C *);
 void * __ct__17TItemEffectWeaponFv(void *, u32, u32);
-void * alloc__13TItemProArmorFi(M2C_UNK);
+void * __nw__15TItemHeapObjectFUl(M2C_UNK);
 u32 __cvt_fp2unsigned(f32);
 s32 rand(void);
 M2C_UNK vec3_add_to(void *, void *);
@@ -617,7 +617,7 @@ void create_weapon_trail_effects(Pl_8011E950 *arg0) {
     if (arg0->x174 != 0U) {
         for (i = 0; i != 4; i++) {
             if (arg0->kind[i] != -1) {
-                void *p = alloc__13TItemProArmorFi(0x2C);
+                void *p = __nw__15TItemHeapObjectFUl(0x2C);
                 if (p != NULL) {
                     p = __ct__17TItemEffectWeaponFv(p, arg0->x174, flags);
                 }

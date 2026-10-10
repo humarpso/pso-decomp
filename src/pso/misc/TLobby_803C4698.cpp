@@ -1,3 +1,5 @@
+#include "pso/system/LscStream.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -59,7 +61,6 @@ void clear_buffer_a00__6TLobbyFv(void);
 void flush_update__6TLobbyFv(void *, int);
 void TLobby__sub_803CC114(void);
 void init_afs_adxf_state__6TLobbyFv(void);
-void TLobby__sub_803D1CC0(void);
 void sj_memory_buffer_init(void);
 void sj_ring_buffer_init(void);
 void TLobby__sub_803D2ED4(void);
@@ -101,7 +102,6 @@ M2C_UNK update_active_stream_reads();
 M2C_UNK dec_ref_and_reset_tables__6TLobbyFv();
 M2C_UNK TLobby__sub_803CC884();
 M2C_UNK TLobby__sub_803CEF60();
-M2C_UNK release_and_close_all_slots__6TLobbyFv();
 void sj_memory_buffer_shutdown(void);
 M2C_UNK sj_ring_buffer_shutdown();
 M2C_UNK dec_ref_and_clear_buffer__6TLobbyFv();
@@ -389,7 +389,7 @@ void dec_ref_and_shutdown__6TLobbyFv(void) {
         shutdown_cleanup__6TLobbyFv();
         dec_ref_and_reset_tables__6TLobbyFv();
         si_get_type_async__6TLobbyFv();
-        release_and_close_all_slots__6TLobbyFv();
+        lsc_shutdown();
         init_once__6TLobbyFv();
         SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (1));
         SVM_DelCbSvr__6TLobbyFii((int) (2), (void *) (3));
@@ -420,7 +420,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         TLobby__sub_803CC114();
         flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFii, 0);
         memset(lbl_80572120, 0, 0xA80);
-        TLobby__sub_803D1CC0();
+        lsc_init();
         if (lbl_805D4658 == 1) {
             SVM_SetCbSvrId__6TLobbyFiiii(2, 1, (void *)get_state_zero__6TLobbyFv, 0);
             SVM_SetCbSvrId__6TLobbyFiiii(2, 3, (void *)ar_alloc__6TLobbyFv, 0);

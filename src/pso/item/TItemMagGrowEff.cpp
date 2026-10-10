@@ -1,13 +1,13 @@
 #include "pso/item/TItemMagGrowEff.h"
 
-extern "C" void clear_flag_64__11TItemMagSubFPv(void*);
+extern "C" void clear_growth_flag__11TItemMagSubFv(void*);
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void request_destroy__11TBoss4Type2FUi(void *);
 s32 create_particle_emitter(s32, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-s32 get_world_position__11TItemMagSubFPvUi(void *, u32);
+s32 get_world_position__11TItemMagSubFPv(void *, u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 }
 
@@ -26,7 +26,7 @@ void TItemMagGrowEff::run_task() {
         mag = NULL;
     }
     if ((effect != NULL) && (active_mag = mag, (active_mag != NULL))) {
-        if (get_world_position__11TItemMagSubFPvUi(active_mag, (u32) position) != 0) {
+        if (get_world_position__11TItemMagSubFPv(active_mag, (u32) position) != 0) {
             if (progress_ticks == 0xA) {
                 request_destroy__11TBoss4Type2FUi(effect);
                 effect = (u8 *) (create_particle_emitter((s32) position, 0x9E));
@@ -46,12 +46,12 @@ void TItemMagGrowEff::run_task() {
 
 TItemMagGrowEff::~TItemMagGrowEff() {
     request_destroy__11TBoss4Type2FUi(effect);
-    if (mag != nullptr) clear_flag_64__11TItemMagSubFPv(mag);
+    if (mag != nullptr) clear_growth_flag__11TItemMagSubFv(mag);
 }
 
 extern "C" {
 
-s32 set_grow_flag__15TItemMagGrowEffFPv(u32);
+s32 set_growth_flag__11TItemMagSubFv(u32);
 
 extern const char *lbl_805D2C14;
 
@@ -63,7 +63,7 @@ TItemMagGrowEff::TItemMagGrowEff(TObject *parent, void *mag_object) : TObject(pa
         mag = (u8*)mag_object;
         progress_ticks = 0;
         effect = (u8*)create_particle_emitter((s32)(mag + 0xDC), 0x9D);
-        set_grow_flag__15TItemMagGrowEffFPv((u32)mag);
+        set_growth_flag__11TItemMagSubFv((u32)mag);
     } else {
         mag = NULL;
         effect = NULL;

@@ -15,7 +15,7 @@ u32 test_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 M2C_UNK add_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
 s16 get_kill_count__10TObjPlayerFPv(s32);
 M2C_UNK init_timer_event_with_value__10TObjPlayerFPvsif(s32, u32, s32, M2C_UNK, f32);
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 
 void update_weapon_kill_count__10TObjPlayerFPv(void *arg0) {
     if ((s16) M2C_FIELD(arg0, s16 *, 0x1F8) < get_kill_count__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0))) {
@@ -33,7 +33,7 @@ void TObjPlayer__sub_8012D558(void *arg0) {
     s32 temp_r3;
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = alloc__13TItemProArmorFi(0x30);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
             init_timer_event_with_value__10TObjPlayerFPvsif(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0xE10, lbl_805DAF20);
         }

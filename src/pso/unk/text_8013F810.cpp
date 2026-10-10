@@ -1,3 +1,5 @@
+#include "pso/map/FloorResourceCallbacks.h"
+
 #include "types.h"
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -65,7 +67,6 @@ extern "C" {
 
 void update_floor__6TLobbyFv(void);
 int clear_session_buffers__6TLobbyFv(void);
-int reset_keyboard_control__6TLobbyFv(void);
 int update_current_floor__6TLobbyFv(void);
 int stop_audio_streams__6TLobbyFv(void);
 int refresh_render_state__6TLobbyFv(void);

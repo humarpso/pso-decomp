@@ -2164,10 +2164,11 @@ pso/object/TObject_800F794C.cpp:
 	.text       start:0x800F794C end:0x800F795C
 
 pso/misc/TLobby_800F795C.cpp:
-	.text       start:0x800F795C end:0x800F7BA8
+	.text       start:0x800F795C end:0x800F7BCC
+	.data       start:0x80498F28 end:0x80499958
 
 pso/enemy/TEnemyTaskList.cpp:
-	.text       start:0x800F7BA8 end:0x800F7D30
+	.text       start:0x800F7BCC end:0x800F7D30
 	.rodata     start:0x8043D788 end:0x8043D798
 	.data       start:0x80499958 end:0x80499970
 	.sdata      start:0x805D2B08 end:0x805D2B10
@@ -2817,15 +2818,11 @@ pso/item/TItemMagGrowEff.cpp:
 	.text       start:0x8011472C end:0x8011491C
 	.data       start:0x8049F588 end:0x8049F5A0
 
-pso/unk/text_8011491C.cpp:
-	.text       start:0x8011491C end:0x80114950
-
-pso/item/TItemMag_80114950.cpp:
-	.text       start:0x80114950 end:0x80114A30
-
 pso/item/TItemMagSub.cpp:
-	.text       start:0x80114A30 end:0x801159C8
+	.text       start:0x8011491C end:0x801159C8
 	.rodata     start:0x8043E5C8 end:0x8043E5E0
+	.data       start:0x8049F5A0 end:0x8049F5D0
+	.sdata2     start:0x805DABC8 end:0x805DABE8
 
 pso/item/TItemMenuCtrl.cpp:
 	.text       start:0x801159C8 end:0x80115A28
@@ -12730,14 +12727,8 @@ pso/item/TItem_80363AF4.cpp:
 pso/player/TObjPlayer_80363BE0.cpp:
 	.text       start:0x80363BE0 end:0x803642D8
 
-pso/item/TItemMagSub_803642D8.cpp:
-	.text       start:0x803642D8 end:0x80364300
-
-pso/item/TItemProArmor_80364300.cpp:
-	.text       start:0x80364300 end:0x80364328
-
-pso/item/TItemEffArmorParticle_80364328.cpp:
-	.text       start:0x80364328 end:0x80364364
+pso/item/TItemHeapObject.cpp:
+	.text       start:0x803642D8 end:0x80364364
 
 pso/item/TItemEffArmorParticle.cpp:
 	.text       start:0x80364364 end:0x80364570
@@ -13887,11 +13878,13 @@ pso/unk/text_803D0F1C.cpp:
 pso/misc/TLobby_803D0F58.cpp:
 	.text       start:0x803D0F58 end:0x803D0F90
 
-pso/unk/text_803D0F90.cpp:
-	.text       start:0x803D0F90 end:0x803D2010
+pso/system/LscStream.cpp:
+	.text       start:0x803D0F90 end:0x803D1FD4
+	.bss        start:0x80583058 end:0x805873D8
 
-pso/misc/TLobby_803D2010.cpp:
-	.text       start:0x803D2010 end:0x803D204C
+pso/system/MiddlewareInterruptLock.cpp:
+	.text       start:0x803D1FD4 end:0x803D204C
+	.sbss       start:0x805D7638 end:0x805D7640
 
 pso/system/SjMemoryBuffer.cpp:
 	.text       start:0x803D204C end:0x803D2628

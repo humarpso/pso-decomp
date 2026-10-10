@@ -3,15 +3,8 @@
 extern "C" {
 void* alloc_buffer__11TOBoss4RockFPv(s32);
 void free__11TOBoss4RockFUi(void*);
-s32 get_global_state__14TOKeyMachine01Fv(void);
-s32 run_cleanup_callbacks__6TLobbyFi(void);
 extern const char TEnemyTaskList_class_name[] = "TEnemyTaskList";
 const char* TEnemyTaskList_name = TEnemyTaskList_class_name;
-}
-
-extern "C" void handle_disconnect_cleanup(void) {
-    get_global_state__14TOKeyMachine01Fv();
-    run_cleanup_callbacks__6TLobbyFi();
 }
 
 void TEnemyTaskList::run_task() {}

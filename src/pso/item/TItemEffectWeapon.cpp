@@ -28,11 +28,11 @@ void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param);
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag);
 
 void decrement_timer__17TItemEffectWeaponFPv(void *, s32);
-void *destroy__11TItemMagSubFPvs(void *, s32);
+void *__dt__15TItemHeapObjectFv(void *, s32);
 int free__11TOBoss4RockFUi(void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
-void  free_to_heap__11TItemMagSubFPv(void *);
-void  init_object__21TItemEffArmorParticleFPv(void *);
+void  __dl__15TItemHeapObjectFPv(void *);
+void  __ct__15TItemHeapObjectFP7TObject(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void* memcpy(void* destination, const void* source, size_t size);
 
@@ -126,9 +126,9 @@ void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
     if (self) {
         M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
         TItemEffectWeapon::release_trail_buffer((void*)M2C_FIELD(self, s32 *, 0x1C));
-        destroy__11TItemMagSubFPvs(self, 0);
+        __dt__15TItemHeapObjectFv(self, 0);
         if ((s16)flag > 0) {
-            free_to_heap__11TItemMagSubFPv(self);
+            __dl__15TItemHeapObjectFPv(self);
         }
     }
     return self;
@@ -138,7 +138,7 @@ extern void *__vt__17TItemEffectWeapon[];
 extern s32 TItemEffectWeapon__class_name;
 
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
-    init_object__21TItemEffArmorParticleFPv(self);
+    __ct__15TItemHeapObjectFP7TObject(self);
     M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
     M2C_FIELD(self, s32 *, 0) = TItemEffectWeapon__class_name;
     M2C_FIELD(self, s32 *, 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();

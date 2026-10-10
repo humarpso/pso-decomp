@@ -325,7 +325,7 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/unk/text_803D0F90.cpp": {
+  "pso/system/LscStream.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",

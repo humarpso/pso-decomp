@@ -1,3 +1,4 @@
+#include "pso/system/MiddlewareInterruptLock.h"
 #include "pso/system/SjRingBuffer.h"
 typedef s32 M2C_UNK;
 
@@ -10,8 +11,6 @@ u8* sj_ring_buffer_get_buffer(SjRingBuffer* buffer) { return buffer->buffer; }
 }
 
 extern "C" {
-void restore_interrupts_nested__6TLobbyFv(void);
-void lock_enter__6TLobbyFv(void);
 void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out);
 bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out);
 void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2);
@@ -26,7 +25,7 @@ extern "C" {
 #define MIN_803D2640(a, b) ((a) < (b) ? (a) : (b))
 bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *out) {
     s32 t;
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (mode == 0) {
         t = MIN_803D2640(o->writable_bytes, o->extra_buffer_size + (o->buffer_size - o->write_position));
         mode = MIN_803D2640(t, n);
@@ -40,7 +39,7 @@ bool sj_ring_buffer_is_chunk_available(SjRingBuffer *o, s32 mode, s32 n, s32 *ou
         }
     }
     *out = mode;
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
     return !(n - mode);
 }
 
@@ -55,7 +54,7 @@ void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2) {
     if ((s32) arg2->size <= 0 || arg2->data == NULL) {
         return;
     }
-        lock_enter__6TLobbyFv();
+        middleware_interrupt_lock_enter();
         if (arg1 == 0) {
             temp_r6 = arg0->buffer_size;
             temp_r4 = ((arg0->write_position + temp_r6) - arg2->size) % temp_r6;
@@ -88,7 +87,7 @@ void sj_ring_buffer_unget_chunk(SjRingBuffer *arg0, s32 arg1, SjChunk *arg2) {
                 temp_r12_3(arg0->error_context, -3);
             }
         }
-        restore_interrupts_nested__6TLobbyFv();
+        middleware_interrupt_lock_leave();
     }
 
 #define MIN_803D28D8(a, b) ((a) < (b) ? (a) : (b))
@@ -99,7 +98,7 @@ void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b) {
     if (b->size <= 0 || b->data == 0) {
         return;
     }
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (mode == 1) {
         o->readable_bytes += b->size;
         d = b->data - o->buffer;
@@ -121,11 +120,11 @@ void sj_ring_buffer_put_chunk(SjRingBuffer *o, s32 mode, SjChunk *b) {
             o->error_callback(o->error_context, -3);
         }
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out) {
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (which == 0) {
         out->size = MIN_803D2A14(r->writable_bytes, r->extra_buffer_size + (r->buffer_size - r->write_position));
         out->size = MIN_803D2A14(out->size, max);
@@ -145,7 +144,7 @@ void sj_ring_buffer_get_chunk(SjRingBuffer *r, s32 which, s32 max, SjChunk *out)
             r->error_callback(r->error_context, -3);
         }
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 }
@@ -194,12 +193,12 @@ const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0) {
 }
 
 void sj_ring_buffer_destroy(SjRingBuffer *arg0) {
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     if (arg0 != NULL) {
         memset((void *) (arg0), (int) (0), (int) (0x30));
         arg0->in_use = 0;
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
 }
 
 }
@@ -224,7 +223,7 @@ extern "C" {
 SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24) {
     SjRingBuffer *s;
     s32 i;
-    lock_enter__6TLobbyFv();
+    middleware_interrupt_lock_enter();
     for (i = 0; i < 256; i++) {
         if (((SjRingBuffer *)&sj_ring_buffer_pool)[i].in_use == 0) {
             break;
@@ -247,7 +246,7 @@ SjRingBuffer *sj_ring_buffer_create(void* data, s32 bsize, s32 x24) {
         s->write_position = 0;
         s->read_position = 0;
     }
-    restore_interrupts_nested__6TLobbyFv();
+    middleware_interrupt_lock_leave();
     return s;
 }
 

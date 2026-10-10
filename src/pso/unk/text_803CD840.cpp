@@ -1,3 +1,5 @@
+#include "pso/system/MiddlewareInterruptLock.h"
+
 #include "types.h"
 struct Ent_803CE198 { s32 a; s32 b; u8 pad[8]; };
 
@@ -103,8 +105,8 @@ int memcmp(const void *, const void *, unsigned long);
 unsigned long strlen(const char *);
 extern char *lbl_805D4688;
 s32 parse_aix_header__6TLobbyFPviPv(u8 *arg0, s32 arg1, Out_803CDEC8 *arg2);
-void restore_interrupts_nested__6TLobbyFv(void);
-void lock_enter__6TLobbyFv(void);
+void middleware_interrupt_lock_leave(void);
+void middleware_interrupt_lock_enter(void);
 void TLobby__sub_803D3130(Chunk_803CDB0C *, s32, Chunk_803CDB0C *, Chunk_803CDB0C *);
 void *memcpy(void *, const void *, u32);
 s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o);
@@ -235,7 +237,7 @@ s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o) {
             s->vt->release(s, 1, &c1);
             return ret;
         }
-        lock_enter__6TLobbyFv();
+        middleware_interrupt_lock_enter();
         ret = hdr.w;
         TLobby__sub_803D3130(&c1, hdr.size + 8, &c1, &c2);
         s->vt->release(s, 1, &c2);
@@ -253,7 +255,7 @@ s32 demux_stream_chunks__6TLobbyFPv(Obj_803CDB0C *o) {
         s->vt->commit(s, 0, &c1);
         s->vt->commit(s, 0, &c2);
         o->f8 = c2.len + (c1.len + o->f8);
-        restore_interrupts_nested__6TLobbyFv();
+        middleware_interrupt_lock_leave();
     }
     return ret;
 }

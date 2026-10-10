@@ -29,7 +29,7 @@ void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
 s32 get_id__13TItemProArmorFPv(void *);
 s32 TObjPlayer__sub_8011E618(void *);
-s32 alloc__13TItemProArmorFi(s32);
+s32 __nw__15TItemHeapObjectFUl(s32);
 s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 void create_pro_armor__10TObjPlayerFPv(void *arg0);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
@@ -138,7 +138,7 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     M2C_FIELD(arg0, s32 *, 0x1F8) = -1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = alloc__13TItemProArmorFi(0x2C);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
             ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }

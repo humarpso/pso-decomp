@@ -18,16 +18,16 @@ struct Mag_801143E8
 extern "C" {
 void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1);
 u8 obj_isState7_324(u8 *arg0);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146A4(void *);
 void mag_feed_add_mind(u8 *arg0, s16 arg1);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146C0(void *);
 void TItemMag__sub_80114198(u8 *arg0, s16 arg1);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146DC(void *);
 void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1);
-s16 get_total_level__11TItemMagSubFPv(void *);
+s16 get_mag_total_level(void *);
 s16 TItemData__sub_801146F8(void *);
 void mag_feed_add_def(u8 *arg0, s16 arg1);
 void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v);
@@ -72,9 +72,9 @@ int get_mag_item_stat_percent(void* p);
 int get_mag_level(void* p);
 int get_percent__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
-int is_feed_empty__8TItemMagFPv(void* p);
-void scale_field_c8__8TItemMagFPvf(void* p, f32 v);
-int test_feed_flags__11TItemMagSubFPvUi(void* p, u32 m);
+int is_growth_inactive__11TItemMagSubFv(void* p);
+void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
+int test_flags__11TItemMagSubFUl(void* p, u32 m);
 
 int get_status_flag__8TItemMagFPv(void* p) { return *(u32*)((char*)p + 0x18c) & 0x10; }
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
@@ -177,7 +177,7 @@ void mag_feed_add_mind(u8 *arg0, s16 arg1) {
     var_r30 = arg1;
     temp_r31 = TItemData__sub_801146A4((void *) (arg0));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_total_level__11TItemMagSubFPv((void *) (arg0));
+        temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
             M2C_FIELD(arg0, s16 *, 0xA) = M2C_FIELD(arg0, s16 *, 0xA) + var_r30;
             return;
@@ -204,7 +204,7 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
     var_r30 = arg1;
     temp_r31 = TItemData__sub_801146C0((void *) (arg0));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_total_level__11TItemMagSubFPv((void *) (arg0));
+        temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
             M2C_FIELD(arg0, s16 *, 8) = M2C_FIELD(arg0, s16 *, 8) + var_r30;
             return;
@@ -230,7 +230,7 @@ void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
     var_r30 = arg1;
     temp_r31 = TItemData__sub_801146DC((void *) (arg0));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_total_level__11TItemMagSubFPv((void *) (arg0));
+        temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
             M2C_FIELD(arg0, s16 *, 6) = M2C_FIELD(arg0, s16 *, 6) + var_r30;
             return;
@@ -257,7 +257,7 @@ void mag_feed_add_def(u8 *arg0, s16 arg1) {
     var_r30 = arg1;
     temp_r31 = TItemData__sub_801146F8((void *) (arg0));
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
-        temp_r3 = get_total_level__11TItemMagSubFPv((void *) (arg0));
+        temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
             M2C_FIELD(arg0, s16 *, 4) = M2C_FIELD(arg0, s16 *, 4) + var_r30;
             return;

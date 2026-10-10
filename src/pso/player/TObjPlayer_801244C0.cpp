@@ -24,7 +24,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 M2C_UNK init_vtable__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 
 extern s32 some_id_805c6f74;
@@ -68,7 +68,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
 
     M2C_FIELD(arg0, s32 *, 0x204) = -1;
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
-        temp_r3 = alloc__13TItemProArmorFi(0x2C);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
             init_vtable__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }

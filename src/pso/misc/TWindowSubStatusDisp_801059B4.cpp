@@ -2,7 +2,7 @@
 
 extern "C" {
 
-int reset_initial_stats__11TItemMagSubFPv(void*);
+int initialize_mag_item_data(void*);
 void fn_801058E8(void* p);
 int activate_d04_slot__10TObjPlayerFPv(void* p);
 int test_flag3__9TItemDataFPv(void* p);

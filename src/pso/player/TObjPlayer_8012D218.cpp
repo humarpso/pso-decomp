@@ -15,7 +15,7 @@ M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 M2C_UNK create_ex__9TTecMegidFiiii(void *, M2C_UNK *, s32, M2C_UNK);
 M2C_UNK ct__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 
@@ -25,12 +25,12 @@ void create_shield__10TObjPlayerFPv(void *arg0) {
 
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         if (get_slot_count__14TItemProShieldFPv() == 0) {
-            temp_r3 = alloc__13TItemProArmorFi(0x2C);
+            temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
             if (temp_r3 != 0) {
                 ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x96);
             }
         } else {
-            temp_r3_2 = alloc__13TItemProArmorFi(0x2C);
+            temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
             if (temp_r3_2 != 0) {
                 ct__13TItemProArmorFPv(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
             }

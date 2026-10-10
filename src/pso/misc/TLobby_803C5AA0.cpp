@@ -1,3 +1,5 @@
+#include "pso/system/LscStream.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -244,8 +246,6 @@ void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 void TLobby__sub_803C9DB4(u8 *arg0);
 void start_stream_playback__6TLobbyFPvi(struct Stream_803CA0C8 *self, s32 arg1);
-void set_lsc_min__6TLobbyFPvi(void *, s32);
-void reset_lsc_state__6TLobbyFPv(void *);
 void TLobby__sub_803C5D24(u8 *arg0);
 s32 write_zero_padded_block__6TLobbyFPv(void *);
 s32 DVDLowRead(void *);
@@ -315,7 +315,6 @@ s32 TRKRequestSend(Obj_803C7C10 *arg0);
 void format_number_pair__6TLobbyFiiPvi(s32, s32, char *, s32);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
-void TLobby__sub_803D16BC(s32, char *, s32, s32, s32);
 extern char lbl_8047C5D8[];
 extern char music_stream_afs_filename_buffer[];
 void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2);
@@ -352,8 +351,6 @@ void TLobby__sub_803CBA38(void);
 M2C_UNK TLobby__sub_803CE240();
 M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
-M2C_UNK TLobby__sub_803D13C0(int);
-M2C_UNK poll_active_connections__6TLobbyFv();
 M2C_UNK set_global_805D7520__6TLobbyFi();
 
 extern "C" {
@@ -376,11 +373,11 @@ s32 get_state_zero__6TLobbyFv(void) {
 
 s32 process_connection_state__6TLobbyFv(void) {
     if (TLobby__sub_803CB844() == 1) {
-        poll_active_connections__6TLobbyFv();
+        lsc_poll_all();
         TLobby__sub_803CE240();
     } else {
         TLobby__sub_803CBA38();
-        poll_active_connections__6TLobbyFv();
+        lsc_poll_all();
         TLobby__sub_803CE240();
     }
     return 0;
@@ -428,7 +425,7 @@ void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void TLobby__sub_803C5D00(u8 *arg0) {
-    TLobby__sub_803D13C0((int) (M2C_FIELD(arg0, s32 *, 0x94)));
+    lsc_get_queued_stream_count((LscStream*) (M2C_FIELD(arg0, s32 *, 0x94)));
 }
 
 extern s32 lbl_805D7548;
@@ -446,8 +443,8 @@ void TLobby__sub_803C5D24(u8 *arg0) {
     temp_r4 = (u8 *)(*temp_r3);
     M2C_FIELD(temp_r4, M2C_UNK (**)(void **, void *), 0x14)(temp_r3, temp_r4);
     ((Fields_arg0*)arg0)->field_2 = 4;
-    set_lsc_min__6TLobbyFPvi(temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
-    reset_lsc_state__6TLobbyFPv(temp_r31);
+    lsc_set_min_buffer_bytes((LscStream*)temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
+    lsc_start((LscStream*)temp_r31);
     ((Fields_arg0*)arg0)->field_98 = 1;
     release_ref__6TLobbyFv();
 }
@@ -460,7 +457,7 @@ void append_music_stream_segment(u8 *arg0, s32 arg1, s32 arg2) {
     s32 h;
     h = *(s32 *)(arg0 + 0x94);
     if (get_afs_file_info__6TLobbyFiiPvPvPvPv(arg1, arg2, music_stream_afs_filename_buffer, &a, &b, &c) == 0) {
-        TLobby__sub_803D16BC(h, music_stream_afs_filename_buffer, a, b, c);
+        lsc_enqueue_range((LscStream*)h, music_stream_afs_filename_buffer, a, b, c);
         return;
     }
     format_number_pair__6TLobbyFiiPvi(arg1, arg2, buf, 0x10);
@@ -1618,7 +1615,6 @@ void TLobby__sub_803C9DB4(u8 *arg0);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK stop_lsc_read(int);
 void stop_audio_stream(u8 *arg0);
 M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2);
@@ -1719,7 +1715,6 @@ void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK stop_lsc_read(int);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
@@ -1727,18 +1722,15 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1);
 M2C_UNK reset_flag__6TLobbyFPv(int);
 M2C_UNK TLobby__sub_803CC030(int, int);
 M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK stop_lsc_read(int);
 M2C_UNK memset(void *, int, int);
 M2C_UNK reset_entry__6TLobbyFPv(void *);
 M2C_UNK clear_entry__6TLobbyFi(void *);
 M2C_UNK unregister_si_polling__6TLobbyFPv(void *);
-M2C_UNK release_lsc_slot(void *);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *TLobby__sub_803C0848(void *, s32, void *);
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *run_step_5210__6TLobbyFv(void *, s32);
-void *lsc_create__6TLobbyFPv(void *);
 M2C_UNK memset(void *, int, int);
 extern Ent_803C9608 lbl_80572120[16];
 Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size);
@@ -1982,7 +1974,7 @@ void stop_audio_stream(u8 *arg0) {
     }
     init_once__6TLobbyFv();
     if ((s32) M2C_FIELD(arg0, u8 *, 2) == 4) {
-        stop_lsc_read((int) (M2C_FIELD(arg0, s32 *, 0x94)));
+        lsc_stop((LscStream*) (M2C_FIELD(arg0, s32 *, 0x94)));
         temp_r3_2 = M2C_FIELD(arg0, void ***, 0x14);
         if (temp_r3_2 != NULL) {
             temp_r4_2 = (u8 *)(*temp_r3_2);
@@ -2041,7 +2033,7 @@ void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1) {
     }
     init_once__6TLobbyFv();
     if ((s32)arg0->f2 == 4) {
-        stop_lsc_read(arg0->f94);
+        lsc_stop((LscStream*)arg0->f94);
         if (arg0->f14 != NULL) {
             arg0->f14->vt->f14(arg0->f14);
         }
@@ -2147,7 +2139,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         }
         init_once__6TLobbyFv();
         if ((s32)arg0->f2 == 4) {
-            stop_lsc_read((int)arg0->f94);
+            lsc_stop((LscStream*)arg0->f94);
             if (arg0->f14 != NULL) {
                 arg0->f14->vt->f14(arg0->f14);
             }
@@ -2176,7 +2168,7 @@ void TLobby__sub_803CA194(Obj_803CA194 *arg0) {
         TLobby__sub_803C8B38((u8 *)((int)arg0->f8));
     }
     if (arg0->f94 != NULL) {
-        release_lsc_slot(arg0->f94);
+        lsc_destroy((LscStream*)arg0->f94);
     }
     init_once__6TLobbyFv();
     if (arg0->f10 != NULL) {
@@ -2260,7 +2252,7 @@ Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
         TLobby__sub_803CA194((Obj_803CA194 *)c);
         return NULL;
     }
-    if ((c->f94 = lsc_create__6TLobbyFPv(c->f10)) == NULL) {
+    if ((c->f94 = lsc_create(c->f10)) == NULL) {
         TLobby__sub_803CA194((Obj_803CA194 *)c);
         return NULL;
     }

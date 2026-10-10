@@ -38,7 +38,7 @@ void TItemTimerEvent__ct(void *);
 s32 is_item_area_enabled();
 void __dt__13TItemProArmorFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
-s32 alloc__13TItemProArmorFi(M2C_UNK);
+s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -80,7 +80,7 @@ void TItemProArmorParticle__vt42(void *arg0) {
 
     TItemProArmor__vt42();
     if (((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U)) {
-        temp_r3 = alloc__13TItemProArmorFi(0x30);
+        temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
             initialize__21TItemProArmorParticleFPvPvPvPvPv((void *)(temp_r3), (void *)(M2C_FIELD(arg0, u32 *, 0x174)), (void *)(get_id__13TItemProArmorFPv(arg0)), (void *)(0x78), (void *)(M2C_FIELD(arg0, s32 *, 0x19C)));
         }

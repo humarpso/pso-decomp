@@ -1787,8 +1787,8 @@ void check_idle_movement_request__10TObjPlayerFPv(u8 *arg0);
 int try_apply_status_action_2__10TObjPlayerFPv(void* p);
 void run_idle_state_phase__10TObjPlayerFis(s32 arg0, s16 arg1);
 void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2);
-int update_lobby_chair__10TObjPlayerFPv(void* p);
-int get_chair_state__10TObjPlayerFPv(void* p);
+void update_lobby_chair__10TObjPlayerFPv(void* p, s32 value);
+void get_chair_state__10TObjPlayerFPv(void* p, s32 value);
 int TObjPlayer__sub_801D0D58(void* p);
 void TObjPlayer__sub_801D0D7C(void* p);
 void TObjPlayer__sub_801D0D8C(void* p);
@@ -1798,7 +1798,7 @@ int start_action18_sub__10TObjPlayerFPv(void* p);
 int TObjPlayer__sub_801D0DF4(void* p);
 void TObjPlayer__sub_801D0E18(void* p);
 int get_action_flag__10TObjPlayerFPv(void* p);
-int forward_1D1044_at_34c__10TObjPlayerFPv(void* p);
+void forward_1D1044_at_34c__10TObjPlayerFPv(void* p, s16 value);
 int is_action_flag_28__10TObjPlayerFPv(void* p);
 void set_anim_flag__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801D0E74(void* p);
@@ -2155,7 +2155,7 @@ void handle_6xB0_turn_or_move_lobby_chair(void *arg0) {
     if (fn_8036B798(&m) != 0) {
         p = ((Player_801C7430 *)((s32 (*)(s32))get_player_by_client_id)((s32)(m.slot)));
         if ((p != NULL) && (((s32 (*)(void))is_in_tl03_state__10TObjPlayerFPv)() != 0)) {
-            ((void (*)(void *, s32))update_lobby_chair__10TObjPlayerFPv)(p, m.c);
+            update_lobby_chair__10TObjPlayerFPv(p, m.c);
             calc_direction_vector__10TObjPlayerFiPvf(p->dir, p->vec, TObjPlayer__data_805DC360);
         }
     }
@@ -2169,7 +2169,7 @@ void handle_6xAF_turn_or_move_lobby_chair(void *arg0) {
     if (fn_8036B7C0(&sp8) != 0) {
         s32 p = ((s32 (*)(s32))get_player_by_client_id)(sp8.f2);
         if (p != 0 && ((s32 (*)(void))is_in_tl03_state__10TObjPlayerFPv)() != 0) {
-            ((void (*)(void *, s32))get_chair_state__10TObjPlayerFPv)((void *)p, sp8.f4);
+            get_chair_state__10TObjPlayerFPv((void *)p, sp8.f4);
         }
     }
 }
@@ -2211,13 +2211,13 @@ void start_action_18__10TObjPlayerFPv(void *arg0) {
     } else {
         var_r4 = ((VObj8_801c7630 *) M2C_FIELD(arg0, void **, 0x380))->vf10C();
     }
-    ((M2C_UNK (*)(void *, s16))forward_1D1044_at_34c__10TObjPlayerFPv)(arg0, var_r4);
+    forward_1D1044_at_34c__10TObjPlayerFPv(arg0, var_r4);
     if (((s32 (*)(void *))get_action_flag__10TObjPlayerFPv)(arg0) != 0) {
         update_facing_from_lock__10TObjPlayerFPv(arg0);
     }
     ((M2C_UNK (*)(void *))TObjPlayer__sub_801D0E18)(arg0);
     M2C_FIELD(arg0, s16 *, 0x328) = 0;
-    ((M2C_UNK (*)(void *, s32))get_chair_state__10TObjPlayerFPv)(arg0, M2C_FIELD(arg0, s32 *, 0x60));
+    get_chair_state__10TObjPlayerFPv(arg0, M2C_FIELD(arg0, s32 *, 0x60));
     ((M2C_UNK (*)(void *))TObjPlayer__sub_801D0DF4)(arg0);
     set_action_state__10TObjPlayerFPvss(arg0, 0x18, ((s32 (*)(void *))start_action18_sub__10TObjPlayerFPv)(arg0));
 }
@@ -6621,9 +6621,9 @@ void run_action_state_phase__10TObjPlayerFisi(s32 arg0, s16 arg1, s32 arg2) {
     }
 }
 
-int update_lobby_chair__10TObjPlayerFPv(void* p) { return ((int (*)(void*))TObjPlayer__sub_801D1024)((char*)p + 0x34c); }
+void update_lobby_chair__10TObjPlayerFPv(void* p, s32 value) { TObjPlayer__sub_801D1024((char*)p + 0x34c, value); }
 
-int get_chair_state__10TObjPlayerFPv(void* p) { return ((int (*)(void*))TObjPlayer__sub_801D102C)((char*)p + 0x34c); }
+void get_chair_state__10TObjPlayerFPv(void* p, s32 value) { TObjPlayer__sub_801D102C((char*)p + 0x34c, value); }
 
 int TObjPlayer__sub_801D0D58(void* p) { return TBoss7LaserPtcl__sub_8035AF14((char*)p + 0x34c); }
 
@@ -6643,7 +6643,7 @@ void TObjPlayer__sub_801D0E18(void* p) { *(u32*)((char*)p + 0x334) |= 0x4000000;
 
 int get_action_flag__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 27) & 0x1; }
 
-int forward_1D1044_at_34c__10TObjPlayerFPv(void* p) { return ((int (*)(void*))TObjPlayer__sub_801D1044)((char*)p + 0x34c); }
+void forward_1D1044_at_34c__10TObjPlayerFPv(void* p, s16 value) { TObjPlayer__sub_801D1044((char*)p + 0x34c, value); }
 
 int is_action_flag_28__10TObjPlayerFPv(void* p) { return (*(u32*)((char*)p + 0x334) >> 28) & 0x1; }
 
