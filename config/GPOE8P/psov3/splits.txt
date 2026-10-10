@@ -629,21 +629,15 @@ pso/boss/TBoss4Type3.cpp:
 	.rodata     start:0x80437758 end:0x80437890
 	.data       start:0x80486A70 end:0x804872E8
 
-pso/boss/TBoss4Bishi.cpp:
-	.text       start:0x8005BABC end:0x8005C9BC
+pso/boss/TBoss4Zako.cpp:
+	.text       start:0x8005BABC end:0x8005D6F4
+	.rodata     start:0x804378C0 end:0x804378C8
 	.data       start:0x804872E8 end:0x80487460
 	.sbss       start:0x805D4D88 end:0x805D4D90
+	.sdata2     start:0x805D8D20 end:0x805D8D28
 
-pso/boss/TBoss4Zako_8005C9BC.cpp:
-	.text       start:0x8005C9BC end:0x8005CF10
-	.sdata2     start:0x805D8D24 end:0x805D8D28
 
-pso/boss/TBoss4Uro_8005CF10.cpp:
-	.text       start:0x8005CF10 end:0x8005CF14
 
-pso/boss/TBoss4Zako.cpp:
-	.text       start:0x8005CF14 end:0x8005D6F4
-	.rodata     start:0x804378C0 end:0x804378C8
 
 pso/boss/TBoss8Dragon_8005D6F4.cpp:
 	.text       start:0x8005D6F4 end:0x8005D700
@@ -6954,11 +6948,9 @@ pso/misc/TPlyOnCreated_801C61D0.cpp:
 pso/player/TObjPlayer_801C6280.cpp:
 	.text       start:0x801C6280 end:0x801C6650
 
-pso/misc/TParticleCtrl_801C6650.cpp:
-	.text       start:0x801C6650 end:0x801C670C
+pso/player/TPlayerParticleOwner.cpp:
+	.text       start:0x801C6650 end:0x801C675C
 
-pso/unk/text_801C670C.cpp:
-	.text       start:0x801C670C end:0x801C675C
 
 pso/player/TObjPlayer_801C675C.cpp:
 	.text       start:0x801C675C end:0x801C70BC
@@ -11826,17 +11818,17 @@ pso/ui/TAdWarningBaseGC_8032D1A4.cpp:
 	.text       start:0x8032D1A4 end:0x8032D1E4
 
 pso/ui/TAdWarningBaseGC.cpp:
-	.text       start:0x8032D1E4 end:0x8032D5B0
+	.text       start:0x8032D1E4 end:0x8032D514
 	.rodata     start:0x80477348 end:0x80477350
-
 pso/ui/TAdGuideButtonGC.cpp:
-	.text       start:0x8032D5B0 end:0x8032D9BC
+	.text       start:0x8032D514 end:0x8032DA60
 	.rodata     start:0x80477350 end:0x80477390
+	.data       start:0x804EDC10 end:0x804EDC28
 	.sdata      start:0x805D4210 end:0x805D4218
-	.sdata2     start:0x805DF7C4 end:0x805DF7D0
+	.sbss       start:0x805D6D00 end:0x805D6D08
+	.sdata2     start:0x805DF7B8 end:0x805DF7D8
 
-pso/unk/text_8032D9BC.cpp:
-	.text       start:0x8032D9BC end:0x8032DA60
+
 
 pso/unk/text_8032DA60.cpp:
 	.text       start:0x8032DA60 end:0x8032DA84

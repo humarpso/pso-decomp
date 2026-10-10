@@ -66,7 +66,7 @@ M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 M2C_UNK TWindow__close(void *);
 s32 get_status__22TAdMultiPlyChrSelectGCFv();
-M2C_UNK setup_button__16TAdGuideButtonGCFPvPv(int, void *);
+M2C_UNK setup_button__16TAdGuideButtonGCFP15GuideButtonSpec(int, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdPlyStatusGC__window_offset_index;
@@ -81,7 +81,7 @@ u8 *__dt__14TAdPlyStatusGCFv(u8 *arg0, s16 arg1);
 M2C_UNK allow_rendering__7TObjectFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
 s32 get_status__22TAdMultiPlyChrSelectGCFv();
-M2C_UNK setup_button__16TAdGuideButtonGCFPvPv(int, void *);
+M2C_UNK setup_button__16TAdGuideButtonGCFP15GuideButtonSpec(int, void *);
 u32 get_player_index__14TAdPlyStatusGCFv();
 extern RecoveredGlobal_8033F93C_lbl_8050E3B8 controller_physical_port_bank;
 extern s32 TAdPlyStatusGC__window_offset_index;
@@ -339,7 +339,7 @@ void update_hidden__14TAdPlyStatusGCFv(u8 *arg0) {
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {
             allow_rendering__7TObjectFv();
-            setup_button__16TAdGuideButtonGCFPvPv((int) (temp_r3), (void *) (arg0 + 0x48));
+            setup_button__16TAdGuideButtonGCFP15GuideButtonSpec((int) (temp_r3), (void *) (arg0 + 0x48));
         }
         temp_r5 = get_status__22TAdMultiPlyChrSelectGCFv() * 0x50;
         if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_physical_port_bank.value + temp_r5 + 0x20), (int) (0x400), (int) (temp_r5)) != 0) {
@@ -361,7 +361,7 @@ void update_shown__14TAdPlyStatusGCFv(struct RecoveredFields_8033F9DC_arg0 *arg0
         temp_r3 = ((s32)get_player_index__14TAdPlyStatusGCFv());
         if (temp_r3 != 0) {
             allow_rendering__7TObjectFv();
-            setup_button__16TAdGuideButtonGCFPvPv(temp_r3, &arg0->unknown_20[4]);
+            setup_button__16TAdGuideButtonGCFP15GuideButtonSpec(temp_r3, &arg0->unknown_20[4]);
         }
         temp_r5 = get_status__22TAdMultiPlyChrSelectGCFv() * 0x50;
         if (TWindowShortListCtrl__check_controller_button((u8 *)(((u8 *)(&(*(RecoveredGlobal_8033F9DC_lbl_8050E3B8 *)&controller_physical_port_bank).value) + temp_r5)) + 0x20, 0x400, temp_r5) != 0) {

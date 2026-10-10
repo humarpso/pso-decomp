@@ -95,7 +95,7 @@ extern "C" {
 
 s32 create_particle_emitter(void *, int);
 void update_battle_ctrl_field1c__10TObjPlayerFPv(void *arg0);
-s32 fn_801C670C(void *);
+void* __ct__20TPlayerParticleOwnerFP7TObject(void*, void*);
 s32 TObjPlayer__sub_801C6FB4(void *, int);
 s32 TObjPlayer__sub_801C6FBC(void *, void *);
 extern M2C_UNK lbl_804C3FD8[];
@@ -162,7 +162,7 @@ typedef char RecoveredGlobal_801C6518_lbl_804C3FD8_size[sizeof(RecoveredGlobal_8
 u8 *TObjPlayer__sub_801C6518(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r3_2;
     u32 temp_r3;
-    fn_801C670C((void *) (arg0));
+    __ct__20TPlayerParticleOwnerFP7TObject((void*)arg0, (void*)arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801C6518_lbl_804C3FD8 *)&lbl_804C3FD8).value;
     TObjPlayer__sub_801C6FBC((void *) (arg0), (void *) (arg2));
     temp_r3 = ((u32 (*)(void *)) update_battle_ctrl_field1c__10TObjPlayerFPv)((void *) (arg0));

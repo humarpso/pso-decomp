@@ -3,12 +3,9 @@
 #endif
 #define TRKExceptionHandler targimpl_TRKExceptionHandler
 #define TRKSuppAccessFile Runtime_TRKSuppAccessFile
-#define TRKTargetTranslate fn_80395A10
 #define TRKValidMemory32 Runtime_TRKValidMemory32
 #define TRK_ppc_memcpy targimpl_TRK_ppc_memcpy
 #define TRKvalue128_temp lbl_805470AC
-#define __TRK_get_MSR fn_80394078
-#define __TRK_set_MSR fn_80394080
 #define gTRKMemMap lbl_8047B928
 #define gTRKStepStatus lbl_804F54E4
 

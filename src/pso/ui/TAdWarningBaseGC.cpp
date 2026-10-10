@@ -26,10 +26,6 @@ struct VObj_18_df5984 : VBase_18_df5984 {
 };
 
 extern "C" {
-M2C_UNK render_status_disp__23TAdSinglePlyChrSelectGCFPvff(s32, f32, f32, f32);
-extern const f32 lbl_805DF7B8;
-extern const f32 lbl_805DF7BC;
-void render_status_disp_offset__16TAdWarningBaseGCFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
 void TAdWarningBaseGC__vt5(void *self);
 void send_and_handle__6TLobbyFPvii(s32, void *, int);
@@ -51,24 +47,18 @@ void TAdWarningBaseGC__vt4(u8 *arg0);
 extern "C" {
 
 void *TAdWarningBaseGC__ct(void *arg0);
-void TAdWarningBaseGC__sub_8032D1E4(void);
+void clear_aram_request_busy(void);
 void *TAdWarningBaseGC__vt0(void *arg0, s16 arg1);
-void render__16TAdWarningBaseGCFi(s32 arg0);
-M2C_UNK draw_textured_quad_at_depth(s32, f32);
-M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
 void *__ct__12TAdBackTxtGCFv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
 void *__ct__9TAdBackGCFv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK set_global_param__8TObjFishFi(u32);
 
     extern int aram_request_busy_flag;
-void TAdWarningBaseGC__sub_8032D1E4(void) { aram_request_busy_flag = 0; }
+void clear_aram_request_busy(void) { aram_request_busy_flag = 0; }
 
 extern M2C_UNK __vt__16TAdWarningBaseGC[];
 
@@ -157,26 +147,6 @@ void *TAdWarningBaseGC__ct(void *arg0) {
         __ct__12TAdBackTxtGCFv(o2, arg0);
     }
     return arg0;
-}
-
-extern u32 lbl_805D6D00;
-extern f32 lbl_805DF7C0;
-
-#pragma push
-#pragma fp_contract on
-void render_status_disp_offset__16TAdWarningBaseGCFPvii(void *arg0, s32 arg1, s32 arg2) {
-    render_status_disp__23TAdSinglePlyChrSelectGCFPvff(arg2, lbl_805DF7B8 + M2C_FIELD(arg0, f32 *, 0x1C), lbl_805DF7BC + M2C_FIELD(arg0, f32 *, 0x20), lbl_805DF7B8);
-}
-#pragma pop
-
-void render__16TAdWarningBaseGCFi(s32 arg0) {
-    if ((u32) lbl_805D6D00 != 0U) {
-        set_global_param__8TObjFishFi(lbl_805D6D00);
-        begin_screen_draw(1);
-        set_draw_texture_and_color(0, -1);
-        draw_textured_quad_at_depth(arg0 + 0x1C, lbl_805DF7C0);
-        get_player__20TWindowSubStatusDispFv();
-    }
 }
 
 }

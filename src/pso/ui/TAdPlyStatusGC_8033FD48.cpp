@@ -45,8 +45,8 @@ u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1) {
     return ply_status_gc_instance;
 }
 
-    extern int lbl_805D6D04;
-int get_player_index__14TAdPlyStatusGCFv(void) {  return lbl_805D6D04; }
+    extern int guide_button_instance;
+int get_player_index__14TAdPlyStatusGCFv(void) {  return guide_button_instance; }
 typedef struct RecoveredGlobal_8033FDB0_lbl_80478430 RecoveredGlobal_8033FDB0_lbl_80478430;
 typedef char RecoveredGlobal_8033FDB0_lbl_80478430_size[((sizeof(RecoveredGlobal_8033FDB0_lbl_80478430)) == 0xC) ? (1) : (-1)];
 void TObjPlayer__sub_8033FDB0(s32 arg0) {

@@ -40,6 +40,7 @@ PowerPC_EABI_Support/Runtime/Src/__init_cpp_exceptions.cpp
 PowerPC_EABI_Support/Runtime/Src/__mem.c
 PowerPC_EABI_Support/Runtime/Src/ptmf.c
 PowerPC_EABI_Support/Runtime/Src/runtime.c
+TRK_MINNOW_DOLPHIN/dolphin_trk.c
 TRK_MINNOW_DOLPHIN/flush_cache.c
 TRK_MINNOW_DOLPHIN/mem_TRK.c
 TRK_MINNOW_DOLPHIN/msgbuf.c
@@ -160,7 +161,6 @@ pso/boss/TBoss3Volopt_80131700.cpp
 pso/boss/TBoss3Volopt_8016A47C.cpp
 pso/boss/TBoss3Volopt_80242C48.cpp
 pso/boss/TBoss3Volopt_80242D74.cpp
-pso/boss/TBoss4Bishi.cpp
 pso/boss/TBoss4CheckEmpty.cpp
 pso/boss/TBoss4CheckEmpty_8034A8B0.cpp
 pso/boss/TBoss4CheckEmpty_8034A8FC.cpp
@@ -176,7 +176,7 @@ pso/boss/TBoss4Type3_800524E8.cpp
 pso/boss/TBoss4Type3_800D7A20.cpp
 pso/boss/TBoss4Type3_800D9960.cpp
 pso/boss/TBoss4Uro.cpp
-pso/boss/TBoss4Uro_8005CF10.cpp
+pso/boss/TBoss4Zako.cpp
 pso/boss/TBoss4ZakoDraw.cpp
 pso/boss/TBoss4ZakoDraw_8030A96C.cpp
 pso/boss/TBoss4ZakoDraw_8030AD38.cpp
@@ -1396,7 +1396,6 @@ pso/misc/TParticleCtrl_800867AC.cpp
 pso/misc/TParticleCtrl_800867E4.cpp
 pso/misc/TParticleCtrl_8008767C.cpp
 pso/misc/TParticleCtrl_801A25B4.cpp
-pso/misc/TParticleCtrl_801C6650.cpp
 pso/misc/TParticleCtrl_801D6B3C.cpp
 pso/misc/TParticleCtrl_801D6B8C.cpp
 pso/misc/TParticleCtrl_801E2EFC.cpp
@@ -2642,6 +2641,7 @@ pso/player/TObjPlayer_803DC834.cpp
 pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
+pso/player/TPlayerParticleOwner.cpp
 pso/player/TPlyItem.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
@@ -2713,6 +2713,7 @@ pso/ui/TAdGameStartGC.cpp
 pso/ui/TAdGameStartLineGC.cpp
 pso/ui/TAdGameStartShadowGC.cpp
 pso/ui/TAdGameStartShineGC.cpp
+pso/ui/TAdGuideButtonGC.cpp
 pso/ui/TAdLicAgreementGC.cpp
 pso/ui/TAdLoadNetworkGC.cpp
 pso/ui/TAdLoadNetworkGC_803084AC.cpp
@@ -3652,7 +3653,6 @@ pso/unk/text_803279CC.cpp
 pso/unk/text_803281B8.cpp
 pso/unk/text_8032AACC.cpp
 pso/unk/text_8032AC9C.cpp
-pso/unk/text_8032D9BC.cpp
 pso/unk/text_8032DA60.cpp
 pso/unk/text_8032E294.cpp
 pso/unk/text_8032E400.cpp

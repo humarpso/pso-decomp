@@ -1,3 +1,5 @@
+#include "pso/player/TPlayerParticleOwner.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -22,11 +24,11 @@ u32 free_handle__13TParticleCtrlFPv(void *arg0) {
     return M2C_FIELD(arg0, u32 *, 0x20);
 }
 
-extern M2C_UNK lbl_804C3FF0[];
+extern M2C_UNK __vt__20TPlayerParticleOwner[];
 
 void *dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3FF0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TPlayerParticleOwner;
         if (free_handle__13TParticleCtrlFPv((void *)(arg0)) != 0U) {
             queue_destruction__7TObjectFv();
         }
@@ -38,4 +40,9 @@ void *dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
+}
+
+TPlayerParticleOwner::TPlayerParticleOwner(TObject* parent) : TObject(parent) {
+    player_id = 0xFFFF;
+    particle = 0;
 }

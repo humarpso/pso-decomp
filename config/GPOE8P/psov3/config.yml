@@ -96,6 +96,10 @@ force_active:
   - TAdSinglePlyChrSelectGC__sub_8028EE20
   - TBoss1DragonColli_sphere_chain_desc
   - TBoss3VoloptP01_class_name
+  - TBoss4Bishi_spawn_offsets
+  - TBoss4Zako_collision_body_parts
+  - TBoss4Zako_movement_speed_step
+  - TBoss4Zako_one_third
   - TBoss8DragonDemo__sub_802F2CC4
   - TBoss8Dragon__sub_802FDF10
   - TBoss8Dragon__sub_8036AF50
@@ -277,6 +281,7 @@ force_active:
   - __ct__14QuestListEntryFv
   - __ct__15TBoss6CrushRockFv
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
+  - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
   - __ct__9TEffGuardFPC3Vec
   - __cvt_sll_dbl
@@ -352,6 +357,7 @@ force_active:
   - __dt__15TObjNewFloorWinFv
   - __dt__15TObjSoloPlayWinFv
   - __dt__15TPlyOnCountOverFv
+  - __dt__16TAdGuideButtonGCFv
   - __dt__16TAdStorySelectGCFv
   - __dt__16TBGLightningCtrlFv
   - __dt__16TBoss1DragonDemoFv
@@ -463,6 +469,7 @@ force_active:
   - appearing_state__14TObjEneBm5WolfFPvi
   - apply_blend_mode_1__10TObjPlayerFv
   - apply_clamped_mode_param__10TObjPlayerFPv
+  - apply_contact_damage__10TBoss4ZakoFv
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFPv
   - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFPv
@@ -805,6 +812,7 @@ force_active:
   - draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii
   - draw_help_icon__24TWindowSubSymbolChatHelpFiPvii
   - draw_inactive_badge__11TObjDoorKeyFPv
+  - draw_label__16TAdGuideButtonGCFiPCc
   - draw_label_value__20TWindowSubStatusDispFPvPv
   - draw_laser_beam__13TLazerFenceSwFv
   - draw_lights__20TODoorFourLightSpaceFPv
@@ -825,6 +833,7 @@ force_active:
   - draw_palette_cells__22TWindowSubCustomSelectFv
   - draw_part_models__15TODoorMachine01FiPvi
   - draw_parts__12TODoorCave02FPvPv
+  - draw_quad__16TAdGuideButtonGCFi
   - draw_ray_quads__8TAdRayGCFiPvPvi
   - draw_screen__22TAdEnterSerialAccessGCFPvPv
   - draw_selected_bar__17TWindowSubComCardFPvPv
@@ -951,6 +960,9 @@ force_active:
   - get_vidlist
   - get_viewport_offset__19TWindowKeyBoardSoftFi
   - gray_out_unusable_entries__14TWindowSubItemFPv
+  - guide_button_atlas_origins
+  - guide_button_texture_handle
+  - guide_button_type_name
   - hair_bone_rotation_descriptor
   - hair_effect_selection_table
   - handle_appear__17TObjEneBm3FlyNestFPvi
@@ -1508,6 +1520,7 @@ force_active:
   - render__15TBoss3VoloptP01Fv
   - render__15TBoss7PhotonPadFv
   - render__15TObjLiveMonitorFv
+  - render__16TAdGuideButtonGCFv
   - render__16TAdStorySelectGCFv
   - render__16TBGLightningCtrlFv
   - render__16TBoss1DragonDemoFv
@@ -1654,6 +1667,7 @@ force_active:
   - run_task__15TObjDeadListWinFv
   - run_task__15TObjLiveMonitorFv
   - run_task__15TObjSoloPlayWinFv
+  - run_task__16TAdGuideButtonGCFv
   - run_task__16TAdStorySelectGCFv
   - run_task__16TBGLightningCtrlFv
   - run_task__16TBoss1DragonDemoFv
@@ -1955,6 +1969,7 @@ force_active:
   - update_lunge__14TObjEneBm5WolfFv
   - update_main_menu_request__11TWindowCtrlFPv
   - update_move_to_target__18TObjEneBalClawClawFPv
+  - update_move_to_target_state__10TBoss4ZakoFv
   - update_movement__15TObjEneMe1GiGueFPv
   - update_moving__12TObjEneLappyFv
   - update_node_oscillation__11TItemMagSubFPv
@@ -1979,6 +1994,7 @@ force_active:
   - update_random_shake__14TBoss6PlotFalzFPv
   - update_reaction_animation__10TObjPlayerFPv
   - update_resistance_rows__15TWindowHelpItemFPv
+  - update_rise_state__10TBoss4ZakoFv
   - update_rush_attack__15TObjEneMe1GiGueFPv
   - update_scroll_offset__20TWindowSubStatusDispFPv
   - update_scroll_target_position__17TWindowSubComCardFPv
@@ -1992,6 +2008,7 @@ force_active:
   - update_shown__14TAdPlyStatusGCFv
   - update_shutter_slide__17TObjVoloptShutterFPv
   - update_shutter_state__17TObjVoloptShutterFPv
+  - update_sink_state__10TBoss4ZakoFv
   - update_slide_in__12TChCrTagNameFPv
   - update_slot_icon__20TWindowActionPaletteFPviii
   - update_slot_sprites__20TWindowActionPaletteFv
@@ -2013,6 +2030,7 @@ force_active:
   - update_state_machine__19TContainerAncient01FPv
   - update_state_resta_cast__16TObjEneMe3StelthFPvi
   - update_stream_buffers__6TLobbyFPv
+  - update_surround_player_state__10TBoss4ZakoFv
   - update_target_follow__11TCameraCtrlFPv
   - update_target_info_window__11TWindowCtrlFPv
   - update_target_position__10TBoss4ZakoFPv
@@ -2023,6 +2041,7 @@ force_active:
   - update_title_rects__10TAdTitleGCFPv
   - update_title_tex_positions__13TAdTitleTexGCFPv
   - update_trade_window_visibility__11TWindowCtrlFPv
+  - update_trail_quads__16TAdGuideButtonGCFv
   - update_trails__11TItemWeaponFPv
   - update_transition__11TItemMagSubFPv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
