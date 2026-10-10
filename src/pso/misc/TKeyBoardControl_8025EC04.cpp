@@ -1,18 +1,9 @@
 #include "types.h"
+#include "pso/misc/KeyboardCharacterMaps.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_8025ED80_lbl_8049E178 {
-    M2C_UNK value;
-    u8 remaining[0xFC];
-};
-
-struct RecoveredGlobal_8025ED80_lbl_8049E278 {
-    M2C_UNK value;
-    u8 remaining[0xFC];
-};
 
 struct RecoveredFields_8025FC60_arg0 {
     u8 unknown_0[0x60];
@@ -42,9 +33,8 @@ struct Ctl_8025F21C { u8 p0[0x60]; u32 f60; };
 
 typedef s32 M2C_UNK;
 extern "C" {
+
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
-extern RecoveredGlobal_8025ED80_lbl_8049E178 lbl_8049E178;
-extern RecoveredGlobal_8025ED80_lbl_8049E278 lbl_8049E278;
 u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1);
 s32 TKeyBoardControl__sub_801321B4(void *);
 s32 TKeyBoardControl__sub_80132274(void *);
@@ -62,22 +52,6 @@ s32 TKeyBoardControl__sub_801323C8(void *, int);
 s32 TKeyBoardControl__sub_801A58B0(void);
 extern M2C_UNK TKeyBoardControl__global_key_state[];
 s32 has_non_modifier_key__16TKeyBoardControlFv(void);
-extern u8 lbl_8049DD78[];
-extern u8 keyboard_shifted_character_table[];
-extern u16 lbl_8049DE78[];
-extern u16 lbl_8049DF78[];
-extern u16 lbl_8049E078[];
-extern u8 lbl_8049E378[];
-extern u8 lbl_8049E3F8[];
-extern u8 TKeyBoardControl__lowercase_char_table[];
-extern u8 keyboard_key_char_table[];
-extern u8 lbl_8049E578[];
-extern u8 keyboard_scancode_char_table[];
-extern u8 keyboard_scancode_to_char_table[];
-extern u8 lbl_8049E6F8[];
-extern u8 TKeyBoardControl__key_char_table[];
-extern u8 TKeyBoardControl__uppercase_char_table[];
-extern u8 keyboard_scancode_char_table_alt[];
 }
 
 extern "C" {
@@ -112,9 +86,6 @@ void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
 }
 
 extern M2C_UNK TKeyBoardControl__global_key_state[];
-
-typedef char RecoveredGlobal_8025ED80_lbl_8049E178_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E178) == 0x100 ? 1 : -1];
-typedef char RecoveredGlobal_8025ED80_lbl_8049E278_size[sizeof(RecoveredGlobal_8025ED80_lbl_8049E278) == 0x100 ? 1 : -1];
 
 bool is_printable_key__16TKeyBoardControlFiUc(M2C_UNK arg0, u8 arg1) {
     if (arg1 == 0x52) {
@@ -154,9 +125,9 @@ s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
 
 u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1) {
     if (M2C_FIELD(arg0, s32 *, 0x60) & 0x80) {
-        return M2C_FIELD(((u8 *)(&lbl_8049E278.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+        return keyboard_kana_shifted_map[(u8)arg1];
     }
-    return M2C_FIELD(((u8 *)(&lbl_8049E178.value) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+    return keyboard_kana_unshifted_map[(u8)arg1];
 }
 
 #define arg0 ((Ctl_8025EDB4 *)arg0_)
@@ -177,45 +148,45 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
         switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
         case 0:
             if ((arg0->flags & 4) && current_language == 0) {
-                *arg2 = lbl_8049E078[(u8)arg1];
+                *arg2 = keyboard_jp_symbol_map[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_shifted_character_table[(u8)arg1];
+                *arg2 = keyboard_jp_shifted_map[(u8)arg1];
             } else {
-                *arg2 = lbl_8049DD78[(u8)arg1];
+                *arg2 = keyboard_jp_unshifted_map[(u8)arg1];
             }
             break;
         case 2:
             if (arg0->flags & 8) {
-                *arg2 = lbl_8049E578[(u8)arg1];
+                *arg2 = keyboard_fr_alternate_map[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_key_char_table[(u8)arg1];
+                *arg2 = keyboard_fr_shifted_map[(u8)arg1];
             } else {
-                *arg2 = TKeyBoardControl__lowercase_char_table[(u8)arg1];
+                *arg2 = keyboard_fr_unshifted_map[(u8)arg1];
             }
             break;
         case 4:
             if (arg0->flags & 8) {
-                *arg2 = keyboard_scancode_char_table_alt[(u8)arg1];
+                *arg2 = keyboard_es_alternate_map[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = TKeyBoardControl__uppercase_char_table[(u8)arg1];
+                *arg2 = keyboard_es_shifted_map[(u8)arg1];
             } else {
-                *arg2 = TKeyBoardControl__key_char_table[(u8)arg1];
+                *arg2 = keyboard_es_unshifted_map[(u8)arg1];
             }
             break;
         case 3:
             if (arg0->flags & 8) {
-                *arg2 = lbl_8049E6F8[(u8)arg1];
+                *arg2 = keyboard_de_alternate_map[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_scancode_to_char_table[(u8)arg1];
+                *arg2 = keyboard_de_shifted_map[(u8)arg1];
             } else {
-                *arg2 = keyboard_scancode_char_table[(u8)arg1];
+                *arg2 = keyboard_de_unshifted_map[(u8)arg1];
             }
             break;
         default:
             if (shift != 0) {
-                *arg2 = lbl_8049E3F8[(u8)arg1];
+                *arg2 = keyboard_us_shifted_map[(u8)arg1];
             } else {
-                *arg2 = lbl_8049E378[(u8)arg1];
+                *arg2 = keyboard_us_unshifted_map[(u8)arg1];
             }
             break;
         }
@@ -226,31 +197,31 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     }
     if (arg0->sub->flags & 2) {
         if (arg0->flags & 4) {
-            *arg2 = lbl_8049E078[(u8)arg1];
+            *arg2 = keyboard_jp_symbol_map[(u8)arg1];
         } else if (shift != 0) {
-            *arg2 = lbl_8049DF78[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_shifted_map[(u8)arg1];
         } else {
-            *arg2 = lbl_8049DE78[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_unshifted_map[(u8)arg1];
         }
         return 1;
     }
     if (arg0->sub->flags & 4) {
         if (((s32 (*)(void *, s32))is_printable_key__16TKeyBoardControlFiUc)(arg0, arg1) != 0) {
             if (arg0->flags & 4) {
-                *arg2 = lbl_8049E078[(u8)arg1];
+                *arg2 = keyboard_jp_symbol_map[(u8)arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_shifted_character_table[(u8)arg1];
+                *arg2 = keyboard_jp_shifted_map[(u8)arg1];
             } else {
-                *arg2 = lbl_8049DD78[(u8)arg1];
+                *arg2 = keyboard_jp_unshifted_map[(u8)arg1];
             }
             return ((arg0->flags >> 7) & 1) ? 2 : 0;
         }
         if (arg0->flags & 4) {
-            *arg2 = lbl_8049E078[(u8)arg1];
+            *arg2 = keyboard_jp_symbol_map[(u8)arg1];
         } else if (shift != 0) {
-            *arg2 = lbl_8049DF78[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_shifted_map[(u8)arg1];
         } else {
-            *arg2 = lbl_8049DE78[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_unshifted_map[(u8)arg1];
         }
         return 1;
     }

@@ -218,7 +218,7 @@ void update_death_state__10TObjPlayerFPv(void *);
 M2C_UNK TObjPlayer__sub_800DA2A0(void *);
 M2C_UNK update_death_sequence__10TObjPlayerFPv();
 M2C_UNK TObjPlayer__sub_800DA7E4();
-M2C_UNK TObjPlayer__sub_800DAA24();
+
 M2C_UNK TObjPlayer__sub_800DAB98();
 M2C_UNK TObjPlayer__sub_800DB0F8();
 M2C_UNK TObjPlayer__sub_800DB390();
@@ -721,7 +721,7 @@ void dispatch_action_state__10TObjPlayerFPv(u8 *arg0) {
         TObjPlayer__sub_800DAB98();
         return;
       case 12:
-        TObjPlayer__sub_800DAA24();
+        ((TObjEneNanoDrago *)arg0)->update_growth_state();
         return;
       case 7:
         update_death_state__10TObjPlayerFPv(arg0);

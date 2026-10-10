@@ -163,7 +163,7 @@ extern u32 lobby_weapon_random_tables_ptr;
 void free_lobby_resources__6TLobbyFv(void);
 void __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
-void fn_801DB878(void *, void *);
+void send_simple_mail__9TProtocolFR12TChatMessage(void *, void *);
 s32 init_guild_card_tag__6TLobbyFi(void *);
 void* get_com_card_list__6TLobbyFPv(void* p);
 s32 strncpy(void *, void *, int);

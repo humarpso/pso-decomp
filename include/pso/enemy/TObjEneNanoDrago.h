@@ -4,7 +4,7 @@
 #include "types.h"
 
 struct NanoDragoVector { f32 x, y, z; };
-struct NanoDragoMovementParams { f32 f0; u8 unknown04[4]; s32 turn; };
+struct NanoDragoMovementParams { f32 f0; f32 base_speed; s32 turn; };
 
 struct TObjEneNanoDrago {
     u8 unknown00[0x30];
@@ -15,7 +15,10 @@ struct TObjEneNanoDrago {
     NanoDragoVector m_50;
     u8 unknown5C[4];
     s32 angle;
-    u8 unknown64[0xA4 - 0x64];
+    u8 unknown64[4];
+    f32 scale;
+    f32 target_scale;
+    u8 unknown70[0xA4 - 0x70];
     u32 m_a4;
     u8 unknownA8[0x10];
     s16 fb8;
@@ -29,7 +32,13 @@ struct TObjEneNanoDrago {
     u8 unknown2AC[0xC];
     s16 hpmax;
     s16 m_2ba;
-    u8 unknown2BC[0x70];
+    u8 unknown2BC[4];
+    s16 m_2c0;
+    u8 unknown2C2[6];
+    s16 m_2c8;
+    u8 unknown2CA[0x32];
+    NanoDragoVector m_2fc;
+    u8 unknown308[0x24];
     s16 hp;
     u16 m_32e;
     u8 unknown330[0xE];
@@ -39,11 +48,13 @@ struct TObjEneNanoDrago {
     u8 unknown354[0x14];
     u32 m_368;
     u32 m_36c;
-    u8 unknown370[0xC];
+    u8 unknown370[4];
+    s32 next_action;
+    u8 unknown378[4];
     s32 state;
     u8 unknown380[8];
     s32 flags388;
-    u16 m_38c;
+    s16 growth_count;
     u8 unknown38E[2];
     NanoDragoVector m_390;
     u8 unknown39C[0x34];
@@ -57,6 +68,7 @@ struct TObjEneNanoDrago {
     u8 unknown3EC[0x20];
     void *m_40c;
 
+    void update_growth_state();
     void update_circling_state();
 };
 

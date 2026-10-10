@@ -1,5 +1,15 @@
 #include "pso/enemy/TObjEneNanoDrago.h"
 #include <stddef.h>
+typedef char NanoGrow_scale[offsetof(TObjEneNanoDrago, scale) == 0x68 ? 1 : -1];
+typedef char NanoGrow_target_scale[offsetof(TObjEneNanoDrago, target_scale) == 0x6c ? 1 : -1];
+typedef char NanoGrow_m_2c0[offsetof(TObjEneNanoDrago, m_2c0) == 0x2c0 ? 1 : -1];
+typedef char NanoGrow_m_2c8[offsetof(TObjEneNanoDrago, m_2c8) == 0x2c8 ? 1 : -1];
+typedef char NanoGrow_m_2fc[offsetof(TObjEneNanoDrago, m_2fc) == 0x2fc ? 1 : -1];
+typedef char NanoGrow_params[offsetof(TObjEneNanoDrago, params) == 0x350 ? 1 : -1];
+typedef char NanoGrow_next_action[offsetof(TObjEneNanoDrago, next_action) == 0x374 ? 1 : -1];
+typedef char NanoGrow_state[offsetof(TObjEneNanoDrago, state) == 0x37c ? 1 : -1];
+typedef char NanoGrow_growth_count[offsetof(TObjEneNanoDrago, growth_count) == 0x38c ? 1 : -1];
+typedef char NanoGrow_speed[offsetof(TObjEneNanoDrago, speed) == 0x3d8 ? 1 : -1];
 typedef char NanoDrago_flags30_offset[offsetof(TObjEneNanoDrago, flags30) == 0x30 ? 1 : -1];
 typedef char NanoDrago_pos_offset[offsetof(TObjEneNanoDrago, pos) == 0x38 ? 1 : -1];
 typedef char NanoDrago_angle_offset[offsetof(TObjEneNanoDrago, angle) == 0x60 ? 1 : -1];
@@ -55,6 +65,8 @@ struct Ene_800DA2A0 : Base_800DA2A0 {
 
 typedef NanoDragoVector Vec_800DB5A8;
 extern "C" {
+extern const f32 lbl_805DA434;
+extern const f32 lbl_805DA438;
 u16 find_nearest_visible_player(void *, s32, f32);
 s32 select_nearest_target__10TObjPlayerFPvf(void *, f32);
 void TObjPlayer__sub_800DA1F4(Obj_800DA1F4 *arg0);
@@ -585,6 +597,50 @@ struct Obj_800DA414;
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 #define POS (*(Vec_800DAB98 *)(arg0 + 0x38))
 #define DEST (*(Vec_800DAB98 *)(arg0 + 0x390))
+}
+
+void TObjEneNanoDrago::update_growth_state() {
+    TObjEneNanoDrago *p = this;
+    f32 t;
+    f32 v;
+
+    switch (p->state) {
+    case 0:
+        if (!(p->flags30 & 0x01000000) && p->growth_count < 4) {
+            p->growth_count++;
+            p->fb8 = 5;
+            p->state = 1;
+            p->target_scale = lbl_805DA434 + p->scale;
+            spawn_particle_effect(&p->m_2fc, 0xFA);
+            p->speed = p->params->base_speed * p->scale;
+            play_sound_effect(0x4003A824, &p->pos, 0, 0);
+            p->m_2c8 += 8;
+            p->m_2c0 += 8;
+        } else {
+            p->target_scale = p->scale;
+            p->state = -1;
+        }
+    case 1:
+        advance_animation_playback(p);
+        apply_actor_gravity(p, 0, lbl_805DA3F8);
+        update_collisions__10TObjPlayerFPv(p);
+        t = p->target_scale;
+        v = lbl_805DA438 + p->scale;
+        p->scale = (v < t) ? v : t;
+        if (p->fb8 != 5) {
+            p->state = -1;
+        }
+        break;
+    case -1:
+        p->scale = p->target_scale;
+        p->flags388 &= 0xFFFDFFFE;
+        p->next_action = 1;
+        break;
+    }
+}
+
+extern "C" {
+
 void TObjPlayer__sub_800DAB98(u8 *arg0) {
     Vec_800DAB98 v;
     F(s32, 0x30) &= ~0x800000;

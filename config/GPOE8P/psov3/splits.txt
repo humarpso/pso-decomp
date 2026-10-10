@@ -1416,7 +1416,8 @@ pso/misc/TEndingAB_8008CCC4.cpp:
 
 pso/misc/TEndingAB_8008CE08.cpp:
 	.text       start:0x8008CE08 end:0x8008D00C
-	.data       start:0x8048EB00 end:0x8048EB18
+	.data       start:0x8048E840 end:0x8048EB18
+	.sdata      start:0x805D2958 end:0x805D2960
 
 pso/misc/TEndingC_8008D00C.cpp:
 	.text       start:0x8008D00C end:0x8008D68C
@@ -1659,7 +1660,7 @@ pso/unk/text_800AAF78.cpp:
 pso/player/TObjPlayer_800AAFBC.cpp:
 	.text       start:0x800AAFBC end:0x800AB970
 	.rodata     start:0x8043ACF8 end:0x8043AD00
-	.sdata2     start:0x805D9B6C end:0x805D9BA0
+	.sdata2     start:0x805D9B68 end:0x805D9BA0
 
 pso/enemy/TObjEneShark.cpp:
 	.text       start:0x800AB970 end:0x800ACA60
@@ -2388,6 +2389,9 @@ pso/unk/text_800FFC6C.cpp:
 pso/object/TObjTailsTailsMove.cpp:
 	.text       start:0x800FFCCC end:0x800FFE1C
 	.data       start:0x8049DD60 end:0x8049DD78
+
+pso/misc/KeyboardCharacterMaps.cpp:
+	.data       start:0x8049DD78 end:0x8049E8F8
 
 pso/misc/TWindowSubStatusDisp_800FFE1C.cpp:
 	.text       start:0x800FFE1C end:0x800FFE4C
@@ -7160,7 +7164,7 @@ pso/network/TProtocol_801DB5C4.cpp:
 pso/unk/text_801DB630.cpp:
 	.text       start:0x801DB630 end:0x801DB684
 
-pso/unk/text_801DB684.cpp:
+pso/network/TProtocolRequests.cpp:
 	.text       start:0x801DB684 end:0x801DB8EC
 
 pso/unk/text_801DB8EC.cpp:

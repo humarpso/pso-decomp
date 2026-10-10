@@ -932,6 +932,8 @@ force_active:
   - emit_zalure_support_effect
   - empty_state__14TObjEneBm5WolfFv
   - enable_keyboard_polling__16TKeyBoardControlFi
+  - ending_ab_class_name
+  - ending_wall_texture_sets
   - enemy_nearest_visible_enemy_sq
   - enemy_nearest_visible_player_sq
   - enemy_tick_target_acquisition
@@ -2013,6 +2015,7 @@ force_active:
   - transfer_to_town__9TObjLukerFv
   - traverse_animated_node_tree
   - try_begin_load__22TChCrLoadAfsTextureReqFPv
+  - try_hit_target__10TObjPlayerFPvi
   - try_spawn_ground_effect__16TObjEneMe3StelthFii
   - udp_socket_slots
   - unlink_list_node__14TObjEneBm5WolfFPvPvPv

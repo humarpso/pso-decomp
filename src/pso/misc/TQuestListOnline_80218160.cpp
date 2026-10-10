@@ -22,14 +22,14 @@ extern "C" {
 
 void reset_state__16TQuestListOnlineFPv(void* a0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
-int fn_801DB6F0(void*);
+int send_quest_menu_request__9TProtocolFv(void*);
 
     extern int TLobby__protocol_instance;
     extern int online_quest_bin_data;
     extern int online_quest_dat_buffer;
     extern int quest_bin_decompressed_size;
     extern int lbl_805D61F4;
-void reset_state__16TQuestListOnlineFPv(void* a0) { fn_801DB6F0((void*)(TLobby__protocol_instance)); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; lbl_805D61F4 = 0; set_field_20__12TQuestListVMFPvi(a0, (void*)12); }
+void reset_state__16TQuestListOnlineFPv(void* a0) { send_quest_menu_request__9TProtocolFv((void*)(TLobby__protocol_instance)); online_quest_bin_data = 0; quest_bin_decompressed_size = 0; online_quest_dat_buffer = 0; lbl_805D61F4 = 0; set_field_20__12TQuestListVMFPvi(a0, (void*)12); }
 void TQuestListOnline__vt9(Obj_802181B0 *arg0) {
     switch (arg0->state) {
     case 0: reset_state__16TQuestListOnlineFPv((void*)(arg0)); break;

@@ -1506,7 +1506,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void send_position_update__6TLobbyFv(void);
-M2C_UNK send_packet_96(s32, s32, s32);
+M2C_UNK send_character_save_info__9TProtocolFii(s32, s32, s32);
 s32 increment_frame__23TAdSinglePlyChrSelectGCFv();
 s32 get_player_count__23TAdSinglePlyChrSelectGCFv();
 
@@ -1518,7 +1518,7 @@ void send_position_update__6TLobbyFv(void) {
 
     temp_r31 = increment_frame__23TAdSinglePlyChrSelectGCFv();
     temp_r4 = get_player_count__23TAdSinglePlyChrSelectGCFv();
-    send_packet_96(TLobby__protocol_instance, temp_r4, temp_r31);
+    send_character_save_info__9TProtocolFii(TLobby__protocol_instance, temp_r4, temp_r31);
 }
 
 }
@@ -1568,7 +1568,7 @@ void copy_member_record__6TLobbyFPvPv(Rec_801378AC *dst, Rec_801378AC *src);
 void add_lobby_members__6TLobbyFPvisi(Rec_801378AC *src, s32 n, s16 v, s32 w);
 void dispatch_by_index__6TLobbyFi(s32 arg0);
 void TLobby__sub_8013A170(const char *fmt, ...);
-void send_packet_96(void *, s32, s32);
+void send_character_save_info__9TProtocolFii(void *, s32, s32);
 s32 increment_frame__23TAdSinglePlyChrSelectGCFv(void);
 s32 get_player_count__23TAdSinglePlyChrSelectGCFv(void);
 void store_serial_access_key__22TAdEnterSerialAccessGCFiii(void *, void *, void *);
@@ -1697,7 +1697,7 @@ void handle_login_result__6TLobbyFUi(u32 arg0) {
         store_serial_access_key__22TAdEnterSerialAccessGCFiii((char *)TLobby__protocol_instance + 0x3F8A, (char *)TLobby__protocol_instance + 0x3F9B, (char *)TLobby__protocol_instance + 0x3F3A);
         if (TLobby__login_pending_flag != 0) {
             temp_r31 = increment_frame__23TAdSinglePlyChrSelectGCFv();
-            send_packet_96(TLobby__protocol_instance, get_player_count__23TAdSinglePlyChrSelectGCFv(), temp_r31);
+            send_character_save_info__9TProtocolFii(TLobby__protocol_instance, get_player_count__23TAdSinglePlyChrSelectGCFv(), temp_r31);
             TLobby__login_pending_flag = 0;
         }
         break;
@@ -2238,7 +2238,7 @@ extern "C" {
 
 void close_menu_windows__6TLobbyFv(void);
 extern void open_ship_block_select_menu__6TLobbyFiPvPv(void);
-M2C_UNK fn_801DB760(void *);
+M2C_UNK send_block_list_request__9TProtocolFv(void *);
 
 extern void *TLobby__protocol_instance;
 extern s32 TLobby__data_805D5594;
@@ -2250,7 +2250,7 @@ void close_menu_windows__6TLobbyFv(void) {
     ((M2C_UNK (*)(s32))TWindow__close)((*(s32 *)&lobby_com_card_window));
     (*(s32 *)&lobby_com_card_window) = 0;
     M2C_FIELD(TLobby__protocol_instance, void **, 0xBBE4) = (void *)open_ship_block_select_menu__6TLobbyFiPvPv;
-    fn_801DB760(TLobby__protocol_instance);
+    send_block_list_request__9TProtocolFv(TLobby__protocol_instance);
     TLobby__data_805D5594 = 8;
 }
 
@@ -2266,7 +2266,7 @@ extern "C" {
 void return_to_main_menu__6TLobbyFv(void);
 void open_ship_block_select_menu__6TLobbyFiPvPv();
 M2C_UNK TWindow__close(u32);
-M2C_UNK fn_801DB7EC(void *);
+M2C_UNK send_ship_list_request__9TProtocolFv(void *);
 
 extern void *TLobby__protocol_instance;
 extern s32 TLobby__data_805D5594;
@@ -2306,7 +2306,7 @@ void return_to_main_menu__6TLobbyFv(void) {
         TLobby__list_window = 0U;
     }
     M2C_FIELD(TLobby__protocol_instance, void **, 0xBBE4) = (void *)&open_ship_block_select_menu__6TLobbyFiPvPv;
-    fn_801DB7EC(TLobby__protocol_instance);
+    send_ship_list_request__9TProtocolFv(TLobby__protocol_instance);
     TLobby__data_805D5594 = 7;
 }
 

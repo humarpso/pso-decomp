@@ -276,6 +276,12 @@ public:
     void recv_trade_result(packet &pkt);
     void recv_advance_trade_state(packet &pkt);
 
+    void send_character_save_info(int creation_timestamp, int event_counter);
+    void send_quest_menu_request();
+    void send_block_list_request();
+    void send_ship_list_request();
+    void send_simple_mail(TChatMessage &message);
+
     void send_quest_barrier();
     void send_message_box_closed();
     void send_cancel_trade();

@@ -776,6 +776,7 @@ pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
 pso/misc/ChallengeMode.cpp
 pso/misc/CreationMotion.cpp
+pso/misc/KeyboardCharacterMaps.cpp
 pso/misc/RenderFadeState.cpp
 pso/misc/ShopToolStock.cpp
 pso/misc/ShopWeaponStock.cpp
@@ -1990,6 +1991,7 @@ pso/misc/pso_date.cpp
 pso/network/TGameProtocol.cpp
 pso/network/TProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
+pso/network/TProtocolRequests.cpp
 pso/network/TProtocol_801D9EEC.cpp
 pso/network/TProtocol_801DA140.cpp
 pso/network/TProtocol_801DA240.cpp
@@ -2281,6 +2283,7 @@ pso/player/TObjPlayer_80092A7C.cpp
 pso/player/TObjPlayer_80099EF8.cpp
 pso/player/TObjPlayer_800A0408.cpp
 pso/player/TObjPlayer_800A7764.cpp
+pso/player/TObjPlayer_800AAFBC.cpp
 pso/player/TObjPlayer_800ACA60.cpp
 pso/player/TObjPlayer_800BBE90.cpp
 pso/player/TObjPlayer_800BC40C.cpp
@@ -3385,7 +3388,6 @@ pso/unk/text_801DB10C.cpp
 pso/unk/text_801DB2D4.cpp
 pso/unk/text_801DB554.cpp
 pso/unk/text_801DB630.cpp
-pso/unk/text_801DB684.cpp
 pso/unk/text_801DB8EC.cpp
 pso/unk/text_801DB998.cpp
 pso/unk/text_801DBA58.cpp

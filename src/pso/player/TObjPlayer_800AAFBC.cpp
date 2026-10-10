@@ -194,7 +194,7 @@ M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 extern s32 lbl_805D5094;
 extern s32 some_id_805c6f74;
-extern const f32 lbl_805D9B68;
+
 void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -288,14 +288,7 @@ f32 newton_sqrtf();
 f32 xz_distance_squared(void *, void *);
 s32 project_actor_to_ground(void *, Vec_800AB4F4 *, int);
 M2C_UNK subtract_vector(void *, void *);
-extern const f32 lbl_805D9B6C;
-extern const f32 lbl_805D9B70;
-extern const f32 lbl_805D9B74;
-extern const f32 lbl_805D9B78;
-extern const f32 lbl_805D9B7C;
-extern const f32 lbl_805D9B80;
-extern const f32 lbl_805D9B84;
-extern const f32 lbl_805D9B88;
+
 void TObjPlayer__sub_800AB4F4(u8 *arg0);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
@@ -316,10 +309,7 @@ extern M2C_UNK lbl_80491478[];
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;
 extern void *tl_06;
-extern const f32 lbl_805D9B7C;
-extern const f32 lbl_805D9B8C;
-extern const f32 lbl_805D9B90;
-extern const f32 lbl_805D9B94;
+
 u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4);
 M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, void *, int);
 s32 is_split_screen();
@@ -521,7 +511,7 @@ void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0) {
     push_matrix();
     post_translate_matrix(arg0 + 0xF0);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xC0));
-    scale_matrix(0, lbl_805D9B68, lbl_805D9B68, lbl_805D9B68);
+    scale_matrix(0, 1.3f, 1.3f, 1.3f);
     some_id_805c6f74 &= 0xFFFFFBFF;
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xC8));
     pop_matrix();
@@ -537,15 +527,15 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
         Vec_800AB4F4 v = *(Vec_800AB4F4 *)(arg0 + 0xF0);
         v.x += M2C_FIELD(arg0, f32 *, 0xB0);
         v.z += M2C_FIELD(arg0, f32 *, 0xB8);
-        v.y += lbl_805D9B6C;
+        v.y += 5.0f;
         if (project_actor_to_ground((void *) arg0, &v, 0) == 1) {
             M2C_FIELD(arg0, f32 *, 0xF0) = v.x;
             M2C_FIELD(arg0, f32 *, 0xF8) = v.z;
             if (M2C_FIELD(arg0, f32 *, 0xF4) < v.y) {
                 M2C_FIELD(arg0, f32 *, 0xF4) = v.y;
-                M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B70 * fabs_float(M2C_FIELD(arg0, f32 *, 0xB4));
+                M2C_FIELD(arg0, f32 *, 0xB4) = 0.6f * fabs_float(M2C_FIELD(arg0, f32 *, 0xB4));
             }
-            if ((v.y - M2C_FIELD(arg0, f32 *, 0xE8)) > lbl_805D9B74) {
+            if ((v.y - M2C_FIELD(arg0, f32 *, 0xE8)) > 2.0f) {
                 M2C_FIELD(arg0, s16 *, 0xAE) = 1;
             } else {
                 M2C_FIELD(arg0, f32 *, 0xE8) = v.y;
@@ -557,24 +547,24 @@ void TObjPlayer__sub_800AB4F4(u8 *arg0) {
     }
     case 1:
         M2C_FIELD(arg0, f32 *, 0xF4) += M2C_FIELD(arg0, f32 *, 0xB4);
-        M2C_FIELD(arg0, f32 *, 0xB4) += lbl_805D9B78;
+        M2C_FIELD(arg0, f32 *, 0xB4) += -0.10888889f;
         if (M2C_FIELD(arg0, f32 *, 0xF4) < M2C_FIELD(arg0, f32 *, 0xE8)) {
             M2C_FIELD(arg0, f32 *, 0xF4) = M2C_FIELD(arg0, f32 *, 0xE8);
-            M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B7C;
+            M2C_FIELD(arg0, f32 *, 0xB4) = 0.0f;
         }
         break;
     case 2:
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB0), M2C_FIELD(arg0, void **, 0xCC));
         subtract_vector((void *) (arg0 + 0xB0), (void *) (arg0 + 0xF0));
-        if (M2C_FIELD(arg0, f32 *, 0xB0) * M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8) * M2C_FIELD(arg0, f32 *, 0xB8) > lbl_805D9B80) {
-            t = lbl_805D9B84 / newton_sqrtf();
+        if (M2C_FIELD(arg0, f32 *, 0xB0) * M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8) * M2C_FIELD(arg0, f32 *, 0xB8) > 25.0f) {
+            t = 0.8f / newton_sqrtf();
             M2C_FIELD(arg0, f32 *, 0xF0) = M2C_FIELD(arg0, f32 *, 0xB0) * t + M2C_FIELD(arg0, f32 *, 0xF0);
             M2C_FIELD(arg0, f32 *, 0xF8) = M2C_FIELD(arg0, f32 *, 0xB8) * t + M2C_FIELD(arg0, f32 *, 0xF8);
-        } else if (fabs_float(M2C_FIELD(arg0, f32 *, 0xB4)) > lbl_805D9B6C) {
-            if (M2C_FIELD(arg0, f32 *, 0xB4) > lbl_805D9B7C) {
-                var_f1 = lbl_805D9B84;
+        } else if (fabs_float(M2C_FIELD(arg0, f32 *, 0xB4)) > 5.0f) {
+            if (M2C_FIELD(arg0, f32 *, 0xB4) > 0.0f) {
+                var_f1 = 0.8f;
             } else {
-                var_f1 = lbl_805D9B88;
+                var_f1 = -0.8f;
             }
             M2C_FIELD(arg0, f32 *, 0xF4) += var_f1;
         } else {
@@ -616,13 +606,13 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     M2C_FIELD(arg0, s32 *, 0xC8) = collect_and_count__12TBoss3VoloptFUii((void *) (M2C_FIELD(M2C_FIELD(lbl_805D5090, u8 **, 0x42C), s32 *, 0x18)), t);
     M2C_FIELD(arg0, Vec_800AB7A0 **, 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xF0), (void *) VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xDC), (void *) (arg4)));
-    M2C_FIELD(arg0, f32 *, 0xE8) = lbl_805D9B8C + M2C_FIELD(arg2, f32 *, 0x3C);
-    ((s32 (*)(void *, f32)) push_matrix_from)((void *) &identity_matrix, lbl_805D9B8C);
-    v.x = v.y = lbl_805D9B7C;
-    v.z = lbl_805D9B90;
+    M2C_FIELD(arg0, f32 *, 0xE8) = 3.0f + M2C_FIELD(arg2, f32 *, 0x3C);
+    ((s32 (*)(void *, f32)) push_matrix_from)((void *) &identity_matrix, 3.0f);
+    v.x = v.y = 0.0f;
+    v.z = -2.0f;
     rotate_matrix_y(0, M2C_FIELD(arg2, s32 *, 0x60) + ((arg1 - 1) << 0xD));
     rotate_vector_by_matrix(0, &v, arg0 + 0xB0);
-    v.z = M2C_FIELD(arg0, f32 *, 0xEC) = lbl_805D9B94;
+    v.z = M2C_FIELD(arg0, f32 *, 0xEC) = 3e+01f;
     rotate_vector_by_matrix(0, &v, &out);
     vec3_add_to(&out, arg0 + 0xF0);
     temp_r3 = csnLookAt(arg0 + 0xF0, &out);
@@ -630,7 +620,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
         M2C_FIELD(arg0, f32 *, 0xEC) = (10.0f > horizontal_distance__10TObjPlayerFPvPv(arg0 + 0xF0, M2C_FIELD(temp_r3, s32 *, 4)) - 5.0f) ? 10.0f : horizontal_distance__10TObjPlayerFPvPv(arg0 + 0xF0, M2C_FIELD(temp_r3, s32 *, 4)) - 5.0f;
     }
     pop_matrix();
-    M2C_FIELD(arg0, f32 *, 0xB4) = lbl_805D9B7C;
+    M2C_FIELD(arg0, f32 *, 0xB4) = 0.0f;
     obj = __nw__7TObjectFUl(0x348);
     if (obj != NULL) {
         obj = (void *) TObjPlayer__sub_800A4204(obj, arg0, M2C_FIELD(arg0, void **, 0xCC), arg0 + 0xF0, 0x10);
