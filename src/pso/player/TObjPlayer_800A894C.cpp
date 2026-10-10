@@ -155,7 +155,7 @@ void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043ACA4[];
 extern u8 lbl_8043ACBC[];
 extern u8 lbl_8043ACD0[];
-extern u8 lbl_804910D4[];
+extern u8 bm_ene_dubchik_resource_descriptor[];
 extern s16 lbl_804912C0[];
 extern Res_800AA82C *lbl_805D5090;
 extern s32 lbl_805D5094;
@@ -1310,11 +1310,11 @@ void TObjPlayer__sub_800AA82C(void) {
     s32 mdl;
     Node_800AA82C *n;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5090 = load_enemy_bml_resource_named(lbl_804910D4, lbl_8043ACA4);
+        lbl_805D5090 = load_enemy_bml_resource_named(bm_ene_dubchik_resource_descriptor, lbl_8043ACA4);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804910D4, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, bm_ene_dubchik_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5090 = (Res_800AA82C *)p;
     }

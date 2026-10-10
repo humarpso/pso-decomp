@@ -143,7 +143,7 @@ struct RecoveredGlobal_800B8DC4_lbl_80492500 {
     u8 remaining[0xC];
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_80492500_size[sizeof(RecoveredGlobal_800B8DC4_lbl_80492500) == 0x10 ? 1 : -1];
-extern RecoveredGlobal_800B8DC4_lbl_80492500 lbl_80492500;
+extern RecoveredGlobal_800B8DC4_lbl_80492500 bm_ene_cgrass_resource_descriptor;
 extern const f32 TObjCGrass__data_805D9E64;
 extern const f32 lbl_805D9E68;
 void load_resources__10TObjCGrassFv(void);
@@ -226,12 +226,12 @@ void load_resources__10TObjCGrassFv(void) {
     u8 *var_r0;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TObjCGrass_bml_resource = (u32) load_enemy_bml_resource_named(&lbl_80492500.value, &lbl_8043B638.value);
+        TObjCGrass_bml_resource = (u32) load_enemy_bml_resource_named(&bm_ene_cgrass_resource_descriptor.value, &lbl_8043B638.value);
     } else {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80492500.value, 0, 0, 0));
+            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_ene_cgrass_resource_descriptor.value, 0, 0, 0));
         }
         TObjCGrass_bml_resource = (u32) var_r0;
     }

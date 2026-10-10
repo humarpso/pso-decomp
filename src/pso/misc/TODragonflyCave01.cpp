@@ -1,4 +1,20 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80441100[];
+extern char lbl_80441110[];
+extern char lbl_80441124[];
+extern char lbl_80441138[];
+extern char lbl_80441150[];
+extern char lbl_80441168[];
+extern const char *bm_fs_obj_tombo_model_names[2];
+extern const char *bm_fs_obj_tombo_motion_names[2];
+extern BmlResourceDescriptor dragonfly_cave01_resource_descriptor;
+extern const char *fs_obj_ex_entombo_model_names[2];
+extern const char *fs_obj_ex_entombo_motion_names[2];
+extern BmlResourceDescriptor TODragonflyCave01__resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -67,8 +83,6 @@ void release_static_instance__17TODragonflyCave01Fv(void) {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern u8 dragonfly_cave01_resource_descriptor[];
-extern u8 TODragonflyCave01__resource_descriptor[];
 
 void load_resources__17TODragonflyCave01Fv(void) {
     void *o;
@@ -77,7 +91,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
     default:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, dragonfly_cave01_resource_descriptor, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, &dragonfly_cave01_resource_descriptor, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;
@@ -86,7 +100,7 @@ void load_resources__17TODragonflyCave01Fv(void) {
     case 0x16:
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, TODragonflyCave01__resource_descriptor, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, &TODragonflyCave01__resource_descriptor, 0, 0, 0);
         }
         TODragonflyCave01__data_805D5990 = (u32)o;
         break;
@@ -451,4 +465,13 @@ u8 *TODragonfly__ct(u8 *arg0) {
 }
 #pragma pop
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fs_obj_tombo_model_names[2] = { lbl_80441100, NULL };
+__declspec(section ".data") const char *bm_fs_obj_tombo_motion_names[2] = { lbl_80441110, NULL };
+BmlResourceDescriptor dragonfly_cave01_resource_descriptor = { lbl_80441124, bm_fs_obj_tombo_model_names, bm_fs_obj_tombo_motion_names, 1, 1 };
+__declspec(section ".data") const char *fs_obj_ex_entombo_model_names[2] = { lbl_80441138, NULL };
+__declspec(section ".data") const char *fs_obj_ex_entombo_motion_names[2] = { lbl_80441150, NULL };
+BmlResourceDescriptor TODragonflyCave01__resource_descriptor = { lbl_80441168, fs_obj_ex_entombo_model_names, fs_obj_ex_entombo_motion_names, 1, 1 };
 }

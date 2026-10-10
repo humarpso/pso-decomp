@@ -36,8 +36,8 @@ extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
 extern M2C_UNK lbl_80466CE0[];
 extern M2C_UNK lbl_80466CF8[];
-extern M2C_UNK lbl_804DD180[];
-extern M2C_UNK lbl_804DD268[];
+extern M2C_UNK bm_obj_seabed_suiso_resource_descriptor[];
+extern M2C_UNK bm_obj_seabed_suiso_2_resource_descriptor[];
 
 int TObjSeabedSuisoBrakable__break_model_entries[5];
 int TObjSeabedSuisoBrakable__model12_render_nodes[3];
@@ -74,7 +74,7 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
     case 0x1D:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = (void *)load_resource_from_descriptor(p, 1, lbl_804DD268, 0, 0, 0);
+            p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_2_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
         if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CE0)) != 0) {
@@ -88,7 +88,7 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = (void *)load_resource_from_descriptor(p, 1, lbl_804DD180, 0, 0, 0);
+            p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
         if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CF8)) != 0) {

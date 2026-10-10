@@ -1,4 +1,19 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_804791B8[];
+extern char lbl_804791C8[];
+extern char lbl_804791D8[];
+extern char lbl_804791E8[];
+extern char lbl_804791F8[];
+extern char lbl_8047920C[];
+extern char lbl_80479220[];
+extern char lbl_80479238[];
+extern const char *boss06_rock_dat_model_names[8];
+extern BmlResourceDescriptor boss6_rock_resource_descriptor;
+extern const char *boss06_rock_dat_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -17,7 +32,6 @@ u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u32 load_gvm_texture_file(void *);
 void TBoss6Rock__sub_80354188(void);
 extern u8 lbl_80479298[];
-extern u8 boss6_rock_resource_descriptor[];
 extern s32 TBoss6Rock__instance_table[];
 extern u32 TBoss6Rock__data_805D6EF0;
 extern u32 TBoss6Rock__data_805D6EF4;
@@ -66,7 +80,7 @@ void load_resources__10TBoss6RockFv(void) {
     s32 i;
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, boss6_rock_resource_descriptor, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, &boss6_rock_resource_descriptor, 0, 0, 0);
     }
     TBoss6Rock__data_805D6EF0 = r;
     TBoss6Rock__data_805D6EF4 = load_gvm_texture_file(lbl_80479298);
@@ -83,4 +97,10 @@ void load_resources__10TBoss6RockFv(void) {
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *boss06_rock_dat_model_names[8] = { lbl_804791B8, lbl_804791C8, lbl_804791D8, lbl_804791E8, lbl_804791F8, lbl_8047920C, lbl_80479220, NULL };
+BmlResourceDescriptor boss6_rock_resource_descriptor = { lbl_80479238, boss06_rock_dat_model_names, boss06_rock_dat_motion_names, 7, 0 };
+__declspec(section ".sdata") const char *boss06_rock_dat_motion_names[1] = { NULL };
 }

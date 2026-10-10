@@ -16,7 +16,7 @@ u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 M2C_UNK spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, int, void *, f32, f32);
 extern M2C_UNK lbl_80479860[];
-extern M2C_UNK lbl_804F1D14[];
+extern M2C_UNK bm_ene_npc_chao_resource_descriptor[];
 extern u8 *lbl_805D6F48;
 extern const f32 lbl_805E0138;
 extern const f32 lbl_805E013C;
@@ -35,7 +35,7 @@ void load_and_spawn_chao_npc(void) {
     u8 *var_r9;
     var_r9 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     if (var_r9 != NULL) {
-        var_r9 = (u8 *)(load_resource_from_descriptor(var_r9, 1, lbl_804F1D14, 0, 0, 0));
+        var_r9 = (u8 *)(load_resource_from_descriptor(var_r9, 1, bm_ene_npc_chao_resource_descriptor, 0, 0, 0));
     }
     lbl_805D6F48 = var_r9;
     stack.sp8 = M2C_FIELD(lbl_80479860, s32 *, 0);

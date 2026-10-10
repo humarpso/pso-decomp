@@ -179,8 +179,8 @@ s32 load_gvm_texture_file(char *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
-extern M2C_UNK lbl_804B6204[];
-extern M2C_UNK lbl_804B6244[];
+extern M2C_UNK fe_obj_tanmatu02_resource_descriptor[];
+extern M2C_UNK fs_obj_tanmatu02_resource_descriptor[];
 extern u32 TObjComputer__model_archive;
 extern u32 lbl_805D5B6C;
 extern s16 lbl_805D5B70;
@@ -324,7 +324,7 @@ void load_computer_resources(void) {
     case 34: case 35:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B6244, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, fs_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B60);
@@ -333,7 +333,7 @@ void load_computer_resources(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B6204, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, fe_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
         lbl_805D5B6C = load_gvm_texture_file(lbl_80444B78);

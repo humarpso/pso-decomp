@@ -1,4 +1,29 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+struct BmlResourceBlock_804B3960 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3960_size[(sizeof(BmlResourceBlock_804B3960) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B3960_descriptor_offset[(offsetof(BmlResourceBlock_804B3960, descriptor) == 0x8) ? 1 : -1];
+struct BmlResourceBlock_804B3978 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3978_size[(sizeof(BmlResourceBlock_804B3978) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B3978_descriptor_offset[(offsetof(BmlResourceBlock_804B3978, descriptor) == 0x8) ? 1 : -1];
+struct BmlResourceBlock_804B3990 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3990_size[(sizeof(BmlResourceBlock_804B3990) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B3990_descriptor_offset[(offsetof(BmlResourceBlock_804B3990, descriptor) == 0x8) ? 1 : -1];
+extern "C" {
+extern char lbl_80442330[];
+extern char lbl_80442348[];
+extern char lbl_80442364[];
+extern char lbl_8044237C[];
+extern char lbl_80442398[];
+extern char lbl_804423B0[];
+extern BmlResourceBlock_804B3960 monument_ancient02_resource_table;
+extern BmlResourceBlock_804B3978 bm_fs_obj_o_monument02_resource_bundle;
+extern BmlResourceBlock_804B3990 bm_fs_obj_o_monument03_resource_bundle;
+extern const char *bm_fs_obj_o_monument01_motion_names[1];
+extern const char *bm_fs_obj_o_monument02_motion_names[1];
+extern const char *bm_fs_obj_o_monument03_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -87,7 +112,6 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern u8 monument_ancient02_resource_table[];
 extern u32 TOMonumentAncient02__data_805D5A68;
 void load_resources__19TOMonumentAncient02Fv(void);
 s32 rand(void);
@@ -230,7 +254,7 @@ void free_shared_data__19TOMonumentAncient02Fv(void) {
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 
 void load_resources__19TOMonumentAncient02Fv(void) {
-    u8 *tbl = monument_ancient02_resource_table;
+    u8 *tbl = (u8 *)&monument_ancient02_resource_table;
     u8 *p;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     default:
@@ -318,4 +342,13 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") BmlResourceBlock_804B3960 monument_ancient02_resource_table = { { lbl_80442330, NULL }, { lbl_80442348, monument_ancient02_resource_table.model_filenames, bm_fs_obj_o_monument01_motion_names, 1, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3978 bm_fs_obj_o_monument02_resource_bundle = { { lbl_80442364, NULL }, { lbl_8044237C, bm_fs_obj_o_monument02_resource_bundle.model_filenames, bm_fs_obj_o_monument02_motion_names, 1, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3990 bm_fs_obj_o_monument03_resource_bundle = { { lbl_80442398, NULL }, { lbl_804423B0, bm_fs_obj_o_monument03_resource_bundle.model_filenames, bm_fs_obj_o_monument03_motion_names, 1, 0 } };
+__declspec(section ".sdata") const char *bm_fs_obj_o_monument01_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_fs_obj_o_monument02_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_fs_obj_o_monument03_motion_names[1] = { NULL };
 }

@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445450[];
+extern char lbl_80445464[];
+extern char lbl_80445478[];
+extern const char *fs_obj_ex_doa01_model_names[2];
+extern const char *fs_obj_ex_doa01_motion_names[2];
+extern BmlResourceDescriptor TObjDoaEx01__resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -44,7 +54,6 @@ extern "C" {
 s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8018E1E0_lbl_804B7588 TObjDoaEx01__resource_descriptor;
 extern u32 TObjDoaEx01__resource_bundle;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern s32 TObjDoaEx01__alpha_model_sibling;
@@ -138,7 +147,7 @@ void load_resources__11TObjDoaEx01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjDoaEx01__resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjDoaEx01__resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TObjDoaEx01__resource_bundle) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = (u8 *)(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(get_bml_model((void *) var_r0, 0), void **, 0x2C), void **, 0x30), void **, 0x2C), void **, 0x2C));
@@ -146,4 +155,10 @@ void load_resources__11TObjDoaEx01Fv(void) {
     TObjDoaEx01__alpha_model_sibling = M2C_FIELD(temp_r3_2, s32 *, 0x30);
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *fs_obj_ex_doa01_model_names[2] = { lbl_80445450, NULL };
+__declspec(section ".data") const char *fs_obj_ex_doa01_motion_names[2] = { lbl_80445464, NULL };
+BmlResourceDescriptor TObjDoaEx01__resource_descriptor = { lbl_80445478, fs_obj_ex_doa01_model_names, fs_obj_ex_doa01_motion_names, 1, 1 };
 }

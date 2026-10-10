@@ -29,7 +29,7 @@ struct VObj_801639B4 : VBase_801639B4 { virtual void m0(); virtual void m1(); vi
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80163B8C_lbl_804B1760 lbl_804B1760;
+extern RecoveredGlobal_80163B8C_lbl_804B1760 bm_o_door_vo_ship_resource_descriptor;
 extern u32 TODoorVoShip__data_805D5980;
 void load_shared_resource__12TODoorVoShipFv(void);
 s32 get_main_phase(void);
@@ -199,7 +199,7 @@ void load_shared_resource__12TODoorVoShipFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B1760.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_door_vo_ship_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TODoorVoShip__data_805D5980) = var_r0;
 }

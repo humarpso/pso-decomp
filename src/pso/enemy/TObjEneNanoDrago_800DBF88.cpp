@@ -545,19 +545,19 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_80494B10[2];
-extern void *lbl_80494B18[13];
-__declspec(section ".data") void *lbl_80494B10[2] = {
+extern void *bm_ene_nanodrago_model_names[2];
+extern void *bm_ene_nanodrago_motion_names[13];
+__declspec(section ".data") void *bm_ene_nanodrago_model_names[2] = {
     (void *)&lbl_8043C760, (void *)0x0,
 };
-void *lbl_80494B18[13] = {
+void *bm_ene_nanodrago_motion_names[13] = {
     (void *)&lbl_8043C774, (void *)&lbl_8043C78C, (void *)&lbl_8043C7A8, (void *)&lbl_8043C7C4,
     (void *)&lbl_8043C7E0, (void *)&lbl_8043C7FC, (void *)&lbl_8043C814, (void *)&lbl_8043C82C,
     (void *)&lbl_8043C844, (void *)&lbl_8043C860, (void *)&lbl_8043C878, (void *)&lbl_8043C890,
     (void *)0x0,
 };
-void *lbl_80494B4C[4] = {
-    (void *)&lbl_8043C8A8, (void *)&lbl_80494B10, (void *)&lbl_80494B18, (void *)0x1000c,
+void *bm_ene_nanodrago_resource_descriptor[4] = {
+    (void *)&lbl_8043C8A8, (void *)&bm_ene_nanodrago_model_names, (void *)&bm_ene_nanodrago_motion_names, (void *)0x1000c,
 };
 void *lbl_80494B5C[48] = {
     (void *)0x20000, (void *)0xa, (void *)0x3f4ccccd, (void *)0x0,
@@ -608,7 +608,7 @@ void *lbl_80494C90[83] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
-#define lbl_80494B4C (*(RecoveredGlobal_800DC028_lbl_80494B4C *)lbl_80494B4C)
+#define bm_ene_nanodrago_resource_descriptor (*(RecoveredGlobal_800DC028_lbl_80494B4C *)bm_ene_nanodrago_resource_descriptor)
 #define lbl_80494B5C ((u8 *)lbl_80494B5C)
 #define lbl_80494C1C ((u8 *)lbl_80494C1C)
 #define lbl_80494C38 ((u8 *)lbl_80494C38)
@@ -816,7 +816,7 @@ void TLobby__sub_800DC028(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_80494B4C.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &bm_ene_nanodrago_resource_descriptor.value, 0, 0, 0));
     }
     nano_drago_entry_params_resource = (u32) var_r0;
     lbl_805D5248 = register_boss__6TLobbyFPv((int) (0x1A));

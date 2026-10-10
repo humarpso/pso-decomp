@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80438748[];
+extern char lbl_8043875C[];
+extern const char *re_b_mark_base_model_names[2];
+extern BmlResourceDescriptor tombstone_resource_descriptor;
+extern const char *re_b_mark_base_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -11,7 +20,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK reset_matrix__13TObjTombstoneFv();
-extern RecoveredGlobal_800765B4_lbl_8048D240 tombstone_resource_descriptor;
 extern u32 TObjTombstone__shared_resource_object;
 void load_resources__13TObjTombstoneFv(void);
 }
@@ -64,11 +72,17 @@ void load_resources__13TObjTombstoneFv(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &tombstone_resource_descriptor.value, 0, 0, 0));
+            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &tombstone_resource_descriptor, 0, 0, 0));
         }
         (*(u8 * *)&TObjTombstone__shared_resource_object) = (unsigned char *) ((void *) var_r0);
         reset_matrix__13TObjTombstoneFv();
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *re_b_mark_base_model_names[2] = { lbl_80438748, NULL };
+BmlResourceDescriptor tombstone_resource_descriptor = { lbl_8043875C, re_b_mark_base_model_names, re_b_mark_base_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *re_b_mark_base_motion_names[1] = { NULL };
 }

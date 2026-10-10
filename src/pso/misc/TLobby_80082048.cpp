@@ -1,4 +1,15 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80438E60[];
+extern char lbl_80438E74[];
+extern char lbl_80438E80[];
+extern char lbl_80438E94[];
+extern const char *bm_eff_ice_model_names[3];
+extern const char *bm_eff_ice_motion_names[2];
+extern BmlResourceDescriptor enemy_freeze_ice_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -52,7 +63,6 @@ struct RecoveredFields_8008213C_temp_r3 {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80082080_lbl_8048E194 enemy_freeze_ice_resource_descriptor;
 extern u32 freeze_shell_bml_resource;
 void load_freeze_ice_resource__6TLobbyFv(void);
 M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, void *);
@@ -103,7 +113,7 @@ void load_freeze_ice_resource__6TLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &enemy_freeze_ice_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &enemy_freeze_ice_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&freeze_shell_bml_resource) = var_r0;
 }
@@ -201,4 +211,10 @@ f32 TObjPlayer__sub_800822C8(void) {
     return lbl_805D9378;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_eff_ice_model_names[3] = { lbl_80438E60, lbl_80438E74, NULL };
+__declspec(section ".data") const char *bm_eff_ice_motion_names[2] = { lbl_80438E80, NULL };
+BmlResourceDescriptor enemy_freeze_ice_resource_descriptor = { lbl_80438E94, bm_eff_ice_model_names, bm_eff_ice_motion_names, 2, 1 };
 }

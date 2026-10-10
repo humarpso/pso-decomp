@@ -6,8 +6,8 @@ void *load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80450C50[];
 extern u8 lbl_80450C6C[];
-extern u8 lbl_804D34D0[];
-extern u8 lbl_804D34F0[];
+extern u8 bm_obj_door_ruins_resource_descriptor[];
+extern u8 bm_obj_door_space_resource_descriptor[];
 extern void *green_door_bml_resource;
 extern void *green_door_texture_handle;
 void load_green_door_resources(void);
@@ -24,7 +24,7 @@ void load_green_door_resources(void) {
     case 0x14:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804D34D0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, bm_obj_door_ruins_resource_descriptor, 0, 0, 0);
         }
         green_door_bml_resource = p;
         green_door_texture_handle = load_gvm_texture_file(lbl_80450C50);
@@ -33,7 +33,7 @@ void load_green_door_resources(void) {
     case 0x16:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804D34F0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, bm_obj_door_space_resource_descriptor, 0, 0, 0);
         }
         green_door_bml_resource = p;
         green_door_texture_handle = load_gvm_texture_file(lbl_80450C6C);

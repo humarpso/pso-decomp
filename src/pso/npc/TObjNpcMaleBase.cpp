@@ -100,7 +100,7 @@ struct RecoveredGlobal_8014BA4C___vt__15TObjNpcMaleBase {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 lbl_804AA0D0;
+extern RecoveredGlobal_8014B9A4_lbl_804AA0D0 bm_n_ebm_i_body_resource_descriptor;
 extern u32 TObjNpcMaleBase__data_805D57D8;
 void load_shared_resource__15TObjNpcMaleBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -141,7 +141,7 @@ void load_shared_resource__15TObjNpcMaleBaseFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AA0D0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_ebm_i_body_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcMaleBase__data_805D57D8) = var_r0;
 }

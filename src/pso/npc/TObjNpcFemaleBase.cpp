@@ -103,12 +103,12 @@ struct RecoveredGlobal_80149E88___vt__17TObjNpcFemaleBase {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80149DE0_lbl_804A87C0 lbl_804A87C0;
+extern RecoveredGlobal_80149DE0_lbl_804A87C0 bm_n_ebw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleBase__shared_resource_obj;
 void load_shared_resource__17TObjNpcFemaleBaseFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80149FB8_lbl_804A8950 lbl_804A8950;
+extern RecoveredGlobal_80149FB8_lbl_804A8950 bm_n_ecw_i_body_resource_descriptor;
 extern u32 TObjNpcFemaleChild__static_instance;
 void load_shared_resource__18TObjNpcFemaleChildFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -167,7 +167,7 @@ void load_shared_resource__17TObjNpcFemaleBaseFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A87C0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_ebw_i_body_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcFemaleBase__shared_resource_obj) = var_r0;
 }
@@ -226,7 +226,7 @@ void load_shared_resource__18TObjNpcFemaleChildFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8950.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_ecw_i_body_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcFemaleChild__static_instance) = var_r0;
 }

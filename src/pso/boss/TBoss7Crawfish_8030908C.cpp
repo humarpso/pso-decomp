@@ -97,7 +97,7 @@ struct Vec_8030920C { f32 x, y, z; };
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8030946C_lbl_804E7370 lbl_804E7370;
+extern RecoveredGlobal_8030946C_lbl_804E7370 bm_boss7_crawfish_resource_descriptor;
 extern u32 TBoss7Crawfish__shared_resource;
 void load_static_resource__14TBoss7CrawfishFv(void);
 M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
@@ -286,7 +286,7 @@ void load_static_resource__14TBoss7CrawfishFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E7370.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_boss7_crawfish_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TBoss7Crawfish__shared_resource) = var_r0;
 }

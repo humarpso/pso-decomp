@@ -73,7 +73,7 @@ extern const f32 TOSparkMachine01__data_805DB9EC;
 void run_task__16TOSparkMachine01Fv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80177330_lbl_804B43F0 lbl_804B43F0;
+extern RecoveredGlobal_80177330_lbl_804B43F0 bm_fe_obj_tank_hikari_resource_descriptor;
 extern u32 TOSparkMachine01__static_resource;
 void load_static_resource__16TOSparkMachine01Fv(void);
 void construct_world_actor_base(void *, s32);
@@ -200,7 +200,7 @@ void load_static_resource__16TOSparkMachine01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B43F0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fe_obj_tank_hikari_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOSparkMachine01__static_resource) = var_r0;
 }

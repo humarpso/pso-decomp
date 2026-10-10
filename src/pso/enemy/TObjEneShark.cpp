@@ -923,19 +923,19 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void update_turn_toward_target__10TObjPlayerFPv();
-extern void *lbl_804914B0[4];
-extern void *lbl_804914C0[13];
-void *lbl_804914B0[4] = {
+extern void *bm_ene_bm1_shark_model_names[4];
+extern void *bm_ene_bm1_shark_motion_names[13];
+void *bm_ene_bm1_shark_model_names[4] = {
     (void *)&lbl_8043AD10, (void *)&lbl_8043AD24, (void *)&lbl_8043AD3C, (void *)0x0,
 };
-void *lbl_804914C0[13] = {
+void *bm_ene_bm1_shark_motion_names[13] = {
     (void *)&lbl_8043AD50, (void *)&lbl_8043AD6C, (void *)&lbl_8043AD88, (void *)&lbl_8043ADA4,
     (void *)&lbl_8043ADC0, (void *)&lbl_8043ADDC, (void *)&lbl_8043ADF8, (void *)&lbl_8043AE14,
     (void *)&lbl_8043AE30, (void *)&lbl_8043AE48, (void *)&lbl_8043AE64, (void *)&lbl_8043AE80,
     (void *)0x0,
 };
-void *lbl_804914F4[4] = {
-    (void *)&lbl_8043AE9C, (void *)&lbl_804914B0, (void *)&lbl_804914C0, (void *)0x3000c,
+void *bm_ene_bm1_shark_resource_descriptor[4] = {
+    (void *)&lbl_8043AE9C, (void *)&bm_ene_bm1_shark_model_names, (void *)&bm_ene_bm1_shark_motion_names, (void *)0x3000c,
 };
 void *TObjEneShark__action_table[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f19999a, (void *)0x1,
@@ -997,7 +997,7 @@ void *lbl_8049168C[103] = {
     (void *)&play_sound_4003A60D__10TObjPlayerFi, (void *)&TObjPlayer__sub_800AB9C0, (void *)&TObjPlayer__sub_800AB974, (void *)&TObjPlayer__sub_800AC9D8,
     (void *)&TObjPlayer__sub_80092A7C, (void *)&TObjPlayer__sub_800AB970, (void *)&request_stand_action__12TObjEneBeastFPv,
 };
-#define lbl_804914F4 ((u8 *)lbl_804914F4)
+#define bm_ene_bm1_shark_resource_descriptor ((u8 *)bm_ene_bm1_shark_resource_descriptor)
 #define TObjEneShark__action_table ((Act_800AC318 *)TObjEneShark__action_table)
 #define lbl_8049168C ((u8 *)lbl_8049168C)
 
@@ -1066,11 +1066,11 @@ void load_shark_resources__6TLobbyFv(void) {
     void *p;
     s32 i;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        G_B8 = load_enemy_bml_resource_named(lbl_804914F4, lbl_8043AEDC);
+        G_B8 = load_enemy_bml_resource_named(bm_ene_bm1_shark_resource_descriptor, lbl_8043AEDC);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 1, lbl_804914F4, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, bm_ene_bm1_shark_resource_descriptor, 0, 0, 0);
         }
         G_B8 = (u8 *)p;
     }

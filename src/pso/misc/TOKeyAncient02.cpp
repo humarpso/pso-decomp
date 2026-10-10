@@ -81,7 +81,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016B5A4_lbl_80441A74 lbl_80441A74;
-extern RecoveredGlobal_8016B5A4_lbl_804B2A7C lbl_804B2A7C;
+extern RecoveredGlobal_8016B5A4_lbl_804B2A7C bm_fs_obj_o_doorswitch01_resource_descriptor;
 extern u32 TOKeyAncient02__model_archive;
 extern s32 TOKeyAncient02__model_root;
 extern void *TOKeyAncient02__texture_lists;
@@ -262,7 +262,7 @@ void load_resources__14TOKeyAncient02Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2A7C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_o_doorswitch01_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyAncient02__model_archive) = (unsigned char *) ((void *) var_r0);
     (*(s32 *)&TOKeyAncient02__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)8);

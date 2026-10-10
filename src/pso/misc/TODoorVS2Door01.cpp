@@ -84,7 +84,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_804410E0;
-extern RecoveredGlobal_80176308_lbl_804B4278 lbl_804B17E0;
+extern RecoveredGlobal_80176308_lbl_804B4278 fs_obj_o_vs2door01l_resource_descriptor;
 extern u32 lbl_805D5988;
 extern s32 *TODoorVS2Door01__texture_lists;
 void load_resources__15TODoorVS2Door01Fv(void);
@@ -288,7 +288,7 @@ void load_resources__15TODoorVS2Door01Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B17E0.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_o_vs2door01l_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5988) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));

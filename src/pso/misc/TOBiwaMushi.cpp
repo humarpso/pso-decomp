@@ -1,4 +1,20 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_8046FCB8[];
+extern char lbl_8046FCC8[];
+extern char lbl_8046FCDC[];
+extern char lbl_8046FCF4[];
+extern char lbl_8046FD08[];
+extern char lbl_8046FD1C[];
+extern const char *bm_obj_meka_fish_0_model_names[2];
+extern const char *bm_obj_meka_fish_0_motion_names[2];
+extern BmlResourceDescriptor TOMekaFish00__resource_descriptor;
+extern const char *bm_obj_meka_fish_1_model_names[2];
+extern const char *bm_obj_meka_fish_1_motion_names[2];
+extern BmlResourceDescriptor TOMekaFish01__shared_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -156,7 +172,6 @@ typedef char RecoveredGlobal_802AA644_lbl_804DDFE0_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802AA644_lbl_804DDFE0 TOMekaFish01__shared_resource_descriptor;
 extern u32 TOMekaFish01__data_805D66DC;
 void load_shared_resource__12TOMekaFish01Fv(void);
 }
@@ -197,7 +212,7 @@ void load_shared_resource__12TOMekaFish01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish01__shared_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish01__shared_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TOMekaFish01__data_805D66DC) = var_r0;
 }
@@ -336,7 +351,6 @@ struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { M2C_UNK value; u8 remaini
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_802AA934_lbl_804DDFC0 TOMekaFish00__resource_descriptor;
 extern u32 TOMekaFish00__data_805D66D8;
 void load_shared_resource__12TOMekaFish00Fv(void);
 #define get_bml_motion ((s32 (*)(void *, s32))get_bml_motion)
@@ -386,7 +400,7 @@ void load_shared_resource__12TOMekaFish00Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish00__resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOMekaFish00__resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TOMekaFish00__data_805D66D8) = var_r0;
 }
@@ -447,4 +461,13 @@ extern char lbl_8046FD7C[];
 extern char lbl_8046FD8C[];
 s32 TOMekaFish00__name = (s32)lbl_8046FD7C;
 s32 TOMekaFish01__name = (s32)lbl_8046FD8C;
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_meka_fish_0_model_names[2] = { lbl_8046FCB8, NULL };
+__declspec(section ".data") const char *bm_obj_meka_fish_0_motion_names[2] = { lbl_8046FCC8, NULL };
+BmlResourceDescriptor TOMekaFish00__resource_descriptor = { lbl_8046FCDC, bm_obj_meka_fish_0_model_names, bm_obj_meka_fish_0_motion_names, 1, 1 };
+__declspec(section ".data") const char *bm_obj_meka_fish_1_model_names[2] = { lbl_8046FCF4, NULL };
+__declspec(section ".data") const char *bm_obj_meka_fish_1_motion_names[2] = { lbl_8046FD08, NULL };
+BmlResourceDescriptor TOMekaFish01__shared_resource_descriptor = { lbl_8046FD1C, bm_obj_meka_fish_1_model_names, bm_obj_meka_fish_1_motion_names, 1, 1 };
 }

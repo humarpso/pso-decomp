@@ -9,7 +9,7 @@ typedef char RecoveredGlobal_803516F8_lbl_804F0E4C_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_803516F8_lbl_804F0E4C lbl_804F0E4C;
+extern RecoveredGlobal_803516F8_lbl_804F0E4C bm_butterfly_lobby_resource_descriptor;
 extern s32 lobby_butterfly_bml_resource;
 void fn_803516F8(void);
 }
@@ -22,7 +22,7 @@ void fn_803516F8(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804F0E4C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_butterfly_lobby_resource_descriptor.value, 0, 0, 0));
     }
     lobby_butterfly_bml_resource = var_r0;
 }

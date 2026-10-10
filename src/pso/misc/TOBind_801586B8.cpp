@@ -31,7 +31,7 @@ struct RecoveredGlobal_80158890___vt__6TOBind {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_801587D8_lbl_804AFC44 lbl_804AFC44;
+extern RecoveredGlobal_801587D8_lbl_804AFC44 bm_o_bind_resource_descriptor;
 extern u32 TOBind__data_805D58A0;
 void load_static_resource__6TOBindFv(void);
 u8 *get_bml_motion(s32, s32);
@@ -130,7 +130,7 @@ void load_static_resource__6TOBindFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFC44.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_bind_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOBind__data_805D58A0) = var_r0;
 }

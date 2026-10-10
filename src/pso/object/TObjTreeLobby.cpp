@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_8047A068[];
+extern char lbl_8047A080[];
+extern const char *bm_obj_lobby_tree_model_names[2];
+extern BmlResourceDescriptor TObjTreeLobby_resource_descriptor;
+extern const char *bm_obj_lobby_tree_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -60,7 +69,6 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_80364A1C_lbl_804F2B18 TObjTreeLobby_resource_descriptor;
 extern u32 TObjTreeLobby__instance;
 extern s32 tree_lobby_type;
 void load_resources__13TObjTreeLobbyFv(void);
@@ -173,7 +181,7 @@ void load_resources__13TObjTreeLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjTreeLobby_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjTreeLobby__instance) = var_r0;
     tree_lobby_type = get_lobby_type__6TLobbyFv();
@@ -227,4 +235,10 @@ void *TObjTreeLobby__sub_80364BE8(void *arg0, s16 arg1) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_lobby_tree_model_names[2] = { lbl_8047A068, NULL };
+BmlResourceDescriptor TObjTreeLobby_resource_descriptor = { lbl_8047A080, bm_obj_lobby_tree_model_names, bm_obj_lobby_tree_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_obj_lobby_tree_motion_names[1] = { NULL };
 }

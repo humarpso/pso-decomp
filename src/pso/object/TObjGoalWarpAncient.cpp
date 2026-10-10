@@ -45,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80443308;
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804B52F4;
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_o_warp_ancient_resource_descriptor;
 void load_resources__19TObjGoalWarpAncientFv(void);
 }
 
@@ -71,7 +71,7 @@ void load_resources__19TObjGoalWarpAncientFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &lbl_804B52F4.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 0x1, &bm_o_warp_ancient_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&ancient_warp_shared_resource) = var_r0;
     (*(u8 * *)&goal_warp_ancient_gvm_texture) = load_gvm_texture_file((s32) &lbl_80443308.value);

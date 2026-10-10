@@ -167,7 +167,7 @@ struct RecoveredGlobal_8030B708___vt__14TObjLiveCamera {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8030B658_lbl_804E76C0 lbl_804E76C0;
+extern RecoveredGlobal_8030B658_lbl_804E76C0 bm_obj_boss8_monitor_resource_descriptor;
 extern int live_monitor_shared_resource;
 void load_static_resource__14TObjLiveCameraFv(void);
 s32 construct_world_actor_base(void *, void *);
@@ -197,7 +197,7 @@ void load_static_resource__14TObjLiveCameraFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E76C0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_boss8_monitor_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&live_monitor_shared_resource) = var_r0;
 }

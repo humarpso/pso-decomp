@@ -1,4 +1,27 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_8043E3A8[];
+extern char lbl_8043E3B8[];
+extern char lbl_8043E3C8[];
+extern char lbl_8043E3D8[];
+extern char lbl_8043E3E8[];
+extern char lbl_8043E3F8[];
+extern char lbl_8043E408[];
+extern char lbl_8043E418[];
+extern char lbl_8043E428[];
+extern char lbl_8043E43C[];
+extern char lbl_8043E450[];
+extern char lbl_8043E464[];
+extern char lbl_8043E47C[];
+extern char lbl_8043E490[];
+extern char lbl_8043E4A4[];
+extern char lbl_8043E4B4[];
+extern const char *item_model_names[15];
+extern const char *item_motion_names[2];
+extern BmlResourceDescriptor item_bml_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -17,7 +40,6 @@ void alloc_work_buffer__9TItemLoadFv();
 u32 alloc_buffer__11TOBoss4RockFPv(u32);
 void * __nw__7TObjectFUl(M2C_UNK);
 void *__ct__7TObjectFP7TObject(void *, void *);
-extern u8 item_bml_resource_descriptor[];
 extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
 extern void *TItemLoad__completed_model_load_task_root;
@@ -82,7 +104,7 @@ void init_resources__9TItemLoadFv(void) {
     TItemLoad__sub_8010F5A0();
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, item_bml_resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, &item_bml_resource_descriptor, 0, 0, 0);
     }
     TItemLoad__bml_resource = (s32)p;
     p = __nw__7TObjectFUl(0x1C);
@@ -115,4 +137,10 @@ void create__9TItemLoadFv(void) {
 s32 TItemLoad__sub_80110740(void* p) { return *(s32*)((char*)p + 0x3c); }
 s32 TItemLoad__sub_80110748(void* p) { return *(s32*)((char*)p + 0x28); }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *item_model_names[15] = { lbl_8043E3A8, lbl_8043E3B8, lbl_8043E3C8, lbl_8043E3D8, lbl_8043E3E8, lbl_8043E3F8, lbl_8043E408, lbl_8043E418, lbl_8043E428, lbl_8043E43C, lbl_8043E450, lbl_8043E464, lbl_8043E47C, lbl_8043E490, NULL };
+__declspec(section ".data") const char *item_motion_names[2] = { lbl_8043E4A4, NULL };
+BmlResourceDescriptor item_bml_resource_descriptor = { lbl_8043E4B4, item_model_names, item_motion_names, 14, 1 };
 }

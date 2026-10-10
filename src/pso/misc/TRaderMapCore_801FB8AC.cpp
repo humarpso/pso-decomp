@@ -45,7 +45,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_8044A7B8;
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804C8864;
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 obj_f_enemy_resource_descriptor;
 void load_frame_texture__13TRaderMapCoreFv(void);
 }
 
@@ -80,7 +80,7 @@ void load_frame_texture__13TRaderMapCoreFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804C8864.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &obj_f_enemy_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D5F48) = var_r0;
     (*(u8 * *)&TRaderMapCore__data_805D5F4C) = load_gvm_texture_file((s32) &lbl_8044A7B8.value);

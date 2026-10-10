@@ -20,7 +20,7 @@ struct RecoveredGlobal_801917E8___vt__9TObjHashi {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80191730_lbl_804B7C60 lbl_804B7C60;
+extern RecoveredGlobal_80191730_lbl_804B7C60 fe_obj_hashi_resource_descriptor;
 extern u32 TObjHashi__bml_resource;
 void load_shared_resource__9TObjHashiFv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -74,7 +74,7 @@ void load_shared_resource__9TObjHashiFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B7C60.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &fe_obj_hashi_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjHashi__bml_resource) = var_r0;
 }

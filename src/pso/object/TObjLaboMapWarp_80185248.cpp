@@ -266,7 +266,7 @@ extern const char lbl_804449E0[];
 extern const char lbl_804449F0[];
 extern const char lbl_80444A00[];
 extern const char lbl_80444A10[];
-extern RecoveredGlobal_80185514_lbl_804B600C lbl_804B600C;
+extern RecoveredGlobal_80185514_lbl_804B600C bm_obj_warp_labo_resource_descriptor;
 extern const char *lbl_804B601C[];
 extern s32 lbl_805D32A8;
 extern void *lbl_805D32AC;
@@ -364,7 +364,7 @@ void load_static_resource__15TObjLaboMapWarpFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B600C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_warp_labo_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjLaboMapWarp__resource_bundle) = var_r0;
 }

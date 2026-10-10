@@ -100,7 +100,7 @@ struct RecoveredGlobal_802894A8___vt__13TObjNpcKenkyu {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80289400_lbl_804D3190 lbl_804D3190;
+extern RecoveredGlobal_80289400_lbl_804D3190 bm_npc_kenkyu_resource_descriptor;
 extern u32 TObjNpcKenkyu__static_model;
 void load_shared_resource__13TObjNpcKenkyuFv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -143,7 +143,7 @@ void load_shared_resource__13TObjNpcKenkyuFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804D3190.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_npc_kenkyu_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcKenkyu__static_model) = var_r0;
 }

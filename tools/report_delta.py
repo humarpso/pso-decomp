@@ -28,18 +28,20 @@ def functions_by_address(report: dict) -> dict:
     return functions
 
 
-def exact_data_ranges(report: dict) -> dict:
-    """Exact non-text section intervals, independent of TU names/boundaries."""
+def data_ranges(report: dict, *, exact_only: bool = False) -> dict:
+    """Original non-text intervals, independent of TU names/boundaries."""
     ranges = {}
     for unit in report.get('units', []):
         module = unit.get('metadata', {}).get('module_name', '')
         for section in unit.get('sections', []):
             size = int(section.get('size', 0))
-            if section['name'] == '.text' or not size or section.get('fuzzy_match_percent') != 100:
+            if section['name'] == '.text' or not size:
+                continue
+            if exact_only and section.get('fuzzy_match_percent') != 100:
                 continue
             address = section.get('metadata', {}).get('virtual_address')
             if address is None:
-                raise ValueError(f"No original address for exact section {unit['name']}:{section['name']}")
+                raise ValueError(f"No original address for section {unit['name']}:{section['name']}")
             start = int(address)
             ranges.setdefault((module, section['name']), []).append((start, start + size))
     # A split or merge must not look like data loss. Normalize adjacent ranges.
@@ -54,8 +56,14 @@ def exact_data_ranges(report: dict) -> dict:
     return ranges
 
 
-def lost_data_ranges(before: dict, after: dict) -> list:
-    old, new = exact_data_ranges(before), exact_data_ranges(after)
+def exact_data_ranges(report: dict) -> dict:
+    """Exact original non-text intervals; retained for existing callers."""
+    return data_ranges(report, exact_only=True)
+
+
+def lost_data_ranges(before: dict, after: dict, *, exact_only: bool = True) -> list:
+    old = data_ranges(before, exact_only=exact_only)
+    new = data_ranges(after, exact_only=exact_only)
     lost = []
     for (module, section), ranges in sorted(old.items()):
         for start, end in ranges:
@@ -95,8 +103,12 @@ def compare(before: dict, after: dict) -> dict:
         metrics[key] = {"before": first, "after": last, "delta": last - first}
     failures = []
     data_regressions = lost_data_ranges(before, after)
+    data_coverage_lost = lost_data_ranges(before, after, exact_only=False)
+    data_coverage_gained = lost_data_ranges(after, before, exact_only=False)
     if data_regressions:
         failures.append('Previously exact data ranges regressed or disappeared')
+    if data_coverage_lost:
+        failures.append('Original data addresses disappeared from coverage')
     if old_exact - new_exact:
         failures.append("Previously exact functions regressed or disappeared")
     if old.keys() - new.keys():
@@ -111,6 +123,8 @@ def compare(before: dict, after: dict) -> dict:
         "new_matches": rows(new_exact - old_exact, new),
         "regressions": rows(old_exact - new_exact, old),
         "data_regressions": data_regressions,
+        "data_coverage_lost": data_coverage_lost,
+        "data_coverage_gained": data_coverage_gained,
         "missing_functions": rows(old.keys() - new.keys(), old),
         "failures": failures,
     }
@@ -139,6 +153,10 @@ def main() -> int:
             print(f"FAIL: {failure}")
         for row in delta['data_regressions']:
             print(f"  data: {row['module']} {row['section']} {row['address']} +{row['size']} bytes")
+        for key, label in (('data_coverage_lost', 'lost coverage'),
+                           ('data_coverage_gained', 'new coverage')):
+            for row in delta[key]:
+                print(f"  {label}: {row['module']} {row['section']} {row['address']} +{row['size']} bytes")
     return 1 if args.check and delta["failures"] else 0
 
 

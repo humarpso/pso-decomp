@@ -106,7 +106,7 @@ void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 u8 * TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 extern void* bm5_wolf_decision_row[];
 extern void* lbl_804920EC[];
-extern void* lbl_804921B8[];
+extern void* bm_ene_bm5_wolf_resource_descriptor[];
 extern void* lbl_804921C8[];
 extern s32 TObjEneBm5Wolf__stat_params[];
 extern s32 lbl_80500B48[];
@@ -150,17 +150,17 @@ void *lbl_804920EC[33] = {
     (void *)0x9d03, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,
 };
-void *lbl_80492170[3] = {
+void *bm_ene_bm5_wolf_model_names[3] = {
     (void *)&lbl_8043B3C8, (void *)&lbl_8043B3DC, (void *)0x0,
 };
-void *lbl_8049217C[15] = {
+void *bm_ene_bm5_wolf_motion_names[15] = {
     (void *)&lbl_8043B3F0, (void *)&lbl_8043B408, (void *)&lbl_8043B424, (void *)&lbl_8043B440,
     (void *)&lbl_8043B458, (void *)&lbl_8043B470, (void *)&lbl_8043B488, (void *)&lbl_8043B4A0,
     (void *)&lbl_8043B4B8, (void *)&lbl_8043B4D0, (void *)&lbl_8043B4E8, (void *)&lbl_8043B504,
     (void *)&lbl_8043B520, (void *)&lbl_8043B538, (void *)0x0,
 };
-void *lbl_804921B8[4] = {
-    (void *)&lbl_8043B550, (void *)&lbl_80492170, (void *)&lbl_8049217C, (void *)0x2000e,
+void *bm_ene_bm5_wolf_resource_descriptor[4] = {
+    (void *)&lbl_8043B550, (void *)&bm_ene_bm5_wolf_model_names, (void *)&bm_ene_bm5_wolf_motion_names, (void *)0x2000e,
 };
 void *lbl_804921C8[76] = {
     (void *)0x10000, (void *)0xc, (void *)0x3f4ccccd, (void *)0x0,
@@ -4048,7 +4048,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define obj_getField1c ((s16 (*)(s32))obj_getField1c)
 #define TObjEneBm5Wolf__ct ((void * (*)(void *, void *, void *))TObjEneBm5Wolf__ct)
 #define lbl_804920EC ((f32 *)&lbl_804920EC)
-#define lbl_804921B8 ((u8 *)&lbl_804921B8)
+#define bm_ene_bm5_wolf_resource_descriptor ((u8 *)&bm_ene_bm5_wolf_resource_descriptor)
 
 struct Vec_800B86B4 { f32 x, y, z; };
 struct G_800B86B4 {
@@ -4120,9 +4120,9 @@ void load_resources__14TObjEneBm5WolfFv(void) {
     s32 i;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TObjEneBm5Wolf__bml_resource = load_enemy_bml_resource_named(lbl_804921B8, lbl_8043B5C0);
+        TObjEneBm5Wolf__bml_resource = load_enemy_bml_resource_named(bm_ene_bm5_wolf_resource_descriptor, lbl_8043B5C0);
     } else {
-        TObjEneBm5Wolf__bml_resource = load_enemy_bml_resource(lbl_804921B8);
+        TObjEneBm5Wolf__bml_resource = load_enemy_bml_resource(bm_ene_bm5_wolf_resource_descriptor);
     }
     reset_fields__14TObjEneBm5WolfFPv(TObjEneBm5Wolf__pack_member_list);
     reset_fields__14TObjEneBm5WolfFPv(TObjEneBm5Wolf__instance_list);
@@ -4229,7 +4229,7 @@ s32 get_group_id__14TObjEneBm5WolfFPv(void* p) { return *(s32*)((char*)p + 0x3dc
 #undef obj_getField1c
 #undef TObjEneBm5Wolf__ct
 #undef lbl_804920EC
-#undef lbl_804921B8
+#undef bm_ene_bm5_wolf_resource_descriptor
 
 extern "C" void register_global_objects__14TObjEneBm5WolfFv(void);
 __declspec(section ".ctors") static void *const __sinit_TObjEneBm5Wolf_cpp_ref = (void *)register_global_objects__14TObjEneBm5WolfFv;

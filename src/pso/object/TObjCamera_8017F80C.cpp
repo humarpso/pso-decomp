@@ -80,7 +80,7 @@ struct Copy_8017FA9C { u32 w[5]; };
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8017FC78_lbl_804B5888 lbl_804B5888;
+extern RecoveredGlobal_8017FC78_lbl_804B5888 fe_obj_cam_resource_descriptor;
 extern u32 TObjCamera__bml_resource;
 extern s32 TObjCamera__data_805D5B1C;
 void load_shared_resource__10TObjCameraFv(void);
@@ -284,7 +284,7 @@ void load_shared_resource__10TObjCameraFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5888.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &fe_obj_cam_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjCamera__bml_resource) = var_r0;
 }

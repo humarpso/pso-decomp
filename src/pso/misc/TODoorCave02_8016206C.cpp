@@ -1,4 +1,19 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80440DB8[];
+extern char lbl_80440DCC[];
+extern char lbl_80440DE0[];
+extern char lbl_80440DF8[];
+__declspec(section ".data") const char *bm_fs_obj_do_doa02_model_names[2] = { lbl_80440DB8, NULL };
+__declspec(section ".data") const char *bm_fs_obj_do_doa02_motion_names[2] = { lbl_80440DCC, NULL };
+BmlResourceDescriptor TODoorCave02__resource_descriptor = { lbl_80440DE0, bm_fs_obj_do_doa02_model_names, bm_fs_obj_do_doa02_motion_names, 1, 1 };
+__declspec(section ".data") const char *bm_fs_obj_do_doa02_a_model_names[2] = { lbl_80440DB8, NULL };
+__declspec(section ".data") const char *bm_fs_obj_do_doa02_a_motion_names[2] = { lbl_80440DCC, NULL };
+BmlResourceDescriptor TODoorCave02_resource_descriptor = { lbl_80440DF8, bm_fs_obj_do_doa02_a_model_names, bm_fs_obj_do_doa02_a_motion_names, 1, 1 };
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -56,8 +71,7 @@ s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440E24[];
 extern u8 lbl_80440E3C[];
-extern u8 TODoorCave02__resource_descriptor[];
-extern u8 TODoorCave02_resource_descriptor[];
+
 extern s32 enable_v2_features;
 extern u32 lbl_805D5960;
 extern s32 *cave_door02_resources;
@@ -113,14 +127,14 @@ void load_resources__12TODoorCave02Fv(void) {
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, TODoorCave02_resource_descriptor, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, &TODoorCave02_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
         cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E24);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, TODoorCave02__resource_descriptor, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, &TODoorCave02__resource_descriptor, 0, 0, 0);
         }
         lbl_805D5960 = (u32)o;
         cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E3C);

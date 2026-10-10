@@ -87,7 +87,7 @@ extern u8 *TOComputerMachine01__data_805D58E0;
 void reset_state__19TOComputerMachine01Fv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern M2C_UNK lbl_804AFFE8[];
+extern M2C_UNK bm_fs_obj_kenkyu_com_resource_descriptor[];
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 TOComputerMachine01__data_805D58E4;
 extern u8 *TOComputerMachine01__data_805D58E0;
@@ -165,7 +165,7 @@ void load_model_resource__19TOComputerMachine01Fv(void) {
     Node_8015B544 *n;
     o = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (o != NULL) {
-        o = load_resource_from_descriptor(o, 1, lbl_804AFFE8, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, bm_fs_obj_kenkyu_com_resource_descriptor, 0, 0, 0);
     }
     TOComputerMachine01__data_805D58E0 = o;
     n = ((Obj_8015B544 *)o)->model->res->head;

@@ -336,7 +336,7 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_803527F0_lbl_804F0F24 lbl_804F0F24;
+extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
 extern s32 lbl_805D6ED0;
 extern s32 lbl_805D6ED4;
 extern s32 lbl_805D6ED8;
@@ -416,7 +416,7 @@ void load_resources__13TObjLobbyMainFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804F0F24.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_lobby_main_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjLobbyMain__bml_resource) = (unsigned char *) ((void *) var_r0);
     lbl_805D6ECC = get_lobby_type__6TLobbyFv();

@@ -115,7 +115,7 @@ s32 load_gvm_texture_file(void *);
 extern u8 lbl_804419B8[];
 extern u8 lbl_804419D0[];
 extern u8 lbl_804419E8[];
-extern u8 lbl_804B29C0[];
+extern u8 bm_fd_obj_n_switch_resource_descriptor[];
 extern u8 *TOKeyAncient01__shared_resource_object;
 extern u32 TOKeyAncient01__texture_lists;
 void load_resources__14TOKeyAncient01Fv(void);
@@ -219,7 +219,7 @@ void free_shared_resources__14TOKeyAncient01Fv(void) {
 void load_resources__14TOKeyAncient01Fv(void) {
     Big_8016AF84 *v = (Big_8016AF84 *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
-        v = load_resource_from_descriptor(v, 1, lbl_804B29C0, 0, 0, 0);
+        v = load_resource_from_descriptor(v, 1, bm_fd_obj_n_switch_resource_descriptor, 0, 0, 0);
     }
     (*(Big_8016AF84 * *)&TOKeyAncient01__shared_resource_object) = v;
     (*(Buf_8016AF84 * *)&TOKeyAncient01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(0x10);

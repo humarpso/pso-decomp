@@ -1,4 +1,16 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_804796E0[];
+extern char lbl_804796F4[];
+extern char lbl_80479708[];
+extern char lbl_8047971C[];
+extern char lbl_80479734[];
+extern const char *bm_ply_photon_chair_model_names[3];
+extern const char *bm_ply_photon_chair_motion_names[3];
+extern BmlResourceDescriptor photon_chair_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -129,7 +141,6 @@ extern const float lbl_805E012C;
 void run_task__15TPlyPhotonChairFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8035B2DC_lbl_804F1CB8 photon_chair_resource_descriptor;
 extern u32 TPlyPhotonChair__data_805D6F40;
 s32 load_resources__15TPlyPhotonChairFv(void);
 void TPlyPhotonChair__sub_8035B66C(void* p);
@@ -283,7 +294,7 @@ s32 load_resources__15TPlyPhotonChairFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &photon_chair_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &photon_chair_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TPlyPhotonChair__data_805D6F40) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {
@@ -388,4 +399,10 @@ void free_instance__15TPlyPhotonChairFv(void) {
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_ply_photon_chair_model_names[3] = { lbl_804796E0, lbl_804796F4, NULL };
+__declspec(section ".data") const char *bm_ply_photon_chair_motion_names[3] = { lbl_80479708, lbl_8047971C, NULL };
+BmlResourceDescriptor photon_chair_resource_descriptor = { lbl_80479734, bm_ply_photon_chair_model_names, bm_ply_photon_chair_motion_names, 2, 2 };
 }

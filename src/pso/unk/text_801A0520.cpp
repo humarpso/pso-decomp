@@ -1,4 +1,15 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80446678[];
+extern char lbl_80446690[];
+extern char lbl_804466AC[];
+extern char lbl_804466C8[];
+extern const char *bm_obj_warp_jung_model_names[3];
+extern const char *bm_obj_warp_jung_motion_names[2];
+extern BmlResourceDescriptor jungle_warp_beam_resource_descriptor;
+}
 
 struct Node_801A0578 {
     u8 pad0[4];
@@ -24,7 +35,6 @@ s32 find_entry_by_name__12TObjDoorJungFPvPv(s32, void *);
 extern char lbl_80446718[];
 extern char lbl_80446728[];
 extern char lbl_80446738[];
-extern u8 jungle_warp_beam_resource_descriptor[];
 extern s32 warp_jung_beam_models[6];
 extern void *TObjWarpJung__beam_bml_resource;
 extern s32 warp_jung_beam_motion;
@@ -54,7 +64,7 @@ void load_warp_beam_resources(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, jungle_warp_beam_resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, &jungle_warp_beam_resource_descriptor, 0, 0, 0);
     }
     TObjWarpJung__beam_bml_resource = p;
     warp_jung_beam_motion = get_bml_motion(p, 0);
@@ -73,4 +83,10 @@ void load_warp_beam_resources(void) {
     lbl_805D5CC4 = find_entry_by_name__12TObjDoorJungFPvPv(warp_jung_model_handle, lbl_80446738);
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_warp_jung_model_names[3] = { lbl_80446678, lbl_80446690, NULL };
+__declspec(section ".data") const char *bm_obj_warp_jung_motion_names[2] = { lbl_804466AC, NULL };
+BmlResourceDescriptor jungle_warp_beam_resource_descriptor = { lbl_804466C8, bm_obj_warp_jung_model_names, bm_obj_warp_jung_motion_names, 2, 1 };
 }

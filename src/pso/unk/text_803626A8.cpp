@@ -1,4 +1,23 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80479EA0[];
+extern char lbl_80479EB0[];
+extern char lbl_80479EC4[];
+extern char lbl_80479ED8[];
+extern char lbl_80479EE8[];
+extern char lbl_80479EF4[];
+extern char lbl_80479F04[];
+extern char lbl_80479F18[];
+extern char lbl_80479F34[];
+extern char lbl_80479F50[];
+extern char lbl_80479F70[];
+extern char lbl_80479F88[];
+extern const char *bm_ene_epsilon_model_names[8];
+extern const char *bm_ene_epsilon_motion_names[5];
+extern BmlResourceDescriptor TObjEneEpsilonGuard__resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
@@ -186,7 +205,6 @@ u8 *init_from_model__11TBreakUpMdlFPvi(void *, void *);
 M2C_UNK TObjPlayer__sub_800F0928(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Quad_803627DC lbl_80479FAC;
-extern u8 TObjEneEpsilonGuard__resource_descriptor[];
 extern f32 lbl_80543A18[3];
 extern s32 epsilon_guard_part_color_table[9];
 extern s32 lbl_805D6F68;
@@ -272,7 +290,7 @@ void load_assets__19TObjEneEpsilonGuardFv(void) {
     lbl_80543A18[2] = lbl_805E0248;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 1, TObjEneEpsilonGuard__resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, &TObjEneEpsilonGuard__resource_descriptor, 0, 0, 0);
     }
     lbl_805D6FA0 = p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
@@ -394,4 +412,10 @@ void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *
     arg1->fn70 = (void *)TObjPlayer__sub_8032E648;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_ene_epsilon_model_names[8] = { lbl_80479EA0, lbl_80479EB0, lbl_80479EC4, lbl_80479ED8, lbl_80479EE8, lbl_80479EF4, lbl_80479F04, NULL };
+__declspec(section ".data") const char *bm_ene_epsilon_motion_names[5] = { lbl_80479F18, lbl_80479F34, lbl_80479F50, lbl_80479F70, NULL };
+BmlResourceDescriptor TObjEneEpsilonGuard__resource_descriptor = { lbl_80479F88, bm_ene_epsilon_model_names, bm_ene_epsilon_motion_names, 7, 4 };
 }

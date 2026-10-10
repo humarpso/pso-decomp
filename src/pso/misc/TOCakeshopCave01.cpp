@@ -57,7 +57,7 @@ struct Obj_80159F78 { u8 pad0[0xCC]; f32 val[8]; };
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8015A108_lbl_804AFDF8 lbl_804AFDF8;
+extern RecoveredGlobal_8015A108_lbl_804AFDF8 bm_fs_obj_cakeya_resource_descriptor;
 extern u32 TOCakeshopCave01__data_805D58B0;
 void load_resource_instance__16TOCakeshopCave01Fv(void);
 s32 rand(void);
@@ -188,7 +188,7 @@ void load_resource_instance__16TOCakeshopCave01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFDF8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cakeya_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOCakeshopCave01__data_805D58B0) = var_r0;
 }

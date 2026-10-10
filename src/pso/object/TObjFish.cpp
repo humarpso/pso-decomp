@@ -161,7 +161,7 @@ extern RecoveredGlobal_8029D238_TOKeyJungleMain__data_804653C8 TOKeyJungleMain__
 extern s32 game_difficulty_selection;
 void TOKeyJungleMain__vt12(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern RecoveredGlobal_8029CFEC_lbl_804DC590 lbl_804DC590;
+extern RecoveredGlobal_8029CFEC_lbl_804DC590 bm_obj_jungle_mkey_resource_descriptor;
 extern u32 TOKeyJungleMain__static_model_resource;
 void load_static_resource__15TOKeyJungleMainFv(void);
 s32 dispatch_by_phase__15TOKeyJungleMainFiUs(void *, int);
@@ -214,7 +214,7 @@ void load_static_resource__15TOKeyJungleMainFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804DC590.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_mkey_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOKeyJungleMain__static_model_resource) = var_r0;
 }

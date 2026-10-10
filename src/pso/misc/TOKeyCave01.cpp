@@ -84,8 +84,8 @@ s32 is_global_state_in_table__19TContainerAncient01Fv();
 s32 get_global_state__14TOKeyMachine01Fv();
 extern RecoveredGlobal_8016C474_lbl_80441BE8 lbl_80441BE8;
 extern RecoveredGlobal_8016C474_lbl_80441C04 lbl_80441C04;
-extern RecoveredGlobal_8016C474_lbl_804B2BB8 lbl_804B2BB8;
-extern RecoveredGlobal_8016C474_lbl_804B2BD0 lbl_804B2BD0;
+extern RecoveredGlobal_8016C474_lbl_804B2BB8 bm_fs_obj_do_doa_panel_resource_descriptor;
+extern RecoveredGlobal_8016C474_lbl_804B2BD0 fs_obj_key_jungle_resource_descriptor;
 extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
 extern s32 lbl_805D5A20;
@@ -261,7 +261,7 @@ void load_resources__11TOKeyCave01Fv(void) {
         temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &lbl_804B2BD0.value, 0, 0, 0));
+            var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &fs_obj_key_jungle_resource_descriptor.value, 0, 0, 0));
         }
         (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0;
         (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);
@@ -273,7 +273,7 @@ void load_resources__11TOKeyCave01Fv(void) {
     temp_r3_2 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0_2 = (u8 *)(temp_r3_2);
     if (var_r0_2 != NULL) {
-        var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &lbl_804B2BB8.value, 0, 0, 0));
+        var_r0_2 = (u8 *)(load_resource_from_descriptor(temp_r3_2, 1, &bm_fs_obj_do_doa_panel_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TOKeyCave01__resource_bundle) = var_r0_2;
     (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);

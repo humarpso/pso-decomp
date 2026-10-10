@@ -226,17 +226,17 @@ extern "C" u8 lbl_8044550C[];
 extern "C" u8 lbl_80445524[];
 extern "C" u8 lbl_80445538[];
 extern "C" u8 lbl_80445558[];
-extern void *lbl_804B7618[6];
-extern void *lbl_804B7630[3];
-void *lbl_804B7618[6] = {
+extern void *fe_obj_doa_kanban_model_names[6];
+extern void *fe_obj_doa_kanban_motion_names[3];
+void *fe_obj_doa_kanban_model_names[6] = {
     (void *)&lbl_804454A0, (void *)&lbl_804454B8, (void *)&lbl_804454D4, (void *)&lbl_804454F0,
     (void *)&lbl_8044550C, (void *)0x0,
 };
-void *lbl_804B7630[3] = {
+void *fe_obj_doa_kanban_motion_names[3] = {
     (void *)&lbl_80445524, (void *)&lbl_80445538, (void *)0x0,
 };
 void *door_resource_descriptor[4] = {
-    (void *)&lbl_80445558, (void *)&lbl_804B7618, (void *)&lbl_804B7630, (void *)0x50002,
+    (void *)&lbl_80445558, (void *)&fe_obj_doa_kanban_model_names, (void *)&fe_obj_doa_kanban_motion_names, (void *)0x50002,
 };
 void *TObjDoor__collision_desc[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41200000,

@@ -1,4 +1,19 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80440E60[];
+extern char lbl_80440E74[];
+extern char lbl_80440E88[];
+extern char lbl_80440EA0[];
+__declspec(section ".data") const char *bm_fs_obj_do_doa03_model_names[2] = { lbl_80440E60, NULL };
+__declspec(section ".data") const char *bm_fs_obj_do_doa03_motion_names[2] = { lbl_80440E74, NULL };
+BmlResourceDescriptor TODoorCave03__resource_descriptor = { lbl_80440E88, bm_fs_obj_do_doa03_model_names, bm_fs_obj_do_doa03_motion_names, 1, 1 };
+__declspec(section ".data") const char *bm_fs_obj_do_doa03_a_model_names[2] = { lbl_80440E60, NULL };
+__declspec(section ".data") const char *bm_fs_obj_do_doa03_a_motion_names[2] = { lbl_80440E74, NULL };
+BmlResourceDescriptor door_cave03_resource_descriptor = { lbl_80440EA0, bm_fs_obj_do_doa03_a_model_names, bm_fs_obj_do_doa03_a_motion_names, 1, 1 };
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -87,8 +102,7 @@ void TODoorCave03__vt13(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 is_online_ready__6TLobbyFv(void);
-extern RecoveredGlobal_80162740_lbl_804B1518 TODoorCave03__resource_descriptor;
-extern RecoveredGlobal_80162740_lbl_804B1538 door_cave03_resource_descriptor;
+
 extern s32 enable_v2_features;
 extern u32 TODoorCave03__data_805D5968;
 void load_resources__12TODoorCave03Fv(void);
@@ -260,7 +274,7 @@ void load_resources__12TODoorCave03Fv(void) {
         temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
         var_r0 = temp_r3;
         if (var_r0 != 0) {
-            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &door_cave03_resource_descriptor.value, 0, 0, 0));
+            var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &door_cave03_resource_descriptor, 0, 0, 0));
         }
         (*(s32 *)&TODoorCave03__data_805D5968) = var_r0;
         return;
@@ -268,7 +282,7 @@ void load_resources__12TODoorCave03Fv(void) {
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TODoorCave03__resource_descriptor.value, 0, 0, 0));
+        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TODoorCave03__resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TODoorCave03__data_805D5968) = var_r0_2;
 }

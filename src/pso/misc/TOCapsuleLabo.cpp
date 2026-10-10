@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80470790[];
+extern char lbl_804707AC[];
+extern const char *bm_obj_labo_infocapsule_model_names[2];
+extern BmlResourceDescriptor TOCapsuleLabo__resource_descriptor;
+extern const char *bm_obj_labo_infocapsule_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -45,7 +54,6 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
-extern RecoveredGlobal_802AF300_lbl_804DE440 TOCapsuleLabo__resource_descriptor;
 extern u32 TOCapsuleLabo__data_805D6708;
 extern s32 *lbl_805D670C;
 void load_resources__13TOCapsuleLaboFv(void);
@@ -109,7 +117,7 @@ void load_resources__13TOCapsuleLaboFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TOCapsuleLabo__data_805D6708) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = get_bml_model((void *) var_r0, 0);
@@ -198,4 +206,10 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_labo_infocapsule_model_names[2] = { lbl_80470790, NULL };
+BmlResourceDescriptor TOCapsuleLabo__resource_descriptor = { lbl_804707AC, bm_obj_labo_infocapsule_model_names, bm_obj_labo_infocapsule_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_obj_labo_infocapsule_motion_names[1] = { NULL };
 }

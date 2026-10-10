@@ -243,7 +243,7 @@ s32 set_flag8__6TLobbyFPv(void *);
 void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8015D314_lbl_804B0A10 lbl_804B0A10;
+extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
 void load_shared_resource__13TOCtrlDubchikFv(void);
 M2C_UNK apply_actor_gravity(void *, void *, f32);
@@ -542,7 +542,7 @@ void load_shared_resource__13TOCtrlDubchikFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B0A10.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_zombie_con_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOCtrlDubchik__shared_resource) = var_r0;
 }

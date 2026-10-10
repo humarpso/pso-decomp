@@ -57,7 +57,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_8016D714_lbl_80441E24 lbl_80441E24;
-extern RecoveredGlobal_8016D714_lbl_804B2DD8 lbl_804B2DD8;
+extern RecoveredGlobal_8016D714_lbl_804B2DD8 bm_fs_obj_ki_doa_panel_resource_descriptor;
 extern u32 key_machine_model_archive;
 extern s32 *TOKeyMachine01__texture_lists;
 void load_assets__14TOKeyMachine01Fv(void);
@@ -197,7 +197,7 @@ void load_assets__14TOKeyMachine01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2DD8.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_ki_doa_panel_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&key_machine_model_archive) = (unsigned char *) ((void *) var_r0);
     (*(s32 *)&TOKeyMachine01__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)8);

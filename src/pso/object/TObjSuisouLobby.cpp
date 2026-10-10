@@ -92,11 +92,11 @@ void render_shadows__7TObjectFv(); void TLobby__sub_801A1FD8(); void apply_objec
 void TParticleCtrl__sub_801A2124(); void update_object_view_visibility(); void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C(); void TObjPlayer__sub_80019568();
 #pragma readonly_strings on
-__declspec(section ".data") void *lbl_804F33D8[2] = { (void *)"lobby_suisou_s_waku.gj", 0 };
+__declspec(section ".data") void *bm_obj_lobby_suisou_model_names[2] = { (void *)"lobby_suisou_s_waku.gj", 0 };
 #pragma explicit_zero_data on
-void *lbl_805D44C0 = (void *)0;
+void *bm_obj_lobby_suisou_motion_names = (void *)0;
 #pragma explicit_zero_data reset
-void *lobby_suisou_resource_descriptor[4] = { (void *)"bm_obj_lobby_suisou.bml", (void *)lbl_804F33D8, (void *)&lbl_805D44C0, (void *)0x10000 };
+void *lobby_suisou_resource_descriptor[4] = { (void *)"bm_obj_lobby_suisou.bml", (void *)bm_obj_lobby_suisou_model_names, (void *)&bm_obj_lobby_suisou_motion_names, (void *)0x10000 };
 char *lbl_805D44C4 = "TObjSuisouLobby";
 void *__vt__15TObjSuisouLobby[14] = {
     0, 0, (void *)__dt__15TObjSuisouLobbyFv, (void *)run_task__15TObjSuisouLobbyFv, (void *)render__15TObjSuisouLobbyFv,

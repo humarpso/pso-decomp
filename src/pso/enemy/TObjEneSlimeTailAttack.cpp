@@ -914,7 +914,7 @@ extern "C" {
 void update_shock_clock__10TObjPlayerFPv();
 }
 extern void *slime_model_name_ptr_table[7];
-extern void *lbl_80496314[15];
+extern void *bm4_ps_ma_body_motion_names[15];
 extern "C" {
 void TObjPlayer__sub_800E9EFC(u8 *arg0);
 }
@@ -922,14 +922,14 @@ void *slime_model_name_ptr_table[7] = {
     (void *)&lbl_8043D008, (void *)&lbl_8043D01C, (void *)&lbl_8043D030, (void *)&lbl_8043D044,
     (void *)&lbl_8043D058, (void *)&lbl_8043D06C, (void *)0x0,
 };
-void *lbl_80496314[15] = {
+void *bm4_ps_ma_body_motion_names[15] = {
     (void *)&lbl_8043D080, (void *)&lbl_8043D09C, (void *)&lbl_8043D0B8, (void *)&lbl_8043D0D4,
     (void *)&lbl_8043D0F0, (void *)&lbl_8043D108, (void *)&lbl_8043D120, (void *)&lbl_8043D138,
     (void *)&lbl_8043D150, (void *)&lbl_8043D16C, (void *)&lbl_8043D188, (void *)&lbl_8043D1A0,
     (void *)&lbl_8043D1B8, (void *)&lbl_8043D1D0, (void *)0x0,
 };
 void *slime_pair_resource_descriptor[4] = {
-    (void *)&lbl_8043D1EC, (void *)&slime_model_name_ptr_table, (void *)&lbl_80496314, (void *)0x6000e,
+    (void *)&lbl_8043D1EC, (void *)&slime_model_name_ptr_table, (void *)&bm4_ps_ma_body_motion_names, (void *)0x6000e,
 };
 __declspec(section ".data") void *slime_debug_label_table[2] = {
     (void *)&lbl_8043D210, (void *)&lbl_805DA668,

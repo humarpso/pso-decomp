@@ -50,7 +50,7 @@ extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80173330_lbl_804B3A18 lbl_804B3A18;
+extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
 extern u32 TORainbowCave01__data_805D5A70;
 void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
@@ -188,7 +188,7 @@ void load_resource_instance__15TORainbowCave01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B3A18.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &abeniji_fe_obj001_niji_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TORainbowCave01__data_805D5A70) = var_r0;
 }

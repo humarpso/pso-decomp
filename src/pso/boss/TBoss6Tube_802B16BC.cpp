@@ -10,7 +10,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 load_gvm_texture_file(void *);
 M2C_UNK reset_state__10TBoss6TubeFv();
 extern u8 lbl_80470A68[];
-extern u8 lbl_804DE888[];
+extern u8 boss06_tube_dat_resource_descriptor[];
 extern u32 boss6_tube_bml_resource;
 extern u32 boss6_tube_texture_list;
 void load_resources__10TBoss6TubeFv(void);
@@ -55,7 +55,7 @@ void load_resources__10TBoss6TubeFv(void) {
     reset_state__10TBoss6TubeFv();
     r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, lbl_804DE888, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, boss06_tube_dat_resource_descriptor, 0, 0, 0);
     }
     boss6_tube_bml_resource = r;
     boss6_tube_texture_list = load_gvm_texture_file(lbl_80470A68);

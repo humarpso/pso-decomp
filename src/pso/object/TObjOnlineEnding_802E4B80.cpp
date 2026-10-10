@@ -49,12 +49,12 @@ struct Obj_802E4C70;
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
 void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
 void draw_scene__16TObjOnlineEndingFPv(Obj_802E4C70 *arg0);
-extern void *lbl_804E3578[2];
-extern void *lbl_804E3580[26];
-__declspec(section ".data") void *lbl_804E3578[2] = {
+extern void *onlineending_dat_model_names[2];
+extern void *onlineending_dat_motion_names[26];
+__declspec(section ".data") void *onlineending_dat_model_names[2] = {
     (void *)&lbl_804729C8, (void *)0x0,
 };
-void *lbl_804E3580[26] = {
+void *onlineending_dat_motion_names[26] = {
     (void *)&lbl_804729DC, (void *)&lbl_804729EC, (void *)&lbl_804729FC, (void *)&lbl_80472A0C,
     (void *)&lbl_80472A1C, (void *)&lbl_80472A2C, (void *)&lbl_80472A3C, (void *)&lbl_80472A4C,
     (void *)&lbl_80472A5C, (void *)&lbl_80472A6C, (void *)&lbl_80472A7C, (void *)&lbl_80472A8C,
@@ -64,7 +64,7 @@ void *lbl_804E3580[26] = {
     (void *)&lbl_80472B5C, (void *)0x0,
 };
 void *lbl_804E35E8[4] = {
-    (void *)&lbl_80472B70, (void *)&lbl_804E3578, (void *)&lbl_804E3580, (void *)0x10019,
+    (void *)&lbl_80472B70, (void *)&onlineending_dat_model_names, (void *)&onlineending_dat_motion_names, (void *)0x10019,
 };
 void *lbl_804E35F8[240] = {
     (void *)0xc1973333, (void *)0xc1000000, (void *)0xc1100000, (void *)0x24fa,

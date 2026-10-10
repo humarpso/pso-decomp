@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80441598[];
+extern char lbl_804415B0[];
+extern char lbl_804415C8[];
+extern const char *bm_fd_obj_n_saku_4x4_model_names[2];
+extern const char *bm_fd_obj_n_saku_4x4_motion_names[2];
+extern BmlResourceDescriptor TOFenceAncient03_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -60,7 +70,6 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_804415F8[];
 extern char lbl_80441610[];
 extern char lbl_80441628[];
-extern char TOFenceAncient03_resource_descriptor[];
 extern u8 *TOFenceAncient03__shared_resource_object;
 extern u32 TOFenceAncient03__texture_lists;
 void load_resources__16TOFenceAncient03Fv(void);
@@ -129,7 +138,7 @@ void load_resources__16TOFenceAncient03Fv(void) {
     Arr_801673C4 *r;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = load_resource_from_descriptor(o, 1, TOFenceAncient03_resource_descriptor, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, &TOFenceAncient03_resource_descriptor, 0, 0, 0);
     }
     (*(O_801673C4 * *)&TOFenceAncient03__shared_resource_object) = o;
     r = alloc_buffer__11TOBoss4RockFPv(0x10);
@@ -178,4 +187,10 @@ u8 *TOFenceAncient03__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fd_obj_n_saku_4x4_model_names[2] = { lbl_80441598, NULL };
+__declspec(section ".data") const char *bm_fd_obj_n_saku_4x4_motion_names[2] = { lbl_804415B0, NULL };
+BmlResourceDescriptor TOFenceAncient03_resource_descriptor = { lbl_804415C8, bm_fd_obj_n_saku_4x4_model_names, bm_fd_obj_n_saku_4x4_motion_names, 1, 1 };
 }

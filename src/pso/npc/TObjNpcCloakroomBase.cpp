@@ -100,7 +100,7 @@ struct RecoveredGlobal_801497E0___vt__20TObjNpcCloakroomBase {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80149738_lbl_804A8098 lbl_804A8098;
+extern RecoveredGlobal_80149738_lbl_804A8098 bm_n_trunk_i_body_resource_descriptor;
 extern u32 TObjNpcCloakroomBase__static_instance;
 void load_shared_resource__20TObjNpcCloakroomBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -170,7 +170,7 @@ void load_shared_resource__20TObjNpcCloakroomBaseFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804A8098.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_trunk_i_body_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcCloakroomBase__static_instance) = var_r0;
 }

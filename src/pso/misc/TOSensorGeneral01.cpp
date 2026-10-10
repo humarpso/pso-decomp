@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80442A38[];
+extern char lbl_80442A4C[];
+extern const char *bm_fs_obj_sensor_model_names[2];
+extern BmlResourceDescriptor TOSensorGeneral01__resource_descriptor;
+extern const char *bm_fs_obj_sensor_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -49,12 +58,11 @@ struct VObj_801763E4 : Base_801763E4 {
 };
 
 extern "C" {
-u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
-extern RecoveredGlobal_80176308_lbl_804B4278 TOSensorGeneral01__resource_descriptor;
 extern u32 lbl_805D5AA0;
 extern s32 *TOSensorGeneral01__texture_lists;
 void load_assets__17TOSensorGeneral01Fv(void);
@@ -205,7 +213,7 @@ void load_assets__17TOSensorGeneral01Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5AA0) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
@@ -249,4 +257,10 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fs_obj_sensor_model_names[2] = { lbl_80442A38, NULL };
+BmlResourceDescriptor TOSensorGeneral01__resource_descriptor = { lbl_80442A4C, bm_fs_obj_sensor_model_names, bm_fs_obj_sensor_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_fs_obj_sensor_motion_names[1] = { NULL };
 }

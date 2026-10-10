@@ -1,4 +1,22 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80465EAC[];
+extern char lbl_80465EC0[];
+extern char lbl_80465ED8[];
+extern char lbl_80465EF0[];
+extern char lbl_80465F08[];
+extern char lbl_80465F1C[];
+extern char lbl_80465F30[];
+__declspec(section ".data") const char *bm_obj_door_labo_model_names[3] = { lbl_80465EAC, lbl_80465EC0, NULL };
+__declspec(section ".data") const char *bm_obj_door_labo_motion_names[2] = { lbl_80465ED8, NULL };
+BmlResourceDescriptor labo_door_resource_descriptor = { lbl_80465EF0, bm_obj_door_labo_model_names, bm_obj_door_labo_motion_names, 2, 1 };
+__declspec(section ".data") const char *bm_obj_labodoor_nrm_model_names[2] = { lbl_80465F08, NULL };
+__declspec(section ".data") const char *bm_obj_labodoor_nrm_motion_names[2] = { lbl_80465F1C, NULL };
+BmlResourceDescriptor labo_door_resource_descriptor_2 = { lbl_80465F30, bm_obj_labodoor_nrm_model_names, bm_obj_labodoor_nrm_motion_names, 1, 1 };
+}
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -67,7 +85,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466040[];
 extern u8 lbl_8046605C[];
-extern u8 labo_door_resource_descriptor_2[];
+
 extern u32 TODoorLabo__model_archive;
 extern u32 TODoorLaboNormal__green_texture_list;
 extern u32 TODoorLaboNormal__red_texture_list;
@@ -165,7 +183,7 @@ extern s32 TODoorLabo__green_texture_list;
 void load_resources__10TODoorLaboFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, labo_door_resource_descriptor_2, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, &labo_door_resource_descriptor_2, 0, 0, 0);
     }
     (*(s32 *)&TODoorLabo__model_archive) = r;
     (*(s32 *)&TODoorLaboNormal__green_texture_list) = load_gvm_texture_file(lbl_80466040);
@@ -274,7 +292,7 @@ s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_80466074[];
 extern u8 lbl_80466090[];
-extern u8 labo_door_resource_descriptor[];
+
 extern s32 TODoorLabo__bml_resource;
 extern s32 TODoorLabo__green_texture_list;
 extern s32 labo_door_red_textures;
@@ -286,7 +304,7 @@ extern "C" {
 void load_labo_door_resources(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, labo_door_resource_descriptor, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, &labo_door_resource_descriptor, 0, 0, 0);
     }
     TODoorLabo__bml_resource = r;
     TODoorLabo__green_texture_list = load_gvm_texture_file(lbl_80466074);
@@ -416,7 +434,7 @@ extern M2C_UNK lbl_804660AC[];
 extern M2C_UNK lbl_804660C8[];
 extern M2C_UNK lbl_804660DC[];
 extern M2C_UNK lbl_804660FC[];
-extern M2C_UNK lbl_804DC810[];
+extern M2C_UNK bm_o_door_seabed01_u_resource_descriptor[];
 extern u32 seabed_four_light_door_bml_resource;
 void TLanguage__sub_8029FF0C(void);
 }
@@ -455,7 +473,7 @@ void TLanguage__sub_8029FF0C(void) {
     case 28:
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0 != 0) {
-            var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (lbl_804DC810), (int) (0), (int) (0), (int) (0));
+            var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (bm_o_door_seabed01_u_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         seabed_four_light_door_bml_resource = var_r0;
         seabed_four_light_door_textures = load_gvm_texture_file((void *) (lbl_804660AC));
@@ -464,7 +482,7 @@ void TLanguage__sub_8029FF0C(void) {
     case 29:
         var_r0_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0_2 != 0) {
-            var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (lbl_804DC810), (int) (0), (int) (0), (int) (0));
+            var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (bm_o_door_seabed01_u_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         seabed_four_light_door_bml_resource = var_r0_2;
         seabed_four_light_door_textures = load_gvm_texture_file((void *) (lbl_804660DC));

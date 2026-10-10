@@ -41,7 +41,7 @@ void free_static_data__16TObjRainbowLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80350808_lbl_804F0DF0 lbl_804F0DF0;
+extern RecoveredGlobal_80350808_lbl_804F0DF0 bm_obj_lobby_rainbow_resource_descriptor;
 extern u32 TObjRainbowLobby__data_805D6EB0;
 void load_shared_resource__16TObjRainbowLobbyFv(void);
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
@@ -123,7 +123,7 @@ void load_shared_resource__16TObjRainbowLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804F0DF0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_obj_lobby_rainbow_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjRainbowLobby__data_805D6EB0) = var_r0;
 }

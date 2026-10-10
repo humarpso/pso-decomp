@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445DB8[];
+extern char lbl_80445DC8[];
+extern char lbl_80445DE0[];
+extern const char *fe_obj_baiku_model_names[3];
+extern BmlResourceDescriptor motorcycle_resource_descriptor;
+extern const char *fe_obj_baiku_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -48,7 +58,6 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, void *, void *, f32, f32);
 extern RecoveredGlobal_801950B8_lbl_80445E18 lbl_80445E18;
-extern RecoveredGlobal_801950B8_lbl_804B8564 motorcycle_resource_descriptor;
 extern u32 TMotorcycle__bml_resource;
 extern u32 TMotorcycle__texture_list;
 extern const f32 lbl_805DBED8;
@@ -131,7 +140,7 @@ void load_resources__11TMotorcycleFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &motorcycle_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &motorcycle_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TMotorcycle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TMotorcycle__texture_list) = load_gvm_texture_file((s32) &lbl_80445E18.value);
@@ -165,4 +174,10 @@ void *TMotorcycle__ct(void *arg0, void *arg1, void *arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *fe_obj_baiku_model_names[3] = { lbl_80445DB8, lbl_80445DC8, NULL };
+BmlResourceDescriptor motorcycle_resource_descriptor = { lbl_80445DE0, fe_obj_baiku_model_names, fe_obj_baiku_motion_names, 2, 0 };
+__declspec(section ".sdata") const char *fe_obj_baiku_motion_names[1] = { NULL };
 }

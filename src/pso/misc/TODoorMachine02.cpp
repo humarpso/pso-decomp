@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80440F70[];
+extern char lbl_80440F84[];
+extern char lbl_80440F98[];
+extern const char *bm_fs_obj_ki_doa2_model_names[2];
+extern const char *bm_fs_obj_ki_doa2_motion_names[2];
+extern BmlResourceDescriptor TODoorMachine02_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -124,8 +134,7 @@ s32 load_gvm_texture_file(void *);
 s32 is_online_ready__6TLobbyFv();
 extern u8 lbl_80440FD8[];
 extern u8 lbl_80440FF0[];
-extern u8 TODoorMachine02_resource_descriptor[];
-extern u8 lbl_804B16B8[];
+extern u8 bm_fs_obj_ki_doa2_a_resource_descriptor[];
 extern s32 enable_v2_features;
 extern u32 lbl_805D5978;
 extern s32 *lbl_805D597C;
@@ -260,14 +269,14 @@ void load_resources__15TODoorMachine02Fv(void) {
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, lbl_804B16B8, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, bm_fs_obj_ki_doa2_a_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5978 = (u32)o;
         lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FD8);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
-            o = load_resource_from_descriptor(o, 1, TODoorMachine02_resource_descriptor, 0, 0, 0);
+            o = load_resource_from_descriptor(o, 1, &TODoorMachine02_resource_descriptor, 0, 0, 0);
         }
         lbl_805D5978 = (u32)o;
         lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FF0);
@@ -310,4 +319,10 @@ u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fs_obj_ki_doa2_model_names[2] = { lbl_80440F70, NULL };
+__declspec(section ".data") const char *bm_fs_obj_ki_doa2_motion_names[2] = { lbl_80440F84, NULL };
+BmlResourceDescriptor TODoorMachine02_resource_descriptor = { lbl_80440F98, bm_fs_obj_ki_doa2_model_names, bm_fs_obj_ki_doa2_motion_names, 1, 1 };
 }

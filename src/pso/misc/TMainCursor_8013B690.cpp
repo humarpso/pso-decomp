@@ -74,16 +74,16 @@ extern "C" u8 lbl_8043F090[];
 extern "C" u8 lbl_8043F0A4[];
 extern "C" u8 lbl_8043F0B8[];
 extern "C" u8 lbl_8043F0D0[];
-extern "C" u8 lbl_805D2CB0[];
+extern "C" u8 bm_ply_lock_on_cursor_motion_names[];
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void update_target_player__11TMainCursorFi();
-extern void *lbl_804A7130[4];
-void *lbl_804A7130[4] = {
+extern void *bm_ply_lock_on_cursor_model_names[4];
+void *bm_ply_lock_on_cursor_model_names[4] = {
     (void *)&lbl_8043F090, (void *)&lbl_8043F0A4, (void *)&lbl_8043F0B8, (void *)0x0,
 };
 void *target_cursor_resource_descriptor[4] = {
-    (void *)&lbl_8043F0D0, (void *)&lbl_804A7130, (void *)&lbl_805D2CB0, (void *)0x30000,
+    (void *)&lbl_8043F0D0, (void *)&bm_ply_lock_on_cursor_model_names, (void *)&bm_ply_lock_on_cursor_motion_names, (void *)0x30000,
 };
 void *cursor_action_priority_table[5] = {
     (void *)0x3080b05, (void *)0xa0d0409, (void *)0xc071516, (void *)0x13140010,

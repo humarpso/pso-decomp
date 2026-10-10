@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern const char lbl_80441648[];
+extern const char lbl_80441660[];
+extern const char lbl_80441678[];
+extern const char *bm_fd_obj_n_saku_6x4_model_names[2];
+extern const char *bm_fd_obj_n_saku_6x4_motion_names[2];
+extern BmlResourceDescriptor TOFenceAncient04_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -326,7 +336,6 @@ extern M2C_UNK __vt__22TOHangceilingCave01Key[];
 extern M2C_UNK __vt__25TOHangceilingCave01Normal[];
 extern M2C_UNK __vt__27TOHangceilingCave01KeyQuick[];
 extern Q_801681D0 lbl_804417EC;
-extern u8 TOFenceAncient04_resource_descriptor[];
 extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
 extern s32 TOFenceAncient04__class_name;
 extern void *TOHangceilingCave01Normal__class_name;
@@ -400,7 +409,7 @@ void destroy__16TOFenceAncient04Fv(void) {
 void load_resources__16TOFenceAncient04Fv(void) {
     Big_8016775C *v = (Big_8016775C *)alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (v != NULL) {
-        v = load_resource_from_descriptor(v, 1, TOFenceAncient04_resource_descriptor, 0, 0, 0);
+        v = load_resource_from_descriptor(v, 1, &TOFenceAncient04_resource_descriptor, 0, 0, 0);
     }
     (*(Big_8016775C * *)&TOFenceAncient04__model_archive) = v;
     (*(Buf_8016775C * *)&TOFenceAncient04__resource_bundle) = alloc_buffer__11TOBoss4RockFPv(0x10);
@@ -451,4 +460,10 @@ u8 *TOFenceAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fd_obj_n_saku_6x4_model_names[2] = { (const char *)lbl_80441648, NULL };
+__declspec(section ".data") const char *bm_fd_obj_n_saku_6x4_motion_names[2] = { (const char *)lbl_80441660, NULL };
+BmlResourceDescriptor TOFenceAncient04_resource_descriptor = { (const char *)lbl_80441678, bm_fd_obj_n_saku_6x4_model_names, bm_fd_obj_n_saku_6x4_motion_names, 1, 1 };
 }

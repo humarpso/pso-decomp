@@ -28,7 +28,7 @@ extern "C" {
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8017F45C_lbl_804B5830 lbl_804B5830;
+extern RecoveredGlobal_8017F45C_lbl_804B5830 bm_o_abe_butterfly_resource_descriptor;
 extern s32 butterfly_bml_resource;
 void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
@@ -53,7 +53,7 @@ void fn_8017F45C(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B5830.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_abe_butterfly_resource_descriptor.value, 0, 0, 0));
     }
     butterfly_bml_resource = var_r0;
 }

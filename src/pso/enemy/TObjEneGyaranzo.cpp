@@ -1173,19 +1173,19 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_80494108[8];
-extern void *lbl_80494128[9];
-void *lbl_80494108[8] = {
+extern void *bm_ene_gyaranzo_model_names[8];
+extern void *bm_ene_gyaranzo_motion_names[9];
+void *bm_ene_gyaranzo_model_names[8] = {
     (void *)&lbl_8043C100, (void *)&lbl_8043C114, (void *)&lbl_8043C128, (void *)&lbl_8043C13C,
     (void *)&lbl_8043C14C, (void *)&lbl_8043C15C, (void *)&lbl_8043C16C, (void *)0x0,
 };
-void *lbl_80494128[9] = {
+void *bm_ene_gyaranzo_motion_names[9] = {
     (void *)&lbl_8043C180, (void *)&lbl_8043C198, (void *)&lbl_8043C1B0, (void *)&lbl_8043C1C8,
     (void *)&lbl_8043C1DC, (void *)&lbl_8043C1F0, (void *)&lbl_8043C208, (void *)&lbl_8043C220,
     (void *)0x0,
 };
-void *lbl_8049414C[4] = {
-    (void *)&lbl_8043C238, (void *)&lbl_80494108, (void *)&lbl_80494128, (void *)0x70008,
+void *bm_ene_gyaranzo_resource_descriptor[4] = {
+    (void *)&lbl_8043C238, (void *)&bm_ene_gyaranzo_model_names, (void *)&bm_ene_gyaranzo_motion_names, (void *)0x70008,
 };
 void *lbl_8049415C[32] = {
     (void *)0x20000, (void *)0x4, (void *)0x3f333333, (void *)0x0,
@@ -1242,7 +1242,7 @@ void *lbl_80494288[83] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
-#define lbl_8049414C ((M2C_UNK *)lbl_8049414C)
+#define bm_ene_gyaranzo_resource_descriptor ((M2C_UNK *)bm_ene_gyaranzo_resource_descriptor)
 #define lbl_80494224 ((s16 *)lbl_80494224)
 #define lbl_80494250 ((s16 *)lbl_80494250)
 #define lbl_8049426C ((u8 *)lbl_8049426C)
@@ -1728,11 +1728,11 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
     void *p;
 
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        gyaranzo_bml_resource = load_enemy_bml_resource_named(lbl_8049414C, lbl_8043C428);
+        gyaranzo_bml_resource = load_enemy_bml_resource_named(bm_ene_gyaranzo_resource_descriptor, lbl_8043C428);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = (void *)load_resource_from_descriptor(p, 5, lbl_8049414C, 0, 0, 0);
+            p = (void *)load_resource_from_descriptor(p, 5, bm_ene_gyaranzo_resource_descriptor, 0, 0, 0);
         }
         gyaranzo_bml_resource = (u32)p;
     }

@@ -5,7 +5,7 @@ s32 get_bml_model(void *, int);
 void *load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, int);
-extern u8 lbl_804E0C00[];
+extern u8 bm_obj_jungle_nokogiri_resource_descriptor[];
 extern s32 seabed_suiso_linked_switch_counts[5];
 extern s32 seabed_suiso_switch_counts[5];
 extern void *lbl_805D6808;
@@ -30,7 +30,7 @@ void load_shared_models__23TObjSeabedSuisoBrakableFv(void) {
     s32 h;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 5, lbl_804E0C00, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 5, bm_obj_jungle_nokogiri_resource_descriptor, 0, 0, 0);
     }
     lbl_805D6808 = p;
     for (i = 0; i < 5; i++) {

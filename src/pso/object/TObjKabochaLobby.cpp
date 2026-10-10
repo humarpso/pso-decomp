@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80479170[];
+extern char lbl_80479184[];
+extern const char *bm_obj_lobby_kabocha_model_names[2];
+extern BmlResourceDescriptor lobby_pumpkin_resource_descriptor;
+extern const char *bm_obj_lobby_kabocha_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -57,7 +66,6 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_80353684_lbl_804F11E8 lobby_pumpkin_resource_descriptor;
 extern u32 TObjKabochaLobby__data_805D6EE8;
 void load_resources__16TObjKabochaLobbyFv(void);
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
@@ -144,7 +152,7 @@ void load_resources__16TObjKabochaLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjKabochaLobby__data_805D6EE8) = var_r0;
     TObjKabochaLobby__data_805D6EEC = get_lobby_type__6TLobbyFv();
@@ -175,4 +183,9 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_lobby_kabocha_model_names[2] = { lbl_80479170, NULL };
+BmlResourceDescriptor lobby_pumpkin_resource_descriptor = { lbl_80479184, bm_obj_lobby_kabocha_model_names, bm_obj_lobby_kabocha_motion_names, 1, 0 };
 }

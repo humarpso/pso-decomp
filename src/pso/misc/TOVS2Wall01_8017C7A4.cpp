@@ -60,7 +60,7 @@ s32 TObjFish__sub_8001EDB0(int, void *);
 u8 *get_bml_model(s32, s32);
 s32 load_resource_from_descriptor(int, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
-extern RecoveredGlobal_8017C7DC_lbl_804B4EBC lbl_804B4EBC;
+extern RecoveredGlobal_8017C7DC_lbl_804B4EBC bm_o_vs2_resource_descriptor;
 extern u32 TOVS2Wall01__bml_resource;
 extern const f32 lbl_805DBAA8;
 extern const f32 lbl_805DBAB4;
@@ -111,7 +111,7 @@ void load_resources__11TOVS2Wall01Fv(void) {
   var_r0 = temp_r3;
   if (var_r0 != 0)
   {
-    var_r0 = load_resource_from_descriptor((int) temp_r3, (int) 1, (void *) (&lbl_804B4EBC.value), (int) 0, (int) 0, (int) 0);
+    var_r0 = load_resource_from_descriptor((int) temp_r3, (int) 1, (void *) (&bm_o_vs2_resource_descriptor.value), (int) 0, (int) 0, (int) 0);
   }
   (*(s32 *)&TOVS2Wall01__bml_resource) = var_r0;
   ;

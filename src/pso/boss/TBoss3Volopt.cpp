@@ -422,7 +422,7 @@ extern RecoveredGlobal_8003EFF0___vt__12TBoss3Volopt __vt__12TBoss3Volopt;
 extern RecoveredGlobal_8003DC34_lbl_80436318 lbl_80436318;
 extern unsigned char lbl_80436328[];
 extern RecoveredGlobal_8003C7EC_lbl_80483578 lbl_80483578;
-extern u8 lbl_804836A0[];
+extern u8 bm_boss3_volopt_resource_descriptor[];
 extern u8 boss3_volopt_resource_desc[];
 extern u16 volopt_target_entity_ids[];
 extern RecoveredGlobal_8003D648_lbl_8048377C boss3_volopt_intro_camera_poses;
@@ -1532,7 +1532,7 @@ void load_resources__12TBoss3VoloptFv(void) {
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804836A0, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, bm_boss3_volopt_resource_descriptor, 0, 0, 0);
         }
         boss3_volopt_resources = (u32)p;
     }

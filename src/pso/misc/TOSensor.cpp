@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80442980[];
+extern char lbl_80442998[];
+extern char lbl_804429B0[];
+extern const char *bm_fs_obj_o_sensor01_model_names[2];
+extern const char *bm_fs_obj_o_sensor01_motion_names[2];
+extern BmlResourceDescriptor TOSensorAncient01__resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -322,7 +332,6 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(const void *);
-extern u8 TOSensorAncient01__resource_descriptor[];
 extern u32 lbl_805D5A88;
 extern void *lbl_805D5A8C;
 extern s32 lbl_805D5A90;
@@ -475,7 +484,7 @@ void load_resources__17TOSensorAncient01Fv(void) {
     void *p;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (p != NULL) {
-        p = load_resource_from_descriptor(p, 1, TOSensorAncient01__resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, &TOSensorAncient01__resource_descriptor, 0, 0, 0);
     }
     lbl_805D5A88 = (u32)p;
     lbl_805D5A8C = alloc_buffer__11TOBoss4RockFPv(0x10);
@@ -543,4 +552,10 @@ u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 }
 #pragma pop
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fs_obj_o_sensor01_model_names[2] = { lbl_80442980, NULL };
+__declspec(section ".data") const char *bm_fs_obj_o_sensor01_motion_names[2] = { lbl_80442998, NULL };
+BmlResourceDescriptor TOSensorAncient01__resource_descriptor = { lbl_804429B0, bm_fs_obj_o_sensor01_model_names, bm_fs_obj_o_sensor01_motion_names, 1, 1 };
 }

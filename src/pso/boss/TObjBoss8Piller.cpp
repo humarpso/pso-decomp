@@ -3,13 +3,11 @@
 TObjBoss8Piller::~TObjBoss8Piller() {}
 
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_8030B048_lbl_804E7688 { M2C_UNK value; u8 remaining[0xC]; };
-typedef char RecoveredGlobal_8030B048_lbl_804E7688_size[sizeof(RecoveredGlobal_8030B048_lbl_804E7688) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller {
     M2C_UNK value;
@@ -19,7 +17,7 @@ struct RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8030B048_lbl_804E7688 lbl_804E7688;
+extern BmlResourceDescriptor bm_obj_boss8_piller_resource_descriptor;
 extern u32 TObjBoss8Piller__shared_resource;
 void load_resource_descriptor__15TObjBoss8PillerFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -67,9 +65,22 @@ void load_resource_descriptor__15TObjBoss8PillerFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E7688.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_boss8_piller_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjBoss8Piller__shared_resource) = var_r0;
 }
 
+}
+
+extern "C" {
+extern char lbl_80475658[];
+extern char lbl_80475670[];
+extern char lbl_80475688[];
+extern char lbl_804756A4[];
+extern char lbl_804756C0[];
+extern char lbl_804756D8[];
+extern char lbl_804756F0[];
+__declspec(section ".data") const char *bm_obj_boss8_piller_model_names[5] = { lbl_80475658, lbl_80475670, lbl_80475688, lbl_804756A4, NULL };
+__declspec(section ".data") const char *bm_obj_boss8_piller_motion_names[3] = { lbl_804756C0, lbl_804756D8, NULL };
+BmlResourceDescriptor bm_obj_boss8_piller_resource_descriptor = { lbl_804756F0, bm_obj_boss8_piller_model_names, bm_obj_boss8_piller_motion_names, 4, 2 };
 }

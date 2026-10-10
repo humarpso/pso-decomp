@@ -85,8 +85,8 @@ extern "C" u8 lbl_8043A048[];
 extern "C" u8 lbl_8043A060[];
 extern "C" u8 lbl_8043A078[];
 extern "C" u8 lbl_8043A090[];
-extern void *lbl_8048FAB0[2];
-extern void *lbl_8048FAB8[12];
+extern void *bm_ene_df2_bringer_model_names[2];
+extern void *bm_ene_df2_bringer_motion_names[12];
 void *lbl_8048FA10[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -102,16 +102,16 @@ void *lbl_8048FA2C[33] = {
     (void *)0x9d03, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0,
 };
-__declspec(section ".data") void *lbl_8048FAB0[2] = {
+__declspec(section ".data") void *bm_ene_df2_bringer_model_names[2] = {
     (void *)&lbl_80439F70, (void *)0x0,
 };
-void *lbl_8048FAB8[12] = {
+void *bm_ene_df2_bringer_motion_names[12] = {
     (void *)&lbl_80439F84, (void *)&lbl_80439F9C, (void *)&lbl_80439FB4, (void *)&lbl_80439FD0,
     (void *)&lbl_80439FE8, (void *)&lbl_8043A000, (void *)&lbl_8043A018, (void *)&lbl_8043A030,
     (void *)&lbl_8043A048, (void *)&lbl_8043A060, (void *)&lbl_8043A078, (void *)0x0,
 };
-void *lbl_8048FAE8[4] = {
-    (void *)&lbl_8043A090, (void *)&lbl_8048FAB0, (void *)&lbl_8048FAB8, (void *)0x1000b,
+void *bm_ene_df2_bringer_resource_descriptor[4] = {
+    (void *)&lbl_8043A090, (void *)&bm_ene_df2_bringer_model_names, (void *)&bm_ene_df2_bringer_motion_names, (void *)0x1000b,
 };
 void *lbl_8048FAF8[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f4ccccd, (void *)0x0,
@@ -3615,11 +3615,11 @@ void load_resources__17TObjEneDf2BringerFv(void) {
   lbl_805008A8.z = TObjEneDf2Bringer__data_805D97E0;
   if (check_v2_mode__9TObjEneDDFv() != 0)
   {
-    TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource_named(lbl_8048FAE8, lbl_8043A108);
+    TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource_named(bm_ene_df2_bringer_resource_descriptor, lbl_8043A108);
   }
   else
   {
-    TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource(lbl_8048FAE8);
+    TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource(bm_ene_df2_bringer_resource_descriptor);
   }
   lbl_805D4FA8 = register_boss__6TLobbyFPv(0xD);
   lbl_805D4FAC = dispatch_shared_handler_b__6TLobbyFPv(0xD);

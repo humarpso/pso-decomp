@@ -1,4 +1,21 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_804433E8[];
+extern char lbl_804433FC[];
+extern char lbl_80443410[];
+extern char lbl_80443424[];
+extern char lbl_80443438[];
+extern char lbl_8044344C[];
+extern char lbl_80443460[];
+extern char lbl_80443474[];
+extern char lbl_80443488[];
+extern char lbl_8044349C[];
+extern const char *bm_fe_obj_o_hahen_motion_names[];
+extern const char *bm_fe_obj_o_hahen_model_names[10];
+extern BmlResourceDescriptor TOWreckAncient__resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -24,8 +41,7 @@ struct RecoveredGlobal_8017DE94___vt__14TOWreckAncient {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8017DDA8_lbl_804B53D0 lbl_804B53D0;
-extern RecoveredGlobal_8017DDA8_lbl_804B5408 TOWreckAncient__resource_descriptor;
+extern RecoveredGlobal_8017DDA8_lbl_804B53D0 bm_o_wreck_ancient_resource_descriptor;
 extern u32 wreck_ancient_bml_resource;
 extern u32 wreck_ancient_brakable_bml_resource;
 void load_resources__14TOWreckAncientFv(void);
@@ -94,13 +110,13 @@ void load_resources__14TOWreckAncientFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B53D0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_wreck_ancient_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_bml_resource) = var_r0;
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor.value, 0, 0, 0));
+        var_r0_2 = (long) (load_resource_from_descriptor((void *) temp_r3_2, 1, &TOWreckAncient__resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&wreck_ancient_brakable_bml_resource) = var_r0_2;
 }
@@ -129,4 +145,9 @@ u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fe_obj_o_hahen_model_names[10] = { lbl_804433E8, lbl_804433FC, lbl_80443410, lbl_80443424, lbl_80443438, lbl_8044344C, lbl_80443460, lbl_80443474, lbl_80443488, NULL };
+BmlResourceDescriptor TOWreckAncient__resource_descriptor = { lbl_8044349C, bm_fe_obj_o_hahen_model_names, bm_fe_obj_o_hahen_motion_names, 9, 0 };
 }

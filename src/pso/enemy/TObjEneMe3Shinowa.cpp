@@ -2797,8 +2797,8 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_80495C28[2];
-extern void *lbl_80495C30[11];
+extern void *bm_ene_me3_shinowa_model_names[2];
+extern void *bm_ene_me3_shinowa_motion_names[11];
 void *TObjEneMe3ShinowaMirage__init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2808,16 +2808,16 @@ void *shinowa_mirage_model_init_data[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-__declspec(section ".data") void *lbl_80495C28[2] = {
+__declspec(section ".data") void *bm_ene_me3_shinowa_model_names[2] = {
     (void *)&lbl_8043CE3C, (void *)0x0,
 };
-void *lbl_80495C30[11] = {
+void *bm_ene_me3_shinowa_motion_names[11] = {
     (void *)&lbl_8043CE4C, (void *)&lbl_8043CE60, (void *)&lbl_8043CE78, (void *)&lbl_8043CE90,
     (void *)&lbl_8043CEA4, (void *)&lbl_8043CEBC, (void *)&lbl_8043CED0, (void *)&lbl_8043CEE8,
     (void *)&lbl_8043CF00, (void *)&lbl_8043CF14, (void *)0x0,
 };
 void *shinowa_mirage_resource_descriptor[4] = {
-    (void *)&lbl_8043CF28, (void *)&lbl_80495C28, (void *)&lbl_80495C30, (void *)0x1000a,
+    (void *)&lbl_8043CF28, (void *)&bm_ene_me3_shinowa_model_names, (void *)&bm_ene_me3_shinowa_motion_names, (void *)0x1000a,
 };
 void *shinowa_mirage_motion_param_table[44] = {
     (void *)0x10000, (void *)0x7, (void *)0x3f000000, (void *)0x80000000,

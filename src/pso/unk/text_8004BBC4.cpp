@@ -118,7 +118,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK fn_802E52AC();
 M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
-extern RecoveredGlobal_8004C0D4_lbl_80484D74 lbl_80484D74;
+extern RecoveredGlobal_8004C0D4_lbl_80484D74 darkfalz_dat_resource_descriptor;
 extern int lbl_805D4D58;
 void load_resources__14TBoss4DarkFalzFv(void);
 M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
@@ -366,7 +366,7 @@ void load_resources__14TBoss4DarkFalzFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_80484D74.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &darkfalz_dat_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D4D58) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {

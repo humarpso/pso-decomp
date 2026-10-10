@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80465938[];
+extern char lbl_80465950[];
+extern char lbl_80465964[];
+extern const char *bm_o_grass_jungle_model_names[3];
+extern BmlResourceDescriptor ograss_jungle_resource_descriptor;
+extern const char *bm_o_grass_jungle_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -17,7 +27,6 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
 M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_8029CD0C_lbl_8046598C lbl_8046598C;
-extern RecoveredGlobal_8029CD0C_lbl_804DC534 ograss_jungle_resource_descriptor;
 extern u32 TOGrassJungle__bml_resource;
 extern u32 TOGrassJungle__grass_gvm_texture;
 extern const f32 lbl_805DDD28;
@@ -65,11 +74,17 @@ void load_resources__13TOGrassJungleFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &ograss_jungle_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &ograss_jungle_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TOGrassJungle__bml_resource) = (unsigned char *) ((void *) var_r0);
     (*(u8 * *)&TOGrassJungle__grass_gvm_texture) = load_gvm_texture_file((s32) &lbl_8046598C.value);
     add_entry__11TMotorcycleFsiiff((int) (0x3F), (int) (get_bml_model((*(u8 * *)&TOGrassJungle__bml_resource), 0)), (int) ((*(u8 * *)&TOGrassJungle__grass_gvm_texture)), (f32) (lbl_805DDD28), (f32) (lbl_805DDD2C));
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_o_grass_jungle_model_names[3] = { lbl_80465938, lbl_80465950, NULL };
+BmlResourceDescriptor ograss_jungle_resource_descriptor = { lbl_80465964, bm_o_grass_jungle_model_names, bm_o_grass_jungle_motion_names, 2, 0 };
+__declspec(section ".sdata") const char *bm_o_grass_jungle_motion_names[1] = { NULL };
 }

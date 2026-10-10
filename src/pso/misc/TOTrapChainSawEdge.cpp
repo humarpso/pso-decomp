@@ -377,12 +377,12 @@ void *chainsaw_ginja_model_filenames[6] = {
     (void *)"fe_obj_nokogiri_2m.gj", (void *)"fe_obj_nokogiri_4m.gj", (void *)"fe_obj_sekigai_light_moto.gj", (void *)"fe_obj_sekigai2m_moto.gj",
     (void *)"fe_obj_sekigai4m_moto.gj", (void *)0x0,
 };
-void *lbl_804E0BE8[6] = {
+void *bm_obj_jungle_nokogiri_motion_names[6] = {
     (void *)"fe_obj_nokogiri_2m.njm", (void *)"fe_obj_nokogiri_4m.njm", (void *)"fe_obj_sekigai_light_moto.njm", (void *)"fe_obj_sekigai2m_moto.njm",
     (void *)"fe_obj_sekigai4m_moto.njm", (void *)0x0,
 };
-void *lbl_804E0C00[4] = {
-    (void *)"bm_obj_jungle_nokogiri.bml", (void *)&chainsaw_ginja_model_filenames, (void *)&lbl_804E0BE8, (void *)0x50005,
+void *bm_obj_jungle_nokogiri_resource_descriptor[4] = {
+    (void *)"bm_obj_jungle_nokogiri.bml", (void *)&chainsaw_ginja_model_filenames, (void *)&bm_obj_jungle_nokogiri_motion_names, (void *)0x50005,
 };
 const char *TOTrapChainSaw__name = "TOTrapChainSaw";
 __declspec(section ".rodata") F4_802C8FF8 TOTrapChainSaw__level_scale_table = { 1.0f, 2.0f, 3.0f, 6.0f };

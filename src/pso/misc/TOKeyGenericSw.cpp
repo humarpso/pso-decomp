@@ -1,4 +1,35 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+struct BmlResourceBlock_804B2CC0 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B2CC0_size[(sizeof(BmlResourceBlock_804B2CC0) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B2CC0_descriptor_offset[(offsetof(BmlResourceBlock_804B2CC0, descriptor) == 0x8) ? 1 : -1];
+struct BmlResourceBlock_804B2CE0 { const char *motion_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B2CE0_size[(sizeof(BmlResourceBlock_804B2CE0) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B2CE0_descriptor_offset[(offsetof(BmlResourceBlock_804B2CE0, descriptor) == 0x8) ? 1 : -1];
+struct BmlResourceBlock_804B2CF8 { const char *model_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B2CF8_size[(sizeof(BmlResourceBlock_804B2CF8) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B2CF8_descriptor_offset[(offsetof(BmlResourceBlock_804B2CF8, descriptor) == 0x8) ? 1 : -1];
+struct BmlResourceBlock_804B2D18 { const char *motion_filenames[2]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B2D18_size[(sizeof(BmlResourceBlock_804B2D18) == 0x18) ? 1 : -1];
+typedef char BmlResourceBlock_804B2D18_descriptor_offset[(offsetof(BmlResourceBlock_804B2D18, descriptor) == 0x8) ? 1 : -1];
+extern "C" {
+extern char lbl_80441C30[];
+extern char lbl_80441C4C[];
+extern char lbl_80441C68[];
+extern char lbl_80441C84[];
+extern char lbl_80441CA0[];
+extern char lbl_80441CBC[];
+extern char lbl_80441CD8[];
+extern BmlResourceBlock_804B2CC0 fs_obj_hanyousu_body1_resource_bundle;
+extern const char *fs_obj_hanyousu_light_model_names[2];
+extern BmlResourceBlock_804B2CE0 fs_obj_hanyousu_light_resource_bundle;
+extern BmlResourceBlock_804B2CF8 fs_obj_hanyousu_body1_j_resource_bundle;
+extern const char *fs_obj_hanyousu_light_j_model_names[2];
+extern BmlResourceBlock_804B2D18 fs_obj_hanyousu_light_j_resource_bundle;
+extern const char *fs_obj_hanyousu_body1_motion_names[1];
+extern const char *fs_obj_hanyousu_body1_j_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -75,7 +106,6 @@ s32 is_global_state_in_table__19TContainerAncient01Fv(void);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern char lbl_80441D04[];
 extern char lbl_80441D24[];
-extern u8 lbl_804B2CC0[];
 extern Map_8016CA64 *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 *TOKeyGenericSw__texture_lists;
 void load_resources__14TOKeyGenericSwFv(void);
@@ -176,7 +206,7 @@ void free_shared_resources__14TOKeyGenericSwFv(void) {
 }
 
 void load_resources__14TOKeyGenericSwFv(void) {
-    u8 *base = lbl_804B2CC0;
+    u8 *base = (u8 *)&fs_obj_hanyousu_body1_resource_bundle;
     s32 st = get_global_state__14TOKeyMachine01Fv();
     void *p;
     if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || st == 0x1C || st == 0x1D) {
@@ -225,4 +255,15 @@ void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") BmlResourceBlock_804B2CC0 fs_obj_hanyousu_body1_resource_bundle = { { lbl_80441C30, NULL }, { lbl_80441C4C, fs_obj_hanyousu_body1_resource_bundle.model_filenames, fs_obj_hanyousu_body1_motion_names, 1, 0 } };
+__declspec(section ".data") const char *fs_obj_hanyousu_light_model_names[2] = { lbl_80441C68, NULL };
+__declspec(section ".data") BmlResourceBlock_804B2CE0 fs_obj_hanyousu_light_resource_bundle = { { lbl_80441C84, NULL }, { lbl_80441CA0, fs_obj_hanyousu_light_model_names, fs_obj_hanyousu_light_resource_bundle.motion_filenames, 1, 1 } };
+__declspec(section ".data") BmlResourceBlock_804B2CF8 fs_obj_hanyousu_body1_j_resource_bundle = { { lbl_80441C30, NULL }, { lbl_80441CBC, fs_obj_hanyousu_body1_j_resource_bundle.model_filenames, fs_obj_hanyousu_body1_j_motion_names, 1, 0 } };
+__declspec(section ".data") const char *fs_obj_hanyousu_light_j_model_names[2] = { lbl_80441C68, NULL };
+__declspec(section ".data") BmlResourceBlock_804B2D18 fs_obj_hanyousu_light_j_resource_bundle = { { lbl_80441C84, NULL }, { lbl_80441CD8, fs_obj_hanyousu_light_j_model_names, fs_obj_hanyousu_light_j_resource_bundle.motion_filenames, 1, 1 } };
+__declspec(section ".sdata") const char *fs_obj_hanyousu_body1_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *fs_obj_hanyousu_body1_j_motion_names[1] = { NULL };
 }

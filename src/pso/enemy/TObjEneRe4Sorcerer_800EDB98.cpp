@@ -1777,8 +1777,8 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_80496F28[3];
-extern void *lbl_80496F34[9];
+extern void *bm_ene_re4_sorcerer_model_names[3];
+extern void *bm_ene_re4_sorcerer_motion_names[9];
 void *lbl_80496EE0[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1788,16 +1788,16 @@ void *lbl_80496EFC[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80496F28[3] = {
+void *bm_ene_re4_sorcerer_model_names[3] = {
     (void *)&lbl_8043D2F0, (void *)&lbl_8043D308, (void *)0x0,
 };
-void *lbl_80496F34[9] = {
+void *bm_ene_re4_sorcerer_motion_names[9] = {
     (void *)&lbl_8043D318, (void *)&lbl_8043D330, (void *)&lbl_8043D348, (void *)&lbl_8043D360,
     (void *)&lbl_8043D374, (void *)&lbl_8043D38C, (void *)&lbl_8043D3A0, (void *)&lbl_8043D3B8,
     (void *)0x0,
 };
-void *lbl_80496F58[4] = {
-    (void *)&lbl_8043D3CC, (void *)&lbl_80496F28, (void *)&lbl_80496F34, (void *)0x20008,
+void *bm_ene_re4_sorcerer_resource_descriptor[4] = {
+    (void *)&lbl_8043D3CC, (void *)&bm_ene_re4_sorcerer_model_names, (void *)&bm_ene_re4_sorcerer_motion_names, (void *)0x20008,
 };
 void *lbl_80496F68[32] = {
     (void *)0x10000, (void *)0x7, (void *)0x3f19999a, (void *)0x0,
@@ -1839,7 +1839,7 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneRe4Sorcerer__vt103, (void *)&TObjEneRe4Sorcerer__vt104,
 };
 #define lbl_80496EFC ((f32 *)lbl_80496EFC)
-#define lbl_80496F58 ((u8 *)lbl_80496F58)
+#define bm_ene_re4_sorcerer_resource_descriptor ((u8 *)bm_ene_re4_sorcerer_resource_descriptor)
 #define __vt__18TObjEneRe4Sorcerer ((M2C_UNK *)__vt__18TObjEneRe4Sorcerer)
 
 void render__18TObjEneRe4SorcererFv(u8 *arg0) {
@@ -3081,9 +3081,9 @@ void load_resources__18TObjEneRe4SorcererFv(void) {
     lbl_80501070.y = TObjEneRe4Sorcerer__data_805DA790;
     lbl_80501070.z = TObjEneRe4Sorcerer__data_805DA790;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        sorcerer_bml_resource = load_enemy_bml_resource_named(lbl_80496F58, lbl_8043D418);
+        sorcerer_bml_resource = load_enemy_bml_resource_named(bm_ene_re4_sorcerer_resource_descriptor, lbl_8043D418);
     } else {
-        sorcerer_bml_resource = load_enemy_bml_resource(lbl_80496F58);
+        sorcerer_bml_resource = load_enemy_bml_resource(bm_ene_re4_sorcerer_resource_descriptor);
     }
     lbl_805D52D0 = register_boss__6TLobbyFPv(0xA);
     TObjEneRe4Sorcerer__attack_params = dispatch_shared_handler_b__6TLobbyFPv(0xA);

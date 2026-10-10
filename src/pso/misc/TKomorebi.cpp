@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445A00[];
+extern char lbl_80445A10[];
+extern const char *bm_fe_obj_komo_model_names[2];
+extern BmlResourceDescriptor TKomorebi__resource_descriptor;
+extern const char *bm_fe_obj_komo_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -37,7 +46,6 @@ extern u32 TKomorebi__resource_bundle;
 u8 *TKomorebi__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-extern u8 TKomorebi__resource_descriptor[];
 extern u32 TKomorebi__resource_bundle;
 extern s32 komorebi_last_uv_update_frame;
 void load_resources__9TKomorebiFv(void);
@@ -149,7 +157,7 @@ void free_static__9TKomorebiFv(void) {
 void load_resources__9TKomorebiFv(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     if (p != 0) {
-        p = load_resource_from_descriptor(p, 1, TKomorebi__resource_descriptor, 0, 0, 0);
+        p = load_resource_from_descriptor(p, 1, &TKomorebi__resource_descriptor, 0, 0, 0);
     }
     TKomorebi__resource_bundle = (u32)p;
     komorebi_last_uv_update_frame = 0;
@@ -182,4 +190,10 @@ void init_models__8TObjFishFPv(Fish_80192434 *arg0) {
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fe_obj_komo_model_names[2] = { lbl_80445A00, NULL };
+BmlResourceDescriptor TKomorebi__resource_descriptor = { lbl_80445A10, bm_fe_obj_komo_model_names, bm_fe_obj_komo_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_fe_obj_komo_motion_names[1] = { NULL };
 }

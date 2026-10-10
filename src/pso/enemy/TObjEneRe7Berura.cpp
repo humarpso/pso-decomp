@@ -747,8 +747,8 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern void *lbl_8048F698[2];
-extern void *lbl_8048F6A0[9];
+extern void *bm_ene_re7_berura_model_names[2];
+extern void *bm_ene_re7_berura_motion_names[9];
 void *lbl_8048F650[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -758,16 +758,16 @@ void *lbl_8048F66C[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-__declspec(section ".data") void *lbl_8048F698[2] = {
+__declspec(section ".data") void *bm_ene_re7_berura_model_names[2] = {
     (void *)&lbl_80439DC0, (void *)0x0,
 };
-void *lbl_8048F6A0[9] = {
+void *bm_ene_re7_berura_motion_names[9] = {
     (void *)&lbl_80439DD4, (void *)&lbl_80439DEC, (void *)&lbl_80439E04, (void *)&lbl_80439E18,
     (void *)&lbl_80439E30, (void *)&lbl_80439E48, (void *)&lbl_80439E60, (void *)&lbl_80439E74,
     (void *)0x0,
 };
 void *ene_berura_bml_descriptor[4] = {
-    (void *)&lbl_80439E88, (void *)&lbl_8048F698, (void *)&lbl_8048F6A0, (void *)0x10008,
+    (void *)&lbl_80439E88, (void *)&bm_ene_re7_berura_model_names, (void *)&bm_ene_re7_berura_motion_names, (void *)0x10008,
 };
 void *TObjEneRe7Berura__animation_definitions[32] = {
     (void *)0x10000, (void *)0x6, (void *)0x3f4ccccd, (void *)0x0,

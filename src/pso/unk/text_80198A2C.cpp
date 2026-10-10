@@ -473,7 +473,7 @@ extern "C" u8 lbl_80446018[];
 extern "C" u8 lbl_80446028[];
 extern "C" u8 lbl_80446038[];
 extern "C" u8 lbl_80446050[];
-extern "C" u8 lbl_805D3438[];
+extern "C" u8 biri_ball_motion_names[];
 void *lbl_804B8A10[210] = {
     (void *)0xbf000000, (void *)0x3f600000, (void *)0x0, (void *)0x40600000,
     (void *)0x40200000, (void *)0x8d480ff, (void *)0x0, (void *)0x41a00000,
@@ -529,12 +529,12 @@ void *lbl_804B8A10[210] = {
     (void *)0x0, (void *)0x0, (void *)0x41f00000, (void *)0x0,
     (void *)0x41000000, (void *)0x40400000,
 };
-void *lbl_804B8D58[6] = {
+void *biri_ball_model_names[6] = {
     (void *)&lbl_80445FF0, (void *)&lbl_80446000, (void *)&lbl_80446018, (void *)&lbl_80446028,
     (void *)&lbl_80446038, (void *)0x0,
 };
 void *language_lobby_texture_descriptor[4] = {
-    (void *)&lbl_80446050, (void *)&lbl_804B8D58, (void *)&lbl_805D3438, (void *)0x50000,
+    (void *)&lbl_80446050, (void *)&biri_ball_model_names, (void *)&biri_ball_motion_names, (void *)0x50000,
 };
 void *lbl_804B8D80[5] = {
     (void *)0x50005, (void *)0x0, (void *)0x0, (void *)0xff00ff,

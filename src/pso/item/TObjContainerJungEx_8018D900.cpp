@@ -38,7 +38,7 @@ extern u32 TObjContainerJungEx__resource_bundle;
 u8 *get_model__19TObjContainerJungExFi(s32 arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8018D9B0_lbl_804B7158 lbl_804B7158;
+extern RecoveredGlobal_8018D9B0_lbl_804B7158 fe_obj_hako02_resource_descriptor;
 extern u32 TObjContainerJungEx__resource_bundle;
 void load_resource_instance__19TObjContainerJungExFv(void);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
@@ -95,7 +95,7 @@ void load_resource_instance__19TObjContainerJungExFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B7158.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &fe_obj_hako02_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjContainerJungEx__resource_bundle) = var_r0;
 }

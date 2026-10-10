@@ -1,4 +1,14 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80440A88[];
+extern char lbl_80440A9C[];
+extern char lbl_80440AB4[];
+extern const char *bm_fe_obj_o_door04l_model_names[2];
+extern const char *bm_fe_obj_o_door04l_motion_names[2];
+extern BmlResourceDescriptor door_ancient04_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -98,12 +108,11 @@ M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 extern void *TODoorAncient04__texture_lists;
 extern const f32 lbl_805DB408;
 void render__15TODoorAncient04Fv(u8 *arg0);
-u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
+u8 *load_resource_from_descriptor(void *, s32, BmlResourceDescriptor *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_8016BC84_lbl_80441ACC lbl_80440ADC;
-extern RecoveredGlobal_8016BC84_lbl_804B2B30 door_ancient04_resource_descriptor;
 extern u32 TODoorAncient04__bml_resource;
 extern void *TODoorAncient04__texture_lists;
 void load_resources__15TODoorAncient04Fv(void);
@@ -240,7 +249,7 @@ void load_resources__15TODoorAncient04Fv(void) {
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &door_ancient04_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &door_ancient04_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&TODoorAncient04__bml_resource) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
@@ -282,4 +291,10 @@ u8 *TODoorAncient04__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fe_obj_o_door04l_model_names[2] = { lbl_80440A88, NULL };
+__declspec(section ".data") const char *bm_fe_obj_o_door04l_motion_names[2] = { lbl_80440A9C, NULL };
+BmlResourceDescriptor door_ancient04_resource_descriptor = { lbl_80440AB4, bm_fe_obj_o_door04l_model_names, bm_fe_obj_o_door04l_motion_names, 1, 1 };
 }

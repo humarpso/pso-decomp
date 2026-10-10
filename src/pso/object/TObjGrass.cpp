@@ -732,8 +732,8 @@ void run_task__12TObjGrassWebFv();
 extern "C" {
 void update_object_view_visibility();
 }
-extern void *lbl_80492928[2];
-extern void *lbl_80492930[9];
+extern void *bm_ene_grass_model_names[2];
+extern void *bm_ene_grass_motion_names[9];
 extern "C" {
 extern u8 lbl_8043B6A0[]; extern "C" u8 lbl_8043B6B4[]; extern "C" u8 lbl_8043B6CC[]; extern "C" u8 lbl_8043B6E0[];
 }
@@ -755,16 +755,16 @@ extern void render__12TObjGrassWebFv(); extern "C" void render_shadows__7TObject
 extern "C" {
 extern void run_task__12TObjGrassWebFv(); extern "C" void update_object_view_visibility();
 }
-__declspec(section ".data") void *lbl_80492928[2] = {
+__declspec(section ".data") void *bm_ene_grass_model_names[2] = {
     (void *)&lbl_8043B6A0, (void *)0x0,
 };
-void *lbl_80492930[9] = {
+void *bm_ene_grass_motion_names[9] = {
     (void *)&lbl_8043B6B4, (void *)&lbl_8043B6CC, (void *)&lbl_8043B6E0, (void *)&lbl_8043B6F8,
     (void *)&lbl_8043B70C, (void *)&lbl_8043B724, (void *)&lbl_8043B738, (void *)&lbl_8043B74C,
     (void *)0x0,
 };
-void *lbl_80492954[4] = {
-    (void *)&lbl_8043B760, (void *)&lbl_80492928, (void *)&lbl_80492930, (void *)0x10008,
+void *bm_ene_grass_resource_descriptor[4] = {
+    (void *)&lbl_8043B760, (void *)&bm_ene_grass_model_names, (void *)&bm_ene_grass_motion_names, (void *)0x10008,
 };
 void *lbl_80492964[32] = {
     (void *)0x10000, (void *)0x6, (void *)0x3f333333, (void *)0x1,
@@ -791,7 +791,7 @@ void *__vt__12TObjGrassWeb[13] = {
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
 };
-#define lbl_80492954 ((M2C_UNK *)lbl_80492954)
+#define bm_ene_grass_resource_descriptor ((M2C_UNK *)bm_ene_grass_resource_descriptor)
 #define lbl_80492964 ((s32 *)lbl_80492964)
 
 void TObjGrass__sub_800BCA2C(void * _w0) {  }
@@ -2044,11 +2044,11 @@ void destroy_all__9TObjGrassFv(void) {
 void load_resources__9TObjGrassFv(void) {
     u8 *p;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        TObjGrass__resource_bundle = (u32) load_enemy_bml_resource_named(lbl_80492954, (void *)"bm_ene_grass_a.bml");
+        TObjGrass__resource_bundle = (u32) load_enemy_bml_resource_named(bm_ene_grass_resource_descriptor, (void *)"bm_ene_grass_a.bml");
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 1, lbl_80492954, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 1, bm_ene_grass_resource_descriptor, 0, 0, 0);
         }
         TObjGrass__resource_bundle = (u32) p;
     }

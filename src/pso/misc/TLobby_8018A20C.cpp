@@ -23,8 +23,8 @@ u32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern u8 seabed_rare_console_texture_filename[];
 extern u8 lbl_80444F48[];
-extern u8 lbl_804B636C[];
-extern u8 lbl_804B63AC[];
+extern u8 fe_obj_con_hahen1_resource_descriptor[];
+extern u8 bm_obj_seabed_con_rare_resource_descriptor[];
 extern u32 container_breakup_model_archive;
 extern u32 lbl_805D5B8C;
 void load_console_resources__6TLobbyFv(void);
@@ -60,7 +60,7 @@ void load_console_resources__6TLobbyFv(void) {
     case 31:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B63AC, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, bm_obj_seabed_con_rare_resource_descriptor, 0, 0, 0);
         }
         container_breakup_model_archive = (u32)p;
         lbl_805D5B8C = load_gvm_texture_file(seabed_rare_console_texture_filename);
@@ -69,7 +69,7 @@ void load_console_resources__6TLobbyFv(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
-            p = load_resource_from_descriptor(p, 5, lbl_804B636C, 0, 0, 0);
+            p = load_resource_from_descriptor(p, 5, fe_obj_con_hahen1_resource_descriptor, 0, 0, 0);
         }
         container_breakup_model_archive = (u32)p;
         lbl_805D5B8C = load_gvm_texture_file(lbl_80444F48);

@@ -1,17 +1,39 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445A30[];
+extern char lbl_80445A44[];
+extern char lbl_80445A60[];
+extern char lbl_80445A74[];
+extern char lbl_80445A90[];
+extern char lbl_80445AA4[];
+extern char lbl_80445AC0[];
+extern char lbl_80445AD4[];
+extern char lbl_80445AF0[];
+extern char lbl_80445B08[];
+extern char lbl_80445B20[];
+extern char lbl_80445B38[];
+extern char lbl_80445B50[];
+extern char lbl_80445B68[];
+extern const char *fe_obj_lazer2_4m_model_names[9];
+extern const char *fe_obj_lazer2_4m_motion_names[5];
+extern BmlResourceDescriptor lazer_fence_norm_episode1_resource_descriptor;
+extern const char *fe_obj_lazer2_2_model_names[9];
+extern const char *fe_obj_lazer2_2_motion_names[5];
+extern BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-void *load_resource_from_descriptor(void *, int, u8 *, int, int, int);
+void *load_resource_from_descriptor(void *, int, BmlResourceDescriptor *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u8 lbl_80445BB8[];
 extern u8 lbl_80445BCC[];
-extern u8 lazer_fence_norm_episode1_resource_descriptor[];
-extern u8 lazer_fence_norm_episode2_resource_descriptor[];
 extern s32 lazer_fence_norm_texture_list;
 extern void *lazer_fence_norm_bml_resource;
 void load_lazer_fence_norm_resources(void);
@@ -33,7 +55,7 @@ void load_lazer_fence_norm_resources(void) {
     case 35:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = load_resource_from_descriptor(obj, 5, lazer_fence_norm_episode2_resource_descriptor, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, &lazer_fence_norm_episode2_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_norm_bml_resource = obj;
         lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BB8);
@@ -41,7 +63,7 @@ void load_lazer_fence_norm_resources(void) {
     default:
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != 0) {
-            obj = load_resource_from_descriptor(obj, 5, lazer_fence_norm_episode1_resource_descriptor, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, &lazer_fence_norm_episode1_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_norm_bml_resource = obj;
         lazer_fence_norm_texture_list = load_gvm_texture_file(lbl_80445BCC);
@@ -49,4 +71,13 @@ void load_lazer_fence_norm_resources(void) {
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *fe_obj_lazer2_4m_model_names[9] = { lbl_80445A30, lbl_80445A44, lbl_80445A60, lbl_80445A74, lbl_80445A90, lbl_80445AA4, lbl_80445AC0, lbl_80445AD4, NULL };
+__declspec(section ".data") const char *fe_obj_lazer2_4m_motion_names[5] = { lbl_80445AF0, lbl_80445B08, lbl_80445B20, lbl_80445B38, NULL };
+BmlResourceDescriptor lazer_fence_norm_episode1_resource_descriptor = { lbl_80445B50, fe_obj_lazer2_4m_model_names, fe_obj_lazer2_4m_motion_names, 8, 4 };
+__declspec(section ".data") const char *fe_obj_lazer2_2_model_names[9] = { lbl_80445A30, lbl_80445A44, lbl_80445A60, lbl_80445A74, lbl_80445A90, lbl_80445AA4, lbl_80445AC0, lbl_80445AD4, NULL };
+__declspec(section ".data") const char *fe_obj_lazer2_2_motion_names[5] = { lbl_80445AF0, lbl_80445B08, lbl_80445B20, lbl_80445B38, NULL };
+BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor = { lbl_80445B68, fe_obj_lazer2_2_model_names, fe_obj_lazer2_2_motion_names, 8, 4 };
 }

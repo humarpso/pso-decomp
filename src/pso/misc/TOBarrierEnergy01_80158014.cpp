@@ -51,7 +51,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
-extern RecoveredGlobal_80158078_lbl_804AFB24 lbl_804AFB24;
+extern RecoveredGlobal_80158078_lbl_804AFB24 bm_fs_obj_lazerguard_resource_descriptor;
 extern u32 lbl_805D5890;
 extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 lbl_805D5898;
@@ -112,7 +112,7 @@ void load_resources__17TOBarrierEnergy01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFB24.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_lazerguard_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D5890) = (unsigned char *) ((void *) var_r0);
     lbl_805D5898 = get_bml_model((void *) var_r0, 0);

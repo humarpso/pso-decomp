@@ -489,8 +489,8 @@ void run_task__13TParticleCtrlFv(Ctrl_8008767C *self) {
 }
 #pragma pop
 extern "C" {
-extern u32 lbl_805D2940[1];
-extern const char *lbl_8048E758[4];
+extern u32 bm_tec_regurar_motion_names[1];
+extern const char *bm_tec_regurar_model_names[4];
 extern void *particle_regular_bml_descriptor[4];
 extern const char *TParticleCtrl__particle_entry_path;
 }
@@ -523,9 +523,9 @@ void *__dt__13TParticleCtrlFv(void *self, s16 flag) {
 }
 }
 extern "C" {
-u32 lbl_805D2940[1] = {0};
-const char *lbl_8048E758[4] = {"eff_f_foie.gj", "eff_sinowahamon.gj", "jungle_hamon.gj", 0};
-void *particle_regular_bml_descriptor[4] = {(void *)"bm_tec_regurar.bml", lbl_8048E758, lbl_805D2940, (void *)0x30000};
+u32 bm_tec_regurar_motion_names[1] = {0};
+const char *bm_tec_regurar_model_names[4] = {"eff_f_foie.gj", "eff_sinowahamon.gj", "jungle_hamon.gj", 0};
+void *particle_regular_bml_descriptor[4] = {(void *)"bm_tec_regurar.bml", bm_tec_regurar_model_names, bm_tec_regurar_motion_names, (void *)0x30000};
 const char *TParticleCtrl__particle_entry_path = "particleentry.dat";
 }
 

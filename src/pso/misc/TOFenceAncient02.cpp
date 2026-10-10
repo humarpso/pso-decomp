@@ -60,7 +60,7 @@ s32 load_gvm_texture_file(void *);
 extern char lbl_80441548[];
 extern char lbl_80441560[];
 extern char lbl_80441578[];
-extern char lbl_804B1CC0[];
+extern char bm_fd_obj_n_saku_6x2_resource_descriptor[];
 extern u8 *TOFenceAncient02__data_805D59B8;
 extern u32 TOFenceAncient02__texture_variants;
 void load_assets__16TOFenceAncient02Fv(void);
@@ -122,7 +122,7 @@ void load_assets__16TOFenceAncient02Fv(void) {
     Arr_80167020 *r;
     o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (o != NULL) {
-        o = load_resource_from_descriptor(o, 1, lbl_804B1CC0, 0, 0, 0);
+        o = load_resource_from_descriptor(o, 1, bm_fd_obj_n_saku_6x2_resource_descriptor, 0, 0, 0);
     }
     (*(O_80167020 * *)&TOFenceAncient02__data_805D59B8) = o;
     r = alloc_buffer__11TOBoss4RockFPv(0x10);

@@ -1,4 +1,15 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445650[];
+extern char lbl_8044566C[];
+extern char lbl_80445684[];
+extern char lbl_804456A0[];
+extern const char *abeno_fs_obj001_fosuno_model_names[4];
+extern BmlResourceDescriptor TObjDoorKey__resource_descriptor;
+extern const char *abeno_fs_obj001_fosuno_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -63,7 +74,6 @@ s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 extern u8 lbl_804456D8[];
-extern u8 TObjDoorKey__resource_descriptor[];
 extern s32 TObjDoorKey__ginja_model_table[];
 extern u32 door_key_resource_handle;
 extern s32 TObjDoorKey__texture_handle;
@@ -362,7 +372,7 @@ extern void *tl_05;
 void load_resources__11TObjDoorKeyFv(void) {
     s32 r = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
     if (r != 0) {
-        r = load_resource_from_descriptor(r, 5, TObjDoorKey__resource_descriptor, 0, 0, 0);
+        r = load_resource_from_descriptor(r, 5, &TObjDoorKey__resource_descriptor, 0, 0, 0);
     }
     (*(s32 *)&door_key_resource_handle) = r;
     TObjDoorKey__texture_handle = load_gvm_texture_file(lbl_804456D8);
@@ -386,4 +396,10 @@ void * TObjEnvSoundGlobal__create(void *arg0) {
     return o;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *abeno_fs_obj001_fosuno_model_names[4] = { lbl_80445650, lbl_8044566C, lbl_80445684, NULL };
+BmlResourceDescriptor TObjDoorKey__resource_descriptor = { lbl_804456A0, abeno_fs_obj001_fosuno_model_names, abeno_fs_obj001_fosuno_motion_names, 3, 0 };
+__declspec(section ".sdata") const char *abeno_fs_obj001_fosuno_motion_names[1] = { NULL };
 }

@@ -413,27 +413,27 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern void *lbl_804B6D70[3];
-extern void *lbl_804B6D7C[3];
-extern void *lbl_804B6D98[3];
-extern void *lbl_804B6DA4[3];
-void *lbl_804B6D70[3] = {
+extern void *fe_obj_h_s_konte_model_names[3];
+extern void *fe_obj_h_s_konte_motion_names[3];
+extern void *bm_obj_geenest_model_names[3];
+extern void *bm_obj_geenest_motion_names[3];
+void *fe_obj_h_s_konte_model_names[3] = {
     (void *)&lbl_80444F98, (void *)&lbl_80444FAC, (void *)0x0,
 };
-void *lbl_804B6D7C[3] = {
+void *fe_obj_h_s_konte_motion_names[3] = {
     (void *)&lbl_80444FC4, (void *)&lbl_80444FDC, (void *)0x0,
 };
 void *TContainerAncient01__resource_descriptor[4] = {
-    (void *)&lbl_80444FF4, (void *)&lbl_804B6D70, (void *)&lbl_804B6D7C, (void *)0x20002,
+    (void *)&lbl_80444FF4, (void *)&fe_obj_h_s_konte_model_names, (void *)&fe_obj_h_s_konte_motion_names, (void *)0x20002,
 };
-void *lbl_804B6D98[3] = {
+void *bm_obj_geenest_model_names[3] = {
     (void *)&lbl_8044500C, (void *)&lbl_80445020, (void *)0x0,
 };
-void *lbl_804B6DA4[3] = {
+void *bm_obj_geenest_motion_names[3] = {
     (void *)&lbl_80445034, (void *)&lbl_80445048, (void *)0x0,
 };
 void *TContainerAncient01__resource_descriptor_2[4] = {
-    (void *)&lbl_8044505C, (void *)&lbl_804B6D98, (void *)&lbl_804B6DA4, (void *)0x20002,
+    (void *)&lbl_8044505C, (void *)&bm_obj_geenest_model_names, (void *)&bm_obj_geenest_motion_names, (void *)0x20002,
 };
 void *TContainerAncient01__collision_body_parts[11] = {
     (void *)0x0, (void *)0x41000000, (void *)0x0, (void *)0x41200000,

@@ -57,7 +57,7 @@ extern const f32 lbl_805DB384;
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8015A734_lbl_804AFF00 lbl_804AFF00;
+extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
 extern u8 *TOCapsuleMachine01__data_805D58C0;
 extern s32 TOCapsuleMachine01__data_805D58C8;
 extern s32 lbl_805D58CC;
@@ -150,7 +150,7 @@ void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
   var_r4 = temp_r3;
   if (var_r4 != 0)
   {
-    var_r4 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFF00.value, 0, 0, 0);
+    var_r4 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cap_moto_resource_descriptor.value, 0, 0, 0);
   }
   TOCapsuleMachine01__data_805D58C0 = (unsigned char *) ((void *) var_r4);
   new_var = (void **) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) ((RecoveredFields_8015A734_var_r4 *) var_r4)->field_42C) + 8)))) + 0x2C)))) + 0x30);

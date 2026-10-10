@@ -3175,8 +3175,8 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_8048FEF8[3];
-extern void *lbl_8048FF04[7];
+extern void *bm_ene_me1_mb_model_names[3];
+extern void *bm_ene_me1_mb_motion_names[7];
 void *lbl_8048FEB0[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -3186,15 +3186,15 @@ void *lbl_8048FECC[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_8048FEF8[3] = {
+void *bm_ene_me1_mb_model_names[3] = {
     (void *)&lbl_8043A1B0, (void *)&lbl_8043A1C0, (void *)0x0,
 };
-void *lbl_8048FF04[7] = {
+void *bm_ene_me1_mb_motion_names[7] = {
     (void *)&lbl_8043A1CC, (void *)&lbl_8043A1E4, (void *)&lbl_8043A1FC, (void *)&lbl_8043A214,
     (void *)&lbl_8043A22C, (void *)&lbl_8043A240, (void *)0x0,
 };
-void *lbl_8048FF20[4] = {
-    (void *)&lbl_8043A254, (void *)&lbl_8048FEF8, (void *)&lbl_8048FF04, (void *)0x20006,
+void *bm_ene_me1_mb_resource_descriptor[4] = {
+    (void *)&lbl_8043A254, (void *)&bm_ene_me1_mb_model_names, (void *)&bm_ene_me1_mb_motion_names, (void *)0x20006,
 };
 void *lbl_8048FF30[28] = {
     (void *)0x10000, (void *)0x4, (void *)0x3e4ccccd, (void *)0x0,

@@ -1064,7 +1064,7 @@ extern "C" {
 struct Buf_80168AA8 { s32 a; s32 b; s32 c; };
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-extern u8 lbl_804B2144[];
+extern u8 fe_obj_turiten_moto_resource_descriptor[];
 extern u8 turiten_singo_resource_descriptor[];
 extern s32 lbl_805D59D8;
 extern s32 turiten_singo_key_model_index;
@@ -1097,7 +1097,7 @@ void load_turiten_singo_resources(void) {
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != 0) {
-            p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, lbl_804B2144, 0, 0, 0);
+            p = ((void *(*)(void *, int, void *, int, int, int))load_resource_from_descriptor)(p, 5, fe_obj_turiten_moto_resource_descriptor, 0, 0, 0);
         }
         (*(void **)&TOHangceilingCave01__model_archive) = p;
         (*(Buf_80168AA8 **)&turiten_singo_texture_lists) = ((Buf_80168AA8 *(*)(u32))alloc_buffer__11TOBoss4RockFPv)(0xC);

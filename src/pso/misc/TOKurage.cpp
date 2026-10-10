@@ -95,7 +95,7 @@ struct RecoveredGlobal_8016E8A8___vt__8TOKurage { M2C_UNK value; u8 remaining[0x
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8016E800_lbl_804B2E6C lbl_804B2E6C;
+extern RecoveredGlobal_8016E800_lbl_804B2E6C bm_fs_obj_kurage_resource_descriptor;
 extern u32 TOKurage__data_805D5A38;
 void load_static_resource__8TOKurageFv(void);
 u8 *get_bml_motion(s32, s32);
@@ -423,7 +423,7 @@ void load_static_resource__8TOKurageFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804B2E6C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_kurage_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOKurage__data_805D5A38) = var_r0;
 }

@@ -2097,10 +2097,10 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_804EE108[4];
-extern void *lbl_804EE118[7];
-extern void *lbl_804EE144[4];
-extern void *lbl_804EE154[7];
+extern void *bm_ene_morfos_model_names[4];
+extern void *bm_ene_morfos_motion_names[7];
+extern void *bm_ene_morfos_low_model_names[4];
+extern void *bm_ene_morfos_low_motion_names[7];
 
 void *lbl_804EE0C0[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
@@ -2111,25 +2111,25 @@ void *lbl_804EE0DC[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804EE108[4] = {
+void *bm_ene_morfos_model_names[4] = {
     (void *)&lbl_804774C0, (void *)&lbl_804774CC, (void *)&lbl_804774DC, (void *)0x0,
 };
-void *lbl_804EE118[7] = {
+void *bm_ene_morfos_motion_names[7] = {
     (void *)&lbl_804774EC, (void *)&lbl_80477500, (void *)&lbl_80477518, (void *)&lbl_8047752C,
     (void *)&lbl_80477544, (void *)&lbl_80477558, (void *)0x0,
 };
 void *morfos_resource_descriptor[4] = {
-    (void *)&lbl_8047756C, (void *)&lbl_804EE108, (void *)&lbl_804EE118, (void *)0x30006,
+    (void *)&lbl_8047756C, (void *)&bm_ene_morfos_model_names, (void *)&bm_ene_morfos_motion_names, (void *)0x30006,
 };
-void *lbl_804EE144[4] = {
+void *bm_ene_morfos_low_model_names[4] = {
     (void *)&lbl_80477580, (void *)&lbl_80477590, (void *)&lbl_804774DC, (void *)0x0,
 };
-void *lbl_804EE154[7] = {
+void *bm_ene_morfos_low_motion_names[7] = {
     (void *)&lbl_804774EC, (void *)&lbl_80477500, (void *)&lbl_80477518, (void *)&lbl_8047752C,
     (void *)&lbl_80477544, (void *)&lbl_80477558, (void *)0x0,
 };
-void *lbl_804EE170[4] = {
-    (void *)&lbl_804775A0, (void *)&lbl_804EE144, (void *)&lbl_804EE154, (void *)0x30006,
+void *bm_ene_morfos_low_resource_descriptor[4] = {
+    (void *)&lbl_804775A0, (void *)&bm_ene_morfos_low_model_names, (void *)&bm_ene_morfos_low_motion_names, (void *)0x30006,
 };
 void *morfos_motion_param_table[20] = {
     (void *)0x10000, (void *)0x5, (void *)0x3f000000, (void *)0x0,

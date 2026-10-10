@@ -1,4 +1,88 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_8046FDB8[];
+extern char lbl_8046FDC8[];
+extern char lbl_8046FDDC[];
+extern char lbl_8046FDF4[];
+extern char lbl_8046FE08[];
+extern char lbl_8046FE1C[];
+extern char lbl_8046FE34[];
+extern char lbl_8046FE48[];
+extern char lbl_8046FE58[];
+extern char lbl_8046FE6C[];
+extern char lbl_8046FE7C[];
+extern char lbl_8046FE94[];
+extern char lbl_8046FEA8[];
+extern char lbl_8046FEB8[];
+extern char lbl_8046FED0[];
+extern char lbl_8046FEF0[];
+extern char lbl_8046FF0C[];
+extern char lbl_8046FF28[];
+extern char lbl_8046FF40[];
+extern char lbl_8046FF5C[];
+extern char lbl_8046FF78[];
+extern char lbl_8046FF94[];
+extern char lbl_8046FFB0[];
+extern char lbl_8046FFC4[];
+extern char lbl_8046FFDC[];
+extern char lbl_8046FFF4[];
+extern char lbl_8047000C[];
+extern char lbl_80470028[];
+extern char lbl_80470044[];
+extern char lbl_80470060[];
+extern char lbl_80470078[];
+extern char lbl_80470094[];
+extern char lbl_804700B0[];
+extern char lbl_804700CC[];
+extern char lbl_804700E8[];
+extern char lbl_80470104[];
+extern char lbl_80470120[];
+extern char lbl_8047013C[];
+extern char lbl_8047015C[];
+extern char lbl_80470178[];
+extern char lbl_80470194[];
+extern char lbl_804701B0[];
+extern char lbl_804701CC[];
+extern char lbl_804701E8[];
+extern char lbl_80470204[];
+extern char lbl_80470220[];
+extern char lbl_80470238[];
+extern char lbl_80470250[];
+extern char lbl_80470268[];
+extern char lbl_8047027C[];
+extern char lbl_80470294[];
+extern char lbl_804702AC[];
+extern char lbl_804702C8[];
+extern char lbl_804702E4[];
+extern char lbl_80470300[];
+extern char lbl_80470320[];
+extern char lbl_80470340[];
+extern char lbl_8047035C[];
+extern char lbl_80470378[];
+extern char lbl_80470394[];
+extern char lbl_804703B0[];
+extern char lbl_804703CC[];
+extern char lbl_804703E8[];
+extern char lbl_80470404[];
+extern char lbl_8047041C[];
+extern char lbl_80470438[];
+extern char lbl_80470454[];
+extern char lbl_80470470[];
+extern char lbl_80470490[];
+extern char lbl_804704A8[];
+extern char lbl_804704C4[];
+extern char lbl_804704E4[];
+extern char lbl_80470504[];
+extern char lbl_80470520[];
+extern char lbl_8047053C[];
+extern char lbl_8047055C[];
+extern char lbl_80470574[];
+extern const char *boss06_plotfalz_dat_model_names[15];
+extern const char *boss06_plotfalz_dat_motion_names[63];
+extern BmlResourceDescriptor boss6_plot_falz_resource_descriptor;
+}
 #include <stddef.h>
 #include "pso/boss/TBoss6PlotFalz.h"
 #include "pso/boss/TBoss4DarkFalz.h"
@@ -1461,7 +1545,6 @@ M2C_UNK fn_802E52AC();
 M2C_UNK load_resources__10TBoss6RockFv();
 M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
 M2C_UNK TLobby__sub_8036DDE8();
-extern RecoveredGlobal_802ACBE4_lbl_804DE200 boss6_plot_falz_resource_descriptor;
 extern int lbl_805D66E8;
 void load_resources__14TBoss6PlotFalzFv(void);
 s32 restore_player_cameras();
@@ -1678,7 +1761,7 @@ void load_resources__14TBoss6PlotFalzFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &boss6_plot_falz_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &boss6_plot_falz_resource_descriptor, 0, 0, 0));
     }
     (*(u8 * *)&lbl_805D66E8) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {
@@ -1709,4 +1792,10 @@ s32 get_phase__8TObjFishFPv(void* p) { return *(s32*)((char*)p + 0x378); }
 
 int get_fish_count__8TObjFishFv(void) {  return lbl_805D66E8; }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *boss06_plotfalz_dat_model_names[15] = { lbl_8046FDB8, lbl_8046FDC8, lbl_8046FDDC, lbl_8046FDF4, lbl_8046FE08, lbl_8046FE1C, lbl_8046FE34, lbl_8046FE48, lbl_8046FE58, lbl_8046FE6C, lbl_8046FE7C, lbl_8046FE94, lbl_8046FEA8, lbl_8046FEB8, NULL };
+__declspec(section ".data") const char *boss06_plotfalz_dat_motion_names[63] = { lbl_8046FED0, lbl_8046FEF0, lbl_8046FF0C, lbl_8046FF28, lbl_8046FF40, lbl_8046FF5C, lbl_8046FF78, lbl_8046FF94, lbl_8046FFB0, lbl_8046FFC4, lbl_8046FFDC, lbl_8046FFF4, lbl_8047000C, lbl_80470028, lbl_80470044, lbl_80470060, lbl_80470078, lbl_80470094, lbl_804700B0, lbl_804700CC, lbl_804700E8, lbl_80470104, lbl_80470120, lbl_8047013C, lbl_8047015C, lbl_80470178, lbl_80470194, lbl_804701B0, lbl_804701CC, lbl_804701E8, lbl_80470204, lbl_80470220, lbl_80470238, lbl_80470250, lbl_80470268, lbl_8047027C, lbl_80470294, lbl_804702AC, lbl_804702C8, lbl_804702E4, lbl_80470300, lbl_80470320, lbl_80470340, lbl_8047035C, lbl_80470378, lbl_80470394, lbl_804703B0, lbl_804703CC, lbl_804703E8, lbl_80470404, lbl_8047041C, lbl_80470438, lbl_80470454, lbl_80470470, lbl_80470490, lbl_804704A8, lbl_804704C4, lbl_804704E4, lbl_80470504, lbl_80470520, lbl_8047053C, lbl_8047055C, NULL };
+BmlResourceDescriptor boss6_plot_falz_resource_descriptor = { lbl_80470574, boss06_plotfalz_dat_model_names, boss06_plotfalz_dat_motion_names, 14, 62 };
 }

@@ -74,8 +74,8 @@ void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern RecoveredGlobal_80169710_lbl_804B2748 lbl_804B2748;
-extern RecoveredGlobal_80169710_lbl_804B2760 lbl_804B2760;
+extern RecoveredGlobal_80169710_lbl_804B2748 bm_fe_obj_kaifuku_moto_resource_descriptor;
+extern RecoveredGlobal_80169710_lbl_804B2760 fe_obj_kaifuku_moto_2_resource_descriptor;
 extern u32 TOHealGeneral__model_archive;
 void load_resources__13TOHealGeneralFv(void);
 void request_destroy__11TBoss4Type2FUi(u32);
@@ -238,7 +238,7 @@ void load_resources__13TOHealGeneralFv(void) {
     var_r0 = temp_r3_2;
     if (var_r0 != 0)
     {
-      var_r0 = (long) load_resource_from_descriptor((void *) temp_r3_2, 1, &lbl_804B2760.value, 0, 0, 0);
+      var_r0 = (long) load_resource_from_descriptor((void *) temp_r3_2, 1, &fe_obj_kaifuku_moto_2_resource_descriptor.value, 0, 0, 0);
     }
     (*(s32 *)&TOHealGeneral__model_archive) = var_r0;
     return;
@@ -248,7 +248,7 @@ void load_resources__13TOHealGeneralFv(void) {
   var_r0_2 = temp_r3_3;
   if (var_r0_2 != 0)
   {
-    var_r0_2 = (long) load_resource_from_descriptor((void *) temp_r3_3, 1, &lbl_804B2748.value, 0, 0, 0);
+    var_r0_2 = (long) load_resource_from_descriptor((void *) temp_r3_3, 1, &bm_fe_obj_kaifuku_moto_resource_descriptor.value, 0, 0, 0);
   }
   (*(s32 *)&TOHealGeneral__model_archive) = var_r0_2;
 }

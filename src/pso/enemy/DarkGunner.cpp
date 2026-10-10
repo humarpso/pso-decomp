@@ -755,18 +755,18 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-void *lbl_80490608[5] = {
+void *bm_ene_darkgunner_model_names[5] = {
     (void *)&lbl_8043A498, (void *)&lbl_8043A4B0, (void *)&lbl_8043A4C8, (void *)&lbl_8043A4E0,
     (void *)0x0,
 };
-void *lbl_8049061C[15] = {
+void *bm_ene_darkgunner_motion_names[15] = {
     (void *)&lbl_8043A4F0, (void *)&lbl_8043A508, (void *)&lbl_8043A520, (void *)&lbl_8043A538,
     (void *)&lbl_8043A550, (void *)&lbl_8043A564, (void *)&lbl_8043A578, (void *)&lbl_8043A590,
     (void *)&lbl_8043A5A8, (void *)&lbl_8043A5C0, (void *)&lbl_8043A5D8, (void *)&lbl_8043A5EC,
     (void *)&lbl_8043A600, (void *)&lbl_8043A618, (void *)0x0,
 };
-void *lbl_80490658[4] = {
-    (void *)&lbl_8043A62C, (void *)&lbl_80490608, (void *)&lbl_8049061C, (void *)0x4000e,
+void *bm_ene_darkgunner_resource_descriptor[4] = {
+    (void *)&lbl_8043A62C, (void *)&bm_ene_darkgunner_model_names, (void *)&bm_ene_darkgunner_motion_names, (void *)0x4000e,
 };
 void *lbl_80490668[56] = {
     (void *)0x10000, (void *)0xd, (void *)0x3f800000, (void *)0x0,

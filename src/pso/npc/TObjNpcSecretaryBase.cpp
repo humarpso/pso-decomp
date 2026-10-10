@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_8043FEA0[];
+extern char lbl_8043FEB4[];
+extern const char *bm_n_hisyo_i_body_model_names[2];
+extern BmlResourceDescriptor secretary_body_resource_descriptor;
+extern const char *bm_n_hisyo_i_body_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -100,7 +109,6 @@ struct RecoveredGlobal_8014D69C___vt__20TObjNpcSecretaryBase {
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_8014D5F4_lbl_804AB7E8 secretary_body_resource_descriptor;
 extern u32 TObjNpcSecretaryBase__data_805D5848;
 void load_static_data__20TObjNpcSecretaryBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
@@ -141,7 +149,7 @@ void load_static_data__20TObjNpcSecretaryBaseFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &secretary_body_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &secretary_body_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjNpcSecretaryBase__data_805D5848) = var_r0;
 }
@@ -186,4 +194,10 @@ void * TObjNpcSoldierBase__create(void *arg0) {
     return o2;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_n_hisyo_i_body_model_names[2] = { lbl_8043FEA0, NULL };
+BmlResourceDescriptor secretary_body_resource_descriptor = { lbl_8043FEB4, bm_n_hisyo_i_body_model_names, bm_n_hisyo_i_body_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_n_hisyo_i_body_motion_names[1] = { NULL };
 }

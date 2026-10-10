@@ -55,11 +55,11 @@ extern "C" u8 lbl_804657B4[];
 extern "C" u8 lbl_804657C8[];
 extern "C" u8 lbl_804657E0[];
 extern "C" u8 lbl_804657F4[];
-extern "C" u8 lbl_805D3D38[];
+extern "C" u8 bm_o_rock_jungle_motion_names[];
 extern "C" void release_member_90__10TObjPlayerFPv();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void update_object_view_visibility();
-extern void *lbl_804DC378[6];
+extern void *bm_o_rock_jungle_model_names[6];
 extern s32 lbl_805D3D44;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
@@ -67,12 +67,12 @@ u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1);
 
 extern "C" {
 
-void *lbl_804DC378[6] = {
+void *bm_o_rock_jungle_model_names[6] = {
     (void *)&lbl_80465788, (void *)&lbl_8046579C, (void *)&lbl_804657B4, (void *)&lbl_804657C8,
     (void *)&lbl_804657E0, (void *)0x0,
 };
 void *TORockJungleS01_resource_descriptor[4] = {
-    (void *)&lbl_804657F4, (void *)&lbl_804DC378, (void *)&lbl_805D3D38, (void *)0x50000,
+    (void *)&lbl_804657F4, (void *)&bm_o_rock_jungle_model_names, (void *)&bm_o_rock_jungle_motion_names, (void *)0x50000,
 };
 void *rock_jungle_collision_body_parts[33] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40a00000,

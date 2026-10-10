@@ -1,6 +1,15 @@
 #include "pso/misc/TOSignCave01.h"
 
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80442A98[];
+extern char lbl_80442AB0[];
+extern const char *bm_fs_obj_dokanban01_model_names[2];
+extern BmlResourceDescriptor TOSignCave01__resource_descriptor;
+extern const char *bm_fs_obj_dokanban01_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -51,7 +60,6 @@ s32 set_global_param__8TObjFishFi(int);
 s32 draw_ginja_model(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80176758_lbl_804B4300 TOSignCave01__resource_descriptor;
 extern u32 TOSignCave01__shared_resource;
 void load_shared_resource__12TOSignCave01Fv(void);
 s32 init_map_object_base(void *, void *);
@@ -172,7 +180,7 @@ void load_shared_resource__12TOSignCave01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOSignCave01__resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOSignCave01__resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TOSignCave01__shared_resource) = var_r0;
 }
@@ -200,4 +208,9 @@ u8 *TOSignCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_fs_obj_dokanban01_model_names[2] = { lbl_80442A98, NULL };
+BmlResourceDescriptor TOSignCave01__resource_descriptor = { lbl_80442AB0, bm_fs_obj_dokanban01_model_names, bm_fs_obj_dokanban01_motion_names, 1, 0 };
 }

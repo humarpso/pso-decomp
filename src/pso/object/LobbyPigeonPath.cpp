@@ -616,10 +616,10 @@ extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80471978;
 extern RecoveredGlobal_802C1B9C_lbl_80471990 lbl_80471990;
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_804719A4;
 extern u8 lbl_804719B8[];
-extern u8 lbl_804E07C4[];
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E07F0;
-extern RecoveredGlobal_802C1B9C_lbl_804E081C lbl_804E081C;
-extern RecoveredGlobal_8019A9B8_lbl_804B8F60 lbl_804E0848;
+extern u8 bm_obj_seabed_dolphin_resource_descriptor[];
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_jungle_ebi_resource_descriptor;
+extern RecoveredGlobal_802C1B9C_lbl_804E081C bm_obj_jungle_bird_resource_descriptor;
+extern RecoveredGlobal_8019A9B8_lbl_804B8F60 bm_obj_jungle_kamome_resource_descriptor;
 extern M2C_UNK lobby_pigeon_vtable[];
 extern M2C_UNK jungle_seagull_vtable[];
 extern M2C_UNK lbl_804E0910[];
@@ -791,7 +791,7 @@ void load_kamome_resources__10TObjPlayerFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E0848.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_kamome_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D67B0) = var_r0;
     (*(u8 * *)&lbl_805D67B4) = load_gvm_texture_file((s32) &lbl_80471978.value);
@@ -988,7 +988,7 @@ void load_jungle_bird_resources__10TObjPlayerFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E081C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_bird_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D67A8) = var_r0;
     (*(u8 * *)&lbl_805D67AC) = load_gvm_texture_file((s32) &lbl_80471990.value);
@@ -1174,7 +1174,7 @@ void load_jungle_ebi_resources__10TObjPlayerFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804E07F0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_ebi_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D67A0) = var_r0;
     (*(u8 * *)&lbl_805D67A4) = load_gvm_texture_file((s32) &lbl_804719A4.value);
@@ -1381,7 +1381,7 @@ void TObjPlayer__sub_802C2900(void) {
 void load_seabed_dolphin__10TObjPlayerFv(void) {
     Obj_802C2958 *o = ((Obj_802C2958 * (*)(s32))alloc__23TAdSinglePlyChrSelectGCFPv)(0x440);
     if (o != 0) {
-        o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, lbl_804E07C4, 0, 0, 0);
+        o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, bm_obj_seabed_dolphin_resource_descriptor, 0, 0, 0);
     }
     (*(Obj_802C2958 * *)&lbl_805D6798) = o;
     lbl_805D679C = ((s32 (*)(void *))load_gvm_texture_file)(lbl_804719B8);

@@ -1,4 +1,17 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_80445C00[];
+extern char lbl_80445C18[];
+extern char lbl_80445C34[];
+extern char lbl_80445C54[];
+extern char lbl_80445C6C[];
+extern char lbl_80445C88[];
+extern const char *fe_obj_switch_laz_model_names[4];
+extern const char *fe_obj_switch_laz_motion_names[3];
+extern BmlResourceDescriptor laser_fence_switch_resource_descriptor;
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -167,8 +180,7 @@ extern void *lazer_fence_switch_bml_resource;
 extern s32 TLazerFenceSw__texture_list;
 extern u8 *lazer_fence_switch_scroll_node;
 extern s32 game_difficulty_selection;
-extern u8 lbl_804B8360[];
-extern u8 laser_fence_switch_resource_descriptor[];
+extern u8 fe_obj_switch_laz_j_resource_descriptor[];
 extern u8 lbl_80445CF0[];
 extern u8 lbl_80445D08[];
 extern u8 lbl_80445D20[];
@@ -455,14 +467,14 @@ void load_resources__13TLazerFenceSwFv(void) {
     if (is_global_state_in_table__19TContainerAncient01Fv() == 1 || state == 0x1C || state == 0x1D) {
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != NULL) {
-            obj = load_resource_from_descriptor(obj, 5, lbl_804B8360, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, fe_obj_switch_laz_j_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_switch_bml_resource = obj;
         TLazerFenceSw__texture_list = load_gvm_texture_file(lbl_80445CF0);
     } else {
         obj = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (obj != NULL) {
-            obj = load_resource_from_descriptor(obj, 5, laser_fence_switch_resource_descriptor, 0, 0, 0);
+            obj = load_resource_from_descriptor(obj, 5, &laser_fence_switch_resource_descriptor, 0, 0, 0);
         }
         lazer_fence_switch_bml_resource = obj;
         if (game_difficulty_selection == 3) {
@@ -532,4 +544,10 @@ void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
 }
 #pragma pop
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *fe_obj_switch_laz_model_names[4] = { lbl_80445C00, lbl_80445C18, lbl_80445C34, NULL };
+__declspec(section ".data") const char *fe_obj_switch_laz_motion_names[3] = { lbl_80445C54, lbl_80445C6C, NULL };
+BmlResourceDescriptor laser_fence_switch_resource_descriptor = { lbl_80445C88, fe_obj_switch_laz_model_names, fe_obj_switch_laz_motion_names, 3, 2 };
 }

@@ -44,16 +44,16 @@ extern "C" void render_shadows__7TObjectFv();
 extern "C" void run_switch_door_task();
 extern "C" void update_door_switch_state();
 extern "C" void update_object_view_visibility();
-extern void *lbl_804AFB10[3];
-extern void *lbl_804AFB1C[2];
-void *lbl_804AFB10[3] = {
+extern void *bm_fs_obj_lazerguard_model_names[3];
+extern void *bm_fs_obj_lazerguard_motion_names[2];
+void *bm_fs_obj_lazerguard_model_names[3] = {
     (void *)&lbl_80440188, (void *)&lbl_804401A4, (void *)0x0,
 };
-__declspec(section ".data") void *lbl_804AFB1C[2] = {
+__declspec(section ".data") void *bm_fs_obj_lazerguard_motion_names[2] = {
     (void *)&lbl_804401B8, (void *)0x0,
 };
-void *lbl_804AFB24[4] = {
-    (void *)&lbl_804401D0, (void *)&lbl_804AFB10, (void *)&lbl_804AFB1C, (void *)0x20001,
+void *bm_fs_obj_lazerguard_resource_descriptor[4] = {
+    (void *)&lbl_804401D0, (void *)&bm_fs_obj_lazerguard_model_names, (void *)&bm_fs_obj_lazerguard_motion_names, (void *)0x20001,
 };
 void *lbl_804AFB34[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40a00000,

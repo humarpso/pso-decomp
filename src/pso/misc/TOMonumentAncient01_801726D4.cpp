@@ -37,7 +37,7 @@ s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80172758_lbl_804B38E0 lbl_804B38E0;
+extern RecoveredGlobal_80172758_lbl_804B38E0 bm_fs_obj_o_sekihi01_resource_descriptor;
 extern u32 TOMonumentAncient01__resource_bundle;
 void load_resource_instance__19TOMonumentAncient01Fv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -99,7 +99,7 @@ void load_resource_instance__19TOMonumentAncient01Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B38E0.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_fs_obj_o_sekihi01_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TOMonumentAncient01__resource_bundle) = var_r0;
 }

@@ -13,7 +13,7 @@ extern M2C_UNK lbl_80466118[];
 extern M2C_UNK lbl_80466138[];
 extern M2C_UNK lbl_80466150[];
 extern M2C_UNK lbl_80466170[];
-extern M2C_UNK lbl_804DC7F0[];
+extern M2C_UNK bm_o_door_seabed01_resource_descriptor[];
 extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
 extern u32 lbl_805D6608;
@@ -58,7 +58,7 @@ void TLanguage__sub_802A0204(void) {
     case 28:
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0 != 0) {
-            var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+            var_r0 = load_resource_from_descriptor(var_r0, (int) (5), (void *) (bm_o_door_seabed01_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         door_labo_bml_resource = var_r0;
         lbl_805D6604 = load_gvm_texture_file((void *) (lbl_80466118));
@@ -67,7 +67,7 @@ void TLanguage__sub_802A0204(void) {
     case 29:
         var_r0_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) (0x440));
         if (var_r0_2 != 0) {
-            var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (lbl_804DC7F0), (int) (0), (int) (0), (int) (0));
+            var_r0_2 = load_resource_from_descriptor(var_r0_2, (int) (5), (void *) (bm_o_door_seabed01_resource_descriptor), (int) (0), (int) (0), (int) (0));
         }
         door_labo_bml_resource = var_r0_2;
         lbl_805D6604 = load_gvm_texture_file((void *) (lbl_80466150));

@@ -190,10 +190,10 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern void *lbl_804937C8[3];
-extern void *lbl_804937D4[5];
-extern void *lbl_804937F8[3];
-extern void *lbl_80493804[5];
+extern void *bm_ene_me1_gee_model_names[3];
+extern void *bm_ene_me1_gee_motion_names[5];
+extern void *bm_ene_me1_gee_low_model_names[3];
+extern void *bm_ene_me1_gee_low_motion_names[5];
 void *lbl_80493780[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -203,25 +203,25 @@ void *lbl_8049379C[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804937C8[3] = {
+void *bm_ene_me1_gee_model_names[3] = {
     (void *)lbl_8043BD08, (void *)lbl_8043BD14, (void *)0x0,
 };
-void *lbl_804937D4[5] = {
+void *bm_ene_me1_gee_motion_names[5] = {
     (void *)lbl_8043BD24, (void *)lbl_8043BD38, (void *)lbl_8043BD4C, (void *)lbl_8043BD60,
     (void *)0x0,
 };
-void *lbl_804937E8[4] = {
-    (void *)lbl_8043BD74, (void *)lbl_804937C8, (void *)lbl_804937D4, (void *)0x20004,
+void *bm_ene_me1_gee_resource_descriptor[4] = {
+    (void *)lbl_8043BD74, (void *)bm_ene_me1_gee_model_names, (void *)bm_ene_me1_gee_motion_names, (void *)0x20004,
 };
-void *lbl_804937F8[3] = {
+void *bm_ene_me1_gee_low_model_names[3] = {
     (void *)lbl_8043BD88, (void *)lbl_8043BD14, (void *)0x0,
 };
-void *lbl_80493804[5] = {
+void *bm_ene_me1_gee_low_motion_names[5] = {
     (void *)lbl_8043BD24, (void *)lbl_8043BD38, (void *)lbl_8043BD4C, (void *)lbl_8043BD60,
     (void *)0x0,
 };
-void *lbl_80493818[4] = {
-    (void *)lbl_8043BD98, (void *)lbl_804937F8, (void *)lbl_80493804, (void *)0x20004,
+void *bm_ene_me1_gee_low_resource_descriptor[4] = {
+    (void *)lbl_8043BD98, (void *)bm_ene_me1_gee_low_model_names, (void *)bm_ene_me1_gee_low_motion_names, (void *)0x20004,
 };
 void *TObjEneMe1Gee__motion_parameters[16] = {
     (void *)0x10000, (void *)0x3, (void *)0x3f666666, (void *)0x0,
@@ -5643,8 +5643,8 @@ void *create__13TObjEneMe1GeeFPv(void *arg0) {
 #undef init__13TObjEneMe1GeeFPvPvPvPv
 #pragma pop
 #pragma push
-#define lbl_804937E8 ((u8 *)&lbl_804937E8)
-#define lbl_80493818 ((u8 *)&lbl_80493818)
+#define bm_ene_me1_gee_resource_descriptor ((u8 *)&bm_ene_me1_gee_resource_descriptor)
+#define bm_ene_me1_gee_low_resource_descriptor ((u8 *)&bm_ene_me1_gee_low_resource_descriptor)
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -5701,9 +5701,9 @@ void load_resources__13TObjEneMe1GeeFv(void) {
     v->y = TObjEneMe1Gee__data_805DA0B4;
     v->z = TObjEneMe1Gee__data_805DA0B4;
     if (((s32 (*)(void *))is_split_screen)(v) != 0) {
-        TObjEneMe1Gee__resource_bundle = load_enemy_bml_resource(lbl_80493818);
+        TObjEneMe1Gee__resource_bundle = load_enemy_bml_resource(bm_ene_me1_gee_low_resource_descriptor);
     } else {
-        TObjEneMe1Gee__resource_bundle = load_enemy_bml_resource(lbl_804937E8);
+        TObjEneMe1Gee__resource_bundle = load_enemy_bml_resource(bm_ene_me1_gee_resource_descriptor);
     }
     cache_result_805D6660__13TObjEneMe1GeeFv();
     lbl_805D51B4 = collect_and_count__12TBoss3VoloptFUii(TObjEneMe1Gee__resource_bundle->f42c->f8, 7);
@@ -5736,6 +5736,6 @@ void load_resources__13TObjEneMe1GeeFv(void) {
 
 }
 
-#undef lbl_804937E8
-#undef lbl_80493818
+#undef bm_ene_me1_gee_resource_descriptor
+#undef bm_ene_me1_gee_low_resource_descriptor
 #pragma pop

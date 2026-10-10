@@ -1,4 +1,13 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+extern "C" {
+extern char lbl_804798F0[];
+extern char lbl_8047990C[];
+extern const char *bm_obj_lobby_curtain_model_names[2];
+extern BmlResourceDescriptor lobby_curtain_resource_descriptor;
+extern const char *bm_obj_lobby_curtain_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -50,7 +59,6 @@ void *__nw__7TObjectFUl(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern RecoveredGlobal_8035BACC_lbl_804F1D98 lobby_curtain_resource_descriptor;
 extern u32 TObjCurtainLobby__data_805D6F58;
 extern s32 lbl_805D6F5C;
 void load_resources__16TObjCurtainLobbyFv(void);
@@ -150,7 +158,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjCurtainLobby__data_805D6F58) = var_r0;
     lbl_805D6F5C = get_lobby_type__6TLobbyFv();
@@ -181,4 +189,10 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".data") const char *bm_obj_lobby_curtain_model_names[2] = { lbl_804798F0, NULL };
+BmlResourceDescriptor lobby_curtain_resource_descriptor = { lbl_8047990C, bm_obj_lobby_curtain_model_names, bm_obj_lobby_curtain_motion_names, 1, 0 };
+__declspec(section ".sdata") const char *bm_obj_lobby_curtain_motion_names[1] = { NULL };
 }

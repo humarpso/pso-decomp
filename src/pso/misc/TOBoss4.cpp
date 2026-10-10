@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_80159D24_lbl_804AFD0C_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80159D24_lbl_804AFD0C lbl_804AFD0C;
+extern RecoveredGlobal_80159D24_lbl_804AFD0C bm_o_boss4_resource_descriptor;
 extern u32 lbl_805D58A8;
 void load_static_resource__7TOBoss4Fv(void);
 }
@@ -42,7 +42,7 @@ void load_static_resource__7TOBoss4Fv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &lbl_804AFD0C.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_boss4_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&lbl_805D58A8) = var_r0;
 }

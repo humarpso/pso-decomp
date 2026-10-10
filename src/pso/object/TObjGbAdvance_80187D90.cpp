@@ -10,7 +10,7 @@ typedef char RecoveredGlobal_80187DC8_lbl_804B6228_size[sizeof(RecoveredGlobal_8
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern RecoveredGlobal_80187DC8_lbl_804B6228 lbl_804B6228;
+extern RecoveredGlobal_80187DC8_lbl_804B6228 bm_obj_gba_resource_descriptor;
 extern u32 TObjGbAdvance__data_805D5B74;
 void load_resource_instance__13TObjGbAdvanceFv(void);
 }
@@ -34,7 +34,7 @@ void load_resource_instance__13TObjGbAdvanceFv(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lbl_804B6228.value, 0, 0, 0));
+        var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_gba_resource_descriptor.value, 0, 0, 0));
     }
     (*(s32 *)&TObjGbAdvance__data_805D5B74) = var_r0;
 }

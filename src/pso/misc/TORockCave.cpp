@@ -1,4 +1,74 @@
 #include "types.h"
+#include "pso/system/BmlResourceDescriptor.h"
+
+struct BmlResourceBlock_804B3AB8 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3AB8_size[(sizeof(BmlResourceBlock_804B3AB8) == 0x20) ? 1 : -1];
+typedef char BmlResourceBlock_804B3AB8_descriptor_offset[(offsetof(BmlResourceBlock_804B3AB8, descriptor) == 0x10) ? 1 : -1];
+struct BmlResourceBlock_804B3AD8 { const char *model_filenames[7]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3AD8_size[(sizeof(BmlResourceBlock_804B3AD8) == 0x2c) ? 1 : -1];
+typedef char BmlResourceBlock_804B3AD8_descriptor_offset[(offsetof(BmlResourceBlock_804B3AD8, descriptor) == 0x1c) ? 1 : -1];
+struct BmlResourceBlock_804B3B04 { const char *model_filenames[4]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3B04_size[(sizeof(BmlResourceBlock_804B3B04) == 0x20) ? 1 : -1];
+typedef char BmlResourceBlock_804B3B04_descriptor_offset[(offsetof(BmlResourceBlock_804B3B04, descriptor) == 0x10) ? 1 : -1];
+struct BmlResourceBlock_804B3B24 { const char *model_filenames[7]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3B24_size[(sizeof(BmlResourceBlock_804B3B24) == 0x2c) ? 1 : -1];
+typedef char BmlResourceBlock_804B3B24_descriptor_offset[(offsetof(BmlResourceBlock_804B3B24, descriptor) == 0x1c) ? 1 : -1];
+struct BmlResourceBlock_804B3B50 { const char *model_filenames[7]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3B50_size[(sizeof(BmlResourceBlock_804B3B50) == 0x2c) ? 1 : -1];
+typedef char BmlResourceBlock_804B3B50_descriptor_offset[(offsetof(BmlResourceBlock_804B3B50, descriptor) == 0x1c) ? 1 : -1];
+struct BmlResourceBlock_804B3B7C { const char *model_filenames[7]; BmlResourceDescriptor descriptor; };
+typedef char BmlResourceBlock_804B3B7C_size[(sizeof(BmlResourceBlock_804B3B7C) == 0x2c) ? 1 : -1];
+typedef char BmlResourceBlock_804B3B7C_descriptor_offset[(offsetof(BmlResourceBlock_804B3B7C, descriptor) == 0x1c) ? 1 : -1];
+extern "C" {
+extern char lbl_804424A0[];
+extern char lbl_804424B4[];
+extern char lbl_804424C8[];
+extern char lbl_804424DC[];
+extern char lbl_804424F4[];
+extern char lbl_80442508[];
+extern char lbl_8044251C[];
+extern char lbl_80442530[];
+extern char lbl_80442544[];
+extern char lbl_80442558[];
+extern char lbl_8044256C[];
+extern char lbl_80442584[];
+extern char lbl_80442598[];
+extern char lbl_804425AC[];
+extern char lbl_804425C0[];
+extern char lbl_804425D8[];
+extern char lbl_804425EC[];
+extern char lbl_80442600[];
+extern char lbl_80442614[];
+extern char lbl_80442628[];
+extern char lbl_8044263C[];
+extern char lbl_80442650[];
+extern char lbl_80442668[];
+extern char lbl_80442680[];
+extern char lbl_80442698[];
+extern char lbl_804426B0[];
+extern char lbl_804426C8[];
+extern char lbl_804426E0[];
+extern char lbl_804426F8[];
+extern char lbl_80442710[];
+extern char lbl_80442728[];
+extern char lbl_80442740[];
+extern char lbl_80442758[];
+extern char lbl_80442770[];
+extern char lbl_80442788[];
+extern char lbl_804427A0[];
+extern BmlResourceBlock_804B3AB8 rock_cave_resource_table;
+extern BmlResourceBlock_804B3AD8 bm_o_rock_cave02_resource_bundle;
+extern BmlResourceBlock_804B3B04 bm_o_rock_cave03_resource_bundle;
+extern BmlResourceBlock_804B3B24 bm_fe_obj_rb_liwa_resource_bundle;
+extern BmlResourceBlock_804B3B50 bm_fe_obj_rb2_liwa_resource_bundle;
+extern BmlResourceBlock_804B3B7C bm_fe_obj_rb3_liwa_resource_bundle;
+extern const char *bm_o_rock_cave01_motion_names[1];
+extern const char *bm_o_rock_cave02_motion_names[1];
+extern const char *bm_o_rock_cave03_motion_names[1];
+extern const char *bm_fe_obj_rb_liwa_motion_names[1];
+extern const char *bm_fe_obj_rb2_liwa_motion_names[1];
+extern const char *bm_fe_obj_rb3_liwa_motion_names[1];
+}
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -34,7 +104,6 @@ void draw_model__10TORockCaveFPv(u8 *arg0);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern u8 rock_cave_resource_table[];
 extern u32 cave_rock_resource_bundle;
 extern u32 lbl_805D5A84;
 void load_resources__10TORockCaveFv(void);
@@ -92,7 +161,7 @@ extern M2C_UNK __vt__10TORockCave[];
         dst = r;                                                                \
     }
 void load_resources__10TORockCaveFv(void) {
-    u8 *tbl = rock_cave_resource_table;
+    u8 *tbl = (u8 *)&rock_cave_resource_table;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 3:
         MK_80175224(cave_rock_resource_bundle, 0x10)
@@ -142,4 +211,19 @@ void *TORockCave__ct(void *arg0) {
 void TORockCave__sub_80175460(void) {  }
 void TORockCave__sub_80175464(void) {  }
 
+}
+
+extern "C" {
+__declspec(section ".data") BmlResourceBlock_804B3AB8 rock_cave_resource_table = { { lbl_804424A0, lbl_804424B4, lbl_804424C8, NULL }, { lbl_804424DC, rock_cave_resource_table.model_filenames, bm_o_rock_cave01_motion_names, 3, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3AD8 bm_o_rock_cave02_resource_bundle = { { lbl_804424F4, lbl_80442508, lbl_8044251C, lbl_80442530, lbl_80442544, lbl_80442558, NULL }, { lbl_8044256C, bm_o_rock_cave02_resource_bundle.model_filenames, bm_o_rock_cave02_motion_names, 6, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3B04 bm_o_rock_cave03_resource_bundle = { { lbl_80442584, lbl_80442598, lbl_804425AC, NULL }, { lbl_804425C0, bm_o_rock_cave03_resource_bundle.model_filenames, bm_o_rock_cave03_motion_names, 3, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3B24 bm_fe_obj_rb_liwa_resource_bundle = { { lbl_804425D8, lbl_804425EC, lbl_80442600, lbl_80442614, lbl_80442628, lbl_8044263C, NULL }, { lbl_80442650, bm_fe_obj_rb_liwa_resource_bundle.model_filenames, bm_fe_obj_rb_liwa_motion_names, 6, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3B50 bm_fe_obj_rb2_liwa_resource_bundle = { { lbl_80442668, lbl_80442680, lbl_80442698, lbl_804426B0, lbl_804426C8, lbl_804426E0, NULL }, { lbl_804426F8, bm_fe_obj_rb2_liwa_resource_bundle.model_filenames, bm_fe_obj_rb2_liwa_motion_names, 6, 0 } };
+__declspec(section ".data") BmlResourceBlock_804B3B7C bm_fe_obj_rb3_liwa_resource_bundle = { { lbl_80442710, lbl_80442728, lbl_80442740, lbl_80442758, lbl_80442770, lbl_80442788, NULL }, { lbl_804427A0, bm_fe_obj_rb3_liwa_resource_bundle.model_filenames, bm_fe_obj_rb3_liwa_motion_names, 6, 0 } };
+__declspec(section ".sdata") const char *bm_o_rock_cave01_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_o_rock_cave02_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_o_rock_cave03_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_fe_obj_rb_liwa_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_fe_obj_rb2_liwa_motion_names[1] = { NULL };
+__declspec(section ".sdata") const char *bm_fe_obj_rb3_liwa_motion_names[1] = { NULL };
 }
