@@ -3729,7 +3729,7 @@ void *memset(void *, int, u32);
 void TLobby__sub_80134A20();
 void open_scroll_text_window__6TLobbyFi();
 void copy_player_records__6TLobbyFPvi();
-void TLobby__sub_80134C44();
+void apply_lobby_markers__6TLobbyFPv();
 void set_lobby_event_theme();
 void init_once__6TLobbyFPv();
 void TLobby__sub_80134DC8();
@@ -3905,7 +3905,7 @@ u8 *TLobby__ct(u8 *arg0, void *arg1) {
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC74) = (M2C_UNK *)&receive_file_chunk__22TQuestVmDownLoadServerFPv;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC80) = (M2C_UNK *)&disable_window_flags__6TLobbyFPv;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC7C) = (M2C_UNK *)&open_information_list__6TLobbyFiPv;
-    M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC84) = (M2C_UNK *)&TLobby__sub_80134C44;
+    M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC84) = (M2C_UNK *)&apply_lobby_markers__6TLobbyFPv;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC8C) = (M2C_UNK *)&copy_player_records__6TLobbyFPvi;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC98) = (M2C_UNK *)&handle_trade_received_items;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC9C) = (M2C_UNK *)&handle_reset_choice__6TLobbyFi;

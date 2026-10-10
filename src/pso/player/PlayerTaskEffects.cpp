@@ -256,7 +256,7 @@ extern s32 some_id_805c6f74;
 extern const f32 lbl_805DC358;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
-u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1);
+u8 *create_lobby_marker__10TObjPlayerFsc(s16 arg0, s8 arg1);
 s32 TMainCursor__sub_8013E03C(void);
 s32 TObjPlayer__sub_801C6DAC(u8 *arg0);
 }
@@ -448,7 +448,7 @@ void request_player_shrink(PlayerScaleState* state);
 
 namespace accessors {
 extern "C" {
-u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1);
+u8 *create_lobby_marker__10TObjPlayerFsc(s16 arg0, s8 arg1);
 }
 }
 
@@ -735,7 +735,7 @@ s32 TObjPlayer__sub_801C6DAC(u8 *arg0) {
 
 namespace accessors {
 extern "C" {
-u8 *create_lobby_font_for_player__10TObjPlayerFsc(s16 arg0, s8 arg1) {
+u8 *create_lobby_marker__10TObjPlayerFsc(s16 arg0, s8 arg1) {
     u8 *e;
     u8 *p;
     e = ((u8 *)((s32 (*)(u16))get_player_by_client_id)(arg0));

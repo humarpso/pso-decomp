@@ -2743,7 +2743,7 @@ M2C_UNK emit_grass_footstep_effect(void *);
 int emit_photon_blast_feedback_from_packet__10TObjPlayerFPv(void*);
 M2C_UNK TObjPlayer__sub_801BF3A0(void *, void *);
 M2C_UNK copy_vec_at_18__10TObjPlayerFPv(void *, void *);
-s32 TObjPlayer__sub_801BF40C(u32 a0 = 0, s32 a1 = 0);
+s32 set_material_index__18TPlayerLobbyMarkerFc(u32 a0 = 0, s32 a1 = 0);
 M2C_UNK __ct__20TPlayerReadyCallbackFP7TObjectUsPFP10TObjPlayer_v(s32, s32, s32, void (*)(int));
 int TObjPlayer__sub_801BF460(void*);
 int TObjPlayer__sub_801BF47C(void*);
@@ -2979,7 +2979,7 @@ void new_child_object__10TObjPlayerFi(s32);
 u8 * get_slot_value__10TObjPlayerFPvi(void *, s32);
 M2C_UNK update_player_scale_camera(s32);
 s32 request_player_size_restore(void *);
-u32 create_lobby_font_for_player__10TObjPlayerFsc(s32 a0 = 0, s32 a1 = 0);
+u32 create_lobby_marker__10TObjPlayerFsc(s32 a0 = 0, s32 a1 = 0);
 s32 get_contact_surface_type(void *);
 M2C_UNK send_6x4E_player_revivable__10TObjPlayerFi(void *);
 s32 can_guard__10TObjPlayerFPv(s32);
@@ -3314,7 +3314,7 @@ void play_voice_pair__10TObjPlayerFPv(void *arg0) {
 
 void TObjPlayer__vt62(void* p) { ((int (*)(void*, void*))obj_clearFlags30)(p, (void*)2048); ((int (*)(void*))update_rotation__10TObjPlayerFPv)(p); }
 
-u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
+u32 set_lobby_marker__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     u32 temp;
 
     if (((s32 (*)(void))is_lobby_floor_15__15TFontSmallLobbyFv)() == 0) {
@@ -3322,9 +3322,9 @@ u32 get_or_create_lobby_font__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     }
     temp = M2C_FIELD(arg0, u32 *, 0x3B8);
     if (temp == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x3B8) = create_lobby_font_for_player__10TObjPlayerFsc(obj_getField1c(arg0), arg1);
+        M2C_FIELD(arg0, u32 *, 0x3B8) = create_lobby_marker__10TObjPlayerFsc(obj_getField1c(arg0), arg1);
     } else {
-        TObjPlayer__sub_801BF40C(temp, arg1);
+        set_material_index__18TPlayerLobbyMarkerFc(temp, arg1);
     }
     return M2C_FIELD(arg0, u32 *, 0x3B8);
 }

@@ -105,8 +105,8 @@ int copy_vec_at_18__10TObjPlayerFPv(void* p);
 int has_water_ground_flag(void* p);
 int test_flags_any(void*, int);
 int has_water_ground_flag(void* p);
-void TObjPlayer__sub_801BF40C(void* p, u8 v);
-void TObjPlayer__sub_801BF40C(void* p, u8 v);
+void set_material_index__18TPlayerLobbyMarkerFc(void* p, u8 v);
+void set_material_index__18TPlayerLobbyMarkerFc(void* p, u8 v);
 void set_meseta__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 u8 TObjPlayer__sub_801BF460(s32 *arg0, s32 arg1);
 void TObjPlayer__sub_801BF488(s32 *arg0, s32 arg1);
@@ -378,7 +378,7 @@ int copy_vec_at_18__10TObjPlayerFPv(void* p) { return VecCopy__FP3VecPC3Vec((cha
 
 int has_water_ground_flag(void* p) { return test_flags_any(p, 4); }
 
-void TObjPlayer__sub_801BF40C(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
+void set_material_index__18TPlayerLobbyMarkerFc(void* p, u8 v) { *(u8*)((char*)p + 0x1c) = v; }
 
 typedef char RecoveredGlobal_801BF414_lbl_804C3FA8_size[sizeof(RecoveredGlobal_801BF414_lbl_804C3FA8) == 0x18 ? 1 : -1];
 }

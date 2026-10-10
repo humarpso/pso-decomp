@@ -100,8 +100,8 @@ void copy_player_record__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
 struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };
 struct Obj_80134C44 { u8 pad0; u8 count; u8 pad2[2]; Ent_80134C44 e[1]; };
 void* get_player_by_client_id(s32);
-void get_or_create_lobby_font__10TObjPlayerFPvi(void*, int);
-void TLobby__sub_80134C44(Obj_80134C44 *o) {
+void set_lobby_marker__10TObjPlayerFPvi(void*, int);
+void apply_lobby_markers__6TLobbyFPv(Obj_80134C44 *o) {
     Ent_80134C44 *e = o->e;
     s32 i;
     for (i = 0; i < o->count; i++, e++) {
@@ -109,7 +109,7 @@ void TLobby__sub_80134C44(Obj_80134C44 *o) {
         for (j = 0; j < 12; j++) {
             u8 *p = (u8*)get_player_by_client_id(j);
             if (p != NULL && *(u32*)(p + 0xDB0) == e->key) {
-                get_or_create_lobby_font__10TObjPlayerFPvi(p, (u8)e->val);
+                set_lobby_marker__10TObjPlayerFPvi(p, (u8)e->val);
             }
         }
     }
