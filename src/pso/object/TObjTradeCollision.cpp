@@ -23,8 +23,8 @@ struct RecoveredGlobal_802C8034___vt__18TObjTradeCollision {
 
 extern "C" {
 s32 is_player_outside_trade_radius(void *, int);
-M2C_UNK TWindowSubTradeMain__sub_802D3940(int);
-M2C_UNK TWindowSubTradeMain__sub_802D3958(int);
+M2C_UNK clear_trade_range_bit(int);
+M2C_UNK set_trade_range_bit(int);
 s32 disallow_rendering__7TObjectFv(void *);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern M2C_UNK __vt__18TObjTradeCollision[];
@@ -50,9 +50,9 @@ void run_task__18TObjTradeCollisionFv(s32 arg0) {
     var_r31 = 0;
     do {
         if (is_player_outside_trade_radius((void *) (arg0), (int) (var_r31)) != 0) {
-            TWindowSubTradeMain__sub_802D3958((int) (var_r31));
+            set_trade_range_bit((int) (var_r31));
         } else {
-            TWindowSubTradeMain__sub_802D3940((int) (var_r31));
+            clear_trade_range_bit((int) (var_r31));
         }
         var_r31 += 1;
     } while (var_r31 < 4);

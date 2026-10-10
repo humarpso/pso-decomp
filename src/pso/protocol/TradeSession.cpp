@@ -798,7 +798,7 @@ struct Half_802D38B4 { u8 data[0x1F0]; };
 
 extern "C" {
 
-s32 TWindowSubTradeMain__sub_802D3924(s32);
+s32 is_trade_range_bit_set(s32);
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
 extern u8 TLobby__trade_proposal_state;
 void update_trade_partner__6TLobbyFv(void);
@@ -820,7 +820,7 @@ extern "C" {
 void close_trade_request__6TLobbyFv(void);
 void update_battle_mode__6TLobbyFv(void);
 
-s32 TWindowSubTradeMain__sub_802D3924(s32);
+s32 is_trade_range_bit_set(s32);
 
 extern s32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
@@ -831,7 +831,7 @@ void update_battle_mode__6TLobbyFv(void) {
             ((M2C_UNK (*)())cancel_trade__6TLobbyFv)();
             return;
         }
-        if (TWindowSubTradeMain__sub_802D3924(local_client_id) == 0) {
+        if (is_trade_range_bit_set(local_client_id) == 0) {
             ((M2C_UNK (*)(s32))cancel_trade_for_member_out_of_range)(local_client_id);
         }
     }
@@ -850,7 +850,7 @@ void update_trade_partner__6TLobbyFv(void) {
         ((M2C_UNK (*)())cancel_trade__6TLobbyFv)();
         return;
     }
-    if (TWindowSubTradeMain__sub_802D3924(TLobby__trade_partner_client_id) == 0) {
+    if (is_trade_range_bit_set(TLobby__trade_partner_client_id) == 0) {
         ((M2C_UNK (*)(s32))cancel_trade_for_member_out_of_range)(TLobby__trade_partner_client_id);
     }
 }

@@ -6,27 +6,27 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 extern u16 trade_protocol_flags;
-bool TWindowSubTradeMain__sub_802D3924(s32 arg0);
+bool is_trade_range_bit_set(s32 arg0);
 }
 
 extern "C" {
 
-void TWindowSubTradeMain__sub_802D3940(s32 arg0);
-void TWindowSubTradeMain__sub_802D3958(s32 arg0);
+void clear_trade_range_bit(s32 arg0);
+void set_trade_range_bit(s32 arg0);
 
 extern u16 trade_protocol_flags;
 
-bool TWindowSubTradeMain__sub_802D3924(s32 arg0) {
+bool is_trade_range_bit_set(s32 arg0) {
     return (trade_protocol_flags & (1 << arg0)) != 0;
 }
 
-void TWindowSubTradeMain__sub_802D3940(s32 arg0) {
+void clear_trade_range_bit(s32 arg0) {
     trade_protocol_flags &= ~(1 << arg0);
 }
 
 extern u16 trade_protocol_flags;
 
-void TWindowSubTradeMain__sub_802D3958(s32 arg0) {
+void set_trade_range_bit(s32 arg0) {
     trade_protocol_flags |= 1 << arg0;
 }
 
