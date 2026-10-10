@@ -24,7 +24,7 @@ struct Rec_802099FC;
 struct Tmp_8020994C { u8 pad[0x18]; s16 v; u8 pad2[2]; };
 
 extern "C" {
-s32 TLobby__sub_80209410(s32);
+s32 next_event_shuffle_entry(s32);
 void swap_header_endian__6TLobbyFPv(void *);
 extern s32 lbl_805D60A4;
 extern Ent_802098AC *lbl_805D60B8;
@@ -47,7 +47,7 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key);
 extern "C" {
 
 void pick_random_entry__6TLobbyFPv(Out_802098AC *out) {
-    s32 i = TLobby__sub_80209410(lbl_805D60A4);
+    s32 i = next_event_shuffle_entry(lbl_805D60A4);
     Ent_802098AC e = lbl_805D60B8[i];
     swap_header_endian__6TLobbyFPv(&e);
     out->a = e.a;

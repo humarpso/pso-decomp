@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/enemy/TObjEneDarkGunner.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -800,7 +801,7 @@ void *lbl_804907AC[4] = {
 Vec_800A159C lbl_804907BC[4] = {
     {0.0f, 10.0f, 2.0f}, {0.0f, 10.0f, -2.0f}, {2.0f, 10.0f, 0.0f}, {-2.0f, 10.0f, 0.0f},
 };
-void *lbl_804907EC[83] = {
+void *__vt__17TObjEneDarkGunner[83] = {
     (void *)0x0, (void *)0x0, (void *)&TObjPlayer__sub_800A2EDC, (void *)&TObjPlayer__sub_800A28A4,
     (void *)&TObjPlayer__sub_800A1978, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -1511,7 +1512,7 @@ void cleanup_effects__10TObjPlayerFv(void) {
 Obj_800A2EDC *TObjPlayer__sub_800A2EDC(Obj_800A2EDC *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
-        arg0->vt = lbl_804907EC;
+        arg0->vt = __vt__17TObjEneDarkGunner;
         free_collision_body_parts(arg0);
         for (i = 0; i < 4; i++) {
             if (arg0->items[i] != NULL) {
@@ -1539,7 +1540,7 @@ u8 *TObjPlayer__sub_800A2F94(u8 *self, s32 arg1, u8 *arg2) {
     s32 i;
 
     TObjEnemyCustom__ct(self, arg1, arg2);
-    F(void *, 0x18) = lbl_804907EC;
+    F(void *, 0x18) = __vt__17TObjEneDarkGunner;
     init_vtable_and_field18__10TObjPlayerFPv(self + 0x408);
     F(s32, 0) = lbl_805D29D0;
     ((VObj_18_800A2F94 *)self)->m79(arg2);

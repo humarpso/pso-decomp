@@ -1147,6 +1147,7 @@ force_active:
   - generate_shop_inventory__6TLobbyFi
   - generate_shop_weapon_stock
   - get_anim_entry_value__10TObjPlayerFPvs
+  - get_area_event_data
   - get_area_table_value__17TOTrapChainSawKeyFii
   - get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi
   - get_boss_warp_base_model
@@ -1992,6 +1993,11 @@ force_active:
   - scale_by_level__14TOTrapChainSawFf
   - scan_memcard_quest_files__12TQuestListVMFPv
   - schedule_pack_reaction__14TObjEneBm5WolfFPvis
+  - seabed_trap_collision_body
+  - seabed_trap_fragment_spawns
+  - seabed_trap_model_filenames
+  - seabed_trap_motion_filenames
+  - seabed_trap_resource_descriptor
   - seed_download_rng
   - select_attack_target__18TObjEneRe4SorcererFiff
   - select_death_direction__14TObjEneBm5WolfFPvPv
@@ -2064,6 +2070,7 @@ force_active:
   - show_guide_button__12TAdDialingGCFPv
   - show_intro_text__19TPlayerBattleCtrl4PFv
   - show_part__9TObjLukerFii
+  - shuffle_event_entries
   - shuffle_shop_pool
   - skip_name_prefix__11TWindowCtrlFPvPv
   - sleeping_state__14TObjEneBm5WolfFPvi

@@ -1601,7 +1601,7 @@ pso/enemy/TObjEneDarkGunCenter.cpp:
 	.rodata     start:0x8043A490 end:0x8043A498
 	.data       start:0x804904A0 end:0x80490608
 
-pso/unk/text_800A0EDC.cpp:
+pso/enemy/DarkGunner.cpp:
 	.text       start:0x800A0EDC end:0x800A36A8
 	.rodata     start:0x8043A6B0 end:0x8043A6F8
 	.data       start:0x80490608 end:0x80490998
@@ -7621,11 +7621,8 @@ pso/unk/text_8020910C.cpp:
 	.text       start:0x8020910C end:0x80209180
 
 pso/system/TSetEvtDestroy.cpp:
-	.text       start:0x80209180 end:0x80209334
+	.text       start:0x80209180 end:0x80209524
 	.data       start:0x804C9430 end:0x804C9448
-
-pso/unk/text_80209334.cpp:
-	.text       start:0x80209334 end:0x80209524
 
 pso/misc/TLobby_80209524.cpp:
 	.text       start:0x80209524 end:0x80209584
@@ -10588,6 +10585,7 @@ pso/unk/text_802C9C18.cpp:
 pso/misc/TOTrapSeabed01.cpp:
 	.text       start:0x802C9DF0 end:0x802CAA84
 	.rodata     start:0x804720D8 end:0x804720E8
+	.data       start:0x804E0F90 end:0x804E11C8
 	.sdata2     start:0x805DE640 end:0x805DE660
 
 pso/enemy/TObjEneMe1GiGue.cpp:
