@@ -27,6 +27,7 @@ s32 validate_6x4A_shield_attack(G_ClientIDHeader *packet);
 s32 validate_photon_blast_parameters(void *parameters);
 s32 validate_6x48_cast_technique_complete(G_ClientIDHeader *packet);
 s32 validate_6x8D_set_technique_level_override(G_ClientIDHeader *packet);
+s32 validate_6x47_cast_technique(u8 *packet);
 s32 validate_technique_parameters(void *parameters);
 s32 validate_cast_target_entry(void *parameters);
 s32 validate_6x46_attack_finished(G_ClientIDHeader *packet);
