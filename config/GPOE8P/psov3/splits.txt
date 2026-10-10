@@ -788,15 +788,6 @@ pso/ui/TObjBagWarnWin.cpp:
 	.text       start:0x8006EC20 end:0x8006EED4
 	.data       start:0x80488E68 end:0x80488E80
 
-pso/ui/TObjBagWarnWin_8006EED4.cpp:
-	.text       start:0x8006EED4 end:0x8006EF24
-
-pso/ui/TObjBagWarnWin_8006EF24.cpp:
-	.text       start:0x8006EF24 end:0x8006EF80
-
-pso/unk/text_8006EF80.cpp:
-	.text       start:0x8006EF80 end:0x8006EF90
-
 pso/item/ChallengeForceLoadouts.cpp:
 	.data       start:0x80488E80 end:0x8048A188
 
@@ -805,6 +796,15 @@ pso/item/ChallengeHunterLoadouts.cpp:
 
 pso/item/ChallengeRangerLoadouts.cpp:
 	.data       start:0x8048B1F8 end:0x8048C348
+
+pso/ui/TObjBagWarnWin_8006EED4.cpp:
+	.text       start:0x8006EED4 end:0x8006EF24
+
+pso/ui/TObjBagWarnWin_8006EF24.cpp:
+	.text       start:0x8006EF24 end:0x8006EF80
+
+pso/unk/text_8006EF80.cpp:
+	.text       start:0x8006EF80 end:0x8006EF90
 
 pso/unk/text_8006EF90.cpp:
 	.text       start:0x8006EF90 end:0x8006F044
@@ -3023,30 +3023,12 @@ pso/misc/item_pmt.cpp:
 pso/player/TObjPlayer_8011CEC0.cpp:
 	.text       start:0x8011CEC0 end:0x8011CEDC
 
-pso/item/TItemTexLoad_8011CEDC.cpp:
-	.text       start:0x8011CEDC end:0x8011CF6C
-
-pso/item/TItemTexLoad_8011CF6C.cpp:
-	.text       start:0x8011CF6C end:0x8011CFCC
-
-pso/item/TItemTexLoad_8011CFCC.cpp:
-	.text       start:0x8011CFCC end:0x8011D164
-
-pso/item/TItemTexLoad_8011D164.cpp:
-	.text       start:0x8011D164 end:0x8011D180
-
 pso/item/TItemTexLoad.cpp:
-	.text       start:0x8011D180 end:0x8011D2B4
+	.text       start:0x8011CEDC end:0x8011D414
+	.rodata     start:0x8043E7D8 end:0x8043E800
 	.data       start:0x804A0538 end:0x804A0550
-
-pso/unk/text_8011D2B4.cpp:
-	.text       start:0x8011D2B4 end:0x8011D334
-
-pso/item/TItemTexLoad_8011D334.cpp:
-	.text       start:0x8011D334 end:0x8011D3B8
-
-pso/unk/text_8011D3B8.cpp:
-	.text       start:0x8011D3B8 end:0x8011D414
+	.sdata      start:0x805D2C80 end:0x805D2C88
+	.sbss       start:0x805D5500 end:0x805D5508
 
 pso/item/TItemTimer.cpp:
 	.text       start:0x8011D414 end:0x8011DA9C
@@ -7117,6 +7099,10 @@ pso/misc/TPlyDispConfigSmth.cpp:
 pso/player/TObjPlayer_801D84A8.cpp:
 	.text       start:0x801D7D4C end:0x801D859C
 	.data       start:0x804C44C8 end:0x804C453C
+
+pso/player/PlayerClassStats.cpp:
+	.rodata     start:0x804471A8 end:0x80447430
+	.data       start:0x804C4680 end:0x804C46B0
 
 pso/player/TObjPlayer_801D84CC.cpp:
 	.text       start:0x801D859C end:0x801D94C8
@@ -14261,7 +14247,7 @@ pso/unk/text_803F7678.cpp:
 	.text       start:0x803F7678 end:0x803F8794
 	.rodata     start:0x8047FD38 end:0x8047FDE0
 	.data       start:0x804FD360 end:0x804FD380
-	.bss        start:0x805A9008 end:0x805AA098
+	.bss        start:0x805A9008 end:0x805AEEB0
 
 pso/misc/TLobby_803F8794.cpp:
 	.text       start:0x803F8794 end:0x803F8E08

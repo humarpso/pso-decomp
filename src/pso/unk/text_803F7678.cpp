@@ -14,10 +14,16 @@ struct RecoveredGlobal_803F7790_lbl_805A9008 {
     u8 remaining[0x108C];
 };
 
-struct RecoveredGlobal_803F7984_lbl_805AA098 {
-    M2C_UNK value;
-    u8 remaining[0x4C14];
+struct NetworkPacketBufferStorage {
+    u8 packet_slots[4][1500];
+    u32 workspace_70_a[70];
+    u32 workspace_550_a[550];
+    u32 workspace_550_b[550];
+    u32 workspace_1030[1030];
+    u32 workspace_70_b[70];
+    u32 workspace_550_pair[2][550];
 };
+typedef char NetworkPacketBufferStorage_size[sizeof(NetworkPacketBufferStorage) == 0x4C18 ? 1 : -1];
 
 struct RecoveredGlobal_803F79C0_lbl_805A9008 {
     M2C_UNK value;
@@ -114,7 +120,7 @@ struct Info_803F861C {
 extern "C" {
 void init_net_buffer_table__6TLobbyFPv(u8 *arg0);
 void init_net_block_620_params__6TLobbyFPv(u8 *arg0);
-extern RecoveredGlobal_803F7984_lbl_805AA098 lbl_805AA098;
+extern NetworkPacketBufferStorage network_packet_buffer_storage;
 extern M2C_UNK lbl_805D7A00;
 void init_buffer_desc_b__6TLobbyFPv(u8 *arg0);
 void init_net_buffer_desc__6TLobbyFPv(u8 *arg0);
@@ -213,7 +219,7 @@ s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
 void TAdSinglePlyChrSelectGC__sub_8042E488(s32);
 void queue_thread_main__6TLobbyFv(void);
-extern u8 lbl_805AECB0[];
+extern u8 pppoe_discovery_name_storage[2][256];
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern s16 net_slot_id;
 extern s32 queue_thread_handle;
@@ -252,6 +258,11 @@ extern s32 lbl_805D480C;
 extern s32 lbl_805D7A48;
 extern s32 lbl_805D7A4C;
 s32 TLobby__sub_803F861C(Info_803F861C *arg0);
+s16 TLobby__sub_80427F48(s16, u8 *, u16);
+s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
+extern s16 net_slot_id;
+extern s16 lbl_805D7A34;
+s32 send_network_frame(u16 arg0, u8 *arg1);
 }
 
 extern "C" {
@@ -295,10 +306,12 @@ u8 lbl_805A9DF0[0x80];
 u8 lbl_805A9E70[0x10];
 u8 lbl_805A9E80[0x200];
 u8 lbl_805AA080[0x18];
-const char lbl_8047FD38[] = "NO CARRIER";
-const char lbl_8047FD44[] = "NO DIALTONE";
-const char lbl_8047FD50[] = "send \"AT&FE0\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATS0=1\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATW2\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATX3&C1&D2\\r\"\nwait \"OK\\r\\n\",3\n";
-const char lbl_8047FDD4[] = "dial \"%t\"\n";
+NetworkPacketBufferStorage network_packet_buffer_storage;
+u8 pppoe_discovery_name_storage[2][256];
+const char modem_no_carrier_response[] = "NO CARRIER";
+const char modem_no_dialtone_response[] = "NO DIALTONE";
+const char modem_initialization_script[] = "send \"AT&FE0\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATS0=1\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATW2\\r\"\nwait \"OK\\r\\n\",3\nsend \"ATX3&C1&D2\\r\"\nwait \"OK\\r\\n\",3\n";
+const char modem_dial_script[] = "dial \"%t\"\n";
 #define lbl_805A9008 (*(RecoveredGlobal_803F76F4_lbl_805A9008 *)lbl_805A9008)
 
 void TLobby__sub_803F7678(void) {
@@ -411,12 +424,12 @@ void __OSBootDol(u8 *arg0) {
     o->f4C->f20 = &lbl_805E1128;
     o->f4C->f24 = &lbl_805E1130;
     o->f4C->f28 = &lbl_805E1138;
-    o->f4C->f2C = (void *)lbl_8047FD38;
-    o->f4C->f30 = (void *)lbl_8047FD44;
+    o->f4C->f2C = (void *)modem_no_carrier_response;
+    o->f4C->f30 = (void *)modem_no_dialtone_response;
     o->f4C->f34 = &lbl_805E1140;
     o->f4C->f38 = 0xD;
-    o->f4C->f3C = (void *)lbl_8047FD50;
-    o->f4C->f40 = (void *)lbl_8047FDD4;
+    o->f4C->f3C = (void *)modem_initialization_script;
+    o->f4C->f40 = (void *)modem_dial_script;
     o->f4C->f44 = 0;
 }
 
@@ -424,11 +437,10 @@ void TLobby__sub_803F7980(void) {
 
 }
 
-typedef char RecoveredGlobal_803F7984_lbl_805AA098_size[sizeof(RecoveredGlobal_803F7984_lbl_805AA098) == 0x4C18 ? 1 : -1];
 void init_buffer_desc_b__6TLobbyFPv(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[12]; M2C_UNK * field_C; M2C_UNK * field_10; s16 field_14; s16 field_16; };
     ((Fields_arg0*)arg0)->field_C = &lbl_805D7A00;
-    ((Fields_arg0*)arg0)->field_10 = &lbl_805AA098.value;
+    ((Fields_arg0*)arg0)->field_10 = (s32 *)network_packet_buffer_storage.packet_slots;
     ((Fields_arg0*)arg0)->field_16 = 4;
     ((Fields_arg0*)arg0)->field_14 = 0x5DC;
 }
@@ -743,6 +755,23 @@ s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
     return 0;
 }
 
+s32 send_network_frame(u16 arg0, u8 *arg1) {
+    if ((s16) lbl_805D7A34 != 0) {
+        if ((s16) net_slot_id < 0) {
+            return 5;
+        }
+        if (TLobby__sub_80427F48(net_slot_id, arg1, arg0) < 0) {
+            return 5;
+        }
+        goto block_7;
+    }
+    if (((u16)write_ring_buffer__6TLobbyFPvi(arg1, (s32) arg0)) == 0) {
+        return 5;
+    }
+block_7:
+    return 0;
+}
+
 void TLobby__sub_803F8238(void) {
     s32 var_r31;
     if ((s16) lbl_805D7A34 != 0) {
@@ -775,7 +804,7 @@ block_10:
 }
 
 s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
-    u8 *buf = lbl_805AECB0;
+    u8 *buf = pppoe_discovery_name_storage[0];
     char *name;
     s32 ret;
     if ((u32)send_ring_buffer_base == 0) {

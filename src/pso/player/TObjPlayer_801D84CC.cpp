@@ -1,5 +1,5 @@
 #include "types.h"
-#include "pso/TPlyDispData.h"
+#include "pso/player/PlayerClassStats.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -264,34 +264,9 @@ struct RecoveredGlobal_801A51C0_lbl_80446980 {
     u8 remaining[0x14];
 };
 
-struct RecoveredGlobal_801D9390_lbl_804471C0 {
-    M2C_UNK value;
-    u8 remaining[0x1AC];
-};
-
 struct RecoveredGlobal_801D92F4_lbl_804475B0 {
     M2C_UNK value;
     u8 remaining[0x23C];
-};
-
-struct RecoveredGlobal_801D935C_lbl_804C4680 {
-    M2C_UNK value;
-    u8 remaining[0x2C];
-};
-
-struct RecoveredGlobal_801D93C4_lbl_804471C0 {
-    M2C_UNK value;
-    u8 remaining[0x1AC];
-};
-
-struct RecoveredGlobal_801D93F8_lbl_804471A8 {
-    M2C_UNK value;
-    u8 remaining[0x14];
-};
-
-struct RecoveredGlobal_801D9440_lbl_804471A8 {
-    M2C_UNK value;
-    u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_801D9004_lbl_80447970 {
@@ -401,22 +376,17 @@ s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_804491CC;
 s32 get_hospital_yaw__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDBC(s8);
-extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
 player_stats *get_class_stat_caps(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D92F4_lbl_804475B0 lbl_804475B0;
 u8 *get_class_attack_template(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8);
-extern RecoveredGlobal_801D935C_lbl_804C4680 player_class_base_stat_tables;
 stats *get_class_base_stats(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
-extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
 player_stats *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0);
-extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 extern const f32 lbl_805DC400;
 f32 get_tp_class_factor__10TObjPlayerFPv(u8 *arg0);
 s32 get_clamped_index__10TObjPlayerFPv(void *);
-extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 f32 get_class_hp_factor__10TObjPlayerFPv(void * _w0);
 s32 get_falz_phase__10TObjPlayerFPv(void* p);
 extern RecoveredGlobal_801D9004_lbl_80447970 attack_recovery_count_table;
@@ -798,33 +768,27 @@ u8 *get_class_defense_template(u8 *arg0) {
     return (u8 *)&lbl_80447430.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) << 5);
 }
 
-typedef char RecoveredGlobal_801D9390_lbl_804471C0_size[sizeof(RecoveredGlobal_801D9390_lbl_804471C0) == 0x1B0 ? 1 : -1];
-
-typedef char RecoveredGlobal_801D935C_lbl_804C4680_size[sizeof(RecoveredGlobal_801D935C_lbl_804C4680) == 0x30 ? 1 : -1];
 stats *get_class_base_stats(s8 arg0) {
-    return (stats *)M2C_FIELD(&player_class_base_stat_tables.value, M2C_UNK *, (TObjPlayer__sub_801AFDBC(arg0) * 4));
+    return player_class_base_stat_tables[TObjPlayer__sub_801AFDBC(arg0)];
 }
 
 player_stats *get_class_stat_caps(s8 arg0) {
-    return (player_stats *)((u8 *)&lbl_804471C0.value + (TObjPlayer__sub_801AFDBC(arg0) * 0x24));
+    return (player_stats*)&player_class_stat_caps[TObjPlayer__sub_801AFDBC(arg0)];
 }
 
-typedef char RecoveredGlobal_801D93C4_lbl_804471C0_size[sizeof(RecoveredGlobal_801D93C4_lbl_804471C0) == 0x1B0 ? 1 : -1];
 player_stats *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0) {
-    return (player_stats *)((u8 *)&(*(RecoveredGlobal_801D93C4_lbl_804471C0 *)&lbl_804471C0).value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x24));
+    return (player_stats*)&player_class_stat_caps[get_class_index__10TObjPlayerFPv((s32)arg0)];
 }
 
-typedef char RecoveredGlobal_801D93F8_lbl_804471A8_size[sizeof(RecoveredGlobal_801D93F8_lbl_804471A8) == 0x18 ? 1 : -1];
 f32 get_tp_class_factor__10TObjPlayerFPv(u8 *arg0) {
     if (M2C_FIELD(arg0, s32 *, 0x890) & 0x10) {
         return lbl_805DC400;
     }
-    return M2C_FIELD(((u8 *)&lbl_804471A8.value + (get_clamped_index__10TObjPlayerFPv((void *)(arg0)) * 8)), f32 *, 4);
+    return player_profession_stat_factors[get_clamped_index__10TObjPlayerFPv(arg0)].tp;
 }
 
-typedef char RecoveredGlobal_801D9440_lbl_804471A8_size[sizeof(RecoveredGlobal_801D9440_lbl_804471A8) == 0x18 ? 1 : -1];
 f32 get_class_hp_factor__10TObjPlayerFPv(void * _w0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_801D9440_lbl_804471A8 *)&lbl_804471A8).value) + (get_clamped_index__10TObjPlayerFPv((void *)(_w0)) * 8)), f32 *, 0);
+    return player_profession_stat_factors[get_clamped_index__10TObjPlayerFPv(_w0)].hp;
 }
 
 int get_floor_surface_type__10TObjPlayerFPv(void* p) { return get_contact_surface_type((char*)p + 0x360); }

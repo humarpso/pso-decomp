@@ -1,3 +1,5 @@
+#include "pso/item/TItemTexLoad.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -7,7 +9,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 typedef s32 M2C_UNK;
 extern "C" {
 s32 get_camera_id__11TCameraCtrlFv(void);
-s32 create__12TItemTexLoadFPv(s32);
+
 void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 M2C_UNK save_position__17TWindowSubComCardFPv(void *);
 M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, M2C_UNK *, s16, void *);
@@ -28,7 +30,7 @@ void *create__22TWindowLoadItemTextureFPvPv(void *arg0, void *arg1);
 void fn_80262C2C(void* p);
 void render__22TWindowLoadItemTextureFv(u8 *arg0);
 void run_task__22TWindowLoadItemTextureFv(void* p);
-u32 TItemTexLoad__sub_8011D164(s32);
+
 s32 setup_window_draw_context(void *, void *);
 M2C_UNK draw_window_frame(void *, s32);
 M2C_UNK draw_visible_window_entries(void *, void *, s32);
@@ -63,7 +65,7 @@ void render__22TWindowLoadItemTextureFv(u8 *arg0) {
     s32 temp_r31;
 
     if ((s32) M2C_FIELD(arg0, u8 *, 0x60) == 1) {
-        M2C_FIELD(arg0, u32 *, 0x70) = TItemTexLoad__sub_8011D164(M2C_FIELD(arg0, s32 *, 0x6C));
+        M2C_FIELD(arg0, u32 *, 0x70) = (u32)M2C_FIELD(arg0, TItemTexLoad**, 0x6C)->ready_texture_list();
         if ((u32) M2C_FIELD(arg0, u32 *, 0x70) != 0U) {
             fn_8026287C(arg0);
             M2C_FIELD(arg0, u8 *, 0x60) = 1U;
@@ -115,7 +117,7 @@ void *TWindowLoadItemTexture__ct(void *arg0, void *arg1, void *arg2, void *arg3)
     e = ((void *(*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0);
     M2C_FIELD(e, f32 *, 0x10) = M2C_FIELD(arg2, f32 *, 0);
     M2C_FIELD(e, f32 *, 0x14) = M2C_FIELD(arg2, f32 *, 4);
-    M2C_FIELD(arg0, s32 *, 0x6C) = create__12TItemTexLoadFPv(tl_07);
+    M2C_FIELD(arg0, s32 *, 0x6C) = (s32)TItemTexLoad::create((TObject*)tl_07);
     M2C_FIELD(arg0, s8 *, 0x61) = 0;
     M2C_FIELD(arg0, s8 *, 0x60) = 2;
     return arg0;

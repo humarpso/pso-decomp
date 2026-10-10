@@ -126,11 +126,15 @@ force_active:
   - TChCrTagName__sub_802A226C
   - TChCrTagName__vt4
   - TChCrTagOccupation__vt4
+  - TEnemyTaskList_class_name
+  - TEnemyTaskList_name
   - TFontSmallLobby__sub_801C0258
   - TItemEquipBase__sub_8022F1F4
   - TItemObject__vt42
   - TItemProArmor__sub_80117730
   - TItemProArmor__vt14
+  - TItemTexLoad_class_name
+  - TItemTexLoad_name
   - TItemWeaponMechgun__ct
   - TItemWeaponPartisan__ct
   - TKeyBoardControl__sub_80290D10
@@ -363,6 +367,7 @@ force_active:
   - __ct__11TMessageBoxFRC11TMessageBox
   - __ct__11TPlayerSoulFP7TObjectUs
   - __ct__12TChatMessageFRC12TChatMessage
+  - __ct__12TItemTexLoadFP7TObject
   - __ct__14LobbyListEntryFv
   - __ct__14QuestListEntryFRC14QuestListEntry
   - __ct__14QuestListEntryFv
@@ -927,6 +932,61 @@ force_active:
   - cave_door01_resource_descriptor
   - chainsaw_ginja_model_filenames
   - challenge_default_settings
+  - challenge_force_items_stage_00
+  - challenge_force_items_stage_01
+  - challenge_force_items_stage_02
+  - challenge_force_items_stage_03
+  - challenge_force_items_stage_04
+  - challenge_force_items_stage_05
+  - challenge_force_items_stage_06
+  - challenge_force_items_stage_07
+  - challenge_force_items_stage_08
+  - challenge_force_items_stage_09
+  - challenge_force_items_stage_10
+  - challenge_force_items_stage_11
+  - challenge_force_items_stage_12
+  - challenge_force_items_stage_13
+  - challenge_force_items_stage_14
+  - challenge_force_items_stage_15
+  - challenge_force_techniques_stage_09
+  - challenge_force_techniques_stage_10
+  - challenge_force_techniques_stage_11
+  - challenge_force_techniques_stages_00_12_13_14_15
+  - challenge_force_techniques_stages_01_02_03
+  - challenge_force_techniques_stages_04_05
+  - challenge_force_techniques_stages_06_07_08
+  - challenge_hunter_items_stage_00
+  - challenge_hunter_items_stage_01
+  - challenge_hunter_items_stage_02
+  - challenge_hunter_items_stage_03
+  - challenge_hunter_items_stage_04
+  - challenge_hunter_items_stage_05
+  - challenge_hunter_items_stage_06
+  - challenge_hunter_items_stage_07
+  - challenge_hunter_items_stage_08
+  - challenge_hunter_items_stage_09
+  - challenge_hunter_items_stage_10
+  - challenge_hunter_items_stage_11
+  - challenge_hunter_items_stage_12
+  - challenge_hunter_items_stage_13
+  - challenge_hunter_items_stage_14
+  - challenge_hunter_items_stage_15
+  - challenge_ranger_items_stage_00
+  - challenge_ranger_items_stage_01
+  - challenge_ranger_items_stage_02
+  - challenge_ranger_items_stage_03
+  - challenge_ranger_items_stage_04
+  - challenge_ranger_items_stage_05
+  - challenge_ranger_items_stage_06
+  - challenge_ranger_items_stage_07
+  - challenge_ranger_items_stage_08
+  - challenge_ranger_items_stage_09
+  - challenge_ranger_items_stage_10
+  - challenge_ranger_items_stage_11
+  - challenge_ranger_items_stage_12
+  - challenge_ranger_items_stage_13
+  - challenge_ranger_items_stage_14
+  - challenge_ranger_items_stage_15
   - challenge_retry_cmd_table
   - challenge_retry_window_pos
   - change_floor_reload_area
@@ -978,6 +1038,7 @@ force_active:
   - collect_body_contacts__10TObjPlayerFPviPvPv
   - collect_node_positions__11TBreakUpMdlFPvPvi
   - commit_composition_text__19TWindowKeyBoardSoftFPv
+  - compute_range_end__6TLobbyFPviUi
   - configure_scripted_camera_playback
   - construct__12T_OWEHMS_ExpFP10TObjPlayer
   - construct__9TTecJelinFPviiii
@@ -1432,6 +1493,7 @@ force_active:
   - get_material_limit_for_class
   - get_model__23TObjSeabedSuisoBrakableFi
   - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
+  - get_next_send_chunk__6TLobbyFv
   - get_particle__20TPlayerParticleOwnerFv
   - get_pipe_interaction_latch
   - get_player__20TPlayerParticleOwnerFv
@@ -1615,6 +1677,7 @@ force_active:
   - item_follow_effect_vtable
   - item_help_level_requirement_callback
   - item_hp_recovery_vtable
+  - item_kt_archive_filename
   - item_mag_transform_vtable
   - item_model_names
   - item_moon_atomizer_vtable
@@ -1624,6 +1687,8 @@ force_active:
   - item_star_atomizer_vtable
   - item_status_cure_vtable
   - item_system_generation
+  - item_texture_afs_work_buffer
+  - item_texture_filename_buffer
   - jungle_boss_warp_resource_block
   - jungle_warp_beam_resource_descriptor
   - keyboard_poll_key_codes
@@ -1852,6 +1917,17 @@ force_active:
   - lbl_8050EA64
   - lbl_80513F00
   - lbl_80540BBC
+  - lbl_805A9A90
+  - lbl_805A9AF0
+  - lbl_805A9B70
+  - lbl_805A9BF0
+  - lbl_805A9C70
+  - lbl_805A9CF0
+  - lbl_805A9D70
+  - lbl_805A9DF0
+  - lbl_805A9E70
+  - lbl_805A9E80
+  - lbl_805AA080
   - lbl_805D9F9C
   - lerp_follow_anchor
   - load_downloaded_quest__12TQuestListVMFPv
@@ -1872,6 +1948,8 @@ force_active:
   - load_selected_slot__12TQuestListVMFPv
   - load_supplementary_t_rel__6TSceneFv
   - load_tam_file__6TSceneFi
+  - load_texture__12TItemTexLoadFl
+  - load_texture_archive__12TItemTexLoadFv
   - lobby_checked_read_ptr_table
   - lobby_curtain_resource_descriptor
   - lobby_font_texture_prs_data
@@ -1909,6 +1987,7 @@ force_active:
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - multi_confirm_texture_descriptor
   - multi_confirm_texture_entries
+  - network_packet_buffer_storage
   - nights_npc_resource_descriptor
   - notify__10TTcpSocketFss
   - npc_hosa2_resource_descriptor
@@ -2002,6 +2081,18 @@ force_active:
   - play_pitched_cue__13TObjEneBm3FlyFi
   - play_sifta_cast_sound
   - play_walk_sound__12TObjEneLappyFPv
+  - player_class_base_stats_00
+  - player_class_base_stats_01
+  - player_class_base_stats_02
+  - player_class_base_stats_03
+  - player_class_base_stats_04
+  - player_class_base_stats_05
+  - player_class_base_stats_06
+  - player_class_base_stats_07
+  - player_class_base_stats_08
+  - player_class_base_stats_09
+  - player_class_base_stats_10
+  - player_class_base_stats_11
   - pm_mdl_model_names
   - pm_mdl_motion_names
   - poll_key_state__16TKeyBoardControlFPv
@@ -2009,6 +2100,7 @@ force_active:
   - poll_quest_download__12TQuestListVMFPv
   - populate_sub_item_list
   - post_aram_request__16TAdWarningBaseGCFii
+  - pppoe_discovery_name_storage
   - prepare_heavy_attack_particles
   - process_download_entry__12TQuestListVMFPv
   - prs_read_control_bit
@@ -2036,6 +2128,7 @@ force_active:
   - quest_bgm_open_filename
   - quest_bgm_smile_filename
   - queue_deferred_photon_blast_hit
+  - queue_thread_main__6TLobbyFv
   - rabarta_band_emitter_table
   - rafoie_burst_table
   - rappy_variant_na_name
@@ -2356,6 +2449,7 @@ force_active:
   - set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv
   - set_item_name_selection_index
   - set_launch_midpoint__10TTecSlicerFPvPvPvPv
+  - set_lobby_map_state_code
   - set_manager_task_pmf_table
   - set_message_by_index__9TSaveChCrFii
   - set_mode_index_from_state__13TObjLobbyMainFPv
@@ -2686,6 +2780,7 @@ force_active:
   - submit_scene_ambient_color
   - submit_scene_light_direction
   - submit_selected_item__22TChallenge4PItemSelectFPv
+  - subtract_network_queue_timeout
   - subtractive_rng_refill
   - svm_callback_counts
   - svm_callback_message_buffer
@@ -2724,6 +2819,7 @@ force_active:
   - try_spawn_ground_effect__16TObjEneMe3StelthFii
   - udp_socket_slots
   - unlink_list_node__14TObjEneBm5WolfFPvPvPv
+  - unload_texture__12TItemTexLoadFv
   - unregister_from_world__5TItemFi
   - unused_render_func__9TMainTaskFv
   - update_active__10TChallengeFv
@@ -2920,6 +3016,7 @@ force_active:
   - window_uv_sprite_part_vtable
   - worker_callback_flag_table
   - worker_callback_slots
+  - write_ring_buffer__6TLobbyFPvi
   - write_telepipe_record
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data

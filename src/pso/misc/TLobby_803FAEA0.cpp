@@ -706,7 +706,7 @@ s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 s32 TLobby__sub_803FE658(u8 *arg0);
 void free_field_98_and_clear__6TLobbyFPv(u8 *arg0);
 u8 *alloc_from_buffer__6TLobbyFPvs(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1);
-s32 TLobby__sub_803F81C4(u16, s32);
+s32 send_network_frame(u16, u8 *);
 s32 TLobby__sub_804037B0(s32 arg0, u16 arg1);
 void TLobby__sub_80405328(u8 *arg0);
 s16 TLobby__sub_8040FCEC(u32);

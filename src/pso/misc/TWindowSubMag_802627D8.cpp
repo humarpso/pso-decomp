@@ -1,3 +1,5 @@
+#include "pso/item/TItemTexLoad.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -17,7 +19,7 @@ int get_flag_bit5__13TWindowSubMagFPv(void* p);
 int get_flag_bit6__13TWindowSubMagFPv(void* p);
 int is_cursor_locked__13TWindowSubMagFPv(void* p);
 void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1);
-s32 load_item_icon__12TItemTexLoadFPvPv(s32 a0 = 0, s32 a1 = 0);
+
 u16 * get_array_entry__20TWindowSubStatusDispFPvi(void * a0 = 0, s32 a1 = 0);
 
 int TWindowSubMag__sub_802627D8(void* p) { return *(u32*)((char*)p + 0x60) & 0x1; }
@@ -31,7 +33,7 @@ void set_mag_slot_state__13TWindowSubMagFPvi(void *arg0, s32 arg1) {
 
     temp_r3 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     *temp_r3 |= 2;
-    if (load_item_icon__12TItemTexLoadFPvPv(M2C_FIELD(arg0, s32 *, 0x6C), arg1) != 0) {
+    if (M2C_FIELD(arg0, TItemTexLoad**, 0x6C)->load_item_icon((TItemData*)arg1) != 0) {
         M2C_FIELD(arg0, s8 *, 0x60) = 1;
         return;
     }

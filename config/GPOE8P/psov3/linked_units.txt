@@ -734,11 +734,6 @@ pso/item/TItemShoot_8011BDC8.cpp
 pso/item/TItemShoot_8011BF94.cpp
 pso/item/TItemShoot_8011BFA0.cpp
 pso/item/TItemTexLoad.cpp
-pso/item/TItemTexLoad_8011CEDC.cpp
-pso/item/TItemTexLoad_8011CF6C.cpp
-pso/item/TItemTexLoad_8011CFCC.cpp
-pso/item/TItemTexLoad_8011D164.cpp
-pso/item/TItemTexLoad_8011D334.cpp
 pso/item/TItemTimer.cpp
 pso/item/TItemTimerEvent.cpp
 pso/item/TItemWeaponMechgun.cpp
@@ -2250,6 +2245,7 @@ pso/object/TObject_8003F3DC.cpp
 pso/object/TObject_800F794C.cpp
 pso/object/TObject_802EEE9C.cpp
 pso/object/TObject_803503D0.cpp
+pso/player/PlayerClassStats.cpp
 pso/player/PlayerTaskEffects.cpp
 pso/player/THunterGuildSeqOnlineTask.cpp
 pso/player/THunterGuildWarning.cpp
@@ -3050,8 +3046,6 @@ pso/unk/text_8011B694.cpp
 pso/unk/text_8011BA54.cpp
 pso/unk/text_8011BE50.cpp
 pso/unk/text_8011BEF0.cpp
-pso/unk/text_8011D2B4.cpp
-pso/unk/text_8011D3B8.cpp
 pso/unk/text_8011E2AC.cpp
 pso/unk/text_8011F63C.cpp
 pso/unk/text_8011F710.cpp
@@ -3791,6 +3785,7 @@ pso/unk/text_803F4D10.cpp
 pso/unk/text_803F4D84.cpp
 pso/unk/text_803F632C.cpp
 pso/unk/text_803F71BC.cpp
+pso/unk/text_803F7678.cpp
 pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c
