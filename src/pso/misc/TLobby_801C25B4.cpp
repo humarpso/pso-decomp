@@ -1,3 +1,5 @@
+#include "pso/system/TSetEvtDestroy.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -455,7 +457,7 @@ M2C_UNK close_and_play_effect__6TLobbyFii(u16, M2C_UNK);
 M2C_UNK destroy__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK clear_trap_counts(s32);
 M2C_UNK destroy_children_with_tag(s32);
-M2C_UNK fn_8020910C(s32);
+
 M2C_UNK obj_set_flag_20000();
 M2C_UNK set_flag_270__6TLobbyFPv();
 M2C_UNK set_type__10TObjPlayerFPvi(s32, M2C_UNK);
@@ -564,7 +566,7 @@ void init__6TLobbyFPv(void *arg0) {
         set_type__10TObjPlayerFPvi(temp_r3 + 0x644, 0xE10);
     }
     destroy_matching_traps__10TOMineTrapFv();
-    fn_8020910C(tl_01);
+    queue_destroy_event_descendants((TObject*)tl_01);
     destroy_children_with_tag(tl_00);
     TLobby__sub_8020BCE4();
     destroy__23TAdSinglePlyChrSelectGCFv();

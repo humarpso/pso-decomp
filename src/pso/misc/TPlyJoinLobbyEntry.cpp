@@ -3769,7 +3769,7 @@ void try_close__6TLobbyFPv();
 void forward_8024273C__6TLobbyFPv();
 void apply_trade_items__6TLobbyFv();
 void handle_reset_choice__6TLobbyFi();
-void TLobby__sub_802D2BC0();
+void handle_trade_received_items();
 extern u8 __vt__6TLobby[];
 extern s32 lobby_class_name;
 extern s32 TLobby__data_805D4E30;
@@ -3907,7 +3907,7 @@ u8 *TLobby__ct(u8 *arg0, void *arg1) {
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC7C) = (M2C_UNK *)&open_information_list__6TLobbyFiPv;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC84) = (M2C_UNK *)&TLobby__sub_80134C44;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC8C) = (M2C_UNK *)&copy_player_records__6TLobbyFPvi;
-    M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC98) = (M2C_UNK *)&TLobby__sub_802D2BC0;
+    M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC98) = (M2C_UNK *)&handle_trade_received_items;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC9C) = (M2C_UNK *)&handle_reset_choice__6TLobbyFi;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBCA0) = (M2C_UNK *)&apply_trade_items__6TLobbyFv;
     M2C_FIELD(TLobby__protocol_instance, M2C_UNK **, 0xBC54) = (M2C_UNK *)&init_once__6TLobbyFPv;

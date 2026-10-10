@@ -1,3 +1,4 @@
+#include "pso/system/TSetEvtDestroy.h"
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -285,7 +286,7 @@ M2C_UNK unsuppress_slot__11TWindowCtrlFi(u16);
 M2C_UNK clear_flag__11TWindowCtrlFv();
 M2C_UNK clear_trap_counts(s32);
 M2C_UNK destroy_children_with_tag(s32);
-M2C_UNK fn_8020910C(s32);
+
 M2C_UNK begin_player_keyboard_hold(u32);
 M2C_UNK obj_set_flag_20000();
 s32 obj_testFlags30(u32, s32);
@@ -903,7 +904,7 @@ void update__19TPlayerBattleCtrl4PFv(void) {
         }
         var_r31 += 1;
     } while (var_r31 < 4);
-    fn_8020910C(tl_01);
+    queue_destroy_event_descendants((TObject*)tl_01);
     destroy_children_with_tag(tl_00);
     TLobby__sub_8020BCE4();
     TLobby__sub_8020BB18();

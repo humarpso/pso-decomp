@@ -5,6 +5,26 @@
 extern "C" void queue_destruction__7TObjectFv(void*);
 
 extern "C" {
+extern const char TSetEvtDestroy_class_name[] = "TSetEvtDestroy";
+const char* TSetEvtDestroy_name = TSetEvtDestroy_class_name;
+s32 check_value_equals__13TQuestColCtrlFPvi(void*, s32);
+}
+
+extern "C" void queue_destroy_event_descendants(TObject* root) {
+    TObject* p = root->m_down;
+    TObject* cur;
+    while (root->m_down != 0 && p != 0) {
+        cur = p;
+        p = p->m_next;
+        if (check_value_equals__13TQuestColCtrlFPvi(cur, (s32)TSetEvtDestroy_name) != 0) {
+            queue_destruction__7TObjectFv(cur);
+        } else {
+            queue_destroy_event_descendants(cur);
+        }
+    }
+}
+
+extern "C" {
 s32 has_undefeated_entry__14TEnemyTaskListFPv(void*);
 s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
@@ -19,7 +39,7 @@ void TSetEvtDestroy::run_task() {
             m_phase = 2;
         }
         if (--m_countdown < 0) {
-            if (spawn_matching_objects__6TLobbyFssi(m_event_record->spawn_arg0, m_event_record->spawn_arg1, m_30) != 0) {
+            if (spawn_matching_objects__6TLobbyFssi(m_event_record->spawn_arg0, m_event_record->spawn_arg1, m_enemy_tasks) != 0) {
                 m_phase = 1;
             } else {
                 m_phase = 2;
@@ -27,7 +47,7 @@ void TSetEvtDestroy::run_task() {
         }
         break;
     case 1:
-        if (has_undefeated_entry__14TEnemyTaskListFPv(m_30) == 0) {
+        if (has_undefeated_entry__14TEnemyTaskListFPv(m_enemy_tasks) == 0) {
             m_event_record->flags |= 0x10;
             m_phase = 2;
         }
@@ -47,9 +67,9 @@ void TSetEvtDestroy::run_task() {
 }
 
 TSetEvtDestroy::~TSetEvtDestroy() {
-    if (m_30 != nullptr) {
-        queue_destruction__7TObjectFv(m_30);
-        m_30 = nullptr;
+    if (m_enemy_tasks != nullptr) {
+        queue_destruction__7TObjectFv(m_enemy_tasks);
+        m_enemy_tasks = nullptr;
     }
     if (m_event_record != nullptr) {
         m_event_record->flags &= ~2;
@@ -75,7 +95,6 @@ s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
 void *TEnemyTaskList__ct(void *, void *, s32);
 s32 get_area_event_data(s32 arg0);
-extern s32 lbl_805D3630;
 
 s32 item_drop_rng_below(s32, u32);
 void shuffle_event_entries(void *arg0);
@@ -90,10 +109,10 @@ typedef char RecoveredGlobal_802093EC_lbl_805139F8_size[sizeof(RecoveredGlobal_8
 TSetEvtDestroy::TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event) : TObject(parent) {
     s32* p;
     void* t;
-    m_name = (const char*)lbl_805D3630;
+    m_name = TSetEvtDestroy_name;
     p = (s32*)get_area_event_data(get_current_floor());
     m_event_record = NULL;
-    m_30 = NULL;
+    m_enemy_tasks = NULL;
     if (p != NULL) {
         m_event_record = event;
         m_event_context.stream = (u8*)p + *p;
@@ -104,7 +123,7 @@ TSetEvtDestroy::TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event) : 
         if (t != NULL) {
             t = TEnemyTaskList__ct(t, this, 0x20);
         }
-        m_30 = t;
+        m_enemy_tasks = (TEnemyTaskList*)t;
     } else {
         queue_destruction__7TObjectFv(this);
     }

@@ -15,19 +15,23 @@ struct SetDestroyEventRecord {
 };
 struct WaveEventContext { u8* stream; s32 cursor; };
 
+class TEnemyTaskList;
+
 class TSetEvtDestroy : public TObject {
 public:
  SetDestroyEventRecord* m_event_record;
  WaveEventContext m_event_context;
  s32 m_countdown;
  s32 m_phase;
- void* m_30;
+ TEnemyTaskList* m_enemy_tasks;
 
 public:
     TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event);
     virtual ~TSetEvtDestroy();
     virtual void run_task();
 };
+
+extern "C" void queue_destroy_event_descendants(TObject* root);
 
 #include <stddef.h>
 typedef char TSetEvtDestroySize[(sizeof(TSetEvtDestroy) == 0x34) ? 1 : -1];
@@ -39,5 +43,19 @@ typedef char SetDestroyEventActionOffset[(offsetof(SetDestroyEventRecord, action
 typedef char TSetEvtDestroyContextOffset[(offsetof(TSetEvtDestroy, m_event_context) == 0x20) ? 1 : -1];
 typedef char TSetEvtDestroyCountdownOffset[(offsetof(TSetEvtDestroy, m_countdown) == 0x28) ? 1 : -1];
 typedef char TSetEvtDestroyPhaseOffset[(offsetof(TSetEvtDestroy, m_phase) == 0x2C) ? 1 : -1];
+typedef char TSetEvtDestroyTaskListOffset[(offsetof(TSetEvtDestroy, m_enemy_tasks) == 0x30) ? 1 : -1];
+typedef char WaveEventContextSize[(sizeof(WaveEventContext) == 8) ? 1 : -1];
+typedef char WaveEventStreamOffset[(offsetof(WaveEventContext, stream) == 0) ? 1 : -1];
+typedef char WaveEventCursorOffset[(offsetof(WaveEventContext, cursor) == 4) ? 1 : -1];
+typedef char SetDestroyEventSpawn0Offset[(offsetof(SetDestroyEventRecord, spawn_arg0) == 8) ? 1 : -1];
+typedef char SetDestroyEventSpawn1Offset[(offsetof(SetDestroyEventRecord, spawn_arg1) == 0xA) ? 1 : -1];
+typedef char SetDestroyBaseSize[(sizeof(TObject) == 0x1C) ? 1 : -1];
+typedef char SetDestroyBaseNameOffset[(offsetof(TObject, m_name) == 0) ? 1 : -1];
+typedef char SetDestroyBaseFlagsOffset[(offsetof(TObject, m_flags) == 4) ? 1 : -1];
+typedef char SetDestroyBaseIdOffset[(offsetof(TObject, m_id) == 6) ? 1 : -1];
+typedef char SetDestroyBasePrevOffset[(offsetof(TObject, m_prev) == 8) ? 1 : -1];
+typedef char SetDestroyBaseNextOffset[(offsetof(TObject, m_next) == 0xC) ? 1 : -1];
+typedef char SetDestroyBaseParentOffset[(offsetof(TObject, m_up) == 0x10) ? 1 : -1];
+typedef char SetDestroyBaseChildOffset[(offsetof(TObject, m_down) == 0x14) ? 1 : -1];
 
 #endif

@@ -345,6 +345,7 @@ pso/effect/TEffect.cpp
 pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/BringerEffects.cpp
+pso/enemy/EnemyFactoryTables.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw.cpp
@@ -763,6 +764,7 @@ pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
+pso/map/FloorLifecycleTables.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
 pso/menu/TAdGuideTxtGC.cpp
@@ -1076,7 +1078,6 @@ pso/misc/TLobby_802A7848.cpp
 pso/misc/TLobby_802AF5FC.cpp
 pso/misc/TLobby_802D1EFC.cpp
 pso/misc/TLobby_802D22F0.cpp
-pso/misc/TLobby_802D2B64.cpp
 pso/misc/TLobby_802D3970.cpp
 pso/misc/TLobby_802D71E0.cpp
 pso/misc/TLobby_802D79EC.cpp
@@ -2655,6 +2656,7 @@ pso/player/TObjPlayer_803E21B8.cpp
 pso/player/TObjPlayer_803E4954.cpp
 pso/player/TObjPlayer_803E5470.cpp
 pso/player/TPlyItem.cpp
+pso/protocol/TradeSession.cpp
 pso/protocol/subcommand_validation_actions.cpp
 pso/protocol/subcommand_validation_movement.cpp
 pso/protocol/subcommand_validation_photon_blast.cpp
@@ -3423,7 +3425,6 @@ pso/unk/text_802032AC.cpp
 pso/unk/text_802033DC.cpp
 pso/unk/text_80203418.cpp
 pso/unk/text_802034B0.cpp
-pso/unk/text_8020910C.cpp
 pso/unk/text_80209584.cpp
 pso/unk/text_80209C58.cpp
 pso/unk/text_8020A2AC.cpp

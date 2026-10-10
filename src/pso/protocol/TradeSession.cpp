@@ -4,10 +4,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_802D2C38_lbl_804E1920 {
-    M2C_UNK value;
-    u8 remaining[0x13C];
-};
+#include "pso/protocol/TradeSession.h"
 
 typedef struct E_802D2BC0 { u8 p[0x14]; } E_802D2BC0;
 
@@ -18,16 +15,16 @@ typedef struct S_802D2BC0 {
 } S_802D2BC0;
 
 extern "C" {
-void TLobby__sub_802D30E8(s32 arg0);
+void send_trade_busy_reply(s32 arg0);
 M2C_UNK byteswap_trade_packet__6TLobbyFPv();
-extern RecoveredGlobal_802D2C38_lbl_804E1920 trade_proposal_state_handlers;
+
 extern u8 TLobby__trade_partner_client_id;
 extern u8 TLobby__trade_proposal_state;
 void handle_6xA6_modify_trade_proposal(u8 *arg0);
 void init_owner__5TItemFPvUs(void *, u16);
 extern s32 local_client_id;
 extern u8 TLobby__trade_proposal_state;
-void TLobby__sub_802D2BC0(S_802D2BC0 *arg0);
+void handle_trade_received_items(S_802D2BC0 *arg0);
 M2C_UNK send_cancel_trade__9TProtocolFv(s32);
 void reset__6TLobbyFv(void);
 void send_trade_proposal_result__6TLobbyFcc(s8 arg0, s8 arg1);
@@ -63,7 +60,7 @@ void handle_reset_choice__6TLobbyFi(s32 arg0) {
     }
 }
 
-void TLobby__sub_802D2BC0(S_802D2BC0 *arg0) {
+void handle_trade_received_items(S_802D2BC0 *arg0) {
     s32 i;
     E_802D2BC0 *p;
     if ((s32)TLobby__trade_proposal_state == 8 && arg0 != 0) {
@@ -80,7 +77,7 @@ void handle_6xA7(void) {  }
 extern s32 TLobby__protocol_instance;
 extern u16 trade_protocol_flags;
 
-typedef char RecoveredGlobal_802D2C38_lbl_804E1920_size[sizeof(RecoveredGlobal_802D2C38_lbl_804E1920) == 0x140 ? 1 : -1];
+typedef char RecoveredGlobal_802D2C38_lbl_804E1920_size[sizeof(trade_proposal_state_handlers) == 0x140 ? 1 : -1];
 void handle_6xA6_modify_trade_proposal(u8 *arg0) {
     M2C_UNK (*temp_r12)(void *);
     u16 temp_r3;
@@ -90,10 +87,10 @@ void handle_6xA6_modify_trade_proposal(u8 *arg0) {
     if ((temp_r3 < 4U) && (temp_r5 = M2C_FIELD(arg0, u8 *, 4), ((temp_r5 < 8U) != 0))) {
         if (((s8) TLobby__trade_partner_client_id != 4) && ((s32) temp_r3 != (s8) TLobby__trade_partner_client_id)) {
             if ((temp_r5 == 0) && ((u8) M2C_FIELD(arg0, u8 *, 5) == 0)) {
-                ((M2C_UNK (*)())TLobby__sub_802D30E8)();
+                ((M2C_UNK (*)())send_trade_busy_reply)();
             }
         } else {
-            temp_r12 = M2C_FIELD(((u8 *)(((u8 *)(&trade_proposal_state_handlers.value) + ((s8) TLobby__trade_proposal_state << 5))) + ((temp_r5 * 4) & 0x3FC)), M2C_UNK (**)(void *), 0);
+            temp_r12 = M2C_FIELD(((u8 *)(((u8 *)(&trade_proposal_state_handlers) + ((s8) TLobby__trade_proposal_state << 5))) + ((temp_r5 * 4) & 0x3FC)), M2C_UNK (**)(void *), 0);
             if (temp_r12 != NULL) {
                 temp_r12(arg0);
             }
@@ -161,7 +158,7 @@ extern "C" {
 
 void reset__6TLobbyFv(void);
 s32 show_event_message__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-void update_sub_status_disp__6TLobbyFi(s32 arg0);
+s32 format_trade_out_of_range_message(s32 arg0);
 s32 get_shared_text_buffer();
 void * find_item_by_id(s32);
 M2C_UNK text_builder_append();
@@ -175,16 +172,15 @@ M2C_UNK reset_impl__15TLobby_802D2F7CFPv(s32);
 
 extern s32 local_client_id;
 
-void update_sub_status_disp__6TLobbyFi(s32 arg0) {
+s32 format_trade_out_of_range_message(s32 arg0) {
     if ((s32) local_client_id == arg0) {
-        ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF0));
-        return;
+        return ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xF0));
     }
     text_builder_reset();
     refresh_player_status__6TLobbyFv(arg0);
     ((s32 (*)(M2C_UNK))get_message_10__20TWindowSubStatusDispFPv)((M2C_UNK)(0xEF));
     text_builder_append();
-    get_shared_text_buffer();
+    return get_shared_text_buffer();
 }
 
 extern s32 local_client_id;
@@ -312,7 +308,7 @@ struct Trade_802D3134 { u8 pad[4]; s16 who; u16 count; Item_802D3134 items[1]; }
 extern "C" {
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
-void TLobby__sub_802D30E8(s32 arg0);
+void send_trade_busy_reply(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
@@ -326,7 +322,7 @@ u32 get_player_by_client_id(void *);
 s32 close_request_window__19TWindowTradeRequestFv();
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 s32 send_trade_proposal_modify__6TLobbyFv();
-void TLobby__sub_802D30E8(s32 arg0);
+void send_trade_busy_reply(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 extern s32 local_client_id;
@@ -338,14 +334,14 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0);
 void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self);
 
 void reset__6TLobbyFi(s32 arg0);
-void TLobby__sub_802D3384(O_802D3384 *self);
+void handle_trade_member_out_of_range(O_802D3384 *self);
 s32 close_request_window__19TWindowTradeRequestFv();
 
 void reset__6TLobbyFi(s32 arg0);
 M2C_UNK prepare_and_send_trade_packet__6TLobbyFPvPv(void *, void *);
 M2C_UNK build_6xA6_modify_trade_proposal(void *);
 
-void TLobby__sub_802D3070(s32 arg0);
+void cancel_trade_for_member_out_of_range(s32 arg0);
 
 M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
 M2C_UNK copy_item_data__6TLobbyFPvPv(void *, void *);
@@ -361,12 +357,12 @@ M2C_UNK text_builder_append();
 M2C_UNK text_builder_reset();
 void reset__6TLobbyFi(s32 arg0);
 
-void TLobby__sub_802D33F8(void *arg0);
+void handle_trade_partner_cancel(void *arg0);
 }
 
 extern "C" {
 
-void TLobby__sub_802D3380(void);
+void ignore_trade_proposal_event(void);
 void reset__6TLobbyFi(s32 arg0);
 M2C_UNK TLobby_802D2F7C__sub_80339910(u32, s32);
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
@@ -394,7 +390,7 @@ void reset__6TLobbyFi(s32 arg0) {
     }
 }
 
-void TLobby__sub_802D3070(s32 arg0) {
+void cancel_trade_for_member_out_of_range(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
     s8 new_var;
     build_6xA6_modify_trade_proposal(&packet.header);
@@ -408,10 +404,10 @@ void TLobby__sub_802D3070(s32 arg0) {
         ((M2C_UNK (*)())reset__6TLobbyFv)();
         return;
     }
-    reset__6TLobbyFi(((s32 (*)(s32))update_sub_status_disp__6TLobbyFi)(arg0));
+    reset__6TLobbyFi(format_trade_out_of_range_message(arg0));
 }
 
-void TLobby__sub_802D30E8(s32 arg0) {
+void send_trade_busy_reply(s32 arg0) {
     G_ModifyTradeProposal_6xA6 packet;
     build_6xA6_modify_trade_proposal((void *) (&packet.header));
     packet.what = 6;
@@ -491,7 +487,7 @@ void send_modify_trade_proposal__6TLobbyFi(s32 arg0) {
                 TLobby__sub_8024AAA0((s32)((void *) (local_client_id)), (M2C_UNK)((int) (0x1D)));
                 return;
             }
-            TLobby__sub_802D30E8((s32)((int) ((s32) (s8) (*(u8 *)&TLobby__trade_partner_client_id))));
+            send_trade_busy_reply((s32)((int) ((s32) (s8) (*(u8 *)&TLobby__trade_partner_client_id))));
             goto block_6;
         }
 block_6:
@@ -504,12 +500,12 @@ block_6:
     }
 }
 
-void TLobby__sub_802D3380(void) {  }
+void ignore_trade_proposal_event(void) {  }
 
-void TLobby__sub_802D3384(O_802D3384 *self) {
+void handle_trade_member_out_of_range(O_802D3384 *self) {
     switch (self->state) {
     case 0:
-        reset__6TLobbyFi(((s32 (*)(s32))update_sub_status_disp__6TLobbyFi)(self->h6));
+        reset__6TLobbyFi(format_trade_out_of_range_message(self->h6));
         break;
     case 1:
     case 2:
@@ -526,7 +522,7 @@ void handle_trade_state_cancel__6TLobbyFPv(O_802D33C0 *self) {
         break;
     }
 }
-void TLobby__sub_802D33F8(void *arg0) {
+void handle_trade_partner_cancel(void *arg0) {
     switch (M2C_FIELD(arg0, u8 *, 5)) {
     case 4:
         text_builder_reset();
@@ -593,7 +589,7 @@ extern s32 local_client_id;
 #define TLobby__trade_partner_client_id (*(s8 *)&TLobby__trade_partner_client_id)
 #define TLobby__trade_proposal_state (*(s8 *)&TLobby__trade_proposal_state)
 extern s32 TLobby__data_805D688C;
-void TLobby__sub_802D36E0(void *arg0);
+void handle_trade_request_reply(void *arg0);
 s32 close_request_window__19TWindowTradeRequestFv();
 void reset__6TLobbyFv(void);
 void handle_trade_request_state_a__6TLobbyFPv(O_802D361C *self);
@@ -627,14 +623,14 @@ void handle_state_init__6TLobbyFPv(O_802D377C *self);
 
 extern "C" {
 
-void update_music_state__6TLobbyFPv(void *arg0);
-void update_flag_by_state__6TLobbyFPv(void *arg0);
+void handle_trade_final_confirmation(void *arg0);
+void handle_trade_offer_confirmation(void *arg0);
 M2C_UNK notify_child_if_present__19TWindowSubTradeMainFPvi(u32, s32);
 
 extern u16 trade_protocol_flags;
 extern u32 TLobby__trade_main_window;
 
-void update_music_state__6TLobbyFPv(void *arg0) {
+void handle_trade_final_confirmation(void *arg0) {
     u8 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);
@@ -657,7 +653,7 @@ void update_music_state__6TLobbyFPv(void *arg0) {
 extern u16 trade_protocol_flags;
 extern u32 TLobby__trade_main_window;
 
-void update_flag_by_state__6TLobbyFPv(void *arg0) {
+void handle_trade_offer_confirmation(void *arg0) {
     u8 temp_r0;
 
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);
@@ -750,7 +746,7 @@ void update_status_message__6TLobbyFPv(O_802D368C *self) {
     }
 }
 
-void TLobby__sub_802D36E0(void *arg0) {
+void handle_trade_request_reply(void *arg0) {
     u8 temp_r0;
     temp_r0 = M2C_FIELD(arg0, u8 *, 5);
     switch ((s32) temp_r0) {
@@ -768,7 +764,7 @@ void TLobby__sub_802D36E0(void *arg0) {
         ((M2C_UNK (*)())reset__6TLobbyFi)();
         return;
     case 0:
-        ((M2C_UNK (*)(int))TLobby__sub_802D30E8)(TLobby__trade_partner_client_id);
+        ((M2C_UNK (*)(int))send_trade_busy_reply)(TLobby__trade_partner_client_id);
     case 4:
         return;
     }
@@ -836,7 +832,7 @@ void update_battle_mode__6TLobbyFv(void) {
             return;
         }
         if (TWindowSubTradeMain__sub_802D3924(local_client_id) == 0) {
-            ((M2C_UNK (*)(s32))TLobby__sub_802D3070)(local_client_id);
+            ((M2C_UNK (*)(s32))cancel_trade_for_member_out_of_range)(local_client_id);
         }
     }
 }
@@ -855,7 +851,7 @@ void update_trade_partner__6TLobbyFv(void) {
         return;
     }
     if (TWindowSubTradeMain__sub_802D3924(TLobby__trade_partner_client_id) == 0) {
-        ((M2C_UNK (*)(s32))TLobby__sub_802D3070)(TLobby__trade_partner_client_id);
+        ((M2C_UNK (*)(s32))cancel_trade_for_member_out_of_range)(TLobby__trade_partner_client_id);
     }
 }
 
@@ -882,3 +878,15 @@ void reset_trade_state__6TLobbyFv(void) {
 #undef TLobby__trade_main_window
 #undef TLobby__data_805D689C
 #undef TLobby__trade_window_state
+extern "C" TradeProposalHandler trade_proposal_state_handlers[10][8] = {
+    { (TradeProposalHandler)handle_state_init__6TLobbyFPv, 0, 0, 0, 0, 0, 0, 0 },
+    { (TradeProposalHandler)handle_trade_request_reply, 0, 0, 0, 0, 0, (TradeProposalHandler)update_status_message__6TLobbyFPv, (TradeProposalHandler)handle_trade_member_out_of_range },
+    { 0, 0, 0, 0, 0, (TradeProposalHandler)handle_trade_request_state_b__6TLobbyFPv, 0, (TradeProposalHandler)handle_trade_request_state_a__6TLobbyFPv },
+    { (TradeProposalHandler)ignore_trade_proposal_event, (TradeProposalHandler)handle_trade_item_move__6TLobbyFPv, (TradeProposalHandler)handle_trade_item_amount__6TLobbyFPv, (TradeProposalHandler)handle_trade_offer_confirmation, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_partner_cancel, 0, (TradeProposalHandler)handle_trade_member_out_of_range },
+    { (TradeProposalHandler)ignore_trade_proposal_event, (TradeProposalHandler)handle_trade_item_move__6TLobbyFPv, (TradeProposalHandler)handle_trade_item_amount__6TLobbyFPv, (TradeProposalHandler)handle_trade_offer_confirmation, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_partner_cancel, 0, (TradeProposalHandler)handle_trade_member_out_of_range },
+    { (TradeProposalHandler)ignore_trade_proposal_event, (TradeProposalHandler)ignore_trade_proposal_event, (TradeProposalHandler)ignore_trade_proposal_event, (TradeProposalHandler)handle_trade_offer_confirmation, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_partner_cancel, 0, (TradeProposalHandler)ignore_trade_proposal_event },
+    { (TradeProposalHandler)ignore_trade_proposal_event, 0, 0, 0, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_partner_cancel, 0, (TradeProposalHandler)ignore_trade_proposal_event },
+    { (TradeProposalHandler)ignore_trade_proposal_event, 0, 0, 0, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_state_cancel__6TLobbyFPv, 0, (TradeProposalHandler)ignore_trade_proposal_event },
+    { (TradeProposalHandler)ignore_trade_proposal_event, 0, 0, 0, (TradeProposalHandler)handle_trade_final_confirmation, (TradeProposalHandler)handle_trade_state_cancel__6TLobbyFPv, 0, (TradeProposalHandler)ignore_trade_proposal_event },
+    { (TradeProposalHandler)ignore_trade_proposal_event, 0, 0, 0, 0, (TradeProposalHandler)handle_trade_state_cancel__6TLobbyFPv, 0, (TradeProposalHandler)ignore_trade_proposal_event },
+};

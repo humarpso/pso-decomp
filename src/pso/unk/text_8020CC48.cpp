@@ -1,3 +1,5 @@
+#include "pso/enemy/EnemyFactoryTables.h"
+
 #include "types.h"
 typedef struct SpawnRecord_8020CC48 {
     s16 type;
@@ -15,18 +17,11 @@ typedef struct SpawnRecord_8020CC48 {
     s16 integers[4];
 } SpawnRecord_8020CC48;
 
-typedef struct SpawnFactory_8020CC48 {
-    s16 type;
-    u16 flags;
-    void *constructor;
-    u32 unknown;
-    s32 children;
-} SpawnFactory_8020CC48;
+typedef EnemyFactoryEntry SpawnFactory_8020CC48;
 
 extern "C" {
 s32 get_global_state__14TOKeyMachine01Fv();
-void TLobby__sub_8020CCD0(SpawnFactory_8020CC48 *out, SpawnFactory_8020CC48 *entry);
-extern SpawnFactory_8020CC48 *enemy_factory_area_table[];
+void copy_enemy_factory_entry(SpawnFactory_8020CC48 *out, SpawnFactory_8020CC48 *entry);
 s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *out);
 }
 
@@ -38,7 +33,7 @@ s32 find_enemy_factory_entry(SpawnRecord_8020CC48 *row, SpawnFactory_8020CC48 *o
     SpawnFactory_8020CC48 *entry = table;
     while (table != NULL && entry->type != -1) {
         if (entry->type == row->type) {
-            TLobby__sub_8020CCD0(out, entry);
+            copy_enemy_factory_entry(out, entry);
             return index;
         }
         entry++;

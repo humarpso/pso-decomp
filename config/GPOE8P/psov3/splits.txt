@@ -7614,15 +7614,17 @@ pso/misc/TLobby_80207644.cpp:
 pso/ui/TAdStorySelectGC.cpp:
 	.text       start:0x80207D44 end:0x80207DA8
 
+pso/map/FloorLifecycleTables.cpp:
+	.data       start:0x804B98A8 end:0x804BB1A8
+
 pso/misc/TLobby_80207DA8.cpp:
 	.text       start:0x80207DA8 end:0x8020910C
 
-pso/unk/text_8020910C.cpp:
-	.text       start:0x8020910C end:0x80209180
-
 pso/system/TSetEvtDestroy.cpp:
-	.text       start:0x80209180 end:0x80209524
+	.text       start:0x8020910C end:0x80209524
+	.rodata     start:0x8044BAE8 end:0x8044BAF8
 	.data       start:0x804C9430 end:0x804C9448
+	.sdata      start:0x805D3630 end:0x805D3638
 
 pso/misc/TLobby_80209524.cpp:
 	.text       start:0x80209524 end:0x80209584
@@ -7720,6 +7722,9 @@ pso/misc/TLobby_8020BFC4.cpp:
 
 pso/object/ObjectFactoryTables.cpp:
 	.data       start:0x804BB1A8 end:0x804C1F68
+
+pso/enemy/EnemyFactoryTables.cpp:
+	.data       start:0x80497DC8 end:0x80498F28
 
 pso/unk/text_8020BFE4.cpp:
 	.text       start:0x8020BFE4 end:0x8020C2DC
@@ -10668,8 +10673,9 @@ pso/misc/TWindowSubTradeMain_802D2808.cpp:
 pso/unk/text_802D298C.cpp:
 	.text       start:0x802D298C end:0x802D2B64
 
-pso/misc/TLobby_802D2B64.cpp:
+pso/protocol/TradeSession.cpp:
 	.text       start:0x802D2B64 end:0x802D3924
+	.data       start:0x804E1920 end:0x804E1A60
 
 pso/misc/TWindowSubTradeMain_802D3924.cpp:
 	.text       start:0x802D3924 end:0x802D3970
