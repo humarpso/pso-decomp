@@ -2686,7 +2686,7 @@ s32 TLobby__sub_80416994(Msg_80416994 *msg, u8 *name, s16 len, s32 arg3, s32 arg
 void TLobby__sub_80406FD8(void *, void *, s32);
 s16 TLobby__sub_80417294(void *, u32, u8 *, void *);
 s16 TLobby__sub_80417494(void *, u8 *, void *);
-s16 TLobby__sub_804171BC(u8 *arg0, u8 *arg1, s32 arg2, void *arg3);
+s16 NetIPv6HandleRouterAdvertisement(u8 *arg0, u8 *arg1, s32 arg2, void *arg3);
 
 typedef struct Hdr_804177A0 {
     s16 len;
@@ -2695,7 +2695,7 @@ typedef struct Hdr_804177A0 {
 } Hdr_804177A0;
 void TLobby__sub_80406FD8(void *, void *, s32);
 s16 TLobby__sub_80417868(void *, u32, s32, s32);
-s16 TLobby__sub_804177A0(u8 *o, s32 arg1, s32 arg2, s32 arg3);
+s16 NetIPv6HandleRouterSolicitation(u8 *o, s32 arg1, s32 arg2, s32 arg3);
 
 typedef struct Arg_80417D1C { u8 *p; s32 v; } Arg_80417D1C;
 void TLobby__sub_803F9F04(void * _w0, void * _w1, int _w2);

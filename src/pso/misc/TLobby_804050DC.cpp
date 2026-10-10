@@ -1,3 +1,5 @@
+#include "pso/network/BufferRef.h"
+
 #include "types.h"
 #include "pso/protocol/NetworkRuntime.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -512,6 +514,10 @@ struct Ent_80409F44 { s16 st; s16 pad2; s32 (*f4)(s32); s32 (*f8)(s32); s32 (*fC
 
 struct Tbl_80409F44 { s16 count; Ent_80409F44 *list; };
 
+struct IPv6Address { u8 bytes[16]; };
+
+struct IPv6NeighborSolicitation { u8 header[8]; IPv6Address target; };
+
 extern "C" {
 s32 clear_flag_bit4__6TLobbyFiPv(M2C_UNK arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
@@ -976,6 +982,15 @@ M2C_UNK TLobby__sub_8041FFF8(int, int);
 s32 TLobby__sub_80420BD0(void *, void *, s32);
 extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
 s32 tcp_start_send(s16 arg0, u8 *arg1, void (*completion)(s16, s16), u8 arg3);
+void TLobby__sub_80406EB8(void *);
+void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
+void TLobby__sub_80406FD8(void *, void *, s32);
+s16 TLobby__sub_80413F0C(void *, void *);
+s32 NetIPv6IsMulticast(u8 *arg0);
+s32 is_zero_16_bytes__6TLobbyFPv(u8 *arg0);
+s16 TLobby__sub_80416F58(u8 *, u32, void *, void *);
+s16 TLobby__sub_80417028(void *, void *, void *, void *);
+s16 NetIPv6HandleNeighborSolicitation(u8 *arg0, void *arg1, void *arg2, void *arg3);
 }
 
 extern "C" {
@@ -5724,7 +5739,41 @@ s32 TLobby__sub_80416994(Msg_80416994 *msg, u8 *name, s16 len, s32 arg3, s32 arg
 void TLobby__sub_80406FD8(void *, void *, s32);
 s16 TLobby__sub_80417294(void *, u32, u8 *, void *);
 s16 TLobby__sub_80417494(void *, u8 *, void *);
-s16 TLobby__sub_804171BC(u8 *arg0, u8 *arg1, s32 arg2, void *arg3) {
+
+s16 NetIPv6HandleNeighborSolicitation(u8 *arg0, void *arg1, void *arg2, void *arg3) {
+    void TLobby__sub_80406EB8(void *, int);
+    s16 NetIPv6IsMulticast(u8 *arg0);
+    s16 is_zero_16_bytes__6TLobbyFPv(u8 *arg0);
+    NetBufferRef sp30;
+    IPv6NeighborSolicitation sp18;
+    u8 *hdr;
+    u32 len;
+    s16 r;
+    hdr = arg0 + 0x18;
+    len = *(s16 *)(arg0 + 0x18);
+    if (len < 0x18) {
+        return -1;
+    }
+    if ((s16)is_zero_16_bytes__6TLobbyFPv((u8 *)arg1) && TLobby__sub_80413F0C(arg2, arg3) == 0) {
+        return -1;
+    }
+    set_value_and_enable__6TLobbyFPvi((u8 *)&sp30, (s32)&sp18);
+    TLobby__sub_80406FD8(&sp30, hdr + 4, 0x18);
+    if ((s16)NetIPv6IsMulticast(sp18.target.bytes)) {
+        return -1;
+    }
+    len -= 0x18;
+    if (len >= 8) {
+        TLobby__sub_80406EB8(hdr + 4, 24);
+        r = TLobby__sub_80416F58(hdr, len, arg1, arg3);
+        if (r < 0) {
+            return r;
+        }
+    }
+    return TLobby__sub_80417028(&sp18, arg1, arg2, arg3);
+}
+
+s16 NetIPv6HandleRouterAdvertisement(u8 *arg0, u8 *arg1, s32 arg2, void *arg3) {
     u8 sp28[8];
     u8 sp18[16];
     u32 n;
@@ -5762,7 +5811,7 @@ typedef struct Hdr_804177A0 {
 } Hdr_804177A0;
 void TLobby__sub_80406FD8(void *, void *, s32);
 s16 TLobby__sub_80417868(void *, u32, s32, s32);
-s16 TLobby__sub_804177A0(u8 *o, s32 arg1, s32 arg2, s32 arg3) {
+s16 NetIPv6HandleRouterSolicitation(u8 *o, s32 arg1, s32 arg2, s32 arg3) {
     u8 b[8];
     u8 a[8];
     s32 pad;
