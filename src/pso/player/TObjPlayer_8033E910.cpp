@@ -38,8 +38,8 @@ M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 int set_global_effect_state__10TObjPlayerFi(void*);
-int TObjPlayer__sub_803DC83C(void*);
-int TObjPlayer__sub_803DC850(void*);
+int set_ginja_post_texgen_count(void*);
+int set_ginja_post_tev_stage_count(void*);
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_804783B0;
@@ -77,8 +77,8 @@ void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 int TObjPlayer__sub_803078B0(void);
-int TObjPlayer__sub_803DC83C(void*);
-int TObjPlayer__sub_803DC850(void*);
+int set_ginja_post_texgen_count(void*);
+int set_ginja_post_tev_stage_count(void*);
 int load_list_texture(int, int, int, int);
 int set_global_effect_state__10TObjPlayerFi(void*);
 int set_global_param__8TObjFishFi(void);
@@ -86,7 +86,7 @@ int set_global_param__8TObjFishFi(void);
 void init_particle_effect__10TObjPlayerFv(void) { TObjPlayer__sub_803078B0(); set_global_param__8TObjFishFi(); load_list_texture(0, 0, 0, 2); }
 
     extern int some_id_805c6f74;
-void reset_effects__10TObjPlayerFv(void) { TObjPlayer__sub_803DC850((void*)0); TObjPlayer__sub_803DC83C((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); some_id_805c6f74 = (some_id_805c6f74 & 0xfff7ffff); }
+void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); some_id_805c6f74 = (some_id_805c6f74 & 0xfff7ffff); }
 
 void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     u8 sp10[0x30];
@@ -110,8 +110,8 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         GXSetTevOp((int) (1), (int) (1));
         set_tex_coord_gen2((int) (1), (int) (0), (int) (0), (int) (0x24));
         (*(s32 *)&some_id_805c6f74) |= 0x80000;
-        TObjPlayer__sub_803DC850((void*)((int) (1)));
-        TObjPlayer__sub_803DC83C((void*)((int) (1)));
+        set_ginja_post_tev_stage_count((void*)((int) (1)));
+        set_ginja_post_texgen_count((void*)((int) (1)));
         set_global_effect_state__10TObjPlayerFi((void*)((int) (1)));
     }
 }

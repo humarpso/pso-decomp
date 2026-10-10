@@ -55,17 +55,17 @@ Shine_8034AB4C *__ct__19TAdGameStartShineGCFv(Shine_8034AB4C *self);
 extern "C" {
 
 void render__19TAdGameStartShineGCFv(void *arg0);
-M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK render_status_box__20TWindowSubStatusDispFPv(void *);
 
 void render__19TAdGameStartShineGCFv(void *arg0) {
     if ((get_state_flag__9TMainTaskFv() != 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x7C) != 0)) {
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 0xA);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 0xA);
         render_status_box__20TWindowSubStatusDispFPv(arg0);
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 6);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
     }
 }
 #pragma push

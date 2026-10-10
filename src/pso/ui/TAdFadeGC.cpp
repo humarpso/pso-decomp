@@ -22,7 +22,7 @@ int all_parents_unqueued_for_destruction__7TObjectFv(void*);
 void run_task__9TAdFadeGCFv(void *arg0);
 M2C_UNK draw_color_lines(void *, int, int, f32);
 M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32, f32, f32);
-M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
 f32 lbl_805D6800;
 s8 lbl_805D6804;
 }
@@ -54,8 +54,8 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
     d.b = 4;
     switch (M2C_FIELD(arg0, s32 *, 0x28)) {
     case 0:
-        abs__4cXyzCFv(0, 0xB);
-        abs__4cXyzCFv(1, 4);
+        set_cached_blend_factor(0, 0xB);
+        set_cached_blend_factor(1, 4);
         for (i = 0; i < 120; i++) {
             d.pos[0] = (0.0f);
             y = (8.0f) * (f32) i;
@@ -77,8 +77,8 @@ void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
             }
             draw_color_lines(&d, 4, 7, lbl_805D6800);
         }
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 6);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
         break;
     case 1:
     case 2:

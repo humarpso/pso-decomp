@@ -12,7 +12,7 @@ void bind_motion_context(s32);
 void prepare_ginja_model(G_801E2DE4 *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
-extern void *lbl_805D4698;
+extern void *model_draw_context;
 void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
 }
 
@@ -22,7 +22,7 @@ void render_matrix_chain__10TObjPlayerFPv(void *arg0);
 void render_model_tree__10TObjPlayerFPv(void *arg0);
 M2C_UNK GXLoadNrmMtxImm(M2C_UNK *, M2C_UNK);
 M2C_UNK GXLoadPosMtxImm(s32, M2C_UNK);
-extern M2C_UNK (*lbl_805D7710)(void *);
+extern M2C_UNK (*model_node_callback)(void *);
 M2C_UNK PSMTXInverse(s32, M2C_UNK *);
 M2C_UNK PSMTXTranspose(M2C_UNK *, M2C_UNK *);
 M2C_UNK apply_motion_node_transform__10TObjPlayerFPv(void *);
@@ -30,7 +30,7 @@ M2C_UNK compose_motion_node_matrix(void *);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
-extern void *lbl_805D4698;
+extern void *model_draw_context;
 extern s32 current_matrix;
 
 void render_model_tree__10TObjPlayerFPv(void *arg0) {
@@ -42,15 +42,15 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
     do {
         push_matrix();
         apply_motion_node_transform__10TObjPlayerFPv(var_r31);
-        if (((M2C_UNK (*)(void *)) lbl_805D7710) != NULL) {
-            lbl_805D7710(var_r31);
+        if (((M2C_UNK (*)(void *)) model_node_callback) != NULL) {
+            model_node_callback(var_r31);
         }
         if (((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U) && !(M2C_FIELD(var_r31, s32 *, 0) & 8)) {
             GXLoadPosMtxImm(current_matrix, 0);
             PSMTXInverse(current_matrix, sp8);
             PSMTXTranspose(sp8, sp38);
             GXLoadNrmMtxImm(sp38, 0);
-            M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);
+            M2C_FIELD(model_draw_context, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), model_draw_context);
         }
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
             render_model_tree__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));
@@ -60,13 +60,13 @@ void render_model_tree__10TObjPlayerFPv(void *arg0) {
     } while (var_r31 != NULL);
 }
 
-extern void *lbl_805D4698;
+extern void *model_draw_context;
 extern s32 current_matrix;
 
 void draw_ginja_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     G_801E2DE4 *g;
     bind_motion_context(arg1);
-    g = (G_801E2DE4 *)lbl_805D4698;
+    g = (G_801E2DE4 *)model_draw_context;
     g->draw = draw_ginja_model_lists;
     prepare_ginja_model(g);
     render_matrix_chain__10TObjPlayerFPv(arg0);
@@ -82,15 +82,15 @@ void render_matrix_chain__10TObjPlayerFPv(void *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix(var_r31);
-        if (((M2C_UNK (*)(void *)) lbl_805D7710) != NULL) {
-            lbl_805D7710(var_r31);
+        if (((M2C_UNK (*)(void *)) model_node_callback) != NULL) {
+            model_node_callback(var_r31);
         }
         if (((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U) && !(M2C_FIELD(var_r31, s32 *, 0) & 8)) {
             GXLoadPosMtxImm(current_matrix, 0);
             PSMTXInverse(current_matrix, sp8);
             PSMTXTranspose(sp8, sp38);
             GXLoadNrmMtxImm(sp38, 0);
-            M2C_FIELD(lbl_805D4698, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), lbl_805D4698);
+            M2C_FIELD(model_draw_context, M2C_UNK (**)(u32, void *), 0xC)(M2C_FIELD(var_r31, u32 *, 4), model_draw_context);
         }
         if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
             render_matrix_chain__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));

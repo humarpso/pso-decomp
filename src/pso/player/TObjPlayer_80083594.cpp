@@ -53,8 +53,8 @@ void setup_particle_tev(s32 arg0);
 void setup_tev_stage__10TObjPlayerFv(void);
 M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
 M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
+M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
+M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
 M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 is_split_screen();
 M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
@@ -71,8 +71,8 @@ void setup_tev_stage__10TObjPlayerFv(void) {
         set_global_param__8TObjFishFi(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
-        TObjPlayer__sub_803DC850(1);
-        TObjPlayer__sub_803DC83C(1);
+        set_ginja_post_tev_stage_count(1);
+        set_ginja_post_texgen_count(1);
     }
 }
 
@@ -91,8 +91,8 @@ void setup_particle_tev(s32 arg0) {
         set_global_param__8TObjFishFi(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
         some_id_805c6f74 |= 0x80000;
-        TObjPlayer__sub_803DC850(1);
-        TObjPlayer__sub_803DC83C(1);
+        set_ginja_post_tev_stage_count(1);
+        set_ginja_post_texgen_count(1);
     }
 }
 

@@ -66,7 +66,7 @@ void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
-extern RecoveredCallback_d26337a2813d lbl_805D76E4;
+extern RecoveredCallback_d26337a2813d ginja_draw_end_callback;
 extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 void end_ginja_model_draw(void);
@@ -77,7 +77,7 @@ extern S_803DB560 ginja_material_cache;
 u32 update_ginja_cached_parameter(s32 i, u32 v);
 extern S_803DB560 ginja_material_cache;
 extern s32 some_id_805c6f74;
-extern u32 lbl_805D46C0;
+extern u32 ginja_blend_override;
 void set_ginja_blend_param(u32 x);
 void GXSetAlphaCompare(s32 comp0, s32 ref0, s32 op, s32 comp1, s32 ref1);
 void ginja_set_alpha_compare(s32 ref);
@@ -146,12 +146,12 @@ void set_ginja_material_color(u32 v);
 void init_model_draw_queue(void *);
 void flush_model_draw_queue(void);
 void prepare_ginja_model(void);
-void traverse_node_tree__10TObjPlayerFv(void *, void *);
+void traverse_model_node_tree(void *, void *);
 void set_effect_active__10TObjPlayerFv(void);
 void apply_scene_fog(void);
 s32 queue_model_draw_current_matrix(s32 arg0);
 s32 draw_ginja_model_lists(GinjaModel *model);
-extern RecoveredCallback_d26337a2813d lbl_805D76E4;
+extern RecoveredCallback_d26337a2813d ginja_draw_end_callback;
 extern s32 ginja_draw_flags;
 void draw_ginja_object(void *arg0);
 void GXSetChanCtrl(s32,s32,s32,s32,s32,s32,s32);
@@ -164,12 +164,12 @@ void GXSetNumTexGens(u8);
 void GXSetNumTevStages(u8);
 void set_ginja_channel_ctrl(s32 channel,s32 flags);
 extern S_803DB560 ginja_material_cache;
-extern RecoveredCallback_bfe74032a8e8 lbl_805D76E8;
-extern RecoveredCallback_bfe74032a8e8 lbl_805D76EC;
-extern RecoveredCallback_bfe74032a8e8 lbl_805D76F0;
-extern RecoveredCallback_b52dc2a08a00 lbl_805D76F4;
-extern RecoveredCallback_b52dc2a08a00 lbl_805D76F8;
-extern RecoveredCallback_b52dc2a08a00 lbl_805D76FC;
+extern RecoveredCallback_bfe74032a8e8 ginja_pre_channel_callback;
+extern RecoveredCallback_bfe74032a8e8 ginja_pre_texgen_callback;
+extern RecoveredCallback_bfe74032a8e8 ginja_pre_tev_callback;
+extern RecoveredCallback_b52dc2a08a00 ginja_post_channel_callback;
+extern RecoveredCallback_b52dc2a08a00 ginja_post_texgen_callback;
+extern RecoveredCallback_b52dc2a08a00 ginja_post_tev_callback;
 extern s32 some_id_805c6f74;
 void set_ginja_channel_counts(s32 arg0, s32 arg1);
 }
@@ -181,10 +181,10 @@ s32 get_ginja_vertex_descriptor_type(u32 arg0, s32 arg1);
 void draw_ginja_object(void *arg0) {
     prepare_ginja_model();
     init_model_draw_queue((void *) draw_ginja_model_lists);
-    traverse_node_tree__10TObjPlayerFv(arg0, (void *) queue_model_draw_current_matrix);
+    traverse_model_node_tree(arg0, (void *) queue_model_draw_current_matrix);
     flush_model_draw_queue();
-    if (lbl_805D76E4 != NULL) {
-        lbl_805D76E4();
+    if (ginja_draw_end_callback != NULL) {
+        ginja_draw_end_callback();
     }
     if ((u32) (ginja_draw_flags & 2) != 0U) {
         set_effect_active__10TObjPlayerFv();
@@ -260,14 +260,14 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
             GC->count[0] = n;
             sum = pre + n;
             GXSetNumChans(GC->total[0] = post + sum);
-            if (pre != 0 && lbl_805D76E8 != NULL) {
-                lbl_805D76E8(0);
+            if (pre != 0 && ginja_pre_channel_callback != NULL) {
+                ginja_pre_channel_callback(0);
             }
             for (i = 0; i < n; i++) {
                 set_ginja_channel_ctrl(pre + i, arg0);
             }
-            if (post != 0 && lbl_805D76F4 != NULL) {
-                lbl_805D76F4(sum);
+            if (post != 0 && ginja_post_channel_callback != NULL) {
+                ginja_post_channel_callback(sum);
             }
         } else {
             GXSetNumChans(n);
@@ -284,11 +284,11 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
             GC->count[1] = n;
             sum = pre + n;
             GXSetNumTexGens(GC->total[1] = post + sum);
-            if (pre != 0 && lbl_805D76EC != NULL) {
-                lbl_805D76EC(0);
+            if (pre != 0 && ginja_pre_texgen_callback != NULL) {
+                ginja_pre_texgen_callback(0);
             }
-            if (post != 0 && lbl_805D76F8 != NULL) {
-                lbl_805D76F8(sum);
+            if (post != 0 && ginja_post_texgen_callback != NULL) {
+                ginja_post_texgen_callback(sum);
             }
         } else {
             GXSetNumTexGens(n);
@@ -305,11 +305,11 @@ void set_ginja_channel_counts(s32 arg0, s32 arg1) {
             GC->count[2] = n;
             sum2 = pre + n;
             GXSetNumTevStages(GC->total[2] = post + sum2);
-            if (pre != 0 && lbl_805D76F0 != NULL) {
-                lbl_805D76F0(0);
+            if (pre != 0 && ginja_pre_tev_callback != NULL) {
+                ginja_pre_tev_callback(0);
             }
-            if (post != 0 && lbl_805D76FC != NULL) {
-                lbl_805D76FC(sum2);
+            if (post != 0 && ginja_post_tev_callback != NULL) {
+                ginja_post_tev_callback(sum2);
             }
         } else {
             GXSetNumTevStages(n);
@@ -378,7 +378,7 @@ void set_global_color_rgba_alt_b__10TObjPlayerFUi(u32 v) {
 #pragma peephole off
 void set_ginja_blend_param(u32 x) {
     if ((u32)some_id_805c6f74 & 0x8000) {
-        x = lbl_805D46C0;
+        x = ginja_blend_override;
     }
     (*(S_803DBB78 *)&ginja_material_cache).f80 = x;
     (*(S_803DBB78 *)&ginja_material_cache).f7c |= 1;
@@ -545,8 +545,8 @@ void end_ginja_model_draw(void) {
         GXSetZCompLoc(1);
         GXSetZMode(1U, 1, 1);
         ginja_set_alpha_compare((s32)(0));
-        if (((M2C_UNK (*)()) lbl_805D76E4) != NULL) {
-            lbl_805D76E4();
+        if (((M2C_UNK (*)()) ginja_draw_end_callback) != NULL) {
+            ginja_draw_end_callback();
         }
     }
 }

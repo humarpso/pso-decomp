@@ -437,7 +437,7 @@ extern "C" {
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
 s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
 void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
-M2C_UNK set_npc_enemy_param(M2C_UNK *);
+M2C_UNK set_model_node_callback(M2C_UNK *);
 
 extern s32 actor_frame_tick;
 extern s32 lbl_805D6678;
@@ -456,7 +456,7 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         }
         lbl_805D6678 = actor_frame_tick;
     }
-    set_npc_enemy_param((M2C_UNK *)notify_break__23TObjSeabedSuisoBrakableFUi);
+    set_model_node_callback((M2C_UNK *)notify_break__23TObjSeabedSuisoBrakableFUi);
 }
 
 }
@@ -513,7 +513,7 @@ void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
             draw_ginja_box_tree(M2C_FIELD(arg0, s32 *, 0xD4));
         }
         pop_matrix();
-        ((M2C_UNK (*)(M2C_UNK))set_npc_enemy_param)(0);
+        ((M2C_UNK (*)(M2C_UNK))set_model_node_callback)(0);
     }
 }
 

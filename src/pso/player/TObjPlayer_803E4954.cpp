@@ -24,7 +24,7 @@ struct B_803E4BDC { u8 pad[0x28]; s32 f28; };
 void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2);
 void bind_motion_context(void *);
 extern s32 lbl_804FA50C[];
-extern A_803E4BDC *lbl_805D4698;
+extern A_803E4BDC *model_draw_context;
 extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
 M2C_UNK setup_model_draw_state__10TObjPlayerFPv();
@@ -42,13 +42,13 @@ void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0
 s32 apply_motion_node_transform__10TObjPlayerFPv(int);
 s32 push_matrix();
 s32 pop_matrix();
-extern A_803E4BDC *lbl_805D4698;
+extern A_803E4BDC *model_draw_context;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 s32 draw_object_tree_recursive(void *arg);
 s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
-extern A_803E4BDC *lbl_805D4698;
+extern A_803E4BDC *model_draw_context;
 extern RecoveredCallback_1268626c296b lbl_805D7810;
 void traverse_animated_node_tree(void *arg);
 }
@@ -82,7 +82,7 @@ void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
         select_motion_context((int) (0));
         M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(lbl_804FA50C, s32 *, 0xC);
     }
-    M2C_FIELD(lbl_805D4698, s32 *, 0xC) = arg2;
+    M2C_FIELD(model_draw_context, s32 *, 0xC) = arg2;
     draw_object_tree_recursive((void *)((void *) (arg0)));
 }
 
@@ -97,7 +97,7 @@ s32 draw_object_tree_recursive(void *arg) {
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {
-            ((void (*)(u32, A_803E4BDC *))lbl_805D4698->fc)(t, lbl_805D4698);
+            ((void (*)(u32, A_803E4BDC *))model_draw_context->fc)(t, model_draw_context);
         }
         if (arg0->child != NULL) {
             draw_object_tree_recursive((void *)arg0->child);
@@ -136,7 +136,7 @@ void clear_global_state__10TObjPlayerFv(void) {
 }
 void draw_motion_tree__10TObjPlayerFPvPvi(void *arg0, void *arg1, s32 arg2) {
     bind_motion_context(arg1);
-    lbl_805D4698->fc = arg2;
+    model_draw_context->fc = arg2;
     if (lbl_805D7808 != 0) {
         current_motion_context->f28 = lbl_804FA50C[3];
     }
@@ -153,7 +153,7 @@ void traverse_animated_node_tree(void *arg) {
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {
-            ((void (*)(u32, A_803E4BDC *))lbl_805D4698->fc)(t, lbl_805D4698);
+            ((void (*)(u32, A_803E4BDC *))model_draw_context->fc)(t, model_draw_context);
         }
         if (arg0->child != NULL) {
             traverse_animated_node_tree((void *)arg0->child);

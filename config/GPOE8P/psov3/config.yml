@@ -611,7 +611,7 @@ force_active:
   - copy_from__11TMainCursorFPvPv
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_global_value_block__6TLobbyFv
-  - copy_matrix3x3_to_global__10TObjPlayerFPv
+  - copy_rotation_to_current_matrix
   - copy_motion_pair
   - copy_node_record__10TObjPlayerFii
   - copy_origin_with_y_offset__8TObjFishFv

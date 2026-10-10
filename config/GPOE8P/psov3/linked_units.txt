@@ -2634,6 +2634,8 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/system/ChunkMaterialState.cpp
+pso/system/CityTraffic.cpp
+pso/system/ModelDrawContext.cpp
 pso/system/THeap.cpp
 pso/system/TMainTask.cpp
 pso/system/TMemberCheck.cpp
@@ -3738,7 +3740,6 @@ pso/unk/text_803DAFA8.cpp
 pso/unk/text_803DB23C.cpp
 pso/unk/text_803DB390.cpp
 pso/unk/text_803DC86C.cpp
-pso/unk/text_803DC88C.cpp
 pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCDFC.cpp
 pso/unk/text_803DE7E0.cpp

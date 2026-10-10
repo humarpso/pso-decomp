@@ -6,7 +6,7 @@ extern "C" {
 extern s32 boss5_pillar_demo_index;
 extern void *boss5_pillar_demo_ptr;
 void TObjBoss5PillarDemo__sub_8028AD88(void);
-void set_npc_enemy_param(void *fn);
+void set_model_node_callback(void *fn);
 void fn_8028ADDC(void *p);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 extern u8 lbl_80450CD0[];
@@ -19,7 +19,7 @@ void fn_8028ADDC(void *p) {
     if (p) {
         boss5_pillar_demo_index = 0;
         boss5_pillar_demo_ptr = p;
-        set_npc_enemy_param((void *)TObjBoss5PillarDemo__sub_8028AD88);
+        set_model_node_callback((void *)TObjBoss5PillarDemo__sub_8028AD88);
     }
 }
 void fn_8028AE1C(O_8028AE1C *arg0) {

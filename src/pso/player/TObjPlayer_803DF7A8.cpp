@@ -78,7 +78,7 @@ void GXInitTexObjCI(TexObj_803E1D90 *, void *, u16, u16, s32, s32, s32, u8, u32)
 void GXLoadTexObj(TexObj_803E1D90 *, s32);
 extern s32 list_texture_map_table[];
 extern TexObj_803E1D90 list_texture_tex_obj;
-extern Ctx_803E1D90 *lbl_805D774C;
+extern Ctx_803E1D90 *current_render_context;
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map);
 extern const f32 lbl_805E1020;
 extern const f32 lbl_805E1024;
@@ -386,7 +386,7 @@ void load_current_tex_matrix(s32 i) {
 
 
 void load_list_texture(s32 idx, s32 wrapS, s32 wrapT, s32 map) {
-    TexInfo_803E1D90 *info = lbl_805D774C->list->ents[idx].info;
+    TexInfo_803E1D90 *info = current_render_context->list->ents[idx].info;
     TexHdr_803E1D90 *hdr = info->hdr;
     u32 flags = hdr->flags;
     u8 mip;

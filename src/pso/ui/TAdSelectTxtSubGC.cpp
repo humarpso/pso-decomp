@@ -58,11 +58,11 @@ void render__17TAdSelectTxtSubGCFv(void* p);
 void *TObjControl__ct(void *, void *);
 void *TObjNpcHosa__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-int abs__4cXyzCFv(void*, void*);
+int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
 int render_status__20TWindowSubStatusDispFPv(void*);
 
-void render__17TAdSelectTxtSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); render_status__20TWindowSubStatusDispFPv(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__17TAdSelectTxtSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__20TWindowSubStatusDispFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
     extern int lbl_805D6640;
 

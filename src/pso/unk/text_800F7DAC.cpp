@@ -92,7 +92,7 @@ void set_value__15TWindowCtrlMainFii(s32, s32);
 u32 prs_decompress(int, int, int, int);
 M2C_UNK destroy_ep3_exist__6TLobbyFis(int, int);
 u32 reset_counters__6TLobbyFPv();
-void abs__4cXyzCFv(s32, s32);
+void set_cached_blend_factor(s32, s32);
 
 extern RecoveredGlobal_800F81A8_lbl_80499970 lbl_80499970;
 extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
@@ -154,8 +154,8 @@ void render_screen_fade(Fade_800F7E28 *self) {
     f32 pos[8];
 
     restore_full_screen_view__11TCameraCtrlFv();
-    abs__4cXyzCFv(0, 8);
-    abs__4cXyzCFv(1, 6);
+    set_cached_blend_factor(0, 8);
+    set_cached_blend_factor(1, 6);
     q.pos = pos;
     q.col = col;
     q.start = 0;
@@ -470,8 +470,8 @@ void draw_screen_fade__12TBoss3VoloptFPv(Fade_800F88D8 *self) {
     f32 pos[8];
 
     restore_full_screen_view__11TCameraCtrlFv();
-    abs__4cXyzCFv(0, 8);
-    abs__4cXyzCFv(1, 6);
+    set_cached_blend_factor(0, 8);
+    set_cached_blend_factor(1, 6);
     q.pos = pos;
     q.col = col;
     q.start = 0;

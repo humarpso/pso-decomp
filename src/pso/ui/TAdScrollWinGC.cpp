@@ -11,11 +11,11 @@ extern "C" {
 
 void render__14TAdScrollWinGCFv(void* p);
 
-int abs__4cXyzCFv(void*, void*);
+int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
 int render_status_value__20TWindowSubStatusDispFPv(void*);
 
-void render__14TAdScrollWinGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); render_status_value__20TWindowSubStatusDispFPv(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__14TAdScrollWinGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status_value__20TWindowSubStatusDispFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(O_8032745C *arg0) {
     s32 r = 0;
     switch (arg0->mode) {

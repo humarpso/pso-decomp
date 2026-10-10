@@ -141,7 +141,7 @@ extern "C" {
 void close_window__14TAdPlyStatusGCFv(void *arg0);
 void render__14TAdPlyStatusGCFv(void* p);
 M2C_UNK TWindow__close(void *);
-int abs__4cXyzCFv(void*, void*);
+int set_cached_blend_factor(void*, void*);
 M2C_UNK disallow_rendering__7TObjectFv();
 u32 get_player_index__14TAdPlyStatusGCFv();
 int get_state_flag__9TMainTaskFv(void*);
@@ -158,7 +158,7 @@ void *lbl_804EFAF8[6] = {
     (void *)0x42700000, (void *)0x42280000, (void *)0x42700000, (void *)0x42780000,
     (void *)0x42700000, (void *)0x42a40000,
 };
-void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 

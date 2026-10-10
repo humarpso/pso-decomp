@@ -42,7 +42,7 @@ void __dl__7TObjectFPv(void *);
 void __dt__15TObjBoss5PillarFv(void *, int);
 M2C_UNK clear_child_target_refs(s32, s32);
 M2C_UNK clear_chain_flags(s32, s32);
-M2C_UNK set_npc_enemy_param(M2C_UNK);
+M2C_UNK set_model_node_callback(M2C_UNK);
 
 extern void *lbl_805D4DD8;
 
@@ -130,7 +130,7 @@ void TObjBoss5PillarDemo__sub_8028AD88(void* a0) { TObjBoss5PillarDemo__sub_8028
 
 void TObjBoss5PillarDemo__sub_8028ADB0(u32 arg0) {
     if (arg0 != 0U) {
-        set_npc_enemy_param(0);
+        set_model_node_callback(0);
     }
 }
 

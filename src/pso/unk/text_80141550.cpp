@@ -121,7 +121,7 @@ void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
 void set_current_scene__6TSceneFi(s32);
 void set_depth_buffer_settings_2__Fv(void);
-s32 set_depth_buffer_id__16TObjEneMe3StelthFi(int);
+s32 set_ginja_draw_list_mask(int);
 void func_80141618__Fv(void);
 void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void restore_depth_buffer_settings__Fv(void);
@@ -130,7 +130,7 @@ void save_depth_buffer_settings__Fv(void);
 void set_current_scene__6TSceneFi(s32);
 extern s32 some_id_805c6f74;
 void restore_default_scene(void);
-s32 set_depth_buffer_id__16TObjEneMe3StelthFi(int);
+s32 set_ginja_draw_list_mask(int);
 void set_depth_buffer_settings_id__FUl(s32 arg0);
 extern s32 some_id_805c6f74;
 void set_current_scene__6TSceneFi(s32);
@@ -141,7 +141,7 @@ extern "C" {
 
 void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 
-void set_global_76e4__10TObjPlayerFi(void *);
+void set_ginja_draw_end_callback(void *);
 void set_global_state__10TObjPlayerFi(void *);
 void restore_saved_depth_alpha_state();
 void TObjPlayer__sub_801416AC(void);
@@ -162,7 +162,7 @@ void TObjPlayer__sub_801416AC(void) {
     copy_config__10TObjPlayerFPvPv(&lbl_8050C014, &lbl_8050C000);
     copy_config__10TObjPlayerFPvPv(&lbl_8050C028, &lbl_8050C000);
     set_global_state__10TObjPlayerFi((void *)restore_saved_depth_alpha_state);
-    set_global_76e4__10TObjPlayerFi((void *)restore_saved_depth_alpha_state);
+    set_ginja_draw_end_callback((void *)restore_saved_depth_alpha_state);
 }
 #define lbl_8050C000 (*(RecoveredGlobal_80141860_lbl_8050C000 *)&lbl_8050C000)
 #define lbl_8050C028 (*(RecoveredGlobal_80141730_lbl_8050C028 *)&lbl_8050C028)
@@ -170,7 +170,7 @@ typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80141730_lbl_8050C028_size[sizeof(RecoveredGlobal_80141730_lbl_8050C028) == 0x18 ? 1 : -1];
 void func_80141618__Fv(void) {
-    set_depth_buffer_id__16TObjEneMe3StelthFi((int) (M2C_FIELD(&lbl_8050C028.value, s32 *, 0x10)));
+    set_ginja_draw_list_mask((int) (M2C_FIELD(&lbl_8050C028.value, s32 *, 0x10)));
 }
 
 typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
@@ -179,7 +179,7 @@ typedef char RecoveredGlobal_80141788_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8014175C_lbl_8050C000) == 0x28 ? 1 : -1];
 void set_depth_buffer_settings_id__FUl(s32 arg0) {
     M2C_FIELD(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&lbl_8050C000).value, s32 *, 0x10) = arg0;
-    set_depth_buffer_id__16TObjEneMe3StelthFi((int)((void *) (arg0)));
+    set_ginja_draw_list_mask((int)((void *) (arg0)));
 }
 
 void restore_depth_buffer_settings__Fv(void) {

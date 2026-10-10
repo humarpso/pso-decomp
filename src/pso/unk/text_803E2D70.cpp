@@ -184,7 +184,7 @@ s32 set_chunk_alpha_compare_ref(int ref);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern FloatColor lbl_8058D4C0;
 extern s32 lbl_805D46D0;
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 extern s32 ginja_draw_flags;
 extern s32 some_id_805c6f74;
 extern s32 lbl_805D77EC;
@@ -617,7 +617,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     } else if (var_r31 != 0) {
         var_r6 = 0;
         var_r28 = 1U;
-        temp_r4 = (u8 *)((*(Holder_803E3B6C **)(lbl_805D774C + 0x20))->recs[lbl_805D77EC].p->q);
+        temp_r4 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
         id = some_id_805c6f74;
         if (((u32) (id & 0x10) != 0) && (lbl_805E109C != lbl_8058D4C0.a)) {
             var_r28 = 0U;
@@ -675,7 +675,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         if ((u32) lbl_805D77F8 != 0) {
             lbl_805D77F8 |= 0x400;
         }
-        temp_r3 = (u8 *)((*(Holder_803E3B6C **)(lbl_805D774C + 0x20))->recs[lbl_805D77EC].p->q);
+        temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
         if (((u32) M2C_FIELD(temp_r3, u32 *, 4) == 0xEU) && ((u32) (M2C_FIELD(temp_r3, s32 *, 0x1C) & 0x40000000) != 0)) {
             set_chunk_alpha_compare_ref(0x1F);
             GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));

@@ -15,6 +15,10 @@ public:
     u32 m_3c;
 
     void initialize_fmt2_materials();
+
+    void dispatch_material_animation();
+    void tick_material_fmt1();
+    void tick_material_fmt2();
 };
 
 #include <stddef.h>

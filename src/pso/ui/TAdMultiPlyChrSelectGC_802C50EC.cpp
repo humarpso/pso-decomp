@@ -168,7 +168,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802C6558(void);
 s32 get_field_20__22TAdMultiPlyChrSelectGCFPv();
 M2C_UNK get_state__22TAdMultiPlyChrSelectGCFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK abs__4cXyzCFv(int, int);
+M2C_UNK set_cached_blend_factor(int, int);
 M2C_UNK begin_screen_draw(int);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK draw_textured_quad_at_depth(void *, f32);
@@ -284,8 +284,8 @@ void draw_selection_cursors__22TAdMultiPlyChrSelectGCFPv(S_802C5314 *self) {
                 self->r364[2] = lbl_805DE57C + self->r364[0];
                 self->r364[1] = self->e[i][j].y;
                 self->r364[3] = self->e[i][j].w;
-                abs__4cXyzCFv(0, 8);
-                abs__4cXyzCFv(1, 0xA);
+                set_cached_blend_factor(0, 8);
+                set_cached_blend_factor(1, 0xA);
                 begin_screen_draw(1);
                 set_global_param__8TObjFishFi(lbl_805D67D4);
                 set_draw_texture_and_color(0, self->sel[i][j]);
@@ -293,8 +293,8 @@ void draw_selection_cursors__22TAdMultiPlyChrSelectGCFPv(S_802C5314 *self) {
                 draw_textured_quad_at_depth(self->r344, lbl_805DE580);
                 draw_textured_quad_at_depth(self->r364, lbl_805DE580);
                 get_player__20TWindowSubStatusDispFv();
-                abs__4cXyzCFv(0, 8);
-                abs__4cXyzCFv(1, 6);
+                set_cached_blend_factor(0, 8);
+                set_cached_blend_factor(1, 6);
             }
         }
     }

@@ -302,10 +302,10 @@ extern "C" {
 
 void render__17TAdGameStartSubGCFv(void* p);
 #define draw_background__17TAdGameStartSubGCFPv ((int (*)(void*))draw_background__17TAdGameStartSubGCFPv)
-int abs__4cXyzCFv(void*, void*);
+int set_cached_blend_factor(void*, void*);
 int get_state_flag__9TMainTaskFv(void*);
 
-void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); draw_background__17TAdGameStartSubGCFPv(p); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__17TAdGameStartSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); draw_background__17TAdGameStartSubGCFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 #pragma push
 #pragma fp_contract on
 void run_task__17TAdGameStartSubGCFv(u8 *arg0) {

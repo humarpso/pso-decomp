@@ -180,7 +180,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_depth_buffer_id__16TObjEneMe3StelthFi(int);
+M2C_UNK set_ginja_draw_list_mask(int);
 M2C_UNK draw_ginja_model_with_motion(s32, void *, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
@@ -271,11 +271,11 @@ void draw_with_debug_info__16TObjEneMe3StelthFPv(Obj_800F18C8 *arg0) {
             } else if (frame > (f32)(motion->nframes - 1)) {
                 frame = (f32)(motion->nframes - 1);
             }
-            set_depth_buffer_id__16TObjEneMe3StelthFi(3);
+            set_ginja_draw_list_mask(3);
             set_global_flag__10TObjPlayerFv();
             draw_ginja_model_with_motion(arg0->f34, motion, frame);
             clear_global_state__10TObjPlayerFv();
-            set_depth_buffer_id__16TObjEneMe3StelthFi(1);
+            set_ginja_draw_list_mask(1);
             arg0->fF8 = motion;
             arg0->fc0 = frame;
             frame = get_node_world_y__16TObjEneMe3StelthFPv(arg0);
@@ -483,9 +483,9 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 #define set_global_param__8TObjFishFi ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)
-#define set_depth_buffer_id__16TObjEneMe3StelthFi ((M2C_UNK (*)(s32))set_depth_buffer_id__16TObjEneMe3StelthFi)
+#define set_ginja_draw_list_mask ((M2C_UNK (*)(s32))set_ginja_draw_list_mask)
 M2C_UNK set_color_blend_mode(s32, s32, s32, s32);
-M2C_UNK set_npc_enemy_param(void *);
+M2C_UNK set_model_node_callback(void *);
 M2C_UNK set_chunk_material_override_pair(s32, s32);
 M2C_UNK set_chunk_material_color(void *);
 void add_instance__16TObjEneMe3StelthFv();
@@ -631,9 +631,9 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
             TObjEneMe3Stelth__data_805D5304 = 0;
             F(s32, 0x420) += 0x222;
             lbl_805D5310 = F(s32, 0x420);
-            set_npc_enemy_param((void *)add_instance__16TObjEneMe3StelthFv);
+            set_model_node_callback((void *)add_instance__16TObjEneMe3StelthFv);
             if (F(s32, 0x3C0) != 0) {
-                set_depth_buffer_id__16TObjEneMe3StelthFi(3);
+                set_ginja_draw_list_mask(3);
             }
             if (mode == 1) {
                 draw_model__12TObjNpcEnemyFPv(arg0);
@@ -641,9 +641,9 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                 draw_model__16TObjEneMe3StelthFPv(arg0);
             }
             if (F(s32, 0x3C0) != 0) {
-                set_depth_buffer_id__16TObjEneMe3StelthFi(2);
+                set_ginja_draw_list_mask(2);
             }
-            set_npc_enemy_param(0);
+            set_model_node_callback(0);
             pop_matrix();
             VO->m108();
             if (F(s32, 0x3C0) != 0) {
@@ -663,7 +663,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
 }
 #undef rotate_matrix_y
 #undef set_global_param__8TObjFishFi
-#undef set_depth_buffer_id__16TObjEneMe3StelthFi
+#undef set_ginja_draw_list_mask
 #undef TObjEneMe3Stelth__material_color_pointers
 #undef TObjEneMe3Stelth__sub_800F47D4
 #undef draw_model__16TObjEneMe3StelthFPv

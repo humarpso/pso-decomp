@@ -39,7 +39,7 @@ void run_task__9TCineCtrlFv(Obj_80077F58 *self);
 void TCameraCtrl__sub_80068EF0(void);
 void restore_full_screen_view__11TCameraCtrlFv(void);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, u16, s32, f32);
-void abs__4cXyzCFv(s32, s32);
+void set_cached_blend_factor(s32, s32);
 extern const f32 TCineCtrl__data_805D91D0;
 extern const f32 lbl_805D91D4;
 extern const f32 lbl_805D91D8;
@@ -64,8 +64,8 @@ void render__9TCineCtrlFv(u8 *arg0) {
     f32 pos[8];
     if (!(M2C_FIELD(arg0, f32 *, 0x1C) <= TCineCtrl__data_805D91D0)) {
         restore_full_screen_view__11TCameraCtrlFv();
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 6);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
         vl.pos = pos;
         vl.col = col;
         vl.n = 0;

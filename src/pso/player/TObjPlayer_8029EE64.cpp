@@ -42,8 +42,8 @@ M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
+M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
+M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
 M2C_UNK load_current_pos_matrix(int);
 M2C_UNK load_current_tex_matrix(int);
 extern const f64 lbl_80465E18;
@@ -100,16 +100,16 @@ extern "C" {
 
 void TSceneSora__sub_8029F3E4(void);
 void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC850(M2C_UNK);
+M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
+M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
 M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
 
 extern s32 some_id_805c6f74;
 
 void clear_state_if_flag80__10TObjPlayerFi(s32 arg0) {
     if (arg0 & 0x80) {
-        TObjPlayer__sub_803DC850(0);
-        TObjPlayer__sub_803DC83C(0);
+        set_ginja_post_tev_stage_count(0);
+        set_ginja_post_texgen_count(0);
         set_global_effect_state__10TObjPlayerFi(0);
         some_id_805c6f74 &= 0xFFF7FFFF;
     }
@@ -138,8 +138,8 @@ void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
             GXSetTevOp((int) (1), (int) (2));
             fn_8029F5B0((int) (1), (int) (0), (int) (0), (int) (0x24));
             some_id_805c6f74 |= 0x80000;
-            TObjPlayer__sub_803DC850((M2C_UNK)((int) (1)));
-            TObjPlayer__sub_803DC83C((M2C_UNK)((int) (1)));
+            set_ginja_post_tev_stage_count((M2C_UNK)((int) (1)));
+            set_ginja_post_texgen_count((M2C_UNK)((int) (1)));
             set_global_effect_state__10TObjPlayerFi((M2C_UNK)((int) (1)));
         }
     }

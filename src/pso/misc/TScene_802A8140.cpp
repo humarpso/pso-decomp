@@ -11,7 +11,7 @@ void draw_field_1c__6TSceneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void set_indirect_tev__6TSceneFii(M2C_UNK ignored, s32 arg1);
 M2C_UNK GXSetNumIndStages(M2C_UNK);
 M2C_UNK GXSetTevDirect(M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DC83C(M2C_UNK);
+M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 M2C_UNK play_particle_at_active_slot__10TObjPlayerFiiiiii(u8, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -23,7 +23,7 @@ void set_indirect_tev__6TSceneFii(M2C_UNK ignored, s32 arg1) {
         GXSetTevDirect(0);
     }
     GXSetNumIndStages(0);
-    TObjPlayer__sub_803DC83C(0);
+    set_ginja_post_texgen_count(0);
 }
 
 void draw_field_1c__6TSceneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {

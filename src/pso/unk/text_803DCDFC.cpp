@@ -295,10 +295,10 @@ typedef struct {
     f32 b;
 } Pair_803DD300;
 
-void TObjPlayer__sub_803DCBD8(s32);
-void TObjPlayer__sub_803DCBF0(Elem_803DD300 *);
+void select_render_context(s32);
+void init_render_context(Elem_803DD300 *);
 void init_sin_cos_table(void);
-extern Elem_803DD300 lbl_8058D380[6];
+extern Elem_803DD300 render_contexts[6];
 extern f32 camera_clip_parameters[];
 extern Cam_803DD300 lbl_8058D4F8;
 extern s32 motion_node_draw_callback;
@@ -333,9 +333,9 @@ s32 init_projection_state__11TCameraCtrlFv() {
     lbl_805D777C = 1.52590219e-05f;
     init_sin_cos_table();
     for (i = 0; i < 6; i++) {
-        TObjPlayer__sub_803DCBF0(&lbl_8058D380[i]);
+        init_render_context(&render_contexts[i]);
     }
-    TObjPlayer__sub_803DCBD8(0);
+    select_render_context(0);
 }
 
 

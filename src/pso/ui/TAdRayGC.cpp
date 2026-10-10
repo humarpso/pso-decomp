@@ -29,7 +29,7 @@ void *__ct__8TAdRayGCFv(void *arg0);
 void render__8TAdRayGCFv(void *arg0);
 void run_task__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK queue_destruction__7TObjectFv();
 
@@ -64,8 +64,8 @@ void render__8TAdRayGCFv(void *arg0) {
     s32 temp_r0;
 
     if (get_state_flag__9TMainTaskFv() != 1) {
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 0xA);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 0xA);
         temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
         switch (temp_r0) {
         case 0:
@@ -79,8 +79,8 @@ void render__8TAdRayGCFv(void *arg0) {
             draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         }
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 6);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
     }
 }
 

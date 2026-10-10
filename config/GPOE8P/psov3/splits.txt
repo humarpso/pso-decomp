@@ -5946,9 +5946,10 @@ pso/unk/text_80181310.cpp:
 pso/unk/text_801815A0.cpp:
 	.text       start:0x801815A0 end:0x801815F8
 
-pso/unk/text_801815F8.cpp:
+pso/system/CityTraffic.cpp:
 	.text       start:0x801815F8 end:0x801819FC
 	.rodata     start:0x80443BA0 end:0x80443BA8
+	.bss        start:0x8050DBE0 end:0x8050DC20
 
 pso/misc/TLobby_801819FC.cpp:
 	.text       start:0x801819FC end:0x80181B60
@@ -7629,6 +7630,7 @@ pso/player/TObjPlayer_802034EC.cpp:
 pso/misc/TScene_80203510.cpp:
 	.text       start:0x80203510 end:0x80205A54
 	.rodata     start:0x8044A928 end:0x8044A938
+	.data       start:0x804C8B08 end:0x804C8C10
 	.sbss       start:0x805D6034 end:0x805D6050
 	.sdata2     start:0x805DC5D4 end:0x805DC5D8
 
@@ -14050,8 +14052,9 @@ pso/player/TObjPlayer_803DC834.cpp:
 pso/unk/text_803DC86C.cpp:
 	.text       start:0x803DC86C end:0x803DC88C
 
-pso/unk/text_803DC88C.cpp:
+pso/system/ModelDrawContext.cpp:
 	.text       start:0x803DC88C end:0x803DCDA8
+	.rodata     start:0x8047E3D8 end:0x8047E428
 
 pso/misc/TScene_803DCDA8.cpp:
 	.text       start:0x803DCDA8 end:0x803DCDB0

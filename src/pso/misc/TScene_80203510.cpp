@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TScene.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -137,7 +138,7 @@ void offset_position__6TSceneFPvii(void*,s32,s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
-void tick_material_fmt2__6TSceneFPv(void *task);
+
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern void* TScene__data_805D6004;
 SceneMaterialNode* resolve_indirect_node_record(void*,SceneMaterialStatic*);
@@ -148,7 +149,7 @@ void scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
 void free_children__12TObjDoorJungFPvPv(void*,u16);
 void PPCSync();
 extern const f32 lbl_805DC5D4;
-void tick_material_fmt1__6TSceneFPv(void *task);
+
 struct Vec_8020533C { f32 x, y, z; };
 struct Ang_8020533C { s32 x, y, z; };
 struct Node_8020533C { u8 pad0[8]; Vec_8020533C pos; Ang_8020533C ang; };
@@ -194,6 +195,51 @@ extern Tbl_802043CC *TScene__data_805D6020;
 extern const f32 TScene__data_805DC5D8;
 extern const f32 lbl_805DC5E4;
 void update_room_visibility_from_camera__6TSceneFi(s32 arg0);
+}
+
+struct SceneFormatEntry {
+    const char *name;
+    s32 format;
+};
+struct SceneMemberPointerBits {
+    s32 thisAdjustment;
+    s32 virtualOffset;
+    void (*function)();
+};
+struct SceneDispatchPrefix {
+    SceneFormatEntry formats[3];
+    SceneMemberPointerBits initializeTemplate[2];
+    SceneMemberPointerBits initializeStorage[2];
+    SceneMemberPointerBits cleanupTemplate[2];
+    SceneMemberPointerBits cleanupStorage[2];
+    SceneMemberPointerBits visibilityTemplate[4];
+    SceneMemberPointerBits visibilityStorage[4];
+};
+typedef char SceneDispatchPrefix_size[sizeof(SceneDispatchPrefix) == 0xD8 ? 1 : -1];
+struct Task_80204688;
+extern "C" {
+extern const char lbl_8044A7F0[];
+extern const char lbl_8044A7F8[];
+void initialize_fmt1_materials__6TSceneFPv(void *);
+void initialize_fmt2_materials__6TSceneFv();
+void TScene__sub_80205FD0(void *);
+void TScene__sub_80205ECC(void *);
+void cull_sections__6TSceneFPv(Task_80204688 *);
+extern s32 TScene__data_805D5FE8;
+SceneDispatchPrefix scene_format_dispatch_tables = {
+    {{lbl_8044A7F0, 0}, {lbl_8044A7F8, 1}, {NULL, -1}},
+    {{0, -1, (void (*)())initialize_fmt1_materials__6TSceneFPv},
+     {0, -1, (void (*)())initialize_fmt2_materials__6TSceneFv}},
+    {{0, 0, NULL}, {0, 0, NULL}},
+    {{0, -1, (void (*)())TScene__sub_80205FD0},
+     {0, -1, (void (*)())TScene__sub_80205ECC}},
+    {{0, 0, NULL}, {0, 0, NULL}},
+    {{0, -1, (void (*)())TScene__sub_80204D7C},
+     {0, -1, (void (*)())cull_sections__6TSceneFPv},
+     {0, -1, (void (*)())update_room_visibility_from_camera__6TSceneFi},
+     {0, -1, (void (*)())update_records_in_range__6TSceneFv}},
+    {{0, 0, NULL}, {0, 0, NULL}, {0, 0, NULL}, {0, 0, NULL}}
+};
 }
 
 extern "C" {
@@ -260,7 +306,7 @@ SceneMaterialSection *find_scene_room_by_id(s32 id) {
     return NULL;
 }
 
-void tick_material_fmt2__6TSceneFPv(void *task) {
+void TScene::tick_material_fmt2() {
     SceneMaterialSection *room;
     s32 section;
     SceneMaterialStatic *object;
@@ -298,7 +344,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -315,7 +361,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
@@ -332,7 +378,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
             if (anim->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim)));
+            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim)));
             if (anim->flags & 0x20) {
                 uv = anim->uv;
                 uv->u += uv->du;
@@ -349,7 +395,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
@@ -359,7 +405,7 @@ void tick_material_fmt2__6TSceneFPv(void *task) {
     PPCSync();
 }
 
-void tick_material_fmt1__6TSceneFPv(void *task) {
+void TScene::tick_material_fmt1() {
     SceneMaterialSection *room;
     s32 section;
     SceneMaterialStatic *object;
@@ -397,7 +443,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
             if (object->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(task), (SceneMaterialStatic*)(object)));
+            node = ((SceneMaterialNode *)resolve_indirect_node_record((void*)(this), (SceneMaterialStatic*)(object)));
             if (object->flags & 0x20) {
                 uv = object->uv;
                 uv->u += uv->du;
@@ -412,7 +458,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
                 object->cycle->timer--;
                 if (object->cycle->timer < 0) {
                     (*(s16 *)&object->cycle->index)++;
-                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(object->cycle));
+                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(object->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(object->cycle->texture));
                     if (object->flags & 0x20) {
                         object->uv->texture = object->cycle->texture;
@@ -429,7 +475,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
             if (anim->flags & 0x04000000) {
                 continue;
             }
-            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(task), (SceneMaterialAnimated*)(anim)));
+            node = ((SceneMaterialNode *)resolve_indirect_object_record((void*)(this), (SceneMaterialAnimated*)(anim)));
             if (anim->flags & 0x20) {
                 uv = anim->uv;
                 uv->u += uv->du;
@@ -444,7 +490,7 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
                 anim->cycle->timer--;
                 if (anim->cycle->timer < 0) {
                     (*(s16 *)&anim->cycle->index)++;
-                    load_texture_sequence_frame((void*)(task), (SceneMaterialCycle*)(anim->cycle));
+                    load_texture_sequence_frame((void*)(this), (SceneMaterialCycle*)(anim->cycle));
                     free_children__12TObjDoorJungFPvPv((void*)(node->model), (u16)(anim->cycle->texture));
                 }
             }
@@ -452,6 +498,15 @@ void tick_material_fmt1__6TSceneFPv(void *task) {
         }
     }
     PPCSync();
+}
+
+void TScene::dispatch_material_animation() {
+    typedef void (TScene::*MaterialTicker)();
+    static MaterialTicker fns[2] = {
+        &TScene::tick_material_fmt1,
+        &TScene::tick_material_fmt2,
+    };
+    (this->*fns[TScene__data_805D5FE8])();
 }
 
 void advance_scene_object_animations(void) {

@@ -78,7 +78,7 @@ void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
 void GXLoadTexObj(TexObj_803E224C *, s32);
 extern TexObj_803E224C context_texture_obj;
-extern Ctx_803E224C *lbl_805D774C;
+extern Ctx_803E224C *current_render_context;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
 M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
@@ -133,7 +133,7 @@ void TObjPlayer__sub_803E2248(void) {
 }
 
 void load_context_texture_obj(void) {
-    Ctx_803E224C *ctx = lbl_805D774C;
+    Ctx_803E224C *ctx = current_render_context;
     TexHdr_803E224C *hdr = ctx->hdr;
     u32 flags = hdr->flags;
     u8 mip;

@@ -45,14 +45,14 @@ struct N_803DC9E4 {
 };
 
 extern "C" {
-extern RecoveredGlobal_803DCBD8_lbl_8058D380 lbl_8058D380;
-extern u8 *lbl_805D774C;
-void TObjPlayer__sub_803DCBD8(s32 arg0);
+extern RecoveredGlobal_803DCBD8_lbl_8058D380 render_contexts;
+extern u8 *current_render_context;
+void select_render_context(s32 arg0);
 s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
 s32 queue_model_draw_matrix(int, void *);
-extern s32 lbl_805D7710;
+extern s32 model_node_callback;
 extern s32 current_matrix;
 void draw_ginja_motion_node_tree(u8 *arg0);
 void bind_motion_context(void *);
@@ -61,25 +61,25 @@ void flush_model_draw_queue(void);
 void prepare_ginja_model(void *);
 void draw_ginja_motion_node_tree(u8 *arg0);
 void draw_ginja_model_lists(void);
-extern struct MotionCtx_803DC894 * const lbl_805D4698;
-extern RecoveredCallback_2be3cacebb2e lbl_805D76E4;
+extern struct MotionCtx_803DC894 * const model_draw_context;
+extern RecoveredCallback_2be3cacebb2e ginja_draw_end_callback;
 void draw_ginja_model_with_motion(void *arg0, void *arg1);
 extern s32 current_matrix;
-void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
+void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src);
 void GXSetBlendMode(int, int, int, int);
-extern u32 cached_blend_factor_table[];
-extern u8 *lbl_805D774C;
+__declspec(section ".rodata") extern const u32 cached_blend_factor_table[];
+extern u8 *current_render_context;
 void apply_cached_blend_mode(s32 arg0);
-void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0);
+void init_render_context(C_803DCBF0 *arg0);
 s32 compose_motion_node_matrix(int);
 s32 push_matrix();
 s32 pop_matrix();
-extern struct MotionCtx_803DC894 * const lbl_805D4698;
+extern struct MotionCtx_803DC894 * const model_draw_context;
 extern RecoveredCallback_1268626c296b motion_node_draw_callback;
-void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0);
-extern const Tbl_803DCC34 gx_blend_mode_table;
-extern u8 *lbl_805D774C;
-void abs__4cXyzCFv(s32 arg0, s32 arg1);
+void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
+__declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
+extern u8 *current_render_context;
+void set_cached_blend_factor(s32 arg0, s32 arg1);
 M2C_UNK get_current_matrix(void *);
 M2C_UNK apply_quat_rotation__10TObjPlayerFPvf(void *, f32);
 M2C_UNK rotate_matrix_by_node_angles(void *, void *);
@@ -87,29 +87,29 @@ s32 push_matrix();
 s32 pop_matrix();
 M2C_UNK scale_current_matrix(void *);
 M2C_UNK post_translate_matrix(void *);
-void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src);
-extern M2C_UNK lbl_8058CE10[];
-void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
+void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src);
+extern M2C_UNK node_saved_matrix[];
+void traverse_model_node_tree(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
 }
 
 extern "C" {
 
-extern s32 lbl_805D7710;
+extern s32 model_node_callback;
 
-void set_npc_enemy_param(s32 arg0) {
-    lbl_805D7710 = arg0;
+void set_model_node_callback(s32 arg0) {
+    model_node_callback = arg0;
 }
 typedef char RecoveredGlobal_803DCBD8_lbl_8058D380_size[sizeof(RecoveredGlobal_803DCBD8_lbl_8058D380) == 0xF0 ? 1 : -1];
 
 void draw_ginja_model_with_motion(void *arg0, void *arg1) {
     bind_motion_context(arg1);
-    lbl_805D4698->fn = draw_ginja_model_lists;
-    prepare_ginja_model(lbl_805D4698);
+    model_draw_context->fn = draw_ginja_model_lists;
+    prepare_ginja_model(model_draw_context);
     init_model_draw_queue((void *) draw_ginja_model_lists);
     draw_ginja_motion_node_tree((u8 *)(arg0));
     flush_model_draw_queue();
-    if (lbl_805D76E4 != NULL) {
-        lbl_805D76E4();
+    if (ginja_draw_end_callback != NULL) {
+        ginja_draw_end_callback();
     }
 }
 
@@ -124,8 +124,8 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix((int) (var_r31));
-        if (((M2C_UNK (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&lbl_805D7710)) != NULL) {
-            (*(RecoveredCallback_92513335c3ed *)&lbl_805D7710)(var_r31);
+        if (((M2C_UNK (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&model_node_callback)) != NULL) {
+            (*(RecoveredCallback_92513335c3ed *)&model_node_callback)(var_r31);
         }
         temp_r3 = M2C_FIELD(var_r31, u32 *, 4);
         if ((temp_r3 != 0U) && ((u32) (M2C_FIELD(var_r31, s32 *, 0) & 8) == 0)) {
@@ -141,7 +141,7 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
 }
 #pragma pop
 
-void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
+void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src) {
     struct Mtx_803DC994 *dst = (struct Mtx_803DC994 *)current_matrix;
     dst->m[0][0] = src->m[0][0];
     dst->m[0][1] = src->m[0][1];
@@ -155,18 +155,18 @@ void copy_matrix3x3_to_global__10TObjPlayerFPv(struct Mtx_803DC994 *src) {
 }
 
 struct Mtx_803DC994;
-void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
+void traverse_model_node_tree(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
     do {
         u32 f = p->flags;
         if (f & 0x800) {
-            get_current_matrix((void *) (lbl_8058CE10));
+            get_current_matrix((void *) (node_saved_matrix));
         }
         if ((f & 7) == 7) {
             if (!(f & 8)) {
                 cb(p->m4);
             }
             if (!(f & 0x10)) {
-                traverse_node_tree__10TObjPlayerFv(p->child, cb);
+                traverse_model_node_tree(p->child, cb);
             }
         } else {
             push_matrix();
@@ -175,7 +175,7 @@ void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)
             }
             if (!(f & 2)) {
                 if (f & 0x1000) {
-                    copy_matrix3x3_to_global__10TObjPlayerFPv((struct Mtx_803DC994 *) (lbl_8058CE10));
+                    copy_rotation_to_current_matrix((struct Mtx_803DC994 *) (node_saved_matrix));
                 } else if (f & 0x400) {
                     ((M2C_UNK (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
                 } else {
@@ -189,7 +189,7 @@ void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)
                 cb(p->m4);
             }
             if (!(f & 0x10)) {
-                traverse_node_tree__10TObjPlayerFv(p->child, cb);
+                traverse_model_node_tree(p->child, cb);
             }
             pop_matrix();
         }
@@ -197,7 +197,7 @@ void traverse_node_tree__10TObjPlayerFv(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)
     } while (p != NULL);
 }
 
-void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0) {
+void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0) {
     u32 t;
     do {
         push_matrix();
@@ -207,21 +207,21 @@ void draw_motion_node_tree__10TObjPlayerFPv(struct Node_803DCB40 *arg0) {
         }
         t = arg0->f4;
         if (t != 0 && (arg0->flags & 8) == 0) {
-            ((void (*)(u32, struct MotionCtx_803DC894 *))lbl_805D4698->fn)(t, lbl_805D4698);
+            ((void (*)(u32, struct MotionCtx_803DC894 *))model_draw_context->fn)(t, model_draw_context);
         }
         if (arg0->child != NULL) {
-            draw_motion_node_tree__10TObjPlayerFPv(arg0->child);
+            draw_motion_node_tree_with_context(arg0->child);
         }
         pop_matrix();
         arg0 = arg0->next;
     } while (arg0 != NULL);
 }
 
-void TObjPlayer__sub_803DCBD8(s32 arg0) {
-    lbl_805D774C = (u8 *)&lbl_8058D380.value + (arg0 * 0x28);
+void select_render_context(s32 arg0) {
+    current_render_context = (u8 *)&render_contexts.value + (arg0 * 0x28);
 }
 
-void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0) {
+void init_render_context(C_803DCBF0 *arg0) {
     arg0->a = 0x808C0000;
     arg0->c = 0;
     arg0->d = 0x949004C0;
@@ -232,8 +232,8 @@ void TObjPlayer__sub_803DCBF0(C_803DCBF0 *arg0) {
     arg0->i = 0;
 }
 
-#define REG_803DCC34 ((Reg_803DCC34 *) lbl_805D774C)
-void abs__4cXyzCFv(s32 arg0, s32 arg1) {
+#define REG_803DCC34 ((Reg_803DCC34 *) current_render_context)
+void set_cached_blend_factor(s32 arg0, s32 arg1) {
     Tbl_803DCC34 tbl = gx_blend_mode_table;
     if (arg1 == 0) {
         REG_803DCC34->mode = (REG_803DCC34->mode & 0x03FFFFFF) | 0xB0000000;
@@ -247,7 +247,7 @@ void abs__4cXyzCFv(s32 arg0, s32 arg1) {
 }
 
 void apply_cached_blend_mode(s32 arg0) {
-    u32 v = M2C_FIELD(lbl_805D774C, u32 *, 0xC);
+    u32 v = M2C_FIELD(current_render_context, u32 *, 0xC);
     int src = cached_blend_factor_table[(v & 0xE0000000) >> 29];
     int dst = cached_blend_factor_table[(v & 0x1C000000) >> 26];
     if (arg0 != 0) {
@@ -257,4 +257,9 @@ void apply_cached_blend_mode(s32 arg0) {
     }
 }
 
+}
+
+extern "C" {
+__declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table = {{255, 255, 6, 2, 7, 3, 5, 3, 4, 2, 1, 0}};
+__declspec(section ".rodata") extern const u32 cached_blend_factor_table[8] = {0, 1, 2, 3, 4, 5, 6, 7};
 }

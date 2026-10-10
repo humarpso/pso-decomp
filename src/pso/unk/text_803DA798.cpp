@@ -53,17 +53,17 @@ extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAC1C(s32 arg0);
 void release_empty_ref_entry__10TObjPlayerFPv(void *);
 s32 fn_803DB20C(void *);
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1);
 s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 find_table_index_by_id__10TObjPlayerFUi(u32);
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803DAD28(u32 arg0);
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1);
 extern S_803DA7E0 lbl_8058D470;
 void TObjPlayer__sub_803DA7E0(void);
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 s32 set_texture_num(s32 i);
 extern s32 record_array_ptr;
 void TObjPlayer__sub_803DAB7C(Obj_803DAB7C *self, s32 i, s32 j);
@@ -99,7 +99,7 @@ s32 TObjPlayer__sub_803DAC48(Obj_803DAB7C *arg0, s32 arg1, u32 arg2, u32 arg3, s
 void TObjPlayer__sub_803DA7E0(void);
 s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2);
 extern S_803DA7E0 lbl_8058D470;
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2);
 }
 
@@ -108,10 +108,10 @@ extern "C" {
 void TObjPlayer__sub_803DAD24(void);
 s32 set_global_param__8TObjFishFi(s32 arg0);
 
-extern u8 *lbl_805D774C;
+extern u8 *current_render_context;
 
 s32 set_global_param__8TObjFishFi(s32 arg0) {
-    M2C_FIELD(lbl_805D774C, s32 *, 0x20) = arg0;
+    M2C_FIELD(current_render_context, s32 *, 0x20) = arg0;
     return 1;
 }
 
@@ -126,9 +126,9 @@ typedef char RecoveredFields_803DA84C_arg0_1C_offset[offsetof(RecoveredFields_80
 #pragma scheduling off
 #pragma peephole off
 s32 set_texture_num(s32 i) {
-    Obj_803DA7A8 *o = ((G_803DA7A8 *)lbl_805D774C)->f20->arr[i].p;
-    ((G_803DA7A8 *)lbl_805D774C)->f8 = o->fc + 4;
-    ((G_803DA7A8 *)lbl_805D774C)->f18 = o->f8;
+    Obj_803DA7A8 *o = ((G_803DA7A8 *)current_render_context)->f20->arr[i].p;
+    ((G_803DA7A8 *)current_render_context)->f8 = o->fc + 4;
+    ((G_803DA7A8 *)current_render_context)->f18 = o->f8;
     return 1;
 }
 #pragma pop
@@ -323,9 +323,9 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     var_r4 += temp_r3 * 0x18;
     var_r3 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0xC));
     temp_r0 = (long) (var_r3 + 4);
-    var_r3 = (u8 *)(lbl_805D774C);
+    var_r3 = (u8 *)(current_render_context);
     M2C_FIELD(var_r3, s32 *, 8) = temp_r0;
-    var_r3 = (u8 *)(lbl_805D774C);
+    var_r3 = (u8 *)(current_render_context);
     M2C_FIELD(var_r3, s32 *, 0x18) = (s32) M2C_FIELD(var_r4, s32 *, 8);
     var_r3 = (u8 *)((void *)1);
     return 1;
@@ -353,7 +353,7 @@ s32 TObjPlayer__sub_803DAD84(struct Obj_803DAD84 *arg0, s32 arg1, u32 arg2) {
 struct Obj_803DAD84;
 s32 TObjPlayer__sub_803DAE1C(s32 arg0, s32 arg1, u32 arg2) {
     TObjPlayer__sub_803DA7E0();
-    s32 r = TObjPlayer__sub_803DAD84((**(B_803DAE1C ***)(lbl_805D774C + 0x20))[arg0].c, arg1, arg2);
+    s32 r = TObjPlayer__sub_803DAD84((**(B_803DAE1C ***)(current_render_context + 0x20))[arg0].c, arg1, arg2);
     if (r < 0) {
         lbl_8058D470.a = arg0;
     }
@@ -384,7 +384,7 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
         temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));
         if ((s32) M2C_FIELD(temp_r3_3, s32 *, 0x24) == 0) {
             fn_803DB20C(temp_r3_3 + 4);
-            M2C_FIELD(lbl_805D774C, s32 *, 0x14) = -1;
+            M2C_FIELD(current_render_context, s32 *, 0x14) = -1;
         }
     }
     release_empty_ref_entry__10TObjPlayerFPv(arg0);

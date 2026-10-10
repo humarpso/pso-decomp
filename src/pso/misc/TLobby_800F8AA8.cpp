@@ -1107,7 +1107,7 @@ void system_reset(void);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_800F8FB8 *, s32, s32, f32);
 s32 DVDCheckDisk(void);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
-void abs__4cXyzCFv(s32, s32);
+void set_cached_blend_factor(s32, s32);
 void func_803DCDFC__Fv(void);
 extern u8 lbl_805D533C;
 
@@ -1123,8 +1123,8 @@ s32 run_disk_error_check__6TLobbyFv(void) {
     s32 status;
     Desc_800F8FB8 *pd = &d;
 
-    abs__4cXyzCFv(0, 8);
-    abs__4cXyzCFv(1, 6);
+    set_cached_blend_factor(0, 8);
+    set_cached_blend_factor(1, 6);
     d.pos = pos;
     d.ids = ids;
     d.a = 0;

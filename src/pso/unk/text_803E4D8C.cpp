@@ -100,17 +100,17 @@ void advance_render_counters__10TObjPlayerFv(void);
 extern u8 *lbl_805D7818;
 void TObjPlayer__sub_803E5378(s32 n);
 void bind_motion_context(s32);
-void draw_motion_node_tree__10TObjPlayerFPv(s32);
+void draw_motion_node_tree_with_context(s32);
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0);
 void TObjPlayer__sub_803E5458(s32 arg0);
-extern u8 *lbl_805D4698;
+extern u8 *model_draw_context;
 void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3);
 void compose_motion_node_matrix(Node_803E4E20 *);
 void push_matrix(void);
 void pop_matrix(void);
 void advance_render_counters__10TObjPlayerFv(void);
 void update_render_state__10TObjPlayerFv(s32 *, s32 *);
-extern u8 *lbl_805D4698;
+extern u8 *model_draw_context;
 void draw_motion_node_list__10TObjPlayerFi(s32 arg0);
 void find_motion_key_interval(void *, s32, s32 count, f32 t, void *, void *, void *);
 extern u32 *lbl_805D7778;
@@ -132,11 +132,11 @@ typedef char RecoveredGlobal_803D77C0_lbl_804FA50C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_803D77C0_lbl_804FA51C_size[sizeof(RecoveredGlobal_803D77C0_lbl_804FA51C) == 0x24 ? 1 : -1];
 
 void draw_motion_bound__10TObjPlayerFiiPvfi(s32 arg0, s32 arg1, u8 *arg2, f32 farg0, s32 arg3) {
-    u8 *p = lbl_805D4698;
+    u8 *p = model_draw_context;
     bind_motion_context(arg1);
     *(s32 *)(p + 0xC) = arg3;
     if (arg2 == NULL) {
-        draw_motion_node_tree__10TObjPlayerFPv(arg0);
+        draw_motion_node_tree_with_context(arg0);
         return;
     }
     TObjPlayer__sub_803E5458(0);
@@ -151,7 +151,7 @@ void draw_motion_node_list__10TObjPlayerFi(s32 arg0) {
     s32 save;
     Node_803E4E20 *n;
     n = (Node_803E4E20 *)arg0;
-    ctx = (Ctx_803E4E20 *)lbl_805D4698;
+    ctx = (Ctx_803E4E20 *)model_draw_context;
     do {
         push_matrix();
         compose_motion_node_matrix(n);

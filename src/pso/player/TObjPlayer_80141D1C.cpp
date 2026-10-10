@@ -49,7 +49,7 @@ void vsub(void *arg0, void *arg1, void *arg2);
 f32 sin_table_lookup();
 f32 vec_squared_length();
 M2C_UNK normalize_vector(s32);
-int abs__4cXyzCFv(int, int);
+int set_cached_blend_factor(int, int);
 f64 get_ad_end_text_start__10TObjPlayerFv(f32, f32);
 
 extern f32 lbl_805DB158;
@@ -99,12 +99,12 @@ f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v) {
     return *(f32 *)&v;
 }
 
-void fn_80141EB4(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 6); }
-void setSpriteInverseColorBlend(void) { abs__4cXyzCFv(0, 5); abs__4cXyzCFv(1, 7); }
+void fn_80141EB4(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 6); }
+void setSpriteInverseColorBlend(void) { set_cached_blend_factor(0, 5); set_cached_blend_factor(1, 7); }
 
-void reset_transform_state__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cXyzCFv(1, 6); }
+void reset_transform_state__10TObjPlayerFv(void) { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 6); }
 
-void init_xyz_limits__10TObjPlayerFv(void) { abs__4cXyzCFv(0, 8); abs__4cXyzCFv(1, 10); }
+void init_xyz_limits__10TObjPlayerFv(void) { set_cached_blend_factor(0, 8); set_cached_blend_factor(1, 10); }
 
 u16 angle_difference_abs(s32 a, s32 b) {
     s16 d = (u16)b - (u16)a;

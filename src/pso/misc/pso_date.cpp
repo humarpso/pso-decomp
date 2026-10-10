@@ -33,7 +33,7 @@ void bind_motion_blend_channels(void *);
 void prepare_ginja_model(void *);
 void end_ginja_model_draw();
 void draw_ginja_model_lists();
-extern void *lbl_805D4698;
+extern void *model_draw_context;
 void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
 extern Tbl_801E2B24 lbl_804496D0[];
 void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out);
@@ -100,7 +100,7 @@ void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetS
 void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 1); }
 void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     bind_motion_blend_channels(arg1);
-    void *g = lbl_805D4698;
+    void *g = model_draw_context;
     M2C_FIELD(g, void (**)(), 0xC) = draw_ginja_model_lists;
     prepare_ginja_model(g);
     render_model_tree__10TObjPlayerFPv(arg0);

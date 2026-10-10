@@ -47,7 +47,7 @@ s32 update_lobby_scene__6TSceneFPv(char *);
 s32 *load_relocatable_file(M2C_UNK *, u32);
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
 extern u8 lbl_8044A948[];
-extern Ent_802066BC TScene__data_804C8B08[];
+extern Ent_802066BC scene_format_dispatch_tables[];
 extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
 extern u32 TScene__data_805D5FFC;
@@ -174,7 +174,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 strncmp(M2C_UNK, s32, M2C_UNK);
 extern u8 lbl_8044A948[];
 extern u8 lbl_8044A9AC[];
-extern Ent_802066BC TScene__data_804C8B08[];
+extern Ent_802066BC scene_format_dispatch_tables[];
 extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
 extern u32 TScene__data_805D5FFC;
@@ -302,7 +302,7 @@ void load_scene_map_file(s32 arg0) {
         TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__data_805D5FFC);
     }
     if (TScene__data_805D5FCC != NULL) {
-        for (e = TScene__data_804C8B08; e->name != NULL; e++) {
+        for (e = scene_format_dispatch_tables; e->name != NULL; e++) {
             if (strncmp((s32)TScene__data_805D5FCC, (s32)e->name, 4) == 0) {
                 TScene__data_805D5FE8 = e->idx;
                 break;
@@ -579,7 +579,7 @@ void load_scene_rel_file__6TSceneFi(s32 arg0) {
     }
     if (TScene__data_805D5FCC != NULL) {
         Ent_802066BC *e;
-        for (e = TScene__data_804C8B08; e->name != NULL; e++) {
+        for (e = scene_format_dispatch_tables; e->name != NULL; e++) {
             if (strncmp((s32)TScene__data_805D5FCC, (s32)e->name, 4) == 0) {
                 TScene__data_805D5FE8 = e->idx;
                 return;

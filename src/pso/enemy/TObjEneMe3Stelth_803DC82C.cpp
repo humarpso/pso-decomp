@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0);
+void set_ginja_draw_list_mask(s32 arg0);
 
 extern s32 ginja_draw_list_mask;
 
-void set_depth_buffer_id__16TObjEneMe3StelthFi(s32 arg0) {
+void set_ginja_draw_list_mask(s32 arg0) {
     ginja_draw_list_mask = arg0;
 }
 

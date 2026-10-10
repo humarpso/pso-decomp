@@ -14,7 +14,7 @@ void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void render_shadows__7TObjectFv(void);
 void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1);
-M2C_UNK abs__4cXyzCFv(M2C_UNK, M2C_UNK);
+M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
 M2C_UNK restore_saved_depth_alpha_state();
 M2C_UNK draw_character_background_frame(void *, s32, M2C_UNK);
 s32 get_state_flag__9TMainTaskFv();
@@ -29,11 +29,11 @@ void render__12TAdBackTxtGCFv(void *arg0) {
         }
     } else if (get_state_flag__9TMainTaskFv() != 1) {
 block_4:
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 0xA);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 0xA);
         draw_character_background_frame(arg0, (s32) M2C_FIELD(arg0, s32 *, 0x1C) / 3, -1);
-        abs__4cXyzCFv(0, 8);
-        abs__4cXyzCFv(1, 6);
+        set_cached_blend_factor(0, 8);
+        set_cached_blend_factor(1, 6);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
             restore_saved_depth_alpha_state();
         }

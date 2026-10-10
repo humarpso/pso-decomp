@@ -361,7 +361,7 @@ void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
-void set_npc_enemy_param(void *);
+void set_model_node_callback(void *);
 void draw_ginja_model_with_motion(void *, void *, f32);
 
 extern M2C_UNK __vt__14TOTrapChainSaw[];
@@ -550,9 +550,9 @@ void TOTrapChainSawKey__vt23(void *arg0) {
     push_matrix();
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
     rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0xD4));
-    set_npc_enemy_param(((M2C_UNK *)TParticleCtrl__sub_802C8464));
+    set_model_node_callback(((M2C_UNK *)TParticleCtrl__sub_802C8464));
     draw_ginja_model__10TObjPlayerFPvi(M2C_FIELD(arg0, void **, 0xC8), M2C_FIELD(arg0, void **, 0xBC), M2C_FIELD(arg0, f32 *, 0xB4));
-    ((void (*)(int))set_npc_enemy_param)(0);
+    ((void (*)(int))set_model_node_callback)(0);
     if (M2C_FIELD(arg0, s32 *, 0xF0) == 1) {
         begin_effect_render__13TParticleCtrlFv();
         draw_ginja_model_with_motion(M2C_FIELD(arg0, void **, 0xFC), M2C_FIELD(arg0, void **, 0x100), M2C_FIELD(arg0, f32 *, 0x104));

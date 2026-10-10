@@ -401,7 +401,7 @@ M2C_UNK set_depth_buffer_settings_1__Fv();
 M2C_UNK set_depth_buffer_settings_3__Fv();
 M2C_UNK set_depth_buffer_settings_id__FUl(int);
 M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_npc_enemy_param(void *);
+M2C_UNK set_model_node_callback(void *);
 
 #define trigger_by_id__14TOTrapSeabed01FUi (*(M2C_UNK (*)[1])&trigger_by_id__14TOTrapSeabed01FUi)
 extern s32 actor_frame_tick;
@@ -419,7 +419,7 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
         }
         lbl_805D681C = actor_frame_tick;
     }
-    set_npc_enemy_param((void *) (trigger_by_id__14TOTrapSeabed01FUi));
+    set_model_node_callback((void *) (trigger_by_id__14TOTrapSeabed01FUi));
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     ((M2C_UNK (*)(int, int))rotate_matrix_y)((int)((int) (0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
@@ -436,7 +436,7 @@ void render_effect_layers__14TOTrapSeabed01FPv(u8 *arg0) {
     restore_saved_depth_alpha_state();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
-    set_npc_enemy_param((void *) (NULL));
+    set_model_node_callback((void *) (NULL));
 }
 
 extern s32 TOTrapSeabed01__texture_file;

@@ -39,7 +39,7 @@ void run_task__18TAdMultiPlayerNoGCFv(void);
 M2C_UNK draw_textured_quad_at_depth(s32, f32);
 M2C_UNK begin_screen_draw(M2C_UNK);
 M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
-int abs__4cXyzCFv(void*, void*);
+int set_cached_blend_factor(void*, void*);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
 M2C_UNK set_global_param__8TObjFishFi(s32);
@@ -54,7 +54,7 @@ void render_status__18TAdMultiPlayerNoGCFi(s32 arg0) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-void render__18TAdMultiPlayerNoGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)10); render_status__18TAdMultiPlayerNoGCFi((s32)(p)); abs__4cXyzCFv((void*)0, (void*)8); abs__4cXyzCFv((void*)1, (void*)6); } }
+void render__18TAdMultiPlayerNoGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__18TAdMultiPlayerNoGCFi((s32)(p)); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 void run_task__18TAdMultiPlayerNoGCFv(void) {  }
 #pragma fp_contract on
 TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}

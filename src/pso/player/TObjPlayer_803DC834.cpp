@@ -10,14 +10,14 @@ struct S_803DC850 { u8 pad[0x78]; u8 f; };
 
 extern "C" {
 extern S_803DC83C ginja_material_cache;
-void TObjPlayer__sub_803DC83C(s32 x);
+void set_ginja_post_texgen_count(s32 x);
 extern S_803DC83C ginja_material_cache;
-void TObjPlayer__sub_803DC850(s32 x);
+void set_ginja_post_tev_stage_count(s32 x);
 }
 
 extern "C" {
 
-void set_global_76e4__10TObjPlayerFi(s32 arg0);
+void set_ginja_draw_end_callback(s32 arg0);
 void set_global_effect_state__10TObjPlayerFi(s32 arg0);
 
 extern s32 lbl_805D76E0;
@@ -26,12 +26,12 @@ void set_global_effect_state__10TObjPlayerFi(s32 arg0) {
     lbl_805D76E0 = arg0;
 }
 
-extern s32 lbl_805D76E4;
+extern s32 ginja_draw_end_callback;
 
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DC83C(s32 x) {
+void set_ginja_post_texgen_count(s32 x) {
     ginja_material_cache.f = (u8)x;
 }
 #pragma pop
@@ -39,13 +39,13 @@ void TObjPlayer__sub_803DC83C(s32 x) {
 #pragma push
 #pragma scheduling off
 #pragma peephole off
-void TObjPlayer__sub_803DC850(s32 x) {
+void set_ginja_post_tev_stage_count(s32 x) {
     (*(S_803DC850 *)&ginja_material_cache).f = (u8)x;
 }
 #pragma pop
 
-void set_global_76e4__10TObjPlayerFi(s32 arg0) {
-    lbl_805D76E4 = arg0;
+void set_ginja_draw_end_callback(s32 arg0) {
+    ginja_draw_end_callback = arg0;
 }
 
 }
