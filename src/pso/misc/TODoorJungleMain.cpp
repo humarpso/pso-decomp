@@ -81,7 +81,7 @@ s32 is_any_player_near(s32 arg0) {
 }
 
 extern "C" {
-void fn_801F4560(int, int);
+void clear_story_flag_in_bank(int, int);
 extern s32 TOKeyJungleMain__data_804653C8[];
 void init_key_slots__15TOKeyJungleMainFPv(void* _w0);
 }
@@ -101,7 +101,7 @@ void init_key_slots__15TOKeyJungleMainFPv(void* _w0) {
     s32 j;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 3; j++) {
-            fn_801F4560(i, TOKeyJungleMain__data_804653C8[j]);
+            clear_story_flag_in_bank(i, TOKeyJungleMain__data_804653C8[j]);
         }
     }
 }

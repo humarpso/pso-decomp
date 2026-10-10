@@ -1,12 +1,12 @@
 #include "types.h"
 extern "C" {
 extern u8 quest_story_flags_by_difficulty[4][128];
-void fn_801F4560(s32 n, s32 flag);
+void clear_story_flag_in_bank(s32 n, s32 flag);
 }
 
 extern "C" {
 
-void fn_801F4560(s32 n, s32 flag) {
+void clear_story_flag_in_bank(s32 n, s32 flag) {
     s32 v;
     s32 bit;
     s32 byteIdx;

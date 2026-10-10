@@ -10,14 +10,14 @@ void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1);
 
 s32 get_main_phase();
 M2C_UNK send_6x75_quest_flag__6TLobbyFsss(int, M2C_UNK, s32);
-M2C_UNK fn_801F469C(s32, u16);
+M2C_UNK set_story_flag_in_bank(s32, u16);
 
 void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1) {
     if (get_main_phase() == 0xF) {
         send_6x75_quest_flag__6TLobbyFsss(arg1, 0, arg0);
         return;
     }
-    fn_801F469C(arg0, arg1);
+    set_story_flag_in_bank(arg0, arg1);
 }
 
 }

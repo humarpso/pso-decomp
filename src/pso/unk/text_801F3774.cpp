@@ -30,12 +30,12 @@ s32 TLobby__send_and_handle_60(s32);
 void build_6x75_update_quest_flag_dc(void* p);
 extern s32 game_difficulty_selection;
 void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1);
-void TLobby__sub_801F3990(void *arg0);
+void send_and_handle_6x75(void *arg0);
 void build_6x75_update_quest_flag_dc(void* p);
 void send_6x75_quest_flag__6TLobbyFsss(s16 arg0, s16 arg1, s16 arg2);
 void byteswap_6x75_packet__6TLobbyFPv(void *arg0);
-s32 fn_801F4560(int, int);
-s32 fn_801F469C(int, int);
+s32 clear_story_flag_in_bank(int, int);
+s32 set_story_flag_in_bank(int, int);
 void handle_6x75_update_quest_flag_dc(u8 *arg0);
 extern s32 current_language;
 extern char lbl_80512790[],lbl_805127B0[];
@@ -65,7 +65,7 @@ void send_6x75_quest_flag__6TLobbyFsss(s16 arg0, s16 arg1, s16 arg2) {
     stack.spE = arg1;
     stack.sp10 = arg2;
     stack.sp12 = 0;
-    TLobby__sub_801F3990(&stack.sp8);
+    send_and_handle_6x75(&stack.sp8);
 }
 
 void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1) {
@@ -75,7 +75,7 @@ void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1) {
     stack.spE = arg1;
     stack.sp10 = (s16) game_difficulty_selection;
     stack.sp12 = 0;
-    TLobby__sub_801F3990(&stack.sp8);
+    send_and_handle_6x75(&stack.sp8);
 }
 
 void handle_6x75_update_quest_flag_dc(u8 *arg0) {
@@ -83,11 +83,11 @@ void handle_6x75_update_quest_flag_dc(u8 *arg0) {
     byteswap_6x75_packet__6TLobbyFPv((void *) (arg0));
     temp_r0 = M2C_FIELD(arg0, u16 *, 6);
     if (temp_r0 == 0) {
-        fn_801F469C((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+        set_story_flag_in_bank((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
         return;
     }
     if (temp_r0 == 1) {
-        fn_801F4560((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+        clear_story_flag_in_bank((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
     }
 }
 
@@ -103,7 +103,7 @@ void prepare_offline_quest_filenames(const char* identity) {
  replace_file_extension__6TLobbyFPvPvPv(lbl_805127B0,identity,lbl_80449D00);
 }
 
-void TLobby__sub_801F3990(void *arg0) {
+void send_and_handle_6x75(void *arg0) {
     byteswap_6x75_packet__6TLobbyFPv(arg0);
     TLobby__send_and_handle_60((s32)(arg0));
 }
