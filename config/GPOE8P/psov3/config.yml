@@ -76,6 +76,7 @@ force_active:
   - PADSetSamplingCallback
   - PSMTXRotTrig
   - ResetNotes
+  - Runtime_TRKValidMemory32
   - ScanIDList
   - ScanIDListReverse
   - SelectSource
@@ -239,7 +240,11 @@ force_active:
   - TQuestListChallenge__active_instance
   - TQuestListChallenge__stage_table
   - TRKEXICallBack
+  - TRKInterruptHandlerEnableInterrupts
   - TRKLoadContext
+  - TRKOpenFile
+  - TRKPPCAccessFPRegister
+  - TRKPositionFile
   - TRecvGenerateID__sub_801DFBC4
   - TTecRaBarta_class_name
   - TTecRaFoie_class_name
@@ -982,6 +987,7 @@ force_active:
   - gWritePos
   - gather_player_contacts__10TObjPlayerFiUiii
   - generate_shop_weapon_stock
+  - get_anim_entry_value__10TObjPlayerFPvs
   - get_area_table_value__17TOTrapChainSawKeyFii
   - get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi
   - get_boss_warp_base_model

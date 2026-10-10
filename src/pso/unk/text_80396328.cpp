@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 GetTRKConnected();
-u8 fn_80395920(int, void *);
+u8 TRKCloseFile(int, void *);
 s32 __close_console(s32 arg0);
 }
 
@@ -16,7 +16,7 @@ s32 __close_console(s32 arg0) {
     if (GetTRKConnected() == 0) {
         return 1;
     }
-    temp_r3 = fn_80395920((int) (0xD3), (void *) (arg0));
+    temp_r3 = TRKCloseFile((int) (0xD3), (void *) (arg0));
     switch ((s32) temp_r3) {
     case 0:
         return 0;

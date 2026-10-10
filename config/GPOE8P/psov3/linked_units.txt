@@ -50,6 +50,8 @@ TRK_MINNOW_DOLPHIN/notify.c
 TRK_MINNOW_DOLPHIN/nubinit.c
 TRK_MINNOW_DOLPHIN/support.c
 TRK_MINNOW_DOLPHIN/target_options.c
+TRK_MINNOW_DOLPHIN/targimpl.c
+TRK_MINNOW_DOLPHIN/targsupp.s
 ai/ai.c
 ar/ar.c
 ar/arq.c
@@ -135,6 +137,7 @@ os/OSError.c
 os/OSFont.c
 os/OSLink.c
 os/OSMemory.c
+os/OSReboot.c
 os/OSRtc.c
 os/OSThread.c
 os/OSTime.c
@@ -1971,6 +1974,7 @@ pso/misc/TWindow_80217288.cpp
 pso/misc/TeneFakeTecThunderEff.cpp
 pso/misc/item_param.cpp
 pso/misc/item_pmt.cpp
+pso/misc/obj_band.cpp
 pso/misc/pso_const_ids.cpp
 pso/misc/pso_const_ids3.cpp
 pso/misc/pso_const_ids4.cpp

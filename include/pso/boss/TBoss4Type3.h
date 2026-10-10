@@ -42,8 +42,8 @@ struct TBoss4Type3
     u32 m_38c;
     s32 m_390;
     TBoss4Type3CollisionState *m_394;
-    u32 m_398;
-    u8 _pad39C[0x4];
+    s32 m_398;
+    f32 m_39c;
     s32 m_3a0;
     u32 m_3a4;
     u32 m_3a8;
@@ -91,9 +91,59 @@ struct TBoss4Type3
     u32 m_528;
     u32 m_52c;
 
+    void update_libera();
+    void advance_libera();
+    void enter_libera();
+    void update_bura();
+    void advance_bura();
+    void enter_bura();
+    void update_capture();
+    void advance_capture();
+    void enter_capture();
+    void update_dark_magic();
+    void advance_dark_magic();
+    void enter_dark_magic();
+    void update_light_magic();
+    void advance_light_magic();
+    void enter_light_magic();
+    void update_homing();
+    void advance_homing();
+    void enter_homing();
+    void update_go_down();
+    void advance_go_down();
+    void enter_go_down();
+    void update_go_up();
+    void advance_go_up();
+    void enter_go_up();
+    void update_cut();
+    void advance_cut();
+    void enter_cut();
+    void update_dead();
+    void advance_dead();
+    void enter_dead();
+    void advance_wait_next();
+    void update_appear();
+    void advance_appear();
+    void enter_appear();
+
     void run_task();
 
 };
+
+typedef void (TBoss4Type3::*TBoss4Type3Handler)();
+struct TBoss4Type3State {
+    const char *name;
+    s32 animation;
+    TBoss4Type3Handler enter;
+    TBoss4Type3Handler advance;
+    TBoss4Type3Handler update;
+};
+typedef char Type3StateSize[(sizeof(TBoss4Type3State)==0x2C)?1:-1];
+typedef char Type3StateEnter[(offsetof(TBoss4Type3State,enter)==0x8)?1:-1];
+typedef char Type3StateAdvance[(offsetof(TBoss4Type3State,advance)==0x14)?1:-1];
+typedef char Type3StateUpdate[(offsetof(TBoss4Type3State,update)==0x20)?1:-1];
+typedef char Type3TimerOffset[(offsetof(TBoss4Type3,m_398)==0x398)?1:-1];
+typedef char Type3FractionOffset[(offsetof(TBoss4Type3,m_39c)==0x39C)?1:-1];
 
 typedef char Type3Offset_38[(offsetof(TBoss4Type3,m_38) == 0x38)?1:-1];
 typedef char Type3Offset_60[(offsetof(TBoss4Type3,m_60) == 0x60)?1:-1];

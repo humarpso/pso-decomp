@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/animation/ActorAnimationState.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -123,7 +124,7 @@ void apply_animation_transition(void *, s16);
 void init_npc_animation__10TObjPlayerFPvPvPvPv(void* p, void* a1, void* a2, void* a3);
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void advance_animation_playback(Anim_80143504 *a);
-M2C_UNK set_motion_interpolation_flag(void *, f64);
+void set_motion_interpolation_flag(void *);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 void * get_anim_entry__10TObjPlayerFPvi(void *, s16);
 M2C_UNK draw_ginja_model_tree__10TObjPlayerFPvPv(s32, void *, f32);
@@ -404,6 +405,69 @@ void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     clear_global_state__10TObjPlayerFv();
 }
 
+#define self ((ActorAnimationState *)arg0)
+void apply_animation_transition(void *arg0, s16 idx) {
+    AnimationAction *e = self->actions + idx;
+
+    self->flags &= ~0x10;
+    self->actionFlags = e->flags;
+    if ((self->flags & 1) || (self->flags & 0x80) || (self->actionFlags & 0x80000000) || (self->actions[self->currentAction].flags & 0x40000000)) {
+        self->flags &= ~4;
+        update_animation_frame__10TObjPlayerFPvi((u8 *)self, idx);
+        if (TBoss1Dragon__sub_80143960(self, 0x100) != 0) {
+            TObjEnePanarms__sub_800E2DE4(self, 0x100);
+            self->speed = self->overrideSpeed;
+        } else {
+            self->speed = e->speed;
+        }
+        self->mode = e->mode;
+        self->frameCount = self->motion->frameCount;
+        if (self->actionFlags & 0x20000000) {
+            set_motion_interpolation_flag(self);
+        }
+        if (self->flags & 0x80) {
+            self->flags &= ~0x80;
+            self->frame = self->sourceFrame;
+            {
+                f32 fr = self->frame;
+                f32 n = self->frameCount;
+                if (lbl_805DB16C + fr >= n) {
+                    self->frame = fr - n;
+                }
+            }
+        } else {
+            self->frame = lbl_805DB168;
+        }
+    } else {
+        if (self->frame >= self->frameCount - lbl_805DB16C) {
+            self->frame = self->frame - lbl_805DB16C;
+        }
+        self->mode = 4;
+        self->flags |= 6;
+        self->blendSource = self->motion;
+        self->sourceFrame = self->frame;
+        self->previousAction = self->currentAction;
+        update_animation_frame__10TObjPlayerFPvi((u8 *)self, idx);
+        self->blendTarget = self->motion;
+        self->targetFrame = lbl_805DB168;
+        self->nextMode = e->mode;
+        self->frame = lbl_805DB168;
+        self->frameCount = self->motion->frameCount;
+        if (TBoss1Dragon__sub_80143960(self, 0x200) != 0) {
+            TObjEnePanarms__sub_800E2DE4(self, 0x200);
+            self->speed = self->overrideBlendSpeed;
+        } else {
+            self->speed = self->blendSpeed;
+        }
+        if (self->actionFlags & 0x20000000) {
+            set_motion_interpolation_flag(self);
+        }
+    }
+    self->currentAction = idx;
+}
+
+#undef self
+
 void init_npc_animation__10TObjPlayerFPvPvPvPv(void* p, void* a1, void* a2, void* a3) { set_field_d8__10TObjPlayerFPvi(p); set_field_dc__10TObjPlayerFPvi(p, a2); ((int (*)(void*, void*))set_animation__10TObjPlayerFPvs)(p, a3); }
 
 void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
@@ -427,7 +491,7 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB168;
     M2C_FIELD(arg0, s16 *, 0xBC) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
     if (M2C_FIELD(arg0, s32 *, 0xB4) & 0x20000000) {
-        set_motion_interpolation_flag(arg0, conv);
+        set_motion_interpolation_flag(arg0);
     }
 }
 

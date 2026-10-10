@@ -10,9 +10,6 @@
 #define gTRKStepStatus lbl_804F54E4
 
 #include "PowerPC_EABI_Support/MetroTRK/trk.h"
-#define TRKOpenFile fn_80395918
-#define TRKCloseFile fn_80395920
-#define TRKPositionFile fn_80395928
 
 typedef struct memRange {
     u8* start;
@@ -103,17 +100,6 @@ DSError TRKTargetReadInstruction(void* data, u32 start);
 DSError HandleOpenFileSupportRequest(const char* path, u8 replyError, u32* param_3, u8* ioResult);
 
 static BOOL TRKTargetCheckStep();
-
-void TRKPositionFile(void) { asm {
-} }
-void TRKCloseFile(void) { asm {
-} }
-void TRKOpenFile(void) { asm {
-} }
-#pragma function_align 16
-u32 TRKAccessFile(u32, u32, u32*, u8*) { asm {
-} }
-#pragma function_align 4
 
 #pragma dont_inline on
 DSError TRKValidMemory32(const void* addr, size_t length,

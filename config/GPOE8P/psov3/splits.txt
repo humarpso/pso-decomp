@@ -13211,7 +13211,7 @@ TRK_MINNOW_DOLPHIN/mem_TRK.c:
 	.text       start:0x80393FBC end:0x80394088
 
 TRK_MINNOW_DOLPHIN/targimpl.c:
-	.text       start:0x80394088 end:0x80395930
+	.text       start:0x80394088 end:0x80395910
 	.rodata     start:0x8047B928 end:0x8047B9B0
 	.data       start:0x804F54C8 end:0x804F54F8
 	.bss        start:0x80546B40 end:0x805470BC
@@ -14270,3 +14270,6 @@ gba/GBAKey.c:
 
 PowerPC_EABI_Support/Runtime/Src/__mem.c:
 	.init       start:0x8000E334 end:0x8000E46C
+
+TRK_MINNOW_DOLPHIN/targsupp.s:
+	.text       start:0x80395910 end:0x80395930 align:16
