@@ -30,8 +30,8 @@ s32 open_confirm_prompt__18TWindowSubShortCutFPv(Win_8027DBB8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
-M2C_UNK fn_80076D40();
-M2C_UNK fn_80076D68(int, void *);
+M2C_UNK clear_chat_shortcut();
+M2C_UNK store_chat_shortcut(int, void *);
 s32 get_status_flag__6TLobbyFPv(int);
 s32 get_flag_bit2__6TLobbyFPv(int);
 M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(int);
@@ -72,7 +72,7 @@ s32 open_confirm_message__18TWindowSubShortCutFPv(void *arg0);
 s32 open_menu__18TWindowSubShortCutFPv(void *arg0);
 void render__18TWindowSubShortCutFv(void);
 void set_flag1e_bit80__18TWindowSubShortCutFPv(void* p);
-u32 *TWindowKeyBoardSoft__sub_80076E2C();
+u32 *get_chat_shortcut();
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, s32, M2C_UNK, M2C_UNK);
 M2C_UNK align_menu_entry_positions(s32);
 M2C_UNK update_layout_height__17TWindowSubComCardFPvf(s32, f32);
@@ -123,7 +123,7 @@ s32 open_menu__18TWindowSubShortCutFPv(void *arg0) {
     u32 *temp_r30;
 
     select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x2C));
-    temp_r30 = TWindowKeyBoardSoft__sub_80076E2C();
+    temp_r30 = get_chat_shortcut();
     temp_r31 = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position((s32)(0x74)), 2, get_message_10__20TWindowSubStatusDispFPv(0x2C));
     forward_trade_action_default__16TObjCityMainWarpFPviii(temp_r31, get_message_10__20TWindowSubStatusDispFPv(0x7E), 6, 5);
     if ((u32) *temp_r30 != 0U) {
@@ -262,7 +262,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
         }
         if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
-                fn_80076D68((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) ((u8 *)(arg0) + 0x40));
+                store_chat_shortcut((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) ((u8 *)(arg0) + 0x40));
                 M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
                 return;
             }
@@ -284,7 +284,7 @@ void run_task__18TWindowSubShortCutFv(u8 *arg0) {
         if (is_child_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) != 0) {
             if (get_slot_or_neg1__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x34))) == 0) {
                 select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
-                fn_80076D40();
+                clear_chat_shortcut();
                 M2C_FIELD(arg0, u8 *, 0x1C) = 1U;
                 return;
             }

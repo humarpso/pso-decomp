@@ -8,7 +8,7 @@ struct Win_802473C8 { u8 pad0[0x1E]; u16 flags; };
 
 extern "C" {
 s32 fn_8002AE08(s32);
-void TWindowShortListCtrl__sub_80076D1C(s32);
+void send_chat_shortcut(s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -85,29 +85,29 @@ void handle_dpad_shortcuts__11TWindowChatFPv(Win_802473C8 *arg0) {
     }
     if (is_on_current_screen__11TCameraCtrlFPv(pad, fn_8002AE08(local_client_id)) == 0) {
         if (TWindowShortListCtrl__check_controller_button(pad, 0x10) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(0);
+            send_chat_shortcut(0);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x20) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(3);
+            send_chat_shortcut(3);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x80) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(1);
+            send_chat_shortcut(1);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x40) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(2);
+            send_chat_shortcut(2);
         }
     } else {
         if (TWindowShortListCtrl__check_controller_button(pad, 0x10) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(4);
+            send_chat_shortcut(4);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x20) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(7);
+            send_chat_shortcut(7);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x80) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(5);
+            send_chat_shortcut(5);
         }
         if (TWindowShortListCtrl__check_controller_button(pad, 0x40) != 0) {
-            TWindowShortListCtrl__sub_80076D1C(6);
+            send_chat_shortcut(6);
         }
     }
 }

@@ -8,7 +8,7 @@ struct Win_8024701C { u8 p0[0x1E]; u16 flags; s32 f20; u8 p24[4]; s32 f28; };
 
 extern "C" {
 M2C_UNK TAdSinglePlyChrSelectGC__sub_80076D9C(void *, int);
-s32 TWindowKeyBoardSoft__sub_80076E2C(int);
+s32 get_chat_shortcut(int);
 M2C_UNK update_selected_symbol__20TWindowSubSymbolChatFPv();
 M2C_UNK open_symbol_chat__11TWindowChatFPv(void *);
 s32 is_active__16TKeyBoardControlFPv(int);
@@ -118,7 +118,7 @@ s32 submit_keyboard_input__11TWindowChatFPv(u8 *arg0) {
     }
     set_active_flag__11TWindowChatFPv((void *) (arg0));
     if (get_flag__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x20))) != 0) {
-        TAdSinglePlyChrSelectGC__sub_80076D9C((void *) (M2C_FIELD(arg0, u32 **, 0x38)), (int) (TWindowKeyBoardSoft__sub_80076E2C((int) (get_input_mode__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x20)))))));
+        TAdSinglePlyChrSelectGC__sub_80076D9C((void *) (M2C_FIELD(arg0, u32 **, 0x38)), (int) (get_chat_shortcut((int) (get_input_mode__11TWindowChatFPv((int) (M2C_FIELD(arg0, u32 *, 0x20)))))));
         if (((u32) *M2C_FIELD(arg0, u32 **, 0x38) == 3U) && (is_mode_bit6__11TWindowChatFPv((void *) (arg0)) == 0)) {
             open_symbol_chat__11TWindowChatFPv((void *) ((u8 *) M2C_FIELD(arg0, u32 **, 0x38) + 4));
             update_selected_symbol__20TWindowSubSymbolChatFPv();

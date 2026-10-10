@@ -24,7 +24,7 @@ extern s32 local_client_id;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
 s32 get_shared_text_buffer();
 s32 fn_80076BC4(s32 *);
-s32 *TWindowKeyBoardSoft__sub_80076E2C(s32);
+s32 *get_chat_shortcut(s32);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv();
 M2C_UNK open_symbol_chat__11TWindowChatFPv(s32 *);
 s8 get_type__20TWindowSubStatusDispFPv(s32);
@@ -66,7 +66,7 @@ void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
     var_r30 = 0;
     var_r29 *= 4;
     do {
-        temp_r3 = TWindowKeyBoardSoft__sub_80076E2C(var_r29);
+        temp_r3 = get_chat_shortcut(var_r29);
         switch (*temp_r3) {
         case 0:
             draw_entry__22TWindowSubShortCutListFPviUcii(arg0, var_r29, 0x33, 0, var_r29);
