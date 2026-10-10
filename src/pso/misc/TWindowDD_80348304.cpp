@@ -50,7 +50,7 @@ M2C_UNK TWindowDD__sub_80344774();
 M2C_UNK format_message_text__9TWindowDDFPvPvUs();
 M2C_UNK format_german_message__9TWindowDDFPvPvUs();
 M2C_UNK TWindowDD__sub_80345608();
-M2C_UNK TWindowDD__sub_80345C64();
+M2C_UNK format_english_message__9TWindowDDFPvPvUs();
 M2C_UNK format_entry_text__9TWindowDDFPvPv();
 M2C_UNK TWindowDD__sub_80346434();
 M2C_UNK TWindowDD__sub_80346640();
@@ -165,7 +165,7 @@ void update_state__9TWindowDDFv(void) {
         format_entry_text__9TWindowDDFPvPv();
         return;
     default:
-        TWindowDD__sub_80345C64();
+        format_english_message__9TWindowDDFPvPvUs();
         return;
     case 4:
         TWindowDD__sub_80345608();
