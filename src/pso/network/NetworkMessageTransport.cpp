@@ -130,7 +130,7 @@ M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-void TUdpSocket__sub_80419E64(int, int, void (*)(void));
+void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 u8 lbl_805CF240[0xA0];
 u8 TLobby__pppoe_message_queue[0xA0];
@@ -604,7 +604,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     lbl_805D7BB8 = 0;
     lbl_805D7BBC = 1;
     lbl_805D7BC0 = 1;
-    TUdpSocket__sub_80419E64(0x64, 0, update_exi_status__6TLobbyFv);
+    NetRegisterTimer(0x64, 0, update_exi_status__6TLobbyFv);
     return 0;
 }
 #undef arg0

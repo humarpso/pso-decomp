@@ -495,7 +495,7 @@ extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
 void TLobby__sub_803F8AA0(u8 *arg0);
 extern RecoveredGlobal_803F8A0C_lbl_805B9534 lbl_805B9534;
 void TLobby__sub_803F8A0C(u8 *arg0);
-extern RecoveredGlobal_8041552C_lbl_805C1BE0 lbl_805C1BE0;
+extern RecoveredGlobal_8041552C_lbl_805C1BE0 network_loopback_state;
 s16 get_slot_offset_or_default__6TLobbyFs(s16 arg0);
 extern RecoveredGlobal_803FB110_lbl_805BFF68 lbl_805BFF68;
 u8 *TLobby__sub_803FB110(void);
@@ -634,24 +634,24 @@ s32 TLobby__sub_8040FDA0(u32, s16);
 s32 is_multicast_address__6TLobbyFPvs(u8 *arg0, s16 arg1);
 s32 is_addr_unspecified__6TLobbyFPv(u8 *arg0);
 s32 compare_sockaddr__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 u8 * TLobby__sub_8040F76C(u32, u32);
 s32 is_lookup_found__6TLobbyFUiUi(u32 arg0, u32 arg1);
 s32 NetIPv4IsLoopback(s32 arg0);
 s32 NetIPv4IsUnspecified(u32 arg0);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s32 TLobby__sub_8040FEE4(s32 arg0, s32 arg1);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 u8 * TLobby__sub_80413264(void *, s32);
 s32 TLobby__sub_80413230(u8 *arg0, s32 arg1);
 s32 is_slot_flag_0x20_set__6TLobbyFs(s16);
 void TLobby__sub_804136AC(s16 arg0);
 s32 is_socket_flag_set__6TLobbyFs(s16);
 void TLobby__sub_804136CC(s16 arg0);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 s16 NetIPv6IsLoopback(u8 *arg0);
 s32 NetIPv6IsMulticast(u8 *arg0);
 s32 NetIPv6IsUnspecified(u8 *arg0);
@@ -667,14 +667,14 @@ void release_entry__10TUdpSocketFPv(void *);
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_80413D78();
 M2C_UNK NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
-s32 TLobby__sub_80417FA8(int, void *, void *, void *, int);
+s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
 s32 NetIPv6SendUnspecifiedSourceNeighborSolicitation(s32 arg0, s32 arg1);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
-extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
+extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 void TLobby__sub_80419A00(void);
 s32 TLobby__sub_8041D368(u8 *arg0);
 u8 * TLobby__sub_8041B5C0(void *);
-extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+extern RecoveredGlobal_8041E178_lbl_805C1D48 tcp_protocol_state;
 s32 mark_connection_closed__6TLobbyFs(s16 arg0);
 void strcat(u8);
 void append_string__6TLobbyFUc(u8 arg0);
@@ -684,19 +684,19 @@ void strcmp(u8);
 void compare_str__6TLobbyFUc(u8 arg0);
 void strcpy(void *, void *);
 void copy_string__6TLobbyFPvPv(void *arg0, void *arg1);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 s32 TLobby__sub_804112B8(s32 arg0, s32 arg1, s16 arg2);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 s32 TLobby__sub_8041123C(s32 arg0, s32 arg1, s16 arg2);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 s16 *get_valid_entry__6TLobbyFs(s16 arg0);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s16 *get_active_entry_by_index__6TLobbyFs(s16 arg0);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s16 TLobby__sub_8040EF00(s16 arg0);
-extern RecoveredGlobal_8041123C_lbl_805C1BB8 lbl_805C1BB8;
+extern RecoveredGlobal_8041123C_lbl_805C1BB8 ipv6_address_routing_state;
 s16 get_entry_field_26__6TLobbyFs(s16 arg0);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s32 TLobby__sub_8040FE40(s16 arg0);
 extern RecoveredGlobal_803F8930_lbl_805B4F84 lbl_805B4F84;
 void TLobby__sub_803F8930(u8 *arg0);
@@ -715,32 +715,32 @@ s16 TLobby__sub_804136EC(s32);
 s16 TLobby__sub_8040DABC(u8 *arg0);
 void TLobby__sub_803F892C(void *);
 s32 release_slot_by_id__6TLobbyFUs(u16);
-extern RecoveredGlobal_8040DD68_lbl_805C1B38 lbl_805C1B38;
+extern RecoveredGlobal_8040DD68_lbl_805C1B38 ipv4_protocol_state;
 s32 TLobby__sub_8040DD68(void);
 void TLobby__sub_803F8958(void *);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s32 TLobby__sub_8040ED28(void);
 void init_buffer_descriptor_a__6TLobbyFPv(u8 *arg0);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
-extern RecoveredGlobal_8040EF00_lbl_805C1B60 lbl_805C1B60;
+extern RecoveredGlobal_8040EF00_lbl_805C1B60 ipv4_address_routing_state;
 s32 TLobby__sub_8040ED70(void);
 void TLobby__sub_803F87DC(void *);
 s32 release_slot_by_id__6TLobbyFUs(u16);
 extern RecoveredGlobal_8040FF0C_lbl_805C1B78 ipv6_protocol_state;
 s32 NetIPv6Shutdown(void);
 void TLobby__sub_803F89D8(void *);
-extern RecoveredGlobal_80415650_lbl_805C1BF8 lbl_805C1BF8;
+extern RecoveredGlobal_80415650_lbl_805C1BF8 network_buffer_pool_state;
 s32 reset_net_value__6TLobbyFv(void);
 M2C_UNK TLobby__sub_803F8E9C();
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
-extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
+extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 void TLobby__sub_80419A34(void);
 void clear_slot_for_handle__6TLobbyFUi(u32 arg0);
 void unlock_mutex__10TUdpSocketFi(int);
 void lock_mutex__6TLobbyFi(int);
 M2C_UNK TLobby__sub_803F95E4(int);
 void cancel_thread_if_running__6TLobbyFi(s32 arg0);
-extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
+extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 s32 TLobby__sub_80419A7C(void);
 s16 TLobby__sub_8041579C(void *);
 s32 TLobby__sub_8041EB74(u8 *arg0);
@@ -749,7 +749,7 @@ s32 close_if_open__6TLobbyFPv(u8 *arg0);
 void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 s16 TLobby__sub_8040A2BC(void *, s16);
-extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
+extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 s16 TLobby__sub_80409A3C(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_803F895C_lbl_805AEEB0 lobby_net_config_block;
 void init_buffer_descriptor_b__6TLobbyFPv(RecoveredFields_803F88E4_arg0 *arg0);
@@ -857,7 +857,7 @@ s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2);
 void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 void TUdpSocket__sub_803F9EE4(void * _w0, int _w1, int _w2);
-extern RecoveredGlobal_80419A00_lbl_805C1C50 lbl_805C1C50;
+extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 extern s16 lobby_handler_table_desc;
 s32 clear_table_entry_locked__6TLobbyFs(s16 arg0);
 extern s16 lobby_handler_table_desc;
@@ -1965,7 +1965,7 @@ struct G_8040A45C {
     F_8040A45C *f;
 };
 
-extern G_8040A45C lbl_805C1AF0;
+extern G_8040A45C dns_resolver_state;
 
 #define TBL_80409B48 (*(Tbl_80409B48 *)&lobby_handler_table_desc)
 s32 call_handler_by_index__6TLobbyFsiiii(s16 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -2285,7 +2285,7 @@ typedef char RecoveredGlobal_8040FF0C_lbl_805C1B78_size[sizeof(RecoveredGlobal_8
 s32 NetIPv6Shutdown(void);
 
 void TLobby__sub_8040FFF8(void);
-s32 NetIPv6InitInterfaces(void);
+s32 NetIPv6Init(void);
 
 #pragma push
 #pragma opt_common_subs on
@@ -2300,9 +2300,9 @@ struct G_8041118C {
 };
 
 void init_udp_socket_config__6TLobbyFPv(void *);
-void TUdpSocket__sub_80419E64(int, int, void (*)(void));
+void NetRegisterTimer(int, int, void (*)(void));
 
-#define g ((G_8041118C *)&lbl_805C1BB8)
+#define g ((G_8041118C *)&ipv6_address_routing_state)
 s32 TUdpSocket__sub_8041118C(void);
 #undef g
 
@@ -2426,7 +2426,7 @@ struct Arg2_80415B38 { u8 *addr; u8 *val; };
 typedef struct Ent_80418670 { u8 pad0[3]; u8 f3; u8 pad4[2]; s16 f6; u8 pad8[0xC]; u8 f14[0x10]; } Ent_80418670;
 M2C_UNK TLobby__sub_80411604(int, int, void *);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
-void TUdpSocket__sub_80419E64(int, int, void (*)(void));
+void NetRegisterTimer(int, int, void (*)(void));
 void NetIPv6TickNeighborDiscovery(void);
 
 s32 NetIPv6InitNeighborDiscovery(void);
@@ -2438,7 +2438,7 @@ s32 NetIPv6SendUnspecifiedSourceNeighborSolicitation(s32 arg0, s32 arg1);
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_804145D4(void *, void *);
 M2C_UNK init_ipv6_all_routers_multicast_address(void *, int);
-s32 TLobby__sub_80418158(int, void *, void *);
+s32 NetIPv6EmitRouterSolicitation(int, void *, void *);
 
 s32 NetIPv6SendRouterSolicitation(s32 arg0);
 
@@ -2562,7 +2562,7 @@ void release_entry__10TUdpSocketFPv(void *e_);
 u8 *alloc_free_entry__6TLobbyFv();
 M2C_UNK TLobby__sub_80411604(int, int, void *);
 s16 TLobby__sub_804137FC(void *, int);
-s32 TLobby__sub_80417FA8(int, void *, void *, void *, int);
+s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
 M2C_UNK NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
 
@@ -2574,7 +2574,7 @@ void release_entry__10TUdpSocketFPv(void *e_);
 u8 *alloc_free_entry__6TLobbyFv();
 M2C_UNK TLobby__sub_80411604(int, int, void *);
 s16 TLobby__sub_804137FC(void *, int);
-s32 TLobby__sub_80417FA8(int, void *, void *, void *, int);
+s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
 
 s32 NetIPv6SendUnicastNeighborProbe(u8 *arg0);
@@ -2626,7 +2626,7 @@ struct G_80418ACC {
 };
 void TLobby__sub_80419DDC(void *);
 void update_timeout_entries__6TLobbyFv(void);
-extern G_80418ACC lbl_805C1C38;
+extern G_80418ACC packet_fragment_pool_state;
 s32 TLobby__sub_80418A7C(void);
 
 s32 init_packet_fragment_pools__6TLobbyFv(void);
@@ -2688,7 +2688,7 @@ s16 tcp_get_socket_handle__6TLobbyFs(s16 i);
 
 s32 get_field_d8__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_8041ED8C(int, void *, void *, void *);
-extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+extern RecoveredGlobal_8041E178_lbl_805C1D48 tcp_protocol_state;
 
 #pragma push
 #pragma opt_propagation off
@@ -2697,7 +2697,7 @@ s32 TLobby__sub_8041DBD4(s16 arg0, s32 arg1, s32 arg2, s32 arg3);
 
 s32 get_adjusted_slot_count__6TLobbyFPv(u8 *arg0);
 s32 get_field_d8__6TLobbyFPv(u8 *arg0);
-extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+extern RecoveredGlobal_8041E178_lbl_805C1D48 tcp_protocol_state;
 
 #pragma push
 #pragma opt_propagation off
@@ -2709,7 +2709,7 @@ s32 mark_connection_closed__6TLobbyFs(s16 arg0);
 
 void clear_position__6TLobbyFPv(u8 *arg0);
 M2C_UNK TLobby__sub_8041A9AC(int);
-extern RecoveredGlobal_8041E178_lbl_805C1D48 lbl_805C1D48;
+extern RecoveredGlobal_8041E178_lbl_805C1D48 tcp_protocol_state;
 
 #pragma push
 #pragma opt_propagation off

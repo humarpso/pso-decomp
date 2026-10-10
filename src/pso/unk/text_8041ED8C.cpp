@@ -135,11 +135,11 @@ void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
 void TLobby__sub_80406FD8(void *, void *, u32);
 void TLobby__sub_8041A9AC(Obj_8041ED8C *);
-extern G_8041ED8C lbl_805C1D48;
+extern G_8041ED8C tcp_protocol_state;
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
-extern G_8041ED8C lbl_805C1D48;
+extern G_8041ED8C tcp_protocol_state;
 s32 TLobby__sub_8041F11C(Obj_8041F11C *self);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 void set_value_and_enable__6TLobbyFPvi(u8 *, s32);
@@ -161,7 +161,7 @@ typedef char RecoveredGlobal_80420C5C_lbl_805C1DF0_size[sizeof(RecoveredGlobal_8
 struct O_8041FE44;
 
 s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
-    s16 idx = self - lbl_805C1D48.p;
+    s16 idx = self - tcp_protocol_state.p;
     s32 m;
     u32 k;
     Buf_8041ED8C src;
@@ -250,20 +250,20 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
         }
     }
     if (self->fD8 == 0 && (self->fB & 8) && !(self->fB & 0x20)) {
-        TLobby__sub_80422E30((s16)(self - lbl_805C1D48.p), self->f2D0, 3, 3);
+        TLobby__sub_80422E30((s16)(self - tcp_protocol_state.p), self->f2D0, 3, 3);
         self->fB |= 0x20;
     }
     return 0;
 }
 
 s32 TLobby__sub_8041F11C(Obj_8041F11C *self) {
-    s16 idx = self - (*(G_8041F11C *)&lbl_805C1D48).p;
+    s16 idx = self - (*(G_8041F11C *)&tcp_protocol_state).p;
     while (self->fE8 != 0) {
         self->fE8 = 0;
         set_slot_state_and_resume__6TLobbyFv(idx, self->f200, -7);
     }
     if (self->fD8 == 0 && !(self->fB & 0x20)) {
-        TLobby__sub_80422E30((s16)(self - (*(G_8041F11C *)&lbl_805C1D48).p), self->f2D0, 3, 3);
+        TLobby__sub_80422E30((s16)(self - (*(G_8041F11C *)&tcp_protocol_state).p), self->f2D0, 3, 3);
         self->fB |= 0x20;
     }
     return 0;

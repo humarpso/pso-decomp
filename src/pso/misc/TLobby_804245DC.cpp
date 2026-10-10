@@ -120,7 +120,7 @@ M2C_UNK OSInitMessageQueue(void *, void *, int);
 M2C_UNK TLobby__sub_803F9B28(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
 M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-void TUdpSocket__sub_80419E64(int, int, void (*)(void));
+void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 NetworkPacketBufferDescriptor network_packet_buffer_descriptors[NETWORK_PACKET_BUFFER_COUNT];
 u8 network_packet_buffers[NETWORK_PACKET_BUFFER_COUNT][NETWORK_PACKET_BUFFER_BYTES];
