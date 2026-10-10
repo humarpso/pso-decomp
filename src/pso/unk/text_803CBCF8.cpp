@@ -1,3 +1,5 @@
+#include "pso/system/AdxmThreadStorage.h"
+
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
@@ -14,7 +16,6 @@ void OSResumeThread(void *);
 void OSSetThreadPriority(void *, s32);
 s32 OSGetThreadPriority(void *);
 extern s32 lbl_804F9D80[];
-extern M2C_UNK lbl_805764A0[];
 extern s32 lbl_805D7594;
 extern s32 lbl_805D75AC;
 extern s32 lbl_805D75B0;
@@ -43,7 +44,7 @@ void __OSCallResetFunctions(void) {
         lbl_805D75B0 = 0;
         OSEnableScheduler();
         OSRestoreInterrupts(enabled);
-        OSResumeThread(lbl_805764A0);
+        OSResumeThread(&adxm_busy_wait_thread);
     }
     lbl_805D7594++;
 }

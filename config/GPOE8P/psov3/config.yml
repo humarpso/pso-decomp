@@ -2337,6 +2337,7 @@ force_active:
   - render_with_state_debug__10TObjPlayerFPv
   - repositioning_state__14TObjEneBm5WolfFPvi
   - request_aram_load_state__16TAdWarningBaseGCFPv
+  - request_menu__16TQuestListOnlineFv
   - request_split_screen_battle_event
   - request_transition__17TAdEnterPPPPassGCFPv
   - request_transition__18TAdEnterPasswordGCFPv

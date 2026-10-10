@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -25,7 +26,7 @@ void TLobby__sub_8001EDF4(s32);
 s32 TLobby__sub_8001EEF4();
 extern M2C_UNK lbl_8044BEB0[];
 void ensure_online_quests_loaded__16TQuestListOnlineFv(void);
-s32 fn_802183B4();
+
 extern void *TQuestListOnline__instance;
 extern s32 lbl_805D61F8;
 s32 get_list_state__16TQuestListOnlineFv(void);
@@ -33,13 +34,10 @@ s32 get_list_state__16TQuestListOnlineFv(void);
 
 extern "C" {
 
-void close_windows__16TQuestListOnlineFPv(void *arg0);
 int get_selected_quest_id__16TQuestListOnlineFv(void);
 u8 get_unlocked_tier__16TQuestListOnlineFv(void);
 s32 init__16TQuestListOnlineFv(void);
-void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
-void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
-void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0);
+
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
 s32 get_party_min_tier__6TLobbyFi(M2C_UNK);
@@ -58,7 +56,7 @@ s32 get_list_state__16TQuestListOnlineFv(void) {
     if ((u32) M2C_FIELD(TQuestListOnline__instance, u32 *, 0x38) == 0U) {
         return 0;
     }
-    switch (fn_802183B4()) {
+    switch (((TQuestListOnline*)TQuestListOnline__instance)->get_selection_stage()) {
     case 0:
         return 1;
     case 1:
@@ -124,24 +122,26 @@ u8 get_unlocked_tier__16TQuestListOnlineFv(void) {
     }
 }
 
-void close_windows__16TQuestListOnlineFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x44));
-        M2C_FIELD(arg0, u32 *, 0x44) = 0U;
+}
+void TQuestListOnline::close_windows() {
+    if ((u32) confirm_window != 0U) {
+        TWindow__close(M2C_FIELD(this, void **, 0x44));
+        confirm_window = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x40));
-        M2C_FIELD(arg0, u32 *, 0x40) = 0U;
+    if ((u32) info_window != 0U) {
+        TWindow__close(M2C_FIELD(this, void **, 0x40));
+        info_window = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
-        M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+    if ((u32) description_window != 0U) {
+        TWindow__close(M2C_FIELD(this, void **, 0x3C));
+        description_window = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x38));
-        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+    if ((u32) list_window != 0U) {
+        TWindow__close(M2C_FIELD(this, void **, 0x38));
+        list_window = 0U;
     }
 }
+extern "C" {
 
 extern M2C_UNK lbl_8044BEB0[];
 extern s32 TQuestListOnline__decompression_cursor;
@@ -172,35 +172,42 @@ s32 init__16TQuestListOnlineFv(void) {
     return 0;
 }
 
-void invoke_callback_2c_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
+}
+void TQuestListOnline::invoke_callback_2c_and_queue_destruction() {
     M2C_UNK (*temp_r12)();
 
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x2C);
+    temp_r12 = callback2c;
     if (temp_r12 != NULL) {
         temp_r12();
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(this);
 }
+extern "C" {
 
-void invoke_callback_34_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
+}
+void TQuestListOnline::invoke_callback_34_and_queue_destruction() {
     M2C_UNK (*temp_r12)();
 
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x34);
+    temp_r12 = callback34;
     if (temp_r12 != NULL) {
         temp_r12();
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(this);
 }
+extern "C" {
 
-void invoke_callback_28_and_queue_destruction__16TQuestListOnlineFPv(void *arg0) {
+}
+void TQuestListOnline::invoke_callback_28_and_queue_destruction() {
     M2C_UNK (*temp_r12)();
 
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+    temp_r12 = callback28;
     if (temp_r12 != NULL) {
         temp_r12();
     }
-    queue_destruction__7TObjectFv(arg0);
+    queue_destruction__7TObjectFv(this);
 }
+extern "C" {
+
 void ensure_online_quests_loaded__16TQuestListOnlineFv(void) {
     if (TLobby__sub_8001EEF4() == 0) {
         TLobby__sub_8001EDF4((s32) &lbl_8044BEB0);

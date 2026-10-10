@@ -1,3 +1,7 @@
+#define PSO_SDK_COMPACT_MATH
+#include <dolphin/os/OSThread.h>
+#undef PSO_SDK_COMPACT_MATH
+#include "pso/system/AdxmThreadStorage.h"
 #include "pso/system/LscStream.h"
 
 #include "types.h"
@@ -1581,10 +1585,9 @@ M2C_UNK set_count__6TLobbyFPvi(int, int);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 extern char adxt_trap_entry_data_shortage_error[];
 void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
-M2C_UNK OSResumeThread(void *);
 M2C_UNK VIWaitForRetrace();
 M2C_UNK run_callbacks_group2__6TLobbyFv();
-extern u8 lbl_80575E80[];
+
 extern Cb_803CBA58 lbl_805D4680;
 extern s32 lbl_805D7540;
 extern s32 lbl_805D75A0;
@@ -1671,11 +1674,9 @@ void TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
 extern const char lbl_805E0D74[4];
 void TLobby__sub_803CB74C(s32 *arg0);
-M2C_UNK OSSuspendThread(void *);
-M2C_UNK OSSetThreadPriority(void *, int);
 s32 run_worker_callbacks_slot5__6TLobbyFv(int);
 extern Cfg_803CBA58 lbl_804F9D80;
-extern u8 lbl_80575E80[];
+
 extern Cb_803CBA58 lbl_805D4680;
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75A4;
@@ -1686,12 +1687,10 @@ extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
 void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
-M2C_UNK OSResumeThread(void *);
-M2C_UNK OSSetThreadPriority(void *, int);
 M2C_UNK set_message_and_notify__6TLobbyFPv(char *);
 extern char adxm_idle_border_internal_error[];
 extern Cfg_803CBA58 lbl_804F9D80;
-extern u8 lbl_80575E80[];
+
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75BC;
 void adxm_goto_mwidle_border__6TLobbyFv(void);
@@ -2807,12 +2806,12 @@ void worker_thread_loop__6TLobbyFv(void) {
         if (run_worker_callbacks_slot5__6TLobbyFv(lbl_805D75A4++) == 0 || lbl_805D7598 == 1) {
             if (lbl_805D7598 == 1) {
                 lbl_805D7598 = 0;
-                OSSetThreadPriority(lbl_80575E80, lbl_804F9D80.prio);
+                OSSetThreadPriority(&adxm_worker_thread, lbl_804F9D80.prio);
             }
             if (lbl_805D4680.fn != NULL) {
                 lbl_805D4680.fn(lbl_805D4680.arg);
             }
-            OSSuspendThread(lbl_80575E80);
+            OSSuspendThread(&adxm_worker_thread);
         }
     }
     lbl_805D75BC = 1;
@@ -2825,7 +2824,7 @@ void TLobby__sub_803CBB14(void) {
         lbl_805D7540++;
         run_callbacks_group2__6TLobbyFv();
         if (lbl_805D75BC == 0) {
-            OSResumeThread(lbl_80575E80);
+            OSResumeThread(&adxm_worker_thread);
             if (lbl_805D4680.fn != NULL) {
                 lbl_805D4680.fn(lbl_805D4680.arg);
             }
@@ -2846,9 +2845,9 @@ void adxm_goto_mwidle_border__6TLobbyFv(void) {
         return;
     }
     lbl_805D7598 = 1;
-    OSSetThreadPriority(lbl_80575E80, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio0);
+    OSSetThreadPriority(&adxm_worker_thread, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio0);
     for (i = 0; i < 200000000; i++) {
-        OSResumeThread(lbl_80575E80);
+        OSResumeThread(&adxm_worker_thread);
         if (lbl_805D7598 == 0) {
             break;
         }
@@ -2856,7 +2855,17 @@ void adxm_goto_mwidle_border__6TLobbyFv(void) {
     if (i == 200000000) {
         set_message_and_notify__6TLobbyFPv(adxm_idle_border_internal_error);
     }
-    OSSetThreadPriority(lbl_80575E80, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
+    OSSetThreadPriority(&adxm_worker_thread, (*(Cfg_803CBBD8 *)&lbl_804F9D80).prio);
 }
 
 }
+
+extern "C" {
+OSThread adxm_worker_thread;
+OSThread adxm_vblank_thread;
+OSThread adxm_busy_wait_thread;
+u8 adxm_worker_stack[ADXM_WORKER_STACK_BYTES];
+u8 adxm_vblank_stack[ADXM_VBLANK_STACK_BYTES];
+u8 adxm_busy_wait_stack[ADXM_BUSY_WAIT_STACK_BYTES];
+}
+typedef char AdxmOriginalThreadSize[sizeof(OSThread)==0x310 ? 1 : -1];

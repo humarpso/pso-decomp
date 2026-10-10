@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TQuestListOnline.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -51,7 +52,7 @@ void TQuestListVM__vt5(void *arg0);
 void TQuestListVM__vt7(void *arg0);
 s32 TQuestListVM__vt8(void *arg0);
 void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0);
-s32 fn_802183B4(void* p);
+
 void poll_download__12TQuestListVMFv(void);
 void set_selected_entry__12TQuestListVMFPvPv(void* p, void* a1);
 s32 TShopWindowBase__sub_80223A48(void *);
@@ -60,7 +61,9 @@ s32 poll_serial_access__22TQuestVmDownLoadServerFPv();
 s32 set_entry_state__20TWindowSubStatusDispFPvc(s32 a0 = 0, s32 a1 = 0);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 
-s32 fn_802183B4(void* p) { return *(s32*)((char*)p + 0x68); }
+}
+s32 TQuestListOnline::get_selection_stage() { return selection_stage; }
+extern "C" {
 void clear_flag_and_release__17TWindowSubComCardFPv(void *arg0) {
     u32 temp;
     M2C_FIELD(arg0, u16 *, 0x70) = (u16) (M2C_FIELD(arg0, u16 *, 0x70) & 0xFFFFFFFD);
