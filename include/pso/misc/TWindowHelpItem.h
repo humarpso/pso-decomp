@@ -2,9 +2,13 @@
 #define PSO_MISC_TWINDOWHELPITEM_H
 
 #include "types.h"
+#include "pso/TObject.h"
 
 struct TWindowHelpItem
 {
+    u32 m_00;
+    u8 _pad04[0x14];
+    void *m_vtable18;
     u8 _pad1C[0x4];
     s16 m_20;
     u8 _pad22[0x2];
@@ -22,10 +26,13 @@ struct TWindowHelpItem
     u32 m_9c;
     u32 m_a0;
     u32 m_a4;
-    u8 _padA8[0x8];
-    u32 m_b0;
-    u32 m_b4;
-    u32 m_b8;
+    f32 m_a8;
+    f32 m_ac;
+    struct CallbackWords { u32 words[3]; } m_callback;
+
+    static void *operator new(unsigned long size) { return TObject::operator new(size); }
+    TWindowHelpItem(void *position, u16 index);
 };
 
+typedef char TWindowHelpItem_size_check[sizeof(TWindowHelpItem) == 0xBC ? 1 : -1];
 #endif

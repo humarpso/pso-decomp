@@ -209,7 +209,7 @@ s32 get_shop_text(s32);
 s32 TShopWindowBase__sub_8022397C(void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
-void *TWindowHelpItem__ct(void *, s32, u16);
+void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
 M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv(void *);
 M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
@@ -583,7 +583,7 @@ void create_buy_list_windows__24TShopEquipmentListWindowFPv(void *p) {
         o = __nw__7TObjectFUl(0xBC);
         if (o != NULL) {
             id = obj_getField1c(W->player);
-            o = TWindowHelpItem__ct(o, get_window_layout_position(0x27), id);
+            o = __ct__15TWindowHelpItemFPvUs(o, get_window_layout_position(0x27), id);
         }
         W->help = o;
         if (W->help != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

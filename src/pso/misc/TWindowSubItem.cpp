@@ -179,7 +179,7 @@ void TWindow__close(void *);
 M2C_UNK set_field_1c__6TLobbyFPvf(s32);
 s32 is_player_input_active(s32);
 s32 TWindowCtrl__sub_8024A228(s32);
-u32 TWindowHelpItem__ct(s32, s32, s32);
+u32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 s32 get_selected_menu_value(u32);
 void clear_transition_flag__17TWindowSubComCardFPv(u32);
@@ -548,7 +548,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
             if (F(u32, 0x40) == 0) {
                 w = __nw__7TObjectFUl(0xBC);
                 if (w != 0) {
-                    w = TWindowHelpItem__ct(w, get_window_layout_position(2), F(s32, 0x24));
+                    w = __ct__15TWindowHelpItemFPvUs(w, get_window_layout_position(2), F(s32, 0x24));
                 }
                 F(u32, 0x40) = w;
                 TWindowSubEquip__sub_80263AF8(F(s32, 0x2C), 4);

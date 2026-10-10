@@ -90,7 +90,7 @@ s32 is_player_input_active(s32);
 M2C_UNK TWindow__close(void *);
 void *__nw__7TObjectFUl(u32);
 s32 get_window_layout_position(M2C_UNK);
-void *TWindowHelpItem__ct(void *, s32, s32);
+void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 M2C_UNK set_field_1c__6TLobbyFPvf(void *);
 void *fn_802628C0(s32, void *, s32);
@@ -385,7 +385,7 @@ void run_task__13TWindowSubMagFv(void *arg0) {
         if (self->help == NULL) {
             w = __nw__7TObjectFUl(0xBC);
             if (w != NULL) {
-                w = TWindowHelpItem__ct(w, get_window_layout_position(9), self->client_id);
+                w = __ct__15TWindowHelpItemFPvUs(w, get_window_layout_position(9), self->client_id);
             }
             self->help = w;
             TWindowSubEquip__sub_80263AF8((s32)self->parent, 5);

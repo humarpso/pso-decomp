@@ -51,7 +51,6 @@ void TObjCMIcon__sub_8029957C(void* p, void* q);
 extern RecoveredGlobal_8029951C_lbl_8046518C lbl_8046518C;
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
-extern const f32 lbl_805DDC38;
 void init_icon_table__10TObjCMIconFv(void);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 void reset_icon_flags__10TObjCMIconFv(void);
@@ -69,8 +68,6 @@ void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
 extern f32 lbl_804DBE6C[];
 extern Grp_802995A0 lbl_804DBDE0[];
-extern const f32 lbl_805DDC3C;
-extern const f32 lbl_805DDC40;
 void render__10TObjCMIconFv(M2C_UNK self);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
@@ -125,7 +122,7 @@ void init_icon_table__10TObjCMIconFv(void) {
         var_r29 += 1;
         var_r30 = (M2C_UNK *)((u8 *)((M2C_UNK *)((u8 *)(var_r30) + 0xC)));
     } while (var_r29 < 7);
-    TObjCMIcon__horizontal_scroll_offset = lbl_805DDC38;
+    TObjCMIcon__horizontal_scroll_offset = 0.0f;
 }
 
 void TObjCMIcon__sub_8029957C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
@@ -176,7 +173,7 @@ void render__10TObjCMIconFv(M2C_UNK self) {
         g = &lbl_804DBDE0[id];
         pos.x = x0 + ((Ent_802995A0 *)&TObjCMIcon__icon_entries)[id].x;
         pos.y = lbl_804DBE6C[1] * get_scale__14TObjCMMainMenuFv();
-        z = lbl_805DDC3C - (lbl_805DDC40 - (f32)(i / 7));
+        z = (-2.0f) - (1.0f - (f32)(i / 7));
         for (n = 0; n < g->n; n++) {
             s = TObjCMIcon__sub_80299598(self, g->ids[n]);
             draw_ui_sprite(s, &pos, z, depth);

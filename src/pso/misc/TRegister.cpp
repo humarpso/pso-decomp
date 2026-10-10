@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/packet_classes.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -40,12 +41,6 @@ s32 __ct__9TRegisterFv(s32 arg0) {
 
 }
 
-struct packet_header {
-    u8 command;
-    u8 flags;
-    u16 size;
-    void bswap();
-};
 template <unsigned long size> struct TPlyText;
 template <> struct TPlyText<288> {
     packet_header header;
@@ -60,9 +55,10 @@ class QuestListEntry;
 template <typename T, int num_entries, int num_pad_entries> class TMenuList;
 template <> class TMenuList<QuestListEntry, 30, 0> {
 public:
+    TMenuList(const TMenuList &);
     void bswap();
     packet_header header;
-    u8 entries[30][0x98];
+    u8 entries[30][sizeof(QuestListEntry)];
 };
 void TMenuList<QuestListEntry, 30, 0>::bswap() {
     header.bswap();
@@ -74,6 +70,26 @@ void TMenuList<QuestListEntry, 30, 0>::bswap() {
 extern "C" {
 
 int fn_801E0018(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
+}
+
+struct PacketHeaderCopy_801E0038 { u8 bytes[sizeof(packet_header)]; };
+struct QuestListEntryRaw_801E0038 { u8 bytes[sizeof(QuestListEntry)]; };
+TMenuList<QuestListEntry, 30, 0>::TMenuList(const TMenuList &o) {
+    QuestListEntryRaw_801E0038 *end;
+    QuestListEntryRaw_801E0038 *d;
+    const QuestListEntryRaw_801E0038 *s;
+    d = (QuestListEntryRaw_801E0038 *)entries;
+    s = (const QuestListEntryRaw_801E0038 *)o.entries;
+    end = (QuestListEntryRaw_801E0038 *)(entries + 30);
+    *(PacketHeaderCopy_801E0038 *)&header = *(const PacketHeaderCopy_801E0038 *)&o.header;
+    do {
+        __ct__14QuestListEntryFRC14QuestListEntry((s32)d, (s32)s);
+        d++;
+        s++;
+    } while (d < end);
+}
+
+extern "C" {
 s32 __ct__14QuestListEntryFRC14QuestListEntry(s32 arg0, s32 arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
     *(M2CCopy_20 *)(arg0 + 4 + 4) = *(const M2CCopy_20 *)(arg1 + 4 + 4);

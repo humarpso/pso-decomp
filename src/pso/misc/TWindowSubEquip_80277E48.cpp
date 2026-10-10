@@ -56,7 +56,7 @@ M2C_UNK TWindowSubEquip__sub_80263AF8(int, int);
 void *get_window_layout_position(int);
 void *__nw__7TObjectFUl(u32);
 void __ct__7TObjectFP7TObject(void *, void *);
-s32 TWindowHelpItem__ct(void *, void *, s32);
+s32 __ct__15TWindowHelpItemFPvUs(void *, void *, s32);
 s32 create_equip_list_window(void *, void *, s32);
 extern M2C_UNK lbl_8044F918[];
 extern M2C_UNK __vt__15TWindowSubEquip[];
@@ -202,7 +202,7 @@ u8 *TWindowSubEquip__ct(u8 *arg0, s32 arg1, s32 arg2) {
     set_flag70_bit10__20TWindowShortListCtrlFPv(M2C_FIELD(arg0, s32 *, 0x34));
     p = __nw__7TObjectFUl(0xBC);
     if (p != 0) {
-        p = (void *)TWindowHelpItem__ct(p, get_window_layout_position(2), M2C_FIELD(arg0, s32 *, 0x28));
+        p = (void *)__ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(2), M2C_FIELD(arg0, s32 *, 0x28));
     }
     M2C_FIELD(arg0, void **, 0x30) = p;
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 2);

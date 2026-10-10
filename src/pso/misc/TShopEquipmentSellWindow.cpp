@@ -152,7 +152,7 @@ M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void *__nw__7TObjectFUl(u32);
 s32 obj_getField1c(s32);
 M2C_UNK get_window_layout_position(M2C_UNK);
-void *TWindowHelpItem__ct(void *, s32, u16);
+void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 s32 is_camera_ctrl_active__6TLobbyFv();
 void set_position__6TLobbyFPvff(void *p, f32 a, f32 b);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
@@ -436,7 +436,7 @@ void build_sell_list__24TShopEquipmentSellWindowFPv(Win_8021CF04 *self) {
     if (self->help_win == NULL) {
         p = __nw__7TObjectFUl(0xBC);
         if (p != NULL) {
-            p = TWindowHelpItem__ct(p, get_window_layout_position(0x27), obj_getField1c((s32)self->owner));
+            p = __ct__15TWindowHelpItemFPvUs(p, get_window_layout_position(0x27), obj_getField1c((s32)self->owner));
         }
         self->help_win = p;
         if (self->help_win != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

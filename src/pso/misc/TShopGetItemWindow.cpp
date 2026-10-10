@@ -138,7 +138,7 @@ s16 get_cursor_index__18TShopGetItemWindowFPv(u32);
 s32 get_shop_text(s32);
 void *__nw__7TObjectFUl(u32);
 void set_displayed_item_colored__15TWindowHelpItemFPvUi(u32, void *);
-u32 TWindowHelpItem__ct(void *, M2C_UNK, u16);
+u32 __ct__15TWindowHelpItemFPvUs(void *, M2C_UNK, u16);
 void clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(u32);
 void save_cursor_selection__20TShopArmorListWindowFPv(u32);
 void reset_list__20TShopArmorListWindowFPv(u32);
@@ -369,7 +369,7 @@ void rebuild_item_list__18TShopGetItemWindowFv(void *p) {
             obj = __nw__7TObjectFUl(0xBC);
             if (obj != NULL) {
                 id = (u16)obj_getField1c(arg0->f24);
-                obj = (void *)TWindowHelpItem__ct(obj, get_window_layout_position(0x27), id);
+                obj = (void *)__ct__15TWindowHelpItemFPvUs(obj, get_window_layout_position(0x27), id);
             }
             arg0->f34 = (u32)obj;
             if (arg0->f34 != 0U && is_camera_ctrl_active__6TLobbyFv() > 2) {

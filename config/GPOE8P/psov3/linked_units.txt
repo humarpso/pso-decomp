@@ -330,6 +330,7 @@ pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
 pso/enemy/TObjEneBalClawClaw.cpp
 pso/enemy/TObjEneBalClawClaw_8008DC18.cpp
+pso/enemy/TObjEneBeast.cpp
 pso/enemy/TObjEneBm3Fly.cpp
 pso/enemy/TObjEneBm3FlyNest.cpp
 pso/enemy/TObjEneBm5Wolf.cpp
@@ -387,6 +388,7 @@ pso/enemy/TObjEneMe1GiGue_80040B3C.cpp
 pso/enemy/TObjEneMe1GiGue_802CDB1C.cpp
 pso/enemy/TObjEneMe3ShinowaReal.cpp
 pso/enemy/TObjEneMe3ShinowaReal_8002ADD8.cpp
+pso/enemy/TObjEneMe3SinowZoa.cpp
 pso/enemy/TObjEneMe3SinowZoaReal.cpp
 pso/enemy/TObjEneMe3SinowZoaReal_8031B220.cpp
 pso/enemy/TObjEneMe3SinowZoa_800D72A4.cpp
@@ -395,6 +397,7 @@ pso/enemy/TObjEneMe3SinowZoa_80317788.cpp
 pso/enemy/TObjEneMe3SinowZoa_80317828.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp
 pso/enemy/TObjEneMe3SinowZoa_8031B170.cpp
+pso/enemy/TObjEneMe3Stelth.cpp
 pso/enemy/TObjEneMe3StelthReal.cpp
 pso/enemy/TObjEneMe3Stelth_800F0AE4.cpp
 pso/enemy/TObjEneMe3Stelth_800F0EC4.cpp
@@ -1303,6 +1306,7 @@ pso/misc/TOMineTrap.cpp
 pso/misc/TOMineTrapDisp.cpp
 pso/misc/TOMineTrapDisp_8016EDC8.cpp
 pso/misc/TOMineTrap_8016ED9C.cpp
+pso/misc/TOMonitorMachine01.cpp
 pso/misc/TOMonumentAncient01.cpp
 pso/misc/TOMonumentAncient01_801726D4.cpp
 pso/misc/TOMonumentAncient02.cpp
@@ -1427,6 +1431,7 @@ pso/misc/TPlyGuildCardTag_80077BBC.cpp
 pso/misc/TPlyGuildCardTag_8007B434.cpp
 pso/misc/TPlyGuildCardTag_8007B7EC.cpp
 pso/misc/TPlyGuildCardTag_8013ABCC.cpp
+pso/misc/TPlyGuildCardTag_801E0284.cpp
 pso/misc/TPlyGuildCardTag_801E09C4.cpp
 pso/misc/TPlyInventoryItem.cpp
 pso/misc/TPlyInventoryItem_800721D4.cpp
@@ -1451,6 +1456,7 @@ pso/misc/TPlyPtclObjectLeftHand_8030A4C8.cpp
 pso/misc/TPlyPtclObjectRightHand.cpp
 pso/misc/TPlyRecvLogin.cpp
 pso/misc/TPlySmth.cpp
+pso/misc/TPlyStartGame.cpp
 pso/misc/TQuadSpriteCol.cpp
 pso/misc/TQuadSpriteNormal.cpp
 pso/misc/TQuadSpriteScl.cpp
@@ -1507,6 +1513,7 @@ pso/misc/TRecvPort.cpp
 pso/misc/TRecvPsoData.cpp
 pso/misc/TRecvPsoDataLong.cpp
 pso/misc/TRecvPsoRegistConnect.cpp
+pso/misc/TRegister.cpp
 pso/misc/TSaveChCr.cpp
 pso/misc/TSaveChCr_80339B64.cpp
 pso/misc/TSaveChCr_8033A088.cpp
@@ -1902,6 +1909,7 @@ pso/misc/TWindowSubStatusDisp_802671F0.cpp
 pso/misc/TWindowSubStatusDisp_80268488.cpp
 pso/misc/TWindowSubStatusDisp_80268738.cpp
 pso/misc/TWindowSubStatusDisp_8026CE3C.cpp
+pso/misc/TWindowSubStatusDisp_80281198.cpp
 pso/misc/TWindowSubStatusDisp_80287570.cpp
 pso/misc/TWindowSubStatusDisp_80288030.cpp
 pso/misc/TWindowSubStatusDisp_802A35B4.cpp
@@ -1958,6 +1966,7 @@ pso/misc/pso_const_ids4.cpp
 pso/misc/pso_const_ids5.cpp
 pso/misc/pso_const_ids6.cpp
 pso/misc/pso_const_ids7.cpp
+pso/misc/pso_date.cpp
 pso/network/TGameProtocol.cpp
 pso/network/TProtocol.cpp
 pso/network/TProtocolChoiceSearch.cpp
@@ -2052,6 +2061,7 @@ pso/object/TObjCGrass.cpp
 pso/object/TObjCHTimeWin.cpp
 pso/object/TObjCHTimeWin_80074C94.cpp
 pso/object/TObjCMIcon.cpp
+pso/object/TObjCMIcon_80299488.cpp
 pso/object/TObjCMIcon_802999C4.cpp
 pso/object/TObjCMMainMenu_8028D9A8.cpp
 pso/object/TObjCMMainMenu_8028EA88.cpp
@@ -2788,6 +2798,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801A6D60.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801C50A8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801D5DAC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801E4CF0.cpp
+pso/ui/TAdSinglePlyChrSelectGC_802029E8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp

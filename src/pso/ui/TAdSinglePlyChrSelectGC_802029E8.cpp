@@ -392,3 +392,5 @@ int fn_8020325C(void *arg0) {
 }
 
 }
+
+__declspec(section ".ctors") static void *const __sinit_character_selection_ref = (void *)init_chr_select_static__23TAdSinglePlyChrSelectGCFv;

@@ -2758,7 +2758,7 @@ void set_field28__11TWindowCtrlFs(u16);
 M2C_UNK close_windows_by_flags__11TWindowCtrlFUs(int, void *);
 void open__11TWindowCtrlFiii(s32, s32, s32);
 void open_default__11TWindowCtrlFPvi(u16, s32);
-s32 TWindowHelpItem__ct(s32, s32, s32);
+s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 void align_menu_entry_positions(s32 win);
 void calc_window_size__17TWindowSubComCardFPv(s32 win);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32 win, char *name, s32 kind, s32 i);
@@ -3101,7 +3101,7 @@ void create_help_window__6TLobbyFv(void) {
     save_and_close__20TShopArmorListWindowFPv();
     var_r31 = ((s32 (*)(M2C_UNK))__nw__7TObjectFUl)(0xBC);
     if (var_r31 != 0) {
-        var_r31 = TWindowHelpItem__ct(var_r31, get_window_layout_position(2), local_client_id);
+        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position(2), local_client_id);
     }
     (*(s32 *)&TLobby__quest_state_object_16c) = var_r31;
 }

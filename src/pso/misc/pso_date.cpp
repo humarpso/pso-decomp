@@ -35,21 +35,29 @@ void end_ginja_model_draw();
 void draw_ginja_model_lists();
 extern void *model_draw_context;
 void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
-extern Tbl_801E2B24 lbl_804496D0[];
+extern const Tbl_801E2B24 date_month_start_days[] = {
+    {{0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334}}
+};
 void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out);
 }
 
-void DateToSeconds(DateStamp* date, int* out) {
-    int cumdays[12] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
-    int y = date->year - 2000;
-    int days = y * 365 + (u32)(y + 2) / 4;
-    if (((y + 2) & 3) == 0 && date->month <= 2) {
-        days -= 1;
+extern "C" {
+#pragma push
+#pragma opt_propagation off
+void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out) {
+    s32 tbl[12];
+    *(Tbl_801E2B24 *)tbl = *date_month_start_days;
+    s32 y = ds->year - 0x7D0;
+    u32 t = y + 2;
+    s32 d = (t >> 2) + y * 0x16D;
+    if ((t & 3) == 0 && ds->month <= 2) {
+        d -= 1;
     }
-    days += cumdays[date->month - 1];
-    days += date->day;
-    days -= 1;
-    *out = ((days * 24 + date->hour) * 60 + date->minute) * 60 + date->second;
+    d += tbl[ds->month - 1];
+    d += ds->day - 1;
+    *out = ds->sec + ((ds->min + ((ds->hour + d * 0x18) * 0x3C))) * 0x3C;
+}
+#pragma pop
 }
 
 int getDateStamp(DateStamp* out) {
@@ -77,23 +85,6 @@ int OSResetSystem(int, int, int);
 int VIWaitForRetrace(void);
 int VIFlush(void);
 int VISetBlack(int);
-
-#pragma push
-#pragma opt_propagation off
-void DateToSeconds__FP9DateStampPi(DateStamp_801E2B24 *ds, s32 *out) {
-    s32 tbl[12];
-    *(Tbl_801E2B24 *)tbl = *lbl_804496D0;
-    s32 y = ds->year - 0x7D0;
-    u32 t = y + 2;
-    s32 d = (t >> 2) + y * 0x16D;
-    if ((t & 3) == 0 && ds->month <= 2) {
-        d -= 1;
-    }
-    d += tbl[ds->month - 1];
-    d += ds->day - 1;
-    *out = ds->sec + ((ds->min + ((ds->hour + d * 0x18) * 0x3C))) * 0x3C;
-}
-#pragma pop
 
 void fn_801E2C50(void) {  }
 void reset_system(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetSystem(1, 0, 0); }

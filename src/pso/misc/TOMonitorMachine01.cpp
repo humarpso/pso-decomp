@@ -96,7 +96,6 @@ extern s32 TOMonitorMachine01__data_805D5A5C;
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DB8F0;
 extern const f32 lbl_805DB8F4;
-extern const f32 TOMonitorMachine01__data_805DB8F8;
 extern const f32 lbl_805DB8FC;
 extern const f32 lbl_805DB900;
 extern const f32 lbl_805DB904;
@@ -113,7 +112,6 @@ void scale_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
 int end_effect_render__13TParticleCtrlFv();
 extern const f32 lbl_805DB8F0;
-extern const f32 TOMonitorMachine01__data_805DB8F8;
 void render__18TOMonitorMachine01Fv(Mon_80172220 *self);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -129,7 +127,6 @@ extern M2C_UNK __vt__18TOMonitorMachine01[];
 extern s32 lbl_805D30B4;
 extern void *TOMonitorMachine01__data_805D5A58;
 extern s32 tl_05;
-extern const f32 TOMonitorMachine01__data_805DB8F8;
 extern const f32 lbl_805DB90C;
 extern const f32 lbl_805DB910;
 void *TOMonitorMachine01__ct(void *arg0_, void *arg1);
@@ -154,7 +151,7 @@ void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
         self->fD4 += lbl_805DB8F0;
         if (lbl_805DB8F4 <= self->fD4) {
             self->fAC = 1;
-            self->fD4 = TOMonitorMachine01__data_805DB8F8;
+            self->fD4 = 0.0f;
             self->f84++;
             if (self->f84 >= 4) {
                 self->f84 = 0;
@@ -174,16 +171,16 @@ void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
         self->fD4 += lbl_805DB8F0;
         if (lbl_805DB908 <= self->fD4) {
             self->fAC = 3;
-            self->fD4 = TOMonitorMachine01__data_805DB8F8;
+            self->fD4 = 0.0f;
         }
         break;
     case 3:
         self->fCC -= lbl_805DB8FC;
         self->fD0 -= lbl_805DB900;
-        if (self->fCC <= TOMonitorMachine01__data_805DB8F8) {
+        if (self->fCC <= 0.0f) {
             self->fAC = 0;
-            self->fD0 = TOMonitorMachine01__data_805DB8F8;
-            self->fCC = TOMonitorMachine01__data_805DB8F8;
+            self->fD0 = 0.0f;
+            self->fCC = 0.0f;
         }
         break;
     }
@@ -219,7 +216,7 @@ void render__18TOMonitorMachine01Fv(Mon_80172220 *self) {
         end_effect_render__13TParticleCtrlFv();
         n = n->next;
         push_matrix();
-        translate_matrix(0, self->fCC, TOMonitorMachine01__data_805DB8F8, TOMonitorMachine01__data_805DB8F8);
+        translate_matrix(0, self->fCC, 0.0f, 0.0f);
         draw_ginja_model(n->f4);
         pop_matrix();
         begin_effect_render__13TParticleCtrlFv();
@@ -302,9 +299,9 @@ void *TOMonitorMachine01__ct(void *arg0_, void *arg1) {
     self->fC4 = lbl_805DB910;
     self->f30 |= 0x40000000;
     self->fAC = 0;
-    self->fCC = TOMonitorMachine01__data_805DB8F8;
-    self->fD0 = TOMonitorMachine01__data_805DB8F8;
-    self->fD4 = TOMonitorMachine01__data_805DB8F8;
+    self->fCC = 0.0f;
+    self->fD0 = 0.0f;
+    self->fD4 = 0.0f;
     if (self->f84 < 0) {
         self->f84 = 0;
     } else if (self->f84 >= 4) {

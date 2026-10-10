@@ -22,6 +22,7 @@ extern "C" {
 u8 *__ct__13TPlyStartGameFRC13TPlyStartGame(u8 *arg0, u8 *arg1);
 void bswap__13TPlyStartGameFPv(void* p);
 int bswap_game_list_entry(void* p);
+void copy_game_list_entry(void *, const void *);
 int bswap_32__FPUl(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 M2C_UNK fn_801DF61C(void *, void *);
@@ -64,6 +65,7 @@ template <> struct TMenuList<GameListEntry, 64, 1> {
     GameListEntry head[1];
     GameListEntry entries[64];
     void bswap();
+    TMenuList(const TMenuList &o);
 };
 
 void TMenuList<GameListEntry, 64, 1>::bswap() {
@@ -78,4 +80,18 @@ extern "C" {
 
 int bswap_game_list_entry(void* p) { return bswap__16TPlyGuildCardTagFv(p); }
 
+}
+
+TMenuList<GameListEntry, 64, 1>::TMenuList(const TMenuList &o) {
+    header = o.header;
+    GameListEntry *p;
+    const GameListEntry *q;
+    copy_game_list_entry(&head[0], &o.head[0]);
+    p = entries;
+    q = o.entries;
+    do {
+        copy_game_list_entry(p, q);
+        p++;
+        q++;
+    } while (p < entries + 64);
 }

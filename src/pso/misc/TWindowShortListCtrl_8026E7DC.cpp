@@ -114,7 +114,7 @@ void play_sound_effect(int, int, int, int);
 void *__nw__7TObjectFUl(u32);
 void set_flag_active__11TWindowCtrlFv();
 s32 TWindowCtrl__sub_8024A228(s32);
-void *TWindowHelpItem__ct(void *, s32, s32);
+void *__ct__15TWindowHelpItemFPvUs(void *, s32, s32);
 s16 get_selected_menu_value(void *);
 void reset_selection__17TWindowSubComCardFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(void *);
@@ -368,7 +368,7 @@ void run_task__20TWindowShortListCtrlFv(u8 *arg0) {
             if (self->help_win == NULL) {
                 void *w = __nw__7TObjectFUl(0xBC);
                 if (w != NULL) {
-                    w = TWindowHelpItem__ct(w, get_window_layout_position(2), self->player_id);
+                    w = __ct__15TWindowHelpItemFPvUs(w, get_window_layout_position(2), self->player_id);
                 }
                 self->help_win = w;
                 self->help_item = -1;

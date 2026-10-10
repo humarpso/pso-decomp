@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TWindowHelpItem.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -37,7 +38,7 @@ s32 get_help_text_string(s32 arg0);
 extern void *__vt__15TWindowHelpItem[];
 extern M2C_UNK TWindowHelpItem__object_vtable[];
 extern u32 lbl_805D3910;
-extern V3_80255CCC __ptmf_null;
+extern TWindowHelpItem::CallbackWords __ptmf_null;
 extern const f32 lbl_805DCE10;
 void construct_base__9TWindowDDFPvPvsPv(void *self, void *vt, s16 idx, void *pos);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *dst, void *src);
@@ -46,7 +47,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(u32 size);
 void *init__21TWindowSubComCardListFPviii(void *p, s32 a, s32 b, s32 c);
 M2C_UNK dispatch_item_help__15TWindowHelpItemFv(void *);
 void call_if_split_screen(void *self, s32 idx);
-THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx);
+
 }
 
 extern "C" {
@@ -148,32 +149,34 @@ void *dt__15TWindowHelpItemFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-THelp_80255CCC *TWindowHelpItem__ct(THelp_80255CCC *self, void *pos, s32 idx) {
+}
+TWindowHelpItem::TWindowHelpItem(void *pos, u16 idx) {
+    TWindowHelpItem *self = this;
     void *p;
     construct_base__9TWindowDDFPvPvsPv(self, __vt__15TWindowHelpItem, idx, pos);
-    self->vt18 = ((s32 *)&TWindowHelpItem__object_vtable);
-    self->w0 = lbl_805D3910;
+    self->m_vtable18 = ((s32 *)&TWindowHelpItem__object_vtable);
+    self->m_00 = lbl_805D3910;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((u8 *)self + 0x30, pos);
     save_position__17TWindowSubComCardFPv(self);
-    self->b60 = 0;
+    self->m_60 = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0xc);
     if (p != 0) {
-        p = init__21TWindowSubComCardListFPviii(p, 0, 3, self->idx20);
+        p = init__21TWindowSubComCardListFPviii(p, 0, 3, self->m_20);
     }
-    self->list64 = p;
-    self->w68 = 0;
-    self->w6c = 0;
-    self->w70 = 0;
-    self->w9c = -1;
-    self->wa0 = -1;
-    self->wa4 = -1;
-    self->vb0 = __ptmf_null;
-    self->fa8 = lbl_805DCE10;
-    self->fac = lbl_805DCE10;
+    self->m_64 = (u32)p;
+    self->m_68 = 0;
+    self->m_6c = 0;
+    self->m_70 = 0;
+    self->m_9c = -1;
+    self->m_a0 = -1;
+    self->m_a4 = -1;
+    self->m_callback = __ptmf_null;
+    self->m_a8 = lbl_805DCE10;
+    self->m_ac = lbl_805DCE10;
     dispatch_item_help__15TWindowHelpItemFv(self);
-    call_if_split_screen(self, self->idx20);
-    return self;
+    call_if_split_screen(self, self->m_20);
 }
+extern "C" {
 
 s32 get_help_text_string(s32 arg0) {
     return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x18), M2C_UNK *, (arg0 * 4));

@@ -144,7 +144,7 @@ s32 get_child_field1c__15TShopWindowBaseFPv(void *);
 M2C_UNK copy_shop_item_entry__6TLobbyFiii(void *, int, s32);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
-void *TWindowHelpItem__ct(void *, s32, u16);
+void *__ct__15TWindowHelpItemFPvUs(void *, s32, u16);
 M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
 M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
 M2C_UNK calc_list_content_extent(void *);
@@ -317,7 +317,7 @@ void build_item_list__19TShopItemListWindowFv(void *p) {
     if (W->help == NULL) {
         o = __nw__7TObjectFUl(0xBC);
         if (o != NULL) {
-            o = TWindowHelpItem__ct(o, get_window_layout_position(0x27), obj_getField1c(W->player));
+            o = __ct__15TWindowHelpItemFPvUs(o, get_window_layout_position(0x27), obj_getField1c(W->player));
         }
         W->help = o;
         if (W->help != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

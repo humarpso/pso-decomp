@@ -1474,7 +1474,7 @@ pso/enemy/TObjEneBalClawClaw.cpp:
 
 pso/enemy/TObjEneBeast.cpp:
 	.text       start:0x800922E4 end:0x80092A7C
-	.data       start:0x8048F2C8 end:0x8048F2D8
+	.data       start:0x8048F2C8 end:0x8048F650
 
 pso/player/TObjPlayer_80092A7C.cpp:
 	.text       start:0x80092A7C end:0x80092AE0
@@ -2120,7 +2120,7 @@ pso/enemy/TObjEneMe3Stelth.cpp:
 	.rodata     start:0x8043D750 end:0x8043D758
 	.data       start:0x804976C8 end:0x80497A8C
 	.bss        start:0x805010E0 end:0x80501130
-	.sdata2     start:0x805DA834 end:0x805DA838
+	.sdata2     start:0x805DA830 end:0x805DA838
 
 pso/unk/text_800F591C.cpp:
 	.text       start:0x800F58A4 end:0x800F5BC0
@@ -9608,6 +9608,8 @@ pso/unk/text_8027FD88.cpp:
 
 pso/misc/TWindowSubStatusDisp_80281198.cpp:
 	.text       start:0x80281198 end:0x80281814
+	.data       start:0x804D1AE8 end:0x804D2B20
+	.sbss       start:0x805D6488 end:0x805D6490
 
 pso/misc/TWindowSubSymbolChat_80281814.cpp:
 	.text       start:0x80281814 end:0x8028239C
@@ -11416,7 +11418,7 @@ pso/enemy/TObjEneMe3SinowZoa_80317828.cpp:
 pso/enemy/TObjEneMe3SinowZoa.cpp:
 	.text       start:0x8031786C end:0x8031B124
 	.data       start:0x804E87A8 end:0x804E8B88
-	.sdata2     start:0x805DF35C end:0x805DF368
+	.sdata2     start:0x805DF358 end:0x805DF368
 
 pso/enemy/TObjEneMe3SinowZoa_8031B124.cpp:
 	.text       start:0x8031B124 end:0x8031B170

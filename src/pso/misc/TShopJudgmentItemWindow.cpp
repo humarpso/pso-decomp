@@ -217,7 +217,7 @@ M2C_UNK set_position__6TLobbyFPvff(int, f32, f32);
 M2C_UNK set_flag70_bit10__20TWindowShortListCtrlFPv(int);
 u32 __nw__7TObjectFUl(int);
 M2C_UNK set_displayed_item_colored__15TWindowHelpItemFPvUi(int, void *);
-u32 TWindowHelpItem__ct(int, int, u16);
+u32 __ct__15TWindowHelpItemFPvUs(int, int, u16);
 M2C_UNK set_mag_slot_state__13TWindowSubMagFPvi(int, void *);
 u32 create__22TWindowLoadItemTextureFPvPv(int, u16);
 M2C_UNK calc_list_content_extent(void *);
@@ -562,7 +562,7 @@ void create_result_windows__23TShopJudgmentItemWindowFPv(u8 *arg0) {
             var_r29 = __nw__7TObjectFUl((int) (0xBC));
             if (var_r29 != 0U) {
                 temp_r30_2 = ((s32 (*)(s32))obj_getField1c)(M2C_FIELD(arg0, s32 *, 0x24));
-                var_r29 = TWindowHelpItem__ct((int) (var_r29), (int) (get_window_layout_position((int) (0x27))), temp_r30_2);
+                var_r29 = __ct__15TWindowHelpItemFPvUs((int) (var_r29), (int) (get_window_layout_position((int) (0x27))), temp_r30_2);
             }
             M2C_FIELD(arg0, u32 *, 0x15C) = var_r29;
             if (((u32) M2C_FIELD(arg0, u32 *, 0x15C) != 0U) && (is_camera_ctrl_active__6TLobbyFv() > 2)) {

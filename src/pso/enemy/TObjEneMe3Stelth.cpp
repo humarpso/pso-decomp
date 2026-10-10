@@ -40,7 +40,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 is_split_screen();
 M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
 extern const f32 lbl_805DA828;
-extern const f32 lbl_805DA830;
+
 extern const f32 lbl_805DA838;
 
 struct VB18 { char pad[0x18]; };
@@ -110,7 +110,7 @@ void exec__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
                 }
                 break;
             case 1:
-                if (advance_timer__18TObjEneMe3SinowZoaFPvf(arg0 + 0x404, lbl_805DA830) != 0) {
+                if (advance_timer__18TObjEneMe3SinowZoaFPvf(arg0 + 0x404, 0.2f) != 0) {
                     M2C_FIELD(arg0, s32 *, 0x3CC) = (s32) (M2C_FIELD(arg0, s32 *, 0x3CC) & 0xFFFFFFF7);
                     M2C_FIELD(arg0, s32 *, 0x3C0) = 0;
                     M2C_FIELD(arg0, s32 *, 0x424) = 2;

@@ -128,7 +128,7 @@ s32 TLobby__sub_802D268C();
 s32 TLobby__sub_802D298C();
 s32 TLobby__sub_802D299C();
 s32 TLobby__sub_802D29AC();
-s32 TWindowHelpItem__ct(s32, s32, s32);
+s32 __ct__15TWindowHelpItemFPvUs(s32, s32, s32);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
 s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 s32 create_equip_kind_window(M2C_UNK, M2C_UNK *, s32);
@@ -315,7 +315,7 @@ s32 create_help_item__19TWindowSubTradeMainFPv(void *arg0) {
 
     var_r31 = __nw__7TObjectFUl(0xBC);
     if (var_r31 != 0) {
-        var_r31 = TWindowHelpItem__ct(var_r31, get_window_layout_position((s32)(2)), M2C_FIELD(arg0, s32 *, 0x28));
+        var_r31 = __ct__15TWindowHelpItemFPvUs(var_r31, get_window_layout_position((s32)(2)), M2C_FIELD(arg0, s32 *, 0x28));
     }
     M2C_FIELD(arg0, s32 *, 0x24) = -1;
     return var_r31;
