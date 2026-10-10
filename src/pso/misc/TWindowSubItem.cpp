@@ -107,7 +107,7 @@ M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(M2C_UNK);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
-void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
+void add_meseta_purpose_actions__14TWindowSubItemFii(s32 arg0, s32 arg1);
 s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
 M2C_UNK TObjPlayer__sub_801B7B58(int, int, int);
@@ -161,7 +161,7 @@ s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_usable__14TWindowSubItemFi(s32);
 void send_trap_packet__10TObjPlayerFPvi(s32, s32);
-void TObjPlayer__sub_801B8A80(s32, s32);
+void request_meseta_drop__10TObjPlayerFPvi(s32, s32);
 void request_item_drop__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 u32 is_action_active__10TObjPlayerFPv(s32);
@@ -211,7 +211,7 @@ void *__dt__14TWindowSubItemFv(void *arg0, s16 arg1);
 void clear_flag_and_release__14TWindowSubItemFPv(void *arg0);
 void close_windows__14TWindowSubItemFPvi(void *arg0, s32 arg1);
 s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1);
-void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1);
+void add_meseta_purpose_actions__14TWindowSubItemFii(s32 arg0, s32 arg1);
 void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3);
 void exec_item_command__14TWindowSubItemFPvii(void *arg0, s32 arg1, s32 arg2);
 void refresh__14TWindowSubItemFPv(void* p);
@@ -460,7 +460,7 @@ void draw_slot__14TWindowSubItemFiii(s32 arg1, s32 arg2, s32 arg3) {
     forward_trade_action_default__16TObjCityMainWarpFPviii((s32)(arg2), (s32)(get_localized_text_entry(0x10, 0xF)), (M2C_UNK)(0x26), (s32)(temp_r31));
 }
 
-void dispatch_warp_status__14TWindowSubItemFii(s32 arg0, s32 arg1) {
+void add_meseta_purpose_actions__14TWindowSubItemFii(s32 arg0, s32 arg1) {
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
         draw_text_gray__17TWindowSubComCardFiiii((s32)(arg1), (s32)(get_message_10__20TWindowSubStatusDispFPv(0x5F)), (M2C_UNK)(6), (s32)(6));
         return;
@@ -502,7 +502,7 @@ s32 open_purpose_window__14TWindowSubItemFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r31;
     temp_r31 = create_titled_window_menu(((int)get_window_layout_position((M2C_UNK)((int) (4)))), (int) (3), get_message_10__20TWindowSubStatusDispFPv((M2C_UNK)((int) (0x26))), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
     if (arg1 == -0xFF) {
-        dispatch_warp_status__14TWindowSubItemFii((s32)((void *) (arg0)), (s32)((int) (temp_r31)));
+        add_meseta_purpose_actions__14TWindowSubItemFii((s32)((void *) (arg0)), (s32)((int) (temp_r31)));
     } else if ((s32) (arg1 & 0xFFFFFFF0) == -0x10) {
         draw_slot__14TWindowSubItemFiii((s32)((void *) (arg0)), (s32)((int) (temp_r31)), (s32)((void *) (arg1)));
     } else {
@@ -767,7 +767,7 @@ void run_task__14TWindowSubItemFv(u8 *arg0) {
                 F(u8, 0x1C) = 3;
             }
             if (is_usable__14TWindowSubItemFi(p) != 0) {
-                TObjPlayer__sub_801B8A80(p, F(s32, 0x28));
+                request_meseta_drop__10TObjPlayerFPvi(p, F(s32, 0x28));
                 F(u8, 0x1C) = 0x16;
                 return;
             }
