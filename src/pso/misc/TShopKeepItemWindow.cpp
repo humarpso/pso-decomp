@@ -147,7 +147,7 @@ void TShopKeepItemWindow__vt4(void *arg0);
 void TShopKeepItemWindow__vt5(void *arg0);
 void *__dt__19TShopKeepItemWindowFv(void *arg0, s16 arg1);
 void append_title_string__24TMessageWindowControllerFv(s32 arg0);
-M2C_UNK TCheckRoomSequence__sub_802109A4();
+void sort_bank_items(s32 slot);
 M2C_UNK append_text__24TMessageWindowControllerFPCc(s32, M2C_UNK *);
 M2C_UNK TShopWindowBase__sub_8022397C(void *);
 void TWindow__close(void *);
@@ -183,8 +183,7 @@ s32 close_with_cancel_callback__19TShopKeepItemWindowFPv(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x380));
     }
-    TShopWindowBase__sub_8022397C(arg0);
-    TCheckRoomSequence__sub_802109A4();
+    sort_bank_items(TShopWindowBase__sub_8022397C(arg0));
     queue_destruction__7TObjectFv(arg0);
 }
 
@@ -195,8 +194,7 @@ s32 close_with_ok_callback__19TShopKeepItemWindowFPv(void *arg0) {
     if (temp_r12 != NULL) {
         temp_r12(M2C_FIELD(arg0, s32 *, 0x380));
     }
-    TShopWindowBase__sub_8022397C(arg0);
-    TCheckRoomSequence__sub_802109A4();
+    sort_bank_items(TShopWindowBase__sub_8022397C(arg0));
     queue_destruction__7TObjectFv(arg0);
 }
 

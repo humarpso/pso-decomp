@@ -1071,6 +1071,12 @@ void compact_items__18TCheckRoomSequenceFi(s32 slot) {
 }
 #pragma pop
 
+void sort_records__6TLobbyFPvii(void *, s32, s32);
+void sort_bank_items(s32 slot) {
+    compact_items__18TCheckRoomSequenceFi(0);
+    sort_records__6TLobbyFPvii((void *)bank_item_records_by_slot[slot], lbl_80513D98[slot], 2);
+}
+
 #pragma push
 #pragma optimization_level 1
 s32 get_bank_deposit_capacity_for_item(Item_80210A04 *item, s32 slot) {

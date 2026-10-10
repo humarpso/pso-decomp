@@ -1,3 +1,4 @@
+#include "pso/audio/SoundBankTables.h"
 struct SoundRequestVoice;
 struct Voice_80241FD8;
 #pragma push
@@ -20,12 +21,6 @@ typedef struct Range_8023FBBC {
     s32 start;
     s32 end;
 } Range_8023FBBC;
-
-typedef struct Tables_8023FBBC {
-    u8 pad[0x728];
-    Range_8023FBBC *common[7];
-    Range_8023FBBC *tbl[3][22];
-} Tables_8023FBBC;
 
 typedef struct Owner_8023FBBC {
     u8 pad[0x288];
@@ -65,7 +60,7 @@ void fade_out_sound_slot(s32 slot, s32 step);
 extern RecoveredGlobal_8023F880_lbl_805162EC lbl_805162EC;
 s32 set_voice_pitch_slide(u8 *arg0, s32 arg1, s32 arg2);
 void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration);
-extern Tables_8023FBBC sound_effect_bank_table;
+
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index);
 M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
 void TLobby__sub_802422EC(void *arg0, void *arg1);
@@ -173,7 +168,7 @@ void set_sound_slot_pitch(s32 slot, s32 pitch, s32 duration) {
 #pragma opt_propagation off
 #pragma opt_dead_assignments off
 s32 resolve_sound_effect_bank(Owner_8023FBBC *owner, s32 kind, s32 bank, s32 index) {
-    u8 *t = (u8 *)&sound_effect_bank_table;
+    u8 *t = (u8 *)&sound_bank_file_sizes;
     s32 result = -1;
     Range_8023FBBC *r = NULL;
     switch (kind) {
@@ -246,8 +241,7 @@ void read_checked_align__6TLobbyFiii(void *, int, u32);
 void *adxf_open_afs__6TLobbyFii(int, int);
 void *xmalloc__FUl(u32 bytes);
 void xfree__FPv(void *allocation);
-#define sound_effect_bank_table ((s32 *)&sound_effect_bank_table)
-extern u16 lbl_804CD804[][4];
+
 s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id);
 }
 
@@ -290,15 +284,15 @@ s32 TLobby__sub_8023FFB8(Obj_8023FCC0 *self, int id) {
         self->ents[id].h[0] = 0;
     }
     for (i = 0; i < 4; i++) {
-        self->fC24[i] = sound_effect_bank_table[lbl_804CD804[id][i]];
+        self->fC24[i] = sound_bank_file_sizes[sound_bank_file_indices[id][i]];
         self->fC24[i] = (self->fC24[i] + 0x7FF) & ~0x7FF;
         self->ents[id].h[i] = (u32)xmalloc__FUl(self->fC24[i]);
         if (self->ents[id].h[i] == 0) {
             ret = 3;
             goto fail;
         }
-        self->ents[id].k[i] = lbl_804CD804[id][i];
-        self->fC14[i] = adxf_open_afs__6TLobbyFii(0, lbl_804CD804[id][i]);
+        self->ents[id].k[i] = sound_bank_file_indices[id][i];
+        self->fC14[i] = adxf_open_afs__6TLobbyFii(0, sound_bank_file_indices[id][i]);
         if (self->fC14[i] == NULL) {
             ret = 2;
             goto fail;
@@ -332,7 +326,6 @@ fail:
 }
 
 #undef lbl_805162EC
-#undef sound_effect_bank_table
 
 #include "types.h"
 
@@ -502,8 +495,6 @@ extern "C" {
 s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1);
 M2C_UNK sndVolume(M2C_UNK, M2C_UNK, M2C_UNK);
 
-extern M2C_UNK lbl_804CD9A8[];
-
 s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1) {
     if ((arg1 < 0) || (arg1 >= 0x16)) {
         return 4;
@@ -519,7 +510,7 @@ s32 validate_and_set_selection__6TLobbyFPvi(void *arg0, s32 arg1) {
         return 9;
     }
     M2C_FIELD(arg0, s32 *, 0x2B0) = -1;
-    M2C_FIELD(arg0, s32 *, 0x2B4) = (s32) lbl_804CD9A8[arg1];
+    M2C_FIELD(arg0, s32 *, 0x2B4) = (s32) sound_bank_load_routes[arg1];
     M2C_FIELD(arg0, s32 *, 0x29C) = arg1;
     return 0;
 }

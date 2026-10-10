@@ -185,7 +185,7 @@ M2C_UNK init_shop_world_context();
 M2C_UNK load_floor_sound_bank();
 M2C_UNK create_controller__14TObjBgmColCtrlFv();
 M2C_UNK init_area_lights();
-M2C_UNK TQuestBgmCtrl__ct(void *, s32);
+M2C_UNK __ct__13TQuestBgmCtrlFP7TObject(void *, s32);
 u32 __nw__7TObjectFUl(s32);
 s32 check_disconnect_conditions__6TLobbyFv();
 M2C_UNK create_tasks__6TLobbyFv();
@@ -653,7 +653,7 @@ s32 setup_scene__6TLobbyFv(void) {
     }
     obj = ((void *)__nw__7TObjectFUl((s32)(0x1C)));
     if (obj != NULL) {
-        TQuestBgmCtrl__ct(obj, tl_05);
+        __ct__13TQuestBgmCtrlFP7TObject(obj, tl_05);
     }
     fn_8006EBC4(tl_07);
     return 1;

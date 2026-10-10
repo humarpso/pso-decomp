@@ -145,6 +145,7 @@ os/OSThread.c
 os/OSTime.c
 os/__start.c
 pad/Pad.c
+pso/audio/SoundBankTables.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -1483,9 +1484,6 @@ pso/misc/TQuadSpriteCol.cpp
 pso/misc/TQuadSpriteNormal.cpp
 pso/misc/TQuadSpriteScl.cpp
 pso/misc/TQuadSpriteSclCol.cpp
-pso/misc/TQuestBgmCtrl.cpp
-pso/misc/TQuestBgmCtrl_801E63A4.cpp
-pso/misc/TQuestBgmCtrl_801E63F4.cpp
 pso/misc/TQuestColCtrl.cpp
 pso/misc/TQuestColCtrl_8003F3BC.cpp
 pso/misc/TQuestColCtrl_80195CF0.cpp

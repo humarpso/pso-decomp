@@ -2227,8 +2227,8 @@ M2C_UNK fn_801DA140(int, int, int);
 M2C_UNK DateToSeconds__FP9DateStampPi(void *, void *);
 M2C_UNK getDateStamp__FP9DateStamp(void *);
 s32 force_bgm__13TQuestBgmCtrlFi(int);
-s32 TQuestBgmCtrl__sub_801E63F4(int);
-void* TQuestBgmCtrl__ct(void*, s32);
+s32 defer_bgm__13TQuestBgmCtrlFi(int);
+void* __ct__13TQuestBgmCtrlFP7TObject(void*, s32);
 void request_1c38_1_7__6TLobbyFv(void);
 void reset_and_set_mode__6TLobbyFv(void);
 void TLobby__sub_801E72B4(u8 i);
@@ -7731,7 +7731,7 @@ void qst_op_get_difficulty_level2__6TLobbyFi(s32 arg0) {
 void create_quest_bgm_ctrl__6TLobbyFv(void) {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
-        TQuestBgmCtrl__ct(obj, tl_05);
+        __ct__13TQuestBgmCtrlFP7TObject(obj, tl_05);
     }
 }
 
@@ -8213,7 +8213,7 @@ void qst_op_force_bgm__6TLobbyFv(void) {
 }
 
 void qst_op_playbgm_epi(void) {
-    TQuestBgmCtrl__sub_801E63F4((int) (M2C_FIELD(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value, s32 *, 0x0)));
+    defer_bgm__13TQuestBgmCtrlFi((int) (M2C_FIELD(&(*(RecoveredGlobal_80141730_lbl_8050C028 *)&TLobby__quest_argument_stack).value, s32 *, 0x0)));
 }
 
 void qst_op_switch_off(void) {

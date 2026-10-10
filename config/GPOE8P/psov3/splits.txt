@@ -5313,6 +5313,7 @@ pso/misc/TODoorCave01.cpp:
 pso/misc/TODoorCave01_80161A30.cpp:
 	.text       start:0x80161A30 end:0x80161D38
 	.rodata     start:0x80440DB0 end:0x80440DB8
+	.data       start:0x804B1388 end:0x804B13C8
 
 pso/misc/TODoorCave02.cpp:
 	.text       start:0x80161D38 end:0x8016206C
@@ -5320,9 +5321,11 @@ pso/misc/TODoorCave02.cpp:
 pso/misc/TODoorCave02_8016206C.cpp:
 	.text       start:0x8016206C end:0x80162384
 	.rodata     start:0x80440E58 end:0x80440E60
+	.data       start:0x804B1448 end:0x804B1488
 
 pso/misc/TODoorCave03.cpp:
 	.text       start:0x80162384 end:0x80162914
+	.data       start:0x804B1508 end:0x804B1548
 
 pso/misc/TODoorMachine01.cpp:
 	.text       start:0x80162914 end:0x801632AC
@@ -7386,21 +7389,13 @@ pso/misc/TQuadSpriteSclCol.cpp:
 pso/misc/TQuadSpriteSclColRot.cpp:
 	.text       start:0x801E5F7C end:0x801E63A4
 
-pso/misc/TQuestBgmCtrl_801E63A4.cpp:
-	.text       start:0x801E63A4 end:0x801E63F4
-
-pso/misc/TQuestBgmCtrl_801E63F4.cpp:
-	.text       start:0x801E63F4 end:0x801E6404
-
 pso/menu/TQuestBgmCtrl.cpp:
-	.text       start:0x801E6404 end:0x801E64EC
+	.text       start:0x801E63A4 end:0x801E6544
+	.rodata     start:0x804498B8 end:0x804499A8
 	.data       start:0x804C6970 end:0x804C69D0
 
 pso/quest/QuestOpcodeTables.cpp:
 	.data       start:0x804C69D0 end:0x804C81D8
-
-pso/misc/TQuestBgmCtrl.cpp:
-	.text       start:0x801E64EC end:0x801E6544
 
 pso/misc/TLobby_801E6544.cpp:
 	.text       start:0x801E6544 end:0x801F2D2C
@@ -8455,6 +8450,11 @@ pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp:
 pso/ui/TAdMultiChgGameModeGC_8023EAC4.cpp:
 	.text       start:0x8023EAC4 end:0x8023F160
 	.data       start:0x804CCED0 end:0x804CCFB8
+
+pso/audio/SoundBankTables.cpp:
+	.rodata     start:0x8044DD28 end:0x8044E5B0
+	.data       start:0x804CCFB8 end:0x804CDA50
+	.sdata      start:0x805D3850 end:0x805D3870
 
 pso/unk/text_8023F160.cpp:
 	.text       start:0x8023F160 end:0x8023F1B8
@@ -10085,6 +10085,7 @@ pso/player/TObjPlayer_8029F694.cpp:
 pso/misc/TODoorLabo.cpp:
 	.text       start:0x8029F730 end:0x802A018C
 	.rodata     start:0x80466038 end:0x80466040
+	.data       start:0x804DC820 end:0x804DC864
 
 pso/misc/TLobby_802A018C.cpp:
 	.text       start:0x802A018C end:0x802A031C
@@ -10183,6 +10184,7 @@ pso/ui/TAdSelectTxtSubGC.cpp:
 
 pso/npc/TObjNpcHosa.cpp:
 	.text       start:0x802A3A20 end:0x802A3BF8
+	.data       start:0x804DCCB0 end:0x804DCCC8
 
 pso/npc/TObjNpcKenkyuW.cpp:
 	.text       start:0x802A3BF8 end:0x802A4540
@@ -11062,6 +11064,7 @@ pso/npc/TObjNpcKenkyu2.cpp:
 
 pso/npc/TObjNpcHosa2.cpp:
 	.text       start:0x802FEC78 end:0x802FEDE8
+	.data       start:0x804E63D0 end:0x804E63E8
 
 pso/misc/TOJungleDesign_802FEDE8.cpp:
 	.text       start:0x802FEDE8 end:0x802FEE68
