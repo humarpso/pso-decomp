@@ -27,7 +27,7 @@ void create_particle_emitters__8TTecFoieFPv(void *);
 void init_projectile_params__8TTecFoieFPv(void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
 extern RecoveredGlobal_802302A0___vt__8TTecFoie __vt__8TTecFoie;
-extern s32 lbl_805D37B0;
+extern s32 TTecFoie__name;
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4);
 extern Band_802301EC TTecFoie__emitter_profile_table[];
 u32 find_entity_by_id(u16);
@@ -75,7 +75,7 @@ u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     u8 *temp_r3;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, arg3, arg4);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TTecFoie.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D37B0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecFoie__name;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
     if (temp_r3 != NULL) {
         M2C_FIELD(arg0, u16 *, 0xC8) = obj_getField1c(temp_r3);

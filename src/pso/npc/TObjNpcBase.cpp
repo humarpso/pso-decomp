@@ -38,7 +38,7 @@ void initialize__9TObjEnemyFPv(void *, void *, void *);
 void TObjNpcBase__sub_80149368(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern M2C_UNK __vt__11TObjNpcBase[];
-extern s32 lbl_805D2D20;
+extern s32 TObjNpcBase__name;
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
 extern const f32 lbl_805DB1E0;
@@ -79,7 +79,7 @@ void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
 void *TObjNpcBase__ct(void *arg0, void *arg1, void *arg2) {
     initialize__9TObjEnemyFPv(arg0, arg1, arg2);
     self->vt = __vt__11TObjNpcBase;
-    self->f0 = lbl_805D2D20;
+    self->f0 = TObjNpcBase__name;
     self->f388 = 0;
     self->f390 = 1;
     switch (get_global_state__14TOKeyMachine01Fv()) {

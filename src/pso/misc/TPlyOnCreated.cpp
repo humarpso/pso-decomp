@@ -12,7 +12,7 @@ struct RecoveredGlobal_801C6178___vt__13TPlyOnCreated {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6178___vt__13TPlyOnCreated __vt__13TPlyOnCreated;
-extern s32 lbl_805D3558;
+extern s32 TPlyOnCreated__name;
 extern u8 *tl_06;
 u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2);
 }
@@ -38,10 +38,15 @@ typedef char RecoveredGlobal_801C6178___vt__13TPlyOnCreated_size[sizeof(Recovere
 u8 *__ct__13TPlyOnCreatedFv(u8 *arg0, s16 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, tl_06);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TPlyOnCreated.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3558;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TPlyOnCreated__name;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg1;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_804470F0[];
+s32 TPlyOnCreated__name = (s32)lbl_804470F0;
 }

@@ -47,7 +47,7 @@ void run_task__15TAdPlayerLoadGCFv(u8 *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern void *__vt__15TAdSubPlyItemGC[6];
-extern s32 lbl_805D3F50;
+extern s32 TAdSubPlyItemGC__name;
 Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self);
 }
 
@@ -317,7 +317,7 @@ extern const f32 lbl_805DE7C8;
 char *strncpy(char *, const char *, u32);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
-extern s32 lbl_805D3F50;
+extern s32 TAdSubPlyItemGC__name;
 u32 calc_text_width(const char *);
 u8 *format_level_text__15TAdSubPlyItemGCFii(s32 arg0, s32 arg1);
 extern const f32 lbl_805DE7CC;
@@ -394,7 +394,7 @@ Item_802D6FD4 *__ct__15TAdSubPlyItemGCFv(Item_802D6FD4 *self) {
     u32 i;
     __ct__7TObjectFP7TObject(self);
     M2C_FIELD(self, void **, 0x18) = __vt__15TAdSubPlyItemGC;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D3F50;
+    M2C_FIELD(self, s32 *, 0) = TAdSubPlyItemGC__name;
     for (i = 0; i < 4; i++) {
         self->alpha[i].v = 0;
         self->flags[i].v = 0;

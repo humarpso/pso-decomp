@@ -22,7 +22,7 @@ M2C_UNK init_map_object_base();
 
 extern const M2C_UNK lbl_80442498[];
 extern const M2C_UNK __vt__16TORevlightCave01[];
-extern s32 lbl_805D30D8;
+extern s32 TORevlightCave01__name;
 extern void *TORevlightCave01__data_805D5A78;
 extern const f32 lbl_805DB960;
 extern const f32 lbl_805DB964;
@@ -32,7 +32,7 @@ extern const f32 lbl_805DB96C;
 void *TORevlightCave01__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TORevlightCave01;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30D8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TORevlightCave01__name;
     ((TORevlightCave01*)arg0)->m5(arg2);
     M2C_FIELD(arg0, void **, 0x34) = (void *) M2C_FIELD(M2C_FIELD(TORevlightCave01__data_805D5A78, void **, 0x42C), void **, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TORevlightCave01__data_805D5A78, void **, 0x42C), s32 *, 0xC);

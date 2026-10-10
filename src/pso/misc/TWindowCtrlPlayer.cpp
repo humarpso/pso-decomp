@@ -46,7 +46,7 @@ void *create_status_window(s32);
 void *TWindowMainMenu1P__ct(void *, void *, s32);
 void *TWindowMainMenu4P__ct(void *, void *, s32);
 extern u8 lbl_8044EC4C[];
-extern s32 lbl_805D38E0;
+extern s32 TWindowCtrlPlayer__name;
 
 void render__17TWindowCtrlPlayerFv(void) {  }
 void run_task__17TWindowCtrlPlayerFv(void* p) { fn_8024E0F0(p); run_all_updates__11TWindowCtrlFPv(p); }
@@ -75,7 +75,7 @@ struct Ctl_8024E2A8 *TWindowCtrlPlayer__ct(struct Ctl_8024E2A8 *arg0, void *pare
 
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__17TWindowCtrlPlayer;
-    arg0->f0 = lbl_805D38E0;
+    arg0->f0 = TWindowCtrlPlayer__name;
     arg0->f1c = 0;
     arg0->f1e = 0;
     arg0->f20 = 0;

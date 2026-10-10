@@ -235,7 +235,7 @@ void TAdEnterBaseGC__ct(void *);
 extern RecoveredGlobal_80321B28_TAdEnterSerialAccessGC__data_804764E8 TAdEnterSerialAccessGC__selection_positions;
 extern u8 lbl_804764F8[];
 extern M2C_UNK __vt__22TAdEnterSerialAccessGC[];
-extern s32 lbl_805D4158;
+extern s32 TAdEnterSerialAccessGC__name;
 extern s32 tl_clipout;
 extern u32 TAdEnterSerialAccessGC__keyboard_control;
 extern s32 TAdEnterSerialAccessGC__input_state;
@@ -836,7 +836,7 @@ u8 *TAdEnterSerialAccessGC__ct(u8 *arg0) {
     void *p;
     TAdEnterBaseGC__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TAdEnterSerialAccessGC;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D4158;
+    M2C_FIELD(arg0, s32 *, 0) = TAdEnterSerialAccessGC__name;
     M2C_FIELD(arg0, s32 *, 0x48) = 0;
     TAdEnterSerialAccessGC__input_state = 0;
     M2C_FIELD(arg0, s32 *, 0x44) = 0;

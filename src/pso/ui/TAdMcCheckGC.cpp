@@ -155,7 +155,7 @@ void run_task__12TAdMcCheckGCFv(u8 *arg0) {
 }
 
 extern M2C_UNK __vt__12TAdMcCheckGC[];
-extern void *lbl_805D42B8;
+extern void *TAdMcCheckGC__name;
 
 typedef char RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC_size[sizeof(RecoveredGlobal_8033F1C4___vt__12TAdMcCheckGC) == 0x18 ? 1 : -1];
 u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
@@ -193,7 +193,7 @@ u8 *__dt__12TAdMcCheckGCFv(u8 *arg0, s16 arg1) {
 void *TAdMcCheckGC__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TAdMcCheckGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D42B8;
+    M2C_FIELD(arg0, void **, 0x0) = TAdMcCheckGC__name;
     M2C_FIELD(arg0, void **, 0x28) = arg2;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     M2C_FIELD(arg0, void **, 0x20) = M2C_FIELD(arg0, void **, 0x1C);

@@ -123,7 +123,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
 extern M2C_UNK __vt__21TObjContainerAbeEnemy[];
-extern s32 lbl_805D32F8;
+extern s32 TObjContainerAbeEnemy__name;
 u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1);
 s32 set_global_param__8TObjFishFi(s32);
 s32 push_matrix();
@@ -196,7 +196,7 @@ typedef char RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy_size[sizeof(
 u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
     init_container_base(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy *)&__vt__21TObjContainerAbeEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32F8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerAbeEnemy__name;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);

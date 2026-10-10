@@ -107,7 +107,7 @@ M2C_UNK construct_world_actor_base();
 s32 rand();
 extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
-extern s32 lbl_805D26E8;
+extern s32 TObjBoss2CeilJunk__name;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
 M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
 M2C_UNK rotate_matrix_y(int, int);
@@ -319,7 +319,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
     f32 temp_f2;
     construct_world_actor_base();
     arg0->unk18 = &(*(RecoveredGlobal_8003A6F4___vt__17TObjBoss2CeilJunk *)&__vt__17TObjBoss2CeilJunk).value;
-    arg0->field_0 = lbl_805D26E8;
+    arg0->field_0 = TObjBoss2CeilJunk__name;
     VecCopy__FP3VecPC3Vec(&arg0->unknown_1C[0x1C], (void *) arg2);
     temp_f2 = (f32) rand();
     temp_f1 = (3.0517578e-05f) * temp_f2;

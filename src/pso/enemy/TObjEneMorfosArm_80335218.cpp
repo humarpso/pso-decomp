@@ -28,7 +28,7 @@ M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *, int);
 M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern M2C_UNK __vt__16TObjEneMorfosArm[];
-extern s32 lbl_805D4238;
+extern s32 TObjEneMorfosArm__name;
 extern u32 lbl_805D6D38;
 u8 *TObjEneMorfosArm__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 }
@@ -96,7 +96,7 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     u8 *temp_r5;
     TObjMotion__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80335354___vt__16TObjEneMorfosArm *)&__vt__16TObjEneMorfosArm).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4238;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMorfosArm__name;
     M2C_FIELD(arg0, u8 **, 0xFC) = arg2;
     M2C_FIELD(arg0, u16 *, 0x100) = obj_getField1c(M2C_FIELD(arg0, u8 **, 0xFC));
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) M2C_FIELD(arg0, u8 **, 0xFC)))))));

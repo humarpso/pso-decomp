@@ -68,7 +68,7 @@ extern S24_802C4944 lbl_80471A2C;
 extern S8_802C4944 lbl_80471A44[];
 extern S16_802C4944 lbl_80471A4C;
 extern M2C_UNK __vt__19TAdSelectGameModeGC[];
-extern void *lbl_805D3ED0;
+extern void *TAdSelectGameModeGC__name;
 extern s32 lbl_805D67C8;
 extern const f32 lbl_805DE538;
 u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent);
@@ -153,7 +153,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, parent);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TAdSelectGameModeGC;
-    M2C_FIELD(arg0, void **, 0) = lbl_805D3ED0;
+    M2C_FIELD(arg0, void **, 0) = TAdSelectGameModeGC__name;
     lbl_805D67C8 = 0;
     M2C_FIELD(arg0, void **, 0x1C) = 0;
     M2C_FIELD(arg0, void **, 0x20) = 0;

@@ -97,12 +97,17 @@ force_active:
   - TAdChrSelBSlotGC__sub_8030F228
   - TAdChrSelBSlotGC__sub_8030F2E4
   - TAdChrSelBSlotGC__sub_8030F3A0
+  - TAdFadeGC__name
   - TAdPlyStatusGC__is_shown
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
   - TAdSinglePlyChrSelectGC__sub_80202D7C
   - TAdSinglePlyChrSelectGC__sub_8028EE20
+  - TBGLightningCtrl__name
+  - TBGLightning__name
   - TBoss1DragonColli_sphere_chain_desc
+  - TBoss2PhotonBullet__name
+  - TBoss2PhotonPad__name
   - TBoss3VoloptCore__vtable
   - TBoss3VoloptHiraisin__breakup_model
   - TBoss3VoloptHiraisin__resource_bundle
@@ -111,9 +116,11 @@ force_active:
   - TBoss4Zako_collision_body_parts
   - TBoss4Zako_movement_speed_step
   - TBoss4Zako_one_third
+  - TBoss6CrushRock__name
   - TBoss8DragonDemo__sub_802F2CC4
   - TBoss8Dragon__sub_802FDF10
   - TBoss8Dragon__sub_8036AF50
+  - TChCrEffTag__name
   - TChCrLoadAfsTextureReq__active_load_count
   - TChCrTagName__class_name
   - TChCrTagName__sub_802A226C
@@ -148,6 +155,8 @@ force_active:
   - TMainCursor__sub_8013E570
   - TMainCursor__sub_8013E694
   - TOBarrierEnergy01__vt18
+  - TOMekaFish00__name
+  - TOMekaFish01__name
   - TOMineIcon04__vt78
   - TOMineIcon04__vt80
   - TOMineIcon04__vt82
@@ -156,16 +165,26 @@ force_active:
   - TOTrapChainSawDamage_class_name
   - TOTrapChainSawEdge_class_name
   - TOTrapChainSaw__level_scale_table
+  - TOTrapChainSaw__name
+  - TOWreckAncientBrakable__name
+  - TObjBgmCol__name
   - TObjBoss7DustCtrl__helix_points
   - TObjBoss7DustCtrl__rotation_pairs
   - TObjBoss7DustCtrl__transformed_vertices
   - TObjBoss7DustCtrl__vertical_phase_angles
+  - TObjContainerEnemy__name
+  - TObjDFBeamCursor__name
   - TObjDFDemo0__entry_table
   - TObjDFDemo2__motion_index_table
   - TObjDFDemoF__bml_model_id_table
+  - TObjDFHorming__name
+  - TObjDFJisin__name
+  - TObjDFRecBall__name
+  - TObjDFRecover__name
   - TObjDoor__collision_desc
   - TObjDoor__label_color_table
   - TObjDoor__resource_param
+  - TObjEZRopeBase__name
   - TObjEneBalClawClaw__collision_body_template
   - TObjEneBm3FlyNest__attachment_sample_origin
   - TObjEneBm3Fly__play_orbit_flight_sound
@@ -205,6 +224,7 @@ force_active:
   - TObjEneRecon__vt85
   - TObjEneShark__action_table
   - TObjLight__data_80506A5C
+  - TObjMapWarp__name
   - TObjOnlineEndingHexLine__direction_table
   - TObjOnlineEndingHexLine__hex_line_params
   - TObjOnlineEndingHexLine_corner_offsets
@@ -245,9 +265,13 @@ force_active:
   - TObjSeabedSuisoBrakable__vt15
   - TObjSinBoard__texture_name
   - TObjSinBoard__texture_surface
+  - TObjWarpBossMulti__name
+  - TObjWarpBoss__name
   - TParticleCtrl__particle_entry_path
   - TPlayerBattleCtrl4P__message_table_language0
+  - TPlyOnCreated__name
   - TQuestListChallenge__active_instance
+  - TQuestListChallenge__name
   - TQuestListChallenge__stage_table
   - TRKEXICallBack
   - TRKInterruptHandlerEnableInterrupts
@@ -263,6 +287,7 @@ force_active:
   - TWindowActionPalette__sub_801C1C20
   - TWindowComCard__window_desc
   - TWindowComCard__window_desc_b
+  - TWindowCtrlSub__name
   - TWindowDuelResult__layout_entries
   - TWindowHelpItem__item_layout_entries
   - TWindowHelpItem__requirements_update_callback
@@ -270,6 +295,7 @@ force_active:
   - TWindowHelpItem__stat_comparison_callback
   - TWindowHelpItem__sub_8025A900
   - TWindowHelpItem__sub_8025A904
+  - TWindowKeyBoardHard__name
   - TWindowKeyBoardSoft__sub_80080B34
   - TWindowSubStatusDisp__sub_8025AF0C
   - TWindowSubStatusDisp__sub_8025B0D0

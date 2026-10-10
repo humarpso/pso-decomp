@@ -14,7 +14,7 @@ void *__ct__11TObjDFYutaiFv(void *arg0, s32 arg1, s32 arg2, s16 arg3);
 M2C_UNK __ct__7TObjectFP7TObject();
 
 extern void *__vt__11TObjDFYutai[];
-extern s32 lbl_805D27CC;
+extern s32 TObjDFYutai__name;
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 extern const f32 lbl_805D8A38;
@@ -26,7 +26,7 @@ void *__ct__11TObjDFYutaiFv(void *arg0, s32 arg1, s32 arg2, s16 arg3) {
 
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, void **, 0x18) = __vt__11TObjDFYutai;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27CC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFYutai__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x20) = arg3;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);

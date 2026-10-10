@@ -186,13 +186,13 @@ struct PairPad_80288DA4 { s32 a; s32 b; s32 c; };
 extern __declspec(section ".rodata") const QLCStage_80289200 TQuestListChallenge__stage_table[5];
 extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450910[9];
 extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450A20[8];
-extern const char *lbl_805D3AF8;
+extern const char *TQuestListChallenge__name;
 extern __declspec(section ".rodata") const PairPad_80288DA4 lbl_80450AB4[1];
 }
 #define TQuestListChallenge__stage_table (*(RecoveredGlobal_80289200_lbl_8045080C *)TQuestListChallenge__stage_table)
 #define lbl_80450910 (*(RecoveredGlobal_80289200_lbl_80450910 *)lbl_80450910)
 #define lbl_80450A20 (*(RecoveredGlobal_80289200_lbl_80450A20 *)lbl_80450A20)
-#define lbl_805D3AF8 (*(s32 *)&lbl_805D3AF8)
+#define TQuestListChallenge__name (*(s32 *)&TQuestListChallenge__name)
 #define lbl_80450AB4 ((const Pair_80288DA4 *)lbl_80450AB4)
 
 #pragma push
@@ -417,7 +417,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 var_r3;
     __ct__15TShopWindowBaseFv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80289200___vt__19TQuestListChallenge *)&__vt__19TQuestListChallenge).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AF8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TQuestListChallenge__name;
     if ((void *) (*(u8 * *)&TQuestListChallenge__active_instance) != NULL) {
         return arg0;
     }
@@ -498,7 +498,7 @@ void * TObjNpcKenkyu__create(void *arg0) {
 #undef TQuestListChallenge__stage_table
 #undef lbl_80450910
 #undef lbl_80450A20
-#undef lbl_805D3AF8
+#undef TQuestListChallenge__name
 #undef lbl_80450AB4
 extern "C" const char lbl_804507A8[] = "challenge2_mlt_stg1";
 extern "C" const char lbl_804507BC[] = "challenge2_mlt_stg2";
@@ -551,6 +551,6 @@ extern "C" const QLCStage_80289200 lbl_80450A20[8] = {
     {21, 22, 23, lbl_80450A10},
 };
 extern "C" const char lbl_80450AA0[] = "TQuestListChallenge";
-extern "C" const char *lbl_805D3AF8 = lbl_80450AA0;
+extern "C" const char *TQuestListChallenge__name = lbl_80450AA0;
 
 extern "C" const PairPad_80288DA4 lbl_80450AB4[1] = {{0x43A60000, 0x43520000, 0}};

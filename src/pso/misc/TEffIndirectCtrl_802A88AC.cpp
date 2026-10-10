@@ -65,7 +65,7 @@ void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, void *, s32);
 void load_texture_list(void *);
 extern M2C_UNK __vt__16TEffIndirectCtrl[];
-extern s32 lbl_805D3E28;
+extern s32 TEffIndirectCtrl__name;
 extern const f32 lbl_805DE024;
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
 f32 sin_table_lookup(s32);
@@ -114,7 +114,7 @@ Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent)
     u8 k;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = ((s32 *)&__vt__16TEffIndirectCtrl);
-    self->f0 = lbl_805D3E28;
+    self->f0 = TEffIndirectCtrl__name;
     self->f28 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
     self->f2c = (P2C_802A8B58 *)alloc__23TAdSinglePlyChrSelectGCFPv(8);
     {

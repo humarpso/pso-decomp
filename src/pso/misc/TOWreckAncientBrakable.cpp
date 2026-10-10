@@ -24,15 +24,20 @@ void *__dt__22TOWreckAncientBrakableFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__22TOWreckAncientBrakable[];
-extern void *lbl_805D3210;
+extern void *TOWreckAncientBrakable__name;
 
 void *TOWreckAncientBrakable__ct(void *arg0) {
     TOWreckAncient__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TOWreckAncientBrakable;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3210;
+    M2C_FIELD(arg0, void **, 0x0) = TOWreckAncientBrakable__name;
     M2C_FIELD(arg0, u32 *, 0xB4) = 0;
     M2C_FIELD(arg0, u32 *, 0xB8) = -1;
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_80443528[];
+void *TOWreckAncientBrakable__name = lbl_80443528;
 }

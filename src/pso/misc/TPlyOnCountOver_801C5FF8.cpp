@@ -11,7 +11,7 @@ struct RecoveredGlobal_801C606C___vt__15TPlyOnCountOver {
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C606C___vt__15TPlyOnCountOver __vt__15TPlyOnCountOver;
-extern s32 lbl_805D355C;
+extern s32 TPlyOnCountOver__name;
 extern u8 *tl_06;
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
@@ -43,7 +43,7 @@ void run_task__15TPlyOnCountOverFv(u8 *arg0) {
 u8 *__ct__15TPlyOnCountOverFv(u8 *arg0, s16 arg1, s16 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, tl_06);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TPlyOnCountOver.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D355C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TPlyOnCountOver__name;
     M2C_FIELD(arg0, s16 *, 0x1C) = arg1;
     M2C_FIELD(arg0, s16 *, 0x1E) = arg2;
     M2C_FIELD(arg0, s32 *, 0x20) = arg3;

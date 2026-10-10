@@ -36,12 +36,12 @@ void *__dt__14TObjWarpBoss03Fv(void *arg0, s16 arg1) {
 
 extern const f32 lbl_805DC034;
 extern M2C_UNK __vt__14TObjWarpBoss03[];
-extern void *lbl_805D3490;
+extern void *TObjWarpBoss03__name;
 
 void *TObjWarpBoss03__ct(void *arg0) {
     TObjAreaWarp__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjWarpBoss03;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3490;
+    M2C_FIELD(arg0, void **, 0x0) = TObjWarpBoss03__name;
     M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DC034;
     return arg0;
 }

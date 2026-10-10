@@ -22,7 +22,7 @@ s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_80189BE0_lbl_804B63BC forest_box_collision_body_parts;
 extern M2C_UNK __vt__17TObjContainerItem[];
-extern s32 lbl_805D32EC;
+extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_global_state__14TOKeyMachine01Fv();
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -256,7 +256,7 @@ typedef char RecoveredGlobal_80189BE0___vt__17TObjContainerItem_size[sizeof(Reco
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80189BE0___vt__17TObjContainerItem *)&__vt__17TObjContainerItem).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32EC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerItem__name;
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);

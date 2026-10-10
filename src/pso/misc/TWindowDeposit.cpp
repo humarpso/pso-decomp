@@ -33,7 +33,7 @@ s32 set_text_entry_string(int, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024E548_lbl_804CEB70 window_deposit_layout;
 extern M2C_UNK __vt__14TWindowDeposit[];
-extern s32 lbl_805D38E8;
+extern s32 TWindowDeposit__name;
 extern const f32 lbl_805DCC60;
 extern const f32 lbl_805DCC64;
 extern const f32 lbl_805DCC68;
@@ -101,7 +101,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   u8 *temp_r31;
   construct_base__9TWindowDDFPvPvsPv((void *) arg0, (void *) (&window_deposit_layout.value), (void *) arg1, (int) get_window_layout_position((int) 0x29));
   *((M2C_UNK **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
-  *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D38E8;
+  *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowDeposit__name;
   temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C((int) 2);
   temp_r3_2 = calc_text_width((int) temp_r3);
   spC = temp_r3_2;

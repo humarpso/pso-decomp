@@ -83,12 +83,12 @@ void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__18TAdTrialModemChkGC[];
-extern void *lbl_805D4240;
+extern void *TAdTrialModemChkGC__name;
 
 void *TAdTrialModemChkGC__ct(void *arg0) {
     TAdWarningBaseGC__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdTrialModemChkGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4240;
+    M2C_FIELD(arg0, void **, 0x0) = TAdTrialModemChkGC__name;
     return arg0;
 }
 

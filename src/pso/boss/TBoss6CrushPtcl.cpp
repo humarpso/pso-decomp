@@ -9,7 +9,7 @@ extern "C" {
 s32 create_particle_emitter(void *, int);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__15TBoss6CrushPtcl[];
-extern s32 lbl_805D440C;
+extern s32 TBoss6CrushPtcl__name;
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
 }
 
@@ -49,7 +49,7 @@ extern void *tl_02;
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss6CrushPtcl;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D440C;
+    M2C_FIELD(arg0, s32 *, 0) = TBoss6CrushPtcl__name;
     Vec_80359EF0 v = *arg2;
     M2C_FIELD(arg0, s32 *, 0x20) = create_particle_emitter(&v, 0x203);
     M2C_FIELD(arg0, s32 *, 0x24) = create_particle_emitter(&v, 0x204);

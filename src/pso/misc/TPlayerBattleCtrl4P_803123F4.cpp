@@ -207,7 +207,7 @@ s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
 M2C_UNK clear_split_screen_battle_window_slots(void *);
-extern s32 lbl_805D4110;
+extern s32 TPlayerBattleCtrl4P__name;
 extern s32 current_language;
 
 }
@@ -217,7 +217,7 @@ TPlayerBattleCtrl4P* TPlayerBattleCtrl4P::construct(TObject* parent) {
 
     __ct__7TObjectFP7TObject(((void *)this), parent);
     M2C_FIELD(((void *)this), void **, 0x18) = __vt__19TPlayerBattleCtrl4P;
-    M2C_FIELD(((void *)this), s32 *, 0) = lbl_805D4110;
+    M2C_FIELD(((void *)this), s32 *, 0) = TPlayerBattleCtrl4P__name;
     set_split_screen_battle_phase(((void *)this), 0);
     M2C_FIELD(((void *)this), s32 *, 0x20) = 0;
     M2C_FIELD(((void *)this), s32 *, 0x24) = 0;

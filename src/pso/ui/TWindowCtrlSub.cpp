@@ -23,7 +23,7 @@ void *TWindowCtrlSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__14TWindowCtrlSub[];
-extern void *lbl_805D38D8;
+extern void *TWindowCtrlSub__name;
 
 void run_task__14TWindowCtrlSubFv(void) {
     resolve_chat_balloon_overlaps();
@@ -37,8 +37,13 @@ TWindowCtrlSub::~TWindowCtrlSub() {
 void *TWindowCtrlSub__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TWindowCtrlSub;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D38D8;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowCtrlSub__name;
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_8044EC14[];
+void *TWindowCtrlSub__name = lbl_8044EC14;
 }

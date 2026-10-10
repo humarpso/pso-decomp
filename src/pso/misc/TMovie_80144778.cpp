@@ -33,7 +33,7 @@ u8 *load_rel_module(u8 *, void *);
 char *strncpy(char *, const char *, u32);
 extern u8 lbl_8043F380[];
 extern M2C_UNK __vt__6TMovie[];
-extern s32 lbl_805D2CF0;
+extern s32 TMovie__name;
 TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a3, s32 a4, s32 a5);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 u8 *__ct__10TAdEndTextFv(void *, void *);
@@ -113,7 +113,7 @@ TMovie_80144910 *TMovie__ct(TMovie_80144910 *self, void *parent, s8 *name, s32 a
     u8 *p;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__6TMovie;
-    self->name = lbl_805D2CF0;
+    self->name = TMovie__name;
     self->f44 = a3;
     self->obj1C = 0;
     self->f48 = a4;

@@ -33,7 +33,7 @@ void __ct__7TObjectFP7TObject(void *);
 s32 get_clamped_player_index__14TChCrEffCtrlPlFv();
 extern u8 lbl_80477C70[];
 extern u8 __vt__14TChCrEffCtrlPl[];
-extern s32 lbl_805D4270;
+extern s32 TChCrEffCtrlPl__name;
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1);
 f32 sin_table_lookup(s32);
 extern const f32 lbl_80477C78[];
@@ -94,7 +94,7 @@ TChCrEffCtrlPl::~TChCrEffCtrlPl() {}
 O_80339808 *__ct__14TChCrEffCtrlPlFv(O_80339808 *arg0, void * _w1) {
     __ct__7TObjectFP7TObject(arg0);
     arg0->vt = __vt__14TChCrEffCtrlPl;
-    arg0->f0 = lbl_805D4270;
+    arg0->f0 = TChCrEffCtrlPl__name;
     arg0->f1c = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0x8B;
     arg0->f20 = get_clamped_player_index__14TChCrEffCtrlPlFv() + 0xBC;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0->v, lbl_80477C70);

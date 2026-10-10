@@ -101,12 +101,12 @@ extern "C" {
 int __ct__7TObjectFP7TObject(void);
 void *__nw__7TObjectFUl(int);
 
-    extern int lbl_805D2B44;
+    extern int T_OWEHMS_Exp__name;
 }
 T_OWEHMS_Exp* T_OWEHMS_Exp::construct(TObjPlayer* p) {
     ((void (*)(void*, void*))__ct__7TObjectFP7TObject)(this, p);
     *(void**)((u8*)this + 0x18) = __vt__12T_OWEHMS_Exp;
-    m_name = (const char*)lbl_805D2B44;
+    m_name = (const char*)T_OWEHMS_Exp__name;
     player = p;
     descriptor_index = get_move_done_result__24TObjWaitEntryHairMoveSimFPv((H_800FE32C*)player);
     return this;
@@ -763,12 +763,12 @@ void TObjWaitEntryHairMoveSim::run_task() {
 extern "C" {
 
 extern M2C_UNK __vt__24TObjWaitEntryHairMoveSim[];
-extern void *lbl_805D2B40;
+extern void *TObjWaitEntryHairMoveSim__name;
 
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__24TObjWaitEntryHairMoveSim;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2B40;
+    M2C_FIELD(arg0, void **, 0x0) = TObjWaitEntryHairMoveSim__name;
     M2C_FIELD(arg0, void **, 0x1C) = arg1;
     return arg0;
 }

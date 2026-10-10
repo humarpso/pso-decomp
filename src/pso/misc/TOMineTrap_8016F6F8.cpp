@@ -406,10 +406,10 @@ void *get_player_data__10TObjPlayerFi(s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 void update_trigger__10TOMineTrapFPv(void *arg0);
 void sync_position__10TOMineTrapFPv(void* p);
-extern s32 lbl_805D3090;
-extern s32 lbl_805D3098;
-extern s32 lbl_805D30A0;
-extern s32 lbl_805D30A8;
+extern s32 TOMineIcon01__name;
+extern s32 TOMineIcon02__name;
+extern s32 TOMineIcon03__name;
+extern s32 TOMineIcon04__name;
 extern s32 lbl_805D5868;
 extern s32 lbl_805D5870;
 void TOMineTrap__sub_80170BEC(u8 *arg0);
@@ -809,10 +809,10 @@ void TOMineTrap__sub_80170BEC(u8 *arg0) {
         for (i = lbl_805D5870; i < lbl_805D5868; i++) {
             p = (u8 *)get_player_data__10TObjPlayerFi(i);
             if (p != NULL && p != arg0 &&
-                (check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D3090) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D3098) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D30A0) != 0 ||
-                 check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D30A8) != 0) &&
+                (check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon01__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon02__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon03__name) != 0 ||
+                 check_value_equals__13TQuestColCtrlFPvi(p, TOMineIcon04__name) != 0) &&
                 *(s32 *)(p + 0x344) == 1 && *(s32 *)(p + 0x348) == *(s32 *)(arg0 + 0x348)) {
                 update_trigger__10TOMineTrapFPv(p);
             }

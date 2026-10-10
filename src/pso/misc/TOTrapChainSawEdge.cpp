@@ -384,7 +384,7 @@ void *lbl_804E0BE8[6] = {
 void *lbl_804E0C00[4] = {
     (void *)"bm_obj_jungle_nokogiri.bml", (void *)&chainsaw_ginja_model_filenames, (void *)&lbl_804E0BE8, (void *)0x50005,
 };
-const char *lbl_805D3F00 = "TOTrapChainSaw";
+const char *TOTrapChainSaw__name = "TOTrapChainSaw";
 __declspec(section ".rodata") F4_802C8FF8 TOTrapChainSaw__level_scale_table = { 1.0f, 2.0f, 3.0f, 6.0f };
 const T_802C8F68 chainsaw_area_table_values = { { { 0x4D01F, 0x4C122, 0x4BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 }, { 0x4004D01F, 0x4004C122, 0x4004BC21 } } };
 const char *TOTrapChainSawDamage_class_name = "TOTrapChainSawDamage";
@@ -1072,7 +1072,7 @@ void *__dt__14TOTrapChainSawFv(void *arg0, s16 arg1) {
 u8 *TOTrapChainSaw__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802C9890___vt__14TOTrapChainSaw *)&__vt__14TOTrapChainSaw).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F00;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOTrapChainSaw__name;
     ((VObj_18_fd30ee *)(arg0))->m5(arg2);
     ((VObj_18_fd30ee *)(arg0))->m19();
     M2C_FIELD(arg0, s32 *, 0xD4) = 0;

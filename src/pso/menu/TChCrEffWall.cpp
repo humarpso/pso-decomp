@@ -32,7 +32,7 @@ void TChCrEffTagStr__sub_8029AED0(void* p);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__12TChCrEffWall[];
-extern void *lbl_805D3D10;
+extern void *TChCrEffWall__name;
 
 void *lbl_804DBF58[4] = {
     (void *)0x0, (void *)0xff181818, (void *)0xff181818, (void *)0x0,
@@ -75,7 +75,7 @@ TChCrEffWall::~TChCrEffWall() {}
 void *__ct__12TChCrEffWallFv(void *arg0, void * _w1) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TChCrEffWall;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D10;
+    M2C_FIELD(arg0, void **, 0x0) = TChCrEffWall__name;
     return arg0;
 }
 void *fn_8029AE88(void *arg0) {

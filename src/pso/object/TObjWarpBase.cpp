@@ -29,7 +29,7 @@ void construct_collider_proxy__10TObjPlayerFPv(Warp_8019DAC0 *, void *, void *);
 void *construct_field_collider__9TTecLukerFPviii(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
 extern M2C_UNK __vt__12TObjWarpBase[];
-extern s32 lbl_805D345C;
+extern s32 TObjWarpBase__name;
 extern const f32 lbl_805DBFEC;
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set);
 }
@@ -107,7 +107,7 @@ Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set) {
     void *o;
     construct_collider_proxy__10TObjPlayerFPv(self, parent, set);
     *(void **)((u8 *)self + 0x18) = ((u8 *)&__vt__12TObjWarpBase);
-    self->f0 = lbl_805D345C;
+    self->f0 = TObjWarpBase__name;
     self->m5(set);
     self->fac = lbl_805DBFEC;
     self->fb0 = 0;

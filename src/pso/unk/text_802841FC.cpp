@@ -20,7 +20,7 @@ s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 extern RecoveredGlobal_802841FC_lbl_804D2CE0 lbl_804D2CE0;
 extern RecoveredGlobal_802841FC___vt__28TWindowSubSymbolChatFaceType __vt__28TWindowSubSymbolChatFaceType;
-extern s32 lbl_805D3AB0;
+extern s32 TWindowSubSymbolChatFaceType__name;
 u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -32,7 +32,7 @@ u8 *TWindowSubSymbolChatFaceType__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 var_r31;
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D2CE0.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__28TWindowSubSymbolChatFaceType.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AB0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubSymbolChatFaceType__name;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;
     M2C_FIELD(arg0, s8 *, 0x61) = 0;
     M2C_FIELD(arg0, s8 *, 0x62) = 0;

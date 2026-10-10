@@ -44,7 +44,7 @@ M2C_UNK TWindowSoundBalance__sub_80270748(void *, s32);
 M2C_UNK TWindowSoundBalance__sub_802707D4(void *, s32);
 extern M2C_UNK lbl_804D0D68[];
 extern M2C_UNK __vt__19TWindowSoundBalance[];
-extern s32 lbl_805D39F0;
+extern s32 TWindowSoundBalance__name;
 extern const f32 lbl_805DD414;
 extern const f32 lbl_805DD418;
 u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1);
@@ -158,7 +158,7 @@ u8 *TWindowSoundBalance__ct(u8 *arg0, s32 arg1) {
     State_80270DCC *st;
     construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804D0D68, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSoundBalance;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D39F0;
+    M2C_FIELD(arg0, s32 *, 0) = TWindowSoundBalance__name;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;
     M2C_FIELD(arg0, s8 *, 0x61) = 0;
     M2C_FIELD(arg0, s16 *, 0x62) = 1;

@@ -27,7 +27,7 @@ extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__18TAdMultiPlayerNoGC[];
-extern s32 lbl_805D4288;
+extern s32 TAdMultiPlayerNoGC__name;
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg);
 }
 
@@ -61,7 +61,7 @@ TAdMultiPlayerNoGC::~TAdMultiPlayerNoGC() {}
 Self_8033A668 *__ct__18TAdMultiPlayerNoGCFv(Self_8033A668 *self, void *parent, s32 n, u32 idx, u32 arg) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__18TAdMultiPlayerNoGC;
-    self->f0 = lbl_805D4288;
+    self->f0 = TAdMultiPlayerNoGC__name;
     switch (n) {
     case 2:
         self->f40 = idx * 0x130 + 0x68;

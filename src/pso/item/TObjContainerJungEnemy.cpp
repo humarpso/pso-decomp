@@ -22,7 +22,7 @@ u8 * init_container_base(void *, s32);
 void load_models__22TObjContainerJungEnemyFPv(void *arg0);
 extern RecoveredGlobal_8018CEDC_lbl_804B7168 container_jung_collision_desc;
 extern M2C_UNK __vt__22TObjContainerJungEnemy[];
-extern s32 lbl_805D3320;
+extern s32 TObjContainerJungEnemy__name;
 u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2);
 }
 
@@ -116,7 +116,7 @@ typedef char RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy_size[sizeof
 u8 *TObjContainerJungEnemy__ct(u8 *arg0, s32 arg1, s32 _w2) {
     init_container_base(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018CEDC___vt__22TObjContainerJungEnemy *)&__vt__22TObjContainerJungEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3320;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerJungEnemy__name;
     load_models__22TObjContainerJungEnemyFPv(arg0);
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);

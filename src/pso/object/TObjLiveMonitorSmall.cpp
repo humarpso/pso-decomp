@@ -35,13 +35,13 @@ int render__20TObjLiveMonitorSmallFv(void* p) { return render_live_monitor_scree
 int run_task__20TObjLiveMonitorSmallFv(void* p) { return fn_8030B370(p); }
 
 extern M2C_UNK __vt__20TObjLiveMonitorSmall[];
-extern void *lbl_805D40F0;
+extern void *TObjLiveMonitorSmall__name;
 
 TObjLiveMonitorSmall::~TObjLiveMonitorSmall() {}
 void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2) {
     __ct__15TObjLiveMonitorFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjLiveMonitorSmall;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D40F0;
+    M2C_FIELD(arg0, void **, 0x0) = TObjLiveMonitorSmall__name;
     M2C_FIELD(arg0, void **, 0x1C) = arg2;
     return arg0;
 }

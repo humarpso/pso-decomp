@@ -81,7 +81,7 @@ u8 is_floor_switch_set(u32 id, s16 floor) {
 }
 
 extern M2C_UNK __vt__7TSwitch[];
-extern void *lbl_805D3728;
+extern void *TSwitch__name;
 
 extern "C" {
 
@@ -149,7 +149,7 @@ void set_current_floor_switch(s32 arg0) {
 void *__ct__7TSwitchFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TSwitch;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3728;
+    M2C_FIELD(arg0, void **, 0x0) = TSwitch__name;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

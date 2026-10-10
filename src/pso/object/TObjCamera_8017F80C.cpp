@@ -139,7 +139,7 @@ void fn_8017F550(void *);
 void *__nw__7TObjectFUl(int);
 extern Copy_8017FA9C lbl_80443AA4;
 extern M2C_UNK __vt__10TObjCamera[];
-extern s32 lbl_805D3238;
+extern s32 TObjCamera__name;
 extern u32 TObjCamera__bml_resource;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB70;
@@ -237,7 +237,7 @@ u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     void *obj;
     init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjCamera;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3238;
+    M2C_FIELD(arg0, s32 *, 0) = TObjCamera__name;
     Copy_8017FA9C c = lbl_80443AA4;
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, f32 *, 0xB0) = TObjCamera__data_805DBB58;

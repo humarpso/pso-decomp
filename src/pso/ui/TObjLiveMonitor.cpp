@@ -104,13 +104,13 @@ s32 get_bml_model(s32, M2C_UNK);
 M2C_UNK __ct__7TObjectFP7TObject();
 
 extern M2C_UNK __vt__15TObjLiveMonitor[];
-extern s32 lbl_805D40EC;
+extern s32 TObjLiveMonitor__name;
 extern int live_monitor_shared_resource;
 
 void *__ct__15TObjLiveMonitorFv(void *arg0) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__15TObjLiveMonitor;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40EC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjLiveMonitor__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model(live_monitor_shared_resource, 1);
     M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(live_monitor_shared_resource, 0);
     M2C_FIELD(arg0, s32 *, 0x24) = 5;

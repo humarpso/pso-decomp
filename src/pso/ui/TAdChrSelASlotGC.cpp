@@ -879,12 +879,12 @@ void *__dt__16TAdChrSelASlotGCFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__16TAdChrSelASlotGC[];
-extern void *lbl_805D4100;
+extern void *TAdChrSelASlotGC__name;
 
 void *TAdChrSelASlotGC__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TAdChrSelASlotGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4100;
+    M2C_FIELD(arg0, void **, 0x0) = TAdChrSelASlotGC__name;
     init__16TAdChrSelASlotGCFPvi((void *)(arg0), (s32)(arg2));
     create_children__16TAdChrSelASlotGCFPvi((u8 *)(arg0), (s32)(arg2));
     return arg0;

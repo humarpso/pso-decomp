@@ -56,7 +56,7 @@ void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
 void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
 extern M2C_UNK __vt__15TORainbowCave01[];
-extern s32 lbl_805D30D4;
+extern s32 TORainbowCave01__name;
 extern u32 TORainbowCave01__data_805D5A70;
 u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv(void);
@@ -207,7 +207,7 @@ u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *temp_r4;
     init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801733D8___vt__15TORainbowCave01 *)&__vt__15TORainbowCave01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30D4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TORainbowCave01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TORainbowCave01__data_805D5A70), u8 **, 0x42C), s32 *, 8);
     temp_r4 = (u8 *)(M2C_FIELD((*(u8 * *)&TORainbowCave01__data_805D5A70), u8 **, 0x42C));

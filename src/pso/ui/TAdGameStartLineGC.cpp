@@ -29,7 +29,7 @@ extern "C" {
 void *__ct__7TObjectFP7TObject(void *, void *);
 void *get_instance__10TObjPlayerFv(void);
 extern void *__vt__18TAdGameStartLineGC[];
-extern void *lbl_805D4150;
+extern void *TAdGameStartLineGC__name;
 extern void *lbl_805D6C18;
 extern const f32 lbl_805DF4A0;
 extern const f32 lbl_805DF4AC;
@@ -102,7 +102,7 @@ TAdGameStartLineGC_80320EF0 *__ct__18TAdGameStartLineGCFv(TAdGameStartLineGC_803
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__18TAdGameStartLineGC;
-    self->name = lbl_805D4150;
+    self->name = TAdGameStartLineGC__name;
     self->x = lbl_805DF4B8;
     self->y = lbl_805DF4BC;
     self->x2 = lbl_805DF4C0;

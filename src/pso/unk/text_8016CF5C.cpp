@@ -69,7 +69,7 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 extern void *__vt__14TOKeyGenericSw[];
 extern M2C_UNK lbl_804B2D30[];
 extern void *TOKeyGenericSw__shared_resource_ptrs[];
-extern s32 lbl_805D3050;
+extern s32 TOKeyGenericSw__name;
 extern u32 *TOKeyGenericSw__texture_lists;
 extern const f32 lbl_805DB768;
 extern const f32 lbl_805DB76C;
@@ -86,7 +86,7 @@ void TOKeyMachine01__vt23(void);
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
     M2C_FIELD(arg0, void **, 0x18) = __vt__14TOKeyGenericSw;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3050;
+    M2C_FIELD(arg0, s32 *, 0) = TOKeyGenericSw__name;
     ((VObj_8016CF5C *)arg0)->m5(source);
     init_switch_id__5TOKeyFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1], void **, 0x42C), s32 *, 8);

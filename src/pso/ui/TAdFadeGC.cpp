@@ -36,8 +36,8 @@ void __ct__7TObjectFP7TObject(void *);
 void render__18TObjTradeCollisionFv(void);
 
 extern const char lbl_80471D70[] = "TAdFadeGC";
-const char *lbl_805D3EF0 = lbl_80471D70;
-#define lbl_805D3EF0 (*(void **)&lbl_805D3EF0)
+const char *TAdFadeGC__name = lbl_80471D70;
+#define TAdFadeGC__name (*(void **)&TAdFadeGC__name)
 
 void draw_fade__9TAdFadeGCFPv(u8 *arg0) {
     f32 pos[8];
@@ -168,7 +168,7 @@ TAdFadeGC::~TAdFadeGC() {}
 void *__ct__9TAdFadeGCFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TAdFadeGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3EF0;
+    M2C_FIELD(arg0, void **, 0x0) = TAdFadeGC__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = -1;
     M2C_FIELD(arg0, f32 *, 0x20) = (0.0f);
     M2C_FIELD(arg0, void **, 0x28) = arg2;

@@ -20,7 +20,7 @@ extern "C" {
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 s32 get_instance__10TObjPlayerFv(void);
 extern M2C_UNK __vt__20TAdGameStartShadowGC[];
-extern s32 lbl_805D4148;
+extern s32 TAdGameStartShadowGC__name;
 extern s32 TAdGameStartShadowGC__texture_list;
 extern const f32 lbl_805DF47C;
 extern const f32 lbl_805DF480;
@@ -70,7 +70,7 @@ Shadow_80320CB8 *__ct__20TAdGameStartShadowGCFv(Shadow_80320CB8 *arg0, void *par
     u32 i;
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__20TAdGameStartShadowGC;
-    arg0->f0 = lbl_805D4148;
+    arg0->f0 = TAdGameStartShadowGC__name;
     arg0->fbc = -1;
     arg0->fc0 = 0;
     arg0->fc4 = -1;

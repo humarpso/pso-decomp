@@ -36,7 +36,7 @@ void load_resources__19TObjStendGlassLobbyFv(void);
 s32 init_map_object_base(void *);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
 extern M2C_UNK __vt__19TObjStendGlassLobby[];
-extern s32 lbl_805D4404;
+extern s32 TObjStendGlassLobby__name;
 extern u32 TObjStendGlassLobby__data_805D6F28;
 extern s32 lbl_805D6F2C;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -189,7 +189,7 @@ typedef char RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby_size[sizeof(Re
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_map_object_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby *)&__vt__19TObjStendGlassLobby).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4404;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjStendGlassLobby__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     update_state__19TObjStendGlassLobbyFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;

@@ -76,7 +76,7 @@ s32 init_state_vectors__19TContainerAncient01FPv(void *);
 extern RecoveredGlobal_8018BD00_TContainerAncient01__data_804B6DC0 TContainerAncient01__collision_body_parts;
 extern RecoveredGlobal_8018BD00_lbl_804B6DEC TContainerAncient01__anim_table;
 extern M2C_UNK __vt__19TContainerAncient01[];
-extern s32 lbl_805D3300;
+extern s32 TContainerAncient01__name;
 extern s32 TContainerAncient01__bml_resource;
 extern const f32 lbl_805DBD5C;
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -135,7 +135,7 @@ typedef char RecoveredGlobal_8018BD00___vt__19TContainerAncient01_size[sizeof(Re
 u8 *TContainerAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018BD00___vt__19TContainerAncient01 *)&__vt__19TContainerAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3300;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TContainerAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(u8 * *)&TContainerAncient01__bml_resource)), (int) (0));

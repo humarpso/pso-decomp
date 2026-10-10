@@ -219,10 +219,10 @@ extern void *__vt__13TObjDFRecBall[];
 extern void *__vt__16TObjDFBeamCursor[];
 extern const f64 lbl_804374F0;
 extern s32 lbl_804858C0[];
-extern s32 lbl_805D27BC;
-extern void *lbl_805D27C0;
-extern s32 lbl_805D27C4;
-extern s32 lbl_805D27C8;
+extern s32 TObjDFRecBall__name;
+extern void *TObjDFBeamCursor__name;
+extern s32 TObjDFJisin__name;
+extern s32 TObjDFHorming__name;
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -349,7 +349,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
 
     construct_actor_base__10TObjPlayerFPvPv(arg0, arg1);
     M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)__vt__13TObjDFHorming;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D27C8;
+    M2C_FIELD(arg0, s32 *, 0) = TObjDFHorming__name;
     M2C_FIELD(arg0, u16 *, 0x334) = arg3;
     M2C_FIELD(arg0, s32 *, 0x338) = 0x96;
     if (game_difficulty_selection == 3) {
@@ -464,7 +464,7 @@ extern "C" {
 u8 *TObjDFJisin__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjDFJisin;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27C4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFJisin__name;
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (lbl_805D8AA0 * sin_table_lookup(arg2));
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805D8A30;
     M2C_FIELD(arg0, f32 *, 0x24) = (f32) (lbl_805D8AA8 * cos_table_lookup(arg2));
@@ -498,7 +498,7 @@ TObjDFBeamCursor::~TObjDFBeamCursor() {}
 void *TObjDFBeamCursor__ct(void *arg0, void *arg1, void *arg2) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TObjDFBeamCursor;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D27C0;
+    M2C_FIELD(arg0, void **, 0x0) = TObjDFBeamCursor__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 32;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg2);
     return arg0;
@@ -566,7 +566,7 @@ u8 *TObjDFRecBall__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__13TObjDFRecBall;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27BC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFRecBall__name;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
     temp_r31 = (s32) (lbl_805D8ABC * (lbl_805D8A6C * (f32) rand()));
@@ -879,10 +879,10 @@ void *__dt__13TObjDFRecoverFv(void *arg0, s16 arg1) {
 }
 
 extern "C" {
-extern const char *lbl_805D27B8;
+extern const char *TObjDFRecover__name;
 }
 TObjDFRecover::TObjDFRecover(TObject *parent, u16 id, const f32 *position) : TObject(parent) {
-    m_name = lbl_805D27B8;
+    m_name = TObjDFRecover__name;
     target_id = id;
     effect = NULL;
     ((s32 (*)(void *, const void *))VecCopy__FP3VecPC3Vec)(cached_position, position);
@@ -939,7 +939,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_80051938___vt__16TObjDFTenchuFuru __vt__16TObjDFTenchuFuru;
-extern s32 lbl_805D27B4;
+extern s32 TObjDFTenchuFuru__name;
 extern const f32 lbl_805D8AA0;
 u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2);
 M2C_UNK get_current_matrix(void *);
@@ -1007,7 +1007,7 @@ u8 *TObjDFTenchuFuru__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TObjDFTenchuFuru.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27B4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFTenchuFuru__name;
     M2C_FIELD(arg0, s32 *, 0x28) = 5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805D8AA0);
@@ -1078,4 +1078,17 @@ void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
     } while (var_r31 != NULL);
 }
 
+}
+
+extern "C" {
+extern char lbl_8043748C[];
+extern char lbl_8043749C[];
+extern char lbl_804374AC[];
+extern char lbl_804374C0[];
+extern char lbl_804374CC[];
+const char *TObjDFRecover__name = lbl_8043748C;
+s32 TObjDFRecBall__name = (s32)lbl_8043749C;
+void *TObjDFBeamCursor__name = lbl_804374AC;
+s32 TObjDFJisin__name = (s32)lbl_804374C0;
+s32 TObjDFHorming__name = (s32)lbl_804374CC;
 }

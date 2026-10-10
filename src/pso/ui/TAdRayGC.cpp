@@ -111,13 +111,13 @@ void run_task__8TAdRayGCFv(void *arg0) {
 }
 
 extern M2C_UNK __vt__8TAdRayGC[];
-extern void *lbl_805D3D30;
+extern void *TAdRayGC__name;
 
 TAdRayGC::~TAdRayGC() {}
 void *__ct__8TAdRayGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TAdRayGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D30;
+    M2C_FIELD(arg0, void **, 0x0) = TAdRayGC__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = -1;
     return arg0;

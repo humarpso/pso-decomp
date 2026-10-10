@@ -85,7 +85,7 @@ u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
-extern s32 lbl_805D29D8;
+extern s32 TEneEffHamon__name;
 extern const f32 lbl_805D99E4;
 extern const f32 lbl_805D99E8;
 extern const f32 lbl_805D99EC;
@@ -205,7 +205,7 @@ typedef char RecoveredGlobal_800A38A4___vt__12TEneEffHamon_size[sizeof(Recovered
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject((void *)((void *) (arg0)), (void *)((int) (tl_06)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TEneEffHamon.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29D8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TEneEffHamon__name;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
     M2C_FIELD(arg0, s32 *, 0x2C) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;

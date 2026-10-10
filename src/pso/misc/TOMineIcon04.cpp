@@ -57,7 +57,7 @@ void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
 extern void *__vt__12TOMineIcon04[];
-extern s32 lbl_805D30A8;
+extern s32 TOMineIcon04__name;
 extern s32 game_difficulty_selection;
 extern void *lbl_805D5A50;
 extern const f32 lbl_805DB8D8;
@@ -330,7 +330,7 @@ void *TOMineIcon04__ct(void *arg0, void *arg1, void *arg2) {
     TOMine__ct(arg0, arg1, arg2);
 #define self ((Icon_80171E7C *)arg0)
     self->vt = ((void * *)&__vt__12TOMineIcon04);
-    self->f0 = lbl_805D30A8;
+    self->f0 = TOMineIcon04__name;
     ((VIcon_80171E7C *)self)->m5(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     calc_attach_pos__10TObjPlayerFPv(self);

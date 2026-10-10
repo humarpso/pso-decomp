@@ -51,7 +51,7 @@ u8 * get_window_layout_position(s32);
 M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
 extern RecoveredGlobal_80284B84_lbl_804D2D10 lbl_804D2D10;
 extern M2C_UNK __vt__24TWindowSubSymbolChatHelp[];
-extern s32 lbl_805D3AB8;
+extern s32 TWindowSubSymbolChatHelp__name;
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
 extern s8 controller_input_state[];
@@ -314,7 +314,7 @@ typedef char RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp_size[size
 u8 *TWindowSubSymbolChatHelp__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804D2D10.value), (int) (4), (int) (get_window_layout_position(0x7E)));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80284B84___vt__24TWindowSubSymbolChatHelp *)&__vt__24TWindowSubSymbolChatHelp).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AB8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubSymbolChatHelp__name;
     M2C_FIELD(arg0, s8 *, 0x60) = 0;
     M2C_FIELD(arg0, s32 *, 0x64) = arg1;
     M2C_FIELD(arg0, s32 *, 0x68) = arg2;

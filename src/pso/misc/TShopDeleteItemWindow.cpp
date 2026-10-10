@@ -321,12 +321,12 @@ void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__21TShopDeleteItemWindow[];
-extern void *lbl_805D4250;
+extern void *TShopDeleteItemWindow__name;
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TShopDeleteItemWindow;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4250;
+    M2C_FIELD(arg0, void **, 0x0) = TShopDeleteItemWindow__name;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, void **, 0x24) = arg3;
     M2C_FIELD(arg0, u32 *, 0x5C) = 1;

@@ -259,7 +259,7 @@ void TODragonfly__ct(void *, void *);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern s32 __vt__12TOMekaFish01[];
-extern s32 lbl_805D3E44;
+extern s32 TOMekaFish01__name;
 extern u32 TOMekaFish01__data_805D66DC;
 extern const f32 lbl_805DE068;
 extern const f32 lbl_805DE06C;
@@ -275,7 +275,7 @@ extern const f32 lbl_805DE084;
 void *TOMekaFish01__ct(void *arg0, void *arg1) {
     TODragonfly__ct(self, arg1);
     *(s32 **)((u8 *)self + 0x18) = __vt__12TOMekaFish01;
-    *(s32 *)self = lbl_805D3E44;
+    *(s32 *)self = TOMekaFish01__name;
     self->m5(arg1);
     self->f34 = get_bml_model(TOMekaFish01__data_805D66DC, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOMekaFish01__data_805D66DC, 0);
@@ -346,7 +346,7 @@ void load_shared_resource__12TOMekaFish00Fv(void);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__12TOMekaFish00[];
-extern s32 lbl_805D3E40;
+extern s32 TOMekaFish00__name;
 extern u32 TOMekaFish00__data_805D66D8;
 extern const f32 lbl_805DE068;
 extern const f32 lbl_805DE06C;
@@ -409,7 +409,7 @@ extern u32 TBoss6PlotFalz__instance;
 u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     TODragonfly__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E40;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMekaFish00__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__data_805D66D8), 0);
@@ -442,3 +442,9 @@ s32 is_phase_reached__14TBoss6PlotFalzFv(void) {
 #undef TObjFish__sub_8001EDB0
 #undef get_bml_model
 #undef TODragonfly__ct
+extern "C" {
+extern char lbl_8046FD7C[];
+extern char lbl_8046FD8C[];
+s32 TOMekaFish00__name = (s32)lbl_8046FD7C;
+s32 TOMekaFish01__name = (s32)lbl_8046FD8C;
+}

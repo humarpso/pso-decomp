@@ -12,7 +12,7 @@ struct RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer {
 extern "C" {
 u8 * TObjEZBoneRotBase__ct(void *, s32, void *);
 extern RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer __vt__19TObjEZBoneRotPlayer;
-extern s32 lbl_805D2B4C;
+extern s32 TObjEZBoneRotPlayer__name;
 u8 * __ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void *);
 void *__nw__7TObjectFUl(int);
 void * create__19TObjEZBoneRotPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
@@ -60,7 +60,7 @@ typedef char RecoveredGlobal_800FE930___vt__19TObjEZBoneRotPlayer_size[sizeof(Re
 u8 *__ct__19TObjEZBoneRotPlayerFv(u8 *arg0, s32 arg1, u8 *arg2, void * _w3) {
     TObjEZBoneRotBase__ct(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TObjEZBoneRotPlayer.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B4C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEZBoneRotPlayer__name;
     M2C_FIELD(arg0, s32 *, 0x98) = arg1;
     M2C_FIELD(arg0, s32 *, 0x9C) = (s32) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x98), s32 *, 0x60);
     return arg0;

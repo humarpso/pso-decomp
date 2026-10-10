@@ -93,7 +93,7 @@ extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
 M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__15TAdChrSelSlotGC[];
-extern s32 lbl_805D3EE8;
+extern s32 TAdChrSelSlotGC__name;
 S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
@@ -223,7 +223,7 @@ S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self) {
     f32 t;
     __ct__7TObjectFP7TObject(self);
     self->vt = __vt__15TAdChrSelSlotGC;
-    self->f0 = lbl_805D3EE8;
+    self->f0 = TAdChrSelSlotGC__name;
     self->f1C = -1;
     self->f124 = 1;
     for (i = 0; i < 5; i++) {

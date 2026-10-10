@@ -99,7 +99,7 @@ s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__18TObjNpcConnoisseur[];
-extern s32 lbl_805D2D60;
+extern s32 TObjNpcConnoisseur__name;
 extern u32 TObjNpcConnoisseur__instance;
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, s32, s32, s32, s32);
@@ -162,7 +162,7 @@ typedef char RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur_size[sizeof(Rec
 u8 *TObjNpcConnoisseur__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801499DC___vt__18TObjNpcConnoisseur *)&__vt__18TObjNpcConnoisseur).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2D60;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcConnoisseur__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcConnoisseur__instance), u8 **, 0x42C), s32 *, 8);

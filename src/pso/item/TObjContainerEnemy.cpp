@@ -133,7 +133,7 @@ s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_801897A4_lbl_804B63BC forest_box_collision_body_parts;
 extern M2C_UNK __vt__18TObjContainerEnemy[];
-extern s32 lbl_805D32F0;
+extern s32 TObjContainerEnemy__name;
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2);
 void draw_ginja_box_tree(s32);
 void scale_matrix(s32, f32, f32, f32);
@@ -215,7 +215,7 @@ typedef char RecoveredGlobal_801897A4___vt__18TObjContainerEnemy_size[sizeof(Rec
 u8 *TObjContainerEnemy__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801897A4___vt__18TObjContainerEnemy *)&__vt__18TObjContainerEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32F0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerEnemy__name;
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
@@ -290,4 +290,9 @@ void TObjContainerItem__vt79(struct Box_80189A50 *self) {
     }
 }
 
+}
+
+extern "C" {
+extern char lbl_80444D84[];
+s32 TObjContainerEnemy__name = (s32)lbl_80444D84;
 }

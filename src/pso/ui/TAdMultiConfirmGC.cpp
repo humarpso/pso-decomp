@@ -53,7 +53,7 @@ void fn_802FF7EC(void *);
 void *__ct__12TAdMultiOkGCFv(void *, void *, OkArg_802FFA3C *);
 void __ct__18TAdMultiPlayerNoGCFv(void *, void *, u32, u32, s32);
 extern M2C_UNK __vt__17TAdMultiConfirmGC[];
-extern s32 lbl_805D4050;
+extern s32 TAdMultiConfirmGC__name;
 extern u8 lbl_805DEF30;
 TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *self, void *parent);
 }
@@ -134,7 +134,7 @@ TAdMultiConfirmGC_802FFA3C *TAdMultiConfirmGC__ct(TAdMultiConfirmGC_802FFA3C *se
     void *p;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__17TAdMultiConfirmGC;
-    self->x0 = lbl_805D4050;
+    self->x0 = TAdMultiConfirmGC__name;
     self->state = 0;
     self->guide = 0;
     for (i = 0; i < 4; i++) {

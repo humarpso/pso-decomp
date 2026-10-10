@@ -79,7 +79,7 @@ u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
-extern s32 lbl_805D29D8;
+extern s32 TEneEffHamon__name;
 extern const f32 lbl_805D99E4;
 extern const f32 lbl_805D99E8;
 extern const f32 lbl_805D99EC;

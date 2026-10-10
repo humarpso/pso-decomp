@@ -20,7 +20,7 @@ s32 release_keyboard__19TWindowKeyBoardHardFPv(void *);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_80260304_lbl_804CFAD0 lbl_804CFAD0;
 extern M2C_UNK __vt__19TWindowKeyBoardHard[];
-extern s32 lbl_805D3928;
+extern s32 TWindowKeyBoardHard__name;
 u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1);
 }
 
@@ -87,7 +87,7 @@ typedef char RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard_size[sizeof(Re
 u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&lbl_804CFAD0.value), (int) (4), (int) (get_window_layout_position((int) (0xB9))));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80260304___vt__19TWindowKeyBoardHard *)&__vt__19TWindowKeyBoardHard).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3928;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowKeyBoardHard__name;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;
     M2C_FIELD(arg0, s32 *, 0x70) = arg1;
     M2C_FIELD(arg0, s32 *, 0x64) = 0;
@@ -97,4 +97,9 @@ u8 *TWindowKeyBoardHard__ct(u8 *arg0, s32 arg1) {
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_8044F0A8[];
+s32 TWindowKeyBoardHard__name = (s32)lbl_8044F0A8;
 }

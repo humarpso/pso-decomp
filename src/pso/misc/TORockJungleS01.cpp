@@ -77,7 +77,7 @@ u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
 extern M2C_UNK __vt__15TORockJungleS01[];
-extern s32 lbl_805D3D3C;
+extern s32 TORockJungleS01__name;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 TORockJungleS01__texture_resource;
@@ -200,7 +200,7 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     TORockCaveBrakable__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D3C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TORockJungleS01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(0);
     M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource((s32)((int) (0)));

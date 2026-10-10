@@ -12,12 +12,12 @@ void *__ct__10TBoss4FadeFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__10TBoss4Fade[];
-extern void *lbl_805D43F8;
+extern void *TBoss4Fade__name;
 
 void *__ct__10TBoss4FadeFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TBoss4Fade;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D43F8;
+    M2C_FIELD(arg0, void **, 0x0) = TBoss4Fade__name;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x2C) = 0;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;

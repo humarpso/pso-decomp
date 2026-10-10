@@ -84,7 +84,7 @@ void render__6TOMineFPv(VObj_801710E4 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void obj_setFlags30(void *, u32);
 extern M2C_UNK __vt__6TOMine[];
-extern s32 lbl_805D3074;
+extern s32 TOMine__name;
 extern const f32 lbl_805DB85C;
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
 }
@@ -231,7 +231,7 @@ void *__dt__6TOMineFv(void *arg0, s16 arg1) {
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
     arg0->vptr = (u32)((s32 *)&__vt__6TOMine);
-    arg0->f00 = lbl_805D3074;
+    arg0->f00 = TOMine__name;
     *(s16 *)((u8 *)arg0 + 0x328) = 0;
     arg0->f350 = lbl_805DB85C;
     arg0->f34C = lbl_805DB85C;

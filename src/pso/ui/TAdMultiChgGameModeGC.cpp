@@ -70,7 +70,7 @@ extern Txt_802FFE58 lbl_80474DF8;
 extern Cur_802FFE58 lbl_80474E1C[];
 extern Pos_802FFE58 lbl_80474E24;
 extern void *__vt__21TAdMultiChgGameModeGC[];
-extern s32 lbl_805D4058;
+extern s32 TAdMultiChgGameModeGC__name;
 extern const f32 lbl_805DEF38;
 Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self);
 }
@@ -151,7 +151,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
     void *p;
     __ct__7TObjectFP7TObject(self);
     self->vt = __vt__21TAdMultiChgGameModeGC;
-    self->f0 = lbl_805D4058;
+    self->f0 = TAdMultiChgGameModeGC__name;
     self->f1C = 0;
     self->f20 = 2;
     self->f24 = -1;

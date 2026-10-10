@@ -56,7 +56,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_8018E064_lbl_804B7598 TObjDoaEx01__collision_body_parts;
 extern M2C_UNK __vt__11TObjDoaEx01[];
-extern s32 lbl_805D3328;
+extern s32 TObjDoaEx01__name;
 extern u32 TObjDoaEx01__resource_bundle;
 extern const f32 TObjDoaEx01__data_805DBDA0;
 extern const f32 TObjDoaEx01__data_805DBDA8;
@@ -98,7 +98,7 @@ typedef char RecoveredGlobal_8018E064___vt__11TObjDoaEx01_size[sizeof(RecoveredG
 u8 *TObjDoaEx01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_door_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018E064___vt__11TObjDoaEx01 *)&__vt__11TObjDoaEx01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3328;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDoaEx01__name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
     ((VObj_18_4a4f5b *)(arg0))->m17();
     init_collision_body_parts((void *) (arg0), (void *) (&TObjDoaEx01__collision_body_parts.value), (int) (1));

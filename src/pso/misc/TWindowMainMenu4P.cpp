@@ -87,12 +87,12 @@ void *__dt__17TWindowMainMenu4PFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__17TWindowMainMenu4P[];
-extern void *lbl_805D3AF0;
+extern void *TWindowMainMenu4P__name;
 
 void *TWindowMainMenu4P__ct(void *arg0) {
     TWindowMainMenu__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowMainMenu4P;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3AF0;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowMainMenu4P__name;
     return arg0;
 }
 

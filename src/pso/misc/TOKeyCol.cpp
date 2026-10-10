@@ -105,7 +105,7 @@ void *__dt__8TOKeyColFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__8TOKeyCol[];
-extern s32 lbl_805D3040;
+extern s32 TOKeyCol__name;
 extern const f32 lbl_805DB758;
 extern const f32 lbl_805DB75C;
 extern const f32 lbl_805DB760;
@@ -113,7 +113,7 @@ extern const f32 lbl_805DB760;
 void *TOKeyCol__ct(void *arg0, s32 arg1, s32 arg2) {
     TOKey__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TOKeyCol;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3040;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKeyCol__name;
     ((TOKeyCol8016_8016C7FC *)arg0)->ct(arg2);
     init_switch_id__5TOKeyFPv(arg0);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB758;

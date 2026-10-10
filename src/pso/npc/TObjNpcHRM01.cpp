@@ -99,7 +99,7 @@ s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__12TObjNpcHRM01[];
-extern s32 lbl_805D2DD0;
+extern s32 TObjNpcHRM01__name;
 extern u32 TObjNpcHRM01__data_805D57C8;
 extern u32 TObjNpcHRM01__data_805D57CC;
 u8 *TObjNpcHRM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -164,7 +164,7 @@ typedef char RecoveredGlobal_8014B59C___vt__12TObjNpcHRM01_size[sizeof(Recovered
 u8 *TObjNpcHRM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014B59C___vt__12TObjNpcHRM01 *)&__vt__12TObjNpcHRM01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2DD0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcHRM01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcHRM01__data_805D57C8);

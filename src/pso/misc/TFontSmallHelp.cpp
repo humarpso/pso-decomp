@@ -15,8 +15,6 @@ void disallow_rendering__7TObjectFv(TObject *);
 TObject *get_instance__15TWindowCtrlMainFv();
 HelpTextPlayerState *get_player_by_client_id(u32);
 void VecCopy__FP3VecPC3Vec(Vec *, const Vec *);
-void TFontSmallHelp__sub_800FC424(TFontSmallHelp *, u32);
-void set_help_text__14TFontSmallHelpFPvUi(TFontSmallHelp *, u32);
 extern const char *lbl_805D2B20;
 }
 
@@ -53,8 +51,8 @@ TFontSmallHelp::TFontSmallHelp(u32 player, u32 text_color, s32 lifetime, u32 tex
     player_id = player;
     VecCopy__FP3VecPC3Vec(&position, &owner->position);
     owner_identity = owner->identity;
-    TFontSmallHelp__sub_800FC424(this, text_color);
+    set_color(text_color);
     age_ticks = 0;
     lifetime_ticks = lifetime;
-    set_help_text__14TFontSmallHelpFPvUi(this, text_id);
+    set_help_text((const char *)text_id);
 }

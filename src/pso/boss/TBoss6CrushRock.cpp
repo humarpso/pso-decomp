@@ -23,7 +23,7 @@ s32 TBoss6Rock__sub_80353A04();
 s32 TBoss6Rock__sub_80353A0C();
 s32 rand();
 extern RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock __vt__15TBoss6CrushRock;
-extern s32 lbl_805D4408;
+extern s32 TBoss6CrushRock__name;
 extern const f32 lbl_805E00C8;
 extern const f32 lbl_805E00CC;
 extern const f32 lbl_805E00D0;
@@ -53,7 +53,7 @@ typedef char RecoveredGlobal_8035A1A4___vt__15TBoss6CrushRock_size[sizeof(Recove
 u8 *__ct__15TBoss6CrushRockFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TBoss6CrushRock.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4408;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6CrushRock__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model((int) (TBoss6Rock__sub_80353A0C()), (void *) (arg3));
     M2C_FIELD(arg0, s32 *, 0x20) = TBoss6Rock__sub_80353A04();
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
@@ -118,4 +118,9 @@ s32 get_hp__14TBoss6PlotFalzFv(void) {
     return TBoss6PlotFalz__instance;
 }
 
+}
+
+extern "C" {
+extern char lbl_804796A0[];
+s32 TBoss6CrushRock__name = (s32)lbl_804796A0;
 }

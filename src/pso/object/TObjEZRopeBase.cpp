@@ -32,12 +32,12 @@ void *TObjEZRopeBase__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__14TObjEZRopeBase[];
-extern void *lbl_805D2B50;
+extern void *TObjEZRopeBase__name;
 
 void *TObjEZRopeBase__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEZRopeBase;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2B50;
+    M2C_FIELD(arg0, void **, 0x0) = TObjEZRopeBase__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
@@ -46,4 +46,9 @@ void *TObjEZRopeBase__ct(void *arg0) {
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_8043DF18[];
+void *TObjEZRopeBase__name = lbl_8043DF18;
 }

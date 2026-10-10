@@ -33,7 +33,7 @@ void TWindow__close(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 extern M2C_UNK __vt__20TWindowSubQuestBoard[];
-extern void *lbl_805D4278;
+extern void *TWindowSubTradeMessage__name;
 void *__dt__20TWindowSubQuestBoardFv(void *arg0, s16 arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 create_option_menu_window(void *);

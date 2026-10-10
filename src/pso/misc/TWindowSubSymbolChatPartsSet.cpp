@@ -110,7 +110,7 @@ u32 get_instance__20TWindowSubSymbolChatFv(void);
 void set_selection__20TWindowSubSymbolChatFPvUi(void *, u32);
 extern u8 lbl_8044FC30[];
 extern M2C_UNK __vt__28TWindowSubSymbolChatPartsSet[];
-extern s32 lbl_805D3AC8;
+extern s32 TWindowSubSymbolChatPartsSet__name;
 extern const f32 lbl_805DD824;
 extern const f32 lbl_805DD828;
 extern const f32 lbl_805DD82C;
@@ -359,7 +359,7 @@ T_802869BC *TWindowSubSymbolChatPartsSet__ct(T_802869BC *self, void *parent, s16
     void *h;
     TWindowChatSymbol__ct(self, parent, lbl_8044FC30);
     self->vt = ((s32 *)&__vt__28TWindowSubSymbolChatPartsSet);
-    self->f0 = lbl_805D3AC8;
+    self->f0 = TWindowSubSymbolChatPartsSet__name;
     set_field_1c__6TLobbyFPvf(self, lbl_805DD824);
     self->f68 = 0;
     self->f6a = 0;

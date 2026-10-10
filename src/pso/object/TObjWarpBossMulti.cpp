@@ -243,7 +243,7 @@ void TObjAreaWarp__ct(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_boss_warp_destination(void);
 extern M2C_UNK __vt__12TObjWarpBoss[];
-extern s32 lbl_805D3488;
+extern s32 TObjWarpBoss__name;
 extern const f32 lbl_805DC000;
 extern const f32 lbl_805DC018;
 extern "C" {
@@ -917,7 +917,7 @@ extern u8 lbl_8044663C[];
 extern u8 lbl_80446650[];
 extern RecoveredGlobal_8019E418_lbl_8050E208 controller_input_state;
 extern u32 player_slot_table[];
-extern s32 lbl_805D348C;
+extern s32 TObjWarpBossMulti__name;
 extern s32 camera_ctrl_instance;
 extern s32 local_client_id;
 extern s32 lbl_805D55C0;
@@ -1249,7 +1249,7 @@ Obj_8019E238 *TObjWarpBossMulti__ct(Obj_8019E238 *self, void * _w1, void * _w2) 
     int i;
     TObjAreaWarp__ct(self);
     self->vt18 = ((s32 *)&__vt__17TObjWarpBossMulti);
-    self->f0 = lbl_805D348C;
+    self->f0 = TObjWarpBossMulti__name;
     self->fBC = get_boss_warp_destination();
     self->fA4 = 0;
     register_entity_by_id(self);
@@ -1870,7 +1870,7 @@ Obj_8019F578 *TObjWarpBoss__ct(Obj_8019F578 *self, int _w1, void * _w2) {
     int i;
     TObjAreaWarp__ct(self);
     self->vt18 = ((s32 *)&__vt__12TObjWarpBoss);
-    self->f0 = lbl_805D3488;
+    self->f0 = TObjWarpBoss__name;
     self->fC4 = lbl_805DC000;
     self->fAC = lbl_805DC018;
     self->fBC = get_boss_warp_destination();
@@ -1983,4 +1983,11 @@ int get_boss_warp_model(void) {  return (*(int *)&warp_boss_model); }
 int get_boss_warp_confirmation_model(void) {  return (*(int *)&boss_warp_confirmation_model); }
 int get_boss_warp_base_model(void) {  return (*(int *)&boss_warp_base_model); }
 
+}
+
+extern "C" {
+extern char lbl_80446618[];
+extern char lbl_80446628[];
+s32 TObjWarpBoss__name = (s32)lbl_80446618;
+s32 TObjWarpBossMulti__name = (s32)lbl_80446628;
 }

@@ -141,7 +141,7 @@ s32 rand();
 extern M2C_UNK __vt__14TBoss2Tentacle[];
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern s32 TBoss2Tentacle__segment_point_defaults[];
-extern s32 lbl_805D26E0;
+extern s32 TBoss2Tentacle__name;
 extern G_80039C44 *TBoss2Tentacle__motion_data;
 extern const float TBoss2Tentacle__data_805D8534;
 extern const f32 lbl_805D855C;
@@ -497,7 +497,7 @@ Obj_80039F50 *__ct__14TBoss2TentacleFP7TObjectii(Obj_80039F50 *self, void *paren
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__14TBoss2Tentacle;
-    self->f0 = lbl_805D26E0;
+    self->f0 = TBoss2Tentacle__name;
     self->f110 = arg2;
     self->f2C = arg3;
     self->f1C = 0;

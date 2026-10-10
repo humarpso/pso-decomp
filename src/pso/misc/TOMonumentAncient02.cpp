@@ -78,7 +78,7 @@ M2C_UNK set_type__14TOKeyAncient01FPv(void *);
 extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
-extern s32 lbl_805D30CC;
+extern s32 TOMonumentAncient02__name;
 extern u32 TOMonumentAncient02__data_805D5A68;
 extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
@@ -276,7 +276,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r3;
     init_map_object_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02 *)&__vt__19TOMonumentAncient02).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30CC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMonumentAncient02__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 0xC);

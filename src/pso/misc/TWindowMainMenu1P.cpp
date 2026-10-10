@@ -119,7 +119,7 @@ void run_task__17TWindowMainMenu1PFv(void* p) { handle_menu_selection__15TWindow
 extern M2C_UNK __vt__17TWindowMainMenu1P[];
 extern const f32 lbl_805DD8A8;
 extern const f32 lbl_805DD8B0;
-extern void *lbl_805D3AE8;
+extern void *TWindowMainMenu1P__name;
 extern const f32 lbl_805DD8C4;
 extern const f32 lbl_805DD8BC;
 extern const f32 lbl_805DD8CC;
@@ -145,7 +145,7 @@ u8 *__dt__17TWindowMainMenu1PFv(u8 *arg0, s16 arg1) {
 void *TWindowMainMenu1P__ct(void *arg0) {
     TWindowMainMenu__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowMainMenu1P;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3AE8;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowMainMenu1P__name;
     M2C_FIELD(arg0, u8 *, 0x60) = 0;
     M2C_FIELD(arg0, u8 *, 0x61) = 0;
     M2C_FIELD(arg0, f32 *, 0x6C) = lbl_805DD8A8;

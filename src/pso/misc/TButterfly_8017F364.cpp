@@ -17,12 +17,12 @@ void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void init_motion__10TButterflyFPv(void *);
 
 extern M2C_UNK __vt__10TButterfly[];
-extern void *lbl_805D3230;
+extern void *TButterfly__name;
 
 void *TButterfly__ct(void *arg0, void *arg1, void *arg2) {
     construct_world_actor_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TButterfly;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3230;
+    M2C_FIELD(arg0, void **, 0x0) = TButterfly__name;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 56), (void *)((char *)arg2 + 12));
     copy_xyz__10TObjPlayerFPvPv((void *)((char *)arg0 + 92), (void *)((char *)arg2 + 24));
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 104), (void *)((char *)arg2 + 36));

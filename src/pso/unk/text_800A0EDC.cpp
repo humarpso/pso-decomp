@@ -826,7 +826,7 @@ void *lbl_804907EC[83] = {
 
 extern M2C_UNK lbl_804909C4[];
 extern u8 identity_matrix[];
-extern s32 lbl_805D29C8;
+extern s32 TObjEneDarkGunCenter__name;
 extern s32 lbl_805D5004;
 extern f32 lbl_805D5008;
 extern u32 player_effect_bml_resource;
@@ -858,7 +858,7 @@ u8 *TObjEneDarkGunCenter__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 i;
     initialize__9TObjEnemyFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjEneDarkGunCenter;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D29C8;
+    M2C_FIELD(arg0, s32 *, 0) = TObjEneDarkGunCenter__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
     o = (Obj_800A0EDC *)arg0;

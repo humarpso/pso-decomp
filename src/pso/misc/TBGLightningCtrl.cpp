@@ -112,9 +112,9 @@ extern void *__vt__12TBGLightning[];
 extern void *__vt__16TBGLightningCtrl[];
 extern unsigned char lbl_8046FCA0[];
 __declspec(section ".rodata") extern const char lbl_8046FC68[] = "TBGLightning";
-const char *lbl_805D3E38 = lbl_8046FC68;
+const char *TBGLightning__name = lbl_8046FC68;
 __declspec(section ".rodata") extern const char lbl_8046FC78[] = "TBGLightningCtrl";
-const char *lbl_805D3E3C = lbl_8046FC78;
+const char *TBGLightningCtrl__name = lbl_8046FC78;
 __declspec(section ".rodata") s32 lbl_8046FC8C[3] = { 1, 5, 0 };
 extern void *camera_ctrl_instance;
 extern int lbl_805D66D0;
@@ -173,7 +173,7 @@ void *__dt__16TBGLightningCtrlFv(void *arg0, s16 arg1) {
 u8 *TBGLightningCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__16TBGLightningCtrl;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E3C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBGLightningCtrl__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = 0;
     return arg0;
@@ -339,7 +339,7 @@ u8 *__ct__12TBGLightningFv(u8 *arg0, void *arg1, s32 arg2, f32 farg0) {
 
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__12TBGLightning;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E38;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBGLightning__name;
     temp_f2 = (f32) rand();
     temp_f1 = (3.0517578e-05f) * temp_f2;
     temp_r5 = (s8) ((2.0f) * temp_f1);

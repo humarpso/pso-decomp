@@ -20,7 +20,7 @@ struct VO_8016F320 : VB_8016F320 {
 extern "C" {
 M2C_UNK construct_world_actor_base();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
-extern s32 lbl_805D3084;
+extern s32 TOMineDisp__name;
 extern const f32 lbl_805DB85C;
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2);
 void *get_shared_text_buffer(void);
@@ -50,7 +50,7 @@ typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGl
 u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2) {
     construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TOMineDisp.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3084;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMineDisp__name;
     M2C_FIELD(arg0, s16 *, 0xA8) = arg2;
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DB85C;
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DB85C;

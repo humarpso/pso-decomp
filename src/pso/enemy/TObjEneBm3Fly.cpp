@@ -3797,7 +3797,7 @@ typedef struct Ctl_800B47C4 {
     s32 f;
 } Ctl_800B47C4;
 extern s32 lbl_805D28B8;
-extern s32 lbl_805D2A10;
+extern s32 TObjEneBm3Fly__name;
 extern s32 lbl_805D2A1C;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;
@@ -4250,7 +4250,7 @@ M2C_UNK init_child_params__13TObjEneBm3FlyFv(void *arg0) {
 u8 *TObjEneBm3Fly__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, u8 *arg5, u8 *arg6) {
     init_object__9TObjEneDDFPv(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800B2168___vt__13TObjEneBm3Fly *)__vt__13TObjEneBm3Fly).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2A10;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneBm3Fly__name;
     M2C_FIELD(arg0, u16 *, 0x418) = obj_getField1c(arg2);
     init_common_from__9TObjEneDDFPvPv((void *) (arg0), (void *) (arg2));
     M2C_FIELD(arg0, s16 *, 0x1C) = arg3;

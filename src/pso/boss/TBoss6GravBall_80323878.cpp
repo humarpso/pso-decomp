@@ -40,7 +40,7 @@ M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
 extern s32 lbl_8047667C[];
 extern M2C_UNK __vt__14TBoss6GravBall[];
-extern s32 lbl_805D4170;
+extern s32 TBoss6GravBall__name;
 extern const f32 TBoss6GravBall__data_805DF550;
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -220,7 +220,7 @@ Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2) {
     s32 i;
     construct_collider_proxy__10TObjPlayerFPv(arg0);
     ((u8 **)arg0)[0x18 / 4] = ((u8 *)&__vt__14TBoss6GravBall);
-    arg0->f0 = lbl_805D4170;
+    arg0->f0 = TBoss6GravBall__name;
     arg0->fAC = arg1;
     VecCopy__FP3VecPC3Vec(arg0->pos, arg2);
     arg0->fB4 = 0;

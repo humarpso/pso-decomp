@@ -30,7 +30,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * TOWreckAncient__ct(void *, s32);
 extern RecoveredGlobal_8017DC5C_lbl_804B5418 TOWreckAncient__collision_body_templates;
 extern RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01 __vt__16TOWreckAncient01;
-extern s32 lbl_805D31FC;
+extern s32 TOWreckAncient01__name;
 u8 *TOWreckAncient01__ct(u8 *arg0, s32 arg1);
 }
 
@@ -41,7 +41,7 @@ typedef char RecoveredGlobal_8017DC5C___vt__16TOWreckAncient01_size[sizeof(Recov
 u8 *TOWreckAncient01__ct(u8 *arg0, s32 arg1) {
     TOWreckAncient__ct(arg0, 1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TOWreckAncient01.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D31FC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOWreckAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     init_collision_body_parts(arg0, (s32) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x2C), 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);

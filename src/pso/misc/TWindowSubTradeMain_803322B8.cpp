@@ -18,14 +18,14 @@ void fn_8027B2A8(void *);
 void TLobby__sub_802D2A0C(void *);
 
 extern M2C_UNK __vt__19TWindowSubTradeMain[];
-extern void *lbl_805D4228;
+extern void *TWindowSubTradeMain__name;
 
 void *TWindowSubTradeMain__ct(void *arg0, void *arg1, void *arg2) {
     void *o;
     void *x;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubTradeMain;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4228;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowSubTradeMain__name;
     M2C_FIELD(arg0, u8 *, 0x1C) = 0;
     M2C_FIELD(arg0, u8 *, 0x1D) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;

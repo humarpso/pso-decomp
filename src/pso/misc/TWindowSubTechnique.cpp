@@ -256,12 +256,12 @@ void *__dt__19TWindowSubTechniqueFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__19TWindowSubTechnique[];
-extern s32 lbl_805D3AD0;
+extern s32 TWindowSubTechnique__name;
 
 void *TWindowSubTechnique__ct(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowSubTechnique;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubTechnique__name;
     M2C_FIELD(arg0, s32 *, 0x30) = arg1;
     M2C_FIELD(arg0, s32 *, 0x28) = arg2;
     M2C_FIELD(arg0, s32 *, 0x34) = open_menu__19TWindowSubTechniqueFPv((void *)(arg0));

@@ -199,7 +199,7 @@ extern RecoveredGlobal_80230D9C_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80230D9C_lbl_804CC55C lbl_804CC55C;
 extern void *lbl_804CC800[];
 extern u8 identity_matrix[];
-extern u32 lbl_805D37C0;
+extern u32 TTecGiFoie__name;
 extern const f32 lbl_805DC810;
 extern const f32 lbl_805DC818;
 extern const f32 lbl_805DC820;
@@ -391,7 +391,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
     s32 r;
     construct_area_technique_base(self_, source, origin, origin, level);
     self->vt = &__vt__10TTecGiFoie.value;
-    self->x0 = lbl_805D37C0;
+    self->x0 = TTecGiFoie__name;
     ((void (*)(void *))calc_params__10TTecGiFoieFPv)(self_);
     if (self->effect != NULL) {
         M2C_FIELD(M2C_FIELD(self->effect, u8 **, 0xA4), f32 *, 0xC) = TTecGiFoie__data_805DC81C + self->radius;

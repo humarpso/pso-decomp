@@ -34,14 +34,14 @@ void *__dt__14TAdMultiSaveGCFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__14TAdMultiSaveGC[];
-extern void *lbl_805D4048;
+extern void *TAdMultiSaveGC__name;
 
 void *TAdMultiSaveGC__ct(void *arg0) {
     void *o;
     void *o2;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdMultiSaveGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4048;
+    M2C_FIELD(arg0, void **, 0x0) = TAdMultiSaveGC__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     M2C_FIELD(arg0, u32 *, 0x20) = 0;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;

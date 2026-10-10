@@ -35,12 +35,12 @@ void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__10TObjBgmCol[];
-extern s32 lbl_805D3228;
+extern s32 TObjBgmCol__name;
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjBgmCol;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3228;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBgmCol__name;
     ((TObjBgmCol8017E8_8017E7F0 *)arg0)->ct(arg2);
     M2C_FIELD(arg0, s32 *, 0x90) = 1;
     M2C_FIELD(arg0, f32 *, 0x98) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
@@ -51,4 +51,9 @@ void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_80443870[];
+s32 TObjBgmCol__name = (s32)lbl_80443870;
 }

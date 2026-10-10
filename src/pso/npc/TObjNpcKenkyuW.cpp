@@ -166,7 +166,7 @@ s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__14TObjNpcKenkyuW[];
-extern s32 lbl_805D3DD4;
+extern s32 TObjNpcKenkyuW__name;
 extern u32 TObjNpcKenkyuW__data_805D6658;
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
@@ -260,7 +260,7 @@ typedef char RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW_size[sizeof(Recover
 u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DD4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcKenkyuW__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyuW__data_805D6658)), (int) (0));

@@ -46,7 +46,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 poll_memcard_status(void *);
 void create_backgrounds__9TSaveChCrFPv(void *arg0);
 extern RecoveredGlobal_8033A34C___vt__9TSaveChCr __vt__9TSaveChCr;
-extern s32 lbl_805D4280;
+extern s32 TSaveChCr__name;
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2);
 }
 
@@ -149,7 +149,7 @@ typedef char RecoveredGlobal_8033A34C___vt__9TSaveChCr_size[sizeof(RecoveredGlob
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TSaveChCr.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4280;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TSaveChCr__name;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;

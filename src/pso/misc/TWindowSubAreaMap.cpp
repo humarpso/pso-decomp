@@ -83,13 +83,13 @@ void *__dt__17TWindowSubAreaMapFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__17TWindowSubAreaMap[];
-extern void *lbl_805D3A00;
+extern void *TWindowSubAreaMap__name;
 
 void *TWindowSubAreaMap__ct(void *arg0, void *arg1, void *arg2) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TWindowSubAreaMap;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3A00;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowSubAreaMap__name;
     M2C_FIELD(arg0, void **, 0x20) = arg1;
     M2C_FIELD(arg0, void **, 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x78);

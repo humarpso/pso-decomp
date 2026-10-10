@@ -191,12 +191,12 @@ void *__dt__13TWindowStatusFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__13TWindowStatus[];
-extern void *lbl_805D39F8;
+extern void *TWindowStatus__name;
 
 void *TWindowStatus__ct(void *arg0) {
     TWindowSimpleStatus__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowStatus;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D39F8;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowStatus__name;
     return arg0;
 }
 

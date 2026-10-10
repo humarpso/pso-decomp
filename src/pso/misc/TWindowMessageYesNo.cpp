@@ -70,12 +70,12 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__19TWindowMessageYesNo[];
-extern void *lbl_805D3DF8;
+extern void *TWindowMessageYesNo__name;
 
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMessageYesNo;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DF8;
+    M2C_FIELD(arg0, void **, 0x0) = TWindowMessageYesNo__name;
     M2C_FIELD(arg0, void **, 0x24) = arg2;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
     M2C_FIELD(arg0, u32 *, 0x2C) = 0;

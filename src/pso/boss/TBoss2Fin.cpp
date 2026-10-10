@@ -34,7 +34,7 @@ void fn_800FF8CC(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
 extern E_800367C4 lbl_804FE590[];
-extern s32 lbl_805D26B8;
+extern s32 TBoss2Fin__name;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8454;
 extern const f32 lbl_805D845C;
@@ -50,7 +50,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
     Rec_80036718 *p;
     TObjEZRopeBase__ct(self);
     self->vt = __vt__9TBoss2Fin;
-    self->f0 = lbl_805D26B8;
+    self->f0 = TBoss2Fin__name;
     self->f80 = arg2;
     self->f84 = arg3;
     p = self->recs;

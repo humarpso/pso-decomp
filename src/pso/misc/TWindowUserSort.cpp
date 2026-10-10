@@ -46,7 +46,7 @@ u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void fill_card_text_entries__20TWindowSubStatusDispFPvi(void *, s32);
 extern RecoveredGlobal_80288380_lbl_804D304C lbl_804D304C;
 extern M2C_UNK __vt__15TWindowUserSort[];
-extern s32 lbl_805D3AE0;
+extern s32 TWindowUserSort__name;
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
@@ -94,7 +94,7 @@ typedef char RecoveredGlobal_80288380___vt__15TWindowUserSort_size[sizeof(Recove
 u8 *TWindowUserSort__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D304C.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80288380___vt__15TWindowUserSort *)&__vt__15TWindowUserSort).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AE0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowUserSort__name;
     M2C_FIELD(arg0, s32 *, 0x60) = arg2;
     fill_card_text_entries__20TWindowSubStatusDispFPvi(arg0 + 0x24, arg2);
     return arg0;

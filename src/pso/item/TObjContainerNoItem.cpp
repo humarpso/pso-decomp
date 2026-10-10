@@ -163,7 +163,7 @@ s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_8018925C_lbl_804B63BC forest_box_collision_body_parts;
 extern M2C_UNK __vt__19TObjContainerNoItem[];
-extern s32 lbl_805D32F4;
+extern s32 TObjContainerNoItem__name;
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -260,7 +260,7 @@ typedef char RecoveredGlobal_8018925C___vt__19TObjContainerNoItem_size[sizeof(Re
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem *)&__vt__19TObjContainerNoItem).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D32F4;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerNoItem__name;
     M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);

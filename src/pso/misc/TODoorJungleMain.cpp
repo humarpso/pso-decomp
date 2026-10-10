@@ -229,7 +229,7 @@ u8 * init_door_base(void *);
 s32 create__10TObjMapCsnFi(s32);
 extern RecoveredGlobal_8029B924_lbl_804DC014 TODoorJungleMain_collision_body_parts;
 extern M2C_UNK __vt__16TODoorJungleMain[];
-extern s32 lbl_805D3D20;
+extern s32 TODoorJungleMain__name;
 extern u32 TODoorJungleMain__bml_resource;
 extern const f32 lbl_805DDCD8;
 extern const f32 lbl_805DDCDC;
@@ -466,7 +466,7 @@ u8 *TODoorJungleMain__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     s32 temp_r4;
     init_door_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029B924___vt__16TODoorJungleMain *)&__vt__16TODoorJungleMain).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3D20;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorJungleMain__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorJungleMain__bml_resource), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DDCD8;

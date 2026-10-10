@@ -68,7 +68,7 @@ s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
 extern M2C_UNK __vt__13TBoss6Kakusan[];
-extern s32 lbl_805D4160;
+extern s32 TBoss6Kakusan__name;
 extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 TBoss6Kakusan__data_805DF51C;
 extern const f32 lbl_805DF53C;
@@ -297,7 +297,7 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     u32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80322994___vt__13TBoss6Kakusan *)&__vt__13TBoss6Kakusan).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4160;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6Kakusan__name;
     M2C_FIELD(arg0, s16 *, 0x20) = arg4;
     M2C_FIELD(arg0, f32 *, 0x24) = farg0;
     if (M2C_FIELD(arg0, f32 *, 0x24) <= TBoss6Kakusan__data_805DF518) {

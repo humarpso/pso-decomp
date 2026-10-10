@@ -66,7 +66,7 @@ s32 is_split_screen(void);
 u8 * TOKey__ct(void *);
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__14TOKeyMachine01[];
-extern s32 lbl_805D305C;
+extern s32 TOKeyMachine01__name;
 extern u32 key_machine_model_archive;
 extern s32 *TOKeyMachine01__texture_lists;
 extern const f32 lbl_805DB784;
@@ -218,7 +218,7 @@ void *__dt__14TOKeyMachine01Fv(void *arg0, s16 arg1) {
 u8 *TOKeyMachine01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TOKey__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016D7F0___vt__14TOKeyMachine01 *)&__vt__14TOKeyMachine01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D305C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKeyMachine01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOKeyMachine01__texture_lists;

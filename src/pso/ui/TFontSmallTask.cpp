@@ -407,7 +407,7 @@ void *get_instance__15TWindowCtrlMainFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 char *strncpy(char *, const char *, u32);
 extern u8 __vt__14TFontSmallTask[];
-extern s32 lbl_805D2B30;
+extern s32 TFontSmallTask__name;
 extern const f32 lbl_805DAA0C;
 extern const f32 lbl_805DAA20;
 }
@@ -423,7 +423,7 @@ s32 get_task_id__14TFontSmallTaskFPv(void* p);
 TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self, Vec_800FD4D4 *pos, u32 color, s32 life, s32 delay, const char *text, u16 view) {
     __ct__7TObjectFP7TObject(self, get_instance__15TWindowCtrlMainFv());
     self->vt = __vt__14TFontSmallTask;
-    self->f0 = lbl_805D2B30;
+    self->f0 = TFontSmallTask__name;
     VecCopy__FP3VecPC3Vec(&self->pos, pos);
     self->ofs_x = lbl_805DAA0C;
     self->ofs_y = lbl_805DAA0C;

@@ -104,7 +104,7 @@ s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
 void init__8TOKurageFPv(u8 *arg0);
 extern M2C_UNK __vt__8TOKurage[];
-extern s32 lbl_805D3060;
+extern s32 TOKurage__name;
 extern u32 TOKurage__data_805D5A38;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 is_current_room(void *);
@@ -441,7 +441,7 @@ void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init_map_object_base((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3060;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKurage__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));

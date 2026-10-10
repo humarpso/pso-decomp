@@ -124,7 +124,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 init_map_object_base(void *, s32);
 extern M2C_UNK __vt__18TOMonitorMachine01[];
-extern s32 lbl_805D30B4;
+extern s32 TOMonitorMachine01__name;
 extern void *TOMonitorMachine01__data_805D5A58;
 extern s32 tl_05;
 extern const f32 lbl_805DB90C;
@@ -291,7 +291,7 @@ void *TOMonitorMachine01__ct(void *arg0_, void *arg1) {
 #define self ((Obj_80172550 *)arg0_)
     init_map_object_base(arg0_, tl_05);
     self->vt = __vt__18TOMonitorMachine01;
-    self->f0 = lbl_805D30B4;
+    self->f0 = TOMonitorMachine01__name;
     ((VObj_18_1a504b *)(arg0_))->m5((s32)arg1);
     self->f34 = get_bml_model(TOMonitorMachine01__data_805D5A58, 0);
     self->f24 = TObjFish__sub_8001EDB0(TOMonitorMachine01__data_805D5A58, 0);

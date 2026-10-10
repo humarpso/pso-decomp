@@ -49,7 +49,7 @@ s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
 extern M2C_UNK __vt__19TOMonumentAncient01[];
-extern s32 lbl_805D30BC;
+extern s32 TOMonumentAncient01__name;
 extern u32 TOMonumentAncient01__resource_bundle;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
@@ -122,7 +122,7 @@ typedef char RecoveredGlobal_80172810___vt__19TOMonumentAncient01_size[sizeof(Re
 u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     init__5TOKeyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D30BC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMonumentAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));

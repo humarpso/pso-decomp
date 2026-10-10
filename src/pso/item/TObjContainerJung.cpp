@@ -52,7 +52,7 @@ u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_8018D85C_lbl_804B7168 container_jung_collision_desc;
 extern M2C_UNK __vt__17TObjContainerJung[];
-extern s32 lbl_805D3318;
+extern s32 TObjContainerJung__name;
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2);
 u8 * get_bml_model(void *, int);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -203,7 +203,7 @@ typedef char RecoveredGlobal_8018D85C___vt__17TObjContainerJung_size[sizeof(Reco
 u8 *TObjContainerJung__ct(u8 *arg0, s32 arg1, s32 _w2) {
     init_container_base(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018D85C___vt__17TObjContainerJung *)&__vt__17TObjContainerJung).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3318;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerJung__name;
     M2C_FIELD(arg0, s16 *, 0x326) = 0;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &container_jung_collision_desc.value, 1);

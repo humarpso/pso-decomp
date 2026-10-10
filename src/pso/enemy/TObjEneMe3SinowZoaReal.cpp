@@ -106,7 +106,7 @@ M2C_UNK setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *);
 M2C_UNK init_enemy__18TObjEneMe3SinowZoaFPv(void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
 extern M2C_UNK __vt__22TObjEneMe3SinowZoaReal[];
-extern s32 lbl_805D4124;
+extern s32 TObjEneMe3SinowZoaReal__name;
 u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -164,7 +164,7 @@ typedef char SinowZoaRealVTableStorage_size[sizeof(SinowZoaRealVTableStorage) ==
 u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     TObjEneMe3SinowZoa__ct(arg0, (void *) arg1, (void *) arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(SinowZoaRealVTableStorage *)&__vt__22TObjEneMe3SinowZoaReal).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4124;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMe3SinowZoaReal__name;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
     setup_move_bounds__18TObjEneMe3SinowZoaFPv((void *) (arg0));
     init_enemy__18TObjEneMe3SinowZoaFPv((void *) (arg0));

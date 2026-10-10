@@ -83,7 +83,7 @@ void run_task__13TAdTitleTexGCFv(void *arg0) {
 
 extern M2C_UNK __vt__13TAdTitleTexGC[];
 extern const f32 lbl_805DDF9C;
-extern void *lbl_805D3DE8;
+extern void *TAdTitleTexGC__name;
 extern const f32 lbl_805DDFA0;
 extern const f32 lbl_805DDFA4;
 extern const f32 lbl_805DDFA8;
@@ -98,7 +98,7 @@ TAdTitleTexGC::~TAdTitleTexGC() {}
 void *__ct__13TAdTitleTexGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdTitleTexGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DE8;
+    M2C_FIELD(arg0, void **, 0x0) = TAdTitleTexGC__name;
     M2C_FIELD(arg0, u32 *, 0x7C) = 51;
     M2C_FIELD(arg0, u32 *, 0x80) = -1;
     M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDF9C;

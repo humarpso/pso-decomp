@@ -35,7 +35,7 @@ u8 * get_zero_vec2(void);
 void update_chat_parts__12TWindowTimerFPv(u8 *arg0);
 extern RecoveredGlobal_80287FBC_lbl_804D2E74 lbl_804D2E74;
 extern M2C_UNK __vt__12TWindowTimer[];
-extern s32 lbl_805D3AD8;
+extern s32 TWindowTimer__name;
 u8 *TWindowTimer__ct(u8 *arg0);
 s32 get_shared_text_buffer();
 M2C_UNK append_padded_number(s32, M2C_UNK);
@@ -189,7 +189,7 @@ typedef char RecoveredGlobal_80287FBC___vt__12TWindowTimer_size[sizeof(Recovered
 u8 *TWindowTimer__ct(u8 *arg0) {
     construct_base__9TWindowDDFPvPvsPv(arg0, &lbl_804D2E74.value, 4, get_zero_vec2());
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80287FBC___vt__12TWindowTimer *)&__vt__12TWindowTimer).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3AD8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowTimer__name;
     M2C_FIELD(arg0, s32 *, 0x60) = 0;
     update_chat_parts__12TWindowTimerFPv((u8 *)(arg0));
     save_position__17TWindowSubComCardFPv(arg0);

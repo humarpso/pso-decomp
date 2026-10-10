@@ -1783,7 +1783,7 @@ __declspec(section ".data") s32 lbl_80500B24[2];
 Ctl_800B47C4 lbl_80500B2C;
 #define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
 extern s32 lbl_805D28B8;
-extern s32 lbl_805D2A10;
+extern s32 TObjEneBm3Fly__name;
 extern s32 lbl_805D2A1C;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;

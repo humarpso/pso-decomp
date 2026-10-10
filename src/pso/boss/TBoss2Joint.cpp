@@ -333,7 +333,7 @@ void initialize_enemy_state__9TObjEneDDFPv(void *, s32);
 void init_common_from__9TObjEneDDFPvPv(void *, void *);
 u8 * TObjEneDD__ct(void *);
 extern M2C_UNK __vt__11TBoss2Joint[];
-extern s32 lbl_805D26C0;
+extern s32 TBoss2Joint__name;
 u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, s32 arg6);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80036A90_lbl_80435A68 lbl_80435A68;
@@ -591,7 +591,7 @@ M2C_UNK init_params__11TBoss2JointFPv(void *arg0) {
 u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, s32 arg6) {
     TObjEneDD__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26C0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss2Joint__name;
     init_common_from__9TObjEneDDFPvPv(arg0, arg1);
     M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
     M2C_FIELD(arg0, s16 *, 0x2C) = arg3;

@@ -27,7 +27,7 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 M2C_UNK TWindowSubStatusDisp__sub_8026E1D4(void *, void *, void *);
 extern RecoveredGlobal_8026E728_lbl_804D0AE0 lbl_804D0AE0;
 extern M2C_UNK __vt__15TWindowShortCut[];
-extern s32 lbl_805D39D8;
+extern s32 TWindowShortCut__name;
 u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 }
 
@@ -75,7 +75,7 @@ u8 *TWindowShortCut__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804D0AE0.value, 4, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026E728___vt__15TWindowShortCut *)&__vt__15TWindowShortCut).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D39D8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowShortCut__name;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);
     if (var_r31 != 0) {
         var_r31 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r31, get_message_10__20TWindowSubStatusDispFPv((int) (0x35)), (s32) M2C_FIELD(arg0, s16 *, 0x20));

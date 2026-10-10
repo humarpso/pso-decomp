@@ -165,7 +165,7 @@ M2C_UNK fn_8030A83C(void *);
 s32 create_boss4_fade();
 extern M2C_UNK __vt__14TBoss4DarkFalz[];
 extern Desc_8004BD58 TBoss4DarkFalz__data_804FF1E8;
-extern s32 lbl_805D2770;
+extern s32 TBoss4DarkFalz__name;
 extern void *TBoss4DarkFalz__type1_instance;
 extern void *TBoss4DarkFalz__type2_instance;
 extern void *TBoss4DarkFalz__type3_instance;
@@ -264,7 +264,7 @@ s32 TBoss4DarkFalz__ct(s32 a0, s32 arg1, s32 a2) {
     s32 temp_r30_2;
     initialize__9TObjEnemyFPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss4DarkFalz;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2770;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss4DarkFalz__name;
     TBoss4DarkFalz__sub_8004AFB8((void *) (arg0));
     if ((s16) M2C_FIELD(arg2, s16 *, 2) != 0x200) {
         return (s32)arg0;

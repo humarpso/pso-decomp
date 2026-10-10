@@ -44,12 +44,12 @@ void __ct__8TChCrTagFv(void *);
 extern const f32 lbl_805DDFE4;
 extern void *__vt__14TChCrTagPlBack[6];
 extern const f32 lbl_805DDFE8;
-extern void *lbl_805D3DF0;
+extern void *TChCrTagPlBack__name;
 
 void *__ct__14TChCrTagPlBackFv(void *arg0) {
     __ct__8TChCrTagFv(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = __vt__14TChCrTagPlBack;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3DF0;
+    M2C_FIELD(arg0, void **, 0x0) = TChCrTagPlBack__name;
     M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDFE4;
     M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDFE8;
     M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDFE4;

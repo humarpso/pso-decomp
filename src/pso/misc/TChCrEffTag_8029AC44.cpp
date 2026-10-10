@@ -9,13 +9,13 @@ void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__11TChCrEffTag[];
 extern const f32 lbl_805DDCA4;
-extern void *lbl_805D3D08;
+extern void *TChCrEffTag__name;
 extern u32 TChCrEffTag__selected_heading;
 
 void *__ct__11TChCrEffTagFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TChCrEffTag;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D08;
+    M2C_FIELD(arg0, void **, 0x0) = TChCrEffTag__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = -1;
     TChCrEffTag__selected_heading = -1;
     M2C_FIELD(arg0, u32 *, 0x28) = 0;
@@ -24,4 +24,9 @@ void *__ct__11TChCrEffTagFv(void *arg0) {
     return arg0;
 }
 
+}
+
+extern "C" {
+extern char lbl_80465298[];
+void *TChCrEffTag__name = lbl_80465298;
 }

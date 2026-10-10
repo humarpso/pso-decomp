@@ -487,14 +487,14 @@ extern Vec_8019D0A8 map_warp_destination_offsets[];
 extern s64 warp_string_screen_position_table[];
 extern RecoveredGlobal_8019CA24_lbl_80515BA0 lbl_80515BA0;
 extern u8 identity_matrix[];
-extern s32 lbl_805D3464;
-extern s32 lbl_805D3468;
-extern s32 lbl_805D346C;
-extern s32 lbl_805D3470;
-extern s32 lbl_805D3474;
-extern s32 lbl_805D3478;
-extern s32 lbl_805D347C;
-extern s32 lbl_805D3480;
+extern s32 TObjMapWarpForest__name;
+extern s32 TObjAreaWarp__name;
+extern s32 TObjAreaWarpForest__name;
+extern s32 TObjAreaWarpQuest__name;
+extern s32 TObjAreaWarpEnding__name;
+extern s32 TObjMapForceWarp__name;
+extern s32 TObjWarpString__name;
+extern s32 TObjAreaWarpEndingJung__name;
 extern s32 local_client_id;
 extern s32 lbl_805D5C80;
 extern Colors_8019C604 lbl_805DBFC8;
@@ -594,7 +594,7 @@ void *TObjAreaWarpEndingJung__ct(void *arg0) {
 
     ((M2C_UNK (*)(void))TObjAreaWarpEnding__ct)();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjAreaWarpEndingJung;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3480;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarpEndingJung__name;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 0;
     }
@@ -699,7 +699,7 @@ TObjWarpString::~TObjWarpString() {}
 u8 *__ct__14TObjWarpStringFv(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjWarpString.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D347C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjWarpString__name;
     strncpy((s32) (arg0 + 0x1C), arg2, 0x20);
     M2C_FIELD(arg0, s8 *, 0x3B) = 0;
     M2C_FIELD(arg0, s16 *, 0x48) = arg3;
@@ -762,7 +762,7 @@ void *__dt__16TObjMapForceWarpFv(void *arg0, s16 arg1) {
 void *TObjMapForceWarp__ct(void *arg0) {
     TObjMapWarp__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjMapForceWarp;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3478;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMapForceWarp__name;
     if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) > 0) {
         M2C_FIELD(arg0, s32 *, 0xFC) = 0;
     } else {
@@ -904,7 +904,7 @@ u8 *TObjAreaWarpEnding__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r4;
     ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019BF88___vt__18TObjAreaWarpEnding *)&__vt__18TObjAreaWarpEnding).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3474;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarpEnding__name;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
@@ -1038,7 +1038,7 @@ u8 *TObjAreaWarpQuest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r4;
     ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019C454___vt__17TObjAreaWarpQuest *)&__vt__17TObjAreaWarpQuest).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3470;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarpQuest__name;
     M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DBFE4;
     M2C_FIELD(arg0, s32 *, 0xCC) = 0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
@@ -1149,7 +1149,7 @@ u8 *TObjAreaWarpForest__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     ((s32 (*)(void *, void *, void *))TObjAreaWarp__ct)((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019C828___vt__18TObjAreaWarpForest *)&__vt__18TObjAreaWarpForest).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D346C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarpForest__name;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DBFE4;
     M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     temp_r0 = M2C_FIELD(arg0, u32 *, 0x8C);
@@ -1327,7 +1327,7 @@ u8 *__dt__12TObjAreaWarpFv(u8 *arg0, s16 arg1) {
 void *TObjAreaWarp__ct(void *arg0) {
     TObjWarpBase__ct();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjAreaWarp;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3468;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarp__name;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     if ((s32) lbl_805D5C80 != 0) {
         M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (get_current_floor() + 1);
@@ -1359,7 +1359,7 @@ void run_task__17TObjMapWarpForestFv(TObjMapWarpForest* actor) {
 u8 *TObjMapWarpForest__ct(u8 *arg0) {
     ((s32 (*)(void *))TObjMapWarp__ct)((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TObjMapWarpForest.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3464;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMapWarpForest__name;
     M2C_FIELD(arg0, s32 *, 0x100) = register_warp__16TObjMapForceWarpFPv((int) (4));
     M2C_FIELD(arg0, s32 *, 0x104) = register_warp__16TObjMapForceWarpFPv((int) (5));
     M2C_FIELD(arg0, s32 *, 0x108) = register_area_warp_object__16TAdStorySelectGCFPv((int) (2));

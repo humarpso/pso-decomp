@@ -677,8 +677,8 @@ extern M2C_UNK TObjEneDelDepth_collision_body_parts[];
 extern M2C_UNK lbl_804E8194[];
 extern Ent_803154A8 lbl_804E836C[];
 extern M2C_UNK identity_matrix[];
-extern s32 lbl_805D4118;
-extern s32 lbl_805D411C;
+extern s32 TObjEneDelDepth__name;
+extern s32 TObjEneDelDepthBomb__name;
 extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
 extern s32 anim_model_matrix_array;
@@ -834,7 +834,7 @@ u8 *TObjEneDelDepthBomb__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4
     f32 temp_f31;
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803135B4___vt__19TObjEneDelDepthBomb *)&__vt__19TObjEneDelDepthBomb).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D411C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneDelDepthBomb__name;
     M2C_FIELD(arg0, s32 *, 0x348) = arg2;
     M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x10), s32 *, 0x60);
     VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x38), (void *) (arg3));
@@ -1756,7 +1756,7 @@ void init__15TObjEneDelDepthFPv(u8 *arg0) {
 u8 *TObjEneDelDepth__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     initialize__9TObjEnemyFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80315A40___vt__15TObjEneDelDepth *)&__vt__15TObjEneDelDepth).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4118;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneDelDepth__name;
     add_flags_2e4__10TObjPlayerFPvUi((void *) (arg0), (int) (8));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     update_target_depth__15TObjEneDelDepthFPv((u8 *)((void *) (arg0)));

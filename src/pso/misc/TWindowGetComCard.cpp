@@ -38,7 +38,7 @@ s32 set_window_mode_4__6TLobbyFPvii(void *, void *, int);
 extern M2C_UNK lbl_8044ED94[];
 extern M2C_UNK lbl_8044ED9C[];
 extern void *__vt__17TWindowGetComCard[];
-extern s32 lbl_805D3908;
+extern s32 TWindowGetComCard__name;
 extern s32 local_client_id;
 u8 *TWindowGetComCard__ct(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -200,7 +200,7 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
     s32 temp_r31;
     __ct__7TObjectFP7TObject();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard *)&__vt__17TWindowGetComCard).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3908;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowGetComCard__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), (int) (1));
     M2C_FIELD(arg0, s32 *, 0x20) = 0;
     if (init_com_card__17TWindowSubComCardFv() != 0) {

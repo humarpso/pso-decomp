@@ -53,7 +53,7 @@ f32 vector_length(Vec_802A47C8 *);
 void normalize_vector(Vec_802A47C8 *);
 extern const f64 lbl_80466688[];
 extern M2C_UNK __vt__12TNeedleShoot[];
-extern u32 lbl_805D3DD8;
+extern u32 TNeedleShoot__name;
 extern void *tl_06;
 extern const f32 lbl_805DDF6C;
 extern const f32 lbl_805DDF70;
@@ -95,7 +95,7 @@ TNeedleShoot_802A47C8 *TNeedleShoot__ct(TNeedleShoot_802A47C8 *self, s32 arg1, V
     void *p;
     __ct__7TObjectFP7TObject(self, tl_06);
     self->vt = ((s32 *)&__vt__12TNeedleShoot);
-    self->f0 = lbl_805D3DD8;
+    self->f0 = TNeedleShoot__name;
     self->f34 = 0xFFFF;
     dx = to->x - from->x;
     dz = to->z - from->z;

@@ -104,7 +104,7 @@ s32 rand();
 extern const V3_8002C544 lbl_80435560;
 extern M2C_UNK __vt__15TObjBoss1Crater[];
 extern Crater_8002C544 *TObjBoss1Crater__instance_list[];
-extern s32 lbl_805D2688;
+extern s32 TObjBoss1Crater__name;
 extern s32 TObjBoss1Crater__instance_count;
 extern const f32 lbl_805D8160;
 extern const f32 lbl_805D8164;
@@ -228,7 +228,7 @@ Crater_8002C544 *TObjBoss1Crater__ct(Crater_8002C544 *self, void *arg1, void *ar
     construct_collision_body(self);
     self->vt = ((s32 *)&__vt__15TObjBoss1Crater);
     r = lbl_80435560.z;
-    self->f0 = lbl_805D2688;
+    self->f0 = TObjBoss1Crater__name;
     self->fA4->fC = r;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
     r = lbl_805D8164 * (f32)rand();

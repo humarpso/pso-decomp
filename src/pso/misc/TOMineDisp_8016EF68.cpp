@@ -25,7 +25,7 @@ struct VObj_8016EFB4 : VBase_8016EFB4 {
 extern "C" {
 s32 TOMineDisp__ct(void *, void *, void *);
 extern RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp __vt__14TOMineTrapDisp;
-extern s32 lbl_805D3088;
+extern s32 TOMineTrapDisp__name;
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(void);
@@ -62,7 +62,7 @@ typedef char RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp_size[sizeof(Recover
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     TOMineDisp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TOMineTrapDisp.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3088;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMineTrapDisp__name;
     M2C_FIELD(arg0, s16 *, 0xAC) = arg3;
     return arg0;
 }

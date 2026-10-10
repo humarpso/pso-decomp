@@ -44,7 +44,7 @@ u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern M2C_UNK __vt__18TWindowInputNumber[];
-extern s32 lbl_805D3918;
+extern s32 TWindowInputNumber__name;
 extern const f32 lbl_805DCE2C;
 u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
 u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -265,7 +265,7 @@ typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(Rec
 u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804CF8EC.value, arg5, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80256A60___vt__18TWindowInputNumber *)&__vt__18TWindowInputNumber).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3918;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowInputNumber__name;
     M2C_FIELD(arg0, s16 *, 0x20) = arg5;
     M2C_FIELD(arg0, s16 *, 0x60) = 0;
     M2C_FIELD(arg0, s8 *, 0x63) = 0;

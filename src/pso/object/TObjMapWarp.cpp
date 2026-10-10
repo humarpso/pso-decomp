@@ -84,7 +84,7 @@ void pop_matrix();
 extern M2C_UNK __vt__11TObjMapWarp[];
 extern u8 identity_matrix[];
 extern V3_8019D764 map_warp_destination_offsets[];
-extern s32 lbl_805D3460;
+extern s32 TObjMapWarp__name;
 void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set);
 }
 
@@ -200,7 +200,7 @@ void *TObjMapWarp__ct(W_8019D764 *self, void *parent, void *set) {
     s32 i;
     TObjWarpBase__ct(self, parent, set);
     self->vt = __vt__11TObjMapWarp;
-    self->type = lbl_805D3460;
+    self->type = TObjMapWarp__name;
     for (i = 0; i < 4; i++) {
         push_matrix_from(identity_matrix);
         post_translate_matrix(self->destination);
@@ -246,4 +246,9 @@ u8 TObjWarpBase__vt13(void *arg0) {
     return 1U;
 }
 
+}
+
+extern "C" {
+extern char lbl_804462F0[];
+s32 TObjMapWarp__name = (s32)lbl_804462F0;
 }

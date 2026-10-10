@@ -48,7 +48,7 @@ void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1);
 s32 get_window_layout_position(int);
 M2C_UNK TWindowSimpleStatus__ct(void *, int, void *, void *);
 extern M2C_UNK __vt__18TWindowPartyStatus[];
-extern s32 lbl_805D40F8;
+extern s32 TWindowPartyStatus__name;
 extern s32 local_client_id;
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2);
 }
@@ -147,7 +147,7 @@ typedef char RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus_size[sizeof(Rec
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2) {
     TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position((int) (0xAB))), (void *) (local_client_id), (void *) (arg2));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D40F8;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowPartyStatus__name;
     M2C_FIELD(arg0, s16 *, 0x20) = arg1;
     return arg0;
 }

@@ -24,7 +24,7 @@ int set_flag_1024__11TItemObjectFPv(void* p);
 s32 test_item_flags__10TObjPlayerFPvUi(s32, s32);
 
 extern M2C_UNK __vt__18TObjTailsTailsMove[];
-extern void *lbl_805D2B58;
+extern void *TObjTailsTailsMove__name;
 
 void run_task__18TObjTailsTailsMoveFv(u8 *arg0) {
     s32 temp_r0;
@@ -43,7 +43,7 @@ TObjTailsTailsMove::~TObjTailsTailsMove() {}
 void *TObjTailsTailsMove__ct(void *arg0, void *arg1) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjTailsTailsMove;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2B58;
+    M2C_FIELD(arg0, void **, 0x0) = TObjTailsTailsMove__name;
     M2C_FIELD(arg0, void **, 0x1C) = arg1;
     M2C_FIELD(arg0, u32 *, 0x24) = 0;
     return arg0;

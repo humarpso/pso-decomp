@@ -106,12 +106,12 @@ void *__dt__16TCheckMemoryCardFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__16TCheckMemoryCard[];
-extern void *lbl_805D4290;
+extern void *TCheckMemoryCard__name;
 
 void *TCheckMemoryCard__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TCheckMemoryCard;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D4290;
+    M2C_FIELD(arg0, void **, 0x0) = TCheckMemoryCard__name;
     M2C_FIELD(arg0, void **, 0x48) = arg2;
     M2C_FIELD(arg0, void **, 0x1C) = arg4;
     M2C_FIELD(arg0, void **, 0x4C) = arg3;

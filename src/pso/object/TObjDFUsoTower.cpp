@@ -21,7 +21,7 @@ s32 get_bml_model(void *, s32);
 u8 * construct_world_actor_base(void *);
 extern RecoveredGlobal_80052200_lbl_804858A8 lbl_804858A8;
 extern M2C_UNK __vt__14TObjDFUsoTower[];
-extern s32 lbl_805D27B0;
+extern s32 TObjDFUsoTower__name;
 extern u8 *lbl_805D58A8;
 extern const f32 lbl_805D8A30;
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1);
@@ -56,7 +56,7 @@ typedef char RecoveredGlobal_80052200___vt__14TObjDFUsoTower_size[sizeof(Recover
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80052200___vt__14TObjDFUsoTower *)&__vt__14TObjDFUsoTower).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D27B0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFUsoTower__name;
     M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D58A8, 5);
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_804858A8.value);

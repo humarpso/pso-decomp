@@ -42,7 +42,7 @@ s32 construct_world_actor_base(void *, int);
 s32 rand();
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__16TOLightMachine01[];
-extern s32 lbl_805D306C;
+extern s32 TOLightMachine01__name;
 extern u32 TOLightMachine01__data_805D5A40;
 extern s32 tl_05;
 extern const f32 lbl_805DB82C;
@@ -156,7 +156,7 @@ void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
 u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     construct_world_actor_base((void *) (arg0), (int) (tl_05));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D306C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOLightMachine01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__data_805D5A40)), (s32)(1)));
     M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__data_805D5A40))), (s32)((int) (1)));

@@ -44,7 +44,7 @@ s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 extern M2C_UNK __vt__19TAdTrialAgreementGC[];
-extern s32 lbl_805D4248;
+extern s32 TAdTrialAgreementGC__name;
 u8 *TAdTrialAgreementGC__ct(u8 *arg0);
 }
 
@@ -108,7 +108,7 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     s32 var_r0;
     TAdAgreementBaseGC__ct((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4248;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdTrialAgreementGC__name;
     M2C_FIELD(arg0, s32 *, 0x38) = 0;
     if (check_card_file__19TAdTrialAgreementGCFi((s32)((void *) (arg0))) != 0) {
         ((VObj_18_f8ef8c *)(arg0))->m5();

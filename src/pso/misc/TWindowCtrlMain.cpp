@@ -26,7 +26,7 @@ void *TWindowCtrlSub__ct(void *, void *);
 void *TWindowCtrlScreen__ct(void *, void *);
 extern u8 __vt__15TWindowCtrlMain[];
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
-extern s32 lbl_805D38D0;
+extern s32 TWindowCtrlMain__name;
 extern void *tl_01;
 extern void *tl_window;
 extern void *tl_clipout;
@@ -146,7 +146,7 @@ Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, tl_fadeafter);
     arg0->vt = __vt__15TWindowCtrlMain;
-    arg0->id = lbl_805D38D0;
+    arg0->id = TWindowCtrlMain__name;
     if (TWindowCtrlMain__window_task_root == 0) {
         p = __nw__7TObjectFUl(0x1C);
         if (p != 0) {

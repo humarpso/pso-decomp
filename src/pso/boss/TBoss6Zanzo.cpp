@@ -49,7 +49,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 __vt__11TBoss6Zanzo[];
-extern s32 lbl_805D4140;
+extern s32 TBoss6Zanzo__name;
 Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3);
 }
 
@@ -135,7 +135,7 @@ Obj_803209F0 *TBoss6Zanzo__ct(Obj_803209F0 *arg0, void *arg1, s32 arg2, s32 arg3
     Src_803209F0 *end;
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vt = __vt__11TBoss6Zanzo;
-    arg0->f0 = lbl_805D4140;
+    arg0->f0 = TBoss6Zanzo__name;
     arg0->n = arg2;
     if (arg0->n < 2) {
         arg0->n = 2;

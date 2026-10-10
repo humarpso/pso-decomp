@@ -843,7 +843,7 @@ extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
 extern const f64 lbl_80437890[];
 extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
-extern void *lbl_805D27DC;
+extern void *TBoss4Zanzo__name;
 
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;

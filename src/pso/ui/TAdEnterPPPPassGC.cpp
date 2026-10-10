@@ -74,7 +74,7 @@ void create_parts__14TAdEnterBaseGCFPv(void *);
 void reset__14TAdEnterBaseGCFPvi(void *, int);
 void TAdEnterBaseGC__ct(void *);
 extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
-extern s32 lbl_805D4268;
+extern s32 TAdEnterPPPPassGC__name;
 extern s32 password_entry_dispatch_state;
 T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
 char *realloc_buffer__17TWindowSubComCardFPv(u8 *);
@@ -267,7 +267,7 @@ T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0) {
     s32 ok;
     TAdEnterBaseGC__ct(arg0);
     arg0->vt = __vt__17TAdEnterPPPPassGC;
-    arg0->f0 = lbl_805D4268;
+    arg0->f0 = TAdEnterPPPPassGC__name;
     reset__14TAdEnterBaseGCFPvi(arg0, 3);
     password_entry_dispatch_state = 0;
     arg0->f40 = 0;

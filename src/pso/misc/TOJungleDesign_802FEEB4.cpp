@@ -44,7 +44,7 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 s32 init_design_variant__14TOJungleDesignFPv(void *);
 extern RecoveredGlobal_802FEF98_lbl_804E6580 TOJungleDesign__collision_desc_table;
 extern M2C_UNK __vt__14TOJungleDesign[];
-extern s32 lbl_805D4044;
+extern s32 TOJungleDesign__name;
 u8 *TOJungleDesign__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -96,7 +96,7 @@ typedef char RecoveredGlobal_802FEF98___vt__14TOJungleDesign_size[sizeof(Recover
 u8 *TOJungleDesign__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802FEF98___vt__14TOJungleDesign *)&__vt__14TOJungleDesign).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4044;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TOJungleDesign__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_design_variant__14TOJungleDesignFPv((void *) (arg0));
     init_collision_body_parts((void *) (arg0), (int) ((u8 *)&TOJungleDesign__collision_desc_table.value + (M2C_FIELD(arg0, s32 *, 0xB0) * 0x2C)), (int) (1));

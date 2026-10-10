@@ -8,12 +8,12 @@ void *__ct__19TObjBoss5FloorStoneFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
 extern M2C_UNK __vt__19TObjBoss5FloorStone[];
-extern void *lbl_805D3B10;
+extern void *TObjBoss5FloorStone__name;
 
 void *__ct__19TObjBoss5FloorStoneFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjBoss5FloorStone;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3B10;
+    M2C_FIELD(arg0, void **, 0x0) = TObjBoss5FloorStone__name;
     return arg0;
 }
 

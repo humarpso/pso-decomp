@@ -67,12 +67,12 @@ void run_task__8TTecCtrlFv(void) {
 }
 
 extern M2C_UNK __vt__8TTecCtrl[];
-extern void *lbl_805D37A0;
+extern void *TTecCtrl__name;
 
 void *__ct__8TTecCtrlFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TTecCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D37A0;
+    M2C_FIELD(arg0, void **, 0x0) = TTecCtrl__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     return arg0;
 }

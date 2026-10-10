@@ -57,7 +57,7 @@ void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 extern void *__vt__18TBoss2PhotonBullet[];
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 construct_collision_body(void *, void *, void *);
-extern s32 lbl_805D26DC;
+extern s32 TBoss2PhotonBullet__name;
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0);
 }
 
@@ -135,7 +135,7 @@ void *__dt__18TBoss2PhotonBulletFv(void *arg0, s16 arg1) {
 u8 *TBoss2PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, u8 *arg3, u8 *arg4, f32 farg0) {
     construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
     M2C_FIELD(arg0, void ***, 0x18) = __vt__18TBoss2PhotonBullet;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26DC;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss2PhotonBullet__name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg0 + 0xC0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
@@ -183,7 +183,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void rotate_xz_pair_by_angle(void *, void *, s32);
 extern Rec_80039288 lbl_80435B08[];
 extern void *__vt__15TBoss2PhotonPad[];
-extern s32 lbl_805D26D8;
+extern s32 TBoss2PhotonPad__name;
 void queue_destruction__7TObjectFv(void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void *__nw__7TObjectFUl(u32);
@@ -233,7 +233,7 @@ void *__dt__15TBoss2PhotonPadFv(void *self, s16 arg1) {
 S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, void *arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(o, parent);
     o->vt = (void *)__vt__15TBoss2PhotonPad;
-    o->f0 = lbl_805D26D8;
+    o->f0 = TBoss2PhotonPad__name;
     o->f1c = arg2;
     o->f2c = arg4;
     VecCopy__FP3VecPC3Vec(o->v20, arg3);
@@ -258,4 +258,11 @@ void *__vt__18TBoss2PhotonBullet[23] = {
 void *__vt__15TBoss2PhotonPad[6] = {
     0, 0, (void *)__dt__15TBoss2PhotonPadFv, (void *)run_task__15TBoss2PhotonPadFv, (void *)render__15TBoss2PhotonPadFv, (void *)render_shadows__7TObjectFv
 };
+}
+
+extern "C" {
+extern char lbl_80435B48[];
+extern char lbl_80435B58[];
+s32 TBoss2PhotonPad__name = (s32)lbl_80435B48;
+s32 TBoss2PhotonBullet__name = (s32)lbl_80435B58;
 }

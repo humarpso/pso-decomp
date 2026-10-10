@@ -68,7 +68,7 @@ extern s32 lbl_80474E40[];
 extern Cur_8030095C lbl_80474EAC[];
 extern Pos_8030095C lbl_80474EB4;
 extern void *__vt__21TAdMultiSelGameModeGC[];
-extern s32 lbl_805D4060;
+extern s32 TAdMultiSelGameModeGC__name;
 extern s32 game_difficulty_selection;
 extern s32 TAdMultiSelGameModeGC__data_805D69F0;
 extern s32 lbl_805D69F4;
@@ -213,7 +213,7 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     void *p;
     __ct__7TObjectFP7TObject(self);
     self->vt = __vt__21TAdMultiSelGameModeGC;
-    self->f0 = lbl_805D4060;
+    self->f0 = TAdMultiSelGameModeGC__name;
     self->f1C = 0;
     self->f24 = 3;
     self->f20 = mode;

@@ -274,7 +274,7 @@ void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
 }
 
 extern M2C_UNK __vt__16TObjEneReconBomb[];
-extern s32 lbl_805D4128;
+extern s32 TObjEneReconBomb__name;
 
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
@@ -283,7 +283,7 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 
     construct_actor_base__10TObjPlayerFPvPv();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *) __vt__16TObjEneReconBomb;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4128;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneReconBomb__name;
     M2C_FIELD(arg0, s32 *, 0x334) = arg2;
     M2C_FIELD(arg0, s16 *, 0x338) = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x334)));
     M2C_FIELD(arg0, f32 *, 0x34C) = TObjEneRecon__sub_8031C2D4((int) (M2C_FIELD(arg0, s32 *, 0x334)));

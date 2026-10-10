@@ -764,7 +764,7 @@ extern u8 boss4_type3_index_table[];
 extern Vec_80059C20 boss4_type3_default_position;
 extern Vec_80059C20 lbl_80487168;
 extern u8 __vt__11TBoss4Type3[];
-extern void *lbl_805D27DC;
+extern void *TBoss4Zanzo__name;
 extern s32 TObjBs4CutAtk_name;
 extern s32 lbl_805D4D80;
 extern u8 lbl_805D4D84;
@@ -1033,7 +1033,7 @@ void run_task__11TBoss4ZanzoFv(void *arg0) {
 void *__ct__11TBoss4ZanzoFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TBoss4Zanzo;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D27DC;
+    M2C_FIELD(arg0, void **, 0x0) = TBoss4Zanzo__name;
     ((void (*)(void *, void *))fn_8005586C)((void *)((char *)arg0 + 28), arg2);
     M2C_FIELD(arg0, u32 *, 0x48) = 0;
     return arg0;
