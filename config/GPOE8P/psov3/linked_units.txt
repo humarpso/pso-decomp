@@ -2662,6 +2662,7 @@ pso/protocol/subcommand_validation_photon_blast.cpp
 pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/quest/AreaDialogueScripts.cpp
+pso/quest/QuestOpcodeTables.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp

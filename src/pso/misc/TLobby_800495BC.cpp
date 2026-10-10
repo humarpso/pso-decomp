@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void check_player_flag1__6TLobbyFPv(void *arg0);
+s32 check_player_flag1__6TLobbyFPv(void *arg0);
 M2C_UNK check_flag__10TObjPlayerFPvi(void *, M2C_UNK);
 
-void check_player_flag1__6TLobbyFPv(void *arg0) {
-    check_flag__10TObjPlayerFPvi(arg0, 1);
+s32 check_player_flag1__6TLobbyFPv(void *arg0) {
+    return check_flag__10TObjPlayerFPvi(arg0, 1);
 }
 
 }

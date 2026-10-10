@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-s32 pack_flags__13TRaderMapCoreFii();
+s32 apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
+s32 pack_flags__13TRaderMapCoreFii(s32, s32);
 M2C_UNK input_press_or_repeat(s32, s32, s32, s32);
 
-void apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
-    u32 t = pack_flags__13TRaderMapCoreFii();
-    input_press_or_repeat(arg0, t, arg2, arg3);
+s32 apply_choice__20TWindowChoiceSettingFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
+    u32 t = pack_flags__13TRaderMapCoreFii(arg0, arg1);
+    return input_press_or_repeat(arg0, t, arg2, arg3);
 }
 
 }

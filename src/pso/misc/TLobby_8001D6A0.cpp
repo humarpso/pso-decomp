@@ -633,11 +633,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void dispatch_shared_handler_a__6TLobbyFPv(void* a0);
-void dispatch_shared_handler_b__6TLobbyFPv(void* a0);
+void* dispatch_shared_handler_a__6TLobbyFPv(s32 index);
+void* dispatch_shared_handler_b__6TLobbyFPv(s32 index);
 
-void register_boss__6TLobbyFPv(void* a0);
-void register_object__6TLobbyFPv(void* a0);
+void* register_boss__6TLobbyFPv(s32 index);
+void* register_object__6TLobbyFPv(s32 index);
 
 u8 is_valid_player_index__6TLobbyFi(s32 arg0) {
     s32 var_r0;
@@ -650,25 +650,25 @@ u8 is_valid_player_index__6TLobbyFi(s32 arg0) {
 }
 
     extern int battle_parameter_difficulty;
-void dispatch_shared_handler_a__6TLobbyFPv(void* a0) { get_player_entry__6TLobbyFii((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
+void* dispatch_shared_handler_a__6TLobbyFPv(s32 index) { return get_player_entry__6TLobbyFii(battle_parameter_difficulty, index); }
 
     extern int battle_param_movement;
 void* get_player_entry__6TLobbyFii(int a0, int a1) {  return (char*)(battle_param_movement) + a1 * 48; }
 
     extern int battle_parameter_difficulty;
-void register_object__6TLobbyFPv(void* a0) { get_entry__6TLobbyFii((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
+void* register_object__6TLobbyFPv(s32 index) { return get_entry__6TLobbyFii(battle_parameter_difficulty, index); }
 
     extern int TLobby__data_805D4AAC;
 void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__data_805D4AAC) + a1 * 32; }
 
     extern int battle_parameter_difficulty;
-void dispatch_shared_handler_b__6TLobbyFPv(void* a0) { TLobby__sub_8001E270((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
+void* dispatch_shared_handler_b__6TLobbyFPv(s32 index) { return TLobby__sub_8001E270(battle_parameter_difficulty, index); }
 
     extern int TLobby__data_805D4AA8;
 void* TLobby__sub_8001E270(int a0, int a1) {  return (char*)(TLobby__data_805D4AA8) + a1 * 48; }
 
     extern int battle_parameter_difficulty;
-void register_boss__6TLobbyFPv(void* a0) { TLobby__sub_8001E2A8((int)((void*)(battle_parameter_difficulty)), (int)(a0)); }
+void* register_boss__6TLobbyFPv(s32 index) { return TLobby__sub_8001E2A8(battle_parameter_difficulty, index); }
 
     extern int battle_param_stats;
 void* TLobby__sub_8001E2A8(int a0, int a1) {  return (char*)(battle_param_stats) + a1 * 36; }

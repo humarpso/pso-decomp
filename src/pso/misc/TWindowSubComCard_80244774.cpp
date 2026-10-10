@@ -200,7 +200,7 @@ s32 is_window_reveal_complete(u8 *arg0);
 void window_request_refresh(u8 *arg0);
 void window_request_show(void *arg0);
 s32 setup_window_draw_context(u8 *arg0, s32 arg1);
-void draw_default_entry__9TWindowDDFi(s32 arg0);
+s32 draw_default_entry__9TWindowDDFi(s32 arg0);
 void set_field_1c__6TLobbyFPvf(void *arg0, f32 farg0);
 bool is_balloon_overlapping(u8 *arg0, u8 *arg1, u8 *arg2);
 Win_80244DFC * find_overlapping_balloon__15TWindowFukidasiFPvPvPvPv(Win_80244DFC *self, void *a, void *b, Win_80244DFC *p);
@@ -409,8 +409,8 @@ s32 setup_window_draw_context(u8 *arg0, s32 arg1) {
     return temp_r31;
 }
 
-void draw_default_entry__9TWindowDDFi(s32 arg0) {
-    ((int (*)(s32, s32))setup_window_draw_context)(arg0, fn_8026CB68());
+s32 draw_default_entry__9TWindowDDFi(s32 arg0) {
+    return ((int (*)(s32, s32))setup_window_draw_context)(arg0, fn_8026CB68());
 }
 
 void set_field_1c__6TLobbyFPvf(void *arg0, f32 farg0) {

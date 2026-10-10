@@ -7394,7 +7394,10 @@ pso/misc/TQuestBgmCtrl_801E63F4.cpp:
 
 pso/menu/TQuestBgmCtrl.cpp:
 	.text       start:0x801E6404 end:0x801E64EC
-	.data       start:0x804C6970 end:0x804C69CC
+	.data       start:0x804C6970 end:0x804C69D0
+
+pso/quest/QuestOpcodeTables.cpp:
+	.data       start:0x804C69D0 end:0x804C81D8
 
 pso/misc/TQuestBgmCtrl.cpp:
 	.text       start:0x801E64EC end:0x801E6544

@@ -704,7 +704,7 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0);
 void create_empty_floor_event(void);
 int get_destroy_event_obj__6TLobbyFv(void);
 M2C_UNK show_partner_chatter_for_key(s16);
-M2C_UNK TSetEvtDestroy__ct(void *, s32, void *);
+M2C_UNK __ct__14TSetEvtDestroyFP7TObjectP21SetDestroyEventRecord(void *, s32, void *);
 void *__nw__7TObjectFUl(M2C_UNK);
 
 #define wave_event_stream_base (*(int *)&wave_event_stream_base)
@@ -724,7 +724,7 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
     }
     obj = __nw__7TObjectFUl(0x34);
     if (obj != NULL) {
-        TSetEvtDestroy__ct(obj, tl_01, arg0);
+        __ct__14TSetEvtDestroyFP7TObjectP21SetDestroyEventRecord(obj, tl_01, arg0);
     }
     set_destroy_event__6TLobbyFi(-1);
 }
