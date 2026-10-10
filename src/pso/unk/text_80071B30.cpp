@@ -1,3 +1,5 @@
+#include "pso/item/ChallengeStageLoadouts.h"
+
 #include "types.h"
 
 struct Vec_80071BC0 { f32 x, y, z; };
@@ -21,9 +23,9 @@ public:
     u8 pad3c0[0x420 - 0x3c0];
 };
 
-struct Pair_80071BC0 { s32 val; s32 id; };
+typedef ChallengeTechniqueLevel Pair_80071BC0;
 
-struct Tbl_80071BC0 { s32 a; s32 b; s32 c; Pair_80071BC0 *list; };
+typedef ChallengeStageStart Tbl_80071BC0;
 
 struct PBase_80071BC0 { u8 pad[0x18]; };
 
@@ -54,9 +56,6 @@ void clamp_and_set_unit_value__10TObjPlayerFiUci(Plr_80071BC0 *, u8, s16);
 void set_all_technique_levels__10TObjPlayerFPvPv(void *, s32);
 void begin_action_state__10TObjPlayerFPv(TPlyCharData *);
 void send_command__10TNpcPlayerFiciiPv(u8, s32, s32, s32, TPlyCharData *);
-extern Tbl_80071BC0 force_stage_start_parameters[];
-extern Tbl_80071BC0 lbl_8048B0F4[];
-extern Tbl_80071BC0 lobby_stage_table[];
 extern s32 local_client_id;
 void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0);
 }
@@ -106,23 +105,23 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
             }
             switch (chr.f34 & 0xe0) {
             case 0x20:
-                t = &lbl_8048B0F4[arg0];
+                t = &hunter_stage_start_parameters[arg0];
                 break;
             case 0x40:
-                t = &lobby_stage_table[arg0];
+                t = &ranger_stage_start_parameters[arg0];
                 break;
             case 0x80:
                 t = &force_stage_start_parameters[arg0];
                 break;
             default:
-                t = &lbl_8048B0F4[arg0];
+                t = &hunter_stage_start_parameters[arg0];
                 break;
             }
             {
                 TPlyCharData cd;
                 copy_player_visual_record(&cd.chr, &chr);
                 begin_action_state__10TObjPlayerFPv(&cd);
-                send_command__10TNpcPlayerFiciiPv(chr.f31, t->b, t->c, t->a, &cd);
+                send_command__10TNpcPlayerFiciiPv(chr.f31, t->item_count, (s32)t->items, t->level, &cd);
                 if (i == local_client_id) {
                     p = create_player_object(i, 0, &cd);
                 } else {
@@ -137,9 +136,9 @@ void rebuild_players_for_stage__10TObjPlayerFi(s32 arg0) {
             save_position__14TBoss4DarkFalzFi(p);
             p->m6();
             set_all_technique_levels__10TObjPlayerFPvPv((u8 *)p + 0x428, 0xff);
-            if (t->list != NULL) {
-                for (e = t->list; e->id != 0xff; e++) {
-                    clamp_and_set_unit_value__10TObjPlayerFiUci(p, e->id, e->val);
+            if (t->techniques != NULL) {
+                for (e = t->techniques; e->level != 0xff; e++) {
+                    clamp_and_set_unit_value__10TObjPlayerFiUci(p, e->level, e->technique);
                 }
             }
             *(s32 *)((u8 *)p + 0xd58) = 0;

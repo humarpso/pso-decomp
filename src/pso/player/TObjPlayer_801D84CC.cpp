@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/TPlyDispData.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -401,16 +402,16 @@ extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_804491CC;
 s32 get_hospital_yaw__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
-u8 *get_class_stat_caps(s8 arg0);
+player_stats *get_class_stat_caps(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D92F4_lbl_804475B0 lbl_804475B0;
 u8 *get_class_attack_template(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8);
 extern RecoveredGlobal_801D935C_lbl_804C4680 player_class_base_stat_tables;
-s32 get_class_base_stats(s8 arg0);
+stats *get_class_base_stats(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 extern RecoveredGlobal_801D9390_lbl_804471C0 lbl_804471C0;
-u8 *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0);
+player_stats *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0);
 extern RecoveredGlobal_801D93F8_lbl_804471A8 lbl_804471A8;
 extern const f32 lbl_805DC400;
 f32 get_tp_class_factor__10TObjPlayerFPv(u8 *arg0);
@@ -800,17 +801,17 @@ u8 *get_class_defense_template(u8 *arg0) {
 typedef char RecoveredGlobal_801D9390_lbl_804471C0_size[sizeof(RecoveredGlobal_801D9390_lbl_804471C0) == 0x1B0 ? 1 : -1];
 
 typedef char RecoveredGlobal_801D935C_lbl_804C4680_size[sizeof(RecoveredGlobal_801D935C_lbl_804C4680) == 0x30 ? 1 : -1];
-s32 get_class_base_stats(s8 arg0) {
-    return M2C_FIELD(&player_class_base_stat_tables.value, M2C_UNK *, (TObjPlayer__sub_801AFDBC(arg0) * 4));
+stats *get_class_base_stats(s8 arg0) {
+    return (stats *)M2C_FIELD(&player_class_base_stat_tables.value, M2C_UNK *, (TObjPlayer__sub_801AFDBC(arg0) * 4));
 }
 
-u8 *get_class_stat_caps(s8 arg0) {
-    return (u8 *)&lbl_804471C0.value + (TObjPlayer__sub_801AFDBC(arg0) * 0x24);
+player_stats *get_class_stat_caps(s8 arg0) {
+    return (player_stats *)((u8 *)&lbl_804471C0.value + (TObjPlayer__sub_801AFDBC(arg0) * 0x24));
 }
 
 typedef char RecoveredGlobal_801D93C4_lbl_804471C0_size[sizeof(RecoveredGlobal_801D93C4_lbl_804471C0) == 0x1B0 ? 1 : -1];
-u8 *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0) {
-    return (u8 *)&(*(RecoveredGlobal_801D93C4_lbl_804471C0 *)&lbl_804471C0).value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x24);
+player_stats *get_class_stat_entry__10TObjPlayerFPv(u8 *arg0) {
+    return (player_stats *)((u8 *)&(*(RecoveredGlobal_801D93C4_lbl_804471C0 *)&lbl_804471C0).value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x24));
 }
 
 typedef char RecoveredGlobal_801D93F8_lbl_804471A8_size[sizeof(RecoveredGlobal_801D93F8_lbl_804471A8) == 0x18 ? 1 : -1];

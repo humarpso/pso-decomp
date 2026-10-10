@@ -1,77 +1,46 @@
-#include "pso/TEnemyTaskList.h"
-
-#include "types.h"
-struct Task_800F7BD0 { u16 f0; s16 flags; };
-
-struct List_800F7BD0 { u8 pad[0x20]; s32 count; u8 pad2[4]; Task_800F7BD0 **tasks; };
-
-struct TEnemyTaskList_800F7C84 {
-    u8 pad0[0x18];
-    void *vt;
-    s32 count;
-    s32 f20;
-    s32 *a;
-    s32 *b;
-};
+#include "pso/enemy/TEnemyTaskList.h"
 
 extern "C" {
-s32 has_undefeated_entry__14TEnemyTaskListFPv(List_800F7BD0 *self);
-s32 *alloc_buffer__11TOBoss4RockFPv(int);
-void __ct__7TObjectFP7TObject(void *, void *);
-extern u8 __vt__14TEnemyTaskList[];
-extern s32 lbl_805D2B08;
-TEnemyTaskList_800F7C84 *TEnemyTaskList__ct(TEnemyTaskList_800F7C84 *self, void *parent, s32 n);
-}
-
-extern "C" {
+void* alloc_buffer__11TOBoss4RockFPv(s32);
 void free__11TOBoss4RockFUi(void*);
+s32 get_global_state__14TOKeyMachine01Fv(void);
+s32 run_cleanup_callbacks__6TLobbyFi(void);
+extern const char TEnemyTaskList_class_name[] = "TEnemyTaskList";
+const char* TEnemyTaskList_name = TEnemyTaskList_class_name;
 }
 
-#include "types.h"
-
-extern "C" {
-void run_task__14TEnemyTaskListFv(void);
+extern "C" void handle_disconnect_cleanup(void) {
+    get_global_state__14TOKeyMachine01Fv();
+    run_cleanup_callbacks__6TLobbyFi();
 }
 
-extern "C" {
+void TEnemyTaskList::run_task() {}
 
-void handle_disconnect_cleanup(void);
-int run_handler_list_reverse__6TLobbyFi(void);
-int run_cleanup_callbacks__6TLobbyFi(void);
-int get_global_state__14TOKeyMachine01Fv(void);
-void reset_keyboard_control__6TLobbyFv(void);
-
-void handle_disconnect_cleanup(void) { get_global_state__14TOKeyMachine01Fv(); run_cleanup_callbacks__6TLobbyFi(); }
-
-void run_task__14TEnemyTaskListFv(void) {  }
-s32 has_undefeated_entry__14TEnemyTaskListFPv(List_800F7BD0 *self) {
+s32 TEnemyTaskList::has_undefeated_entry() {
     s32 i;
-    for (i = 0; i < self->count; i++) {
-        Task_800F7BD0 *t = self->tasks[i];
-        if (t != 0 && !(t->flags & 8)) {
+    for (i = 0; i < m_count; i++) {
+        EnemySetRecord* record = m_records[i];
+        if (record != 0 && !(record->flags & 8)) {
             return 1;
         }
     }
     return 0;
 }
+
 TEnemyTaskList::~TEnemyTaskList() {
-    free__11TOBoss4RockFUi(m_28);
-    free__11TOBoss4RockFUi(m_24);
-}
-TEnemyTaskList_800F7C84 *TEnemyTaskList__ct(TEnemyTaskList_800F7C84 *self, void *parent, s32 n) {
-    s32 i;
-    __ct__7TObjectFP7TObject(self, parent);
-    self->vt = __vt__14TEnemyTaskList;
-    *(s32 *)self = lbl_805D2B08;
-    self->count = n;
-    self->f20 = 0;
-    self->a = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
-    self->b = alloc_buffer__11TOBoss4RockFPv(self->count * 4);
-    for (i = 0; i < self->count; i++) {
-        self->a[i] = 0;
-        self->b[i] = 0;
-    }
-    return self;
+    free__11TOBoss4RockFUi(m_records);
+    free__11TOBoss4RockFUi(m_enemies);
 }
 
+TEnemyTaskList::TEnemyTaskList(TObject* parent, s32 capacity) : TObject(parent) {
+    s32 i;
+    m_name = TEnemyTaskList_name;
+    m_capacity = capacity;
+    m_count = 0;
+    m_enemies = (TObjEnemy**)alloc_buffer__11TOBoss4RockFPv(m_capacity * 4);
+    m_records = (EnemySetRecord**)alloc_buffer__11TOBoss4RockFPv(m_capacity * 4);
+    for (i = 0; i < m_capacity; i++) {
+        m_enemies[i] = 0;
+        m_records[i] = 0;
+    }
 }

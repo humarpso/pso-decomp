@@ -507,6 +507,9 @@ pso/enemy/TObjEnemyCustom_800C7D18.cpp
 pso/enemy/TObjEnemyCustom_800C8018.cpp
 pso/enemy/TObjEnemyCustom_800C8040.cpp
 pso/enemy/TObjEnemy_8020C3E0.cpp
+pso/item/ChallengeForceLoadouts.cpp
+pso/item/ChallengeHunterLoadouts.cpp
+pso/item/ChallengeRangerLoadouts.cpp
 pso/item/SRankSlicerWeapons.cpp
 pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp

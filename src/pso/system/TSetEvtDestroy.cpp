@@ -1,3 +1,4 @@
+#include "pso/enemy/TEnemyTaskList.h"
 #include "pso/system/EventShuffleTable.h"
 
 #include "pso/system/TSetEvtDestroy.h"
@@ -25,7 +26,7 @@ extern "C" void queue_destroy_event_descendants(TObject* root) {
 }
 
 extern "C" {
-s32 has_undefeated_entry__14TEnemyTaskListFPv(void*);
+
 s32 run_wave_event_actions();
 void TLobby__sub_80208884(void*);
 s32 spawn_matching_objects__6TLobbyFssi(s32, s32, void*);
@@ -47,7 +48,7 @@ void TSetEvtDestroy::run_task() {
         }
         break;
     case 1:
-        if (has_undefeated_entry__14TEnemyTaskListFPv(m_enemy_tasks) == 0) {
+        if (m_enemy_tasks->has_undefeated_entry() == 0) {
             m_event_record->flags |= 0x10;
             m_phase = 2;
         }
@@ -93,7 +94,7 @@ s32 next_event_shuffle_entry(EventShuffleTable *s);
 void init_event_shuffle_table(EventShuffleTable *arg0, s32 arg1);
 s32 get_current_floor();
 void queue_destruction__7TObjectFv(void *);
-void *TEnemyTaskList__ct(void *, void *, s32);
+
 s32 get_area_event_data(s32 arg0);
 
 s32 item_drop_rng_below(s32, u32);
@@ -119,10 +120,7 @@ TSetEvtDestroy::TSetEvtDestroy(TObject* parent, SetDestroyEventRecord* event) : 
         m_event_context.cursor = event->action_offset;
         m_countdown = event->delay_ticks;
         m_phase = 0;
-        t = TObject::operator new(0x2C);
-        if (t != NULL) {
-            t = TEnemyTaskList__ct(t, this, 0x20);
-        }
+        t = new TEnemyTaskList(this, 0x20);
         m_enemy_tasks = (TEnemyTaskList*)t;
     } else {
         queue_destruction__7TObjectFv(this);
