@@ -514,8 +514,8 @@ u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0);
 
 extern "C" {
 
-void TObjPlayer__sub_80327140(int a0, void* a1);
-void fire_spread_attack__10TObjPlayerFPv(void *arg0);
+void config_dark_flow_attack_collider(int a0, void* a1);
+void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0);
 M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, s32, M2C_UNK, M2C_UNK);
 
@@ -544,9 +544,9 @@ u8 *create_vtable_1f8_state__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-void TObjPlayer__sub_80327140(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
+void config_dark_flow_attack_collider(int a0, void* a1) { *(float*)((char*)a1 + 0x3c) = lbl_805DF690; *(int*)((char*)a1 + 0x78) = 474; }
 
-void fire_spread_attack__10TObjPlayerFPv(void *arg0) {
+void launch_dark_flow_extra__10TObjPlayerFPv(void *arg0) {
     s32 temp_r31;
 
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
@@ -580,8 +580,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
-void *TObjPlayer__sub_803272F0(void *arg0);
-void submit_com_command__10TObjPlayerFPv(void *arg0);
+void *construct_dark_flow(void *arg0);
+void scroll_dark_flow_texture__10TObjPlayerFPv(void *arg0);
 
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
@@ -589,7 +589,7 @@ void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, M2C_UNK, M2C_UNK, M2C_UNK);
 
-void submit_com_command__10TObjPlayerFPv(void *arg0) {
+void scroll_dark_flow_texture__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
@@ -613,7 +613,7 @@ void *item_equip_variant_deleting_dtor_80327298(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804ED488[];
 
-void *TObjPlayer__sub_803272F0(void *arg0) {
+void *construct_dark_flow(void *arg0) {
     ((void (*)(void *))TItemWeapon__ct)(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED488;
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);
