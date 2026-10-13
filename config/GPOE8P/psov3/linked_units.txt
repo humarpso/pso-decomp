@@ -3604,6 +3604,7 @@ pso/unk/text_802D23E0.cpp
 pso/unk/text_802D298C.cpp
 pso/unk/text_802D5F44.cpp
 pso/unk/text_802E10D8.cpp
+pso/unk/text_802E3AF4.cpp
 pso/unk/text_802E3BA8.cpp
 pso/unk/text_802E4A4C.cpp
 pso/unk/text_802E62A4.cpp
