@@ -46,7 +46,7 @@ void *memcpy(void *, const void *, u32);
 void *memset(void *, int, u32);
 void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
 void update_stream_buffers__6TLobbyFPv(Obj_803D4770 *o);
-extern S_803D4714 lbl_8058C160[];
+extern S_803D4714 gcrna_stream_pool[];
 void update_active_streams__6TLobbyFv(void);
 }
 
@@ -72,8 +72,8 @@ struct Obj_803D4770;
 void update_active_streams__6TLobbyFv(void) {
     u32 i;
     for (i = 0; i < 0x10; i++) {
-        if ((s32)lbl_8058C160[i].f == 1) {
-            update_stream_buffers__6TLobbyFPv((Obj_803D4770 *)&lbl_8058C160[i]);
+        if ((s32)gcrna_stream_pool[i].f == 1) {
+            update_stream_buffers__6TLobbyFPv((Obj_803D4770 *)&gcrna_stream_pool[i]);
         }
     }
 }

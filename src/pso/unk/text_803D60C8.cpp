@@ -1,58 +1,30 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef M2C_UNK (*RecoveredCallback_1d0cc8904da3)(s32, M2C_UNK *);
-struct RecoveredGlobal_803D6140_lbl_8058C960 {
-    M2C_UNK value;
-    u8 remaining[0xFC];
-};
+#include "pso/audio/GcrnaError.h"
 
 extern "C" {
-M2C_UNK strncpy(void *, void *, int);
-extern RecoveredGlobal_803D6140_lbl_8058C960 gcrna_error_text;
-extern RecoveredCallback_1d0cc8904da3 gcrna_error_callback;
-extern s32 gcrna_error_context;
-void gcrna_report_error(s32 arg0);
-void gcrna_report_error(s32 arg0);
-extern u8 lbl_8047E220[];
-extern s32 lbl_805D7684;
+extern const char lbl_8047E220[];
+extern s32 gcrna_audio_buffer_count;
 extern u32 lbl_805D7688;
-extern u32 lbl_805D768C;
-extern s32 lbl_805D7690;
-void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2);
-}
+extern u32 gcrna_audio_allocation;
+extern s32 gcrna_uses_caller_buffer;
 
-extern "C" {
-
-typedef char RecoveredGlobal_803D6140_lbl_8058C960_size[sizeof(RecoveredGlobal_803D6140_lbl_8058C960) == 0x100 ? 1 : -1];
-
-void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2) {
-    u8 *base = lbl_8047E220;
+void gcrna_set_audio_buffer_storage(u32 arg0, u32 arg1, s32 arg2) {
+    const char* base = lbl_8047E220;
     if (arg0 == 0) {
-        gcrna_report_error((s32)(base + 0x138));
+        gcrna_report_error(base + 0x138);
         return;
     }
     if (arg1 == 0) {
-        gcrna_report_error((s32)(base + 0x160));
+        gcrna_report_error(base + 0x160);
         return;
     }
     if (arg1 < (u32)(arg2 << 13)) {
-        gcrna_report_error((s32)(base + 0x188));
+        gcrna_report_error(base + 0x188);
         return;
     }
-    lbl_805D7684 = arg2;
+    gcrna_audio_buffer_count = arg2;
     lbl_805D7688 = arg1;
-    lbl_805D768C = arg0;
-    lbl_805D7690 = 1;
+    gcrna_audio_allocation = arg0;
+    gcrna_uses_caller_buffer = 1;
 }
-
-void gcrna_report_error(s32 arg0) {
-    strncpy((void *) (&gcrna_error_text.value), (void *) (arg0), (int) (0xFF));
-    if (((M2C_UNK (*)(s32, M2C_UNK *)) gcrna_error_callback) != NULL) {
-        gcrna_error_callback(gcrna_error_context, &gcrna_error_text.value);
-    }
-}
-
 }

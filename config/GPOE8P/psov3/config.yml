@@ -1619,6 +1619,7 @@ force_active:
   - gWriteBuf
   - gWritePos
   - gather_player_contacts__10TObjPlayerFiUiii
+  - gcrna_error_text
   - generate_shop_inventory__6TLobbyFi
   - generate_shop_weapon_stock
   - get_anim_entry_value__10TObjPlayerFPvs

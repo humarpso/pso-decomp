@@ -145,6 +145,7 @@ os/OSThread.c
 os/OSTime.c
 os/__start.c
 pad/Pad.c
+pso/audio/GcrnaError.cpp
 pso/audio/SoundBankTables.cpp
 pso/boss/Boss6Type1Appearance.cpp
 pso/boss/Boss6Type2Appearance.cpp
@@ -1125,7 +1126,6 @@ pso/misc/TLobby_803D4428.cpp
 pso/misc/TLobby_803D4704.cpp
 pso/misc/TLobby_803D4B68.cpp
 pso/misc/TLobby_803D60A8.cpp
-pso/misc/TLobby_803D6190.cpp
 pso/misc/TLobby_803DE778.cpp
 pso/misc/TLobby_803DF1FC.cpp
 pso/misc/TLobby_803E2D50.cpp

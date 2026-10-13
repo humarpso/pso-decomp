@@ -348,7 +348,7 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/unk/text_803D4CA0.cpp": {
+  "pso/audio/GcrnaStream.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
@@ -1024,5 +1024,12 @@
     "inline": "off",
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
+  },
+  "pso/audio/GcrnaError.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,s",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "sdata2": 4
   }
 }

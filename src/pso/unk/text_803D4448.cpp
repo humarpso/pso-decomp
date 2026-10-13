@@ -30,12 +30,12 @@ struct Obj_803D4654 {
 
 extern "C" {
 void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
-extern u8 lbl_804FA088[];
-extern s32 lbl_804FA470[];
+extern u8 gcrna_volume_table[];
+extern s32 gcrna_pan_table[];
 void set_sound_stream_volume(Obj_803D4540 *o, s32 vol);
 void sndStreamMixParameterEx(s32 h, u8 a, u8 b, u8 c, u8 d, u8 e);
-extern u8 lbl_804FA088[];
-extern s32 lbl_804FA470[];
+extern u8 gcrna_volume_table[];
+extern s32 gcrna_pan_table[];
 void set_stream_channel_pan__6TLobbyFPvii(Obj_803D4540 *o, s32 ch, s32 pan);
 void sndStreamFrq(s32, s32);
 void set_stream_frequency__6TLobbyFPvi(Obj_803D4654 *o, s32 rate);
@@ -75,10 +75,10 @@ void set_stream_channel_pan__6TLobbyFPvii(Obj_803D4540 *o, s32 ch, s32 pan) {
     if (stat_803D4448(o) != 1) {
         return;
     }
-    sndStreamMixParameterEx(o->h[ch], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[ch] + 15],
+    sndStreamMixParameterEx(o->h[ch], gcrna_volume_table[-o->vol2], gcrna_pan_table[o->pan[ch] + 15],
                          0x7F - o->x70,
-                         (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x68]) >> 7,
-                         (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x6c]) >> 7);
+                         (u32)(gcrna_volume_table[-o->vol] * gcrna_volume_table[-o->x68]) >> 7,
+                         (u32)(gcrna_volume_table[-o->vol] * gcrna_volume_table[-o->x6c]) >> 7);
 }
 #pragma pop
 
@@ -98,10 +98,10 @@ void set_sound_stream_volume(Obj_803D4540 *o, s32 vol) {
         return;
     }
     for (i = 0; i < o->nch; i++) {
-        sndStreamMixParameterEx(o->h[i], lbl_804FA088[-o->vol2], lbl_804FA470[o->pan[i] + 15],
+        sndStreamMixParameterEx(o->h[i], gcrna_volume_table[-o->vol2], gcrna_pan_table[o->pan[i] + 15],
                              0x7F - o->x70,
-                             (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x68]) >> 7,
-                             (u32)(lbl_804FA088[-o->vol] * lbl_804FA088[-o->x6c]) >> 7);
+                             (u32)(gcrna_volume_table[-o->vol] * gcrna_volume_table[-o->x68]) >> 7,
+                             (u32)(gcrna_volume_table[-o->vol] * gcrna_volume_table[-o->x6c]) >> 7);
     }
 }
 #pragma pop

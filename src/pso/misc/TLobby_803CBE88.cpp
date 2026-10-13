@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void run_step_60c8__6TLobbyFv(void);
-M2C_UNK set_buffer_params_checked__6TLobbyFUiUii();
+M2C_UNK gcrna_set_audio_buffer_storage();
 
 void run_step_60c8__6TLobbyFv(void) {
-    set_buffer_params_checked__6TLobbyFUiUii();
+    gcrna_set_audio_buffer_storage();
 }
 
 }
