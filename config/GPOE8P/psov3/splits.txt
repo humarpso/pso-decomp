@@ -5105,18 +5105,17 @@ pso/misc/TOCapsuleAncient01.cpp:
 pso/misc/TOCapsuleMachine01.cpp:
 	.text       start:0x8015A5E8 end:0x8015A8D8
 
-pso/system/TOChatSensorCapture_8015A8D8.cpp:
-	.text       start:0x8015A8D8 end:0x8015A9FC
-
 pso/system/TOChatSensorCapture.cpp:
-	.text       start:0x8015A9FC end:0x8015AAF8
+	.text       start:0x8015A8D8 end:0x8015ABD0
 	.data       start:0x804AFF78 end:0x804AFF90
+	.sdata      start:0x805D2EE0 end:0x805D2EE4
+	.sbss       start:0x805D58D8 end:0x805D58DC
 
-pso/unk/text_8015AAF8.cpp:
-	.text       start:0x8015AAF8 end:0x8015AB84
+original_padding_805D58DC:
+	.sbss       start:0x805D58DC end:0x805D58E0 align:4
 
-pso/misc/TOChatSensorCapture.cpp:
-	.text       start:0x8015AB84 end:0x8015ABD0
+original_padding_805D2EE4:
+	.sdata      start:0x805D2EE4 end:0x805D2EE8 align:4
 
 pso/misc/TLobby_8015ABD0.cpp:
 	.text       start:0x8015ABD0 end:0x8015ABD8
@@ -9260,7 +9259,7 @@ pso/misc/TWindowQuantity.cpp:
 pso/misc/TWindowReturnCity.cpp:
 	.text       start:0x8026D18C end:0x8026D504
 
-pso/misc/TWindowRoom.cpp:
+pso/ui/TWindowRoom.cpp:
 	.text       start:0x8026D504 end:0x8026D790
 
 pso/misc/TWindowSetLevelUp.cpp:

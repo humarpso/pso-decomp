@@ -113,7 +113,7 @@ void append_card_window_text__6TLobbyFv(void);
 void capture_chat_sensor__6TLobbyFi(s32 arg0);
 s32 parse_f_index(s32 a0);
 int sscanf(M2C_UNK, M2C_UNK *, ...);
-M2C_UNK capture_message__19TOChatSensorCaptureFUsPv(u16, s32);
+M2C_UNK capture_message__19TOChatSensorCaptureFUsPCc(u16, s32);
 M2C_UNK dispatch_chat_message_to_children__12TOChatSensorFi();
 namespace pf2_p0 { extern "C" { u32 get_character_save_record(int); } }
 #define get_character_save_record pf2_p0::get_character_save_record
@@ -122,7 +122,7 @@ extern s32 local_client_id;
 
 void capture_chat_sensor__6TLobbyFi(s32 arg0) {
     dispatch_chat_message_to_children__12TOChatSensorFi();
-    capture_message__19TOChatSensorCaptureFUsPv((u16) local_client_id, arg0);
+    capture_message__19TOChatSensorCaptureFUsPCc((u16) local_client_id, arg0);
 }
 
 extern M2C_UNK lbl_80449C6C[];
@@ -529,8 +529,8 @@ void TLobby__sub_801E6CA4(void);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
 void *memcpy(void *, const void *, u32);
 void copy_slot_entity_data__6TLobbyFv(void);
-s32 store_player_name__19TOChatSensorCaptureFUsPv(u16 arg0, const char *arg1);
-void TLobby__sub_801E6E88(void);
+s32 check_keyword__19TOChatSensorCaptureFUsPCc(u16 arg0, const char *arg1);
+void quest_check_chat_keyword(void);
 }
 
 extern "C" {
@@ -600,10 +600,10 @@ void TLobby__sub_801E6E20(void) {
     }
     M2C_FIELD((TLobby__script_reg_array + ((temp_r31 * 4) & 0x3FC)), s32 *, 0) = -1;
 }
-void TLobby__sub_801E6E88(void) {
+void quest_check_chat_keyword(void) {
     u8 idx;
     idx = (u8) TLobby__quest_argument_stack.value;
-    if (store_player_name__19TOChatSensorCaptureFUsPv((u16) M2C_FIELD(&TLobby__quest_argument_stack.value, s32 *, 4),
+    if (check_keyword__19TOChatSensorCaptureFUsPCc((u16) M2C_FIELD(&TLobby__quest_argument_stack.value, s32 *, 4),
                                           (const char *) M2C_FIELD(&TLobby__quest_argument_stack.value, s32 *, 8)) != 0) {
         *(s32 *) (TLobby__script_reg_array + ((idx * 4) & 0x3FC)) = 1;
         return;

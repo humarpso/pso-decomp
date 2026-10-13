@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/ui/TWindowInputNumber.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -40,13 +41,12 @@ extern "C" {
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void draw_right_aligned_number(void *);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
-u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
+void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
 extern M2C_UNK __vt__18TWindowInputNumber[];
 extern s32 TWindowInputNumber__name;
 extern const f32 lbl_805DCE2C;
-u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
 u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
 extern s8 controller_input_state[];
 u8 test_input_flag__18TWindowInputNumberFPv(u8 *arg0);
@@ -262,24 +262,28 @@ extern s8 controller_input_state[];
 
 typedef char RecoveredGlobal_80256A60_lbl_804CF8EC_size[sizeof(RecoveredGlobal_80256A60_lbl_804CF8EC) == 0x14 ? 1 : -1];
 typedef char RecoveredGlobal_80256A60___vt__18TWindowInputNumber_size[sizeof(RecoveredGlobal_80256A60___vt__18TWindowInputNumber) == 0x18 ? 1 : -1];
-u8 *TWindowInputNumber__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
-    construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &lbl_804CF8EC.value, arg5, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80256A60___vt__18TWindowInputNumber *)&__vt__18TWindowInputNumber).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowInputNumber__name;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg5;
-    M2C_FIELD(arg0, s16 *, 0x60) = 0;
-    M2C_FIELD(arg0, s8 *, 0x63) = 0;
-    M2C_FIELD(arg0, s32 *, 0x64) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x68) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x6C) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x70) = 0;
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805DCE2C;
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) lbl_805DCE2C;
-    calc_digit_count__18TWindowInputNumberFv((void *)(arg0));
-    refresh_digit_entries__18TWindowInputNumberFPv((u8 *)(arg0));
-    align_digits__18TWindowInputNumberFv((InNum_802561E8 *)(arg0));
-    return arg0;
 }
+
+TWindowInputNumber::TWindowInputNumber(void *position, s32 low, s32 high,
+                                     s32 initial, s16 client) {
+    construct_base__9TWindowDDFPvPvsPv(this, &lbl_804CF8EC.value, client, position);
+    objectVtable = __vt__18TWindowInputNumber;
+    className = TWindowInputNumber__name;
+    clientIndex = client;
+    inputFlags = 0;
+    selectedDigit = 0;
+    minimum = low;
+    maximum = high;
+    value = initial;
+    unknown70 = 0;
+    scaleX = lbl_805DCE2C;
+    scaleY = lbl_805DCE2C;
+    calc_digit_count__18TWindowInputNumberFv(this);
+    refresh_digit_entries__18TWindowInputNumberFPv((u8 *)this);
+    align_digits__18TWindowInputNumberFv((InNum_802561E8 *)this);
+}
+
+extern "C" {
 
 typedef char RecoveredGlobal_80256B0C_lbl_8050E208_size[sizeof(RecoveredGlobal_80256B0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 u8 test_input_flag__18TWindowInputNumberFPv(u8 *arg0) {

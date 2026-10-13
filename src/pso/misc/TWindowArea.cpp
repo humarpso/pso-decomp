@@ -9,7 +9,7 @@ typedef char RecoveredGlobal_8024470C___vt__11TWindowArea_size[sizeof(RecoveredG
 
 extern "C" {
 u8 * get_window_layout_position(s32);
-u8 * TWindowRoom__ct(void *, s32);
+u8 * __ct__11TWindowRoomFPc(void *, s32);
 M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(int, int);
 extern M2C_UNK __vt__11TWindowArea[];
 extern s32 lbl_805D3880;
@@ -47,7 +47,7 @@ u8 *TWindowArea__ct(u8 *arg0) {
     u8 *var_r3;
     var_r4 = (M2C_UNK *)((u8 *)(NULL));
     var_r31 = (u8 *)(arg0);
-    TWindowRoom__ct(arg0, 0);
+    __ct__11TWindowRoomFPc(arg0, 0);
     var_r4 = (M2C_UNK *)(&(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value);
     var_r3 = (u8 *)((void *)0x25);
     M2C_FIELD(var_r31, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024470C___vt__11TWindowArea *)&__vt__11TWindowArea).value;

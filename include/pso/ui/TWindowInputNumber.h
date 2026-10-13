@@ -1,0 +1,40 @@
+#ifndef PSO_UI_TWINDOWINPUTNUMBER_H
+#define PSO_UI_TWINDOWINPUTNUMBER_H
+
+#include "types.h"
+#include <stddef.h>
+#include "pso/TObject.h"
+
+struct TWindowInputNumber {
+    u32 className;
+    u8 unknown04[0x14];
+    void *objectVtable;
+    u8 unknown1C[4];
+    s16 clientIndex;
+    u8 unknown22[0x3E];
+    u16 inputFlags;
+    s8 digitCount;
+    s8 selectedDigit;
+    s32 minimum;
+    s32 maximum;
+    s32 value;
+    s32 unknown70;
+    f32 scaleX;
+    f32 scaleY;
+
+    static void *operator new(unsigned long size) {
+        return TObject::operator new(size);
+    }
+    TWindowInputNumber(void *position, s32 minimum, s32 maximum, s32 initial, s16 client);
+};
+
+typedef char TWindowInputNumberSize[sizeof(TWindowInputNumber) == 0x7C ? 1 : -1];
+typedef char NumberVtableOffset[offsetof(TWindowInputNumber, objectVtable) == 0x18 ? 1 : -1];
+typedef char NumberClientOffset[offsetof(TWindowInputNumber, clientIndex) == 0x20 ? 1 : -1];
+typedef char NumberFlagsOffset[offsetof(TWindowInputNumber, inputFlags) == 0x60 ? 1 : -1];
+typedef char NumberMinimumOffset[offsetof(TWindowInputNumber, minimum) == 0x64 ? 1 : -1];
+typedef char NumberMaximumOffset[offsetof(TWindowInputNumber, maximum) == 0x68 ? 1 : -1];
+typedef char NumberInitialOffset[offsetof(TWindowInputNumber, value) == 0x6C ? 1 : -1];
+typedef char NumberScaleOffset[offsetof(TWindowInputNumber, scaleX) == 0x74 ? 1 : -1];
+
+#endif

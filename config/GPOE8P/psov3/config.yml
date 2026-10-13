@@ -167,6 +167,7 @@ force_active:
   - TMainCursor__sub_8013E694
   - TOBarrierEnergy01__vt18
   - TOCapsuleLabo__resource_descriptor
+  - TOChatSensorCapture__class_name
   - TODoorCave01__resource_descriptor
   - TODoorCave02__resource_descriptor
   - TODoorCave02_resource_descriptor
@@ -406,6 +407,7 @@ force_active:
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
   - __ct__18TChallenge4PResultFP7TObjectUsl
   - __ct__18TPlayerLobbyMarkerFP7TObjectsSc
+  - __ct__19TOChatSensorCaptureFP7TObject
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
   - __ct__9TEffGuardFPC3Vec
@@ -1397,6 +1399,7 @@ force_active:
   - draw_status_window__14TAdPlyStatusGCFPvPv
   - draw_status_window__15TAdMcSelectMcGCFPv
   - draw_switch_lights__15TODoorAncient08FPv
+  - draw_tab__11TWindowRoomFPv
   - draw_tab__12TWindowTimerFii
   - draw_tag_sprite__12TChCrTagNameFPv
   - draw_tag_sprites__12TChCrTagNameFPv
@@ -1585,7 +1588,6 @@ force_active:
   - fn_801F6520
   - fn_8022F164
   - fn_80235078
-  - fn_8026D564
   - fn_802E62A4
   - fn_spawn_particle_f3_with_flags
   - format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii

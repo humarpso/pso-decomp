@@ -1,48 +1,77 @@
-#include "pso/TOChatSensorCapture.h"
+#include "pso/system/TOChatSensorCapture.h"
 
-extern "C" void free__11TOBoss4RockFUi(void*);
-extern s32 TOChatSensorCapture__instance;
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK memset(int, int, int);
-void run_task__19TOChatSensorCaptureFv(s32 arg0);
+s32 find_chat_keyword(char *, char (*)[0x20], s32);
+char *strncpy(char *, const char *, size_t);
+void *memset(void *, int, size_t);
+void free__11TOBoss4RockFUi(void *);
+char *alloc_buffer__11TOBoss4RockFPv(int);
+extern s32 current_language;
+TOChatSensorCapture *TOChatSensorCapture__instance;
+extern const char lbl_8044049C[];
+const char *TOChatSensorCapture__class_name = lbl_8044049C;
 }
 
-extern "C" {
-
-#pragma push
-#pragma fp_contract on
-void run_task__19TOChatSensorCaptureFv(s32 arg0) {
-    s32 temp_r3;
-    s32 var_r31;
-    s32 var_r30;
-    u8 *temp_r4;
-    var_r30 = 0;
-    var_r31 = 0;
-    do {
-        temp_r4 = (u8 *)(arg0 + var_r31);
-        temp_r3 = M2C_FIELD(temp_r4, s32 *, 0x1C);
-        if (temp_r3 != 0) {
-            M2C_FIELD(temp_r4, s32 *, 0x1C) = (s32) (temp_r3 - 1);
-            if ((s32) M2C_FIELD(temp_r4, s32 *, 0x1C) == 0) {
-                memset((int) (M2C_FIELD(temp_r4, s32 *, 0x2C)), (int) (0), (int) (4));
+s32 TOChatSensorCapture::check_keyword(u16 client, const char *keyword) {
+    char buffer[0x20];
+    s32 i;
+    s32 c;
+    if (TOChatSensorCapture__instance != NULL && client < 4) {
+        strncpy(buffer, keyword, 0x20);
+        for (i = 0; i < 0x20; i++) {
+            c = buffer[i];
+            if (c == 0) break;
+            if (c == 10 || c == 11) {
+                buffer[i] = 0;
+                break;
             }
         }
-        var_r30 += 1;
-        var_r31 += 4;
-    } while (var_r30 != 4);
-}
-TOChatSensorCapture::~TOChatSensorCapture() {
-    for (int i = 0; i != 4; i++) {
-        free__11TOBoss4RockFUi(m_arr[i]);
+        if (find_chat_keyword(TOChatSensorCapture__instance->messages[client],
+                              (char (*)[0x20])buffer, current_language) > -1) return 1;
     }
+    return 0;
+}
+
+void TOChatSensorCapture::capture_message(u16 client, const char *message) {
+    if (TOChatSensorCapture__instance != NULL && client < 4) {
+        strncpy(TOChatSensorCapture__instance->messages[client], message, 0x100);
+        TOChatSensorCapture__instance->lifetime[client] = 0x78;
+    }
+}
+
+void TOChatSensorCapture::run_task() {
+    s32 i = 0;
+    do {
+        if (lifetime[i] != 0) {
+            lifetime[i] = lifetime[i] - 1;
+            if (lifetime[i] == 0) memset(messages[i], 0, 4);
+        }
+        i += 1;
+    } while (i != 4);
+}
+
+TOChatSensorCapture::~TOChatSensorCapture() {
+    for (int i = 0; i != 4; i++) free__11TOBoss4RockFUi(messages[i]);
     TOChatSensorCapture__instance = 0;
+}
+
+#pragma push
+#pragma opt_common_subs off
+TOChatSensorCapture::TOChatSensorCapture(TObject *parent) : TObject(parent) {
+    m_name = TOChatSensorCapture__class_name;
+    s32 i = 0;
+    do {
+        lifetime[i] = 0;
+        messages[i] = alloc_buffer__11TOBoss4RockFPv(0x100);
+        memset(messages[i], 0, 4);
+        i += 1;
+    } while (i != 4);
+    TOChatSensorCapture__instance = this;
 }
 #pragma pop
 
+void TOChatSensorCapture::create_instance(void *parent) {
+    if (TOChatSensorCapture__instance == NULL) {
+        new TOChatSensorCapture((TObject *)parent);
+    }
 }

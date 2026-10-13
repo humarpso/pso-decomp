@@ -13,7 +13,7 @@ u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowArea__ct();
 M2C_UNK fn_802449E0(int);
-u8 *fn_8026D504(s32);
+u8 *get_title_entry__11TWindowRoomFv(s32);
 M2C_UNK set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
@@ -24,7 +24,7 @@ void fn_8024450C(s32 arg0);
 s32 TWindowArea__ct();
 void *get_field_20__17TWindowSubComCardFPv(void *);
 M2C_UNK fn_802449E0(int);
-u8 *fn_8026D504(s32);
+u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
 s32 create_window_area(void);
@@ -56,7 +56,7 @@ s32 create_area_window(s32 arg0) {
     }
     set_entry_display_value__20TWindowSubStatusDispFPvi((int) (var_r30), (void *) (arg0));
     fn_802449E0((int) (var_r30));
-    temp_r31 = (u8 *)(fn_8026D504(var_r30));
+    temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
     M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((void *) (arg0))) - lbl_805DCABC);
     return var_r30;
 }
@@ -73,7 +73,7 @@ s32 create_window_area(void) {
     }
     fn_802449E0(var_r30);
     fn_8024450C(var_r30);
-    temp_r31 = fn_8026D504(var_r30);
+    temp_r31 = get_title_entry__11TWindowRoomFv(var_r30);
     M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
     return var_r30;
 }

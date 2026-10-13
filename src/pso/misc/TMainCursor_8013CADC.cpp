@@ -135,8 +135,8 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern f32 lbl_8050BF60[3];
 extern const f32 TMainCursor__data_805DB0C0;
-extern const f32 lbl_805DB0E4;
-extern const f32 lbl_805DB0E8;
+extern const f32 interaction_cursor_radius;
+extern const f32 ryuker_cursor_forward_offset;
 void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, s32 kind, s32 id);
 }
 
@@ -268,7 +268,7 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             set_type__11TMainCursorFPvi(cur, 1);
             VecCopy__FP3VecPC3Vec(cur->pos, player + 0x2FC);
             cur->f3c = TMainCursor__data_805DB0C0;
-            cur->f28 = lbl_805DB0E4;
+            cur->f28 = interaction_cursor_radius;
             cur->f34 = 0x8000;
             cur->f38 = 0x8000;
             cur->f2c = cos_table_lookup(cur->f34);
@@ -340,9 +340,9 @@ void setup_action_channel__11TMainCursorFiPviii(s32 self, u8 *player, s32 slot, 
             set_field_0c__11TMainCursorFPvi(C_8013CDE4, 0);
             set_color_mode__11TMainCursorFPvi(C_8013CDE4, 0x60000000);
             set_flags__11TMainCursorFPvi(C_8013CDE4, 0x40800);
-            lbl_8050BF60[0] = lbl_805DB0E8 * sin_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
+            lbl_8050BF60[0] = ryuker_cursor_forward_offset * sin_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x2FC);
             lbl_8050BF60[1] = *(f32 *)(player + 0x300);
-            lbl_8050BF60[2] = lbl_805DB0E8 * cos_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
+            lbl_8050BF60[2] = ryuker_cursor_forward_offset * cos_table_lookup(*(s32 *)(player + 0x60)) + *(f32 *)(player + 0x304);
             VecCopy__FP3VecPC3Vec(cur->pos, lbl_8050BF60);
             break;
         case 10:

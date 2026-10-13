@@ -182,7 +182,7 @@ M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK set_position_xy(u32, f32, f32);
 void TWindowHelpItem__set_displayed_item_by_id(void *arg0, s32 arg1);
-void *TWindowInputNumber__ct(void *, M2C_UNK, s32, s32, s32, s16);
+void *__ct__18TWindowInputNumberFPvllls(void *, M2C_UNK, s32, s32, s32, s16);
 M2C_UNK align_menu_entry_positions(u32);
 M2C_UNK calc_window_size__17TWindowSubComCardFPv(u32);
 M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(u32, s32, M2C_UNK, M2C_UNK);
@@ -363,7 +363,7 @@ void handle_selection__24TShopEquipmentSellWindowFv(Win_8021CC44 *w) {
             if (type > 1 && w->qty_win == NULL) {
                 n = __nw__7TObjectFUl(0x7C);
                 if (n != NULL) {
-                    n = TWindowInputNumber__ct(n, get_window_layout_position(0x2B), 1, type, 1, get_child_field1c__15TShopWindowBaseFPv(w));
+                    n = __ct__18TWindowInputNumberFPvllls(n, get_window_layout_position(0x2B), 1, type, 1, get_child_field1c__15TShopWindowBaseFPv(w));
                 }
                 w->qty_win = n;
                 if (w->qty_win != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

@@ -229,7 +229,7 @@ s32 get_player_by_client_id(s32);
 int clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void*);
 int reset_list__20TShopArmorListWindowFPv(void*);
 M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
-s32 TWindowInputNumber__ct(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
+s32 __ct__18TWindowInputNumberFPvllls(s32, s32, M2C_UNK, s32, M2C_UNK, s16);
 s32 get_window_layout_position(M2C_UNK);
 M2C_UNK TWindowSubEquip__sub_80263AF8(s32, M2C_UNK);
 int clamp_scroll_offset__20TWindowSubStatusDispFPv(void*);
@@ -475,7 +475,7 @@ s32 create_count_input__14TWindowSubItemFPvi(void *arg0, s32 arg1) {
 
     var_r31 = __nw__7TObjectFUl(0x7C);
     if (var_r31 != 0) {
-        var_r31 = TWindowInputNumber__ct(var_r31, get_window_layout_position(5), 1, arg1, 1, (s16) M2C_FIELD(arg0, s32 *, 0x24));
+        var_r31 = __ct__18TWindowInputNumberFPvllls(var_r31, get_window_layout_position(5), 1, arg1, 1, (s16) M2C_FIELD(arg0, s32 *, 0x24));
     }
     create__18TWindowInputNumberFPvi(var_r31, get_message_10__20TWindowSubStatusDispFPv(0x28));
     TWindowSubEquip__sub_80263AF8(M2C_FIELD(arg0, s32 *, 0x2C), 3);

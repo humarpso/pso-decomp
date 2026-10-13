@@ -404,7 +404,7 @@ extern M2C_UNK __vt__9TWindowDD[];
 typedef char NumberWindowOffset[offsetof(WordSelectWindowState, numberWindow) == 0x84 ? 1 : -1];
 typedef char ActivePageOffset[offsetof(WordSelectWindowState, activePage) == 0x20 ? 1 : -1];
 typedef char PageArrayOffset[offsetof(WordSelectWindowState, pages) == 0x24 ? 1 : -1];
-NumberWindow* TWindowInputNumber__ct(void* storage, const WindowPosition* position,
+NumberWindow* __ct__18TWindowInputNumberFPvllls(void* storage, const WindowPosition* position,
                                    s32 minimum, s32 maximum, s32 initial, s16 client);
 void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self, s32 minimum, s32 maximum, s32 initial) {
     WindowPosition position;
@@ -412,7 +412,7 @@ void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self,
     position.y = lbl_805DFCB4 + lbl_805DFB70;
     NumberWindow* window = (NumberWindow*)__nw__7TObjectFUl(0x7C);
     if (window) {
-        window = TWindowInputNumber__ct(window, &position, minimum, maximum, initial,
+        window = __ct__18TWindowInputNumberFPvllls(window, &position, minimum, maximum, initial,
                                       (s16)local_client_id);
     }
     self->numberWindow = window;

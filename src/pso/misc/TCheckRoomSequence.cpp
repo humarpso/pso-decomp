@@ -251,7 +251,7 @@ s32 get_room_data__18TCheckRoomSequenceFi(int);
 int TShopWindowBase__sub_8022397C(void*);
 s16 get_child_field1c__15TShopWindowBaseFPv(void *);
 void *__nw__7TObjectFUl(u32);
-void *TWindowInputNumber__ct(void *, s32, s32, s32, s32, s16);
+void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 get_window_layout_position(s32);
 s32 is_camera_ctrl_active__6TLobbyFv();
 extern s32 TCheckRoomSequence__error_return_text_id;
@@ -266,7 +266,7 @@ s32 get_bank_meseta_capacity(s32 i);
 int TShopWindowBase__sub_8022397C(void*);
 s16 get_child_field1c__15TShopWindowBaseFPv(void *);
 void *__nw__7TObjectFUl(u32);
-void *TWindowInputNumber__ct(void *, s32, s32, s32, s32, s16);
+void *__ct__18TWindowInputNumberFPvllls(void *, s32, s32, s32, s32, s16);
 s32 get_window_layout_position(s32);
 s32 is_camera_ctrl_active__6TLobbyFv();
 extern s32 TCheckRoomSequence__error_return_text_id;
@@ -567,7 +567,7 @@ void begin_meseta_withdrawal__18TCheckRoomSequenceFPv(Seq_8020F478 *self) {
                 w = __nw__7TObjectFUl(0x7C);
                 if (w != NULL) {
                     id = ((s32 (*)(void *))get_child_field1c__15TShopWindowBaseFPv)(self);
-                    w = TWindowInputNumber__ct(w, get_window_layout_position(0x2B), 1, n, 1, id);
+                    w = __ct__18TWindowInputNumberFPvllls(w, get_window_layout_position(0x2B), 1, n, 1, id);
                 }
                 self->f34 = w;
                 if (self->f34 != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
@@ -638,7 +638,7 @@ void begin_meseta_deposit__18TCheckRoomSequenceFPv(Seq_8020F730 *self) {
                 w = __nw__7TObjectFUl(0x7C);
                 if (w != NULL) {
                     id = ((s32 (*)(void *))get_child_field1c__15TShopWindowBaseFPv)(self);
-                    w = TWindowInputNumber__ct(w, get_window_layout_position(0x2B), 1, n, 1, id);
+                    w = __ct__18TWindowInputNumberFPvllls(w, get_window_layout_position(0x2B), 1, n, 1, id);
                 }
                 self->f34 = w;
                 if (self->f34 != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {

@@ -1232,7 +1232,6 @@ pso/misc/TOCapsuleAncient01.cpp
 pso/misc/TOCapsuleLabo.cpp
 pso/misc/TOCapsuleMachine01.cpp
 pso/misc/TOChatSensor.cpp
-pso/misc/TOChatSensorCapture.cpp
 pso/misc/TOChatSensorFolder.cpp
 pso/misc/TOChatSensor_8015AC80.cpp
 pso/misc/TOChatSensor_8015B214.cpp
@@ -1792,7 +1791,6 @@ pso/misc/TWindowOptionCtrl_8034C384.cpp
 pso/misc/TWindowPartyStatus.cpp
 pso/misc/TWindowQuantity.cpp
 pso/misc/TWindowReturnCity.cpp
-pso/misc/TWindowRoom.cpp
 pso/misc/TWindowSetLevelUp.cpp
 pso/misc/TWindowShop.cpp
 pso/misc/TWindowShortCut.cpp
@@ -2651,7 +2649,6 @@ pso/system/THeap.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TNECFontEORFunction.cpp
 pso/system/TOChatSensorCapture.cpp
-pso/system/TOChatSensorCapture_8015A8D8.cpp
 pso/system/TOChatSensorFolder.cpp
 pso/system/TODummyKeyCave01Sound.cpp
 pso/system/TOSwitchAttackSub.cpp
@@ -2852,6 +2849,7 @@ pso/ui/TObjLiveCameraCtrl.cpp
 pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
 pso/ui/TWindowCtrlSub.cpp
+pso/ui/TWindowRoom.cpp
 pso/ui/TWindowSubTradeMessage.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80019B78.cpp
@@ -3206,7 +3204,6 @@ pso/unk/text_80153A7C.cpp
 pso/unk/text_80156BBC.cpp
 pso/unk/text_801582C4.cpp
 pso/unk/text_80158360.cpp
-pso/unk/text_8015AAF8.cpp
 pso/unk/text_8015C048.cpp
 pso/unk/text_8015C534.cpp
 pso/unk/text_8015C680.cpp

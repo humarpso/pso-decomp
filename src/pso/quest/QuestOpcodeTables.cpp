@@ -7,7 +7,7 @@ void check_item_usable_by_player__6TLobbyFv();
 void create_singleton__6TLobbyFv();
 void copy_slot_entity_data__6TLobbyFv();
 void TLobby__sub_801E6E20();
-void TLobby__sub_801E6E88();
+void quest_check_chat_keyword();
 void create_chat_sensor_capture__6TLobbyFv();
 void TLobby__sub_801E6F1C();
 void run_vm_helper_with_regs__6TLobbyFv();
@@ -1104,7 +1104,7 @@ QuestOpcodeEntry qst_opcode_table[0x300] = {
     { qst_getargs_801F2B54, quest_vm_get_language },
     { qst_getargs_801F2B54, TLobby__sub_801E6F1C },
     { qst_getargs_801F2B54, create_chat_sensor_capture__6TLobbyFv },
-    { qst_getargs_801F2B54, TLobby__sub_801E6E88 },
+    { qst_getargs_801F2B54, quest_check_chat_keyword },
     { qst_getargs_801F2B54, TLobby__sub_801E6E20 },
     { qst_getargs_801F2B54, copy_slot_entity_data__6TLobbyFv },
     { qst_getargs_801F2B54, create_singleton__6TLobbyFv },

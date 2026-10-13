@@ -101,7 +101,7 @@ M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
 void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
 void *__nw__7TObjectFUl(u32);
-void *TWindowInputNumber__ct(void *, void *, int, s32, int, int);
+void *__ct__18TWindowInputNumberFPvllls(void *, void *, int, s32, int, int);
 void set_displayed_item_colored__15TWindowHelpItemFPvUi(void *, void *);
 void set_position__18TCheckRoomSequenceFPvff(void *, f32, f32);
 s32 is_camera_ctrl_active__6TLobbyFv(void);
@@ -244,7 +244,7 @@ s32 update_item_select__21TShopDeleteItemWindowFPv(void *arg0) {
                 p = __nw__7TObjectFUl(0x7C);
                 if (p != NULL) {
                     id = get_child_field1c__15TShopWindowBaseFPv(self);
-                    p = TWindowInputNumber__ct(p, get_window_layout_position(0x2B), 1, count, 1, id);
+                    p = __ct__18TWindowInputNumberFPvllls(p, get_window_layout_position(0x2B), 1, count, 1, id);
                 }
                 self->f38 = p;
                 if (self->f38 != NULL && is_camera_ctrl_active__6TLobbyFv() > 2) {
