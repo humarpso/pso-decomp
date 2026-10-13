@@ -45,7 +45,7 @@ void apply_trade_items__6TLobbyFv(void);
 
 extern "C" {
 
-extern u32 TLobby__data_805D689C;
+extern u32 trade_message_controller;
 
 typedef char RecoveredGlobal_802D298C_TLobby__data_80540BD0_size[sizeof(RecoveredGlobal_802D298C_TLobby__data_80540BD0) == 0x3E0 ? 1 : -1];
 u8 *TLobby__sub_802D298C(void) {
@@ -63,14 +63,14 @@ M2C_UNK *get_trade_window_state(void) {
 }
 
 s32 TLobby__sub_802D29B8(u32 arg0) {
-    if ((u32) TLobby__data_805D689C != arg0) {
+    if ((u32) trade_message_controller != arg0) {
         return 0;
     }
-    TLobby__data_805D689C = 0U;
+    trade_message_controller = 0U;
     return 1;
 }
 
-int TLobby__sub_802D29DC(int a0) { TLobby__data_805D689C = a0; return 1; }
+int TLobby__sub_802D29DC(int a0) { trade_message_controller = a0; return 1; }
 
 extern u32 TLobby__trade_main_window;
 

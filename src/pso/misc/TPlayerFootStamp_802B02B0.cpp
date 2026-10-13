@@ -18,7 +18,7 @@ M2C_UNK get_phase_values__11TBoss6Type2FPvPvPvPv(void *, void *, void *, void *)
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK destroy_static_instance__14TBoss6PlotFalzFv(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
-M2C_UNK fn_8033E8C0(void *, void *);
+M2C_UNK create_boss6_type2_death(void *, void *);
 s32 is_ending_or_split_screen__14TBoss6PlotFalzFv(void *);
 s32 is_ready__14TBoss6PlotFalzFv(void *);
 M2C_UNK obj_setArrS16_FC(void *, int, void *);
@@ -66,7 +66,7 @@ void finish_and_dispatch_next_phase__14TBoss6PlotFalzFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     dispatch_by_main_phase__14TBoss4DarkFalzFUs((int) (0x57));
     try_dispatch_darkfalz_phase__12TBoss6ThanksFv();
-    fn_8033E8C0((void *) (arg0), (void *) (sp10));
+    create_boss6_type2_death((void *) (arg0), (void *) (sp10));
 }
 
 }

@@ -547,6 +547,7 @@ force_active:
   - __dt__23TObjSeabedSuisoBrakableFv
   - __dt__24TObjCity_Season_FireWorkFv
   - __dt__25TBoss6Demo10_TYPE1_APPEARFv
+  - __dt__25TBoss6Demo20_TYPE2_APPEARFv
   - __dt__25THunterGuildSeqOnlineTaskFv
   - __dt__25TObjEneMe1Canadin_EffLineFv
   - __dt__26TBoss5GryphonLightningHornFv
@@ -660,6 +661,7 @@ force_active:
   - apply_rule_configuration__19TPlayerBattleCtrl4PFPvi
   - apply_shower_damage_to_players
   - apply_slot_params__8TFogCtrlFPvi
+  - apply_story_quest_unlock_rules
   - apply_to_player__13TItemProArmorFPv
   - apply_unit_effect_flags__12TItemProUnitFPv
   - apply_unit_immunity__18TItemLockCountCtrlFi
@@ -938,6 +940,9 @@ force_active:
   - boss6_rock_chase_model_radius_table
   - boss6_rock_resource_descriptor
   - boss6_type1_appear_motion_indices
+  - boss6_type2_appear_motion_indices
+  - boss6_type2_appear_offset_particle_origin
+  - boss6_type2_appear_origin
   - boss8_collision_segment_desc
   - boss_warp_model_names
   - boss_warp_motion_names
@@ -1120,6 +1125,7 @@ force_active:
   - clear_bit__15TBoss6SwordWaveFPvUc
   - clear_card_status_flags__6TLobbyFv
   - clear_entry_flags__17TBoss5GryphonDemoFPv
+  - clear_episode1_quest_availability
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_flags__11TItemMagSubFUl
   - clear_four_slots__6TLobbyFv
@@ -1185,7 +1191,6 @@ force_active:
   - copy_global_value_block__6TLobbyFv
   - copy_motion_pair
   - copy_node_record__10TObjPlayerFii
-  - copy_origin_with_y_offset__8TObjFishFv
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_pos_with_height_offset__18TObjEneMe3SinowZoaFPv
   - copy_record__13TObjTombstoneFPvi
@@ -1226,6 +1231,7 @@ force_active:
   - create_left_hand_ptcl__10TObjPlayerFPvPv
   - create_menu_window__14TAdYesNoBaseGCFPv
   - create_menu_window__14TWindowSubItemFPv
+  - create_message_window__22TWindowSubTradeMessageFPCc
   - create_particle_emitters__9TTecBartaFPv
   - create_particles__11TTecGiBartaFv
   - create_quest_list_window__19TQuestListChallengeFv
@@ -1335,7 +1341,12 @@ force_active:
   - draw_entry__12TAdMultiOkGCFPvi
   - draw_entry_tab__20TWindowSubStatusDispFPvPv
   - draw_fade__9TAdFadeGCFPv
-  - draw_fade_in__8TObjFishFPv
+  - draw_fading_model_1_pair__25TBoss6Demo20_TYPE2_APPEARFv
+  - draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv
+  - draw_fading_model_4__25TBoss6Demo20_TYPE2_APPEARFv
+  - draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv
+  - draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv
+  - draw_fading_model_pair__25TBoss6Demo20_TYPE2_APPEARFv
   - draw_fading_motion__10TObjPlayerFPv
   - draw_filled_rects_2d
   - draw_frame__20TWindowActionPaletteFv
@@ -1348,6 +1359,8 @@ force_active:
   - draw_label_value__20TWindowSubStatusDispFPvPv
   - draw_laser_beam__13TLazerFenceSwFv
   - draw_lights__20TODoorFourLightSpaceFPv
+  - draw_model_12__25TBoss6Demo20_TYPE2_APPEARFv
+  - draw_model_13__23TBoss6Demo21_TYPE2_DEADFv
   - draw_model__15TODoorAncient09FPv
   - draw_model__15TObjEneMe1GiGueFPv
   - draw_model__15TObjLazerFence4FPv
@@ -1442,6 +1455,8 @@ force_active:
   - enter_hit_reaction_state__15TObjEneMe1GiGueFPv
   - enter_request_state__16TAdWarningBaseGCFv
   - enter_state_5_save_prev__15TObjEneMe1GiGueFPv
+  - episode1_story_quest_flag_pairs
+  - episode2_story_quest_flag_pairs
   - evict_lowest_key_floor_item
   - explode__13TBoss6MagMineFPv
   - explode__22TObjEneMe1GiGueMissileFPvPv
@@ -1767,6 +1782,7 @@ force_active:
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
   - initialize_battle__19TPlayerBattleCtrl4PFv
+  - initialize_boss6_type2_appear_particle_origin
   - initialize_from_placement__13TObjRaderIconFv
   - initialize_player_data__10TObjPlayerFPv
   - initialize_selection_state__22TAdMultiPlyChrSelectGCFPvi
@@ -2385,8 +2401,10 @@ force_active:
   - render__20TAdGameStartShadowGCFv
   - render__20TObjLiveMonitorSmallFv
   - render__21TAdMultiChgGameModeGCFv
+  - render__23TBoss6Demo21_TYPE2_DEADFv
   - render__23TObjSeabedSuisoBrakableFv
   - render__25TBoss6Demo10_TYPE1_APPEARFv
+  - render__25TBoss6Demo20_TYPE2_APPEARFv
   - render__25TObjEneMe1Canadin_EffLineFv
   - render__26TBoss5GryphonLightningHornFv
   - render__26TBoss5GryphonLightningWingFv
@@ -2569,9 +2587,11 @@ force_active:
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
+  - run_task__23TBoss6Demo21_TYPE2_DEADFv
   - run_task__23TObjOnlineEndingHexMoveFv
   - run_task__24TObjCity_Season_FireWorkFv
   - run_task__25TBoss6Demo10_TYPE1_APPEARFv
+  - run_task__25TBoss6Demo20_TYPE2_APPEARFv
   - run_task__25THunterGuildSeqOnlineTaskFv
   - run_task__25TObjEneMe1Canadin_EffLineFv
   - run_task__26TBoss5GryphonLightningHornFv
@@ -3038,6 +3058,8 @@ force_active:
   - toggle_effect_render__14TObjEneDolmOlmFv
   - toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv
   - tombstone_resource_descriptor
+  - trade_message_class_name
+  - trade_message_window_dimensions
   - transfer_to_town__9TObjLukerFv
   - trap_ancient02_collision_body
   - trap_ancient02_ruins_pillar_resources

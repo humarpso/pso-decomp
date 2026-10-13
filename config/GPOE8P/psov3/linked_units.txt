@@ -147,6 +147,8 @@ os/__start.c
 pad/Pad.c
 pso/audio/SoundBankTables.cpp
 pso/boss/Boss6Type1Appearance.cpp
+pso/boss/Boss6Type2Appearance.cpp
+pso/boss/Boss6Type2Death.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -1044,8 +1046,6 @@ pso/misc/TLobby_80211CE0.cpp
 pso/misc/TLobby_80211F0C.cpp
 pso/misc/TLobby_80215AE4.cpp
 pso/misc/TLobby_802173F0.cpp
-pso/misc/TLobby_8021A010.cpp
-pso/misc/TLobby_8021A360.cpp
 pso/misc/TLobby_8021B268.cpp
 pso/misc/TLobby_80221820.cpp
 pso/misc/TLobby_80222D24.cpp
@@ -1273,7 +1273,6 @@ pso/misc/TODoorMachine01.cpp
 pso/misc/TODoorMachine02.cpp
 pso/misc/TODoorVS2Door01.cpp
 pso/misc/TODoorVoShip.cpp
-pso/misc/TODoorVoShip_8021A05C.cpp
 pso/misc/TODragonflyCave01.cpp
 pso/misc/TODummyKeyCave01.cpp
 pso/misc/TOExplosiveMachine01.cpp
@@ -1954,7 +1953,6 @@ pso/misc/TWindowSubTradeMain_802D3924.cpp
 pso/misc/TWindowSubTradeMain_80330A84.cpp
 pso/misc/TWindowSubTradeMain_80332148.cpp
 pso/misc/TWindowSubTradeMain_803322B8.cpp
-pso/misc/TWindowSubTradeMessage.cpp
 pso/misc/TWindowTimer.cpp
 pso/misc/TWindowTimer_80198814.cpp
 pso/misc/TWindowTradeRequest.cpp
@@ -2111,7 +2109,6 @@ pso/object/TObjEnvSoundGlobal.cpp
 pso/object/TObjEvtCollision.cpp
 pso/object/TObjFish_8001ED90.cpp
 pso/object/TObjFish_800E2FFC.cpp
-pso/object/TObjFish_8033DD4C.cpp
 pso/object/TObjFogCollision.cpp
 pso/object/TObjFogCollisionPoison.cpp
 pso/object/TObjFogCollisionSwitch.cpp
@@ -2619,7 +2616,6 @@ pso/player/TObjPlayer_80326578.cpp
 pso/player/TObjPlayer_8032DA84.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
 pso/player/TObjPlayer_80337348.cpp
-pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp
 pso/player/TObjPlayer_8033FE28.cpp
 pso/player/TObjPlayer_8034DF2C.cpp
@@ -2648,6 +2644,7 @@ pso/protocol/subcommand_validation_player.cpp
 pso/protocol/subcommand_validation_technique.cpp
 pso/quest/AreaDialogueScripts.cpp
 pso/quest/QuestOpcodeTables.cpp
+pso/quest/StoryQuestProgress.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
 pso/system/ItemEffects.cpp
@@ -2860,6 +2857,7 @@ pso/ui/TObjLiveCameraCtrl.cpp
 pso/ui/TObjLiveMonitor.cpp
 pso/ui/TObjNewFloorWin.cpp
 pso/ui/TWindowCtrlSub.cpp
+pso/ui/TWindowSubTradeMessage.cpp
 pso/unk/text_8000F740.cpp
 pso/unk/text_80019B78.cpp
 pso/unk/text_80019EB8.cpp
@@ -3423,7 +3421,6 @@ pso/unk/text_8020EE2C.cpp
 pso/unk/text_8020EEFC.cpp
 pso/unk/text_80211D58.cpp
 pso/unk/text_80215FAC.cpp
-pso/unk/text_80219F64.cpp
 pso/unk/text_80222C28.cpp
 pso/unk/text_80222DE8.cpp
 pso/unk/text_802233F8.cpp
@@ -3643,9 +3640,6 @@ pso/unk/text_8032E294.cpp
 pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
-pso/unk/text_80339954.cpp
-pso/unk/text_8033D6DC.cpp
-pso/unk/text_8033DA94.cpp
 pso/unk/text_8033F314.cpp
 pso/unk/text_8033FE30.cpp
 pso/unk/text_8033FF78.cpp

@@ -315,6 +315,16 @@ extern const f32 lbl_805DA4C8;
 extern const f32 lbl_805DA4CC;
 extern const f32 lbl_805DA4D0;
 void TObjEnePanarms__sub_800DDC30(Obj_800DDC30 *o);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void destroy_handles__14TObjEnePanarmsFPv(Obj_800DF1B8 *self);
+void init_state_1__8TObjFishFPv(void *);
+u8 * __dt__9TObjEnemyFv(void *, s16);
+void free_collision_body_parts(void *);
+void __dl__7TObjectFPv(s32);
+M2C_UNK __destroy_arr(void *, void *, int, int);
+extern M2C_UNK TObjPlayer__sub_800D7C58[];
+extern M2C_UNK __vt__14TObjEnePanarms[];
+u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1);
 }
 
 extern "C" {
@@ -1187,6 +1197,24 @@ void destroy_handles__14TObjEnePanarmsFPv(Obj_800DF1B8 *self) {
             self->handles[i] = 0;
         }
     }
+}
+
+u8 *__dt__14TObjEnePanarmsFv(u8 *arg0, s16 arg1) {
+    if (arg0 != NULL) {
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEnePanarms;
+        init_state_1__8TObjFishFPv(M2C_FIELD(arg0, u8 **, 0x39C));
+        queue_destruction__7TObjectFv(M2C_FIELD(arg0, u8 **, 0x3E4));
+        queue_destruction__7TObjectFv(M2C_FIELD(arg0, u8 **, 0x3E8));
+        free_collision_body_parts(arg0);
+        M2C_FIELD(arg0, s32 *, 0x390) = 0;
+        destroy_handles__14TObjEnePanarmsFPv((Obj_800DF1B8 *)(arg0));
+        __destroy_arr((void *) ((u8 *)(arg0) + 0x400), (void *) (TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
+        __dt__9TObjEnemyFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv((s32) arg0);
+        }
+    }
+    return arg0;
 }
 
 void free_data__14TObjEnePanarmsFv(void) {

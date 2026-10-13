@@ -312,7 +312,7 @@ s32 TWindowSubSymbolChat__ct(int, void *, int);
 s32 TWindowSubTechnique__ct(int, void *, int);
 s32 TWindowSubTrade__ct(int, void *, int);
 s32 TWindowSubTradeMain__ct(int, void *, int);
-s32 TWindowSubTradeMessage__ct(int, void *, int);
+s32 __ct__22TWindowSubTradeMessageFP7TObjectl(int, void *, int);
 s32 TWindowSubInformationBoard__ct(int, void *, int);
 void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1);
 }
@@ -443,7 +443,7 @@ void create_submenu__15TWindowMainMenuFPvUi(u8 *arg0, u32 arg1) {
         temp_r3_8 = ((s32)__nw__7TObjectFUl((int) (0x2C)));
         var_r0_8 = temp_r3_8;
         if (var_r0_8 != 0) {
-            var_r0_8 = TWindowSubTradeMessage__ct((int) (temp_r3_8), (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
+            var_r0_8 = __ct__22TWindowSubTradeMessageFP7TObjectl((int) (temp_r3_8), (void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
         }
         M2C_FIELD(arg0, s32 *, 0x20) = var_r0_8;
         return;

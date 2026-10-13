@@ -107,10 +107,10 @@ void clear_flag400__6TLobbyFv(void) {
 
 extern u32 TLobby__data_805D6894;
 extern u32 TLobby__trade_main_window;
-extern u32 TLobby__data_805D689C;
+extern u32 trade_message_controller;
 
 void check_flags_and_proceed__6TLobbyFv(void) {
-    if (((u32) TLobby__data_805D6894 == 0U) && ((u32) TLobby__trade_main_window == 0U) && ((u32) TLobby__data_805D689C == 0U)) {
+    if (((u32) TLobby__data_805D6894 == 0U) && ((u32) TLobby__trade_main_window == 0U) && ((u32) trade_message_controller == 0U)) {
         cancel_trade__6TLobbyFv();
     }
 }
@@ -168,7 +168,7 @@ M2C_UNK fn_80330A40(s32);
 s32 is_trade_active();
 M2C_UNK refresh_player_status__6TLobbyFv(s32);
 M2C_UNK reset__15TLobby_802D2F7CFPv(s32);
-M2C_UNK reset_impl__15TLobby_802D2F7CFPv(s32);
+M2C_UNK finish__22TWindowSubTradeMessageFv(s32);
 
 extern s32 local_client_id;
 
@@ -242,7 +242,7 @@ extern s32 TLobby__data_805D688C;
 extern s32 trade_proposal_delay;
 #define TLobby__data_805D6894 (*(const u32 *)&TLobby__data_805D6894)
 #define TLobby__trade_main_window (*(const u32 *)&TLobby__trade_main_window)
-#define TLobby__data_805D689C (*(const u32 *)&TLobby__data_805D689C)
+#define trade_message_controller (*(const u32 *)&trade_message_controller)
 
 void reset__6TLobbyFv(void) {
     if (is_trade_active() == 0) {
@@ -251,8 +251,8 @@ void reset__6TLobbyFv(void) {
         TLobby__data_805D688C = 0;
         trade_proposal_delay = 0;
         trade_protocol_flags &= 0xFFFFF80F;
-        if ((u32) TLobby__data_805D689C != 0U) {
-            reset_impl__15TLobby_802D2F7CFPv(TLobby__data_805D689C);
+        if ((u32) trade_message_controller != 0U) {
+            finish__22TWindowSubTradeMessageFv(trade_message_controller);
         }
         if ((u32) TLobby__trade_main_window != 0U) {
             fn_80330A40(TLobby__trade_main_window);
@@ -269,7 +269,7 @@ void reset__6TLobbyFv(void) {
 #undef TLobby__trade_proposal_state
 #undef TLobby__data_805D6894
 #undef TLobby__trade_main_window
-#undef TLobby__data_805D689C
+#undef trade_message_controller
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
 typedef char TradeProposalSize[(sizeof(G_ModifyTradeProposal_6xA6) == 0x10) ? 1 : -1];
@@ -364,7 +364,7 @@ extern "C" {
 
 void ignore_trade_proposal_event(void);
 void reset__6TLobbyFi(s32 arg0);
-M2C_UNK TLobby_802D2F7C__sub_80339910(u32, s32);
+M2C_UNK show_message__22TWindowSubTradeMessageFPCc(u32, s32);
 M2C_UNK TLobby__sub_8024AAA0(s32, M2C_UNK);
 s32 is_trade_active();
 
@@ -373,7 +373,7 @@ extern u16 trade_protocol_flags;
 
 extern s32 TLobby__data_805D688C;
 extern s32 trade_proposal_delay;
-extern u32 TLobby__data_805D689C;
+extern u32 trade_message_controller;
 
 void reset__6TLobbyFi(s32 arg0) {
     if (is_trade_active() == 0) {
@@ -383,9 +383,9 @@ void reset__6TLobbyFi(s32 arg0) {
         trade_proposal_delay = 0;
         trade_protocol_flags &= 0xFFFFF80F;
         TLobby__sub_8024AAA0(local_client_id, 0x1E);
-        u32 temp_r3 = TLobby__data_805D689C;
+        u32 temp_r3 = trade_message_controller;
         if (temp_r3 != 0U) {
-            TLobby_802D2F7C__sub_80339910(temp_r3, arg0);
+            show_message__22TWindowSubTradeMessageFPCc(temp_r3, arg0);
         }
     }
 }
@@ -811,7 +811,7 @@ extern s32 TLobby__data_805D688C;
 extern s32 trade_proposal_delay;
 #define TLobby__data_805D6894 (*(s32 *)&TLobby__data_805D6894)
 #define TLobby__trade_main_window (*(s32 *)&TLobby__trade_main_window)
-#define TLobby__data_805D689C (*(s32 *)&TLobby__data_805D689C)
+#define trade_message_controller (*(s32 *)&trade_message_controller)
 void reset_trade_state__6TLobbyFv(void);
 }
 
@@ -864,7 +864,7 @@ void reset_trade_state__6TLobbyFv(void) {
     trade_proposal_delay = 0;
     TLobby__data_805D6894 = 0;
     TLobby__trade_main_window = 0;
-    TLobby__data_805D689C = 0;
+    trade_message_controller = 0;
     for (i = 0; i < 2; i++) {
         update_both_halves__6TLobbyFPv(&TLobby__trade_window_state[i]);
     }
@@ -876,7 +876,7 @@ void reset_trade_state__6TLobbyFv(void) {
 #undef TLobby__trade_partner_client_id
 #undef TLobby__data_805D6894
 #undef TLobby__trade_main_window
-#undef TLobby__data_805D689C
+#undef trade_message_controller
 #undef TLobby__trade_window_state
 extern "C" TradeProposalHandler trade_proposal_state_handlers[10][8] = {
     { (TradeProposalHandler)handle_state_init__6TLobbyFPv, 0, 0, 0, 0, 0, 0, 0 },

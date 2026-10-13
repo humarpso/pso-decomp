@@ -48,7 +48,7 @@ struct Pl_8033E0F0 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-void * fn_8033E8C0(void *arg0, void *arg1);
+void * create_boss6_type2_death(void *arg0, void *arg1);
 M2C_UNK __dt__7TObjectFv(void *, int);
 M2C_UNK restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
@@ -74,11 +74,11 @@ void set_fade_material_color__14TBoss6PlotFalzFf(f32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void);
+int set_global_param__8TObjFishFi(int);
 void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-void draw_fade_in__8TObjFishFPv(void *p);
+void draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv(void *p);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_bml_motion(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -116,7 +116,7 @@ s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
 M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
 void queue_destruction__7TObjectFv(void *);
-void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0);
+void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0);
 void clear_render_callback__8TObjFishFv(int);
 void set_draw_callback_list__8TObjFishFPv(int);
 void reset_fish_globals__8TObjFishFv();
@@ -124,22 +124,22 @@ void set_fade_material_color__14TBoss6PlotFalzFf(f32);
 void push_matrix();
 void pop_matrix();
 void post_translate_matrix(void *);
-int set_global_param__8TObjFishFi(void);
+int set_global_param__8TObjFishFi(int);
 void draw_model_motion(int, int, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
-void TObjFish__sub_8033DFB4(u8 *arg0);
+void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0);
 }
 
 extern "C" {
 
-void update__8TObjFishFPv(void* p);
-void TObjFish__sub_8033DE60(void*);
+void render__23TBoss6Demo21_TYPE2_DEADFv(void* p);
+void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void*);
 int get_shared_capture_texture_list(void);
 int load_list_texture(int, int, int, int);
 void init_particle_effect__10TObjPlayerFv(void);
-int render_effect__8TObjFishFPv(void*);
-int set_global_param__8TObjFishFi(void);
+void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8*);
+int set_global_param__8TObjFishFi(int);
 
 }
 extern "C" const char lbl_80478088[] = "TBoss6Demo21_TYPE2_DEAD";
@@ -167,6 +167,20 @@ extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
 #define lbl_8047817C ((u8 *)lbl_8047817C)
 #pragma pool_data off
 extern "C" {
+void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
+    if ((s32) M2C_FIELD(arg0, s32 *, 0x50) >= 0x1AC) {
+        push_matrix();
+        set_global_flag__10TObjPlayerFv();
+        post_translate_matrix((void *) (arg0 + 0x58));
+        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x44)));
+        set_draw_callback_list__8TObjFishFPv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
+        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x40)), (int) (M2C_FIELD(arg0, s32 *, 0x48)), (f32) (M2C_FIELD(arg0, f32 *, 0x4C)));
+        clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
+        clear_global_state__10TObjPlayerFv();
+        pop_matrix();
+    }
+}
+
 #define arg0 ((u8 *) p)
 
 #undef arg0
@@ -174,7 +188,7 @@ extern "C" {
 #define arg0 ((u8 *) p)
 
 #define arg0 ((u8 *) p)
-void draw_fade_in__8TObjFishFPv(void *p) {
+void draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
     f32 f;
     s32 t;
     f = 0.0f;
@@ -205,7 +219,7 @@ void draw_fade_in__8TObjFishFPv(void *p) {
     }
 }
 
-void TObjFish__sub_8033DE60(void *p) {
+void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
 
     f32 f;
     s32 t;
@@ -241,7 +255,7 @@ void TObjFish__sub_8033DE60(void *p) {
 }
 #undef arg0
 
-void TObjFish__sub_8033DFB4(u8 *arg0) {
+void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x50);
@@ -271,11 +285,11 @@ void TObjFish__sub_8033DFB4(u8 *arg0) {
     }
 }
 
-void update__8TObjFishFPv(void* p) { TObjFish__sub_8033DFB4((u8 *)(p)); TObjFish__sub_8033DE60(p); draw_fade_in__8TObjFishFPv((void *)(p)); render_effect__8TObjFishFPv(p); }
+void render__23TBoss6Demo21_TYPE2_DEADFv(void* p) { draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv((u8 *)(p)); draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(p); draw_fading_model_8__23TBoss6Demo21_TYPE2_DEADFv((void *)(p)); draw_model_13__23TBoss6Demo21_TYPE2_DEADFv((u8 *)p); }
 
 #pragma push
 #pragma pool_data off
-void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
+void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
     Vec_8033E0F0 b;
     Vec_8033E0F0 mid;
     Vec_8033E0F0 a;
@@ -484,7 +498,7 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
 #undef arg0
 #pragma pop
 
-void * fn_8033E8C0(void *arg0, void *arg1) {
+void * create_boss6_type2_death(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
@@ -497,6 +511,6 @@ void render_shadows__7TObjectFv();
 }
 #undef __vt__23TBoss6Demo21_TYPE2_DEAD
 extern "C" void *__vt__23TBoss6Demo21_TYPE2_DEAD[6] = {
-    0, 0, (void *)&__dt__23TBoss6Demo21_TYPE2_DEADFv, (void *)&TObjFish__sub_8033E0F0,
-    (void *)&update__8TObjFishFPv, (void *)&render_shadows__7TObjectFv,
+    0, 0, (void *)&__dt__23TBoss6Demo21_TYPE2_DEADFv, (void *)&run_task__23TBoss6Demo21_TYPE2_DEADFv,
+    (void *)&render__23TBoss6Demo21_TYPE2_DEADFv, (void *)&render_shadows__7TObjectFv,
 };

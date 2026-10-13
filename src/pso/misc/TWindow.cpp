@@ -124,7 +124,7 @@ u16 obj_getField1c(void *);
 M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
 s32 get_story_flag(s16);
 s32 are_all_story_quests_complete();
-M2C_UNK update_lobbies_and_events__6TLobbyFPv(void *);
+M2C_UNK refresh_story_quest_availability(void *);
 s32 get_quest_list_text(s32, s32);
 void *get_guild_text(s32);
 M2C_UNK calc_list_content_extent(void *);
@@ -269,7 +269,7 @@ void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self) {
     if (self->f34->m8() == 0) {
         return;
     }
-    update_lobbies_and_events__6TLobbyFPv(lbl_805D61D8);
+    refresh_story_quest_availability(lbl_805D61D8);
     if (self->f3C == NULL) {
         t = get_guild_text(0);
         self->f3C = create_item_list_window(t, 0x40, obj_getField1c(self->f24));

@@ -7981,20 +7981,9 @@ pso/misc/TQuestListVM.cpp:
 	.text       start:0x80218570 end:0x80219EE8
 	.data       start:0x804C9D80 end:0x804C9DD4
 
-pso/unk/text_80219EE8.cpp:
-	.text       start:0x80219EE8 end:0x80219F64
-
-pso/unk/text_80219F64.cpp:
-	.text       start:0x80219F64 end:0x8021A010
-
-pso/misc/TLobby_8021A010.cpp:
-	.text       start:0x8021A010 end:0x8021A05C
-
-pso/misc/TODoorVoShip_8021A05C.cpp:
-	.text       start:0x8021A05C end:0x8021A360
-
-pso/misc/TLobby_8021A360.cpp:
-	.text       start:0x8021A360 end:0x8021A394
+pso/quest/StoryQuestProgress.cpp:
+	.text       start:0x80219EE8 end:0x8021A394
+	.rodata     start:0x8044BF58 end:0x8044C040
 
 pso/misc/TShopArmorListWindow.cpp:
 	.text       start:0x8021A394 end:0x8021B268
@@ -11945,15 +11934,15 @@ pso/ui/TAdEnterPPPPassGC.cpp:
 	.sbss       start:0x805D6D70 end:0x805D6D78
 
 pso/misc/TChCrEffCtrlPl_80339658.cpp:
-	.text       start:0x80339658 end:0x80339954
+	.text       start:0x80339658 end:0x803398CC
 	.data       start:0x804EF5B0 end:0x804EF5C8
 	.sdata2     start:0x805DF9F0 end:0x805DFA0C
 
-pso/unk/text_80339954.cpp:
-	.text       start:0x80339954 end:0x803399B0
-
-pso/misc/TWindowSubTradeMessage.cpp:
-	.text       start:0x803399B0 end:0x80339B64
+pso/ui/TWindowSubTradeMessage.cpp:
+	.text       start:0x803398CC end:0x80339B64
+	.rodata     start:0x80477C80 end:0x80477CA0
+	.data       start:0x804EF5C8 end:0x804EF5E0
+	.sdata      start:0x805D4278 end:0x805D4280
 
 pso/misc/TSaveChCr_80339B64.cpp:
 	.text       start:0x80339B64 end:0x80339E2C
@@ -12029,20 +12018,16 @@ pso/object/TObjFish_8033CCC8.cpp:
 	.rodata     start:0x80477F08 end:0x80477F10
 	.sdata2     start:0x805DFA64 end:0x805DFA70
 
-pso/player/TObjPlayer_8033D324.cpp:
-	.text       start:0x8033D324 end:0x8033D6DC
-	.rodata     start:0x80478080 end:0x80478088
-
-pso/unk/text_8033D6DC.cpp:
-	.text       start:0x8033D6DC end:0x8033DA94
+pso/boss/Boss6Type2Appearance.cpp:
+	.text       start:0x8033D324 end:0x8033DCD8
+	.ctors      start:0x80433FFC end:0x80434000
+	.rodata     start:0x80477F10 end:0x80478088
+	.data       start:0x804EFA08 end:0x804EFA38
+	.sdata      start:0x805D42A8 end:0x805D42B0
 	.sdata2     start:0x805DFA80 end:0x805DFA90
 
-pso/unk/text_8033DA94.cpp:
-	.text       start:0x8033DA94 end:0x8033DD4C
-	.ctors      start:0x80433FFC end:0x80434000
-
-pso/object/TObjFish_8033DD4C.cpp:
-	.text       start:0x8033DD4C end:0x8033E910
+pso/boss/Boss6Type2Death.cpp:
+	.text       start:0x8033DCD8 end:0x8033E910
 	.rodata     start:0x80478088 end:0x80478190
 	.data       start:0x804EFA38 end:0x804EFA50
 	.sdata      start:0x805D42B0 end:0x805D42B4

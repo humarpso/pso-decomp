@@ -423,7 +423,7 @@ M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 M2C_UNK init__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK get_player_floor__6TLobbyFi(s32);
 s32 get_floor_map_terrain(s32);
-s32 fn_80219EE8();
+s32 should_record_episode1_quest_completion();
 M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 void set_area__6TLobbyFPvi(void *, int, int);
 void __dl__7TObjectFPv(void *);
@@ -781,7 +781,7 @@ void dispatch_select_phase__16TKeyBoardControlFv(void) {
     temp_r3 = TAdStorySelectGC__sub_8019DC14();
     switch (temp_r3) {
     case 0:
-        if (fn_80219EE8() != 0) {
+        if (should_record_episode1_quest_completion() != 0) {
             dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x3FE);
             TKeyBoardControl__sub_8000F9CC(0xC);
         } else {

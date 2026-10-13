@@ -34,7 +34,7 @@ M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
 int send_6xA3_action__14TBoss6PlotFalzFPvc(void*, void*);
 M2C_UNK stop_audio_streams__6TLobbyFv();
 M2C_UNK play_area_music(M2C_UNK *);
-M2C_UNK create_variant__8TObjFishFPv(void *);
+M2C_UNK create_boss6_type2_appearance(void *);
 int is_ready__14TBoss6PlotFalzFv(void*);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
@@ -68,7 +68,7 @@ void stop_adx_audio(void *arg0) {
     stop_audio_streams__6TLobbyFv();
     play_area_music(lbl_80470990);
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
-    create_variant__8TObjFishFPv(arg0);
+    create_boss6_type2_appearance(arg0);
 }
 void update_cutscene_fade__14TBoss6PlotFalzFPv(Boss_802B057C *o) {
     s32 t = o->f3CC;

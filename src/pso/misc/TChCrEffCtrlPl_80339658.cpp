@@ -42,11 +42,9 @@ void run_task__14TChCrEffCtrlPlFv(O_803396C8 *self);
 
 extern "C" {
 
-void TLobby_802D2F7C__sub_80339910(void *arg0);
 void *create__14TChCrEffCtrlPlFPv(void *arg0);
-void reset_impl__15TLobby_802D2F7CFPv(u8 *arg0);
 void *__nw__7TObjectFUl(int);
-u32 fn_80339954();
+u32 create_message_window__22TWindowSubTradeMessageFPCc();
 
 #pragma push
 #pragma opt_common_subs off
@@ -109,21 +107,6 @@ void *create__14TChCrEffCtrlPlFPv(void *arg0) {
         o = __ct__14TChCrEffCtrlPlFv((O_80339808 *)(o), (void *)(arg0));
     }
     return o;
-}
-
-void reset_impl__15TLobby_802D2F7CFPv(u8 *arg0) {
-    u8 *temp_r3;
-
-    temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x24));
-    ((VObj803398CC_803398cc_80339658 *) temp_r3)->m7();
-    M2C_FIELD(arg0, s8 *, 0x1C) = 2;
-}
-
-void TLobby_802D2F7C__sub_80339910(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x28) = fn_80339954();
-    }
-    M2C_FIELD(arg0, s8 *, 0x1C) = 1;
 }
 
 }
