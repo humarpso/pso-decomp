@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void update_fade_timer__10TObjPlayerFPv(void *arg0);
+void run_explosion_collider__10TObjPlayerFPv(void *arg0);
 s32 has_game_join_id();
 M2C_UNK check_hits__14TItemAttackColFPv(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 
 extern f32 lbl_805DAD50;
 
-void update_fade_timer__10TObjPlayerFPv(void *arg0) {
+void run_explosion_collider__10TObjPlayerFPv(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
 

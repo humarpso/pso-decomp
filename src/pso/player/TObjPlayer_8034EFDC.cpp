@@ -130,9 +130,9 @@ struct Info_8034F4FC {
 
 extern "C" {
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-int fn_80308244(void);
+int spawn_nug2000_hit_explosion(void);
 u32 find_item_by_id(void);
-int fn_80308244(void);
+int spawn_nug2000_hit_explosion(void);
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void * enter_timed_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
@@ -144,11 +144,11 @@ extern s32 tl_05;
 u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_obj_8034F7B8__10TObjPlayerFi(s32 arg0);
+u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0);
 void TItemWeapon__ct(void *, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 extern M2C_UNK lbl_804F0A00[];
-u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2);
+u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2);
 void spawn_fire_explosion_for_item__10TObjPlayerFii(s32 arg0, s32 arg1);
 void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o);
 u32 find_item_by_id(void);
@@ -173,7 +173,7 @@ void *find_entity_by_id(s32);
 void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
-M2C_UNK init_vtable_c4__10TObjPlayerFPv(void *, s32, void *);
+M2C_UNK construct_explosion_collider__10TObjPlayerFPv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK create_fire_explosion_effect(void *, void *, s32, s32, f32);
 M2C_UNK TObjPlayer__sub_802E449C(void *);
@@ -192,10 +192,10 @@ void *item_equip_variant_deleting_dtor_8034F948(void *arg0, s16 arg1);
 void TObjPlayer__sub_8034F8B8(void* p);
 void TObjPlayer__sub_8034F900(void* p);
 int apply_recoil_forward__10TObjPlayerFPv(void* p);
-void clamp_angles__10TObjPlayerFPv(void* p);
+void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p);
 void dispatch_by_state__10TObjPlayerFPv(void *arg0);
-void handle_turn_input__10TObjPlayerFPv(void *arg0);
-void reset_aim_angles__10TObjPlayerFPv(void* p);
+void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0);
+void open_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p);
 void reset_animation_flags__10TObjPlayerFPv(void* p);
 void reset_shoot_models__10TObjPlayerFPv(void* p);
 int shrink_field1f8__10TObjPlayerFPv(void* p);
@@ -370,7 +370,7 @@ s32 spawn_fire_explosion__10TObjPlayerFUii(u32 a0, s32 a1) {
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        init_vtable_c4__10TObjPlayerFPv(o, tl_05, &info);
+        construct_explosion_collider__10TObjPlayerFPv(o, tl_05, &info);
     }
     o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {
@@ -384,7 +384,7 @@ void init_fire_explosion_config__10TObjPlayerFPvPv(void *a, O_8034F590 *o) {
     o->flags |= 0x80;
 }
 
-void handle_turn_input__10TObjPlayerFPv(void *arg0) {
+void pose_gi_gue_bazooka_nodes__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_player_list__10TObjPlayerFv();
@@ -404,9 +404,9 @@ void handle_turn_input__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void clamp_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
+void return_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)1820), (void*)((void*)7281)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)-1820), (void*)((void*)-5461)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)1820), (void*)((void*)9102)); }
 
-void reset_aim_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
+void open_gi_gue_bazooka_angles__10TObjPlayerFPv(void* p) { add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1f8), (void*)((void*)-3640), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x1fc), (void*)((void*)2730), (void*)((void*)0)); add_angle_clamped__10TObjPlayerFPvii((void*)((char*)p + 0x200), (void*)((void*)-1820), (void*)((void*)0)); }
 
 extern M2C_UNK lbl_804F0A00[];
 
@@ -422,7 +422,7 @@ void *item_equip_variant_deleting_dtor_8034F6FC(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8034F754_lbl_804F0A00_size[sizeof(RecoveredGlobal_8034F754_lbl_804F0A00) == 0xF8 ? 1 : -1];
-u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2) {
+u8 *construct_gi_gue_bazooka(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8034F754_lbl_804F0A00 *)&lbl_804F0A00).value;
     set_status_flags__10TObjPlayerFPvUi((void *)(arg0), (int)(0x8000));
@@ -432,14 +432,14 @@ u8 *TObjPlayer__sub_8034F754(u8 *arg0, u8 *arg1, s32 _w2) {
     return arg0;
 }
 
-u8 *create_obj_8034F7B8__10TObjPlayerFi(s32 arg0) {
+u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x204));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_8034F754((u8 *)(temp_r3), (u8 *)(tl_05), (s32)(arg0)));
+            var_r0 = (u8 *)(construct_gi_gue_bazooka((u8 *)(temp_r3), (u8 *)(tl_05), (s32)(arg0)));
         }
         return var_r0;
     }

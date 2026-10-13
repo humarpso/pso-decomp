@@ -133,7 +133,7 @@ extern "C" {
 extern s32 tl_05;
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
 M2C_UNK fill_status_info__10TObjPlayerFPvPv(u32, void *);
-M2C_UNK init_vtable_c4__10TObjPlayerFPv(void *, s32, void *);
+M2C_UNK construct_explosion_collider__10TObjPlayerFPv(void *, s32, void *);
 void *__nw__7TObjectFUl(u32);
 M2C_UNK create_fire_explosion_effect(void *, void *, s32, s32, f32);
 M2C_UNK TObjPlayer__sub_802E449C(void *);
@@ -153,7 +153,7 @@ s32 spawn_fire_explosion_at(u32 a0, s32 a1) {
     info.f10 = 0xA;
     o = __nw__7TObjectFUl(0xC8);
     if (o != NULL) {
-        init_vtable_c4__10TObjPlayerFPv(o, tl_05, &info);
+        construct_explosion_collider__10TObjPlayerFPv(o, tl_05, &info);
     }
     o = __nw__7TObjectFUl(0x64);
     if (o != NULL) {

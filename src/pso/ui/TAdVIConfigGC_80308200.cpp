@@ -17,7 +17,7 @@ struct Out_8012573C { u8 pad[0x40]; u32 f40; u8 pad44[0x50 - 0x44]; s32 f50; u8 
 extern "C" {
 u32 find_item_by_id(void);
 s32 spawn_fire_explosion_at(u32 a0, s32 a1);
-void fn_80308244(s32 arg0, s32 arg1);
+void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -37,7 +37,7 @@ void apply_config_if_valid__13TAdVIConfigGCFii(s32 arg0, s32 arg1) {
         spawn_fire_explosion_at(temp_r3, arg1);
     }
 }
-void fn_80308244(s32 arg0, s32 arg1) {
+void spawn_nug2000_hit_explosion(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
     if (p != 0U) {
