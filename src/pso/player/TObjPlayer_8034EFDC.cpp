@@ -138,10 +138,10 @@ void * enter_timed_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_8034F1AC(u8 *arg0);
-void * init_photon_state__10TObjPlayerFPv(void *, M2C_UNK, void *);
+void * construct_rappys_fan__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0);
+u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_gi_gue_bazooka__10TObjPlayerFi(s32 arg0);
@@ -167,7 +167,7 @@ void copy_vec4__13TRaderMapCoreFPvPv(f32 *, f32 *);
 void draw_icon__10TObjPlayerFPvii(void *, int, f32 *);
 u8 *create__10TTecSlicerFPUs(SlicerLaunchData_8012D9C8 *);
 extern const f32 lbl_805DFDF8;
-void spawn_slicer_shot__10TObjPlayerFPv(u8 *weapon);
+void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon);
 M2C_UNK spawn_particle_effect(void *, M2C_UNK);
 void *find_entity_by_id(s32);
 void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
@@ -283,7 +283,7 @@ void spawn_particle_at_entity_slot__10TObjPlayerFiiii(s32 arg0, s32 arg1, s32 ar
     }
 }
 
-void spawn_slicer_shot__10TObjPlayerFPv(u8 *weapon) {
+void launch_rappys_fan_slicer__10TObjPlayerFPv(u8 *weapon) {
     f32 tmp[4];
     SlicerLaunchData_8012D9C8 launch;
     u8 *t;
@@ -324,7 +324,7 @@ void *item_equip_variant_deleting_dtor_8034F36C(void *arg0, s16 arg1) {
 
 extern M2C_UNK lbl_804F0908[];
 
-void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
+void *construct_rappys_fan__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F0908;
     M2C_FIELD(arg0, M2C_UNK **, 0x1F4) = ((M2C_UNK *)spawn_particle_at_entity_slot__10TObjPlayerFiiii);
@@ -332,14 +332,14 @@ void *init_photon_state__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     return arg0;
 }
 
-u8 *create_photon_state__10TObjPlayerFPv(u8 *arg0) {
+u8 *create_rappys_fan__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_photon_state__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)construct_rappys_fan__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
