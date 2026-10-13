@@ -1,0 +1,28 @@
+#ifndef PSO_TADCHRSELSLOTGC_H
+#define PSO_TADCHRSELSLOTGC_H
+#include "types.h"
+#include "pso/TObject.h"
+#include <stddef.h>
+
+struct CharacterSlotQuad { f32 left, top, right, bottom, u0, v0, u1, v1; };
+struct CharacterSlotPosition { f32 x, y; };
+class TAdChrSelSlotGC : public TObject {
+public:
+    virtual ~TAdChrSelSlotGC();
+    virtual void run_task();
+    virtual void render();
+    s32 frame;
+    CharacterSlotQuad quads[5];
+    CharacterSlotPosition positions[5];
+    u32 alpha[5];
+    u32 colors[5];
+    s32 visible[5];
+    s32 enabled;
+};
+typedef char SlotQuadsOffset[offsetof(TAdChrSelSlotGC, quads) == 0x20 ? 1 : -1];
+typedef char SlotPositionsOffset[offsetof(TAdChrSelSlotGC, positions) == 0xC0 ? 1 : -1];
+typedef char SlotAlphaOffset[offsetof(TAdChrSelSlotGC, alpha) == 0xE8 ? 1 : -1];
+typedef char SlotColorsOffset[offsetof(TAdChrSelSlotGC, colors) == 0xFC ? 1 : -1];
+typedef char SlotVisibleOffset[offsetof(TAdChrSelSlotGC, visible) == 0x110 ? 1 : -1];
+typedef char SlotObjectSize[sizeof(TAdChrSelSlotGC) == 0x128 ? 1 : -1];
+#endif

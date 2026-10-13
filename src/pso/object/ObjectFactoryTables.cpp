@@ -123,7 +123,7 @@ void* TObjCityDoor_Med__create(void* placement);
 void* TObjCityDoor_Warp__create(void* placement);
 void* TObjCityDoor_Guild__create(void* placement);
 void* TObjCityDoor_Shop__create(void* placement);
-void* fn_80183018(void* placement);
+void* create_city_vertical_model(void* placement);
 void* TObjCity_Season_FireWorkCtrl__create(void* placement);
 void* TObjCity_Season_Board__create(void* placement);
 void* TObjCity_Season_SonicAdv2__create(void* placement);
@@ -282,7 +282,7 @@ ObjectFactoryEntry object_factories_floor_00[50] = {
     { 0x0047, TObjCityDoor_Guild__create, 250000.0f, 0 },
     { 0x0048, TObjCityDoor_Warp__create, 250000.0f, 0 },
     { 0x0049, TObjCityDoor_Med__create, 250000.0f, 0 },
-    { 0x004A, fn_80183018, 250000.0f, 0 },
+    { 0x004A, create_city_vertical_model, 250000.0f, 0 },
     { 0x004B, TObjCity_Season_EasterEgg__create, 250000.0f, 0 },
     { 0x004C, TObjCity_Season_ValentineHeart__create, 250000.0f, 0 },
     { 0x004D, TObjCity_Season_XmasTree__create, 250000.0f, 0 },

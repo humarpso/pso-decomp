@@ -106,7 +106,7 @@ f32 get_normalized_progress__17TWindowSubComCardFPv(u8 *arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_802616BC(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_80261DD8(void *, int);
 M2C_UNK TWindowKeyBoardSoft__sub_8026227C(void *, int);
-void TWindowKeyBoardSoft__sub_802625D4(s32 arg0);
+void render__19TWindowKeyBoardSoftFv(s32 arg0);
 s32 TWindowSubMag__sub_802627D8(s32);
 s32 is_cursor_locked__13TWindowSubMagFPv(s32);
 s32 get_flag_bit6__13TWindowSubMagFPv(s32);
@@ -474,7 +474,7 @@ void draw_key_frame__19TWindowKeyBoardSoftFPvPvUiiffff(void *self, f32 *rect, u3
     draw_textured_quad_at_depth(&q, scale);
 }
 
-void TWindowKeyBoardSoft__sub_802625D4(s32 arg0) {
+void render__19TWindowKeyBoardSoftFv(s32 arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     TWindowKeyBoardSoft__sub_8026227C((void *) (arg0), (int) (temp_r3));

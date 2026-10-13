@@ -5921,34 +5921,20 @@ pso/system/CityTraffic.cpp:
 	.rodata     start:0x80443BA0 end:0x80443BA8
 	.bss        start:0x8050DBE0 end:0x8050DC20
 
-pso/misc/TLobby_801819FC.cpp:
-	.text       start:0x801819FC end:0x80181B60
+pso/object/CityDoors.cpp:
+	.text       start:0x801819FC end:0x80182E7C
+	.rodata     start:0x80443BA8 end:0x804440B0
+	.data       start:0x804B5958 end:0x804B5C08
+	.sdata      start:0x805D3250 end:0x805D3268
+	.sdata2     start:0x805DBBE0 end:0x805DBC00
 
-pso/player/TObjPlayer_80181B60.cpp:
-	.text       start:0x80181B60 end:0x80181E10
-
-pso/enemy/TObjEneDD_80181E10.cpp:
-	.text       start:0x80181E10 end:0x80181E90
-
-pso/object/TObjCityDoor_Lobby.cpp:
-	.text       start:0x80181E90 end:0x80181F10
-
-pso/unk/text_80181F10.cpp:
-	.text       start:0x80181F10 end:0x80181FF4
-
-pso/object/TObjCityDoor_Med.cpp:
-	.text       start:0x80181FF4 end:0x80182E90
-	.rodata     start:0x804440A8 end:0x804440B0
-	.sdata2     start:0x805DBBE8 end:0x805DBBEC
-
-pso/unk/text_80182E90.cpp:
-	.text       start:0x80182E90 end:0x80183018
-
-pso/unk/text_80183018.cpp:
-	.text       start:0x80183018 end:0x801830BC
+pso/object/CityVerticalModel.cpp:
+	.text       start:0x80182E7C end:0x80183134
+	.data       start:0x804B5C08 end:0x804B5C40
+	.sdata2     start:0x805DBC00 end:0x805DBC18
 
 pso/object/CitySeason.cpp:
-	.text       start:0x801830BC end:0x80184C2C
+	.text       start:0x80183134 end:0x80184C2C
 	.rodata     start:0x80444210 end:0x80444268
 	.data       start:0x804B5C40 end:0x804B5C58
 	.sdata2     start:0x805DBC18 end:0x805DBC80
@@ -10560,6 +10546,7 @@ pso/ui/TAdMultiPlyChrSelectGC_802C6F88.cpp:
 pso/ui/TAdChrSelSlotGC.cpp:
 	.text       start:0x802C70AC end:0x802C79C8
 	.rodata     start:0x80471D68 end:0x80471D70
+	.data       start:0x804E0B68 end:0x804E0B80
 	.sdata2     start:0x805DE5D0 end:0x805DE5E8
 
 pso/ui/TAdFadeGC.cpp:

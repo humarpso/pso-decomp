@@ -378,7 +378,6 @@ pso/enemy/TObjEneDD_800BB364.cpp
 pso/enemy/TObjEneDD_800BB804.cpp
 pso/enemy/TObjEneDD_800C2614.cpp
 pso/enemy/TObjEneDD_800C38D0.cpp
-pso/enemy/TObjEneDD_80181E10.cpp
 pso/enemy/TObjEneDarkGunCenter.cpp
 pso/enemy/TObjEneDarkGunner.cpp
 pso/enemy/TObjEneDelDepthBomb_80316244.cpp
@@ -984,7 +983,6 @@ pso/misc/TLobby_8015ABD0.cpp
 pso/misc/TLobby_8015C944.cpp
 pso/misc/TLobby_80160804.cpp
 pso/misc/TLobby_8016ACC8.cpp
-pso/misc/TLobby_801819FC.cpp
 pso/misc/TLobby_8018A20C.cpp
 pso/misc/TLobby_80191218.cpp
 pso/misc/TLobby_80191F80.cpp
@@ -2050,7 +2048,9 @@ pso/npc/TObjNpcSecretaryBase.cpp
 pso/npc/TObjNpcSoldierBase.cpp
 pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
+pso/object/CityDoors.cpp
 pso/object/CitySeason.cpp
+pso/object/CityVerticalModel.cpp
 pso/object/LobbyPigeonPath.cpp
 pso/object/LobbyPigeonTheme.cpp
 pso/object/ObjectFactoryTables.cpp
@@ -2080,8 +2080,6 @@ pso/object/TObjCMMainMenu_8029427C.cpp
 pso/object/TObjCamera.cpp
 pso/object/TObjCamera_8017F80C.cpp
 pso/object/TObjChip.cpp
-pso/object/TObjCityDoor_Lobby.cpp
-pso/object/TObjCityDoor_Med.cpp
 pso/object/TObjCityMainWarpChallenge.cpp
 pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
@@ -2511,7 +2509,6 @@ pso/player/TObjPlayer_8015C8D8.cpp
 pso/player/TObjPlayer_80166970.cpp
 pso/player/TObjPlayer_80178150.cpp
 pso/player/TObjPlayer_8017E4EC.cpp
-pso/player/TObjPlayer_80181B60.cpp
 pso/player/TObjPlayer_801A2570.cpp
 pso/player/TObjPlayer_801A5AEC.cpp
 pso/player/TObjPlayer_801A7080.cpp
@@ -2685,6 +2682,7 @@ pso/ui/TAdChrSelBSlotGC_803100A4.cpp
 pso/ui/TAdChrSelMovePlateGC.cpp
 pso/ui/TAdChrSelPlayerGC.cpp
 pso/ui/TAdChrSelPlyPlateGC.cpp
+pso/ui/TAdChrSelSlotGC.cpp
 pso/ui/TAdDialingGC.cpp
 pso/ui/TAdDialingGC_801A4C90.cpp
 pso/ui/TAdDialingGC_80328210.cpp
@@ -3273,9 +3271,6 @@ pso/unk/text_80181278.cpp
 pso/unk/text_8018130C.cpp
 pso/unk/text_80181310.cpp
 pso/unk/text_801815A0.cpp
-pso/unk/text_80181F10.cpp
-pso/unk/text_80182E90.cpp
-pso/unk/text_80183018.cpp
 pso/unk/text_80189E3C.cpp
 pso/unk/text_80189F24.cpp
 pso/unk/text_8018A150.cpp
@@ -3648,6 +3643,7 @@ pso/unk/text_8032E294.cpp
 pso/unk/text_8032E400.cpp
 pso/unk/text_803374F0.cpp
 pso/unk/text_80338F3C.cpp
+pso/unk/text_80339954.cpp
 pso/unk/text_8033D6DC.cpp
 pso/unk/text_8033DA94.cpp
 pso/unk/text_8033F314.cpp

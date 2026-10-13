@@ -204,6 +204,11 @@ force_active:
   - TObjBoss7DustCtrl__rotation_pairs
   - TObjBoss7DustCtrl__transformed_vertices
   - TObjBoss7DustCtrl__vertical_phase_angles
+  - TObjCityDoor_Guild__class_name
+  - TObjCityDoor_Lobby__class_name
+  - TObjCityDoor_Med__class_name
+  - TObjCityDoor_Shop__class_name
+  - TObjCityDoor_Warp__class_name
   - TObjContainerEnemy__name
   - TObjDFBeamCursor__name
   - TObjDFDemo0__entry_table
@@ -884,6 +889,8 @@ force_active:
   - bm_obj_boss8_piller_model_names
   - bm_obj_boss8_piller_motion_names
   - bm_obj_boss8_piller_resource_descriptor
+  - bm_obj_city_common_model_names
+  - bm_obj_city_common_motion_names
   - bm_obj_door_labo_model_names
   - bm_obj_door_labo_motion_names
   - bm_obj_geenest_model_names
@@ -1097,6 +1104,15 @@ force_active:
   - check_target_in_range__14TObjEneDolmOlmFPv
   - check_team_balance__6TLobbyFPvi
   - circling_state__14TObjEneBm5WolfFv
+  - city_common_model_archive_filename
+  - city_common_texture_filename
+  - city_door_base_vtable
+  - city_door_lobby_collision_vertices
+  - city_door_lobby_quad_triangle_indices
+  - city_vertical_model_max_y_offset
+  - city_vertical_model_min_y_offset
+  - city_vertical_model_vtable
+  - city_vertical_model_y_step
   - clamp_hp_value__10TObjPlayerFPvPv
   - clamp_min_player_distance__9TBoss4UroFPv
   - clamp_params_and_init__14TOTrapSeabed01FPv
@@ -1129,15 +1145,18 @@ force_active:
   - construct_area__11TTecRaBartaFPvPvPvPv
   - construct_cane_weapon
   - construct_card_tags__17TWindowGetComCardFv
+  - construct_city_vertical_model
   - construct_dagger_weapon
   - construct_entry_array
   - construct_entry_array__6TLobbyFi
   - construct_facing__11TTecGiBartaFPvPvPvPvPv
   - construct_facing__9TTecMegidFPviiii
+  - construct_gi_gue_bazooka
   - construct_grants_flash
   - construct_handgun_weapon
   - construct_load_quest__12TQuestThreadFPvPvPv
   - construct_material__13TItemProArmorFPvPvPv
+  - construct_nug2000_bazooka__10TObjPlayerFPv
   - construct_placement_search_base
   - construct_s_rank_j_cutter_weapon
   - construct_s_rank_slicer_weapon
@@ -1238,6 +1257,7 @@ force_active:
   - destroy__19TQuestListChallengeFv
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_char_data_array__10TObjPlayerFv
+  - destroy_city_vertical_model
   - destroy_effects__12TBoss4ThanksFPv
   - destroy_effects__12TBoss6ThanksFPv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
@@ -1354,6 +1374,7 @@ force_active:
   - draw_serial_plates__22TAdEnterSerialAccessGCFv
   - draw_shadow_on_ground
   - draw_shadowed_node_tree__10TObjPlayerFPv
+  - draw_slot_icons__15TAdChrSelSlotGCFPv
   - draw_split_screen_dividers__20TWindowSubStatusDispFv
   - draw_status_text__19TWindowKeyBoardHardFPvPv
   - draw_status_window__14TAdPlyStatusGCFPvPv
@@ -2299,6 +2320,7 @@ force_active:
   - refresh_label__11TChCrEffTagFPv
   - refresh_mail_list__19TWindowSubShortMailFPvPv
   - refresh_names__15TObjDeadListWinFv
+  - refresh_radar_map_flags
   - refresh_split_screen_battle_alive_flags
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
@@ -2380,6 +2402,7 @@ force_active:
   - render__9TBoss2FinFv
   - render_background_status__18TAdGameStartBackGCFPv
   - render_body__14TObjEneDolmOlmFPv
+  - render_city_vertical_model
   - render_cursor__19TAdMcSelectCursorGCFPv
   - render_debug__14TObjEneBm5WolfFPv
   - render_effects__9TMainTaskFv
@@ -2407,6 +2430,7 @@ force_active:
   - reset__11TItemMagSubFv
   - reset_all_tech_slots__10TObjPlayerFPv
   - reset_and_invoke__6TLobbyFv
+  - reset_city_vertical_model_motion
   - reset_effect_entries__18TAdChrMoveEffectGCFPv
   - reset_leader_selection
   - reset_leader_selection_static__6TLobbyFv
@@ -3055,6 +3079,7 @@ force_active:
   - update_chase_target__9TObjGrassFPv
   - update_child_window_visibility__11TWindowCtrlFPv
   - update_chime_countdown__13TObjWarnChimeFv
+  - update_city_vertical_model
   - update_close_timer__15TObjSoloPlayWinFv
   - update_countdown__15TObjDeadListWinFv
   - update_customize_help_text

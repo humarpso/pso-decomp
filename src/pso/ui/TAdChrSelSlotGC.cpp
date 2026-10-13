@@ -1,6 +1,4 @@
-#include "pso/TAdChrSelSlotGC.h"
-
-TAdChrSelSlotGC::~TAdChrSelSlotGC() {}
+#include "pso/ui/TAdChrSelSlotGC.h"
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
@@ -74,14 +72,35 @@ struct TAdChrSelSlotGC_802C7314 {
     s32 visible[5];
 };
 
+#include <stddef.h>
+struct TObject;
+struct StatusWindow;
+struct CallbackTask;
+struct CharacterSelectTransitionState {
+    u8 base[0x18];
+    const void* vtable;
+    f32 position0X;
+    f32 position0Y;
+    f32 target0X;
+    f32 target0Y;
+    f32 position1X;
+    f32 position1Y;
+    f32 target1X;
+    f32 target1Y;
+    s32 client;
+    s32 timer;
+    TObject* parent;
+    StatusWindow* statusWindow;
+    CallbackTask* callback;
+};
+
 extern "C" {
 void TAdChrSelSlotGC__sub_802C754C(O_802C754C *self, s32 i);
 extern const f32 lbl_805DE5CC;
-extern const f32 TAdChrSelSlotGC__data_805DE5D0;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *arg2);
 extern const f32 lbl_805DE5CC;
-extern const f32 lbl_805DE5D4;
+extern f32 lbl_805D67F4, lbl_805D67F8;
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2);
 void update_menu_cursor__6TLobbyFv();
@@ -91,10 +110,9 @@ extern const s32 lbl_80471D50[];
 extern const s32 current_language;
 extern u32 lbl_805D67F0;
 void TLobby__sub_802C7920(void);
-M2C_UNK __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__15TAdChrSelSlotGC[];
 extern s32 TAdChrSelSlotGC__name;
-S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self);
+S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1);
 void set_global_param__8TObjFishFi(void *);
 void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
@@ -103,6 +121,21 @@ void set_draw_texture_and_color(int, int);
 extern u32 lbl_805D67F0;
 extern const f32 lbl_805DE5C8;
 void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self);
+s32 get_main_phase();
+f32 calc_result_offset__6TLobbyFv();
+f32 calc_phase_offset__6TLobbyFv();
+extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
+void update_character_select_transition(CharacterSelectTransitionState* self);
+M2C_UNK __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
+f32 calc_phase_offset__6TLobbyFv();
+void* __nw__7TObjectFUl(u32 size);
+StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
+CallbackTask* update_display__20TWindowSubSymbolChatFi(void (*callback)());
+void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv();
+extern M2C_UNK lbl_804E0B28[];
+extern s32 lbl_805D67E8;
+extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
+CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client);
 }
 
 extern "C" {
@@ -110,7 +143,7 @@ extern "C" {
 void TAdChrSelSlotGC__sub_802C70AC(void);
 void TAdChrSelSlotGC__sub_802C7498(struct S802C7498_802C70AC *arg0, s32 arg1);
 void TLobby__sub_802C78EC(void);
-void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1);
+void *destroy_character_select_transition(void *arg0, s16 arg1);
 void render__15TAdChrSelSlotGCFv(void *arg0);
 void reset_all_slots__15TAdChrSelSlotGCFPv(void* p);
 void TLobby__sub_803DA16C(void*);
@@ -128,7 +161,39 @@ void TAdChrSelSlotGC__sub_802C70AC(void) {  }
 extern M2C_UNK lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 
-void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1) {
+#pragma push
+#pragma opt_common_subs off
+#pragma fp_contract on
+typedef char TransitionClientOffset[offsetof(CharacterSelectTransitionState, client) == 0x3C ? 1 : -1];
+typedef char TransitionParentOffset[offsetof(CharacterSelectTransitionState, parent) == 0x44 ? 1 : -1];
+typedef char TransitionWindowOffset[offsetof(CharacterSelectTransitionState, statusWindow) == 0x48 ? 1 : -1];
+void update_character_select_transition(CharacterSelectTransitionState* self) {
+    self->position0X = lbl_805DE5B4 * (self->target0X - self->position0X) + self->position0X;
+    self->position0Y = lbl_805DE5B4 * (self->target0Y - self->position0Y) + self->position0Y;
+    self->position1X = lbl_805DE5B4 * (self->target1X - self->position1X) + self->position1X;
+    self->position1Y = lbl_805DE5B4 * (self->target1Y - self->position1Y) + self->position1Y;
+    if (get_main_phase() == 15) {
+        switch (self->timer) {
+        case 150:
+            self->position1X = lbl_805DE5B8;
+            self->position1Y = lbl_805DE5BC;
+            self->target1X = lbl_805DE5C0 + calc_result_offset__6TLobbyFv();
+            self->target1Y = lbl_805DE5BC;
+            break;
+        case 300:
+            self->position0X = lbl_805DE5B8;
+            self->position0Y = lbl_805DE5BC;
+            self->target0X = lbl_805DE5C0 + calc_phase_offset__6TLobbyFv();
+            self->target0Y = lbl_805DE5BC;
+            self->timer = 0;
+            break;
+        }
+        ++self->timer;
+    }
+}
+#pragma pop
+
+void *destroy_character_select_transition(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0B28;
         if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
@@ -146,6 +211,30 @@ void *destroy__15TAdChrSelSlotGCFPvs(void *arg0, s16 arg1) {
         }
     }
     return arg0;
+}
+
+CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client) {
+    __ct__7TObjectFP7TObject((CharacterSelectTransitionState*)(self), (TObject*)(parent));
+    self->vtable = ((const u32 *)&lbl_804E0B28);
+    self->parent = parent;
+    self->position0X = lbl_805DE5B8;
+    self->position0Y = lbl_805DE5BC;
+    self->target0X = lbl_805DE5C0 + calc_phase_offset__6TLobbyFv();
+    self->target0Y = lbl_805DE5BC;
+    self->position1X = lbl_805DE5B8;
+    self->position1Y = lbl_805DE5BC;
+    self->target1X = lbl_805DE5B8;
+    self->target1Y = lbl_805DE5BC;
+    self->client = client;
+    self->timer = 0;
+    (*(CharacterSelectTransitionState* *)&lbl_805D67E8) = self;
+    StatusWindow* window = (StatusWindow*)__nw__7TObjectFUl(0x74);
+    if (window) {
+        window = TWindowSubStatusDisp__ct(window, self->client);
+    }
+    self->statusWindow = window;
+    self->callback = update_display__20TWindowSubSymbolChatFi(update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv);
+    return self;
 }
 
 void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self) {
@@ -196,7 +285,7 @@ void init_slot_entry__15TAdChrSelSlotGCFPviPv(S_802C74AC *arg0, s32 arg1, void *
     arg0->e[arg1].x = arg0->v[arg1 + 2].x;
     arg0->e[arg1].y = arg0->v[arg1 + 2].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1 + 2].x;
-    arg0->e[arg1].y2 = TAdChrSelSlotGC__data_805DE5D0 + arg0->v[arg1 + 2].y;
+    arg0->e[arg1].y2 = 24.0f + arg0->v[arg1 + 2].y;
     arg0->b[arg1] = 0;
 }
 
@@ -210,18 +299,48 @@ void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2) {
     arg0->e[arg1].x = arg0->v[arg1].x;
     arg0->e[arg1].y = arg0->v[arg1].y;
     arg0->e[arg1].x2 = lbl_805DE5CC + arg0->v[arg1].x;
-    arg0->e[arg1].y2 = lbl_805DE5D4 + arg0->v[arg1].y;
+    arg0->e[arg1].y2 = 32.0f + arg0->v[arg1].y;
     arg0->b[arg1] = 0;
 }
 
+}
+
+void TAdChrSelSlotGC::run_task() {
+    ++frame;
+    for (u32 i = 0; i < 5; ++i) {
+        if (i < 2) {
+            lbl_805D67F4 = lbl_805DE5CC;
+            lbl_805D67F8 = 32.0f;
+        } else {
+            lbl_805D67F4 = lbl_805DE5CC;
+            lbl_805D67F8 = 24.0f;
+        }
+        quads[i].left = positions[i].x;
+        quads[i].top = positions[i].y;
+        quads[i].right = positions[i].x + lbl_805D67F4;
+        quads[i].bottom = positions[i].y + lbl_805D67F8;
+        if (visible[i]) {
+            alpha[i] += 22;
+            alpha[i] = alpha[i] > 255 ? 255 : alpha[i];
+            colors[i] = (alpha[i] << 24) | 0x00FFFFFF;
+        } else {
+            alpha[i] = 0;
+            colors[i] = (alpha[i] << 24) | 0x00FFFFFF;
+        }
+    }
+}
+
+TAdChrSelSlotGC::~TAdChrSelSlotGC() {}
+
+extern "C" {
 #pragma push
 #pragma fp_contract on
-S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self) {
+S_802C7758 *__ct__15TAdChrSelSlotGCFv(S_802C7758 *self, TObject* _w1) {
     u32 i;
     u32 j;
     u32 k;
     f32 t;
-    __ct__7TObjectFP7TObject(self);
+    __ct__7TObjectFP7TObject((CharacterSelectTransitionState*)(self), (TObject*)(_w1));
     self->vt = __vt__15TAdChrSelSlotGC;
     self->f0 = TAdChrSelSlotGC__name;
     self->f1C = -1;

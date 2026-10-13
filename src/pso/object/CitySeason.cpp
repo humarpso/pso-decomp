@@ -25,24 +25,13 @@ struct RecoveredGlobal_801830BC_lbl_804B5C08 {
 
 extern "C" {
 s32 construct_world_actor_base(void *, void *);
-extern RecoveredGlobal_801830BC_lbl_804B5C08 lbl_804B5C08;
+extern RecoveredGlobal_801830BC_lbl_804B5C08 city_vertical_model_vtable;
 extern const f32 lbl_805DBC00;
-u8 *fn_801830BC(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_801830BC_lbl_804B5C08_size[sizeof(RecoveredGlobal_801830BC_lbl_804B5C08) == 0x38 ? 1 : -1];
-u8 *fn_801830BC(u8 *arg0, s32 arg1, s32 arg2) {
-    construct_world_actor_base((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5C08.value;
-    ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x90) = 1;
-    M2C_FIELD(arg0, s32 *, 0x94) = 2;
-    M2C_FIELD(arg0, s32 *, 0x98) = 0;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DBC00;
-    return arg0;
-}
 
 typedef struct V3_80183134 { s32 x, y, z; } V3_80183134;
 typedef struct Self_80183134 {
