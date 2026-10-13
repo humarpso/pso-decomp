@@ -24,7 +24,7 @@ int end_cutscene_camera__14TBoss6PlotFalzFPv(void*);
 M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
 int send_6xA3_action__14TBoss6PlotFalzFPvc(void*, void*);
 M2C_UNK play_area_music(M2C_UNK *);
-M2C_UNK create_instance__8TObjFishFPv(void *);
+M2C_UNK TBoss6Demo10_TYPE1_APPEAR__create(void *);
 M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_UNK);
 int is_ready__14TBoss6PlotFalzFv(void*);
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p);
@@ -57,7 +57,7 @@ void init_proto1_adx(void *arg0) {
     M2C_FIELD(arg0, s32 *, 0x3D0) = 0;
     M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
     dispatch_by_main_phase__14TBoss4DarkFalzFUs(0x56);
-    create_instance__8TObjFishFPv(arg0);
+    TBoss6Demo10_TYPE1_APPEAR__create(arg0);
 }
 
 void advance_intro_timer__14TBoss6PlotFalzFPv(void *arg0) {

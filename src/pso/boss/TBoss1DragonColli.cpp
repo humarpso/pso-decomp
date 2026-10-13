@@ -68,11 +68,11 @@ int refresh_collision_body_centers(void*);
 M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 s16 alloc_actor_ids__6TLobbyFi(int);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
-extern M2C_UNK lbl_80481BD4[];
-extern s32 lbl_805D2658;
+extern M2C_UNK __vt__19TBoss1DragonColli_C[];
+extern s32 TBoss1DragonColli_C__name;
 extern const f32 lbl_805D8108;
 extern const f32 lbl_805D8120;
-s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
+s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scale);
 }
 
 extern "C" {
@@ -108,7 +108,7 @@ extern "C" {
 
 void TBoss1DragonColli__sub_8002B358(void);
 void TBoss1DragonColli__sub_8002B35C(void* p);
-void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1);
+void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1);
 void draw__17TBoss1DragonColliFPvPvPv(void* p, void* a1, void* a2);
 void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
@@ -145,7 +145,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
+        var_r0 = TBoss1DragonColli_C__ct((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
     }
     M2C_FIELD(arg0, s32 *, 0x1C) = var_r0;
     stack.sp8 = lbl_805D8110;
@@ -154,7 +154,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_2 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_2 = temp_r3_2;
     if (var_r0_2 != 0) {
-        var_r0_2 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_2 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x20) = var_r0_2;
     stack.sp8 = lbl_805D8110;
@@ -163,7 +163,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     temp_r3_3 = __nw__7TObjectFUl((int) (0xB8));
     var_r0_3 = temp_r3_3;
     if (var_r0_3 != 0) {
-        var_r0_3 = create_sphere_chain__17TBoss1DragonColliFiPviPvf((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
+        var_r0_3 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
     M2C_FIELD(arg0, s32 *, 0x24) = var_r0_3;
     return arg0;
@@ -182,7 +182,7 @@ void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self) {
     }
 }
 
-extern M2C_UNK lbl_80481BD4[];
+extern M2C_UNK __vt__19TBoss1DragonColli_C[];
 
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
     s32 i;
@@ -191,9 +191,9 @@ void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
     }
 }
 
-void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
+void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80481BD4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss1DragonColli_C;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
@@ -205,15 +205,15 @@ void *destroy__17TBoss1DragonColliFPvs(void *arg0, s16 arg1) {
 }
 
 #define self ((O_8002B4CC *)arg0)
-s32 create_sphere_chain__17TBoss1DragonColliFiPviPvf(int arg0, void *arg1, int arg2, void *arg3, f32 scale) {
+s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scale) {
     E_8002B4CC *e;
     s32 i;
     f32 zero;
     f32 step;
     f32 z;
     construct_collider_proxy__10TObjPlayerFPv(self, arg1);
-    self->vt = ((u8 *)&lbl_80481BD4);
-    self->f0 = lbl_805D2658;
+    self->vt = ((u8 *)&__vt__19TBoss1DragonColli_C);
+    self->f0 = TBoss1DragonColli_C__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg3);
     self->f1c = alloc_actor_ids__6TLobbyFi(0);
     self->count = arg2;
@@ -273,10 +273,10 @@ void *__vt__17TBoss1DragonColli[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
 };
-M2C_UNK lbl_80481BD4[] = {
+M2C_UNK __vt__19TBoss1DragonColli_C[] = {
     0,
     0,
-    (M2C_UNK)destroy__17TBoss1DragonColliFPvs,
+    (M2C_UNK)__dt__19TBoss1DragonColli_CFv,
     (M2C_UNK)run_task__7TObjectFv,
     (M2C_UNK)TBoss1DragonColli__sub_8002B358,
     (M2C_UNK)render_shadows__7TObjectFv,

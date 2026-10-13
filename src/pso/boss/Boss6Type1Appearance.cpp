@@ -38,7 +38,7 @@ M2C_UNK scroll_strips_uv__14TBoss6PlotFalzFPvii(void *, int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
-void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0);
+void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
@@ -55,19 +55,21 @@ extern M2C_UNK boss6_type1_appear_model_node_descriptors[];
 extern M2C_UNK lbl_80477E30[];
 extern M2C_UNK lbl_80477E3C[];
 extern s32 lbl_804DF614[];
-extern s32 lbl_804EF9B8[];
-extern const M2C_UNK lbl_804EF9C0[];
-extern s32 lbl_805D4298;
-extern const f32 lbl_805DFA50;
-Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent);
+extern s32 boss6_type1_appear_motion_indices[];
+extern const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[];
+struct AppearanceClassTag { const char *value; u32 padding; };
+__declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name;
+struct AppearanceZero { f32 value; u32 padding; };
+__declspec(section ".sdata2") extern const AppearanceZero lbl_805DFA50;
+Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent);
 }
 
 extern "C" {
 
-u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1);
-void TObjPlayer__sub_8033C84C(void* p);
-void clear_render_effect_state__10TObjPlayerFPv(void *arg0);
-void *create_instance__8TObjFishFPv(void *arg0);
+u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
+void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
+void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0);
+void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
 M2C_UNK free_buffer_pairs__14TBoss6PlotFalzFPv(void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
 M2C_UNK restore_player_cameras();
@@ -88,7 +90,7 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern M2C_UNK lbl_80477DEC[];
 
-void clear_render_effect_state__10TObjPlayerFPv(void *arg0) {
+void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0) {
     push_matrix();
     set_global_flag__10TObjPlayerFv();
     post_translate_matrix(lbl_80477DEC);
@@ -102,13 +104,13 @@ void clear_render_effect_state__10TObjPlayerFPv(void *arg0) {
     pop_matrix();
 }
 
-void TObjPlayer__sub_8033C84C(void* p) { clear_render_effect_state__10TObjPlayerFPv((void *)((void *)(p))); }
+void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { TBoss6Demo10_TYPE1_APPEAR__draw_models((void *)((void *)(p))); }
 
-extern const M2C_UNK lbl_804EF9C0[];
+extern const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 
 #pragma push
 #pragma opt_common_subs off
-void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0) {
+void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     s32 temp_r0_2;
@@ -184,9 +186,9 @@ void update_effect_sequence__11TBoss4Type2FPv(u8 *arg0) {
 }
 #pragma pop
 
-u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1) {
+u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)&lbl_804EF9C0;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)&__vt__25TBoss6Demo10_TYPE1_APPEAR;
         restore_player_cameras();
         refresh_players_equipment__14TBoss6PlotFalzFPv();
         free_buffer_pairs__14TBoss6PlotFalzFPv(arg0 + 0x40);
@@ -210,13 +212,13 @@ u8 *TObjFish__sub_8033CAB0(u8 *arg0, s16 arg1) {
 #pragma opt_common_subs off
 typedef struct Ent_8033CB4C Ent_8033CB4C;
 typedef struct Fish_8033CB4C Fish_8033CB4C;
-Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
+Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) {
   s32 k;
   s32 n;
   s32 i;
   __ct__7TObjectFP7TObject(self, parent);
-  self->vt = lbl_804EF9C0;
-  self->x0 = lbl_805D4298;
+  self->vt = __vt__25TBoss6Demo10_TYPE1_APPEAR;
+  self->x0 = (s32)TBoss6Demo10_TYPE1_APPEAR__name.value;
   self->x3C = (s32) parent;
   n = get_fish_count__8TObjFishFv();
   for (i = 0; i < 2; i++)
@@ -225,7 +227,7 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
     k = k & 0xFFFFFFFFu;
     self->tbl[i].a = get_bml_model(n, k);
     self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
-    self->tbl[i].c = get_bml_motion(n, lbl_804EF9B8[i]);
+    self->tbl[i].c = get_bml_motion(n, boss6_type1_appear_motion_indices[i]);
   }
   self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
   self->x64 = 0;
@@ -233,18 +235,39 @@ Fish_8033CB4C *TObjFish__sub_8033CB4C(Fish_8033CB4C *self, void *parent) {
   activate_camera_mode(5);
   set_scripted_camera_pose(lbl_80477DEC, lbl_80477DEC, lbl_80477E30);
   cache_target_and_forward__11TCameraCtrlFii(lbl_80477E3C, 0x416C);
-  self->x34 = lbl_805DFA50;
+  self->x34 = lbl_805DFA50.value;
   self->x38 = 0;
   return self;
 }
 #pragma pop
 
-void *create_instance__8TObjFishFPv(void *arg0) {
+void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0) {
     void *o = __nw__7TObjectFUl(0x68);
     if (o != NULL) {
-        o = TObjFish__sub_8033CB4C((Fish_8033CB4C *)(o), (void *)(arg0));
+        o = TBoss6Demo10_TYPE1_APPEAR__ct((Fish_8033CB4C *)(o), (void *)(arg0));
     }
     return o;
 }
 
+}
+
+extern "C" {
+extern const char TBoss6Demo10_TYPE1_APPEAR__class_name[];
+__declspec(section ".rodata") const char TBoss6Demo10_TYPE1_APPEAR__class_name[] ATTRIBUTE_ALIGN(4) = "TBoss6Demo10_TYPE1_APPEAR";
+__declspec(section ".rodata") M2C_UNK lbl_80477DEC[] = {0x00000000, 0x41C80000, 0x42960000};
+__declspec(section ".rodata") M2C_UNK lbl_80477DF8[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000};
+__declspec(section ".rodata") M2C_UNK boss6_type1_appear_model_node_descriptors[] = {0x00000003, 0x00000001, 0x00000000, 0x00000006, 0x00000001, 0x00000000};
+__declspec(section ".rodata") M2C_UNK lbl_80477E30[] = {0x00000000, 0x00000000, 0x00000000};
+__declspec(section ".rodata") M2C_UNK lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};
+s32 boss6_type1_appear_motion_indices[] = {35, 36};
+void render_shadows__7TObjectFv();
+__declspec(section ".data") const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[] = {
+    0, 0, (M2C_UNK)__dt__25TBoss6Demo10_TYPE1_APPEARFv,
+    (M2C_UNK)run_task__25TBoss6Demo10_TYPE1_APPEARFv,
+    (M2C_UNK)render__25TBoss6Demo10_TYPE1_APPEARFv, (M2C_UNK)render_shadows__7TObjectFv
+};
+__declspec(section ".sdata") AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name = {TBoss6Demo10_TYPE1_APPEAR__class_name, 0};
+__declspec(section ".sdata2") const f32 lbl_805DFA48 = 0.7f;
+__declspec(section ".sdata2") const f32 lbl_805DFA4C = 349.0f;
+__declspec(section ".sdata2") const AppearanceZero lbl_805DFA50 = {0.0f, 0};
 }

@@ -2318,7 +2318,7 @@ void set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, s32);
 void *TBoss1DragonColli__ct(void *, void *);
 void *TBoss1DragonEffTail__ct(void *, void *, void *);
-void *construct_trail__12TBoss8DragonFPvPvPvi(void *, s32, void *, void *);
+void *TObjBoss1MokoHill_SoloM__ct(void *, s32, void *, void *);
 void init_single_player_chr_select__6TLobbyFPv(void *);
 void reset_coords__15TObjBoss2TunnelFPv(void *);
 void reset_coords_pass__15TObjBoss2TunnelFi(void *);
@@ -7865,7 +7865,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     }
     p = __nw__7TObjectFUl(0x40);
     if (p != 0) {
-        p = construct_trail__12TBoss8DragonFPvPvPvi(p, tl_05, arg0 + 0x38, arg0 + 0x60);
+        p = TObjBoss1MokoHill_SoloM__ct(p, tl_05, arg0 + 0x38, arg0 + 0x60);
     }
     F_29DE4(arg0, void *, 0x6D8) = p;
     F_29DE4(arg0, void *, 0x6DC) = 0;

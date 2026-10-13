@@ -1422,7 +1422,7 @@ void set_move_speed_x__13TObjEneMe1GeeFPv(void *arg0);
 void render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
-void TObjEneMe1Gee__sub_802A4CC4(void *, void *, Vec_800CA454 *, Vec_800CA454 *, f32, f32);
+void TObjEneMe1Gee_NEEDLE__ct(void *, void *, Vec_800CA454 *, Vec_800CA454 *, f32, f32);
 void matrix_mult_vec(void *, Vec_800CA454 *, Vec_800CA454 *);
 M2C_UNK rotate_matrix_y(int, int);
 f32 subtract_vector(void *, void *);
@@ -4537,7 +4537,7 @@ void TObjEneMe1Gee__sub_800CA454(void *arg0, s32 arg1) {
                     out.y += o->f3E8;
                     p = __nw__7TObjectFUl(0xC4);
                     if (p != NULL) {
-                        TObjEneMe1Gee__sub_802A4CC4(p, o, &out, dir, o->f3FC, o->param->f4);
+                        TObjEneMe1Gee_NEEDLE__ct(p, o, &out, dir, o->f3FC, o->param->f4);
                     }
                 }
             }

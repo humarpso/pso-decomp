@@ -149,7 +149,7 @@ void *online_ending_quad_vertices[8] = {
     (void *)0x43800000, (void *)0x0, (void *)0x43c00000, (void *)0x0,
     (void *)0x43000000, (void *)0x0, (void *)0x44008000, (void *)0x0,
 };
-void *lbl_804E3A64[13] = {
+void *__vt__16TObjOnlineEnding[13] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__16TObjOnlineEndingFPvs, (void *)&update__16TObjOnlineEndingFPv,
     (void *)&draw_scene__16TObjOnlineEndingFPv, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -157,7 +157,7 @@ void *lbl_804E3A64[13] = {
 };
 #define lbl_804E3A38 ((f32 *)lbl_804E3A38)
 #define online_ending_quad_vertices ((V2_802E4C70 *)online_ending_quad_vertices)
-#define lbl_804E3A64 ((const M2C_UNK *)lbl_804E3A64)
+#define __vt__16TObjOnlineEnding ((const M2C_UNK *)__vt__16TObjOnlineEnding)
 
 int get_instance__16TObjOnlineEndingFv(void) {  return lbl_805D5878; }
 
@@ -365,7 +365,7 @@ void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
 
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, const M2C_UNK **, 0x18) = lbl_804E3A64;
+        M2C_FIELD(arg0, const M2C_UNK **, 0x18) = __vt__16TObjOnlineEnding;
         close_window__16TObjOnlineEndingFPv(arg0);
         restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
@@ -409,7 +409,7 @@ void fn_802E6260();
 char *strncpy(char *, const char *, unsigned long);
 extern u8 lbl_80472BC0[];
 extern u8 lbl_80472BD0[];
-extern void *lbl_805D3F90;
+extern void *TObjOnlineEnding__name;
 extern u32 lbl_805D68F4;
 extern const f32 lbl_805DE950;
 #pragma push
@@ -422,8 +422,8 @@ void *TObjOnlineEnding__ct(void *arg0, void *parent) {
     TObject_802E4FFC *obj;
 
     construct_world_actor_base(arg0, parent);
-    SELF->vt = (void *)lbl_804E3A64;
-    SELF->f0 = lbl_805D3F90;
+    SELF->vt = (void *)__vt__16TObjOnlineEnding;
+    SELF->f0 = TObjOnlineEnding__name;
     SELF->fA0 = get_global_state__14TOKeyMachine01Fv();
     SELF->f9C = 0;
     obj = (TObject_802E4FFC *)arg0;

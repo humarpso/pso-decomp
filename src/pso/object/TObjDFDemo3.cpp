@@ -56,7 +56,7 @@ void cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 construct_world_actor_base(void *, void *);
 extern Pose_8004EB78 lbl_80437384;
 extern s32 boss4_zanzo_bml_index_table[];
-extern s32 lbl_805D2788;
+extern s32 TObjDFDemo2__name;
 extern const f32 lbl_805D89CC;
 }
 
@@ -95,11 +95,11 @@ void TParticleCtrl__sub_801A2124();
 void update_object_view_visibility();
 void classify_actor_view_detail();
 void TObjRoomId__sub_801A1E2C();
-S_EF94 *fn_8004EF94(S_EF94 *o, s16 flag);
+S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag);
 u8 *TObjDFDemo3__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
 void * create__11TObjDFDemo3FPvPvPv(void *arg0, void *arg1, void *arg2);
 
-const char *lbl_805D2790 = "TObjDFDemo3";
+const char *TObjDFDemo3__name = "TObjDFDemo3";
 __declspec(section ".rodata") IVec_8004F030 lbl_804373A4 = {0, 0, 0};
 void *lbl_804856C0[8] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -108,8 +108,8 @@ void *lbl_804856C0[8] = {
 void *lbl_804856E0[3] = {
     (void *)0x60000, (void *)0x0, (void *)0x3f800000,
 };
-void *lbl_804856EC[13] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_8004EF94, (void *)&update_timed_effect__11TBoss4Type2FPv,
+void *__vt__11TObjDFDemo3[13] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo3Fv, (void *)&update_timed_effect__11TBoss4Type2FPv,
     (void *)&TObjPlayer__sub_8004ED28, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
@@ -193,10 +193,10 @@ void update_timed_effect__11TBoss4Type2FPv(u8 *arg0) {
 }
 #pragma pop
 
-S_EF94 *fn_8004EF94(S_EF94 *o, s16 flag) {
+S_EF94 *__dt__11TObjDFDemo3Fv(S_EF94 *o, s16 flag) {
     s32 i;
     if (o != 0) {
-        o->vt = lbl_804856EC;
+        o->vt = __vt__11TObjDFDemo3;
         if (o->fb8 != 0) {
             init_state_1__8TObjFishFPv(o->fb8);
             o->fb8 = 0;
@@ -222,8 +222,8 @@ S_EF94 *fn_8004EF94(S_EF94 *o, s16 flag) {
 u8 *TObjDFDemo3__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
     s32 cnt;
     construct_world_actor_base(arg0, (void *)arg1);
-    M2C_FIELD(arg0, void **, 0x18) = (void *)lbl_804856EC;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2790;
+    M2C_FIELD(arg0, void **, 0x18) = (void *)__vt__11TObjDFDemo3;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFDemo3__name;
     VecCopy__FP3VecPC3Vec(arg0 + 0xA0, (void *)arg2);
     M2C_FIELD(arg0, f32 *, 0xA4) = 0.0f;
     {

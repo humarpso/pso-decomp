@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 M2C_UNK TWindowDD__sub_803428C4(void *);
 M2C_UNK TWindowDD__sub_80342B5C(void *);
-s32 TWindowDD__sub_80342F84();
+s32 update_numeric_parameter_input__9TWindowDDFPv();
 s32 update_close_flag__9TWindowDDFPv(void *);
 M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
@@ -68,7 +68,7 @@ void TWindowDD__sub_80342D14(u8 *arg0) {
         }
         break;
     case 1:
-        var_r31 = TWindowDD__sub_80342F84();
+        var_r31 = update_numeric_parameter_input__9TWindowDDFPv();
         break;
     }
     if (var_r31) {

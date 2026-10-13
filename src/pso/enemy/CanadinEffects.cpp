@@ -1,4 +1,123 @@
 #include "types.h"
+extern "C" {
+extern const char TObjEneMe1Canadin_EffLine__class_name[];
+extern const char TObjEneMe1Canadin_EffDischarge__class_name[];
+extern const char TObjEneMe1Canadin_EffLight__class_name[];
+__declspec(section ".rodata") const char TObjEneMe1Canadin_EffLine__class_name[] ATTRIBUTE_ALIGN(4) = "TObjEneMe1Canadin_EffLine";
+__declspec(section ".rodata") const char TObjEneMe1Canadin_EffDischarge__class_name[] ATTRIBUTE_ALIGN(4) = "TObjEneMe1Canadin_EffDischarge";
+__declspec(section ".rodata") const char TObjEneMe1Canadin_EffLight__class_name[] ATTRIBUTE_ALIGN(4) = "TObjEneMe1Canadin_EffLight";
+}
+
+#include "types.h"
+typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
+typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#define M2C_BITWISE(type, expr) ((type)(expr))
+struct Vec_8009F7AC { f32 x, y, z; };
+
+struct Pt_8009F7AC { f32 w; u32 color; Vec_8009F7AC pos; };
+
+struct Vtx_8009F7AC { f32 x, y, z; u32 color; };
+
+struct Quad_8009F7AC { Vtx_8009F7AC a; Vtx_8009F7AC b; };
+
+struct Trail_8009F7AC {
+    u8 pad0[0x1C];
+    s32 cap;
+    s32 count;
+    s32 head;
+    Quad_8009F7AC *verts;
+    Pt_8009F7AC *pts;
+};
+
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+void init_xyz_limits__10TObjPlayerFv(void);
+void draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
+extern Vec_8009F7AC camera_pitch_rotated_up_vector;
+extern const f32 canadin_effect_negative_one;
+void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o);
+}
+
+extern "C" {
+
+#pragma push
+#pragma fp_contract on
+void render__26TObjEneMe1Canadin_EffLightFv(Trail_8009F7AC *o) {
+    Vec_8009F7AC up;
+    Quad_8009F7AC *v;
+    s32 i;
+    Pt_8009F7AC *p;
+    f32 w;
+    u32 c;
+    s32 j;
+    s32 k;
+    s32 last;
+    s32 n;
+    last = o->count - 1;
+    if (o->head == last) {
+        return;
+    }
+    VecCopy__FP3VecPC3Vec(&up, &camera_pitch_rotated_up_vector);
+    v = o->verts;
+    if (o->head > last) {
+        n = o->count + (o->cap - o->head);
+        for (i = o->count - 1; i >= 0; i--) {
+            p = &o->pts[i];
+            w = p->w;
+            c = p->color;
+            v->a.x = up.x * w + p->pos.x;
+            v->a.y = up.y * w + p->pos.y;
+            v->a.z = up.z * w + p->pos.z;
+            v->a.color = c;
+            w *= canadin_effect_negative_one;
+            v->b.x = up.x * w + p->pos.x;
+            v->b.y = up.y * w + p->pos.y;
+            v->b.z = up.z * w + p->pos.z;
+            v->b.color = c;
+            v++;
+        }
+        for (j = o->cap - 1; j >= o->head; j--) {
+            p = &o->pts[j];
+            w = p->w;
+            c = p->color;
+            v->a.x = up.x * w + p->pos.x;
+            v->a.y = up.y * w + p->pos.y;
+            v->a.z = up.z * w + p->pos.z;
+            v->a.color = c;
+            w *= canadin_effect_negative_one;
+            v->b.x = up.x * w + p->pos.x;
+            v->b.y = up.y * w + p->pos.y;
+            v->b.z = up.z * w + p->pos.z;
+            v->b.color = c;
+            v++;
+        }
+    } else {
+        n = o->count - o->head;
+        for (k = o->count - 1; k >= o->head; k--) {
+            p = &o->pts[k];
+            w = p->w;
+            c = p->color;
+            v->a.x = up.x * w + p->pos.x;
+            v->a.y = up.y * w + p->pos.y;
+            v->a.z = up.z * w + p->pos.z;
+            v->a.color = c;
+            w *= canadin_effect_negative_one;
+            v->b.x = up.x * w + p->pos.x;
+            v->b.y = up.y * w + p->pos.y;
+            v->b.z = up.z * w + p->pos.z;
+            v->b.color = c;
+            v++;
+        }
+    }
+    init_xyz_limits__10TObjPlayerFv();
+    draw_trail_strip__10TObjPlayerFPvPvi(o->verts, n * 2, 1);
+}
+#pragma pop
+
+}
+
+#include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
@@ -30,34 +149,34 @@ struct Rec_8009FA24 { u8 pad[0x14]; };
 struct Obj_8009FA24 { u8 pad0[0x1C]; s32 n1c; s32 n20; s32 sel; u8 pad28[4]; Rec_8009FA24 *recs; s32 a30; f32 f34; };
 
 extern "C" {
-void VecCopy__FP3VecPC3Vec(Vec_8009FADC *dst, const Vec_8009FADC *src);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
 void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, const Vec_8009FADC *pos, s32 val);
-extern const f32 lbl_805D993C;
-extern const f32 lbl_805D9940;
+extern const f32 canadin_effect_zero;
+extern const f32 canadin_light_width_cutoff;
 s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_80490410[];
-extern s32 lbl_805D29C4;
-extern const f32 lbl_805D993C;
-extern const f32 lbl_805D9944;
-Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count);
+extern M2C_UNK __vt__26TObjEneMe1Canadin_EffLight[];
+extern s32 TObjEneMe1Canadin_EffLight__name;
+extern const f32 canadin_effect_zero;
+extern const f32 canadin_light_width_decay;
+Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count);
 s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale);
-void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0);
+void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0);
 }
 
 extern "C" {
 
-void *destroy__17TObjEneMe1CanadinFPvs(void *arg0, s16 arg1);
+void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void free__11TOBoss4RockFUi(void *);
 
-extern M2C_UNK lbl_80490410[];
+extern M2C_UNK __vt__26TObjEneMe1Canadin_EffLight[];
 
 struct Obj_8009FB54;
 typedef s32 (*Fn_8009FA24)(Rec_8009FA24 *, f32, s32);
-void select_first_valid_record__17TObjEneMe1CanadinFPv(Obj_8009FA24 *arg0) {
+void run_task__26TObjEneMe1Canadin_EffLightFv(Obj_8009FA24 *arg0) {
     s32 i;
     arg0->sel = arg0->n20 - 1;
     for (i = arg0->n20 - 1; i >= 0; i--) {
@@ -85,12 +204,12 @@ void push_history_entry__17TObjEneMe1CanadinFPvfPvi(Obj_8009FADC *self, f32 f, c
 
 s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 scale) {
     s32 a;
-    if (lbl_805D993C == self->alpha) {
+    if (canadin_effect_zero == self->alpha) {
         return 1;
     }
     self->alpha = self->alpha * scale;
-    if (self->alpha < lbl_805D9940) {
-        self->alpha = lbl_805D993C;
+    if (self->alpha < canadin_light_width_cutoff) {
+        self->alpha = canadin_effect_zero;
         return 1;
     }
     a = (self->color >> 24) - dec;
@@ -102,9 +221,9 @@ s32 fade_alpha_step__17TObjEneMe1CanadinFPvif(Obj_8009FB54 *self, s32 dec, f32 s
     return 0;
 }
 
-void *destroy__17TObjEneMe1CanadinFPvs(void *arg0, s16 arg1) {
+void *__dt__26TObjEneMe1Canadin_EffLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490410;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TObjEneMe1Canadin_EffLight;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x2C));
         M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0;
         free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x28));
@@ -116,25 +235,25 @@ void *destroy__17TObjEneMe1CanadinFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, s32 count) {
+Obj_8009FC44 *TObjEneMe1Canadin_EffLight__ct(Obj_8009FC44 *self, void *parent, s32 count) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
-    self->vtbl = ((s32 *)&lbl_80490410);
-    self->descriptor = lbl_805D29C4;
+    self->vtbl = ((s32 *)&__vt__26TObjEneMe1Canadin_EffLight);
+    self->descriptor = TObjEneMe1Canadin_EffLight__name;
     self->count = count;
     self->field20 = 0;
     self->field24 = 0;
     self->buf28 = alloc_buffer__11TOBoss4RockFPv(self->count << 5);
     self->recs = (Rec_8009FC44 *)alloc_buffer__11TOBoss4RockFPv(self->count * 0x14);
     for (i = 0; i < self->count; i++) {
-        self->recs[i].a = lbl_805D993C;
+        self->recs[i].a = canadin_effect_zero;
         self->recs[i].b = 0;
-        self->recs[i].c = lbl_805D993C;
-        self->recs[i].d = lbl_805D993C;
-        self->recs[i].e = lbl_805D993C;
+        self->recs[i].c = canadin_effect_zero;
+        self->recs[i].d = canadin_effect_zero;
+        self->recs[i].e = canadin_effect_zero;
     }
     self->field30 = 0x30;
-    self->field34 = lbl_805D9944;
+    self->field34 = canadin_light_width_decay;
     return self;
 }
 
@@ -144,9 +263,9 @@ Obj_8009FC44 *TObjEneMe1Canadin__sub_8009FC44(Obj_8009FC44 *self, void *parent, 
 
 extern "C" {
 
-void TObjEneMe1Canadin__sub_8009FD2C(void);
+void render__30TObjEneMe1Canadin_EffDischargeFv(void);
 
-void TObjEneMe1Canadin__sub_8009FD2C(void) {  }
+void render__30TObjEneMe1Canadin_EffDischargeFv(void) {  }
 
 }
 
@@ -167,9 +286,9 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK construct__12TTecZondeEffFPvPvPvPvf(void *, s32, void *, void *, f32);
 void subtract_vector(void *, void *);
 extern s32 tl_05;
-extern const f32 lbl_805D9948;
+extern const f32 canadin_discharge_motion_scale;
 
-void update_zonde_projectile(u8 *arg0) {
+void run_task__30TObjEneMe1Canadin_EffDischargeFv(u8 *arg0) {
     M2C_UNK sp8;
     f32 temp_f0;
     f32 temp_f1;
@@ -178,7 +297,7 @@ void update_zonde_projectile(u8 *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805D9948);
+    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + canadin_discharge_motion_scale);
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
     if (temp_f1 > M2C_FIELD(arg0, f32 *, 0x34)) {
         VC_B(arg0 + 0x50, arg0 + 0x44);
@@ -245,29 +364,29 @@ struct Obj_8009FEB8 {
 extern "C" {
 void init_xyz_limits__10TObjPlayerFv(void);
 M2C_UNK draw_line_list(void *, int, int);
-void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0);
+void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0);
 #define VC_C ((void (*)(void *, const void *))VecCopy__FP3VecPC3Vec)
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 void subtract_vector(void *, void *);
-extern M2C_UNK lbl_80490428[];
-extern s32 lbl_805D29C0;
-extern const f32 lbl_805D993C;
-extern const f32 lbl_805D9948;
-Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to);
+extern M2C_UNK __vt__30TObjEneMe1Canadin_EffDischarge[];
+extern s32 TObjEneMe1Canadin_EffDischarge__name;
+extern const f32 canadin_effect_zero;
+extern const f32 canadin_discharge_motion_scale;
+Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to);
 }
 
 extern "C" {
 
-void *TObjEneMe1Canadin__sub_8009FE60(void *arg0, s16 arg1);
+void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK lbl_80490428[];
+extern M2C_UNK __vt__30TObjEneMe1Canadin_EffDischarge[];
 
-void *TObjEneMe1Canadin__sub_8009FE60(void *arg0, s16 arg1) {
+void *__dt__30TObjEneMe1Canadin_EffDischargeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490428;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__30TObjEneMe1Canadin_EffDischarge;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -276,34 +395,34 @@ void *TObjEneMe1Canadin__sub_8009FE60(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Obj_8009FEB8 *TObjEneMe1Canadin__sub_8009FEB8(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to) {
+Obj_8009FEB8 *TObjEneMe1Canadin_EffDischarge__ct(Obj_8009FEB8 *self, void *parent, Vec_8009FEB8 *from, Vec_8009FEB8 *to) {
     __ct__7TObjectFP7TObject(self, parent);
-    self->vtbl = ((s32 *)&lbl_80490428);
-    self->descriptor = lbl_805D29C0;
+    self->vtbl = ((s32 *)&__vt__30TObjEneMe1Canadin_EffDischarge);
+    self->descriptor = TObjEneMe1Canadin_EffDischarge__name;
     self->parent = parent;
     VC_C(&self->start, from);
     VC_C(&self->end, to);
     VC_C(&self->dir, &self->end);
     subtract_vector(&self->dir, &self->start);
-    self->dir.y = lbl_805D993C;
+    self->dir.y = canadin_effect_zero;
     self->dist = clamp_velocity__15TObjBoss2TunnelFPv(&self->dir);
-    if (self->dist > lbl_805D9948) {
-        self->duration = lbl_805D9948;
+    if (self->dist > canadin_discharge_motion_scale) {
+        self->duration = canadin_discharge_motion_scale;
         self->remain = self->dist - self->duration;
     } else {
         self->duration = self->dist;
-        self->remain = lbl_805D993C;
+        self->remain = canadin_effect_zero;
     }
     self->y0 = self->start.y;
     self->accel = (self->end.y - self->start.y) / (self->duration * self->duration);
-    self->time = lbl_805D993C;
-    self->dir.x *= lbl_805D9948;
-    self->dir.z *= lbl_805D9948;
+    self->time = canadin_effect_zero;
+    self->dir.x *= canadin_discharge_motion_scale;
+    self->dir.z *= canadin_discharge_motion_scale;
     VC_C(&self->pos, &self->start);
     return self;
 }
 
-void draw_debug_line__17TObjEneMe1CanadinFi(s32 arg0) {
+void render__25TObjEneMe1Canadin_EffLineFv(s32 arg0) {
     Stack_8009FFD8 stack;
     stack.sp8 = arg0 + 0x28;
     stack.spC = arg0 + 0x40;
@@ -323,15 +442,15 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0);
-void *TObjEneMe1Canadin__sub_800A00A8(void *arg0, s16 arg1);
+void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0);
+void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1);
 #define VC_D ((M2C_UNK (*)(void *, s32))VecCopy__FP3VecPC3Vec)
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 __nw__7TObjectFUl(M2C_UNK);
 M2C_UNK fn_800A02AC(void *, s32, void *, void *);
 
-void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0) {
+void run_task__25TObjEneMe1Canadin_EffLineFv(u8 *arg0) {
     VC_D(arg0 + 0x28, M2C_FIELD(arg0, s32 *, 0x20));
     VC_D(arg0 + 0x34, M2C_FIELD(arg0, s32 *, 0x24));
     M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
@@ -344,11 +463,11 @@ void spawn_periodic_effect__17TObjEneMe1CanadinFPv(u8 *arg0) {
     }
 }
 
-extern M2C_UNK lbl_80490440[];
+extern M2C_UNK __vt__25TObjEneMe1Canadin_EffLine[];
 
-void *TObjEneMe1Canadin__sub_800A00A8(void *arg0, s16 arg1) {
+void *__dt__25TObjEneMe1Canadin_EffLineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490440;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -367,20 +486,21 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u8 *init__17TObjEneMe1CanadinFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
+u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 rand(M2C_UNK);
 
 extern const f64 lbl_8043A460;
-extern M2C_UNK lbl_80490440[];
-extern s32 lbl_805D29BC;
-extern const f32 lbl_805D994C;
-extern const f32 lbl_805D9950;
+extern M2C_UNK __vt__25TObjEneMe1Canadin_EffLine[];
+extern s32 TObjEneMe1Canadin_EffLine__name;
+extern const f32 canadin_line_initial_phase_range;
+struct CanadinRandomScale { f32 value; u32 padding; };
+__declspec(section ".sdata2") extern const CanadinRandomScale canadin_random_scale;
 
 #pragma opt_propagation off
-u8 *init__17TObjEneMe1CanadinFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
+u8 *TObjEneMe1Canadin_EffLine__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     ((M2C_UNK (*)(u8 *, s32))__ct__7TObjectFP7TObject)(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490440;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29BC;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjEneMe1Canadin_EffLine;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMe1Canadin_EffLine__name;
     M2C_FIELD(arg0, s32 *, 0x20) = arg2;
     M2C_FIELD(arg0, s32 *, 0x24) = arg3;
     VC_D(arg0 + 0x28, M2C_FIELD(arg0, s32 *, 0x20));
@@ -389,9 +509,35 @@ u8 *init__17TObjEneMe1CanadinFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         s32 k = (s32) 0xFFFF0000;
         M2C_FIELD(arg0, s32 *, 0x40) = k + 0x33;
         M2C_FIELD(arg0, s32 *, 0x44) = k + 0x33;
-        M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (lbl_805D994C * (lbl_805D9950 * (f32) rand(k)));
+        M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (canadin_line_initial_phase_range * (canadin_random_scale.value * (f32) rand(k)));
     }
     return arg0;
 }
 
+}
+
+extern "C" {
+void render_shadows__7TObjectFv();
+M2C_UNK __vt__26TObjEneMe1Canadin_EffLight[] = {
+    0, 0, (M2C_UNK)__dt__26TObjEneMe1Canadin_EffLightFv,
+    (M2C_UNK)run_task__26TObjEneMe1Canadin_EffLightFv,
+    (M2C_UNK)render__26TObjEneMe1Canadin_EffLightFv, (M2C_UNK)render_shadows__7TObjectFv
+};
+M2C_UNK __vt__30TObjEneMe1Canadin_EffDischarge[] = {
+    0, 0, (M2C_UNK)__dt__30TObjEneMe1Canadin_EffDischargeFv,
+    (M2C_UNK)run_task__30TObjEneMe1Canadin_EffDischargeFv,
+    (M2C_UNK)render__30TObjEneMe1Canadin_EffDischargeFv, (M2C_UNK)render_shadows__7TObjectFv
+};
+M2C_UNK __vt__25TObjEneMe1Canadin_EffLine[] = {
+    0, 0, (M2C_UNK)__dt__25TObjEneMe1Canadin_EffLineFv,
+    (M2C_UNK)run_task__25TObjEneMe1Canadin_EffLineFv,
+    (M2C_UNK)render__25TObjEneMe1Canadin_EffLineFv, (M2C_UNK)render_shadows__7TObjectFv
+};
+__declspec(section ".sdata2") const f32 canadin_effect_negative_one = -1.0f;
+__declspec(section ".sdata2") const f32 canadin_effect_zero = 0.0f;
+__declspec(section ".sdata2") const f32 canadin_light_width_cutoff = 0.01f;
+__declspec(section ".sdata2") const f32 canadin_light_width_decay = 0.85f;
+__declspec(section ".sdata2") const f32 canadin_discharge_motion_scale = 20.0f;
+__declspec(section ".sdata2") const f32 canadin_line_initial_phase_range = 5.0f;
+__declspec(section ".sdata2") const CanadinRandomScale canadin_random_scale = {0.000030517578125f, 0};
 }

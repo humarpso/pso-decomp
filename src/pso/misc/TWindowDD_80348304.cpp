@@ -30,7 +30,7 @@ void close_all_windows__9TWindowDDFPv(void *p);
 s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 s32 can_append_chars__9TWindowDDFiPv(s32 arg0, s32 *arg1);
 }
 
@@ -79,7 +79,7 @@ void dispatch_state__9TWindowDDFv(void) {
     }
 }
 
-s32 TWindowDD__sub_80348398(u8 *arg0) {
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if (temp_r3 == 0 || temp_r3 == 18) {

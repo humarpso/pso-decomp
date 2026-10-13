@@ -19,9 +19,9 @@ M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
 void update_missile__13TObjEneMe1GeeFPv(void *arg0);
 u16 obj_getField1c(void *);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
-extern RecoveredGlobal_802A4CC4_lbl_804DCFF8 lbl_804DCFF8;
-extern s32 lbl_805D3DE0;
-u8 *TObjEneMe1Gee__sub_802A4CC4(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
+extern RecoveredGlobal_802A4CC4_lbl_804DCFF8 __vt__20TObjEneMe1Gee_NEEDLE;
+extern s32 TObjEneMe1Gee_NEEDLE__name;
+u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
 void TObjEneMe1Gee__sub_802A4D4C(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
 extern u32 lbl_805D6660;
@@ -76,11 +76,11 @@ void update_missile__13TObjEneMe1GeeFPv(void *arg0) {
     }
     TNeedleShoot__sub_802A4668(arg0);
 }
-u8 *TObjEneMe1Gee__sub_802A4CC4(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
+u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     TNeedleShoot__ct(arg0, arg1, arg2, arg3);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804DCFF8.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3DE0;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__20TObjEneMe1Gee_NEEDLE.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMe1Gee_NEEDLE__name;
     M2C_FIELD(arg0, f32 *, 0xBC) = farg1;
     M2C_FIELD(arg0, f32 *, 0xAC) = farg0;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0x96;

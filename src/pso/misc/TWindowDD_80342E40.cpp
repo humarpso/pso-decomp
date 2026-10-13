@@ -27,15 +27,15 @@ s32 is_confirmed__18TWindowInputNumberFPv(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 M2C_UNK TWindow__close(int);
 M2C_UNK TWindowDD__sub_80341AF8(int);
-M2C_UNK TWindowDD__sub_80343108(void *, int, void *, void *);
+M2C_UNK open_numeric_parameter_input__9TWindowDDFPviii(void *, int, void *, void *);
 s32 classify_id__9TWindowDDFs();
 M2C_UNK TWindowDD__sub_80347CC8(void *, void *);
 M2C_UNK get_current_child_index__9TWindowDDFPv();
 M2C_UNK reset_index__9TWindowDDFPv(void *);
 M2C_UNK set_field14__9TWindowDDFPvi(void *, int);
 s32 TWindowDD__sub_80348D88(void *);
-extern void *window_dd_limit_value_table[];
-u8 TWindowDD__sub_80342F84(u8 *arg0);
+extern void *word_select_numeric_limits[];
+u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0);
 s32 TWindowDD__sub_80342158(s32);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK TWindowDD__sub_80347C50();
@@ -100,7 +100,7 @@ void handle_confirm_input__9TWindowDDFPv(W_80342ED0 *arg0) {
     }
 }
 
-u8 TWindowDD__sub_80342F84(u8 *arg0) {
+u8 update_numeric_parameter_input__9TWindowDDFPv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r31;
     u8 *var_r3;
@@ -109,7 +109,7 @@ u8 TWindowDD__sub_80342F84(u8 *arg0) {
         get_current_child_index__9TWindowDDFPv();
         temp_r3 = classify_id__9TWindowDDFs();
         if (temp_r3 != 7) {
-            TWindowDD__sub_80343108((void *) (arg0), (int) (0), window_dd_limit_value_table[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
+            open_numeric_parameter_input__9TWindowDDFPviii((void *) (arg0), (int) (0), word_select_numeric_limits[temp_r3], (void *) (TWindowDD__sub_80348D88((void *) (arg0 + 0xC4))));
             return 0U;
         }
         return 1U;

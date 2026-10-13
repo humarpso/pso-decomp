@@ -11,8 +11,8 @@ struct RecoveredGlobal_80181278_lbl_804B5908 {
 extern "C" {
 s32 update_path_motion__18TObjCityAirCar_CarFv(void *);
 u8 * construct_world_actor_base(void *);
-extern RecoveredGlobal_80181278_lbl_804B5908 lbl_804B5908;
-extern s32 lbl_805D324C;
+extern RecoveredGlobal_80181278_lbl_804B5908 __vt__18TObjCityAirCar_Car;
+extern s32 TObjCityAirCar_Car__name;
 extern const f32 lbl_805DBBC8;
 u8 *construct_city_air_car(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
 }
@@ -22,8 +22,8 @@ extern "C" {
 typedef char RecoveredGlobal_80181278_lbl_804B5908_size[sizeof(RecoveredGlobal_80181278_lbl_804B5908) == 0x34 ? 1 : -1];
 u8 *construct_city_air_car(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0) {
     construct_world_actor_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B5908.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D324C;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TObjCityAirCar_Car.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjCityAirCar_Car__name;
     M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DBBC8;
     M2C_FIELD(arg0, s32 *, 0x98) = arg2;
     M2C_FIELD(arg0, s32 *, 0x9C) = arg3;

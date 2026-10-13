@@ -35,10 +35,10 @@ extern u8 lbl_80478064[];
 extern u8 boss6_type2_appear_camera_script[];
 extern s32 lbl_804DF614[];
 extern s32 lbl_804EFA14[];
-extern M2C_UNK lbl_804EFA1C[];
-extern s32 lbl_805D42A8;
+extern M2C_UNK __vt__25TBoss6Demo20_TYPE2_APPEAR[];
+extern s32 TBoss6Demo20_TYPE2_APPEAR__name;
 extern const f32 lbl_805DFA70;
-u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1);
+u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
@@ -67,14 +67,14 @@ typedef struct {
     s32 arr[9];
     Trip_8033DA94 t[5];
 } Fish_8033DA94;
-u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1) {
+u8 *TBoss6Demo20_TYPE2_APPEAR__ct(u8 *arg0, s32 arg1) {
     Fish_8033DA94 *self = (Fish_8033DA94 *)arg0;
     s32 v;
     s32 count;
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EFA1C;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D42A8;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TBoss6Demo20_TYPE2_APPEAR;
+    M2C_FIELD(arg0, s32 *, 0) = TBoss6Demo20_TYPE2_APPEAR__name;
     M2C_FIELD(arg0, s32 *, 0xEC) = arg1;
     count = get_fish_count__8TObjFishFv();
     for (i = 0; i < 2; i++) {
@@ -112,7 +112,7 @@ u8 *construct_scene_object__8TObjFishFPvi(u8 *arg0, s32 arg1) {
 void *create_variant__8TObjFishFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF0);
     if (o != NULL) {
-        o = construct_scene_object__8TObjFishFPvi((u8 *)(o), (s32)(arg0));
+        o = TBoss6Demo20_TYPE2_APPEAR__ct((u8 *)(o), (s32)(arg0));
     }
     return o;
 }

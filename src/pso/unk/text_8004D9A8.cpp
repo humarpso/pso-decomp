@@ -230,16 +230,16 @@ void restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, s32);
 void __dl__7TObjectFPv(void *);
-extern void *lbl_8048555C[13];
-S_8004DE44 *fn_8004DE44(S_8004DE44 *o, s16 flag);
+extern void *__vt__11TObjDFDemo0[13];
+S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag);
 }
 
 extern "C" {
 
-S_8004DE44 *fn_8004DE44(S_8004DE44 *o, s16 flag) {
+S_8004DE44 *__dt__11TObjDFDemo0Fv(S_8004DE44 *o, s16 flag) {
     s32 i;
     if (o != 0) {
-        o->vt = lbl_8048555C;
+        o->vt = __vt__11TObjDFDemo0;
         fn_8004AA04(o->f94);
         for (i = 0; i < 5; i++) {
             if (o->ptr[i] != 0) {
@@ -294,7 +294,7 @@ void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
 void construct_world_actor_base(void *, void *);
 extern u8 TObjDFDemo0__model_node_entries[];
 extern s32 lbl_80485EB0[];
-extern s32 lbl_805D2778;
+extern s32 TObjDFDemo0__name;
 
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjRoomId__sub_801A1E2C();
@@ -304,8 +304,8 @@ extern "C" void classify_actor_view_detail();
 extern "C" void render_shadows__7TObjectFv();
 extern "C" void reset_motion_fields__10TObjPlayerFPv();
 extern "C" void update_object_view_visibility();
-void *lbl_8048555C[13] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_8004DE44, (void *)&TBoss3Volopt__sub_8004DA7C,
+void *__vt__11TObjDFDemo0[13] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo0Fv, (void *)&TBoss3Volopt__sub_8004DA7C,
     (void *)&fn_8004D9A8, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
@@ -322,8 +322,8 @@ Obj_8004DEE0 *TObjDFDemo0__ct(void *arg0, void *arg1) {
     s32 j;
 
     construct_world_actor_base(self, arg1);
-    self->vt = (void *)lbl_8048555C;
-    self->f0 = lbl_805D2778;
+    self->vt = (void *)__vt__11TObjDFDemo0;
+    self->f0 = TObjDFDemo0__name;
     h = get_instance_count__9TBoss4UroFv();
     for (i = 0; i < 6; i++) {
         {

@@ -563,8 +563,8 @@ void advance_state_4_to_5__17TObjEneMe1CanadinFPv(void *arg0);
 s32 check_target__17TObjEneMe1CanadinFPv(void *arg0);
 void update_angle__17TObjEneMe1CanadinFPv(void *arg0);
 void update_position_with_offset__17TObjEneMe1CanadinFPv(void *arg0);
-void TObjEneMe1Canadin__sub_8009FEB8(void *, void *, void *, void *);
-void *init__17TObjEneMe1CanadinFPviii(void *, void *, void *, void *);
+void TObjEneMe1Canadin_EffDischarge__ct(void *, void *, void *, void *);
+void *TObjEneMe1Canadin_EffLine__ct(void *, void *, void *, void *);
 void TObjEneEpsilon__sub_800B92F8(void *, s32, f32);
 s32 update_death_check__14TObjEneEpsilonFPv(void *);
 void enemy_copy_target_destination(void *);
@@ -2730,7 +2730,7 @@ void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0);
 u8 * TObjEneMe1Canadin__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s16 arg4, s16 arg5);
 void * init__17TObjEneMe1CanadinFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void * create_canadin__23TObjEneMe1CanadinLeaderFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
-void * TObjEneMe1Canadin__sub_8009FC44(void *, void *, s32);
+void * TObjEneMe1Canadin_EffLight__ct(void *, void *, s32);
 s32 enemy_has_live_target(void *);
 void TObjEneEpsilon__sub_800B92AC(void *, s32, f32);
 void enemy_init_validate_period(void *, s32);
@@ -4336,7 +4336,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
                 VecCopy__FP3VecPC3Vec(pos, &o->base);
                 p = __nw__7TObjectFUl(0x48);
                 if (p != 0) {
-                    p = init__17TObjEneMe1CanadinFPviii(p, o, o->f414, pos);
+                    p = TObjEneMe1Canadin_EffLine__ct(p, o, o->f414, pos);
                 }
                 o->f49C = p;
                 play_sound_effect(0x4002B71B, o->snd, 0, 0);
@@ -4388,7 +4388,7 @@ void TObjEneMe1Canadin__sub_8009D320(void *arg0, s32 arg1) {
                 {
                     void *q = __nw__7TObjectFUl(0x68);
                     if (q != 0) {
-                        TObjEneMe1Canadin__sub_8009FEB8(q, o, o->f414, pos);
+                        TObjEneMe1Canadin_EffDischarge__ct(q, o, o->f414, pos);
                     }
                 }
                 play_sound_effect(0x4002A408, o->snd, 0, 0);
@@ -5213,7 +5213,7 @@ void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x404) = 0;
     p = ((void * (*)(u32))__nw__7TObjectFUl)(0x38);
     if (p != NULL) {
-        p = TObjEneMe1Canadin__sub_8009FC44(p, arg0, 5);
+        p = TObjEneMe1Canadin_EffLight__ct(p, arg0, 5);
     }
     M2C_FIELD(arg0, void **, 0x408) = p;
     M2C_FIELD(arg0, s32 *, 0x40C) = 0;

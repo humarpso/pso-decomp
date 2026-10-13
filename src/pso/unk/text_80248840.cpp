@@ -5,8 +5,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 u8 * get_symbol_chat_data__20TWindowSubSymbolChatFPv(void *);
-s32 TWindowSubSymbolChat__sub_80077464(void *);
-s32 TWindowSubSymbolChat__sub_80077480(s32);
+s32 is_symbol_chat_preset_in_use(void *);
+s32 get_symbol_chat_preset(s32);
 u8 * TWindowChatSymbol__ct(void *, s32, s32);
 int forward_trade_action_default__16TObjCityMainWarpFPviii(void *, int, int, int);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
@@ -38,9 +38,9 @@ u8 *construct_symbol_chat_selection(u8 *arg0) {
     M2C_FIELD(arg0, u8 **, 0x1C) = check_room_seq_4__16TAdChrSelASlotGCFii(lbl_8044EAC0, 0xC);
     var_r31 = 0;
     do {
-        temp_r3 = (u8 *)(TWindowSubSymbolChat__sub_80077480(var_r31));
+        temp_r3 = (u8 *)(get_symbol_chat_preset(var_r31));
         temp_r30 = (u8 *)(get_symbol_chat_data__20TWindowSubSymbolChatFPv(temp_r3));
-        if (TWindowSubSymbolChat__sub_80077464(temp_r3) != 0) {
+        if (is_symbol_chat_preset_in_use(temp_r3) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(M2C_FIELD(arg0, u8 **, 0x1C), (s32) temp_r30, 0x66, var_r31);
         } else {
             draw_text_gray__17TWindowSubComCardFiiii((void *) (M2C_FIELD(arg0, u8 **, 0x1C)), (int) (temp_r30), (int) (0x46), (int) (var_r31));

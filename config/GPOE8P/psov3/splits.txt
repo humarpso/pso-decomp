@@ -1556,12 +1556,11 @@ pso/enemy/TObjEneMe1Canadin_8009F504.cpp:
 pso/unk/text_8009F554.cpp:
 	.text       start:0x8009F554 end:0x8009F7AC
 
-pso/unk/text_8009F7AC.cpp:
-	.text       start:0x8009F7AC end:0x8009FA24
-
-pso/enemy/TObjEneMe1Canadin_8009FA24.cpp:
-	.text       start:0x8009FA24 end:0x800A01C0
-	.rodata     start:0x8043A460 end:0x8043A468
+pso/enemy/CanadinEffects.cpp:
+	.text       start:0x8009F7AC end:0x800A01C0
+	.rodata     start:0x8043A408 end:0x8043A468
+	.data       start:0x80490410 end:0x80490458
+	.sdata2     start:0x805D9938 end:0x805D9958
 
 pso/unk/text_800A01C0.cpp:
 	.text       start:0x800A01C0 end:0x800A0210
@@ -5948,9 +5947,10 @@ pso/unk/text_80182E90.cpp:
 pso/unk/text_80183018.cpp:
 	.text       start:0x80183018 end:0x801830BC
 
-pso/unk/text_801830BC.cpp:
+pso/object/CitySeason.cpp:
 	.text       start:0x801830BC end:0x80184C2C
 	.rodata     start:0x80444210 end:0x80444268
+	.data       start:0x804B5C40 end:0x804B5C58
 	.sdata2     start:0x805DBC18 end:0x805DBC80
 
 pso/unk/text_80184C2C.cpp:
@@ -8587,20 +8587,9 @@ pso/misc/TWindowDD_80246F8C.cpp:
 pso/misc/TWindowSubShortCut_80246FB0.cpp:
 	.text       start:0x80246FB0 end:0x8024701C
 
-pso/misc/TWindowChat_8024701C.cpp:
-	.text       start:0x8024701C end:0x802472A8
-
-pso/misc/TWindowChat_802472A8.cpp:
-	.text       start:0x802472A8 end:0x80247534
-
-pso/misc/TWindowChat_80247534.cpp:
-	.text       start:0x80247534 end:0x80247AB0
-
 pso/misc/TWindowChat.cpp:
-	.text       start:0x80247AB0 end:0x80247D50
-
-pso/misc/TWindowChat_80247D50.cpp:
-	.text       start:0x80247D50 end:0x80247EFC
+	.text       start:0x8024701C end:0x80247EFC
+	.data       start:0x804CE2D0 end:0x804CE2E8
 
 pso/misc/TWindowSubSymbolChatPartsSet_80247EFC.cpp:
 	.text       start:0x80247EFC end:0x80248668
@@ -12041,8 +12030,12 @@ pso/unk/text_8033C69C.cpp:
 	.text       start:0x8033C69C end:0x8033C7C8
 	.ctors      start:0x80433FF8 end:0x80433FFC
 
-pso/player/TObjPlayer_8033C7C8.cpp:
+pso/boss/Boss6Type1Appearance.cpp:
 	.text       start:0x8033C7C8 end:0x8033CCC8
+	.rodata     start:0x80477DD0 end:0x80477E48
+	.data       start:0x804EF9B8 end:0x804EF9D8
+	.sdata      start:0x805D4298 end:0x805D42A0
+	.sdata2     start:0x805DFA48 end:0x805DFA58
 
 pso/object/TObjFish_8033CCC8.cpp:
 	.text       start:0x8033CCC8 end:0x8033D324

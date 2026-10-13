@@ -24,8 +24,8 @@ void byteswap_entry__20TWindowSubSymbolChatFPv(void* p) { bswap_32__FPUl((void*)
 void send_symbol_chat__20TWindowSubSymbolChatFPv(void* p) { bswap_symbol_chat_packet__20TWindowSubSymbolChatFPv((void*)((void*)(p))); update_players__6TLobbyFi(p); }
 void TWindowSubSymbolChat__sub_80077704(void* p) { *(u8*)((char*)p + 0x0) = 7; *(u8*)((char*)p + 0x1) = 17; }
 
-    extern int lbl_805D4E50;
-int get_instance__20TWindowSubSymbolChatFv(void) {  return lbl_805D4E50; }
+    extern int selected_symbol_chat_preset;
+int get_instance__20TWindowSubSymbolChatFv(void) {  return selected_symbol_chat_preset; }
 
 int is_initialized__20TWindowSubSymbolChatFPv(void* p) { return *(u32*)((char*)p + 0x0) & 0x1; }
 void bswap_entry__20TWindowSubSymbolChatFPv(void* p) { bswap_32__FPUl((void*)(p)); byteswap_entry__20TWindowSubSymbolChatFPv((void*)((char*)p + 0x1c)); }

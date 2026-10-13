@@ -233,7 +233,7 @@ void *lbl_804AABD8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x30203, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804AAC04[95] = {
+void *__vt__11TObjNpcMoja[95] = {
     (void *)0x0, (void *)0x0, (void *)&dt__11TObjNpcMojaFPvs, (void *)&run_task__11TObjNpcBaseFPv,
     (void *)&draw_if_visible__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -259,7 +259,7 @@ void *lbl_804AAC04[95] = {
     (void *)&TObjPlayer__sub_8014C5EC, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFPv, (void *)&play_voice__11TObjNpcBaseFi, (void *)&TObjNpcFemaleBase__sub_801480F8,
     (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFPv, (void *)0x0,
 };
-extern s32 lbl_805D2E18;
+extern s32 TObjNpcMoja__name;
 extern u8 *lbl_805D50D8;
 
 extern void *tl_04;
@@ -280,7 +280,7 @@ void * create__11TObjNpcMojaFPv(void *arg0) {
 
 void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_804AAC04;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjNpcMoja;
         __dt__11TObjNpcBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -293,8 +293,8 @@ void *dt__11TObjNpcMojaFPvs(void *arg0, s16 arg1) {
 #define arg2 ((s32)arg2v)
 void *TObjNpcMoja__ct(void *selfv, void *parent, void *arg2v) {
     TObjNpcBase__ct(self, parent);
-    *(u8 **)(self + 0x18) = (u8 *)lbl_804AAC04;
-    *(s32 *)(self + 0) = lbl_805D2E18;
+    *(u8 **)(self + 0x18) = (u8 *)__vt__11TObjNpcMoja;
+    *(s32 *)(self + 0) = TObjNpcMoja__name;
     ((VObj_8014C780 *)self)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     ((VObj_8014C780 *)self)->m85(0, 1);

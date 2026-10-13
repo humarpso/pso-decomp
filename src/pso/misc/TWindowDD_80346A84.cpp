@@ -7,7 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 TWindowDD__sub_80346F30(u8 *arg0);
 s32 TWindowDD__sub_80346F30(u8 *arg0);
-s32 TWindowDD__sub_80348398();
+s32 get_word_select_context__9TWindowDDFPv();
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 get_entry__9TWindowDDFi(s32 entry_index);
 s32 get_element_ptr__9TWindowDDFi(s32 arg0);
@@ -167,7 +167,7 @@ s32 TWindowDD__sub_80346DB8(s32 arg0) {
   s32 var_r3;
   var_r30 = arg0;
   var_r31 = 0;
-  temp_r3 = TWindowDD__sub_80348398();
+  temp_r3 = get_word_select_context__9TWindowDDFPv();
   switch (temp_r3)
   {
     case 0:

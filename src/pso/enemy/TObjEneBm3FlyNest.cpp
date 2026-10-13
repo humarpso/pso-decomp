@@ -1529,7 +1529,7 @@ void * create__17TObjEneBm3FlyNestFPv(void *arg0);
 void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
-u8 * construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
 void __dt__9TObjEneDDFv(void *, int);
@@ -1769,7 +1769,7 @@ extern char lbl_8043B358[];
 extern char lbl_8043B368[];
 extern const f64 lbl_8043B398[];
 extern RecoveredGlobal_800B22C8_lbl_80491B4C bm3_fly_collider_params;
-extern M2C_UNK lbl_804920B4[];
+extern M2C_UNK __vt__26TObjEneBm3FlyNest_CarryFly[];
 typedef struct Ctl_800B47C4 {
     f32 *pv;
     s32 *pc;
@@ -1784,7 +1784,7 @@ Ctl_800B47C4 lbl_80500B2C;
 #define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
 extern s32 lbl_805D28B8;
 extern s32 TObjEneBm3Fly__name;
-extern s32 lbl_805D2A1C;
+extern s32 TObjEneBm3FlyNest_CarryFly__name;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;
 extern f32 *lbl_805D50EC;
@@ -2422,7 +2422,7 @@ void handle_appear__17TObjEneBm3FlyNestFPvi(u8 *arg0, s32 arg1) {
                 for (i = 0; i < 6; i++) {
                     o = __nw__7TObjectFUl(0x68);
                     if (o != 0) {
-                        ((M2C_UNK (*)(void *, void *, void *, void *, void *, void *, s32))construct_carrier__17TObjEneBm3FlyNestFPvPviiiii)(o, arg0, &((Self_800B36F8 *)arg0)->arr[i], arg0 + 0x3D4, arg0 + 0x38, cnt, i + 1);
+                        ((M2C_UNK (*)(void *, void *, void *, void *, void *, void *, s32))TObjEneBm3FlyNest_CarryFly__ct)(o, arg0, &((Self_800B36F8 *)arg0)->arr[i], arg0 + 0x3D4, arg0 + 0x38, cnt, i + 1);
                     }
                 }
             }
@@ -2907,7 +2907,7 @@ extern int fold_flush_5;
 
 void *destroy_monest_carrier(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804920B4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TObjEneBm3FlyNest_CarryFly;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -2916,11 +2916,11 @@ void *destroy_monest_carrier(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d) {
+u8 *TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d) {
     Vec_800B4688 v;
     __ct__7TObjectFP7TObject(self, parent);
-    M2C_FIELD(self, M2C_UNK **, 0x18) = lbl_804920B4;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D2A1C;
+    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__26TObjEneBm3FlyNest_CarryFly;
+    M2C_FIELD(self, s32 *, 0) = TObjEneBm3FlyNest_CarryFly__name;
     M2C_FIELD(self, s32 *, 0x30) = a;
     M2C_FIELD(self, s32 *, 0x34) = b;
     M2C_FIELD(self, s32 *, 0x38) = c;

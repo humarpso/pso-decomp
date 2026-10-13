@@ -48,8 +48,8 @@ M2C_UNK get_window_layout_position(M2C_UNK);
 extern M2C_UNK lbl_8044FB20[];
 s32 create_chat_symbol_window__20TWindowSubSymbolChatFii(M2C_UNK arg0, s32 arg1);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv(s32);
-s32 TWindowSubSymbolChat__sub_80077464(s32);
-s32 TWindowSubSymbolChat__sub_80077480(s32);
+s32 is_symbol_chat_preset_in_use(s32);
+s32 get_symbol_chat_preset(s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
 M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(s32);
 void set_selected_index__17TWindowSubComCardFPvs(s32, s16);
@@ -73,7 +73,7 @@ s32 refresh_parts__20TWindowSubSymbolChatFPv();
 M2C_UNK update_symbol_chat_result__20TWindowSubSymbolChatFv(int);
 M2C_UNK update_selected_symbol__20TWindowSubSymbolChatFPv(int);
 M2C_UNK play_symbol_sound__20TWindowSubSymbolChatFi();
-s32 TWindowSubSymbolChat__sub_80077480(s32);
+s32 get_symbol_chat_preset(s32);
 M2C_UNK clear_entries__20TWindowSubSymbolChatFPv(int);
 u32 get_instance__20TWindowSubSymbolChatFv();
 s32 get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
@@ -225,9 +225,9 @@ s32 create_symbol_list_card__20TWindowSubSymbolChatFPv(Win_80282600 *arg0) {
     s32 data;
     card = draw_card_icon__17TWindowSubComCardFiii(get_window_layout_position(0x77), 0xC, get_message_10__20TWindowSubStatusDispFPv(0x31));
     for (i = 0; i < 0xC; i++) {
-        sym = TWindowSubSymbolChat__sub_80077480(i);
+        sym = get_symbol_chat_preset(i);
         data = get_symbol_chat_data__20TWindowSubSymbolChatFPv(sym);
-        if (TWindowSubSymbolChat__sub_80077464(sym) != 0) {
+        if (is_symbol_chat_preset_in_use(sym) != 0) {
             forward_trade_action_default__16TObjCityMainWarpFPviii(card, data, 0x66, i);
         } else {
             forward_trade_action_default__16TObjCityMainWarpFPviii(card, data, 0x46, i);
@@ -694,7 +694,7 @@ void run_task__20TWindowSubSymbolChatFv(u8 *arg0) {
             return;
         }
         if (is_visible__17TWindowSubComCardFPv((int) (M2C_FIELD(arg0, u32 *, 0x38))) != 0) {
-            commit__20TWindowSubSymbolChatFi((int) TWindowSubSymbolChat__sub_80077480(get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x38)))), (int) (M2C_FIELD(arg0, u32 *, 0x28)));
+            commit__20TWindowSubSymbolChatFi((int) get_symbol_chat_preset(get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x38)))), (int) (M2C_FIELD(arg0, u32 *, 0x28)));
             M2C_FIELD(arg0, u8 *, 0x1C) = 4U;
             return;
         }

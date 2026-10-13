@@ -196,7 +196,7 @@ u8 is_current_floor_switch_set(u16);
 M2C_UNK draw_model__10TORockCaveFPv(void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
-struct Obj_802A6DA8; Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *, s32, s32);
+struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -364,7 +364,7 @@ void notify_break__23TObjSeabedSuisoBrakableFUi(u32 arg0) {
 void *create__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xDC);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *))init__23TObjSeabedSuisoBrakableFPvii)(o, (void *)tl_05, arg0);
+        o = ((void *(*)(void *, void *, void *))TObjSeabedSuiso_CH__ct)(o, (void *)tl_05, arg0);
     }
     return o;
 }
@@ -530,7 +530,7 @@ u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
 
 extern "C" {
 
-void *__dt__23TObjSeabedSuisoBrakableFPvs(void *arg0, s16 arg1);
+void *__dt__18TObjSeabedSuiso_CHFv(void *arg0, s16 arg1);
 int get_instance__23TObjSeabedSuisoBrakableFv(void);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
@@ -538,11 +538,11 @@ void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern void *lbl_804DD7F4[];
+extern void *__vt__18TObjSeabedSuiso_CH[];
 
-void *__dt__23TObjSeabedSuisoBrakableFPvs(void *arg0, s16 arg1) {
+void *__dt__18TObjSeabedSuiso_CHFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_804DD7F4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__18TObjSeabedSuiso_CH;
         if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD8)); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
@@ -609,7 +609,7 @@ s32 create_particle_emitter(void *, s32);
 void init_map_object_base(void *, s32, s32);
 extern Ent18_802A6BD0 lbl_804DD278[];
 extern Ent2C_802A6DA8 lbl_804DD2D8[];
-extern s32 lbl_805D3E00;
+extern s32 TObjSeabedSuiso_CH__name;
 extern const f32 lbl_805DDFF8;
 #pragma push
 #pragma opt_propagation off
@@ -649,10 +649,10 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 
 #pragma push
 #pragma opt_propagation off
-Obj_802A6DA8 *init__23TObjSeabedSuisoBrakableFPvii(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
+Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
     init_map_object_base(self, arg1, arg2);
-    *(M2C_UNK **)((u8 *)self + 0x18) = (M2C_UNK *)lbl_804DD7F4;
-    *(s32 *)self = lbl_805D3E00;
+    *(M2C_UNK **)((u8 *)self + 0x18) = (M2C_UNK *)__vt__18TObjSeabedSuiso_CH;
+    *(s32 *)self = TObjSeabedSuiso_CH__name;
     self->m5(arg2);
     init_kind_params__23TObjSeabedSuisoBrakableFPv(self);
     self->kind = (s32)fabs_float((f32)self->f84);
@@ -719,7 +719,7 @@ void *__vt__13TObjSuisoChip[14] = {
 void *__vt__23TObjSeabedSuisoBrakable[20] = {
     0, 0, (void *)__dt__23TObjSeabedSuisoBrakableFv, (void *)update_break_state__18TORockCaveBrakableFPv, (void *)render__23TObjSeabedSuisoBrakableFv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568, (void *)TObjSeabedSuisoBrakable__vt12, (void *)TORockCave__sub_80175464, (void *)TObjSeabedSuisoBrakable__vt14, (void *)TObjSeabedSuisoBrakable__vt15, (void *)TORockCaveBrakable__sub_80174CC4, (void *)TObjSeabedSuisoBrakable__vt17
 };
-void *lbl_804DD7F4[14] = {
-    0, 0, (void *)__dt__23TObjSeabedSuisoBrakableFPvs, (void *)update_anim_if_active__23TObjSeabedSuisoBrakableFPv, (void *)draw_model__23TObjSeabedSuisoBrakableFPv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568
+void *__vt__18TObjSeabedSuiso_CH[14] = {
+    0, 0, (void *)__dt__18TObjSeabedSuiso_CHFv, (void *)update_anim_if_active__23TObjSeabedSuisoBrakableFPv, (void *)draw_model__23TObjSeabedSuisoBrakableFPv, (void *)render_shadows__7TObjectFv, (void *)TLobby__sub_801A1FD8, (void *)apply_object_set_data, (void *)release_member_90__10TObjPlayerFPv, (void *)TParticleCtrl__sub_801A2124, (void *)update_object_view_visibility, (void *)classify_actor_view_detail, (void *)TObjRoomId__sub_801A1E2C, (void *)TObjPlayer__sub_80019568
 };
 }

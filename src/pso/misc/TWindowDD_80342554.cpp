@@ -8,7 +8,7 @@ extern "C" {
 
 void enter_state_18__9TWindowDDFPv(void *arg0);
 void enter_state_19__9TWindowDDFPv(void *arg0);
-s32 TWindowDD__sub_80342F84();
+s32 update_numeric_parameter_input__9TWindowDDFPv();
 M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
 M2C_UNK TWindowDD__sub_803435A0(void *);
 M2C_UNK update_selection_state__9TWindowDDFPv(void *);
@@ -38,7 +38,7 @@ void enter_state_19__9TWindowDDFPv(void *arg0) {
         }
         break;
     case 1:
-        var_r31 = TWindowDD__sub_80342F84();
+        var_r31 = update_numeric_parameter_input__9TWindowDDFPv();
         break;
     }
     if ((s32) var_r31 != 0) {
@@ -66,7 +66,7 @@ void enter_state_18__9TWindowDDFPv(void *arg0) {
         }
         break;
     case 1:
-        var_r31 = TWindowDD__sub_80342F84();
+        var_r31 = update_numeric_parameter_input__9TWindowDDFPv();
         break;
     }
     if ((s32) var_r31 != 0) {

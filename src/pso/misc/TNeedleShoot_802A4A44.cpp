@@ -40,7 +40,7 @@ void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1
 
 extern "C" {
 
-void *TNeedleShoot__sub_802A4B60(void *arg0, s16 arg1);
+void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1);
 void* get_shoot_data__12TNeedleShootFPv(void* p);
 void init_velocity__12TNeedleShootFPv(u8 *arg0);
 M2C_UNK play_sound_effect(int, void *, int, int);
@@ -84,7 +84,7 @@ void init_velocity__12TNeedleShootFPv(u8 *arg0) {
 
 }
 
-extern M2C_UNK lbl_804DCFF8[];
+extern M2C_UNK __vt__20TObjEneMe1Gee_NEEDLE[];
 
 void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1) {
     Pair_802A4AEC t;
@@ -95,9 +95,9 @@ void emit_effect_and_destroy__12TNeedleShootFPvPv(u8 *arg0, VObj_18_174c10 *arg1
     queue_destruction__7TObjectFv((void*)(arg0));
 }
 
-void *TNeedleShoot__sub_802A4B60(void *arg0, s16 arg1) {
+void *__dt__20TObjEneMe1Gee_NEEDLEFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DCFF8;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjEneMe1Gee_NEEDLE;
         __dt__12TNeedleShootFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

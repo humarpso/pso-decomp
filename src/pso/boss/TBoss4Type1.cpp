@@ -329,7 +329,7 @@ void snapshot_position__10TObjPlayerFPv(u8 *arg0);
 void render_and_update_effects__10TObjPlayerFPv(void* p);
 void request_state_3__11TBoss4Type2FPv(void *arg0);
 void fn_800548E4(u8 *arg0);
-S_80054938 * fn_80054938(S_80054938 *o, s16 flag);
+S_80054938 * __dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag);
 s32 create__11TBoss4Type1Fi(s32 arg0);
 M2C_UNK TBoss4Type2__sub_80054DA8();
 void create_all_tenchu_furu__11TBoss4Type2Fi(s32 arg0);
@@ -671,8 +671,8 @@ void TBoss4Type2__sub_80054738(Obj_80054738 *self);
 void *boss4_type2_state_motion_index_table[3] = {
     (void *)0x4, (void *)0x7, (void *)0xa,
 };
-void *lbl_80486224[83] = {
-    (void *)0x0, (void *)0x0, (void *)&fn_80054938, (void *)&TBoss4Type2__sub_80054738,
+void *__vt__11TBoss4Type1[83] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TBoss4Type1Fv, (void *)&TBoss4Type2__sub_80054738,
     (void *)&render_and_update_effects__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&TObjPlayer__sub_80019568, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -703,7 +703,7 @@ void *lbl_80486224[83] = {
 #define boss4_type1_vec_table ((Vec_80053440 *)boss4_type1_vec_table)
 #define boss4_type2_motion_vec_table ((Vec_80052EF8 *)boss4_type2_motion_vec_table)
 #define boss4_type2_state_motion_index_table (*(RecoveredGlobal_80052C58_lbl_80486218 *)boss4_type2_state_motion_index_table)
-#define lbl_80486224 ((u8 *)lbl_80486224)
+#define __vt__11TBoss4Type1 ((u8 *)__vt__11TBoss4Type1)
 
 void TBoss4Type2__sub_800525AC(u8 *arg0) {
     f32 temp_f1;
@@ -1646,11 +1646,11 @@ void fn_800548E4(u8 *arg0) {
     ((s32 (*)(s32, u32, s16, s32))play_sound_effect)(0x4003A822, (u32) (arg0 + 0x38), 0, 1);
 }
 
-S_80054938 *fn_80054938(S_80054938 *o, s16 flag) {
+S_80054938 *__dt__11TBoss4Type1Fv(S_80054938 *o, s16 flag) {
     s32 i;
     s32 j;
     if (o != 0) {
-        o->vt = lbl_80486224;
+        o->vt = __vt__11TBoss4Type1;
         fn_8004AA04(o->f378);
         for (i = 0; i < 13; i++) {
             if (o->parts[i] != 0) {
@@ -1768,7 +1768,7 @@ void initialize__9TObjEnemyFPv(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_80437578[];
 extern u8 lbl_80437598[];
-extern s32 lbl_805D27D0;
+extern s32 TBoss4Type1__name;
 extern const f32 lbl_805D8B84;
 Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2);
 #pragma push
@@ -1778,8 +1778,8 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2) {
     s32 j;
 
     initialize__9TObjEnemyFPv(self, arg1);
-    self->vt = lbl_80486224;
-    self->f0 = lbl_805D27D0;
+    self->vt = __vt__11TBoss4Type1;
+    self->f0 = TBoss4Type1__name;
     add_flags_2e4__10TObjPlayerFPvUi(self, 8);
     self->f38C = arg2[0];
     ((VObj_80054A1C *)self)->m79(arg2 + 1);

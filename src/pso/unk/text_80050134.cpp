@@ -43,7 +43,7 @@ void cache_target_and_forward__11TCameraCtrlFii(void *, s32);
 void construct_world_actor_base(void *, void *);
 void play_sound_effect(s32, void *, s32, s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-extern s32 lbl_805D27A8;
+extern s32 TObjDFDemoF__name;
 extern const f32 lbl_805D8A28;
 void TLobby__sub_801A1FD8();
 void TObjRoomId__sub_801A1E2C();
@@ -62,11 +62,11 @@ void *lbl_80485840[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
 void *lbl_8048584C[3] = {(void *) 0x0, (void *) 0x0, (void *) 0x0};
 void *lbl_80485858[3] = {(void *) 0x50000, (void *) 0x0, (void *) 0x3f000000};
 void *three_part_model_translate_offset[3] = {(void *) 0xc69c4000, (void *) 0x0, (void *) 0x0};
-void *lbl_80485870[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&update_fade_and_expire), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFPv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
+void *__vt__11TObjDFDemoF[14] = {(void *) 0x0, (void *) 0x0, (void *) (&__dt__11TObjDFDemoFFPvs), (void *) (&update_fade_and_expire), (void *) (&draw_three_part_models), (void *) (&render_shadows__7TObjectFv), (void *) (&TLobby__sub_801A1FD8), (void *) (&apply_object_set_data), (void *) (&reset_motion_fields__10TObjPlayerFPv), (void *) (&TParticleCtrl__sub_801A2124), (void *) (&update_object_view_visibility), (void *) (&classify_actor_view_detail), (void *) (&TObjRoomId__sub_801A1E2C), (void *) 0x0};
 
 void *__dt__11TObjDFDemoFFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_80485870;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjDFDemoF;
         restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -86,8 +86,8 @@ Obj_80050194 *TObjDFDemoF__ct(Obj_80050194 *arg0, void *arg1) {
   s32 i;
   construct_world_actor_base(arg0, arg1);
   new_var = arg0;
-  new_var->vt = (void *) lbl_80485870;
-  new_var->f0 = lbl_805D27A8;
+  new_var->vt = (void *) __vt__11TObjDFDemoF;
+  new_var->f0 = TObjDFDemoF__name;
   h = get_instance_count__9TBoss4UroFv();
   for (i = 0; i < 3; i++)
   {

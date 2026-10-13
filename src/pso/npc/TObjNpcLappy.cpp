@@ -221,7 +221,7 @@ void *lbl_804A9DA8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x30203, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804A9DD4[95] = {
+void *__vt__12TObjNpcLappy[95] = {
     (void *)0x0, (void *)0x0, (void *)&dt__12TObjNpcLappyFPvs, (void *)&run_task__11TObjNpcBaseFPv,
     (void *)&draw_model__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -247,12 +247,12 @@ void *lbl_804A9DD4[95] = {
     (void *)&TObjNpcLappy__sub_8014B620, (void *)&debug_draw_talk__17TObjNpcFemaleBaseFPv, (void *)&play_voice__11TObjNpcBaseFi, (void *)&TObjNpcFemaleBase__sub_801480F8,
     (void *)&TObjNpcFemaleBase__sub_801480F4, (void *)&draw_debug_info__12TObjNpcEnemyFPv, (void *)0x0,
 };
-extern s32 lbl_805D2DD8;
+extern s32 TObjNpcLappy__name;
 extern u8 *rappy_bml_resource;
 
 void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_804A9DD4;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TObjNpcLappy;
         __dt__11TObjNpcBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -263,8 +263,8 @@ void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1) {
 
 u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     TObjNpcBase__ct(self, parent);
-    *(u8 **)(self + 0x18) = (u8 *)lbl_804A9DD4;
-    *(s32 *)(self + 0) = lbl_805D2DD8;
+    *(u8 **)(self + 0x18) = (u8 *)__vt__12TObjNpcLappy;
+    *(s32 *)(self + 0) = TObjNpcLappy__name;
     ((VObj_8014B704 *)self)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     ((VObj_8014B704 *)self)->m85(0, 1);

@@ -3624,7 +3624,7 @@ void * create__17TObjEneBm3FlyNestFPv(void *arg0);
 void load_resources__17TObjEneBm3FlyNestFv(void);
 void render_parts__17TObjEneBm3FlyNestFPv(u8 *arg0);
 void * destroy_monest_carrier(void *arg0, s16 arg1);
-u8 * construct_carrier__17TObjEneBm3FlyNestFPvPviiiii(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
+u8 * TObjEneBm3FlyNest_CarryFly__ct(u8 *self, void *parent, s32 a, s32 b, s32 unused, s32 c, s32 d);
 u32 TObjEneEpsilon__sub_800B92F8(void *, void *, f32);
 s32 enemy_copy_target_destination();
 void __dt__9TObjEneDDFv(void *, int);
@@ -3788,7 +3788,7 @@ extern char lbl_8043B358[];
 extern char lbl_8043B368[];
 extern u8 lbl_8043B380[];
 extern const f64 lbl_8043B398[];
-extern M2C_UNK lbl_804920B4[];
+extern M2C_UNK __vt__26TObjEneBm3FlyNest_CarryFly[];
 typedef struct Ctl_800B47C4 {
     f32 *pv;
     s32 *pc;
@@ -3798,7 +3798,7 @@ typedef struct Ctl_800B47C4 {
 } Ctl_800B47C4;
 extern s32 lbl_805D28B8;
 extern s32 TObjEneBm3Fly__name;
-extern s32 lbl_805D2A1C;
+extern s32 TObjEneBm3FlyNest_CarryFly__name;
 extern s32 lbl_805D50E0;
 extern s32 lbl_805D50E8;
 extern u8 *bm3_fly_nest_resources;

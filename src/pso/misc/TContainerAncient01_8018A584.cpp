@@ -185,7 +185,7 @@ void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, int);
-extern s32 lbl_805D3304;
+extern s32 TContainerAncient01R__name;
 extern const f32 lbl_805DBD5C;
 }
 
@@ -445,7 +445,7 @@ void *TContainerAncient01__anim_table[12] = {
     (void *)0x10000, (void *)0x0, (void *)0x40c00000, (void *)0x1,
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
 };
-void *lbl_804B6E1C[79] = {
+void *__vt__20TContainerAncient01R[79] = {
     (void *)0x0, (void *)0x0, (void *)&dt__20TContainerAncient01RFPvs, (void *)&update_state_machine__19TContainerAncient01FPv,
     (void *)&draw__19TContainerAncient01FPv, (void *)&render_shadows__7TObjectFv, (void *)&set_target_value__19TContainerAncient01FPvPvi, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -468,7 +468,7 @@ void *lbl_804B6E1C[79] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC,
 };
 #define TContainerAncient01__collision_body_parts (*(RecoveredGlobal_8018A9D8_TContainerAncient01__data_804B6DC0 *)TContainerAncient01__collision_body_parts)
-#define lbl_804B6E1C ((M2C_UNK *)lbl_804B6E1C)
+#define __vt__20TContainerAncient01R ((M2C_UNK *)__vt__20TContainerAncient01R)
 
 void TContainerAncient01__sub_8018A584(Obj_8018A584 *self, f32 range) {
     u16 i;
@@ -752,7 +752,7 @@ void init_table_entries__20TContainerAncient01RFv(void) {
 
 void *dt__20TContainerAncient01RFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B6E1C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TContainerAncient01R;
         unregister_object_by_id((M2C_UNK *)arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
@@ -769,8 +769,8 @@ void *TContainerAncient01R__ct(Obj_8018B030 *self, void *arg1, void *arg2) {
     Coll_8018B030 *c;
 
     construct_actor_base__10TObjPlayerFPvPv(self, arg1, arg2);
-    *(void **)((u8 *)self + 0x18) = (void *)lbl_804B6E1C;
-    *(s32 *)self = lbl_805D3304;
+    *(void **)((u8 *)self + 0x18) = (void *)__vt__20TContainerAncient01R;
+    *(s32 *)self = TContainerAncient01R__name;
     self->m5(arg2);
     self->x34 = get_bml_model(TContainerAncient01R__bml_resource, 0);
     self->x24 = TObjFish__sub_8001EDB0(TContainerAncient01R__bml_resource, 0);

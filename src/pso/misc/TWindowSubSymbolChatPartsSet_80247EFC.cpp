@@ -88,8 +88,8 @@ typedef char RecoveredGlobal_80248494_lbl_804CE2E8_size[sizeof(RecoveredGlobal_8
 
 M2C_UNK allow_rendering__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
-s32 TWindowSubSymbolChat__sub_80077464(void *);
-s32 TWindowSubSymbolChat__sub_80077480(s32);
+s32 is_symbol_chat_preset_in_use(void *);
+s32 get_symbol_chat_preset(s32);
 s32 get_data_ptr__20TWindowSubSymbolChatFPv(u32);
 M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 u8 * draw_default_entry__9TWindowDDFi();
@@ -274,7 +274,7 @@ void init_layout_entries__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
 }
 
 void update_visibility__20TWindowSubSymbolChatFPv(u8 *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x64) == 0) && (((u32) M2C_FIELD(arg0, u32 *, 0x60) == 0U) || (TWindowSubSymbolChat__sub_80077464((void *) M2C_FIELD(arg0, u32 *, 0x60)) == 0))) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0x64) == 0) && (((u32) M2C_FIELD(arg0, u32 *, 0x60) == 0U) || (is_symbol_chat_preset_in_use((void *) M2C_FIELD(arg0, u32 *, 0x60)) == 0))) {
         disallow_rendering__7TObjectFv(arg0);
         return;
     }
@@ -290,7 +290,7 @@ void set_selection__20TWindowSubSymbolChatFPvUi(void *arg0, u32 arg1) {
 }
 
 void set_from_key__20TWindowSubSymbolChatFii(s32 arg0, s32 arg1) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)TWindowSubSymbolChat__sub_80077480(arg1);
+    M2C_UNK8 *tmp = (M2C_UNK8 *)get_symbol_chat_preset(arg1);
     set_selection__20TWindowSubSymbolChatFPvUi((void *)(arg0), (u32)((s32)tmp));
 }
 

@@ -1969,8 +1969,8 @@ M2C_UNK restore_render_scissor(int);
 M2C_UNK set_active__12TObjEneReconFv();
 void TObjEneDellBiter__sub_803030D4(void);
 void TObjEneDellBiter__sub_803030D8(u8 *arg0);
-void * TObjEneDellBiter__sub_803031AC(void *arg0, s16 arg1);
-u8 * TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
+void * __dt__25TObjEneDellBiter_Eff_RushFv(void *arg0, s16 arg1);
+u8 * TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 render_model_if_visible__16TObjEneDellBiterFPv(u8 *arg0);
 void TObjEneDellBiter__vt104(u8 *arg0);
 void TObjEneDellBiter__vt103(void* p);
@@ -2066,10 +2066,10 @@ extern char lbl_804752E4[];
 extern char lbl_804752F8[];
 extern char lbl_8047530C[];
 extern char lbl_80475318[];
-extern M2C_UNK lbl_804E6B54[];
+extern M2C_UNK __vt__25TObjEneDellBiter_Eff_Rush[];
 extern M2C_UNK lbl_804E6FA8[];
 extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
-extern s32 lbl_805D4070;
+extern s32 TObjEneDellBiter_Eff_Rush__name;
 extern void *TObjEneDellBiter__class_name;
 extern s32 actor_frame_tick;
 extern s32 game_difficulty_selection;
@@ -2471,9 +2471,9 @@ void TObjEneDellBiter__sub_803030D8(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) * lbl_805DEFB4);
 }
 
-void *TObjEneDellBiter__sub_803031AC(void *arg0, s16 arg1) {
+void *__dt__25TObjEneDellBiter_Eff_RushFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E6B54;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__25TObjEneDellBiter_Eff_Rush;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -2482,13 +2482,13 @@ void *TObjEneDellBiter__sub_803031AC(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TObjEneDellBiter__sub_80303204(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
+u8 *TObjEneDellBiter_Eff_Rush__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_80303204, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80303204, spC) == 0x4) ? 1 : -1];
     Stack_80303204 stack;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80303204_lbl_804E6B54 *)&lbl_804E6B54).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4070;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80303204_lbl_804E6B54 *)&__vt__25TObjEneDellBiter_Eff_Rush).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneDellBiter_Eff_Rush__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = arg3;
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
     M2C_FIELD(arg0, s32 *, 0x30) = 0;
@@ -3673,7 +3673,7 @@ s32 TObjEneDellBiter__sub_80305C40(u8 *arg0) {
                 }
                 n = __nw__7TObjectFUl(0x34);
                 if (n != NULL) {
-                    ((void (*)(void *, void *, void *, void *, f32))TObjEneDellBiter__sub_80303204)(n, arg0, arg0, p, lbl_805DF028);
+                    ((void (*)(void *, void *, void *, void *, f32))TObjEneDellBiter_Eff_Rush__ct)(n, arg0, arg0, p, lbl_805DF028);
                 }
             }
         }

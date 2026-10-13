@@ -1020,7 +1020,7 @@ void *lbl_80496704[3] = {
 void *lbl_80496710[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_8049671C[83] = {
+void *__vt__22TObjEneSlimeTailAttack[83] = {
     (void *)0x0, (void *)0x0, (void *)&dt__22TObjEneSlimeTailAttackFPvs, (void *)&TObjPlayer__sub_800E87FC,
     (void *)&TObjPlayer__sub_800E84F8, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -1048,7 +1048,7 @@ void *lbl_8049671C[83] = {
 #define lbl_804966EC ((s32 *)lbl_804966EC)
 #define lbl_80496704 (*(RecoveredGlobal_800E8128_lbl_80496704 *)lbl_80496704)
 #define lbl_80496710 (*(RecoveredGlobal_800E8128_lbl_80496710 *)lbl_80496710)
-#define lbl_8049671C ((M2C_UNK *)lbl_8049671C)
+#define __vt__22TObjEneSlimeTailAttack ((M2C_UNK *)__vt__22TObjEneSlimeTailAttack)
 
 void TObjPlayer__sub_800E80C0(u8 *arg0) {
     TObjPlayer__sub_800E80E8((S_800E80E8 *)(arg0), (S_800E80E8 *)(&(*(RecoveredGlobal_800E80C0_lbl_80501010 *)&lbl_80501010).value));
@@ -1270,7 +1270,7 @@ void *create__22TObjEneSlimeTailAttackFiiii(s32 arg1, s32 arg2, s32 arg3, s32 ar
 
 void *dt__22TObjEneSlimeTailAttackFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049671C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjEneSlimeTailAttack;
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1284,13 +1284,13 @@ u8 *get_instance__15TObjEneSlimeOneFv();
 void set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
-extern s32 lbl_805D2AE4;
+extern s32 TObjEneSlimeTailAttack__name;
 void *TObjEneSlimeTailAttack__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4) {
   unsigned int id;
   u8 *inst;
   ((s32 (*)(void *, void *)) initialize__9TObjEnemyFPv)(arg0, arg1);
-  *((u8 **) (((s8 *) arg0) + 0x18)) = (u8 *) lbl_8049671C;
-  *((s32 *) (((s8 *) arg0) + 0)) = lbl_805D2AE4;
+  *((u8 **) (((s8 *) arg0) + 0x18)) = (u8 *) __vt__22TObjEneSlimeTailAttack;
+  *((s32 *) (((s8 *) arg0) + 0)) = TObjEneSlimeTailAttack__name;
   *((s32 *) (((s8 *) arg0) - -0x374)) = arg4;
   inst = get_instance__15TObjEneSlimeOneFv();
   id = ((s32 *) lbl_804966F4)[get_attack_target__15TObjEneSlimeOneFPv(*((s32 *) (((s8 *) arg0) + (0x374 & 0xFFFF))))];

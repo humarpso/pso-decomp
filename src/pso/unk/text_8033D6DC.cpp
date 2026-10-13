@@ -25,8 +25,8 @@ s32 __dt__7TObjectFv(void *, int);
 s32 __dl__7TObjectFPv(void *);
 s32 restore_player_cameras();
 s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
-extern u8 lbl_804EFA1C[];
-O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1);
+extern u8 __vt__25TBoss6Demo20_TYPE2_APPEAR[];
+O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1);
 void queue_destruction__7TObjectFv(void *);
 s32 request_destroy__11TBoss4Type2FUi(void *);
 void spawn_particle_effect_with_flags(void *, int, int);
@@ -118,10 +118,10 @@ void fn_8033D6DC(O_8033D6DC *self) {
     }
 }
 
-O_8033D9E4 *fn_8033D9E4(O_8033D9E4 *arg0, s16 arg1) {
+O_8033D9E4 *__dt__25TBoss6Demo20_TYPE2_APPEARFv(O_8033D9E4 *arg0, s16 arg1) {
     s32 i;
     if (arg0 != 0) {
-        arg0->f18 = lbl_804EFA1C;
+        arg0->f18 = __vt__25TBoss6Demo20_TYPE2_APPEAR;
         for (i = 0; i < 9; i++) {
             if (arg0->h[i] != 0) {
                 request_destroy__11TBoss4Type2FUi(arg0->h[i]);

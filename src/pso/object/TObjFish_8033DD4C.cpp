@@ -55,8 +55,8 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void init_state_1__8TObjFishFPv(void *);
 M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
-extern void *lbl_804EFA38[];
-O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1);
+extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
+O_8033E5A8 *__dt__23TBoss6Demo21_TYPE2_DEADFv(O_8033E5A8 *arg0, s16 arg1);
 void clear_render_callback__8TObjFishFv(int);
 void set_draw_callback_list__8TObjFishFPv(int);
 void reset_fish_globals__8TObjFishFv();
@@ -94,9 +94,9 @@ void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
 void normalize_vector(void *);
-extern void *lbl_804EFA38[];
-#define lbl_804EFA38 ((u8 *)lbl_804EFA38)
-void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2);
+extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
+#define __vt__23TBoss6Demo21_TYPE2_DEAD ((u8 *)__vt__23TBoss6Demo21_TYPE2_DEAD)
+void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2);
 void request_destroy__11TBoss4Type2FUi(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void vec3_add_to(void *, void *);
@@ -153,8 +153,8 @@ extern "C" const u32 lbl_80478134[3] = {0x0, 0x0, 0x0};
 extern "C" const u32 lbl_80478140[3] = {0x1010000, 0x0, 0x3f333333};
 extern "C" const u32 lbl_8047814C[12] = {0x0, 0x8e, 0x228, 0xfa, 0x13a, 0x22a, 0x11d, 0x1ac, 0x22e, 0xf2, 0x13a, 0x179};
 extern "C" const u32 lbl_8047817C[3] = {0xffff4000, 0xffffff60, 0xffff4000};
-extern "C" const char *lbl_805D42B0 = lbl_80478088;
-#define lbl_805D42B0 (*(s32 *)&lbl_805D42B0)
+extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
+#define TBoss6Demo21_TYPE2_DEAD__name (*(s32 *)&TBoss6Demo21_TYPE2_DEAD__name)
 #define lbl_804780A0 ((u8 *)lbl_804780A0)
 #define lbl_804780AC ((Vec_8033E0F0 *)lbl_804780AC)
 #define lbl_804780B8 ((Vec_8033E0F0 *)lbl_804780B8)
@@ -397,10 +397,10 @@ void TObjFish__sub_8033E0F0(Fish_8033E0F0 *arg0) {
 }
 #pragma pop
 
-O_8033E5A8 *TObjFish__sub_8033E5A8(O_8033E5A8 *arg0, s16 arg1) {
+O_8033E5A8 *__dt__23TBoss6Demo21_TYPE2_DEADFv(O_8033E5A8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         s32 i;
-        arg0->vt = lbl_804EFA38;
+        arg0->vt = __vt__23TBoss6Demo21_TYPE2_DEAD;
         for (i = 0; i < 4; i++) {
             if (arg0->fa0[i] != NULL) {
                 request_destroy__11TBoss4Type2FUi(arg0->fa0[i]);
@@ -437,12 +437,12 @@ typedef struct {
     s32 arr[4];
 } Fish_8033E688;
 #define arg0 ((u8 *)arg0p)
-void *TObjFish__sub_8033E688(void *arg0p, void *arg1, void *arg2) {
+void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     Vec_8033E688 v;
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = lbl_804EFA38;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D42B0;
+    M2C_FIELD(arg0, u8 **, 0x18) = __vt__23TBoss6Demo21_TYPE2_DEAD;
+    M2C_FIELD(arg0, s32 *, 0) = TBoss6Demo21_TYPE2_DEAD__name;
     M2C_FIELD(arg0, void **, 0x54) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
     VecCopy__FP3VecPC3Vec(&v, arg2);
@@ -488,15 +488,15 @@ void * fn_8033E8C0(void *arg0, void *arg1) {
     void *o;
     o = __nw__7TObjectFUl(0xB4);
     if (o != NULL) {
-        o = TObjFish__sub_8033E688((void *)(o), (void *)(arg0), (void *)(arg1));
+        o = TBoss6Demo21_TYPE2_DEAD__ct((void *)(o), (void *)(arg0), (void *)(arg1));
     }
     return o;
 }
 
 void render_shadows__7TObjectFv();
 }
-#undef lbl_804EFA38
-extern "C" void *lbl_804EFA38[6] = {
-    0, 0, (void *)&TObjFish__sub_8033E5A8, (void *)&TObjFish__sub_8033E0F0,
+#undef __vt__23TBoss6Demo21_TYPE2_DEAD
+extern "C" void *__vt__23TBoss6Demo21_TYPE2_DEAD[6] = {
+    0, 0, (void *)&__dt__23TBoss6Demo21_TYPE2_DEADFv, (void *)&TObjFish__sub_8033E0F0,
     (void *)&update__8TObjFishFPv, (void *)&render_shadows__7TObjectFv,
 };

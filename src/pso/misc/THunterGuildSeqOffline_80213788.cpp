@@ -126,21 +126,21 @@ s32 __dt__13TShopSequenceFv(void *, int);
 s32 TShopWindowBase__sub_8022397C(void *);
 s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(int);
-extern RecoveredGlobal_80213CCC_lbl_804C9740 lbl_804C9740;
+extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 extern s32 lbl_805D61BC;
-u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1);
+u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 void THunterGuildSeqOffline__sub_80213CA4(void);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 void clear_slots__22THunterGuildSeqOfflineFv(void);
 u8 *TShopSequence__ct(u8 *);
 s32 TShopWindowBase__sub_8022397C(void *);
-extern RecoveredGlobal_80213CCC_lbl_804C9740 lbl_804C9740;
+extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
-extern s32 lbl_805D3668;
+extern s32 THunterGuildSeqOnline_Client__name;
 extern s32 lbl_805D61BC;
-Seq_80213D84 *THunterGuildSeqOffline__sub_80213D84(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
+Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
 void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
 void update_close_shop__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -297,11 +297,11 @@ void THunterGuildSeqOffline__sub_80213CA4(void) {
     }
 }
 
-u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1) {
+u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
     u32 temp_r3;
     u32 temp_r3_2;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C9740.value;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__28THunterGuildSeqOnline_Client.value;
         temp_r3 = M2C_FIELD(arg0, u32 *, 0x2C);
         if (temp_r3 != 0U) {
             queue_destruction__7TObjectFv((int) (temp_r3));
@@ -325,12 +325,12 @@ u8 *THunterGuildSeqOffline__sub_80213CCC(u8 *arg0, s16 arg1) {
 
 #pragma push
 #pragma opt_propagation off
-Seq_80213D84 *THunterGuildSeqOffline__sub_80213D84(Seq_80213D84 *arg0, s32 arg1, s32 arg2) {
+Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2) {
     s32 one;
     TShopSequence__ct((u8 *)arg0);
-    arg0->vt = ((u8 *)&lbl_804C9740);
+    arg0->vt = ((u8 *)&__vt__28THunterGuildSeqOnline_Client);
     one = 1;
-    arg0->f0 = lbl_805D3668;
+    arg0->f0 = THunterGuildSeqOnline_Client__name;
     arg0->f20 = 0;
     arg0->f24 = arg2;
     arg0->f2c = 0;

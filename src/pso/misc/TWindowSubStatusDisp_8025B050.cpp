@@ -28,7 +28,7 @@ void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, s32);
-void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
+void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
 void update_palette_sprite__20TWindowSubStatusDispFv(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void set_sprite_dimensions(void* p, f32 a, f32 b);
@@ -44,7 +44,7 @@ void *window_uv_sprite_part_vtable[6] = {
     0, 0,
     (void *)TWindowSubStatusDisp__sub_8025B2DC,
     (void *)update_palette_sprite__20TWindowSubStatusDispFv,
-    (void *)TWindowSubStatusDisp__sub_8025B0D0,
+    (void *)draw_window_uv_sprite_part,
     0,
 };
 
@@ -78,7 +78,7 @@ void set_sprite_dimensions(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a
 
 #pragma push
 #pragma fp_contract on
-void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
+void draw_window_uv_sprite_part(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1) {
     Quad_8025B0D0 q;
     f32 x;
     f32 y;

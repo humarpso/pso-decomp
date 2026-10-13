@@ -146,6 +146,7 @@ os/OSTime.c
 os/__start.c
 pad/Pad.c
 pso/audio/SoundBankTables.cpp
+pso/boss/Boss6Type1Appearance.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -345,6 +346,7 @@ pso/effect/TEffect.cpp
 pso/encryption/PSOV3Encryption.cpp
 pso/encryption/PSOV3EncryptionTCP.cpp
 pso/enemy/BringerEffects.cpp
+pso/enemy/CanadinEffects.cpp
 pso/enemy/EnemyFactoryTables.cpp
 pso/enemy/TEnemyTaskList.cpp
 pso/enemy/TObjEneBalClawBody.cpp
@@ -401,7 +403,6 @@ pso/enemy/TObjEneLappy_800F5DE0.cpp
 pso/enemy/TObjEneMe1CanadinLeader.cpp
 pso/enemy/TObjEneMe1CanadinLeader_8009F4A0.cpp
 pso/enemy/TObjEneMe1Canadin_8009F504.cpp
-pso/enemy/TObjEneMe1Canadin_8009FA24.cpp
 pso/enemy/TObjEneMe1Gee_802A4BB8.cpp
 pso/enemy/TObjEneMe1GiGue.cpp
 pso/enemy/TObjEneMe1GiGueBarrier.cpp
@@ -1623,10 +1624,6 @@ pso/misc/TWindowChat.cpp
 pso/misc/TWindowChatSymbol.cpp
 pso/misc/TWindowChatSymbol_802486A8.cpp
 pso/misc/TWindowChat_800774C0.cpp
-pso/misc/TWindowChat_8024701C.cpp
-pso/misc/TWindowChat_802472A8.cpp
-pso/misc/TWindowChat_80247534.cpp
-pso/misc/TWindowChat_80247D50.cpp
 pso/misc/TWindowChat_8025CB10.cpp
 pso/misc/TWindowCheckBox.cpp
 pso/misc/TWindowChoiceSetting.cpp
@@ -2053,6 +2050,7 @@ pso/npc/TObjNpcSecretaryBase.cpp
 pso/npc/TObjNpcSoldierBase.cpp
 pso/npc/TObjNpcSoldierMacho.cpp
 pso/npc/TObjNpcSoutokufu.cpp
+pso/object/CitySeason.cpp
 pso/object/LobbyPigeonPath.cpp
 pso/object/LobbyPigeonTheme.cpp
 pso/object/ObjectFactoryTables.cpp
@@ -2624,7 +2622,6 @@ pso/player/TObjPlayer_80326578.cpp
 pso/player/TObjPlayer_8032DA84.cpp
 pso/player/TObjPlayer_8032E4C8.cpp
 pso/player/TObjPlayer_80337348.cpp
-pso/player/TObjPlayer_8033C7C8.cpp
 pso/player/TObjPlayer_8033D324.cpp
 pso/player/TObjPlayer_8033E910.cpp
 pso/player/TObjPlayer_8033FE28.cpp
@@ -2950,7 +2947,6 @@ pso/unk/text_8009A398.cpp
 pso/unk/text_8009A434.cpp
 pso/unk/text_8009A6AC.cpp
 pso/unk/text_8009F410.cpp
-pso/unk/text_8009F7AC.cpp
 pso/unk/text_800A01C0.cpp
 pso/unk/text_800A02AC.cpp
 pso/unk/text_800A0320.cpp
@@ -3280,7 +3276,6 @@ pso/unk/text_801815A0.cpp
 pso/unk/text_80181F10.cpp
 pso/unk/text_80182E90.cpp
 pso/unk/text_80183018.cpp
-pso/unk/text_801830BC.cpp
 pso/unk/text_80189E3C.cpp
 pso/unk/text_80189F24.cpp
 pso/unk/text_8018A150.cpp

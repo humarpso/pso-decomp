@@ -86,7 +86,7 @@ extern s32 boss4_zanzo_bml_index_table[];
 
 extern "C" {
 
-void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1);
+void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1);
 void * create_demo2__14TBoss4DarkFalzFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void *TObjDFDemo2__ct(void *, void *, void *, void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -102,7 +102,7 @@ void render_shadows__7TObjectFv();
 void reset_motion_fields__10TObjPlayerFPv();
 void update_object_view_visibility();
 
-const char *lbl_805D2788 = "TObjDFDemo2";
+const char *TObjDFDemo2__name = "TObjDFDemo2";
 __declspec(section ".rodata") Pose_8004EB78 lbl_80437384 = {0, 0, 0};
 __declspec(section ".data") void *TObjDFDemo2__motion_index_table[2] = {
     (void *)0x12, (void *)0x11,
@@ -110,8 +110,8 @@ __declspec(section ".data") void *TObjDFDemo2__motion_index_table[2] = {
 void *lbl_80485680[3] = {
     (void *)0x0, (void *)0x0, (void *)0x3f000000,
 };
-void *lbl_8048568C[13] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjDFDemo2__sub_8004EB20, (void *)&fn_8004EA2C,
+void *__vt__11TObjDFDemo2[13] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__11TObjDFDemo2Fv, (void *)&fn_8004EA2C,
     (void *)&TObjPlayer__sub_8004E918, (void *)&render_shadows__7TObjectFv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_motion_fields__10TObjPlayerFPv, (void *)&TParticleCtrl__sub_801A2124, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&TObjRoomId__sub_801A1E2C,
@@ -176,9 +176,9 @@ void fn_8004EA2C(Obj_8004EA2C *arg0) {
     }
 }
 
-void *TObjDFDemo2__sub_8004EB20(void *arg0, s16 arg1) {
+void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8048568C;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjDFDemo2;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -197,8 +197,8 @@ void *TObjDFDemo2__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4
     s32 i;
 
     construct_world_actor_base(self, arg1);
-    self->vt18 = (u8 *)lbl_8048568C;
-    self->vt0 = (s32) lbl_805D2788;
+    self->vt18 = (u8 *)__vt__11TObjDFDemo2;
+    self->vt0 = (s32) TObjDFDemo2__name;
     VecCopy__FP3VecPC3Vec(self->pos, arg2);
     self->b8 = arg3;
     self->a8 = arg4;

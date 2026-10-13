@@ -145,6 +145,19 @@ struct Obj_80343C64
   s32 f104;
 };
 
+#include <stddef.h>
+struct NumberWindow;
+struct WordSelectPage;
+struct WordSelectWindowState {
+    u8 unknown00[0x20];
+    s32 activePage;
+    WordSelectPage* pages[7];
+    u8 unknown40[0x84 - 0x40];
+    NumberWindow* numberWindow;
+};
+
+struct WindowPosition { f32 x, y; };
+
 extern "C" {
 M2C_UNK free_child__9TWindowDDFPv(int);
 M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
@@ -197,28 +210,28 @@ s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
 s32 TWindowDD_read_indexed_value(s32, s32);
 s16 TWindowDD_read_resolved_value(s32, s32);
 u8 TWindowDD__sub_80347858(s16 arg0);
-s32 TWindowDD__sub_80348398(u8 *arg0);
+s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
@@ -327,7 +340,7 @@ s32 create__9TWindowDDFv(void);
 extern char lbl_8047863C[];
 extern char lbl_80478644[];
 extern M2C_UNK __vt__9TWindowDD[];
-extern s32 lbl_805D42E8;
+extern s32 word_select_type_name_pointer;
 extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
 extern s16 lbl_805D6E24;
@@ -353,6 +366,14 @@ extern const f32 lbl_805DFBF4;
 extern const f32 lbl_805DFBF8;
 extern const f32 lbl_805DFCB8;
 Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2);
+void* __nw__7TObjectFUl(u32 size);
+void set_field_1c__6TLobbyFPvf(NumberWindow* window, f32 order);
+void set_flag60_bit10__14TWindowSubItemFPv(NumberWindow* window);
+M2C_UNK TWindowDD__sub_80341AE0(int);
+extern s32 local_client_id;
+extern const f32 TWindowDD__data_805DFB6C;
+extern const f32 lbl_805DFB70, lbl_805DFC28, lbl_805DFCB0, lbl_805DFCB4;
+void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self, s32 minimum, s32 maximum, s32 initial);
 }
 
 extern "C" {
@@ -379,6 +400,28 @@ s32 update_close_flag__9TWindowDDFPv(void *arg0) {
 }
 
 extern M2C_UNK __vt__9TWindowDD[];
+
+typedef char NumberWindowOffset[offsetof(WordSelectWindowState, numberWindow) == 0x84 ? 1 : -1];
+typedef char ActivePageOffset[offsetof(WordSelectWindowState, activePage) == 0x20 ? 1 : -1];
+typedef char PageArrayOffset[offsetof(WordSelectWindowState, pages) == 0x24 ? 1 : -1];
+NumberWindow* TWindowInputNumber__ct(void* storage, const WindowPosition* position,
+                                   s32 minimum, s32 maximum, s32 initial, s16 client);
+void open_numeric_parameter_input__9TWindowDDFPviii(WordSelectWindowState* self, s32 minimum, s32 maximum, s32 initial) {
+    WindowPosition position;
+    position.x = lbl_805DFCB0 + TWindowDD__data_805DFB6C;
+    position.y = lbl_805DFCB4 + lbl_805DFB70;
+    NumberWindow* window = (NumberWindow*)__nw__7TObjectFUl(0x7C);
+    if (window) {
+        window = TWindowInputNumber__ct(window, &position, minimum, maximum, initial,
+                                      (s16)local_client_id);
+    }
+    self->numberWindow = window;
+    if (self->numberWindow) {
+        set_field_1c__6TLobbyFPvf(self->numberWindow, lbl_805DFC28);
+        set_flag60_bit10__14TWindowSubItemFPv(self->numberWindow);
+        TWindowDD__sub_80341AE0((int)(self->pages[self->activePage]));
+    }
+}
 
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0) {
     s32 *entry;
@@ -787,7 +830,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2) {
   s32 v;
   __ct__7TObjectFP7TObject(self);
   self->vt = ((void * *)&__vt__9TWindowDD);
-  self->f0 = lbl_805D42E8;
+  self->f0 = word_select_type_name_pointer;
   self->f1C = (floor = lbl_805D6E24);
   build_item_list__9TWindowDDFPv((u8 *)(self));
   *((u8 *) TWindowDD__work_buffer) = 0;
@@ -979,7 +1022,7 @@ s16 TWindowDD__sub_8034435C(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (TWindowDD__sub_80348398(arg0)) {
+            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1066,7 +1109,7 @@ s16 TWindowDD__sub_80344568(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (TWindowDD__sub_80348398(arg0)) {
+            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1153,7 +1196,7 @@ s16 TWindowDD__sub_80344774(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (TWindowDD__sub_80348398(arg0)) {
+            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1909,7 +1952,7 @@ s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         v = TWindowDD_read_indexed_value(TWindowDD__sub_80346DB8((s32)arg0), arg3);
         if (v == -0x1E) {
-            switch (TWindowDD__sub_80348398(arg0)) {
+            switch (get_word_select_context__9TWindowDDFPv(arg0)) {
             case 1:
                 v = 0x10;
                 break;
@@ -1998,7 +2041,7 @@ s32 TWindowDD__sub_80346640(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
     case 0:
         var_r31 = ((s16 (*)(s32, s32))TWindowDD_read_indexed_value)(TWindowDD__sub_80346DB8((s32) arg0), arg3);
         if (var_r31 == -0x1E) {
-            switch (((int (*)(u8 *)) TWindowDD__sub_80348398)(arg0)) {
+            switch (((int (*)(u8 *)) get_word_select_context__9TWindowDDFPv)(arg0)) {
             case 1:
                 var_r31 = 0x10;
                 break;

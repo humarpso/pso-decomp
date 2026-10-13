@@ -12,11 +12,11 @@ M2C_UNK __dl__7TObjectFPv(void *);
 M2C_UNK remove_value_from_id_list(u32, void *);
 M2C_UNK destroy_particle__13TParticleCtrlFPvs(void *, M2C_UNK);
 
-extern M2C_UNK lbl_804B5A00[];
+extern M2C_UNK __vt__18TObjCityDoor_Lobby[];
 
 u8 *__dt__18TObjCityDoor_LobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B5A00;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjCityDoor_Lobby;
         if (((s32) M2C_FIELD(arg0, s32 *, 0x250) != 0) && (get_map_count__10TObjMapCsnFv() != 0U)) {
             remove_value_from_id_list(get_map_count__10TObjMapCsnFv(), arg0 + 0x90);
         }

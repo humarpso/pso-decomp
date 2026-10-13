@@ -111,7 +111,7 @@ extern u8 npc_default_battle_stats[];
 extern u8 npc_movement_parameters[];
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TNpcPlayer__sub_80149448();
-extern "C" void TObjNpcBringer__sub_801494D4();
+extern "C" void __dt__14TObjNpcBringerFv();
 extern "C" void draw_debug_info__12TObjNpcEnemyFPv();
 extern "C" void TObjNpcFemaleBase__sub_80147CD4();
 extern "C" void TObjNpcFemaleBase__sub_801480F4();
@@ -201,7 +201,7 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_standing__11TObjNpcBaseFPv();
 extern "C" void update_wandering__11TObjNpcBaseFPv();
-extern s32 lbl_805D2D28;
+extern s32 TObjNpcBringer__name;
 extern u8 *TObjEneDf2Bringer__resource_bundle;
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
 }
@@ -220,8 +220,8 @@ void *lbl_804A7EC0[22] = {
     (void *)0x0, (void *)0x10003, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0,
 };
-void *lbl_804A7F18[94] = {
-    (void *)0x0, (void *)0x0, (void *)&TObjNpcBringer__sub_801494D4, (void *)&run_task__11TObjNpcBaseFPv,
+void *__vt__14TObjNpcBringer[94] = {
+    (void *)0x0, (void *)0x0, (void *)&__dt__14TObjNpcBringerFv, (void *)&run_task__11TObjNpcBaseFPv,
     (void *)&draw_model__10TObjPlayerFPv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
     (void *)&get_enemy_name__14TObjEnePanarmsFPv, (void *)&handle_message_event__17TObjNpcFemaleBaseFPvUs, (void *)&add_actor_exp, (void *)&consume_timer_field__10TObjPlayerFPvi,
@@ -248,8 +248,8 @@ void *lbl_804A7F18[94] = {
 };
 u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {
     TObjNpcBase__ct(self, parent);
-    *(u8 **)(self + 0x18) = (u8 *)lbl_804A7F18;
-    *(s32 *)(self + 0) = lbl_805D2D28;
+    *(u8 **)(self + 0x18) = (u8 *)__vt__14TObjNpcBringer;
+    *(s32 *)(self + 0) = TObjNpcBringer__name;
     ((VObj_8014952C *)self)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(self);
     ((VObj_8014952C *)self)->m85(0, 1);

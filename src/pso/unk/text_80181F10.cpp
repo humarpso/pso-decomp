@@ -33,8 +33,8 @@ void register_slot(u32, void *);
 void build_door_collision_triangles__10TObjPlayerFi(void *);
 s32 is_phase_e__9TObjEneDDFPv(void *);
 void construct_world_actor_base(void *, void *);
-extern s32 lbl_804B5A00[];
-extern s32 lbl_805D3260;
+extern s32 __vt__18TObjCityDoor_Lobby[];
+extern s32 TObjCityDoor_Lobby__name;
 extern const f32 lbl_805DBBF0;
 Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2);
 }
@@ -43,8 +43,8 @@ extern "C" {
 
 Obj_80181F10 *TObjCityDoor_Lobby__ct(Obj_80181F10 *self, void *arg1, s32 arg2) {
     construct_world_actor_base(self, arg1);
-    *(void **)((u8 *)self + 0x18) = lbl_804B5A00;
-    *(s32 *)self = lbl_805D3260;
+    *(void **)((u8 *)self + 0x18) = __vt__18TObjCityDoor_Lobby;
+    *(s32 *)self = TObjCityDoor_Lobby__name;
     self->m5(arg2);
     self->x90 = &self->xa8;
     VecCopy__FP3VecPC3Vec(&self->pos94, &self->pos);

@@ -122,7 +122,7 @@ M2C_UNK TWindowKeyBoardSoft__sub_800808FC(int, int);
 bool is_alnum__19TWindowKeyBoardSoftFUs(u16 arg0);
 M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
 extern s32 current_language;
-void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1);
+void insert_character__19TWindowKeyBoardBaseFPvUs(u8 *arg0, u16 arg1);
 void make_room_in_buffer__19TWindowKeyBoardSoftFPvii(void *, s32, s32);
 void check_text_overflow__19TWindowKeyBoardSoftFPvPv(void *, u16 *);
 void init__19TWindowKeyBoardSoftFPv(u8 *arg0);
@@ -627,7 +627,7 @@ void TWindowKeyBoardSoft__sub_8025C51C(u8 *arg0, s32 arg1) {
 
 int get_field_6c__19TWindowKeyBoardSoftFPv(void* p) { return set_text_from_string__19TWindowKeyBoardSoftFPvPv((char*)p + 0x6c); }
 
-void TWindowKeyBoardSoft__sub_8025C618(u8 *arg0, u16 arg1) {
+void insert_character__19TWindowKeyBoardBaseFPvUs(u8 *arg0, u16 arg1) {
     s32 f;
     if (current_language == 0 && arg1 >= 0x80U && arg1 < 0x100U) {
         return;

@@ -126,22 +126,22 @@ f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 s32 check_v2_mode__9TObjEneDDFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-extern M2C_UNK lbl_80482048[];
-extern s32 lbl_805D269C;
+extern M2C_UNK __vt__22TObjBoss1MokoHill_Solo[];
+extern s32 TObjBoss1MokoHill_Solo__name;
 extern const f32 lbl_805D8180;
 extern const f32 lbl_805D8184;
 extern const f32 lbl_805D8188;
 extern const f32 lbl_805D818C;
 extern const f32 lbl_805D8190;
 extern const f32 lbl_805D8194;
-void *construct_trail_piece__12TBoss8DragonFPvPvi(void *arg0_, void *arg1, int arg2);
+void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2);
 }
 
 extern "C" {
 
-extern M2C_UNK lbl_80482048[];
-extern M2C_UNK lbl_80482060[];
-extern s32 lbl_805D2698;
+extern M2C_UNK __vt__22TObjBoss1MokoHill_Solo[];
+extern M2C_UNK __vt__23TObjBoss1MokoHill_SoloM[];
+extern s32 TObjBoss1MokoHill_SoloM__name;
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
 extern int lbl_805D4B60;
@@ -210,15 +210,15 @@ void set_chunk_material_color(void *);
 
 void update_dragon_trail_piece(Trail_8002CC48 *self);
 s32 get_state__12TBoss8DragonFv(void);
-void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1);
+void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1);
 void render_dragon_trail(Obj_8002CE78 *arg0);
 void update_dragon_trail(Trail_8002CFB8 *self);
 s32 is_dragon_trail_damaging(u8 *arg0);
 void set_field_3c__12TBoss8DragonFPv(void* p);
 void set_field_1c__12TBoss8DragonFPv(void* p);
 void spawn_child_object__12TBoss8DragonFPv(void *arg0);
-void *TBoss8Dragon__sub_8002D3C4(void *arg0, s16 arg1);
-u8 *construct_trail__12TBoss8DragonFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
+void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1);
+u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3);
 void update_dragon_trail_uvs(Obj_8002D4C0 *self);
 void free_resources__12TBoss8DragonFv(void);
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0);
@@ -260,9 +260,9 @@ s32 get_state__12TBoss8DragonFv(void) {
     return dragon_trail_position_source;
 }
 
-void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
+void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80482048;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjBoss1MokoHill_Solo;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -273,12 +273,12 @@ void *TBoss8Dragon__sub_8002CD34(void *arg0, s16 arg1) {
 
 #pragma fp_contract on
 #define arg0 ((Obj_8002CD8C *)arg0_)
-void *construct_trail_piece__12TBoss8DragonFPvPvi(void *arg0_, void *arg1, int arg2) {
+void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2) {
     f32 r;
     f32 t;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    arg0->vtbl = lbl_80482048;
-    arg0->unk0 = lbl_805D269C;
+    arg0->vtbl = __vt__22TObjBoss1MokoHill_Solo;
+    arg0->unk0 = TObjBoss1MokoHill_Solo__name;
     VecCopy__FP3VecPC3Vec(arg0->pos, ((void *(*)(void *))get_state__12TBoss8DragonFv)(arg0));
     arg0->unk34 = lbl_805D8180;
     r = (f32)rand();
@@ -365,12 +365,12 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
                 if (self->f3C != 0) {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        construct_trail_piece__12TBoss8DragonFPvPvi((void *)(o), (void *)(self->f10), (int)(0));
+                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), (int)(0));
                     }
                 } else {
                     o = __nw__7TObjectFUl(0x50);
                     if (o != NULL) {
-                        construct_trail_piece__12TBoss8DragonFPvPvi((void *)(o), (void *)(self->f10), (int)(0x1E));
+                        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(self->f10), (int)(0x1E));
                     }
                 }
             }
@@ -437,14 +437,14 @@ void spawn_child_object__12TBoss8DragonFPv(void *arg0) {
     M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        construct_trail_piece__12TBoss8DragonFPvPvi((void *)(o), (void *)(M2C_FIELD(arg0, void **, 0x10)), (int)(30));
+        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(M2C_FIELD(arg0, void **, 0x10)), (int)(30));
     }
     M2C_FIELD(arg0, u32 *, 0x3C) = 0;
 }
 
-void *TBoss8Dragon__sub_8002D3C4(void *arg0, s16 arg1) {
+void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80482060;
+        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjBoss1MokoHill_SoloM;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -453,10 +453,10 @@ void *TBoss8Dragon__sub_8002D3C4(void *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *construct_trail__12TBoss8DragonFPvPvPvi(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
+u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&lbl_80482060).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2698;
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&__vt__23TObjBoss1MokoHill_SoloM).value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBoss1MokoHill_SoloM__name;
     M2C_FIELD(arg0, s32 *, 0x1C) = 0;
     (*(u8 * *)&dragon_trail_position_source) = arg2;
     dragon_trail_heading_source = arg3;

@@ -70,7 +70,7 @@ s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *, s32, u8);
 s32 TKeyBoardControl__sub_8025F4A0();
 int TWindowKeyBoardHard__sub_8025EB68(void* p);
 s32 TWindowKeyBoardHard__sub_80260438(void *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025C618(s32, u16);
+M2C_UNK insert_character__19TWindowKeyBoardBaseFPvUs(s32, u16);
 int call_1A529C_with_32__19TWindowKeyBoardHardFPv(void* p);
 M2C_UNK fn_8025FF8C(void *);
 u8 get_key_state__16TKeyBoardControlFPv(M2C_UNK *);
@@ -331,7 +331,7 @@ block_7:
             sp8 -= 0x20;
         }
         set_input_mode__20TWindowSubStatusDispFPvUc(M2C_FIELD(arg0, s32 *, 0x70), temp_r31);
-        TWindowKeyBoardSoft__sub_8025C618(M2C_FIELD(arg0, s32 *, 0x70), sp8);
+        insert_character__19TWindowKeyBoardBaseFPvUs(M2C_FIELD(arg0, s32 *, 0x70), sp8);
     }
 }
 
