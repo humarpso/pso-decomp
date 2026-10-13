@@ -21,7 +21,7 @@ struct Eff_8032E34C {
 };
 
 extern "C" {
-M2C_UNK TObjPlayer__sub_8032DF74(int);
+M2C_UNK anchor_card_effect(int);
 M2C_UNK normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
@@ -32,7 +32,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void TItemWpnCardEffect__ct(u8 *arg0);
 extern const f64 lbl_804773A8[];
 extern void *lbl_804EDD44[];
-Eff_8032E34C *fn_8032E34C(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
+Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5);
 }
 
 extern "C" {
@@ -81,9 +81,9 @@ void TItemWpnCardEffect__ct(u8 *arg0) {
     *((f32 *) (((s8 *) var_r31) + 0x4C)) = var_f0;
   }
   var_r3 = (u8 *) var_r31;
-  TObjPlayer__sub_8032DF74((int) var_r3);
+  anchor_card_effect((int) var_r3);
 }
-Eff_8032E34C *fn_8032E34C(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5) {
+Eff_8032E34C *construct_card_effect_at_point(Eff_8032E34C *self, void *parent, f32 *arg2, f32 *arg3, s32 arg4, s32 arg5) {
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = lbl_804EDD44;
     self->f28 = 0;

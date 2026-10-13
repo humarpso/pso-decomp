@@ -18,10 +18,10 @@ struct RecoveredGlobal_8032DC94_lbl_8058D4C0
 
 extern "C" {
 void TObjPlayer__sub_8032DDD8(u8 *arg0);
-void * init_variant_2_dc28__10TObjPlayerFPv(void *, M2C_UNK, void *);
+void * construct_guardianna__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *TObjPlayer__sub_8032DB8C(u8 *arg0);
+u8 *create_guardianna(u8 *arg0);
 extern const f32 lbl_805DF7D8;
 extern const f32 lbl_805DF7DC;
 extern const f32 lbl_805DF7E0;
@@ -51,7 +51,7 @@ extern "C" {
 void *item_equip_variant_deleting_dtor_8032DBE4(void *arg0, s16 arg1);
 void *TObjPlayer__sub_8032DC3C(void *arg0, s16 arg1);
 void TObjPlayer__sub_8032DDE8(void* p);
-void fire_projectiles__10TObjPlayerFPv(void *arg0);
+void launch_guardianna_colliders__10TObjPlayerFPv(void *arg0);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, M2C_UNK *, s32, M2C_UNK);
 s32 get_attack_stage__11TItemWeaponFPv(void *);
 void TItemWeapon__ct(void *);
@@ -67,7 +67,7 @@ M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, void *, M2C_UNK);
 
 extern s32 tl_05;
 
-void fire_projectiles__10TObjPlayerFPv(void *arg0) {
+void launch_guardianna_colliders__10TObjPlayerFPv(void *arg0) {
     M2C_UNK sp8;
 
     draw_icon__10TObjPlayerFPvii(arg0, 4, &sp8);
@@ -85,7 +85,7 @@ void fire_projectiles__10TObjPlayerFPv(void *arg0) {
 
 extern M2C_UNK lbl_804EDC28[];
 
-void *init_variant_2_dc28__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
+void *construct_guardianna__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
     TItemWeapon__ct(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDC28;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
@@ -96,14 +96,14 @@ extern M2C_UNK lbl_804EDC28[];
 
 extern M2C_UNK lbl_804EDD20[];
 
-u8 *TObjPlayer__sub_8032DB8C(u8 *arg0) {
+u8 *create_guardianna(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_variant_2_dc28__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)construct_guardianna__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -235,13 +235,13 @@ extern "C" {
 void *init_offsets_object__10TObjPlayerFPv(void *arg0);
 void *init_effect_object__10TObjPlayerFPv(void *arg0);
 void init_offset_vectors__10TObjPlayerFPv(void *);
-void fn_8032E34C(void *);
-void TObjPlayer__sub_8032E400(void *);
+void construct_card_effect_at_point(void *);
+void construct_card_effect_on_target(void *);
 
 extern M2C_UNK lbl_804EDD20[];
 
 void *init_offsets_object__10TObjPlayerFPv(void *arg0) {
-    fn_8032E34C(arg0);
+    construct_card_effect_at_point(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDD20;
     init_offset_vectors__10TObjPlayerFPv(arg0);
     return arg0;
@@ -250,7 +250,7 @@ void *init_offsets_object__10TObjPlayerFPv(void *arg0) {
 extern M2C_UNK lbl_804EDD20[];
 
 void *init_effect_object__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_8032E400(arg0);
+    construct_card_effect_on_target(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EDD20;
     init_offset_vectors__10TObjPlayerFPv(arg0);
     return arg0;
@@ -322,31 +322,31 @@ struct VObj_8032E11C : VBase_8032E11C {
 extern "C" {
 u32 create_particle_emitter(void *, int);
 M2C_UNK set_tint_color__13TParticleCtrlFPvi(u32, int);
-void create_tint_particle_emitter__10TObjPlayerFPv(u8 *arg0);
+void start_card_effect_trail__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
 u32 spawn_particle_effect_with_rotation(void *, void *, int, int);
 M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK set_tint_color__13TParticleCtrlFPvi(u32, int);
 extern const f32 lbl_805DF7E8;
-void TObjPlayer__sub_8032E0A4(u8 *arg0);
+void start_card_effect_flash(u8 *arg0);
 u8 *find_entity_by_id(u16);
-void TObjPlayer__sub_8032DF74(u8 *arg0);
+void anchor_card_effect(u8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 find_item_by_id(s32);
 s8 TObjPlayer__sub_80102C30();
-void TObjPlayer__sub_8032DF74(u8 *arg0);
+void anchor_card_effect(u8 *arg0);
 void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0);
-void TObjPlayer__sub_8032E11C(u8 *arg0);
+void run_card_effect(u8 *arg0);
 }
 
 extern "C" {
 
 void TObjPlayer__sub_8032E054(void);
 
-void TObjPlayer__sub_8032DF74(u8 *arg0) {
+void anchor_card_effect(u8 *arg0) {
   u16 temp_r3;
   u8 *temp_r3_2;
   temp_r3 = *((u16 *) (((s8 *) arg0) + 0x34));
@@ -375,7 +375,7 @@ void destroy_effect_objects__10TObjPlayerFPv(O_8032DFF8 *arg0) {
 void TObjPlayer__sub_8032E054(void) {  }
 #pragma push
 #pragma fp_contract on
-void create_tint_particle_emitter__10TObjPlayerFPv(u8 *arg0) {
+void start_card_effect_trail__10TObjPlayerFPv(u8 *arg0) {
     M2C_FIELD(arg0, u32 *, 0x24) = create_particle_emitter((void *) (arg0 + 0x64), (int) (0x1B6));
     if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
         set_tint_color__13TParticleCtrlFPvi(M2C_FIELD(arg0, u32 *, 0x24), (int) (-0x78));
@@ -385,7 +385,7 @@ void create_tint_particle_emitter__10TObjPlayerFPv(u8 *arg0) {
 
 #pragma push
 #pragma fp_contract on
-void TObjPlayer__sub_8032E0A4(u8 *arg0) {
+void start_card_effect_flash(u8 *arg0) {
     u32 p;
     u32 q;
     M2C_FIELD(arg0, u32 *, 0x1C) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x64), (void *) (arg0 + 0x54), (int) (0x1B9), (int) (0x104));
@@ -401,7 +401,7 @@ void TObjPlayer__sub_8032E0A4(u8 *arg0) {
 }
 #pragma pop
 
-void TObjPlayer__sub_8032E11C(u8 *arg0) {
+void run_card_effect(u8 *arg0) {
     s32 i;
     if (find_item_by_id(M2C_FIELD(arg0, s32 *, 0x60)) == 0U) {
         queue_destruction__7TObjectFv(arg0);
@@ -411,7 +411,7 @@ void TObjPlayer__sub_8032E11C(u8 *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    TObjPlayer__sub_8032DF74(arg0);
+    anchor_card_effect(arg0);
     for (i = 0; i != 3; i++) {
         if (((O_8032DFF8 *)arg0)->o[i] != NULL) {
             copy_pos__11TNowLoadingFPvPv(((O_8032DFF8 *)arg0)->o[i], arg0 + 0x64);

@@ -18,12 +18,12 @@ void copy_pos__14TItemAttackColFPvPv(void *, void *);
 void TItemWpnCardEffect__ct(void *);
 extern const f64 lbl_804773A8[];
 extern u8 lbl_804EDD44[];
-Obj_8032E400 *TObjPlayer__sub_8032E400(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
+Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5);
 }
 
 extern "C" {
 
-Obj_8032E400 *TObjPlayer__sub_8032E400(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5) {
+Obj_8032E400 *construct_card_effect_on_target(Obj_8032E400 *arg0, void *arg1, Ref_8032E400 *arg2, Vec_8032E400 *arg3, s32 arg4, s32 arg5) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     arg0->vt = lbl_804EDD44;
     arg0->f34 = obj_getField1c(arg2->owner);
