@@ -26,10 +26,10 @@ extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
 s32 TWindowCtrl__sub_8024A314(void);
-void apply_to_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
+void spawn_faust_wall_explosion__10TObjPlayerFii(s32 arg0, s32 arg1);
 u32 find_item_by_id(void);
-s32 TObjPlayer__sub_80125678(u32 a0 = 0, s32 a1 = 0);
-void apply_to_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
+s32 spawn_faust_explosion(u32 a0 = 0, s32 a1 = 0);
+void spawn_faust_wall_explosion__10TObjPlayerFii(s32 arg0, s32 arg1);
 extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
@@ -40,33 +40,33 @@ extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
 extern void *TWindowCtrl__active_window;
-void apply_to_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
+void spawn_faust_wall_explosion__10TObjPlayerFii(s32 arg0, s32 arg1);
 u32 find_item_by_id(void);
-s32 TObjPlayer__sub_80125678(u32 a0, s32 a1);
-void TObjPlayer__sub_80125628(s32 arg0, s32 arg1);
-void apply_to_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1);
-void TObjPlayer__sub_80125628(s32 arg0, s32 arg1);
-void setup_effect_callbacks__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out);
+s32 spawn_faust_explosion(u32 a0, s32 a1);
+void spawn_faust_hit_explosion(s32 arg0, s32 arg1);
+void spawn_faust_wall_explosion__10TObjPlayerFii(s32 arg0, s32 arg1);
+void spawn_faust_hit_explosion(s32 arg0, s32 arg1);
+void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out);
 }
 
 extern "C" {
 
-void apply_to_item_by_id__10TObjPlayerFii(s32 arg0, s32 arg1) {
+void spawn_faust_wall_explosion__10TObjPlayerFii(s32 arg0, s32 arg1) {
     u32 temp_r3 = find_item_by_id();
     if (temp_r3 != 0U) {
-        TObjPlayer__sub_80125678(temp_r3, arg1);
+        spawn_faust_explosion(temp_r3, arg1);
     }
 }
-void TObjPlayer__sub_80125628(s32 arg0, s32 arg1) {
+void spawn_faust_hit_explosion(s32 arg0, s32 arg1) {
     Ctx_80125628 *ctx = (Ctx_80125628 *)arg1;
     u32 p = find_item_by_id();
     if (p != 0U) {
-        TObjPlayer__sub_80125678(p, (s32)ctx->obj->elems[ctx->idx].f1c);
+        spawn_faust_explosion(p, (s32)ctx->obj->elems[ctx->idx].f1c);
     }
 }
-void setup_effect_callbacks__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out) {
-    out->f74 = (void *)TObjPlayer__sub_80125628;
-    out->f70 = (void *)apply_to_item_by_id__10TObjPlayerFii;
+void config_faust_attack_collider__10TObjPlayerFPvPv(Self_8012573C *self, Out_8012573C *out) {
+    out->f74 = (void *)spawn_faust_hit_explosion;
+    out->f70 = (void *)spawn_faust_wall_explosion__10TObjPlayerFii;
     out->f50 = -0x4000;
     out->f40 |= self->f23c;
     out->f78 = 0x1bb;

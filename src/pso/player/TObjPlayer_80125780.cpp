@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
-void TObjPlayer__sub_80125818(void* p);
-void TObjPlayer__sub_80125824(u8 *arg0);
-void TObjPlayer__sub_8012583C(void* p);
-void reset_child_transform__10TObjPlayerFPv(void *arg0);
+void arm_faust_reload_timer(void* p);
+void count_faust_reload_timer(u8 *arg0);
+void clear_faust_reload_timer(void* p);
+void draw_faust_loaded_projectile__10TObjPlayerFPv(void *arg0);
 M2C_UNK draw_ginja_object(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
@@ -20,7 +20,7 @@ void *item_equip_variant_deleting_dtor_80125848(void *arg0, s16 arg1);
 extern const f32 lbl_805DAD58;
 extern const f32 lbl_805DAD5C;
 
-void reset_child_transform__10TObjPlayerFPv(void *arg0) {
+void draw_faust_loaded_projectile__10TObjPlayerFPv(void *arg0) {
     void *temp_r31;
     void *temp_r3;
 
@@ -43,9 +43,9 @@ void reset_child_transform__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_80125818(void* p) { *(s32*)((char*)p + 0x234) = 60; }
+void arm_faust_reload_timer(void* p) { *(s32*)((char*)p + 0x234) = 60; }
 
-void TObjPlayer__sub_80125824(u8 *arg0) {
+void count_faust_reload_timer(u8 *arg0) {
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x234);
     if (temp_r4 > 0) {
@@ -53,7 +53,7 @@ void TObjPlayer__sub_80125824(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8012583C(void* p) { *(s32*)((char*)p + 0x234) = 0; }
+void clear_faust_reload_timer(void* p) { *(s32*)((char*)p + 0x234) = 0; }
 
 extern M2C_UNK lbl_804A2564[];
 
