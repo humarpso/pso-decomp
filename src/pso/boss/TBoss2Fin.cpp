@@ -1,4 +1,127 @@
-#include "pso/TBoss2Fin.h"
+#include "pso/boss/TBoss2Fin.h"
+#include "types.h"
+#include <stddef.h>
+typedef s32 M2C_UNK;
+#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+struct G_800367C4;
+struct Stack_800365C8 {
+    s32 sp8;
+    s32 spC;
+    s32 sp10;
+};
+struct RecoveredGlobal_800365C8_lbl_80435A44 {
+    M2C_UNK value;
+    u8 remaining[0x8];
+};
+struct Vec_800363B4 { f32 x, y, z; };
+struct Seg_800363B4 { s8 n; u8 pad1[0xF]; void *model1; void *model2; };
+struct Ang_800363B4 { s32 yaw; u8 pad4[0xC]; };
+extern "C" {
+void VecCopy__FP3VecPC3Vec(void *, void *);
+extern const f32 lbl_805D8458;
+void init_link_points__9TBoss2FinFPv(u8 *arg0);
+s32 fn_800FF788(void *, void *);
+extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
+f32 fabs_float(f32);
+f32 atan2_float(f32, f32);
+f32 get_scale_factor__10TObjPlayerFv(f32);
+M2C_UNK TObjLight__sub_801337F8(s32);
+M2C_UNK scale_matrix(int, f32, f32, f32);
+f32 vector_length(void *);
+M2C_UNK translate_matrix_vec3(int, void *);
+M2C_UNK rotate_matrix_y(int, int);
+M2C_UNK subtract_vector(void *, void *);
+M2C_UNK rotate_matrix_x(int, int);
+M2C_UNK normalize_vector(void *);
+M2C_UNK push_matrix();
+M2C_UNK pop_matrix();
+M2C_UNK set_global_param__8TObjFishFi(s32);
+M2C_UNK draw_chunk_object(void *);
+extern const f64 lbl_80435A50[];
+extern G_800367C4 *lbl_805D4BA4;
+extern s32 current_scene_light;
+extern const f32 lbl_805D8260;
+extern const f32 TBoss2Fin__data_805D8450;
+extern const f32 lbl_805D8454;
+
+}
+
+void TBoss2Fin::render() {
+    u8 *arg0 = (u8*)this;
+    Seg_800363B4 *seg;
+    Ang_800363B4 *ang;
+    Vec_800363B4 *pt;
+    s32 j;
+    s32 yaw;
+    Vec_800363B4 v;
+    set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x2C));
+    seg = M2C_FIELD(arg0, Seg_800363B4 **, 0x20);
+    ang = M2C_FIELD(arg0, Ang_800363B4 **, 0x24);
+    pt = M2C_FIELD(arg0, Vec_800363B4 **, 0x2C);
+    for (; seg->n >= 2; pt++, seg++, ang++) {
+        for (j = seg->n - 1; j > 0; j--, pt++) {
+            push_matrix();
+            translate_matrix_vec3(0, pt);
+            VecCopy__FP3VecPC3Vec(&v, pt + 1);
+            subtract_vector(&v, pt);
+            if (TBoss2Fin__data_805D8450 == vector_length(&v)) {
+                v.x = TBoss2Fin__data_805D8450;
+                v.y = lbl_805D8454;
+                v.z = TBoss2Fin__data_805D8450;
+            } else {
+                normalize_vector(&v);
+            }
+            yaw = 0;
+            if (TBoss2Fin__data_805D8450 != fabs_float(v.x) + fabs_float(v.z)) {
+                yaw = lbl_80435A50[0] * atan2_float(-v.x, -v.z);
+                rotate_matrix_y(0, yaw);
+            }
+            rotate_matrix_x(0, lbl_80435A50[0] * get_scale_factor__10TObjPlayerFv(-v.y));
+            rotate_matrix_y(0, ang->yaw - yaw);
+            push_matrix();
+            scale_matrix(0, lbl_805D8260, lbl_805D8260, lbl_805D8260);
+            rotate_matrix_x(0, -0x4000);
+            if (j == 1) {
+                if (seg->model2 != NULL) {
+                    draw_chunk_object(seg->model2);
+                }
+            } else if (seg->model1 != NULL) {
+                draw_chunk_object(seg->model1);
+            }
+            pop_matrix();
+            pop_matrix();
+        }
+    }
+    TObjLight__sub_801337F8(current_scene_light);
+}
+
+void TBoss2Fin::run_task() {
+    s32 arg0 = (s32)this;
+    typedef char sp8_offset[(offsetof(Stack_800365C8, sp8) == 0x0) ? 1 : -1];
+    typedef char spC_offset[(offsetof(Stack_800365C8, spC) == 0x4) ? 1 : -1];
+    typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
+    Stack_800365C8 stack;
+    init_link_points__9TBoss2FinFPv((u8 *)((void *) (arg0)));
+    stack.sp8 = M2C_FIELD(&lbl_80435A44.value, s32 *, 0);
+    stack.spC = M2C_FIELD(&lbl_80435A44.value, s32 *, 4);
+    stack.sp10 = M2C_FIELD(&lbl_80435A44.value, s32 *, 8);
+    fn_800FF788((void *) (arg0), (void *) (&stack.sp8));
+}
+
+extern "C" {
+void init_link_points__9TBoss2FinFPv(u8 *arg0) {
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x34, M2C_FIELD(arg0, u8 **, 0x80));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x54, M2C_FIELD(arg0, u8 **, 0x80));
+    M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) - lbl_805D8458);
+    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) (M2C_FIELD(arg0, f32 *, 0x5C) + lbl_805D8458);
+    M2C_FIELD(arg0, s32 *, 0x40) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, M2C_FIELD(arg0, u8 **, 0x84));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x64, M2C_FIELD(arg0, u8 **, 0x84));
+    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (M2C_FIELD(arg0, f32 *, 0x68) - lbl_805D8458);
+    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (M2C_FIELD(arg0, f32 *, 0x6C) + lbl_805D8458);
+}
+}
 
 TBoss2Fin::~TBoss2Fin() {}
 
@@ -29,7 +152,7 @@ extern G_800367C4 *lbl_805D4BA4;
 extern const f32 TBoss2Fin__data_805D8450;
 extern const f32 lbl_805D8460;
 void init_effect_table__9TBoss2FinFv(void);
-void init_link_points__9TBoss2FinFPv(void *);
+void init_link_points__9TBoss2FinFPv(u8 *);
 void fn_800FF8CC(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
 extern u8 __vt__9TBoss2Fin[];
@@ -61,7 +184,7 @@ Obj_80036718 *__ct__9TBoss2FinFv(Obj_80036718 *self, s32 arg1, s32 arg2, s32 arg
         p->d = TBoss2Fin__data_805D8450;
     }
     p->a = lbl_805D8454;
-    init_link_points__9TBoss2FinFPv(self);
+    init_link_points__9TBoss2FinFPv((u8*)self);
     fn_800FF8CC(self, ((u8 *)&lbl_804FE590), self->f30, self->recs);
     return self;
 }

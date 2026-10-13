@@ -1,6 +1,8 @@
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
+#include "pso/network/EthernetReceiveFilter.h"
+
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -187,7 +189,7 @@ extern M2C_UNK lbl_805D7CA0;
 void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void);
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
+extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 EXILock(s32, u32, u32);
@@ -214,13 +216,12 @@ extern s32 lbl_805D7BFC;
 extern u32 lbl_805D7C00;
 s32 init_buffer_pool__6TLobbyFv(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
+extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK exi_mac_address;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
-void TLobby__sub_80425DC8(void *q, void *a, void *b);
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
@@ -406,6 +407,13 @@ extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 void reset_message_thread__6TLobbyFv(void);
 s32 remove_rec_by_handle__6TLobbyFsUs(s16 arg0, u16 arg1);
+s32 NetMemcmp(void *, void *, int);
+s32 post_message__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
+void TLobby__sub_804089A8(s32, s32, void *, void *);
+void release_entry_by_id__6TLobbyFUi(u32 arg0);
+extern u8 lbl_805CF240[];
+extern u8 lbl_805E1190[6];
+void dispatch_received_ethernet_frame(void *q, void *a, void *b);
 }
 
 extern "C" {
@@ -533,6 +541,100 @@ void TLobby__sub_80425D88(u8 v) {
     lbl_805D7BCC++;
     OSSendMessage(lbl_805CF380, (void *)v, 0);
 }
+
+#define self ((EthernetReceiveFilter *)q)
+#define pkt ((EthernetFrameHeader *)a)
+void dispatch_received_ethernet_frame(void *q, void *a, void *b) {
+    s32 i;
+    EthernetMulticastEntry *e;
+    u8 *mq = lbl_805CF240;
+    EthernetProtocolRegistration *r = self->protocols;
+    u16 *key = &pkt->ether_type;
+    u8 *src = pkt->source;
+    u16 type = 0;
+    i = 0;
+    while (i < 5) {
+        if (r->delivery_mode != 0 && r->ether_type == *key) {
+            type = r->delivery_mode;
+            break;
+        }
+        i++;
+        r++;
+    }
+    if (i == 5) {
+        return;
+    }
+    if (NetMemcmp(src, q, 6) == 0) {
+        switch (type) {
+        case 1:
+            TLobby__sub_804089A8(0, 1, 0, a);
+            break;
+        case 2:
+            release_entry_by_id__6TLobbyFUi((u32)a);
+            break;
+        }
+        return;
+    }
+    if (pkt->destination[0] & 1) {
+        if (NetMemcmp(a, lbl_805E1190, 6) == 0) {
+            switch (type) {
+            case 1:
+                TLobby__sub_804089A8(0, 1, (u8 *)b - 4, a);
+                break;
+            case 2:
+                post_message__6TLobbyFPviii(mq + 0xA0, (s32)a, (s32)((u8 *)b - 4), 1);
+                break;
+            }
+            return;
+        }
+        i = 0;
+        e = self->multicast;
+        for (; i < 6; i++, e++) {
+            if (e->references > 0 && NetMemcmp(a, e->address, 6) == 0) {
+                switch (type) {
+                case 1:
+                    TLobby__sub_804089A8(0, 1, (u8 *)b - 4, a);
+                    break;
+                case 2:
+                    post_message__6TLobbyFPviii(mq + 0xA0, (s32)a, (s32)((u8 *)b - 4), 1);
+                    break;
+                }
+                return;
+            }
+        }
+        switch (type) {
+        case 1:
+            TLobby__sub_804089A8(0, 1, 0, a);
+            break;
+        case 2:
+            release_entry_by_id__6TLobbyFUi((u32)a);
+            break;
+        }
+        return;
+    }
+    if (NetMemcmp(a, q, 6) != 0) {
+        switch (type) {
+        case 1:
+            TLobby__sub_804089A8(0, 1, 0, a);
+            break;
+        case 2:
+            release_entry_by_id__6TLobbyFUi((u32)a);
+            break;
+        }
+        return;
+    }
+    switch (type) {
+    case 1:
+        TLobby__sub_804089A8(0, 1, (u8 *)b - 4, a);
+        break;
+    case 2:
+        post_message__6TLobbyFPviii(mq + 0xA0, (s32)a, (s32)((u8 *)b - 4), 1);
+        break;
+    }
+}
+
+#undef self
+#undef pkt
 
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2) {
     s32 i;
@@ -782,7 +884,7 @@ s32 open_channel_checked__6TLobbyFsUs(s16 arg0, u16 arg1) {
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b) {
     if (a != NULL) {
         void *q = lobby_net_channel_table;
-        TLobby__sub_80425DC8(q, a, b);
+        dispatch_received_ethernet_frame((void *)(q), (void *)(a), (void *)(b));
     }
 }
 

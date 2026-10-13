@@ -1,5 +1,5 @@
-#ifndef PSO_TBOSS2FIN_H
-#define PSO_TBOSS2FIN_H
+#ifndef PSO_BOSS_TBOSS2FIN_H
+#define PSO_BOSS_TBOSS2FIN_H
 #include "pso/TObjEZRopeBase.h"
 #include "types.h"
 

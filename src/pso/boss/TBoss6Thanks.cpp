@@ -1,5 +1,6 @@
 #include "types.h"
 #include "pso/boss/TBoss6Thanks.h"
+
 #include <stddef.h>
 typedef s32 M2C_UNK;
 
@@ -13,6 +14,18 @@ typedef char Thanks_texture0[offsetof(TBoss6Thanks,texture0)==0x40?1:-1];
 typedef char Thanks_texture1[offsetof(TBoss6Thanks,texture1)==0x44?1:-1];
 typedef char Thanks_motions[offsetof(TBoss6Thanks,motions)==0x48?1:-1];
 typedef char Thanks_motion1[offsetof(TBoss6Thanks,motion1)==0x50?1:-1];
+struct ThanksMotionHeader
+{
+  u32 x0;
+  u32 count;
+};
+
+extern "C" {
+void update_fade_out__12TBoss6ThanksFPv(void *arg0);
+void advance_thanks_state__12TBoss6ThanksFPv(void *arg0);
+void mark_done__12TBoss6ThanksFPv(void* p);
+}
+
 extern "C" {
 
 M2C_UNK reset_fish_globals__8TObjFishFv();
@@ -225,6 +238,43 @@ void advance_thanks_state__12TBoss6ThanksFPv(void *arg0) {
 
 void mark_done__12TBoss6ThanksFPv(void* p) { if (is_player_near__12TBoss6ThanksFPv((void *)(p)) != 0) { *(int*)((char*)p + 0x24) = 1; *(int*)((char*)p + 0x1c) = 1; } }
 
+typedef struct ThanksMotionHeader ThanksMotionHeader;
+typedef struct Thanks_8035CF78 Thanks_8035CF78;
+extern const f32 lbl_805E01B0;
+void TBoss6Thanks::run_task() {
+  f32 lim;
+  s32 *new_var;
+  TBoss6Thanks *o = this;
+  switch (o->m_1c)
+  {
+    case 0:
+      mark_done__12TBoss6ThanksFPv((void*)(o));
+      break;
+    case 1:
+      advance_thanks_state__12TBoss6ThanksFPv(o);
+      break;
+    case 2:
+      update_fade_out__12TBoss6ThanksFPv(o);
+      break;
+  }
+  o->frame0 += lbl_805E01B0;
+  lim = ((f32) ((ThanksMotionHeader *)o->motions[o->current_motion])->count) - lbl_805E01A8;
+  if (o->frame0 >= lim)
+  {
+    o->frame0 -= lim;
+    if ((*(new_var = &o->m_24)) != o->current_motion)
+    {
+      o->current_motion = *new_var;
+    }
+  }
+  o->frame1 += lbl_805E01B0;
+  lim = ((f32) ((ThanksMotionHeader *)o->motion1)->count) - lbl_805E01A8;
+  if (o->frame1 >= lim)
+  {
+    o->frame1 -= lim;
+  }
+}
+
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks *)&__vt__12TBoss6Thanks).value;
@@ -262,4 +312,14 @@ u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     return arg0;
 }
 
+}
+
+extern "C" {
+__declspec(section ".sdata2") const f32 lbl_805E0198 = 30.0f;
+__declspec(section ".sdata2") const f32 lbl_805E019C = 0.0f;
+__declspec(section ".sdata2") const f32 lbl_805E01A0 = 1.2f;
+__declspec(section ".sdata2") const f32 lbl_805E01A4 = 0.99f;
+__declspec(section ".sdata2") const f32 lbl_805E01A8 = 1.0f;
+__declspec(section ".sdata2") const f32 lbl_805E01AC = 120.0f;
+__declspec(section ".sdata2") const f32 lbl_805E01B0 = 0.6f;
 }

@@ -153,7 +153,6 @@ pso/boss/TBoss1DragonEffBullet.cpp
 pso/boss/TBoss1DragonEffTail.cpp
 pso/boss/TBoss1Dragon_8002B0CC.cpp
 pso/boss/TBoss1Dragon_800BC3C4.cpp
-pso/boss/TBoss2DeRolLe_80034A14.cpp
 pso/boss/TBoss2Fin.cpp
 pso/boss/TBoss2Mine.cpp
 pso/boss/TBoss2Mine_800375C0.cpp
@@ -223,6 +222,7 @@ pso/boss/TBoss6RockChase.cpp
 pso/boss/TBoss6Rock_80354A30.cpp
 pso/boss/TBoss6Rock_80354A44.cpp
 pso/boss/TBoss6SwordShot.cpp
+pso/boss/TBoss6Thanks.cpp
 pso/boss/TBoss6Thanks_8035D1F4.cpp
 pso/boss/TBoss6Tube.cpp
 pso/boss/TBoss6Tube_802B1020.cpp
@@ -386,6 +386,7 @@ pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer_80097100.cpp
 pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
 pso/enemy/TObjEneDimedian.cpp
+pso/enemy/TObjEneDolmOlm.cpp
 pso/enemy/TObjEneDubchik.cpp
 pso/enemy/TObjEneEpsilon.cpp
 pso/enemy/TObjEneEpsilonGuard_8035DD68.cpp
@@ -1508,7 +1509,6 @@ pso/misc/TQuestVmDownLoadServer_8033BC88.cpp
 pso/misc/TQuestVmDownLoadServer_8033C22C.cpp
 pso/misc/TQuestVmDownLoadServer_803E5668.cpp
 pso/misc/TQuestVmDownLoadServer_803F63F0.cpp
-pso/misc/TRaderMapCore_8002F588.cpp
 pso/misc/TRaderMapCore_801A6CEC.cpp
 pso/misc/TRaderMapCore_801F3710.cpp
 pso/misc/TRaderMapCore_801FB2B8.cpp
@@ -1529,7 +1529,6 @@ pso/misc/TSaveChCr_80339B64.cpp
 pso/misc/TSaveChCr_8033A088.cpp
 pso/misc/TScene.cpp
 pso/misc/TSceneSora.cpp
-pso/misc/TSceneSora_801A7964.cpp
 pso/misc/TSceneSora_8029F428.cpp
 pso/misc/TScene_800838C4.cpp
 pso/misc/TScene_800F9D80.cpp
@@ -2877,8 +2876,6 @@ pso/unk/text_8002B164.cpp
 pso/unk/text_8002C190.cpp
 pso/unk/text_8002E090.cpp
 pso/unk/text_8002E174.cpp
-pso/unk/text_8002F5AC.cpp
-pso/unk/text_8002F61C.cpp
 pso/unk/text_8003AFBC.cpp
 pso/unk/text_80041E88.cpp
 pso/unk/text_80042960.cpp
@@ -2961,7 +2958,6 @@ pso/unk/text_800A0798.cpp
 pso/unk/text_800A0814.cpp
 pso/unk/text_800A0884.cpp
 pso/unk/text_800A0994.cpp
-pso/unk/text_800A73F8.cpp
 pso/unk/text_800A884C.cpp
 pso/unk/text_800A887C.cpp
 pso/unk/text_800AAC5C.cpp
@@ -3333,7 +3329,6 @@ pso/unk/text_801A5778.cpp
 pso/unk/text_801A6A28.cpp
 pso/unk/text_801A6A5C.cpp
 pso/unk/text_801A6F84.cpp
-pso/unk/text_801A73B0.cpp
 pso/unk/text_801AA3B4.cpp
 pso/unk/text_801AAB74.cpp
 pso/unk/text_801AB018.cpp

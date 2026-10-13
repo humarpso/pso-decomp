@@ -416,62 +416,7 @@ s32 calc_random_scaled__10TObjPlayerFv(void) {
 
 #pragma push
 #pragma opt_common_subs off
-void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
-    Self_8002EFE8 *self = (Self_8002EFE8 *)arg0;
-    s32 i;
-    Model_8002EFE8 *model;
-    s32 idx;
-    f32 frame;
-    f32 max;
-    ((VObj_18_38992e *)(arg0))->m8(lbl_805D8278, lbl_805D8278);
-    lbl_805D5660 = some_id_805c6f74;
-    clear_global_flag_400__9TObjEneDDFv();
-    push_matrix();
-    post_translate_matrix(self->pos);
-    rotate_matrix_y(0, self->rotY);
-    rotate_matrix_x(0, self->rotX);
-    rotate_matrix_z(0, self->rotZ);
-    Vec_8002EFE8 scale = lbl_804359E4;
-    check_v2_mode__9TObjEneDDFv();
-    scale_current_matrix(&scale);
-    for (i = 0; i < 10; i++) {
-        TBoss2Joint__sub_8003688C(self->joints[i]);
-    }
-    idx = self->motionIdx;
-    if (idx < 0) {
-        idx = 0;
-    } else if (idx >= 0x11) {
-        idx = 0x10;
-    }
-    model = self->anims[self->motions[idx].anim].model;
-    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + 0xC0, 4) != 0) {
-        max = model->frames - 1;
-        self->frame = self->frame + self->speed;
-        while (self->frame < TBoss2DeRolLe__data_805D827C) {
-            self->frame = self->frame + max;
-        }
-        while (self->frame > max) {
-            self->frame = self->frame - max;
-        }
-        frame = self->frame;
-    } else {
-        frame = self->fixedFrame;
-        if (frame < TBoss2DeRolLe__data_805D827C) {
-            frame = TBoss2DeRolLe__data_805D827C;
-        } else if (frame > (f32)(model->frames - 1)) {
-            frame = model->frames;
-        }
-    }
-    fn_8002F5AC(self);
-    set_global_state__16TObjEneRe7BeruraFi(TObjPlayer__sub_8002F61C);
-    set_global_param__8TObjFishFi(self->x24);
-    draw_model_motion(self->x34, model, frame);
-    set_global_state__16TObjEneRe7BeruraFi(NULL);
-    TObjLight__sub_801337F8(current_scene_light);
-    pop_matrix();
-}
-#pragma pop
 
-int TObjLight__sub_8002F238(void* p) { return get_target_info__9TObjEneDDFPv(p); }
+#pragma pop
 
 }

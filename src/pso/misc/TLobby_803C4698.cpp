@@ -71,7 +71,7 @@ void ar_alloc__6TLobbyFv(void);
 void get_state_zero__6TLobbyFv(void);
 void process_connection_state__6TLobbyFv(void);
 void forward_notify_error__6TLobbyFii(void);
-extern u8 lbl_80572120[];
+extern u8 adx_stream_player_pool[];
 extern s32 lbl_805D4658;
 extern s32 TLobby_init_ref_count;
 extern s32 TLobby__svm_cb_svr_handle;
@@ -419,7 +419,7 @@ void init_and_add_ref__6TLobbyFv(void) {
         init_afs_adxf_state__6TLobbyFv();
         TLobby__sub_803CC114();
         flush_update__6TLobbyFv((void *)forward_notify_error__6TLobbyFii, 0);
-        memset(lbl_80572120, 0, 0xA80);
+        memset(adx_stream_player_pool, 0, 0xA80);
         lsc_init();
         if (lbl_805D4658 == 1) {
             SVM_SetCbSvrId__6TLobbyFiiii(2, 1, (void *)get_state_zero__6TLobbyFv, 0);

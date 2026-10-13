@@ -23,6 +23,42 @@ typedef struct Res_800A715C { u8 pad[0x42C]; Sub_800A715C *sub; Ent_800A715C *en
 
 typedef struct Vec_800A715C { f32 x, y, z; } Vec_800A715C;
 
+struct Obj_800A73F8 { u8 pad0[0x18]; void *vt; u8 pad1c[0x3C0 - 0x1C]; void *items[3]; };
+
+struct E_800A7734 { u8 pad[8]; s32 x8; s32 xc; };
+
+struct G_800A7734 { u8 pad[0x42c]; E_800A7734 *tbl; };
+
+struct O_800A7734 { u8 pad[0x24]; s32 x24; u8 pad2[0xc]; s32 x34; };
+
+typedef s32 M2C_UNK;
+struct VBase_800A749C { char pad[0x18]; };
+
+struct VObj_800A749C : VBase_800A749C {
+    virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
+    virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
+    virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
+    virtual void m12(); virtual void m13(); virtual void m14(); virtual void m15();
+    virtual void m16(); virtual void m17(); virtual void m18(); virtual void m19();
+    virtual void m20(); virtual void m21(); virtual void m22(); virtual void m23();
+    virtual void m24(); virtual void m25(); virtual void m26(); virtual void m27();
+    virtual void m28(); virtual void m29(); virtual void m30(); virtual void m31();
+    virtual void m32(); virtual void m33(); virtual void m34(); virtual void m35();
+    virtual void m36(); virtual void m37(); virtual void m38(); virtual void m39();
+    virtual void m40(); virtual void m41(); virtual void m42(); virtual void m43();
+    virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
+    virtual void m48(); virtual void m49(); virtual void m50(); virtual void m51();
+    virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
+    virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
+    virtual void m60(); virtual void m61(); virtual void m62(); virtual void m63();
+    virtual void m64(); virtual void m65(); virtual void m66(); virtual void m67();
+    virtual void m68(); virtual void m69(); virtual void m70(); virtual void m71();
+    virtual void m72(); virtual void m73(); virtual void m74(); virtual void m75();
+    virtual void m76(); virtual void m77(); virtual void m78();
+    virtual void m79(void *);
+    virtual void m80();
+};
+
 extern "C" {
 s32 update_movement_status__10TObjPlayerFv();
 M2C_UNK obj_clearFlags30(void *, int);
@@ -66,6 +102,40 @@ extern const f32 lbl_805D9A40;
 extern const f32 lbl_805D9A6C;
 extern const f32 lbl_805D9A94;
 void initialize_saver_resources(void);
+M2C_UNK queue_destruction__7TObjectFv(void *);
+void *TObjPlayer__sub_800A05B8(void *, s16);
+void __dt__9TObjEnemyFv(void *, int);
+s32 free_collision_body_parts(void *);
+s32 __dl__7TObjectFPv(void *);
+extern void *TObjEneSaver__vtable[83];
+Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1);
+void* TObjPlayer__sub_800A772C(void* p);
+extern u32 lbl_805D5050;
+void TObjPlayer__sub_800A7734(O_800A7734 *self, s32 i);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
+void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
+void set_field_d8__10TObjPlayerFPvi(void *, void *);
+M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+void init_position_vectors__10TObjPlayerFi(void *);
+void init_vtable_and_field18__10TObjPlayerFPv(void *);
+void TObjPlayer__sub_800A7734(O_800A7734 *self, s32 i);
+s32 create__12TObjEneSaverFPvPv(u32, u32);
+void set_param__12TObjEneLappyFPvi(void *, s32);
+void initialize_enemy_photon_effect(void *);
+M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
+void initialize__9TObjEnemyFPv(void *, void *, void *);
+void set_animation__10TObjPlayerFPvs(void *, s16);
+void init_collision_body_parts(void *, void *, s32);
+void *__nw__7TObjectFUl(int);
+void *TEneParticleCtrl__ct(void *, void *, s32);
+extern s32 TObjEneSaver__class_name;
+extern s32 lbl_805D5040;
+extern s32 *player_object_ptr_array;
+extern s32 lbl_805D5048;
+extern u32 lbl_805D5050;
+u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2);
 }
 
 extern "C" {
@@ -167,7 +237,6 @@ void TObjPlayer__sub_800A617C(void *arg0);
 void TObjPlayer__sub_800A64E8(u8 *arg0);
 void TObjPlayer__sub_800A6C54(u8 *arg0);
 void TObjPlayer__sub_800A6EC0(u8 *arg0);
-void TObjPlayer__sub_800A772C();
 void TObjPlayer__sub_800F65D0();
 void add_actor_exp();
 void apply_action_hold_status();
@@ -203,7 +272,6 @@ void fn_80010EBC();
 void fn_80010EC0();
 void fn_80010EC4();
 void fn_80010EC8();
-void fn_800A73F8();
 void get_actor_level_index();
 void get_enemy_name__14TObjEnePanarmsFPv();
 void get_pos__10TObjPlayerFii();
@@ -259,7 +327,7 @@ void *bm_ene_df1_saver_motion_names[12] = {
 void *bm_ene_df1_saver_resource_descriptor[4] = {
     (void *)&lbl_8043A86C, (void *)&bm_ene_df1_saver_model_names, (void *)&bm_ene_df1_saver_motion_names, (void *)0x1000b,
 };
-void *lbl_80490A78[51] = {
+void *lbl_80490A78[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f800000, (void *)0x1,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x1,
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
@@ -271,6 +339,8 @@ void *lbl_80490A78[51] = {
     (void *)0x20000, (void *)0x2, (void *)0x3f800000, (void *)0x8,
     (void *)0x30000, (void *)0x4, (void *)0x3f800000, (void *)0x10,
     (void *)0x30000, (void *)0x3, (void *)0x3f800000, (void *)0x10,
+};
+void *lbl_80490B28[7] = {
     (void *)0x437a0000, (void *)0x3fa00000, (void *)0x400, (void *)0x0,
     (void *)0x64, (void *)0x0, (void *)0x0,
 };
@@ -1636,7 +1706,6 @@ void step_angle_clamped__10TObjPlayerFPvi(void *arg0, s32 arg1);
 M2C_UNK set_position_from__14TBoss4DarkFalzFPvPv(void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
 void *TObjControl__ct(void *, void *);
-void *TObjEneSaver__ct(void *, void *, void *);
 M2C_UNK refresh_collision_body_centers(void *);
 void __dt__11TBoss4Type3FPvs(void*, int);
 void *__nw__7TObjectFUl(int);
@@ -2170,7 +2239,7 @@ void * create_ene_saver(void *arg0) {
     }
     o2 = __nw__7TObjectFUl(0x3CC);
     if (o2 != NULL) {
-        o2 = TObjEneSaver__ct(o2, o, arg0);
+        o2 = TObjEneSaver__ct((u8 *)(o2), (void *)(o), (void *)(arg0));
     }
     return o2;
 }
@@ -2271,6 +2340,97 @@ void initialize_saver_resources(void) {
     Init_800A715C init = lbl_8043A894;
     init.w[0] = (s32)RES->ents;
     spawn_npc_enemy__6TLobbyFsiiiff(0x1A, RES->sub->f8, RES->sub->fC, &init, lbl_80490B44[3], lbl_805D9A14);
+}
+Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
+    s32 i;
+    if (arg0 != NULL) {
+        i = 0;
+        arg0->vt = TObjEneSaver__vtable;
+        do {
+            if (arg0->items[i] != NULL) {
+                queue_destruction__7TObjectFv(arg0->items[i]);
+                arg0->items[i] = NULL;
+            }
+            i++;
+        } while (i < 3);
+        free_collision_body_parts(arg0);
+        TObjPlayer__sub_800A05B8((u8 *)arg0 + 0x3A4, -1);
+        __dt__9TObjEnemyFv(arg0, 0);
+        if (arg1 > 0) {
+            __dl__7TObjectFPv(arg0);
+        }
+    }
+    return arg0;
+}
+
+#undef VecCopy__FP3VecPC3Vec
+u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
+    s16 t;
+    void *p;
+    initialize__9TObjEnemyFPv(arg0, arg1, arg2);
+    M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)TObjEneSaver__vtable;
+    init_vtable_and_field18__10TObjPlayerFPv(arg0 + 0x3A4);
+    M2C_FIELD(arg0, s32 *, 0) = TObjEneSaver__class_name;
+    ((VObj_800A749C *)arg0)->m79(arg2);
+    init_position_vectors__10TObjPlayerFi(arg0);
+    M2C_FIELD(arg0, f32 *, 0x70) = 1.0f;
+    M2C_FIELD(arg0, f32 *, 0x6C) = 1.0f;
+    M2C_FIELD(arg0, f32 *, 0x68) = 1.0f;
+    t = (s16)(100.0f + M2C_FIELD(arg0, f32 *, 0x354));
+    M2C_FIELD(arg0, s16 *, 0x388) = t;
+    M2C_FIELD(arg0, s16 *, 0x38A) = t;
+    if (M2C_FIELD(arg0, f32 *, 0x358) < 0.0f) {
+        M2C_FIELD(arg0, f32 *, 0x358) = 0.0f;
+    } else if (8.0f < M2C_FIELD(arg0, f32 *, 0x358)) {
+        M2C_FIELD(arg0, f32 *, 0x358) = 8.0f;
+    }
+    M2C_FIELD(arg0, s32 *, 0x378) = 0;
+    M2C_FIELD(arg0, s32 *, 0x378) |= 1 << (s32)M2C_FIELD(arg0, f32 *, 0x358);
+    M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    M2C_FIELD(arg0, s16 *, 0x328) = 0;
+    M2C_FIELD(arg0, s32 *, 0x368) = 0;
+    set_param__12TObjEneLappyFPvi(arg0, 0x1E);
+    M2C_FIELD(arg0, s32 *, 0x334) = 0;
+    TObjPlayer__sub_800A7734((O_800A7734 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
+    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80490A78;
+    set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&lbl_805D5050), s32 *, 0x430);
+    M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
+    init_collision_body_parts(arg0, (u8 *)lbl_80490B44, 1);
+    M2C_FIELD(arg0, s16 *, 0x37C) = 0;
+    M2C_FIELD(arg0, s16 *, 0x37E) = 0;
+    bind_enemy_combat_stats((void *)(arg0), (int)(lbl_805D5040), (int)(player_object_ptr_array[M2C_FIELD(arg0, s16 *, 0x37C)]), (int)(lbl_805D5048));
+    M2C_FIELD(arg0, u8 **, 0x350) = (u8*)lbl_80490B28;
+    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    update_prev_position__10TObjPlayerFPv(arg0);
+    copy_position__20TBoss3VoloptHiraisinFi(arg0);
+    initialize_enemy_photon_effect(arg0);
+    M2C_FIELD(arg0, s32 *, 0x374) = 1;
+    M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x390, arg0 + 0x2FC);
+    M2C_FIELD(arg0, s32 *, 0x39C) = 0;
+    add_flags_2e4__10TObjPlayerFPvUi(arg0, 8);
+    M2C_FIELD(arg0, u32 *, 0x30) |= 0x06040000;
+    M2C_FIELD(arg0, s32 *, 0x380) = 0x101;
+    M2C_FIELD(arg0, s32 *, 0x384) = 0x101;
+    p = __nw__7TObjectFUl((int)(0xC4));
+    if (p != NULL) {
+        p = TEneParticleCtrl__ct(p, arg0, M2C_FIELD(arg0, s32 *, 0x380));
+    }
+    M2C_FIELD(arg0, void **, 0x3A0) = p;
+    M2C_FIELD(arg0, s32 *, 0x3C0) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
+    M2C_FIELD(arg0, s32 *, 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFFFF0088);
+    M2C_FIELD(arg0, s32 *, 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, 0xFF303030);
+    ((VObj_800A749C *)arg0)->m80();
+    return arg0;
+}
+
+void* TObjPlayer__sub_800A772C(void* p) { return (char*)p + 0x2fc; }
+void TObjPlayer__sub_800A7734(O_800A7734 *self, s32 i) {
+    self->x34 = (*(G_800A7734 * *)&lbl_805D5050)->tbl[i].x8;
+    self->x24 = (*(G_800A7734 * *)&lbl_805D5050)->tbl[i].xc;
 }
 
 #define player_object_ptr_array (*(u32 *)&player_object_ptr_array)

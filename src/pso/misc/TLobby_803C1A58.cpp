@@ -193,7 +193,7 @@ extern M2C_UNK lbl_8047C520[];
 extern M2C_UNK lbl_8047C540[];
 s32 TRK__write_aram(void *arg0p, void *arg1, void *arg2);
 M2C_UNK clear_record_data__6TLobbyFPv(int);
-u32 alloc_adx_channel__6TLobbyFv();
+u32 adx_allocate_decoder_channel();
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C4020(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_progress_info__6TLobbyFPvPvPvPv(u8 *arg0, s32 *arg1, s32 *arg2, s32 *arg3);
@@ -865,7 +865,7 @@ Rec_803C3E88 *alloc_record__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3)
     r = &TBL_803C3E88[i];
     memset(r, 0, 0xB8);
     r->used = 1;
-    r->f8 = alloc_adx_channel__6TLobbyFv();
+    r->f8 = adx_allocate_decoder_channel();
     if (r->f8 == 0) {
         free_803C3E88(r);
         return NULL;

@@ -295,7 +295,7 @@ void load_shared_resource__14TObjNpcKenkyu2Fv();
 void close_dialog_window__12TObjNpcHosa2Fv();
 void load_shared_resource__12TObjNpcHosa2Fv();
 void free_shared_resources__14TObjEneDolmOlmFv();
-void TObjEneDolmOlm__sub_80302784();
+void load_shared_resources__14TObjEneDolmOlmFv();
 void destroy_static_instance__16TObjEneDellBiterFv();
 void load_resources__16TObjEneDellBiterFv();
 void free_shared_data__15TObjEneDelDepthFv();
@@ -654,7 +654,7 @@ FloorResourceCallbacks floor_resource_callbacks_selectors_23_24_25_26_27[16] = {
 FloorResourceCallbacks floor_resource_callbacks_selector_34[15] = {
     { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
     { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjEneDolmOlm__sub_80302784, free_shared_resources__14TObjEneDolmOlmFv },
+    { load_shared_resources__14TObjEneDolmOlmFv, free_shared_resources__14TObjEneDolmOlmFv },
     { load_resources__14TObjEneRecoboxFv, release_static_instance__14TObjEneRecoboxFv },
     { TObjEneMerillLia__sub_800D6D64, destroy_rocks__16TObjEneMerillLiaFv },
     { load_resources__16TObjEneBm5GibonUFv, release_static_resource__16TObjEneBm5GibonUFv },
@@ -691,7 +691,7 @@ FloorResourceCallbacks floor_resource_callbacks_selector_35[16] = {
 FloorResourceCallbacks floor_resource_callbacks_selectors_28_29[14] = {
     { load_corpse_mark_resource, destroy_static_lobby__10TObjPlayerFv },
     { create_instance__9TObjEneDDFv, release_resource__9TObjEneDDFv },
-    { TObjEneDolmOlm__sub_80302784, free_shared_resources__14TObjEneDolmOlmFv },
+    { load_shared_resources__14TObjEneDolmOlmFv, free_shared_resources__14TObjEneDolmOlmFv },
     { TObjEneMorfos__sub_803350AC, unload_static_data__13TObjEneMorfosFv },
     { load_resources__14TObjEneRecoboxFv, release_static_instance__14TObjEneRecoboxFv },
     { TObjEneMe3SinowZoa__sub_8031B240, free_resources__18TObjEneMe3SinowZoaFv },

@@ -62,12 +62,12 @@ extern s32 current_floor_index;
 extern s32 lobby_player_count;
 extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 lbl_80487CCC;
 extern RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90 lbl_80487CD8;
-extern int boss8_dragon_instance;
-extern RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90 lbl_804FF5B4;
+extern int boss5_gryphon_instance;
+extern RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90 boss5_gryphon_behavior_params;
 extern const f32 lbl_805D8D5C;
 extern RecoveredGlobal_80065F08_lbl_80437938_80065C90 lbl_80437938;
 
-    extern int boss8_dragon_instance;
+    extern int boss5_gryphon_instance;
 
 typedef char RecoveredGlobal_80065EA0_lbl_80487CCC_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90) == 0x354 ? 1 : -1];
@@ -82,33 +82,33 @@ void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *ar
     default:
     case 2:
     case 0:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 0);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 4);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 8);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 0xC);
+        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0);
+        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 4);
+        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 8);
+        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0xC);
         return;
     case 1:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 0x10);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 0), f32 *, 0x14);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 0);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 4);
+        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0x10);
+        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0x14);
+        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0);
+        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 4);
         return;
     case 3:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 8);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 0xC);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 0x10);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&lbl_804FF5B4.value, u8 **, 4), f32 *, 0x14);
+        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 8);
+        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0xC);
+        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0x10);
+        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0x14);
         return;
     }
 }
 
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
-    if ((void *) (*(u8 * *)&boss8_dragon_instance) == NULL) {
+    if ((void *) (*(u8 * *)&boss5_gryphon_instance) == NULL) {
         VecCopy__FP3VecPC3Vec(arg0, &lbl_80487CCC.value);
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
         return;
     }
-    fill_follow_camera_params__12TBoss8DragonFPvPvPv((u8 *)((u8 *)((*(u8 * *)&boss8_dragon_instance))), (u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
+    fill_follow_camera_params__12TBoss8DragonFPvPvPv((u8 *)((u8 *)((*(u8 * *)&boss5_gryphon_instance))), (u8 *)((u8 *)(arg0)), (u8 *)((u8 *)(arg1)));
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];
@@ -116,7 +116,7 @@ M2C_UNK *TBoss8Dragon__sub_80065F08(void) {
     return &lbl_80437938.value;
 }
 
-int get_instance_count__12TBoss8DragonFv(void) {  return boss8_dragon_instance; }
+int get_instance_count__12TBoss8DragonFv(void) {  return boss5_gryphon_instance; }
 
 void TBoss8Dragon__sub_80065F1C(void) {  }
 void TBoss8Dragon__sub_80065F20(void) {  }

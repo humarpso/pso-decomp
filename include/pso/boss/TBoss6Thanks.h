@@ -3,9 +3,9 @@
 #include "types.h"
 struct TBoss6Thanks {
     u8 _object_header[0x1C];
-    u32 m_1c;
+    s32 m_1c;
     s32 current_motion;
-    u32 m_24;
+    s32 m_24;
     f32 frame0;
     f32 frame1;
     f32 opacity;
@@ -16,6 +16,7 @@ struct TBoss6Thanks {
     s32 texture1;
     void *motions[2];
     void *motion1;
+    void run_task();
     void render();
 };
 #endif

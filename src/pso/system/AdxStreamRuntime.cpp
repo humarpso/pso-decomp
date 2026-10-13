@@ -241,10 +241,10 @@ M2C_UNK memset(void *, int, int);
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
 s32 clear_buffer_a00__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 void clear_buffer_1680__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 void clear_net_buffer_1680__6TLobbyFv(void);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
@@ -252,8 +252,8 @@ void TLobby__sub_803C9DB4(u8 *arg0);
 void start_stream_playback__6TLobbyFPvi(struct Stream_803CA0C8 *self, s32 arg1);
 void TLobby__sub_803C5D24(u8 *arg0);
 s32 write_zero_padded_block__6TLobbyFPv(void *);
-s32 DVDLowRead(void *);
-void TLobby__sub_803C6064(u8 *arg0);
+s32 adx_encode_available_blocks(void *);
+void adx_process_encoder_output(u8 *arg0);
 s32 cv_fs_tell__6TLobbyFPv(int);
 s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
 s32 check_packet_header_8001__6TLobbyFPviPv(u16 *p, s32 size, s32 *out);
@@ -262,7 +262,7 @@ void init_once__6TLobbyFv(void);
 M2C_UNK memset(void *, int, int);
 void TLobby__sub_803C6138(S_803C6138 *arg0);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
-s32 DVDLowSeek(u16 *arg0, s32 arg1, s32 *arg2);
+s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 TLobby__sub_803CEA14(void);
 M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
@@ -315,7 +315,7 @@ extern u8 lbl_80572BA0[];
 extern u8 lbl_80572BE0[];
 void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void *memcpy(void *, const void *, u32);
-s32 TRKRequestSend(Obj_803C7C10 *arg0);
+s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0);
 void format_number_pair__6TLobbyFiiPvi(s32, s32, char *, s32);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
@@ -358,7 +358,7 @@ s32 cv_fs_tell__6TLobbyFPv(int);
 M2C_UNK set_global_805D7520__6TLobbyFi();
 
 extern "C" {
-extern RecoveredGlobal_803C6830_lbl_80573AC0 lbl_80573AC0;
+extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 }
 
 extern "C" {
@@ -482,7 +482,7 @@ typedef char PointerRecords_803C5E78_var_r31_size[sizeof(PointerRecords_803C5E78
 void TLobby__sub_803C5E78(void) {
     s32 var_r30;
     u8 *var_r31;
-    var_r31 = (u8 *)(((u8 *)&lbl_80573AC0));
+    var_r31 = (u8 *)(((u8 *)&adx_encoder_context_pool));
     var_r30 = 0;
     do {
         if ((s32) M2C_FIELD(((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30]), u8 *, 0) == 1) {
@@ -492,13 +492,13 @@ void TLobby__sub_803C5E78(void) {
     } while (var_r30 < 8);
 }
 
-void TLobby__sub_803C6064(u8 *arg0) {
+void adx_process_encoder_output(u8 *arg0) {
     struct Fields_arg0 { u8 pad_0[1]; s8 field_1; u8 pad_2[1]; u8 field_3; u8 pad_4[40]; s32 field_2C; s32 field_30; u8 pad_34[8]; s32 field_3C; };
     s32 temp_r3;
 loop_1:
     if ((s8) ((Fields_arg0*)arg0)->field_3 == 0) {
 loop_2:
-        temp_r3 = DVDLowRead(arg0);
+        temp_r3 = adx_encode_available_blocks(arg0);
         if (temp_r3 != 0) {
             ((Fields_arg0*)arg0)->field_2C = (s32) (((Fields_arg0*)arg0)->field_2C + temp_r3);
             if ((s32) ((Fields_arg0*)arg0)->field_30 >= (s32) ((Fields_arg0*)arg0)->field_3C) {
@@ -556,11 +556,11 @@ void TLobby__sub_803C6138(S_803C6138 *arg0) {
 }
 
 void clear_net_buffer_1680__6TLobbyFv(void) {
-    memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&lbl_80573AC0).value), (int) (0), (int) (0x1680));
+    memset((void *) (&(*(RecoveredGlobal_803C6800_lbl_80573AC0 *)&adx_encoder_context_pool).value), (int) (0), (int) (0x1680));
 }
 
 void clear_buffer_1680__6TLobbyFv(void) {
-    memset((void *) (&lbl_80573AC0.value), (int) (0), (int) (0x1680));
+    memset((void *) (&adx_encoder_context_pool.value), (int) (0), (int) (0x1680));
 }
 
 u32 strlen(const char *);
@@ -825,7 +825,7 @@ inline void put_803C7C10(Strm_803C7C10 *s, void *src, s32 n) {
         s->vt->commit(s, 1, &b);
     }
 }
-s32 TRKRequestSend(Obj_803C7C10 *arg0) {
+s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
     s32 i;
     s32 total;
     u8 c;
@@ -1324,7 +1324,7 @@ s32 check_packet_header_8001__6TLobbyFPviPv(u16 *p, s32 size, s32 *out) {
     *out = size;
     return 1;
 }
-s32 DVDLowSeek(u16 *arg0, s32 arg1, s32 *arg2) {
+s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2) {
     s32 a7;
     s32 a8;
     s32 a9;
@@ -1625,7 +1625,7 @@ s8 TLobby__sub_803C9CB0(u8 *arg0);
 M2C_UNK notify_error__6TLobbyFPv(void *);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
 M2C_UNK memset(void *, int, int);
-extern Ch_803CB5C4 lbl_80575B40[16];
+extern Ch_803CB5C4 adx_decoder_channel_pool[16];
 void clear_buffer_340__6TLobbyFv(void);
 s32 send_with_offset4_alt__6TLobbyFPv(int);
 M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
@@ -1655,7 +1655,7 @@ void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2);
 M2C_UNK GXFlush();
 M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
 M2C_UNK run_sequence__6TLobbyFv();
-extern Ent_803C9608 lbl_80572120[16];
+extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7564;
 void TLobby__sub_803C9608(void);
 M2C_UNK notify_error__6TLobbyFPv(void *);
@@ -1699,7 +1699,7 @@ M2C_UNK TLobby__sub_803C97F4(void *, void *, void *);
 M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
 s32 TLobby__sub_803CBF10(int);
 M2C_UNK run_sequence__6TLobbyFv();
-extern Ent_803C9608 lbl_80572120[16];
+extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7540;
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7564;
@@ -1731,8 +1731,8 @@ void *TLobby__sub_803C0848(void *, s32, void *);
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *run_step_5210__6TLobbyFv(void *, s32);
 M2C_UNK memset(void *, int, int);
-extern Ent_803C9608 lbl_80572120[16];
-Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size);
+extern Ent_803C9608 adx_stream_player_pool[16];
+Ch_803CA3C4 *adx_create_stream_player(s32 n, s32 base, s32 size);
 }
 
 extern "C" {
@@ -1791,8 +1791,8 @@ inline void inl_803C9608(void) {
         GXFlush();
         lbl_805D7564 = 2;
         for (i = 0; i < 16; i++) {
-            if (lbl_80572120[i].state == 1) {
-                TLobby__sub_803CA8B4(&lbl_80572120[i]);
+            if (adx_stream_player_pool[i].state == 1) {
+                TLobby__sub_803CA8B4(&adx_stream_player_pool[i]);
             }
         }
         lbl_805D7564 = 3;
@@ -1866,8 +1866,8 @@ void TLobby__sub_803C9608(void) {
         GXFlush();
         lbl_805D7564 = 2;
         for (i = 0; i < 16; i++) {
-            if (lbl_80572120[i].state == 1) {
-                TLobby__sub_803CA8B4(&lbl_80572120[i]);
+            if (adx_stream_player_pool[i].state == 1) {
+                TLobby__sub_803CA8B4(&adx_stream_player_pool[i]);
             }
         }
         lbl_805D7564 = 3;
@@ -2206,21 +2206,21 @@ __declspec(section ".sdata2") extern const u32 lbl_805E0D64[1] = { 0xc2700000 };
 #define lbl_805E0D60 (*(const f32 *)lbl_805E0D60)
 #define lbl_805E0D64 (*(const f32 *)lbl_805E0D64)
 
-Ch_803CA3C4 *TLobby__sub_803CA3C4(s32 n, s32 base, s32 size) {
+Ch_803CA3C4 *adx_create_stream_player(s32 n, s32 base, s32 size) {
     Ch_803CA3C4 *c;
     s32 aligned = (base + 0x3F) & ~0x3F;
     s32 rem = size - (aligned - base);
     s32 i;
     s32 t;
     for (i = 0; i < 16; i++) {
-        if (lbl_80572120[i].state == 0) {
+        if (adx_stream_player_pool[i].state == 0) {
             break;
         }
     }
     if (i == 16) {
         return NULL;
     }
-    c = (Ch_803CA3C4 *)&lbl_80572120[i];
+    c = (Ch_803CA3C4 *)&adx_stream_player_pool[i];
     memset(c, 0, 0xA8);
     c->n = n;
     t = (n * 0x2060) << 1;
@@ -2738,19 +2738,19 @@ void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2) {
 }
 #pragma pop
 
-Ch_803CB5C4 *alloc_adx_channel__6TLobbyFv(void) {
+Ch_803CB5C4 *adx_allocate_decoder_channel(void) {
     s32 i;
     Ch_803CB5C4 *c;
 
     for (i = 0; i < 16; i++) {
-        if (lbl_80575B40[i].used == 0) {
+        if (adx_decoder_channel_pool[i].used == 0) {
             break;
         }
     }
     if (i == 16) {
         return NULL;
     }
-    c = &lbl_80575B40[i];
+    c = &adx_decoder_channel_pool[i];
     memset(c, 0, sizeof(Ch_803CB5C4));
     c->used = 1;
     c->id = i;
@@ -2763,7 +2763,7 @@ Ch_803CB5C4 *alloc_adx_channel__6TLobbyFv(void) {
 
 typedef char RecoveredGlobal_800F8A78_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A78_lbl_80501178) == 0x10 ? 1 : -1];
 void clear_buffer_340__6TLobbyFv(void) {
-    memset((void *) (lbl_80575B40), (int) (0), (int) (0x340));
+    memset((void *) (adx_decoder_channel_pool), (int) (0), (int) (0x340));
 }
 
 void TLobby__sub_803CB74C(s32 *arg0) {
@@ -2861,6 +2861,15 @@ void adxm_goto_mwidle_border__6TLobbyFv(void) {
 }
 
 extern "C" {
+Ent_803C9608 adx_stream_player_pool[16];
+u8 lbl_80572BA0[0x40];
+u8 lbl_80572BE0[0x400];
+char music_stream_afs_filename_buffer[0x120];
+u32 adx_encoder_channel_work_pools[0x9C0 / 4];
+RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
+RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
+Ch_803CB5C4 adx_decoder_channel_pool[16];
+
 OSThread adxm_worker_thread;
 OSThread adxm_vblank_thread;
 OSThread adxm_busy_wait_thread;

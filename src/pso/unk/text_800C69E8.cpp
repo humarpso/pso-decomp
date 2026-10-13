@@ -47,7 +47,7 @@ void TObjPlayer__sub_800C6A00(void);
 void TObjPlayer__sub_800C6A04(void);
 void TObjPlayer__sub_800C6A08(void);
 void TObjPlayer__sub_800C6A0C(void);
-u16 TObjPlayer__sub_800C6A10(void* p);
+u16 get_enemy_target_id(void* p);
 
 void TObjPlayer__sub_800C69E8(void* p) { *(s16*)((char*)p + 0x326) = 1; }
 void TObjPlayer__sub_800C69F4(void) {  }
@@ -57,7 +57,7 @@ void TObjPlayer__sub_800C6A00(void) {  }
 void TObjPlayer__sub_800C6A04(void) {  }
 void TObjPlayer__sub_800C6A08(void) {  }
 void TObjPlayer__sub_800C6A0C(void) {  }
-u16 TObjPlayer__sub_800C6A10(void* p) { return *(u16*)((char*)p + 0x338); }
+u16 get_enemy_target_id(void* p) { return *(u16*)((char*)p + 0x338); }
 void release_destroyed_target__10TObjPlayerFPv(O_800C6A18 *self) {
     if (self->p != 0 && (self->p->flags & 0x800)) {
         self->p = 0;

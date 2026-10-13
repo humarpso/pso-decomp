@@ -1073,7 +1073,7 @@ f32 calc_boss4_scale__10TObjPlayerFi(void *);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-s32 TBoss2DeRolLe__sub_80035FCC(void *);
+s32 advance_scalar_motion_profile(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
@@ -1169,7 +1169,7 @@ void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2);
 M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-s32 TBoss2DeRolLe__sub_80035FCC(void *);
+s32 advance_scalar_motion_profile(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
@@ -2819,7 +2819,7 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
                     } else {
                         M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
                     }
-                } else if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670) == 3) {
+                } else if (advance_scalar_motion_profile(arg0 + 0x670) == 3) {
                     M2C_FIELD(arg0, s32 *, 0x728) = 3;
                 } else {
                     M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x74C) - M2C_FIELD(arg0, f32 *, 0x688);
@@ -3011,18 +3011,18 @@ void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3) {
             case 4:
                 self->x = self->x + self->vx;
                 update_wobble_angle__8TObjFishFPv(self);
-                TBoss2DeRolLe__sub_80035FCC(self->mover);
+                advance_scalar_motion_profile(self->mover);
                 self->z = self->vy - self->f688;
                 break;
             case 5:
                 self->x = self->x + self->vx;
                 update_wobble_angle__8TObjFishFPv(self);
-                TBoss2DeRolLe__sub_80035FCC(self->mover);
+                advance_scalar_motion_profile(self->mover);
                 self->z = self->vy - self->f688;
                 break;
             case 6:
                 update_wobble_angle__8TObjFishFPv(self);
-                if (TBoss2DeRolLe__sub_80035FCC(self->mover) == 3) {
+                if (advance_scalar_motion_profile(self->mover) == 3) {
                     self->phase = 2;
                 }
                 self->z = self->vy - self->f688;
@@ -3820,12 +3820,12 @@ typedef s32 M2C_UNK;
 struct Vec_802ED3E4 { f32 x, y, z; };
 
 extern "C" {
-M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK advance_scalar_motion_profile(void *);
 u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0);
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
-M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK advance_scalar_motion_profile(void *);
 u32 update_phase_settling__8TObjFishFPv(u8 *arg0);
-M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK advance_scalar_motion_profile(void *);
 u32 update_anim_state__8TObjFishFPv(u8 *arg0);
 M2C_UNK bind_motion_context(int, f32);
 M2C_UNK compose_motion_node_matrix(int);
@@ -3834,7 +3834,7 @@ M2C_UNK push_matrix_from(void *);
 M2C_UNK transform_point_by_current_matrix(void *, void *);
 M2C_UNK pop_matrix();
 extern u8 identity_matrix[];
-M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK advance_scalar_motion_profile(void *);
 u8 update_phase_rising__8TObjFishFPv(u8 *arg0);
 }
 
@@ -3843,7 +3843,7 @@ extern "C" {
 s32 TBoss7Joint_get_shell_max_hp(void);
 s32 is_all_parts_done__8TObjFishFPv(u8 *arg0);
 void update_wobble_angle__8TObjFishFPv(void *arg0);
-M2C_UNK TBoss2DeRolLe__sub_80035FCC(void *);
+M2C_UNK advance_scalar_motion_profile(void *);
 void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
 
 #pragma push
@@ -3852,8 +3852,8 @@ u8 update_phase_rising__8TObjFishFPv(u8 *arg0) {
     f32 var_f2;
     s32 temp_r0;
     s32 var_r3;
-    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630);
-    if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650) == 3) {
+    advance_scalar_motion_profile(arg0 + 0x630);
+    if (advance_scalar_motion_profile(arg0 + 0x650) == 3) {
         M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
@@ -3872,7 +3872,7 @@ u8 update_phase_rising__8TObjFishFPv(u8 *arg0) {
         }
         break;
     case 3:
-        if (TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670) == 3) {
+        if (advance_scalar_motion_profile(arg0 + 0x670) == 3) {
             M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
         }
         break;
@@ -3894,8 +3894,8 @@ u8 update_phase_rising__8TObjFishFPv(u8 *arg0) {
 u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     s32 var_r3;
-    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);
-    if (((s32)TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650)) == 3) {
+    advance_scalar_motion_profile(arg0 + 0x670);
+    if (((s32)advance_scalar_motion_profile(arg0 + 0x650)) == 3) {
         M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
@@ -3907,7 +3907,7 @@ u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0) {
         }
         break;
     case 1:
-        if (((s32)TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630)) == 3) {
+        if (((s32)advance_scalar_motion_profile(arg0 + 0x630)) == 3) {
             M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
         }
         break;
@@ -3929,8 +3929,8 @@ u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0) {
 u32 update_phase_settling__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     u8 var_r3;
-    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x630));
-    if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x650))) == 3) {
+    advance_scalar_motion_profile((void *) (arg0 + 0x630));
+    if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x650))) == 3) {
         M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
@@ -3945,7 +3945,7 @@ u32 update_phase_settling__8TObjFishFPv(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x6D0) = 3;
         break;
     case 3:
-        if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x670))) == 3) {
+        if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x670))) == 3) {
             M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
         }
         if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEB90) {
@@ -3969,8 +3969,8 @@ u32 update_phase_settling__8TObjFishFPv(u8 *arg0) {
 u32 update_anim_state__8TObjFishFPv(u8 *arg0) {
     s32 temp_r0;
     u8 var_r3;
-    TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x670));
-    if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x650))) == 3) {
+    advance_scalar_motion_profile((void *) (arg0 + 0x670));
+    if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x650))) == 3) {
         M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
     }
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
@@ -3981,7 +3981,7 @@ u32 update_anim_state__8TObjFishFPv(u8 *arg0) {
         }
         break;
     case 1:
-        if (((s32)TBoss2DeRolLe__sub_80035FCC((void *) (arg0 + 0x630))) == 3) {
+        if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x630))) == 3) {
             M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
         }
         break;
@@ -3999,9 +3999,9 @@ u32 update_anim_state__8TObjFishFPv(u8 *arg0) {
 #pragma pop
 
 s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
-    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x670);
-    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x630);
-    TBoss2DeRolLe__sub_80035FCC(arg0 + 0x650);
+    advance_scalar_motion_profile(arg0 + 0x670);
+    advance_scalar_motion_profile(arg0 + 0x630);
+    advance_scalar_motion_profile(arg0 + 0x650);
     if (((s32) M2C_FIELD(arg0, s32 *, 0x630) == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x650) == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x670) == 3)) {
         return 1;
     }

@@ -182,7 +182,7 @@ extern M2C_UNK lbl_805D7CA0;
 void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void);
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
+extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 EXILock(s32, u32, u32);
@@ -209,13 +209,13 @@ extern s32 lbl_805D7BFC;
 extern u32 lbl_805D7C00;
 s32 init_buffer_pool__6TLobbyFv(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
-extern RecoveredGlobal_8042E768_lbl_805D1D20 lbl_805D1D20;
+extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
 M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK exi_mac_address;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
-void TLobby__sub_80425DC8(void *q, void *a, void *b);
+void dispatch_received_ethernet_frame(void *q, void *a, void *b);
 extern u8 lobby_net_channel_table[];
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
@@ -557,17 +557,17 @@ void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void) {
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB0) != 0) {
+    if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB0) != 0) {
         return -4;
     }
     if ((s32) lbl_805D7C98 != 3) {
         return -7;
     }
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB0) = 1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB4) = arg0;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xBC) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xB8) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&lbl_805D1D20).value, s32 *, 0xD8) = arg2;
+    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB0) = 1;
+    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB4) = arg0;
+    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xBC) = arg1;
+    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB8) = arg1;
+    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xD8) = arg2;
     TAdSinglePlyChrSelectGC__sub_8042DDE4((int)((int) (0)), (int)((int) (0)));
     return 1;
 }
@@ -625,7 +625,7 @@ s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
     if (arg0 != 0U) {
-        *(M2CCopy_1C *)(arg0) = *(const M2CCopy_1C *)(&lbl_805D1D20.value);
+        *(M2CCopy_1C *)(arg0) = *(const M2CCopy_1C *)(&modem_connection_info.value);
     }
     return lbl_805D7C98;
 }
@@ -662,4 +662,10 @@ s32 fn_8042E8B8(void) {
     return 0x80003100;
 }
 
+}
+
+extern "C" {
+RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
+u8 modem_command_response_state[0x94];
+u8 modem_exi_state[0x70];
 }

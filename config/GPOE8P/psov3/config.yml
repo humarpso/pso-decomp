@@ -222,6 +222,7 @@ force_active:
   - TObjEneBm5Wolf__stat_params
   - TObjEneDelDepth_motion_file_list
   - TObjEneDelDepth_motion_names
+  - TObjEneDolmOlm__param_table
   - TObjEneEpsilonGuard__model_desc
   - TObjEneEpsilonGuard__resource_descriptor
   - TObjEneLappy__resource_list
@@ -1042,12 +1043,14 @@ force_active:
   - check_hold_player__14TOTrapSeabed01FPv
   - check_local_player_in_range__12TObjRaderColFPv
   - check_open_trigger__19TContainerAncient01FPv
+  - check_path_ahead__14TObjEneDolmOlmFPvif
   - check_player_contact__14TOTrapChainSawFPv
   - check_player_hits__15TBoss6SwordWaveFPv
   - check_purchase_eligibility__20TShopArmorListWindowFPv
   - check_purchase_eligibility__24TShopEquipmentListWindowFPv
   - check_system_file_status__23TAdSinglePlyChrSelectGCFv
   - check_target_collision__10TObjPlayerFPv
+  - check_target_in_range__14TObjEneDolmOlmFPv
   - check_team_balance__6TLobbyFPvi
   - circling_state__14TObjEneBm5WolfFv
   - clamp_hp_value__10TObjPlayerFPvPv
@@ -1116,7 +1119,6 @@ force_active:
   - copy_debris_params__8TObjChipFPvPv
   - copy_drop_node
   - copy_effect_data__18TAdChrMoveEffectGCFPvPv
-  - copy_effect_params
   - copy_from__11TMainCursorFPvPv
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_global_value_block__6TLobbyFv
@@ -1196,6 +1198,7 @@ force_active:
   - destroy_arrays__14TPlyDispConfigFii
   - destroy_char_data_array__10TObjPlayerFv
   - destroy_effects__12TBoss4ThanksFPv
+  - destroy_effects__12TBoss6ThanksFPv
   - destroy_free_buffers__20TWindowSubStatusDispFPvs
   - destroy_item_follow_effect
   - destroy_matching_children__19TPlayerBattleCtrl4PFPvPv
@@ -1668,6 +1671,7 @@ force_active:
   - init_launch_angles__10TTecSlicerFPvPvi
   - init_light_params__15TORainbowCave01FPviff
   - init_light_tables__9TObjLightFv
+  - init_link_points__9TBoss2FinFPv
   - init_map_light__9TObjLightFPvi
   - init_model_and_state__19TObjEneEpsilonGuardFPv
   - init_model_by_type__10TODoorLaboFPv
@@ -1732,6 +1736,7 @@ force_active:
   - is_player_in_range__13TBoss6MagMineFPv
   - is_player_in_range__9TObjLukerFv
   - is_player_in_service_range__14TShopGeneratorFPvPvf
+  - is_player_near__12TBoss6ThanksFPv
   - is_player_nearby__12TBoss4ThanksFPv
   - is_sega_logo_done
   - is_signboard_texture_buffer_missing
@@ -1942,6 +1947,9 @@ force_active:
   - lbl_804E1210
   - lbl_804E1220
   - lbl_804E3B60
+  - lbl_804E674C
+  - lbl_804E6784
+  - lbl_804E6790
   - lbl_804E8114
   - lbl_804E87F0
   - lbl_804E87F8
@@ -2008,6 +2016,7 @@ force_active:
   - load_floor_resources
   - load_item_pmt
   - load_params__15TObjEneMe1GiGueFi
+  - load_params_from_table__14TObjEneDolmOlmFPvi
   - load_params_from_table__15TObjEneMe1GiGueFPvi
   - load_params_from_table__20TBoss3VoloptHiraisinFPvi
   - load_quest_globals__6TLobbyFPv
@@ -2178,6 +2187,10 @@ force_active:
   - play_open_sound__15TODoorAncient08FPv
   - play_pitched_cue__13TObjEneBm3FlyFi
   - play_sifta_cast_sound
+  - play_sound_4003AD00__14TObjEneDolmOlmFi
+  - play_sound_4003a801__14TObjEneDolmOlmFi
+  - play_sound_4003a802__14TObjEneDolmOlmFi
+  - play_sound_4003b203__14TObjEneDolmOlmFi
   - play_walk_sound__12TObjEneLappyFPv
   - player_class_base_stats_00
   - player_class_base_stats_01
@@ -2225,7 +2238,6 @@ force_active:
   - quest_bgm_nomal_filename
   - quest_bgm_open_filename
   - quest_bgm_smile_filename
-  - queue_deferred_photon_blast_hit
   - queue_thread_main__6TLobbyFv
   - rabarta_band_emitter_table
   - rafoie_burst_table
@@ -2250,7 +2262,6 @@ force_active:
   - reload_floor_scene__6TLobbyFv
   - reload_lobby_floor_scene
   - reload_offline_area__6TLobbyFv
-  - reload_stats_for_phase__13TBoss2DeRolLeFPvi
   - remap_sound_id__15TObjEneMe1GiGueFPvi
   - remove_duplicate_bindings__21TWindowSubCustomEquipFPvPv
   - remove_equip_effects__14TItemEquipBaseFPv
@@ -2319,7 +2330,9 @@ force_active:
   - render__8TObjRainFv
   - render__9TAdBackGCFv
   - render__9TAdFadeGCFv
+  - render__9TBoss2FinFv
   - render_background_status__18TAdGameStartBackGCFPv
+  - render_body__14TObjEneDolmOlmFPv
   - render_cursor__19TAdMcSelectCursorGCFPv
   - render_debug__14TObjEneBm5WolfFPv
   - render_effects__9TMainTaskFv
@@ -2429,6 +2442,7 @@ force_active:
   - run_task__14TEnemyTaskListFv
   - run_task__14TFontSmallTaskFv
   - run_task__14TItemEffHeavenFv
+  - run_task__14TObjEneDolmOlmFPv
   - run_task__14TSetEvtDestroyFv
   - run_task__14TWindowCtrlSubFv
   - run_task__15TAdDrawLineCtrlFv
@@ -2496,6 +2510,7 @@ force_active:
   - run_task__8TObjRainFv
   - run_task__9TAdBackGCFv
   - run_task__9TAdFadeGCFv
+  - run_task__9TBoss2FinFv
   - run_task__9TDeadSpotFv
   - run_task__9TEffGuardFv
   - run_task__9TEndingABFv
@@ -2860,6 +2875,8 @@ force_active:
   - spawn_fire_explosion__10TObjPlayerFUii
   - spawn_fire_explosion_at_item__10TObjPlayerFii
   - spawn_fire_explosion_for_item__10TObjPlayerFii
+  - spawn_front_ground_effect__14TObjEneDolmOlmFPv
+  - spawn_ground_effects__14TObjEneDolmOlmFPvPv
   - spawn_hit_particle_trio__10TObjPlayerFPv
   - spawn_item_follow_effect
   - spawn_laser__12TPhotonPillaFPv
@@ -2922,7 +2939,6 @@ force_active:
   - svm_callback_message_buffer
   - svm_callback_single_table
   - svm_callback_table
-  - switch_phase_stats__13TBoss2DeRolLeFPvPv
   - synthAddJob
   - synthHWMessageHandler
   - synthJobTableIndex
@@ -2942,6 +2958,7 @@ force_active:
   - title_pulse_color_table
   - to_le_uint16_t__FUs
   - todoormachine01_resource_descriptor
+  - toggle_effect_render__14TObjEneDolmOlmFv
   - toggle_selected_part__28TWindowSubSymbolChatPartsSetFPv
   - tombstone_resource_descriptor
   - transfer_to_town__9TObjLukerFv
@@ -2997,6 +3014,7 @@ force_active:
   - update_duel_start_countdown
   - update_dying__9TObjGrassFPv
   - update_dying_state__14TObjEneBm5WolfFPvi
+  - update_effect_joint_pos__14TObjEneDolmOlmFPv
   - update_effects__14TOSwitchAttackFPv
   - update_emitter_positions__13TObjLobbyMainFPv
   - update_entry_animation__12TAdMultiOkGCFPvi
@@ -3046,6 +3064,7 @@ force_active:
   - update_pad_recalibration
   - update_palette_sprite__20TWindowSubStatusDispFv
   - update_particle_emitters__12TBoss4ThanksFPv
+  - update_particle_emitters__12TBoss6ThanksFPv
   - update_particles__15TObjBoss2TunnelFPv
   - update_password_input__17TAdEnterPPPPassGCFPv
   - update_password_input__18TAdEnterPasswordGCFPv
