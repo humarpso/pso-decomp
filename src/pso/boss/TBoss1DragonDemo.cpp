@@ -29,7 +29,7 @@ s32 activate_camera_mode(int);
 s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8002B744___vt__16TBoss1DragonDemo __vt__16TBoss1DragonDemo;
-extern s32 lbl_805D2660;
+extern s32 TBoss1DragonDemo__name;
 extern const f32 lbl_805D8128;
 u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0);
 }
@@ -63,7 +63,7 @@ u8 *__ct__16TBoss1DragonDemoFv(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TBoss1DragonDemo.value;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2660;
+    M2C_FIELD(arg0, s32 *, 0) = TBoss1DragonDemo__name;
     M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
     M2C_FIELD(arg0, f32 *, 0x20) = lbl_805D8128;
     M2C_FIELD(arg0, s32 *, 0x24) = arg2;

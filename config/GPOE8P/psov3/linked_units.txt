@@ -1407,6 +1407,7 @@ pso/misc/TParticleCtrl_801E2EFC.cpp
 pso/misc/TParticleCtrl_801E5330.cpp
 pso/misc/TParticleCtrl_80327D30.cpp
 pso/misc/TParticleCtrl_803E29FC.cpp
+pso/misc/TPhotonConcentrate.cpp
 pso/misc/TPhotonEstlla.cpp
 pso/misc/TPhotonEstlla_801AA710.cpp
 pso/misc/TPhotonFarlla.cpp
@@ -3442,6 +3443,7 @@ pso/unk/text_80222C28.cpp
 pso/unk/text_80222DE8.cpp
 pso/unk/text_802233F8.cpp
 pso/unk/text_8022350C.cpp
+pso/unk/text_80225CD8.cpp
 pso/unk/text_802264B8.cpp
 pso/unk/text_80228C54.cpp
 pso/unk/text_80228E98.cpp

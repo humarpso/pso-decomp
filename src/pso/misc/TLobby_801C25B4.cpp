@@ -49,7 +49,7 @@ M2C_UNK export_character_data__10TObjPlayerFPvPv(s32, s32);
 extern u8 __vt__17TPlayerBattleCtrl[];
 extern u8 lbl_804EFA50[];
 extern u8 lbl_804EFA6C[];
-extern s32 lbl_805D3554;
+extern s32 TPlayerBattleCtrl__name;
 extern s32 current_language;
 void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1);
 }
@@ -1995,7 +1995,7 @@ void *TPlayerBattleCtrl__ct(void *arg0, s32 _w1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, u8 **, 0x18) = __vt__17TPlayerBattleCtrl;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3554;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TPlayerBattleCtrl__name;
     M2C_FIELD(arg0, s32 *, 0x28) = 0;
     M2C_FIELD(arg0, s32 *, 0x24) = 0;
     M2C_FIELD(arg0, s32 *, 0x20) = 0;

@@ -54,7 +54,7 @@ extern RecoveredGlobal_802FE378_lbl_80474B68 lbl_80474B68;
 extern RecoveredGlobal_802FE378_lbl_80474B74 lbl_80474B74;
 extern RecoveredGlobal_802FE378_lbl_80474B80 lbl_80474B80;
 extern M2C_UNK __vt__21TBoss8DragonEffBullet[];
-extern s32 lbl_805D4018;
+extern s32 TBoss8DragonEffBullet__name;
 extern const f32 lbl_805DEF04;
 u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
 void queue_destruction__7TObjectFv(void *);
@@ -174,7 +174,7 @@ u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, 
     s32 temp_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4018;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss8DragonEffBullet__name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));

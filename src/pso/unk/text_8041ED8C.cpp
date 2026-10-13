@@ -113,7 +113,7 @@ extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 reset_stack_module__6TLobbyFv(void);
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);
 void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
@@ -129,7 +129,7 @@ extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s16 udp_sendto__6TLobbyFsPvPvPvUsi(s16 id, Pkt_80420FC8 *pkt, Addr_80420FC8 *src, Addr_80420FC8 *dst, u16 port, s32 arg5);
 void expire_timeout_entries__6TLobbyFPv(O_8041FE44 *o);
 void TLobby__sub_8041F66C(O_8041F66C *o);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 void TLobby__sub_80422E30(s16, s32, s32, s16);
 void set_slot_state_and_resume__6TLobbyFv(s16, s32, s16);
 void TLobby__sub_80406EB8(void *, u32);
@@ -173,7 +173,7 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
         return -4;
     }
     self->f200 = arg3;
-    TLobby__sub_803F9F04(self->fE4, data, 8);
+    NetMemcpy(self->fE4, data, 8);
     self->fEC = len;
     m = 0;
     self->fF0 = m;
@@ -206,9 +206,9 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
     do {
         m = (s32)(self->fD8 > self->fEC ? self->fEC : self->fD8);
         self->fF0 = m;
-        TLobby__sub_803F9F04(&src, self->fC8, 8);
+        NetMemcpy(&src, self->fC8, 8);
         TLobby__sub_80406EB8(&src, self->fDC);
-        TLobby__sub_803F9F04(&dst, self->fE4, 8);
+        NetMemcpy(&dst, self->fE4, 8);
         if (self->fDC + m > self->f534) {
             k = self->f534 - self->fDC;
             TLobby__sub_80406FD8(&dst, &src, k);
@@ -216,7 +216,7 @@ s32 TLobby__sub_8041ED8C(Obj_8041ED8C *self, void *data, u32 len, s32 arg3) {
             m -= k;
             self->fD8 -= k;
             self->fDC = 0;
-            TLobby__sub_803F9F04(&src, self->fC8, 8);
+            NetMemcpy(&src, self->fC8, 8);
         }
         TLobby__sub_80406FD8(&dst, &src, m);
         self->fD8 -= m;
@@ -369,7 +369,7 @@ s32 TLobby__sub_80420BD0(void *arg0, S_80420BD0 *s, s32 arg2) {
         }
     }
     s->f1FC = arg2;
-    TLobby__sub_803F9F04(s->data2C, arg0, 0x9C);
+    NetMemcpy(s->data2C, arg0, 0x9C);
     s->flag = 0;
     return 0;
 }

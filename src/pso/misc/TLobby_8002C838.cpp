@@ -25,7 +25,7 @@ struct Obj_8002CA38 { u8 pad[0x28]; u32 slot[4]; };
 extern "C" {
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 extern char __vt__14TObjBoss1Floor[];
-extern s32 lbl_805D2690;
+extern s32 TObjBoss1Floor__name;
 extern const f32 lbl_805D8174;
 Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent);
 void queue_destruction__7TObjectFv(void *);
@@ -151,7 +151,7 @@ Obj_8002CACC *TObjBoss1Floor__ct(Obj_8002CACC *self, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__14TObjBoss1Floor;
-    self->f0 = lbl_805D2690;
+    self->f0 = TObjBoss1Floor__name;
     self->f1c = lbl_805D8174;
     self->f20 = lbl_805D8174;
     self->f24 = lbl_805D8174;

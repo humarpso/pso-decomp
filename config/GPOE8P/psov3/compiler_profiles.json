@@ -19,7 +19,7 @@
     "use_lmw_stmw": "on",
     "opt": "nocse"
   },
-  "pso/misc/TLobby_803F8E08.cpp": {
+  "pso/protocol/NetworkRuntime.cpp": {
     "mw_version": "GC/1.2.5n",
     "optimization": "-O4,p",
     "inline": "off",

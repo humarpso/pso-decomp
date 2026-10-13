@@ -47,7 +47,7 @@ s32 play_sound_effect(int, void *, int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 subtract_vector(void *, void *);
 extern M2C_UNK __vt__21TBoss1DragonEffBullet[];
-extern s32 lbl_805D2670;
+extern s32 TBoss1DragonEffBullet__name;
 extern const f32 lbl_805D8144;
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void queue_destruction__7TObjectFv(void *);
@@ -164,7 +164,7 @@ typedef char RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet_size[sizeof(
 u8 *TBoss1DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8002BC30___vt__21TBoss1DragonEffBullet *)&__vt__21TBoss1DragonEffBullet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2670;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss1DragonEffBullet__name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));

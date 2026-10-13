@@ -357,7 +357,7 @@ void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern u8 lbl_8043DF68[];
 extern u8 lbl_8043DF94[];
 extern void *__vt__5TItem[];
-extern s32 lbl_805D2B60;
+extern s32 TItem__name;
 extern u32 lbl_805D5438;
 u8 *TItem__ct(u8 *self, void *parent, u8 *item);
 }
@@ -367,7 +367,7 @@ extern "C" {
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     construct_collider_proxy__10TObjPlayerFPv(self, parent);
     M2C_FIELD(self, void **, 0x18) = __vt__5TItem;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D2B60;
+    M2C_FIELD(self, s32 *, 0) = TItem__name;
     obj_setFlags30(self, 0x80000000);
     fn_8002B630(self + 0xAC, lbl_8043DF68);
     TItem__sub_801031C0(self + 0x98);

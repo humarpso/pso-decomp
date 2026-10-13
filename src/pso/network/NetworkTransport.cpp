@@ -170,7 +170,7 @@ s32 TLobby__sub_803F7684(void *arg0);
 extern RecoveredGlobal_803F7A30_lbl_805C18A0 lbl_805C18A0;
 extern u8 run_net_thread_loop__6TLobbyFv[];
 s16 TLobby__sub_803F96AC(void *);
-void TLobby__sub_803F9B28(s32);
+void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 void TLobby__sub_803F7A90(void);
 extern s32 TLobby__queue_timeout_remaining;
@@ -204,7 +204,7 @@ s32 OSIsThreadSuspended(s32);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
 void resume_thread__6TLobbyFv(s32);
-void TLobby__sub_803F9F04(void *, void *, s32);
+void NetMemcpy(void *, void *, s32);
 extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s32 send_ring_buffer_base;
@@ -215,7 +215,7 @@ s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
 s16 TLobby__sub_803F96AC(void *);
-void TLobby__sub_803F9B28(s32);
+void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
 s16 TLobby__sub_804281DC(void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042CEF8(char *);
@@ -493,7 +493,7 @@ void TLobby__sub_803F7A90(void) {
     if (TLobby__sub_803F96AC(((P_803F7A90 *)&lbl_805C18A0)) < 0 || TLobby__sub_803F9B94(run_net_thread_loop__6TLobbyFv, &((P_803F7A90 *)&lbl_805C18A0)[0].b) < 0) {
         return;
     }
-    TLobby__sub_803F9B28(((P_803F7A90 *)&lbl_805C18A0)[0].b);
+    NetResumeThread(((P_803F7A90 *)&lbl_805C18A0)[0].b);
 }
 
 void queue_thread_main__6TLobbyFv(void) {
@@ -571,11 +571,11 @@ s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len) {
     if (end >= lobby_ring_buffer_size) {
         over = end - lobby_ring_buffer_size;
         first = len - over;
-        TLobby__sub_803F9F04((void *)(send_ring_buffer_base + lobby_ring_buffer_write_pos), src, first);
-        TLobby__sub_803F9F04((void *)send_ring_buffer_base, src + first, over);
+        NetMemcpy((void *)(send_ring_buffer_base + lobby_ring_buffer_write_pos), src, first);
+        NetMemcpy((void *)send_ring_buffer_base, src + first, over);
         lobby_ring_buffer_write_pos = over;
     } else {
-        TLobby__sub_803F9F04((void *)(send_ring_buffer_base + lobby_ring_buffer_write_pos), src, len);
+        NetMemcpy((void *)(send_ring_buffer_base + lobby_ring_buffer_write_pos), src, len);
         lobby_ring_buffer_write_pos += len;
     }
     lobby_send_ring_pending_bytes += len;
@@ -838,7 +838,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
             if (TLobby__sub_803F9B94((void *)queue_thread_main__6TLobbyFv, &queue_thread_handle) < 0) {
                 return 2;
             }
-            TLobby__sub_803F9B28(queue_thread_handle);
+            NetResumeThread(queue_thread_handle);
         } else {
             return 2;
         }

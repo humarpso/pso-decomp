@@ -19,15 +19,15 @@ typedef s32 M2C_UNK;
 extern "C" {
 u8 *get_creation_pad();
 f32 get_right_trigger_ratio__16TObjCMProportionFv(void);
-extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
+extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029914C(s32 arg0);
-extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
+extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 u8 TObjCMProportion__sub_8029916C(s32 arg0);
 s32 is_flag_set__11TLoadingCurFPv(void *, s32);
 u8 *get_creation_pad();
 extern s32 lbl_804DBDC0[];
 extern u8 controller_input_state[];
-extern RecoveredGlobal_8029914C_lbl_805409C8 lbl_805409C8;
+extern RecoveredGlobal_8029914C_lbl_805409C8 creation_input_state;
 void poll_pad_buttons__16TObjCMProportionFv(void);
 f64 atan2_float(f32, f32);
 f32 newton_sqrtf(f32);
@@ -83,13 +83,13 @@ void get_creation_pad_stick(s32 *arg0, f32 *arg1) {
 #pragma pop
 
 u8 TObjCMProportion__sub_8029914C(s32 arg0) {
-    return (u8) ((M2C_FIELD(&lbl_805409C8.value, s32 *, 0xC) & arg0) != 0);
+    return (u8) ((M2C_FIELD(&creation_input_state.value, s32 *, 0xC) & arg0) != 0);
 }
 typedef char RecoveredGlobal_8029916C_lbl_805409C8_size[sizeof(RecoveredGlobal_8029916C_lbl_805409C8) == 0x18 ? 1 : -1];
 u8 TObjCMProportion__sub_8029916C(s32 arg0) {
-    return (u8) ((M2C_FIELD(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&lbl_805409C8).value, s32 *, 0x10) & arg0) != 0);
+    return (u8) ((M2C_FIELD(&(*(RecoveredGlobal_8029916C_lbl_805409C8 *)&creation_input_state).value, s32 *, 0x10) & arg0) != 0);
 }
-#define G_80299238(off) M2C_FIELD(&lbl_805409C8, s32 *, off)
+#define G_80299238(off) M2C_FIELD(&creation_input_state, s32 *, off)
 void poll_pad_buttons__16TObjCMProportionFv(void) {
     s32 old;
     s32 i;

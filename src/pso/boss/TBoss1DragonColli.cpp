@@ -49,7 +49,7 @@ extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__17TBoss1DragonColli[];
-extern s32 lbl_805D265C;
+extern s32 TBoss1DragonColli__name;
 extern const f32 lbl_805D8108;
 extern const f32 lbl_805D810C;
 extern const f32 lbl_805D8110;
@@ -138,7 +138,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0_3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TBoss1DragonColli;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D265C;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss1DragonColli__name;
     stack.sp8 = lbl_805D8108;
     stack.spC = lbl_805D8108;
     stack.sp10 = lbl_805D8108;

@@ -186,10 +186,10 @@ s32 abort_tcp_connection__6TLobbyFs(int);
 s16 validate_tcp_handle__6TLobbyFs(int);
 extern RecoveredGlobal_804217E4_lbl_805C1C50 network_dispatch_state;
 s32 tcp_abort__Fs(s32 a);
-M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK NetMemcpy(void *, void *, int);
 M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
 s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flags);
-M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK NetMemcpy(void *, void *, int);
 M2C_UNK TLobby__sub_80421FB8(void *, void *, void *);
 s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb, s32 flags);
 extern S_804220A0 *tcp_protocol_state[];
@@ -228,7 +228,7 @@ M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
 M2C_UNK NetStoreCurrentThread(void *);
 M2C_UNK NetSuspendCurrentThread();
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK NetMemset(void *, int, int);
 M2C_UNK init_packet_header__6TLobbyFPvi(void *, void *);
 s16 tcp_get_socket_handle__6TLobbyFs(int);
 s16 TLobby__sub_8041DBD4(int, void *, s16, void *);
@@ -238,7 +238,7 @@ extern S_804220A0 *tcp_protocol_state[];
 s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK NetMemset(void *, int, int);
 s16 tcp_get_socket_handle__6TLobbyFs(int);
 M2C_UNK TLobby__sub_8041E2EC(int, void *, void *);
 s32 tcp_connect_start__6TLobbyFsis(int, void *, u16);
@@ -247,7 +247,7 @@ extern RecoveredGlobal_804217E4_lbl_805C1C50 network_dispatch_state;
 s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, u16 port, IpAddr_80422B8C *opt);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
 M2C_UNK lock_mutex__6TLobbyFi(void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK NetMemset(void *, int, int);
 s16 tcp_get_socket_handle__6TLobbyFs(int);
 s32 TLobby__sub_8041E5E4(int, void *, u16);
 s16 validate_tcp_handle__6TLobbyFs(int);
@@ -282,8 +282,8 @@ extern RecoveredGlobal_804217E4_lbl_805C1C50 network_dispatch_state;
 s32 TLobby__sub_8042315C(s16 arg0, P_8042315C *p);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 u16 str_length__6TLobbyFi(void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK NetMemset(void *, int, int);
+M2C_UNK NetMemcpy(void *, void *, int);
 extern u8 dhcp_hostname[];
 extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B4C;
@@ -292,8 +292,8 @@ extern u32 lbl_805D7B58;
 extern u32 lbl_805D7B60;
 s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0);
 u16 str_length__6TLobbyFi(void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK NetMemset(void *, int, int);
+M2C_UNK NetMemcpy(void *, void *, int);
 extern u8 dhcp_hostname[];
 extern volatile s32 lbl_805D4820;
 extern u8 lbl_805D7B1C[6];
@@ -305,8 +305,8 @@ extern u32 lbl_805D7B58;
 s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 u16 str_length__6TLobbyFi(void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
-M2C_UNK TLobby__sub_803F9F04(void *, void *, int);
+M2C_UNK NetMemset(void *, int, int);
+M2C_UNK NetMemcpy(void *, void *, int);
 extern u8 dhcp_hostname[];
 extern u8 lbl_805D7B1C[6];
 extern u8 lbl_805D7B24[4];
@@ -478,8 +478,8 @@ s32 TLobby__sub_80421938(O_80421938 *o, void *src, void *dst, void *cb, s32 flag
     s.flags = flags | 0xC00;
     s.len = o->f8 - o->fC;
     s.zero = 0;
-    TLobby__sub_803F9F04(s.src, src, 0x10);
-    TLobby__sub_803F9F04(s.dst, dst, 0x10);
+    NetMemcpy(s.src, src, 0x10);
+    NetMemcpy(s.dst, dst, 0x10);
     if (cb != NULL) {
         TLobby__sub_80421FB8(cb, &s, o);
     }
@@ -542,8 +542,8 @@ s32 TLobby__sub_80421F10(O_80421F10 *o, void *src, void *dst, s16 port, void *cb
     s.flags = flags | 0x400;
     s.len = o->f8 - o->fC;
     s.zero = 0;
-    TLobby__sub_803F9F04(s.src, src, 0x14);
-    TLobby__sub_803F9F04(s.dst, dst, 0x14);
+    NetMemcpy(s.src, src, 0x14);
+    NetMemcpy(s.dst, dst, 0x14);
     s.port = port;
     if (cb != NULL) {
         TLobby__sub_80421FB8(cb, &s, o);
@@ -592,7 +592,7 @@ s16 tcp_receive__FsPFss_vsPUc(s32 a, void *cb, s32 len, void *buf) {
         return -9;
     }
     init_packet_header__6TLobbyFPvi(hdr, buf);
-    TUdpSocket__sub_803F9EE4(&s->f2A4, 0, 8);
+    NetMemset(&s->f2A4, 0, 8);
     s->f2A4 |= 1;
     if (s->fB & 0x40) {
         s->f2A4 |= 8;
@@ -754,7 +754,7 @@ s32 tcp_connect__FsP10at_ip_addrUsP12at_ip_option(s32 a, IpAddr_80422B8C *addr, 
     } else {
         return -2;
     }
-    TUdpSocket__sub_803F9EE4(&tmp, 0, 0x10);
+    NetMemset(&tmp, 0, 0x10);
     if (opt != NULL && opt->family != 0) {
         if (opt->family != addr->family) {
             return -2;
@@ -798,7 +798,7 @@ s32 tcp_bind__FsP10at_ip_addrUs(s32 a, void *addr, u16 port) {
     if (a & 0xC00) { return -4; }
     a = a & 0xFFFFF3FF;
     if (addr == NULL) {
-        TUdpSocket__sub_803F9EE4(tmp, 0, 0x14);
+        NetMemset(tmp, 0, 0x14);
         addr = tmp;
     }
     g = ((G_80422CFC *)&network_dispatch_state);
@@ -963,16 +963,16 @@ s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
     s32 m;
     u8 *p;
     u16 len;
-    TUdpSocket__sub_803F9EE4(arg0, 0, 0x5DC);
+    NetMemset(arg0, 0, 0x5DC);
     arg0[0] = 1;
     arg0[1] = 1;
     arg0[2] = 6;
     arg0[3] = 0;
     get_time_ms__6TLobbyFPv(&lbl_805D7B60);
     lbl_805D7B50 = lbl_805D7B60;
-    TLobby__sub_803F9F04(arg0 + 4, &lbl_805D7B50, 4);
+    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
     *(s32 *)(arg0 + 0xC) = lbl_805D7B28;
-    TLobby__sub_803F9F04(arg0 + 0x1C, lbl_805D7B1C, 6);
+    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
     p = arg0 + 0xEC;
     *(s32 *)p = lbl_805D7B4C;
     p += 4;
@@ -982,18 +982,18 @@ s32 build_dhcp_release__6TLobbyFPv(u8 *arg0) {
     *p++ = 0x3D;
     *p++ = 7;
     *p++ = 1;
-    TLobby__sub_803F9F04(p, lbl_805D7B1C, 6);
+    NetMemcpy(p, lbl_805D7B1C, 6);
     p += 6;
     *p++ = 0x36;
     *p++ = 4;
-    TLobby__sub_803F9F04(p, lbl_805D7B24, 4);
+    NetMemcpy(p, lbl_805D7B24, 4);
     p += 4;
     len = str_length__6TLobbyFi(dhcp_hostname);
     if (len != 0) {
         *p++ = 0xC;
         m = len + 1;
         *p++ = m;
-        TLobby__sub_803F9F04(p, dhcp_hostname, m);
+        NetMemcpy(p, dhcp_hostname, m);
         p += m;
     }
     *p++ = 0xFF;
@@ -1005,17 +1005,17 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
     u8 *p;
     u16 len;
     u32 tmp;
-    TUdpSocket__sub_803F9EE4(arg0, 0, 0x5DC);
+    NetMemset(arg0, 0, 0x5DC);
     arg0[0] = 1;
     arg0[1] = 1;
     arg0[2] = 6;
     arg0[3] = 0;
-    TLobby__sub_803F9F04(arg0 + 4, &lbl_805D7B50, 4);
+    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
     *(u16 *)(arg0 + 0xA) = 0;
     if (lbl_805D4820 == 4 || lbl_805D4820 == 5) {
         *(s32 *)(arg0 + 0xC) = lbl_805D7B28;
     }
-    TLobby__sub_803F9F04(arg0 + 0x1C, lbl_805D7B1C, 6);
+    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
     p = arg0 + 0xEC;
     *(s32 *)p = (*(s32 *)&lbl_805D7B4C);
     p += 4;
@@ -1025,7 +1025,7 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
     *p++ = 0x3D;
     *p++ = 7;
     *p++ = 1;
-    TLobby__sub_803F9F04(p, lbl_805D7B1C, 6);
+    NetMemcpy(p, lbl_805D7B1C, 6);
     p += 6;
     *p++ = 0x37;
     *p++ = 5;
@@ -1037,20 +1037,20 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
     if (lbl_805D4820 != 4 && lbl_805D4820 != 5) {
         *p++ = 0x36;
         *p++ = 4;
-        TLobby__sub_803F9F04(p, lbl_805D7B24, 4);
+        NetMemcpy(p, lbl_805D7B24, 4);
         p += 4;
     }
     if (lbl_805D7B58 != 0) {
         *p++ = 0x33;
         *p++ = 4;
         tmp = lbl_805D7B58;
-        TLobby__sub_803F9F04(p, &tmp, 4);
+        NetMemcpy(p, &tmp, 4);
         p += 4;
     }
     if (lbl_805D4820 != 4 && lbl_805D4820 != 5) {
         *p++ = 0x32;
         *p++ = 4;
-        TLobby__sub_803F9F04(p, &lbl_805D7B28, 4);
+        NetMemcpy(p, &lbl_805D7B28, 4);
         p += 4;
     }
     len = str_length__6TLobbyFi(((char *)&dhcp_hostname));
@@ -1058,7 +1058,7 @@ s32 dhcp_build_packet__6TLobbyFPv(u8 *arg0) {
         *p++ = 0xC;
         m = len + 1;
         *p++ = m;
-        TLobby__sub_803F9F04(p, ((char *)&dhcp_hostname), m);
+        NetMemcpy(p, ((char *)&dhcp_hostname), m);
         p += m;
     }
     *p++ = 0xFF;
@@ -1070,16 +1070,16 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
     u8 *p;
     u16 len;
     s32 n;
-    TUdpSocket__sub_803F9EE4(arg0, 0, 0x5DC);
+    NetMemset(arg0, 0, 0x5DC);
     arg0[0] = 1;
     arg0[1] = 1;
     arg0[2] = 6;
     arg0[3] = 0;
     get_time_ms__6TLobbyFPv(&lbl_805D7B60);
     lbl_805D7B50 = lbl_805D7B60;
-    TLobby__sub_803F9F04(arg0 + 4, &lbl_805D7B50, 4);
+    NetMemcpy(arg0 + 4, &lbl_805D7B50, 4);
     *(s16 *)(arg0 + 0xA) = 0;
-    TLobby__sub_803F9F04(arg0 + 0x1C, lbl_805D7B1C, 6);
+    NetMemcpy(arg0 + 0x1C, lbl_805D7B1C, 6);
     p = arg0 + 0xEC;
     *(u32 *)p = lbl_805D7B4C;
     p += 4;
@@ -1089,7 +1089,7 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
     *p++ = 0x3D;
     *p++ = 7;
     *p++ = 1;
-    TLobby__sub_803F9F04(p, lbl_805D7B1C, 6);
+    NetMemcpy(p, lbl_805D7B1C, 6);
     p += 6;
     *p++ = 0x37;
     *p++ = 5;
@@ -1102,7 +1102,7 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
         *p++ = 0x33;
         *p++ = 4;
         spC = lbl_805D7B58;
-        TLobby__sub_803F9F04(p, &spC, 4);
+        NetMemcpy(p, &spC, 4);
         p += 4;
     }
     len = str_length__6TLobbyFi(dhcp_hostname);
@@ -1110,7 +1110,7 @@ s32 build_dhcp_discover_packet__6TLobbyFPv(u8 *arg0) {
         *p++ = 0xC;
         n = len + 1;
         *p++ = n;
-        TLobby__sub_803F9F04(p, dhcp_hostname, n);
+        NetMemcpy(p, dhcp_hostname, n);
         p += n;
     }
     *p++ = 0xFF;

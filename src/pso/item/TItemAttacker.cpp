@@ -25,7 +25,7 @@ void copy_from__13TItemAttackerFPvPv(void *arg0, void *arg1);
 u8 *find_entity_by_id(u16);
 M2C_UNK __ct__7TObjectFP7TObject(void*,s32);
 extern M2C_UNK __vt__13TItemAttacker[];
-extern s32 lbl_805D2B68;
+extern s32 TItemAttacker__name;
 u8 *__ct__13TItemAttackerFv(u8 *arg0, M2C_UNK arg1, s32 arg2, M2C_UNK arg3, s32 arg4);
 }
 
@@ -50,7 +50,7 @@ u8 *__ct__13TItemAttackerFv(u8 *arg0, M2C_UNK arg1, s32 arg2, M2C_UNK arg3, s32 
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0,arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TItemAttacker;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B68;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemAttacker__name;
     copy_from__13TItemAttackerFPvPv((void *) (arg0 + 0x1C), (void *) (arg4));
     M2C_FIELD(arg0, s32 *, 0x34) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x44), (void *) (arg2));

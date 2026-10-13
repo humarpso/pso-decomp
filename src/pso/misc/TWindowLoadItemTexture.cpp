@@ -38,7 +38,7 @@ int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-void fn_8025B078(f32, f32, f32, f32);
+void set_sprite_uv_bounds(f32, f32, f32, f32);
 M2C_UNK fn_8026287C(void *);
 void get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 int initialize_subwindow__9TWindowDDFPv(void*);
@@ -57,7 +57,7 @@ void *create__22TWindowLoadItemTextureFPvPv(void *arg0, void *arg1) {
         o = TWindowLoadItemTexture__ct((void *)(o), (void *)(arg0), (void *)(lbl_8044F280), (void *)(arg1));
     }
     get_array_entry__20TWindowSubStatusDispFPvi(o, 0);
-    fn_8025B078(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
+    set_sprite_uv_bounds(lbl_805DD0EC, lbl_805DD0EC, lbl_805DD0F4, lbl_805DD0F8);
     return o;
 }
 

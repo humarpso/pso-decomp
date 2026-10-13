@@ -1,0 +1,17 @@
+#ifndef PSO_ITEM_TITEMDISCONNECTCTRL_H
+#define PSO_ITEM_TITEMDISCONNECTCTRL_H
+
+#include "pso/TObject.h"
+
+class TItemDisconnectCtrl : public TObject {
+public:
+    TItemDisconnectCtrl();
+    virtual ~TItemDisconnectCtrl();
+    virtual void run_task();
+};
+
+#include <stddef.h>
+typedef char TItemDisconnectCtrlSize[(sizeof(TItemDisconnectCtrl) == 0x1C) ? 1 : -1];
+typedef char TItemDisconnectCtrlNameOffset[(offsetof(TItemDisconnectCtrl, m_name) == 0) ? 1 : -1];
+
+#endif

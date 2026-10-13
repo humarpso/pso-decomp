@@ -38,7 +38,7 @@ f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 normalize_vector(void *);
 extern M2C_UNK __vt__20TItemEffOrgaFlowShot[];
-extern s32 lbl_805D43B0;
+extern s32 TItemEffOrgaFlowShot__name;
 extern const f32 lbl_805E0038;
 extern const f32 lbl_805E003C;
 extern const f32 lbl_805E0040;
@@ -286,7 +286,7 @@ void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
 u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     construct_attack_collision(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D43B0;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffOrgaFlowShot__name;
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;
     M2C_FIELD(arg0, s32 *, 0x48) = 1;
     M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805E0038;

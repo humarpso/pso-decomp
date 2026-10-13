@@ -182,7 +182,7 @@ int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
 extern M2C_UNK __vt__9TItemList[];
-extern void *lbl_805D3568;
+extern void *TItemList__name;
 int TItemList__sub_801D5804(void);
 int TItemList__sub_801D5854(void);
 int TItemList__sub_801D5868(void);

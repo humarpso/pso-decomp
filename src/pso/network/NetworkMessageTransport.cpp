@@ -127,9 +127,9 @@ struct Obj_80426998 { u8 pad[0x36]; s16 count; Rec_80426998 recs[5]; };
 
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
-M2C_UNK TLobby__sub_803F9B28(void *);
+M2C_UNK NetResumeThread(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK NetMemset(void *, int, int);
 void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 u8 lbl_805CF240[0xA0];
@@ -147,7 +147,7 @@ extern u32 lbl_805D7BC0;
 void update_exi_status__6TLobbyFv(void);
 void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
@@ -221,7 +221,6 @@ M2C_UNK memcpy(void *, void *, int);
 extern M2C_UNK exi_mac_address;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
 void TLobby__sub_80425DC8(void *q, void *a, void *b);
-extern u8 lobby_net_channel_table[];
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
@@ -232,7 +231,7 @@ s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
 extern u8 TLobby__pppoe_message_queue[];
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 typedef struct Ent_804267F0 {
     s16 count;
     u8 id[6];
@@ -243,18 +242,16 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s32 TLobby__sub_803F9EC4(void *, void *, int);
-extern u8 lobby_net_channel_table[];
+s32 NetMemcmp(void *, void *, int);
 extern s32 lbl_805D7BB0;
 s32 get_local_address__6TLobbyFsPv(s16 arg0, void *arg1);
 s16 TLobby__sub_804262CC(void *);
-extern u8 lobby_net_channel_table[];
 s32 TLobby__sub_80426B88(s16 arg0);
 extern s32 lbl_805D7BC8;
 s32 set_connect_mode__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void NetUnregisterTimer(void *);
@@ -275,15 +272,14 @@ extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
 void message_thread_loop__6TLobbyFv(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_8042558C(void *);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s16 TLobby__sub_804262CC(void *);
-extern u8 lobby_net_channel_table[];
 extern u8 lbl_805E1190[6];
 s32 TLobby__sub_80426660(u8 *arg0);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
@@ -344,10 +340,9 @@ s32 TLobby__sub_804251C0(s32, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
-s32 TLobby__sub_803F9EC4(void *, void *, int);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcmp(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
-extern u8 lobby_net_channel_table[];
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
@@ -380,7 +375,7 @@ extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B28;
 extern u8 lbl_805D7B4C[4];
 extern u8 lbl_805D7B50[4];
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 s32 EXIDeselect(s32);
@@ -410,7 +405,6 @@ extern s32 lobby_message_thread_handle;
 extern s32 lbl_805D7BB8;
 extern u32 lbl_805D7BBC;
 void reset_message_thread__6TLobbyFv(void);
-extern u8 lobby_net_channel_table[];
 s32 remove_rec_by_handle__6TLobbyFsUs(s16 arg0, u16 arg1);
 }
 
@@ -427,7 +421,7 @@ extern s32 lbl_805D4820;
 s32 get_task_count__6TLobbyFv(void);
 
 s32 get_time_seconds__6TLobbyFPv(void *);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 void TLobby__sub_80425288(s32, s32, void *);
 extern u32 lbl_805D7B64;
 extern u32 lbl_805D7B68;
@@ -460,6 +454,8 @@ void release_entry_by_id__6TLobbyFUi(u32 arg0);
 u8 *find_entry_by_address__6TLobbyFi(s32 arg0);
 
 void cancel_alarm_a__6TLobbyFv(void);
+
+u8 lobby_net_channel_table[0x858];
 
 void reset_message_thread__6TLobbyFv(void) {
     if ((u32)lobby_message_thread_handle != 0) {
@@ -569,7 +565,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if ((s32) lbl_805D7BB0 == 1) {
         return 0;
     }
-    TUdpSocket__sub_803F9EE4((void *) (arg0), (int) (0), (int) (0x56));
+    NetMemset((void *) (arg0), (int) (0), (int) (0x56));
     if (TLobby__sub_8042AAA0((void *) (lbl_805D7BC8)) != 1) {
         var_r0 = -1;
     } else {
@@ -598,7 +594,7 @@ s16 TLobby__sub_804262CC(void *argp) {
     if (TLobby__sub_803F9B94((void *) (&message_thread_loop__6TLobbyFv), (void *) (&lobby_message_thread_handle)) < 0) {
         return -1;
     }
-    TLobby__sub_803F9B28((void *) (lobby_message_thread_handle));
+    NetResumeThread((void *) (lobby_message_thread_handle));
     lbl_805D7BB0 = 1;
     network_link_status_cache = -1;
     lbl_805D7BB8 = 0;
@@ -621,7 +617,7 @@ s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1) {
     if (temp_r3 == 0) {
         return -1;
     }
-    TLobby__sub_803F9F04((void *) (temp_r3), (void *) (arg0), (int) (void *) (arg1));
+    NetMemcpy((void *) (temp_r3), (void *) (arg0), (int) (void *) (arg1));
     temp_r3_2 = (u8 *)(TLobby__sub_804256B8(temp_r3));
     if (temp_r3_2 != NULL) {
         M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) arg1;
@@ -651,8 +647,8 @@ s32 TLobby__sub_80426660(u8 *arg0) {
     }
     TLobby__sub_80426110(g, 2, 0x8863);
     TLobby__sub_80426110(g, 2, 0x8864);
-    TLobby__sub_803F9F04(arg0, g, 6);
-    TLobby__sub_803F9F04(arg0 + 6, lbl_805E1190, 6);
+    NetMemcpy(arg0, g, 6);
+    NetMemcpy(arg0 + 6, lbl_805E1190, 6);
     return 0;
 }
 
@@ -687,7 +683,7 @@ s32 get_local_address__6TLobbyFsPv(s16 arg0, void *arg1) {
     if (lbl_805D7BB0 == 0) {
         return -0x113;
     }
-    TLobby__sub_803F9F04(arg1, src, 6);
+    NetMemcpy(arg1, src, 6);
     return 6;
 }
 
@@ -702,7 +698,7 @@ s32 consume_item_count_by_id__6TLobbyFsPv(s16 arg0, void *arg1) {
     }
     e = ((Tbl_804267F0 *)lobby_net_channel_table)->ent;
     for (i = 0; i < 6; i++, e++) {
-        if (e->count > 0 && TLobby__sub_803F9EC4(e->id, arg1, 6) == 0) {
+        if (e->count > 0 && NetMemcmp(e->id, arg1, 6) == 0) {
             e->count--;
             return 0;
         }
@@ -730,7 +726,7 @@ s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1) {
             if (found == NULL) {
                 found = e;
             }
-        } else if (TLobby__sub_803F9EC4(e->id, arg1, 6) == 0) {
+        } else if (NetMemcmp(e->id, arg1, 6) == 0) {
             e->count++;
             return 0;
         }
@@ -739,7 +735,7 @@ s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1) {
         return -0x113;
     }
     found->count++;
-    TLobby__sub_803F9F04(found->id, arg1, 6);
+    NetMemcpy(found->id, arg1, 6);
     TLobby__sub_8042BC00(arg1);
     return 0;
 }

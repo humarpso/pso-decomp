@@ -1899,6 +1899,7 @@ pso/enemy/TObjEnemyCustom_800C8018.cpp:
 
 pso/enemy/TObjEnemyCustom_800C8040.cpp:
 	.text       start:0x800C8040 end:0x800C80FC
+	.bss        start:0x80500C38 end:0x80500E38
 
 pso/misc/TLobby_800C80FC.cpp:
 	.text       start:0x800C80FC end:0x800C811C
@@ -6602,7 +6603,11 @@ pso/misc/TScene_801A7E40.cpp:
 	.text       start:0x801A7E40 end:0x801A7E58
 
 pso/misc/TPhotonConcentrate.cpp:
-	.text       start:0x801A7E58 end:0x801A9BAC
+	.text       start:0x801A7E58 end:0x801A826C
+	.rodata     start:0x80446A68 end:0x80446A78
+
+pso/player/PhotonBlastResults.cpp:
+	.text       start:0x801A826C end:0x801A9BAC
 	.rodata     start:0x80446CC8 end:0x80446CD0
 	.sdata2     start:0x805DC130 end:0x805DC138
 
@@ -14238,8 +14243,9 @@ pso/misc/TLobby_803F8794.cpp:
 	.text       start:0x803F8794 end:0x803F8E08
 	.bss        start:0x805AEEB0 end:0x805BE070
 
-pso/misc/TLobby_803F8E08.cpp:
+pso/protocol/NetworkRuntime.cpp:
 	.text       start:0x803F8E08 end:0x803FAEA0
+	.bss        start:0x805BE070 end:0x805BFF68
 
 pso/misc/TLobby_803FAEA0.cpp:
 	.text       start:0x803FAEA0 end:0x803FC178
@@ -14279,7 +14285,7 @@ pso/misc/TLobby_804245DC.cpp:
 
 pso/network/NetworkMessageTransport.cpp:
 	.text       start:0x80425B70 end:0x80426CAC
-	.bss        start:0x805CF240 end:0x805CF3C8
+	.bss        start:0x805CF240 end:0x805CFC20
 
 pso/misc/TLobby_80426CAC.cpp:
 	.text       start:0x80426CAC end:0x80428374

@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/item/TItemDisconnectCtrl.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -8,7 +9,6 @@ extern "C" {
 
 void cleanup_game_objects__9TMainTaskFv(void);
 M2C_UNK TEnding__sub_8008C9F8();
-M2C_UNK TItemDisconnectCtrl__ct();
 M2C_UNK refresh_drop_table_if_changed__9TItemDropFv();
 M2C_UNK create__9TItemLoadFv();
 M2C_UNK respawn_missing_floor_items__6TLobbyFi(s32);
@@ -51,8 +51,8 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     if (get_game_play_mode() == 1) {
         refresh_drop_table_if_changed__9TItemDropFv();
     }
-    if ((temp_r30 == 0xF) && (__nw__7TObjectFUl(0x1C) != 0U)) {
-        TItemDisconnectCtrl__ct();
+    if (temp_r30 == 0xF) {
+        new TItemDisconnectCtrl;
     }
     lbl_805D543C = 1;
 }

@@ -22,7 +22,7 @@ M2C_UNK store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 void *TAdScrollWinGC__ct(void *, s32, s32, void *);
 s32 strncpy(void *, s32, s32);
-extern u8 lbl_8050AEB8[];
+extern u8 lobby_scroll_text_buffer[];
 extern s32 TLobby__data_805D5594;
 extern void *lobby_scroll_text_window;
 extern s32 tl_window;
@@ -54,11 +54,11 @@ void dispatch_by_index__6TLobbyFi(s32 arg0) {
 void open_scroll_text_window__6TLobbyFi(s32 arg0) {
     void *obj;
     if (lobby_scroll_text_window == 0) {
-        strncpy(lbl_8050AEB8, arg0, 0x1000);
-        lbl_8050AEB8[0xFFF] = 0;
+        strncpy(lobby_scroll_text_buffer, arg0, 0x1000);
+        lobby_scroll_text_buffer[0xFFF] = 0;
         obj = __nw__7TObjectFUl(0x54);
         if (obj != 0) {
-            obj = TAdScrollWinGC__ct(obj, tl_window, 2, lbl_8050AEB8);
+            obj = TAdScrollWinGC__ct(obj, tl_window, 2, lobby_scroll_text_buffer);
         }
         lobby_scroll_text_window = obj;
     }

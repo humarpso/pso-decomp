@@ -16,8 +16,8 @@ struct Ref_8025B0D0 { u8 pad0[0x10]; f32 f10; f32 f14; f32 f18; u8 pad1c[0x30 - 
 struct Quad_8025B0D0 { f32 v[8]; };
 
 extern "C" {
-void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0);
-void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0);
+void swap_sprite_v_edges(u8 *arg0);
+void swap_sprite_u_edges(u8 *arg0);
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1);
 void reset_transform_state__10TObjPlayerFv(void);
 void init_xyz_limits__10TObjPlayerFv(void);
@@ -31,8 +31,8 @@ void set_draw_texture_and_color(s32, s32);
 void TWindowSubStatusDisp__sub_8025B0D0(Win_8025B0D0 *arg0, Ref_8025B0D0 *arg1);
 void update_palette_sprite__20TWindowSubStatusDispFv(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
-void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b);
-void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d);
+void set_sprite_dimensions(void* p, f32 a, f32 b);
+void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
 M2C_UNK __dl__FPv(void *);
 M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
@@ -48,21 +48,21 @@ void *window_uv_sprite_part_vtable[6] = {
     0,
 };
 
-void TWindowSubSymbolChatPartsSet__sub_8025B050(u8 *arg0) {
+void swap_sprite_v_edges(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
     M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
     M2C_FIELD(arg0, f32 *, 0x28) = temp_f1;
 }
 
-void TWindowSubSymbolChatPartsSet__sub_8025B064(u8 *arg0) {
+void swap_sprite_u_edges(u8 *arg0) {
     f32 temp_f1;
     temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C);
     M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
     M2C_FIELD(arg0, f32 *, 0x24) = temp_f1;
 }
 
-void fn_8025B078(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
+void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
 
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
     f32 x, y;
@@ -74,7 +74,7 @@ void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) (y / 256.0f);
 }
 
-void TWindowSubSymbolChatPartsSet__sub_8025B0C4(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }
+void set_sprite_dimensions(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }
 
 #pragma push
 #pragma fp_contract on

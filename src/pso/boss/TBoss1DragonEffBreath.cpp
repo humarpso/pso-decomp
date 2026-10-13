@@ -10,7 +10,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK __vt__21TBoss1DragonEffBreath[];
-extern s32 lbl_805D2668;
+extern s32 TBoss1DragonEffBreath__name;
 extern const f32 lbl_805D8138;
 u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3);
 }
@@ -65,7 +65,7 @@ u8 *TBoss1DragonEffBreath__ct(u8 *arg0, void *arg1, void *arg2, void *arg3) {
     void *p;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TBoss1DragonEffBreath;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2668;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss1DragonEffBreath__name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), arg2);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), arg3);
     M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) * lbl_805D8138);

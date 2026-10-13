@@ -49,12 +49,12 @@ int copy_item_data__6TLobbyFPvPv(void*);
 void disallow_rendering__7TObjectFv(void *);
 
 extern M2C_UNK __vt__9TItemList[];
-extern void *lbl_805D3568;
+extern void *TItemList__name;
 
 void *__ct__9TItemListFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TItemList;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3568;
+    M2C_FIELD(arg0, void **, 0x0) = TItemList__name;
     M2C_FIELD(arg0, u32 *, 0x1C) = 0;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;

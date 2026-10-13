@@ -117,9 +117,9 @@ struct Obj_80426998 { u8 pad[0x36]; s16 count; Rec_80426998 recs[5]; };
 
 extern "C" {
 M2C_UNK OSInitMessageQueue(void *, void *, int);
-M2C_UNK TLobby__sub_803F9B28(void *);
+M2C_UNK NetResumeThread(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
-M2C_UNK TUdpSocket__sub_803F9EE4(void *, int, int);
+M2C_UNK NetMemset(void *, int, int);
 void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 NetworkPacketBufferDescriptor network_packet_buffer_descriptors[NETWORK_PACKET_BUFFER_COUNT];
@@ -139,7 +139,7 @@ extern u32 lbl_805D7BC0;
 void update_exi_status__6TLobbyFv(void);
 void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
 M2C_UNK TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
@@ -224,7 +224,7 @@ s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s32 OSReceiveMessage(void *, void *, int);
 extern u8 TLobby__pppoe_message_queue[];
 u16 recv_pppoe_message__6TLobbyFPvPv(s32 *arg0, u16 *arg1);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 typedef struct Ent_804267F0 {
     s16 count;
     u8 id[6];
@@ -235,7 +235,7 @@ typedef struct Tbl_804267F0 {
     Ent_804267F0 ent[6];
 } Tbl_804267F0;
 
-s32 TLobby__sub_803F9EC4(void *, void *, int);
+s32 NetMemcmp(void *, void *, int);
 extern u8 lobby_net_channel_table[];
 extern s32 lbl_805D7BB0;
 s32 get_local_address__6TLobbyFsPv(s16 arg0, void *arg1);
@@ -244,9 +244,9 @@ extern u8 lobby_net_channel_table[];
 s32 TLobby__sub_80426B88(s16 arg0);
 extern s32 lbl_805D7BC8;
 s32 set_connect_mode__6TLobbyFi(s32 arg0);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_80427240(u8 **arg0);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 parse_tlv_records__6TLobbyFiPvUs(s32 arg0, u8 *arg1, u16 arg2);
 u8 find_dhcp_option__6TLobbyFPvUcPv(u8 *p, u8 tag, u8 **out);
 void NetUnregisterTimer(void *);
@@ -267,12 +267,12 @@ extern u8 lbl_805CF380[];
 extern s32 lbl_805D7BCC;
 void message_thread_loop__6TLobbyFv(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_8042558C(void *);
 u8 *TLobby__sub_804256B8(s32);
 extern u8 lbl_805CF240[];
 s32 post_send_message__6TLobbyFiUs(s32 arg0, u16 arg1);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
 s16 TLobby__sub_804262CC(void *);
 extern u8 lobby_net_channel_table[];
@@ -336,8 +336,8 @@ s32 TLobby__sub_804251C0(s32, void *);
 extern s32 lbl_805D4820;
 extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
-s32 TLobby__sub_803F9EC4(void *, void *, int);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcmp(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 s32 TLobby__sub_8042BC00(void *);
 extern u8 lobby_net_channel_table[];
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
@@ -372,7 +372,7 @@ extern u8 lbl_805D7B1C[6];
 extern u32 lbl_805D7B28;
 extern u8 lbl_805D7B4C[4];
 extern u8 lbl_805D7B50[4];
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 Ent_80427C6C *TLobby__sub_80427C6C(s32 arg0, u16 arg1);
 s32 EXIDeselect(s32);
@@ -421,7 +421,7 @@ s32 get_task_count__6TLobbyFv(void) {
 }
 
 s32 get_time_seconds__6TLobbyFPv(void *);
-s32 TLobby__sub_803F9F04(void *, void *, int);
+s32 NetMemcpy(void *, void *, int);
 void TLobby__sub_80425288(s32, s32, void *);
 extern u32 lbl_805D7B64;
 extern u32 lbl_805D7B68;
@@ -436,13 +436,13 @@ void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0) {
     s32 w;
 
     if (find_dhcp_option__6TLobbyFPvUcPv(arg0, 0x33, &p) == 4) {
-        TLobby__sub_803F9F04(&v, p, 4);
+        NetMemcpy(&v, p, 4);
         w = v;
         TLobby__sub_80425288(7, 4, &w);
         get_time_seconds__6TLobbyFPv(&lbl_805D7B78);
         lbl_805D7B7C = lbl_805D7B78 + lbl_805D7B64;
         if (find_dhcp_option__6TLobbyFPvUcPv(arg0, 0x3A, &p) == 4) {
-            TLobby__sub_803F9F04(&v, p, 4);
+            NetMemcpy(&v, p, 4);
             w = v;
             TLobby__sub_80425288(8, 4, &w);
         } else {
@@ -450,7 +450,7 @@ void parse_dhcp_lease_times__6TLobbyFPv(u8 *arg0) {
             lbl_805D7B68 = lbl_805D7B64 >> 1;
         }
         if (find_dhcp_option__6TLobbyFPvUcPv(arg0, 0x3B, &p) == 4) {
-            TLobby__sub_803F9F04(&v, p, 4);
+            NetMemcpy(&v, p, 4);
             w = v;
             TLobby__sub_80425288(9, 4, &w);
         } else {
@@ -523,13 +523,13 @@ s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1) {
     if (pk->f0 != 2 || pk->f1 != 1 || pk->f2 != 6) {
         return 0;
     }
-    if (TLobby__sub_803F9EC4(pk->f4, lbl_805D7B50, 4) != 0) {
+    if (NetMemcmp(pk->f4, lbl_805D7B50, 4) != 0) {
         return 0;
     }
-    if (TLobby__sub_803F9EC4(pk->f1C, lbl_805D7B1C, 6) != 0) {
+    if (NetMemcmp(pk->f1C, lbl_805D7B1C, 6) != 0) {
         return 0;
     }
-    if (TLobby__sub_803F9EC4(q, lbl_805D7B4C, 4) != 0) {
+    if (NetMemcmp(q, lbl_805D7B4C, 4) != 0) {
         return 0;
     }
     if (lbl_805D7B0C != 2) {
@@ -548,21 +548,21 @@ s32 dhcp_handle_reply__6TLobbyFsPv(s16 arg0, Arg_804249F0 *arg1) {
         break;
     case 2:
         if (lbl_805D7B10 == 0 && find_dhcp_option__6TLobbyFPvUcPv(q, 0x35, &p) == 1 && *p == 5) {
-            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            NetMemcpy(g->buf, pk, arg1->len);
             lbl_805D7B10 = 1;
         }
         break;
     case 4:
         if (lbl_805D7B10 == 0 && find_dhcp_option__6TLobbyFPvUcPv(q, 0x35, &p) == 1 && *p == 5 &&
             lbl_805D7B28 == pk->f10) {
-            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            NetMemcpy(g->buf, pk, arg1->len);
             lbl_805D7B10 = 1;
         }
         break;
     case 5:
         if (lbl_805D7B10 == 0 && find_dhcp_option__6TLobbyFPvUcPv(q, 0x35, &p) == 1 && *p == 5 &&
             lbl_805D7B28 == pk->f10) {
-            TLobby__sub_803F9F04(g->buf, pk, arg1->len);
+            NetMemcpy(g->buf, pk, arg1->len);
             lbl_805D7B10 = 1;
         }
         break;
