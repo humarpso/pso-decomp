@@ -1667,9 +1667,9 @@ void adxt_start_mem_idx__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 void TLobby__sub_803CE544(void *, int);
 void cvFsSetDefDev__6TLobbyFPv(const char *);
 void TLobby__sub_803CFAA8(const char *, void *, int);
-void TLobby__sub_803D0DE4(int, int, int, int);
+void set_dvd_synchronous_read_mode(int, int, int, int);
 void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
-void TLobby__sub_803D0D84(void);
+void* initialize_dvd_file_driver(void);
 void TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
 extern const char lbl_805E0D74[4];
@@ -2770,12 +2770,12 @@ void TLobby__sub_803CB74C(s32 *arg0) {
     TLobby__sub_803CE544((void *)TLobby__sub_803CB7F8, 0);
     TLobby__sub_803CFAA8(lbl_805E0D70, (void *)TLobby__sub_803D43B8, 0);
     TLobby__sub_803CE544((void *)TLobby__sub_803CB7F8, 0);
-    TLobby__sub_803CFAA8(lbl_805E0D74, (void *)TLobby__sub_803D0D84, 0);
+    TLobby__sub_803CFAA8(lbl_805E0D74, (void *)initialize_dvd_file_driver, 0);
     cvFsSetDefDev__6TLobbyFPv(lbl_805E0D74);
     if (arg0 != NULL) {
-        TLobby__sub_803D0DE4(0, 0, 0, *arg0);
+        set_dvd_synchronous_read_mode(0, 0, 0, *arg0);
     } else {
-        TLobby__sub_803D0DE4(0, 0, 0, 0);
+        set_dvd_synchronous_read_mode(0, 0, 0, 0);
     }
 }
 

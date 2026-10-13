@@ -13792,6 +13792,7 @@ pso/misc/TLobby_803D0C28.cpp:
 
 pso/unk/text_803D0C34.cpp:
 	.text       start:0x803D0C34 end:0x803D0EB8
+	.bss        start:0x80581EA8 end:0x80583058
 
 pso/misc/TLobby_803D0EB8.cpp:
 	.text       start:0x803D0EB8 end:0x803D0F1C

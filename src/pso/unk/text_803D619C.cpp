@@ -15,16 +15,16 @@ struct RecoveredGlobal_803C588C_lbl_80572020 {
 
 extern "C" {
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C5850_lbl_80572020 network_error_text;
-extern s32 net_error_callback;
-extern s32 net_error_callback_arg;
+extern RecoveredGlobal_803C5850_lbl_80572020 gcrna_error_text;
+extern s32 gcrna_error_callback;
+extern s32 gcrna_error_context;
 M2C_UNK memset(void *, int, int);
-void clear_net_error_buffer__6TLobbyFv(void);
+void gcrna_error_shutdown(void);
 M2C_UNK memset(void *, int, int);
-extern RecoveredGlobal_803C5850_lbl_80572020 network_error_text;
-extern s32 net_error_callback;
-extern s32 net_error_callback_arg;
-void reset_scratch_buffer_100__6TLobbyFv(void);
+extern RecoveredGlobal_803C5850_lbl_80572020 gcrna_error_text;
+extern s32 gcrna_error_callback;
+extern s32 gcrna_error_context;
+void gcrna_error_initialize(void);
 s32 calc_binomial_coefficient__12TBoss8DragonFii(s32 n, s32 k);
 extern f32 lbl_805D76A8;
 f32 fn_803D6308(f32 x);
@@ -33,15 +33,15 @@ f32 fn_803D6308(f32 x);
 extern "C" {
 
 typedef char RecoveredGlobal_803C5850_lbl_80572020_size[sizeof(RecoveredGlobal_803C5850_lbl_80572020) == 0x100 ? 1 : -1];
-void clear_net_error_buffer__6TLobbyFv(void) {
-    memset((void *) (&network_error_text.value), (int) (0), (int) (0x100));
-    net_error_callback = 0;
-    net_error_callback_arg = 0;
+void gcrna_error_shutdown(void) {
+    memset((void *) (&gcrna_error_text.value), (int) (0), (int) (0x100));
+    gcrna_error_callback = 0;
+    gcrna_error_context = 0;
 }
-void reset_scratch_buffer_100__6TLobbyFv(void) {
-    memset((void *) (&network_error_text.value), (int) (0), (int) (0x100));
-    net_error_callback = 0;
-    net_error_callback_arg = 0;
+void gcrna_error_initialize(void) {
+    memset((void *) (&gcrna_error_text.value), (int) (0), (int) (0x100));
+    gcrna_error_callback = 0;
+    gcrna_error_context = 0;
 }
 #pragma push
 #pragma optimize_for_size off

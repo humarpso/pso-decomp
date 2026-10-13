@@ -11,11 +11,11 @@ struct RecoveredGlobal_803D6140_lbl_8058C960 {
 
 extern "C" {
 M2C_UNK strncpy(void *, void *, int);
-extern RecoveredGlobal_803D6140_lbl_8058C960 network_error_text;
-extern RecoveredCallback_1d0cc8904da3 net_error_callback;
-extern s32 net_error_callback_arg;
-void report_error_message__6TLobbyFi(s32 arg0);
-void report_error_message__6TLobbyFi(s32 arg0);
+extern RecoveredGlobal_803D6140_lbl_8058C960 gcrna_error_text;
+extern RecoveredCallback_1d0cc8904da3 gcrna_error_callback;
+extern s32 gcrna_error_context;
+void gcrna_report_error(s32 arg0);
+void gcrna_report_error(s32 arg0);
 extern u8 lbl_8047E220[];
 extern s32 lbl_805D7684;
 extern u32 lbl_805D7688;
@@ -31,15 +31,15 @@ typedef char RecoveredGlobal_803D6140_lbl_8058C960_size[sizeof(RecoveredGlobal_8
 void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2) {
     u8 *base = lbl_8047E220;
     if (arg0 == 0) {
-        report_error_message__6TLobbyFi((s32)(base + 0x138));
+        gcrna_report_error((s32)(base + 0x138));
         return;
     }
     if (arg1 == 0) {
-        report_error_message__6TLobbyFi((s32)(base + 0x160));
+        gcrna_report_error((s32)(base + 0x160));
         return;
     }
     if (arg1 < (u32)(arg2 << 13)) {
-        report_error_message__6TLobbyFi((s32)(base + 0x188));
+        gcrna_report_error((s32)(base + 0x188));
         return;
     }
     lbl_805D7684 = arg2;
@@ -48,10 +48,10 @@ void set_buffer_params_checked__6TLobbyFUiUii(u32 arg0, u32 arg1, s32 arg2) {
     lbl_805D7690 = 1;
 }
 
-void report_error_message__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&network_error_text.value), (void *) (arg0), (int) (0xFF));
-    if (((M2C_UNK (*)(s32, M2C_UNK *)) net_error_callback) != NULL) {
-        net_error_callback(net_error_callback_arg, &network_error_text.value);
+void gcrna_report_error(s32 arg0) {
+    strncpy((void *) (&gcrna_error_text.value), (void *) (arg0), (int) (0xFF));
+    if (((M2C_UNK (*)(s32, M2C_UNK *)) gcrna_error_callback) != NULL) {
+        gcrna_error_callback(gcrna_error_context, &gcrna_error_text.value);
     }
 }
 

@@ -1170,6 +1170,7 @@ force_active:
   - construct_nug2000_bazooka__10TObjPlayerFPv
   - construct_panzer_faust
   - construct_placement_search_base
+  - construct_rappys_fan__10TObjPlayerFPv
   - construct_s_rank_j_cutter_weapon
   - construct_s_rank_slicer_weapon
   - construct_self_effect__8TTecAntiFPvPvPviPv

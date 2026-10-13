@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803D60A8(void);
-M2C_UNK TLobby__sub_803D6190();
+void gcrna_set_error_callback(void);
+M2C_UNK gcrna_error_set_callback();
 
-void TLobby__sub_803D60A8(void) {
-    TLobby__sub_803D6190();
+void gcrna_set_error_callback(void) {
+    gcrna_error_set_callback();
 }
 
 }

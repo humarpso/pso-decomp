@@ -22,8 +22,8 @@ M2C_UNK TLobby__sub_803D4704();
 M2C_UNK update_active_streams__6TLobbyFv();
 M2C_UNK get_packet_size__6TLobbyFPv();
 M2C_UNK get_available_size__6TLobbyFPv();
-M2C_UNK TLobby__sub_803D4CA0();
-M2C_UNK TLobby__sub_803D504C();
+M2C_UNK GCRNA_SetPlaySw();
+M2C_UNK GCRNA_SetTransSw();
 
 void TLobby__sub_803CBF50(void) {
     set_stream_channel_pan__6TLobbyFPvii();
@@ -54,11 +54,11 @@ void query_available_size__6TLobbyFv(void) {
 }
 
 void TLobby__sub_803CC030(void) {
-    TLobby__sub_803D4CA0();
+    GCRNA_SetPlaySw();
 }
 
 void dispatch_packet__6TLobbyFv(void) {
-    TLobby__sub_803D504C();
+    GCRNA_SetTransSw();
 }
 
 }

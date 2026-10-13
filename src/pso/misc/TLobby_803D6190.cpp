@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803D6190(s32 arg0, s32 arg1);
+void gcrna_error_set_callback(s32 arg0, s32 arg1);
 
-extern s32 net_error_callback;
-extern s32 net_error_callback_arg;
+extern s32 gcrna_error_callback;
+extern s32 gcrna_error_context;
 
-void TLobby__sub_803D6190(s32 arg0, s32 arg1) {
-    net_error_callback = arg0;
-    net_error_callback_arg = arg1;
+void gcrna_error_set_callback(s32 arg0, s32 arg1) {
+    gcrna_error_callback = arg0;
+    gcrna_error_context = arg1;
 }
 
 }

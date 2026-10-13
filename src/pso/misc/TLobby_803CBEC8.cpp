@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void TLobby__sub_803CBEC8(void);
-M2C_UNK TLobby__sub_803D4418();
+M2C_UNK gcrna_get_stream_id();
 
 void TLobby__sub_803CBEC8(void) {
-    TLobby__sub_803D4418();
+    gcrna_get_stream_id();
 }
 
 }

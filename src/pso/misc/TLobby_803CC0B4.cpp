@@ -10,17 +10,17 @@ void run_step_5210__6TLobbyFv(void);
 void flush_update__6TLobbyFv(void);
 void shutdown_cleanup__6TLobbyFv(void);
 void TLobby__sub_803CC114(void);
-M2C_UNK TLobby__sub_803D5210();
+M2C_UNK GCRNA_Create();
 M2C_UNK TLobby__sub_803D5DD0();
 M2C_UNK TLobby__sub_803D5F10();
-M2C_UNK TLobby__sub_803D60A8();
+M2C_UNK gcrna_set_error_callback();
 
 void run_step_5210__6TLobbyFv(void) {
-    TLobby__sub_803D5210();
+    GCRNA_Create();
 }
 
 void flush_update__6TLobbyFv(void) {
-    TLobby__sub_803D60A8();
+    gcrna_set_error_callback();
 }
 
 void shutdown_cleanup__6TLobbyFv(void) {
