@@ -2,12 +2,12 @@
 extern "C" {
 void update_trail_slot__11TItemWeaponFPvi(void *, s32);
 void draw_weapon_at_joint(s32, s8);
-void TObjPlayer__sub_80122ED8(u8 *arg0);
+void draw_panther_claw(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80122ED8(u8 *arg0) {
+void draw_panther_claw(u8 *arg0) {
   s32 temp_r31;
   s32 new_var;
   temp_r31 = *((s32 *) (((s8 *) arg0) + 0xF4));

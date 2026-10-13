@@ -330,7 +330,7 @@ s32 get_current_state_field__10TObjPlayerFv(s8 _w0, s32 _w1);
 s8 get_class_index__10TObjPlayerFPv(s32);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
 s32 get_class_state_field__10TObjPlayerFii(s32 arg0, s32 arg1);
-s16 get_tech_level__10TObjPlayerFPv(void *);
+s16 get_stage_strike_count__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 lookup_attack_marker(s32, s16, s16, s32);
 extern M2C_UNK lbl_804477F0[];
@@ -707,7 +707,7 @@ void select_normal_attack_marker__10TObjPlayerFPv(u8 *arg0) {
   s16 new_var;
   s32 temp_r29;
   temp_r29 = get_move_mode__10TObjPlayerFPv(arg0);
-  new_var = get_tech_level__10TObjPlayerFPv(arg0 + 0x7CC);
+  new_var = get_stage_strike_count__10TObjPlayerFPv(arg0 + 0x7CC);
   temp_r30 = new_var;
   temp_r31 = get_falz_phase__10TObjPlayerFPv((void*)((void*)(arg0)));
   lookup_attack_marker((s32) get_handle_value__10TObjPlayerFPv((void *)(arg0)), temp_r31, temp_r30, temp_r29);

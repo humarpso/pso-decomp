@@ -23,7 +23,7 @@ s32 TObjPlayer__sub_8011E618(void *);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 s32 get_tp__10TObjPlayerFPv(void *);
-s16 get_tech_level__10TObjPlayerFPv(s32);
+s16 get_stage_strike_count__10TObjPlayerFPv(s32);
 s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
 void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
@@ -37,7 +37,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 s32 is_mag_active__10TObjPlayerFPv(void *);
 s32 is_item_area_enabled(s32);
 extern s32 tl_05;
-void update_terminal_state__10TObjPlayerFPv(void *arg0);
+void update_twin_blaze_flames__10TObjPlayerFPv(void *arg0);
 }
 
 extern "C" {
@@ -125,7 +125,7 @@ void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
 void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     s32 sp8;
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        if ((get_tech_level__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii((s32)(arg0), (s32)(0), (M2C_UNK *)(&sp8)) != 0)) {
+        if ((get_stage_strike_count__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii((s32)(arg0), (s32)(0), (M2C_UNK *)(&sp8)) != 0)) {
             create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, get_tp__10TObjPlayerFPv(arg0));
             TObjPlayer__sub_8011E618(arg0);
         }
@@ -146,7 +146,7 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0) {
     TObjPlayer__sub_8011E618(arg0);
     TObjPlayer__sub_8011E618(arg0);
 }
-void update_terminal_state__10TObjPlayerFPv(void *arg0) {
+void update_twin_blaze_flames__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
     if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (is_mag_active__10TObjPlayerFPv(arg0) != 0)) {
