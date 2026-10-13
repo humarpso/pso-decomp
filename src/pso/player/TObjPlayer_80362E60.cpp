@@ -113,7 +113,7 @@ void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
 void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0);
 s32 get_attack_stage__11TItemWeaponFPv();
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
@@ -185,7 +185,7 @@ void draw_weapon_model_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void *enter_state_804F27E0__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F27E0;
     set_status_flags__10TObjPlayerFPvUi(arg0, 3);
     M2C_FIELD(arg0, u32 *, 0x1FC) = 0;

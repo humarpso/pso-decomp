@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void create_armor_item__10TObjPlayerFPv(void *arg0);
+void start_srank_regen_timer__10TObjPlayerFPv(void *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 M2C_UNK init_item_timer_event__10TObjPlayerFPv(s32, s32, s32, M2C_UNK);
 s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 M2C_UNK construct_timer_event__10TObjPlayerFPv(s32, s32, s32, M2C_UNK);
 
-void create_armor_item__10TObjPlayerFPv(void *arg0) {
+void start_srank_regen_timer__10TObjPlayerFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r3;
     s32 temp_r3_2;

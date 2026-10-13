@@ -6,14 +6,14 @@ extern "C" {
 
 void *setup_action__10TObjPlayerFPv(void *arg0);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 
 extern M2C_UNK s_rank_psychogun_weapon_vtable[];
 extern M2C_UNK create_gun_shot[];
 extern M2C_UNK spawn_weapon_impact_effect[];
 
 void *setup_action__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = s_rank_psychogun_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 547);
     M2C_FIELD(arg0, M2C_UNK **, 0x1F0) = create_gun_shot;

@@ -9,12 +9,12 @@ struct Self_8012A884 { u8 pad[0x18]; void *vt; u8 pad1C[0x1F8 - 0x1C]; u32 kind;
 extern "C" {
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_state_8012a9b4__10TObjPlayerFPv(u8 *arg0);
+u8 *create_srank_common_weapon__10TObjPlayerFPv(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 void TObjPlayer__sub_8011E2A4(void *, u8);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-u8 *TObjPlayer__sub_8012A884(void *arg0, s32 arg1, void *arg2);
+u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
 }
 
 extern "C" {
@@ -40,16 +40,16 @@ extern "C" void TItemWeapon__sub_8012012C();
 extern "C" void TItemWeapon__write_item_data();
 extern "C" void TItemWeapon__sub_80120568();
 extern "C" void TItemWeapon__sub_80121064();
-extern "C" void TObjPlayer__sub_801283B8();
-extern "C" void TObjPlayer__sub_8012A5E8();
-extern "C" void TObjPlayer__sub_8012A6B4();
+extern "C" void srank_marker_noop();
+extern "C" void receive_srank_hit();
+extern "C" void deliver_srank_marker();
 extern "C" void add_equip_stats__14TItemEquipBaseFPvi();
 extern "C" void apply_equip__11TItemWeaponFPv();
 extern "C" void apply_object_set_data();
 extern "C" void bind_attribute_entries__11TItemWeaponFPv();
 extern "C" void classify_actor_view_detail();
 extern "C" void copy_item_to_data__11TItemWeaponFi();
-extern "C" void create_armor_item__10TObjPlayerFPv();
+extern "C" void start_srank_regen_timer__10TObjPlayerFPv();
 extern "C" void dispatch_attack_marker__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFPv();
 extern "C" void draw_equipped_weapon__11TItemWeaponFPv();
@@ -95,13 +95,13 @@ void *s_rank_weapon_vtable[63] = {
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&apply_equip__11TItemWeaponFPv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFPv, (void *)&reset_item_equip,
     (void *)&bind_attribute_entries__11TItemWeaponFPv, (void *)&reset_entries__11TItemWeaponFPv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
-    (void *)&TObjPlayer__sub_8012A6B4, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
-    (void *)&TItemWeapon__sub_8011E5D0, (void *)&create_armor_item__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
-    (void *)&TItemWeapon__sub_8011E5C0, (void *)&TObjPlayer__sub_8012A5E8, (void *)&TObjPlayer__sub_801283B8,
+    (void *)&deliver_srank_marker, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
+    (void *)&TItemWeapon__sub_8011E5D0, (void *)&start_srank_regen_timer__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
+    (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop,
 };
 #define s_rank_weapon_vtable ((u8 *)s_rank_weapon_vtable)
 
-u8 *TObjPlayer__sub_8012A884(void *arg0, s32 arg1, void *arg2) {
+u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     Self_8012A884 *self = (Self_8012A884 *)arg0;
     Inc_8012A884 *p;
     TItemWeapon__ct(self);
@@ -162,14 +162,14 @@ u8 *TObjPlayer__sub_8012A884(void *arg0, s32 arg1, void *arg2) {
     return (u8 *)self;
 }
 
-u8 *create_state_8012a9b4__10TObjPlayerFPv(u8 *arg0) {
+u8 *create_srank_common_weapon__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(TObjPlayer__sub_8012A884((void *)(temp_r3), (s32)(tl_05), (void *)(arg0)));
+            var_r0 = (u8 *)(construct_srank_weapon((void *)(temp_r3), (s32)(tl_05), (void *)(arg0)));
         }
         return var_r0;
     }

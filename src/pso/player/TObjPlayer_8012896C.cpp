@@ -6,13 +6,13 @@ extern "C" {
 
 void *init_variant__10TObjPlayerFPv(void *arg0);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 
 extern M2C_UNK lbl_804A3F20[];
 extern M2C_UNK spawn_weapon_impact_effect[];
 
 void *init_variant__10TObjPlayerFPv(void *arg0) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3F20;
     set_status_flags__10TObjPlayerFPvUi(arg0, 515);
     M2C_FIELD(arg0, M2C_UNK **, 0x1EC) = spawn_weapon_impact_effect;

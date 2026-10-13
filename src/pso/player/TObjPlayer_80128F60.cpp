@@ -9,7 +9,7 @@ void set_flags__10TObjPlayerFPvUi(void *, int);
 void init_forward__10TObjPlayerFPv(void *);
 void clear_id__10TObjPlayerFPv(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 
 extern M2C_UNK lbl_804A403C[];
 extern M2C_UNK notify_hit_target__10TObjPlayerFUiUiUiUi[];
@@ -20,7 +20,7 @@ struct VOff_80128F60_arg0_80128f60 { char pad_0[0x1FC]; char f_1FC[1]; };
 
 void *init_event_callbacks__10TObjPlayerFPv(void *arg0) {
     struct VOff_80128F60_arg0_80128f60 *self = (struct VOff_80128F60_arg0_80128f60 *)arg0;
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A403C;
     init_forward__10TObjPlayerFPv(self->f_1FC);
     set_flags__10TObjPlayerFPvUi((void *)((char *)arg0 + 376), 32);

@@ -233,7 +233,7 @@ extern "C" {
 
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 void *TObjEneEpsilon__ct(void *arg0);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 void __construct_array(void *, void *, void *, int, int);
 void check_state_flag_4__9TObjEneDDFPv(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -371,7 +371,7 @@ void TObjPlayer__sub_80362C80(T_80362C80 *arg0) {
 }
 
 void *TObjPlayer__sub_80362CFC(void *arg0, M2C_UNK _w1, void * _w2) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
     return arg0;
 }

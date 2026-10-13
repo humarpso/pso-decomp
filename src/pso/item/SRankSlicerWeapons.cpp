@@ -100,10 +100,10 @@ extern "C" {
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = s_rank_j_cutter_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
@@ -274,10 +274,10 @@ extern "C" {
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-void TObjPlayer__sub_8012A884(void *);
+void construct_srank_weapon(void *);
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
-    TObjPlayer__sub_8012A884(arg0);
+    construct_srank_weapon(arg0);
     M2C_FIELD(arg0, void ***, 0x18) = s_rank_slicer_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
@@ -358,15 +358,15 @@ extern "C" void TItem__sub_801005E4();
 extern "C" void TItem__sub_80100648();
 extern "C" void TItem__sub_80100B8C();
 extern "C" void TLobby__sub_801A1FD8();
-extern "C" void TObjPlayer__sub_801283B8();
-extern "C" void TObjPlayer__sub_8012A5E8();
+extern "C" void srank_marker_noop();
+extern "C" void receive_srank_hit();
 extern "C" void add_equip_stats__14TItemEquipBaseFPvi();
 extern "C" void apply_equip__11TItemWeaponFPv();
 extern "C" void apply_object_set_data();
 extern "C" void bind_attribute_entries__11TItemWeaponFPv();
 extern "C" void classify_actor_view_detail();
 extern "C" void copy_item_to_data__11TItemWeaponFi();
-extern "C" void create_armor_item__10TObjPlayerFPv();
+extern "C" void start_srank_regen_timer__10TObjPlayerFPv();
 extern "C" void dispatch_attack_marker__11TItemWeaponFv();
 extern "C" void dispatch_state__5TItemFPv();
 extern "C" void draw_equipped_weapon__11TItemWeaponFPv();
@@ -413,8 +413,8 @@ void *s_rank_j_cutter_weapon_vtable[64] = {
     (void *)&apply_equip__11TItemWeaponFPv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFPv, (void *)&reset_item_equip,
     (void *)&bind_attribute_entries__11TItemWeaponFPv, (void *)&reset_entries__11TItemWeaponFPv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
     (void *)&launch_s_rank_j_cutter, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
-    (void *)&TItemWeapon__sub_8011E5D0, (void *)&create_armor_item__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
-    (void *)&TItemWeapon__sub_8011E5C0, (void *)&TObjPlayer__sub_8012A5E8, (void *)&TObjPlayer__sub_801283B8, (void *)0x0,
+    (void *)&TItemWeapon__sub_8011E5D0, (void *)&start_srank_regen_timer__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
+    (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };
 void *s_rank_slicer_weapon_vtable[64] = {
     (void *)0x0, (void *)0x0, (void *)&destroy_s_rank_slicer_weapon, (void *)&run_task__5TItemFPv,
@@ -431,8 +431,8 @@ void *s_rank_slicer_weapon_vtable[64] = {
     (void *)&apply_equip__11TItemWeaponFPv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFPv, (void *)&reset_item_equip,
     (void *)&bind_attribute_entries__11TItemWeaponFPv, (void *)&reset_entries__11TItemWeaponFPv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
     (void *)&launch_s_rank_slicer, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
-    (void *)&TItemWeapon__sub_8011E5D0, (void *)&create_armor_item__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
-    (void *)&TItemWeapon__sub_8011E5C0, (void *)&TObjPlayer__sub_8012A5E8, (void *)&TObjPlayer__sub_801283B8, (void *)0x0,
+    (void *)&TItemWeapon__sub_8011E5D0, (void *)&start_srank_regen_timer__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
+    (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };
 #define s_rank_j_cutter_weapon_vtable ((M2C_UNK *)s_rank_j_cutter_weapon_vtable)
 #define s_rank_slicer_weapon_vtable ((M2C_UNK *)s_rank_slicer_weapon_vtable)

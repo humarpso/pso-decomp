@@ -14,11 +14,11 @@ u8 *create_instance__17TItemEffectWeaponFPv(u8 *arg0);
 extern "C" {
 
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
-int TObjPlayer__sub_8012A884(void);
+int construct_srank_weapon(void);
 
     extern unsigned char lbl_804F28E0[];
     extern const float lbl_805E0268;
-void* init__17TItemEffectWeaponFPv(void* a0, M2C_UNK _w1, void * _w2) { TObjPlayer__sub_8012A884(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F28E0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(float*)((char*)a0 + 0x1fc) = lbl_805E0268; return a0; }
+void* init__17TItemEffectWeaponFPv(void* a0, M2C_UNK _w1, void * _w2) { construct_srank_weapon(); *(int*)((char*)a0 + 0x18) = (int)lbl_804F28E0; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(float*)((char*)a0 + 0x1fc) = lbl_805E0268; return a0; }
 u8 *create_instance__17TItemEffectWeaponFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;

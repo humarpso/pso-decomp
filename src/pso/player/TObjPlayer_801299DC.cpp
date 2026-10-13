@@ -11,7 +11,7 @@ void TObjPlayer__sub_80129A14(u8 *arg0);
 void* init_dead_state__10TObjPlayerFPv(void* a0);
 M2C_UNK add_angle_clamped__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
-int TObjPlayer__sub_8012A884(void);
+int construct_srank_weapon(void);
 
 void grow_field200_if_small__10TObjPlayerFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, s32 *, 0x200) < 0x2000) {
@@ -28,6 +28,6 @@ void TObjPlayer__sub_80129A14(u8 *arg0) {
     extern unsigned char create_gun_shot[];
     extern unsigned char s_rank_shot_weapon_vtable[];
     extern const float lbl_805DAE40;
-void* init_dead_state__10TObjPlayerFPv(void* a0) { TObjPlayer__sub_8012A884(); *(int*)((char*)a0 + 0x18) = (int)s_rank_shot_weapon_vtable; *(int*)((char*)a0 + 0x200) = 8192; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(int*)((char*)a0 + 0x1f0) = (int)create_gun_shot; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE40; return a0; }
+void* init_dead_state__10TObjPlayerFPv(void* a0) { construct_srank_weapon(); *(int*)((char*)a0 + 0x18) = (int)s_rank_shot_weapon_vtable; *(int*)((char*)a0 + 0x200) = 8192; set_status_flags__10TObjPlayerFPvUi(a0, (void*)2); *(int*)((char*)a0 + 0x1f0) = (int)create_gun_shot; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE40; return a0; }
 
 }
