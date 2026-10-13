@@ -1,3 +1,20 @@
+#include "types.h"
+struct RecoveredGlobal_80184B44_lbl_804440B0 { s32 value; u8 remaining[0x28]; };
+extern "C" {
+const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template = {0, {
+0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}};
+const char TObjCity_Season_EasterEgg__class_name[] = "TObjCity_Season_EasterEgg";
+const char TObjCity_Season_ValentineHeart__class_name[] = "TObjCity_Season_ValentineHeart";
+const char TObjCity_Season_XmasTree__class_name[] = "TObjCity_Season_XmasTree";
+const char TObjCity_Season_XmasWreath__class_name[] = "TObjCity_Season_XmasWreath";
+const char TObjCity_Season_HalloweenPumpkin__class_name[] = "TObjCity_Season_HalloweenPumpkin";
+const char TObjCity_Season_21_21__class_name[] = "TObjCity_Season_21_21";
+const char TObjCity_Season_SonicAdv2__class_name[] = "TObjCity_Season_SonicAdv2";
+const char TObjCity_Season_Board__class_name[] = "TObjCity_Season_Board";
+const char TObjCity_Season_FireWorkCtrl__class_name[] = "TObjCity_Season_FireWorkCtrl";
+const char TObjCity_Season_FireWork__class_name[] = "TObjCity_Season_FireWork";
+const u32 lbl_804441FC[5] = {0x3F4CCCCD, 0x3E4CCCCD, 0x3F800000, 0x3F666666, 0x00000000};
+}
 #include "pso/object/TObjCity_Season_FireWork.h"
 
 #pragma push
@@ -270,7 +287,8 @@ extern const f32 lbl_805DBC40[1];
 #define lbl_805DBC40 (*(const f32 *)&lbl_805DBC40)
 void fn_80183604(u8 *arg0);
 void TObjMapWarp__sub_80141CB8(void *, void *, void *, void *);
-extern V4_8018355C lbl_804441FC[];
+extern const u32 lbl_804441FC[5];
+#define lbl_804441FC ((const V4_8018355C *)lbl_804441FC)
 extern const f32 lbl_805DBC30[1];
 #define lbl_805DBC30 (*(const f32 *)&lbl_805DBC30)
 extern const f32 lbl_805DBC34[1];
@@ -1747,11 +1765,6 @@ struct VObj_18_1a504b : VBase_18_1a504b {
 
 struct M2CCopy_2C { u8 bytes[0x2C]; };
 
-struct RecoveredGlobal_80184B44_lbl_804440B0 {
-    M2C_UNK value;
-    u8 remaining[0x28];
-};
-
 struct RecoveredGlobal_80184B44_lbl_804B5E48 {
     M2C_UNK value;
     u8 remaining[0x34];
@@ -1762,7 +1775,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 
-extern RecoveredGlobal_80184B44_lbl_804440B0 lbl_804440B0;
+extern const RecoveredGlobal_80184B44_lbl_804440B0 city_season_collision_template;
 #define lbl_804B5E48 (*(RecoveredGlobal_80184B44_lbl_804B5E48 *)&lbl_804B5E48)
 #define lbl_805DBC1C (*(const f32 *)&lbl_805DBC1C)
 u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg0);
@@ -1781,7 +1794,7 @@ u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     M2C_FIELD(arg0, s32 *, 0xAC) = arg3;
     if (((u32 (*)(void *))get_anim_frame__25TObjCity_Season_EasterEggFPv)((void *) (arg0)) != 0U) {
-        temp_r4 = (u8 *)&lbl_804440B0.value - 4;
+        temp_r4 = (u8 *)&city_season_collision_template.value - 4;
         *(M2CCopy_2C *)(copy_storage_80184B44.bytes) = *(const M2CCopy_2C *)((s32) temp_r4 + 4);
         (*(f32 *)(copy_storage_80184B44.bytes + 0xC)) = farg0;
         init_collision_body_parts((void *) (arg0), (void *) ((copy_storage_80184B44.bytes)), (int) (1));
@@ -1801,3 +1814,16 @@ u8 *init_city_season_object(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, f32 farg
 #undef VObj_18_1a504b
 #undef lbl_804B5E48
 #undef lbl_805DBC1C
+#undef lbl_804441FC
+extern "C" {
+s32 TObjCity_Season_EasterEgg__name = (s32)TObjCity_Season_EasterEgg__class_name;
+s32 TObjCity_Season_ValentineHeart__name = (s32)TObjCity_Season_ValentineHeart__class_name;
+s32 TObjCity_Season_XmasTree__name = (s32)TObjCity_Season_XmasTree__class_name;
+s32 TObjCity_Season_XmasWreath__name = (s32)TObjCity_Season_XmasWreath__class_name;
+s32 TObjCity_Season_HalloweenPumpkin__name = (s32)TObjCity_Season_HalloweenPumpkin__class_name;
+s32 TObjCity_Season_21_21__name = (s32)TObjCity_Season_21_21__class_name;
+s32 TObjCity_Season_SonicAdv2__name = (s32)TObjCity_Season_SonicAdv2__class_name;
+s32 TObjCity_Season_Board__name = (s32)TObjCity_Season_Board__class_name;
+s32 TObjCity_Season_FireWorkCtrl__name = (s32)TObjCity_Season_FireWorkCtrl__class_name;
+s32 TObjCity_Season_FireWork__name = (s32)TObjCity_Season_FireWork__class_name;
+}

@@ -1,6 +1,8 @@
-#include "pso/TChallenge4PResult.h"
+#include "pso/ui/TChallenge4PResult.h"
 
 #include "types.h"
+extern "C" { s32 TChallenge4PResult__slot_entries[4]; }
+#include "pso/ui/TChallenge4PItemSelect.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -21,6 +23,7 @@ struct Stack_8034B720 {
     s32 spC;
 };
 
+#include "pso/player/TObjPlayer.h"
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
 M2C_UNK TLobby__sub_802924B4(void *, int);
@@ -49,7 +52,7 @@ void init__18TChallenge4PResultFPv(void *arg0);
 void TChallenge4PResult__sub_8034B8B0(void* p);
 void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
 void TChallenge4PResult__sub_8034B918(u8 *arg0);
-int TChallenge4PResult__sub_8034B974(void);
+
 void handle_result_code__18TChallenge4PResultFPv(u8 *arg0);
 s32 get_instance__11TCameraCtrlFv();
 M2C_UNK set_position_xy(int, f32, f32);
@@ -58,13 +61,33 @@ u8 *create__18TWindowMessagePageFiiii(s32, s32, s32, s32);
 M2C_UNK get_window_layout_position(int, int, void *);
 extern M2C_UNK lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
+extern M2C_UNK TChallenge4PResult__slot_entries[];
+u32 get_player_by_client_id(int);
+s32 check_player_flag1__6TLobbyFPv(TObjPlayer *);
+void play_effect_default__10TObjPlayerFii(TObjPlayer *, s32);
+void obj_set_flag_20000(TObjPlayer *);
+void get_player_result__18TChallenge4PResultFPv(TObjPlayer *, s32);
+s32 check_flag_0x40000000__10TObjPlayerFPv(TObjPlayer *);
+void fn_8034BE48(TObjPlayer *);
+u32 obj_getField1c(TObjPlayer *);
+void TObjPlayer__sub_8024ABDC(u16);
+void request_active_window_close();
+void set_close_flag__11TWindowCtrlFv();
+void send_code_45_1__10TObjPlayerFi(TObjPlayer *);
+void obj_clear_flag30_20000(TObjPlayer *);
+void get_player_rank__18TChallenge4PResultFPv(TObjPlayer *);
+void fn_8034BE38(TObjPlayer *);
+void TLobby__sub_8024AC20(u16);
+void clear_flag__11TWindowCtrlFv();
+void clear_flag_2__11TWindowCtrlFv();
+s32 update_challenge_result_player_locks();
 }
 
 extern "C" {
 
-void TChallenge4PResult__sub_8034B420(void *arg0);
+void resume_challenge_result_processing(void *arg0);
 void TChallenge4PResult__sub_8034B8B0(void* p);
-int TChallenge4PResult__sub_8034B974(void);
+
 void close_window__18TChallenge4PResultFPv(void* p);
 void create__18TChallenge4PResultFii(int arg0, s32 arg1);
 void init__18TChallenge4PResultFPv(void *arg0);
@@ -74,7 +97,7 @@ int queue_destruction__18TChallenge4PResultFPv(void* p);
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
-M2C_UNK TChallenge4PResult__ct(void *, s32, int, s32);
+M2C_UNK __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
 void set_entry_item__18TChallenge4PResultFPvPvi(W_8034B694 *arg0, void *arg1, s32 arg2);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 is_message_window_ready(u32);
@@ -84,7 +107,7 @@ u32 __nw__7TObjectFUl(M2C_UNK);
 s32 get_map_id__13TRaderMapCoreFPv();
 int queue_destruction__7TObjectFv(void*);
 
-void TChallenge4PResult__sub_8034B420(void *arg0) {
+void resume_challenge_result_processing(void *arg0) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x1C) = 1;
     }
@@ -108,13 +131,51 @@ void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
 
 extern s32 tl_01;
 
+s32 update_challenge_result_player_locks() {
+    s32 active = 0;
+    for (s32 i = 0; i < 4; ++i) {
+        if (((TChallenge4PResult * *)&TChallenge4PResult__slot_entries)[i] != 0) active = 1;
+    }
+    if (active) {
+        for (s32 i = 0; i < 4; ++i) {
+            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
+            if (player && check_player_flag1__6TLobbyFPv(player) == 0) {
+                play_effect_default__10TObjPlayerFii(player, -1);
+                obj_set_flag_20000(player);
+                get_player_result__18TChallenge4PResultFPv(player, 0);
+                get_player_result__18TChallenge4PResultFPv(player, 1);
+                get_player_result__18TChallenge4PResultFPv(player, 2);
+                get_player_result__18TChallenge4PResultFPv(player, 3);
+                if (check_flag_0x40000000__10TObjPlayerFPv(player) == 0) fn_8034BE48(player);
+                TObjPlayer__sub_8024ABDC(obj_getField1c(player));
+                request_active_window_close();
+                set_close_flag__11TWindowCtrlFv();
+            }
+        }
+    } else {
+        for (s32 i = 0; i < 4; ++i) {
+            TObjPlayer *player = ((TObjPlayer *)get_player_by_client_id((int)(i)));
+            if (player && check_player_flag1__6TLobbyFPv(player) != 0) {
+                send_code_45_1__10TObjPlayerFi(player);
+                obj_clear_flag30_20000(player);
+                get_player_rank__18TChallenge4PResultFPv(player);
+                if (check_flag_0x40000000__10TObjPlayerFPv(player)) fn_8034BE38(player);
+                TLobby__sub_8024AC20(obj_getField1c(player));
+                clear_flag__11TWindowCtrlFv();
+                clear_flag_2__11TWindowCtrlFv();
+            }
+        }
+    }
+    return active;
+}
+
 void create__18TChallenge4PResultFii(int arg0, s32 arg1) {
     void *temp;
 
     if (get_player_by_client_id((u16)(arg0)) != 0U) {
         temp = (void *) __nw__7TObjectFUl(0x7C);
         if (temp != NULL) {
-            TChallenge4PResult__ct(temp, tl_01, arg0, arg1);
+            __ct__18TChallenge4PResultFP7TObjectUsl(temp, tl_01, arg0, arg1);
         }
     }
 }
@@ -185,7 +246,22 @@ void TChallenge4PResult__sub_8034B918(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x1C) = 5;
 }
 
-int TChallenge4PResult__sub_8034B974(void) { return 0; }
+}
+void TChallenge4PResult::handle_third_reward() {
+    TChallenge4PItemSelect *selector;
+    if (reward_available[2] != 0) {
+        show_message(get_localized_text_entry(0x2B, 0));
+        TLobby__sub_802924B4(&reward_items[2], slot_index);
+        wait_frames = 90;
+        state_1c = 5;
+        return;
+    }
+    show_message(get_localized_text_entry(0x2B, 7));
+    selector = new TChallenge4PItemSelect(this, this);
+    selector->onClosed = resume_challenge_result_processing;
+    state_1c = 4;
+}
+extern "C" {
 
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0) {
     s32 temp_r0;
@@ -218,7 +294,7 @@ void handle_result_code__18TChallenge4PResultFPv(u8 *arg0) {
     temp_r3 = TLobby__sub_80292270((int) (M2C_FIELD(arg0, s32 *, 0x28)), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
     switch (temp_r3) {
     case 2:
-        ((void (*)(void *))TChallenge4PResult__sub_8034B974)((void *) (arg0));
+        ((TChallenge4PResult *)arg0)->handle_third_reward();
         return;
     case 1:
         TChallenge4PResult__sub_8034B918(arg0);
@@ -304,4 +380,20 @@ TChallenge4PResult::~TChallenge4PResult() {
 
 extern "C" {
 
+}
+
+extern "C" { extern const char *lbl_805D4338; void init__9TItemDataFv(TItemData *); }
+TChallenge4PResult::TChallenge4PResult(TObject *parent, u16 slot, s32 resultCode) : TObject(parent) {
+    m_name = lbl_805D4338;
+    slot_index = slot;
+    result_code = resultCode;
+    state_1c = 0;
+    message_window = 0;
+    wait_frames = 90;
+    unknown_30 = 0;
+    for (s32 i = 0; i < 3; ++i) {
+        init__9TItemDataFv(&reward_items[i]);
+        reward_available[i] = 0;
+    }
+    TChallenge4PResult__slot_entries[slot_index] = (s32)this;
 }

@@ -514,6 +514,7 @@ pso/item/ChallengeForceLoadouts.cpp
 pso/item/ChallengeHunterLoadouts.cpp
 pso/item/ChallengeRangerLoadouts.cpp
 pso/item/SRankSlicerWeapons.cpp
+pso/item/SpecialProjectileWeapons.cpp
 pso/item/TItem.cpp
 pso/item/TItemAttackCol_802E4798.cpp
 pso/item/TItemAttacker.cpp
@@ -589,8 +590,6 @@ pso/item/TItemEquipVariant_80123A90.cpp
 pso/item/TItemEquipVariant_80123B84.cpp
 pso/item/TItemEquipVariant_80123E6C.cpp
 pso/item/TItemEquipVariant_80123FD4.cpp
-pso/item/TItemEquipVariant_8012463C.cpp
-pso/item/TItemEquipVariant_80124AEC.cpp
 pso/item/TItemEquipVariant_801250A0.cpp
 pso/item/TItemEquipVariant_801252C0.cpp
 pso/item/TItemEquipVariant_80125480.cpp
@@ -840,7 +839,6 @@ pso/misc/TChCrTagName.cpp
 pso/misc/TChCrTagOccupation.cpp
 pso/misc/TChCrTagPlBack.cpp
 pso/misc/TChallenge.cpp
-pso/misc/TChallenge4PItemSelect.cpp
 pso/misc/TCharaMaking.cpp
 pso/misc/TCharaMaking_8028E3F4.cpp
 pso/misc/TCharaMaking_8028E790.cpp
@@ -2353,12 +2351,6 @@ pso/player/TObjPlayer_80123B18.cpp
 pso/player/TObjPlayer_80123BDC.cpp
 pso/player/TObjPlayer_80123F70.cpp
 pso/player/TObjPlayer_8012402C.cpp
-pso/player/TObjPlayer_801240C0.cpp
-pso/player/TObjPlayer_8012429C.cpp
-pso/player/TObjPlayer_801244C0.cpp
-pso/player/TObjPlayer_801249C4.cpp
-pso/player/TObjPlayer_80124B44.cpp
-pso/player/TObjPlayer_80124C0C.cpp
 pso/player/TObjPlayer_80124FBC.cpp
 pso/player/TObjPlayer_801251AC.cpp
 pso/player/TObjPlayer_80125318.cpp
@@ -2647,6 +2639,7 @@ pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
 pso/system/ChunkMaterialState.cpp
 pso/system/CityTraffic.cpp
+pso/system/GinjaModelQueue.cpp
 pso/system/ItemEffects.cpp
 pso/system/MiddlewareInterruptLock.cpp
 pso/system/ModelDrawContext.cpp
@@ -2842,6 +2835,8 @@ pso/ui/TAdWarningBaseGC_8032D154.cpp
 pso/ui/TAdWarningBaseGC_8032D188.cpp
 pso/ui/TAdWarningBaseGC_8032D1A4.cpp
 pso/ui/TAdYesNoBaseGC.cpp
+pso/ui/TChallenge4PItemSelect.cpp
+pso/ui/TChallenge4PResult.cpp
 pso/ui/TFontSmallTask.cpp
 pso/ui/TMessageWindowController.cpp
 pso/ui/TObjBagWarnWin.cpp
@@ -3070,9 +3065,6 @@ pso/unk/text_80123AE8.cpp
 pso/unk/text_80123C50.cpp
 pso/unk/text_80123EC4.cpp
 pso/unk/text_80124068.cpp
-pso/unk/text_801241D4.cpp
-pso/unk/text_8012443C.cpp
-pso/unk/text_80124BB4.cpp
 pso/unk/text_80124C90.cpp
 pso/unk/text_801250F8.cpp
 pso/unk/text_80125380.cpp
@@ -3730,8 +3722,6 @@ pso/unk/text_803DA754.cpp
 pso/unk/text_803DA798.cpp
 pso/unk/text_803DAF30.cpp
 pso/unk/text_803DAFA8.cpp
-pso/unk/text_803DB23C.cpp
-pso/unk/text_803DB390.cpp
 pso/unk/text_803DC86C.cpp
 pso/unk/text_803DCDB0.cpp
 pso/unk/text_803DCDFC.cpp

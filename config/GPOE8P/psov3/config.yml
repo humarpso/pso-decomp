@@ -284,6 +284,7 @@ force_active:
   - TObjPlayer__sub_800FF1FC
   - TObjPlayer__sub_800FF220
   - TObjPlayer__sub_800FF244
+  - TObjPlayer__sub_8012417C
   - TObjPlayer__sub_801AA61C
   - TObjPlayer__sub_801AA6E4
   - TObjPlayer__sub_801BE104
@@ -403,6 +404,7 @@ force_active:
   - __ct__15TRecvGenerateIDFRC15TRecvGenerateID
   - __ct__16TAdGuideButtonGCFP7TObject
   - __ct__16TGenGuildCardTagFRC16TGenGuildCardTag
+  - __ct__18TChallenge4PResultFP7TObjectUsl
   - __ct__18TPlayerLobbyMarkerFP7TObjectsSc
   - __ct__20TPlayerLevelFeedbackFP7TObjectUs
   - __ct__24TObjCity_Season_FireWorkFP7TObjectPvf
@@ -1140,6 +1142,7 @@ force_active:
   - close_windows__16TAdChrSelBSlotGCFPv
   - close_windows__9TObjLukerFPv
   - close_windows_and_advance__17TAdEnterPPPPassGCFPv
+  - close_with_callback__22TChallenge4PItemSelectFv
   - collect_body_contacts__10TObjPlayerFPviPvPv
   - collect_node_positions__11TBreakUpMdlFPvPvi
   - commit_composition_text__19TWindowKeyBoardSoftFPv
@@ -1163,6 +1166,7 @@ force_active:
   - construct_load_quest__12TQuestThreadFPvPvPv
   - construct_material__13TItemProArmorFPvPvPv
   - construct_nug2000_bazooka__10TObjPlayerFPv
+  - construct_panzer_faust
   - construct_placement_search_base
   - construct_s_rank_j_cutter_weapon
   - construct_s_rank_slicer_weapon
@@ -1494,6 +1498,7 @@ force_active:
   - find_table_entry_id
   - find_target_player__6TOMineFPv
   - finish_chr_select_scene_init__6TLobbyFv
+  - fire_recoiling_weapon_projectile
   - fire_zonde_at_players__10TObjPlayerFPv
   - flanking_state__14TObjEneBm5WolfFPvi
   - floor_lifecycle_callbacks_floor_00
@@ -1686,6 +1691,7 @@ force_active:
   - handle_page_input__24TWindowSubSymbolChatHelpFPv
   - handle_pay_confirm__23TShopJudgmentItemWindowFPv
   - handle_player_buttons__12TAdMultiOkGCFPvi
+  - handle_result_code__18TChallenge4PResultFPv
   - handle_selection__20TShopArmorListWindowFv
   - handle_selection__24TShopEquipmentListWindowFv
   - handle_selection__24TShopEquipmentSellWindowFv
@@ -1694,6 +1700,7 @@ force_active:
   - handle_state_init__6TLobbyFPv
   - handle_state_message__13TObjEneRe4BitFPvi
   - handle_state_substate__18TObjEneMe3SinowZoaFPvi
+  - handle_third_reward__18TChallenge4PResultFv
   - handle_toggle_input__24TWindowSubSymbolChatHelpFPv
   - handle_trade_final_confirmation
   - handle_trade_item_amount__6TLobbyFPv
@@ -2155,9 +2162,12 @@ force_active:
   - mcmdVarCalculation
   - mcmdVibrato
   - mcmdWait
+  - megid_projectile_weapon_vtable
   - message_tag_error
   - middleware_interrupt_lock_depth
   - middleware_saved_interrupt_state
+  - model_draw_queue_models
+  - model_draw_queue_texture_matrices
   - modem_answer_command
   - modem_busy_response
   - modem_connect_response
@@ -2238,6 +2248,7 @@ force_active:
   - open_keyboard_window__17TAdEnterPPPPassGCFPv
   - open_keyboard_window__18TAdEnterPasswordGCFPv
   - open_lobby_menu__13TObjWarpLobbyFPv
+  - open_menu__22TChallenge4PItemSelectFv
   - open_message_choice__23TAdSinglePlyChrSelectGCFPvPviPvPv
   - open_message_window__14TObjBagWarnWinFPv
   - open_message_window__22TAdEnterSerialAccessGCFPvPv
@@ -2330,6 +2341,8 @@ force_active:
   - rebuild_area_keep_players__6TLobbyFv
   - rebuild_item_list__18TShopGetItemWindowFv
   - receive_attack__15TObjEneMe1GiGueFPviii
+  - recoil_weapon_shoot_model_vtable
+  - recoiling_projectile_weapon_vtable
   - record_local_battle_placement
   - reflect_velocity_off_collision
   - refresh_item_list__20TShopArmorListWindowFPv
@@ -2464,6 +2477,8 @@ force_active:
   - resolve_owner_heading__11TItemMagSubFv
   - resolve_set_row_factory_indices
   - resolve_theme_index__13TObjLobbyMainFPv
+  - restore_weapon_projectile_visibility
+  - resume_challenge_result_processing
   - return_to_city_after_defeat
   - returning_state__14TObjEneBm5WolfFPvi
   - roaming_state__14TObjEneBm5WolfFi
@@ -2705,6 +2720,7 @@ force_active:
   - should_show_warning__14TObjBagWarnWinFPv
   - show_guide_button__12TAdDialingGCFPv
   - show_intro_text__19TPlayerBattleCtrl4PFv
+  - show_message__18TChallenge4PResultFl
   - show_part__9TObjLukerFii
   - shuffle_event_entries
   - shuffle_shop_pool
@@ -3029,7 +3045,7 @@ force_active:
   - submit_particle_quad
   - submit_scene_ambient_color
   - submit_scene_light_direction
-  - submit_selected_item__22TChallenge4PItemSelectFPv
+  - submit_selected_item__22TChallenge4PItemSelectFv
   - subtract_network_queue_timeout
   - subtractive_rng_refill
   - svm_callback_counts
@@ -3141,6 +3157,7 @@ force_active:
   - update_input_number__18TShopGetItemWindowFPv
   - update_intro_phase__19TPlayerBattleCtrl4PFv
   - update_inward_orbit_point
+  - update_item_camera_target__10TObjPlayerFPv
   - update_item_follow_effect
   - update_judge_confirm__23TShopJudgmentItemWindowFPv
   - update_key_events__16TKeyBoardControlFi
@@ -3237,6 +3254,7 @@ force_active:
   - update_trails__11TItemWeaponFPv
   - update_transition__11TItemMagSubFv
   - update_transition_anim__22TAdMultiPlyChrSelectGCFPv
+  - update_wait_input__18TChallenge4PResultFPv
   - update_wait_switch__19TObjLazerFenceExtraFPv
   - update_warp_confirmation__12TObjWarpBossFv
   - update_warp_dialogs__17TObjWarpBossMultiFPv
@@ -3270,6 +3288,7 @@ force_active:
   - wait_for_quest__10TChallengeFv
   - wait_for_vi_retrace
   - warp_nearby_players__14TBoss6PlotFalzFv
+  - weapon_star_light_follower_vtable
   - wedding_lobby_resource_descriptor
   - window_label_value_part_vtable
   - window_uv_sprite_part_vtable

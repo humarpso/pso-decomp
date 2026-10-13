@@ -413,13 +413,6 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/unk/text_803DB23C.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
-  },
   "pso/unk/text_803DD430.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
@@ -533,13 +526,6 @@
     "opt": "nopeephole"
   },
   "pso/misc/TLanguage_803DAF68.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O3,p",
-    "inline": "off",
-    "use_lmw_stmw": "on",
-    "opt": "nopeephole"
-  },
-  "pso/unk/text_803DB390.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",
@@ -1031,5 +1017,12 @@
     "optimization": "-O4,p",
     "inline": "off",
     "use_lmw_stmw": "on"
+  },
+  "pso/system/GinjaModelQueue.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O3,p",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "opt": "nopeephole"
   }
 }

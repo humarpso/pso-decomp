@@ -3,20 +3,26 @@
 
 #include "pso/TObject.h"
 #include "types.h"
+#include "pso/item/TItemData.h"
 
 struct TWindowMessagePage;
 
 class TChallenge4PResult : public TObject {
 public:
+    TChallenge4PResult(TObject *parent, u16 slot, s32 resultCode);
     virtual ~TChallenge4PResult();
     virtual void run_task();
     void show_message(s32 text_handle);
+    void handle_third_reward();
     s32 state_1c;
-    u8 unknown_20[4];
+    s32 wait_frames;
     u16 slot_index;
-    u8 unknown_26[6];
+    u8 unknown_26[2];
+    s32 result_code;
     TWindowMessagePage *message_window;
-    u8 unknown_30[0x4C];
+    s32 unknown_30;
+    TItemData reward_items[3];
+    s32 reward_available[3];
 
 };
 
@@ -26,4 +32,6 @@ typedef char TChallenge4PResult_state_1c_offset[offsetof(TChallenge4PResult, sta
 typedef char TChallenge4PResult_slot_index_offset[offsetof(TChallenge4PResult, slot_index) == 0x24 ? 1 : -1];
 typedef char TChallenge4PResult_message_window_offset[offsetof(TChallenge4PResult, message_window) == 0x2c ? 1 : -1];
 
+typedef char ChallengeRewardsOffset[offsetof(TChallenge4PResult,reward_items)==0x34 ? 1 : -1];
+typedef char ChallengeRewardFlagsOffset[offsetof(TChallenge4PResult,reward_available)==0x70 ? 1 : -1];
 #endif

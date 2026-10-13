@@ -2805,7 +2805,7 @@ void TLobby__sub_8032CC24();
 M2C_UNK set_send_buffer__6TLobbyFPvi(s32, s32);
 M2C_UNK TLobby__sub_8032CDEC();
 void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
-s32 TChallenge4PResult__sub_8034B498();
+s32 update_challenge_result_player_locks();
 s32 create__18TChallenge4PResultFii(int, int);
 s32 clear_slot_entries__18TChallenge4PResultFv();
 s32 fn_8034D3D0(u8 *, f32, s32, s32, s32, Vec3_801E915C *, s32);
@@ -4175,7 +4175,7 @@ void create_hunter_guild_seq__6TLobbyFv(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801E9A50(s32 arg0) {
-    if (TChallenge4PResult__sub_8034B498() != 0) {
+    if (update_challenge_result_player_locks() != 0) {
         M2C_FIELD((*(s32 *)&TLobby__script_reg_array), M2C_UNK *, ((arg0 * 4) & 0x3FC)) = 1;
         return;
     }

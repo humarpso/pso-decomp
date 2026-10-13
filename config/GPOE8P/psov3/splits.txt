@@ -245,7 +245,7 @@ pso/player/TObjPlayer_8002E784.cpp:
 pso/boss/TBoss2DeRolLe.cpp:
 	.text       start:0x8002EFE8 end:0x800363B4
 	.rodata     start:0x804359F0 end:0x80435A10
-	.data       start:0x8048267C end:0x80482A38
+	.data       start:0x804820D8 end:0x80482A38
 	.bss        start:0x804FE268 end:0x804FE590
 	.sdata2     start:0x805D8278 end:0x805D8434
 
@@ -621,9 +621,12 @@ pso/boss/TBoss4Type3.cpp:
 pso/boss/TBoss4Zako.cpp:
 	.text       start:0x8005BABC end:0x8005D6F4
 	.rodata     start:0x804378C0 end:0x804378C8
-	.data       start:0x804872E8 end:0x80487460
+	.data       start:0x804872E8 end:0x80487844
 	.sbss       start:0x805D4D88 end:0x805D4D90
 	.sdata2     start:0x805D8D20 end:0x805D8D28
+
+original_padding_80487844:
+	.data       start:0x80487844 end:0x80487848 align:4
 
 pso/boss/TBoss8Dragon_8005D6F4.cpp:
 	.text       start:0x8005D6F4 end:0x8005D700
@@ -3396,42 +3399,17 @@ pso/player/TObjPlayer_8012402C.cpp:
 pso/unk/text_80124068.cpp:
 	.text       start:0x80124068 end:0x801240C0
 
-pso/player/TObjPlayer_801240C0.cpp:
-	.text       start:0x801240C0 end:0x801241D4
+pso/item/SpecialProjectileWeapons.cpp:
+	.text       start:0x801240C0 end:0x80124C90
+	.rodata     start:0x8043E940 end:0x8043E954
+	.data       start:0x804A2018 end:0x804A2260
+	.sdata2     start:0x805DAD28 end:0x805DAD34
 
-pso/unk/text_801241D4.cpp:
-	.text       start:0x801241D4 end:0x8012429C
+original_padding_805DAD34:
+	.sdata2     start:0x805DAD34 end:0x805DAD38 align:4
 
-pso/player/TObjPlayer_8012429C.cpp:
-	.text       start:0x8012429C end:0x8012443C
-
-pso/unk/text_8012443C.cpp:
-	.text       start:0x8012443C end:0x801244C0
-	.data       start:0x804A2030 end:0x804A204C
-
-pso/player/TObjPlayer_801244C0.cpp:
-	.text       start:0x801244C0 end:0x8012463C
-
-pso/item/TItemEquipVariant_8012463C.cpp:
-	.text       start:0x8012463C end:0x801248E8
-
-pso/unk/text_801248E8.cpp:
-	.text       start:0x801248E8 end:0x801249C4
-
-pso/player/TObjPlayer_801249C4.cpp:
-	.text       start:0x801249C4 end:0x80124AEC
-
-pso/item/TItemEquipVariant_80124AEC.cpp:
-	.text       start:0x80124AEC end:0x80124B44
-
-pso/player/TObjPlayer_80124B44.cpp:
-	.text       start:0x80124B44 end:0x80124BB4
-
-pso/unk/text_80124BB4.cpp:
-	.text       start:0x80124BB4 end:0x80124C0C
-
-pso/player/TObjPlayer_80124C0C.cpp:
-	.text       start:0x80124C0C end:0x80124C90
+original_padding_8043E954:
+	.rodata     start:0x8043E954 end:0x8043E958 align:4
 
 pso/unk/text_80124C90.cpp:
 	.text       start:0x80124C90 end:0x80124FBC
@@ -5935,8 +5913,9 @@ pso/object/CityVerticalModel.cpp:
 
 pso/object/CitySeason.cpp:
 	.text       start:0x80183134 end:0x80184C2C
-	.rodata     start:0x80444210 end:0x80444268
+	.rodata     start:0x804440B0 end:0x80444268
 	.data       start:0x804B5C40 end:0x804B5C58
+	.sdata      start:0x805D3268 end:0x805D3290
 	.sdata2     start:0x805DBC18 end:0x805DBC80
 
 pso/unk/text_80184C2C.cpp:
@@ -12225,13 +12204,14 @@ pso/unk/text_8034AD38.cpp:
 pso/misc/TWindowDD_8034AF68.cpp:
 	.text       start:0x8034AF68 end:0x8034B110
 
-pso/misc/TChallenge4PItemSelect.cpp:
+pso/ui/TChallenge4PItemSelect.cpp:
 	.text       start:0x8034B110 end:0x8034B420
 	.data       start:0x804F0128 end:0x804F0140
 
-pso/misc/TChallenge4PResult.cpp:
+pso/ui/TChallenge4PResult.cpp:
 	.text       start:0x8034B420 end:0x8034BE30
-	.data       start:0x804F0140 end:0x804F0174
+	.data       start:0x804F0140 end:0x804F018C
+	.bss        start:0x805436A8 end:0x805436B8
 
 pso/ui/TAdFloorLoadCamGC.cpp:
 	.text       start:0x8034BE30 end:0x8034C18C
@@ -13992,12 +13972,10 @@ pso/misc/TLanguage_803DAF68.cpp:
 pso/unk/text_803DAFA8.cpp:
 	.text       start:0x803DAFA8 end:0x803DB23C
 
-pso/unk/text_803DB23C.cpp:
-	.text       start:0x803DB23C end:0x803DB390
+pso/system/GinjaModelQueue.cpp:
+	.text       start:0x803DB23C end:0x803DB470
+	.bss        start:0x8058CB68 end:0x8058CD70
 	.sdata2     start:0x805E0F58 end:0x805E0F68
-
-pso/unk/text_803DB390.cpp:
-	.text       start:0x803DB390 end:0x803DB470
 
 pso/system/GinjaMaterial.cpp:
 	.text       start:0x803DB470 end:0x803DC82C
