@@ -927,8 +927,8 @@ extern "C" {
 s32 default_clock_offset_frames(void);
 void TLobby__sub_8001ED70(void);
 f32 calc_phase_offset__6TLobbyFv(void);
-s32 get_minutes__6TLobbyFv(void);
-s32 get_time_of_day_seconds__6TLobbyFv();
+s32 get_internet_beat__6TLobbyFv(void);
+s32 get_clock_frames__6TLobbyFv();
 s32 get_main_phase();
 
 extern f32 lbl_805D7EE4;
@@ -948,8 +948,8 @@ s32 default_clock_offset_frames(void) {
     return 0x1A5E00;
 }
 
-s32 get_minutes__6TLobbyFv(void) {
-    return (get_time_of_day_seconds__6TLobbyFv() / 2592) % 1000;
+s32 get_internet_beat__6TLobbyFv(void) {
+    return (get_clock_frames__6TLobbyFv() / 2592) % 1000;
 }
 
 typedef struct DateStamp_8001E8FC DateStamp_8001E8FC;
@@ -964,7 +964,7 @@ struct DateStamp_8001E8FC
 };
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
 M2C_UNK getDateStamp__FP9DateStamp(void *);
-s32 get_time_of_day_seconds__6TLobbyFv() {
+s32 get_clock_frames__6TLobbyFv() {
   u8 *new_var;
   u8 *g;
   s32 base;

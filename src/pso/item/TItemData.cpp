@@ -172,7 +172,7 @@ struct Stats_8010BA9C { u8 pad0[2]; s16 x2; u8 pad4[2]; s16 x6; u8 pad8[4]; s16 
 extern "C" {
 void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
 s32 get_type_nibble__9TItemDataFPv(u8 *arg0);
-s32 get_minutes__6TLobbyFv(void);
+s32 get_internet_beat__6TLobbyFv(void);
 extern M2C_UNK lbl_8043E348;
 extern const f32 lbl_805DAB6C;
 void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
@@ -555,7 +555,7 @@ f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
     if ((s32) M2C_FIELD(arg0, u8 *, 1) != 0x94) {
         return var_f1;
     }
-    temp_r3 = get_minutes__6TLobbyFv();
+    temp_r3 = get_internet_beat__6TLobbyFv();
     var_r3 = temp_r3 >> 2;
     var_r3 = temp_r3 / 4;
     var_r4 = (M2C_UNK *)(&lbl_8043E348);

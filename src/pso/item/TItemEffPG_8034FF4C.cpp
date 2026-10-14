@@ -15,7 +15,7 @@ typedef char RecoveredGlobal_8035007C___vt__10TItemEffPG_size[sizeof(RecoveredGl
 extern "C" {
 void *__nw__7TObjectFUl(int);
 s32 construct_attack_collision(void *, void *, void *);
-s32 TItemEffPG__sub_8034FCF0(int, void *, void *);
+s32 TItemEffPG__visual_ct(int, void *, void *);
 extern M2C_UNK __vt__10TItemEffPG[];
 extern s32 lbl_805D4350;
 extern const float lbl_805DFE14;
@@ -30,7 +30,7 @@ void create__10TItemEffPGFPvPv(void *arg0, void *arg1);
 void* init_params__10TItemEffPGFPv(void* a0);
 void run_task__10TItemEffPGFv(void *arg0);
 M2C_UNK check_hits__14TItemAttackColFPv(void *);
-M2C_UNK TItemEffPG__sub_8034FA50(void *);
+M2C_UNK TItemEffPG__begin_visual_fade(void *);
 int TObjPlayer__sub_802E451C(void);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
@@ -69,7 +69,7 @@ void run_task__10TItemEffPGFv(void *arg0) {
         return;
     }
     if ((u32) M2C_FIELD(arg0, u32 *, 0xD0) != 0U) {
-        TItemEffPG__sub_8034FA50(M2C_FIELD(arg0, void **, 0xD0));
+        TItemEffPG__begin_visual_fade(M2C_FIELD(arg0, void **, 0xD0));
         M2C_FIELD(arg0, u32 *, 0xD0) = 0U;
     }
 }
@@ -103,7 +103,7 @@ u8 *TItemEffPG__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     temp_r3 = ((s32)__nw__7TObjectFUl((int) (0x68)));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = TItemEffPG__sub_8034FCF0((int) (temp_r3), (void *) (arg0), (void *) (arg2));
+        var_r0 = TItemEffPG__visual_ct((int) (temp_r3), (void *) (arg0), (void *) (arg2));
     }
     M2C_FIELD(arg0, s32 *, 0xD0) = var_r0;
     return arg0;

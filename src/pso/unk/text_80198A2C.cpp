@@ -404,7 +404,7 @@ struct Ang_801994DC { s32 x, y, z; };
 
 extern "C" {
 void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
-s32 get_minutes__6TLobbyFv(void);
+s32 get_internet_beat__6TLobbyFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_timer__11TWindowCtrlFv(void);
 extern M2C_UNK lbl_804B8E00[];
@@ -458,7 +458,7 @@ struct Tbl_801990B4 {
 };
 
 f32 fabs_float(f32);
-s32 get_minutes__6TLobbyFv(void);
+s32 get_internet_beat__6TLobbyFv(void);
 u8 *TWindowTimer__sub_8019886C(void *, void *, s32, s32, s32, void *);
 u8 *TWindowTimer__sub_801988E8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4);
 void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
@@ -566,7 +566,7 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
     } else if (get_timer_value__12TWindowTimerFi(0) >= 999) {
         set_timer_value__12TWindowTimerFii(0, 0);
     }
-    m = get_minutes__6TLobbyFv();
+    m = get_internet_beat__6TLobbyFv();
     r = (s32)fabs_float((f32)(m - M2C_FIELD(arg0, s32 *, 0x1C)));
     if (r == 1 || r == 999) {
         M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 1;
@@ -634,7 +634,7 @@ void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
-    M2C_FIELD(arg0, s32 *, 0x1C) = get_minutes__6TLobbyFv();
+    M2C_FIELD(arg0, s32 *, 0x1C) = get_internet_beat__6TLobbyFv();
     create_timer__11TWindowCtrlFv();
     set_timer_value__12TWindowTimerFii(1, 0);
     set_timer_value__12TWindowTimerFii(0, 0);
@@ -1130,7 +1130,7 @@ void TWindowTimer__sub_8019A098(void);
 void rotate_vec_xz(void *, void *, s32);
 void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1);
 s32 obj_getField1c(void *);
-s32 get_time_of_day_seconds__6TLobbyFv();
+s32 get_clock_frames__6TLobbyFv();
 void update_best_time__12TWindowTimerFPv(void *arg0);
 void open__11TWindowCtrlFiii(s32, void *, int);
 void vec3_add_to(void *, void *);
@@ -1179,7 +1179,7 @@ void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     Vec_80199F14 q;
     Vec_80199F14 p;
     i = 0;
-    self->time = get_time_of_day_seconds__6TLobbyFv() % 2592;
+    self->time = get_clock_frames__6TLobbyFv() % 2592;
     if (self->time >= ((Tbl_80199F14 *)&gogo_ball_configuration)->limit) {
         VecCopy__FP3VecPC3Vec(&p, &self->pos);
         p.y += ((Tbl_80199F14 *)&gogo_ball_configuration)->yofs;

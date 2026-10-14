@@ -29,10 +29,10 @@ void * init_state_1536__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0);
-void * init_variant_b__10TObjPlayerFPv(void *, M2C_UNK, void *);
+void * morning_glory_ct(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_variant_b__10TObjPlayerFPv(u8 *arg0);
+u8 *create_morning_glory(u8 *arg0);
 void TItemWeapon__ct(void *, void *);
 extern M2C_UNK lbl_804ECFB0[];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
@@ -54,10 +54,10 @@ void *item_equip_variant_deleting_dtor_80326880(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_80326AD0(void *arg0, s16 arg1);
 void *item_equip_variant_deleting_dtor_80326CFC(void *arg0, s16 arg1);
 void TObjPlayer__sub_80326794(void* p);
-int TObjPlayer__sub_80326BD4(void* p);
+int morning_glory_update(void* p);
 void apply_container_item__10TObjPlayerFPv(void *arg0);
 void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
-void init_item_slots__10TObjPlayerFPv(void* p);
+void morning_glory_draw(void* p);
 void dark_bridge_start_timers(void *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
 void dark_bridge_update_tp_spend(void *arg0);
@@ -298,26 +298,26 @@ u8 *create_state_1536__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-int TObjPlayer__sub_80326BD4(void* p) { return refresh_owner_stats__5TItemFPv(p); }
-void init_item_slots__10TObjPlayerFPv(void* p) { draw_weapon_at_joint(p, (void*)48); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
+int morning_glory_update(void* p) { return refresh_owner_stats__5TItemFPv(p); }
+void morning_glory_draw(void* p) { draw_weapon_at_joint(p, (void*)48); update_trail_slot__11TItemWeaponFPvi(p, (void*)0); update_trail_slot__11TItemWeaponFPvi(p, (void*)1); update_trail_slot__11TItemWeaponFPvi(p, (void*)2); }
 
 extern M2C_UNK lbl_804ED1A0[];
 
-void *init_variant_b__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
+void *morning_glory_ct(void *arg0, M2C_UNK _w1, void * _w2) {
     TItemWeapon__ct((void *)(arg0), (void *)(_w1));
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED1A0;
     set_weapon_trail_joints(arg0, 2, 6, 5);
     set_status_flags__10TObjPlayerFPvUi(arg0, 1);
     return arg0;
 }
-u8 *create_variant_b__10TObjPlayerFPv(u8 *arg0) {
+u8 *create_morning_glory(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1F8));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_variant_b__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)morning_glory_ct((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

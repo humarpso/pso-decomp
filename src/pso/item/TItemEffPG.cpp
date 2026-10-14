@@ -15,7 +15,7 @@ void disallow_rendering__7TObjectFv(void *);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 extern const f32 lbl_805DFE08;
 extern const f32 lbl_805DFE0C;
-void TItemEffPG__sub_8034FBA4(u8 *arg0);
+void TItemEffPG__visual_run(u8 *arg0);
 void * init_fields__10TItemEffPGFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -25,7 +25,7 @@ s32 create_particle_emitter(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern M2C_UNK lbl_804F0BF0[];
 extern const f32 lbl_805DFE10;
-u8 *TItemEffPG__sub_8034FCF0(u8 *arg0, u8 *arg1, u8 *arg2);
+u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2);
 s32 get_state_flag__9TMainTaskFv();
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 u32 query_game_join_id__10TObjPlayerFv(int);
@@ -54,7 +54,7 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0);
 
 extern "C" {
 
-void TItemEffPG__sub_8034FA50(void* p);
+void TItemEffPG__begin_visual_fade(void* p);
 void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1);
 s32 countdown_timer__10TItemEffPGFPv(void *arg0);
 void *destroy__10TItemEffPGFPvs(void *arg0, s16 arg1);
@@ -90,7 +90,7 @@ u8 *create__10TItemEffPGFPv(u8 *arg0) {
     return NULL;
 }
 
-void TItemEffPG__sub_8034FA50(void* p) { *(s32*)((char*)p + 0x58) = 1; }
+void TItemEffPG__begin_visual_fade(void* p) { *(s32*)((char*)p + 0x58) = 1; }
 
 extern M2C_UNK lbl_804F0BF0[];
 
@@ -131,7 +131,7 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
     }
 }
 
-void TItemEffPG__sub_8034FBA4(u8 *arg0) {
+void TItemEffPG__visual_run(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f1_2;
@@ -175,7 +175,7 @@ void *__dt__10TItemEffPGFPvs(void *arg0, s16 arg1) {
 }
 
 typedef char RecoveredGlobal_8034FCF0_lbl_804F0BF0_size[sizeof(RecoveredGlobal_8034FCF0_lbl_804F0BF0) == 0x18 ? 1 : -1];
-u8 *TItemEffPG__sub_8034FCF0(u8 *arg0, u8 *arg1, u8 *arg2) {
+u8 *TItemEffPG__visual_ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     f32 temp_f1;
     __ct__7TObjectFP7TObject(arg0, arg1);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8034FCF0_lbl_804F0BF0 *)&lbl_804F0BF0).value;
