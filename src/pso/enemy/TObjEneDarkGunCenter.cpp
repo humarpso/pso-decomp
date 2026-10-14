@@ -98,7 +98,7 @@ void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void add_actor_exp();
 void apply_action_hold_status();
@@ -233,7 +233,7 @@ void *__vt__20TObjEneDarkGunCenter[83] = {
     (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect,
     (void *)TObjPlayer__sub_80010A80,
-    (void *)TObjPlayer__sub_800F65D0,
+    (void *)update_and_send_enemy_hit_state,
     (void *)fn_80010EC8,
     (void *)fn_80010EC4,
     (void *)fn_80010EC0,

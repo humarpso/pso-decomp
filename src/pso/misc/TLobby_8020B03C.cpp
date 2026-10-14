@@ -93,8 +93,8 @@ struct Ent_8020B1E4 { u8 pad[2]; s16 f2; s16 f4; s16 f6; };
 struct Grp_8020B1E4 { u8 pad[4]; s32 count; u8 pad2[0xC]; Ent_8020B1E4 *ents; };
 
 extern "C" {
-void TItemDrop__sub_800FDDF4(void);
-void TItemDrop__sub_800FDE7C(s32);
+void close_gsl_archive(void);
+void open_gsl_archive(s32);
 s32 load_all_floor_enemy_sets__6TLobbyFv(void);
 s32 load_all_floor_object_sets__6TLobbyFv(void);
 void free_data_60F0__6TLobbyFv(void);
@@ -132,22 +132,22 @@ void load_set_gsl_files__6TLobbyFv(void) {
     TLobby__map_set_file_buffer_size = 0;
     TLobby__data_805D6134 = 0;
     if (init_handle__6TLobbyFi(0x8000) != 0) {
-        TItemDrop__sub_800FDE7C((s32) &lbl_8044BBF0.value);
+        open_gsl_archive((s32) &lbl_8044BBF0.value);
         if (load_all_floor_object_sets__6TLobbyFv() == 0) {
-            TItemDrop__sub_800FDDF4();
+            close_gsl_archive();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;
             return;
         }
-        TItemDrop__sub_800FDDF4();
-        TItemDrop__sub_800FDE7C((s32) &lbl_8044BC04.value);
+        close_gsl_archive();
+        open_gsl_archive((s32) &lbl_8044BC04.value);
         if (load_all_floor_enemy_sets__6TLobbyFv() == 0) {
-            TItemDrop__sub_800FDDF4();
+            close_gsl_archive();
             free_data_60F0__6TLobbyFv();
             TLobby__data_805D6134 |= 1;
             return;
         }
-        TItemDrop__sub_800FDDF4();
+        close_gsl_archive();
         free_data_60F0__6TLobbyFv();
         TLobby__data_805D6134 |= 1;
     }

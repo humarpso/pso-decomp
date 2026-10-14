@@ -554,7 +554,7 @@ M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *);
 M2C_UNK apply_effect_variant_a__10TObjPlayerFii(void *, int);
 M2C_UNK draw_blob_shadow(int);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
-M2C_UNK TLobby__sub_800F6510(void *, void *);
+M2C_UNK send_6x0A_enemy_state(void *, void *);
 M2C_UNK refresh_lobby_state__10TObjPlayerFPv();
 M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
 M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
@@ -959,7 +959,7 @@ void TObjEneDelDepth__sub_80313954(u8 *arg0) {
     case 2:
     default:
         sp8 = 0x800;
-        TLobby__sub_800F6510((void *) (arg0), (void *) (&sp8));
+        send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
         exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         send_entity_set_flags__6TLobbyFPv((void *) (arg0));

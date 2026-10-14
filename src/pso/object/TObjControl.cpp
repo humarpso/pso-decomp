@@ -453,10 +453,10 @@ s32 check_demo_mode__10TObjPlayerFv();
 Ene_800F62E0 * find_active_entity_by_id(u16);
 void * TObjControl__ct(void *arg0);
 void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
-void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg);
+void send_6x9C_enemy_low_game_flags(Obj_800F641C *self, s32 arg);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
-M2C_UNK TLobby__sub_800F6510(void *, void *);
-s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind);
+M2C_UNK send_6x0A_enemy_state(void *, void *);
+s32 update_and_send_enemy_hit_state(u8 *self, s32 kind);
 void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
 void call_vt78__10TObjPlayerFPv(void *arg0);
 void apply_set_data__9TObjEnemyFPvPv(A_800F698C *arg0, B_800F698C *arg1);
@@ -472,7 +472,7 @@ void apply_by_index__9TObjEnemyFs(s16, void *);
 M2C_UNK clear_flag_3__7TObjectFv(int);
 void bswap_field__6TLobbyFPv(void *);
 void broadcast_state__6TLobbyFPv(void* p);
-void TLobby__sub_800F79C4(u8 *arg0);
+void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
 void bswap_enemy_state__6TLobbyFPv(void *);
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
@@ -646,9 +646,9 @@ void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0) {
     }
 }
 
-void TLobby__sub_800F641C(Obj_800F641C *self, s32 arg) {
+void send_6x9C_enemy_low_game_flags(Obj_800F641C *self, s32 arg) {
     Msg_800F641C msg;
-    TLobby__sub_800F79C4((u8 *)&msg);
+    init_6x9C_enemy_low_game_flags_packet((u8 *)&msg);
     msg.id = self->id;
     msg.arg = arg;
     broadcast_state__6TLobbyFPv(&msg);
@@ -675,7 +675,7 @@ void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0) {
     }
 }
 
-s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
+s32 update_and_send_enemy_hit_state(u8 *self, s32 kind) {
     Pkt_800F65D0 pkt;
     s32 ret;
     ret = 0;
@@ -697,7 +697,7 @@ s32 TObjPlayer__sub_800F65D0(u8 *self, s32 kind) {
         }
         ret = exchange_object_state__6TLobbyFPvis(self, &pkt, 0);
         if (ret != 0) {
-            TLobby__sub_800F6510(self, &pkt);
+            send_6x0A_enemy_state(self, &pkt);
         }
     }
     return ret;

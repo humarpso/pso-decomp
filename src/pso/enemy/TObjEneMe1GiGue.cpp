@@ -159,7 +159,7 @@ extern "C" {
 void TObjPlayer__sub_80019568();
 }
 extern "C" {
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 }
 extern "C" {
 void apply_hit_message_flags__10TObjPlayerFPvPv();
@@ -439,7 +439,7 @@ void *lbl_804E135C[83] = {
     (void *)&TObjEneMe1GiGue__sub_802CDAB8, (void *)&TObjEneMe1GiGue__sub_802CDAC0, (void *)&enter_hit_reaction_state__15TObjEneMe1GiGueFPv, (void *)&enter_state_5_save_prev__15TObjEneMe1GiGueFPv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TBoss3Volopt__sub_800C762C, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
+    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };

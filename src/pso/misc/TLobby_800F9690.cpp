@@ -67,7 +67,7 @@ u8 *set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv();
 M2C_UNK read_disc_file(s32, s32);
 M2C_UNK read_sectors_sync__8TGStreamFPvii(M2C_UNK *, M2C_UNK, void *);
-M2C_UNK TGStream__ct(M2C_UNK *, M2C_UNK);
+M2C_UNK destroy_gstream(M2C_UNK *, M2C_UNK);
 M2C_UNK open__8TGStreamFPvPvi(M2C_UNK *, s32, M2C_UNK);
 extern M2C_UNK lbl_80499A40[];
 
@@ -106,7 +106,7 @@ s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
         subtractive_rng_xor_buffer((M2C_UNK *)&sel, buf + 8, size - 8);
         prs_decompress_buffer(buf + 8, ret);
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
-        TGStream__ct((M2C_UNK *)&st, -1);
+        destroy_gstream((M2C_UNK *)&st, -1);
     }
     if (arg1 != NULL) {
         *arg1 = sp8;

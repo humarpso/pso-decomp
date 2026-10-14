@@ -1,0 +1,32 @@
+#ifndef PSO_SYSTEM_TGSTREAM_H
+#define PSO_SYSTEM_TGSTREAM_H
+
+#include "pso/system/GslArchive.h"
+#include <stddef.h>
+
+struct TGStreamPrefix {
+    char name[0x20];
+    s32 adxf_handle;
+    s32 direct_read_mode;
+    GslArchiveEntry *archive_entry;
+};
+typedef char TGStreamPrefixExtent[sizeof(TGStreamPrefix) == 0x2C ? 1 : -1];
+typedef char TGStreamHandleOffset[offsetof(TGStreamPrefix, adxf_handle) == 0x20 ? 1 : -1];
+typedef char TGStreamReadModeOffset[offsetof(TGStreamPrefix, direct_read_mode) == 0x24 ? 1 : -1];
+typedef char TGStreamEntryOffset[offsetof(TGStreamPrefix, archive_entry) == 0x28 ? 1 : -1];
+
+extern "C" {
+TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *stream, void *name, s32 direct_read_mode);
+TGStreamPrefix *destroy_gstream(TGStreamPrefix *stream, s16 delete_storage);
+void read_sectors_sync__8TGStreamFPvii(TGStreamPrefix *stream, s32 sector_count, s32 destination);
+s32 read_data__8TGStreamFPvii(TGStreamPrefix *stream, s32 destination, s32 byte_count);
+void reset__8TGStreamFv(void);
+void reset_gstream_buffer(void);
+s32 get_gstream_buffered_bytes(void);
+s32 refill_gstream_buffer(s32 adxf_handle);
+int get_gstream_file_size(void);
+void reset_gstream_globals(void);
+extern u8 gstream_sector_buffer[0x2000];
+}
+
+#endif

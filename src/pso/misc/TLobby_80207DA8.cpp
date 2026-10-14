@@ -1081,8 +1081,8 @@ u8 * __ct__5THeapFUli(void *, s32, s32);
 u8 *__nw__5THeapFUl(M2C_UNK);
 #define area_event_set_heap (*(int *)&area_event_set_heap)
 void create_heap_8000__6TLobbyFv(void);
-void TItemDrop__sub_800FDDF4();
-void TItemDrop__sub_800FDE7C(void *);
+void close_gsl_archive();
+void open_gsl_archive(void *);
 s32 load_all_floor_event_sets__6TLobbyFv();
 extern u8 lbl_8044BAD0[];
 #define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
@@ -1110,12 +1110,12 @@ void load_set_event_gsl__6TLobbyFv(void) {
     }
     (*(s32 *)&set_event_destroy_id) = -1;
     lbl_805D6098 = 0;
-    TItemDrop__sub_800FDE7C(lbl_8044BAD0);
+    open_gsl_archive(lbl_8044BAD0);
     if (load_all_floor_event_sets__6TLobbyFv() == 0) {
-        TItemDrop__sub_800FDDF4();
+        close_gsl_archive();
         return;
     }
-    TItemDrop__sub_800FDDF4();
+    close_gsl_archive();
 }
 
 void free_heap__6TLobbyFv(void) { __dt__5THeapFv((void*)(area_event_set_heap), (void*)1); area_event_set_heap = 0; }

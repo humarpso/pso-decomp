@@ -207,7 +207,7 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/misc/TQuestVmDownLoadServer_803F63F0.cpp": {
+  "pso/network/NetworkInfoCodec.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
@@ -467,12 +467,6 @@
     "optimization": "-O2",
     "inline": "off",
     "use_lmw_stmw": "off"
-  },
-  "pso/unk/text_803F71BC.cpp": {
-    "mw_version": "GC/2.6",
-    "optimization": "-O4,p",
-    "inline": "off",
-    "use_lmw_stmw": "on"
   },
   "pso/unk/text_803D8030.cpp": {
     "mw_version": "GC/2.6",

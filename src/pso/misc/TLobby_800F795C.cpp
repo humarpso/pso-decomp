@@ -18,7 +18,7 @@ struct RecoveredGlobal_800F7A7C_lbl_8048C9D8 {
 };
 
 extern "C" {
-void TLobby__sub_800F79C4(u8 *arg0);
+void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
 extern RecoveredGlobal_800F7A6C_lbl_804DB1F0 lbl_804DB1F0;
 f32 TLobby__sub_800F7A6C(void);
 extern RecoveredGlobal_800F7A7C_lbl_8048C9D8 challenge_mode_state;
@@ -27,8 +27,8 @@ f32 TLobby__sub_800F7A7C(void);
 
 extern "C" {
 
-void TLobby__sub_800F7A1C(void* p);
-void TLobby__sub_800F7A50(void* p);
+void send_6x0A_enemy_state_packet(void* p);
+void init_6x0A_enemy_state_packet(void* p);
 int get_attack_credit_slot_count(void);
 void broadcast_state__6TLobbyFPv(void* p);
 void bswap_enemy_state__6TLobbyFPv(void* p);
@@ -47,15 +47,15 @@ int read_be16_field2__10TObjPlayerFPv(void*);
 void bswap_field__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); }
 void broadcast_state__6TLobbyFPv(void* p) { bswap_field__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
-void TLobby__sub_800F79C4(u8 *arg0) {
+void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, u8 *, 0) = 0x9C;
     M2C_FIELD(arg0, s8 *, 1) = 2;
 }
 
 void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
-void TLobby__sub_800F7A1C(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
-void TLobby__sub_800F7A50(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
+void send_6x0A_enemy_state_packet(void* p) { bswap_enemy_state__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
+void init_6x0A_enemy_state_packet(void* p) { *(u8*)((char*)p + 0x0) = 10; *(u8*)((char*)p + 0x1) = 3; }
 int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];

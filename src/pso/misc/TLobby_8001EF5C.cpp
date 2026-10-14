@@ -214,9 +214,9 @@ extern s32 lbl_805D4AD0;
 extern u32 bml_load_buffer;
 void pump_frames__6TLobbyFv(void);
 void open__8TGStreamFPvPvi(void *, s32, s32);
-s32 get_instance__8TGStreamFv(void *);
+s32 get_gstream_file_size(void *);
 void read_data__8TGStreamFPvii(void *, void *, s32);
-void TGStream__ct(void *, s32);
+void destroy_gstream(void *, s32);
 void align_gstream_read_offset(void *, s32);
 void prs_decompress_buffer(s32, void *);
 void add_named_entry__6TLobbyFii(void *, s32);
@@ -812,10 +812,10 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
         pump_frames__6TLobbyFv();
         lbl_805D4AD0 = 1;
         open__8TGStreamFPvPvi(&st, desc->name, 0);
-        if (get_instance__8TGStreamFv(&st) <= 0) {
+        if (get_gstream_file_size(&st) <= 0) {
             debug_print__6TLobbyFii(lbl_80434DB8, desc->name);
             self->nEnts16 = self->nEnts8 = 0;
-            TGStream__ct(&st, -1);
+            destroy_gstream(&st, -1);
             return self;
         }
         sectors = (((self->nEnts16 + self->nEnts8 + 1) << 6) + 0x7FF) / 2048;
@@ -913,7 +913,7 @@ Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, De
                 break;
             }
         }
-        TGStream__ct(&st, -1);
+        destroy_gstream(&st, -1);
         if (!(self->flags & 0x800)) {
             rec = hdr->recs;
             for (s32 i = 0; i < self->nEnts16; i++, rec++) {

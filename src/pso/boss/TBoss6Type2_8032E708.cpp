@@ -197,7 +197,7 @@ void update_shock_clock__10TObjPlayerFPv();
 void TObjPlayer__sub_800172CC();
 void TObjPlayer__sub_80018E6C();
 void TObjPlayer__sub_80019568();
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void add_actor_exp();
 void apply_action_hold_status();
@@ -289,7 +289,7 @@ void *lbl_804EDDEC[83] = {
     (void *)TObjPlayer__sub_80014890, (void *)TObjPlayer__sub_8001488C, (void *)spawn_ground_effect__10TObjPlayerFPv, (void *)TObjPlayer__sub_8033030C,
     (void *)reset_pose__10TObjPlayerFPv, (void *)TObjPlayer__sub_80014840, (void *)TObjPlayer__sub_80014838, (void *)TObjPlayer__sub_80014830,
     (void *)get_pos__10TObjPlayerFii, (void *)apply_switch_attack__10TObjPlayerFi, (void *)enemy_spawn_jellen_effect, (void *)trigger_switch_attack__10TObjPlayerFi,
-    (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)TObjPlayer__sub_800F65D0, (void *)fn_80010EC8,
+    (void *)enemy_spawn_zalure_effect, (void *)TObjPlayer__sub_80010A80, (void *)update_and_send_enemy_hit_state, (void *)fn_80010EC8,
     (void *)fn_80010EC4, (void *)fn_80010EC0, (void *)fn_80010EBC, (void *)call_vt78__10TObjPlayerFPv,
     (void *)apply_hit_message_flags__10TObjPlayerFPvPv, (void *)apply_set_data__9TObjEnemyFPvPv, (void *)clear_lobby_object_state,
 };

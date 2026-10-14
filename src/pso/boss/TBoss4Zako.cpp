@@ -1543,7 +1543,7 @@ void run_task__10TBoss4ZakoFv();
 void clear_lobby_object_state();
 void render_actor_shadows_default();
 void get_enemy_name__14TObjEnePanarmsFPv();
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 void apply_hit_message_flags__10TObjPlayerFPvPv();
 void call_vt78__10TObjPlayerFPv();
 void apply_set_data__9TObjEnemyFPvPv();
@@ -1626,7 +1626,7 @@ M2C_UNK __vt__11TBoss4Bishi[83] = {
     (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
     (M2C_UNK)enemy_spawn_zalure_effect,
     (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)TObjPlayer__sub_800F65D0,
+    (M2C_UNK)update_and_send_enemy_hit_state,
     (M2C_UNK)fn_80010EC8,
     (M2C_UNK)fn_80010EC4,
     (M2C_UNK)fn_80010EC0,
@@ -1711,7 +1711,7 @@ M2C_UNK __vt__9TBoss4Uro[83] = {
     (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
     (M2C_UNK)enemy_spawn_zalure_effect,
     (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)TObjPlayer__sub_800F65D0,
+    (M2C_UNK)update_and_send_enemy_hit_state,
     (M2C_UNK)fn_80010EC8,
     (M2C_UNK)fn_80010EC4,
     (M2C_UNK)fn_80010EC0,
@@ -1796,7 +1796,7 @@ M2C_UNK __vt__10TBoss4Zako[83] = {
     (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
     (M2C_UNK)enemy_spawn_zalure_effect,
     (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)TObjPlayer__sub_800F65D0,
+    (M2C_UNK)update_and_send_enemy_hit_state,
     (M2C_UNK)fn_80010EC8,
     (M2C_UNK)fn_80010EC4,
     (M2C_UNK)fn_80010EC0,

@@ -7,6 +7,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma scheduling off
 
 #include "pso/network/NetworkInfoLoader.h"
+#include "pso/network/NetworkInfoCodec.h"
 
 typedef struct Ent_803F47BC {
     char name[0x20];
@@ -107,7 +108,6 @@ s32 get_network_config_card_channel(void);
 s32 get_network_info_file_size(void);
 s32 get_network_info_card_key(int chan, u8 *out);
 u32 calc_crc32(Save_803F3F64 *arg0, s32 arg1);
-s32 fn_803F7254(u8 *arg0, u8 *arg1, u32 arg2, void *arg3);
 
 extern u8 TAdPlayerLoadGC__network_info_payload_buffer[];
 extern NetworkInfoLoadState network_info_load_state;
@@ -250,7 +250,7 @@ void update_network_info_load(void) {
                     } else {
                         memcpy(TAdPlayerLoadGC__network_info_payload_buffer, TAdPlayerLoadGC__network_config_buffer->data, 0x23B8);
                         memset((*(s16 * *)&lobby_net_config_buffer), 0, 0x19D4);
-                        network_info_load_state.card_result = fn_803F7254(key, TAdPlayerLoadGC__network_info_payload_buffer, TAdPlayerLoadGC__network_config_buffer->size, (*(s16 * *)&lobby_net_config_buffer));
+                        network_info_load_state.card_result = decode_network_info_payload(key, TAdPlayerLoadGC__network_info_payload_buffer, TAdPlayerLoadGC__network_config_buffer->size, ((NetworkInfoConfig *)lobby_net_config_buffer));
                         if (network_info_load_state.card_result != 0) {
                             init_network_config_defaults();
                             close_card_slot__15TAdPlayerLoadGCFi(network_info_load_state.file_handle);

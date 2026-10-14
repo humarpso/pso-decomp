@@ -202,7 +202,7 @@ s32 run_lobby_load_tables__6TLobbyFv();
 s32 is_area_transfer_pending();
 s32 apply_phase_keyboard_mode();
 s32 load_area_gsl();
-s32 TItemDrop__sub_800FDDF4();
+s32 close_gsl_archive();
 s32 update_key_machine__6TLobbyFv();
 void reset_and_invoke__6TLobbyFv(void);
 int reset_keyboard_state__6TLobbyFv(void);
@@ -217,16 +217,16 @@ s32 check_disconnect_conditions__6TLobbyFv(void) {
     }
     load_area_gsl();
     if (update_key_machine__6TLobbyFv() == 0) {
-        TItemDrop__sub_800FDDF4();
+        close_gsl_archive();
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
     if (load_current_floor_resources() == 0) {
-        TItemDrop__sub_800FDDF4();
+        close_gsl_archive();
         reset_and_invoke__6TLobbyFv();
         return 1;
     }
-    TItemDrop__sub_800FDDF4();
+    close_gsl_archive();
     if (is_area_transfer_pending() != 0) {
         reset_and_invoke__6TLobbyFv();
         return 1;

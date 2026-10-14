@@ -99,7 +99,7 @@ void enemy_spawn_jellen_effect();
 void trigger_switch_attack__10TObjPlayerFi();
 void enemy_spawn_zalure_effect();
 void TObjPlayer__sub_80010A80();
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 void fn_80010EC8();
 void fn_80010EC4();
 void fn_80010EC0();
@@ -183,7 +183,7 @@ void *__vt__15TObjEnemyCustom[83] = {
     (void *)trigger_switch_attack__10TObjPlayerFi,
     (void *)enemy_spawn_zalure_effect,
     (void *)TObjPlayer__sub_80010A80,
-    (void *)TObjPlayer__sub_800F65D0,
+    (void *)update_and_send_enemy_hit_state,
     (void *)fn_80010EC8,
     (void *)fn_80010EC4,
     (void *)fn_80010EC0,

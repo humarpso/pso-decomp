@@ -2960,7 +2960,7 @@ void TObjPlayer__sub_80019568();
 extern "C" {
 }
 extern "C" {
-void TObjPlayer__sub_800F65D0();
+void update_and_send_enemy_hit_state();
 }
 extern "C" {
 void apply_hit_message_flags__10TObjPlayerFPvPv();
@@ -3228,7 +3228,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjEneMe1Canadin__sub_8009EE18, (void *)&set_state_12__17TObjEneMe1CanadinFPv, (void *)&set_mode0xD_unless_0xBor0xD__17TObjEneMe1CanadinFPv,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
+    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&TObjEneDD__vt77,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjEneEpsilon__vt81,
     (void *)&TObjEneDD__vt82, (void *)&TObjEneDD__vt83, (void *)&TObjEneDD__vt84, (void *)&dispatch_state__17TObjEneMe1CanadinFPvUii,

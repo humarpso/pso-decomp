@@ -633,6 +633,7 @@ force_active:
   - alerted_state__14TObjEneBm5WolfFPvi
   - alloc_boss_target_slot__10TObjPlayerFPvi
   - alloc_breakup_piece_records
+  - allocate_network_info_cipher_key
   - anchor_state__14TObjEneBm5WolfFPvi
   - ancient_boss_warp_resource_block
   - appearing_state__14TObjEneBm5WolfFPvi
@@ -795,6 +796,7 @@ force_active:
   - beast_resource_descriptor
   - begin_parse__24TMessageWindowControllerFPCcPc
   - bind_controller_devices
+  - bind_network_info_cipher_pool
   - biri_ball_model_names
   - blocking_vsync__6TLobbyFPv
   - bm3_fly_collider_params
@@ -1132,6 +1134,7 @@ force_active:
   - clear_flag_in_state7__14TObjEneBalClawFPv
   - clear_flags__11TItemMagSubFUl
   - clear_four_slots__6TLobbyFv
+  - clear_network_info_cipher_pool
   - clear_photon_blast_slots__10TObjPlayerFv
   - clear_pipe_interaction_latch
   - clear_segment_flags__17TBoss1DragonColliFPv
@@ -1189,7 +1192,6 @@ force_active:
   - copy_challenge_result_record
   - copy_character_data__23TAdSinglePlyChrSelectGCFPvPv
   - copy_chat_entry__20TWindowSubSymbolChatFPvPv
-  - copy_config_string__22TQuestVmDownLoadServerFPvPvUiUi
   - copy_debris_params__8TObjChipFPvPv
   - copy_drop_node
   - copy_effect_data__18TAdChrMoveEffectGCFPvPv
@@ -1197,6 +1199,8 @@ force_active:
   - copy_gauge_warn_vec__10TObjPlayerFv
   - copy_global_value_block__6TLobbyFv
   - copy_motion_pair
+  - copy_network_info_cipher_block
+  - copy_network_info_config_string
   - copy_node_record__10TObjPlayerFii
   - copy_pos_with_height_offset__16TObjEneMe3StelthFPv
   - copy_pos_with_height_offset__18TObjEneMe3SinowZoaFPv
@@ -1259,6 +1263,9 @@ force_active:
   - dead_list_window_position
   - deallocate_from_fixed_pools
   - debug_print_ranges__8TOKurageFPv
+  - decrypt_network_info_cipher_block
+  - decrypt_network_info_cipher_blocks
+  - decrypt_network_info_cipher_round
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
@@ -1634,7 +1641,6 @@ force_active:
   - get_boss_warp_model_handle
   - get_boss_warp_motion
   - get_clamped_level__19TObjEneBm9MericarolFPv
-  - get_config_line__22TQuestVmDownLoadServerFPvUi
   - get_ending_ab_wall_texture_list
   - get_entity_distance_or_default__11TWindowCtrlFiPvUs
   - get_entry_by_index__12TObjNpcEnemyFs
@@ -1644,6 +1650,7 @@ force_active:
   - get_function_key_menu__16TKeyBoardControlFPv
   - get_gigue_float_parameter
   - get_gigue_int_parameter
+  - get_gstream_buffered_bytes
   - get_labo_design_entry
   - get_labo_design_object
   - get_lobby_theme_clamped__16TObjCurtainLobbyFv
@@ -2189,8 +2196,65 @@ force_active:
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - multi_confirm_texture_descriptor
   - multi_confirm_texture_entries
+  - network_info_cipher_pool_binding
+  - network_info_cipher_workspace
+  - network_info_config_field_handled
+  - network_info_config_key_at
+  - network_info_config_key_bnum
+  - network_info_config_key_cmi
+  - network_info_config_key_cmp
+  - network_info_config_key_cni
+  - network_info_config_key_cnp
+  - network_info_config_key_cnum
+  - network_info_config_key_d1
+  - network_info_config_key_d2
+  - network_info_config_key_dt
+  - network_info_config_key_dy
+  - network_info_config_key_g1
+  - network_info_config_key_hn
+  - network_info_config_key_ip
+  - network_info_config_key_it
+  - network_info_config_key_iv
+  - network_info_config_key_iver
+  - network_info_config_key_li
+  - network_info_config_key_lp
+  - network_info_config_key_ma
+  - network_info_config_key_man
+  - network_info_config_key_mi
+  - network_info_config_key_mn
+  - network_info_config_key_mnum
+  - network_info_config_key_mr
+  - network_info_config_key_ms
+  - network_info_config_key_mt
+  - network_info_config_key_nam
+  - network_info_config_key_nm
+  - network_info_config_key_od
+  - network_info_config_key_ol
+  - network_info_config_key_pa
+  - network_info_config_key_pan
+  - network_info_config_key_pi
+  - network_info_config_key_pn
+  - network_info_config_key_pp
+  - network_info_config_key_ps
+  - network_info_config_key_pxp
+  - network_info_config_key_pxs
+  - network_info_config_key_py
+  - network_info_config_key_rc
+  - network_info_config_key_ri
+  - network_info_config_key_sa
+  - network_info_config_key_sd
+  - network_info_config_key_sg
+  - network_info_config_key_sgn
+  - network_info_config_key_snm
+  - network_info_config_key_t1
+  - network_info_config_key_t2
+  - network_info_config_key_t3
+  - network_info_config_key_url
+  - network_info_config_key_urn
   - network_info_trailer_backup
   - network_info_trailer_buffer
+  - network_info_unparsed_config_length
+  - network_info_unparsed_config_lines
   - network_packet_buffer_storage
   - nights_npc_resource_descriptor
   - notify__10TTcpSocketFss
@@ -2270,8 +2334,10 @@ force_active:
   - open_window__15TObjNewFloorWinFPv
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - pack_weapon_trail_color
-  - parse_config_int__22TQuestVmDownLoadServerFPvUi
   - parse_message_text__24TMessageWindowControllerFPCcPc
+  - parse_network_info_config_decimal
+  - parse_network_info_config_hex
+  - parse_network_info_config_line
   - parse_packet__9TProtocolFv
   - parse_pad_event__16TKeyBoardControlFiUi
   - parse_tag_command__24TMessageWindowControllerFv
@@ -2352,6 +2418,7 @@ force_active:
   - recoil_weapon_shoot_model_vtable
   - recoiling_projectile_weapon_vtable
   - record_local_battle_placement
+  - refill_gstream_buffer
   - reflect_velocity_off_collision
   - refresh_item_list__20TShopArmorListWindowFPv
   - refresh_label__11TChCrEffTagFPv
@@ -2361,6 +2428,7 @@ force_active:
   - refresh_split_screen_battle_alive_flags
   - register_global_instance_dtor__22TQuestVmDownLoadServerFv
   - register_global_objects__14TObjEneBm5WolfFv
+  - release_network_info_cipher_key
   - reload_floor_scene__6TLobbyFv
   - reload_lobby_floor_scene
   - reload_offline_area__6TLobbyFv
@@ -2471,6 +2539,7 @@ force_active:
   - reset_and_invoke__6TLobbyFv
   - reset_city_vertical_model_motion
   - reset_effect_entries__18TAdChrMoveEffectGCFPv
+  - reset_gstream_buffer
   - reset_leader_selection
   - reset_leader_selection_static__6TLobbyFv
   - reset_oscillation__11TItemMagSubFv

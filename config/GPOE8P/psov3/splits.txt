@@ -2317,36 +2317,10 @@ pso/object/TObjRoomId_800FD8C8.cpp:
 pso/unk/text_800FD930.cpp:
 	.text       start:0x800FD930 end:0x800FD944
 
-pso/unk/text_800FD944.cpp:
-	.text       start:0x800FD944 end:0x800FDA34
+pso/system/TGStream.cpp:
+	.text       start:0x800FD944 end:0x800FE300
 	.data       start:0x8049CA88 end:0x8049CBA8
-
-pso/misc/TGStream.cpp:
-	.text       start:0x800FDA34 end:0x800FDCB4
-
-pso/misc/TGStream_800FDCB4.cpp:
-	.text       start:0x800FDCB4 end:0x800FDD28
-
-pso/misc/TGStream_800FDD28.cpp:
-	.text       start:0x800FDD28 end:0x800FDD50
-
-pso/misc/TGStream_800FDD50.cpp:
-	.text       start:0x800FDD50 end:0x800FDD70
-
-pso/item/TItemDrop_800FDD70.cpp:
-	.text       start:0x800FDD70 end:0x800FDF7C
-
-pso/misc/TLobby_800FDF7C.cpp:
-	.text       start:0x800FDF7C end:0x800FE0A8
-
-pso/unk/text_800FE0A8.cpp:
-	.text       start:0x800FE0A8 end:0x800FE154
-
-pso/unk/text_800FE154.cpp:
-	.text       start:0x800FE154 end:0x800FE1C4
-
-pso/misc/TGStream_800FE1C4.cpp:
-	.text       start:0x800FE1C4 end:0x800FE300
+	.bss        start:0x805011E0 end:0x80506200
 
 pso/object/TObjWaitEntryHairMoveSim.cpp:
 	.text       start:0x800FE300 end:0x800FE834
@@ -14149,14 +14123,11 @@ pso/unk/text_803F4D10.cpp:
 pso/unk/text_803F4D84.cpp:
 	.text       start:0x803F4D84 end:0x803F632C
 
-pso/unk/text_803F632C.cpp:
-	.text       start:0x803F632C end:0x803F63F0
-
-pso/misc/TQuestVmDownLoadServer_803F63F0.cpp:
-	.text       start:0x803F63F0 end:0x803F71BC
-
-pso/unk/text_803F71BC.cpp:
-	.text       start:0x803F71BC end:0x803F7678
+pso/network/NetworkInfoCodec.cpp:
+	.text       start:0x803F632C end:0x803F7678
+	.bss        start:0x805A8AE8 end:0x805A9008
+	.sdata      start:0x805D4710 end:0x805D47F0
+	.sbss       start:0x805D79E8 end:0x805D79F8
 
 pso/network/NetworkTransport.cpp:
 	.text       start:0x803F7678 end:0x803F8794

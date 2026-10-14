@@ -535,7 +535,6 @@ pso/item/TItemDropSub_80107BF0.cpp
 pso/item/TItemDropSub_80107C40.cpp
 pso/item/TItemDrop_800F93F0.cpp
 pso/item/TItemDrop_800F9C00.cpp
-pso/item/TItemDrop_800FDD70.cpp
 pso/item/TItemEffArmor.cpp
 pso/item/TItemEffArmorParticle.cpp
 pso/item/TItemEffArmor_80107DA4.cpp
@@ -878,11 +877,6 @@ pso/misc/TFontSmallHelp.cpp
 pso/misc/TFontSmallLobby_801C013C.cpp
 pso/misc/TFontSmallLobby_801D62D0.cpp
 pso/misc/TForceOperate.cpp
-pso/misc/TGStream.cpp
-pso/misc/TGStream_800FDCB4.cpp
-pso/misc/TGStream_800FDD28.cpp
-pso/misc/TGStream_800FDD50.cpp
-pso/misc/TGStream_800FE1C4.cpp
 pso/misc/TGameProtocol.cpp
 pso/misc/THunterGuildSeqOffline.cpp
 pso/misc/THunterGuildSeqOffline_801F3718.cpp
@@ -965,7 +959,6 @@ pso/misc/TLobby_800FA774.cpp
 pso/misc/TLobby_800FA848.cpp
 pso/misc/TLobby_800FC3CC.cpp
 pso/misc/TLobby_800FD78C.cpp
-pso/misc/TLobby_800FDF7C.cpp
 pso/misc/TLobby_80102DD4.cpp
 pso/misc/TLobby_80105A2C.cpp
 pso/misc/TLobby_8011B010.cpp
@@ -1504,7 +1497,6 @@ pso/misc/TQuestVmDownLoadServer_801F9010.cpp
 pso/misc/TQuestVmDownLoadServer_8033BC88.cpp
 pso/misc/TQuestVmDownLoadServer_8033C22C.cpp
 pso/misc/TQuestVmDownLoadServer_803E5668.cpp
-pso/misc/TQuestVmDownLoadServer_803F63F0.cpp
 pso/misc/TRaderMapCore_801A6CEC.cpp
 pso/misc/TRaderMapCore_801F3710.cpp
 pso/misc/TRaderMapCore_801FB2B8.cpp
@@ -1966,6 +1958,7 @@ pso/misc/pso_const_ids5.cpp
 pso/misc/pso_const_ids6.cpp
 pso/misc/pso_const_ids7.cpp
 pso/misc/pso_date.cpp
+pso/network/NetworkInfoCodec.cpp
 pso/network/NetworkInfoLoader.cpp
 pso/network/NetworkTransport.cpp
 pso/network/TGameProtocol.cpp
@@ -2648,6 +2641,7 @@ pso/system/PadRumble.cpp
 pso/system/RefCountedWorkBuffer.cpp
 pso/system/SjMemoryBuffer.cpp
 pso/system/SjRingBuffer.cpp
+pso/system/TGStream.cpp
 pso/system/THeap.cpp
 pso/system/TMemberCheck.cpp
 pso/system/TNECFontEORFunction.cpp
@@ -2982,9 +2976,6 @@ pso/unk/text_800FA7E0.cpp
 pso/unk/text_800FCC78.cpp
 pso/unk/text_800FD8A0.cpp
 pso/unk/text_800FD930.cpp
-pso/unk/text_800FD944.cpp
-pso/unk/text_800FE0A8.cpp
-pso/unk/text_800FE154.cpp
 pso/unk/text_800FEA34.cpp
 pso/unk/text_800FFC6C.cpp
 pso/unk/text_80100BB0.cpp
@@ -3739,8 +3730,6 @@ pso/unk/text_803E4D8C.cpp
 pso/unk/text_803F1804.cpp
 pso/unk/text_803F4D10.cpp
 pso/unk/text_803F4D84.cpp
-pso/unk/text_803F632C.cpp
-pso/unk/text_803F71BC.cpp
 pso/unk/text_8042EE4C.cpp
 si/SIBios.c
 si/SISamplingRate.c

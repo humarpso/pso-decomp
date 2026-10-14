@@ -153,7 +153,7 @@ extern "C" void apply_slow_status__10TObjPlayerFPv();
 extern "C" void update_shock_clock__10TObjPlayerFPv();
 extern "C" void TObjPlayer__sub_800172CC();
 extern "C" void TObjPlayer__sub_80018E6C();
-extern "C" void TObjPlayer__sub_800F65D0();
+extern "C" void update_and_send_enemy_hit_state();
 extern "C" void apply_hit_message_flags__10TObjPlayerFPvPv();
 extern "C" void TObjPlayer__sub_80148D80();
 extern "C" void deactivateIdleMode__11TObjNpcBaseFv();
@@ -252,7 +252,7 @@ void *__vt__11TObjNpcMoja[95] = {
     (void *)&TObjPlayer__sub_80014890, (void *)&TObjPlayer__sub_8001488C, (void *)&TObjPlayer__sub_80014888, (void *)&TObjPlayer__sub_80014884,
     (void *)&reset_pose__10TObjPlayerFPv, (void *)&TObjPlayer__sub_80014840, (void *)&TObjPlayer__sub_80014838, (void *)&TObjPlayer__sub_80014830,
     (void *)&get_pos__10TObjPlayerFii, (void *)&apply_switch_attack__10TObjPlayerFi, (void *)&enemy_spawn_jellen_effect, (void *)&trigger_switch_attack__10TObjPlayerFi,
-    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&TObjPlayer__sub_800F65D0, (void *)&fn_80010EC8,
+    (void *)&enemy_spawn_zalure_effect, (void *)&TObjPlayer__sub_80010A80, (void *)&update_and_send_enemy_hit_state, (void *)&fn_80010EC8,
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_vt78__10TObjPlayerFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)&TObjPlayer__sub_80148D80,
     (void *)&update_standing__11TObjNpcBaseFPv, (void *)&update_wandering__11TObjNpcBaseFPv, (void *)&update_conversation__11TObjNpcBaseFPv, (void *)&apply_set_params__11TObjNpcBaseFv,

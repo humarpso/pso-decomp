@@ -204,7 +204,7 @@ extern "C" {
 s32 is_split_screen();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK exchange_object_state__6TLobbyFPvis(void *, void *, int);
-M2C_UNK TLobby__sub_800F6510(void *, void *);
+M2C_UNK send_6x0A_enemy_state(void *, void *);
 M2C_UNK distribute_experience(void *);
 s32 get_player_by_client_id(void *);
 M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
@@ -583,7 +583,7 @@ void handle_defeat__14TBoss4DarkFalzFPv(u8 *arg0) {
         }
     }
     flags[0] = 0x800;
-    TLobby__sub_800F6510((void *) (arg0), (void *) (flags));
+    send_6x0A_enemy_state((void *) (arg0), (void *) (flags));
     exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (flags), 0);
     ((VObj_18_8004B654 *)(arg0))->m77(flags);
     send_entity_set_flags__6TLobbyFPv((void *) (arg0));

@@ -134,7 +134,7 @@ void TObjEneSlime__sub_800EB9F0(void* p, void* q);
 void TObjEneSlime__vt61(void* p);
 void run_task__12TObjEneSlimeFv(void *arg0);
 M2C_UNK exchange_object_state__6TLobbyFPvis(void *, s32 *, M2C_UNK);
-M2C_UNK TLobby__sub_800F6510(void *, s32 *);
+M2C_UNK send_6x0A_enemy_state(void *, s32 *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 has_no_active_slot(void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -206,7 +206,7 @@ void run_task__12TObjEneSlimeFv(void *arg0) {
 
     if ((check_demo_mode__10TObjPlayerFv() == 0) && (has_no_active_slot(arg0) != 0)) {
         sp8 = 0x800;
-        TLobby__sub_800F6510(arg0, &sp8);
+        send_6x0A_enemy_state(arg0, &sp8);
         exchange_object_state__6TLobbyFPvis(arg0, &sp8, 0);
         ((VObj_800EBB18_800EB9F0 *)arg0)->m77(&sp8);
         send_entity_set_flags__6TLobbyFPv(arg0);

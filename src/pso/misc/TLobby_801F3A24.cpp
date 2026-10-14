@@ -143,8 +143,8 @@ bool load_quest_encounter_section(s32 arg0);
 extern u8 lbl_80449D08[];
 extern u8 lbl_80449D1C[];
 extern u8 lbl_80449D30[];
-void TItemDrop__sub_800FDDF4(void);
-void TItemDrop__sub_800FDE7C(void *);
+void close_gsl_archive(void);
+void open_gsl_archive(void *);
 bool load_quest_encounter_section(s32 arg0);
 s32 get_floor_map_selection(s32, Sel_801F3E1C *);
 void load_area_event_set(s32, s32, s32, s32);
@@ -239,15 +239,15 @@ void populate_quest_floor_sets(void) {
         case 1:
         case 2:
             if (get_floor_map_selection(i, &sel) == 1 && sel.area >= 0) {
-                TItemDrop__sub_800FDE7C(lbl_80449D08);
+                open_gsl_archive(lbl_80449D08);
                 load_area_object_set(i, sel.area, sel.terrain, sel.entities);
-                TItemDrop__sub_800FDDF4();
-                TItemDrop__sub_800FDE7C(lbl_80449D1C);
+                close_gsl_archive();
+                open_gsl_archive(lbl_80449D1C);
                 load_area_enemy_set(i, sel.area, sel.terrain, sel.entities);
-                TItemDrop__sub_800FDDF4();
-                TItemDrop__sub_800FDE7C(lbl_80449D30);
+                close_gsl_archive();
+                open_gsl_archive(lbl_80449D30);
                 load_area_event_set(i, sel.area, sel.terrain, sel.entities);
-                TItemDrop__sub_800FDDF4();
+                close_gsl_archive();
             }
             break;
         case 3:

@@ -237,7 +237,7 @@ struct Obj_8015D518 {
 
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TLobby__sub_800F6510(void *, void *);
+M2C_UNK send_6x0A_enemy_state(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
@@ -372,7 +372,7 @@ void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
     s32 sp8;
     if (exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
         sp8 = 1;
-        TLobby__sub_800F6510((void *) (arg0), (void *) (&sp8));
+        send_6x0A_enemy_state((void *) (arg0), (void *) (&sp8));
         exchange_object_state__6TLobbyFPvis((void *) (arg0), (void *) (&sp8), (int) (0));
         ((VObj_18_65b835 *)(arg0))->m77(&sp8);
         TOCtrlDubchik__sub_8015CA74((void *)((void *) (arg0)));

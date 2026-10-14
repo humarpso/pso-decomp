@@ -508,8 +508,8 @@ void *memcpy(void *, const void *, u32);
 extern void *TItemDrop__common_probability_table;
 void select_weapon_drop__9TItemDropFv(s32 rng, s32 level, u8 *item);
 void *load_relocatable_file(char *, s32);
-void TItemDrop__sub_800FDDF4(void);
-void TItemDrop__sub_800FDE7C(char *);
+void close_gsl_archive(void);
+void open_gsl_archive(char *);
 s32 get_drop_table_mode_flags(void);
 void format_drop_table_filename(char *, char *);
 s32 calc_drop_offset__9TItemDropFi(s32);
@@ -583,14 +583,14 @@ void TItemDrop__vt0(void) {
     lbl_805D2B78 = calc_drop_offset__9TItemDropFi(TItemDrop__section_id);
     TItemDrop__data_805D5470 = get_drop_table_mode_flags();
     if (lbl_805D2B78 >= 0 && lbl_805D2B78 <= 0xA0) {
-        TItemDrop__sub_800FDE7C(lbl_8043E0F4);
+        open_gsl_archive(lbl_8043E0F4);
         format_drop_table_filename(path, lbl_8043E100);
         TItemDrop__common_probability_table = load_relocatable_file(path, TItemDrop__data_805D5458);
-        TItemDrop__sub_800FDDF4();
-        TItemDrop__sub_800FDE7C(lbl_8043E108);
+        close_gsl_archive();
+        open_gsl_archive(lbl_8043E108);
         format_drop_table_filename(path, lbl_8043E114);
         TItemDrop__data_805D5464 = (s32 *)load_relocatable_file(path, TItemDrop__data_805D545C);
-        TItemDrop__sub_800FDDF4();
+        close_gsl_archive();
     }
 }
 
