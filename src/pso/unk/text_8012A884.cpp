@@ -11,7 +11,7 @@ u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
 u8 *create_srank_common_weapon__10TObjPlayerFPv(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-void TObjPlayer__sub_8011E2A4(void *, u8);
+void set_special_selector__11TItemWeaponFUc(void *, u8);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2);
@@ -34,7 +34,7 @@ extern "C" void TItemWeapon__sub_8011E5D0();
 extern "C" void TItemWeapon__sub_8011E5D4();
 extern "C" void TItemWeapon__sub_8011E5D8();
 extern "C" void TItemWeapon__sub_8011E5DC();
-extern "C" void TItemWeapon__sub_8011E610();
+extern "C" void set_technique_roll__11TItemWeaponFl();
 extern "C" void TItemWeapon__sub_801200C0();
 extern "C" void TItemWeapon__sub_8012012C();
 extern "C" void TItemWeapon__write_item_data();
@@ -86,7 +86,7 @@ void *s_rank_weapon_vtable[63] = {
     (void *)&dispatch_state__5TItemFPv, (void *)&render__5TItemFPv, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&release_member_90__10TObjPlayerFPv, (void *)&get_motion_ptr__11TItemWeaponFPv, (void *)&TItem__sub_80100B8C, (void *)&classify_actor_view_detail,
     (void *)&register_attack__5TItemFPv, (void *)&try_pick_up_item__5TItemFPvi, (void *)&TItemWeapon__sub_801200C0, (void *)&TItem__sub_801005E0,
-    (void *)&update_active_weapon__11TItemWeaponFv, (void *)&TItemWeapon__sub_8011E610, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFPvc,
+    (void *)&update_active_weapon__11TItemWeaponFv, (void *)&set_technique_roll__11TItemWeaponFl, (void *)&TItemWeapon__write_item_data, (void *)&set_attach_slot__14TItemEquipBaseFPvc,
     (void *)&equip__14TItemEquipBaseFPv, (void *)&unequip__14TItemEquipBaseFPv, (void *)&add_equip_stats__14TItemEquipBaseFPvi, (void *)&remove_equip_stats__14TItemEquipBaseFPvi,
     (void *)&subtract_item_stat_bonus__14TItemEquipBaseFPviiPv, (void *)&subtract_equip_stats__14TItemEquipBaseFPviPvPv, (void *)&draw_weapon_trails__11TItemWeaponFPv, (void *)&draw_equipped_weapon__11TItemWeaponFPv,
     (void *)&update_weapon_trails__11TItemWeaponFPv, (void *)&update_equip__14TItemEquipBaseFPv, (void *)&dispatch_attack_marker__11TItemWeaponFv, (void *)&update_pickup_flag__5TItemFi,
@@ -117,46 +117,46 @@ u8 *construct_srank_weapon(void *arg0, s32 arg1, void *arg2) {
     case 1:
     case 2:
         set_status_flags__10TObjPlayerFPvUi(p, 0x400000);
-        TObjPlayer__sub_8011E2A4(self, 0x1A);
+        set_special_selector__11TItemWeaponFUc(self, 0x1A);
         break;
     case 5:
-        TObjPlayer__sub_8011E2A4(p, 0x1A);
+        set_special_selector__11TItemWeaponFUc(p, 0x1A);
         break;
     case 6:
-        TObjPlayer__sub_8011E2A4(p, 0x1E);
+        set_special_selector__11TItemWeaponFUc(p, 0x1E);
         break;
     case 7:
-        TObjPlayer__sub_8011E2A4(p, 0x12);
+        set_special_selector__11TItemWeaponFUc(p, 0x12);
         break;
     case 8:
-        TObjPlayer__sub_8011E2A4(p, 0x16);
+        set_special_selector__11TItemWeaponFUc(p, 0x16);
         break;
     case 9:
-        TObjPlayer__sub_8011E2A4(p, 0x26);
+        set_special_selector__11TItemWeaponFUc(p, 0x26);
         break;
     case 10:
-        TObjPlayer__sub_8011E2A4(p, 0x22);
+        set_special_selector__11TItemWeaponFUc(p, 0x22);
         break;
     case 11:
-        TObjPlayer__sub_8011E2A4(p, 0xD);
+        set_special_selector__11TItemWeaponFUc(p, 0xD);
         break;
     case 12:
-        TObjPlayer__sub_8011E2A4(p, 0xE);
+        set_special_selector__11TItemWeaponFUc(p, 0xE);
         break;
     case 13:
-        TObjPlayer__sub_8011E2A4(p, 0x28);
+        set_special_selector__11TItemWeaponFUc(p, 0x28);
         break;
     case 14:
-        TObjPlayer__sub_8011E2A4(p, 4);
+        set_special_selector__11TItemWeaponFUc(p, 4);
         break;
     case 15:
-        TObjPlayer__sub_8011E2A4(p, 8);
+        set_special_selector__11TItemWeaponFUc(p, 8);
         break;
     case 16:
-        TObjPlayer__sub_8011E2A4(p, 0xB);
+        set_special_selector__11TItemWeaponFUc(p, 0xB);
         break;
     default:
-        TObjPlayer__sub_8011E2A4(p, 0);
+        set_special_selector__11TItemWeaponFUc(p, 0);
         break;
     }
     return (u8 *)self;

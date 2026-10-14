@@ -44,7 +44,7 @@ void init_slicer_launch_state(SlicerState_801295FC *s);
 s16 get_validated_attack_stage(void *);
 s16 TObjPlayer__sub_801D2F4C(void *);
 void *create__10TTecSlicerFPUs(void *);
-void TObjPlayer__sub_8012D8E4(void);
+void enlarge_flight_cutter_slicer(void);
 extern const f32 lbl_805DAF28;
 extern const f32 lbl_805DAF2C;
 extern const f32 lbl_805DAF30;
@@ -78,7 +78,7 @@ void fire_slicer_with_timer__10TObjPlayerFPv(Self_8012D708 *self) {
     tec.f28 = self->owner->f60;
     draw_icon__10TObjPlayerFPvii(self, 3, &tec.pos);
     draw_icon__10TObjPlayerFPvii(self, 2, &tec.dir);
-    spawn_item_timer__13TItemAttackerFiii(create__10TTecSlicerFPUs(&tec), TObjPlayer__sub_8012D8E4, 3);
+    spawn_item_timer__13TItemAttackerFiii(create__10TTecSlicerFPUs(&tec), enlarge_flight_cutter_slicer, 3);
 }
 
 }

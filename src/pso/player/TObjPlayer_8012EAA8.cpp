@@ -15,7 +15,7 @@ void *init_variant_a__10TObjPlayerFPv(void *arg0);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPvii(void*, int, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-int TObjPlayer__sub_8011E618(void*);
+int roll_technique__11TItemWeaponFv(void*);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
@@ -37,14 +37,14 @@ void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
             temp_r3_2 = M2C_FIELD(arg0, s32 *, 0xF0);
             create__9TTecSiftaFPvPvPv(temp_r3_2, temp_r3_2 + 0x38, 2);
         }
-        TObjPlayer__sub_8011E618(arg0);
+        roll_technique__11TItemWeaponFv(arg0);
         return;
     }
     update_active_game_effect__10TObjPlayerFPv(arg0);
 }
 int s_red_blade_unfold(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, 1820, 10922); }
 int s_red_blade_fold(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, -1820, 0); }
-void s_red_blade_equip_rolls(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
+void s_red_blade_equip_rolls(void* p) { roll_technique__11TItemWeaponFv(p); roll_technique__11TItemWeaponFv(p); }
 void s_red_blade_turn_node(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern M2C_UNK lbl_804A5F18[];

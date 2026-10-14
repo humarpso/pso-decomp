@@ -14,7 +14,7 @@ void TObjPlayer__sub_80122748(void *arg0);
 s32 rand();
 int rotate_matrix_x(void*, void*);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_8011E618(void *);
+M2C_UNK roll_technique__11TItemWeaponFv(void *);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
 int get_player_list__10TObjPlayerFv(void*);
@@ -30,7 +30,7 @@ void cast_tech_gibarta__10TObjPlayerFPv(void *arg0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
             temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
             create_ex__11TTecGiBartaFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), get_tp__10TObjPlayerFPv(arg0));
-            TObjPlayer__sub_8011E618(arg0);
+            roll_technique__11TItemWeaponFv(arg0);
         }
     } else {
         update_active_game_effect__10TObjPlayerFPv(arg0);

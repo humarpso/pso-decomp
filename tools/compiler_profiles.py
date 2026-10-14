@@ -19,11 +19,16 @@ def object_options(owner, flags, profiles=None):
     # Replace switches instead of appending conflicting optimization settings.
     result = [f for f in flags if not f.startswith(
         ('-O', '-inline ', '-use_lmw_stmw ', '-opt ')
+        + (('-sdata ',) if 'sdata' in profile else ())
         + (('-sdata2 ',) if 'sdata2' in profile else ()))]
     result += [profile['optimization'], '-inline ' + profile['inline'],
                '-use_lmw_stmw ' + profile['use_lmw_stmw']]
     if profile.get('opt'):
         result.append('-opt ' + profile['opt'])
+    # The character appearance tables retain eight-byte descriptors in .data
+    # but put four-byte pointer lists in .sdata: their threshold is four.
+    if 'sdata' in profile:
+        result.append(f"-sdata {profile['sdata']}")
     # Units that load pooled doubles with `lfd x@sda21` were built with the
     # compiler's default small-data threshold, not the game's -sdata2 4.
     if 'sdata2' in profile:

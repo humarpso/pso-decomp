@@ -38,9 +38,9 @@ void update_photon_chair_sit__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-    extern unsigned char fn_80109710[];
+    extern unsigned char create_lavis_shot[];
     extern unsigned char lavis_cannon_weapon_vtable[];
     extern const float lbl_805DAE70;
-void* init_state_object__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFPvUi(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)fn_80109710; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
+void* init_state_object__10TObjPlayerFPv(void* a0) { TItemWeapon__ct(); *(int*)((char*)a0 + 0x18) = (int)lavis_cannon_weapon_vtable; set_status_flags__10TObjPlayerFPvUi(a0, (void*)34); *(int*)((char*)a0 + 0x1f0) = (int)create_lavis_shot; *(float*)((char*)a0 + 0x1e4) = lbl_805DAE70; *(int*)((char*)a0 + 0x1f8) = 0; return a0; }
 
 }

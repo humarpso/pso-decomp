@@ -1316,8 +1316,8 @@ void set_action_type__10TObjPlayerFPvs(void *p, s16 v);
 s32 get_state_ptr__10TObjPlayerFPv(void *);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
 u16 get_uid__10TObjPlayerFPv(void *);
-int TObjPlayer__sub_80121248(void*, int);
-s32 TObjPlayer__sub_8012125C(s32);
+int get_captured_target_entry(void*, int);
+s32 get_captured_target_count(s32);
 M2C_UNK increment_burst_counter(void *);
 s32 get_anim_state__10TObjPlayerFPv(void *);
 M2C_UNK copy_attack_targets(void *, void *);
@@ -7147,7 +7147,7 @@ void TObjPlayer__sub_801D2448(void* p) { read_be16_field2__10TObjPlayerFPv(p); (
 #pragma auto_inline off
 #pragma dont_inline off
 u8 get_6x46_strike_packet_size(s32 arg0) {
-    return (u8) (0x30 - ((0xA - TObjPlayer__sub_8012125C((s32)((void *) (arg0 + 4)))) * 4));
+    return (u8) (0x30 - ((0xA - get_captured_target_count((s32)((void *) (arg0 + 4)))) * 4));
 }
 extern int fold_flush_14;
 #pragma pop
@@ -8514,7 +8514,7 @@ int is_flag32_clear__10TObjPlayerFPv(void* p) { return (((int (*)(void*, int))te
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-int TObjPlayer__sub_801D345C(void* p) { return TObjPlayer__sub_80121248((char*)p + 0x30, 0); }
+int TObjPlayer__sub_801D345C(void* p) { return get_captured_target_entry((char*)p + 0x30, 0); }
 #pragma pop
 
 #pragma push

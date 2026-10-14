@@ -19,7 +19,7 @@ u8 *construct_item_follow_effect(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-s32 TObjPlayer__sub_8011E618(void *);
+s32 roll_technique__11TItemWeaponFv(void *);
 s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 draw_icon__10TObjPlayerFPvii(s32, s32, M2C_UNK *);
 s32 get_tp__10TObjPlayerFPv(void *);
@@ -28,7 +28,7 @@ s32 create__10TTecGiFoieFPvPvPv(s32, s32 *, s32);
 void cast_gifoie__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125C70(void* p);
 s32 get_id__13TItemProArmorFPv(void *);
-s32 TObjPlayer__sub_8011E618(void *);
+s32 roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(s32);
 s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 void create_pro_armor__10TObjPlayerFPv(void *arg0);
@@ -127,7 +127,7 @@ void cast_gifoie__10TObjPlayerFPv(void *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if ((get_stage_strike_count__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) && (draw_icon__10TObjPlayerFPvii((s32)(arg0), (s32)(0), (M2C_UNK *)(&sp8)) != 0)) {
             create__10TTecGiFoieFPvPvPv(M2C_FIELD(arg0, s32 *, 0xF0), &sp8, get_tp__10TObjPlayerFPv(arg0));
-            TObjPlayer__sub_8011E618(arg0);
+            roll_technique__11TItemWeaponFv(arg0);
         }
     } else {
         update_active_game_effect__10TObjPlayerFPv(arg0);
@@ -143,8 +143,8 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0) {
             ct__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }
     }
-    TObjPlayer__sub_8011E618(arg0);
-    TObjPlayer__sub_8011E618(arg0);
+    roll_technique__11TItemWeaponFv(arg0);
+    roll_technique__11TItemWeaponFv(arg0);
 }
 void update_twin_blaze_flames__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;

@@ -56,10 +56,10 @@ void update_active_game_effect__10TObjPlayerFPv(void *);
 void draw_icon__10TObjPlayerFPvii(void *, int, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(void *);
 void *get_extended_state__10TObjPlayerFPv(void *);
-s16 TObjPlayer__sub_80121238(void *);
+s16 get_captured_target_collider_index(void *);
 s16 get_uid__10TObjPlayerFPv(void *);
-void *TObjPlayer__sub_80121248(void *, int);
-s32 TObjPlayer__sub_8012125C(void *);
+void *get_captured_target_entry(void *, int);
+s32 get_captured_target_count(void *);
 void create_tec_zonde__10TObjPlayerFPvPvPvPv(void *, void *, void *, int);
 void update_zonde_effect__10TObjPlayerFPv(u8 *arg0);
 }
@@ -78,12 +78,12 @@ void update_zonde_effect__10TObjPlayerFPv(u8 *arg0) {
     if (is_status_subsystem_ready__10TObjPlayerFPv(*(void **)(arg0 + 0xF0)) == 2) {
         if (((VObj_18 *)arg0)->m33() == 1) {
             st = get_extended_state__10TObjPlayerFPv(*(void **)(arg0 + 0xF0));
-            if (TObjPlayer__sub_8012125C(st) != 0) {
-                void *e = TObjPlayer__sub_80121248(st, 0);
+            if (get_captured_target_count(st) != 0) {
+                void *e = get_captured_target_entry(st, 0);
                 construct_target_cursor_records__10TObjPlayerFi(&rec);
                 rec.kind = 1;
                 rec.uid = get_uid__10TObjPlayerFPv(e);
-                rec.sub = TObjPlayer__sub_80121238(e);
+                rec.sub = get_captured_target_collider_index(e);
                 create_tec_zonde__10TObjPlayerFPvPvPvPv(*(void **)(arg0 + 0xF0), pos, &rec, 3);
             }
         }

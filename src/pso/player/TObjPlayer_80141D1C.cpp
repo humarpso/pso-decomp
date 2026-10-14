@@ -22,7 +22,7 @@ void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2);
 f32 sin_table_lookup();
 f32 cos_table_lookup(s32);
 void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0);
-f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1);
+f32 vec_distance_squared(u8 *arg0, u8 *arg1);
 u16 approach_angle_adaptive(s32 a0, s32 b0);
 f32 TAdSinglePlyChrSelectGC__sub_80141EA0(s32 v);
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v);
@@ -220,7 +220,7 @@ extern f32 lbl_805DB15C;
 extern f32 lbl_805DB160;
 
 #pragma fp_contract on
-f32 TObjPlayer__sub_8014241C(u8 *arg0, u8 *arg1) {
+f32 vec_distance_squared(u8 *arg0, u8 *arg1) {
   f32 *new_var;
   f32 temp_f3;
   f32 temp_f1;

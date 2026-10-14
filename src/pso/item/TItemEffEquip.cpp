@@ -82,7 +82,7 @@ struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20;
 void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 M2C_UNK spawn_equip_particle_effect(void *, void *);
 M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK TItemEffEquip__sub_801088D0[];
+extern M2C_UNK retire_equipment_effect[];
 extern M2C_UNK TItemEffEquip__sub_801088F8[];
 extern s32 TItemEffEquip__class_name;
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b);
@@ -105,7 +105,7 @@ void *TItemEffEquip__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *ar
     if (self->src != NULL) {
         spawn_equip_particle_effect(arg0, arg4);
         spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088F8, 0xA);
-        spawn_item_timer__13TItemAttackerFiii(arg0, TItemEffEquip__sub_801088D0, 0x14);
+        spawn_item_timer__13TItemAttackerFiii(arg0, retire_equipment_effect, 0x14);
     } else {
         queue_destruction__7TObjectFv((TObject *)arg0);
     }

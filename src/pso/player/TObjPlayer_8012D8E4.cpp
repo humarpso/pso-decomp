@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012D8E4(void *arg0);
+void enlarge_flight_cutter_slicer(void *arg0);
 void setup_item_render__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK scale_current_matrix(void *);
 u8 get_slot_count__14TItemProShieldFPv();
@@ -17,7 +17,7 @@ s32 get_player_list__10TObjPlayerFv();
 
 extern const f32 lbl_805DAF34;
 
-void TObjPlayer__sub_8012D8E4(void *arg0) {
+void enlarge_flight_cutter_slicer(void *arg0) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DAF34;
         M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DAF34;

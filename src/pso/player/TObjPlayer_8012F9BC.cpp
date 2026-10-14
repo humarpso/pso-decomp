@@ -3,8 +3,8 @@
 extern "C" {
 
 void TObjPlayer__sub_8012F9BC(void* p);
-int TObjPlayer__sub_8011E618(void*);
+int roll_technique__11TItemWeaponFv(void*);
 
-void TObjPlayer__sub_8012F9BC(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
+void TObjPlayer__sub_8012F9BC(void* p) { roll_technique__11TItemWeaponFv(p); roll_technique__11TItemWeaponFv(p); }
 
 }

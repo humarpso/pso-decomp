@@ -1025,5 +1025,13 @@
     "inline": "off",
     "use_lmw_stmw": "on",
     "sdata2": 4
+  },
+  "pso/misc/CharacterAppearanceTables.cpp": {
+    "mw_version": "GC/2.6",
+    "optimization": "-O4,s",
+    "inline": "off",
+    "use_lmw_stmw": "on",
+    "sdata": 4,
+    "sdata2": 4
   }
 }

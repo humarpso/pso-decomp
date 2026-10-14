@@ -13,7 +13,7 @@ u8 *create_agito_weapon(u8 *arg0);
 void TItemWeapon__ct(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
 u8 get_slot_count__14TItemProShieldFPv(void *);
-void fn_80109710(void);
+void create_lavis_shot(void);
 extern void *lbl_804A3070[];
 extern const f32 lbl_805DADB8;
 u8 *construct_agito__10TObjPlayerFPviPv(void *self_, s32 a, void *b);
@@ -28,7 +28,7 @@ u8 *construct_agito__10TObjPlayerFPviPv(void *self_, s32 a, void *b) {
     set_status_flags__10TObjPlayerFPvUi(self, 2);
     if (get_slot_count__14TItemProShieldFPv(self) == 0) {
         set_status_flags__10TObjPlayerFPvUi(self, 0x20);
-        self->f1f0 = (void *)fn_80109710;
+        self->f1f0 = (void *)create_lavis_shot;
         self->f1e4 = lbl_805DADB8;
     }
     return (u8 *)self;

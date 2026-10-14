@@ -19,8 +19,8 @@ void construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(s32);
 s32 get_extended_state__10TObjPlayerFPv(s32);
-Item_80127BE0 *TObjPlayer__sub_80121248(s32, s32);
-s32 TObjPlayer__sub_8012125C(s32);
+Item_80127BE0 *get_captured_target_entry(s32, s32);
+s32 get_captured_target_count(s32);
 void create__11TTecGiZondeFPvPvPvPv(s32, void *, void *, s32);
 void TObjPlayer__sub_80127BE0(Self_80127BE0 *self);
 }
@@ -61,8 +61,8 @@ void TObjPlayer__sub_80127BE0(Self_80127BE0 *self) {
     if (draw_icon__10TObjPlayerFPvii(self, 1, buf) != 0) {
         ext = get_extended_state__10TObjPlayerFPv(self->fF0);
         if (ext != 0) {
-            for (i = 0; i != TObjPlayer__sub_8012125C(ext); i++) {
-                item = TObjPlayer__sub_80121248(ext, i);
+            for (i = 0; i != get_captured_target_count(ext); i++) {
+                item = get_captured_target_entry(ext, i);
                 if (item != NULL) {
                     construct_target_cursor_records__10TObjPlayerFi(&tec);
                     tec.kind = 1;

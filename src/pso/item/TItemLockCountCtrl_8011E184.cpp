@@ -14,8 +14,8 @@ extern "C" {
 
 void create_instance__18TItemLockCountCtrlFv(void);
 void *TItemLockCountCtrl__ct(void *, int, int, void *, void *);
-u8 TObjPlayer__sub_8011E29C(void* p);
-void TObjPlayer__sub_8011E2A4(void* p, u8 v);
+u8 get_special_selector__11TItemWeaponFv(void* p);
+void set_special_selector__11TItemWeaponFUc(void* p, u8 v);
 void *__nw__7TObjectFUl(int);
 void set_state_flags__10TObjPlayerFPvUi(void* p, u32 v);
 

@@ -160,7 +160,7 @@ s32 disallow_rendering__7TObjectFv(void *);
 s32 test_flags_any(void *, int);
 s32 copy_position__15TEffStarLight2DFPv(int, void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-f32 TObjPlayer__sub_8014241C(void *, void *);
+f32 vec_distance_squared(void *, void *);
 void shift_collision_bounds__14TItemAttackColFPv(void *arg0);
 s32 has_game_join_id(void *);
 s32 check_hits__14TItemAttackColFPv(void *);
@@ -338,7 +338,7 @@ void run_task__14TItemAttackColFv(u8 *arg0) {
         copy_pos__11TNowLoadingFPvPv((int) (temp_r3_4), (void *) (arg0 + 0x24));
     }
     check_hits__14TItemAttackColFPv((void *) (arg0));
-    if ((M2C_FIELD(arg0, f32 *, 0xDC) <= TObjPlayer__sub_8014241C((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
+    if ((M2C_FIELD(arg0, f32 *, 0xDC) <= vec_distance_squared((void *) (arg0 + 0x24), (void *) (arg0 + 0xC4))) || (test_flags_any((void *) (arg0 + 0xE0), (int) (1)) != 0)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }

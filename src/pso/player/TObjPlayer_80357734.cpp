@@ -217,7 +217,7 @@ u16 obj_getField1c(void *);
 s32 get_item_field_6__10TObjPlayerFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv();
 u32 test_flags_1b8__10TObjPlayerFPvUi(int, int);
-u8 TObjPlayer__sub_8011E29C(int);
+u8 get_special_selector__11TItemWeaponFv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void update_battle_control_on_unlock__10TObjPlayerFPvPvPvi(void *arg0, void *arg1, void *arg2, s32 arg3);
 extern RecoveredGlobal_803589F8_lbl_804F15C8 weapon_special_effect_callbacks;
@@ -896,7 +896,7 @@ void dispatch_weapon_special_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3) {
             update_battle_control_on_unlock__10TObjPlayerFPvPvPvi((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (arg2)), (s32)((void *) (arg3)));
             return;
         }
-        temp_r3_2 = TObjPlayer__sub_8011E29C((int) (temp_r3));
+        temp_r3_2 = get_special_selector__11TItemWeaponFv((int) (temp_r3));
         if (temp_r3_2 < 0x29U) {
             temp_r12 = M2C_FIELD(((u8 *)(&weapon_special_effect_callbacks.value) + ((temp_r3_2 * 4) & 0x3FC)), M2C_UNK (**)(s32, u32, s32, s32), 0);
             if (temp_r12 != NULL) {

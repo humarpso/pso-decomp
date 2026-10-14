@@ -1,18 +1,10 @@
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#define TOBJECT_OUT_OF_LINE_HELPERS
+#include "pso/TObject.h"
 
 extern "C" {
-
-void TItemEffEquip__sub_801088D0(u32 arg0);
-M2C_UNK queue_destruction__7TObjectFv();
-
-void TItemEffEquip__sub_801088D0(u32 arg0) {
-    if (arg0 != 0U) {
-        queue_destruction__7TObjectFv();
+void retire_equipment_effect(TObject* effect) {
+    if (effect != 0) {
+        effect->queue_destruction();
     }
 }
-
 }

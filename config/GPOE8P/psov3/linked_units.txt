@@ -762,6 +762,8 @@ pso/item/TObjItemLight.cpp
 pso/item/TObjItemNameSelect.cpp
 pso/item/TObjItemOKWindow.cpp
 pso/item/TObjItemOKWindow_801F4A6C.cpp
+pso/item/WeaponAttackActions.cpp
+pso/item/WeaponSpecialSelection.cpp
 pso/map/FloorLifecycleTables.cpp
 pso/menu/TAdEndText_80307A34.cpp
 pso/menu/TAdEndText_80399904.cpp
@@ -777,6 +779,7 @@ pso/menu/TChCrLoadGmNjReq.cpp
 pso/menu/TObjTagChallenge.cpp
 pso/menu/TQuestBgmCtrl.cpp
 pso/misc/ChallengeMode.cpp
+pso/misc/CharacterAppearanceTables.cpp
 pso/misc/CreationMotion.cpp
 pso/misc/KeyboardCharacterMaps.cpp
 pso/misc/RenderFadeState.cpp
@@ -2288,7 +2291,6 @@ pso/player/TObjPlayer_8011B86C.cpp
 pso/player/TObjPlayer_8011BADC.cpp
 pso/player/TObjPlayer_8011CEC0.cpp
 pso/player/TObjPlayer_8011E214.cpp
-pso/player/TObjPlayer_8011E29C.cpp
 pso/player/TObjPlayer_8011F578.cpp
 pso/player/TObjPlayer_8011F6C4.cpp
 pso/player/TObjPlayer_8011FBCC.cpp
@@ -2990,7 +2992,6 @@ pso/unk/text_80108860.cpp
 pso/unk/text_80108F04.cpp
 pso/unk/text_801094D8.cpp
 pso/unk/text_801095EC.cpp
-pso/unk/text_80109710.cpp
 pso/unk/text_80109AE4.cpp
 pso/unk/text_80109CBC.cpp
 pso/unk/text_8010EF14.cpp
@@ -3010,7 +3011,6 @@ pso/unk/text_8011B694.cpp
 pso/unk/text_8011BA54.cpp
 pso/unk/text_8011BE50.cpp
 pso/unk/text_8011BEF0.cpp
-pso/unk/text_8011E2AC.cpp
 pso/unk/text_8011F63C.cpp
 pso/unk/text_8011F710.cpp
 pso/unk/text_8011FC24.cpp

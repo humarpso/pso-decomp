@@ -12,7 +12,7 @@ extern s32 tl_05;
 u8 *TObjPlayer__sub_80127314(u8 *arg0);
 void TItemWeapon__ct(void *, s32, void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-void fn_80109710(void);
+void create_lavis_shot(void);
 extern void *lbl_804A3168[];
 extern const f32 lbl_805DADC8;
 u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b);
@@ -25,7 +25,7 @@ u8 *TObjPlayer__sub_801272B4(void *self_, s32 a, void *b) {
     TItemWeapon__ct(self, a, b);
     self->vt = lbl_804A3168;
     set_status_flags__10TObjPlayerFPvUi(self, 0x100622);
-    self->f1f0 = (void *)fn_80109710;
+    self->f1f0 = (void *)create_lavis_shot;
     self->f1e4 = lbl_805DADC8;
     return (u8 *)self;
 }

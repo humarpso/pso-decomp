@@ -10,14 +10,14 @@ void TObjPlayer__sub_8012789C(void* p);
 void cast_jellen_zalure__10TObjPlayerFPv(void *arg0);
 M2C_UNK spawn_cane_effects__10TObjPlayerFiUiii(s32, void *, M2C_UNK, M2C_UNK);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-int TObjPlayer__sub_8011E618(void*);
+int roll_technique__11TItemWeaponFv(void*);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
 s32 get_attack_stage__11TItemWeaponFPv();
 s32 get_tp__10TObjPlayerFPv(void *);
 M2C_UNK create__9TTecJelinFiiii(s32, s32, s32, M2C_UNK);
 M2C_UNK create_instance__9TTecZaruaFiiii(s32, s32, s32, M2C_UNK);
 
-void TObjPlayer__sub_8012789C(void* p) { TObjPlayer__sub_8011E618((void*)(p)); TObjPlayer__sub_8011E618((void*)(p)); }
+void TObjPlayer__sub_8012789C(void* p) { roll_technique__11TItemWeaponFv((void*)(p)); roll_technique__11TItemWeaponFv((void*)(p)); }
 
 extern s32 tl_05;
 
@@ -40,7 +40,7 @@ void cast_jellen_zalure__10TObjPlayerFPv(void *arg0) {
             temp_r4_2 = temp_r3_2 + 0x38;
             create_instance__9TTecZaruaFiiii(temp_r3_2, temp_r4_2, temp_r4_2, 4);
         }
-        TObjPlayer__sub_8011E618((void*)(arg0));
+        roll_technique__11TItemWeaponFv((void*)(arg0));
         return;
     }
     update_active_game_effect__10TObjPlayerFPv(arg0);

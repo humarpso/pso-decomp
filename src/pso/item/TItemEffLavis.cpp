@@ -1,26 +1,26 @@
-#include "pso/TItemEffLavis.h"
-
-void TItemEffLavis::hook() {}
-
-TItemEffLavis::~TItemEffLavis() {}
-
-#include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+#include "pso/item/TItemEffLavis.h"
 
 extern "C" {
-
-void *TItemEffLavis__ct(void *arg0);
-void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
-
-extern M2C_UNK __vt__13TItemEffLavis[];
-extern void *TItemEffLavis__class_name;
-
-void *TItemEffLavis__ct(void *arg0) {
-    __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TItemEffLavis;
-    M2C_FIELD(arg0, void **, 0x0) = TItemEffLavis__class_name;
-    return arg0;
+extern const char* TItemEffLavis__class_name;
+extern const f32 lbl_805DAB40;
 }
 
+void TItemEffLavis::hook() {}
+TItemEffLavis::~TItemEffLavis() {}
+
+TItemEffLavis::TItemEffLavis(void* owner, const Vec* start,
+                           const Vec* endpoint, f32 life)
+    : TItemShootModel(owner, start, endpoint, life) {
+    m_name = TItemEffLavis__class_name;
+}
+
+extern "C" {
+TItemEffLavis* create_lavis_shot(void* owner, const Vec* start,
+                              const Vec* endpoint, f32 life) {
+    TItemEffLavis* result = 0;
+    if (lbl_805DAB40 != life && owner != 0) {
+        result = new TItemEffLavis(owner, start, endpoint, life);
+    }
+    return result;
+}
 }

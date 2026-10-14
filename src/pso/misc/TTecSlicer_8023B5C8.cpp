@@ -229,10 +229,10 @@ void set_item_count__6TLobbyFPvs(void *, s32);
 s32 pop_free_id__6TLobbyFv(void);
 f32 *get_weapon_range_record(s32, s32);
 s32 get_extended_state__10TObjPlayerFPv(s32);
-s8 TObjPlayer__sub_80121238(s32);
+s8 get_captured_target_collider_index(s32);
 s32 get_uid__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_80121248(s32, s32);
-s32 TObjPlayer__sub_8012125C(s32);
+s32 get_captured_target_entry(s32, s32);
+s32 get_captured_target_count(s32);
 void construct_world_actor_base(void *, s32);
 void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
@@ -490,12 +490,12 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     self->fbc = lbl_805DC950;
     ext = get_extended_state__10TObjPlayerFPv(self->f10c);
     if (ext != 0) {
-        if (TObjPlayer__sub_8012125C(ext) == 0) {
+        if (get_captured_target_count(ext) == 0) {
             set_flags__10TObjPlayerFPvUi((s32)self->fwd, 1);
         } else {
-            for (i = 0; i != TObjPlayer__sub_8012125C(ext); i++) {
-                e = TObjPlayer__sub_80121248(ext, i);
-                c = TObjPlayer__sub_80121238(e);
+            for (i = 0; i != get_captured_target_count(ext); i++) {
+                e = get_captured_target_entry(ext, i);
+                c = get_captured_target_collider_index(e);
                 fn_8023B590(self->fc8, get_uid__10TObjPlayerFPv(e), c);
             }
         }

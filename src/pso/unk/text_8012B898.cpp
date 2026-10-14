@@ -35,10 +35,10 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void send_6x61_activate_mag_effect(void *, s32);
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
 s32 get_extended_state__10TObjPlayerFPv(void *);
-s16 TObjPlayer__sub_80121238(s32);
+s16 get_captured_target_collider_index(s32);
 s16 get_uid__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_80121248(s32, s32);
-s32 TObjPlayer__sub_8012125C(s32);
+s32 get_captured_target_entry(s32, s32);
+s32 get_captured_target_count(s32);
 s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
@@ -93,11 +93,11 @@ void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self) {
     s32 item;
     draw_icon__10TObjPlayerFPvii(self, 4, self->icon);
     ext = get_extended_state__10TObjPlayerFPv(self->owner);
-    item = TObjPlayer__sub_80121248(ext, 0);
-    if (TObjPlayer__sub_8012125C(ext) != 0) {
+    item = get_captured_target_entry(ext, 0);
+    if (get_captured_target_count(ext) != 0) {
         self->f208 = 1;
         self->f20C = get_uid__10TObjPlayerFPv(item);
-        self->f20E = TObjPlayer__sub_80121238(item);
+        self->f20E = get_captured_target_collider_index(item);
     } else {
         self->f208 = 0;
     }

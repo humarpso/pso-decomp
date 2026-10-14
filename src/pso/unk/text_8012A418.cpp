@@ -148,10 +148,10 @@ extern const f32 lbl_805DAE60;
 extern const f32 lbl_805DAE64;
 s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
 s32 get_extended_state__10TObjPlayerFPv(void *);
-s32 TObjPlayer__sub_80121238(s32);
+s32 get_captured_target_collider_index(s32);
 u16 get_uid__10TObjPlayerFPv(s32);
-s32 TObjPlayer__sub_80121248(s32, s32);
-s32 TObjPlayer__sub_8012125C(s32);
+s32 get_captured_target_entry(s32, s32);
+s32 get_captured_target_count(s32);
 s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2);
 s32 resolve_hittable_target(s32, s32);
 void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0);
@@ -190,11 +190,11 @@ void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
   st = get_extended_state__10TObjPlayerFPv(arg0->f0);
   if (st != 0)
   {
-    for (i = 0; i != TObjPlayer__sub_8012125C((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
+    for (i = 0; i != get_captured_target_count((((((((((((st & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF) & 0xFFFFFFFFFFFFFFFF); i++)
     {
-      e = TObjPlayer__sub_80121248(st, i);
+      e = get_captured_target_entry(st, i);
       uid = get_uid__10TObjPlayerFPv(e);
-      r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) TObjPlayer__sub_80121238(e)));
+      r = resolve_hittable_target(uid, v = (s16) ((unsigned long long) get_captured_target_collider_index(e)));
       if (r != 0)
       {
         send_srank_stat_extra__10TObjPlayerFPvUii(arg0, r, v);
