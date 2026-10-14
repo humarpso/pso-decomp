@@ -1633,7 +1633,6 @@ force_active:
   - get_boss_warp_model
   - get_boss_warp_model_handle
   - get_boss_warp_motion
-  - get_card_serial_and_code__15TAdPlayerLoadGCFiPv
   - get_clamped_level__19TObjEneBm9MericarolFPv
   - get_config_line__22TQuestVmDownLoadServerFPvUi
   - get_ending_ab_wall_texture_list
@@ -1652,6 +1651,8 @@ force_active:
   - get_material_limit_for_class
   - get_model__23TObjSeabedSuisoBrakableFi
   - get_move_done_result__24TObjWaitEntryHairMoveSimFPv
+  - get_network_config_card_channel
+  - get_network_info_card_key
   - get_next_send_chunk__6TLobbyFv
   - get_particle__20TPlayerParticleOwnerFv
   - get_pipe_interaction_latch
@@ -1765,7 +1766,7 @@ force_active:
   - init_map_light__9TObjLightFPvi
   - init_model_and_state__19TObjEneEpsilonGuardFPv
   - init_model_by_type__10TODoorLaboFPv
-  - init_net_config_defaults__23TAdSinglePlyChrSelectGCFv
+  - init_network_config_defaults
   - init_object__22TQuestVmDownLoadServerFPv
   - init_object__23TAdSinglePlyChrSelectGCFPvPv
   - init_packet_9a__10TObjPlayerFPv
@@ -2188,6 +2189,8 @@ force_active:
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - multi_confirm_texture_descriptor
   - multi_confirm_texture_entries
+  - network_info_trailer_backup
+  - network_info_trailer_buffer
   - network_packet_buffer_storage
   - nights_npc_resource_descriptor
   - notify__10TTcpSocketFss

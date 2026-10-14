@@ -14135,12 +14135,13 @@ pso/ui/TAdPlayerLoadGC_803F339C.cpp:
 pso/ui/TAdPlayerLoadGC_803F3CF4.cpp:
 	.text       start:0x803F3CF4 end:0x803F3DD4
 
-pso/unk/text_803F3DD4.cpp:
+pso/network/NetworkInfoRequests.cpp:
 	.text       start:0x803F3DD4 end:0x803F3F64
 
-pso/ui/TAdPlayerLoadGC_803F3F64.cpp:
+pso/network/NetworkInfoLoader.cpp:
 	.text       start:0x803F3F64 end:0x803F4D10
 	.data       start:0x804FCE68 end:0x804FCEA4
+	.bss        start:0x805A5F00 end:0x805A8AE8
 
 pso/unk/text_803F4D10.cpp:
 	.text       start:0x803F4D10 end:0x803F4D84

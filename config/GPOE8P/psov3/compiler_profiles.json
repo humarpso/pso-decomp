@@ -257,7 +257,7 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/ui/TAdPlayerLoadGC_803F3F64.cpp": {
+  "pso/network/NetworkInfoLoader.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
@@ -456,7 +456,7 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/unk/text_803F3DD4.cpp": {
+  "pso/network/NetworkInfoRequests.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",

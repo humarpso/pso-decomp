@@ -604,122 +604,122 @@ typedef struct Big_803F53A0 {
 } Big_803F53A0;
 
 extern "C" {
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F4EBC(char *dst, s32 len);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memcpy(void *, const void *, u32);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F4FF4(void *dst);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memcpy(void *, const void *, u32);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F50B8(void *dst);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F517C(u8 *dst);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F524C(char *dst, s32 len);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5524(char *dst, s32 len);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5678(u8 *dst);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memcpy(void *, const void *, u32);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5748(void *dst);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memcpy(void *, const void *, u32);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5824(void *arg0);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memcpy(void *, const void *, u32);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5900(void *arg0);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F59DC(char *buf, u32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5B20(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5C58(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5D90(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F5EC8(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6000(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6138(char *buf, s32 n);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 extern Big_803F4D84 *lobby_net_config_buffer;
 s32 TLobby__sub_803F6270(u16 *arg0);
-s32 TLobby__sub_803F4AB4();
-s32 TLobby__sub_803F4AEC();
+s32 get_network_config_mode();
+s32 get_network_config_backup_mode();
 void *memset(void *, int, u32);
 char *strncpy(char *, const char *, u32);
 u32 strlen(const char *);
@@ -734,10 +734,10 @@ extern "C" {
 #pragma peephole off
 s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = lobby_net_config_buffer->cur;
@@ -765,10 +765,10 @@ s32 copy_current_entry_name__6TLobbyFPvi(char *dst, s32 len) {
 #pragma peephole off
 s32 TLobby__sub_803F4EBC(char *dst, s32 len) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(Big_803F4EBC * *)&lobby_net_config_buffer)->cur;
@@ -797,10 +797,10 @@ s32 TLobby__sub_803F4EBC(char *dst, s32 len) {
 s32 TLobby__sub_803F4FF4(void *dst) {
     Big_803F4FF4 *b;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     b = (*(Big_803F4FF4 * *)&lobby_net_config_buffer);
@@ -823,10 +823,10 @@ s32 TLobby__sub_803F4FF4(void *dst) {
 s32 TLobby__sub_803F50B8(void *dst) {
     Big_803F50B8 *b;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     b = (*(Big_803F50B8 * *)&lobby_net_config_buffer);
@@ -849,10 +849,10 @@ s32 TLobby__sub_803F50B8(void *dst) {
 s32 TLobby__sub_803F517C(u8 *dst) {
     Big_803F517C *b;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     b = (*(Big_803F517C * *)&lobby_net_config_buffer);
@@ -877,10 +877,10 @@ s32 TLobby__sub_803F517C(u8 *dst) {
 #pragma peephole off
 s32 TLobby__sub_803F524C(char *dst, s32 len) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(Big_803F524C * *)&lobby_net_config_buffer)->cur;
@@ -911,10 +911,10 @@ s32 TLobby__sub_803F524C(char *dst, s32 len) {
 #pragma peephole off
 s32 TLobby__sub_803F53A0(s32 n, char *dst, s32 len) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(Big_803F53A0 * *)&lobby_net_config_buffer)->cur;
@@ -948,10 +948,10 @@ s32 TLobby__sub_803F53A0(s32 n, char *dst, s32 len) {
 #pragma peephole off
 s32 TLobby__sub_803F5524(char *dst, s32 len) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(Big_803F5524 * *)&lobby_net_config_buffer)->cur;
@@ -983,10 +983,10 @@ s32 TLobby__sub_803F5524(char *dst, s32 len) {
 s32 TLobby__sub_803F5678(u8 *dst) {
     Big_803F5678 *b;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     b = (*(Big_803F5678 * *)&lobby_net_config_buffer);
@@ -1012,10 +1012,10 @@ s32 TLobby__sub_803F5678(u8 *dst) {
 s32 TLobby__sub_803F5748(void *dst) {
     Big_803F5748 *b;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     b = (*(Big_803F5748 * *)&lobby_net_config_buffer);
@@ -1039,8 +1039,8 @@ s32 TLobby__sub_803F5748(void *dst) {
 #pragma peephole off
 #pragma scheduling off
 s32 TLobby__sub_803F5824(void *arg0) {
-    if (TLobby__sub_803F4AB4() == 0) return -1;
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) return -5;
+    if (get_network_config_mode() == 0) return -1;
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) return -5;
     S_803F5824 *s = (*(S_803F5824 * *)&lobby_net_config_buffer); s16 i;
     i = s->cur;
     if (i < 0 || i >= 6) return -3;
@@ -1058,10 +1058,10 @@ s32 TLobby__sub_803F5824(void *arg0) {
 s32 TLobby__sub_803F5900(void *arg0) {
     S_803F5900 *s;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     s = (*(S_803F5900 * *)&lobby_net_config_buffer);
@@ -1087,10 +1087,10 @@ s32 TLobby__sub_803F5900(void *arg0) {
 s32 TLobby__sub_803F59DC(char *buf, u32 n) {
     S_803F59DC *s;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     s = (*(S_803F59DC * *)&lobby_net_config_buffer);
@@ -1119,10 +1119,10 @@ s32 TLobby__sub_803F59DC(char *buf, u32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F5B20(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F5B20 * *)&lobby_net_config_buffer)->cur;
@@ -1150,10 +1150,10 @@ s32 TLobby__sub_803F5B20(char *buf, s32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F5C58(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F5C58 * *)&lobby_net_config_buffer)->cur;
@@ -1181,10 +1181,10 @@ s32 TLobby__sub_803F5C58(char *buf, s32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F5D90(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F5D90 * *)&lobby_net_config_buffer)->cur;
@@ -1212,10 +1212,10 @@ s32 TLobby__sub_803F5D90(char *buf, s32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F5EC8(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F5EC8 * *)&lobby_net_config_buffer)->cur;
@@ -1243,10 +1243,10 @@ s32 TLobby__sub_803F5EC8(char *buf, s32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F6000(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F6000 * *)&lobby_net_config_buffer)->cur;
@@ -1274,10 +1274,10 @@ s32 TLobby__sub_803F6000(char *buf, s32 n) {
 #pragma scheduling off
 s32 TLobby__sub_803F6138(char *buf, s32 n) {
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     i = (*(S_803F6138 * *)&lobby_net_config_buffer)->cur;
@@ -1306,10 +1306,10 @@ s32 TLobby__sub_803F6138(char *buf, s32 n) {
 s32 TLobby__sub_803F6270(u16 *arg0) {
     S_803F6270 *s;
     s16 i;
-    if (TLobby__sub_803F4AB4() == 0) {
+    if (get_network_config_mode() == 0) {
         return -1;
     }
-    if (TLobby__sub_803F4AEC() == 0 && TLobby__sub_803F4AB4() == 1) {
+    if (get_network_config_backup_mode() == 0 && get_network_config_mode() == 1) {
         return -5;
     }
     s = (*(S_803F6270 * *)&lobby_net_config_buffer);

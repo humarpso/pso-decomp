@@ -194,7 +194,7 @@ void set_battle_flag__6TLobbyFi(s32 arg0);
 int TLobby__sub_80145A94(void);
 int TLobby__sub_80145DB4(void*);
 M2C_UNK TLobby__sub_80147284();
-int TLobby__sub_803F4B68(void*);
+int get_network_config_buffer_size(void*);
 M2C_UNK cleanup_subsystems__6TLobbyFv();
 M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
 M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
@@ -223,7 +223,7 @@ extern s32 lbl_805D5714;
 #define lbl_8050CCE8 (*(RecoveredGlobal_80146CB8_lbl_8050CCE8 *)lbl_8050CCE8)
 #define lbl_8050CE14 (*(RecoveredGlobal_80146D44_lbl_8050CE14 *)lbl_8050CE14)
 
-void init_keyboard_buffer__6TLobbyFv(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; TLobby__sub_803F4B68((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
+void init_keyboard_buffer__6TLobbyFv(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
 s32 poll_connect__6TLobbyFv(void) {
     s32 var_r31;

@@ -23,10 +23,10 @@ struct S_803F3690 { s16 f0; s16 pad2; s32 state; u8 card[0x80]; };
 
 extern "C" {
 M2C_UNK OSFreeToHeap(int, void *);
-s32 TLobby__sub_803F4AB4();
-M2C_UNK TLobby__sub_803F4AD8(int);
-M2C_UNK TLobby__sub_803F4B10(int);
-M2C_UNK TLobby__sub_803F4B2C(int);
+s32 get_network_config_mode();
+M2C_UNK get_or_set_network_config_mode(int);
+M2C_UNK get_or_set_network_config_backup_mode(int);
+M2C_UNK set_network_config_card_channel(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lobby_net_config_buffer;

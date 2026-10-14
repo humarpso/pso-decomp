@@ -20,11 +20,11 @@ M2C_UNK TAdPlayerLoadGC__sub_803F31D8();
 M2C_UNK TLobby__sub_803F3BF8(int, s32, u32);
 M2C_UNK TAdPlayerLoadGC__sub_803F3CF4();
 M2C_UNK TLobby__sub_803F3D60();
-s32 fn_803F3DD4(s32, void *);
-s32 fn_803F3EA0(s32 *, s32 *);
-s32 request_load__15TAdPlayerLoadGCFi(s32);
-s32 TAdPlayerLoadGC__sub_803F45E0(s32 *, s32 *);
-u32 TAdPlayerLoadGC__sub_803F4B80();
+s32 request_network_info_load(s32, void *);
+s32 take_network_info_request_result(s32 *, s32 *);
+s32 request_network_info_exists(s32);
+s32 take_network_info_exists_result(s32 *, s32 *);
+u32 get_network_info_file_size();
 M2C_UNK copy_current_entry_name__6TLobbyFPvi(void *, int);
 M2C_UNK TLobby__sub_803F53A0(int, void *, int);
 M2C_UNK TLobby__sub_8042EE4C(u32 *);
@@ -103,14 +103,14 @@ s32 TLobby__sub_80145A94(void) {
             case 1:
                 switch (sub) {
                 case 1:
-                    if (request_load__15TAdPlayerLoadGCFi(id) < 0) {
+                    if (request_network_info_exists(id) < 0) {
                         state = 0;
                         sub = 0;
                         break;
                     }
                     sub = 2;
                 case 2:
-                    switch (TAdPlayerLoadGC__sub_803F45E0(&res, &extra)) {
+                    switch (take_network_info_exists_result(&res, &extra)) {
                     case 200:
                         break;
                     case 0:
@@ -133,13 +133,13 @@ s32 TLobby__sub_80145A94(void) {
             case 2:
                 switch (sub) {
                 case 1:
-                    mem = xmalloc__FUl(TAdPlayerLoadGC__sub_803F4B80());
+                    mem = xmalloc__FUl(get_network_info_file_size());
                     if (mem == NULL) {
                         state = 0;
                         sub = 0;
                         break;
                     }
-                    if (fn_803F3DD4(id, mem) < 0) {
+                    if (request_network_info_load(id, mem) < 0) {
                         xfree__FPv(mem);
                         state = 0;
                         sub = 0;
@@ -147,7 +147,7 @@ s32 TLobby__sub_80145A94(void) {
                     }
                     sub = 2;
                 case 2:
-                    switch (fn_803F3EA0(&res, &extra)) {
+                    switch (take_network_info_request_result(&res, &extra)) {
                     case 200:
                         break;
                     case 0:
