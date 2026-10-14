@@ -8,7 +8,7 @@ extern "C" {
 
 void yamigarasu_start_timers(void *arg0);
 s32 get_id__13TItemProArmorFPv(void *);
-M2C_UNK paralysis_curse_timer_ct(s32, u32, s32, M2C_UNK, f32);
+M2C_UNK confusion_curse_timer_ct(s32, u32, s32, M2C_UNK, f32);
 s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 M2C_UNK ct__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
 
@@ -21,7 +21,7 @@ void yamigarasu_start_timers(void *arg0) {
     if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3 != 0) {
-            paralysis_curse_timer_ct(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0xE10, lbl_805DADD8);
+            confusion_curse_timer_ct(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0xE10, lbl_805DADD8);
         }
         temp_r3_2 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3_2 != 0) {

@@ -2333,6 +2333,7 @@ force_active:
   - open_window__15TObjNewFloorWinFPv
   - open_windows__22TAdMultiPlyChrSelectGCFPv
   - pack_weapon_trail_color
+  - paralysis_curse_timer_ct
   - parse_message_text__24TMessageWindowControllerFPCcPc
   - parse_network_info_config_decimal
   - parse_network_info_config_hex
@@ -2834,7 +2835,6 @@ force_active:
   - sj_version_string
   - skip_name_prefix__11TWindowCtrlFPvPv
   - sleeping_state__14TObjEneBm5WolfFPvi
-  - slow_curse_timer_ct
   - smpcmp
   - snap_to_ground__10TObjPlayerFii
   - snap_to_ground__13TObjEneMorfosFii

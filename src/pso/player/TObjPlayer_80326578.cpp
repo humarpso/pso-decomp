@@ -38,7 +38,7 @@ extern M2C_UNK lbl_804ECFB0[];
 u8 *TObjPlayer__sub_803268D8(u8 *arg0, u8 *arg1, s32 _w2);
 u8 *TItemTimerEvent__ct(void *, u32, s32, s32);
 extern void *lbl_804A0568[8];
-u8 *slow_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
+u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value);
 void enable_flag20__10TObjPlayerFi(Rec_80326D54 *);
 s32 get_player_list__10TObjPlayerFv();
 void translate_matrix(s32, f32, f32, f32);
@@ -69,7 +69,7 @@ int update_trail_slot__11TItemWeaponFPvi(void*, void*);
 int draw_weapon_at_joint(void*, void*);
 void set_weapon_trail_joints(void *, int, int, int);
 M2C_UNK freeze_curse_timer_ct(s32, u32, s32, M2C_UNK, f32);
-M2C_UNK paralysis_curse_timer_ct(s32, u32, s32, M2C_UNK, f32);
+M2C_UNK confusion_curse_timer_ct(s32, u32, s32, M2C_UNK, f32);
 s32 TObjectV8047c128_subtract_hp(s32, s16);
 s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
 void free_obj_heap__10TObjPlayerFPv(void *);
@@ -180,11 +180,11 @@ void dark_bridge_start_timers(void *arg0) {
         }
         temp_r3_2 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_2 != 0) {
-            paralysis_curse_timer_ct(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
+            confusion_curse_timer_ct(temp_r3_2, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x2328, lbl_805DF658);
         }
         temp_r3_3 = __nw__15TItemHeapObjectFUl(0x30);
         if (temp_r3_3 != 0) {
-            slow_curse_timer_ct((u8 *)(temp_r3_3), (u32)(M2C_FIELD(arg0, u32 *, 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
+            paralysis_curse_timer_ct((u8 *)(temp_r3_3), (u32)(M2C_FIELD(arg0, u32 *, 0x174)), (s32)(get_id__13TItemProArmorFPv(arg0)), (s32)(0x2328), lbl_805DF658);
         }
     }
 }
@@ -225,7 +225,7 @@ u8 *dark_bridge_create(u8 *arg0) {
     return NULL;
 }
 
-u8 *slow_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value) {
+u8 *paralysis_curse_timer_ct(u8 *self, u32 base_arg, s32 tag, s32 timer, f32 value) {
     TItemTimerEvent__ct(self, base_arg, tag, timer);
     M2C_FIELD(self, void ***, 0x18) = lbl_804A0568;
     M2C_FIELD(self, f32 *, 0x2C) = value;

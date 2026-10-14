@@ -19,7 +19,7 @@ extern s32 tl_05;
 u8 *yamigarasu_create(u8 *arg0);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_80127F40_lbl_804A0588 lbl_804A0588;
-u8 *paralysis_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
+u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
 }
 
 extern "C" {
@@ -39,7 +39,7 @@ u8 *yamigarasu_create(u8 *arg0) {
 }
 
 typedef char RecoveredGlobal_80127F40_lbl_804A0588_size[sizeof(RecoveredGlobal_80127F40_lbl_804A0588) == 0x20 ? 1 : -1];
-u8 *paralysis_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
+u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A0588.value;
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;

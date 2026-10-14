@@ -11,7 +11,7 @@ struct RecoveredGlobal_8012D6BC_lbl_804A05A8 {
 extern "C" {
 u8 * TItemTimerEvent__ct(void *, s16, s32);
 extern RecoveredGlobal_8012D6BC_lbl_804A05A8 lbl_804A05A8;
-u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
+u8 *slow_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0);
 struct Owner_8012D708 { u8 pad[0x60]; s32 f60; };
 struct Self_8012D708 { u8 pad0[0x24]; s32 f24; u8 pad28[0xF0 - 0x28]; Owner_8012D708 *owner; u8 padF4[0x188 - 0xF4]; s32 f188; };
 struct Vec_8012D708 { f32 x, y, z; };
@@ -53,7 +53,7 @@ extern const f32 lbl_805DAF30;
 extern "C" {
 
 typedef char RecoveredGlobal_8012D6BC_lbl_804A05A8_size[sizeof(RecoveredGlobal_8012D6BC_lbl_804A05A8) == 0x20 ? 1 : -1];
-u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
+u8 *slow_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A05A8.value;
     M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
