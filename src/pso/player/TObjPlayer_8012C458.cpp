@@ -18,7 +18,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 s32 is_owner_alive__10TObjPlayerFPv();
 M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
-s32 update_rico_ring__10TObjPlayerFUi(u32);
+s32 rocket_punch_return_timer(u32);
 
 #include "types.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

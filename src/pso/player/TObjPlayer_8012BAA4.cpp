@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void sync_hp_damage__10TObjPlayerFPv(void *arg0);
+void psycho_wand_update_tp_spend(void *arg0);
 void update_cane_cast__10TObjPlayerFi(s32 arg0);
 void play_action_sound__10TObjPlayerFPv(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
@@ -23,7 +23,7 @@ M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
 
-void sync_hp_damage__10TObjPlayerFPv(void *arg0) {
+void psycho_wand_update_tp_spend(void *arg0) {
     s16 temp_r0;
     s16 temp_r3;
 

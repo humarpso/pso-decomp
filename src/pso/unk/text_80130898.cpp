@@ -67,21 +67,21 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern s32 tl_05;
 extern const f32 lbl_805DB014;
-void eject_casing_at_angle__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
-void eject_casing_at_angle__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2);
+void yasminkov_9000m_eject_casing(u8 *arg0, s32 arg1, s32 arg2);
+void yasminkov_9000m_eject_casing(u8 *arg0, s32 arg1, s32 arg2);
 extern const f32 lbl_805DB008;
 extern const f32 lbl_805DB00C;
 extern const f32 lbl_805DB010;
-void update_paired_casings__10TObjPlayerFPv(u8 *arg0);
+void yasminkov_9000m_update_recoil(u8 *arg0);
 void spawn_particle_effect(void *, s32);
-void spawn_pair_particle_effects__10TObjPlayerFPv(Pl2_80130974 *arg0);
+void yasminkov_9000m_marker(Pl2_80130974 *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma opt_common_subs off
-void update_paired_casings__10TObjPlayerFPv(u8 *arg0) {
+void yasminkov_9000m_update_recoil(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1F8);
     switch (temp_r0) {
@@ -103,14 +103,14 @@ void update_paired_casings__10TObjPlayerFPv(u8 *arg0) {
         break;
     case 3:
         M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
-        eject_casing_at_angle__10TObjPlayerFPvii((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
-        eject_casing_at_angle__10TObjPlayerFPvii((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
+        yasminkov_9000m_eject_casing((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
+        yasminkov_9000m_eject_casing((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
         break;
     }
 }
 #pragma pop
 
-void spawn_pair_particle_effects__10TObjPlayerFPv(Pl2_80130974 *arg0) {
+void yasminkov_9000m_marker(Pl2_80130974 *arg0) {
     arg0->f1f8 = 2;
     if (arg0->m49(arg0->f208, 0, 0, 1) != 0) {
         arg0->m49(arg0->f214, 0, 0, 0);
@@ -121,7 +121,7 @@ void spawn_pair_particle_effects__10TObjPlayerFPv(Pl2_80130974 *arg0) {
     spawn_particle_effect(arg0->f214, 9);
 }
 
-void eject_casing_at_angle__10TObjPlayerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
+void yasminkov_9000m_eject_casing(u8 *arg0, s32 arg1, s32 arg2) {
     f32 buffer_14[3];
     s32 buffer_8[3];
     s32 temp_r31;

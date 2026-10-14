@@ -64,19 +64,19 @@ extern "C" {
 s32 get_player_list__10TObjPlayerFv(void);
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
-void TObjPlayer__sub_8012C714(Obj_8012C714 *self);
+void rocket_punch_node_callback(Obj_8012C714 *self);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 M2C_UNK increment_burst_counter(int);
 s32 get_anim_state__10TObjPlayerFPv(int);
-void update_rico_ring__10TObjPlayerFUi(u32);
-void TObjPlayer__sub_8012C5F8(u8 *arg0);
+void rocket_punch_return_timer(u32);
+void rocket_punch_marker(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_8012C5F8(u8 *arg0) {
+void rocket_punch_marker(u8 *arg0) {
     s32 temp_r31;
     s32 var_r30;
     u32 temp_r3;
@@ -90,7 +90,7 @@ void TObjPlayer__sub_8012C5F8(u8 *arg0) {
             var_r30 += 1;
         } while (var_r30 != 2);
         set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1F8), (int) (2));
-        spawn_item_timer__13TItemAttackerFiii((void *) (arg0), (void *) (update_rico_ring__10TObjPlayerFUi), (int) (0x3C));
+        spawn_item_timer__13TItemAttackerFiii((void *) (arg0), (void *) (rocket_punch_return_timer), (int) (0x3C));
         set_flags__10TObjPlayerFPvUi((void *) (arg0 + 0x1F8), (int) (4));
         if (((VObj_18 *)(arg0))->m49(arg0 + 0x1FC, 0, 0, 1) == 1) {
             clear_flags__11TAdRicoRingFPvUi((void *) (arg0 + 0x1F8), (int) (4));
@@ -102,7 +102,7 @@ void TObjPlayer__sub_8012C5F8(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_8012C714(Obj_8012C714 *self) {
+void rocket_punch_node_callback(Obj_8012C714 *self) {
     void *p;
     switch (get_player_list__10TObjPlayerFv()) {
     case 1:

@@ -1426,7 +1426,6 @@ force_active:
   - dspResumeCallback
   - duel_result_window_layout_table
   - duel_start_countdown_effect_pos
-  - eject_casing_at_angle__10TObjPlayerFPvii
   - emit_deband_support_effect
   - emit_grass_footstep_particle__10TObjPlayerFPvi
   - emit_jellen_support_effect
@@ -7771,6 +7770,7 @@ force_active:
   - worker_callback_slots
   - write_ring_buffer__6TLobbyFPvi
   - write_telepipe_record
+  - yasminkov_9000m_eject_casing
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data
 # addresses. dtk would emit a relocation and export the target symbol.

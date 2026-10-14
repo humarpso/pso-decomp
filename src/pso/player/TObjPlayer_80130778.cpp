@@ -8,7 +8,7 @@ extern "C" {
 
 void *TObjPlayer__sub_80130778(void *arg0, s16 arg1);
 void TObjPlayer__sub_801307D0(void *arg0);
-void TObjPlayer__sub_801307E4(void* p);
+void yasminkov_9000m_draw(void* p);
 int draw_icon__10TObjPlayerFPvii(void*, void*, void*);
 int draw_weapon_model(void*);
 int draw_weapon_at_joint(void*, void*);
@@ -34,6 +34,6 @@ void TObjPlayer__sub_801307D0(void *arg0) {
     }
 }
 
-void TObjPlayer__sub_801307E4(void* p) { draw_weapon_model(p); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x208); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x220); draw_weapon_at_joint(p, (void*)35); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x214); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x22c); }
+void yasminkov_9000m_draw(void* p) { draw_weapon_model(p); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x208); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x220); draw_weapon_at_joint(p, (void*)35); draw_icon__10TObjPlayerFPvii(p, (void*)3, (char*)p + 0x214); draw_icon__10TObjPlayerFPvii(p, (void*)1, (char*)p + 0x22c); }
 
 }

@@ -24,22 +24,22 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-u8 * init_photon_blast_fields__10TObjPlayerFPv(void *, M2C_UNK, s32);
+u8 * yasminkov_9000m_ct(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_yasminkov_9000m__10TObjPlayerFi(s32 arg0);
+u8 *create_yasminkov_9000m(s32 arg0);
 }
 
 extern "C" {
 
-u8 *create_yasminkov_9000m__10TObjPlayerFi(s32 arg0) {
+u8 *create_yasminkov_9000m(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x238));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_photon_blast_fields__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(yasminkov_9000m_ct(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

@@ -64,7 +64,7 @@ extern "C" {
 s32 get_player_list__10TObjPlayerFv(void);
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
-void TObjPlayer__sub_80128E08(Obj_80128E08 *self);
+void srank_punch_node_callback(Obj_80128E08 *self);
 M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
@@ -72,12 +72,12 @@ M2C_UNK increment_burst_counter(int);
 s32 get_anim_state__10TObjPlayerFPv(int);
 M2C_UNK TObjPlayer__sub_80128A70();
 void clear_rico_ring_flag__10TObjPlayerFUi(u32);
-void TObjPlayer__sub_80128CE8(u8 *arg0);
+void srank_punch_marker(u8 *arg0);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80128CE8(u8 *arg0) {
+void srank_punch_marker(u8 *arg0) {
     s32 temp_r31;
     s32 var_r30;
     u32 temp_r3;
@@ -104,7 +104,7 @@ void TObjPlayer__sub_80128CE8(u8 *arg0) {
     }
 }
 
-void TObjPlayer__sub_80128E08(Obj_80128E08 *self) {
+void srank_punch_node_callback(Obj_80128E08 *self) {
     void *p;
     switch (get_player_list__10TObjPlayerFv()) {
     case 1:

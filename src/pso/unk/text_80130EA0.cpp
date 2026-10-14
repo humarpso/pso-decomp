@@ -10,7 +10,7 @@ s32 get_player_list__10TObjPlayerFv();
 M2C_UNK scale_current_matrix(s32);
 M2C_UNK post_translate_matrix(s32);
 
-void dispatch_player_action_by_type(s32 arg0) {
+void yasminkov_2000h_node_callback(s32 arg0) {
     s32 temp_r3;
 
     temp_r3 = get_player_list__10TObjPlayerFv();

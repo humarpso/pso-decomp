@@ -38,7 +38,7 @@ extern "C" {
 s32 add_actor_tp(void *, s32);
 s16 obj_getS16_32E(void *);
 extern const f32 lbl_805DAD20;
-void update_tp_animation__10TObjPlayerFPv(u8 *arg0);
+void sorcerers_cane_update(u8 *arg0);
 u8 * init_state__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -97,7 +97,7 @@ void TObjPlayer__sub_80123CA8(u8 *arg0) {
     }
 }
 
-void update_tp_animation__10TObjPlayerFPv(u8 *arg0) {
+void sorcerers_cane_update(u8 *arg0) {
     s16 temp_r0;
     s16 temp_r3_3;
     s32 temp_r3;

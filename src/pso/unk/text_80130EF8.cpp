@@ -8,9 +8,9 @@ struct Obj_80131070 { u8 pad[0x208]; s32 state; };
 
 extern "C" {
 extern const f32 lbl_805DB038;
-void fn_80130EF8(u8 *arg0);
+void yasminkov_2000h_idle(u8 *arg0);
 extern const f32 lbl_805DB03C;
-void fn_80130F24(u8 *arg0);
+void yasminkov_2000h_active(u8 *arg0);
 void launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, u32, s32, u32, u32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -19,15 +19,15 @@ extern const f32 lbl_805DB03C;
 extern const f32 lbl_805DB040;
 extern const f32 lbl_805DB044;
 extern const f32 lbl_805DB048;
-void update_recoil_casing_eject(u8 *arg0);
+void yasminkov_2000h_update_recoil(u8 *arg0);
 void draw_status_icon__10TObjPlayerFPvi(void *self, void *buf);
 void spawn_particle_effect(void *buf, s32 n);
-void fn_80131070(Obj_80131070 *self);
+void yasminkov_2000h_marker(Obj_80131070 *self);
 }
 
 extern "C" {
 
-void fn_80130EF8(u8 *arg0) {
+void yasminkov_2000h_idle(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1F8);
     if (temp_r0 == 1) {
@@ -37,7 +37,7 @@ void fn_80130EF8(u8 *arg0) {
         M2C_FIELD(arg0, f32 *, 0x1FC) = (f32) lbl_805DB038;
     }
 }
-void fn_80130F24(u8 *arg0) {
+void yasminkov_2000h_active(u8 *arg0) {
     s32 temp_r0;
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x1F8);
     if (temp_r0 == 0) {
@@ -49,7 +49,7 @@ void fn_80130F24(u8 *arg0) {
 }
 #pragma push
 #pragma opt_common_subs off
-void update_recoil_casing_eject(u8 *arg0) {
+void yasminkov_2000h_update_recoil(u8 *arg0) {
     f32 buffer_14[3];
     s32 buffer_8[3];
     s32 temp_r0;
@@ -87,7 +87,7 @@ void update_recoil_casing_eject(u8 *arg0) {
 }
 #pragma pop
 
-void fn_80131070(Obj_80131070 *self) {
+void yasminkov_2000h_marker(Obj_80131070 *self) {
     u8 buf[0x18];
     self->state = 2;
     draw_status_icon__10TObjPlayerFPvi(self, buf);

@@ -60,7 +60,7 @@ void approach_target_angle__10TObjPlayerFPv(u8 *arg0);
 void init_item_slots__10TObjPlayerFPv(void* p);
 void dark_bridge_start_timers(void *arg0);
 void step_angles__10TObjPlayerFPv(u8 *arg0);
-void sync_hp_from_target__10TObjPlayerFPv(void *arg0);
+void dark_bridge_update_tp_spend(void *arg0);
 M2C_UNK rotate_matrix_x(M2C_UNK, s32);
 s32 add_actor_tp(s32, s16);
 int refresh_owner_stats__5TItemFPv(void*);
@@ -143,7 +143,7 @@ u8 *create_vtable_variant__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-void sync_hp_from_target__10TObjPlayerFPv(void *arg0) {
+void dark_bridge_update_tp_spend(void *arg0) {
     s16 temp_r0;
     s16 temp_r3;
     s32 temp_r31;
