@@ -89,9 +89,9 @@ extern u8 lbl_8049DCF0[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805DAA58;
 extern const f32 lbl_805DAA5C;
 extern const f32 lbl_805DAA60;
@@ -249,10 +249,10 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
         pt++;
     }
     if (arg0->blobs != NULL) {
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 |= 0x10;
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x10;
         set_chunk_material_override_pair(0, 0x800);
         set_chunk_material_color(lbl_8049DCF0);
         for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
@@ -264,9 +264,9 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
             draw_chunk_object(lbl_8048DEF4);
             pop_matrix();
         }
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
     }
 }
 

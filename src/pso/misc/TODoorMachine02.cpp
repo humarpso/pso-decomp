@@ -124,7 +124,7 @@ M2C_UNK set_chunk_material_color(void *);
 extern char chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 *lbl_805D597C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DB524;
 void render__15TODoorMachine02Fv(Door_80163408 *arg0);
 void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
@@ -207,9 +207,9 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             post_translate_matrix(n->f8);
             draw_ginja_model(n->f4);
             if (flag != 1) {
-                s32 id = some_id_805c6f74;
+                s32 id = model_render_flags;
                 lbl_805D5660 = id;
-                some_id_805c6f74 = id | 0x10;
+                model_render_flags = id | 0x10;
                 set_chunk_material_color(arg0->fD4);
             }
             push_matrix();
@@ -224,7 +224,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
             pop_matrix();
             if (flag != 1) {
                 set_chunk_material_color(chunk_material_color_half_alpha_f32);
-                some_id_805c6f74 = lbl_805D5660;
+                model_render_flags = lbl_805D5660;
             }
             n = arg0->model->root->next30;
             post_translate_matrix(n->f8);

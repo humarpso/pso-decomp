@@ -616,7 +616,7 @@ void draw_body__13TObjEneMorfosFPv(u8 *arg0);
 s32 render_model_if_visible__13TObjEneMorfosFPv(u8 *arg0);
 extern Vec_80332850 lbl_804775E4;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 TObjEneMorfos__data_805DF86C;
@@ -2246,13 +2246,13 @@ void render__13TObjEneMorfosFv(u8 *arg0) {
             update_player_state__9TObjEneDDFPv(arg0, &v, 0);
         }
         update_secondary_light__9TObjEneDDFPv(arg0);
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
-        some_id_805c6f74 &= ~0x810;
+        model_render_flags &= ~0x810;
         if (M2C_FIELD(arg0, u32 *, 0x3C0) & 0x10) {
             draw_body__13TObjEneMorfosFPv(arg0);
         }
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 

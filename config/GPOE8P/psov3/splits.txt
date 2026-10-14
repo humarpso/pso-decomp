@@ -470,7 +470,7 @@ pso/object/TObjDFHorming.cpp:
 	.text       start:0x8004AD4C end:0x8004BBC4
 	.rodata     start:0x804371D8 end:0x804371E0
 
-pso/unk/text_8004BBC4.cpp:
+pso/boss/DarkFalzController.cpp:
 	.text       start:0x8004BBC4 end:0x8004C19C
 
 pso/boss/TBoss4Uro.cpp:
@@ -1831,7 +1831,7 @@ pso/enemy/TObjEneRe2Flower.cpp:
 
 pso/enemy/TObjEneRe2Flower_800C3E14.cpp:
 	.text       start:0x800C3E14 end:0x800C4714
-	.data       start:0x804933A8 end:0x804933D8
+	.data       start:0x80493078 end:0x804933D8
 
 pso/player/TObjPlayer_800C4714.cpp:
 	.text       start:0x800C4714 end:0x800C4B78
@@ -2115,7 +2115,7 @@ pso/enemy/TObjEneMe3Stelth.cpp:
 pso/enemy/EnemyFactoryTables.cpp:
 	.data       start:0x80497DC8 end:0x80498F28
 
-pso/unk/text_800F591C.cpp:
+pso/system/ChunkTextureStripCollector.cpp:
 	.text       start:0x800F58A4 end:0x800F5BC0
 
 pso/unk/text_800F5BC0.cpp:
@@ -13850,8 +13850,9 @@ pso/unk/text_803D39F8.cpp:
 pso/misc/TLobby_803D3B84.cpp:
 	.text       start:0x803D3B84 end:0x803D3BE8
 
-pso/unk/text_803D3BE8.cpp:
+pso/system/Mfci.cpp:
 	.text       start:0x803D3BE8 end:0x803D439C
+	.bss        start:0x8058B6F0 end:0x8058C0E0
 
 pso/misc/TLobby_803D439C.cpp:
 	.text       start:0x803D439C end:0x803D43A8
@@ -14002,7 +14003,7 @@ pso/system/ModelDrawContext.cpp:
 	.text       start:0x803DC88C end:0x803DCDA8
 	.rodata     start:0x8047E3D8 end:0x8047E428
 
-pso/misc/TScene_803DCDA8.cpp:
+pso/system/MaterialAlphaCompare.cpp:
 	.text       start:0x803DCDA8 end:0x803DCDB0
 
 pso/unk/text_803DCDB0.cpp:

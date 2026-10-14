@@ -699,9 +699,9 @@ M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9BD8;
 extern const f32 lbl_805D9BDC;
 extern const f32 lbl_805D9BF0;
@@ -1751,20 +1751,20 @@ void render__11TObjEneMojaFv(u8 *arg0) {
     }
     select_actor_lighting(arg0);
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-    id = some_id_805c6f74;
+    id = model_render_flags;
     fade = &((Body_800AF080 *)arg0)->fades[cam];
     lbl_805D5660 = id;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    some_id_805c6f74 = id | 1;
-    update_obstruction_fade(fade, lbl_805D7780, lbl_805D7784, id);
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    model_render_flags = id | 1;
+    update_obstruction_fade(fade, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask, id);
     draw = 1;
     if (updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x38) == 1) {
         fade->m6();
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
             draw = 0;
         } else {
-            some_id_805c6f74 &= ~1;
+            model_render_flags &= ~1;
         }
     }
     if (draw != 0) {
@@ -1787,13 +1787,13 @@ void render__11TObjEneMojaFv(u8 *arg0) {
         ((M2C_UNK (*)())pop_matrix)();
         clear_global_state__10TObjPlayerFv();
     }
-    some_id_805c6f74 &= ~1;
+    model_render_flags &= ~1;
     if (updateFromCamera__15RenderFadeStateFPCf(fade, arg0 + 0x38) == 1) {
         fade->m7();
     }
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
     restore_scene_lighting(lbl_805D5668, lbl_805D5664);
     switch (M2C_FIELD(arg0, s16 *, 0x326)) {
     case 0:

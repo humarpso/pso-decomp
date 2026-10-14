@@ -72,7 +72,7 @@ M2C_UNK draw_ginja_model(s32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__16TODummyKeyCave01Fv(u8 *arg0);
 M2C_UNK obj_clearFlags30(void *, s32);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -108,9 +108,9 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         node = *(u8 **)(arg0 + 0x34);
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
-            id = some_id_805c6f74;
+            id = model_render_flags;
             lbl_805D5660 = id;
-            some_id_805c6f74 = id | 0x10;
+            model_render_flags = id | 0x10;
             set_chunk_material_color(arg0 + 0x9C);
         }
         begin_effect_render__13TParticleCtrlFv();
@@ -127,7 +127,7 @@ void render__16TODummyKeyCave01Fv(u8 *arg0) {
         draw_ginja_model(*(s32 *)(node + 4));
         if (*(u16 *)(arg0 + 0x9A) == 0) {
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
         }
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();

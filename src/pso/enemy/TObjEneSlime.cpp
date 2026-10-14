@@ -124,7 +124,7 @@ extern char lbl_8043D298[];
 extern M2C_UNK slime_debug_label_table[];
 extern M2C_UNK lbl_80496368[];
 extern s32 slime_bml_resource;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 void render__12TObjEneSlimeFv(u8 *arg0);
 }
 
@@ -179,12 +179,12 @@ void render__12TObjEneSlimeFv(u8 *arg0) {
         TObjFish__sub_8001EDB0((void *) (slime_bml_resource), (int) (temp_r30_2));
         set_global_param__8TObjFishFi();
         if (temp_r31 != 0) {
-            some_id_805c6f74 |= 0x400000;
+            model_render_flags |= 0x400000;
             func_803e11e8__FUl((int) (1));
             get_bml_model((void *) (slime_bml_resource), (int) (temp_r30_2));
             draw_chunk_object();
             func_803e11f0__Fv();
-            some_id_805c6f74 &= 0xFFBFFFFF;
+            model_render_flags &= 0xFFBFFFFF;
         } else {
             func_803e11e8__FUl((int) (2));
             set_cull_back__8TObjFishFv();

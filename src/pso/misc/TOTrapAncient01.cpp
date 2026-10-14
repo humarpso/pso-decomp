@@ -370,12 +370,12 @@ int draw_ginja_model(int);
 void translate_matrix(s32, f32, f32, f32);
 int begin_effect_render__13TParticleCtrlFv();
 int end_effect_render__13TParticleCtrlFv();
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA58;
 extern const f32 lbl_805DBA5C;
@@ -549,9 +549,9 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
     self->f340 = self->m8(lbl_805DBA58, lbl_805DBA5C);
     if (self->f340 == 1) {
         if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
-            lbl_805D5660 = some_id_805c6f74;
-            lbl_805D5664 = lbl_805D7784;
-            lbl_805D5668 = lbl_805D7780;
+            lbl_805D5660 = model_render_flags;
+            lbl_805D5664 = chunk_polygon_flags_and_mask;
+            lbl_805D5668 = chunk_polygon_flags_or_mask;
             fade->m6();
         }
         push_matrix();
@@ -580,9 +580,9 @@ void render__15TOTrapAncient01Fv(Trap_80179B8C *self) {
         pop_matrix();
         if (updateFromCamera__15RenderFadeStateFPCf(fade, self->pos38) == 1) {
             fade->m7();
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
         }
     }
 }

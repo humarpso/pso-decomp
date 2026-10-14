@@ -256,7 +256,7 @@ f32 TObjPlayer__sub_800499FC(s32 arg0) {
 
 void TObjPlayer__sub_80049A0C(void* p) { *(u32*)((char*)p + 0x388) &= 0xffefffff; }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void explode_and_destroy__12TBoss3VoloptFPv(u8 *arg0) {
     Dmg_80049A1C d = lbl_80436710[0];
@@ -293,7 +293,7 @@ void draw_obj_model(u8 *arg0) {
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-    some_id_805c6f74 &= 0xFFFFFBFF;
+    model_render_flags &= 0xFFFFFBFF;
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xAC));
     pop_matrix();
 }

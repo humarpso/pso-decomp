@@ -302,7 +302,7 @@ void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1) {
 
 extern s32 camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TDeadSpot__data_805DA38C;
 extern const f32 lbl_805DA39C;
 
@@ -333,14 +333,14 @@ Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1
 
 void render__9TDeadSpotFv(u8 *arg0) {
     if ((get_state_flag__9TMainTaskFv() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
         setup_alpha_test_render_state(0x8F);
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB8));
         set_texture_num(M2C_FIELD(arg0, s32 *, 0xBC));
         draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 #pragma fp_contract on

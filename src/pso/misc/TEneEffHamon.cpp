@@ -102,15 +102,15 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern int TEneEffHamon__fish_model;
 extern int TEneEffHamon__fish_effect_param;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
@@ -129,7 +129,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
 extern s32 TObjPlayer__effect_count;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
@@ -151,11 +151,11 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     if (o->delay > 0) {
         return;
     }
-    lbl_805D5660 = some_id_805c6f74;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    some_id_805c6f74 |= 0x810;
+    lbl_805D5660 = model_render_flags;
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    model_render_flags |= 0x810;
     set_chunk_material_override_pair(0xFFFF00FF, 0x800);
     set_global_param__8TObjFishFi(TEneEffHamon__fish_effect_param);
     set_chunk_material_color(o->color50);
@@ -166,10 +166,10 @@ void render__12TEneEffHamonFv(Hamon_800A36A8 *o) {
     draw_chunk_object(TEneEffHamon__fish_model);
     pop_matrix();
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+    model_render_flags = lbl_805D5660;
 }
 
 void run_task__12TEneEffHamonFv(u8 *arg0) {

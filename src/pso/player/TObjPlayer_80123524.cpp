@@ -26,7 +26,7 @@ M2C_UNK rotate_matrix_y(M2C_UNK, s32);
 M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void draw_mag__10TObjPlayerFPv(void *arg0) {
     Sp8Type_80123524 sp8;
@@ -50,7 +50,7 @@ void draw_mag__10TObjPlayerFPv(void *arg0) {
         M2C_FIELD(temp_r30, s32 *, 0) = (s32) (M2C_FIELD(temp_r30, s32 *, 0) & 0xFFFFFFF7);
         M2C_FIELD(temp_r29, s32 *, 0) = (s32) (M2C_FIELD(temp_r29, s32 *, 0) & 0xFFFFFFF7);
         TObjPlayer__sub_80364198();
-        some_id_805c6f74 &= 0xFFFFFFEF;
+        model_render_flags &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFPv(arg0);
         set_model_fade_alpha__10TObjPlayerFf();
         M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 1);

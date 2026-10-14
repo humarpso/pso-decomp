@@ -12,7 +12,7 @@ extern "C" {
 void reset_keyboard_state__6TLobbyFv(void);
 int reset__16TKeyBoardControlFv(void);
 
-    extern unsigned char lbl_805D535A;
+    extern unsigned char area_transfer_pending_flag;
 extern "C" u8 lbl_8043D7A8[];
 extern "C" u8 lbl_8043D820[];
 extern "C" u8 lbl_8043D854[];
@@ -743,7 +743,7 @@ __declspec(section ".data") void *lbl_8049C61C[2] = {
 #define lobby_font_texture_prs_data ((u8 *)lobby_font_texture_prs_data)
 #define lbl_8049C61C ((u8 *)lbl_8049C61C)
 
-void reset_keyboard_state__6TLobbyFv(void) { lbl_805D535A = 0; reset__16TKeyBoardControlFv(); }
+void reset_keyboard_state__6TLobbyFv(void) { area_transfer_pending_flag = 0; reset__16TKeyBoardControlFv(); }
 
 }
 
@@ -765,24 +765,24 @@ void TLobby__sub_800F8BD8(void);
 int reset__16TKeyBoardControlFv(void);
 void set_keyboard_mode__6TLobbyFi(int);
 
-extern u32 lbl_805D5350;
-#define lbl_805D535A (*(s8 *)&lbl_805D535A)
+extern u32 main_phase_deferred_callback;
+#define area_transfer_pending_flag (*(s8 *)&area_transfer_pending_flag)
 
 void TLobby__sub_800F8AD0(void) {
-    if ((u32) lbl_805D5350 != 0U) {
-        lbl_805D535A = 1;
+    if ((u32) main_phase_deferred_callback != 0U) {
+        area_transfer_pending_flag = 1;
     }
 }
 
 bool is_area_transfer_pending(void) {
-    return (*(u8 *)&lbl_805D535A) != 0;
+    return (*(u8 *)&area_transfer_pending_flag) != 0;
 }
 
 void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TLobbyFi(0); reset__16TKeyBoardControlFv(); }
 
 }
 
-#undef lbl_805D535A
+#undef area_transfer_pending_flag
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -804,7 +804,7 @@ extern "C" {
 
 void TLobby__sub_800F8BD8(void);
 void invoke_callback__6TLobbyFv(void);
-#define lbl_805D5350 (*(M2C_UNK (**)())&lbl_805D5350)
+#define main_phase_deferred_callback (*(M2C_UNK (**)())&main_phase_deferred_callback)
 int TKeyBoardControl__sub_8000F92C(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int reset__16TKeyBoardControlFv(void);
@@ -839,21 +839,21 @@ void apply_phase_keyboard_mode(void) {
 void TLobby__sub_800F8BD8(void) { reset__16TKeyBoardControlFv(); TKeyBoardControl__sub_8000F92C(); }
 
 void invoke_callback__6TLobbyFv(void) {
-    if (((M2C_UNK (*)()) lbl_805D5350) != NULL) {
-        lbl_805D5350();
+    if (((M2C_UNK (*)()) main_phase_deferred_callback) != NULL) {
+        main_phase_deferred_callback();
     }
 }
 
 }
 
-#undef lbl_805D5350
+#undef main_phase_deferred_callback
 
 extern "C" {
-#define lbl_805D5350 (*(int *)&lbl_805D5350)
-void set_keyboard_mode__6TLobbyFi(int a0) { lbl_805D5350 = a0; }
+#define main_phase_deferred_callback (*(int *)&main_phase_deferred_callback)
+void set_keyboard_mode__6TLobbyFi(int a0) { main_phase_deferred_callback = a0; }
 }
 
-#undef lbl_805D5350
+#undef main_phase_deferred_callback
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -863,21 +863,21 @@ extern "C" {
 
 void flush_checked_reads__6TLobbyFv();
 M2C_UNK read_checked_align__6TLobbyFiii(s32, s32, u32);
-extern s32 *lbl_805D5340;
-extern s32 lbl_805D5344;
-extern u32 lbl_805D5348;
-extern s32 lbl_805D534C;
+extern s32 *pending_file_read_handle_ref;
+extern s32 pending_file_read_sector_count;
+extern u32 pending_file_read_destination;
+extern s32 pending_file_read_flush_requested;
 
 void flush_pending__6TLobbyFv(void) {
     u32 temp_r5;
     s32 temp_r4;
-    if ((s32) lbl_805D534C != 0) {
-        temp_r5 = lbl_805D5348;
-        lbl_805D534C = 0;
+    if ((s32) pending_file_read_flush_requested != 0) {
+        temp_r5 = pending_file_read_destination;
+        pending_file_read_flush_requested = 0;
         if ((temp_r5 != 0U)) {
-            temp_r4 = lbl_805D5344;
+            temp_r4 = pending_file_read_sector_count;
             if (temp_r4 != 0) {
-                read_checked_align__6TLobbyFiii(*lbl_805D5340, temp_r4, temp_r5);
+                read_checked_align__6TLobbyFiii(*pending_file_read_handle_ref, temp_r4, temp_r5);
             }
         }
         flush_checked_reads__6TLobbyFv();
@@ -904,13 +904,13 @@ extern "C" {
 
 void reset_read_state__6TLobbyFv(void);
 
-#define lbl_805D5340 (*(int *)&lbl_805D5340)
-#define lbl_805D5344 (*(int *)&lbl_805D5344)
-#define lbl_805D5348 (*(int *)&lbl_805D5348)
-void reset_read_state__6TLobbyFv(void) { lbl_805D5340 = 0; lbl_805D5344 = 0; lbl_805D5348 = 0; }
-#undef lbl_805D5340
-#undef lbl_805D5344
-#undef lbl_805D5348
+#define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
+#define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
+#define pending_file_read_destination (*(int *)&pending_file_read_destination)
+void reset_read_state__6TLobbyFv(void) { pending_file_read_handle_ref = 0; pending_file_read_sector_count = 0; pending_file_read_destination = 0; }
+#undef pending_file_read_handle_ref
+#undef pending_file_read_sector_count
+#undef pending_file_read_destination
 void clear_player_slot_tables__6TLobbyFi(s32 n) {
     s32 i;
     if (n == -1) {
@@ -939,10 +939,10 @@ void set_entry_params__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 
 extern "C" {
-extern u8 lbl_805D533C;
+extern u8 lobby_font_texture_loaded;
 void TLobby__sub_803DA16C(void *p);
 void release_menu_font__6TLobbyFv(void);
-extern u8 lbl_805D533C;
+extern u8 lobby_font_texture_loaded;
 extern const char lbl_8043D9F4[];
 void *tmp_buf_use_req__6TLobbyFPv(const char *);
 s32 prs_decompress_buffer(void *, void *);
@@ -963,16 +963,16 @@ void TLobby__sub_800F8DD8(void);
 void TLobby__sub_800F8F34(void);
 void set_read_params__6TLobbyFiii(int a0, int a1, int a2);
 
-#define lbl_805D5340 (*(int *)&lbl_805D5340)
-#define lbl_805D5344 (*(int *)&lbl_805D5344)
-#define lbl_805D5348 (*(int *)&lbl_805D5348)
-void set_read_params__6TLobbyFiii(int a0, int a1, int a2) { lbl_805D5340 = a0; lbl_805D5344 = a1; lbl_805D5348 = a2; }
-#undef lbl_805D5340
-#undef lbl_805D5344
-#undef lbl_805D5348
+#define pending_file_read_handle_ref (*(int *)&pending_file_read_handle_ref)
+#define pending_file_read_sector_count (*(int *)&pending_file_read_sector_count)
+#define pending_file_read_destination (*(int *)&pending_file_read_destination)
+void set_read_params__6TLobbyFiii(int a0, int a1, int a2) { pending_file_read_handle_ref = a0; pending_file_read_sector_count = a1; pending_file_read_destination = a2; }
+#undef pending_file_read_handle_ref
+#undef pending_file_read_sector_count
+#undef pending_file_read_destination
 
-#define lbl_805D534C (*(int *)&lbl_805D534C)
-void TLobby__sub_800F8DD8(void) { lbl_805D534C = 1; }
+#define pending_file_read_flush_requested (*(int *)&pending_file_read_flush_requested)
+void TLobby__sub_800F8DD8(void) { pending_file_read_flush_requested = 1; }
 
     extern unsigned char lbl_805D5358;
 
@@ -992,10 +992,10 @@ void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
 }
 
 void release_menu_font__6TLobbyFv(void) {
-    if (lbl_805D533C) {
+    if (lobby_font_texture_loaded) {
         TLobby__sub_803DA16C(lbl_8049C61C);
     }
-    lbl_805D533C = 0;
+    lobby_font_texture_loaded = 0;
 }
 
 void load_font_texture__6TLobbyFv(void) {
@@ -1005,9 +1005,9 @@ void load_font_texture__6TLobbyFv(void) {
         prs_decompress_buffer(lobby_font_texture_prs_data, file);
         r = load_gvm_texture_archive(file, lbl_8049C61C);
         tmp_buf_release__6TLobbyFi(lbl_8043D9F4);
-        lbl_805D533C = 1;
+        lobby_font_texture_loaded = 1;
         if (r == -1) {
-            lbl_805D533C = 0;
+            lobby_font_texture_loaded = 0;
         }
     }
 }
@@ -1109,7 +1109,7 @@ s32 DVDCheckDisk(void);
 void set_perspective_projection_from_fov(s32, f32, f32, f32);
 void set_cached_blend_factor(s32, s32);
 void func_803DCDFC__Fv(void);
-extern u8 lbl_805D533C;
+extern u8 lobby_font_texture_loaded;
 
 #define show_msg_800F8FB8(arr, i) ((void (*)(f32, f32, u8 *, s32))draw_string__14TObjWarpStringFPviff)(arr[i].x, arr[i].y, arr[i].str, 0x8FFFFFFF)
 
@@ -1152,7 +1152,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
     case -1:
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
-        if (lbl_805D533C != 0) {
+        if (lobby_font_texture_loaded != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(0);
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 0);
@@ -1160,7 +1160,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         break;
     case 1:
         controller_stuff__Fv();
-        if (lbl_805D534C != 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {
+        if (pending_file_read_flush_requested != 0 && (check_reset_button__16TKeyBoardControlFv() != 0 || func_801A5E54__Fv() != 0)) {
             system_reset();
         }
         break;
@@ -1168,7 +1168,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
-        if (lbl_805D533C != 0) {
+        if (lobby_font_texture_loaded != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(1);
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 1);
@@ -1181,7 +1181,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
-        if (lbl_805D533C != 0) {
+        if (lobby_font_texture_loaded != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(2);
         } else if (get_main_phase() == 0xF) {
             show_msg_800F8FB8(TLobby__disk_error_msg_last, 0);
@@ -1196,7 +1196,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
         controller_stuff__Fv();
-        if (lbl_805D533C != 0) {
+        if (lobby_font_texture_loaded != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(3);
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 3);
@@ -1210,7 +1210,7 @@ s32 run_disk_error_check__6TLobbyFv(void) {
     case 11:
         func_803DCDFC__Fv();
         set_perspective_projection_from_fov(0x3555, (1.1333334f), (1.0f), (2.1e+04f));
-        if (lbl_805D533C != 0) {
+        if (lobby_font_texture_loaded != 0) {
             ((void (*)(s32))draw_fullscreen_texture_quad__6TLobbyFPv)(4);
         } else {
             show_msg_800F8FB8(TLobby__disk_error_msg_table, 4);
@@ -1239,4 +1239,4 @@ s32 run_disk_error_check__6TLobbyFv(void) {
 #pragma pop
 
 #undef lbl_805D5359
-#undef lbl_805D534C
+#undef pending_file_read_flush_requested

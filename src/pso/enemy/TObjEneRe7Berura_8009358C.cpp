@@ -718,7 +718,7 @@ s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, int);
 M2C_UNK mult_vec_array__10TObjPlayerFUii(int, int, void *, int);
 M2C_UNK set_matrix_identity(int);
 M2C_UNK rotate_matrix_y(int, int);
-extern u8 *lbl_805D4FA0;
+extern u8 *belra_trail_buffer;
 extern const f32 lbl_805D9744;
 extern const f32 lbl_805D9748;
 extern const f32 lbl_805D974C;
@@ -1085,7 +1085,7 @@ void TObjEneRe7Berura__sub_80093888(u8 *arg0, s32 arg1) {
                     ((VObj_18_a5c788 *)(temp_r3_3))->m23(arg0, lbl_805D9758);
                 }
             }
-            temp_r3_4 = lookup_entry_by_value__10TObjPlayerFPvf(lbl_805D4FA0, M2C_FIELD(arg0, f32 *, 0xC0));
+            temp_r3_4 = lookup_entry_by_value__10TObjPlayerFPvf(belra_trail_buffer, M2C_FIELD(arg0, f32 *, 0xC0));
             if (temp_r3_4 != 0) {
                 push_matrix();
                 set_matrix_identity((int) (0));

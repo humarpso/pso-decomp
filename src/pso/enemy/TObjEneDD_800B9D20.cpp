@@ -59,7 +59,7 @@ int render_with_position_override__10TObjPlayerFPvPvi(void*);
 int set_param__12TObjEneLappyFPvi(void*);
 int update_lobby_state__9TObjEneDDFPv(void* p);
 
-    extern int some_id_805c6f74;
+    extern int model_render_flags;
 
 void TObjEneDD__vt97(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x40800)) {
@@ -67,7 +67,7 @@ void TObjEneDD__vt97(u8 *arg0) {
     }
 }
 
-void clear_global_flag_400__9TObjEneDDFv(void) { some_id_805c6f74 = (some_id_805c6f74 & 0xfffffbff); }
+void clear_global_flag_400__9TObjEneDDFv(void) { model_render_flags = (model_render_flags & 0xfffffbff); }
 
 int update_player_state__9TObjEneDDFPv(void* p) { return render_with_position_override__10TObjPlayerFPvPvi(p); }
 

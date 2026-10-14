@@ -85,7 +85,7 @@ extern s32 lbl_805D5040;
 extern s32 *player_object_ptr_array;
 extern s32 lbl_805D5048;
 extern f32 *lbl_805D504C;
-extern u32 lbl_805D5050;
+extern u32 saver_bml_resource;
 extern s32 lbl_805D5054;
 extern s32 lbl_805D5058;
 extern s32 lbl_805D505C;
@@ -110,7 +110,7 @@ s32 __dl__7TObjectFPv(void *);
 extern void *TObjEneSaver__vtable[83];
 Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1);
 void* TObjPlayer__sub_800A772C(void* p);
-extern u32 lbl_805D5050;
+extern u32 saver_bml_resource;
 void TObjPlayer__sub_800A7734(O_800A7734 *self, s32 i);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void add_flags_2e4__10TObjPlayerFPvUi(void *, u32);
@@ -134,7 +134,7 @@ extern s32 TObjEneSaver__class_name;
 extern s32 lbl_805D5040;
 extern s32 *player_object_ptr_array;
 extern s32 lbl_805D5048;
-extern u32 lbl_805D5050;
+extern u32 saver_bml_resource;
 u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2);
 }
 
@@ -1671,9 +1671,9 @@ extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern u8 *anim_model_matrix_array;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9A80;
 extern const f32 lbl_805D9A8C;
 extern const f32 lbl_805D9A90;
@@ -2110,23 +2110,23 @@ void TObjPlayer__sub_800A6C54(u8 *arg0) {
         case 1:
         case 2:
             if (((VObj_800A6C54_a *)(arg0 + 0x3A4))->m8() != 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
                 ((VObj_800A6C54_a *)(arg0 + 0x3A4))->m6();
                 v = 1;
-                some_id_805c6f74 |= 1;
+                model_render_flags |= 1;
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
                     v = 0;
                 }
                 if (v != 0) {
                     draw__16TObjEneRe7BeruraFPv(arg0);
                 }
-                some_id_805c6f74 &= ~1;
+                model_render_flags &= ~1;
                 ((VObj_800A6C54_a *)(arg0 + 0x3A4))->m7();
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
-                some_id_805c6f74 = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
             }
             break;
         case 0:
@@ -2245,7 +2245,7 @@ void * create_ene_saver(void *arg0) {
 }
 
 #define player_object_ptr_array (*(u32 *)&player_object_ptr_array)
-extern u32 lbl_805D5050;
+extern u32 saver_bml_resource;
 #define lbl_805D5064 (*(u32 *)&lbl_805D5064)
 #define lbl_805D5068 (*(u32 *)&lbl_805D5068)
 #define lbl_805D506C (*(u32 *)&lbl_805D506C)
@@ -2267,9 +2267,9 @@ void free_resources__10TObjPlayerFv(void) {
         __dt__11TBoss4Type3FPvs((void*)lbl_805D506C, 1);
         lbl_805D506C = 0U;
     }
-    if ((u32) lbl_805D5050 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5050, 1);
-        lbl_805D5050 = 0U;
+    if ((u32) saver_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)saver_bml_resource, 1);
+        saver_bml_resource = 0U;
     }
 }
 #undef player_object_ptr_array
@@ -2292,7 +2292,7 @@ u8 lbl_8043A854[];
 u8 lbl_8043A86C[];
 #define lbl_80490A78 ((Rec_800A715C *)lbl_80490A78)
 #define lbl_80490B44 ((f32 *)lbl_80490B44)
-#define RES ((Res_800A715C *)lbl_805D5050)
+#define RES ((Res_800A715C *)saver_bml_resource)
 void initialize_saver_resources(void) {
     Vec_800A715C pos;
     Vec_800A715C dir;
@@ -2301,7 +2301,7 @@ void initialize_saver_resources(void) {
     if (r != NULL) {
         r = load_resource_from_descriptor(r, 1, bm_ene_df1_saver_resource_descriptor, 0, 0, 0);
     }
-    lbl_805D5050 = (u32)r;
+    saver_bml_resource = (u32)r;
     lbl_805D5054 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD((u8 *)((Res_800A715C *)r)->sub, void **, 8), void **, 0x2C), void **, 0x30), void **, 4), s32 *, 4);
     lbl_805D5058 = 0;
     lbl_805D505C = 0;
@@ -2394,7 +2394,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_800A7734((O_800A7734 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
     M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80490A78;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&lbl_805D5050), s32 *, 0x430);
+    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&saver_bml_resource), s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
@@ -2429,8 +2429,8 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
 
 void* TObjPlayer__sub_800A772C(void* p) { return (char*)p + 0x2fc; }
 void TObjPlayer__sub_800A7734(O_800A7734 *self, s32 i) {
-    self->x34 = (*(G_800A7734 * *)&lbl_805D5050)->tbl[i].x8;
-    self->x24 = (*(G_800A7734 * *)&lbl_805D5050)->tbl[i].xc;
+    self->x34 = (*(G_800A7734 * *)&saver_bml_resource)->tbl[i].x8;
+    self->x24 = (*(G_800A7734 * *)&saver_bml_resource)->tbl[i].xc;
 }
 
 #define player_object_ptr_array (*(u32 *)&player_object_ptr_array)

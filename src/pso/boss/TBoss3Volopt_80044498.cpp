@@ -652,7 +652,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D881C;
 extern const f32 lbl_805D8820;
 void render__12TBoss3VoloptFPv(u8 *arg0);
@@ -1934,7 +1934,7 @@ void render__12TBoss3VoloptFPv(u8 *arg0) {
         select_actor_lighting(arg0);
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         if (check_demo_mode__10TObjPlayerFv() == 1) {

@@ -569,10 +569,10 @@ void TObjEneMe3ShinowaMirage__vt108(s32 arg0) {
     ((VObj_800e3a88_800E3A58 *) temp_r3)->m7();
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 s32 TObjEneMe3ShinowaMirage__vt107(s32 arg0) {
-    some_id_805c6f74 |= 0x820;
+    model_render_flags |= 0x820;
     set_chunk_material_color(arg0 + 0x430);
     set_chunk_material_override_pair(0xFF00, 0x800);
     return 0;

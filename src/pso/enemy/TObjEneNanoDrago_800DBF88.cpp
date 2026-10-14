@@ -63,7 +63,7 @@ M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(int);
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DA3FC;
 extern const f32 lbl_805DA40C;
 extern const f32 lbl_805DA41C;
@@ -632,13 +632,13 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         var_r29 = get_camera_mode__11TCameraCtrlFv();
     }
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (temp_r3 = ((VObj_18 *)(arg0))->m9(lbl_805DA468, lbl_805DA40C, lbl_805DA3FC), ((temp_r3 == 0) == 0)) && ((check_demo_mode__10TObjPlayerFv() == 1) || !(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000))) {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         var_r29 = (s32)&((Nano_800DBABC *)arg0)->fades[var_r29];
         update_obstruction_fade((int) (((u8 *)var_r29)));
         if (updateFromCamera__15RenderFadeStateFPCf((int) (((u8 *)var_r29)), (void *) (arg0 + 0x2FC)) != 0) {
             ((VObj_14 *)(((u8 *)var_r29)))->m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
-                some_id_805c6f74 = lbl_805D5660;
+                model_render_flags = lbl_805D5660;
                 return;
             }
         }
@@ -651,7 +651,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
         temp_f1 = M2C_FIELD(arg0, f32 *, 0x68);
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
         } else if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
@@ -682,7 +682,7 @@ void render_enemy_with_fade__10TObjPlayerFPv(u8 *arg0) {
             render_with_position_override__10TObjPlayerFPvPvi((void *) (arg0), &v, 0);
         }
         ((VObj_14 *)(((u8 *)var_r29)))->m7();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 #pragma pop

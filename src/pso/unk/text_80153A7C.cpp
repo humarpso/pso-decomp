@@ -95,14 +95,14 @@ extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 lbl_8044003C;
 extern Color_80153B64 lbl_8044004C;
 extern M2C_UNK saved_model_draw_color[];
-extern M2C_UNK lbl_8058D4C0[];
+extern M2C_UNK model_material_color[];
 extern s32 lbl_805D28BC;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805DB258;
 extern const f32 lbl_805DB260;
 extern const f32 lbl_805DB264;
@@ -148,11 +148,11 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
         Color_80153B64 c0 = lbl_8044002C;
         Color_80153B64 c3 = lbl_8044003C;
         Color_80153B64 cd = lbl_8044004C;
-        lbl_805D5660 = some_id_805c6f74;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 |= 0x810;
+        lbl_805D5660 = model_render_flags;
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         switch (M2C_FIELD(arg0, s32 *, 0x90)) {
         case 0:
@@ -174,10 +174,10 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
         scale_matrix(0, s, lbl_805DB258, s);
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
     }
 }
 

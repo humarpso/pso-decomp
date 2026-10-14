@@ -172,7 +172,7 @@ extern Vec_8002EFE8 lbl_804359E4;
 extern u8 controller_input_state[];
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D8278;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void render_body__13TBoss2DeRolLeFPv(u8 *arg0);

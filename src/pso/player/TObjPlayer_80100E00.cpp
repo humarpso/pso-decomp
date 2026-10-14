@@ -59,22 +59,22 @@ M2C_UNK clear_flags__11TAdRicoRingFPvUi(M2C_UNK *, M2C_UNK);
 s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_80101088_lbl_8050BEC0 saved_model_draw_color;
-extern RecoveredGlobal_80101088_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_80101088_lbl_8058D4C0 model_material_color;
 extern M2C_UNK lbl_805D53EC;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void TObjPlayer__sub_80101088(void);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK set_chunk_material_color(s32);
 extern M2C_UNK lbl_805D53EC;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void enable_flag20__10TObjPlayerFi(s32 arg0);
 M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
 s32 test_flags_any(M2C_UNK *, M2C_UNK);
 M2C_UNK set_chunk_material_color(s32);
 extern M2C_UNK lbl_805D53EC;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void enable_first_time_flag__10TObjPlayerFi(s32 arg0);
 void has_bonus_stats__9TItemDataFPv(void *);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
@@ -200,17 +200,17 @@ void play_particle_effect_once__10TObjPlayerFv(void) {
 }
 void TObjPlayer__sub_80101088(void) {
     if (test_flags_any((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1))) != 0) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        model_render_flags = lbl_805D5660;
         clear_flags__11TAdRicoRingFPvUi((M2C_UNK *)((void *) (&lbl_805D53EC)), (M2C_UNK)((int) (1)));
     }
 }
 void enable_flag20__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
     if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
-        temp_r0 = (*(volatile s32 *)&some_id_805c6f74) & 0xFFFFFFEF;
-        (*(volatile s32 *)&some_id_805c6f74) = temp_r0;
-        (*(volatile s32 *)&some_id_805c6f74) = temp_r0 | 0x20;
+        temp_r0 = (*(volatile s32 *)&model_render_flags) & 0xFFFFFFEF;
+        (*(volatile s32 *)&model_render_flags) = temp_r0;
+        (*(volatile s32 *)&model_render_flags) = temp_r0 | 0x20;
         set_chunk_material_color(arg0);
         set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 1);
     }
@@ -218,8 +218,8 @@ void enable_flag20__10TObjPlayerFi(s32 arg0) {
 void enable_first_time_flag__10TObjPlayerFi(s32 arg0) {
     s32 temp_r0;
     if ((arg0 != 0) && (test_flags_any(&lbl_805D53EC, 1) == 0)) {
-        some_id_805c6f74 &= 0xFFFFFFDF;
-        some_id_805c6f74 |= 0x10;
+        model_render_flags &= 0xFFFFFFDF;
+        model_render_flags |= 0x10;
         set_chunk_material_color(arg0);
         set_flags__10TObjPlayerFPvUi(&lbl_805D53EC, 1);
     }

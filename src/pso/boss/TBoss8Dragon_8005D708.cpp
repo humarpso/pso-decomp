@@ -44,7 +44,7 @@ void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(void *, void *, f32);
 extern s32 current_scene_light;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 extern const f32 lbl_805D8D4C;
 extern const f32 lbl_805D8D50;
 extern const f32 lbl_805D8D54;
@@ -69,7 +69,7 @@ void TBoss8Dragon__sub_8005D708(void *p) {
         scale_matrix(0, lbl_805D8D54, lbl_805D8D58, lbl_805D8D54);
         pop_matrix();
         scale_matrix(0, lbl_805D8D58, lbl_805D8D58, lbl_805D8D58);
-        some_id_805c6f74 &= ~0x400;
+        model_render_flags &= ~0x400;
         idx = (s32)o->f354;
         if (idx < 0) {
             idx = 0;

@@ -130,7 +130,7 @@ M2C_UNK set_depth_buffer_settings_id__FUl(int);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
 void draw_laser_beam__13TLazerFenceSwFv(void *);
-M2C_UNK set_current_scene__6TSceneFi(int);
+M2C_UNK set_material_alpha_compare_reference(int);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 void render__13TLazerFenceSwFv(u8 *arg0);
@@ -306,7 +306,7 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 void pop_matrix(void);
 extern u8 *lazer_fence_switch_scroll_node;
 extern u32 actor_frame_tick;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DBE78;
 extern s32 TLazerFenceSw__texture_list;
 void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
@@ -330,9 +330,9 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
         rotate_matrix_y(0, self->f60);
         draw_ginja_object(lazer_fence_sw_ginja_model_table[1]);
         begin_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 |= 0x01000000;
+        model_render_flags |= 0x01000000;
         draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[0], ((u32 *)&lazer_fence_beam_motions)[0], self->fB0);
-        some_id_805c6f74 &= ~0x01000000;
+        model_render_flags &= ~0x01000000;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         break;
@@ -342,9 +342,9 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
         rotate_matrix_y(0, self->f60);
         draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[1], ((u32 *)&lazer_fence_beam_motions)[1], self->fEC);
         begin_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 |= 0x01000000;
+        model_render_flags |= 0x01000000;
         draw_ginja_model_with_motion(lazer_fence_sw_ginja_model_table[0], ((u32 *)&lazer_fence_beam_motions)[0], self->fB0);
-        some_id_805c6f74 &= ~0x01000000;
+        model_render_flags &= ~0x01000000;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         break;
@@ -354,7 +354,7 @@ void render__13TLazerFenceSwFv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBE7C, lbl_805DBE80) != 0) {
         if (get_state_flag__9TMainTaskFv() != 1) {
             set_depth_buffer_settings_id__FUl((int) (3));
-            set_current_scene__6TSceneFi((int) (0x80));
+            set_material_alpha_compare_reference((int) (0x80));
             if (fn_80156BBC((void *) (arg0 + 0xF0), (void *) (arg0 + 0x38)) != 0) {
                 if (fn_80156C38((void *) (arg0 + 0xF0)) != 0) {
                     ((VObj_14_aa9368 *)((u8 *)(arg0) + (240)))->m6();
@@ -364,7 +364,7 @@ void render__13TLazerFenceSwFv(u8 *arg0) {
                     draw_laser_beam__13TLazerFenceSwFv((void *) (arg0));
                 }
             }
-            set_current_scene__6TSceneFi((int) (0x8F));
+            set_material_alpha_compare_reference((int) (0x8F));
             func_80141618__Fv();
         }
     }

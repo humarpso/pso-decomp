@@ -241,7 +241,7 @@ void destroy_static_lobby__10TObjPlayerFv(void) {
     }
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void load_corpse_mark_resource(void) {
     u8 *p = (u8 *)alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
@@ -257,7 +257,7 @@ s32 TObjPlayer__sub_800D9560(f32 *arg0) {
 }
 
 void clear_flag_and_notify__10TObjPlayerFv(void) {
-    some_id_805c6f74 &= 0xFFFF77DF;
+    model_render_flags &= 0xFFFF77DF;
     set_chunk_material_override_pair(0xFF00, 0);
     set_chunk_blend(0x2500);
 }
@@ -272,10 +272,10 @@ void set_flags_and_apply_damage_color__10TObjPlayerFv(void);
 M2C_UNK set_chunk_material_color();
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void set_flags_and_apply_damage_color__10TObjPlayerFv(void) {
-    some_id_805c6f74 |= 0x8820;
+    model_render_flags |= 0x8820;
     set_chunk_material_color();
     set_chunk_material_override_pair(0xFF00, 0x800);
 }

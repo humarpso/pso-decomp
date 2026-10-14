@@ -82,7 +82,7 @@ void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1) {
 extern s32 camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D6710;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DE1F8;
 
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
@@ -99,14 +99,14 @@ u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
 
 void render__16TPlayerFootStampFv(u8 *arg0) {
     if (horizontal_distance_squared((void *) (arg0 + 0x7C), (void *) (camera_ctrl_instance + 0x178)) < lbl_805DE1F8) {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (lbl_805D6710));
         set_texture_num((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
         set_depth_buffer_settings_1__Fv();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 void run_task__16TPlayerFootStampFv(TPlayerFootStamp_802AF8BC *o) {

@@ -254,10 +254,10 @@ struct Obj_801C5C38 { u8 pad[4]; s32 n; };
 
 extern "C" {
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern RecoveredGlobal_801C5B68_lbl_8058D4C0 lbl_8058D4C0;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern RecoveredGlobal_801C5B68_lbl_8058D4C0 model_material_color;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void save_render_material_state(u8 *arg0);
 s32 tick_battle_music_timer(Obj_801C5C38 *p);
 }
@@ -304,10 +304,10 @@ void write_ids__10TObjPlayerFPv(void* p) { set_some_id__FUl(*(void**)((char*)p +
 
 typedef char RecoveredGlobal_801C5B68_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801C5B68_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void save_render_material_state(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) some_id_805c6f74;
-    M2C_FIELD(arg0, s32 *, 4) = (s32) lbl_805D7784;
-    M2C_FIELD(arg0, s32 *, 8) = (s32) lbl_805D7780;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xC), (void *) (&lbl_8058D4C0.value));
+    M2C_FIELD(arg0, s32 *, 0) = (s32) model_render_flags;
+    M2C_FIELD(arg0, s32 *, 4) = (s32) chunk_polygon_flags_and_mask;
+    M2C_FIELD(arg0, s32 *, 8) = (s32) chunk_polygon_flags_or_mask;
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0xC), (void *) (&model_material_color.value));
 }
 
 void set_vec4_const__10TObjPlayerFPv(void* a0) { *(float*)((char*)a0 + 0x1c) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x20) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x24) = lbl_805DC320[0]; *(float*)((char*)a0 + 0x28) = lbl_805DC320[0]; }

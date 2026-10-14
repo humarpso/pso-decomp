@@ -72,7 +72,7 @@ void draw_ginja_object(s32);
 void set_chunk_material_color(void *);
 extern Color_8017310C chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__15TORainbowCave01Fv(Cave_8017310C *self);
 void update__15TORainbowCave01FPv(void *);
 s32 is_player_in_range__15TORainbowCave01Fif(s32 arg0, f32 farg0);
@@ -122,9 +122,9 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
     if (self->m8(self->fC0, self->fC4) != 0 && -1.0f < self->fCC) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(self->f24);
-        old = some_id_805c6f74;
+        old = model_render_flags;
         lbl_805D5660 = old;
-        some_id_805c6f74 = old | 0x20;
+        model_render_flags = old | 0x20;
         c.d = c.c = c.b = 0.0f;
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             c.a = 0.0f;
@@ -139,7 +139,7 @@ void render__15TORainbowCave01Fv(Cave_8017310C *self) {
         draw_ginja_object(self->f34);
         pop_matrix();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
     }
 }

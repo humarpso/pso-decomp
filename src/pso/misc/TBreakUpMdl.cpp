@@ -187,7 +187,7 @@ void set_chunk_material_color(Color_8009680C *);
 void draw_chunk_model(s32);
 extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 extern const f32 lbl_805D97C8;
 void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
 void queue_destruction__7TObjectFv(void *);
@@ -253,10 +253,10 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
     if (self->texlist != 0) {
         set_global_param__8TObjFishFi(self->texlist);
     }
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     if (self->alpha < lbl_805D97C8) {
         Color_8009680C color = breakup_default_color;
-        some_id_805c6f74 |= 0x810;
+        model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
         color.a = self->alpha;
         set_chunk_material_color(&color);
@@ -274,7 +274,7 @@ void render__11TBreakUpMdlFv(BreakUp_8009680C *self) {
         pop_matrix();
     }
     set_chunk_material_override_pair(0xFF00, 0);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 
 #pragma push

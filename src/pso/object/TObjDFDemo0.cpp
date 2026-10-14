@@ -85,7 +85,7 @@ void draw_model_motion(s32, s32, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
 extern Tbl_8004E068 lbl_8048561C[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D8988;
 extern const f32 lbl_805D898C;
 extern const f32 lbl_805D8990;
@@ -174,7 +174,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   {
     TObjPlayer__sub_80052390(alpha);
   }
-  some_id_805c6f74 |= 0x20000;
+  model_render_flags |= 0x20000;
   TObjEneRe4Sorcerer__sub_801E3F1C(lbl_805D8990, self->f118);
   push_matrix();
   set_global_flag__10TObjPlayerFv();
@@ -187,7 +187,7 @@ void TObjPlayer__sub_8004E068(Self_8004E068 *self) {
   }
   clear_global_state__10TObjPlayerFv();
   pop_matrix();
-  some_id_805c6f74 &= ~0x20000;
+  model_render_flags &= ~0x20000;
   if (alpha < lbl_805D8988)
   {
     sync_player_globals__10TObjPlayerFv();

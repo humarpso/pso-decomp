@@ -126,7 +126,7 @@ extern Color_8003A1B4 lbl_80435C1C;
 extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -172,10 +172,10 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
     s.x = (s.z = new_var);
     draw_oriented_shadow__9TObjEneDDFiiiUi(self->f44, self->f9C, 0, &s);
   }
-  lbl_805D5660 = some_id_805c6f74;
+  lbl_805D5660 = model_render_flags;
   if (self->fB4 < (1.0f))
   {
-    some_id_805c6f74 = lbl_805D5660 | 0x8820;
+    model_render_flags = lbl_805D5660 | 0x8820;
     {
       Color_8003A1B4 c = lbl_80435C1C;
       c.a = (-1.0f) + self->fB4;
@@ -191,7 +191,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   rotate_matrix_x(0, self->f5C);
   draw_ginja_object(boss2_tunnel_instance->mdls[lbl_80435BC0[self->fAC]].f8);
   pop_matrix();
-  some_id_805c6f74 = lbl_805D5660;
+  model_render_flags = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);
 }
 

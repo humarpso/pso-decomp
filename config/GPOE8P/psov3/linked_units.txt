@@ -150,6 +150,7 @@ pso/audio/SoundBankTables.cpp
 pso/boss/Boss6Type1Appearance.cpp
 pso/boss/Boss6Type2Appearance.cpp
 pso/boss/Boss6Type2Death.cpp
+pso/boss/DarkFalzController.cpp
 pso/boss/TBoss1DragonColli.cpp
 pso/boss/TBoss1DragonDemo.cpp
 pso/boss/TBoss1DragonEffBreath.cpp
@@ -1535,7 +1536,6 @@ pso/misc/TScene_80206494.cpp
 pso/misc/TScene_8029F5B0.cpp
 pso/misc/TScene_802A8140.cpp
 pso/misc/TScene_80327B00.cpp
-pso/misc/TScene_803DCDA8.cpp
 pso/misc/TSendDownloadHead.cpp
 pso/misc/TSetManager.cpp
 pso/misc/TSetManager_8020D7D4.cpp
@@ -2636,9 +2636,11 @@ pso/quest/AreaDialogueScripts.cpp
 pso/quest/QuestOpcodeTables.cpp
 pso/quest/StoryQuestProgress.cpp
 pso/system/ChunkMaterialState.cpp
+pso/system/ChunkTextureStripCollector.cpp
 pso/system/CityTraffic.cpp
 pso/system/GinjaModelQueue.cpp
 pso/system/ItemEffects.cpp
+pso/system/MaterialAlphaCompare.cpp
 pso/system/MiddlewareInterruptLock.cpp
 pso/system/ModelDrawContext.cpp
 pso/system/PadRumble.cpp
@@ -2871,7 +2873,6 @@ pso/unk/text_80048118.cpp
 pso/unk/text_800483F8.cpp
 pso/unk/text_8004AA04.cpp
 pso/unk/text_8004AB90.cpp
-pso/unk/text_8004BBC4.cpp
 pso/unk/text_8004D9A8.cpp
 pso/unk/text_8004F1FC.cpp
 pso/unk/text_8004F2A8.cpp
@@ -2965,7 +2966,6 @@ pso/unk/text_800D9BBC.cpp
 pso/unk/text_800D9C34.cpp
 pso/unk/text_800DC420.cpp
 pso/unk/text_800EB778.cpp
-pso/unk/text_800F591C.cpp
 pso/unk/text_800F5BC0.cpp
 pso/unk/text_800F7D30.cpp
 pso/unk/text_800F7DAC.cpp

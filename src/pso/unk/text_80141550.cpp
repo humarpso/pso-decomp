@@ -15,7 +15,7 @@ struct Cfg_80141604 { u32 a; u8 b; u8 c; u8 pad6[2]; u32 d; u8 e; u8 f; u8 pad_e
 
 extern "C" {
 M2C_UNK set_chunk_material_color(void *, f32);
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
 void set_shadow_material_state(void);
@@ -40,7 +40,7 @@ void set_shadow_material_state(void) {
     stack.sp14 = lbl_805DB150;
     stack.sp8 = lbl_805DB154;
     set_chunk_material_color((void *) (&stack.sp8), (f32) (lbl_805DB150));
-    some_id_805c6f74 |= 0x400;
+    model_render_flags |= 0x400;
 }
 u32 saved_model_draw_color[8];
 f32 lbl_8050BEE0[8];
@@ -119,7 +119,7 @@ struct G_80141820 { u8 pad[0xd]; u8 scene; };
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_current_scene__6TSceneFi(s32);
+void set_material_alpha_compare_reference(s32);
 void set_depth_buffer_settings_2__Fv(void);
 s32 set_ginja_draw_list_mask(int);
 void func_80141618__Fv(void);
@@ -127,13 +127,13 @@ void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void restore_depth_buffer_settings__Fv(void);
 void copy_config__10TObjPlayerFPvPv(void* p, void* q);
 void save_depth_buffer_settings__Fv(void);
-void set_current_scene__6TSceneFi(s32);
-extern s32 some_id_805c6f74;
+void set_material_alpha_compare_reference(s32);
+extern s32 model_render_flags;
 void restore_default_scene(void);
 s32 set_ginja_draw_list_mask(int);
 void set_depth_buffer_settings_id__FUl(s32 arg0);
-extern s32 some_id_805c6f74;
-void set_current_scene__6TSceneFi(s32);
+extern s32 model_render_flags;
+void set_material_alpha_compare_reference(s32);
 void set_scene_override(u8 scene);
 }
 
@@ -194,14 +194,14 @@ void save_depth_buffer_settings__Fv(void) {
 
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_default_scene(void) {
-    some_id_805c6f74 &= 0xFFFFFFFE;
-    set_current_scene__6TSceneFi((s32)((int) ((s32) M2C_FIELD(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value, u8 *, 0xD))));
+    model_render_flags &= 0xFFFFFFFE;
+    set_material_alpha_compare_reference((s32)((int) ((s32) M2C_FIELD(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value, u8 *, 0xD))));
 }
 
 void set_scene_override(u8 scene) {
-    some_id_805c6f74 |= 1;
+    model_render_flags |= 1;
     (*(G_80141820 *)&depth_buffer_settings).scene = scene;
-    set_current_scene__6TSceneFi(scene);
+    set_material_alpha_compare_reference(scene);
 }
 
 void set_depth_buffer_settings_2__Fv(void) {
@@ -212,7 +212,7 @@ void set_depth_buffer_settings_2__Fv(void) {
     M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xD) = 0;
     GXSetZCompLoc(0);
     GXSetZMode(1U, 7, 0);
-    set_current_scene__6TSceneFi(0);
+    set_material_alpha_compare_reference(0);
 }
 
 }

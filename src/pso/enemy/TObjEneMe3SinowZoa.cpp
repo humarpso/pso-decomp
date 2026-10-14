@@ -1864,14 +1864,14 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 extern u8 saved_model_draw_color[];
 extern s32 *lbl_80542FF0[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 lbl_805D6ADC;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DF318;
@@ -1902,10 +1902,10 @@ void render__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
             return;
         }
         update_secondary_light__9TObjEneDDFPv(arg0);
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         if (!(o->f3D0 & 0x4000)) {
             v->m106();
             clear_global_flag_400__9TObjEneDDFv();
@@ -1948,10 +1948,10 @@ void render__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
         if (v->m108() == 0 && TObjEneMe3SinowZoa__sub_800D72A4(&o->sub) != 0) {
             o->sub.m7();
         }
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv(arg0);
     }
     end_effect_render__13TParticleCtrlFv();

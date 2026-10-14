@@ -443,7 +443,7 @@ extern const f32 lbl_805DA590;
 extern const f32 lbl_805DA594;
 extern const f32 lbl_805DA598;
 extern const f32 lbl_805DA59C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 tl_04;
 
 int find_nearest_enemy_with_flag__14TObjEnePanarmsFPvif(u8 *arg0, s32 arg1, f32 farg0) {
@@ -1503,9 +1503,9 @@ void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
         var_r31 = get_camera_mode__11TCameraCtrlFv();
     }
     toggle_particle_effect__10TObjPlayerFv();
-    temp_r4 = some_id_805c6f74;
+    temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
-    some_id_805c6f74 = temp_r4 | 0x01000000 | 1;
+    model_render_flags = temp_r4 | 0x01000000 | 1;
     temp_r31 = &((Obj_800E20D0 *) arg0)->fades[var_r31];
     update_obstruction_fade((int) (temp_r31), (int) (temp_r4));
     if (updateFromCamera__15RenderFadeStateFPCf((int) (temp_r31), (void *) (arg0 + 0x2FC)) != 0) {
@@ -1521,7 +1521,7 @@ void draw_with_fade__14TObjEnePanarmsFPv(u8 *arg0) {
     } else {
         draw__14TObjEnePanarmsFPv((void*)((void *) (arg0)));
     }
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     ((M2C_UNK (*)(void *))update_linked_effect__14TObjEnePanarmsFPv)((void *) (arg0));
 }

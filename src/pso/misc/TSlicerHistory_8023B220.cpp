@@ -25,7 +25,7 @@ M2C_UNK set_chunk_material_color(void *);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
 extern Col_8023B220 chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DC948;
 
 void render__14TSlicerHistoryFv(u8 *arg0);
@@ -38,12 +38,12 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
         return;
     }
     {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         Col_8023B220 col = M2C_FIELD(arg0, Col_8023B220 *, 0x3C);
         if ((s32) M2C_FIELD(arg0, s32 *, 0x5C) != 0) {
-            some_id_805c6f74 |= 0x10;
+            model_render_flags |= 0x10;
         } else {
-            some_id_805c6f74 |= 0x20;
+            model_render_flags |= 0x20;
             col.r -= lbl_805DC948;
         }
         if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U)) {
@@ -61,7 +61,7 @@ void render__14TSlicerHistoryFv(u8 *arg0) {
             end_effect_render__13TParticleCtrlFv();
         }
         pop_matrix();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 

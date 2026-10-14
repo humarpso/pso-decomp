@@ -143,7 +143,7 @@ int draw_ginja_model(int);
 M2C_UNK set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void draw_part_models__15TODoorMachine01FiPvi(s32 arg0, u8 *arg1, s32 arg2);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
@@ -280,9 +280,9 @@ void draw_part_models__15TODoorMachine01FiPvi(s32 arg0, u8 *arg1, s32 arg2) {
     u8 *p = arg1;
     s32 temp_r4;
     if (arg2 != 1) {
-        temp_r4 = some_id_805c6f74;
+        temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
-        some_id_805c6f74 = temp_r4 | 0x10;
+        model_render_flags = temp_r4 | 0x10;
         set_chunk_material_color((void *) (arg0 + 0xDC), (int) (temp_r4));
     }
     begin_effect_render__13TParticleCtrlFv();
@@ -298,7 +298,7 @@ void draw_part_models__15TODoorMachine01FiPvi(s32 arg0, u8 *arg1, s32 arg2) {
     end_effect_render__13TParticleCtrlFv();
     if (arg2 != 1) {
         ((void (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 

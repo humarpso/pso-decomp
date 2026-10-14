@@ -2222,7 +2222,7 @@ s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 extern Vec_80303574 lbl_80475294[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DEFC4;
@@ -2598,7 +2598,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
         TObjEneDellBiter__data_805D6A34 = 0;
         TObjEneDellBiter__data_805D6A38 = F(s32, 0x484);
         TObjEneDellBiter__data_805D6A3C = (s32)(arg0 + 0x460);
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         draw = 1;
@@ -2637,7 +2637,7 @@ void render__16TObjEneDellBiterFv(u8 *arg0) {
             ((VObj_14_aa9368 *)fade)->m7();
         }
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv(arg0);
     } else if (is_split_screen() == 0) {
         for (i = 0; i < 3; i++) {

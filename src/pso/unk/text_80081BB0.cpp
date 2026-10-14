@@ -75,7 +75,7 @@ M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 freeze_shell_bml_resource;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9390;
 extern const f32 lbl_805D9394;
 void freeze_shell_draw(u8 *arg0);
@@ -192,14 +192,14 @@ void freeze_shell_draw(u8 *arg0) {
             draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
             break;
         case 2:
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 = lbl_805D5660 | 0x8820;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags = lbl_805D5660 | 0x8820;
             set_chunk_material_color(arg0 + 0x340);
             draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
-            some_id_805c6f74 &= 0xFFFF77DF;
+            model_render_flags &= 0xFFFF77DF;
             set_chunk_material_override_pair(0xFF00, 0);
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             break;
         }
         pop_matrix();

@@ -894,7 +894,7 @@ extern const f32 lbl_805DA288;
 extern const f32 lbl_805DA28C;
 extern const f32 lbl_805DA294;
 extern const f32 lbl_805DA298;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern void *tl_04;
 
 extern "C" {
@@ -1525,13 +1525,13 @@ void TObjPlayer__sub_800D35D8(u8 *arg0) {
         var_r29 = 1;
         temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805DA284, lbl_805DA288, lbl_805DA28C);
         if (temp_r3 != 0) {
-            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5660 = model_render_flags;
             var_r30 = (s32)&((Obj_800D35D8 *)arg0)->arr[var_r30];
             update_fade_value(var_r30);
             if (updateFromCamera__15RenderFadeStateFPCf(var_r30, (void *) (arg0 + 0x2FC)) != 0) {
                 ((VObj_14_fddec9 *)(var_r30))->m6();
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
-                    some_id_805c6f74 = lbl_805D5660;
+                    model_render_flags = lbl_805D5660;
                     return;
                 }
             }

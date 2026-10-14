@@ -94,7 +94,7 @@ s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9794;
 extern const f32 lbl_805D9798;
 
@@ -102,12 +102,12 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
     f32 temp_f1;
 
     if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) == 2) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m6();
             if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) != 0) {
-                some_id_805c6f74 = lbl_805D5660;
+                model_render_flags = lbl_805D5660;
                 return;
             }
         }
@@ -125,7 +125,7 @@ void render__21TObjEneRe7BeruraPunchFv(u8 *arg0) {
             ((VObjHang_80095EA0 *)(arg0 + 0xF8))->m7();
         }
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 

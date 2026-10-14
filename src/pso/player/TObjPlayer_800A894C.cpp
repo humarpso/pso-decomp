@@ -404,7 +404,7 @@ M2C_UNK draw_chunk_object(int);
 extern M2C_UNK lbl_8043AC78[];
 extern s32 lbl_805D5094;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9B24;
 extern const f32 lbl_805D9B28;
 extern const f32 lbl_805D9B2C;
@@ -1170,12 +1170,12 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             }
             var_r30 = 1;
             push_matrix();
-            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5660 = model_render_flags;
             TBoss3Volopt__sub_800A8A7C((Obj_800A8A7C *) (arg0));
             post_translate_matrix((void *) (arg0 + 0x38));
             rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
             scale_matrix((int) (0), (f32) (lbl_805D9B30), (f32) (lbl_805D9B30), (f32) (lbl_805D9B30));
-            some_id_805c6f74 &= 0xFFFFFBFF;
+            model_render_flags &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {
                 draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
             } else if (M2C_FIELD(arg0, s32 *, 0x388) & 4) {
@@ -1201,7 +1201,7 @@ void TObjPlayer__sub_800AA334(u8 *arg0) {
             } else {
                 render_world_model__10TObjPlayerFPv((void *) (arg0));
             }
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             pop_matrix();
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();

@@ -470,9 +470,9 @@ extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 lbl_805D6F78;
 extern s32 lbl_805D6F7C;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 extern const f32 TObjEneEpsilonGuard__data_805E01DC;
 void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1);
@@ -679,31 +679,31 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     if (is_split_screen() != 0) {
         i = get_camera_mode__11TCameraCtrlFv();
     }
-    lbl_805D5660 = some_id_805c6f74;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
+    lbl_805D5660 = model_render_flags;
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
     r = (VObj_8035E018 *)&((Self_8035E018 *)arg0)->recs[i];
     update_obstruction_fade(r);
     if (updateFromCamera__15RenderFadeStateFPCf(r, arg0 + 0x2FC) != 0) {
         r->m6();
         if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
-            some_id_805c6f74 = lbl_805D5660;
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
             return;
         }
     } else if (M2C_FIELD(arg0, s16 *, 0x326) == 3) {
         ((VObj_8035E018 *)(arg0 + 0x4BC))->m6();
         if (!(get_mode__11TCameraCtrlFPv(main_task) & 0x200)) {
-            some_id_805c6f74 = lbl_805D5660;
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
             return;
         }
     } else if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
-        some_id_805c6f74 = lbl_805D5660;
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
         return;
     }
     update_secondary_light__9TObjEneDDFPv(arg0);
@@ -734,9 +734,9 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     } else if (M2C_FIELD(arg0, s16 *, 0x326) == 3) {
         ((VObj_8035E018 *)(arg0 + 0x4BC))->m7();
     }
-    some_id_805c6f74 = lbl_805D5660;
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
 }
 
 #pragma push

@@ -73,9 +73,9 @@ extern s32 lbl_805D5668;
 extern s32 falz_zako_chunk_model;
 extern s32 TBoss4ZakoDraw__draw_buffer_index;
 extern s32 TBoss4ZakoDraw__rotation_phase;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern u32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern u32 model_render_flags;
 extern u32 lbl_805DF138;
 extern const f32 lbl_805DF13C;
 extern const f32 lbl_805DF140;
@@ -118,13 +118,13 @@ void TObjPlayer__sub_8030A9B0() {
     f32 k;
     u32 old;
 
-    old = some_id_805c6f74;
-    some_id_805c6f74 = old & ~0x10;
+    old = model_render_flags;
+    model_render_flags = old & ~0x10;
     lbl_805D5660 = old;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    some_id_805c6f74 |= lbl_805DF138;
-    ((void (*)(int, int, u32, s32, s32, u32))set_chunk_material_override_pair)(0xFF00, 0x900, old & ~0x10, lbl_805D7780, lbl_805D7784, old);
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    model_render_flags |= lbl_805DF138;
+    ((void (*)(int, int, u32, s32, s32, u32))set_chunk_material_override_pair)(0xFF00, 0x900, old & ~0x10, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask, old);
     tbl = (Tbl_8030A9B0 *)((u8 *)&boss4_zako_draw_buffers + TBoss4ZakoDraw__draw_buffer_index * 0x784);
     e = tbl->ents;
     rot = (TBoss4ZakoDraw__rotation_phase << 16) / 16;
@@ -154,9 +154,9 @@ void TObjPlayer__sub_8030A9B0() {
         draw_chunk_model(falz_zako_chunk_model);
         pop_matrix();
     }
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
 }
 void TObjPlayer__sub_8030A9B0();
 #pragma pop

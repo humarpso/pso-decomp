@@ -127,9 +127,9 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjChip__vt10(u8 *arg0);
 s32 is_split_screen(void);
 s32 get_bml_motion(u32, int);
@@ -293,11 +293,11 @@ void TObjChip__vt10(u8 *arg0) {
     s32 i;
     s32 j;
     if (*(s32 *)(arg0 + 0x6C) & 4) {
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 |= 0x8011;
-        set_color_blend_mode(1, 4, 5, 0, lbl_805D7780, lbl_805D7784);
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x8011;
+        set_color_blend_mode(1, 4, 5, 0, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask);
         for (i = 0; i < *(s32 *)(arg0 + 0x54); i++, p++) {
             Color_8017FCD0 c = lbl_80443AFC;
             c.a = p->x30;
@@ -310,9 +310,9 @@ void TObjChip__vt10(u8 *arg0) {
             pop_matrix();
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
-        some_id_805c6f74 = lbl_805D5660;
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
     } else {
         for (j = 0; j < *(s32 *)(arg0 + 0x54); j++, p++) {
             push_matrix();

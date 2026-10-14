@@ -44,13 +44,13 @@ s32 set_chunk_material_color(int);
 extern RecoveredGlobal_80100070_lbl_8049E8F8 item_box_primary_colors;
 extern RecoveredGlobal_80100070_lbl_8049E958 item_box_secondary_colors;
 extern RecoveredGlobal_80100070_lbl_8050BEC0 saved_model_draw_color;
-extern RecoveredGlobal_80100070_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_80100070_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_80100070(u8 *arg0);
 void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1);
 }
@@ -115,11 +115,11 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
     s32 sp8;
     get_model_ids__9TItemLoadFUcPvPv((int)((int) (6U)), (u32 *)((void *) (&spC)), (s32 *)((void *) (&sp8)));
     if (spC != NULL) {
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
-        some_id_805c6f74 |= 0x10;
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
+        model_render_flags |= 0x10;
         set_depth_buffer_settings_id__FUl((M2C_UNK)((int) (3)));
         begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi((s32)((int) (sp8)));
@@ -134,10 +134,10 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         reset_transform_state__10TObjPlayerFv();
         func_80141618__Fv();
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
     }
 }
 

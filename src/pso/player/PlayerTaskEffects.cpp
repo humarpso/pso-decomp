@@ -249,10 +249,10 @@ M2C_UNK draw_chunk_object();
 extern u8 lbl_80447020[];
 extern u8 shared_effect_texture_list[];
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern void *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DC358;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
 void *__nw__7TObjectFUl(u32);
@@ -761,18 +761,18 @@ void TPlayerLobbyMarker::render() {
     if ((temp_r3 != 0) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && (get_material_index() != 0) && (test_flag_2000000__10TObjPlayerFPv(temp_r3) == 0)) {
         push_matrix();
         begin_effect_render__13TParticleCtrlFv();
-        lbl_805D5660 = some_id_805c6f74;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+        lbl_805D5660 = model_render_flags;
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         set_global_param__8TObjFishFi(shared_effect_texture_list);
-        some_id_805c6f74 |= 0x11;
+        model_render_flags |= 0x11;
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + get_material_index() * 0x10);
         get_cursor_state__11TMainCursorFv();
         draw_chunk_object();
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

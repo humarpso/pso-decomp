@@ -83,7 +83,7 @@ M2C_UNK TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 extern s32 lbl_80496CC8[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
@@ -157,11 +157,11 @@ void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
     if (state < 7) {
         set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(get_instance__15TObjEneSlimeOneFv(), lbl_80496CC8[get_attack_target__15TObjEneSlimeOneFPv((void*)(M2C_FIELD(arg0, void **, 0)))]));
         if (arg1 != 0) {
-            some_id_805c6f74 |= 0x400000;
+            model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
             draw__16TObjEneRe7BeruraFPv(M2C_FIELD(arg0, void **, 0));
             func_803e11f0__Fv();
-            some_id_805c6f74 &= ~0x400000;
+            model_render_flags &= ~0x400000;
             return;
         }
         set_cull_back__8TObjFishFv();
@@ -176,11 +176,11 @@ void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
     if (state < 9) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC));
         if (arg1 != 0) {
-            some_id_805c6f74 |= 0x400000;
+            model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
             TObjEneSlimeOne__sub_803E4B54(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, s32 *, 0x14), M2C_FIELD(arg0, f32 *, 0x30));
             func_803e11f0__Fv();
-            some_id_805c6f74 &= ~0x400000;
+            model_render_flags &= ~0x400000;
             return;
         }
         func_803e11e8__FUl(2);
@@ -195,13 +195,13 @@ void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
     set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC));
     set_global_flag__10TObjPlayerFv();
     if (arg1 != 0) {
-        some_id_805c6f74 |= 0x400000;
+        model_render_flags |= 0x400000;
         func_803e11e8__FUl(1);
         draw_model_motion(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 0x10), M2C_FIELD(arg0, f32 *, 0x30));
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x1C));
         draw_model_motion(M2C_FIELD(arg0, s32 *, 0x18), M2C_FIELD(arg0, s32 *, 0x20), M2C_FIELD(arg0, f32 *, 0x30));
         func_803e11f0__Fv();
-        some_id_805c6f74 &= ~0x400000;
+        model_render_flags &= ~0x400000;
     } else {
         func_803e11e8__FUl(2);
         set_cull_back__8TObjFishFv();

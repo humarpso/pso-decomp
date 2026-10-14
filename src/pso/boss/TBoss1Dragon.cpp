@@ -18,7 +18,7 @@ s32 post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_model_motion(void *, void *, f32);
 extern s32 current_scene_light;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D7F18;
 extern const f32 TBoss1Dragon__data_805D7F1C;
 extern const f32 lbl_805D7F20;
@@ -2019,7 +2019,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
-void set_current_scene__6TSceneFi(s32);
+void set_material_alpha_compare_reference(s32);
 void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(Color_80020B54 *);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
@@ -2037,7 +2037,7 @@ extern const f32 lbl_805D4B30;
 extern u8 *camera_ctrl_instance;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TBoss1Dragon__data_805D7F1C;
 extern const f32 TBoss1Dragon__data_805D7F24;
 extern const f32 TBoss1Dragon__data_805D7F28;
@@ -2860,7 +2860,7 @@ void TBoss1Dragon::render_low_detail() {
     scale_matrix(0, lbl_805D7F20, TBoss1Dragon__data_805D7F24, lbl_805D7F20);
     pop_matrix();
     scale_matrix(0, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24, TBoss1Dragon__data_805D7F24);
-    some_id_805c6f74 &= ~0x400;
+    model_render_flags &= ~0x400;
     i = (s32)self->lowDetailAnimationIndex;
     if (i < 0) {
         i = 0;
@@ -2932,18 +2932,18 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             Color_80020B54 color = lbl_8043534C;
             saved = M2C_FIELD(arg0, s32 *, 0x34);
             M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TBoss1Dragon__data_805D4B08, u8 **, 0x42C), s32 *, 0x18);
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 = lbl_805D5660 | 0x10;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags = lbl_805D5660 | 0x10;
             set_chunk_material_color(&color);
             draw__16TObjEneRe7BeruraFPv(arg0);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             M2C_FIELD(arg0, s32 *, 0x34) = saved;
             pop_matrix();
         }
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         clear_global_flag_400__9TObjEneDDFv();
-        lbl_805D5660 = some_id_805c6f74;
-        set_current_scene__6TSceneFi(0);
+        lbl_805D5660 = model_render_flags;
+        set_material_alpha_compare_reference(0);
         state = M2C_FIELD(arg0, s16 *, 0x326);
         visible = 1;
         if (state == 0x16) {
@@ -3029,8 +3029,8 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             pop_matrix();
         }
         set_chunk_material_override_pair(0xFF00, 0);
-        set_current_scene__6TSceneFi(0xBF);
-        some_id_805c6f74 = lbl_805D5660;
+        set_material_alpha_compare_reference(0xBF);
+        model_render_flags = lbl_805D5660;
     } else {
         draw__12TBoss1DragonFPv(arg0);
         SELF->m8(lbl_805D7F30, lbl_805D7F30);
@@ -3039,10 +3039,10 @@ void render__12TBoss1DragonFv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32) (arg0 + 0x418), (s32) (arg0 + 0x3F4));
     subtract_vector(arg0 + 0x418, arg0 + 0x40C);
     VecCopy__FP3VecPC3Vec((s32) (arg0 + 0x424), (s32) (arg0 + 0x400));
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 = lbl_805D5660 | 0x400;
+    lbl_805D5660 = model_render_flags;
+    model_render_flags = lbl_805D5660 | 0x400;
     render_nodes__7TObjectFv(arg0 + 0x3C4);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 #pragma pop
 

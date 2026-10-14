@@ -658,14 +658,14 @@ void* get_player_entry__6TLobbyFii(int a0, int a1) {  return (char*)(battle_para
     extern int battle_parameter_difficulty;
 void* register_object__6TLobbyFPv(s32 index) { return get_entry__6TLobbyFii(battle_parameter_difficulty, index); }
 
-    extern int TLobby__data_805D4AAC;
-void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__data_805D4AAC) + a1 * 32; }
+    extern int TLobby__battle_param_resistances;
+void* get_entry__6TLobbyFii(int a0, int a1) {  return (char*)(TLobby__battle_param_resistances) + a1 * 32; }
 
     extern int battle_parameter_difficulty;
 void* dispatch_shared_handler_b__6TLobbyFPv(s32 index) { return TLobby__sub_8001E270(battle_parameter_difficulty, index); }
 
-    extern int TLobby__data_805D4AA8;
-void* TLobby__sub_8001E270(int a0, int a1) {  return (char*)(TLobby__data_805D4AA8) + a1 * 48; }
+    extern int TLobby__battle_param_attacks;
+void* TLobby__sub_8001E270(int a0, int a1) {  return (char*)(TLobby__battle_param_attacks) + a1 * 48; }
 
     extern int battle_parameter_difficulty;
 void* register_boss__6TLobbyFPv(s32 index) { return TLobby__sub_8001E2A8(battle_parameter_difficulty, index); }
@@ -753,8 +753,8 @@ void free_boss4_rock__6TLobbyFv(void) {
         TLobby__battle_parameter_buffer = 0U;
     }
     battle_param_stats = 0;
-    TLobby__data_805D4AA8 = 0;
-    TLobby__data_805D4AAC = 0;
+    TLobby__battle_param_attacks = 0;
+    TLobby__battle_param_resistances = 0;
     battle_param_movement = 0;
 }
 
@@ -766,8 +766,8 @@ void alloc_battle_param_tables(void) {
     }
     TLobby__battle_parameter_buffer = (u32)buf;
     battle_param_stats = (s32)buf;
-    TLobby__data_805D4AA8 = (s32)(buf + 0xd80);
-    TLobby__data_805D4AAC = (s32)(buf + 0x1f80);
+    TLobby__battle_param_attacks = (s32)(buf + 0xd80);
+    TLobby__battle_param_resistances = (s32)(buf + 0x1f80);
     battle_param_movement = (s32)(buf + 0x2b80);
     clamp_difficulty__6TLobbyFi(game_difficulty_selection);
     ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();

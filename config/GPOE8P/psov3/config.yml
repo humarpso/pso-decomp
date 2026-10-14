@@ -652,7 +652,6 @@ force_active:
   - apply_hit_to_target__10TObjPlayerFiPv
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
   - apply_material_item
-  - apply_mode_effect__10TObjPlayerFPvUii
   - apply_mourning_jellen__14TObjEneBm5WolfFPv
   - apply_mourning_zalure__14TObjEneBm5WolfFPv
   - apply_node_oscillation__11TItemMagSubFPv
@@ -1164,6 +1163,7 @@ force_active:
   - construct_facing__9TTecMegidFPviiii
   - construct_gi_gue_bazooka
   - construct_grants_flash
+  - construct_guardianna__10TObjPlayerFPv
   - construct_handgun_weapon
   - construct_load_quest__12TQuestThreadFPvPvPv
   - construct_material__13TItemProArmorFPvPvPv
@@ -1782,6 +1782,7 @@ force_active:
   - init_player_scale_state
   - init_positions__19TContainerAncient01FPv
   - init_projection_state__11TCameraCtrlFv
+  - init_s_rank_knuckle
   - init_slot_entries__14TAdSelectTxtGCFPvPvPv
   - init_sound_params__14TObjEnvSoundExFPv
   - init_telepipe_packet_header
@@ -2661,6 +2662,8 @@ force_active:
   - send_login3__9TProtocolFv
   - send_obj_position_event__10TEndingPicFPvi
   - send_partner_attack_stage_request
+  - send_srank_stat_extra__10TObjPlayerFPvUii
+  - send_srank_stat_extra_to_locks
   - send_state__12TODoorCave01FPvPv
   - send_subordinate_actions__11TBoss6Type2Fiiiii
   - send_swapped_telepipe_packet__9TTecLukerFPv

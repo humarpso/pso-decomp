@@ -1788,7 +1788,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_current_scene__6TSceneFi(int);
+M2C_UNK set_material_alpha_compare_reference(int);
 M2C_UNK set_chunk_material_override_pair(int, int);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
@@ -1888,7 +1888,7 @@ extern const f32 lbl_805D8EBC;
 extern const f32 lbl_805D8EC0;
 extern const float lbl_805D8EC4;
 extern const f32 lbl_805D8EC8;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 tl_01;
 
 #pragma push
@@ -2713,11 +2713,11 @@ extern int fold_flush_1;
 void render_nodes_with_flag__13TBoss5GryphonFi(s32 arg0) {
     s32 temp_r4;
 
-    temp_r4 = some_id_805c6f74;
+    temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
-    some_id_805c6f74 = temp_r4 | 0x400;
+    model_render_flags = temp_r4 | 0x400;
     render_nodes__7TObjectFv(arg0 + 0x4C4, temp_r4);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 
 s32 TBoss8Dragon__sub_8005DC0C(Obj_8005DC0C *arg0) {
@@ -2764,8 +2764,8 @@ void render_with_fade__13TBoss5GryphonFPvi(u8 *arg0, s32 arg1) {
     u8 *temp_r31;
     set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
     clear_global_flag_400__9TObjEneDDFv();
-    lbl_805D5660 = some_id_805c6f74;
-    set_current_scene__6TSceneFi((int) (0));
+    lbl_805D5660 = model_render_flags;
+    set_material_alpha_compare_reference((int) (0));
     if (TBoss8Dragon__sub_8005DC0C((Obj_8005DC0C *) (arg0)) != 0) {
         fadeOut__15RenderFadeStateFv(&((Boss_8005DD68 *)arg0)->fades[arg1]);
     } else {
@@ -2787,8 +2787,8 @@ void render_with_fade__13TBoss5GryphonFPvi(u8 *arg0, s32 arg1) {
     TObjLight__sub_801337F8((void *) (current_scene_light));
     pop_matrix();
     set_chunk_material_override_pair((int) (0xFF00), (int) (0));
-    set_current_scene__6TSceneFi((int) (0xBF));
-    some_id_805c6f74 = lbl_805D5660;
+    set_material_alpha_compare_reference((int) (0xBF));
+    model_render_flags = lbl_805D5660;
 }
 
 void render_model__13TBoss5GryphonFPv(u8 *arg0) {

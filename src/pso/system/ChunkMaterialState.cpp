@@ -6,13 +6,13 @@
 
 struct ChunkMaterialColor { f32 alpha, red, green, blue; };
 extern "C" {
-extern ChunkMaterialColor lbl_8058D4C0;
+extern ChunkMaterialColor model_material_color;
 extern const f32 lbl_805E0FC0, lbl_805E0FBC;
-extern s32 lbl_805D7780, lbl_805D7784;
+extern s32 chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask;
 
 void set_chunk_material_override_pair(s32 arg0, s32 arg1) {
-    lbl_805D7784 = arg0;
-    lbl_805D7780 = arg1;
+    chunk_polygon_flags_and_mask = arg0;
+    chunk_polygon_flags_or_mask = arg1;
 }
 
 #pragma push
@@ -26,10 +26,10 @@ inline f32 clampMaterialChannel(f32 value, f32 lower, f32 upper) {
 }
 
 void set_chunk_material_color(f32 *arg) {
-    lbl_8058D4C0.alpha = clampMaterialChannel(arg[0], lbl_805E0FC0, lbl_805E0FBC);
-    lbl_8058D4C0.red = clampMaterialChannel(arg[1], lbl_805E0FC0, lbl_805E0FBC);
-    lbl_8058D4C0.green = clampMaterialChannel(arg[2], lbl_805E0FC0, lbl_805E0FBC);
-    lbl_8058D4C0.blue = clampMaterialChannel(arg[3], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.alpha = clampMaterialChannel(arg[0], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.red = clampMaterialChannel(arg[1], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.green = clampMaterialChannel(arg[2], lbl_805E0FC0, lbl_805E0FBC);
+    model_material_color.blue = clampMaterialChannel(arg[3], lbl_805E0FC0, lbl_805E0FBC);
 }
 #pragma pop
 }

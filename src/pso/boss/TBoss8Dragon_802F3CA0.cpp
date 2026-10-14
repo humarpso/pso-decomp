@@ -56,7 +56,7 @@ void draw_model_motion(s32, Anim_802F3D6C *, f32);
 void set_global_flag__10TObjPlayerFv(void);
 void clear_global_state__10TObjPlayerFv(void);
 extern s32 current_scene_light;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 lbl_805DED54;
 extern const f32 TBoss8Dragon__data_805DED58;
@@ -116,7 +116,7 @@ void draw_motion_model__12TBoss8DragonFPv(u8 *arg0) {
         scale_matrix(0, lbl_805DED5C, TBoss8Dragon__data_805DED60, lbl_805DED5C);
         pop_matrix();
         scale_matrix(0, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60, TBoss8Dragon__data_805DED60);
-        some_id_805c6f74 &= ~0x400;
+        model_render_flags &= ~0x400;
         idx = *(f32 *)(arg0 + 0x354);
         if (idx < 0) {
             idx = 0;

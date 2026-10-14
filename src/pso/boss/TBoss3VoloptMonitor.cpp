@@ -271,7 +271,7 @@ extern s32 volopt_monitor_model_indices[];
 extern s32 lbl_80483EE4[];
 extern s32 vol_opt_active_hit_zone;
 extern u32 volopt_monitor_texture_list;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D8738;
 extern const f32 lbl_805D873C;
 void render__19TBoss3VoloptMonitorFv(void *arg0);
@@ -481,7 +481,7 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
         set_global_param__8TObjFishFi(lbl_80483EE4);
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
         pop_matrix();

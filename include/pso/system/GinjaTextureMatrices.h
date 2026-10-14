@@ -10,7 +10,7 @@ struct GinjaModelQueue {
 };
 extern "C" {
 extern GinjaMatrix* current_matrix;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 extern GinjaModelQueue model_draw_queue_state;
 extern GinjaMatrix model_draw_queue_texture_matrices[10];
 extern void* model_draw_queue_models[10];

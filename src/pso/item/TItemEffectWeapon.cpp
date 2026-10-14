@@ -19,7 +19,7 @@ void set_flag_9__7TObjectFv(void*);
 void* alloc_buffer__11TOBoss4RockFPv(size_t);
 extern u8 main_task[];
 extern u32 lbl_805D5660;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 
 void *TItemEffectWeapon__sub_803633B4(void *arg0, s16 arg1);
 void TItemEffectWeapon__sub_8036340C(void);
@@ -99,9 +99,9 @@ void TItemEffectWeapon::render_trail() {
     if (get_mode__11TCameraCtrlFPv(main_task) & 0x200) {
         if (vertex_count != 0 && vertices != NULL) {
             begin_effect_render__13TParticleCtrlFv();
-            lbl_805D5660 = some_id_805c6f74;
+            lbl_805D5660 = model_render_flags;
             set_depth_buffer_settings_1__Fv();
-            some_id_805c6f74 |= 0x8000;
+            model_render_flags |= 0x8000;
             init_xyz_limits__10TObjPlayerFv();
             if (vertex_count > 2) {
                 TObjPlayer__sub_803DF768(1);
@@ -109,7 +109,7 @@ void TItemEffectWeapon::render_trail() {
                 reset_player_transform();
             }
             reset_transform_state__10TObjPlayerFv();
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             restore_saved_depth_alpha_state();
             end_effect_render__13TParticleCtrlFv();
         }

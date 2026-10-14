@@ -39,7 +39,7 @@ extern u8 lbl_804CC868[];
 extern u8 technique_ringwave_texture_list[];
 extern s32 lbl_805D5660;
 extern s32 technique_effect_bml;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DC840;
 extern const f32 lbl_805DC844;
 extern const f32 lbl_805DC848;
@@ -61,9 +61,9 @@ void grants_flash_render(Obj_80232934 *arg0) {
     approach_alpha_clamped(arg0->f38, &q, lbl_805DC840);
     approach_position_if_far(&arg0->pos, &v, arg0->f4c);
     fn_800829E0(&ctx);
-    id = some_id_805c6f74;
+    id = model_render_flags;
     lbl_805D5660 = id;
-    some_id_805c6f74 = id | 0x10;
+    model_render_flags = id | 0x10;
     set_chunk_material_color(arg0->f38, id);
     set_depth_buffer_settings_id__FUl(3);
     begin_effect_render__13TParticleCtrlFv();
@@ -77,7 +77,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     pop_matrix();
     copy_slot_to_anim_frame(&ctx);
     func_80141618__Fv();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 
 }

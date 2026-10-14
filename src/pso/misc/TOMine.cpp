@@ -77,7 +77,7 @@ void post_translate_matrix(void *);
 void set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DB854;
 extern const f32 lbl_805DB858;
 void render__6TOMineFPv(VObj_801710E4 *arg0);
@@ -186,13 +186,13 @@ void render__6TOMineFPv(VObj_801710E4 *arg0) {
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x370));
         free_parts__6TOMineFPv((void*)(arg0));
         begin_effect_render__13TParticleCtrlFv();
-        t = some_id_805c6f74;
+        t = model_render_flags;
         lbl_805D5660 = t;
-        some_id_805c6f74 = t | 0x20;
+        model_render_flags = t | 0x20;
         ((void (*)(void *, s32)) set_chunk_material_color)((u8 *) arg0 + 0x360, t);
         free_sub_objects__6TOMineFPv((void*)(arg0));
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     }

@@ -300,7 +300,7 @@ int update_if_active__15TObjEneMe1GiGueFPv(void*, int);
 int reset_enemy_state__10TObjPlayerFPv(void* p) { return update_if_active__15TObjEneMe1GiGueFPv(p, 0); }
 
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9620;
 extern const f32 lbl_805D9628;
 extern const f32 lbl_805D963C;
@@ -573,7 +573,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
     s32 var_r29;
 
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000)) {
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         temp_r3 = ((VObj18_8008e74c_8008DCF0*)arg0)->m9(lbl_805D963C, lbl_805D9640, lbl_805D9628);
         if (temp_r3 != 0) {
             var_r30 = 1;
@@ -581,7 +581,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
             select_actor_lighting(arg0);
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
-            some_id_805c6f74 &= 0xFFFFFBFF;
+            model_render_flags &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {
                 set_visibility_flags_by_count__10TObjPlayerFPvi(arg0, 4);
                 post_translate_matrix(arg0 + 0x38);
@@ -621,7 +621,7 @@ void draw_main__10TObjPlayerFPv(u8 *arg0) {
             pop_matrix();
             restore_scene_lighting();
             end_effect_render__13TParticleCtrlFv();
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             render_scaled__14TObjEneBalClawFPvi(arg0, var_r30);
         }
     }

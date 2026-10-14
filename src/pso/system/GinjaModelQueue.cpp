@@ -30,7 +30,7 @@ void queue_model_draw_matrix(void* model, const GinjaMatrix matrix) {
     GinjaMatrix scale;
     GXLoadPosMtxImm(matrix, model_draw_queue_state.count * 3);
     GXLoadNrmMtxImm(matrix, model_draw_queue_state.count * 3);
-    if (some_id_805c6f74 & 0x100000) {
+    if (model_render_flags & 0x100000) {
         PSMTXScale(scale, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(trans, 0.5f, 0.5f, 1.0f);
         PSMTXInverse(*current_matrix, inv);
@@ -61,7 +61,7 @@ void draw_queued_models(u32 count) {
     u32 i;
     for (i = 0; i < count; i++) {
         GXSetCurrentMtx(i * 3);
-        if (some_id_805c6f74 & 0x100000) {
+        if (model_render_flags & 0x100000) {
             GXLoadTexMtxImm(model_draw_queue_texture_matrices[i], 0x2A, 0);
         }
         model_draw_queue_state.draw(model_draw_queue_state.models[i]);

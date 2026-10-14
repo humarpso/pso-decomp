@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TLobby__sub_803D439C(s32 arg0, s32 arg1);
+void mfci_set_error_callback(s32 arg0, s32 arg1);
 
-extern s32 lbl_805D7678;
-extern s32 lbl_805D767C;
+extern s32 mfci_error_callback;
+extern s32 mfci_error_callback_context;
 
-void TLobby__sub_803D439C(s32 arg0, s32 arg1) {
-    lbl_805D7678 = arg0;
-    lbl_805D767C = arg1;
+void mfci_set_error_callback(s32 arg0, s32 arg1) {
+    mfci_error_callback = arg0;
+    mfci_error_callback_context = arg1;
 }
 
 }

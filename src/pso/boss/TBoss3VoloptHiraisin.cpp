@@ -217,7 +217,7 @@ f32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__20TBoss3VoloptHiraisinFv(u8 *arg0);
 s32 refresh_collision_body_centers(void *);
 void TBoss3VoloptHiraisin__sub_8004118C(Obj_8004118C *self);
@@ -338,12 +338,12 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     f32 temp_f31;
     if (!(((RecoveredFields_800413C8_arg0 *)arg0)->field_30 & 0x02000000) && (((VObj_18_26a62c *)(arg0))->m8((4e+02f), (4e+01f)) != 0)) {
         set_global_param__8TObjFishFi((int) (((RecoveredFields_800413C8_arg0 *)arg0)->field_24));
-        lbl_805D5660 = some_id_805c6f74;
-        some_id_805c6f74 |= 0x01000000;
+        lbl_805D5660 = model_render_flags;
+        model_render_flags |= 0x01000000;
         select_actor_lighting((void *) (arg0));
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix((void *) (arg0 + 0x38));
         if ((u32) ((RecoveredFields_800413C8_arg0 *)arg0)->field_B4 == 8U) {
             translate_matrix((int) (0), (f32) ((0.0f)), (f32) ((2e+01f)), (f32) ((0.0f)));
@@ -358,7 +358,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
         pop_matrix();
         restore_scene_lighting();
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         if (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C < (5e+01f)) {
             push_matrix();
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));

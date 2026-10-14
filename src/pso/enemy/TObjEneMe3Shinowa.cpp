@@ -2438,7 +2438,7 @@ extern const f32 lbl_805DA644;
 extern const f32 lbl_805DA648;
 extern const f32 lbl_805DA64C;
 extern const f32 lbl_805DA650;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 #define PAD_VIRT virtual void CAT(pv, __LINE__)();
 #define PADV virtual void CAT(pv, __LINE__)();
@@ -2902,7 +2902,7 @@ void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
         ((VObj_18_82072c *)(arg0))->m106();
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         update_secondary_light__9TObjEneDDFPv((void *) (arg0));
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         for (i = 0; i < 3; i++) {
@@ -2930,7 +2930,7 @@ void draw_model__23TObjEneMe3ShinowaMirageFPv(u8 *arg0) {
             pop_matrix();
         }
         ((VObj_18_82072c *)(arg0))->m108();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv((void *) (arg0));
         VecCopy__FP3VecPC3Vec((void *) ((u8 *)(arg0) + 0x2FC), (void *) (&lbl_80500FF4));
     } else if ((get_main_phase() == 0xF) || (is_split_screen() == 0)) {

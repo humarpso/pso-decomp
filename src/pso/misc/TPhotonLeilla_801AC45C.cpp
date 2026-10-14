@@ -67,14 +67,14 @@ s32 set_chunk_material_color(void *);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern Color_801AC45C saved_model_draw_color;
-extern Color_801AC45C lbl_8058D4C0;
+extern Color_801AC45C model_material_color;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern void *leilla_photon_buffer_pair;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void render__13TPhotonLeillaFv(Self_801AC45C *self);
 }
 
@@ -88,11 +88,11 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         push_matrix();
         translate_matrix(0, self->pos.x, self->pos.y, self->pos.z);
         rotate_matrix_y(0, self->f60);
-        lbl_805D5660 = some_id_805c6f74;
-        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &lbl_8058D4C0);
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 |= 0x200820;
+        lbl_805D5660 = model_render_flags;
+        copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color, &model_material_color);
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x200820;
         set_global_flag__10TObjPlayerFv();
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_material_color(&self->color);
@@ -100,10 +100,10 @@ void render__13TPhotonLeillaFv(Self_801AC45C *self) {
         draw__16TObjEneRe7BeruraFPv(self);
         clear_global_state__10TObjPlayerFv();
         clear_render_context__10TObjPlayerFv(self);
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        copy_vec4__13TRaderMapCoreFPvPv(&lbl_8058D4C0, &saved_model_draw_color);
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        copy_vec4__13TRaderMapCoreFPvPv(&model_material_color, &saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }

@@ -225,7 +225,7 @@ M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
@@ -261,7 +261,7 @@ extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
 void draw_radial_sprite_particle(u8 *arg0);
@@ -472,9 +472,9 @@ void draw_radial_sprite_particle(u8 *arg0) {
             if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
                 setup_particle_tev(0);
             } else {
-                s32 temp_r4 = some_id_805c6f74;
+                s32 temp_r4 = model_render_flags;
                 lbl_805D5660 = temp_r4;
-                some_id_805c6f74 = temp_r4 | 0x8021;
+                model_render_flags = temp_r4 | 0x8021;
                 if (is_particle_sprite_additive(arg0, temp_r4) != 0) {
                     apply_particle_model_fade_color(arg0, 1);
                 } else {
@@ -491,7 +491,7 @@ void draw_radial_sprite_particle(u8 *arg0) {
             if (M2C_FIELD(arg0, u16 *, 0x24) & 0x400) {
                 disable_if_single_screen__13TParticleCtrlFv();
             } else {
-                some_id_805c6f74 = lbl_805D5660;
+                model_render_flags = lbl_805D5660;
             }
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();

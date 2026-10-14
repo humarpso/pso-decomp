@@ -366,7 +366,7 @@ void update_state__12TObjNpcEnemyFPv(void *arg0) {
     }
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DE7D8;
 
 void render__12TObjNpcEnemyFv(u8 *arg0) {
@@ -375,7 +375,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
     if (((void *) M2C_FIELD(arg0, void **, 0x3B8) != NULL) && (((NpcV_802d7748_802D745C *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         select_actor_lighting((void *) (arg0));
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
-            some_id_805c6f74 |= 1;
+            model_render_flags |= 1;
         }
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         push_matrix_from((int) (0));
@@ -386,7 +386,7 @@ void render__12TObjNpcEnemyFv(u8 *arg0) {
         update_state__12TObjNpcEnemyFPv((void *)((void *) (arg0)));
         pop_matrix();
         if (TObjNpcEnemy__sub_802D7444((void *)((void *) (arg0))) != 0) {
-            some_id_805c6f74 &= 0xFFFFFFFE;
+            model_render_flags &= 0xFFFFFFFE;
         }
         restore_scene_lighting();
         render_with_position_override__10TObjPlayerFPvPvi((void *) (arg0), (int) (0), (int) (0));

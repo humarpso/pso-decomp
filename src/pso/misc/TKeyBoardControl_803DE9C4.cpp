@@ -58,11 +58,11 @@ void init_pad_slots_and_read__16TKeyBoardControlFv(void);
 extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
 s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
-extern V4_803DECFC lbl_8058D4C0;
+extern V4_803DECFC model_material_color;
 extern u8 TObjLight__gx_light_objects[];
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern f32 light_position_distance;
 extern s32 gx_chan_ctrl_light_mask;
 extern const f32 lbl_805E0FB0;
@@ -231,7 +231,7 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
     }
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
     matrix_stack_base = 0xE0000000;
@@ -242,13 +242,13 @@ void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1) {
 }
 
 void init_light_globals(void) {
-    some_id_805c6f74 = 0;
-    lbl_805D7784 = -1;
-    lbl_805D7780 = 0;
-    lbl_8058D4C0.a = lbl_805E0FB0;
-    lbl_8058D4C0.b = lbl_805E0FB4;
-    lbl_8058D4C0.c = lbl_805E0FB4;
-    lbl_8058D4C0.d = lbl_805E0FB4;
+    model_render_flags = 0;
+    chunk_polygon_flags_and_mask = -1;
+    chunk_polygon_flags_or_mask = 0;
+    model_material_color.a = lbl_805E0FB0;
+    model_material_color.b = lbl_805E0FB4;
+    model_material_color.c = lbl_805E0FB4;
+    model_material_color.d = lbl_805E0FB4;
     gx_chan_ctrl_light_mask = 0;
     light_position_distance = lbl_805E0FB8;
     GXInitLightAttnK(TObjLight__gx_light_objects, lbl_805E0FBC, lbl_805E0FB4, lbl_805E0FB4);
@@ -256,7 +256,7 @@ void init_light_globals(void) {
 }
 
 void set_some_id__FUl(s32 arg0) {
-    some_id_805c6f74 = arg0;
+    model_render_flags = arg0;
 }
 
 }

@@ -1752,7 +1752,7 @@ void *lbl_80491EE4[106] = {
     (void *)TObjEneDD__vt97, (void *)TObjEneDD__vt98, (void *)TObjEneDD__vt99, (void *)TObjEneDD__vt100,
     (void *)init__17TObjEneBm3FlyNestFPv, (void *)render_with_state_debug__10TObjPlayerFPv,
 };
-extern s32 TObjEneBm3Fly__data_805D50E4;
+extern s32 TObjEneBm3Fly__attack_params;
 extern void *TObjEneBm3Fly__breakup_model;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 extern M2C_UNK __vt__13TObjEneBm3Fly[];
@@ -1801,8 +1801,8 @@ extern s32 bm3_fly_nest_attachment_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
 extern const f32 lbl_805D9CB4;
 extern const f32 lbl_805D9CE8;
 extern const f32 lbl_805D9CEC;
@@ -1835,7 +1835,7 @@ extern const f32 lbl_805D9D68;
 extern const f32 lbl_805D9D6C;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern void *tl_04;
 
 void render_with_state_debug__10TObjPlayerFPv(u8 *arg0) {
@@ -1926,9 +1926,9 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
         if (res != 0) {
             draw = 1;
             self->f3AC = 1;
-            lbl_805D5660 = some_id_805c6f74;
-            lbl_805D5664 = lbl_805D7784;
-            lbl_805D5668 = lbl_805D7780;
+            lbl_805D5660 = model_render_flags;
+            lbl_805D5664 = chunk_polygon_flags_and_mask;
+            lbl_805D5668 = chunk_polygon_flags_or_mask;
             cm = &self->cams[cam];
             update_obstruction_fade(cm);
             if (updateFromCamera__15RenderFadeStateFPCf(cm, &self->f2FC) != 0) {
@@ -1978,9 +1978,9 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
             if (updateFromCamera__15RenderFadeStateFPCf(cm, &self->f2FC) != 0) {
                 ((VObj_14_aa9368 *)(cm))->m7();
             }
-            some_id_805c6f74 = lbl_805D5660;
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
         }
     }
     VecCopy__FP3VecPC3Vec(&self->f2FC, &self->f3C8);

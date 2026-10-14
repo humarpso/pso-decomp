@@ -721,7 +721,7 @@ s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 Hit_80199674 *csnVectorUnder(void *, void *, s32);
 f32 xyz_distance(Vec_80199674 *, void *);
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 
 #pragma push
 #pragma fp_contract on
@@ -746,13 +746,13 @@ void draw_shadow_on_ground(u8 *arg0) {
         scale.x = s;
         scale.y = s;
         scale.z = s;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         k = 2.0f * t + 0.5f;
         if (k >= 1.0f) {
             k = 1.0f;
         }
         TObjPlayer__sub_801994DC(arg0, &seg.a, &seg.b, 0, &scale, k);
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
     }
 }
 #pragma pop
@@ -906,13 +906,13 @@ extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
 extern u8 saved_model_draw_color[];
 extern u8 identity_matrix[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 
 #define F(t, o) M2C_FIELD(arg0, t *, o)
 extern const f32 lbl_805DBF40;
@@ -943,11 +943,11 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     rotate_matrix_y(0, 0x4000);
     matrix_mult_vec(0, &dir, &dir);
     pop_matrices(1);
-    lbl_805D5660 = some_id_805c6f74;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    some_id_805c6f74 |= 0x821;
+    lbl_805D5660 = model_render_flags;
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    model_render_flags |= 0x821;
     set_chunk_material_override_pair(-1, 0x800);
     rate = (s32)(182.04445f * (4096.0f * len));
     if (0.0f != rate) {
@@ -1011,10 +1011,10 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
     }
     set_chunk_material_color((void *)chunk_material_color_half_alpha_f32);
     pop_matrices(1);
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+    model_render_flags = lbl_805D5660;
     draw_shadow_on_ground(arg0);
 }
 

@@ -374,7 +374,7 @@ extern char lbl_80476058[];
 extern char lbl_80476070[];
 extern char lbl_80476084[];
 extern u32 *lbl_80542FF0[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F0;
 extern const f32 TObjEneMe3SinowZoa__data_805DF2F4;
 extern const f32 lbl_805DF318;
@@ -757,7 +757,7 @@ void render_with_stealth_debug__18TObjEneMe3SinowZoaFPv(Obj_803173D0 *arg0) {
             frame = get_node_height__18TObjEneMe3SinowZoaFPv(arg0);
             print_float_padded(pack_debug_text_position(0, 7), 5, frame);
         } else {
-            some_id_805c6f74 &= ~0x400;
+            model_render_flags &= ~0x400;
         }
         pop_matrix();
         if (flag != 0) {

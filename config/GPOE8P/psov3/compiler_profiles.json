@@ -330,7 +330,7 @@
     "inline": "off",
     "use_lmw_stmw": "on"
   },
-  "pso/unk/text_803D3BE8.cpp": {
+  "pso/system/Mfci.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O4,p",
     "inline": "off",
@@ -553,7 +553,7 @@
     "use_lmw_stmw": "on",
     "opt": "nopeephole"
   },
-  "pso/misc/TScene_803DCDA8.cpp": {
+  "pso/system/MaterialAlphaCompare.cpp": {
     "mw_version": "GC/2.6",
     "optimization": "-O3,p",
     "inline": "off",

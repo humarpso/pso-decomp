@@ -206,7 +206,7 @@ void *destroy__19TObjGyaranzoMissileFPvs(void *arg0, s16 arg1) {
 }
 
 extern s32 gyaranzo_bml_resource;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DA2C4;
 
 typedef char RecoveredGlobal_800D4668_lbl_80494400_size[sizeof(RecoveredGlobal_800D4668_lbl_80494400) == 0x2C ? 1 : -1];
@@ -280,7 +280,7 @@ void render__19TObjGyaranzoMissileFv(u8 *arg0) {
     rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
     translate_matrix((int) (0), (f32) (lbl_805DA2C4), (f32) (M2C_FIELD(arg0, f32 *, 0xD4) * sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0xCC)))), (f32) (lbl_805DA2C4));
-    some_id_805c6f74 &= 0xFFFFFBFF;
+    model_render_flags &= 0xFFFFFBFF;
     get_bml_model((void *) (gyaranzo_bml_resource), (int) (6));
     draw_chunk_object();
     pop_matrix();

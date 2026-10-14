@@ -61,7 +61,7 @@ M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
 M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
 
 extern M2C_UNK shared_capture_texture_list[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void setup_tev_stage__10TObjPlayerFv(void) {
     if (is_split_screen() == 0) {
@@ -70,14 +70,14 @@ void setup_tev_stage__10TObjPlayerFv(void) {
         set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         set_global_param__8TObjFishFi(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
-        some_id_805c6f74 |= 0x80000;
+        model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);
         set_ginja_post_texgen_count(1);
     }
 }
 
 extern M2C_UNK shared_capture_texture_list[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void setup_particle_tev(s32 arg0) {
     if (is_split_screen() == 0) {
@@ -90,7 +90,7 @@ void setup_particle_tev(s32 arg0) {
         set_tex_coord_gen__10TObjPlayerFiiii(1, 0, 0, 0x1E);
         set_global_param__8TObjFishFi(shared_capture_texture_list);
         load_list_texture(0, 0, 0, 1);
-        some_id_805c6f74 |= 0x80000;
+        model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count(1);
         set_ginja_post_texgen_count(1);
     }

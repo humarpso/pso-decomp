@@ -39,9 +39,9 @@ M2C_UNK post_translate_matrix(int);
 M2C_UNK draw_ginja_object(int);
 M2C_UNK set_chunk_material_color(int);
 extern RecoveredGlobal_8032DC94_lbl_8050BEC0 saved_model_draw_color;
-extern RecoveredGlobal_8032DC94_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_8032DC94_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DF7D8;
 void TObjPlayer__sub_8032DC94(u8 *arg0);
 }
@@ -158,13 +158,13 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
       if (var_r30 != 0)
       {
         var_r3 = (M2C_UNK *) (&saved_model_draw_color.value);
-        var_r4 = (M2C_UNK *) (&lbl_8058D4C0.value);
-        lbl_805D5660 = some_id_805c6f74;
+        var_r4 = (M2C_UNK *) (&model_material_color.value);
+        lbl_805D5660 = model_render_flags;
         var_r3 = (M2C_UNK *) (&saved_model_draw_color.value);
-        var_r4 = (M2C_UNK *) (&lbl_8058D4C0.value);
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
+        var_r4 = (M2C_UNK *) (&model_material_color.value);
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         var_r3 = (M2C_UNK *) (var_r29 + 0x80);
-        some_id_805c6f74 |= 0x20;
+        model_render_flags |= 0x20;
         set_chunk_material_color((int) var_r3);
         var_r3 = (M2C_UNK *) var_r31;
         get_entity_id__10TObjPlayerFPv((int) var_r3);
@@ -180,12 +180,12 @@ void TObjPlayer__sub_8032DC94(u8 *arg0) {
         var_r3 = (M2C_UNK *) var_r30;
         draw_ginja_object((int) var_r3);
         pop_matrix();
-        var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        var_r3 = (M2C_UNK *) (&model_material_color.value);
         var_r4 = (M2C_UNK *) (&saved_model_draw_color.value);
-        var_r3 = (M2C_UNK *) (&lbl_8058D4C0.value);
+        var_r3 = (M2C_UNK *) (&model_material_color.value);
         var_r4 = (M2C_UNK *) (&saved_model_draw_color.value);
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        model_render_flags = lbl_805D5660;
       }
     }
   }

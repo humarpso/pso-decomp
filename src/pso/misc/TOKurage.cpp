@@ -68,7 +68,7 @@ s32 set_chunk_material_color(void *);
 void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
@@ -371,8 +371,8 @@ void render__8TOKurageFv(u8 *arg0) {
         set_global_param__8TObjFishFi(*(s32 *)(arg0 + 0x24));
         switch (*(u8 *)(arg0 + 0x100)) {
         case 4:
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 |= 0x10;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags |= 0x10;
             if (*(f32 *)(arg0 + 0x104) < (0.0f)) {
                 *(u8 *)(arg0 + 0x100) = 3;
             } else {
@@ -384,14 +384,14 @@ void render__8TOKurageFv(u8 *arg0) {
                 *(f32 *)(arg0 + 0x104) < (0.0f)) {
                 *(f32 *)(arg0 + 0x104) = (1.0f);
             }
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 |= 0x10;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags |= 0x10;
             break;
         }
         set_chunk_material_color(arg0 + 0x104);
         TObjEneSlimeOne__sub_803E4B54(*(s32 *)(arg0 + 0x34), *(s32 *)(arg0 + 0xBC), *(s32 *)(arg0 + 0xC8), *(f32 *)(arg0 + 0xB0));
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         pop_matrix();
     }
 }

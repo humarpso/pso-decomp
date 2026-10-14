@@ -303,7 +303,7 @@ extern f32 camera_clip_parameters[];
 extern Cam_803DD300 lbl_8058D4F8;
 extern s32 motion_node_draw_callback;
 extern f32 lbl_805D777C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void update_camera__16TKeyBoardControlFv(void);
 M2C_UNK init_projection_state__11TCameraCtrlFv();
@@ -328,7 +328,7 @@ s32 init_projection_state__11TCameraCtrlFv() {
     c->f = 1.0f / c->b;
     camera_clip_parameters[0] = 60000.0f;
     camera_clip_parameters[1] = 1.0f;
-    some_id_805c6f74 = 0;
+    model_render_flags = 0;
     motion_node_draw_callback = 0;
     lbl_805D777C = 1.52590219e-05f;
     init_sin_cos_table();

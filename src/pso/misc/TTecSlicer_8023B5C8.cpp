@@ -215,7 +215,7 @@ M2C_UNK draw_ginja_object(u32);
 M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
 void render__10TTecSlicerFv(u8 *arg0);
@@ -373,9 +373,9 @@ void render__10TTecSlicerFv(u8 *arg0) {
         query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x118)) == 0U) {
         return;
     }
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     if (M2C_FIELD(arg0, s32 *, 0x13C) != 0) {
-        some_id_805c6f74 |= 0x10;
+        model_render_flags |= 0x10;
         set_chunk_material_color(arg0 + 0x128);
     }
     if (M2C_FIELD(arg0, u32 *, 0x24) != 0U && M2C_FIELD(arg0, u32 *, 0x110) != 0U) {
@@ -392,7 +392,7 @@ void render__10TTecSlicerFv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
     }
     pop_matrix();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 
 void run_task__10TTecSlicerFv(u8 *arg0) {

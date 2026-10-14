@@ -1843,9 +1843,9 @@ void set_global_state__16TObjEneRe7BeruraFi(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805E0300;
 extern const f32 lbl_805E0304;
 void render__14TObjEneIllGillFv(u8 *arg0) {
@@ -1865,15 +1865,15 @@ void render__14TObjEneIllGillFv(u8 *arg0) {
         set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_vec_stage__14TObjEneIllGillFv);
         if (M2C_FIELD(arg0, s32 *, 0x390) != 0 && check_demo_mode__10TObjPlayerFv() == 0) {
             if (((VObj_14_80368208 *)(arg0 + 0x374))->m8() != 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
                 ((VObj_14_80368208 *)(arg0 + 0x374))->m6();
                 draw__16TObjEneRe7BeruraFPv(arg0);
                 ((VObj_14_80368208 *)(arg0 + 0x374))->m7();
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
-                some_id_805c6f74 = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
             }
         } else if (M2C_FIELD(arg0, s32 *, 0x3A8) == 1) {
             draw__16TObjEneRe7BeruraFPv(arg0);

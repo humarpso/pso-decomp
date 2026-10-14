@@ -40,7 +40,7 @@ s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern Color_801ACE1C chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__18TPhotonMagicSquareFv(Self_801ACE1C *self);
 }
 
@@ -59,8 +59,8 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
         self->color.g = (0.5f);
         self->color.b = (0.5f);
     }
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 |= 0x10;
+    lbl_805D5660 = model_render_flags;
+    model_render_flags |= 0x10;
     if (self->color.a > 1.0f) {
         self->color.a = 1.0f;
     }
@@ -69,7 +69,7 @@ void render__18TPhotonMagicSquareFv(Self_801ACE1C *self) {
     draw_model_motion(self->f34, self->f90, self->f9C);
     clear_global_state__10TObjPlayerFv();
     set_chunk_material_color(&chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     copy_vec4__13TRaderMapCoreFPvPv(&self->color, &saved);
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();

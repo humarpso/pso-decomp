@@ -11,13 +11,13 @@ struct RecoveredGlobal_80141944_lbl_8050C000 {
 extern "C" {
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_current_scene__6TSceneFi(s32);
+void set_material_alpha_compare_reference(s32);
 extern RecoveredGlobal_80141944_lbl_8050C000 depth_buffer_settings;
 void set_depth_buffer_settings_1__Fv(void);
 void GXSetAlphaCompare(s32, s32, s32, s32, s32);
 void GXSetZMode(u8, s32, s32);
 void GXSetZCompLoc(s32);
-void set_current_scene__6TSceneFi(s32);
+void set_material_alpha_compare_reference(s32);
 extern RecoveredGlobal_80141944_lbl_8050C000 depth_buffer_settings;
 void set_depth_buffer_settings_3__Fv(void);
 }
@@ -33,7 +33,7 @@ void set_depth_buffer_settings_1__Fv(void) {
     M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xD) = 0;
     GXSetZCompLoc(0);
     GXSetZMode(1U, 3, 0);
-    set_current_scene__6TSceneFi(0);
+    set_material_alpha_compare_reference(0);
 }
 void set_depth_buffer_settings_3__Fv(void) {
     depth_buffer_settings.value = 7;
@@ -45,7 +45,7 @@ void set_depth_buffer_settings_3__Fv(void) {
     GXSetAlphaCompare(7, 0, 0, 7, 0);
     GXSetZCompLoc(1);
     GXSetZMode(1U, 1, 1);
-    set_current_scene__6TSceneFi(M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD));
+    set_material_alpha_compare_reference(M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD));
 }
 
 }

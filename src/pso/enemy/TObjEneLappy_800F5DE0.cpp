@@ -18,7 +18,7 @@ void clear_shadow_flag__10TObjPlayerFPv(void *);
 void set_shadow_flag__10TObjPlayerFPv(void *);
 void set_shadow_material_state(void);
 void set_chunk_material_override_pair(s32, s32);
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render_actor_shadows_default(u8 *arg0);
 }
 
@@ -35,12 +35,12 @@ int initialize_enemy_photon_effect(void* p) { return reset_photon_effect__12TBos
 void render_actor_shadows_default(u8 *arg0) {
     if (obj_testFlags30(arg0, 0x800) == 0) {
         set_shadow_flag__10TObjPlayerFPv(arg0);
-        some_id_805c6f74 |= 0xC10;
+        model_render_flags |= 0xC10;
         set_chunk_material_override_pair(-1, 0x800);
         set_shadow_material_state();
         ((VObj_18_2f517b *)(arg0))->m2();
         clear_shadow_flag__10TObjPlayerFPv(arg0);
-        some_id_805c6f74 &= ~0xC10;
+        model_render_flags &= ~0xC10;
     }
 }
 

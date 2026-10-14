@@ -67,7 +67,7 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void);
 M2C_UNK draw_ginja_object(int);
-M2C_UNK set_current_scene__6TSceneFi(int);
+M2C_UNK set_material_alpha_compare_reference(int);
 void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
 }
 
@@ -85,8 +85,8 @@ int set_global_param__8TObjFishFi(void);
 
 void init_particle_effect__10TObjPlayerFv(void) { get_shared_capture_texture_list(); set_global_param__8TObjFishFi(); load_list_texture(0, 0, 0, 2); }
 
-    extern int some_id_805c6f74;
-void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); some_id_805c6f74 = (some_id_805c6f74 & 0xfff7ffff); }
+    extern int model_render_flags;
+void reset_effects__10TObjPlayerFv(void) { set_ginja_post_tev_stage_count((void*)0); set_ginja_post_texgen_count((void*)0); set_global_effect_state__10TObjPlayerFi((void*)0); model_render_flags = (model_render_flags & 0xfff7ffff); }
 
 void setup_projection_tex_matrix__10TObjPlayerFv(void) {
     u8 sp10[0x30];
@@ -109,7 +109,7 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
         GXSetTevOrder((int) (1), (int) (1), (int) (2), (int) (4));
         GXSetTevOp((int) (1), (int) (1));
         set_tex_coord_gen2((int) (1), (int) (0), (int) (0), (int) (0x24));
-        (*(s32 *)&some_id_805c6f74) |= 0x80000;
+        (*(s32 *)&model_render_flags) |= 0x80000;
         set_ginja_post_tev_stage_count((void*)((int) (1)));
         set_ginja_post_texgen_count((void*)((int) (1)));
         set_global_effect_state__10TObjPlayerFi((void*)((int) (1)));
@@ -138,7 +138,7 @@ void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {
     s32 i;
     for (i = 0; i < self->n; i++) {
         get_object__13TParticleCtrlFPv(self->items[i].obj);
-        set_current_scene__6TSceneFi(self->items[i].scene);
+        set_material_alpha_compare_reference(self->items[i].scene);
         set_depth_buffer_settings_1__Fv();
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();

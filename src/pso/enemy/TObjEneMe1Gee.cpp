@@ -3408,7 +3408,7 @@ M2C_UNK set_global_flag__10TObjPlayerFv();
 M2C_UNK clear_global_state__10TObjPlayerFv();
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
@@ -3508,7 +3508,7 @@ M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_chunk_object(int);
 
-extern s32 TObjEneMe1Gee__data_805D51B8;
+extern s32 TObjEneMe1Gee__render_node_index;
 extern s32 TObjEneMe1Gee__data_805D51C4;
 extern const f32 TObjEneMe1Gee__data_805DA0A8;
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
@@ -3730,7 +3730,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
         }
         update_secondary_light__9TObjEneDDFPv((void *) (arg0));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         ((VObj_18_800C8EB4 *)(arg0))->m111();
@@ -3748,7 +3748,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
         }
         if (var_r29 != 0) {
             if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 0xB) {
-                TObjEneMe1Gee__data_805D51B8 = 0;
+                TObjEneMe1Gee__render_node_index = 0;
                 lbl_805D51BC = (s32)(arg0 + 0x414);
                 set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_ctrl_step__13TObjEneMe1GeeFv);
                 if (var_r30 == 1) {
@@ -3763,7 +3763,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
                 set_global_state__16TObjEneRe7BeruraFi(NULL);
             } else {
                 rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
-                TObjEneMe1Gee__data_805D51B8 = -1;
+                TObjEneMe1Gee__render_node_index = -1;
                 lbl_805D51BC = (s32)(arg0 + 0x414);
                 set_global_state__16TObjEneRe7BeruraFi((void *)advance_camera_ctrl_step__13TObjEneMe1GeeFv);
                 draw_with_alt_model__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x410)));
@@ -3776,7 +3776,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv((void *) (arg0));
         return;
     }
@@ -3787,7 +3787,7 @@ void render__13TObjEneMe1GeeFv(u8 *arg0) {
 void advance_camera_ctrl_step__13TObjEneMe1GeeFv(void) {
     s32 temp_r4;
     s32 temp_r4_2;
-    switch ((s32) TObjEneMe1Gee__data_805D51B8) {
+    switch ((s32) TObjEneMe1Gee__render_node_index) {
     case 4:
         temp_r4 = lbl_805D51BC;
         lbl_805D51BC = temp_r4 + 0xC;
@@ -3799,7 +3799,7 @@ void advance_camera_ctrl_step__13TObjEneMe1GeeFv(void) {
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80500E68.value, temp_r4_2);
         break;
     }
-    TObjEneMe1Gee__data_805D51B8 += 1;
+    TObjEneMe1Gee__render_node_index += 1;
 }
 
 void state_orbit__13TObjEneMe1GeeFPvi(void *arg0, s32 arg1) {
@@ -5680,7 +5680,7 @@ extern s32 lbl_8043BCF0[];
 extern s32 lbl_8043BCFC[];
 extern Q_800CC950 lbl_8043BE6C;
 extern u8 *lbl_805D51B4;
-extern s32 TObjEneMe1Gee__data_805D51B8;
+extern s32 TObjEneMe1Gee__render_node_index;
 extern s32 TObjEneMe1Gee__data_805D51C0;
 extern s32 TObjEneMe1Gee__data_805D51C4;
 extern const f32 TObjEneMe1Gee__data_805DA0B4;
@@ -5713,7 +5713,7 @@ void load_resources__13TObjEneMe1GeeFv(void) {
         lbl_80500E50[i] = register_object__6TLobbyFPv(lbl_8043BCF0[i]);
         lbl_80500E5C[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043BCFC[i]);
     }
-    TObjEneMe1Gee__data_805D51B8 = 0;
+    TObjEneMe1Gee__render_node_index = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (p != 0) {
         p = init_from_model__11TBreakUpMdlFPvi(p, TObjEneMe1Gee__resource_bundle->f42c->f8);

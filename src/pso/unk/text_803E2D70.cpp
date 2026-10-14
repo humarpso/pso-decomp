@@ -109,7 +109,7 @@ void GXSetNumTexGens(u8);
 M2C_UNK GXSetTevOp(int, int);
 M2C_UNK GXSetTevOrder(int, int, int, int);
 M2C_UNK GXSetNumTevStages(int);
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern u8 lbl_805D77D8;
 extern u8 lbl_805D77D9;
 void setup_chunk_tev_stages(void);
@@ -127,11 +127,11 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
 void convert_color_f32_to_u8(const FloatColor*,ByteColor*);
 void convert_color_u8_to_f32(const ByteColor*,FloatColor*);
-extern FloatColor lbl_8058D4C0;
+extern FloatColor model_material_color;
 extern const ByteColor lbl_805E1090;
-extern s32 some_id_805c6f74,ginja_draw_flags;
-extern u32 lbl_805D77F0;
-extern u32 lbl_805D77D4;
+extern s32 model_render_flags,ginja_draw_flags;
+extern u32 chunk_blend_header_bits;
+extern u32 chunk_strip_dirty_flags;
 void set_chunk_blend(u32 x);
 void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
 s32 set_chunk_alpha_compare_ref(int ref);
@@ -165,7 +165,7 @@ void GXBegin(int, int, u16);
 void draw_strip_list_pos_nrm__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E36C4 *verts, u32 info);
 void GXSetChanCtrl(s32 chan, u8 enable, s32 ambSrc, s32 matSrc, u32 lightMask, s32 diffFn, s32 attnFn);
 extern u32 gx_chan_ctrl_light_mask;
-extern u32 lbl_805D77E0;
+extern u32 chunk_has_vertex_colors;
 void set_strip_lighting_chan_ctrl(u32 flags);
 void Dolphin_GXSetVtxDesc(int, int);
 void GXClearVtxDesc(void);
@@ -182,13 +182,13 @@ M2C_UNK GXSetZMode(int, int, int);
 M2C_UNK GXSetZCompLoc(int);
 s32 set_chunk_alpha_compare_ref(int ref);
 void clear_move_state_bits__10TObjPlayerFv(void);
-extern FloatColor lbl_8058D4C0;
-extern s32 lbl_805D46D0;
+extern FloatColor model_material_color;
+extern s32 material_alpha_compare_reference;
 extern u8 *current_render_context;
 extern s32 ginja_draw_flags;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 lbl_805D77EC;
-extern u32 lbl_805D77F0;
+extern u32 chunk_blend_header_bits;
 extern s32 chunk_render_flags;
 extern u32 lbl_805E1094;
 extern const u32 lbl_805E1098;
@@ -227,9 +227,9 @@ M2C_UNK reset_particle_counter__10TObjPlayerFv();
 M2C_UNK apply_scene_fog();
 extern Mtx_803E4354 identity_matrix;
 extern s32 ginja_draw_flags;
-extern s32 some_id_805c6f74;
-extern s32 lbl_805D77D0;
-extern u32 lbl_805D77D4;
+extern s32 model_render_flags;
+extern s32 chunk_previous_strip_flags;
+extern u32 chunk_strip_dirty_flags;
 void setup_model_draw_state__10TObjPlayerFPv(void *);
 }
 
@@ -487,15 +487,15 @@ void submit_chunk_material_color(u8 type, s16* data) {
         color.r=(u8)ar;
         color.g=(gb>>8)&255;
         color.b=(u8)gb;
-        if ((u32)(some_id_805c6f74&0x10)!=0U) {
-            convert_color_f32_to_u8(&lbl_8058D4C0,&converted);
+        if ((u32)(model_render_flags&0x10)!=0U) {
+            convert_color_f32_to_u8(&model_material_color,&converted);
             GXSetChanMatColor(4,converted);
-        } else if ((u32)(some_id_805c6f74&0x20)!=0U) {
+        } else if ((u32)(model_render_flags&0x20)!=0U) {
             convert_color_u8_to_f32(&color,&add);
-            add.a+=lbl_8058D4C0.a;
-            add.r+=lbl_8058D4C0.r;
-            add.g+=lbl_8058D4C0.g;
-            add.b+=lbl_8058D4C0.b;
+            add.a+=model_material_color.a;
+            add.r+=model_material_color.r;
+            add.g+=model_material_color.g;
+            add.b+=model_material_color.b;
             convert_color_f32_to_u8(&add,&convertedAdd);
             GXSetChanMatColor(4,convertedAdd);
         } else GXSetChanMatColor(4,color);
@@ -508,8 +508,8 @@ void submit_chunk_material_color(u8 type, s16* data) {
 #pragma scheduling off
 #pragma peephole off
 void set_chunk_blend(u32 x) {
-    lbl_805D77F0 = x & 0x3F00;
-    lbl_805D77D4 |= 8;
+    chunk_blend_header_bits = x & 0x3F00;
+    chunk_strip_dirty_flags |= 8;
 }
 #pragma pop
 
@@ -554,7 +554,7 @@ void setup_tev_passclr__10TObjPlayerFv(void) {
 #pragma push
 #pragma peephole off
 void setup_chunk_tev_stages(void) {
-    if ((u32) (some_id_805c6f74 & 0x80000) != 0) {
+    if ((u32) (model_render_flags & 0x80000) != 0) {
         GXSetNumTevStages((int)((void *) ((u8) (lbl_805D77D8 + 1))));
         GXSetNumTexGens((u8)((void *) ((u8) (lbl_805D77D9 + 1))));
     } else {
@@ -568,14 +568,14 @@ void setup_chunk_tev_stages(void) {
 
 void set_strip_lighting_chan_ctrl(u32 flags) {
     u8 enable;
-    if (lbl_805D77E0 != 0) {
+    if (chunk_has_vertex_colors != 0) {
         enable = 0;
     } else if (flags & 1) {
         enable = 0;
     } else {
         enable = 1;
     }
-    if (lbl_805D77E0 != 0) {
+    if (chunk_has_vertex_colors != 0) {
         GXSetChanCtrl(0, enable, 0, 1, gx_chan_ctrl_light_mask, 2, 2);
         GXSetChanCtrl(2, 0, 0, 1, gx_chan_ctrl_light_mask, 2, 2);
     } else {
@@ -605,8 +605,8 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     } else {
         var_r31 = 0;
     }
-    temp_r30 = (u32) (lbl_805D77F0 & 0x3800) >> 0xBU;
-    temp_r29 = (u32) (lbl_805D77F0 & 0x700) >> 8U;
+    temp_r30 = (u32) (chunk_blend_header_bits & 0x3800) >> 0xBU;
+    temp_r29 = (u32) (chunk_blend_header_bits & 0x700) >> 8U;
     if ((u32) chunk_render_flags != 0) {
         clear_move_state_bits__10TObjPlayerFv();
     }
@@ -618,11 +618,11 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         var_r6 = 0;
         var_r28 = 1U;
         temp_r4 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
-        id = some_id_805c6f74;
-        if (((u32) (id & 0x10) != 0) && (lbl_805E109C != lbl_8058D4C0.a)) {
+        id = model_render_flags;
+        if (((u32) (id & 0x10) != 0) && (lbl_805E109C != model_material_color.a)) {
             var_r28 = 0U;
         }
-        if (((u32) (id & 0x20) != 0) && (lbl_805E10A0 != lbl_8058D4C0.a)) {
+        if (((u32) (id & 0x20) != 0) && (lbl_805E10A0 != model_material_color.a)) {
             var_r28 = 0U;
         }
         if ((u32) M2C_FIELD(temp_r4, u32 *, 4) == 0xEU) {
@@ -642,14 +642,14 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
                 chunk_render_flags |= 0x200;
             }
             GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
-            if ((u32) (some_id_805c6f74 & 0x200000) != 0) {
+            if ((u32) (model_render_flags & 0x200000) != 0) {
                 GXSetZCompLoc((int) (0));
                 GXSetZMode((int) (1), (int) (3), (int) (1));
                 set_chunk_alpha_compare_ref(0);
             } else {
                 GXSetZCompLoc((int) (0));
                 GXSetZMode((int) (1), (int) (3), (int) (1));
-                set_chunk_alpha_compare_ref((u8) lbl_805D46D0);
+                set_chunk_alpha_compare_ref((u8) material_alpha_compare_reference);
             }
         } else {
             if ((u32) chunk_render_flags != 0) {
@@ -659,7 +659,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
                 GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
                 GXSetZCompLoc((int) (0));
                 GXSetZMode((int) (1), (int) (3), (int) (1));
-                set_chunk_alpha_compare_ref((u8) lbl_805D46D0);
+                set_chunk_alpha_compare_ref((u8) material_alpha_compare_reference);
             } else {
                 GXSetBlendMode((int) (var_r31), (int) (temp_r30), (int) (temp_r29), (int) (0));
                 GXSetZCompLoc((int) (0));
@@ -687,7 +687,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
             GXSetZMode((int) (1), (int) (3), (int) (1));
         }
     }
-    if ((u32) (some_id_805c6f74 & 0x400) != 0) {
+    if ((u32) (model_render_flags & 0x400) != 0) {
         GXSetZMode((int) (1), (int) (3), (int) (0));
     }
 }
@@ -703,11 +703,11 @@ void setup_model_draw_state__10TObjPlayerFPv(void *) {
     GXSetVtxAttrFmt(0, 9, 1, 4, 0);
     GXSetVtxAttrFmt(0, 0xA, 0, 4, 0);
     GXSetNumChans(1);
-    lbl_805D77D0 = 0;
-    lbl_805D77D4 = -1;
+    chunk_previous_strip_flags = 0;
+    chunk_strip_dirty_flags = -1;
     GXLoadPosMtxImm(identity_matrix, 0);
     GXLoadNrmMtxImm(identity_matrix, 0);
-    if ((u32) (some_id_805c6f74 & 0x100000) != 0) {
+    if ((u32) (model_render_flags & 0x100000) != 0) {
         PSMTXScale(scale, -0.5f, -0.5f, 0.0f);
         PSMTXTrans(trans, 0.5f, 0.5f, 1.0f);
         PSMTXConcat(scale, identity_matrix, m);
@@ -740,7 +740,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
     s32 cache;
     s32 count = 0;
     if ((u32)chunk_render_flags & 4) return 0;
-    lbl_805D77E0 = 0;
+    chunk_has_vertex_colors = 0;
     cache = lbl_805D7800;
     if (lbl_805D77E4 & 4) {
         if (lbl_805D77E8->buffers[lbl_805D77E8->index].bytes != 0) {

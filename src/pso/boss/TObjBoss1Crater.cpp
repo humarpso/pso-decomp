@@ -135,16 +135,16 @@ M2C_UNK set_global_param__8TObjFishFi(void *);
 
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void render__15TObjBoss1CraterFv(u8 *arg0) {
     push_matrix();
     set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    some_id_805c6f74 |= 0x01000000;
+    model_render_flags |= 0x01000000;
     draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
-    some_id_805c6f74 &= 0xFEFFFFFF;
+    model_render_flags &= 0xFEFFFFFF;
     pop_matrix();
 }
 

@@ -18,7 +18,7 @@ M2C_UNK copy_config__10TObjPlayerFPvPv(void *, void *);
 M2C_UNK GXSetAlphaCompare(int, int, int, int, int);
 M2C_UNK GXSetZMode(int, int, int);
 M2C_UNK GXSetZCompLoc(int);
-M2C_UNK set_current_scene__6TSceneFi(int);
+M2C_UNK set_material_alpha_compare_reference(int);
 extern RecoveredGlobal_80141A30_lbl_8050C000 depth_buffer_settings;
 extern RecoveredGlobal_80141A30_lbl_8050C028 saved_depth_alpha_scene_state;
 void restore_saved_depth_alpha_state(void);
@@ -34,7 +34,7 @@ void restore_saved_depth_alpha_state(void) {
     GXSetAlphaCompare((int) (M2C_FIELD(&depth_buffer_settings.value, s32 *, 0)), (int) (0), (int) (0), (int) (7), (int) (0));
     GXSetZCompLoc((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 4)));
     GXSetZMode((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 5)), (int) (M2C_FIELD(&depth_buffer_settings.value, s32 *, 8)), (int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xC)));
-    set_current_scene__6TSceneFi((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD)));
+    set_material_alpha_compare_reference((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD)));
 }
 #pragma fp_contract on
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {

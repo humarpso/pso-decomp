@@ -193,7 +193,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK set_global_param__8TObjFishFi(s32);
 extern s32 lbl_805D5094;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9B68;
 void draw_model_no_fog__10TObjPlayerFPv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
@@ -206,7 +206,7 @@ void set_param__12TObjEneLappyFPvi(void *, s32);
 void apply_clamped_mode_param__10TObjPlayerFPv(u8 *arg0);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-extern s32 lbl_805D50C4;
+extern s32 shark_render_node_index;
 void update_particle_by_phase__10TObjPlayerFv(void);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -344,13 +344,13 @@ M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_chunk_object(s32);
 M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 void update_particle_by_phase__10TObjPlayerFv(void);
-extern s32 lbl_805D50C4;
+extern s32 shark_render_node_index;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BB0;
 extern const f32 lbl_805D9BB4;
@@ -535,7 +535,7 @@ void TObjPlayer__sub_800ABCBC(Obj_800ABCBC *arg0) {
 }
 
 void update_particle_by_phase__10TObjPlayerFv(void) {
-    switch (lbl_805D50C4) {
+    switch (shark_render_node_index) {
     case 0x10:
     case 0x1A:
     case 0x20:
@@ -545,7 +545,7 @@ void update_particle_by_phase__10TObjPlayerFv(void) {
         end_effect_render__13TParticleCtrlFv();
         break;
     }
-    lbl_805D50C4 += 1;
+    shark_render_node_index += 1;
 }
 typedef struct Fade_800ABDD8 Fade_800ABDD8;
 typedef struct Owner_800ABDD8 Owner_800ABDD8;
@@ -587,7 +587,7 @@ void TObjEneShark::render() {
     fade = updateFromCamera__15RenderFadeStateFPCf(f, arg0 + 0x2FC);
   }
   select_actor_lighting(arg0);
-  some_id_805c6f74 |= 1;
+  model_render_flags |= 1;
   set_global_param__8TObjFishFi(*((s32 *) (((s8 *) arg0) + 0x24)));
   push_matrix();
   translate_matrix(0, lbl_805D9BA0, *((f32 *) (((s8 *) arg0) + 0x380)), lbl_805D9BA0);
@@ -626,26 +626,26 @@ void TObjEneShark::render() {
       *((s16 *) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) (*((u8 **) (((s8 *) arg0) + 0x34)))) + 0x2C)))) + 0x30)))) + 0x30)))) + 4)))) + 4)))) + 6)) = -1;
     }
     toggle_particle_effect__10TObjPlayerFv();
-    lbl_805D50C4 = 0;
+    shark_render_node_index = 0;
     set_global_state__16TObjEneRe7BeruraFi((void *) update_particle_by_phase__10TObjPlayerFv);
     if ((*((s32 *) (((s8 *) arg0) + 0x390))) == 1)
     {
       if (((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m8() != 0)
       {
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
         ((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m6();
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(arg0) == 0)
         {
-          some_id_805c6f74 |= 1;
+          model_render_flags |= 1;
           draw__16TObjEneRe7BeruraFPv(arg0);
-          some_id_805c6f74 &= ~1;
+          model_render_flags &= ~1;
         }
         ((VObj_14_800ABDD8 *) (arg0 + 0x3A8))->m7();
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
       }
     }
     else
@@ -700,7 +700,7 @@ void TObjEneShark::render() {
     }
   }
   pop_matrix();
-  some_id_805c6f74 &= ~1;
+  model_render_flags &= ~1;
   restore_scene_lighting();
   switch (*((s16 *) (((s8 *) arg0) + 0x326)))
   {
@@ -791,7 +791,7 @@ extern u32 shark_resource_buffer;
 extern u32 shark_bml_resource;
 extern u32 TObjEneShark__attack_motion_3_trail;
 extern u32 shark_attack4_trail_buffer;
-extern s32 lbl_805D50C4;
+extern s32 shark_render_node_index;
 extern const f32 lbl_805D9BA0;
 extern const f32 lbl_805D9BAC;
 extern const f32 lbl_805D9BC0;
@@ -1102,7 +1102,7 @@ void load_shark_resources__6TLobbyFv(void) {
     G_B4[0] = dispatch_shared_handler_a__6TLobbyFPv(0x4E);
     G_B4[1] = dispatch_shared_handler_a__6TLobbyFPv(0x4F);
     G_B4[2] = dispatch_shared_handler_a__6TLobbyFPv(0x50);
-    lbl_805D50C4 = 0;
+    shark_render_node_index = 0;
     {
         s16 ids[3] = { 0x2F, 0x30, 0x31 };
         Anim_800AC318 anim = { (s32)RES->motions, TObjEneShark__action_table, 2, 0xC0000 };

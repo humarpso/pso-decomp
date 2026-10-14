@@ -490,15 +490,15 @@ s32 pop_matrix();
 extern RecoveredGlobal_802E80F4_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_802E80F4_main_task main_task;
 extern RecoveredGlobal_802E80F4_lbl_805412C0 boss7_derolle_light_pool;
-extern RecoveredGlobal_802E80F4_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_802E80F4_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern u8 *lbl_805D693C;
 extern M2C_UNK *lbl_805D6940;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_802E80F4(u8 *arg0);
 }
 
@@ -552,10 +552,10 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
             var_r29 += 1;
             var_r30 = (s32 *)((u8 *)var_r30 + (4));
         } while (var_r29 != 0xA);
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         clear_global_flag_400__9TObjEneDDFv();
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
@@ -570,10 +570,10 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
         TObjPlayer__sub_802E7FC0((void *) (arg0));
         render_nodes__7TObjectFv((void *) (arg0 + 0x690));
     }

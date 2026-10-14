@@ -119,7 +119,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 M2C_UNK fn_802E52AC();
 M2C_UNK init_uro_link__14TBoss4DarkFalzFv();
 extern RecoveredGlobal_8004C0D4_lbl_80484D74 darkfalz_dat_resource_descriptor;
-extern int lbl_805D4D58;
+extern int darkfalz_dat_resource;
 void load_resources__14TBoss4DarkFalzFv(void);
 M2C_UNK change_state__14TBoss4DarkFalzFPvi(void *, int);
 s32 get_phase__9TBoss4UroFPv(void *);
@@ -208,7 +208,7 @@ void run_task__14TBoss4DarkFalzFv(u8 *arg0) {
 
 void TBoss4DarkFalz__vt61(void) {  }
 
-    extern int lbl_805D4D58;
+    extern int darkfalz_dat_resource;
 
 u8 *__dt__14TBoss4DarkFalzFv(u8 *arg0, s16 arg1) {
     s32 temp_r0;
@@ -356,7 +356,7 @@ void handle_6x19_dark_falz_actions(Msg_8004BFA4 *arg0) {
     }
 }
 
-void cleanup_global__14TBoss4DarkFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)(lbl_805D4D58), (void*)1); lbl_805D4D58 = 0; }
+void cleanup_global__14TBoss4DarkFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); TBoss4DarkFalz__sub_8030AD38(); TLobby__sub_8001FE7C((void*)(darkfalz_dat_resource), (void*)1); darkfalz_dat_resource = 0; }
 
 extern s32 tl_04;
 
@@ -368,7 +368,7 @@ void load_resources__14TBoss4DarkFalzFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &darkfalz_dat_resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D4D58) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&darkfalz_dat_resource) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {
         init_uro_link__14TBoss4DarkFalzFv();
         fn_802E52AC();

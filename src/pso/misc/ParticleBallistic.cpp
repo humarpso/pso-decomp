@@ -288,7 +288,7 @@ M2C_UNK draw_ginja_model_with_motion(u32, u32, f32);
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D9528;
 extern const f32 lbl_805D9540;
 void draw_orbit_particle_sprite(u8 *arg0);
@@ -322,7 +322,7 @@ extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TParticleCtrl__data_805D955C;
 extern const f32 lbl_805D9564;
 void draw_radial_sprite_particle(u8 *arg0);
@@ -382,7 +382,7 @@ extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data
 extern u8 identity_matrix[];
 extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D951C;
 void draw_ballistic_sprite_particle(Part_800890F4 *p);
 }
@@ -645,9 +645,9 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         if (p->flags & 0x400) {
             setup_particle_tev(0);
         } else {
-            s32 st = some_id_805c6f74;
+            s32 st = model_render_flags;
             lbl_805D5660 = st;
-            some_id_805c6f74 = st | 0x8021;
+            model_render_flags = st | 0x8021;
             if (is_particle_sprite_additive(p, st) != 0) {
                 apply_particle_model_fade_color(p, 1);
             } else {
@@ -664,7 +664,7 @@ void draw_ballistic_sprite_particle(Part_800890F4 *p) {
         if (p->flags & 0x400) {
             disable_if_single_screen__13TParticleCtrlFv();
         } else {
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
         }
         func_80141618__Fv();
         end_effect_render__13TParticleCtrlFv();

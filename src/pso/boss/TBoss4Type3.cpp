@@ -954,7 +954,7 @@ extern const f32 lbl_805D8C94;
 extern const f32 lbl_805D8C98;
 extern const f32 lbl_805D8C9C;
 extern const f32 lbl_805D8CA0;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 tl_04;
 
 }
@@ -2341,7 +2341,7 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
     } else if (tbl == (const s32 *)lbl_80486FB0) {
         TBoss6PlotFalz__sub_802AC008(this->m_3e8, this->m_3ec);
     }
-    some_id_805c6f74 |= 0x20000;
+    model_render_flags |= 0x20000;
     TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type3__data_805D8C40, this->m_3dc);
     set_global_flag__10TObjPlayerFv();
     for (i = 0; i < 3; i++) {
@@ -2352,7 +2352,7 @@ void TBoss4Type3::draw_model_set(const s32 *tbl, f32 t) {
         clear_render_callback__8TObjFishFv((s32)this->render_lists[off]);
     }
     clear_global_state__10TObjPlayerFv();
-    some_id_805c6f74 &= ~0x20000;
+    model_render_flags &= ~0x20000;
     if (t < TBoss4Type3__data_805D8C34) {
         sync_player_globals__10TObjPlayerFv();
         return;

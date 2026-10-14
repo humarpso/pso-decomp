@@ -177,13 +177,13 @@ void update_battle_target__10TObjPlayerFPv(void *arg0) {
     }
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void draw_model__10TObjPlayerFPv(u8 *arg0) {
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
     if ((self->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
         select_actor_lighting(arg0);
-        some_id_805c6f74 |= 1;
+        model_render_flags |= 1;
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
@@ -196,7 +196,7 @@ void draw_model__10TObjPlayerFPv(u8 *arg0) {
         }
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
-        some_id_805c6f74 &= 0xFFFFFFFE;
+        model_render_flags &= 0xFFFFFFFE;
         restore_scene_lighting();
         render_with_position_override__10TObjPlayerFPvPvi(arg0, 0, 0);
     }

@@ -71,7 +71,7 @@ M2C_UNK draw_chunk_model(int);
 M2C_UNK TObjEneSlimeOne__sub_803E4B54(int, int, int, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__12TODoorVoShipFv(u8 *arg0);
 }
 
@@ -137,9 +137,9 @@ void render__12TODoorVoShipFv(u8 *arg0) {
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         TObjEneSlimeOne__sub_803E4B54((int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0xBC)), (int) (M2C_FIELD(arg0, s32 *, 0xD0)), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0xD8)));
-        temp_r4 = some_id_805c6f74;
+        temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
-        some_id_805c6f74 = temp_r4 | 0x20;
+        model_render_flags = temp_r4 | 0x20;
         set_chunk_material_color((void *) (arg0 + 0xDC));
         begin_effect_render__13TParticleCtrlFv();
         temp_r31 = M2C_FIELD(arg0, u8 **, 0xD4);
@@ -169,7 +169,7 @@ void render__12TODoorVoShipFv(u8 *arg0) {
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         pop_matrix();
     }
 }

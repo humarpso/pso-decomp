@@ -18,11 +18,11 @@ struct StripRef_800F591C { s16 *strip; s16 *uv; };
 extern "C" {
 void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
-extern s32 lbl_805D5320;
+extern s32 plist_texture_matches_filter;
 void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
 extern StripRef_800F591C *lbl_805D5318;
 extern s16 *lbl_805D531C;
-extern s32 lbl_805D5320;
+extern s32 plist_texture_matches_filter;
 void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 }
 
@@ -54,9 +54,9 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
         type = c & 0xFF;
         if (type < 0x10) {
             if ((*p++ & 0x1FFF) == tex) {
-                lbl_805D5320 = 1;
+                plist_texture_matches_filter = 1;
             } else {
-                lbl_805D5320 = 0;
+                plist_texture_matches_filter = 0;
             }
         } else if (type < 0x40) {
             s32 skip = *(u16 *) p;
@@ -65,7 +65,7 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
         } else {
             s32 skip = *(u16 *) p;
             p++;
-            if (lbl_805D5320 != 0 && type == 0x41) {
+            if (plist_texture_matches_filter != 0 && type == 0x41) {
                 lbl_805D5318->strip = p;
                 lbl_805D5318->uv = lbl_805D531C;
                 lbl_805D5318++;
@@ -114,9 +114,9 @@ void count_plist_strips_by_texture(void *ctx, void *plist, void *arg) {
         c = c & 0xFF;
         if (c < 0x10) {
             if ((*p++ & 0x1FFF) == (s32) arg) {
-                lbl_805D5320 = 1;
+                plist_texture_matches_filter = 1;
             } else {
-                lbl_805D5320 = 0;
+                plist_texture_matches_filter = 0;
             }
         } else if (c < 0x40) {
             skip = *(u16 *) p;
@@ -125,7 +125,7 @@ void count_plist_strips_by_texture(void *ctx, void *plist, void *arg) {
         } else {
             s32 size = *(u16 *) p;
             p++;
-            if (lbl_805D5320 != 0 && c == 0x41) {
+            if (plist_texture_matches_filter != 0 && c == 0x41) {
                 cnt->strips++;
                 n = *p++ & 0x3FFF;
                 for (i = 0; i < n; i++) {

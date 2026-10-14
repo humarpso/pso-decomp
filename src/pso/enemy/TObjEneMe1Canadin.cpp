@@ -515,7 +515,7 @@ extern M2C_UNK lbl_8043A274[];
 extern u32 lbl_805D4FD4;
 extern s32 TObjEneMe1Canadin__render_point_cursor;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9898;
 extern const f32 lbl_805D98A0;
 extern const f32 lbl_805D98A4;
@@ -3773,7 +3773,7 @@ void TObjPlayer__sub_8009BA04(u8 *arg0) {
         }
         update_secondary_light__9TObjEneDDFPv((void *) (arg0));
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         ((VObj_18_8dc821 *)(arg0))->m111();
@@ -3819,7 +3819,7 @@ void TObjPlayer__sub_8009BA04(u8 *arg0) {
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv((void *) (arg0));
         return;
     }

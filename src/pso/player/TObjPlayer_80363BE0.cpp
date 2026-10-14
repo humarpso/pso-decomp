@@ -8,7 +8,7 @@ void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void* init_vtable_804F2A10__10TObjPlayerFPv(void*);
 extern M2C_UNK lbl_804F29F8[];
 extern M2C_UNK lbl_804F2A10[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern u8 * lbl_805D6FB8;
 extern int player_item_id_list;
 void push_to_list__10TObjPlayerFPvi(u8 *, s32);
@@ -138,14 +138,14 @@ void func_80141618__Fv(void);
 void set_depth_buffer_settings_id__FUl(u32);
 void reset_transform_state__10TObjPlayerFv(void);
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern u8 *lbl_805D6FB8;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_80363D4C(void);
 }
 
@@ -168,10 +168,10 @@ void TObjPlayer__sub_80363D4C(void) {
     s32 n;
     VObj_18_1419ea *obj;
     reset_transform_state__10TObjPlayerFv();
-    lbl_805D5660 = some_id_805c6f74;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+    lbl_805D5660 = model_render_flags;
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
     n = *(s32 *)(lbl_805D6FB8 + 0xB0);
     p = (s32 *)(lbl_805D6FB8 + 0x30);
     while (n != 0) {
@@ -180,17 +180,17 @@ void TObjPlayer__sub_80363D4C(void) {
             set_depth_buffer_settings_id__FUl(1);
             obj->m26();
             reset_transform_state__10TObjPlayerFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
             set_depth_buffer_settings_id__FUl(2);
             obj->m26();
             reset_transform_state__10TObjPlayerFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
         }
         n--;
     }
@@ -274,7 +274,7 @@ void push_id_to_list__10TObjPlayerFi(s32 arg0) {
 
 #define copy_vec4__13TRaderMapCoreFPvPv ((s32 (*)(void *, void *))copy_vec4__13TRaderMapCoreFPvPv)
 #define init_vtable_804F2A10__10TObjPlayerFPv ((void * (*)(void *, void *))init_vtable_804F2A10__10TObjPlayerFPv)
-#define lbl_8058D4C0 (*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&lbl_8058D4C0)
+#define model_material_color (*(RecoveredGlobal_803640C8_lbl_8058D4C0 *)&model_material_color)
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 
 struct RecoveredGlobal_803640C8_lbl_8058D4C0 {
@@ -302,20 +302,20 @@ struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
 void copy_gauge_warn_vec__10TObjPlayerFv(void);
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_8036414C(void);
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_80364198(void);
 void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0);
 void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0);
 void set_chunk_material_override_pair(s32, s32);
 M2C_UNK set_chunk_blend(M2C_UNK);
 extern Rec_80364028 lbl_80479FF8;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805E0288;
 void set_model_fade_alpha__10TObjPlayerFf(f32 farg0);
 }
@@ -347,7 +347,7 @@ typedef char RecoveredGlobal_803640C8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 
 void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
     if (farg0 < lbl_805E0288) {
-        some_id_805c6f74 |= 0x24;
+        model_render_flags |= 0x24;
         set_chunk_material_override_pair(-1, 0x800);
         set_chunk_blend(0x2500);
         Rec_80364028 r = lbl_80479FF8;
@@ -358,36 +358,36 @@ void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
 }
 
 void copy_gauge_warn_vec__10TObjPlayerFv(void) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C));
 }
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&lbl_8058D4C0).value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value));
     if (arg0 != NULL) {
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&lbl_8058D4C0).value), (void *) (arg0));
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value), (void *) (arg0));
     }
 }
 
 void TObjPlayer__sub_8036414C(void) {
-    some_id_805c6f74 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0);
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&lbl_8058D4C0).value), (void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC));
-    lbl_805D7784 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4);
-    lbl_805D7780 = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8);
+    model_render_flags = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0);
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&model_material_color).value), (void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC));
+    chunk_polygon_flags_and_mask = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4);
+    chunk_polygon_flags_or_mask = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8);
 }
 typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_80364198(void) {
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0) = (s32) some_id_805c6f74;
-    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&lbl_8058D4C0).value));
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4) = (s32) lbl_805D7784;
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8) = (s32) lbl_805D7780;
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0) = (s32) model_render_flags;
+    copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&model_material_color).value));
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4) = (s32) chunk_polygon_flags_and_mask;
+    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8) = (s32) chunk_polygon_flags_or_mask;
 }
 
 }
 #undef copy_vec4__13TRaderMapCoreFPvPv
 #undef init_vtable_804F2A10__10TObjPlayerFPv
-#undef lbl_8058D4C0
+#undef model_material_color
 #undef lbl_805D6FB8
 
 #define lbl_805D6FB8 (*(u32 *)&lbl_805D6FB8)

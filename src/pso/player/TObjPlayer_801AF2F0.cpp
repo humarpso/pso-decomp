@@ -3216,7 +3216,7 @@ extern const f32 lbl_805DC2CC;
 extern const f32 lbl_805DC2D0;
 extern const f32 lbl_805DC2D4;
 extern M2C_UNK main_task[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 start_freeze_self__10TObjPlayerFPv;
 extern u32 tl_03;
 extern s32 tl_05;
@@ -5732,7 +5732,7 @@ void clear_action_flag__10TObjPlayerFPv(void *arg0) {
 void apply_material_color_override__10TObjPlayerFi(s32 arg0) {
     if (!(get_mag_scale_f__10TObjPlayerFPv((void *) (arg0 + 0x608)) >= TObjPlayer__data_805DC294)) {
         reset_transform_state__10TObjPlayerFv();
-        some_id_805c6f74 |= 0x810;
+        model_render_flags |= 0x810;
         set_chunk_material_override_pair((int) (-1), (int) (0x800));
         set_chunk_material_color((void *) (arg0 + 0x624));
     }
@@ -8071,7 +8071,7 @@ void draw_body__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     set_some_id__FUl((int) (8));
     ((s32 (*)(void *))apply_material_color_override__10TObjPlayerFi)((void *) (arg0));
     if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
-        some_id_805c6f74 |= 0x810;
+        model_render_flags |= 0x810;
         set_chunk_material_override_pair((int) (-1), (int) (0x800));
         set_shadow_material_state();
     }
@@ -8120,9 +8120,9 @@ void render__10TObjPlayerFv(u8 *arg0) {
                     ((M2C_UNK (*)(void *))get_speed__10TObjPlayerFPv)(arg0);
                     ((M2C_UNK (*)(void *))draw__10TObjPlayerFPvf)(arg0);
                 } else if (!(M2C_FIELD(arg0, u16 *, 4) & 0x400)) {
-                    some_id_805c6f74 |= 1;
+                    model_render_flags |= 1;
                     ((M2C_UNK (*)(void *, s32))draw_body__10TObjPlayerFPvi)(arg0, (s32) temp_f31);
-                    some_id_805c6f74 &= 0xFFFFFFFE;
+                    model_render_flags &= 0xFFFFFFFE;
                 }
                 save_render_material_state(arg0 + 0x608);
                 ((M2C_UNK (*)(void *))apply_material_color_override__10TObjPlayerFi)(arg0);
@@ -8161,9 +8161,9 @@ void render_body_pass__10TObjPlayerFPvf(u8 *self, f32 f) {
     if (((s32 (*)(void *))check_flag_800000__10TObjPlayerFPv)(self) != 0 && ((s32 (*)(void *))obj_isState2_324)(self) != 0) {
         draw__10TObjPlayerFPvf(self, get_speed__10TObjPlayerFPv(self));
     } else if (!(*(u16 *)(self + 4) & 0x400)) {
-        some_id_805c6f74 |= 1;
+        model_render_flags |= 1;
         draw_body__10TObjPlayerFPvi(self, (s32)f);
-        some_id_805c6f74 &= ~1;
+        model_render_flags &= ~1;
     }
     save_render_material_state(self + 0x608);
     ((s32 (*)(void *))apply_material_color_override__10TObjPlayerFi)(self);

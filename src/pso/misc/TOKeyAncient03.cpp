@@ -148,7 +148,7 @@ M2C_UNK set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern void *TOKeyAncient03__texture_variants;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__14TOKeyAncient03Fv(u8 *arg0);
 }
 
@@ -236,9 +236,9 @@ void render__14TOKeyAncient03Fv(u8 *arg0) {
         post_translate_matrix((void *) (temp_r31 + 8));
         draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
-            temp_r4 = some_id_805c6f74;
+            temp_r4 = model_render_flags;
             lbl_805D5660 = temp_r4;
-            some_id_805c6f74 = temp_r4 | 0x10;
+            model_render_flags = temp_r4 | 0x10;
             set_chunk_material_color(arg0 + 0xE8);
         }
         temp_r31_2 = M2C_FIELD(temp_r31, u8 **, 0x2C);
@@ -256,7 +256,7 @@ void render__14TOKeyAncient03Fv(u8 *arg0) {
         pop_matrix();
         if ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1) {
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
         }
         pop_matrix();
     }

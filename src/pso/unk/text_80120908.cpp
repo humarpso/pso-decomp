@@ -57,7 +57,7 @@ extern s16 TObjPlayer__weapon_node_ids[];
 extern M2C_UNK lbl_805D53EC;
 extern s16 weapon_node_material_index;
 extern u8 *weapon_render_callback_object;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DACA8;
 extern const f32 lbl_805DACAC;
 s32 draw_weapon_model(void *arg0);
@@ -94,11 +94,11 @@ s32 draw_weapon_model(void *arg0) {
                 set_global_state__16TObjEneRe7BeruraFi((void *) (apply_weapon_node_material));
             }
             TObjPlayer__sub_80364198();
-            some_id_805c6f74 &= 0xFFFFFFEF;
+            model_render_flags &= 0xFFFFFFEF;
             get_mag_scale__10TObjPlayerFPv((void *) (arg0));
             set_model_fade_alpha__10TObjPlayerFf();
             if (is_flag_400__10TObjPlayerFPv((void *) (arg0)) != 0) {
-                some_id_805c6f74 |= 0x8011;
+                model_render_flags |= 0x8011;
                 set_color_blend_mode((int) (1), (int) (4), (int) (5), (int) (0));
                 set_shadow_material_state();
                 if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
@@ -112,7 +112,7 @@ s32 draw_weapon_model(void *arg0) {
                     draw_model_motion((int) (M2C_FIELD(arg0, u32 *, 0xF4)), (int) (M2C_FIELD(arg0, u32 *, 0x17C)), (f32) (M2C_FIELD(arg0, f32 *, 0x1D8)));
                     clear_global_state__10TObjPlayerFv();
                 }
-                some_id_805c6f74 &= 0xFFFF7FEE;
+                model_render_flags &= 0xFFFF7FEE;
             } else if ((u32) M2C_FIELD(arg0, u32 *, 0x17C) == 0U) {
                 if (test_flags_1b8__10TObjPlayerFPvUi((void *) (arg0), (int) (0x40)) != 0U) {
                     apply_sign_effect__10TObjPlayerFPvi((void *) (arg0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0xDB4)));

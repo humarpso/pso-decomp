@@ -45,9 +45,9 @@ void post_translate_matrix(void *);
 void draw_ginja_object(void *);
 void set_chunk_material_color(void *);
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern u32 lbl_805D5660;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self);
 }
 
@@ -67,9 +67,9 @@ void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self) {
         return;
     }
     if (self->m_3c != NULL) {
-        lbl_805D5660 = some_id_805c6f74;
-        some_id_805c6f74 = lbl_805D5660 | 0x20;
-        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+        lbl_805D5660 = model_render_flags;
+        model_render_flags = lbl_805D5660 | 0x20;
+        copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         set_chunk_material_color(self->m_1c);
         notify_fish_if_valid__10TObjPlayerFUi(self->m_40);
         begin_effect_render__13TParticleCtrlFv();
@@ -79,8 +79,8 @@ void draw_model__18TItemEffNeedleBaseFPv(Needle_80109D48 *self) {
         draw_ginja_object(self->m_3c);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
     }
 }
 

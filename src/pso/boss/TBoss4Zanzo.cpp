@@ -976,7 +976,7 @@ extern const f32 lbl_805D8C94;
 extern const f32 lbl_805D8C98;
 extern const f32 lbl_805D8C9C;
 extern const f32 lbl_805D8CA0;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 tl_04;
 
 }
@@ -1789,14 +1789,14 @@ void draw_hanger__11TBoss4Type2FPv(Obj_80057270 *arg0) {
         ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)(TObjFish__sub_8001EDB0(arg0->f390, boss4_zanzo_bml_index_table[i]));
         switch (i) {
         case 1:
-            some_id_805c6f74 |= 0x20000;
+            model_render_flags |= 0x20000;
             TObjEneRe4Sorcerer__sub_801E3F1C(TBoss4Type2__data_805D8BAC, arg0->f3c0);
             set_draw_callback_list__8TObjFishFPv(arg0->f44c);
             ((M2C_UNK (*)(s32, s32, f32))draw_model_motion)(get_bml_model(arg0->f390, boss4_zanzo_bml_index_table[i]),
                 get_bml_motion((s32)(arg0->f390), (s32)(((Row_80057270 *)&TBoss4Type2__attack_pattern_table)[arg0->f3c8].c[i])),
                 arg0->f3d0);
             clear_render_callback__8TObjFishFv(arg0->f44c);
-            some_id_805c6f74 &= ~0x20000;
+            model_render_flags &= ~0x20000;
             break;
         default:
             TBoss6PlotFalz__sub_802AC008(arg0->f3f0, arg0->f3f4);

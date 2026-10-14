@@ -420,7 +420,7 @@ extern s32 lbl_805D5140;
 extern u32 TObjGrass__bml_resource;
 extern s32 lbl_805D5148;
 extern s32 lbl_805D514C;
-extern s32 TObjGrass__data_805D5150;
+extern s32 TObjGrass__render_node_index;
 extern u32 TObjGrass__resource_bundle;
 extern u32 lbl_805D5158;
 extern u32 lbl_805D515C;
@@ -880,7 +880,7 @@ extern u8 lbl_804FF5E8[];
 void update_camera_vec_by_stage__9TObjGrassFv(void) {
     Vec_800BF66C *v;
 
-    switch (TObjGrass__data_805D5150) {
+    switch (TObjGrass__render_node_index) {
     case 0x31:
         v = &lbl_80500BB8;
         lbl_80500BB8.x = (0.0f);
@@ -911,7 +911,7 @@ void update_camera_vec_by_stage__9TObjGrassFv(void) {
         transform_vec_by_camera__15TObjBoss2TunnelFiii(lbl_804FF5E8, v, v);
         break;
     }
-    TObjGrass__data_805D5150++;
+    TObjGrass__render_node_index++;
 }
 
 void TObjGrass__vt61(u8 *arg0) {
@@ -1851,9 +1851,9 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 struct Grass_800BF19C : VObj_18_ca64a0 {
     u8 pad1C[0x3B0 - 0x1C];
     VObj_14_d701ad sub;
@@ -1880,30 +1880,30 @@ void render__9TObjGrassFv(Grass_800BF19C *self) {
         draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
     } else {
         toggle_particle_effect__10TObjPlayerFv();
-        TObjGrass__data_805D5150 = 0;
+        TObjGrass__render_node_index = 0;
         set_global_state__16TObjEneRe7BeruraFi((void *)update_camera_vec_by_stage__9TObjGrassFv);
         if (M2C_FIELD(arg0, s32 *, 0x3AC) == 1) {
             if ((&self->sub)->m8() != 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
-                (&self->sub)->m6(lbl_805D7784, some_id_805c6f74);
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
+                (&self->sub)->m6(chunk_polygon_flags_and_mask, model_render_flags);
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) == 0) {
                     draw__16TObjEneRe7BeruraFPv(self);
                 }
                 (&self->sub)->m7();
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
-                some_id_805c6f74 = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
             }
         } else {
-            some_id_805c6f74 |= 0x01000000;
+            model_render_flags |= 0x01000000;
             if (M2C_FIELD(arg0, s32 *, 0x3A8) == 1) {
                 draw__16TObjEneRe7BeruraFPv(self);
             } else {
                 render_world_model__10TObjPlayerFPv(self);
             }
-            some_id_805c6f74 &= 0xFEFFFFFF;
+            model_render_flags &= 0xFEFFFFFF;
         }
         end_effect_render__13TParticleCtrlFv();
     }
@@ -2052,7 +2052,7 @@ void load_resources__9TObjGrassFv(void) {
         }
         TObjGrass__resource_bundle = (u32) p;
     }
-    TObjGrass__data_805D5150 = 0;
+    TObjGrass__render_node_index = 0;
     lbl_80500BD0.x = lbl_80500BD0.y = lbl_80500BD0.z = (0.0f);
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {

@@ -99,7 +99,7 @@ extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 TObjDoorKey__data_805D5C04;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
@@ -116,7 +116,7 @@ extern u8 lbl_804B795C[][0x10];
 extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(int, void *, int, int);
@@ -211,8 +211,8 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     begin_effect_render__13TParticleCtrlFv();
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 |= 0x10;
+    lbl_805D5660 = model_render_flags;
+    model_render_flags |= 0x10;
     set_chunk_material_color(lbl_804B795C[arg0->f8C]);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[1]);
     rotate_matrix_y(0, arg0->fF0);
@@ -220,7 +220,7 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     free_children__12TObjDoorJungFPvPv(((Node_8018FBB8 *)g[2])->f4, (u16)arg0->f8C);
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
 }
@@ -233,14 +233,14 @@ M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
     rotate_matrix_y(0, arg0->f60);
     draw_ginja_object((void *)TObjDoorKey__ginja_model_table[0]);
     begin_effect_render__13TParticleCtrlFv();
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 |= 0x10;
+    lbl_805D5660 = model_render_flags;
+    model_render_flags |= 0x10;
     set_chunk_material_color(lbl_804B795C[arg0->f8C]);
     s32 *g = TObjDoorKey__ginja_model_table;
     free_children__12TObjDoorJungFPvPv(((Node_8018FCD8 *)g[2])->f4, (u16)arg0->f8C);
     draw_ginja_object((void *)g[2]);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
 }

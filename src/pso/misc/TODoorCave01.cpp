@@ -28,7 +28,7 @@ M2C_UNK set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TODoorCave01__texture_lists;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2);
 }
 
@@ -59,9 +59,9 @@ M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
     draw_ginja_model((int) (M2C_FIELD(((u8 *) p1), s32 *, 4)));
     temp_r31 = M2C_FIELD(((u8 *) p1), u8 **, 0x2C);
     if (arg2 != 1) {
-        temp_r4 = some_id_805c6f74;
+        temp_r4 = model_render_flags;
         lbl_805D5660 = temp_r4;
-        some_id_805c6f74 = temp_r4 | 0x10;
+        model_render_flags = temp_r4 | 0x10;
         set_chunk_material_color((void *) (((s32) p0) + 0xDC), (int) (temp_r4));
     }
     begin_effect_render__13TParticleCtrlFv();
@@ -77,7 +77,7 @@ M2C_UNK draw_door_model__12TODoorCave01FPvii(void *p0, int p1, int arg2) {
     end_effect_render__13TParticleCtrlFv();
     if (arg2 != 1) {
         ((void (*)(void *)) set_chunk_material_color)(chunk_material_color_half_alpha_f32);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
     pop_matrix();
 }

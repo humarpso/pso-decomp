@@ -343,8 +343,8 @@ s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(int);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-extern s32 *lbl_805D5168;
-extern s32 some_id_805c6f74;
+extern s32 *rappy_visibility_node;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F30;
 extern const f32 lbl_805D9F34;
@@ -556,9 +556,9 @@ void render__12TObjEneLappyFPv(u8 *arg0) {
     s32 temp_r3;
     if (obj_testFlags30((void *)((void *) (arg0)), (M2C_UNK)((int) (0x02000000))) == 0) {
         if (M2C_FIELD(arg0, s16 *, 0x374) & 1) {
-            *lbl_805D5168 &= 0xFFFFFFF7;
+            *rappy_visibility_node &= 0xFFFFFFF7;
         } else {
-            *lbl_805D5168 |= 8;
+            *rappy_visibility_node |= 8;
         }
         temp_r3 = ((VObj_18_ca64a0 *)(arg0))->m9(lbl_805D9F30, lbl_805D9F34, lbl_805D9F28);
         if (temp_r3 != 0) {
@@ -573,18 +573,18 @@ void render__12TObjEneLappyFPv(u8 *arg0) {
                 scale_matrix((int) (0), (f32) (lbl_805D9F38), (f32) (lbl_805D9F3C), (f32) (lbl_805D9F38));
                 TObjEneDD__sub_800B9B24((f32) (lbl_805D9F40));
             }
-            some_id_805c6f74 &= 0xFFFFFBFF;
+            model_render_flags &= 0xFFFFFBFF;
             set_global_flag__10TObjPlayerFv();
             if (is_item_light_interaction_blocked() == 1) {
                 draw_chunk_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
             } else {
-                some_id_805c6f74 |= 0x01000000;
+                model_render_flags |= 0x01000000;
                 if (temp_r3 == 1) {
                     draw__16TObjEneRe7BeruraFPv((void *) (arg0));
                 } else {
                     render_world_model__10TObjPlayerFPv((void *) (arg0));
                 }
-                some_id_805c6f74 &= 0xFEFFFFFF;
+                model_render_flags &= 0xFEFFFFFF;
             }
             clear_global_state__10TObjPlayerFv();
             if (M2C_FIELD(arg0, s16 *, 0x374) & 0x400) {
@@ -1242,7 +1242,7 @@ void * create__12TObjEneLappyFPv(void *arg0) {
 
 #undef TObjEneLappy__ct
 
-#define lbl_805D5168 (*(s32 *)&lbl_805D5168)
+#define rappy_visibility_node (*(s32 *)&rappy_visibility_node)
 #define update_action_hold__12TObjEneLappyFi (*(void (*)())&update_action_hold__12TObjEneLappyFi)
 #define try_clear_flags_60__10TObjPlayerFi (*(void (*)())&try_clear_flags_60__10TObjPlayerFi)
 #define set_action_state_3__10TObjPlayerFPv (*(void (*)())&set_action_state_3__10TObjPlayerFPv)
@@ -1592,7 +1592,7 @@ void update_effect_sequence__10TObjPlayerFv(void);
 void draw_with_alt_model__10TObjPlayerFPvi(void *, int);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 extern Vec_800C220C lbl_8043BBB4[];
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5178;
 extern s32 lbl_805D517C;
@@ -1918,19 +1918,19 @@ extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F4C;
 extern s32 game_difficulty_selection;
 extern s32 TLobby__event_theme_id;
-extern s32 lbl_805D516C;
+extern s32 rappy_alternate_texture_list;
 #define rappy_bml_resource (*(u32 *)&rappy_bml_resource)
-#define lbl_805D516C (*(u32 *)&lbl_805D516C)
+#define rappy_alternate_texture_list (*(u32 *)&rappy_alternate_texture_list)
 
 void cleanup_handles__6TLobbyFv(void) {
     if (get_instance__6TLobbyFv() == 0) {
-        if ((u32) lbl_805D516C != 0U) {
-            TLobby__sub_803DA16C((void*)lbl_805D516C);
-            safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D516C);
-            lbl_805D516C = 0U;
+        if ((u32) rappy_alternate_texture_list != 0U) {
+            TLobby__sub_803DA16C((void*)rappy_alternate_texture_list);
+            safe_free__23TAdSinglePlyChrSelectGCFUi(rappy_alternate_texture_list);
+            rappy_alternate_texture_list = 0U;
         }
     } else {
-        lbl_805D516C = 0U;
+        rappy_alternate_texture_list = 0U;
     }
     if ((u32) rappy_bml_resource != 0U) {
         TLobby__sub_8001FE7C((void*)rappy_bml_resource, 1);
@@ -2031,14 +2031,14 @@ void load_resources__12TObjEneLappyFv(void) {
     }
     if (get_instance__6TLobbyFv() == 0) {
         if (rare) {
-            lbl_805D516C = load_gvm_texture_file(lbl_8043BA28);
+            rappy_alternate_texture_list = load_gvm_texture_file(lbl_8043BA28);
         } else {
-            lbl_805D516C = load_gvm_texture_file(lbl_8043BA44);
+            rappy_alternate_texture_list = load_gvm_texture_file(lbl_8043BA44);
         }
     } else {
-        lbl_805D516C = *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x1C);
+        rappy_alternate_texture_list = *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x1C);
     }
-    lbl_805D5168 = ((s32 (*)(s32, s32))collect_and_count__12TBoss3VoloptFUii)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), 0x12);
+    rappy_visibility_node = ((s32 (*)(s32, s32))collect_and_count__12TBoss3VoloptFUii)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), 0x12);
     for (i = 0; i < 2; i++) {
         lbl_80500BE0[i] = register_boss__6TLobbyFPv(i + 0x18);
         lbl_80500BE8[i] = dispatch_shared_handler_b__6TLobbyFPv(i + 0x18);
@@ -2052,7 +2052,7 @@ void load_resources__12TObjEneLappyFv(void) {
         spawn_npc_enemy__6TLobbyFsiiiff(5, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8),
                                         *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0xC), &d, lbl_805D9F28, lbl_805D9F4C);
         if (get_instance__6TLobbyFv() == 0) {
-            spawn_npc_enemy__6TLobbyFsiiiff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), lbl_805D516C, &d,
+            spawn_npc_enemy__6TLobbyFsiiiff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), rappy_alternate_texture_list, &d,
                                             lbl_805D9F28, lbl_805D9F4C);
         } else {
             spawn_npc_enemy__6TLobbyFsiiiff(6, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0x18),
@@ -2063,7 +2063,7 @@ void load_resources__12TObjEneLappyFv(void) {
 
 #undef RES_800C17B8
 #undef rappy_bml_resource
-#undef lbl_805D516C
+#undef rappy_alternate_texture_list
 
 void *destroy__12TObjEneLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -2097,7 +2097,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (calc_boss4_scale__10TObjPlayerFi(self) < lbl_805D9F94) {
         *(s32 *)(self + 0x368) = 1;
         if (get_instance__6TLobbyFv() == 1) {
-            lbl_805D5168 = collect_and_count__12TBoss3VoloptFUii(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18), 0x12);
+            rappy_visibility_node = collect_and_count__12TBoss3VoloptFUii(*(void **)(*(u8 **)((u8 *)rappy_bml_resource + 0x42C) + 0x18), 0x12);
         }
     }
     if (*(s32 *)(self + 0x368) == 0) {
@@ -2170,7 +2170,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
 int is_lying_down__12TObjEneLappyFv(void) { return 0; }
 
 extern void *rappy_bml_resource;
-extern s32 lbl_805D516C;
+extern s32 rappy_alternate_texture_list;
 
 void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
     s32 var_r0;
@@ -2189,7 +2189,7 @@ void set_speed_params__12TObjEneLappyFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
         var_r0_2 = M2C_FIELD(M2C_FIELD(rappy_bml_resource, void **, 0x42C), s32 *, 0xC);
     } else {
-        var_r0_2 = lbl_805D516C;
+        var_r0_2 = rappy_alternate_texture_list;
     }
     M2C_FIELD(arg0, s32 *, 0x24) = var_r0_2;
 }
@@ -2303,7 +2303,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
         push_matrix();
         post_translate_matrix(&o->pos);
         rotate_matrix_y(0, o->f3C0);
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         set_scene_override(0);
         clear_global_flag_400__9TObjEneDDFv();
         translate_matrix(0, lbl_805D9FAC, o->f3C8, lbl_805D9FAC);
@@ -2343,7 +2343,7 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
         }
         set_global_state__16TObjEneRe7BeruraFi(0);
         restore_default_scene();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         pop_matrix();
         update_primary_light__9TObjEneDDFPv(o);
         if (get_flag_11__16TObjEneRe2FlowerFPv(o) == 0 && TObjEneRe2Flower__sub_800C3B8C(o) != 0) {
@@ -2386,4 +2386,4 @@ void TObjPlayer__sub_800C220C(Obj_800C220C *o) {
 #undef try_clear_flags_60__10TObjPlayerFi
 #undef update_action_hold__12TObjEneLappyFi
 
-#undef lbl_805D5168
+#undef rappy_visibility_node

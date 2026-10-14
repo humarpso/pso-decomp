@@ -85,9 +85,9 @@ M2C_UNK draw_chunk_object(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern s32 lbl_805DD930;
 extern const f32 lbl_805DD934;
 s32 calc_section_id_from_name(s8 *arg0);
@@ -153,15 +153,15 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
     s32 second;
     s32 first;
     s32 temp_r8;
-    temp_r8 = some_id_805c6f74;
-    first = lbl_805D7784;
-    second = lbl_805D7780;
+    temp_r8 = model_render_flags;
+    first = chunk_polygon_flags_and_mask;
+    second = chunk_polygon_flags_or_mask;
     temp_r3 = temp_r8 & 0xFFFFFFDF;
-    some_id_805c6f74 = temp_r3;
+    model_render_flags = temp_r3;
     lbl_805D5660 = temp_r8;
     lbl_805D5664 = first;
     lbl_805D5668 = second;
-    some_id_805c6f74 = temp_r3 | lbl_805DD930;
+    model_render_flags = temp_r3 | lbl_805DD930;
     if (farg0 < 1.0f) {
         set_chunk_material_override_pair((int) (-1), (int) (0x800));
     }
@@ -175,9 +175,9 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
         set_chunk_material_color(&color.a);
     }
     draw_chunk_object((void *) (arg0));
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
 }
 #pragma pop
 
@@ -334,9 +334,9 @@ M2C_UNK validate_player_visual_record(void *arg0) {
     return ok;
 }
 
-void clear_flag_bit0__12TCharaMakingFv(void) { restore_default_scene(); some_id_805c6f74 = (some_id_805c6f74 & 0xfffffffe); }
+void clear_flag_bit0__12TCharaMakingFv(void) { restore_default_scene(); model_render_flags = (model_render_flags & 0xfffffffe); }
 
-void enable_making__12TCharaMakingFv(void) { some_id_805c6f74 = (some_id_805c6f74 | 0x1); set_scene_override((void*)31); }
+void enable_making__12TCharaMakingFv(void) { model_render_flags = (model_render_flags | 0x1); set_scene_override((void*)31); }
 typedef struct Appearance Appearance;
 typedef struct ClassAppearance ClassAppearance;
 typedef struct TextureList TextureList;

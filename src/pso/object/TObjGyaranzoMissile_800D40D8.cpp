@@ -127,7 +127,7 @@ void TObjGyaranzoMissile__sub_800D40DC(void) {  }
 int TObjGyaranzoMissile__sub_800D40E0(void) { return 0; }
 void TObjGyaranzoMissile__sub_800D40E8(void) {  }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 f32 get_gyaranzo_missile_float_parameter(s32 arg0) {
     return M2C_FIELD((gyaranzo_missile_param_table + (arg0 * 4)), f32 *, 0);
@@ -199,7 +199,7 @@ void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xBC));
     rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0xC0));
-    some_id_805c6f74 &= 0xFFFFFBFF;
+    model_render_flags &= 0xFFFFFBFF;
     draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xC4));
     pop_matrix();
 }

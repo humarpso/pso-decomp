@@ -624,7 +624,7 @@ extern u32 belra_uv_animation_buffer;
 extern s32 lbl_805D4F90;
 extern s32 lbl_805D4F94;
 extern s32 lbl_805D4F9C;
-extern u32 lbl_805D4FA0;
+extern u32 belra_trail_buffer;
 extern const s32 lbl_805D9718[1];
 extern const s32 lbl_805D971C[1];
 extern const s32 lbl_805D9720[1];
@@ -1285,9 +1285,9 @@ void *TObjEneRe7Berura__ct(void *arg0, void *arg1, void *arg2) {
 }
 
 void destroy_children__16TObjEneRe7BeruraFv(void) {
-    if ((u32) lbl_805D4FA0 != 0U) {
-        __dt__11TBoss4Type3FPvs((void*)lbl_805D4FA0, 1);
-        lbl_805D4FA0 = 0U;
+    if ((u32) belra_trail_buffer != 0U) {
+        __dt__11TBoss4Type3FPvs((void*)belra_trail_buffer, 1);
+        belra_trail_buffer = 0U;
     }
     if ((u32) belra_uv_animation_buffer != 0U) {
         destroy_buffer_pair((void*)belra_uv_animation_buffer, 1);
@@ -1390,7 +1390,7 @@ void load_static_resources__16TObjEneRe7BeruraFv(void) {
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 4, lbl_805D9780, lbl_805D9784, TObjEneRe7Berura__data_805D9738);
     }
-    lbl_805D4FA0 = (u32)p;
+    belra_trail_buffer = (u32)p;
     pair[0] = 0x2E;
     pair[1] = 0x2E;
     pair[2] = 0x45;

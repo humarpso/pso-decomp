@@ -50,7 +50,7 @@ M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 extern s32 lbl_805D4D48;
 extern s32 lbl_805D4D4C;
 extern s32 lbl_805D4D50;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TObjVoloptShutter__data_805D88F4;
 
 #pragma push
@@ -108,7 +108,7 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
     set_global_param__8TObjFishFi(lbl_805D4D50);
     push_matrix();
-    some_id_805c6f74 &= 0xFFFFFBFF;
+    model_render_flags &= 0xFFFFFBFF;
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x30));
     push_matrix();
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));

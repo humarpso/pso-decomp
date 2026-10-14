@@ -42,13 +42,13 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 M2C_UNK set_chunk_material_color(void *);
 extern M2C_UNK saved_model_draw_color[];
-extern M2C_UNK lbl_8058D4C0[];
+extern M2C_UNK model_material_color[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void draw_effect_models__10TItemEffPGFPv(u8 *arg0);
 }
 
@@ -101,11 +101,11 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
     {
         if (((void *) M2C_FIELD(arg0, u8 **, 0x20) != NULL) && (get_state_flag__9TMainTaskFv() == 1)) {
             set_depth_buffer_settings_id__FUl((int) (3));
-            lbl_805D5660 = some_id_805c6f74;
-            lbl_805D5664 = lbl_805D7784;
-            lbl_805D5668 = lbl_805D7780;
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (saved_model_draw_color), (void *) (lbl_8058D4C0));
-            some_id_805c6f74 |= 0x20;
+            lbl_805D5660 = model_render_flags;
+            lbl_805D5664 = chunk_polygon_flags_and_mask;
+            lbl_805D5668 = chunk_polygon_flags_or_mask;
+            copy_vec4__13TRaderMapCoreFPvPv((void *) (saved_model_draw_color), (void *) (model_material_color));
+            model_render_flags |= 0x20;
             set_chunk_material_color((void *) (arg0 + 0x28));
             begin_effect_render__13TParticleCtrlFv();
             set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
@@ -123,10 +123,10 @@ void draw_effect_models__10TItemEffPGFPv(u8 *arg0) {
             pop_matrix();
             pop_matrix();
             end_effect_render__13TParticleCtrlFv();
-            copy_vec4__13TRaderMapCoreFPvPv((void *) (lbl_8058D4C0), (void *) (saved_model_draw_color));
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            copy_vec4__13TRaderMapCoreFPvPv((void *) (model_material_color), (void *) (saved_model_draw_color));
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
         }
     }
 }

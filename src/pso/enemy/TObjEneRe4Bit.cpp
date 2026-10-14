@@ -326,7 +326,7 @@ int set_global_param__8TObjFishFi(void *);
 int draw_chunk_object(void *);
 extern Vec_800ECA40 lbl_8043D2E0;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805DA768;
 extern const f32 lbl_805DA76C;
@@ -525,7 +525,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
     saved = m->x2C;
     m->x2C = m->ents[self->idx].c;
     set_global_param__8TObjFishFi(self->x24);
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
     draw = 1;
@@ -545,7 +545,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
         pop_matrix();
     }
     self->light.l7();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     update_primary_light__9TObjEneDDFPv(self);
     (*self->x24)->x2C = saved;

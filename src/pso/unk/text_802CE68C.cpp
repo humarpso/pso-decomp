@@ -152,7 +152,7 @@ void update_particle_effect__19TObjEneBm9MericarolFv(void);
 extern Vec_802CE740 lbl_80472490;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D686C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DE700;
@@ -291,7 +291,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
         (*self->f24)[8] = (*self->f24)[26];
         break;
     }
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     set_global_param__8TObjFishFi(self->f24);
     push_matrix();
     post_translate_matrix(self->pos);
@@ -340,7 +340,7 @@ void TObjPlayer__sub_802CE8CC(u8 *arg0) {
     end_effect_render__13TParticleCtrlFv();
     restore_default_scene();
     pop_matrix();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     update_primary_light__9TObjEneDDFPv(arg0);
     if (get_phase__19TObjEneBm9MericarolFPv(arg0) != 0) {
         (*self->f24)[2] = s0;

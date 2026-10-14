@@ -55,7 +55,7 @@ void init_break_model__14TObjVoloptCageFv(void) {
 
 extern s32 lbl_805D4D24;
 extern s32 TObjVoloptCage__texture_list;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D887C;
 extern const f32 lbl_805D8880;
 
@@ -63,7 +63,7 @@ void render__14TObjVoloptCageFv(u8 *arg0) {
     if (((TObjVoloptCageVObj_8004912C *)arg0)->m8(lbl_805D887C, lbl_805D8880) != 0) {
         set_global_param__8TObjFishFi(TObjVoloptCage__texture_list);
         push_matrix();
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
         draw_chunk_object(lbl_805D4D24);

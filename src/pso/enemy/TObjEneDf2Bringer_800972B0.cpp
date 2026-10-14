@@ -1217,7 +1217,7 @@ extern s32 TObjEneDf2Bringer__render_rotation_x;
 extern s32 TObjEneDf2Bringer__render_point_cursor;
 extern s32 TObjEneDf2Bringer__uv_scroll_buffer;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D97D8;
 extern const f32 lbl_805D97DC;
 extern const f32 lbl_805D9E84;
@@ -1498,7 +1498,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
         TObjEneDf2Bringer__render_node_index = 0;
         TObjEneDf2Bringer__render_rotation_x = S->f480;
         TObjEneDf2Bringer__render_point_cursor = (s32) S->pts;
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         temp_r28 = &S->fades[mode];
@@ -1544,7 +1544,7 @@ void render__17TObjEneDf2BringerFv(u8 *arg0) {
             ((VObj_14_aa9368 *)(temp_r28))->m7();
         }
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         update_primary_light__9TObjEneDDFPv((void *) (arg0));
         M2C_FIELD(*S->f24, s32 *, 0x14) = temp_r27;
         return;

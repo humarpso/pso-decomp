@@ -157,9 +157,9 @@ extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9AA8;
 extern const f32 lbl_805D9AAC;
 extern const f32 lbl_805D9AB0;
@@ -390,9 +390,9 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
         toggle_particle_effect__10TObjPlayerFv();
         if (self->f390 == 1) {
             if (self->sub.active() != 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
                 self->sub.begin();
                 d = 1;
                 if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
@@ -402,9 +402,9 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
                     draw__16TObjEneRe7BeruraFPv(self);
                 }
                 self->sub.end();
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
-                some_id_805c6f74 = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
             }
         } else {
             doDraw = 1;

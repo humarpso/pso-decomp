@@ -117,7 +117,7 @@ M2C_UNK draw_chunk_model(s32);
 extern Col_802E6CB0 lbl_80472C9C;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void TObjPlayer__sub_802E6CB0(u8 *arg0);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
@@ -154,7 +154,7 @@ extern Col_802E708C lbl_80472C80;
 extern Vec_802E708C lbl_80472C90;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DE9F8;
 void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -227,15 +227,15 @@ void TObjPlayer__sub_802E6CB0(u8 *arg0) {
             draw_chunk_model(node->model);
             break;
         case 2:
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 = lbl_805D5660 | 0x8810;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags = lbl_805D5660 | 0x8810;
             c.a = part->f24;
             set_chunk_material_color(&c);
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
             draw_chunk_model(node->model);
             set_chunk_material_override_pair(0xFF00, 0);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             break;
         }
         pop_matrix();
@@ -312,15 +312,15 @@ void draw_boss_effect_parts__10TObjPlayerFPv(u8 *arg0) {
             draw_chunk_model(node->model);
             break;
         case 2:
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 = lbl_805D5660 | 0x8810;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags = lbl_805D5660 | 0x8810;
             c.a = part->f24;
             set_chunk_material_color((Col_802E6CB0 *)(&c));
             set_chunk_material_override_pair(0xFF00, 0x800);
             set_chunk_blend(0x2500);
             draw_chunk_model(node->model);
             set_chunk_material_override_pair(0xFF00, 0);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             break;
         }
         pop_matrix();

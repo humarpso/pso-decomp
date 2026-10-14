@@ -134,14 +134,14 @@ s32 obj_testFlags30(void *, M2C_UNK);
 int update_with_player__14TItemEquipBaseFi(void*);
 M2C_UNK warn_if_gauge_low__10TObjPlayerFv();
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void deactivate_shield_effect__14TItemProShieldFPvi(void *arg0, s32 arg1) {
     if (((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (obj_testFlags30(arg0, 0x08000000) == 0) && (get_flag_40__8TItemMagFPv((void *)(arg0)) == 0)) {
         get_item_ptr__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xF0), arg1);
         push_matrix_from();
         TObjPlayer__sub_80364198();
-        some_id_805c6f74 &= 0xFFFFFFEF;
+        model_render_flags &= 0xFFFFFFEF;
         get_mag_scale__10TObjPlayerFPv(arg0);
         set_model_fade_alpha__10TObjPlayerFf();
         if (M2C_FIELD(arg0, s32 *, 0x19C) & 2) {

@@ -187,7 +187,7 @@ void set_chunk_material_color(Color_8009680C *);
 void draw_chunk_model(s32);
 extern Color_8009680C breakup_default_color;
 extern u32 lbl_805D5660;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 extern const f32 lbl_805D97C8;
 void render__11TBreakUpMdlFv(BreakUp_8009680C *self);
 void queue_destruction__7TObjectFv(void *);

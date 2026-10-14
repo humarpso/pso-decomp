@@ -421,7 +421,7 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render_rafoie_explosion(RaFoie_802381F8 *o);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
@@ -479,9 +479,9 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
         return;
     }
     begin_effect_render__13TParticleCtrlFv();
-    id = some_id_805c6f74;
+    id = model_render_flags;
     lbl_805D5660 = id;
-    some_id_805c6f74 = id | 0x200010;
+    model_render_flags = id | 0x200010;
     set_chunk_material_color(o->m48, id);
     if (o->tev != 0) {
         draw_field_1c__6TSceneFPviii(o->tev, 2, 0, 0);
@@ -511,7 +511,7 @@ void render_rafoie_explosion(RaFoie_802381F8 *o) {
     func_80141618__Fv();
     set_cull_none__8TObjFishFv();
     pop_matrix();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     if (o->tev != 0) {
         set_indirect_tev__6TSceneFii(o->tev, 0);
     }

@@ -379,16 +379,16 @@ extern M2C_UNK __vt__11TItemMagSub[];
 extern Vec_801151E0 mag_sub_special_pose_offset[];
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 mag_sub_local_origin;
 extern M2C_UNK __vt__15TItemHeapObject[];
-extern f32 lbl_8058D4C0[4], saved_model_draw_color[4];
+extern f32 model_material_color[4], saved_model_draw_color[4];
 extern RecoveredGlobal_80114DB8_lbl_8058D490 identity_matrix;
 extern f32 mag_sub_transition_frames;
 extern f32 item_mag_follow_scale;
 extern u32 TItemMagSub_name;
-extern u32 some_id_805c6f74, lbl_805D5660;
+extern u32 model_render_flags, lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
 extern const f32 mag_sub_render_distance_limit, mag_sub_screen_cull_margin;
 extern const f32 mag_sub_height_intercept;
 extern const f32 mag_sub_height_slope;
@@ -432,7 +432,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
     }
     if (TItemMagSub__feed_sequence_index == node_ids[selected_node]) {
         if (test_flags__11TItemMagSubFUl(this, 0x20) == 0) {
-            some_id_805c6f74 |= 0x10;
+            model_render_flags |= 0x10;
             set_chunk_material_color(material_parameters);
             begin_effect_render__13TParticleCtrlFv();
             ((M2C_UNK (*)(void *, int))set_flags__11TItemMagSubFUl)(this, 0x20);
@@ -442,8 +442,8 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
         }
     } else if (test_flags__11TItemMagSubFUl(this, 0x20) != 0) {
         end_effect_render__13TParticleCtrlFv();
-        copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+        model_render_flags = lbl_805D5660;
         ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)(this, 0x20);
     }
 }
@@ -543,10 +543,10 @@ extern "C" {
 void TItemMagSub::render_shadows() {
     TItemMagSub_80114F0C* self = (TItemMagSub_80114F0C*)this;
     reset_transform_state__10TObjPlayerFv();
-    lbl_805D5660 = some_id_805c6f74;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
-    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, lbl_8058D4C0);
+    lbl_805D5660 = model_render_flags;
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
+    copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
     if (self->model) {
         TItemMagSub__oscillating_instance = self;
         notify_fish_if_valid__10TObjPlayerFUi(self->textures);
@@ -561,27 +561,27 @@ void TItemMagSub::render_shadows() {
             clear_global_state__10TObjPlayerFv();
             set_global_state__16TObjEneRe7BeruraFi(0);
         } else {
-            some_id_805c6f74 |= 0x8011;
+            model_render_flags |= 0x8011;
             set_color_blend_mode(1, 4, 5, 0);
             set_shadow_material_state();
             draw_ginja_object(self->model);
-            some_id_805c6f74 &= ~0x8011;
+            model_render_flags &= ~0x8011;
         }
         TItemMagSub__feed_sequence_index = 0;
         pop_matrix();
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             end_effect_render__13TParticleCtrlFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-            some_id_805c6f74 = lbl_805D5660;
+            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            model_render_flags = lbl_805D5660;
             ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)((void *)(self), (M2C_UNK)(0x20));
         }
     }
     reset_transform_state__10TObjPlayerFv();
-    copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    some_id_805c6f74 = lbl_805D5660;
+    copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
 }
 extern "C" {
 
@@ -609,8 +609,8 @@ void TItemMagSub::render() {
         TItemMagSub__oscillating_instance = 0;
         if (test_flags__11TItemMagSubFUl(self, 0x20)) {
             end_effect_render__13TParticleCtrlFv();
-            copy_vec4__13TRaderMapCoreFPvPv(lbl_8058D4C0, saved_model_draw_color);
-            some_id_805c6f74 = lbl_805D5660;
+            copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
+            model_render_flags = lbl_805D5660;
             ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)((void *)(self), (M2C_UNK)(0x20));
         }
     }

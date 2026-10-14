@@ -415,7 +415,7 @@ s32 check_active__18TObjEneBalClawClawFPv(void *arg0) {
     return (u32) __cntlzw(M2C_FIELD(arg0, s32 *, 0x388) & 0x10000000) >> 5;
 }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
@@ -466,7 +466,7 @@ void render__18TObjEneBalClawClawFPv(u8 *arg0) {
             select_actor_lighting(arg0);
             toggle_particle_effect__10TObjPlayerFv();
             push_matrix();
-            some_id_805c6f74 &= 0xFFFFFBFF;
+            model_render_flags &= 0xFFFFFBFF;
             if (check_demo_mode__10TObjPlayerFv() == 1) {
                 post_translate_matrix(arg0 + 0x38);
                 rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
@@ -1231,7 +1231,7 @@ s32 check_v2_mode__9TObjEneDDFv();
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
 M2C_UNK update_obstruction_fade(void *);
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D96E8;
 extern const f32 lbl_805D96EC;
 extern const f32 lbl_805D96F0;
@@ -1870,7 +1870,7 @@ void render__12TObjEneBeastFPv(Obj_8009211C *o) {
         update_obstruction_fade((void *)fade);
         fade = updateFromCamera__15RenderFadeStateFPCf((void *)fade, &o->f2FC);
     }
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     select_actor_lighting(o);
     set_global_param__8TObjFishFi(o->f24);
     push_matrix();

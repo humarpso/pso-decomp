@@ -96,15 +96,15 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 saved_model_draw_color[];
-extern u8 lbl_8058D4C0[];
+extern u8 model_material_color[];
 extern int TEneEffHamon__fish_model;
 extern int TEneEffHamon__fish_effect_param;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
@@ -123,7 +123,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
 extern s32 TObjPlayer__effect_count;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D99F0;
 extern const f32 lbl_805D99FC;
 extern const f32 lbl_805D9A00;
@@ -329,8 +329,8 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     if (o->active == 0) {
         return;
     }
-    lbl_805D5660 = some_id_805c6f74;
-    some_id_805c6f74 |= 0x10;
+    lbl_805D5660 = model_render_flags;
+    model_render_flags |= 0x10;
     sw = lbl_8058D4F8.sw;
     cx = lbl_8058D4F8.cx;
     cy = lbl_8058D4F8.cy;
@@ -405,7 +405,7 @@ void draw_ribbon_strip__10TObjPlayerFPv(Obj_800A3D1C *o) {
     init_xyz_limits__10TObjPlayerFv();
     draw_transformed_primitive__9TWindowDDFPvPvPvPv(verts, o->count * 2, TObjPlayer__effect_count, 1);
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 #pragma pop
 

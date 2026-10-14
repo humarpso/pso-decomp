@@ -36,7 +36,7 @@ s32 load_current_tex_matrix(int);
 s32 push_identity_matrix_ps();
 extern RecoveredGlobal_80083914_lbl_8048E5D0 shadow_light_position;
 extern s32 current_matrix;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D93D0;
 extern const f32 lbl_805D93DC;
 extern const f32 lbl_805D9418;
@@ -64,11 +64,11 @@ M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
 M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
 s32 is_split_screen();
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void apply_single_screen_state__6TSceneFv(void) {
     if ((is_split_screen() == 0) && (check_all_players_ready__10TObjPlayerFv() != 0)) {
-        some_id_805c6f74 &= 0xFFF7FFFF;
+        model_render_flags &= 0xFFF7FFFF;
         set_ginja_post_tev_stage_count(0);
         set_ginja_post_texgen_count(0);
     }
@@ -96,7 +96,7 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         GXSetTevOrder((int) (1), (int) (1), (int) (1), (int) (4));
         GXSetTevOp((int) (1), (int) (1));
         set_tex_coord_gen__10TObjPlayerFiiii((int) (1), (int) (0), (int) (0), (int) (0x1E));
-        some_id_805c6f74 |= 0x80000;
+        model_render_flags |= 0x80000;
         set_ginja_post_tev_stage_count((M2C_UNK)((int) (1U)));
         set_ginja_post_texgen_count((M2C_UNK)((int) (1U)));
     }

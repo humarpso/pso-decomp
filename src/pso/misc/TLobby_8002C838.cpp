@@ -81,19 +81,19 @@ void init_bosses__6TLobbyFv(void) { load_dragon_ground_assets(); TObjBoss1Floor_
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void render__14TObjBoss1FloorFv(void) {
     s32 temp_r3;
     u8 *temp_r31;
 
     if ((is_any_teammate_in_state__10TObjPlayerFv() == 0) && ((check_v2_mode__9TObjEneDDFv() != 0) || (get_state_flag__9TMainTaskFv() != 1))) {
-        temp_r3 = some_id_805c6f74;
+        temp_r3 = model_render_flags;
         lbl_805D5660 = temp_r3;
-        some_id_805c6f74 = temp_r3 | 0x400;
+        model_render_flags = temp_r3 | 0x400;
         end_effect_render__13TParticleCtrlFv((int) (temp_r3));
         push_matrix();
-        some_id_805c6f74 = 1;
+        model_render_flags = 1;
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
@@ -103,7 +103,7 @@ void render__14TObjBoss1FloorFv(void) {
         apply_single_screen_state__6TSceneFv();
         func_80141618__Fv();
         pop_matrix();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     }
 }
 

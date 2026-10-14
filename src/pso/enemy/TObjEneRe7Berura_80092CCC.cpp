@@ -402,7 +402,7 @@ extern s32 *lbl_805D4F84;
 extern s16 *lbl_805D4F88;
 extern s32 belra_uv_animation_buffer;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TObjEneRe7Berura__data_805D9724;
 extern const f32 lbl_805D9728;
 extern const f32 TObjEneRe7Berura__data_805D972C;
@@ -421,7 +421,7 @@ M2C_UNK get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 
 extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
     s32 fade;
@@ -455,9 +455,9 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
             update_player_state__9TObjEneDDFPv(o, &v, 0);
         }
         update_secondary_light__9TObjEneDDFPv(o);
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         clear_global_flag_400__9TObjEneDDFv();
-        some_id_805c6f74 &= ~0x810;
+        model_render_flags &= ~0x810;
         toggle_particle_effect__10TObjPlayerFv();
         for (i = 0; i < 2; i++) {
             if (o->f418[i] & 1) {
@@ -548,7 +548,7 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
             }
         }
         end_effect_render__13TParticleCtrlFv();
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         return;
     }
     if (o->f326 == 5) {
@@ -561,11 +561,11 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
 void advance_state__16TObjEneRe7BeruraFv(void) {
     switch ((s32) re7_berura_demo_state) {
     case 25:
-        lbl_805D4F6C = some_id_805c6f74;
-        some_id_805c6f74 &= 0xFFFF7FFF;
+        lbl_805D4F6C = model_render_flags;
+        model_render_flags &= 0xFFFF7FFF;
         break;
     case 26:
-        some_id_805c6f74 = lbl_805D4F6C;
+        model_render_flags = lbl_805D4F6C;
         break;
     }
     re7_berura_demo_state += 1;
@@ -577,16 +577,16 @@ extern s32 re7_berura_demo_camera_ptr;
 extern s32 berura_demo_flag;
 extern s32 re7_berura_demo_flag;
 extern void *TObjEneRe7Berura__demo_target;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void demo_frame_callback__16TObjEneRe7BeruraFv(void) {
     switch ((s32) re7_berura_demo_state) {
     case 0x2:
-        lbl_805D4F6C = some_id_805c6f74;
-        some_id_805c6f74 &= 0xFFFF7FFF;
+        lbl_805D4F6C = model_render_flags;
+        model_render_flags &= 0xFFFF7FFF;
         break;
     case 0x3:
-        some_id_805c6f74 = lbl_805D4F6C;
+        model_render_flags = lbl_805D4F6C;
         break;
     case 0x4C:
     case 0x50:

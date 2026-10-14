@@ -130,7 +130,7 @@ extern u8 *camera_ctrl_instance;
 extern s32 lbl_805D5660;
 extern void *technique_effect_bml;
 extern void *lbl_805D63B0;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DC8D0;
 extern const f32 lbl_805DC8D4;
 void render_rafoie_explosion(RaFoie_802381F8 *o);

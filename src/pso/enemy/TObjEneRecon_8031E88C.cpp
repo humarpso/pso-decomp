@@ -182,9 +182,9 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 TObjEneRecon__data_805DF438;
@@ -269,24 +269,24 @@ void render__12TObjEneReconFPv(u8 *arg0) {
         if (var_r28 != 0) {
             var_r27 = 0;
             if (render_trap_model_if_visible__12TObjEneReconFPv((void *) (arg0)) == 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 1) {
                     if (((Fade_8031EA70 *)(arg0 + 0x3C0))->m8() != 0) {
                         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
-                            some_id_805c6f74 = lbl_805D5660;
-                            lbl_805D7784 = lbl_805D5664;
-                            lbl_805D7780 = lbl_805D5668;
+                            model_render_flags = lbl_805D5660;
+                            chunk_polygon_flags_and_mask = lbl_805D5664;
+                            chunk_polygon_flags_or_mask = lbl_805D5668;
                             return;
                         }
                         var_r27 = 1;
                         ((Fade_8031EA70 *)(arg0 + 0x3C0))->m6();
                         goto block_18;
                     }
-                    some_id_805c6f74 = lbl_805D5660;
-                    lbl_805D7784 = lbl_805D5664;
-                    lbl_805D7780 = lbl_805D5668;
+                    model_render_flags = lbl_805D5660;
+                    chunk_polygon_flags_and_mask = lbl_805D5664;
+                    chunk_polygon_flags_or_mask = lbl_805D5668;
                     return;
                 }
 block_18:
@@ -295,9 +295,9 @@ block_18:
                 temp_r30 = updateFromCamera__15RenderFadeStateFPCf((int) (temp_r29), (void *) (arg0 + 0x2FC));
                 if ((var_r27 == 0) && (temp_r30 != 0)) {
                     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
-                        some_id_805c6f74 = lbl_805D5660;
-                        lbl_805D7784 = lbl_805D5664;
-                        lbl_805D7780 = lbl_805D5668;
+                        model_render_flags = lbl_805D5660;
+                        chunk_polygon_flags_and_mask = lbl_805D5664;
+                        chunk_polygon_flags_or_mask = lbl_805D5668;
                         return;
                     }
                     temp_r29->m6();
@@ -333,9 +333,9 @@ block_23:
                 } else if (temp_r30 != 0) {
                     temp_r29->m7();
                 }
-                some_id_805c6f74 = lbl_805D5660;
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
                 goto block_37;
             }
         } else {

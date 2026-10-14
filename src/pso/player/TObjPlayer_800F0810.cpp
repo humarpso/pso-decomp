@@ -33,7 +33,7 @@ struct RecoveredGlobal_800F09E8_lbl_804976B0 {
 
 extern "C" {
 M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void set_alt_model_flag__10TObjPlayerFv(void);
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
@@ -76,13 +76,13 @@ void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv(
 
 void TObjPlayer__sub_800F083C(void) {  }
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 void clear_alt_model_flag__10TObjPlayerFv(void) {
-    some_id_805c6f74 &= 0xFFFFF7FF;
+    model_render_flags &= 0xFFFFF7FF;
     set_chunk_material_override_pair(0xFF00, 0);
 }
-void set_alt_model_flag__10TObjPlayerFv(void) { (*(int *)&some_id_805c6f74) = ((*(int *)&some_id_805c6f74) | 0x800); set_chunk_material_override_pair((M2C_UNK)((void*)-513), (M2C_UNK)((void*)0)); }
+void set_alt_model_flag__10TObjPlayerFv(void) { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((M2C_UNK)((void*)-513), (M2C_UNK)((void*)0)); }
 M2C_UNK *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
     M2C_FIELD(&lbl_805010D0.value, s32 *, 4) = arg1;
     M2C_FIELD(&lbl_80501080.value, s32 *, 0x30) = arg0;

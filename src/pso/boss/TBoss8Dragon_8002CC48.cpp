@@ -156,9 +156,9 @@ extern s32 dragon_trail_heading_source;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D8178;
 extern const f32 lbl_805D817C;
 extern const f32 lbl_805D8180;
@@ -310,15 +310,15 @@ void render_dragon_trail(Obj_8002CE78 *arg0) {
         post_translate_matrix((void *)dragon_trail_position_source);
         translate_matrix(0, lbl_805D8198, arg0->unk34, lbl_805D8198);
         if (arg0->unk38 != 0) {
-            lbl_805D5660 = some_id_805c6f74;
-            lbl_805D5664 = lbl_805D7784;
-            lbl_805D5668 = lbl_805D7780;
-            some_id_805c6f74 |= 0x800;
-            set_chunk_material_override_pair(0xFF00, 0x100, lbl_805D7780, lbl_805D7784);
+            lbl_805D5660 = model_render_flags;
+            lbl_805D5664 = chunk_polygon_flags_and_mask;
+            lbl_805D5668 = chunk_polygon_flags_or_mask;
+            model_render_flags |= 0x800;
+            set_chunk_material_override_pair(0xFF00, 0x100, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask);
             draw_chunk_object(*(void **)(*(u8 **)(lbl_805D4B50 + 0x42C) + 0x38));
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
         } else {
             draw_chunk_object(*(void **)(*(u8 **)(lbl_805D4B50 + 0x42C) + 0x38));
         }
@@ -647,8 +647,8 @@ f32 rand_signed_unit(void) {
 #pragma fp_contract on
 void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
     if (self->color < lbl_805D8200) {
-        lbl_805D5660 = some_id_805c6f74;
-        some_id_805c6f74 = lbl_805D5660 | 0x810;
+        lbl_805D5660 = model_render_flags;
+        model_render_flags = lbl_805D5660 | 0x810;
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0x800);
         set_chunk_material_color(&self->color);
         push_matrix();
@@ -659,7 +659,7 @@ void render__13TObjBoss1RockFPv(Obj_8002DF7C *self) {
         ((void (*)(s32))draw_chunk_object)((*(Res_8002DF7C **)&lbl_805D4B50)->ents[self->idx].id);
         pop_matrix();
         ((void (*)(s32, s32))set_chunk_material_override_pair)(0xFF00, 0);
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
     } else {
         push_matrix();
         set_global_param__8TObjFishFi(dragon_common_texture_list);

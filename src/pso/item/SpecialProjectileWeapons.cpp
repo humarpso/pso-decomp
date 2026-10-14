@@ -80,7 +80,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
 M2C_UNK end_effect_render__13TParticleCtrlFv();
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void draw_held_item__10TObjPlayerFPv(void *arg0);
 void play_particle_effect_once__10TObjPlayerFv();
 void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0);
@@ -275,7 +275,7 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 5, &sp8) != 0) {
             push_matrix();
             TObjPlayer__sub_80364198();
-            some_id_805c6f74 &= 0xFFFFFFEF;
+            model_render_flags &= 0xFFFFFFEF;
             get_mag_scale__10TObjPlayerFPv(arg0);
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix((void *)(&sp8));

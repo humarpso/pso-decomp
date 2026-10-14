@@ -157,9 +157,9 @@ extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern s32 recon_intro_stage;
 extern u8 *recon_model_matrix_ptr;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
 extern const f32 lbl_805D9E88;
 extern const f32 lbl_805DF3BC;
@@ -190,9 +190,9 @@ void render__12TObjEneReconFv(u8 *arg0) {
         if (var_r31 != 0) {
             var_r29 = 1;
             if (render_model_if_visible__12TObjEneReconFPv((void *) (arg0)) == 0) {
-                lbl_805D5660 = some_id_805c6f74;
-                lbl_805D5664 = lbl_805D7784;
-                lbl_805D5668 = lbl_805D7780;
+                lbl_805D5660 = model_render_flags;
+                lbl_805D5664 = chunk_polygon_flags_and_mask;
+                lbl_805D5668 = chunk_polygon_flags_or_mask;
                 if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 5) && (((Recon_8031BE8C *)arg0)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)arg0)->fade.m6();
                     if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv((void *) (arg0)) != 0) {
@@ -217,13 +217,13 @@ void render__12TObjEneReconFv(u8 *arg0) {
                     M2C_FIELD(arg0, f32 *, 0x414) = (f32) TObjEneRecon__data_805DF3C4;
                     set_global_state__16TObjEneRe7BeruraFi((void *)advance_intro_stage__12TObjEneReconFv);
                     toggle_particle_effect__10TObjPlayerFv();
-                    some_id_805c6f74 |= 0x01000000;
+                    model_render_flags |= 0x01000000;
                     if (var_r31 == 1) {
                         draw__16TObjEneRe7BeruraFPv((void *) (arg0));
                     } else {
                         render_world_model__10TObjPlayerFPv((void *) (arg0));
                     }
-                    some_id_805c6f74 &= 0xFEFFFFFF;
+                    model_render_flags &= 0xFEFFFFFF;
                     end_effect_render__13TParticleCtrlFv();
                     set_global_state__16TObjEneRe7BeruraFi((void *) (NULL));
                     pop_matrix();
@@ -232,9 +232,9 @@ void render__12TObjEneReconFv(u8 *arg0) {
                 if (((s16) M2C_FIELD(arg0, s16 *, 0x326) == 5) && (((Recon_8031BE8C *)arg0)->fade.m8() != 0)) {
                     ((Recon_8031BE8C *)arg0)->fade.m7();
                 }
-                some_id_805c6f74 = lbl_805D5660;
-                lbl_805D7784 = lbl_805D5664;
-                lbl_805D7780 = lbl_805D5668;
+                model_render_flags = lbl_805D5660;
+                chunk_polygon_flags_and_mask = lbl_805D5664;
+                chunk_polygon_flags_or_mask = lbl_805D5668;
             }
         }
     }

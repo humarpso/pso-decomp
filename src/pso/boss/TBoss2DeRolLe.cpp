@@ -436,7 +436,7 @@ extern Vec_8002EFE8 lbl_804359E4;
 extern u8 controller_input_state[];
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805D8278;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void render_body__13TBoss2DeRolLeFPv(u8 *arg0);
@@ -494,7 +494,7 @@ void render_body__13TBoss2DeRolLeFPv(u8 *arg0) {
     f32 frame;
     f32 max;
     ((VObj_18_38992e *)(arg0))->m8(lbl_805D8278, lbl_805D8278);
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     clear_global_flag_400__9TObjEneDDFv();
     push_matrix();
     post_translate_matrix(self->pos);
@@ -730,9 +730,9 @@ extern s32 lbl_805D5564;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 
 void render__13TBoss2DeRolLeFPv(u8 *arg0) {
     Me_8002F258 *e = (Me_8002F258 *)arg0;
@@ -745,9 +745,9 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
         return;
     }
     e->m8(1000.0f, 1000.0f);
-    lbl_805D5660 = some_id_805c6f74;
-    lbl_805D5664 = lbl_805D7784;
-    lbl_805D5668 = lbl_805D7780;
+    lbl_805D5660 = model_render_flags;
+    lbl_805D5664 = chunk_polygon_flags_and_mask;
+    lbl_805D5668 = chunk_polygon_flags_or_mask;
     clear_global_flag_400__9TObjEneDDFv();
     begin_effect_render__13TParticleCtrlFv();
     push_matrix();
@@ -789,9 +789,9 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
     set_global_state__16TObjEneRe7BeruraFi(NULL);
     TObjLight__sub_801337F8(current_scene_light);
     pop_matrix();
-    lbl_805D7784 = lbl_805D5664;
-    lbl_805D7780 = lbl_805D5668;
-    some_id_805c6f74 = lbl_805D5660;
+    chunk_polygon_flags_and_mask = lbl_805D5664;
+    chunk_polygon_flags_or_mask = lbl_805D5668;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     {
     Vec_8002F258 v;
@@ -1761,7 +1761,7 @@ M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 int play_sound_effect(void*, int, int, int);
 M2C_UNK vec3_add_to(int, void *);
 
-extern Vec_80030720 TBoss2DeRolLe__data_804FE268[];
+extern Vec_80030720 TBoss2DeRolLe__mine_ground_targets[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D8280;
 extern const f32 TBoss2DeRolLe__data_805D8288;
@@ -2379,7 +2379,7 @@ void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2) {
             pos = self->f4D0;
             if (arg2 == 0x18) {
                 for (i = 0; i < 5; i++) {
-                    set_launch_position_velocity__10TBoss2MineFPvPvPv(self->f630[i], pos, &TBoss2DeRolLe__data_804FE268[i]);
+                    set_launch_position_velocity__10TBoss2MineFPvPvPv(self->f630[i], pos, &TBoss2DeRolLe__mine_ground_targets[i]);
                 }
             } else if (enemy_has_live_target(self) != 0) {
                 for (j = 0; j < 3; j++) {
@@ -4840,9 +4840,9 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 f32 calc_node_height__13TBoss2DeRolLeFPv(Obj_80034B60 *self);
 s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
-extern s32 lbl_804FE300[];
-extern s32 TBoss2DeRolLe__data_805D4B98[2];
-extern s32 TBoss2DeRolLe__data_805D4B9C[2];
+extern s32 TBoss2DeRolLe__attack_params_table[];
+extern s32 TBoss2DeRolLe__base_params[2];
+extern s32 TBoss2DeRolLe__resistance_params[2];
 void reload_stats_for_phase__13TBoss2DeRolLeFPvi(void *self, s32 kind);
 s32 send_6x13__13TBoss2DeRolLeFPv(void *);
 s32 TBoss2DeRolLe__sub_80036358(void *);
@@ -5028,7 +5028,7 @@ void reload_stats_for_phase__13TBoss2DeRolLeFPvi(void *self, s32 kind) {
         b = 0;
         break;
     }
-    reload_stats_keep_hp_tp__9TObjEneDDFPv(self, TBoss2DeRolLe__data_805D4B98[a], lbl_804FE300[i], TBoss2DeRolLe__data_805D4B9C[b]);
+    reload_stats_keep_hp_tp__9TObjEneDDFPv(self, TBoss2DeRolLe__base_params[a], TBoss2DeRolLe__attack_params_table[i], TBoss2DeRolLe__resistance_params[b]);
 }
 
 void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034E90 *self, s32 kind) {
@@ -5456,8 +5456,8 @@ extern u8 boss2_derolle_bml_descriptor[];
 extern s32 lbl_805D26A8[1];
 extern s32 lbl_805D26AC[1];
 extern s32 lbl_805D26B0[1];
-extern s32 TBoss2DeRolLe__data_805D4B98[1];
-extern s32 TBoss2DeRolLe__data_805D4B9C[1];
+extern s32 TBoss2DeRolLe__base_params[1];
+extern s32 TBoss2DeRolLe__resistance_params[1];
 extern s32 TBoss2DeRolLe__data_805D4BA0[1];
 extern u32 lbl_805D4BA4;
 extern s32 lbl_805D4BA8;
@@ -5873,8 +5873,8 @@ struct W3_8003563C;
 extern W3_8003563C lbl_804359C0[];
 extern u8 controller_input_state[];
 extern s32 lbl_805D26B4;
-extern s32 TBoss2DeRolLe__data_805D4B98;
-extern s32 TBoss2DeRolLe__data_805D4B9C;
+extern s32 TBoss2DeRolLe__base_params;
+extern s32 TBoss2DeRolLe__resistance_params;
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
 extern u32 lbl_805D4BA4;
 extern s32 TBoss2DeRolLe__instance;
@@ -6027,11 +6027,11 @@ using constructor_data::lbl_804823A8;
 using constructor_data::boss2_derolle_particle_node_indices;
 using constructor_data::boss2_derolle_particle_limits;
 using constructor_data::__vt__13TBoss2DeRolLe;
-u32 TBoss2DeRolLe__data_804FE268[15];
+u32 TBoss2DeRolLe__mine_ground_targets[15];
 u32 boss2_derolle_primary_color_targets[3];
 u32 lbl_804FE2B0[10];
 u32 boss2_derolle_segment_color_targets[10];
-u32 lbl_804FE300[3];
+u32 TBoss2DeRolLe__attack_params_table[3];
 
 struct Self_8003563C {
     s32 f0;
@@ -6130,7 +6130,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(self, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(self, M2C_FIELD(self, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(self, M2C_FIELD(self, s16 *, 0xB8));
-    reset_hp__9TObjEneDDFPv(self, TBoss2DeRolLe__data_805D4B98, ((s32 *)lbl_804FE300)[0], TBoss2DeRolLe__data_805D4B9C);
+    reset_hp__9TObjEneDDFPv(self, TBoss2DeRolLe__base_params, ((s32 *)TBoss2DeRolLe__attack_params_table)[0], TBoss2DeRolLe__resistance_params);
     check_state_flag_2__9TObjEneDDFPv(self);
     M2C_FIELD(self, u8 **, 0x350) = (u8 *)lbl_8048228C;
     initialize_enemy_state__9TObjEneDDFPv(self, 0x2D);
@@ -6311,11 +6311,11 @@ void *create__13TBoss2DeRolLeFPv(void *arg0) {
 
 extern const f32 TBoss2DeRolLe__data_805D827C;
 
-using constructor_view::TBoss2DeRolLe__data_804FE268;
+using constructor_view::TBoss2DeRolLe__mine_ground_targets;
 using constructor_view::boss2_derolle_primary_color_targets;
 using constructor_view::lbl_804FE2B0;
 using constructor_view::boss2_derolle_segment_color_targets;
-using constructor_view::lbl_804FE300;
+using constructor_view::TBoss2DeRolLe__attack_params_table;
 u32 lbl_804FE30C[4];
 u32 lbl_804FE31C[3];
 Slot_80035D24 lbl_804FE328[11];
@@ -6349,13 +6349,13 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     lbl_805D4BBC = 0;
     lbl_805D4BC0 = 0;
     for (i = 0; i < 1; i++) {
-        TBoss2DeRolLe__data_805D4B98[i] = register_boss__6TLobbyFPv(lbl_805D26A8[i]);
+        TBoss2DeRolLe__base_params[i] = register_boss__6TLobbyFPv(lbl_805D26A8[i]);
     }
     for (i = 0; i < 3; i++) {
-        ((s32 *)lbl_804FE300)[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_80482280[i]);
+        ((s32 *)TBoss2DeRolLe__attack_params_table)[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_80482280[i]);
     }
     for (i = 0; i < 1; i++) {
-        TBoss2DeRolLe__data_805D4B9C[i] = register_object__6TLobbyFPv(lbl_805D26AC[i]);
+        TBoss2DeRolLe__resistance_params[i] = register_object__6TLobbyFPv(lbl_805D26AC[i]);
     }
     for (i = 0; i < 1; i++) {
         TBoss2DeRolLe__data_805D4BA0[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_805D26B0[i]);
@@ -6364,7 +6364,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     TBoss2Tentacle__sub_8003A0AC();
     TBoss2Mine__sub_80038D88();
     for (k = 0; k < 5; k++) {
-        adjust_to_ground__15TObjBoss2TunnelFiPv((s32)(lbl_804356C0 + k * 0xC), (u8 *)TBoss2DeRolLe__data_804FE268 + k * 0xC);
+        adjust_to_ground__15TObjBoss2TunnelFiPv((s32)(lbl_804356C0 + k * 0xC), (u8 *)TBoss2DeRolLe__mine_ground_targets + k * 0xC);
     }
     init_effect_table__9TBoss2FinFv();
     res = (*(u8 * *)&lbl_805D4BA4);

@@ -737,7 +737,7 @@ extern const f32 lbl_805D86E8;
 extern const f32 lbl_805D86EC;
 extern const f32 lbl_805D86F0;
 extern const f32 lbl_805D86F4;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern void *tl_04;
 
 extern "C" {
@@ -1502,7 +1502,7 @@ void teardown_render_state__10TObjPlayerFPv(u8 *arg0) {
     if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x02000000) && (((Fn80040464VObj_80040464_8003F4C0*)arg0)->m8(lbl_805D86E8, lbl_805D86EC) != 0)) {
         set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
         push_matrix();
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
         if (M2C_FIELD(arg0, s32 *, 0x388) & 0x10000) {

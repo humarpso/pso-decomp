@@ -43,7 +43,7 @@ extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern u8 *TObjDoaEx01__alpha_model_sibling;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
 s32 get_bml_motion(s32, M2C_UNK);
 M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
@@ -111,12 +111,12 @@ M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
     if (!(flags & 8) && obj->model != 0) {
         if ((u8 *)obj == TObjDoaEx01__alpha_model_node || (u8 *)obj == TObjDoaEx01__alpha_model_sibling) {
             begin_effect_render__13TParticleCtrlFv();
-            lbl_805D5660 = some_id_805c6f74;
-            some_id_805c6f74 = some_id_805c6f74 | 0x10;
+            lbl_805D5660 = model_render_flags;
+            model_render_flags = model_render_flags | 0x10;
             set_chunk_material_color((u8 *)arg0 + 0xD4);
             draw_ginja_model(obj->model);
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             end_effect_render__13TParticleCtrlFv();
         } else {
             draw_ginja_model(obj->model);

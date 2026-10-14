@@ -2214,7 +2214,7 @@ void draw_chunk_object(s32);
 #define set_global_flag__10TObjPlayerFv ((void (*)(void))set_global_flag__10TObjPlayerFv)
 #define clear_global_state__10TObjPlayerFv ((void (*)(void))clear_global_state__10TObjPlayerFv)
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 #pragma fp_contract on
 void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
@@ -2235,11 +2235,11 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
     if (check_demo_mode__10TObjPlayerFv() != 1 && (self->f388 & 0x40000)) {
         return;
     }
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     if (updateFromCamera__15RenderFadeStateFPCf(&self->s418, self->f2fc) != 0) {
         self->s418.m6();
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv(self) != 0) {
-            some_id_805c6f74 = lbl_805D5660;
+            model_render_flags = lbl_805D5660;
             return;
         }
     }
@@ -2250,7 +2250,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
     push_matrix();
     translate_matrix(0, self->pos.x, self->f3ec + (self->pos.y + self->f3e8), self->pos.z);
     rotate_matrix_y(0, self->f60);
-    some_id_805c6f74 &= ~0x400;
+    model_render_flags &= ~0x400;
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         draw_chunk_object(self->f34);
     } else if (self->f388 & 4) {
@@ -2289,7 +2289,7 @@ void draw_model__15TObjEneMe1GiGueFPv(Obj_802CD058 *self) {
         render_with_position_override__10TObjPlayerFPvPvi(self, &v, 0);
     }
     self->s418.m7();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
 }
 
 }

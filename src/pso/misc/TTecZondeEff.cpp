@@ -184,7 +184,7 @@ void set_chunk_material_color(f32 *argb);
 extern f32 chunk_material_color_half_alpha_f32[];
 extern u32 lbl_805D5660;
 extern s32 TTecZondeEff__beam_vertex_data;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 void render__12TTecZondeEffFv(Zonde_8023D6B0 *self);
 void matrix_mult_vec(s32, Vec_8023D128 *, Vec_8023D128 *);
 extern Cam_8023D128 lbl_8058D4F8;
@@ -462,9 +462,9 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
     if (all_parents_unqueued_for_destruction__7TObjectFv(self) == 0) {
         return;
     }
-    id = some_id_805c6f74;
+    id = model_render_flags;
     lbl_805D5660 = id;
-    some_id_805c6f74 = id | 0x10;
+    model_render_flags = id | 0x10;
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
     if (project_lightning_points((Obj_8023D128 *)(self), (Vec_8023D128 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0 && build_lightning_strip((Obj_8023CED4 *)(self), (Vtx_8023CED4 *)(verts), (Vec_8023CED4 *)(m70), (f32 *)(m3c), (f32 *)(m8)) != 0) {
@@ -474,7 +474,7 @@ void render__12TTecZondeEffFv(Zonde_8023D6B0 *self) {
     }
     end_effect_render__13TParticleCtrlFv();
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }
 

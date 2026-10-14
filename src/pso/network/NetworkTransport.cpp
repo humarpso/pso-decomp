@@ -140,7 +140,7 @@ s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32);
 extern s16 net_slot_id;
 extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
-extern s16 lbl_805D7A34;
+extern s16 network_pppoe_transport_enabled;
 void TLobby__sub_803F8238(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
@@ -188,7 +188,7 @@ s16 get_slot_id__6TLobbyFs(s16);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32);
 extern s16 net_slot_id;
-extern s16 lbl_805D7A34;
+extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8090(void);
 M2C_UNK unlock_mutex__10TUdpSocketFi(int);
 M2C_UNK lock_mutex__6TLobbyFi(int);
@@ -227,7 +227,7 @@ extern s16 net_slot_id;
 extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s32 send_ring_buffer_base;
-extern s16 lbl_805D7A34;
+extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
 u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 u32 layout_buffers__6TLobbyFPvPvPv(u8 *, u32, u32);
@@ -246,7 +246,7 @@ s32 TLobby__sub_803F7E50(s32 arg0, s32 arg1, s32 arg2, s32 n, s32 p);
 s16 pppoe_recv_packet__6TLobbyFPvUsPv(void *, u16, void *);
 s32 TAdSinglePlyChrSelectGC__sub_8042D7E0(void *);
 extern s16 net_slot_id;
-extern s16 lbl_805D7A34;
+extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2);
 s32 TLobby__sub_803F8D24(Info_803F861C *);
 extern s16 lbl_805D47F8;
@@ -262,7 +262,7 @@ s32 TLobby__sub_803F861C(Info_803F861C *arg0);
 s16 TLobby__sub_80427F48(s16, u8 *, u16);
 s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
 extern s16 net_slot_id;
-extern s16 lbl_805D7A34;
+extern s16 network_pppoe_transport_enabled;
 s32 send_network_frame(u16 arg0, u8 *arg1);
 }
 
@@ -714,7 +714,7 @@ void TLobby__sub_803F808C(void) {
 
 s32 TLobby__sub_803F8090(void) {
     u8 buf[0x20];
-    if (lbl_805D7A34 != 0) {
+    if (network_pppoe_transport_enabled != 0) {
         if (net_slot_id < 0) {
             return 0;
         }
@@ -736,7 +736,7 @@ s32 TLobby__sub_803F811C(s16 *arg0) {
 }
 
 s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
-    if (lbl_805D7A34 != 0) {
+    if (network_pppoe_transport_enabled != 0) {
         if (net_slot_id < 0) {
             return 6;
         }
@@ -758,7 +758,7 @@ s32 TLobby__sub_803F812C(u16 arg0, void *arg1, u16 *arg2) {
 }
 
 s32 send_network_frame(u16 arg0, u8 *arg1) {
-    if ((s16) lbl_805D7A34 != 0) {
+    if ((s16) network_pppoe_transport_enabled != 0) {
         if ((s16) net_slot_id < 0) {
             return 5;
         }
@@ -776,7 +776,7 @@ block_7:
 
 void TLobby__sub_803F8238(void) {
     s32 var_r31;
-    if ((s16) lbl_805D7A34 != 0) {
+    if ((s16) network_pppoe_transport_enabled != 0) {
         if ((s16) net_slot_id >= 0) {
             TLobby__sub_80428094(net_slot_id);
             var_r31 = 0;
@@ -813,7 +813,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
         return 2;
     }
     if (arg0->flag != 0) {
-        lbl_805D7A34 = 1;
+        network_pppoe_transport_enabled = 1;
         buf[0] = 0;
         buf[0x100] = 0;
         net_slot_id = TLobby__sub_804281DC(buf);
@@ -821,7 +821,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
             return 2;
         }
     } else {
-        lbl_805D7A34 = 0;
+        network_pppoe_transport_enabled = 0;
         if (arg0->name != NULL) {
             name = arg0->name;
         } else {

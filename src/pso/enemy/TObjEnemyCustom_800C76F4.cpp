@@ -51,7 +51,7 @@ M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK update_collisions__10TObjPlayerFPv(void *);
 
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DA084;
 extern const f32 lbl_805DA088;
 
@@ -61,14 +61,14 @@ void draw__15TObjEnemyCustomFPv(u8 *arg0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        some_id_805c6f74 &= 0xFFFFFBFF;
+        model_render_flags &= 0xFFFFFBFF;
         if (check_demo_mode__10TObjPlayerFv() == 1) {
             draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }
         if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x800)) {
-            some_id_805c6f74 |= 0x400;
+            model_render_flags |= 0x400;
         }
         pop_matrix();
     }

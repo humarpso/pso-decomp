@@ -107,9 +107,9 @@ int queue_destruction__7TObjectFv(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 extern s32 lbl_805D66F8;
 extern s32 lbl_805D586C;
 void set_chunk_material_override_pair(int, int, s32, s32);
@@ -969,7 +969,7 @@ s32 TBoss6Type1__sub_802ABDEC(s32 seed) {
     return seed & 0x7FFF;
 }
 
-void reset_fish_globals__8TObjFishFv(void) { lbl_805D7784 = lbl_805D5664; lbl_805D7780 = lbl_805D5668; some_id_805c6f74 = lbl_805D5660; }
+void reset_fish_globals__8TObjFishFv(void) { chunk_polygon_flags_and_mask = lbl_805D5664; chunk_polygon_flags_or_mask = lbl_805D5668; model_render_flags = lbl_805D5660; }
 void apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *pos, s16 amount, s16 kind, f32 range) {
     s32 n;
     s32 i;
@@ -992,13 +992,13 @@ __declspec(section ".sdata2") const s32 lbl_805DE0B8[1] = { 0x8829 };
 #define lbl_805DE0B8 (lbl_805DE0B8[0])
 void set_fade_material_color__14TBoss6PlotFalzFf(f32 f) {
     Color_802ABF44 c;
-    s32 old = (*(s32 *)&some_id_805c6f74);
-    (*(s32 *)&some_id_805c6f74) = old & ~0x10;
+    s32 old = (*(s32 *)&model_render_flags);
+    (*(s32 *)&model_render_flags) = old & ~0x10;
     (*(s32 *)&lbl_805D5660) = old;
-    (*(s32 *)&lbl_805D5664) = (*(s32 *)&lbl_805D7784);
-    (*(s32 *)&lbl_805D5668) = (*(s32 *)&lbl_805D7780);
-    (*(s32 *)&some_id_805c6f74) |= lbl_805DE0B8;
-    set_chunk_material_override_pair(0xFF00, 0x800, (*(s32 *)&lbl_805D7780), (*(s32 *)&lbl_805D7784));
+    (*(s32 *)&lbl_805D5664) = (*(s32 *)&chunk_polygon_flags_and_mask);
+    (*(s32 *)&lbl_805D5668) = (*(s32 *)&chunk_polygon_flags_or_mask);
+    (*(s32 *)&model_render_flags) |= lbl_805DE0B8;
+    set_chunk_material_override_pair(0xFF00, 0x800, (*(s32 *)&chunk_polygon_flags_or_mask), (*(s32 *)&chunk_polygon_flags_and_mask));
     c.a = -1.0f + f;
     c.b = c.c = c.d = 0.0f;
     set_chunk_material_color(&c);
@@ -1033,9 +1033,9 @@ void update_camera_target__14TBoss6PlotFalzFv(void);
 
 void update_camera_target__14TBoss6PlotFalzFv(void) {
     if (TBoss6PlotFalz__fade_amount > 0.0f) {
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
     }
     TBoss6PlotFalz__fade_amount = (-1.0f);
 }
@@ -1073,14 +1073,14 @@ void apply_fade_material_color__14TBoss6PlotFalzFffff(f32 farg0, f32 farg1, f32 
     }
     TBoss6PlotFalz__fade_amount = var_f1;
     if (0.0f != var_f1) {
-        temp_r8 = some_id_805c6f74;
+        temp_r8 = model_render_flags;
         temp_r5 = temp_r8 & 0xFFFFFFDF;
-        some_id_805c6f74 = temp_r5;
+        model_render_flags = temp_r5;
         lbl_805D5660 = temp_r8;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 = temp_r5 | lbl_805DE0C8;
-        set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (lbl_805D7780), (void *) (lbl_805D7784), (int) (temp_r8));
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags = temp_r5 | lbl_805DE0C8;
+        set_chunk_material_override_pair((int) (0), (int) (0x800), (int) (temp_r5), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask), (int) (temp_r8));
         set_chunk_blend((int) (0x2500));
         stack.sp8 = 1.0f;
         temp_f2 = -((TBoss6PlotFalz__fade_amount * (1.0f - farg1)) - 1.0f);

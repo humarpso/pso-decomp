@@ -70,7 +70,7 @@ extern M2C_UNK technique_ringwave_texture_list[];
 extern u8 *camera_ctrl_instance;
 extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__12TEffCliticalFv(u8 *arg0);
 }
 
@@ -98,9 +98,9 @@ void render__12TEffCliticalFv(u8 *arg0) {
     s32 temp_r3;
     set_depth_buffer_settings_1__Fv();
     init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (technique_ringwave_texture_list)), (s32)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x70) + 1)));
-    temp_r3 = some_id_805c6f74;
+    temp_r3 = model_render_flags;
     lbl_805D5660 = temp_r3;
-    some_id_805c6f74 = temp_r3 | 0x10;
+    model_render_flags = temp_r3 | 0x10;
     begin_effect_render__13TParticleCtrlFv((int) (temp_r3));
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x2C));
     fn_800829E0((void *) (&sp8));
@@ -112,7 +112,7 @@ void render__12TEffCliticalFv(u8 *arg0) {
     draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
     pop_matrix();
     copy_slot_to_anim_frame((void *) (&sp8));
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     restore_saved_depth_alpha_state();
 }

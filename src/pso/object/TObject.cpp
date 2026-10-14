@@ -56,7 +56,7 @@ extern u32 some_main_task_flag;
 extern u32 update_flags, old_update_flags;
 extern u32 render_flags, old_render_flags;
 extern u32 render_shadow_flags, old_render_shadow_flags;
-extern u32 some_id_805c6f74;
+extern u32 model_render_flags;
 
 void camera_stuff();
 void set_depth_buffer_settings_1();
@@ -309,7 +309,7 @@ void TMainTask::render_clipout_and_fade() {
     set_depth_buffer_settings_2();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
-    some_id = some_id_805c6f74;
+    some_id = model_render_flags;
     set_some_id(1);
 
     tl_clipout->allow_rendering();
@@ -475,7 +475,7 @@ void TMainTask::render_ui() {
     set_depth_buffer_settings_2();
     set_depth_buffer_settings_id(1);
     save_depth_buffer_settings();
-    some_id = some_id_805c6f74;
+    some_id = model_render_flags;
     set_some_id(1);
 
     tl_window->allow_rendering();

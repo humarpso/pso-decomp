@@ -77,7 +77,7 @@ void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260)
 
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 s32 calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv(void *self_, void *p_) {
 #define arg0 ((Obj_80325070 *)self_)
@@ -116,9 +116,9 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     char sp8[0x34];
     s32 temp_r4;
 
-    temp_r4 = some_id_805c6f74;
+    temp_r4 = model_render_flags;
     lbl_805D5660 = temp_r4;
-    some_id_805c6f74 = temp_r4 | 0x10;
+    model_render_flags = temp_r4 | 0x10;
     begin_effect_render__13TParticleCtrlFv();
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
@@ -132,7 +132,7 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();
     set_chunk_material_color(chunk_material_color_half_alpha_f32);
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     restore_saved_depth_alpha_state();
 }
 void run_task__25TBoss5GryphonLightningEffFv(Obj_80325248 *arg0) {

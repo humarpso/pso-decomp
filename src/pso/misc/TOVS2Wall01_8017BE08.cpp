@@ -62,9 +62,9 @@ M2C_UNK draw_ginja_object(int);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void render__11TOVS2Wall01Fv(u8 *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
@@ -135,10 +135,10 @@ void render__11TOVS2Wall01Fv(u8 *arg0) {
             var_r31 = updateFromCamera__15RenderFadeStateFPCf((void *) (arg0 + 0x340), (void *) (arg0 + 0x38));
         }
         if (var_r31 != 0) {
-            lbl_805D5660 = some_id_805c6f74;
-            lbl_805D5664 = lbl_805D7784;
-            lbl_805D5668 = lbl_805D7780;
-            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m6(lbl_805D7784, some_id_805c6f74);
+            lbl_805D5660 = model_render_flags;
+            lbl_805D5664 = chunk_polygon_flags_and_mask;
+            lbl_805D5668 = chunk_polygon_flags_or_mask;
+            ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m6(chunk_polygon_flags_and_mask, model_render_flags);
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
@@ -148,9 +148,9 @@ void render__11TOVS2Wall01Fv(u8 *arg0) {
         pop_matrix();
         if (var_r31 != 0) {
             ((VObj_14_1eb8da *)((u8 *)(arg0) + (832)))->m7();
-            lbl_805D7784 = lbl_805D5664;
-            lbl_805D7780 = lbl_805D5668;
-            some_id_805c6f74 = lbl_805D5660;
+            chunk_polygon_flags_and_mask = lbl_805D5664;
+            chunk_polygon_flags_or_mask = lbl_805D5668;
+            model_render_flags = lbl_805D5660;
         }
     }
 }

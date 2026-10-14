@@ -111,7 +111,7 @@ void pop_matrix(void);
 s32 check_object_in_view_cone__6TSceneFiPvPvPvi(s32 arg0, Obj_80204B78 *obj, Vec_80204024 *pos, void *arg3, s32 arg4);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 extern RecoveredCallback_2be3cacebb2e TScene__render_callback;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern s32 lbl_805D5660;
 void draw_if_all_ready__10TObjPlayerFv(void);
 void set_global_param__8TObjFishFi(void *);
@@ -168,7 +168,7 @@ void draw_field_1c__6TSceneFPviii(void *, s32, s32, s32);
 void release_indexed_entry__6TLobbyFi(Lobby_8020533C *);
 void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
-void set_current_scene__6TSceneFi(u32);
+void set_material_alpha_compare_reference(u32);
 extern s32 TScene__data_805D5FE0;
 extern void (*TScene__data_805D5FEC)(Vec_8020533C *, Ang_8020533C *, u32);
 extern void (*TScene__data_805D5FF0)(u32);
@@ -962,7 +962,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
             begin_effect_render__13TParticleCtrlFv();
         }
         if (e->flags & 2) {
-            some_id_805c6f74 |= 1;
+            model_render_flags |= 1;
         }
         if (e->flags & 0x10) {
             Node_8020533C *sh = (Node_8020533C *)resolve_indirect_node_record(arg0, e);
@@ -1001,7 +1001,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                     notify_scene__12TObjEneReconFi(-1);
                 }
                 set_global_param__8TObjFishFi((void *)M2C_FIELD(TScene__data_805D5FCC, s32 *, 0x14));
-                set_current_scene__6TSceneFi(TScene__data_805D5FCC->flags);
+                set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                 draw_ginja_object(node);
                 update_particle_if_active__12TObjEneReconFv();
             } else if (e->flags & 0x400) {
@@ -1027,21 +1027,21 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                     if (m->tex != NULL) {
                         draw_field_1c__6TSceneFPviii(tex = m->tex, m->f8, m->fE, 0);
                         set_global_param__8TObjFishFi((void *)M2C_FIELD(TScene__data_805D5FCC, s32 *, 0x14));
-                        set_current_scene__6TSceneFi(TScene__data_805D5FCC->flags);
+                        set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                         draw_ginja_object(node);
                         set_indirect_tev__6TSceneFii((u32)tex, 0);
                     }
                 }
             }
         } else {
-            set_current_scene__6TSceneFi(TScene__data_805D5FCC->flags);
+            set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
             draw_ginja_object(node);
         }
         if (e->flags & 0x10) {
             apply_single_screen_state__6TSceneFv();
         }
         if (e->flags & 2) {
-            some_id_805c6f74 &= ~1;
+            model_render_flags &= ~1;
         }
         if (e->flags & 1) {
             end_effect_render__13TParticleCtrlFv();
@@ -1064,7 +1064,7 @@ void render_map_sections__6TSceneFPv(void *scene) {
         }
         sec = TScene__data_805D5FCC->sections;
         prepare_ginja_model();
-        lbl_805D5660 = some_id_805c6f74;
+        lbl_805D5660 = model_render_flags;
         for (i = 0; i < TScene__data_805D5FCC->count; i++, sec++) {
             if (sec->flags & 0x10000) {
                 if (sec->flags & 0x80000) {
@@ -1099,7 +1099,7 @@ void render_map_sections__6TSceneFPv(void *scene) {
                 }
             }
         }
-        some_id_805c6f74 = lbl_805D5660;
+        model_render_flags = lbl_805D5660;
         end_ginja_model_draw();
     }
 }

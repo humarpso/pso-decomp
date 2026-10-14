@@ -38,9 +38,9 @@ extern s32 dragon_common_texture_list;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 
 void render_boss_effect_object(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
@@ -48,15 +48,15 @@ void render_boss_effect_object(u8 *arg0) {
     push_matrix();
     translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
     if ((s32) M2C_FIELD(arg0, s32 *, 0x48) != 0) {
-        lbl_805D5660 = some_id_805c6f74;
-        lbl_805D5664 = lbl_805D7784;
-        lbl_805D5668 = lbl_805D7780;
-        some_id_805c6f74 |= 0x800;
-        set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (lbl_805D7780), (void *) (lbl_805D7784));
+        lbl_805D5660 = model_render_flags;
+        lbl_805D5664 = chunk_polygon_flags_and_mask;
+        lbl_805D5668 = chunk_polygon_flags_or_mask;
+        model_render_flags |= 0x800;
+        set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask));
         draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
-        lbl_805D7784 = lbl_805D5664;
-        lbl_805D7780 = lbl_805D5668;
-        some_id_805c6f74 = lbl_805D5660;
+        chunk_polygon_flags_and_mask = lbl_805D5664;
+        chunk_polygon_flags_or_mask = lbl_805D5668;
+        model_render_flags = lbl_805D5660;
     } else {
         draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
     }

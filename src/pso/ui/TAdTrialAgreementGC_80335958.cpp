@@ -49,9 +49,9 @@ s32 get_record__6TLobbyFi(int);
 s32 bind_title_texture_list();
 s32 set_chunk_material_color(void *);
 extern RecoveredGlobal_80335BD4_lbl_8050BEC0 saved_model_draw_color;
-extern RecoveredGlobal_80335BD4_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_80335BD4_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 lbl_805DF8B0;
 void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -136,10 +136,10 @@ void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0) {
     if (get_state_flag__9TMainTaskFv() != 0) {
         begin_effect_render__13TParticleCtrlFv();
         restore_full_screen_view__11TCameraCtrlFv();
-        lbl_805D5660 = some_id_805c6f74;
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&lbl_8058D4C0.value));
+        lbl_805D5660 = model_render_flags;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
-            some_id_805c6f74 |= 0x10;
+            model_render_flags |= 0x10;
             set_chunk_material_color((void *) (arg0 + 0x28));
             bind_title_texture_list();
             draw_with_camera__6TLobbyFiiif((int) (get_record__6TLobbyFi((int) (0xA))), (int) (0xA), (int) (0x22), (f32) (lbl_805DF8B0));
@@ -166,8 +166,8 @@ void render_screen__19TAdTrialAgreementGCFPv(u8 *arg0) {
             }
             reset_transform_state__10TObjPlayerFv();
         }
-        copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&saved_model_draw_color.value));
-        some_id_805c6f74 = lbl_805D5660;
+        copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&saved_model_draw_color.value));
+        model_render_flags = lbl_805D5660;
         TCameraCtrl__sub_80068EF0();
         end_effect_render__13TParticleCtrlFv();
     }

@@ -496,7 +496,7 @@ s32 draw_chunk_object(int);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 extern const f32 TObjEneMerillLia__data_805DA2F4;
 extern const f32 TObjEneMerillLia__data_805DA300;
 extern const f32 lbl_805DA314;
@@ -1565,7 +1565,7 @@ void render__16TObjEneMerillLiaFPv(u8 *arg0) {
   temp_r3 = PSO_VCALL_VObj_18_ca64a0_m9(arg0, lbl_805DA324, lbl_805DA328, lbl_805DA314);
   if (temp_r3 != 0)
   {
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     select_actor_lighting((void *) arg0);
     set_global_param__8TObjFishFi((int) ((RecoveredFields_800D6810_arg0 *) arg0)->field_24);
     push_matrix();

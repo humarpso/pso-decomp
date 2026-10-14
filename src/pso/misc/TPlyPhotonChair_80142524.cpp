@@ -26,23 +26,23 @@ struct RecoveredGlobal_80142734_lbl_8058D4C0 {
 };
 
 extern "C" {
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void set_global_draw_flag_bits(s32 arg0, s32 arg1);
     extern int lbl_805D566C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void restore_state__15TPlyPhotonChairFv(s32 _w0);
     extern int lbl_805D5670;
     extern int lbl_805D5674;
-    extern int lbl_805D7780;
-    extern int lbl_805D7784;
+    extern int chunk_polygon_flags_or_mask;
+    extern int chunk_polygon_flags_and_mask;
 int TPlyPhotonChair__sub_8014270C(s32 _w0);
 extern int lbl_805D5670;
 extern int lbl_805D5674;
-extern int lbl_805D7780;
-extern int lbl_805D7784;
+extern int chunk_polygon_flags_or_mask;
+extern int chunk_polygon_flags_and_mask;
 int TPlyPhotonChair__sub_80142720(s32 _w0);
 extern int lbl_805D566C;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void save_state__15TPlyPhotonChairFv(s32 _w0);
 void restore_actor_draw_lighting(void);
 void setup_actor_draw_lighting(void);
@@ -58,11 +58,11 @@ void TLobby__sub_80142920(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
-extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
 void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
-extern RecoveredGlobal_801426DC_lbl_8058D4C0 lbl_8058D4C0;
+extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
 void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
 s32 TPlyPhotonChair__sub_80143930(void *);
@@ -118,28 +118,28 @@ f64 TPlyPhotonChair__sub_80142624(f64 x) {
 #pragma push
 #pragma scheduling off
 void set_global_draw_flag_bits(s32 arg0, s32 arg1) {
-    some_id_805c6f74 |= arg1;
+    model_render_flags |= arg1;
 }
 #pragma pop
 
-void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&some_id_805c6f74) = lbl_805D566C; }
+void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&model_render_flags) = lbl_805D566C; }
 
 typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_8058D4C0.value), (void *) (&lbl_8050BFF0.value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&lbl_8050BFF0.value));
 }
 
-int TPlyPhotonChair__sub_8014270C(s32 _w0) { lbl_805D7784 = lbl_805D5670; lbl_805D7780 = lbl_805D5674; return lbl_805D5670; }
-int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = lbl_805D7784; lbl_805D5674 = lbl_805D7780; return lbl_805D7784; }
+int TPlyPhotonChair__sub_8014270C(s32 _w0) { chunk_polygon_flags_and_mask = lbl_805D5670; chunk_polygon_flags_or_mask = lbl_805D5674; return lbl_805D5670; }
+int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = chunk_polygon_flags_and_mask; lbl_805D5674 = chunk_polygon_flags_or_mask; return chunk_polygon_flags_and_mask; }
 
 typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&lbl_8050BFF0).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&lbl_8058D4C0).value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&lbl_8050BFF0).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
 }
 
-void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&some_id_805c6f74); }
+void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }
 void restore_actor_draw_lighting(void) {  }
 void setup_actor_draw_lighting(void) {  }
 

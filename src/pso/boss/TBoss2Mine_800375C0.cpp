@@ -738,7 +738,7 @@ extern Vec_80038200 lbl_80435AD0;
 extern Col_80038200 lbl_80435ADC;
 extern void *lbl_805D28BC;
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 void render__10TBoss2MineFv(Mine_80038200 *self);
 }
 
@@ -798,7 +798,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
         render_with_position_override__10TObjPlayerFPvPvi(self, &v, 0);
     }
     set_global_param__8TObjFishFi(self->f24);
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     clear_global_flag_400__9TObjEneDDFv();
     toggle_particle_effect__10TObjPlayerFv();
     set_node_offsets__10TBoss2MineFPv(self);
@@ -810,7 +810,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     rotate_matrix_y(0, self->f64);
     translate_matrix(0, (0.0f), (-1e+01f), (0.0f));
     if (self->flags & 4) {
-        some_id_805c6f74 |= 0x20;
+        model_render_flags |= 0x20;
         Col_80038200 c = lbl_80435ADC;
         f32 f = -(f32)(self->f3B0 >> 16) / (255.0f);
         c.b = f;
@@ -830,7 +830,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
         draw_chunk_object(lbl_805D28BC);
         pop_matrix();
     }
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
 }
 

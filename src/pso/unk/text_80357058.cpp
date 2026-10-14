@@ -183,7 +183,7 @@ int read_be16_field2_forward(void* p) { return read_be16_field2__10TObjPlayerFPv
 void build_6xAD_olga_flow_subordinate_boss_actions(void* p) { *(u8*)((char*)p + 0x0) = 173; *(u8*)((char*)p + 0x1) = 17; }
 
 extern s32 lbl_805D5660;
-extern s32 some_id_805c6f74;
+extern s32 model_render_flags;
 
 #pragma push
 #pragma fp_contract on
@@ -231,7 +231,7 @@ void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0) {
 
 void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     begin_effect_render__13TParticleCtrlFv();
-    lbl_805D5660 = some_id_805c6f74;
+    lbl_805D5660 = model_render_flags;
     set_depth_buffer_settings_1__Fv();
     init_xyz_limits__10TObjPlayerFv();
     TObjPlayer__sub_803DF768(1);
@@ -239,7 +239,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     reset_player_transform();
     reset_transform_state__10TObjPlayerFv();
     restore_saved_depth_alpha_state();
-    some_id_805c6f74 = lbl_805D5660;
+    model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
 }
 

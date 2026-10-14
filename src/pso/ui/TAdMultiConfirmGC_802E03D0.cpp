@@ -37,9 +37,9 @@ void set_chunk_material_color(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D7780;
-extern s32 lbl_805D7784;
-extern s32 some_id_805c6f74;
+extern s32 chunk_polygon_flags_or_mask;
+extern s32 chunk_polygon_flags_and_mask;
+extern s32 model_render_flags;
 void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0);
 bool fn_802E0454(u8 *arg0);
 }
@@ -527,10 +527,10 @@ void TObjPlayer__sub_802E0580(void * _w0, int _w1, void * _w2) {
 void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   Stack_802E0468 stack;
   int new_var;
-  lbl_805D5660 = some_id_805c6f74;
-  lbl_805D5664 = lbl_805D7784;
-  lbl_805D5668 = lbl_805D7780;
-  some_id_805c6f74 |= 0x10;
+  lbl_805D5660 = model_render_flags;
+  lbl_805D5664 = chunk_polygon_flags_and_mask;
+  lbl_805D5668 = chunk_polygon_flags_or_mask;
+  model_render_flags |= 0x10;
   new_var = 1;
   if (farg0 < lbl_805DE8A8)
   {
@@ -542,9 +542,9 @@ void TObjPlayer__sub_802E0468(long long arg1, u8 *arg2, f32 farg0) {
   stack.sp14 = lbl_805DE8AC * ((f32) (*((s16 *) (((s8 *) arg2) + 0x46))));
   set_chunk_material_color(&stack.sp8);
   play_phase_transition_sound__10TObjPlayerFi(arg1);
-  lbl_805D7784 = lbl_805D5664;
-  lbl_805D7780 = lbl_805D5668;
-  some_id_805c6f74 = lbl_805D5660;
+  chunk_polygon_flags_and_mask = lbl_805D5664;
+  chunk_polygon_flags_or_mask = lbl_805D5668;
+  model_render_flags = lbl_805D5660;
 }
 
 bool fn_802E0454(u8 *arg0) {

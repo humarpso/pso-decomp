@@ -29,21 +29,21 @@ void set_param__12TObjEneLappyFPvi(void* p, s32 v);
 
 extern s32 lbl_805D5318;
 extern s32 lbl_805D531C;
-extern s32 lbl_805D5320;
+extern s32 plist_texture_matches_filter;
 
 void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r6;
 
     M2C_FIELD(arg0, s32 *, 4) = 0;
     M2C_FIELD(arg0, s32 *, 0) = 0;
-    lbl_805D5320 = 0;
+    plist_texture_matches_filter = 0;
     count_model_strips_by_texture();
     M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 4) * 8);
     M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
     lbl_805D5318 = M2C_FIELD(arg0, s32 *, 8);
     temp_r6 = M2C_FIELD(arg0, s32 *, 0xC);
     lbl_805D531C = temp_r6;
-    lbl_805D5320 = 0;
+    plist_texture_matches_filter = 0;
     collect_model_strips_by_texture(arg0, arg1, arg2, temp_r6);
     return arg0;
 }
