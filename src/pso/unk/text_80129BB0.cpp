@@ -23,12 +23,12 @@ extern const f32 lbl_805DAE48;
 extern const f32 lbl_805DAE50;
 extern const f32 lbl_805DAE54;
 extern const f32 lbl_805DAE58;
-void TObjPlayer__sub_80129BB0(Self_80129BB0 *self);
+void s_rank_bazooka_recoil(Self_80129BB0 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80129BB0(Self_80129BB0 *self) {
+void s_rank_bazooka_recoil(Self_80129BB0 *self) {
     s32 ang;
     Vec_80129BB0 v;
     Ang_80129BB0 a;

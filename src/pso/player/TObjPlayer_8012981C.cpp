@@ -6,11 +6,11 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void apply_directional_input__10TObjPlayerFPv(void *arg0);
+void s_rank_shot_turn_barrels(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 s32 get_player_list__10TObjPlayerFv();
 
-void apply_directional_input__10TObjPlayerFPv(void *arg0) {
+void s_rank_shot_turn_barrels(void *arg0) {
     if (get_player_list__10TObjPlayerFv() == 1) {
         rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x200));
     }

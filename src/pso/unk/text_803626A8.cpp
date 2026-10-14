@@ -159,14 +159,14 @@ public:
 extern "C" {
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
-void set_evp_default__10TObjPlayerFPv(u8 *arg0);
+void s_rank_knuckle_unequip(u8 *arg0);
 M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E025C;
-void TObjPlayer__sub_80362C54(u8 *arg0);
-void * TObjPlayer__sub_80362CFC(void *, M2C_UNK, void *);
+void s_rank_knuckle_equip(u8 *arg0);
+void * init_s_rank_knuckle(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_state_80362d38__10TObjPlayerFPv(u8 *arg0);
+u8 *create_s_rank_knuckle(u8 *arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
@@ -193,7 +193,7 @@ s32 spawn_particle_effect(void *, s32);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
 extern s32 lbl_804A2B50[];
-void TObjPlayer__sub_80362C80(T_80362C80 *arg0);
+void s_rank_knuckle_marker(T_80362C80 *arg0);
 s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
@@ -351,11 +351,11 @@ void *TObjEneEpsilon__ct(void *arg0) {
 
 extern M2C_UNK lbl_804F26E0[];
 
-void set_evp_default__10TObjPlayerFPv(u8 *arg0) {
+void s_rank_knuckle_unequip(u8 *arg0) {
     set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E0258));
 }
 
-void TObjPlayer__sub_80362C54(u8 *arg0) {
+void s_rank_knuckle_equip(u8 *arg0) {
     set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E025C));
 }
 
@@ -363,26 +363,26 @@ typedef struct S_80362C80 S_80362C80;
 typedef struct T_80362C80 T_80362C80;
 typedef struct VBase_18_c22f9c VBase_18_c22f9c;
 typedef struct VObj_18_c22f9c VObj_18_c22f9c;
-void TObjPlayer__sub_80362C80(T_80362C80 *arg0) {
+void s_rank_knuckle_marker(T_80362C80 *arg0) {
   u8 sp8[0x10];
   s32 n;
   arg0->obj->m63(lbl_804A2B50[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
   spawn_particle_effect(sp8, 0x1D0);
 }
 
-void *TObjPlayer__sub_80362CFC(void *arg0, M2C_UNK _w1, void * _w2) {
+void *init_s_rank_knuckle(void *arg0, M2C_UNK _w1, void * _w2) {
     construct_srank_weapon(arg0);
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
     return arg0;
 }
-u8 *create_state_80362d38__10TObjPlayerFPv(u8 *arg0) {
+u8 *create_s_rank_knuckle(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)TObjPlayer__sub_80362CFC((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }

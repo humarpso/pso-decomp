@@ -68,13 +68,13 @@ M2C_UNK spawn_particle_effect(void *, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
 M2C_UNK TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129878_lbl_804A4438 lbl_804A4438;
-void TObjPlayer__sub_80129878(u8 *arg0);
+void s_rank_shot_marker(u8 *arg0);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80129878_lbl_804A4438_size[sizeof(RecoveredGlobal_80129878_lbl_804A4438) == 0x14 ? 1 : -1];
-void TObjPlayer__sub_80129878(u8 *arg0) {
+void s_rank_shot_marker(u8 *arg0) {
     M2C_UNK sp8;
     TObjPlayer__sub_80128A70();
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (7), (void *) (&sp8));

@@ -2,8 +2,8 @@
 
 extern "C" {
 
-void TObjPlayer__sub_80129D70(void* p);
+void s_rank_bazooka_marker(void* p);
 
-void TObjPlayer__sub_80129D70(void* p) { *(s32*)((char*)p + 0x200) = 1; }
+void s_rank_bazooka_marker(void* p) { *(s32*)((char*)p + 0x200) = 1; }
 
 }

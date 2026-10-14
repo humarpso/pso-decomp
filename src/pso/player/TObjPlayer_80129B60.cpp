@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void update_scaled_effect__10TObjPlayerFPv(void *arg0);
+void s_rank_bazooka_slide_barrel(void *arg0);
 s32 get_player_list__10TObjPlayerFv();
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 
 extern f32 lbl_805DAE48;
 extern f32 lbl_805DAE4C;
 
-void update_scaled_effect__10TObjPlayerFPv(void *arg0) {
+void s_rank_bazooka_slide_barrel(void *arg0) {
     if (get_player_list__10TObjPlayerFv() == 1) {
         translate_matrix(0, lbl_805DAE48, lbl_805DAE4C * M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805DAE48);
     }
