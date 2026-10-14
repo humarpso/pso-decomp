@@ -15,13 +15,13 @@ void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
 void forward_item_effect_callback__10TObjPlayerFii();
 extern const f32 lbl_805E026C;
-void init_weapon_effect__17TItemEffectWeaponFPvPv(Src_803631E8 *arg0, Obj_803631E8 *arg1);
+void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1);
 }
 
 extern "C" {
 
-void play_effect_sound__17TItemEffectWeaponFPv(void *arg0);
-void send_player_load__17TItemEffectWeaponFi(s32 arg0);
+void s_rank_launcher_slide_node(void *arg0);
+void s_rank_launcher_marker(s32 arg0);
 M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
 M2C_UNK spawn_light_task__10TObjPlayerFPv(s32);
 M2C_UNK fire_shot_at_target__11TItemWeaponFv(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
@@ -31,13 +31,13 @@ s32 get_player_list__10TObjPlayerFv();
 
 extern f32 lbl_805E0268;
 
-void play_effect_sound__17TItemEffectWeaponFPv(void *arg0) {
+void s_rank_launcher_slide_node(void *arg0) {
     if (get_player_list__10TObjPlayerFv() == 1) {
         translate_matrix(0, lbl_805E0268, M2C_FIELD(arg0, f32 *, 0x1FC), lbl_805E0268);
     }
 }
 
-void init_weapon_effect__17TItemEffectWeaponFPvPv(Src_803631E8 *arg0, Obj_803631E8 *arg1) {
+void s_rank_launcher_collider_block(Src_803631E8 *arg0, Obj_803631E8 *arg1) {
     u8 sp8[16];
     arg1->flags |= 0x39C;
     get_weapon_color__11TItemWeaponFPv(sp8, arg0);
@@ -48,7 +48,7 @@ void init_weapon_effect__17TItemEffectWeaponFPvPv(Src_803631E8 *arg0, Obj_803631
     arg1->fn70 = (void *)forward_item_effect_callback__10TObjPlayerFii;
 }
 
-void send_player_load__17TItemEffectWeaponFi(s32 arg0) {
+void s_rank_launcher_marker(s32 arg0) {
     M2C_UNK sp8;
 
     draw_status_icon__10TObjPlayerFPvi(arg0, &sp8);

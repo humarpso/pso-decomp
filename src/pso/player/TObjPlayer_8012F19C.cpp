@@ -6,7 +6,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void approach_angles__10TObjPlayerFi(s32 arg0);
+void madam_parasol_open(s32 arg0);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 
 extern const f32 lbl_805DAFA4;
@@ -14,7 +14,7 @@ extern const f32 lbl_805DAFA8;
 extern const f32 lbl_805DAFAC;
 extern const f32 lbl_805DAFB0;
 
-void approach_angles__10TObjPlayerFi(s32 arg0) {
+void madam_parasol_open(s32 arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1F8, lbl_805DAFA4, lbl_805DAFA8);
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1FC, lbl_805DAFAC, lbl_805DAFB0);
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x200, lbl_805DAFA4, lbl_805DAFA8);

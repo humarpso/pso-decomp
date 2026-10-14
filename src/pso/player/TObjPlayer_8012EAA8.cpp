@@ -7,10 +7,10 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void cast_shifta_deband__10TObjPlayerFPv(void *arg0);
-int grow_field1f8__10TObjPlayerFPv(void* p);
-int apply_recoil_backward__10TObjPlayerFPv(void* p);
-void TObjPlayer__sub_8012EB7C(void* p);
-void release_container_if_ready__10TObjPlayerFPv(void* p);
+int s_red_blade_unfold(void* p);
+int s_red_blade_fold(void* p);
+void s_red_blade_equip_rolls(void* p);
+void s_red_blade_turn_node(void* p);
 void *init_variant_a__10TObjPlayerFPv(void *arg0);
 int rotate_matrix_x(void*, void*);
 int add_angle_clamped__10TObjPlayerFPvii(void*, int, int);
@@ -42,10 +42,10 @@ void cast_shifta_deband__10TObjPlayerFPv(void *arg0) {
     }
     update_active_game_effect__10TObjPlayerFPv(arg0);
 }
-int grow_field1f8__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, 1820, 10922); }
-int apply_recoil_backward__10TObjPlayerFPv(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, -1820, 0); }
-void TObjPlayer__sub_8012EB7C(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
-void release_container_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
+int s_red_blade_unfold(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, 1820, 10922); }
+int s_red_blade_fold(void* p) { return add_angle_clamped__10TObjPlayerFPvii((char*)p + 0x1f8, -1820, 0); }
+void s_red_blade_equip_rolls(void* p) { TObjPlayer__sub_8011E618(p); TObjPlayer__sub_8011E618(p); }
+void s_red_blade_turn_node(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_x((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 extern M2C_UNK lbl_804A5F18[];
 

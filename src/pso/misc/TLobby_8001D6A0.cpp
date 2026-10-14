@@ -924,7 +924,7 @@ void TLobby__sub_8001E998(f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 
 extern "C" {
 
-s32 TLobby__sub_8001E8B8(void);
+s32 default_clock_offset_frames(void);
 void TLobby__sub_8001ED70(void);
 f32 calc_phase_offset__6TLobbyFv(void);
 s32 get_minutes__6TLobbyFv(void);
@@ -944,7 +944,7 @@ f32 calc_phase_offset__6TLobbyFv(void) {
     return var_f31;
 }
 
-s32 TLobby__sub_8001E8B8(void) {
+s32 default_clock_offset_frames(void) {
     return 0x1A5E00;
 }
 
@@ -973,7 +973,7 @@ s32 get_time_of_day_seconds__6TLobbyFv() {
   g = get_global_state__23TAdSinglePlyChrSelectGCFv();
   if (g == 0)
   {
-    base = TLobby__sub_8001E8B8();
+    base = default_clock_offset_frames();
   }
   else
   {

@@ -9,12 +9,12 @@ M2C_UNK play_sound_effect(int, int, int, int);
 extern const f32 lbl_805DAFD0;
 extern const f32 lbl_805DAFD4;
 extern const f32 lbl_805DAFD8;
-void update_charge_ramp_slow__10TObjPlayerFPv(u8 *arg0);
+void madam_umbrella_close(u8 *arg0);
 }
 
 extern "C" {
 
-void update_charge_ramp_slow__10TObjPlayerFPv(u8 *arg0) {
+void madam_umbrella_close(u8 *arg0) {
     f32 temp_f2;
     s32 var_r31;
     var_r31 = 0;

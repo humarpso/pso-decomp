@@ -11,7 +11,7 @@ int init_once__6TLobbyFPv(void* p);
 int TLobby__sub_80134DC8(void* p);
 int TLobby__sub_80134DE8(void* p);
 void reset_lobby_state__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8001E5D0();
+M2C_UNK set_clock_offset_from_server_time();
 int fn_800779A0(void*);
 int TAdSinglePlyChrSelectGC__sub_80077AE8(void*);
 M2C_UNK send_server_time_accepted__9TProtocolFv(s32);
@@ -27,7 +27,7 @@ int TLobby__sub_80134DE8(void* p) { return TAdSinglePlyChrSelectGC__sub_80077AE8
 extern s32 TLobby__protocol_instance;
 
 void reset_lobby_state__6TLobbyFv(void) {
-    TLobby__sub_8001E5D0();
+    set_clock_offset_from_server_time();
     send_server_time_accepted__9TProtocolFv(TLobby__protocol_instance);
 }
 

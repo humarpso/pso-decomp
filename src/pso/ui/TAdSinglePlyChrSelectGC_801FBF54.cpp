@@ -3914,7 +3914,7 @@ struct Card_80201354 {
 };
 
 extern "C" {
-s32 TLobby__sub_8001E8B8(void);
+s32 default_clock_offset_frames(void);
 int TLobby__sub_80132EC8(void);
 void reset_load_state__15TAdPlayerLoadGCFPvPv(void *, void *);
 M2C_UNK DateToSeconds__FP9DateStampPi(M2C_UNK *, s32 *);
@@ -4114,7 +4114,7 @@ void reset_save_header__23TAdSinglePlyChrSelectGCFv(void) {
   *((s16 *) (((s8 *) system_save_payload) + 4)) = -0x32;
   *((s8 *) (((s8 *) system_save_payload) + 6)) = 0;
   *((s8 *) (((s8 *) system_save_payload) + 7)) = TLobby__sub_80132EC8();
-  *((s32 *) (((s8 *) system_save_payload) + 8)) = TLobby__sub_8001E8B8();
+  *((s32 *) (((s8 *) system_save_payload) + 8)) = default_clock_offset_frames();
   *((s16 *) (((s8 *) system_save_payload) + 0xC)) = 0;
   *((s16 *) (((s8 *) system_save_payload) + 0xE)) = 0;
   reset_load_state__15TAdPlayerLoadGCFPvPv(0, &sp8);

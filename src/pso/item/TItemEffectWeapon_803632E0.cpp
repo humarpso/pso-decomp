@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void approach_target__17TItemEffectWeaponFi(s32 arg0);
+void s_rank_launcher_retract(s32 arg0);
 M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(s32, f32, f32);
 
 extern const f32 lbl_805E0268;
 extern const f32 lbl_805E0278;
 
-void approach_target__17TItemEffectWeaponFi(s32 arg0) {
+void s_rank_launcher_retract(s32 arg0) {
     approach_value__20TItemEffOrgaFlowShotFPvff(arg0 + 0x1FC, lbl_805E0278, lbl_805E0268);
 }
 
