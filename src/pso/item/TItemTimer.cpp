@@ -148,7 +148,7 @@ void apply_to_player__10TItemTimerFPv(void *arg0);
 void invoke_callback__10TItemTimerFPv(void *arg0);
 void reset_fields__10TItemTimerFPv(void* p);
 void set_owner_flag_800__10TItemTimerFPv(void *arg0);
-void update__10TItemTimerFPv(void *arg0);
+void freeze_curse_deliver(void *arg0);
 void update_owner_state__10TItemTimerFPv(void *arg0);
 M2C_UNK add_actor_hp(s32, M2C_UNK);
 s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
@@ -202,7 +202,7 @@ void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32
 
 extern const f32 lbl_805DAC78;
 extern const f32 lbl_805DAC7C;
-void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
+void paralysis_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
@@ -214,7 +214,7 @@ void TItemTimer__sub_8011D5B4(Timer_8011D5B4 *arg0) {
     }
 }
 
-void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
+void confusion_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
@@ -226,7 +226,7 @@ void TItemTimer__sub_8011D66C(Timer_8011D5B4 *arg0) {
     }
 }
 
-void TItemTimer__sub_8011D724(Timer_8011D5B4 *arg0) {
+void slow_curse_deliver(Timer_8011D5B4 *arg0) {
     Rec_8011D5B4 a;
     get_field_3e0__12TBoss3VoloptFPv(arg0->obj);
     if (is_item_area_enabled() == 1 && lbl_805DAC78 * (f32)rand() < arg0->f2c) {
@@ -255,7 +255,7 @@ void TItemTimer__sub_8011D7DC(void *arg0) {
 extern const f64 lbl_8043E820;
 extern const f32 lbl_805DAC78;
 
-void update__10TItemTimerFPv(void *arg0) {
+void freeze_curse_deliver(void *arg0) {
 
     if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
         if (((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {

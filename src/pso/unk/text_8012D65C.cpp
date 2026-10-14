@@ -7,12 +7,12 @@ extern "C" {
 u8 * TObjPlayer__sub_8012D620(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_obj_8012D65C__10TObjPlayerFPv(u8 *arg0);
+u8 *sealed_j_sword_create(u8 *arg0);
 }
 
 extern "C" {
 
-u8 *create_obj_8012D65C__10TObjPlayerFPv(u8 *arg0) {
+u8 *sealed_j_sword_create(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {

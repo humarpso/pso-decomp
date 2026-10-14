@@ -650,7 +650,6 @@ force_active:
   - apply_dakuten_to_last_char__19TWindowKeyBoardSoftFPv
   - apply_fog_entry
   - apply_heal_to_target__13TOHealGeneralFPv
-  - apply_hit_to_target__10TObjPlayerFiPv
   - apply_hit_to_target__14TBoss7CrawfishFPvPv
   - apply_material_item
   - apply_mourning_jellen__14TObjEneBm5WolfFPv
@@ -1606,6 +1605,7 @@ force_active:
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
+  - frozen_shooter_freeze_hit
   - fs_obj_ex_doa01_model_names
   - fs_obj_ex_doa01_motion_names
   - fs_obj_ex_entombo_model_names
@@ -1797,7 +1797,6 @@ force_active:
   - init_text_window_layout
   - init_texture_table__22TChCrLoadAfsTextureReqFPv
   - init_timer__13TObjCHTimeWinFv
-  - init_timer_event_value__10TObjPlayerFPvUiiif
   - init_vertex_table__17TObjEneBm3FlyNestFv
   - initialize__16TItemWeaponRifleFlPUc
   - initialize__21TItemProArmorParticleFPvPvPvPvPv
@@ -2835,6 +2834,7 @@ force_active:
   - sj_version_string
   - skip_name_prefix__11TWindowCtrlFPvPv
   - sleeping_state__14TObjEneBm5WolfFPvi
+  - slow_curse_timer_ct
   - smpcmp
   - snap_to_ground__10TObjPlayerFii
   - snap_to_ground__13TObjEneMorfosFii

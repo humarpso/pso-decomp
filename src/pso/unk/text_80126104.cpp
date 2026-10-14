@@ -146,21 +146,21 @@ struct Pl_801261BC : PlB_801261BC {
 
 extern "C" {
 s32 obj_is_hit_receivable(void *);
-void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1);
+void frozen_shooter_freeze_hit(int arg0, u8 *arg1);
 extern const f32 lbl_805DAD70;
-void init_hit_effect_config__10TObjPlayerFPvPv(Obj_80126180 *self, Out_80126180 *o);
+void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void fire_shot_at_target__11TItemWeaponFv(void *, void *, s32, s32);
 void draw_status_icon__10TObjPlayerFPvi(void *, void *);
-void TObjPlayer__sub_801261BC(Pl_801261BC *arg0);
+void frozen_shooter_marker(Pl_801261BC *arg0);
 }
 
 extern "C" {
 
 #pragma push
 #pragma fp_contract on
-void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1) {
+void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {
     u8 *temp_r31;
     if ((arg1 != NULL) && (obj_is_hit_receivable((void *) (M2C_FIELD(arg1, u8 **, 0))) != 0)) {
         temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
@@ -170,16 +170,16 @@ void apply_hit_to_target__10TObjPlayerFiPv(int arg0, u8 *arg1) {
 }
 #pragma pop
 
-void init_hit_effect_config__10TObjPlayerFPvPv(Obj_80126180 *self, Out_80126180 *o) {
+void frozen_shooter_collider_block(Obj_80126180 *self, Out_80126180 *o) {
     if (self->b == 0) {
-        o->f74 = (void *)apply_hit_to_target__10TObjPlayerFiPv;
+        o->f74 = (void *)frozen_shooter_freeze_hit;
     }
     o->f10 = self->a;
     o->f50 = 0x4000;
     o->f4c = lbl_805DAD70;
     o->f78 = self->c;
 }
-void TObjPlayer__sub_801261BC(Pl_801261BC *arg0) {
+void frozen_shooter_marker(Pl_801261BC *arg0) {
     u8 buf[16];
     void *p;
     draw_status_icon__10TObjPlayerFPvi(arg0, buf);
