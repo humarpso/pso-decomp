@@ -40,29 +40,29 @@ void spawn_item_timer__13TItemAttackerFiii(void *, void (*)(void *), int);
 M2C_UNK launch_rare_weapon_special__10TObjPlayerFv(void *, void *, int, f32);
 M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
 
-void fire_recoiling_weapon_projectile(RecoilWeaponView *arg0);
+void drill_launcher_marker(RecoilWeaponView *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK draw_ginja_object(void *);
 s32 get_player_list__10TObjPlayerFv();
-void update_photon_chair_state__10TObjPlayerFPv(void *arg0);
-void update_breath_pulse__10TObjPlayerFPv(void *arg0);
+void drill_launcher_node_callback(void *arg0);
+void drill_launcher_update(void *arg0);
 void item_equip_variant_deleting_dtor_80120CF8(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1);
 void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
-s32 spawn_shoot_particle_entity__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
+s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 
-void* enter_state_34__10TObjPlayerFPv(void* a0, M2C_UNK, void *);
+void* drill_launcher_ct(void* a0, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_enter_state_34__10TObjPlayerFPv(u8 *arg0);
+u8 *create_drill_launcher(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__15TItemShootModelFv(void *, int);
 void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1);
-void restore_weapon_projectile_visibility(void *arg0);
+void drill_launcher_return_timer(void *arg0);
 void increment_burst_counter(u8 *arg0);
-s32 get_anim_state__10TObjPlayerFPv(void* p);
+s32 get_burst_counter(void* p);
 s32 get_id__13TItemProArmorFPv(void *);
 M2C_UNK roll_technique__11TItemWeaponFv(void *);
 s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
@@ -307,7 +307,7 @@ void init_armor__10TObjPlayerFPv(void *arg0) {
     roll_technique__11TItemWeaponFv(arg0);
 }
 
-void reset_owner_target__10TObjPlayerFPv(u8 *);
+void drill_launcher_shot_render(u8 *);
 extern "C" void TItemEquipBase__sub_8010A77C();
 extern "C" void TItemWeapon__sub_8011E5C4();
 extern "C" void TItemWeapon__sub_8011E5C8();
@@ -385,7 +385,7 @@ void *megid_projectile_weapon_vtable[63] = {
 };
 void *recoil_weapon_shoot_model_vtable[7] = {
     (void *)0x0, (void *)0x0, (void *)&dt_item_shoot_model__10TObjPlayerFPvs, (void *)&run_task__10TItemShootFv,
-    (void *)&reset_owner_target__10TObjPlayerFPv, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
+    (void *)&drill_launcher_shot_render, (void *)&render_shadows__7TObjectFv, (void *)&TObjPlayer__sub_8012480C,
 };
 void *recoiling_projectile_weapon_vtable[63] = {
     (void *)0x0, (void *)0x0, (void *)&item_equip_variant_deleting_dtor_80124AEC, (void *)&run_task__5TItemFPv,
@@ -401,9 +401,9 @@ void *recoiling_projectile_weapon_vtable[63] = {
     (void *)&TItem__sub_80100648, (void *)&TItem__sub_801005E4, (void *)&TItem__sub_801005D8, (void *)&TItemWeapon__sub_80121064,
     (void *)&apply_equip__11TItemWeaponFPv, (void *)&TItemWeapon__sub_80120568, (void *)&load_weapon_model__11TItemWeaponFPv, (void *)&reset_item_equip,
     (void *)&bind_attribute_entries__11TItemWeaponFPv, (void *)&reset_entries__11TItemWeaponFPv, (void *)&TItemWeapon__sub_8012012C, (void *)&launch_shot__11TItemWeaponFPvPviii,
-    (void *)&fire_recoiling_weapon_projectile, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
-    (void *)&update_breath_pulse__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
-    (void *)&update_photon_chair_state__10TObjPlayerFPv, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
+    (void *)&drill_launcher_marker, (void *)&TItemWeapon__sub_8011E5DC, (void *)&TItemWeapon__sub_8011E5D8, (void *)&TItemWeapon__sub_8011E5D4,
+    (void *)&drill_launcher_update, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
+    (void *)&drill_launcher_node_callback, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
 #define megid_projectile_weapon_vtable ((M2C_UNK *)megid_projectile_weapon_vtable)
 #define recoil_weapon_shoot_model_vtable ((M2C_UNK *)recoil_weapon_shoot_model_vtable)
@@ -446,7 +446,7 @@ u8 *TObjPlayer__sub_80124708(u8 *arg0) {
     return NULL;
 }
 
-void reset_owner_target__10TObjPlayerFPv(u8 *arg0) {
+void drill_launcher_shot_render(u8 *arg0) {
     u8 *temp_r31;
     u8 *temp_r3;
     u8 *temp_r3_2;
@@ -478,7 +478,7 @@ void *ct_shoot_model__10TObjPlayerFPv(void *arg0) {
     return arg0;
 }
 
-s32 spawn_shoot_particle_entity__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
+s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 var_r0;
     s32 var_r31;
 
@@ -498,17 +498,17 @@ s32 spawn_shoot_particle_entity__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2,
 }
 typedef char BurstReadyOffset[offsetof(RecoilWeaponView, projectileVisible)==0x1F8 ? 1 : -1];
 typedef char BurstModeOffset[offsetof(RecoilWeaponView, recoilPhase)==0x204 ? 1 : -1];
-void fire_recoiling_weapon_projectile(RecoilWeaponView *arg0) {
+void drill_launcher_marker(RecoilWeaponView *arg0) {
     WeaponVector sp8;
     s32 temp_r31;
     s32 var_r30;
     if ((s32) arg0->projectileVisible == 1) {
-        spawn_item_timer__13TItemAttackerFiii(arg0, restore_weapon_projectile_visibility, 0x1E);
+        spawn_item_timer__13TItemAttackerFiii(arg0, drill_launcher_return_timer, 0x1E);
         arg0->projectileVisible = 0;
     }
     arg0->recoilPhase = 2;
     temp_r31 = (s32)arg0->player + 0x7CC;
-    if (get_anim_state__10TObjPlayerFPv((void*)((int) (temp_r31))) == 0) {
+    if (get_burst_counter((void*)((int) (temp_r31))) == 0) {
         var_r30 = 0;
         do {
             increment_burst_counter((u8 *)((int) (temp_r31)));
@@ -522,7 +522,7 @@ void fire_recoiling_weapon_projectile(RecoilWeaponView *arg0) {
     }
     arg0->deliver_projectile(&sp8, 0, 0, 1);
 }
-void update_photon_chair_state__10TObjPlayerFPv(void *arg0) {
+void drill_launcher_node_callback(void *arg0) {
     s32 temp_r3;
     temp_r3 = get_player_list__10TObjPlayerFv();
     if ((temp_r3 > 0) && (temp_r3 < 4)) {
@@ -537,7 +537,7 @@ void update_photon_chair_state__10TObjPlayerFPv(void *arg0) {
         }
     }
 }
-void update_breath_pulse__10TObjPlayerFPv(void *arg0) {
+void drill_launcher_update(void *arg0) {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
@@ -580,15 +580,15 @@ void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* enter_state_34__10TObjPlayerFPv(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)spawn_shoot_particle_entity__10TObjPlayerFiiif; *(float*)((char*)a0 + 0x1e4) = 9.0f; set_status_flags__10TObjPlayerFPvUi((void *)(a0), (int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
-u8 *create_enter_state_34__10TObjPlayerFPv(u8 *arg0) {
+void* drill_launcher_ct(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; set_status_flags__10TObjPlayerFPvUi((void *)(a0), (int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
+u8 *create_drill_launcher(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != NULL) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)enter_state_34__10TObjPlayerFPv((void*)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)drill_launcher_ct((void*)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -604,7 +604,7 @@ void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void restore_weapon_projectile_visibility(void *arg0) {
+void drill_launcher_return_timer(void *arg0) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
     }
@@ -612,6 +612,6 @@ void restore_weapon_projectile_visibility(void *arg0) {
 void increment_burst_counter(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + 1);
 }
-s32 get_anim_state__10TObjPlayerFPv(void* p) { return *(s32*)((char*)p + 0x18); }
+s32 get_burst_counter(void* p) { return *(s32*)((char*)p + 0x18); }
 
 }

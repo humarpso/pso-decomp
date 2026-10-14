@@ -68,26 +68,26 @@ void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
 void draw_icon__10TObjPlayerFPvii(void *, s32, void *);
-void fire_shoot_particle__10TObjPlayerFPviif();
-void init_shoot_model_flags__10TObjPlayerFPv();
-void TObjPlayer__sub_80122014();
+void belra_cannon_create_extra_shot();
+void belra_cannon_create_shot();
+void belra_cannon_return_timer();
 extern const f32 lbl_805DACD0;
-void TObjPlayer__sub_80121CB8(Self_80121CB8 *self);
+void belra_cannon_marker(Self_80121CB8 *self);
 }
 
 extern "C" {
 
-void TObjPlayer__sub_80121CB8(Self_80121CB8 *self) {
+void belra_cannon_marker(Self_80121CB8 *self) {
     Vec_80121CB8 v;
     if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
-        self->fn1f0 = (void *)fire_shoot_particle__10TObjPlayerFPviif;
+        self->fn1f0 = (void *)belra_cannon_create_extra_shot;
         self->f1f8 = 0;
-        spawn_item_timer__13TItemAttackerFiii(self, (void *)TObjPlayer__sub_80122014, 0x1E);
+        spawn_item_timer__13TItemAttackerFiii(self, (void *)belra_cannon_return_timer, 0x1E);
         launch_rare_weapon_special__10TObjPlayerFv(self, 0, 1, lbl_805DACD0);
     } else {
-        self->fn1f0 = (void *)init_shoot_model_flags__10TObjPlayerFPv;
+        self->fn1f0 = (void *)belra_cannon_create_shot;
         self->f1f8 = 0;
-        spawn_item_timer__13TItemAttackerFiii(self, (void *)TObjPlayer__sub_80122014, 0x1E);
+        spawn_item_timer__13TItemAttackerFiii(self, (void *)belra_cannon_return_timer, 0x1E);
         draw_icon__10TObjPlayerFPvii(self, 1, &v);
         self->m49(&v, 0, 0, 1);
     }

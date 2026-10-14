@@ -57,19 +57,19 @@ struct VObj_18 : VBase_18 {
     virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 };
 extern "C" {
-s32 is_mag_active__10TObjPlayerFPv(void *, int);
+s32 item_model_is_shown(void *, int);
 M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
-void spawn_mag_effects__10TObjPlayerFPv(u8 *arg0);
+void baranz_launcher_marker(u8 *arg0);
 }
 
 extern "C" {
 
-void spawn_mag_effects__10TObjPlayerFPv(u8 *arg0) {
+void baranz_launcher_marker(u8 *arg0) {
     M2C_UNK sp8;
     s32 temp_r4;
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1FC);
     M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (temp_r4 + 0x2AAA);
-    if (is_mag_active__10TObjPlayerFPv((void *)(arg0), (int) (temp_r4)) != 0) {
+    if (item_model_is_shown((void *)(arg0), (int) (temp_r4)) != 0) {
         draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (2), (void *) (&sp8));
         ((VObj_18 *)(arg0))->m49(&sp8, 0, 0x4FA, 1);
         draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));

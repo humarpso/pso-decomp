@@ -1422,6 +1422,8 @@ force_active:
   - draw_value__13TWindowMesetaFPvi
   - draw_window__17TWindowDuelResultFPv
   - draw_window_uv_sprite_part
+  - drill_launcher_marker
+  - drill_launcher_return_timer
   - dspInitCallback
   - dspResumeCallback
   - duel_result_window_layout_table
@@ -1514,7 +1516,6 @@ force_active:
   - find_table_entry_id
   - find_target_player__6TOMineFPv
   - finish_chr_select_scene_init__6TLobbyFv
-  - fire_recoiling_weapon_projectile
   - fire_zonde_at_players__10TObjPlayerFPv
   - flanking_state__14TObjEneBm5WolfFPvi
   - floor_lifecycle_callbacks_floor_00
@@ -6945,7 +6946,6 @@ force_active:
   - resolve_owner_heading__11TItemMagSubFv
   - resolve_set_row_factory_indices
   - resolve_theme_index__13TObjLobbyMainFPv
-  - restore_weapon_projectile_visibility
   - resume_challenge_result_processing
   - return_to_city_after_defeat
   - returning_state__14TObjEneBm5WolfFPvi

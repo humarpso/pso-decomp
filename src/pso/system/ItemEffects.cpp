@@ -34,7 +34,7 @@ s32 ct__13TItemProArmorFPv(s32, u32, s32, s32);
 void create_pro_armor__10TObjPlayerFPv(void *arg0);
 void spawn_item_follow_effect(s32 arg0, u32 arg1, s32 arg2, s32 arg3);
 s32 get_global_state__14TOKeyMachine01Fv();
-s32 is_mag_active__10TObjPlayerFPv(void *);
+s32 item_model_is_shown(void *);
 s32 is_item_area_enabled(s32);
 extern s32 tl_05;
 void update_twin_blaze_flames__10TObjPlayerFPv(void *arg0);
@@ -149,7 +149,7 @@ void create_pro_armor__10TObjPlayerFPv(void *arg0) {
 void update_twin_blaze_flames__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
     temp_r3 = get_global_state__14TOKeyMachine01Fv();
-    if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (is_mag_active__10TObjPlayerFPv(arg0) != 0)) {
+    if ((temp_r3 != (s32) M2C_FIELD(arg0, s32 *, 0x1F8)) && (item_model_is_shown(arg0) != 0)) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = temp_r3;
         if (is_item_area_enabled(temp_r3) != 0) {
             spawn_item_follow_effect((s32)(tl_05), (u32)(arg0), (s32)(1), (s32)(0x1AE));

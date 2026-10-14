@@ -26,10 +26,10 @@ struct VObj_18 : VBase_18 {
 struct Self_801223E0 { u8 pad[0x1f8]; f32 f1f8; };
 
 extern "C" {
-u8 * init_state_515__10TObjPlayerFPv(void *, M2C_UNK, s32);
+u8 * guld_milla_ct(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
-u8 *create_blade_dance_weapon(s32 arg0);
+u8 *create_guld_milla(s32 arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
 void scale_matrix(s32, f32, f32, f32);
@@ -39,14 +39,14 @@ void apply_blade_dance_model_scale(Self_801223E0 *self);
 
 extern "C" {
 
-u8 *create_blade_dance_weapon(s32 arg0) {
+u8 *create_guld_milla(s32 arg0) {
     u8 *temp_r3;
     u8 *var_r0;
     if (arg0 != 0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x210));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(init_state_515__10TObjPlayerFPv(temp_r3, tl_05, arg0));
+            var_r0 = (u8 *)(guld_milla_ct(temp_r3, tl_05, arg0));
         }
         return var_r0;
     }

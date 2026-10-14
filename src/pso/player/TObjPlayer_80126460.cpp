@@ -6,8 +6,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-u32 spawn_shoot_effect__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
-void release_item_if_ready__10TObjPlayerFPv(void* p);
+u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
+void baranz_launcher_node_callback(void* p);
 M2C_UNK spawn_slot_emitter__18TItemShootParticleFPvii(u32, M2C_UNK, M2C_UNK);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
@@ -15,7 +15,7 @@ int get_player_list__10TObjPlayerFv(void*);
 int rotate_matrix_y(void*, void*);
 M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
 
-u32 spawn_shoot_effect__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
+u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     u32 temp_r31;
     u32 temp_r30;
     void *temp_r4;
@@ -34,6 +34,6 @@ u32 spawn_shoot_effect__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
     return temp_r31;
 }
 
-void release_item_if_ready__10TObjPlayerFPv(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_y((void*)0, *(void**)((char*)p + 0x1f8)); } }
+void baranz_launcher_node_callback(void* p) { if (get_player_list__10TObjPlayerFv(p) == 1) { rotate_matrix_y((void*)0, *(void**)((char*)p + 0x1f8)); } }
 
 }

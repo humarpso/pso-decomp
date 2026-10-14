@@ -69,7 +69,7 @@ M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
 M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
 M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 M2C_UNK increment_burst_counter(int);
-s32 get_anim_state__10TObjPlayerFPv(int);
+s32 get_burst_counter(int);
 void rocket_punch_return_timer(u32);
 void rocket_punch_marker(u8 *arg0);
 }
@@ -83,7 +83,7 @@ void rocket_punch_marker(u8 *arg0) {
     temp_r3 = M2C_FIELD(arg0, u32 *, 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;
-    if (get_anim_state__10TObjPlayerFPv((int) (temp_r31)) == 0) {
+    if (get_burst_counter((int) (temp_r31)) == 0) {
         var_r30 = 0;
         do {
             increment_burst_counter((int) (temp_r31));

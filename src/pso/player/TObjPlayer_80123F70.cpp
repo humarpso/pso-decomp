@@ -6,14 +6,14 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80123F70(void* p);
-void TObjPlayer__sub_80123F7C(void* p);
+void sorcerers_cane_equip(void* p);
+void sorcerers_cane_unequip(void* p);
 void refresh_inventory_slot__10TObjPlayerFPv(void *arg0);
 s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
 s32 refresh_owner_stats__5TItemFPv();
 
-void TObjPlayer__sub_80123F70(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
-void TObjPlayer__sub_80123F7C(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
+void sorcerers_cane_equip(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
+void sorcerers_cane_unequip(void* p) { *(s16*)((char*)p + 0x1fc) = -1; }
 void refresh_inventory_slot__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 

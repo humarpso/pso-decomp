@@ -94,9 +94,9 @@ extern s32 tl_05;
 u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void spawn_weapon_impact_effect();
-void fn_8011B328();
+void create_shoot_model_rot_z();
 void create_gun_shot();
-void setup_shot_handlers__10TObjPlayerFPv(Self_801221A0 *self);
+void guld_milla_marker(Self_801221A0 *self);
 }
 
 extern "C" {
@@ -114,9 +114,9 @@ u8 *create_state_vector_state__10TObjPlayerFi(s32 arg0) {
     }
     return NULL;
 }
-void setup_shot_handlers__10TObjPlayerFPv(Self_801221A0 *self) {
+void guld_milla_marker(Self_801221A0 *self) {
     if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
-        self->fn1f0 = (void *)fn_8011B328;
+        self->fn1f0 = (void *)create_shoot_model_rot_z;
         self->fn1ec = NULL;
     } else {
         self->fn1f0 = (void *)create_gun_shot;

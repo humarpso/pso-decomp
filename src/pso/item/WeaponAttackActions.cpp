@@ -372,7 +372,7 @@ s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 fn_80100CC8(Pl_8011E87C *);
 s32 is_flag_400__10TObjPlayerFPv(void *);
-s32 is_mag_active__10TObjPlayerFPv(void *);
+s32 item_model_is_shown(void *);
 void send_6x61_activate_mag_effect(void *, s32);
 M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
 s8 TObjPlayer__sub_80102C30(void *);
@@ -791,7 +791,7 @@ void launch_rare_weapon_special__10TObjPlayerFv(Self_8011EDFC *self, void *origi
     if (n < 0) {
         n = 0;
     }
-    if (self->cb != NULL && is_mag_active__10TObjPlayerFPv(self) == 1) {
+    if (self->cb != NULL && item_model_is_shown(self) == 1) {
         self->cb(self, origin, &pos, (f32)n);
     }
 }
@@ -882,7 +882,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
                 }
             }
             spawn_light_task__10TObjPlayerFPv((Obj_8011E3E8 *)((void *) (arg0)));
-            if ((((M2C_UNK (*)(void *, void *, f32 *, f32)) M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)) != NULL) && (is_mag_active__10TObjPlayerFPv((void *) (arg0)) == 1)) {
+            if ((((M2C_UNK (*)(void *, void *, f32 *, f32)) M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)) != NULL) && (item_model_is_shown((void *) (arg0)) == 1)) {
                 M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)(arg0, arg1, &endpoint.x, var_f31);
             }
         }

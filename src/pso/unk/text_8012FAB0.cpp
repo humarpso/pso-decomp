@@ -92,7 +92,7 @@ struct Self_8012FB08 : VObj_8012FB08 {
 
 extern "C" {
 void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
-void TObjPlayer__sub_8012FC30(u8 *arg0);
+void twin_psychogun_draw(u8 *arg0);
 u8 * initialize_effect_object__10TObjPlayerFPv(void *, M2C_UNK, s32);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -101,10 +101,10 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
 void launch_rare_weapon_special__10TObjPlayerFv(void *, void *, s32, f32);
 void increment_burst_counter(void *);
 void spawn_weapon_impact_effect(void);
-void fn_8011B328(void);
+void create_shoot_model_rot_z(void);
 void create_gun_shot(void);
 extern const f32 lbl_805DAFC8;
-void TObjPlayer__sub_8012FB08(Self_8012FB08 *self);
+void twin_psychogun_marker(Self_8012FB08 *self);
 }
 
 extern "C" {
@@ -129,7 +129,7 @@ u8 *create_effect_object__10TObjPlayerFi(s32 arg0) {
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
-void TObjPlayer__sub_8012FB08(Self_8012FB08 *self) {
+void twin_psychogun_marker(Self_8012FB08 *self) {
     u8 *p;
     s32 i;
     if (is_mode_two_and_ready__10TObjPlayerFPv(self) != 0) {
@@ -137,7 +137,7 @@ void TObjPlayer__sub_8012FB08(Self_8012FB08 *self) {
         for (i = 0; i != 2; i++) {
             increment_burst_counter(p);
         }
-        self->f1F0 = (void *)fn_8011B328;
+        self->f1F0 = (void *)create_shoot_model_rot_z;
         self->f1EC = (void *)spawn_weapon_impact_effect;
         launch_rare_weapon_special__10TObjPlayerFv(self, self->f1F8, 1, lbl_805DAFC8);
         launch_rare_weapon_special__10TObjPlayerFv(self, self->f204, 0, lbl_805DAFC8);
@@ -152,7 +152,7 @@ void TObjPlayer__sub_8012FB08(Self_8012FB08 *self) {
     }
 }
 
-void TObjPlayer__sub_8012FC30(u8 *arg0) {
+void twin_psychogun_draw(u8 *arg0) {
     draw_status_icons__10TObjPlayerFPvPvPv(arg0, arg0 + 0x1F8, arg0 + 0x204);
 }
 

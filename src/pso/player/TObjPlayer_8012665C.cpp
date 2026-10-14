@@ -6,9 +6,9 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_8012665C(void *arg0);
+void baranz_launcher_update(void *arg0);
 
-void TObjPlayer__sub_8012665C(void *arg0) {
+void baranz_launcher_update(void *arg0) {
     s32 temp_r4;
 
     temp_r4 = M2C_FIELD(arg0, s32 *, 0x1FC);

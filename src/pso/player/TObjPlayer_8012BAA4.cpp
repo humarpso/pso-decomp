@@ -7,8 +7,8 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 
 void psycho_wand_update_tp_spend(void *arg0);
-void update_cane_cast__10TObjPlayerFi(s32 arg0);
-void play_action_sound__10TObjPlayerFPv(void *arg0);
+void psycho_wand_marker(s32 arg0);
+void psycho_wand_node_callback(void *arg0);
 M2C_UNK rotate_matrix_z(M2C_UNK, s32);
 M2C_UNK add_actor_tp(s32, s16);
 M2C_UNK play_particle_effect_once__10TObjPlayerFv();
@@ -17,7 +17,7 @@ s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
 M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
 s32 get_attack_stage__11TItemWeaponFPv();
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_8012B9B4(s32);
+M2C_UNK psycho_wand_roll_extra(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
 M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
@@ -42,12 +42,12 @@ void psycho_wand_update_tp_spend(void *arg0) {
 
 extern s32 tl_05;
 
-void update_cane_cast__10TObjPlayerFi(s32 arg0) {
+void psycho_wand_marker(s32 arg0) {
     if (get_attack_stage__11TItemWeaponFPv() == 0) {
         spawn_cane_effect__10TObjPlayerFiUii(tl_05, arg0, 4);
     }
     if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
-        TObjPlayer__sub_8012B9B4(arg0);
+        psycho_wand_roll_extra(arg0);
         return;
     }
     update_active_game_effect__10TObjPlayerFPv(arg0);
@@ -56,7 +56,7 @@ void update_cane_cast__10TObjPlayerFi(s32 arg0) {
 extern const f32 lbl_805DAEC8;
 extern const f32 lbl_805DAECC;
 
-void play_action_sound__10TObjPlayerFPv(void *arg0) {
+void psycho_wand_node_callback(void *arg0) {
     s32 temp_r3;
 
     temp_r3 = get_player_list__10TObjPlayerFv();

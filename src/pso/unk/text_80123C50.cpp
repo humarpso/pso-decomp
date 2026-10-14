@@ -48,7 +48,7 @@ M2C_UNK play_particle_effect_once__10TObjPlayerFv();
 M2C_UNK scale_current_matrix(void *, int);
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
-void TObjPlayer__sub_80123CA8(u8 *arg0);
+void sorcerers_cane_node_callback(u8 *arg0);
 }
 
 extern "C" {
@@ -75,7 +75,7 @@ u8 *create_state__10TObjPlayerFi(s32 arg0) {
 
 typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80123CA8_lbl_8043E8D8_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E8D8) == 0x60 ? 1 : -1];
-void TObjPlayer__sub_80123CA8(u8 *arg0) {
+void sorcerers_cane_node_callback(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r4;
     s32 temp_r4_2;

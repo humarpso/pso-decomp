@@ -6,13 +6,13 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
-void TObjPlayer__sub_80122014(void *arg0);
+void belra_cannon_return_timer(void *arg0);
 void notify_tentacle_if_mode1__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_80122064(void* a0);
 int scale_current_matrix(void*);
 int get_player_list__10TObjPlayerFv(void*);
 
-void TObjPlayer__sub_80122014(void *arg0) {
+void belra_cannon_return_timer(void *arg0) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
     }

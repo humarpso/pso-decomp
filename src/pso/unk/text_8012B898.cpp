@@ -26,7 +26,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
 M2C_UNK create__8TTecFoieFPvPvPvPv(int, void *, int, int);
 M2C_UNK create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
-void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
+void psycho_wand_cast_technique(u8 *arg0, s32 arg1);
 u8 * init_vtable_and_clear_field1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
 u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
 extern s32 tl_05;
@@ -42,7 +42,7 @@ s32 get_captured_target_count(s32);
 s32 rand(void);
 extern const f32 lbl_805DAEC0;
 extern const f32 lbl_805DAEC4;
-void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self);
+void psycho_wand_roll_extra(Self_8012B9B4 *self);
 }
 
 extern "C" {
@@ -61,7 +61,7 @@ u8 *create_vtable_clear_field1f8__10TObjPlayerFPv(u8 *arg0) {
     return NULL;
 }
 
-void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
+void psycho_wand_cast_technique(u8 *arg0, s32 arg1) {
   s32 new_var;
   s32 temp_r31;
   if (((u32) (*((u32 *) (((s8 *) arg0) + 0xF0)))) != 0U)
@@ -88,7 +88,7 @@ void create_technique_by_index__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     }
   }
 }
-void TObjPlayer__sub_8012B9B4(Self_8012B9B4 *self) {
+void psycho_wand_roll_extra(Self_8012B9B4 *self) {
     s32 ext;
     s32 item;
     draw_icon__10TObjPlayerFPvii(self, 4, self->icon);

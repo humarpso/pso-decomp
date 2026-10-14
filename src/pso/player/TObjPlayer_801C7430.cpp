@@ -1319,7 +1319,7 @@ u16 get_uid__10TObjPlayerFPv(void *);
 int get_captured_target_entry(void*, int);
 s32 get_captured_target_count(s32);
 M2C_UNK increment_burst_counter(void *);
-s32 get_anim_state__10TObjPlayerFPv(void *);
+s32 get_burst_counter(void *);
 M2C_UNK copy_attack_targets(void *, void *);
 int TObjPlayer__sub_8012AF00(void*);
 void TObjPlayer__sub_8012AF80(void *);
@@ -5703,7 +5703,7 @@ void update_anim_action__10TObjPlayerFPv(u8 *arg0) {
             if (objInBand__FP7GameObjf(arg0) != 0) {
                 ((M2C_UNK (*)(void *))send_attack_target_packet__10TObjPlayerFUi)(arg0);
                 increment_burst_counter(arg0 + 0x7CC);
-                if (get_anim_state__10TObjPlayerFPv(arg0 + 0x7CC) >= 3) {
+                if (get_burst_counter(arg0 + 0x7CC) >= 3) {
                     ((M2C_UNK (*)(s32, s32))set_flags__10TObjPlayerFPvUi)(((M2C_UNK (*)(void *))get_anim_field_c__10TObjPlayerFPv)(arg0 + 0x7CC), 8);
                     ((M2C_UNK (*)(void *, void *))apply_anim_action__10TObjPlayerFPvi)(arg0 + 0x7CC, arg0);
                     ((M2C_UNK (*)(void *))set_action_flag_40__10TObjPlayerFPv)(arg0);
