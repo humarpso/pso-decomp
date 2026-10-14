@@ -15,6 +15,13 @@ public:
     u32 m_3c;
 
     void initialize_fmt2_materials();
+    virtual ~TScene();
+    virtual void run_task();
+    virtual void render();
+    void sub_80204D7C();
+    void cull_sections();
+    void update_room_visibility_from_camera();
+    void update_records_in_range();
 
     void dispatch_material_animation();
     void tick_material_fmt1();

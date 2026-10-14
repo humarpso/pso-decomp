@@ -343,7 +343,7 @@ extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 NetMemcmp(void *, void *, int);
 s32 NetMemcpy(void *, void *, int);
-s32 TLobby__sub_8042BC00(void *);
+s32 enable_network_multicast_address(void *);
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
@@ -679,7 +679,7 @@ s16 TLobby__sub_804262CC(void *argp) {
         var_r30 = (s16 *)((u8 *)(arg0 + 6));
         do {
             if ((s16) M2C_FIELD(var_r30, s16 *, 0) > 0) {
-                TLobby__sub_8042BC00((void *) ((u8 *)(var_r30) + 2));
+                enable_network_multicast_address((void *) ((u8 *)(var_r30) + 2));
             }
             var_r29 += 1;
             var_r30 = (s16 *)((u8 *)((s16 *)((u8 *)(var_r30) + 8)));
@@ -838,7 +838,7 @@ s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1) {
     }
     found->count++;
     NetMemcpy(found->id, arg1, 6);
-    TLobby__sub_8042BC00(arg1);
+    enable_network_multicast_address(arg1);
     return 0;
 }
 

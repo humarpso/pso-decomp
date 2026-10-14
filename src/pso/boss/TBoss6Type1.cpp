@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/boss/TBoss6Type1.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -391,6 +392,11 @@ extern const f32 TBoss6Type1__data_805DE2D0;
 void draw_part_motions__11TBoss6Type1FPv(Boss_802B81A4 *arg0);
 extern const s32 lbl_805DE3C8;
 void advance_animations__11TBoss6Type1FPv(Boss_802B8384 *self);
+M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1);
+u32 set_effect_points__11TBoss6Type1FPvPvPv(void *, void *, void *);
+extern M2C_UNK lbl_80470FAC[];
+
 }
 
 extern "C" {
@@ -1211,6 +1217,18 @@ s32 TBoss6Type1__sub_802B6060(u8 *arg0) {
 }
 
 void set_part_default_value__11TBoss6Type1FiPv(int a0, void* a1) { *(float*)((char*)a1 + 0x4) = TBoss6Type1__data_805DE344; }
+
+}
+
+void TBoss6Type1::update_effect_points() {
+    Boss6EffectPoint points[2];
+    VecCopy__FP3VecPC3Vec(&points[0], &effect_points[0]);
+    VecCopy__FP3VecPC3Vec(&points[1], &effect_points[1]);
+    set_part_default_value__11TBoss6Type1FiPv((int)this, &points[1]);
+    set_effect_points__11TBoss6Type1FPvPvPv(effect_point_receiver, points, (void*)lbl_80470FAC);
+}
+
+extern "C" {
 
 void init_parts__11TBoss6Type1FPv(void* p) { set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5d8)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5e4)); set_part_default_value__11TBoss6Type1FiPv((int)(p), (void*)((char*)p + 0x5f0)); TBoss6Type1__sub_802B60E8(p); }
 

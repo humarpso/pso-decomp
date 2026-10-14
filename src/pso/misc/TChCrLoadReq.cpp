@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TChCrLoadReq.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -8,17 +9,6 @@ struct RecoveredGlobal_8028D360___vt__12TChCrLoadReq { M2C_UNK value; u8 remaini
 typedef char RecoveredGlobal_8028D360___vt__12TChCrLoadReq_size[sizeof(RecoveredGlobal_8028D360___vt__12TChCrLoadReq) == 0x18 ? 1 : -1];
 
 extern "C" { s32 chr_select_load_slot_count; }
-
-class TChCrLoadReq {
-public:
-    u8 pad[0x60];
-    s32 state;
-    s32 timer;
-    void run_task();
-    void close_and_destroy();
-    void try_advance_state();
-    void update_load_progress();
-};
 
 struct B_8028D214 { s32 a0; s32 a4; s32 a8; };
 

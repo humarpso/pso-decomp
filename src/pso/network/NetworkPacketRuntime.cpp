@@ -194,7 +194,6 @@ extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 s16 get_slot_id__6TLobbyFs(s16 arg0);
 extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 s32 TLobby__sub_80428360(void);
-s16 TLobby__sub_803F96AC(void *, void *, void *);
 void reset_buffer_pool__6TLobbyFv(void);
 extern s32 lbl_805D7BE0;
 extern s32 lbl_805D7BE8;
@@ -338,7 +337,7 @@ extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 NetMemcmp(void *, void *, int);
 s32 NetMemcpy(void *, void *, int);
-s32 TLobby__sub_8042BC00(void *);
+s32 enable_network_multicast_address(void *);
 extern u8 lobby_net_channel_table[];
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
@@ -404,6 +403,9 @@ extern u32 lbl_805D7BBC;
 void reset_message_thread__6TLobbyFv(void);
 extern u8 lobby_net_channel_table[];
 s32 remove_rec_by_handle__6TLobbyFsUs(s16 arg0, u16 arg1);
+s16 TLobby__sub_803F96AC(u32*);
+extern u32 lbl_805D7BA8;
+
 }
 
 extern "C" {
@@ -633,6 +635,19 @@ u8 *find_entry_by_address__6TLobbyFi(s32 arg0) {
 
 void cancel_alarm_a__6TLobbyFv(void) {
     TLobby__sub_803F95E4(lbl_805D7BA8);
+}
+s32 initialize_network_packet_pool(void) {
+    s32 i;
+    if (TLobby__sub_803F96AC(&lbl_805D7BA8) < 0) {
+        return -1;
+    } else {
+    for (i = 0; (0x20) > (i); i++) {
+        network_packet_buffer_descriptors[i].in_use = 0;
+        network_packet_buffer_descriptors[i].queued_length = 0;
+        network_packet_buffer_descriptors[i].data = network_packet_buffers[i];
+    }
+    }
+    return 0;
 }
 
 void reset_message_thread__6TLobbyFv(void);

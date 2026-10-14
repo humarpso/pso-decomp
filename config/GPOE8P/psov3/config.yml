@@ -627,8 +627,10 @@ force_active:
   - advance_bone_rotation__19TObjEZBoneRotPlayerFPv
   - advance_camera_ctrl_step__19TObjEneEpsilonGuardFv
   - advance_flee_step__12TObjEneLappyFv
+  - advance_manual__14CreationCameraFv
   - advance_motion_frame__13TObjLobbyMainFPv
   - advance_position__10TTecSlicerFPv
+  - advance_review__14CreationCameraFv
   - advance_text_entry_reveal
   - advance_to_preparation_phase__20TShopArmorListWindowFPv
   - alerted_state__14TObjEneBm5WolfFPvi
@@ -673,6 +675,7 @@ force_active:
   - apply_variant_speeds__12TObjEneLappyFPv
   - aramQueueCallback
   - are_all_players_in_range__17TObjWarpBossMultiFPv
+  - are_all_selections_done__23TAdSinglePlyChrSelectGCFPv
   - area_allows_win_timer__15TObjSoloPlayWinFv
   - area_dialogue_file_ancient_e
   - area_dialogue_file_ancient_e_u
@@ -795,6 +798,7 @@ force_active:
   - beast_movement_params
   - beast_resource_descriptor
   - begin_parse__24TMessageWindowControllerFPCcPc
+  - begin_review__14CreationCameraFv
   - bind_controller_devices
   - bind_network_info_cipher_pool
   - biri_ball_model_names
@@ -986,6 +990,8 @@ force_active:
   - calc_lunge_aim__14TObjEneBm5WolfFPv
   - calc_parameters__11TTecRaBartaFv
   - calc_params__11TTecGiBartaFPv
+  - calc_preview_last_index__12TChCrLoadReqFll
+  - calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii
   - calc_rotated_hex_point__23TObjOnlineEndingHexLineFPvPv
   - calc_rumble_intensity__23TAdSinglePlyChrSelectGCFPv
   - calc_rumble_strength__23TAdSinglePlyChrSelectGCFPv
@@ -1642,6 +1648,7 @@ force_active:
   - get_boss_warp_model
   - get_boss_warp_model_handle
   - get_boss_warp_motion
+  - get_character_creation_selected_entry_id
   - get_clamped_level__19TObjEneBm9MericarolFPv
   - get_ending_ab_wall_texture_list
   - get_entity_distance_or_default__11TWindowCtrlFiPvUs
@@ -2120,6 +2127,7 @@ force_active:
   - load_params_from_table__14TObjEneDolmOlmFPvi
   - load_params_from_table__15TObjEneMe1GiGueFPvi
   - load_params_from_table__20TBoss3VoloptHiraisinFPvi
+  - load_preview_models__23TAdSinglePlyChrSelectGCFPv
   - load_quest_globals__6TLobbyFPv
   - load_quest_root_script
   - load_quest_vm__12TQuestListVMFPv
@@ -6996,6 +7004,7 @@ force_active:
   - run_task__13TObjEneRe4BitFv
   - run_task__13TObjResultWinFv
   - run_task__13TParticleCtrlFv
+  - run_task__14CreationCameraFv
   - run_task__14TAdFloorLoadGCFv
   - run_task__14TAdLoadQuestGCFv
   - run_task__14TAdSelectCurGCFv
@@ -7477,6 +7486,7 @@ force_active:
   - start_fade__9TAdFadeGCFPvPv
   - start_get_type_async__16TKeyBoardControlFiiii
   - start_match__19TPlayerBattleCtrl4PFPv
+  - start_preview_loads__23TAdSinglePlyChrSelectGCFPv
   - start_quest_mission
   - start_udp_test_game__6TLobbyFv
   - start_win_timer__15TObjSoloPlayWinFv
@@ -7563,6 +7573,7 @@ force_active:
   - update_approach_state__11TObjEneMojaFPv
   - update_attack_jump__11TObjEneMojaFv
   - update_attacking__12TObjEneLappyFPv
+  - update_auto__14CreationCameraFv
   - update_backdrop_transition__17TWindowMainMenu1PFPv
   - update_battle_phase__19TPlayerBattleCtrl4PFv
   - update_battle_sync__6TLobbyFPvi
@@ -7615,6 +7626,7 @@ force_active:
   - update_hit_reaction__15TObjEneMe1GiGueFPv
   - update_hp_tp_values__20TWindowSubStatusDispFPv
   - update_hurt__12TObjEneLappyFv
+  - update_idle__14CreationCameraFv
   - update_idle_state__11TObjEneMojaFv
   - update_idle_state__12TObjEneLappyFv
   - update_input_number__18TShopGetItemWindowFPv

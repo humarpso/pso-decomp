@@ -345,7 +345,7 @@ extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 NetMemcmp(void *, void *, int);
 s32 NetMemcpy(void *, void *, int);
-s32 TLobby__sub_8042BC00(void *);
+s32 enable_network_multicast_address(void *);
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);

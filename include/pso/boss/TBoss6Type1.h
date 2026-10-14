@@ -1,69 +1,17 @@
 #ifndef PSO_BOSS_TBOSS6TYPE1_H
 #define PSO_BOSS_TBOSS6TYPE1_H
-
 #include "types.h"
+#include <stddef.h>
 
-struct TBoss6Type1
-{
-    u8 _pad1C[0x8];
-    u32 m_24;
-    u8 _pad28[0x8];
-    u32 m_30;
-    u32 m_34;
-    void* m_38;
-    u8 _pad3C[0x8];
-    void* m_44;
-    u8 _pad48[0x8];
-    void* m_50;
-    u8 _pad54[0x8];
-    void* m_5c;
-    u8 _pad60[0x14];
-    void* m_74;
-    u8 _pad78[0x230];
-    u32 m_2a8;
-    u8 _pad2AC[0x80];
-    s16 m_32c;
-    u8 _pad32E[0x10];
-    s16 m_33e;
-    u8 _pad340[0x34];
-    u32 m_374;
-    u8 _pad378[0x80];
-    u32 m_3f8;
-    u32 m_3fc;
-    u32 m_400;
-    u32 m_404;
-    u32 m_408;
-    u8 _pad40C[0x8];
-    u32 m_414;
-    u32 m_418;
-    u8 m_41c;
-    u8 _pad41D[0x3];
-    void* m_420;
-    u8 _pad424[0x8];
-    void* m_42c;
-    u8 _pad430[0x8];
-    u32 m_438;
-    u8 _pad43C[0x70];
-    u32 m_4ac;
-    u8 _pad4B0[0x8];
-    u32 m_4b8;
-    u32 m_4bc;
-    u32 m_4c0;
-    u32 m_4c4;
-    u8 _pad4C8[0xA4];
-    void* m_56c;
-    u8 _pad570[0x8];
-    void* m_578;
-    u8 _pad57C[0x8];
-    void* m_584;
-    u8 _pad588[0x74];
-    void* m_5fc;
-    u8 _pad600[0x50];
-    u32 m_650;
-    u32 m_654;
-    void* m_658;
-    u8 _pad65C[0x10];
-    void* m_66c;
+struct Boss6EffectPoint { f32 x, y, z; };
+struct TBoss6Type1 {
+    void update_effect_points();
+    u8 unknown_00[0x404];
+    void* effect_point_receiver;
+    u8 unknown_408[0x230];
+    Boss6EffectPoint effect_points[2];
 };
-
+typedef char Boss6EffectPoint_size[(sizeof(Boss6EffectPoint)==0xC)?1:-1];
+typedef char TBoss6Type1_receiver_offset[(offsetof(TBoss6Type1,effect_point_receiver)==0x404)?1:-1];
+typedef char TBoss6Type1_points_offset[(offsetof(TBoss6Type1,effect_points)==0x638)?1:-1];
 #endif

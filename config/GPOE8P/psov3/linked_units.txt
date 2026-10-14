@@ -341,7 +341,6 @@ pso/boss/TObjBoss8Piller.cpp
 pso/boss/TObjBoss8PillerCtrl.cpp
 pso/boss/TObjBoss8Piller_8030ADBC.cpp
 pso/camera/CreationCamera.cpp
-pso/camera/CreationManualCamera.cpp
 pso/effect/TDPBShower.cpp
 pso/effect/TEffClitical.cpp
 pso/effect/TEffGuard.cpp
@@ -2801,6 +2800,7 @@ pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028C650.cpp
+pso/ui/TAdSinglePlyChrSelectGC_8028C8E0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8028D5D4.cpp
 pso/ui/TAdSinglePlyChrSelectGC_8029A914.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802D3AB8.cpp

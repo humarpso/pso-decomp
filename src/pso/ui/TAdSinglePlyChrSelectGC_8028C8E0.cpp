@@ -1,4 +1,5 @@
 #include "types.h"
+#include "pso/misc/TChCrLoadReq.h"
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
@@ -85,7 +86,6 @@ extern "C" {
 s32 is_selection_done__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void *create__12TChCrLoadAfsFPvPvPv(void *, int, void *);
-void *TAdSinglePlyChrSelectGC__sub_8028CF8C(void *, s32, s32);
 void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *, s32, s32, s32);
 s32 get_display_index__12TCharaMakingFPv(void *);
 void get_sorted_region_samples__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
@@ -103,6 +103,9 @@ M2C_UNK load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
 void TLobby__sub_8028D738(s32);
 void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self);
+extern s32 chr_select_preview_stride_table[];
+extern s32 chr_select_preview_base_offset_table[];
+
 }
 
 extern "C" {
@@ -206,7 +209,7 @@ void start_preview_loads__23TAdSinglePlyChrSelectGCFPv(Gc_8028CB6C *arg0) {
         if (t == NULL) {
             break;
         }
-        p->c = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, TAdSinglePlyChrSelectGC__sub_8028CF8C(arg0, disp, id));
+        p->c = create__12TChCrLoadAfsFPvPvPv(arg0, 0xDB, (void*)((TChCrLoadReq*)arg0)->calc_preview_last_index(disp, id));
     }
 }
 
@@ -324,6 +327,16 @@ s32 TAdSinglePlyChrSelectGC__sub_8028CF6C(void) {
 
 extern s32 chr_select_preview_stride_table[];
 extern s32 chr_select_preview_base_offset_table[];
+
+}
+
+s32 TChCrLoadReq::calc_preview_last_index(s32 display_index, s32 region_index) {
+    s32 stride=chr_select_preview_stride_table[display_index];
+    return stride + region_index * stride - 1 + chr_select_preview_base_offset_table[display_index];
+}
+
+extern "C" {
+
 void *calc_preview_offset__23TAdSinglePlyChrSelectGCFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     return (void *)(arg2 + (arg3 * chr_select_preview_stride_table[arg1] + chr_select_preview_base_offset_table[arg1]));
 }

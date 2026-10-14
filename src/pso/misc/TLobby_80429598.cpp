@@ -345,7 +345,6 @@ extern volatile s32 lbl_805D7BA0;
 s32 validate_slot_buffers__6TLobbyFiPvPvPv(s32 arg0, void *arg1, void *arg2, void *arg3);
 s32 NetMemcmp(void *, void *, int);
 s32 NetMemcpy(void *, void *, int);
-s32 TLobby__sub_8042BC00(void *);
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
 M2C_UNK get_time_ms__6TLobbyFPv(void *);
 M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
@@ -411,6 +410,22 @@ extern u16 lbl_805D7C6C[2];
 extern u8 *lbl_805D7C74;
 extern u16 lbl_805D7C7A;
 void TLobby__sub_80429AC8(void);
+s32 EXIDeselect(s32);
+s32 EXIImm(s32, void *, s32, u32, u32);
+s32 EXISelect(s32, u32, s32);
+s32 EXISync(s32);
+s32 EXIImmEx(s32, s32, s32, s32);
+s32 EXILock(s32, u32, u32);
+s32 EXIUnlock(s32);
+M2C_UNK OSDisableInterrupts();
+M2C_UNK OSRestoreInterrupts(s32);
+M2C_UNK OSSleepThread(void *);
+int memcmp(const void *, const void *, unsigned long);
+u16 TLobby__sub_8042BA8C(void *);
+void wake_network_thread__6TLobbyFv(void);
+extern M2C_UNK lbl_805D4830;
+extern M2C_UNK network_thread_queue;
+void enable_network_multicast_address(void *arg0);
 }
 
 extern "C" {
@@ -777,6 +792,77 @@ void TLobby__sub_8042BA48(s32 arg0, s32 arg1) {
     lbl_805D7C44 = arg0;
     lbl_805D7C48 = arg1;
     OSRestoreInterrupts(e);
+}
+
+void enable_network_multicast_address(void *arg0) {
+  u8 val0;
+  u8 val1;
+  u8 val2;
+  u8 val3;
+  u32 cmd0;
+  u32 cmd1;
+  u32 cmd2;
+  u32 cmd3;
+  u32 addr;
+  s32 bit;
+  int read_command;
+  s32 enabled;
+  s32 isDefault;
+  int filter_bits;
+  isDefault = 0;
+  if (memcmp(arg0, &lbl_805D4830, 6) == 0)
+  {
+    isDefault = 1;
+  }
+  enabled = OSDisableInterrupts();
+  while (1)
+  {
+    if (EXILock(0, 2, (u32) wake_network_thread__6TLobbyFv) == 1)
+    {
+      OSRestoreInterrupts(enabled);
+      break;
+    }
+    OSSleepThread(&network_thread_queue);
+    OSRestoreInterrupts(enabled);
+  }
+  if (isDefault != 0)
+  {
+    cmd0 = 0x80000100;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd0, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32) (&val0), 1, 0);
+    EXIDeselect(0);
+    val1 = val0 | 4;
+    cmd1 = 0xC0000100;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd1, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32) (&val1), 1, 1);
+    EXIDeselect(0);
+  }
+  else
+  {
+    bit = TLobby__sub_8042BA8C(arg0);
+    addr = ((u32) ((u16) (((u8) (bit / 8)) + 0x26))) << 8;
+    read_command = addr | 0x80000000;
+    cmd2 = read_command;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd2, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32) (&val2), 1, 0);
+    EXIDeselect(0);
+    filter_bits = val2;
+    filter_bits = filter_bits | (1 << ((u8) (bit % 8)));
+    val3 = filter_bits;
+    cmd3 = addr | 0xC0000000;
+    EXISelect(0, 2, 5);
+    EXIImm(0, &cmd3, 4, 1, 0);
+    EXISync(0);
+    EXIImmEx(0, (s32) (&val3), 1, 1);
+    EXIDeselect(0);
+  }
+  EXIUnlock(0);
 }
 
 u8 exi_read_status_byte__6TLobbyFv(void) {

@@ -2801,7 +2801,7 @@ int init_graph__6TLobbyFv(void*);
 M2C_UNK send_data__6TLobbyFi(s32);
 int update_alloc_size__6TLobbyFv(void*);
 int get_selected_slot__6TLobbyFv(void*);
-void TLobby__sub_8032CC24();
+void update_gba_joyboot_transfer();
 M2C_UNK set_send_buffer__6TLobbyFPvi(s32, s32);
 M2C_UNK TLobby__sub_8032CDEC();
 void update_entries__18TChallenge4PResultFii(ItemData_801E72B4 *, s32);
@@ -4206,7 +4206,7 @@ void TLobby__sub_801E9AF8(s32 idx) {
     s32 tbl[5];
     s32 n;
     *(Tbl_801E9AF8 *)tbl = *lbl_80449B18;
-    TLobby__sub_8032CC24();
+    update_gba_joyboot_transfer();
     n = TLobby__sub_801F34F8();
     if (n >= 0 && n < 5) {
         (*(s32 * *)&TLobby__script_reg_array)[(u8)idx] = tbl[n];
