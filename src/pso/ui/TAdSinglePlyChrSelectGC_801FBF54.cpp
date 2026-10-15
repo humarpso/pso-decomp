@@ -40,11 +40,17 @@ u8 TQuestVmDownLoadServer__memcard_key[0x10] = {
 };
 __declspec(section ".data") Vec2_804C8A44 lbl_804C8A44 = { 0.0f, 0.0f };
 }
+struct SubtractiveRng {
+    SubtractiveRng();
+    u32 state[58];
+};
 extern "C" {
 u32 lbl_805137C8[4];
 u32 chr_select_buffer_ptr_table[8];
 u32 chr_select_request_buffer[9];
-u32 chr_select_rng_state[58];
+}
+SubtractiveRng chr_select_rng_state;
+extern "C" {
 u32 char_select_date_stamp[3];
 __declspec(section ".data") s32 chr_select_serial_seeds[2];
 __declspec(section ".data") s32 lbl_80513918[2];
@@ -5225,4 +5231,44 @@ int get_serial_access_field_118__23TAdSinglePlyChrSelectGCFPv(void* p) { return 
 
 }
 
+}
+
+namespace P80202978 {
+extern "C" {
+extern u8 *secondary_card_system_save_payload;
+extern void *system_save_payload;
+extern s32 active_character_save_record;
+extern s32 selected_character_data;
+s32 is_split_screen();
+s32 get_split_screen_character_save_record(u32);
+s32 get_char_table_entry__23TAdSinglePlyChrSelectGCFi(u32);
+
+s32 get_serial_result__22TAdEnterSerialAccessGCFv(void) {
+    return *(s32 *)((s8 *)secondary_card_system_save_payload + 0x118);
+}
+
+s32 get_field_118__22TAdEnterSerialAccessGCFv(void) {
+    return *(s32 *)((s8 *)system_save_payload + 0x118);
+}
+
+s32 get_character_save_record(u32 arg0) {
+    if (is_split_screen() != 0) {
+        if (arg0 == 0xFFFF) {
+            return get_split_screen_character_save_record(0U);
+        }
+        return get_split_screen_character_save_record(arg0);
+    }
+    return active_character_save_record;
+}
+
+s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
+    if (is_split_screen() != 0) {
+        if (arg0 == 0xFFFF) {
+            return get_char_table_entry__23TAdSinglePlyChrSelectGCFi(0U);
+        }
+        return get_char_table_entry__23TAdSinglePlyChrSelectGCFi(arg0);
+    }
+    return selected_character_data;
+}
+}
 }

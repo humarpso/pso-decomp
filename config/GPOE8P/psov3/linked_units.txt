@@ -1813,7 +1813,6 @@ pso/misc/TWindowSubComCard_8007BECC.cpp
 pso/misc/TWindowSubComCard_8007BF08.cpp
 pso/misc/TWindowSubComCard_8007BF48.cpp
 pso/misc/TWindowSubComCard_80131BC4.cpp
-pso/misc/TWindowSubComCard_80202990.cpp
 pso/misc/TWindowSubComCard_80249120.cpp
 pso/misc/TWindowSubComCard_802495FC.cpp
 pso/misc/TWindowSubComCard_80265410.cpp
@@ -2683,7 +2682,6 @@ pso/ui/TAdEnterBaseGC_8032B38C.cpp
 pso/ui/TAdEnterPPPPassGC.cpp
 pso/ui/TAdEnterPasswordGC.cpp
 pso/ui/TAdEnterSerialAccessGC.cpp
-pso/ui/TAdEnterSerialAccessGC_80202978.cpp
 pso/ui/TAdEnterSerialAccessGC_8023EA94.cpp
 pso/ui/TAdEnterSerialAccessGC_802ACF04.cpp
 pso/ui/TAdEnterSerialAccessGC_802E0110.cpp
@@ -2793,7 +2791,7 @@ pso/ui/TAdSinglePlyChrSelectGC_801C50A8.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801D5DAC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801E4CF0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_801FBF54.cpp
-pso/ui/TAdSinglePlyChrSelectGC_802029E8.cpp
+pso/ui/TAdSinglePlyChrSelectGC_80202A68.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802233A0.cpp
 pso/ui/TAdSinglePlyChrSelectGC_80242CFC.cpp
 pso/ui/TAdSinglePlyChrSelectGC_802431D0.cpp

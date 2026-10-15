@@ -1807,7 +1807,6 @@ force_active:
   - init__18TObjAreaWarpForestFPvPvPv
   - init_alpha__11TBreakUpMdlFPvif
   - init_child_params__13TObjEneBm3FlyFv
-  - init_chr_select_static__23TAdSinglePlyChrSelectGCFv
   - init_city_door
   - init_collision_params__17TOSymbolchatColliFPv
   - init_collision_segments__17TBoss8DragonColliFiPviPvf

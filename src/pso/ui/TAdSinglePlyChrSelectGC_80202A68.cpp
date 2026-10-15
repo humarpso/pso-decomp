@@ -114,7 +114,6 @@ void init__9TItemDataFv(void *);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 s32 __ct__14SubtractiveRngFv(s32);
 extern RecoveredGlobal_80202A40_lbl_8051381C chr_select_rng_state;
-void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void);
 s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i);
 Ent_80202B1C *TAdSinglePlyChrSelectGC__sub_80202B1C(Obj_80202B1C *self, s32 i);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
@@ -165,21 +164,6 @@ int init_guild_card_tag__17TWindowSubComCardFi(void*);
 s32 is_split_screen();
 
 extern s32 selected_character_data;
-
-s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
-    if (is_split_screen() != 0) {
-        if (arg0 == 0xFFFF) {
-            return get_char_table_entry__23TAdSinglePlyChrSelectGCFi(0U);
-        }
-        return get_char_table_entry__23TAdSinglePlyChrSelectGCFi(arg0);
-    }
-    return selected_character_data;
-}
-
-typedef char RecoveredGlobal_80202A40_lbl_8051381C_size[sizeof(RecoveredGlobal_80202A40_lbl_8051381C) == 0xE8 ? 1 : -1];
-void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void) {
-    __ct__14SubtractiveRngFv((s32) &chr_select_rng_state.value);
-}
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
     return *(s32 *)((s8 *)arg0 + 0x194AC);
@@ -388,5 +372,3 @@ int fn_8020325C(void *arg0) {
 }
 
 }
-
-__declspec(section ".ctors") static void *const __sinit_character_selection_ref = (void *)init_chr_select_static__23TAdSinglePlyChrSelectGCFv;
