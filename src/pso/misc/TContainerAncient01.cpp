@@ -249,7 +249,7 @@ void *create__16TObjContainerIdoFPv(void *arg0);
 u8 *TObjContainerIdo__ct(u8 *arg0, s32 arg1, s32 arg2);
 void render__16TObjContainerIdoFv(u8 *arg0);
 s32 post_translate_matrix(void *);
-s32 draw_ginja_object();
+void draw_ginja_object(void *);
 s32 rotate_matrix_x(s32, s32);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix();
@@ -284,15 +284,13 @@ void render__16TObjContainerIdoFv(u8 *arg0) {
         post_translate_matrix(arg0 + 0xC0);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-        ((s32 (*)(s32, s32))get_bml_model)(TObjContainerIdo__model_resource, 0);
-        draw_ginja_object();
+        draw_ginja_object((void *)get_bml_model(TObjContainerIdo__model_resource, 0));
         pop_matrix();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
-        ((s32 (*)(s32, s32))get_bml_model)(TObjContainerIdo__model_resource, 1);
-        draw_ginja_object();
+        draw_ginja_object((void *)get_bml_model(TObjContainerIdo__model_resource, 1));
         pop_matrix();
         if (var_r31 != 0) {
             ((VMem_8018C06C*)(arg0 + 0xF0))->m7();
@@ -442,7 +440,7 @@ extern void *tl_05;
 void *create__16TObjContainerIdoFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x10C);
     if (o != NULL) {
-        o = ((void *(*)(void *, void *, void *))TObjContainerIdo__ct)(o, tl_05, arg0);
+        o = TObjContainerIdo__ct((u8 *)o, (s32)tl_05, (s32)arg0);
     }
     return o;
 }
@@ -693,40 +691,39 @@ extern Spawn_8018C9F0 lbl_80445398;
 extern Spawn_8018C9F0 lbl_804453E4;
 extern void *tl_05;
 
-void TObjContainerJungEnemy__vt77(Obj_8018C9F0 *self) {
-    void *o;
+#pragma push
+#pragma opt_propagation off
+void TObjContainerJungEnemy__vt77(const Obj_8018C9F0 *self) {
     if (self->f326 != 1) {
         Spawn_8018C9F0 a = lbl_80445398;
-        {
-            f32 x = self->pos.x;
-            f32 y = self->pos.y;
-            f32 z = self->pos.z;
-            s32 id = self->f36c;
-            s32 t = self->f24;
-            a.pos.x = x;
-            a.pos.y = y;
-            a.pos.z = z;
-            a.f38 = y;
-            a.f40 = id;
-            a.f44 = t;
-        }
+        f32 za;
+        f32 ya;
+        f32 xa;
+        xa = self->pos.x;
+        ya = self->pos.y;
+        za = self->pos.z;
+        a.pos.x = xa;
+        a.pos.y = ya;
+        a.pos.z = za;
+        a.f38 = ya;
+        a.f40 = self->f36c;
+        a.f44 = self->f24;
         Spawn_8018C9F0 b = lbl_804453E4;
-        {
-            f32 x = self->pos.x;
-            f32 y = self->pos.y;
-            f32 z = self->pos.z;
-            s32 id = self->f370;
-            s32 t = self->f24;
-            b.pos.x = x;
-            b.pos.y = y;
-            b.pos.z = z;
-            b.f38 = y;
-            b.f40 = id;
-            b.f44 = t;
-        }
-        spawn_particle_effect_with_flags(&self->pos, 0x45, 0x40);
-        spawn_particle_effect_with_flags(&self->pos, 0x46, 0x40);
-        o = __nw__7TObjectFUl(0x234);
+        f32 zb;
+        f32 yb;
+        f32 xb;
+        xb = self->pos.x;
+        yb = self->pos.y;
+        zb = self->pos.z;
+        b.pos.x = xb;
+        b.pos.y = yb;
+        b.pos.z = zb;
+        b.f38 = yb;
+        b.f40 = self->f370;
+        b.f44 = self->f24;
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        void *o = __nw__7TObjectFUl(0x234);
         if (o != 0) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
         }
@@ -734,9 +731,10 @@ void TObjContainerJungEnemy__vt77(Obj_8018C9F0 *self) {
         if (o != 0) {
             construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
         }
-        play_container_break_sound(self);
+        play_container_break_sound((void *)self);
     }
 }
+#pragma pop
 
 f32 TObjContainerJungEnemy__vt20(Obj_8018CB44 *arg0) {
     s16 sp8;
@@ -774,9 +772,9 @@ void TObjContainerJungEnemy__vt79(u8 *arg0) {
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
-        ((s32 (*)(s32))draw_ginja_object)(*(s32 *)((s8 *)arg0 + 0x368));
+        draw_ginja_object(*(void **)((s8 *)arg0 + 0x368));
         begin_effect_render__13TParticleCtrlFv();
-        ((s32 (*)(s32))draw_ginja_object)(*(s32 *)((s8 *)arg0 + 0x374));
+        draw_ginja_object(*(void **)((s8 *)arg0 + 0x374));
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
     case 1:

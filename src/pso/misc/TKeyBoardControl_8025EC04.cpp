@@ -27,10 +27,51 @@ struct Ctl_8025EDB4 {
 
 struct Ctl_8025F21C { u8 p0[0x60]; u32 f60; };
 
+struct TWindowKeyBoardSoft_8025F4A0 {
+    u8 pad0[0xB4];
+    u32 fB4;
+    void vt0();
+    void vt21();
+    void vt3();
+    void vt4();
+    void vt5();
+    void vt6();
+    void vt7();
+    void vt8();
+    void vt9();
+    void vt10();
+    void vt11();
+    void vt12();
+    void vt13();
+    void vt14();
+    void sub_8025B928();
+    void sub_8025BA44();
+    void sub_8025BA28();
+    void sub_8025B92C();
+    void update_input_state();
+    void vt1();
+    void vt20();
+    void vt15();
+    void vt16();
+    void vt17();
+    void vt18();
+    void vt19();
+};
+typedef void (TWindowKeyBoardSoft_8025F4A0::*KeyFn_8025F4A0)();
+
+struct Ctl_8025F4A0 {
+    u8 pad0[0x20];
+    s16 f20;
+    u8 pad22[0x60 - 0x22];
+    u32 f60;
+    u8 pad64[0x70 - 0x64];
+    TWindowKeyBoardSoft_8025F4A0 *f70;
+};
+
 extern "C" {
 
 void TKeyBoardControl__sub_8025EC04(u8 *arg0);
-u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1);
+u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801321B4(void *);
 s32 TKeyBoardControl__sub_80132274(void *);
 s32 is_key_57_pressed__16TKeyBoardControlFi(void *);
@@ -38,7 +79,7 @@ s32 TKeyBoardControl__sub_801323C8(void *, int);
 u8 get_key_state__16TKeyBoardControlFPv(s32 *);
 extern s32 TKeyBoardControl__global_key_state[];
 void update_modifier_flags__16TKeyBoardControlFPv(struct RecoveredFields_8025FC60_arg0 *arg0);
-bool is_printable_key__16TKeyBoardControlFiUc(s32 arg0, u8 arg1);
+s32 is_printable_key__16TKeyBoardControlFiUc(void *arg0, u8 arg1);
 extern s32 current_language;
 s32 get_input_mode__16TKeyBoardControlFPv(Ctl_8025F21C *c);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
@@ -55,14 +96,14 @@ void enable_caps_led__16TKeyBoardControlFPv(void *arg0);
 void enable_kana_led__16TKeyBoardControlFPv(void *arg0);
 void enable_keyboard_led__16TKeyBoardControlFPv(void *arg0);
 s32 poll_input__16TKeyBoardControlFPv(void *arg0);
-void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1);
+void process_key_input__16TKeyBoardControlFPvi(void *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_8025CBC0(u32);
 s32 TKeyBoardControl__sub_8025CBCC(u32);
 s32 TKeyBoardControl__sub_8025CC04(u32);
-s32 translate_key_char__16TKeyBoardControlFPviPv(void *, s32, u16 *);
+s32 translate_key_char__16TKeyBoardControlFPviPv(void *, u8, u16 *);
 u8 TKeyBoardControl__sub_8025F2F8(void *, u8);
-s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *, s32, u8);
-s32 TKeyBoardControl__sub_8025F4A0();
+s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *, u8, u8);
+s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *, u8);
 int TWindowKeyBoardHard__sub_8025EB68(void* p);
 s32 TWindowKeyBoardHard__sub_80260438(void *);
 s32 insert_character__19TWindowKeyBoardBaseFPvUs(s32, u16);
@@ -82,14 +123,14 @@ void TKeyBoardControl__sub_8025EC04(u8 *arg0) {
 
 extern s32 TKeyBoardControl__global_key_state[];
 
-bool is_printable_key__16TKeyBoardControlFiUc(s32 arg0, u8 arg1) {
+s32 is_printable_key__16TKeyBoardControlFiUc(void *arg0, u8 arg1) {
     if (arg1 == 0x52) {
         return 1;
     }
     if (arg1 < 0x10U) {
         return 0;
     }
-    return arg1 <= 0x29U;
+    return arg1 <= 0x29U ? 1 : 0;
 }
 
 s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
@@ -118,15 +159,15 @@ s32 has_non_modifier_key__16TKeyBoardControlFv(void) {
     return TKeyBoardControl__sub_801323C8(TKeyBoardControl__global_key_state, 0x57) != 0 ? 1 : 0;
 }
 
-u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, s32 arg1) {
+u16 lookup_key_char__16TKeyBoardControlFPvi(u8 *arg0, u8 arg1) {
     if (*(s32 *)((s8 *)arg0 + 0x60) & 0x80) {
-        return keyboard_kana_shifted_map[(u8)arg1];
+        return keyboard_kana_shifted_map[arg1];
     }
-    return keyboard_kana_unshifted_map[(u8)arg1];
+    return keyboard_kana_unshifted_map[arg1];
 }
 
 #define arg0 ((Ctl_8025EDB4 *)arg0_)
-s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg2) {
+s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, u8 arg1, u16 *arg2) {
     s32 shift;
     u32 f;
     u16 c;
@@ -134,7 +175,7 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     f = arg0->flags;
     if (f & 1) {
         shift = f & 0x20;
-    } else if (((s32 (*)(void *, s32))is_printable_key__16TKeyBoardControlFiUc)(arg0, arg1) != 0) {
+    } else if (is_printable_key__16TKeyBoardControlFiUc(arg0, arg1) != 0) {
         shift = arg0->flags & 0x20;
     } else {
         shift = arg0->flags & 0x80;
@@ -143,45 +184,45 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
         switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
         case 0:
             if ((arg0->flags & 4) && current_language == 0) {
-                *arg2 = keyboard_jp_symbol_map[(u8)arg1];
+                *arg2 = keyboard_jp_symbol_map[arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_jp_shifted_map[(u8)arg1];
+                *arg2 = keyboard_jp_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_jp_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_jp_unshifted_map[arg1];
             }
             break;
         case 2:
             if (arg0->flags & 8) {
-                *arg2 = keyboard_fr_alternate_map[(u8)arg1];
+                *arg2 = keyboard_fr_alternate_map[arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_fr_shifted_map[(u8)arg1];
+                *arg2 = keyboard_fr_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_fr_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_fr_unshifted_map[arg1];
             }
             break;
         case 4:
             if (arg0->flags & 8) {
-                *arg2 = keyboard_es_alternate_map[(u8)arg1];
+                *arg2 = keyboard_es_alternate_map[arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_es_shifted_map[(u8)arg1];
+                *arg2 = keyboard_es_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_es_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_es_unshifted_map[arg1];
             }
             break;
         case 3:
             if (arg0->flags & 8) {
-                *arg2 = keyboard_de_alternate_map[(u8)arg1];
+                *arg2 = keyboard_de_alternate_map[arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_de_shifted_map[(u8)arg1];
+                *arg2 = keyboard_de_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_de_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_de_unshifted_map[arg1];
             }
             break;
         default:
             if (shift != 0) {
-                *arg2 = keyboard_us_shifted_map[(u8)arg1];
+                *arg2 = keyboard_us_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_us_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_us_unshifted_map[arg1];
             }
             break;
         }
@@ -192,31 +233,31 @@ s32 translate_key_char__16TKeyBoardControlFPviPv(void *arg0_, s32 arg1, u16 *arg
     }
     if (arg0->sub->flags & 2) {
         if (arg0->flags & 4) {
-            *arg2 = keyboard_jp_symbol_map[(u8)arg1];
+            *arg2 = keyboard_jp_symbol_map[arg1];
         } else if (shift != 0) {
-            *arg2 = keyboard_jp_fullwidth_shifted_map[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_shifted_map[arg1];
         } else {
-            *arg2 = keyboard_jp_fullwidth_unshifted_map[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_unshifted_map[arg1];
         }
         return 1;
     }
     if (arg0->sub->flags & 4) {
-        if (((s32 (*)(void *, s32))is_printable_key__16TKeyBoardControlFiUc)(arg0, arg1) != 0) {
+        if (is_printable_key__16TKeyBoardControlFiUc(arg0, arg1) != 0) {
             if (arg0->flags & 4) {
-                *arg2 = keyboard_jp_symbol_map[(u8)arg1];
+                *arg2 = keyboard_jp_symbol_map[arg1];
             } else if (shift != 0) {
-                *arg2 = keyboard_jp_shifted_map[(u8)arg1];
+                *arg2 = keyboard_jp_shifted_map[arg1];
             } else {
-                *arg2 = keyboard_jp_unshifted_map[(u8)arg1];
+                *arg2 = keyboard_jp_unshifted_map[arg1];
             }
             return ((arg0->flags >> 7) & 1) ? 2 : 0;
         }
         if (arg0->flags & 4) {
-            *arg2 = keyboard_jp_symbol_map[(u8)arg1];
+            *arg2 = keyboard_jp_symbol_map[arg1];
         } else if (shift != 0) {
-            *arg2 = keyboard_jp_fullwidth_shifted_map[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_shifted_map[arg1];
         } else {
-            *arg2 = keyboard_jp_fullwidth_unshifted_map[(u8)arg1];
+            *arg2 = keyboard_jp_fullwidth_unshifted_map[arg1];
         }
         return 1;
     }
@@ -276,14 +317,68 @@ s32 poll_input__16TKeyBoardControlFPv(void *arg0) {
     }
 }
 
-s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, s32 arg1, u8 arg2) {
-    extern u8 keyboard_repeat_key_codes[];
+u32 lbl_804CFAD0[5] = { 0x0, 0x0, 0x47436E00, 0x0, 0x823 };
+__declspec(section ".data") u8 keyboard_repeat_key_codes[7] = { 0x60, 0xB4, 0x5E, 0x7E, 0xA8, 0xB0, 0xB8 };
+u8 lbl_804CFAEC[7][7] = {
+    { 0x07, 0x07, 0x07, 0x07, 0x07, 0x00, 0x00 },
+    { 0x07, 0x07, 0x07, 0x00, 0x07, 0x00, 0x00 },
+    { 0x07, 0x07, 0x07, 0x00, 0x07, 0x00, 0x00 },
+    { 0x07, 0x07, 0x07, 0x07, 0x07, 0x00, 0x00 },
+    { 0x07, 0x07, 0x07, 0x00, 0x07, 0x00, 0x00 },
+    { 0x00, 0x00, 0x00, 0x07, 0x00, 0x00, 0x00 },
+    { 0x00, 0x07, 0x00, 0x00, 0x07, 0x00, 0x00 },
+};
+u8 lbl_804CFB20[7][7] = {
+    { 0xC0, 0xC1, 0xC2, 0xC3, 0xC4, 0xC5, 0x00 },
+    { 0xC8, 0xC9, 0xCA, 0x00, 0xCB, 0x00, 0x00 },
+    { 0xCC, 0xCD, 0xCE, 0x00, 0xCF, 0x00, 0x00 },
+    { 0xD2, 0xD3, 0xD4, 0xD5, 0xD6, 0x00, 0x00 },
+    { 0xD9, 0xDA, 0xDB, 0x00, 0xDC, 0x00, 0x00 },
+    { 0x00, 0x00, 0x00, 0xD1, 0x00, 0x00, 0x00 },
+    { 0x00, 0xDD, 0x00, 0x00, 0xDF, 0x00, 0x00 },
+};
+extern u8 *lbl_805D3930;
+
+u8 TKeyBoardControl__sub_8025F2F8(void *arg0, u8 arg1) {
+    u32 idx;
+    s32 bit;
+    u8 *p;
+    u32 i;
+    u8 modes;
+    u8 c;
+
+    idx = *(u32 *)((u8 *)arg0 + 0x6C);
+    if (idx >= 7) {
+        return arg1;
+    }
+    *(u32 *)((u8 *)arg0 + 0x6C) = 7;
+    bit = get_input_mode__16TKeyBoardControlFPv((Ctl_8025F21C *)arg0);
+    for (i = 0, p = lbl_805D3930; (s32)*p != 0; i++, p++) {
+        if (arg1 == *p) {
+            modes = lbl_804CFAEC[i >> 1][idx];
+            if (!(modes & (1 << bit))) {
+                return arg1;
+            }
+            c = lbl_804CFB20[i >> 1][idx];
+            if (i & 1) {
+                return c + 0x20;
+            }
+            if (c == 0xDF) {
+                return arg1;
+            }
+            return c;
+        }
+    }
+    return arg1;
+}
+
+s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, u8 arg1, u8 arg2) {
     extern u8 lbl_805D392C[8];
     u32 st;
     u32 i;
 
     st = poll_input__16TKeyBoardControlFPv(arg0);
-    if (st == 0U && (u8)arg1 == 0x32) {
+    if (st == 0U && arg1 == 0x32) {
         return 0;
     }
     for (i = 0; i < 7; i++) {
@@ -301,12 +396,115 @@ s32 lookup_key_repeat_state__16TKeyBoardControlFPviUc(void *arg0, s32 arg1, u8 a
     }
     return 0;
 }
+s32 init__19TWindowKeyBoardSoftFPv(void *);
+s32 set_bits_shift7__19TWindowKeyBoardHardFii(int, int);
+s32 update_card_window_page_flags__19TWindowKeyBoardHardFii(int, int);
+s32 clear_card_window_flag__19TWindowKeyBoardHardFii(int, int);
+s32 set_card_window_flag__19TWindowKeyBoardHardFii(int, int);
+s32 TWindowKeyBoardHard__sub_8026042C(void *);
+extern u8 keyboard_jp_unshifted_map[];
+extern u8 keyboard_us_unshifted_map[];
+extern u8 keyboard_fr_unshifted_map[];
+extern u8 keyboard_de_unshifted_map[];
+extern u8 keyboard_es_unshifted_map[];
+extern s32 TKeyBoardControl__global_key_state[];
+extern s32 current_language;
 
-void process_key_input__16TKeyBoardControlFPvi(void *arg0, s32 arg1) {
+s32 TKeyBoardControl__sub_8025F4A0(Ctl_8025F4A0 *arg0, u8 arg1) {
+    static KeyFn_8025F4A0 tbl[26] = { &TWindowKeyBoardSoft_8025F4A0::vt0, &TWindowKeyBoardSoft_8025F4A0::vt21, &TWindowKeyBoardSoft_8025F4A0::vt3, &TWindowKeyBoardSoft_8025F4A0::vt4, &TWindowKeyBoardSoft_8025F4A0::vt5, &TWindowKeyBoardSoft_8025F4A0::vt6, &TWindowKeyBoardSoft_8025F4A0::vt7, &TWindowKeyBoardSoft_8025F4A0::vt8, &TWindowKeyBoardSoft_8025F4A0::vt9, &TWindowKeyBoardSoft_8025F4A0::vt10, &TWindowKeyBoardSoft_8025F4A0::vt11, &TWindowKeyBoardSoft_8025F4A0::vt12, &TWindowKeyBoardSoft_8025F4A0::vt13, &TWindowKeyBoardSoft_8025F4A0::vt14, &TWindowKeyBoardSoft_8025F4A0::sub_8025B928, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA44, &TWindowKeyBoardSoft_8025F4A0::sub_8025BA28, &TWindowKeyBoardSoft_8025F4A0::sub_8025B92C, &TWindowKeyBoardSoft_8025F4A0::update_input_state, &TWindowKeyBoardSoft_8025F4A0::vt1, &TWindowKeyBoardSoft_8025F4A0::vt20, &TWindowKeyBoardSoft_8025F4A0::vt15, &TWindowKeyBoardSoft_8025F4A0::vt16, &TWindowKeyBoardSoft_8025F4A0::vt17, &TWindowKeyBoardSoft_8025F4A0::vt18, &TWindowKeyBoardSoft_8025F4A0::vt19 };
+    s32 busy;
+    u32 t;
+    TWindowKeyBoardSoft_8025F4A0 *w;
+
+    busy = current_language;
+    switch (get_key_state__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state)) {
+    case 0:
+        arg1 = keyboard_jp_unshifted_map[arg1];
+        break;
+    case 2:
+        arg1 = keyboard_fr_unshifted_map[arg1];
+        break;
+    case 4:
+        arg1 = keyboard_es_unshifted_map[arg1];
+        break;
+    case 3:
+        arg1 = keyboard_de_unshifted_map[arg1];
+        break;
+    default:
+        arg1 = keyboard_us_unshifted_map[arg1];
+        break;
+    }
+    if (arg1 > 31) {
+        return 0;
+    }
+    if (arg1 < 26) {
+        (arg0->f70->*tbl[arg1])();
+        return 1;
+    }
+    switch (arg1) {
+    case 30:
+        t = arg0->f60;
+        if (t & 1) {
+            arg0->f60 = t | 0x10;
+        } else if (busy != 0 || (t & 0x80)) {
+            arg0->f60 = (t & ~0x10) | ~((t & 0x10) | 0xFFFF0000 | 0xFFEF);
+        } else {
+            arg0->f70->fB4 |= 2;
+            set_card_window_flag__19TWindowKeyBoardHardFii(arg0->f20, 1);
+        }
+        break;
+    case 26:
+        if (busy == 0 && TWindowKeyBoardHard__sub_8026042C(arg0) == 0) {
+            w = arg0->f70;
+            t = w->fB4;
+            if (t & 1) {
+                w->fB4 = t & ~1;
+                clear_card_window_flag__19TWindowKeyBoardHardFii(arg0->f20, 0);
+                init__19TWindowKeyBoardSoftFPv(arg0->f70);
+            } else {
+                w->fB4 = t | 1;
+                clear_card_window_flag__19TWindowKeyBoardHardFii(arg0->f20, 1);
+            }
+        }
+        break;
+    case 27:
+        if (TWindowKeyBoardHard__sub_8026042C(arg0) == 0) {
+            t = arg0->f60;
+            if ((t & 0x84) != 0x84) {
+                u32 u;
+                w = arg0->f70;
+                u = w->fB4;
+                if (u & 2) {
+                    w->fB4 = u & ~2;
+                    set_card_window_flag__19TWindowKeyBoardHardFii(arg0->f20, 0);
+                } else if (t & 4) {
+                    w->fB4 = (u & ~4) | ~((u & 4) | 0xFFFF0000 | 0xFFFB);
+                    if (arg0->f70->fB4 & 4) {
+                        update_card_window_page_flags__19TWindowKeyBoardHardFii(arg0->f20, 1);
+                    } else {
+                        update_card_window_page_flags__19TWindowKeyBoardHardFii(arg0->f20, 0);
+                    }
+                    break;
+                }
+                if (arg0->f60 & 0x80) {
+                    arg0->f70->fB4 |= 8;
+                    set_bits_shift7__19TWindowKeyBoardHardFii(arg0->f20, 1);
+                } else {
+                    arg0->f70->fB4 &= ~8;
+                    set_bits_shift7__19TWindowKeyBoardHardFii(arg0->f20, 0);
+                }
+            }
+        }
+        break;
+    }
+    return 1;
+}
+
+void process_key_input__16TKeyBoardControlFPvi(void *arg0, u8 arg1) {
     u16 sp8;
     s32 temp_r31;
 
-    if (TKeyBoardControl__sub_8025F4A0() != 0) {
+    if (TKeyBoardControl__sub_8025F4A0((Ctl_8025F4A0 *)arg0, arg1) != 0) {
         *(s32 *)((s8 *)arg0 + 0x6C) = 7;
         return;
     }
@@ -336,7 +534,7 @@ void process_all_key_states__16TKeyBoardControlFPv(Ctl_8025F21C *c) {
     if (!(c->f60 & 2)) {
         n = get_key_state_2__16TKeyBoardControlFPv(TKeyBoardControl__global_key_state);
         for (i = 0; i < n; i++) {
-            process_key_input__16TKeyBoardControlFPvi(c, ((s32 (*)(void *, u8))TKeyBoardControl__sub_8013239C)(TKeyBoardControl__global_key_state, i));
+            process_key_input__16TKeyBoardControlFPvi(c, TKeyBoardControl__sub_8013239C(TKeyBoardControl__global_key_state, i));
         }
     }
 }

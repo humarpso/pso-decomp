@@ -171,7 +171,7 @@ struct Views_8006A410
 
 extern "C" {
 u8 TCameraCtrl__sub_8006A5DC(void);
-void select_camera_controller(s8 arg0);
+void select_camera_controller(s32 arg0);
 s32 is_split_screen();
 s32 apply_camera_controller_pose(int);
 s32 resolve_anchor_obstruction__11TCameraCtrlFPv(void *, int);
@@ -179,7 +179,7 @@ s32 clamp_to_target_obstruction__11TCameraCtrlFPv(void *, int);
 s32 update_target_smoothing__11TCameraCtrlFPv(void *);
 s32 update_position__11TCameraCtrlFPv(void *);
 s32 update_pose_smoothing__11TCameraCtrlFPv(void *);
-s32 update_shake__11TCameraCtrlFv(void *);
+void update_shake__11TCameraCtrlFv(void *p);
 s32 get_camera_no__11TCameraCtrlFv();
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern const f32 TCameraCtrl__data_805D8FAC;
@@ -195,7 +195,7 @@ void set_target__11TCameraCtrlFPvUi(Ctrl_8006A410 *, void *);
 s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 extern u8 *camera_ctrl_instance;
-void reset_cameras_to_actor(void *actor);
+void reset_cameras_to_actor(void *actor, s32 arg1);
 }
 
 extern "C" {
@@ -250,7 +250,7 @@ typedef struct Master_8006A410 Master_8006A410;
 typedef struct VBase_8006A410 VBase_8006A410;
 typedef struct Vec_8006A410 Vec_8006A410;
 typedef struct Views_8006A410 Views_8006A410;
-void reset_cameras_to_actor(void *actor) {
+void reset_cameras_to_actor(void *actor, s32 arg1) {
   s32 view = 0;
   u16 new_var;
   s32 count = 0;
@@ -375,7 +375,33 @@ void select_active_controller__11TCameraCtrlFc(s8 arg0) {
   }
 }
 
-void select_camera_controller(s8 arg0) {
+struct Cam_8006A6C4
+{
+  u8 pad0[0x68];
+  f32 f68;
+  f32 f6C;
+  f32 f70;
+  u8 pad74[0x1C0 - 0x74];
+  u32 f1C0;
+  f32 f1C4;
+};
+f32 sin_table_lookup(s32);
+extern const f32 lbl_805D8FF4;
+void update_shake__11TCameraCtrlFv(void *p) {
+  Cam_8006A6C4 *self = (Cam_8006A6C4 *) p;
+  f32 amp;
+  s32 k;
+  if (self->f1C0 != 0) {
+    self->f1C0--;
+    k = self->f1C0 * 40;
+    amp = self->f1C4 * (f32)self->f1C0;
+    self->f68 = TCameraCtrl__data_805D8FA8;
+    self->f6C = amp * sin_table_lookup((s32)(lbl_805D8FF4 * (f32)k));
+    self->f70 = TCameraCtrl__data_805D8FA8;
+  }
+}
+
+void select_camera_controller(s32 arg0) {
   u8 *temp_r0;
   (*(RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value = arg0;
   temp_r0 = (u8 *) (*((s32 *) (((s8 *) (&camera_controller_registry.value)) + ((arg0 * 4) & 0x3FC))));
@@ -490,8 +516,6 @@ void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
 #define camera_controller_registry ((Ctl_8006AA90 **)camera_controller_registry)
 #define lbl_80488AC0 ((u8 *)lbl_80488AC0)
 #define camera_ctrl_instance (*(s32 *)&camera_ctrl_instance)
-#define reset_cameras_to_actor ((s32 (*)(s32, s32))reset_cameras_to_actor)
-#define select_camera_controller ((s32 (*)(int))select_camera_controller)
 
 #include "types.h"
 
@@ -523,7 +547,7 @@ void update_target_from_state__11TCameraCtrlFPv(void *arg0) {
             select_camera_controller(*(u8 *)((s8 *)TCameraCtrl__view_state + 1));
             u32 temp = get_player_by_client_id(local_client_id);
             if (temp != 0U) {
-                reset_cameras_to_actor(temp, 0);
+                reset_cameras_to_actor((void *)temp, 0);
             }
         }
     }
@@ -553,8 +577,6 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1) {
 #undef camera_controller_registry
 #undef lbl_80488AC0
 #undef camera_ctrl_instance
-#undef reset_cameras_to_actor
-#undef select_camera_controller
 
 #include "types.h"
 
@@ -683,7 +705,7 @@ struct Cam_8006B0D4 {
 };
 
 extern "C" {
-u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1);
+u8 * copy_view_params__11TCameraCtrlFii(C30_8006AD34 *arg0, const C30_8006AD34 *arg1);
 extern RecoveredGlobal_8006B324_lbl_805137F8 chr_select_request_buffer;
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
@@ -719,14 +741,14 @@ void normalize_vector(void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 TCameraCtrl__data_805D8FA8;
 s32 is_split_screen();
-int TCameraCtrl__sub_8006B370(void);
+int TCameraCtrl__sub_8006B370(f32);
 }
 
 extern "C" {
 
 u16 TCameraCtrl__sub_8006B358(void* p);
 int is_quest_active(void);
-int TCameraCtrl__sub_8006B370(void);
+int TCameraCtrl__sub_8006B370(f32);
 int TCameraCtrl__sub_8006B3B8(void* p);
 int get_camera_id__11TCameraCtrlFv(void);
 int get_instance__11TCameraCtrlFv(void);
@@ -870,7 +892,7 @@ void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0) {
 }
 #pragma pop
 
-#define ISNAN(x) (((int (*)(f32))TCameraCtrl__sub_8006B370)(x))
+#define ISNAN(x) TCameraCtrl__sub_8006B370(x)
 #define G (camera_ctrl_instance)
 #define GF(o) (*(f32 *)(G + (o)))
 void update_view__11TCameraCtrlFPv(u8 *arg0) {
@@ -915,7 +937,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
         if (TCameraCtrl__view_state[0] == 5) {
             render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
             for (i = 1; i < 4; i++) {
-                ((u8 *(*)(C30_8006AD34 &, const C30_8006AD34 &))copy_view_params__11TCameraCtrlFii)(TCameraCtrl__view_matrices[i], TCameraCtrl__view_matrices[0]);
+                copy_view_params__11TCameraCtrlFii(&TCameraCtrl__view_matrices[i], &TCameraCtrl__view_matrices[0]);
             }
         } else {
             render__15TObjBoss2TunnelFPvPv(lbl_804FF5E8, &TCameraCtrl__view_matrices[get_camera_no__11TCameraCtrlFv()]);
@@ -929,7 +951,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
 #undef G
 #undef GF
 
-u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1) {
+u8 * copy_view_params__11TCameraCtrlFii(C30_8006AD34 *arg0, const C30_8006AD34 *arg1) {
     *(ByteBlock_30 *)(arg0) = *(const ByteBlock_30 *)(arg1);
     return (u8 *)arg0;
 }
@@ -1088,7 +1110,10 @@ s32 get_mode__11TCameraCtrlFPv(void* p) { return *(s32*)((char*)p + 0x1c); }
     extern int quest_active_flag;
 int is_quest_active(void) {  return quest_active_flag; }
 
-int TCameraCtrl__sub_8006B370(void) { return 0; }
+int TCameraCtrl__sub_8006B370(f32 farg0) {
+    u32 v = *(u32 *)&farg0 & 0x7F800000;
+    return v == 0x7F800000;
+}
 
 int reset_battle_camera__11TCameraCtrlFPv(void* p) { return reset_to_local_player__11TCameraCtrlFv(p); }
 int TCameraCtrl__sub_8006B3B8(void* p) { return set_fixed_position_and_target__11TCameraCtrlFPvPv(p); }
