@@ -50,7 +50,7 @@ void queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void *);
 void stop_sound_request(s32);
 void __dl__7TObjectFPv(void *);
-extern Ent_80232E0C lbl_8044D53C[];
+extern Ent_80232E0C grants_effect_emitter_table[];
 extern u8 lbl_804CC888[];
 Obj_80232E0C *destroy_grants_effect(Obj_80232E0C *arg0, s16 arg1);
 void VecCopy__FP3VecPC3Vec(Vec_80232B7C *, Vec_80232B7C *);
@@ -159,7 +159,7 @@ Obj_80232E0C *destroy_grants_effect(Obj_80232E0C *arg0, s16 arg1) {
     u32 i;
     if (arg0 != NULL) {
         arg0->vt = lbl_804CC888;
-        for (i = 0; i < lbl_8044D53C[arg0->kind].count; i++) {
+        for (i = 0; i < grants_effect_emitter_table[arg0->kind].count; i++) {
             if (arg0->items[i] != NULL) {
                 queue_destruction__7TObjectFv(arg0->items[i]);
             }

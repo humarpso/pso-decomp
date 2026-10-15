@@ -6,7 +6,7 @@ extern "C" void TObjPlayer__sub_800FEE84();
 extern "C" void update_bone_attach_points__10TObjPlayerFPv();
 extern "C" void __dt__21TObjHMS_EZRope_PlayerFv();
 extern "C" void render_shadows__7TObjectFv();
-f32 lbl_8049DCF0[12] = {
+f32 ezrope_chunk_material_color_table[12] = {
     0.5f, 1.0f, 1.0f, 0.5f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 };
 f32 TObjEZBoneRotPlayer__chain_gravity[3] = { 0.0f, -0.75f, 0.0f };

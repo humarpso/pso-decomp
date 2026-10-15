@@ -71,7 +71,7 @@ M2C_UNK set_draw_texture_and_color(M2C_UNK, s32, f32);
 M2C_UNK get_player__20TWindowSubStatusDispFv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 
-extern M2C_UNK lbl_8048EB30[];
+extern M2C_UNK TEndingC__wall_texture_list_entry[];
 extern const f32 lbl_805D95C0;
 extern const f32 lbl_805D95C4;
 extern const f32 lbl_805D95C8;
@@ -79,7 +79,7 @@ extern const f32 lbl_805D95C8;
 }
 
 void TEndingC::render() {
-    set_global_param__8TObjFishFi(lbl_8048EB30);
+    set_global_param__8TObjFishFi(TEndingC__wall_texture_list_entry);
     begin_screen_draw(1);
     set_draw_texture_and_color(1, ((s32) (lbl_805D95C0 * primary_opacity) << 0x18) | 0xFF0000 | 0xFFFF, lbl_805D95C0);
     draw_textured_quad_at_depth(render_geometry + 0x0, lbl_805D95C4);
@@ -316,7 +316,7 @@ void release_lobby__8TEndingCFv(void) {
 extern "C" {
     int bind_gvm_texture_list(void*, void*);
     extern unsigned char lbl_804398EC[];
-void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)lbl_8048EB30; bind_gvm_texture_list(lbl_804398EC, lbl_8048EB30); }
+void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)TEndingC__wall_texture_list_entry; bind_gvm_texture_list(lbl_804398EC, TEndingC__wall_texture_list_entry); }
 }
 
 typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;

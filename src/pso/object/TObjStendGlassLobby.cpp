@@ -38,14 +38,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern u32 TObjStendGlassLobby__data_805D6F28;
+extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 lbl_805D6F2C;
 void load_resources__19TObjStendGlassLobbyFv(void);
 s32 init_map_object_base(void *);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
 extern M2C_UNK __vt__19TObjStendGlassLobby[];
 extern s32 TObjStendGlassLobby__name;
-extern u32 TObjStendGlassLobby__data_805D6F28;
+extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 lbl_805D6F2C;
 u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv();
@@ -160,12 +160,12 @@ void *create__19TObjStendGlassLobbyFPv(void *arg0) {
     return o;
 }
 
-extern u32 TObjStendGlassLobby__data_805D6F28;
+extern u32 TObjStendGlassLobby__static_model_resource;
 
 void free_static_model__19TObjStendGlassLobbyFv(void) {
-    if ((u32) TObjStendGlassLobby__data_805D6F28 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjStendGlassLobby__data_805D6F28, 1);
-        TObjStendGlassLobby__data_805D6F28 = 0U;
+    if ((u32) TObjStendGlassLobby__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjStendGlassLobby__static_model_resource, 1);
+        TObjStendGlassLobby__static_model_resource = 0U;
     }
 }
 
@@ -179,7 +179,7 @@ void load_resources__19TObjStendGlassLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjStendGlassLobby__resource_descriptor, 0, 0, 0));
     }
-    (*(s32 *)&TObjStendGlassLobby__data_805D6F28) = var_r0;
+    (*(s32 *)&TObjStendGlassLobby__static_model_resource) = var_r0;
     lbl_805D6F2C = get_lobby_type__6TLobbyFv();
 }
 
@@ -201,7 +201,7 @@ u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     update_state__19TObjStendGlassLobbyFPv((void *) (arg0));
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjStendGlassLobby__data_805D6F28), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjStendGlassLobby__static_model_resource), u8 **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F2C;
     return arg0;
 }

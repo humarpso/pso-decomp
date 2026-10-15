@@ -476,8 +476,8 @@ void bswap_entry_words__6TLobbyFi(s32 arg0) {
 
 int TLobby__sub_801F3694(void* p) { return set_flags__10TObjPlayerFPvUi((char*)p + 0x10, 2); }
 
-    extern int lbl_805D5FDC;
-void TLobby__sub_801F36BC(void) { lbl_805D5FDC = 1; }
+    extern int lobby_online_ready_flag;
+void TLobby__sub_801F36BC(void) { lobby_online_ready_flag = 1; }
 
     extern int lbl_805D5FD8;
 void set_lobby_id__6TLobbyFi(int a0) { lbl_805D5FD8 = a0; }
@@ -485,8 +485,8 @@ void set_lobby_id__6TLobbyFi(int a0) { lbl_805D5FD8 = a0; }
     extern int lbl_805D3614;
 void set_global_805D3614__6TLobbyFi(int a0) { lbl_805D3614 = a0; }
 
-    extern int lbl_805D5C80;
-void TLobby__sub_801F36D8(void) { lbl_805D5C80 = 1; }
+    extern int lobby_quest_progress_flag;
+void TLobby__sub_801F36D8(void) { lobby_quest_progress_flag = 1; }
 
     extern int quest_warp_enabled;
 void TLobby__sub_801F36E4(void) { quest_warp_enabled = 0; }

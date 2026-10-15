@@ -64,7 +64,7 @@ int render_status__20TWindowSubStatusDispFPv(void*);
 
 void render__17TAdSelectTxtSubGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); render_status__20TWindowSubStatusDispFPv(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
-    extern int lbl_805D6640;
+    extern int ad_select_text_texture_handle;
 
 #pragma push
 #pragma fp_contract on
@@ -122,7 +122,7 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
 }
 #pragma pop
 
-int TObjNpcHosa__sub_802A39B0(void) {  return lbl_805D6640; }
+int TObjNpcHosa__sub_802A39B0(void) {  return ad_select_text_texture_handle; }
 
 extern void *tl_04;
 

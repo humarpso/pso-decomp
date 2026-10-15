@@ -22,8 +22,8 @@ int load_gvm_texture_file(void*);
 int create__16TObjOnlineEndingFPv(void*);
 
     extern unsigned char lbl_80470908[];
-    extern int lbl_805D6710;
-void load_player_footstamp(void) { lbl_805D6710 = load_gvm_texture_file(lbl_80470908); }
+    extern int player_footstamp_texture_gvm_handle;
+void load_player_footstamp(void) { player_footstamp_texture_gvm_handle = load_gvm_texture_file(lbl_80470908); }
 
 void TPlayerFootStamp__sub_802B0204(Obj_802B0204 *self, s32 v) {
     if (v < 0 || v > 1) {

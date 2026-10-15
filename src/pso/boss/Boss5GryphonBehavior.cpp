@@ -542,6 +542,20 @@ struct Dragon_80060020 : Obj_80060020 {
     f32 f6F4;
 };
 
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct GA_80063FB8 { s32 value; u8 remaining[0x10]; };
+
+struct GB_80063FB8 { s32 value; u8 remaining[0x8]; };
+
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct GA_800640A4 { s32 value; u8 remaining[0x10]; };
+
+struct GB_800640A4 { s32 value; u8 remaining[0x8]; };
+
 extern "C" {
 int VecCopy__FP3VecPC3Vec(void*, void*);
 void queue_destruction__7TObjectFv(void *);
@@ -718,6 +732,12 @@ void choose_next_action__13TBoss5GryphonFPvPv(u8 *arg0, u32 *arg1);
 M2C_UNK reload_stats_for_phase__13TBoss5GryphonFPvPv(void *arg0, void *);
 f32 random_in_range__12TBoss8DragonFff(f32 farg0, f32 farg1);
 s32 random_in_table_range__12TBoss8DragonFiii(s32 self, s32 arg1, s32 arg2);
+extern GA_80063FB8 lbl_80437DA4;
+void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
+void TBoss8Dragon__sub_80063FB8(s32 arg0, s32 arg1, f32 farg0);
+extern GA_800640A4 lbl_80437D7C;
+void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
+void TBoss8Dragon__sub_800640A4(s32 arg0, s32 arg1);
 }
 
 extern "C" {
@@ -1798,9 +1818,9 @@ extern M2C_UNK lbl_80437938[];
 extern RecoveredGlobal_800646F0_lbl_80437944 lbl_80437944;
 extern RecoveredGlobal_8005E17C_lbl_8043797C boss5_gryphon_bone_capture_node_indices;
 extern s32 lbl_80437CCC[];
-extern M2CCopy_14 lbl_80437CDC;
+extern M2CCopy_14 gryphon_part_attack_params;
 extern RecoveredGlobal_80064694_lbl_80437CF0 lbl_80437CF0;
-extern RecoveredGlobal_8006435C_lbl_80437D2C lbl_80437D2C;
+extern RecoveredGlobal_8006435C_lbl_80437D2C boss8_dragon_attack_params;
 extern M2C_UNK lbl_80437D54[];
 extern RecoveredGlobal_80064114_lbl_80437D68 lbl_80437D68;
 extern M2C_UNK lbl_80437DC4[];
@@ -2630,6 +2650,14 @@ void *__vt__13TBoss5Gryphon[107] = {
 #define lbl_804882B0 ((u8 *)lbl_804882B0)
 #define lbl_804882BC ((M2C_UNK *)lbl_804882BC)
 #define __vt__13TBoss5Gryphon ((u8 *)__vt__13TBoss5Gryphon)
+
+extern "C" {
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
+}
+
+extern "C" {
+extern RecoveredGlobal_800646F0_lbl_804FF5B4 boss5_gryphon_behavior_params;
+}
 
 s32 get_player_pos_in_arc__13TBoss5GryphonFPviiPvPv(Obj_8005D880 *arg0, s32 arg1, s32 arg2, Vec_8005D880 *org, Vec_8005D880 *out) {
     Obj_8005D880 *p;
@@ -4606,6 +4634,28 @@ extern int fold_flush_17;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
+
+void TBoss8Dragon__sub_80063FB8(s32 arg0, s32 arg1, f32 farg0) {
+    struct CopyStack_80063FB8 { u8 bytes[0x14]; };
+    u8 *temp;
+    CopyStack_80063FB8 copy_storage;
+    temp = (u8 *)&lbl_80437DA4.value - 4;
+    *(M2CCopy_14 *)(copy_storage.bytes) = *(const M2CCopy_14 *)((s32) temp + 4);
+    (*(f32 *)(copy_storage.bytes + 0x4)) = M2C_FIELD(M2C_FIELD(&(*(GB_80063FB8 *)&boss5_gryphon_behavior_params).value, u8 **, 8), f32 *, 0xC);
+    (*(f32 *)(copy_storage.bytes + 0x8)) = farg0;
+    setup_instance__9TObjEneDDFiiPvi(arg0, arg1, copy_storage.bytes, 0);
+}
+
+void TBoss8Dragon__sub_800640A4(s32 arg0, s32 arg1) {
+    struct CopyStack_800640A4 { u8 bytes[0x14]; };
+    u8 *temp;
+    CopyStack_800640A4 copy_storage;
+    temp = (u8 *)&lbl_80437D7C.value - 4;
+    *(M2CCopy_14 *)(copy_storage.bytes) = *(const M2CCopy_14 *)((s32) temp + 4);
+    (*(f32 *)(copy_storage.bytes + 0x4)) = M2C_FIELD(M2C_FIELD(&(*(GB_800640A4 *)&boss5_gryphon_behavior_params).value, u8 **, 8), f32 *, 8);
+    setup_instance__9TObjEneDDFiiPvi(arg0, arg1, copy_storage.bytes, 0);
+}
+
 void TBoss8Dragon__sub_80064114(s32 arg0, s32 arg1) {
     struct CopyStack_80064114 { u8 bytes[0x14]; };
     CopyStack_80064114 copy_storage_80064114;
@@ -4692,7 +4742,7 @@ void TBoss8Dragon__sub_8006435C(u8 *arg0) {
     Stack_8006435C stack;
     u8 *temp_r31;
     u8 *temp_r31_2;
-    TBoss1Dragon__sub_80027A80((void *) (&stack.sp8), (void *) (&lbl_80437D2C.value));
+    TBoss1Dragon__sub_80027A80((void *) (&stack.sp8), (void *) (&boss8_dragon_attack_params.value));
     fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0x578)));
     reset_hp__9TObjEneDDFPv((void *) (arg0), (int) (0), (int) (M2C_FIELD(&boss5_gryphon_attack_params.value, s32 *, 0xC)), (int) (0));
     temp_r31 = (u8 *)(arg0 + 0x444);
@@ -4995,7 +5045,7 @@ extern int fold_flush_24;
 int emit_part_attack_effect__13TBoss5GryphonFPvi(void *arg0, int arg1) {
     M2CCopy_14 prm;
     Vec_80064968 *p;
-    prm = lbl_80437CDC;
+    prm = gryphon_part_attack_params;
     fill_value_array(((Obj_80064968 *)arg0)->f578);
     p = &((Obj_80064968 *)arg0)->parts[lbl_80437CCC[arg1]];
     reset_hp__9TObjEneDDFPv(arg0, 0, M2C_FIELD(&boss5_gryphon_attack_params.value, s32 *, 0), 0);

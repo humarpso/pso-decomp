@@ -60,7 +60,7 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_8016226C_lbl_804B1488 TODoorCave02__collision_body_parts;
 extern M2C_UNK __vt__12TODoorCave02[];
 extern s32 lbl_805D2F68;
-extern u32 lbl_805D5960;
+extern u32 cave_door02_model_resource;
 extern const f32 lbl_805DB4B8;
 extern const f32 lbl_805DB4C8;
 u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -73,7 +73,7 @@ extern u8 lbl_80440E24[];
 extern u8 lbl_80440E3C[];
 
 extern s32 enable_v2_features;
-extern u32 lbl_805D5960;
+extern u32 cave_door02_model_resource;
 extern s32 *cave_door02_resources;
 void load_resources__12TODoorCave02Fv(void);
 }
@@ -102,7 +102,7 @@ void *create__12TODoorCave02FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5960;
+extern u32 cave_door02_model_resource;
 extern s32 *cave_door02_resources;
 
 void free_globals__12TODoorCave02Fv(void) {
@@ -113,9 +113,9 @@ void free_globals__12TODoorCave02Fv(void) {
             cave_door02_resources = NULL;
         }
     }
-    if ((u32) lbl_805D5960 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5960, 1);
-        lbl_805D5960 = 0U;
+    if ((u32) cave_door02_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)cave_door02_model_resource, 1);
+        cave_door02_model_resource = 0U;
     }
 }
 
@@ -129,17 +129,17 @@ void load_resources__12TODoorCave02Fv(void) {
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorCave02_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5960 = (u32)o;
+        cave_door02_model_resource = (u32)o;
         cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E24);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorCave02__resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5960 = (u32)o;
+        cave_door02_model_resource = (u32)o;
         cave_door02_resources[0] = load_gvm_texture_file(lbl_80440E3C);
     }
-    cave_door02_resources[1] = *(s32 *)(*(u8 **)(lbl_805D5960 + 0x42C) + 0xC);
+    cave_door02_resources[1] = *(s32 *)(*(u8 **)(cave_door02_model_resource + 0x42C) + 0xC);
 }
 
 void *__dt__12TODoorCave02Fv(void *arg0, s16 arg1) {
@@ -161,9 +161,9 @@ u8 *TODoorCave02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016226C___vt__12TODoorCave02 *)&__vt__12TODoorCave02).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F68;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5960), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&cave_door02_model_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&cave_door02_model_resource), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&cave_door02_model_resource), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB4B8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB4C8;
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave02__collision_body_parts.value), (int) (1));

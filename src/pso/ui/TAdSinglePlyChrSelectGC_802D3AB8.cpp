@@ -56,7 +56,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, int);
 M2C_UNK play_sound_effect(int, int, int, int);
 M2C_UNK add_item_rect__12TLevelSelectFPvPv(int, void *);
 s32 get_player_index__22TAdMultiPlyChrSelectGCFPv(s32);
-extern RecoveredGlobal_802D4570_lbl_80472510 lbl_80472510;
+extern RecoveredGlobal_802D4570_lbl_80472510 single_chr_select_item_rect_table;
 extern RecoveredGlobal_802D4730_lbl_8050E208 controller_input_state;
 void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0);
 M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
@@ -480,10 +480,10 @@ void TAdSinglePlyChrSelectGC__sub_802D4570(u8 *arg0) {
         M2C_FIELD(arg0, s32 *, 0x20) = 0;
         return;
     }
-    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) (&lbl_80472510.value));
-    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&lbl_80472510.value + 8));
-    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&lbl_80472510.value + 0x10));
-    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&lbl_80472510.value + 0x18));
+    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) (&single_chr_select_item_rect_table.value));
+    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&single_chr_select_item_rect_table.value + 8));
+    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&single_chr_select_item_rect_table.value + 0x10));
+    add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x2C)), (void *) ((u8 *)&single_chr_select_item_rect_table.value + 0x18));
     M2C_FIELD(arg0, s32 *, 0x20) = 5;
 }
 

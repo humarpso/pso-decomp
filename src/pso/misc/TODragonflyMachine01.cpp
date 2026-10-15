@@ -39,7 +39,7 @@ s32 rand(void);
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__20TODragonflyMachine01[];
 extern s32 TODragonflyMachine01__class_name;
-extern u32 TODragonflyMachine01__data_805D5998;
+extern u32 TODragonflyMachine01__model_resource;
 extern const f32 lbl_805DB598;
 extern const f32 lbl_805DB5B8;
 extern const f32 lbl_805DB5BC;
@@ -53,7 +53,7 @@ O_80165434 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, int, int, void *, f32, f32);
 extern s32 dragonfly_machine_attack_effect_params[];
 extern char TODragonflyMachine01__attack_effect_descriptor[];
-extern u32 TODragonflyMachine01__data_805D5998;
+extern u32 TODragonflyMachine01__model_resource;
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
 extern const f32 lbl_805DB5B0;
@@ -132,12 +132,12 @@ void *create__20TODragonflyMachine01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TODragonflyMachine01__data_805D5998;
+extern u32 TODragonflyMachine01__model_resource;
 
 void unload_static_data__20TODragonflyMachine01Fv(void) {
-    if ((u32) TODragonflyMachine01__data_805D5998 != 0U) {
-        TLobby__sub_8001FE7C((void*)TODragonflyMachine01__data_805D5998, 1);
-        TODragonflyMachine01__data_805D5998 = 0U;
+    if ((u32) TODragonflyMachine01__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TODragonflyMachine01__model_resource, 1);
+        TODragonflyMachine01__model_resource = 0U;
     }
 }
 
@@ -151,7 +151,7 @@ void create_attack_effect__20TODragonflyMachine01Fv(void) {
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, TODragonflyMachine01__attack_effect_descriptor, 0, 0, 0);
     }
-    (*(O_80165434 * *)&TODragonflyMachine01__data_805D5998) = o;
+    (*(O_80165434 * *)&TODragonflyMachine01__model_resource) = o;
     lbl_805D599C = z;
     lbl_805D59A0 = z;
     sp8.v[0] = dragonfly_machine_attack_effect_params[0];
@@ -182,9 +182,9 @@ u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_80165538___vt__20TODragonflyMachine01 *)&__vt__20TODragonflyMachine01).value;
     ((Fields_arg0*)arg0)->field_0 = (int) TODragonflyMachine01__class_name;
     ((VObj_18_c5489a *)(arg0))->m5(arg1);
-    ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__data_805D5998), u8 **, 0x42C), void **, 8));
-    ((Fields_arg0*)arg0)->field_24 = (int) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__data_805D5998), u8 **, 0x42C), int *, 0xC);
-    ((Fields_arg0*)arg0)->field_BC = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__data_805D5998), u8 **, 0x430), void **, 4));
+    ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x42C), void **, 8));
+    ((Fields_arg0*)arg0)->field_24 = (int) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x42C), int *, 0xC);
+    ((Fields_arg0*)arg0)->field_BC = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x430), void **, 4));
     ((Fields_arg0*)arg0)->field_B4 = (f32) ((f32) M2C_FIELD(((Fields_arg0*)arg0)->field_BC, unsigned int *, 4) - lbl_805DB5B8);
     ((Fields_arg0*)arg0)->field_B8 = (f32) lbl_805DB5B8;
     ((Fields_arg0*)arg0)->field_C0 = (f32) lbl_805DB5BC;

@@ -14,7 +14,7 @@ M2C_UNK restore_saved_depth_alpha_state();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 M2C_UNK fn_8029A6EC(void *);
 M2C_UNK set_cached_blend_factor(int, int);
-extern M2C_UNK lbl_804DBF20[];
+extern M2C_UNK chr_select_ad_pic_2_texture_descriptor[];
 void render__9TAdBackGCFv(u8 *arg0);
 }
 
@@ -35,7 +35,7 @@ block_4:
         fn_8029A6EC((void *) (arg0));
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (0xA));
-        draw_title_background_layer((void *) (lbl_804DBF20), (int) (0), (int) (-1), (f32) (M2C_FIELD(arg0, f32 *, 0x1C)));
+        draw_title_background_layer((void *) (chr_select_ad_pic_2_texture_descriptor), (int) (0), (int) (-1), (f32) (M2C_FIELD(arg0, f32 *, 0x1C)));
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (6));
         if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {

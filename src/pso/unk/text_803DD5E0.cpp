@@ -85,7 +85,7 @@ M2C_UNK TObjPlayer__sub_803DA7E0();
 s32 find_free_slot__10TObjPlayerFPvPv(Slot_803DDB34 **, Rec_803DDB34 **);
 s32 TObjPlayer__sub_803DA8E4(s32, s32, s32, s32 *);
 M2C_UNK TObjPlayer__sub_803DAB7C(Obj_803DDA68 *, s32, s32);
-extern s32 lbl_805D7758;
+extern s32 player_ref_entry_active_count;
 s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx);
 s32 TLobby__sub_803DDD2C(s32 arg0);
 void TLobby__sub_803DDD78(S_803DDD78 *d, S_803DDD78 *s);
@@ -316,7 +316,7 @@ s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx) {
         if ((u32)v != 0xFFFFFFFF) {
             slot->rec->f0 = v;
         }
-        lbl_805D7758++;
+        player_ref_entry_active_count++;
         TObjPlayer__sub_803DAB7C(obj, idx, h);
         break;
     }

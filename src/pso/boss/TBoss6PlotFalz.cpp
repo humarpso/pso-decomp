@@ -1545,7 +1545,7 @@ M2C_UNK fn_802E52AC();
 M2C_UNK load_resources__10TBoss6RockFv();
 M2C_UNK TItemEffOrgaFlowShot__sub_80357210();
 M2C_UNK TLobby__sub_8036DDE8();
-extern int lbl_805D66E8;
+extern int obj_fish_count;
 void load_resources__14TBoss6PlotFalzFv(void);
 s32 restore_player_cameras();
 void __dt__9TObjEnemyFv(void *, int);
@@ -1751,7 +1751,7 @@ s32 TBoss6PlotFalz__ct(s32 self, s32 arg1, s32 arg2) {
 #pragma pop
 #undef arg0
 
-void free_all__14TBoss6PlotFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); free_resources__10TBoss6TubeFv(); free_data__10TBoss6RockFv(); TItemEffOrgaFlowShot__sub_80357204(); TLobby__sub_8001FE7C((void*)(lbl_805D66E8), (void*)1); lbl_805D66E8 = 0; }
+void free_all__14TBoss6PlotFalzFv(void) { free_global_instance__14TBoss4DarkFalzFv(); free_resources__10TBoss6TubeFv(); free_data__10TBoss6RockFv(); TItemEffOrgaFlowShot__sub_80357204(); TLobby__sub_8001FE7C((void*)(obj_fish_count), (void*)1); obj_fish_count = 0; }
 
 extern s32 tl_04;
 
@@ -1763,7 +1763,7 @@ void load_resources__14TBoss6PlotFalzFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &boss6_plot_falz_resource_descriptor, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D66E8) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&obj_fish_count) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 != 0U) {
         TLobby__sub_8036DDE8();
         TItemEffOrgaFlowShot__sub_80357210();
@@ -1790,7 +1790,7 @@ s32 create__14TBoss6PlotFalzFi(s32 arg0) {
 
 s32 get_phase__8TObjFishFPv(void* p) { return *(s32*)((char*)p + 0x378); }
 
-int get_fish_count__8TObjFishFv(void) {  return lbl_805D66E8; }
+int get_fish_count__8TObjFishFv(void) {  return obj_fish_count; }
 
 }
 

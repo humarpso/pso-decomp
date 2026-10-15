@@ -26,13 +26,13 @@ void * create__16TPlayerFootStampFPvPv(void *arg0, void *arg1) {
     return o;
 }
 
-extern u32 lbl_805D6710;
+extern u32 player_footstamp_texture_gvm_handle;
 
 void free_instance__16TPlayerFootStampFv(void) {
-    if ((u32) lbl_805D6710 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6710);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D6710);
-        lbl_805D6710 = 0U;
+    if ((u32) player_footstamp_texture_gvm_handle != 0U) {
+        TLobby__sub_803DA16C((void*)player_footstamp_texture_gvm_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(player_footstamp_texture_gvm_handle);
+        player_footstamp_texture_gvm_handle = 0U;
     }
 }
 

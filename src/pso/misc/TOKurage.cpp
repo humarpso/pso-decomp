@@ -96,7 +96,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016E800_lbl_804B2E6C bm_fs_obj_kurage_resource_descriptor;
-extern u32 TOKurage__data_805D5A38;
+extern u32 TOKurage__static_model_resource;
 void load_static_resource__8TOKurageFv(void);
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -105,7 +105,7 @@ s32 init_map_object_base(void *);
 void init__8TOKurageFPv(u8 *arg0);
 extern M2C_UNK __vt__8TOKurage[];
 extern s32 TOKurage__name;
-extern u32 TOKurage__data_805D5A38;
+extern u32 TOKurage__static_model_resource;
 u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 is_current_room(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
@@ -406,12 +406,12 @@ void *create__8TOKurageFPv(void *arg0) {
     return o;
 }
 
-extern u32 TOKurage__data_805D5A38;
+extern u32 TOKurage__static_model_resource;
 
 void destroy_static_instance__8TOKurageFv(void) {
-    if ((u32) TOKurage__data_805D5A38 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOKurage__data_805D5A38, 1);
-        TOKurage__data_805D5A38 = 0U;
+    if ((u32) TOKurage__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOKurage__static_model_resource, 1);
+        TOKurage__static_model_resource = 0U;
     }
 }
 
@@ -425,7 +425,7 @@ void load_static_resource__8TOKurageFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_kurage_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TOKurage__data_805D5A38) = var_r0;
+    (*(s32 *)&TOKurage__static_model_resource) = var_r0;
 }
 
 void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
@@ -443,10 +443,10 @@ u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TOKurage__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__data_805D5A38)), (int) (0));
-    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 0);
-    M2C_FIELD(arg0, u8 **, 0xC8) = get_bml_motion((*(s32 *)&TOKurage__data_805D5A38), 1);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
+    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
+    M2C_FIELD(arg0, u8 **, 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (0.5f);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (5e+02f);

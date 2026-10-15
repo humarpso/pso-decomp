@@ -49,7 +49,7 @@ M2C_UNK TObjEneMe1GiGueBarrier__sub_802CABF4(void *);
 extern RecoveredGlobal_80325BCC_lbl_804ECD40 TObjEneMe1GiGueBarrier__animation_definitions;
 extern M2C_UNK __vt__22TObjEneMe1GiGueBarrier[];
 extern s32 lbl_805D4198;
-extern s32 lbl_805D6C60;
+extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
@@ -61,7 +61,7 @@ M2C_UNK push_matrix();
 M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(int);
-extern s32 lbl_805D6C60;
+extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 extern const f32 lbl_805DF620;
 extern const f32 lbl_805DF624;
 extern const f32 lbl_805DF628;
@@ -84,7 +84,7 @@ extern M2C_UNK __vt__22TObjEneMe1GiGueBarrier[];
 #pragma push
 #pragma opt_common_subs off
 void render__22TObjEneMe1GiGueBarrierFv(u8 *arg0) {
-    if ((u32) (*(u32 *)&lbl_805D6C60) == 0U) {
+    if ((u32) (*(u32 *)&TObjEneMe1GiGueBarrier__barrier_resource_object) == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
@@ -173,11 +173,11 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, s32 *, 0x108) = get_field_44c__22TObjEneMe1GiGueBarrierFPv(M2C_FIELD(arg0, u8 **, 0xFC));
     TObjEneMe1GiGueBarrier__sub_802CABF4((void *) (M2C_FIELD(arg0, u8 **, 0xFC)));
     M2C_FIELD(arg0, s32 *, 0x104) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D6C60), u8 **, 0x42C), s32 *, 0x28);
-    temp_r5 = (u8 *)(M2C_FIELD((*(u8 * *)&lbl_805D6C60), u8 **, 0x42C));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object), u8 **, 0x42C), s32 *, 0x28);
+    temp_r5 = (u8 *)(M2C_FIELD((*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object), u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r5, s32 *, 0x2C);
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&TObjEneMe1GiGueBarrier__animation_definitions.value), (int) (temp_r5));
-    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&lbl_805D6C60), s32 *, 0x430)));
+    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&TObjEneMe1GiGueBarrier__barrier_resource_object), s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
@@ -186,7 +186,7 @@ u8 *TObjEneMe1GiGueBarrier__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
 
 void TObjEneMe1GiGueBarrier__sub_80325CC0(void) {  }
 
-extern s32 lbl_805D6C60;
+extern s32 TObjEneMe1GiGueBarrier__barrier_resource_object;
 
 void * create__22TObjEneMe1GiGueBarrierFPvPv(void *arg0, void *arg1) {
     void *o;
@@ -198,7 +198,7 @@ void * create__22TObjEneMe1GiGueBarrierFPvPv(void *arg0, void *arg1) {
 }
 
 void init_global__22TObjEneMe1GiGueBarrierFv(void) {
-    lbl_805D6C60 = get_barrier_count__15TObjEneMe1GiGueFv();
+    TObjEneMe1GiGueBarrier__barrier_resource_object = get_barrier_count__15TObjEneMe1GiGueFv();
 }
 
 }

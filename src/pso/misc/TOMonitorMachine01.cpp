@@ -87,12 +87,12 @@ struct Obj_80172550 {
 extern "C" {
 void TLobby__sub_8001FE7C(void *, s32);
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
-extern s32 TOMonitorMachine01__data_805D5A5C;
-extern void *TOMonitorMachine01__data_805D5A58;
+extern s32 TOMonitorMachine01__last_update_tick;
+extern void *TOMonitorMachine01__shared_bml_archive;
 void reset_static_state__18TOMonitorMachine01Fv(void);
 void scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
-extern s32 TOMonitorMachine01__data_805D5A5C;
+extern s32 TOMonitorMachine01__last_update_tick;
 extern s32 actor_frame_tick;
 extern const f32 lbl_805DB8F0;
 extern const f32 lbl_805DB8F4;
@@ -117,15 +117,15 @@ u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
 extern u8 monitor_machine01_resource_desc[];
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
-extern void *TOMonitorMachine01__data_805D5A58;
-extern s32 TOMonitorMachine01__data_805D5A5C;
+extern void *TOMonitorMachine01__shared_bml_archive;
+extern s32 TOMonitorMachine01__last_update_tick;
 void load_resources__18TOMonitorMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 init_map_object_base(void *, s32);
 extern M2C_UNK __vt__18TOMonitorMachine01[];
 extern s32 TOMonitorMachine01__name;
-extern void *TOMonitorMachine01__data_805D5A58;
+extern void *TOMonitorMachine01__shared_bml_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB90C;
 extern const f32 lbl_805DB910;
@@ -141,8 +141,8 @@ void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
 void run_task__18TOMonitorMachine01Fv(Mon_8017205C *self) {
-    if (TOMonitorMachine01__data_805D5A5C != actor_frame_tick) {
-        TOMonitorMachine01__data_805D5A5C = actor_frame_tick;
+    if (TOMonitorMachine01__last_update_tick != actor_frame_tick) {
+        TOMonitorMachine01__last_update_tick = actor_frame_tick;
         scroll_ginja_mesh_uvs(TOMonitorMachine01__scroll_mesh_ptrs[0], 1, 0, 1, 1);
         scroll_ginja_mesh_uvs(TOMonitorMachine01__scroll_mesh_ptrs[1], 1, 0, 1, 1);
     }
@@ -251,13 +251,13 @@ extern M2C_UNK __vt__18TOMonitorMachine01[];
 
 void reset_static_state__18TOMonitorMachine01Fv(void) {
     s32 i;
-    TOMonitorMachine01__data_805D5A5C = 0;
+    TOMonitorMachine01__last_update_tick = 0;
     for (i = 0; i < 2; i++) {
         TOMonitorMachine01__scroll_mesh_ptrs[i] = 0;
     }
-    if (TOMonitorMachine01__data_805D5A58 != 0) {
-        TLobby__sub_8001FE7C(TOMonitorMachine01__data_805D5A58, 1);
-        TOMonitorMachine01__data_805D5A58 = 0;
+    if (TOMonitorMachine01__shared_bml_archive != 0) {
+        TLobby__sub_8001FE7C(TOMonitorMachine01__shared_bml_archive, 1);
+        TOMonitorMachine01__shared_bml_archive = 0;
     }
 }
 
@@ -268,11 +268,11 @@ void load_resources__18TOMonitorMachine01Fv(void) {
     if (p != NULL) {
         p = (void *)load_resource_from_descriptor(p, 1, monitor_machine01_resource_desc, 0, 0, 0);
     }
-    TOMonitorMachine01__data_805D5A58 = p;
+    TOMonitorMachine01__shared_bml_archive = p;
     temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, void **, 0x42C), void **, 8), void **, 0x2C), void **, 0x30), void **, 0x30);
     TOMonitorMachine01__scroll_mesh_ptrs[1] = M2C_FIELD(temp_r5, s32 *, 4);
     TOMonitorMachine01__scroll_mesh_ptrs[0] = M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r5, void **, 0x30), void **, 0x30), s32 *, 4);
-    TOMonitorMachine01__data_805D5A5C = 0;
+    TOMonitorMachine01__last_update_tick = 0;
 }
 
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {
@@ -293,8 +293,8 @@ void *TOMonitorMachine01__ct(void *arg0_, void *arg1) {
     self->vt = __vt__18TOMonitorMachine01;
     self->f0 = TOMonitorMachine01__name;
     ((VObj_18_1a504b *)(arg0_))->m5((s32)arg1);
-    self->f34 = get_bml_model(TOMonitorMachine01__data_805D5A58, 0);
-    self->f24 = TObjFish__sub_8001EDB0(TOMonitorMachine01__data_805D5A58, 0);
+    self->f34 = get_bml_model(TOMonitorMachine01__shared_bml_archive, 0);
+    self->f24 = TObjFish__sub_8001EDB0(TOMonitorMachine01__shared_bml_archive, 0);
     self->fC0 = lbl_805DB90C;
     self->fC4 = lbl_805DB910;
     self->f30 |= 0x40000000;

@@ -32,12 +32,12 @@ void pick_random_entry__6TLobbyFPv(Out_802098AC *out);
 s16 clamp_min_drop__6TLobbyFUi(s32, s32);
 void TLobby__sub_8020A48C(void *p);
 void TLobby__sub_8020A568(void *p);
-extern u8 *lbl_805D60B0;
+extern u8 *TLobby__item_data_table_buffer;
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1);
 u32 item_drop_rng_below(s32, u32);
 void TLobby__sub_8020A568(void *p);
 extern s32 item_drop_rng;
-extern u8 *lbl_805D60B0;
+extern u8 *TLobby__item_data_table_buffer;
 void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1);
 void TLobby__sub_8020A48C(void *p);
 void copy_record_entry__6TLobbyFii(void *, void *);
@@ -87,10 +87,10 @@ Rec_802099FC *bsearch_record__6TLobbyFPvii(void *arg0, s32 n, s32 key) {
 }
 
 void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
-    Hdr_802099FC hdr = *(Hdr_802099FC *)lbl_805D60B0;
+    Hdr_802099FC hdr = *(Hdr_802099FC *)TLobby__item_data_table_buffer;
     Rec_802099FC *p;
     TLobby__sub_8020A568(&hdr);
-    p = bsearch_record__6TLobbyFPvii((void *)(lbl_805D60B0 + hdr.table), (s32)(hdr.count), (s32)(arg1));
+    p = bsearch_record__6TLobbyFPvii((void *)(TLobby__item_data_table_buffer + hdr.table), (s32)(hdr.count), (s32)(arg1));
     if (p != NULL) {
         Rec_802099FC r = *p;
         TLobby__sub_8020A48C(&r);
@@ -105,14 +105,14 @@ void TLobby__sub_802099FC(Out_802099FC *arg0, s32 arg1) {
     }
 }
 void pick_weighted_entry__6TLobbyFPvPv(s32 *arg0, s32 *arg1) {
-    Hdr_80209AEC hdr = *(Hdr_80209AEC *)lbl_805D60B0;
+    Hdr_80209AEC hdr = *(Hdr_80209AEC *)TLobby__item_data_table_buffer;
     Ent_80209AEC *tbl;
     u32 total;
     u32 r;
     s32 i;
     s32 n;
     TLobby__sub_8020A568(&hdr);
-    tbl = (Ent_80209AEC *)(lbl_805D60B0 + hdr.table);
+    tbl = (Ent_80209AEC *)(TLobby__item_data_table_buffer + hdr.table);
     n = hdr.count;
     total = 0;
     for (i = 0; i < n; i++) {

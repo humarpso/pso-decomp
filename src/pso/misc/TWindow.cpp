@@ -134,7 +134,7 @@ void *get_window_layout_position(s32);
 M2C_UNK add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
 void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
-extern void *lbl_805D61D8;
+extern void *story_quest_list_resource;
 void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self);
 }
 
@@ -269,7 +269,7 @@ void init_quest_list_window__17TQuestListOfflineFPv(Win_80216F50 *self) {
     if (self->f34->m8() == 0) {
         return;
     }
-    refresh_story_quest_availability(lbl_805D61D8);
+    refresh_story_quest_availability(story_quest_list_resource);
     if (self->f3C == NULL) {
         t = get_guild_text(0);
         self->f3C = create_item_list_window(t, 0x40, obj_getField1c(self->f24));

@@ -25,7 +25,7 @@ struct Tbl_801044B8 { s32 v[17]; };
 extern "C" {
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 M2C_UNK free__11TOBoss4RockFUi(s32);
-extern u32 lbl_805D5418;
+extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
@@ -37,7 +37,7 @@ s32 __construct_new_array(M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
 s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
 M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
 extern M2C_UNK drop_stacked_item_passthrough__6TLobbyFi[];
-extern u32 lbl_805D5418;
+extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
@@ -114,7 +114,7 @@ void create_common_weapon();
 void *get_weapon_factory_for_item(In_80104438 *arg0);
 void init_floor_item_entry__6TLobbyFPv(Ent_80103F68 *);
 void clear_object_count__6TLobbyFv(void);
-extern u32 lbl_805D5418;
+extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_next_sort_keys;
@@ -141,8 +141,8 @@ void reset_floor_items__6TLobbyFv(void) {
     s32 j;
     s32 k;
     for (i = 0; i != 0xD80; i++) {
-        if (*(Ent_80103F68 **)&lbl_805D5418 != NULL) {
-            init_floor_item_entry__6TLobbyFPv(&(*(Ent_80103F68 **)&lbl_805D5418)[i]);
+        if (*(Ent_80103F68 **)&TLobby__floor_item_entry_pool != NULL) {
+            init_floor_item_entry__6TLobbyFPv(&(*(Ent_80103F68 **)&TLobby__floor_item_entry_pool)[i]);
         }
     }
     for (j = 0; j < 0x12; j++) {
@@ -151,8 +151,8 @@ void reset_floor_items__6TLobbyFv(void) {
         }
     }
     for (k = 0; k < 0x12; k++) {
-        if (*(Ent_80103F68 ***)&floor_item_row_table != NULL && *(Ent_80103F68 **)&lbl_805D5418 != NULL && *(s32 **)&floor_item_counts_by_floor != NULL) {
-            (*(Ent_80103F68 ***)&floor_item_row_table)[k] = &(*(Ent_80103F68 **)&lbl_805D5418)[k * 0xC0];
+        if (*(Ent_80103F68 ***)&floor_item_row_table != NULL && *(Ent_80103F68 **)&TLobby__floor_item_entry_pool != NULL && *(s32 **)&floor_item_counts_by_floor != NULL) {
+            (*(Ent_80103F68 ***)&floor_item_row_table)[k] = &(*(Ent_80103F68 **)&TLobby__floor_item_entry_pool)[k * 0xC0];
             (*(s32 **)&floor_item_counts_by_floor)[k] = 0;
         }
     }
@@ -169,14 +169,14 @@ void free_boss_rocks__6TLobbyFv(void) {
     floor_item_counts_by_floor = 0;
     free__11TOBoss4RockFUi(floor_item_row_table);
     floor_item_row_table = 0;
-    if ((u32) lbl_805D5418 != 0U) {
-        free__11TOBoss4RockFUi(lbl_805D5418 - 0x10);
+    if ((u32) TLobby__floor_item_entry_pool != 0U) {
+        free__11TOBoss4RockFUi(TLobby__floor_item_entry_pool - 0x10);
     }
-    lbl_805D5418 = 0U;
+    TLobby__floor_item_entry_pool = 0U;
     clear_id__10TObjPlayerFPv(&lbl_805D5430);
 }
 void alloc_objects__6TLobbyFv(void) {
-    (*(s32 *)&lbl_805D5418) = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x1E610), drop_stacked_item_passthrough__6TLobbyFi, 0, 0x24, 0xD80);
+    (*(s32 *)&TLobby__floor_item_entry_pool) = __construct_new_array(alloc_buffer__11TOBoss4RockFPv(0x1E610), drop_stacked_item_passthrough__6TLobbyFi, 0, 0x24, 0xD80);
     floor_item_row_table = alloc_buffer__11TOBoss4RockFPv(0x48);
     floor_item_counts_by_floor = alloc_buffer__11TOBoss4RockFPv(0x48);
     floor_item_free_id_stack = alloc_buffer__11TOBoss4RockFPv(0x40);

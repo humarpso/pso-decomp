@@ -99,6 +99,7 @@ force_active:
   - TAdChrSelBSlotGC__sub_8030F3A0
   - TAdFadeGC__name
   - TAdPlyStatusGC__is_shown
+  - TAdPlyStatusGC__status_window_box
   - TAdSinglePlyChrSelectGC__sub_80133530
   - TAdSinglePlyChrSelectGC__sub_801FBC3C
   - TAdSinglePlyChrSelectGC__sub_80202D7C
@@ -111,7 +112,10 @@ force_active:
   - TBoss2PhotonPad__name
   - TBoss3VoloptCore__vtable
   - TBoss3VoloptHiraisin__breakup_model
+  - TBoss3VoloptHiraisin__init_param_table
   - TBoss3VoloptHiraisin__resource_bundle
+  - TBoss3VoloptMonitor__collision_body_part_table
+  - TBoss3VoloptMonitor__init_param_block
   - TBoss3VoloptP01_class_name
   - TBoss4Bishi_spawn_offsets
   - TBoss4Zako_collision_body_parts
@@ -233,6 +237,7 @@ force_active:
   - TObjEneBm3FlyNest_CarryFly__ct
   - TObjEneBm3FlyNest__attachment_sample_origin
   - TObjEneBm3Fly__play_orbit_flight_sound
+  - TObjEneBm5Wolf__collider_params
   - TObjEneBm5Wolf__instance_list
   - TObjEneBm5Wolf__pack_member_list
   - TObjEneBm5Wolf__stat_params
@@ -241,13 +246,16 @@ force_active:
   - TObjEneDolmOlm__param_table
   - TObjEneEpsilonGuard__model_desc
   - TObjEneEpsilonGuard__resource_descriptor
+  - TObjEneLappy__model_filename_table
   - TObjEneLappy__resource_list
   - TObjEneLappy__resource_name_table
+  - TObjEneMe1GiGue__model_filename_table
   - TObjEneMe3Stelth__alternate_texture_list
   - TObjEneMe3Stelth__attack_params_by_variant
   - TObjEneMe3Stelth__base_params_by_variant
   - TObjEneMe3Stelth__material_color_pointers
   - TObjEneMe3Stelth__resistance_params_by_variant
+  - TObjEneMe3Stelth__shared_params
   - TObjEneRe2Flower_EffCurse3__vtable
   - TObjEneRe4Bit__vt26
   - TObjEneRe4Bit__vt42
@@ -265,6 +273,7 @@ force_active:
   - TObjEneRe4Bit__vt85
   - TObjEneRe4Bit__vt86
   - TObjEneRe4Bit_boss_handles
+  - TObjEneRecobox__attack_params
   - TObjEneRecobox__resource_bundle
   - TObjEneRecobox__vtable
   - TObjEneRecon__ai_parameters
@@ -1016,6 +1025,7 @@ force_active:
   - cast_technique__18TObjEneMe3SinowZoaFPv
   - cast_technique__18TObjEneRe4SorcererFPv
   - cave_door01_resource_descriptor
+  - chain_saw_collision_body_part_table
   - chainsaw_ginja_model_filenames
   - challenge_default_settings
   - challenge_force_items_stage_00
@@ -1258,6 +1268,7 @@ force_active:
   - create_symbol_list_card__20TWindowSubSymbolChatFPv
   - create_trade_menu__19TWindowSubTradeMainFPv
   - create_window__13TObjResultWinFv
+  - creation_camera_height_bounds_table
   - ct_init_placement_ring__9TItemListFPvPviPvPvc
   - curvecmp
   - damage_players_in_radius
@@ -6807,6 +6818,7 @@ force_active:
   - rabarta_band_emitter_table
   - rafoie_burst_table
   - rappy_variant_na_name
+  - re4_sorcerer_collision_body_part_table
   - re_b_mark_base_model_names
   - read_byte__24TMessageWindowControllerFv
   - read_stream_u8

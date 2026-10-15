@@ -186,10 +186,10 @@ void TWindowDD__sub_80340910(void* p) { *(s32*)((char*)p + 0x60) = 1; }
 
 void TWindowDD__sub_8034055C();
 void render_shadows__7TObjectFv();
-__declspec(section ".data") void *lbl_804EFB90[2] = {
+__declspec(section ".data") void *TWindowDD__layout_constant_pair[2] = {
     (void *)0x0, (void *)0x0,
 };
-void *lbl_804EFB98[5] = {
+void *TWindowDD__layout_constants[5] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x3,
 };
@@ -197,8 +197,8 @@ void *lbl_804EFBAC[7] = {
     (void *)0x0, (void *)0x0, (void *)&TWindowDD__sub_8034094C, (void *)&update_draw__9TWindowDDFPv,
     (void *)&TWindowDD__sub_8034055C, (void *)&render_shadows__7TObjectFv, (void *)0x0,
 };
-#define lbl_804EFB90 ((f32 *)lbl_804EFB90)
-#define lbl_804EFB98 ((f32 *)lbl_804EFB98)
+#define TWindowDD__layout_constant_pair ((f32 *)TWindowDD__layout_constant_pair)
+#define TWindowDD__layout_constants ((f32 *)TWindowDD__layout_constants)
 #define lbl_804EFBAC ((M2C_UNK *)lbl_804EFBAC)
 
 void set_clamped_selection__9TWindowDDFPvi(u8 *arg0, s32 arg1) {
@@ -231,7 +231,7 @@ void *construct_base__9TWindowDDFPvPvsPv(void *, void *, int, void *);
 
 #define arg0 ((W_803409A4 *)arg0v)
 void *construct_variant_a__9TWindowDDFPv(void *arg0v) {
-    construct_base__9TWindowDDFPvPvsPv(arg0, lbl_804EFB98, 4, lbl_804EFB90);
+    construct_base__9TWindowDDFPvPvsPv(arg0, TWindowDD__layout_constants, 4, TWindowDD__layout_constant_pair);
     arg0->p18 = lbl_804EFBAC;
     arg0->f60 = 1;
     arg0->f64 = 2;
@@ -250,11 +250,11 @@ void *create__9TWindowDDFv(void) {
 }
 
 void init_layout_constants__9TWindowDDFv(void) {
-    lbl_804EFB90[0] = TWindowDD__data_805DFBFC;
-    lbl_804EFB90[1] = lbl_805DFC00;
-    lbl_804EFB98[0] = lbl_805DFC04;
-    lbl_804EFB98[1] = lbl_805DFC08;
-    lbl_804EFB98[2] = lbl_805DFC2C;
+    TWindowDD__layout_constant_pair[0] = TWindowDD__data_805DFBFC;
+    TWindowDD__layout_constant_pair[1] = lbl_805DFC00;
+    TWindowDD__layout_constants[0] = lbl_805DFC04;
+    TWindowDD__layout_constants[1] = lbl_805DFC08;
+    TWindowDD__layout_constants[2] = lbl_805DFC2C;
 }
 
 void init__9TWindowDDFPv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }

@@ -18,11 +18,11 @@ extern void *lobby_event_theme_controller;
 void *destroy_and_clear_instance__6TLobbyFPvs(void *arg0, s16 arg1);
 M2C_UNK TLobby__sub_803DA16C(void*);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
-extern int lbl_805D6EC4;
+extern int lobby_main_texture_gvm;
 void TLobby__sub_8035202C(void);
 int load_gvm_texture_file(void*);
     extern unsigned char lbl_80478E20[];
-extern int lbl_805D6EC4;
+extern int lobby_main_texture_gvm;
 void load_obj_lobby_main(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_filtered_event_theme__6TLobbyFv(void);
@@ -62,8 +62,8 @@ s32 is_lobby_obj_active__6TLobbyFv(void) {
     return 0;
 }
 
-    extern int lbl_805D6EC4;
-int get_lobby_type__6TLobbyFv(void) {  return lbl_805D6EC4; }
+    extern int lobby_main_texture_gvm;
+int get_lobby_type__6TLobbyFv(void) {  return lobby_main_texture_gvm; }
 
 extern void *lobby_event_theme_controller;
 
@@ -112,13 +112,13 @@ u8 *TLobby__sub_80351FDC(u8 *arg0) {
 }
 
 void TLobby__sub_8035202C(void) {
-    if ((u32) (*(u32 *)&lbl_805D6EC4) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&lbl_805D6EC4));
-        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&lbl_805D6EC4));
-        (*(u32 *)&lbl_805D6EC4) = 0U;
+    if ((u32) (*(u32 *)&lobby_main_texture_gvm) != 0U) {
+        TLobby__sub_803DA16C((void*)(*(u32 *)&lobby_main_texture_gvm));
+        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&lobby_main_texture_gvm));
+        (*(u32 *)&lobby_main_texture_gvm) = 0U;
     }
 }
-void load_obj_lobby_main(void) { lbl_805D6EC4 = load_gvm_texture_file(lbl_80478E20); }
+void load_obj_lobby_main(void) { lobby_main_texture_gvm = load_gvm_texture_file(lbl_80478E20); }
 s32 get_theme_lobby_type(void) {
     s32 r = get_filtered_event_theme__6TLobbyFv();
     switch (r) {

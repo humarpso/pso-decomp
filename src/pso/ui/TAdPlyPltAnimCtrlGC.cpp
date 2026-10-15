@@ -92,7 +92,7 @@ void TAdPlyPltAnimCtrlGC__sub_80355168(u8 *arg0) {
 void init__19TAdPlyPltAnimCtrlGCFPvPv(void* p, void* a1) { TAdPlyPltAnimCtrlGC__sub_80355168((u8 *)((void*)(p))); copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((char*)p + 0x24, a1); *(int*)((char*)p + 0x1c) = 1; }
 
 extern M2C_UNK __vt__19TAdPlyPltAnimCtrlGC[];
-extern u32 lbl_805D6F08;
+extern u32 plyplt_anim_ctrl_instance;
 
 void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     void *p;
@@ -156,8 +156,8 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
 void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TAdPlyPltAnimCtrlGC;
-        if ((u32) lbl_805D6F08 != 0U) {
-            lbl_805D6F08 = 0U;
+        if ((u32) plyplt_anim_ctrl_instance != 0U) {
+            plyplt_anim_ctrl_instance = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -167,7 +167,7 @@ void *__dt__19TAdPlyPltAnimCtrlGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern u32 lbl_805D6F08;
+extern u32 plyplt_anim_ctrl_instance;
 
 typedef char RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC_size[sizeof(RecoveredGlobal_80355414___vt__19TAdPlyPltAnimCtrlGC) == 0x18 ? 1 : -1];
 u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
@@ -188,14 +188,14 @@ u8 *TAdPlyPltAnimCtrlGC__ct(u8 *arg0, s32 arg1) {
 u32 get_instance__19TAdPlyPltAnimCtrlGCFi(s32 arg0) {
     u32 var_r0;
 
-    if ((u32) lbl_805D6F08 == 0U) {
+    if ((u32) plyplt_anim_ctrl_instance == 0U) {
         var_r0 = __nw__7TObjectFUl(0x2C);
         if (var_r0 != 0U) {
             var_r0 = ((u32)TAdPlyPltAnimCtrlGC__ct((u8 *)(var_r0), (s32)(arg0)));
         }
-        lbl_805D6F08 = var_r0;
+        plyplt_anim_ctrl_instance = var_r0;
     }
-    return lbl_805D6F08;
+    return plyplt_anim_ctrl_instance;
 }
 
     extern int TAdPlyPltAnimGC__instances[];

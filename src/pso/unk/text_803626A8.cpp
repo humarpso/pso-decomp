@@ -192,7 +192,7 @@ void init_weapon_effect_descriptor__10TObjPlayerFPvPv(void *arg0, Obj_80362DE8 *
 s32 spawn_particle_effect(void *, s32);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
-extern s32 lbl_804A2B50[];
+extern s32 knuckle_marker_joint_table[];
 void s_rank_knuckle_marker(T_80362C80 *arg0);
 s32 dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
@@ -366,7 +366,7 @@ typedef struct VObj_18_c22f9c VObj_18_c22f9c;
 void s_rank_knuckle_marker(T_80362C80 *arg0) {
   u8 sp8[0x10];
   s32 n;
-  arg0->obj->m63(lbl_804A2B50[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
+  arg0->obj->m63(knuckle_marker_joint_table[(has_valid_handle__10TObjPlayerFPv(arg0->obj) * 3) + get_validated_attack_stage(((u8 *) arg0->obj) + 0x7CC)], sp8);
   spawn_particle_effect(sp8, 0x1D0);
 }
 

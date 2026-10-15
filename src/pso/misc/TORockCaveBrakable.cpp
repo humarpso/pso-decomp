@@ -44,7 +44,7 @@ void pop_matrix();
 extern Offs_80174CFC lbl_804428DC;
 extern Init_80174CFC lbl_80442924;
 extern u8 identity_matrix[];
-extern void *lbl_805D5A84;
+extern void *rock_cave_model_resource;
 extern s32 tl_05;
 void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0);
 }
@@ -111,8 +111,8 @@ void spawn_debris__18TORockCaveBrakableFPv(u8 *arg0) {
         pop_matrix();
         VecCopy__FP3VecPC3Vec(&init.b[0xC], arg0 + 0x38);
         vec3_add_to(&init.b[0xC], &v);
-        M2C_FIELD(&init, s32 *, 0x40) = get_bml_model(lbl_805D5A84, i);
-        M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(lbl_805D5A84, i);
+        M2C_FIELD(&init, s32 *, 0x40) = get_bml_model(rock_cave_model_resource, i);
+        M2C_FIELD(&init, s32 *, 0x44) = TObjFish__sub_8001EDB0(rock_cave_model_resource, i);
         p = __nw__7TObjectFUl(0x234);
         if (p != NULL) {
             construct_debris__8TObjChipFPvPvPv(p, tl_05, &init);

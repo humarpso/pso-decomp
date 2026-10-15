@@ -76,7 +76,7 @@ void reset_matrix__13TObjTombstoneFv(void);
 u32 get_player_by_client_id(int);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
-extern V_80075070 lbl_804FF938[];
+extern V_80075070 tombstone_position_table[];
 extern s32 local_client_id;
 extern const f32 lbl_805D9170;
 extern const f32 TObjTombstone__data_805D9174;
@@ -168,8 +168,8 @@ s32 is_other_tombstone_closer__13TObjTombstoneFPv(Obj_80075070 *arg0) {
     }
     ppos = (void *)(pl + 0x38);
     for (i = 0; i < 4; i++) {
-        if (i != arg0->fac && lbl_805D9170 != lbl_804FF938[i].y) {
-            V_80075070 v = lbl_804FF938[i];
+        if (i != arg0->fac && lbl_805D9170 != tombstone_position_table[i].y) {
+            V_80075070 v = tombstone_position_table[i];
             subtract_vector(&v, ppos);
             v.y = TObjTombstone__data_805D9174;
             d = vector_length(&v);

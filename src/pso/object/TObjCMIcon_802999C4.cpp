@@ -8,7 +8,7 @@ public:
     virtual void render();
 };
 
-s32 lbl_804DBDE0[35] = {
+s32 TObjCMIcon__icon_group_table[35] = {
     2, 0x38, 0xA8, 0, 0,
     2, 0x38, 0xA9, 0, 0,
     2, 0x38, 0xAA, 0, 0,

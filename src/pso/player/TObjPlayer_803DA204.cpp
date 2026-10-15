@@ -20,7 +20,7 @@ struct Err_803DA5A8 { s32 a; s32 b; s32 code; };
 struct Slot_803DA388 { s32 id; s32 a; s32 b; s32 c; s32 d; s32 e; s32 f; s32 g; s32 h; s32 i; };
 
 extern "C" {
-extern s32 lbl_805D7758;
+extern s32 player_ref_entry_active_count;
 void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0);
 void set_texture_name(S_803DA218 *self, s32 a, s32 b, u32 c);
 extern s32 record_array_count;
@@ -188,7 +188,7 @@ void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0) {
         M2C_FIELD(temp_r4, s32 *, 0x18) = 0;
         M2C_FIELD(temp_r4, s32 *, 0x1C) = 0;
         M2C_FIELD(temp_r4, s32 *, 0x20) = 0;
-        lbl_805D7758 -= 1;
+        player_ref_entry_active_count -= 1;
     }
     if ((s32) M2C_FIELD(arg0, s32 *, 0x10) <= 0) {
         M2C_FIELD(arg0, s32 *, 8) = -1;

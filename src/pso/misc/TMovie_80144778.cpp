@@ -144,7 +144,7 @@ int get_opening_movie_selector(void) {  return opening_movie_selector; }
     extern unsigned char main_menu_scene_active_flag;
 void activate_main_menu_scene(void) { main_menu_scene_active_flag = 1; }
 
-    extern int lbl_805D6A5C;
-void fn_801449F0(void) { lbl_805D6A5C = 1; }
+    extern int ending_movie_active_flag;
+void fn_801449F0(void) { ending_movie_active_flag = 1; }
 
 }

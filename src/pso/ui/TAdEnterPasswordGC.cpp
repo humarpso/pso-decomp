@@ -62,7 +62,7 @@ typedef void (TAdEnterPasswordGC_8032B984::*Pmf_8032B984)();
 
 extern "C" {
 void fn_8032B318(void *, void *);
-extern u8 lbl_804ED9F0[];
+extern u8 password_screen_status_line_position[];
 extern s32 password_entry_dispatch_state;
 #pragma explicit_zero_data on
 RecoveredGlobal_8032BA8C_TAdEnterPasswordGC__data_804EDA20 TAdEnterPasswordGC__input_buffer = { 0 };
@@ -279,7 +279,7 @@ void open_keyboard_window__18TAdEnterPasswordGCFPv(s32 arg0) {
 }
 
 void run_task__18TAdEnterPasswordGCFv(TAdEnterPasswordGC_8032B984 *self) {
-    fn_8032B318(self, lbl_804ED9F0);
+    fn_8032B318(self, password_screen_status_line_position);
     self->state = password_entry_dispatch_state;
     static Pmf_8032B984 tbl[5] = {
         (Pmf_8032B984)&TAdEnterPasswordGC::open_keyboard_window,

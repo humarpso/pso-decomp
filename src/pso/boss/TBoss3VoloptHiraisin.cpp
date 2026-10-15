@@ -5,7 +5,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-void *lbl_80483BB8[45] = {
+void *TBoss3VoloptHiraisin__init_param_table[45] = {
     (void *)0x14, (void *)0x3d75c28f, (void *)0x3fc00000, (void *)0x3f666666,
     (void *)0x3df5c28f, (void *)0x3f0ccccd, (void *)0x3f000000, (void *)0x10000,
     (void *)0x6, (void *)0x3f333333, (void *)0x0, (void *)0x10000,
@@ -134,7 +134,7 @@ void fn_80040FDC(u8 *arg0) {
 
 }
 #define play_sound_effect ((M2C_UNK (*)(M2C_UNK, void *, M2C_UNK, M2C_UNK))play_sound_effect)
-#define lbl_80483BB8 ((M2C_UNK *)lbl_80483BB8)
+#define TBoss3VoloptHiraisin__init_param_table ((M2C_UNK *)TBoss3VoloptHiraisin__init_param_table)
 
 #include <stddef.h>
 struct VBase_18_26a62c { char pad[0x18]; };
@@ -240,7 +240,7 @@ void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     s16 temp_r4;
     s32 temp_r4_2;
 
-    create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptHiraisin__breakup_model, lbl_80483BB8, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+    create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptHiraisin__breakup_model, TBoss3VoloptHiraisin__init_param_table, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
     trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
     play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
     M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
@@ -374,7 +374,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 
 }
 #undef play_sound_effect
-#undef lbl_80483BB8
+#undef TBoss3VoloptHiraisin__init_param_table
 #undef advance_animation_playback
 #define copy_position__20TBoss3VoloptHiraisinFi ((M2C_UNK (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
 #define TBoss3VoloptHiraisin__sub_8004118C ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_8004118C)
@@ -562,7 +562,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #define __vt__20TBoss3VoloptHiraisin ((M2C_UNK *)__vt__20TBoss3VoloptHiraisin)
 #define VecCopy__FP3VecPC3Vec ((int (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 #define TObjEnemyCustom__sub_800C7860 ((void (*)(void *))TObjEnemyCustom__sub_800C7860)
-#define lbl_80483BB8 (*(Param_800418C8 *)lbl_80483BB8)
+#define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
 #define lbl_805D4C84 (*(s32 **)&lbl_805D4C84)
 
@@ -930,7 +930,7 @@ struct O_80041B34;
 #pragma opt_propagation off
 void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     Param_800418C8 *prm;
-    prm = &lbl_80483BB8;
+    prm = &TBoss3VoloptHiraisin__init_param_table;
     VecCopy__FP3VecPC3Vec((s32)self->home, (s32)self->pos);
     self->home[1] -= (3e+01f);
     copy_position__20TBoss3VoloptHiraisinFi((s32)self);
@@ -1101,7 +1101,7 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
 #undef __vt__20TBoss3VoloptHiraisin
 #undef VecCopy__FP3VecPC3Vec
 #undef TObjEnemyCustom__sub_800C7860
-#undef lbl_80483BB8
+#undef TBoss3VoloptHiraisin__init_param_table
 #undef play_sound_effect
 #undef lbl_805D4C84
 

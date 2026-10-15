@@ -32,7 +32,7 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 light_machine01_resource_desc;
-extern u32 TOLightMachine01__data_805D5A40;
+extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 lbl_805D5A44;
 extern s32 lbl_805D5A48;
 void load_assets__16TOLightMachine01Fv(void);
@@ -43,7 +43,7 @@ s32 rand();
 f32 sin_table_lookup(s32);
 extern M2C_UNK __vt__16TOLightMachine01[];
 extern s32 TOLightMachine01__name;
-extern u32 TOLightMachine01__data_805D5A40;
+extern u32 TOLightMachine01__shared_bml_archive;
 extern s32 tl_05;
 extern const f32 lbl_805DB82C;
 extern const f32 lbl_805DB830;
@@ -117,12 +117,12 @@ void *create__16TOLightMachine01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOLightMachine01__data_805D5A40;
+extern u32 TOLightMachine01__shared_bml_archive;
 
 void destroy_instance__16TOLightMachine01Fv(void) {
-    if ((u32) TOLightMachine01__data_805D5A40 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOLightMachine01__data_805D5A40, 1);
-        TOLightMachine01__data_805D5A40 = 0U;
+    if ((u32) TOLightMachine01__shared_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TOLightMachine01__shared_bml_archive, 1);
+        TOLightMachine01__shared_bml_archive = 0U;
     }
 }
 
@@ -136,9 +136,9 @@ void load_assets__16TOLightMachine01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &light_machine01_resource_desc.value, 0, 0, 0));
     }
-    (*(u8 * *)&TOLightMachine01__data_805D5A40) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TOLightMachine01__shared_bml_archive) = (unsigned char *) ((void *) var_r0);
     lbl_805D5A44 = get_bml_model((void *) var_r0, 0);
-    lbl_805D5A48 = TObjFish__sub_8001EDB0((*(u8 * *)&TOLightMachine01__data_805D5A40), 0);
+    lbl_805D5A48 = TObjFish__sub_8001EDB0((*(u8 * *)&TOLightMachine01__shared_bml_archive), 0);
 }
 
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {
@@ -158,8 +158,8 @@ u8 *TOLightMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016EC04___vt__16TOLightMachine01 *)&__vt__16TOLightMachine01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TOLightMachine01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__data_805D5A40)), (s32)(1)));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__data_805D5A40))), (s32)((int) (1)));
+    M2C_FIELD(arg0, u8 **, 0x34) = ((u8 *)get_bml_model((void *)((*(s32 *)&TOLightMachine01__shared_bml_archive)), (s32)(1)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)((int) ((*(s32 *)&TOLightMachine01__shared_bml_archive))), (s32)((int) (1)));
     M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DB82C;
     M2C_FIELD(arg0, f32 *, 0x94) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);

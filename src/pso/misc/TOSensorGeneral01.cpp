@@ -63,7 +63,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(void *);
 extern RecoveredGlobal_80176308_lbl_80442A80 lbl_80442A80;
-extern u32 lbl_805D5AA0;
+extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
 void load_assets__17TOSensorGeneral01Fv(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -81,7 +81,7 @@ M2C_UNK init_switch_id__5TOKeyFPv(void *);
 M2C_UNK TOSensor__ct(void *, void *);
 extern M2C_UNK __vt__17TOSensorGeneral01[];
 extern s32 lbl_805D3154;
-extern u32 lbl_805D5AA0;
+extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
 void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2);
 }
@@ -185,7 +185,7 @@ void *create__17TOSensorGeneral01FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5AA0;
+extern u32 sensor_general_shared_bml_archive;
 extern s32 *TOSensorGeneral01__texture_lists;
 
 void free_rocks__17TOSensorGeneral01Fv(void) {
@@ -196,9 +196,9 @@ void free_rocks__17TOSensorGeneral01Fv(void) {
             TOSensorGeneral01__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5AA0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5AA0, 1);
-        lbl_805D5AA0 = 0U;
+    if ((u32) sensor_general_shared_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)sensor_general_shared_bml_archive, 1);
+        sensor_general_shared_bml_archive = 0U;
     }
 }
 
@@ -215,10 +215,10 @@ void load_assets__17TOSensorGeneral01Fv(void) {
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(load_resource_from_descriptor(temp_r3, 1, &TOSensorGeneral01__resource_descriptor, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5AA0) = var_r0;
+    (*(u8 * *)&sensor_general_shared_bml_archive) = var_r0;
     temp_r3_2 = (s32 *)(alloc_buffer__11TOBoss4RockFPv(8));
     TOSensorGeneral01__texture_lists = temp_r3_2;
-    M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5AA0), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(temp_r3_2, s32 *, 4) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&sensor_general_shared_bml_archive), u8 **, 0x42C), s32 *, 0xC);
     *TOSensorGeneral01__texture_lists = load_gvm_texture_file((void *) (&lbl_80442A80.value));
 }
 
@@ -239,7 +239,7 @@ void *TOSensorGeneral01__ct(void *arg0, void *arg1, void *arg2) {
     ((VObj_801763E4 *)arg0)->m5(arg2);
     init_switch_id__5TOKeyFPv(arg0);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOSensorGeneral01__texture_lists;
-    M2C_FIELD(arg0, void **, 0x34) = (void *) M2C_FIELD(M2C_FIELD((*(void * *)&lbl_805D5AA0), void **, 0x42C), void **, 8);
+    M2C_FIELD(arg0, void **, 0x34) = (void *) M2C_FIELD(M2C_FIELD((*(void * *)&sensor_general_shared_bml_archive), void **, 0x42C), void **, 8);
     M2C_FIELD(arg0, f32 *, 0xC0) = 400.0f;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 4), f32 *, 0x14);
     M2C_FIELD(arg0, f32 *, 0xCC) = 50.0f + M2C_FIELD(arg0, f32 *, 0x68);

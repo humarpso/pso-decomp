@@ -6,24 +6,24 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 u8 * TObjFish__sub_8001EDB0(void *, int);
-extern u8 *lbl_805D69E0;
+extern u8 *admultisave_shared_model_resource;
 u8 *fn_802FF028(s32 arg0);
 u8 * get_bml_model(void *, int);
-extern u8 *lbl_805D69E0;
+extern u8 *admultisave_shared_model_resource;
 u8 *fn_802FF064(s32 arg0);
 }
 
 extern "C" {
 
 u8 *fn_802FF028(s32 arg0) {
-    if ((void *) lbl_805D69E0 != NULL) {
-        return TObjFish__sub_8001EDB0(lbl_805D69E0, arg0);
+    if ((void *) admultisave_shared_model_resource != NULL) {
+        return TObjFish__sub_8001EDB0(admultisave_shared_model_resource, arg0);
     }
     return NULL;
 }
 u8 *fn_802FF064(s32 arg0) {
-    if ((void *) lbl_805D69E0 != NULL) {
-        return get_bml_model(lbl_805D69E0, arg0);
+    if ((void *) admultisave_shared_model_resource != NULL) {
+        return get_bml_model(admultisave_shared_model_resource, arg0);
     }
     return NULL;
 }

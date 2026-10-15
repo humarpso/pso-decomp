@@ -294,7 +294,7 @@ void construct_world_actor_base(void);
 extern M2C_UNK lbl_804AF8A0[];
 u8 *construct_collider_proxy__10TObjPlayerFPv(u8 *arg0);
 extern unsigned char lbl_8050DAD0[];
-extern int lbl_805D5878;
+extern int player_unique_pair_entry_count;
 void add_unique_pair_entry__10TObjPlayerFUii(u32 arg0, s32 arg1);
 void free__11TOBoss4RockFUi(s32);
 void free_collision_body_parts(G_80156720 *arg0);
@@ -365,7 +365,7 @@ void TObjPlayer__sub_801542F4(s32 a) {
 }
 
     extern unsigned char lbl_8050DAD0[];
-    extern int lbl_805D5878;
+    extern int player_unique_pair_entry_count;
 
 void TObjPlayer__sub_8015431C(u8 *arg0) {
     TObjPlayer__sub_8015434C((s32)(arg0), (s32)(lbl_805D586C + lbl_805D5870), (s32)(registered_entity_count));
@@ -374,20 +374,20 @@ void TObjPlayer__sub_8015431C(u8 *arg0) {
 void add_unique_pair_entry__10TObjPlayerFUii(u32 arg0, s32 arg1) {
     E_801546D0 *p;
     s32 i;
-    if ((u32)lbl_805D5878 < 0x10) {
+    if ((u32)player_unique_pair_entry_count < 0x10) {
         p = (E_801546D0 *)((u8 *)&lbl_8050DAD0);
-        for (i = 0; i != lbl_805D5878; i++, p++) {
+        for (i = 0; i != player_unique_pair_entry_count; i++, p++) {
             if (p->a == arg0 && p->b == arg1) {
                 return;
             }
         }
         p->a = arg0;
         p->b = arg1;
-        lbl_805D5878++;
+        player_unique_pair_entry_count++;
     }
 }
 
-void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); lbl_805D5878 = 0; }
+void reset_global_table(void) { memset(lbl_8050DAD0, (void*)0, (void*)128); player_unique_pair_entry_count = 0; }
 
 void clear_player_status_flag__10TObjPlayerFPviUi(void *arg0, s32 arg1, u32 arg2) {
     arg0 = M2C_FIELD(arg0, void **, 0xA4);

@@ -466,7 +466,7 @@ s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_802E8274_lbl_80472CB0 lbl_80472CB0;
 extern RecoveredGlobal_802E8274_lbl_804E3BFC lbl_804E3BFC;
-extern s32 lbl_805D691C;
+extern s32 boss7_derolle_c_motion_id;
 extern s32 lbl_805D6920;
 extern s32 lbl_805D6924;
 extern s32 lbl_805D6928;
@@ -526,7 +526,7 @@ void TObjPlayer__sub_802E80A0(void) { TObjFish__sub_8001EDB0((void*)(lbl_805D691
     extern int lbl_805D6918;
 void draw_effect__10TObjPlayerFv(void) { TObjFish__sub_8001EDB0((void*)(lbl_805D6918), (void*)0); set_global_param__8TObjFishFi(); }
 
-extern s32 lbl_805D691C;
+extern s32 boss7_derolle_c_motion_id;
 extern s32 lbl_805D6920;
 extern s32 lbl_805D6924;
 extern s32 lbl_805D6928;
@@ -580,7 +580,7 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
 }
 
 void TObjPlayer__sub_802E8234(u8 *arg0) {
-    lbl_805D691C = 0;
+    boss7_derolle_c_motion_id = 0;
     lbl_805D6924 = M2C_FIELD(arg0, s32 *, 0x628);
     lbl_805D6920 = 0;
     lbl_805D6928 = (long) (arg0 + 0x3EC);
@@ -600,19 +600,19 @@ void TObjPlayer__sub_802E8274(void) {
     typedef char sp24_offset[(offsetof(Stack_802E8274, sp24) == 0x1C) ? 1 : -1];
     typedef char sp28_offset[(offsetof(Stack_802E8274, sp28) == 0x20) ? 1 : -1];
     Stack_802E8274 stack;
-    if ((s32) lbl_805D691C == 0x5F) {
+    if ((s32) boss7_derolle_c_motion_id == 0x5F) {
         stack.sp20 = lbl_805DEA10;
         stack.sp24 = lbl_805DEA10;
         stack.sp28 = lbl_805DEA10;
         transform_point_by_current_matrix((void *) (&stack.sp20), (void *) (lbl_805D6944));
     }
-    if ((s32) lbl_805D691C == 0x71) {
+    if ((s32) boss7_derolle_c_motion_id == 0x71) {
         stack.sp14 = lbl_805DEA10;
         stack.sp18 = lbl_805DEA10;
         stack.sp1C = lbl_805DEA10;
         transform_point_by_current_matrix((void *) (&stack.sp14), (void *) (lbl_805D6944 + 0xC));
     }
-    if ((s32) lbl_805D691C == (s32) M2C_FIELD(&lbl_80472CB0.value, M2C_UNK *, (lbl_805D6920 * 4))) {
+    if ((s32) boss7_derolle_c_motion_id == (s32) M2C_FIELD(&lbl_80472CB0.value, M2C_UNK *, (lbl_805D6920 * 4))) {
         stack.sp8 = lbl_805DEA10;
         stack.spC = lbl_805DEA10;
         stack.sp10 = lbl_805DEA10;
@@ -620,25 +620,25 @@ void TObjPlayer__sub_802E8274(void) {
         lbl_805D6920 += 1;
         lbl_805D6928 += 0xC;
     }
-    if ((s32) lbl_805D691C == 0x33) {
+    if ((s32) boss7_derolle_c_motion_id == 0x33) {
         push_matrix();
         mult_vec_array__10TObjPlayerFUii((int) (0), (void *) (&lbl_804E3BFC.value), (void *) (lbl_805D692C), (int) (4));
         pop_matrix();
         subtract_vector((void *) (lbl_805D692C + 0xC), (void *) (lbl_805D692C));
     }
-    if ((lbl_805D6924 & 0x80) && ((s32) lbl_805D691C >= 0x4D) && ((s32) lbl_805D691C <= 0x58)) {
+    if ((lbl_805D6924 & 0x80) && ((s32) boss7_derolle_c_motion_id >= 0x4D) && ((s32) boss7_derolle_c_motion_id <= 0x58)) {
         push_matrix();
         get_current_matrix((void *) (lbl_805D6934));
         pop_matrix();
         lbl_805D6934 += 0x30;
     }
-    if (((s32) lbl_805D691C >= 0x1D) && ((s32) lbl_805D691C <= 0x20)) {
+    if (((s32) boss7_derolle_c_motion_id >= 0x1D) && ((s32) boss7_derolle_c_motion_id <= 0x20)) {
         push_matrix();
         get_current_matrix((void *) (lbl_805D6930));
         pop_matrix();
         lbl_805D6930 += 0x30;
     }
-    lbl_805D691C += 1;
+    boss7_derolle_c_motion_id += 1;
 }
 
 }

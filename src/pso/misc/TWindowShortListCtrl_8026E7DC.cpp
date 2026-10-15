@@ -45,6 +45,8 @@ struct Ctrl_8026ECBC {
     s32 help_item;
 };
 
+struct Buf_8026E884 { s16 h[19]; };
+
 extern "C" {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0);
@@ -129,6 +131,8 @@ void get_current_selection__19TWindowSubTechniqueFPvPv(void *, void *, s32);
 s32 is_technique_available__19TWindowSubTechniqueFii(s32, s32);
 extern u8 lbl_8044F5A0[];
 void run_task__20TWindowShortListCtrlFv(u8 *arg0);
+extern const Buf_8026E884 lbl_8044F5A8;
+void TWindowShortListCtrl__sub_8026E884(s16 *dst);
 }
 
 extern "C" {
@@ -182,6 +186,14 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
         return 1;
     }
     return ((u32) M2C_FIELD(temp_r31, u32 *, 0x34) >> 4U) & 1;
+}
+
+void TWindowShortListCtrl__sub_8026E884(s16 *dst) {
+    s32 i;
+    Buf_8026E884 local = lbl_8044F5A8;
+    for (i = 0; i < 19; i++) {
+        dst[i] = local.h[i];
+    }
 }
 
 void swap_card_entries__20TWindowShortListCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {

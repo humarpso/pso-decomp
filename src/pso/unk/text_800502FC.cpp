@@ -54,7 +54,7 @@ void *lbl_804858A8[3] = {
 void *lbl_804858B4[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-__declspec(section ".data") void *lbl_804858C0[2] = {
+__declspec(section ".data") void *TObjDFJisin__particle_emitter_id_table[2] = {
     (void *)0xe0, (void *)0xf4,
 };
 __declspec(section ".data") void *lbl_804858C8[2] = {

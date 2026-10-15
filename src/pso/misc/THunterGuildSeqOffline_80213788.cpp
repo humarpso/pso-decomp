@@ -128,7 +128,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(int);
 extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
-extern s32 lbl_805D61BC;
+extern s32 hunter_guild_seq_online_client_instance;
 u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1);
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 void THunterGuildSeqOffline__sub_80213CA4(void);
@@ -139,7 +139,7 @@ s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_80213CCC_lbl_804C9740 __vt__28THunterGuildSeqOnline_Client;
 extern RecoveredGlobal_80213CCC_lbl_80513E70 lbl_80513E70;
 extern s32 THunterGuildSeqOnline_Client__name;
-extern s32 lbl_805D61BC;
+extern s32 hunter_guild_seq_online_client_instance;
 Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32 arg2);
 void THunterGuildSeqOffline__sub_80213B18(u8 *arg0);
 void handle_close__22THunterGuildSeqOfflineFPv(void *arg0);
@@ -314,7 +314,7 @@ u8 *__dt__28THunterGuildSeqOnline_ClientFv(u8 *arg0, s16 arg1) {
             M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
         }
         M2C_FIELD(&lbl_80513E70.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
-        lbl_805D61BC = 0;
+        hunter_guild_seq_online_client_instance = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -340,7 +340,7 @@ Seq_80213D84 *THunterGuildSeqOnline_Client__ct(Seq_80213D84 *arg0, s32 arg1, s32
     arg0->f38 = 0;
     {
         s32 idx = TShopWindowBase__sub_8022397C(arg0);
-        (*(void * *)&lbl_805D61BC) = arg0;
+        (*(void * *)&hunter_guild_seq_online_client_instance) = arg0;
         ((s32 *)&lbl_80513E70)[idx] = one;
     }
     return arg0;

@@ -54,7 +54,7 @@ void TLobby__sub_8023E4B4(s32, s32);
 extern Tbl_802A194C lbl_80466340;
 extern Tbl_802A194C lbl_80466354;
 extern const s32 current_language;
-extern u32 lbl_805D6640;
+extern u32 ad_select_text_texture_handle;
 void TLobby__sub_802A194C(void);
 }
 
@@ -126,12 +126,12 @@ void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     return arg0;
 }
 
-extern u32 lbl_805D6640;
+extern u32 ad_select_text_texture_handle;
 
 void TLobby__sub_802A1918(void) {
-    if ((u32) lbl_805D6640 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6640);
-        lbl_805D6640 = 0U;
+    if ((u32) ad_select_text_texture_handle != 0U) {
+        TLobby__sub_803DA16C((void*)ad_select_text_texture_handle);
+        ad_select_text_texture_handle = 0U;
     }
 }
 void TLobby__sub_802A194C(void) {
@@ -140,7 +140,7 @@ void TLobby__sub_802A194C(void) {
     Tbl_802A194C b = lbl_80466354;
     s32 i = current_language;
     s32 v = b.v[i];
-    lbl_805D6640 = v;
+    ad_select_text_texture_handle = v;
     TLobby__sub_8023E4B4(a.v[i], v);
 }
 

@@ -199,8 +199,8 @@ s32 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 int queue_destruction__7TObjectFv(void*);
 
-    extern int lbl_805D6900;
-int get_instance__10TObjPlayerFv(void) {  return lbl_805D6900; }
+    extern int multiplay_texture_f512_handle;
+int get_instance__10TObjPlayerFv(void) {  return multiplay_texture_f512_handle; }
 
 extern M2C_UNK lbl_804E3BA8[];
 

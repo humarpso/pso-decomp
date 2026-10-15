@@ -41,7 +41,7 @@ extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
 extern M2C_UNK lbl_804E3D1C[];
 extern Light_802EE574 boss7_derolle_light_pool[];
 extern u8 *lbl_805D6918;
-extern s32 lbl_805D691C;
+extern s32 boss7_derolle_c_motion_id;
 extern s32 lbl_805D6920;
 extern s32 lbl_805D6924;
 extern s32 lbl_805D6928;
@@ -87,7 +87,7 @@ void TObjPlayer__sub_802EE574(void) {
         p = load_resource_from_descriptor(p, 1, lbl_804E3D1C, 0, 0, 0);
     }
     lbl_805D6918 = p;
-    lbl_805D691C = 0;
+    boss7_derolle_c_motion_id = 0;
     lbl_805D6920 = 0;
     lbl_805D6924 = 0;
     lbl_805D6928 = 0;

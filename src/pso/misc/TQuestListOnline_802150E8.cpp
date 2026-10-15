@@ -180,8 +180,8 @@ extern int TQuestListOnline__bin_download_complete;
 extern int TQuestListOnline__dat_download_complete;
 extern int TQuestListOnline__download_window;
 extern int quest_download_active;
-extern int lbl_805D61B0;
-extern int lbl_805D61B4;
+extern int quest_download_received_bytes;
+extern int quest_download_graph_current_bytes;
 extern const f32 lbl_805DC664;
 extern char lbl_805DC668[4];
 extern char lbl_805DC66C[4];
@@ -218,8 +218,8 @@ extern "C" {
     extern int TQuestListOnline__quest_info_window;
     extern int TQuestListOnline__download_barrier_window;
     extern int quest_download_active;
-    extern int lbl_805D61B0;
-    extern int lbl_805D61B4;
+    extern int quest_download_received_bytes;
+    extern int quest_download_graph_current_bytes;
 
 void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
     Pair_802150E8 p;
@@ -251,8 +251,8 @@ void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
         suppress_slot__11TWindowCtrlFi(local_client_id);
         run_all_lists__9TMainTaskFv(main_task);
         quest_download_active = 1;
-        lbl_805D61B0 = 0;
-        lbl_805D61B4 = 0;
+        quest_download_received_bytes = 0;
+        quest_download_graph_current_bytes = 0;
     }
     if (arg0 == NULL) {
         return;
@@ -274,7 +274,7 @@ void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
             s->buf = alloc_buffer__11TOBoss4RockFPv(arg0->size);
             memset(s->buf, 0, (void *)arg0->size);
             TQuestListOnline__dat_download_complete = 0;
-            lbl_805D61B0 += arg0->size;
+            quest_download_received_bytes += arg0->size;
         }
     } else if (strncmp(tok, lbl_805DC674, 4) == 0) {
         s = (Slot_802150E8 *)TQuestListOnline__bin_download_state;
@@ -284,7 +284,7 @@ void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0) {
             s->buf = alloc_buffer__11TOBoss4RockFPv(arg0->size);
             memset(s->buf, 0, (void *)arg0->size);
             TQuestListOnline__bin_download_complete = 0;
-            update_graph__8TDLGraphFii(lbl_805D61B4, lbl_805D61B0 += arg0->size);
+            update_graph__8TDLGraphFii(quest_download_graph_current_bytes, quest_download_received_bytes += arg0->size);
         }
     }
 }
@@ -375,7 +375,7 @@ void init_download_buffers__16TQuestListOnlineFv(void) {
     TQuestListOnline__instance = 0;
 }
 
-void reset_globals(void) { TQuestListOnline__download_window = 0; TQuestListOnline__quest_info_window = 0; TQuestListOnline__download_barrier_window = 0; quest_download_active = 0; memset(TQuestListOnline__dat_download_state, (void*)0, (void*)60); memset(TQuestListOnline__bin_download_state, (void*)0, (void*)60); TQuestListOnline__bin_download_complete = 0; TQuestListOnline__dat_download_complete = 0; lbl_805D61B0 = 0; lbl_805D61B4 = 0; }
+void reset_globals(void) { TQuestListOnline__download_window = 0; TQuestListOnline__quest_info_window = 0; TQuestListOnline__download_barrier_window = 0; quest_download_active = 0; memset(TQuestListOnline__dat_download_state, (void*)0, (void*)60); memset(TQuestListOnline__bin_download_state, (void*)0, (void*)60); TQuestListOnline__bin_download_complete = 0; TQuestListOnline__dat_download_complete = 0; quest_download_received_bytes = 0; quest_download_graph_current_bytes = 0; }
 typedef char RecoveredGlobal_80215ABC_lbl_804CA0B8_size[sizeof(RecoveredGlobal_80215ABC_lbl_804CA0B8) == 0x28 ? 1 : -1];
 
 u8 lookup_table_value__6TLobbyFc(s8 x) {

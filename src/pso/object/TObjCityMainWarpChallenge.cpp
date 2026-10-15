@@ -27,7 +27,7 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern M2C_UNK __vt__25TObjCityMainWarpChallenge[];
 extern s32 lbl_805D32B8;
 extern u8 *city_common_model_archive;
-extern s32 lbl_805D5B60;
+extern s32 city_main_warp_destination_id;
 extern const f32 lbl_805DBCCC;
 extern const f32 lbl_805DBCD0;
 u8 *TObjCityMainWarpChallenge__ct(u8 *arg0);
@@ -177,7 +177,7 @@ u8 *TObjCityMainWarpChallenge__ct(u8 *arg0) {
     M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DBCD0;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
     temp_r4 = M2C_FIELD(arg0, s32 *, 0xBC);
-    lbl_805D5B60 = temp_r4;
+    city_main_warp_destination_id = temp_r4;
     M2C_FIELD(arg0, s32 *, 0xA4) = 0;
     register_entity_by_id((void *) (arg0), (int) (temp_r4), (f32) (lbl_805DBCCC));
     M2C_FIELD(arg0, s32 *, 0x164) = 0;

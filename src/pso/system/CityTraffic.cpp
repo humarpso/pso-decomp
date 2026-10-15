@@ -66,7 +66,7 @@ s32 get_city_common_motion(s32 i);
 s32 get_city_common_model(s32 i);
 void bind_motion_context(s32, f32);
 void sample_motion_node_transform(void *, void *, void *, void *, void *);
-extern s32 lbl_80443B18[];
+extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
 s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0);
 void VecCopy__FP3VecPC3Vec(Vec_801817AC *, const Vec_801817AC *);
@@ -80,10 +80,10 @@ Lob_801817AC *get_season_model_resource(int);
 void bind_motion_context(s32, f32);
 void sample_motion_node_transform(void *, void *, void *, void *, void *);
 void subtract_vector(Vec_801817AC *, Vec_801817AC *);
-extern s32 lbl_80443B18[];
+extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
-extern s32 lbl_80443B54[];
-extern Lob_801817AC *lbl_805D5B20;
+extern s32 city_traffic_car_chunk_index_table[];
+extern Lob_801817AC *city_air_car_model_resource;
 extern s32 lbl_805D5B24;
 extern const f32 lbl_805DBBC4;
 extern const f32 lbl_805DBBC8;
@@ -124,7 +124,7 @@ s32 sample_aircar_path_position(s32 arg0, void *arg1, f32 farg0) {
     f32 sp8[4];
     f32 lim;
     s32 r;
-    Info_80181698 *m = ((Info_80181698 * (*)(s32))get_city_common_motion)(lbl_80443B18[arg0]);
+    Info_80181698 *m = ((Info_80181698 * (*)(s32))get_city_common_motion)(city_traffic_path_motion_index_table[arg0]);
     u32 n = m->n;
     r = 1;
     lim = (f32)(n - 1);
@@ -191,7 +191,7 @@ void measure_traffic_path_lengths(void) {
   s32 p;
   for (i = 0; i < 5; i++)
   {
-    m = (Motion_801817AC *) get_city_common_motion(lbl_80443B18[i]);
+    m = (Motion_801817AC *) get_city_common_motion(city_traffic_path_motion_index_table[i]);
     f32 frame;
     f32 end = (f32) (m->count - 1);
     frame = lbl_805DBBC8;
@@ -209,23 +209,23 @@ void measure_traffic_path_lengths(void) {
     air_car_lane_spacing_table[i] = total;
     air_car_lane_speed_scale_table[i] = end / total;
   }
-  lbl_805D5B20 = 0;
+  city_air_car_model_resource = 0;
   lbl_805D5B24 = 0;
   for (i = 0; i < 5; i++)
   {
     air_car_buffer_pair_table[i] = 0;
   }
-  lbl_805D5B20 = get_season_model_resource(2);
-  if (lbl_805D5B20 != 0)
+  city_air_car_model_resource = get_season_model_resource(2);
+  if (city_air_car_model_resource != 0)
   {
     lbl_805D5B24 = TLobby__sub_80184C2C(2);
     for (j = 0; j < 5; j++)
     {
       p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
-      new_var = lbl_80443B54;
+      new_var = city_traffic_car_chunk_index_table;
       if (p != 0)
       {
-        p = alloc_tables__6TLobbyFPvii(p, lbl_805D5B20->entries[new_var[j]].f8, 1, lbl_805D5B20->entries);
+        p = alloc_tables__6TLobbyFPvii(p, city_air_car_model_resource->entries[new_var[j]].f8, 1, city_air_car_model_resource->entries);
       }
       air_car_buffer_pair_table[j] = (void *)p;
     }

@@ -100,13 +100,13 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__12TObjNpcHRM00[];
 extern s32 TObjNpcHRM00__name;
-extern u32 TObjNpcHRM00__data_805D57C0;
-extern u32 TObjNpcHRM00__data_805D57C4;
+extern u32 TObjNpcHRM00__named_object_resource;
+extern u32 TObjNpcHRM00__body_texture_gvm;
 u8 *TObjNpcHRM00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
-extern u32 TObjNpcHRM00__data_805D57C0;
-extern u32 TObjNpcHRM00__data_805D57C4;
+extern u32 TObjNpcHRM00__named_object_resource;
+extern u32 TObjNpcHRM00__body_texture_gvm;
 extern char TObjNpcHRM00__data_filename[];
 extern char TObjNpcHRM00__body_texture_filename[];
 void load_resources__12TObjNpcHRM00Fv(void);
@@ -126,26 +126,26 @@ void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern u32 TObjNpcHRM00__data_805D57C0;
-extern u32 TObjNpcHRM00__data_805D57C4;
+extern u32 TObjNpcHRM00__named_object_resource;
+extern u32 TObjNpcHRM00__body_texture_gvm;
 
 void destroy_resources__12TObjNpcHRM00Fv(void) {
-    if ((u32) TObjNpcHRM00__data_805D57C4 != 0U) {
-        TLobby__sub_803DA16C((void*)TObjNpcHRM00__data_805D57C4);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHRM00__data_805D57C4);
-        TObjNpcHRM00__data_805D57C4 = 0U;
+    if ((u32) TObjNpcHRM00__body_texture_gvm != 0U) {
+        TLobby__sub_803DA16C((void*)TObjNpcHRM00__body_texture_gvm);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjNpcHRM00__body_texture_gvm);
+        TObjNpcHRM00__body_texture_gvm = 0U;
     }
-    if ((u32) TObjNpcHRM00__data_805D57C0 != 0U) {
-        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHRM00__data_805D57C0);
-        TObjNpcHRM00__data_805D57C0 = 0U;
+    if ((u32) TObjNpcHRM00__named_object_resource != 0U) {
+        free_nodes_with_id__6TLobbyFUi((void*)TObjNpcHRM00__named_object_resource);
+        TObjNpcHRM00__named_object_resource = 0U;
     }
 }
 
 extern M2C_UNK __vt__12TObjNpcHRM00[];
 
 void load_resources__12TObjNpcHRM00Fv(void) {
-    TObjNpcHRM00__data_805D57C0 = (u32)create_named_object(TObjNpcHRM00__data_filename);
-    TObjNpcHRM00__data_805D57C4 = (u32)load_gvm_texture_file(TObjNpcHRM00__body_texture_filename);
+    TObjNpcHRM00__named_object_resource = (u32)create_named_object(TObjNpcHRM00__data_filename);
+    TObjNpcHRM00__body_texture_gvm = (u32)load_gvm_texture_file(TObjNpcHRM00__body_texture_filename);
 }
 
 void *__dt__12TObjNpcHRM00Fv(void *arg0, s16 arg1) {
@@ -168,8 +168,8 @@ u8 *TObjNpcHRM00__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcHRM00__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcHRM00__data_805D57C0);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcHRM00__data_805D57C4);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *(*(s32 * *)&TObjNpcHRM00__named_object_resource);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (*(s32 *)&TObjNpcHRM00__body_texture_gvm);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

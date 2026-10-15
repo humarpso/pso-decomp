@@ -17,7 +17,7 @@ s32 get_instance__13TObjEneMorfosFv();
 
 void TObjEneMorfosArm__sub_8033542C(void) {  }
 
-extern s32 lbl_805D6D38;
+extern s32 TObjEneMorfosArm__parent_morfos_instance;
 
 void * create__16TObjEneMorfosArmFPvPv(void *arg0, void *arg1) {
     void *o;
@@ -29,7 +29,7 @@ void * create__16TObjEneMorfosArmFPvPv(void *arg0, void *arg1) {
 }
 
 void init_global__16TObjEneMorfosArmFv(void) {
-    lbl_805D6D38 = get_instance__13TObjEneMorfosFv();
+    TObjEneMorfosArm__parent_morfos_instance = get_instance__13TObjEneMorfosFv();
 }
 
 }

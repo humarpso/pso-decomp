@@ -30,6 +30,26 @@ struct RecoveredGlobal_8018D85C___vt__17TObjContainerJung {
     u8 remaining[0x148];
 };
 
+struct Vec_8018D4DC { f32 x, y, z; };
+
+struct Spawn_8018D4DC {
+    u8 pad0[0xC];
+    Vec_8018D4DC pos;
+    u8 pad18[0x20];
+    f32 f38;
+    u8 pad3c[4];
+    s32 f40;
+    s32 f44;
+    u8 pad48[4];
+};
+
+struct Obj_8018D4DC {
+    u8 pad0[0x38];
+    Vec_8018D4DC pos;
+    u8 pad44[0x326 - 0x44];
+    s16 f326;
+};
+
 extern "C" {
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK request_box_item_drop(void *, void *, int);
@@ -37,14 +57,14 @@ M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 M2C_UNK set_flag8__6TLobbyFPv(void *);
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 * get_bml_model(void *, int);
-extern s32 TObjContainerJung__data_805D5BA0;
+extern s32 TObjContainerJung__bml_model_resource;
 u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8018D47C_lbl_804B7134 TObjContainerJung__resource_descriptor;
-extern s32 TObjContainerJung__data_805D5BA0;
-extern s32 TObjContainerJung__data_805D5BA4;
+extern s32 TObjContainerJung__bml_model_resource;
+extern s32 TObjContainerJung__bml_aux_handle;
 void load_resources__17TObjContainerJungFv(void);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
@@ -64,10 +84,21 @@ M2C_UNK pop_matrix();
 M2C_UNK post_translate_matrix(void *);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object();
-extern s32 TObjContainerJung__data_805D5BA0;
-extern s32 TObjContainerJung__data_805D5BA4;
+extern s32 TObjContainerJung__bml_model_resource;
+extern s32 TObjContainerJung__bml_aux_handle;
 extern const f32 lbl_805DBD9C;
 void TObjContainerJung__vt79(u8 *arg0);
+u8 * get_bml_model(void *, int);
+void spawn_particle_effect_with_flags(void *, int, int);
+void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+void play_container_break_sound(void *);
+void *__nw__7TObjectFUl(int);
+extern Spawn_8018D4DC lbl_8044523C;
+extern Spawn_8018D4DC lbl_80445288;
+extern s32 TObjContainerJung__bml_model_resource;
+extern s32 TObjContainerJung__bml_aux_handle;
+extern void *tl_05;
+void TObjContainerJung__vt77(const Obj_8018D4DC *self);
 }
 
 extern "C" {
@@ -85,17 +116,17 @@ M2C_UNK __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
 
-extern s32 TObjContainerJung__data_805D5BA4;
+extern s32 TObjContainerJung__bml_aux_handle;
 
 s32 TObjContainerJung__sub_8018D3B8(void) {
-    return TObjContainerJung__data_805D5BA4;
+    return TObjContainerJung__bml_aux_handle;
 }
 
 extern void *tl_05;
 
 u8 *get_model_by_index__17TObjContainerJungFi(s32 arg0) {
-    if ((void *) (*(u8 * *)&TObjContainerJung__data_805D5BA0) != NULL) {
-        return get_bml_model((*(u8 * *)&TObjContainerJung__data_805D5BA0), arg0);
+    if ((void *) (*(u8 * *)&TObjContainerJung__bml_model_resource) != NULL) {
+        return get_bml_model((*(u8 * *)&TObjContainerJung__bml_model_resource), arg0);
     }
     return NULL;
 }
@@ -108,13 +139,13 @@ void *create__17TObjContainerJungFPv(void *arg0) {
     return o;
 }
 
-extern s32 TObjContainerJung__data_805D5BA0;
-extern s32 TObjContainerJung__data_805D5BA4;
+extern s32 TObjContainerJung__bml_model_resource;
+extern s32 TObjContainerJung__bml_aux_handle;
 
 void release__17TObjContainerJungFv(void) {
-    TLobby__sub_8001FE7C(TObjContainerJung__data_805D5BA0, 1);
-    TObjContainerJung__data_805D5BA0 = 0;
-    TObjContainerJung__data_805D5BA4 = 0;
+    TLobby__sub_8001FE7C(TObjContainerJung__bml_model_resource, 1);
+    TObjContainerJung__bml_model_resource = 0;
+    TObjContainerJung__bml_aux_handle = 0;
 }
 
 void load_resources__17TObjContainerJungFv(void) {
@@ -125,9 +156,55 @@ void load_resources__17TObjContainerJungFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &TObjContainerJung__resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&TObjContainerJung__data_805D5BA0) = (unsigned char *) ((void *) var_r0);
-    TObjContainerJung__data_805D5BA4 = TObjFish__sub_8001EDB0((void *) var_r0, 0);
+    (*(u8 * *)&TObjContainerJung__bml_model_resource) = (unsigned char *) ((void *) var_r0);
+    TObjContainerJung__bml_aux_handle = TObjFish__sub_8001EDB0((void *) var_r0, 0);
 }
+
+#pragma push
+#pragma opt_propagation off
+void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
+    void *o;
+    if (self->f326 != 1) {
+        Spawn_8018D4DC a = lbl_8044523C;
+        f32 pz;
+        f32 py;
+        f32 px;
+        px = self->pos.x;
+        py = self->pos.y;
+        pz = self->pos.z;
+        a.pos.x = px;
+        a.pos.y = py;
+        a.pos.z = pz;
+        a.f38 = py;
+        a.f40 = (s32) get_bml_model((void *) TObjContainerJung__bml_model_resource, 1);
+        a.f44 = TObjContainerJung__bml_aux_handle;
+        Spawn_8018D4DC b = lbl_80445288;
+        f32 qz;
+        f32 qy;
+        f32 qx;
+        qx = self->pos.x;
+        qy = self->pos.y;
+        qz = self->pos.z;
+        b.pos.x = qx;
+        b.pos.y = qy;
+        b.pos.z = qz;
+        b.f38 = qy;
+        b.f40 = (s32) get_bml_model((void *) TObjContainerJung__bml_model_resource, 2);
+        b.f44 = TObjContainerJung__bml_aux_handle;
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x45, 0x40);
+        spawn_particle_effect_with_flags((void *)&self->pos, 0x46, 0x40);
+        o = __nw__7TObjectFUl(0x234);
+        if (o != 0) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &a);
+        }
+        o = __nw__7TObjectFUl(0x234);
+        if (o != 0) {
+            construct_debris__8TObjChipFPvPvPv(o, tl_05, &b);
+        }
+        play_container_break_sound((void *)self);
+    }
+}
+#pragma pop
 
 void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     if (arg2 != 0) {
@@ -148,18 +225,18 @@ void TObjContainerJung__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
 }
 
 void TObjContainerJung__vt79(u8 *arg0) {
-    if ((void *)(*(u8 **)&TObjContainerJung__data_805D5BA0) != NULL) {
+    if ((void *)(*(u8 **)&TObjContainerJung__bml_model_resource) != NULL) {
         switch (M2C_FIELD(arg0, s16 *, 0x326)) {
         case 0:
-            set_global_param__8TObjFishFi(TObjContainerJung__data_805D5BA4);
+            set_global_param__8TObjFishFi(TObjContainerJung__bml_aux_handle);
             push_matrix();
             post_translate_matrix(arg0 + 0x38);
             rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
             scale_matrix(0, lbl_805DBD9C, lbl_805DBD9C, lbl_805DBD9C);
-            get_bml_model(*(u8 **)&TObjContainerJung__data_805D5BA0, 0);
+            get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 0);
             draw_ginja_object();
             begin_effect_render__13TParticleCtrlFv();
-            get_bml_model(*(u8 **)&TObjContainerJung__data_805D5BA0, 3);
+            get_bml_model(*(u8 **)&TObjContainerJung__bml_model_resource, 3);
             draw_ginja_object();
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();

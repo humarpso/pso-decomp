@@ -57,7 +57,7 @@ void set_path_points_by_index__11TBoss6Type2FiPvi(s32, Vec_803570E4 *, s32);
 void clear_rock_state__10TBoss6RockFi(s32 i, s32 a, s32 b);
 void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
-extern int lbl_805D6F20;
+extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK disallow_rendering__7TObjectFv(void *);
@@ -119,7 +119,7 @@ void TBoss6Type2__sub_803570C8(s8 *arg0) {
     }
 }
 
-    extern int lbl_805D6F20;
+    extern int olga_flow_subordinate_actions_enabled;
 
 struct B_80357058;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
@@ -129,7 +129,7 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
     s8 *p;
     s32 i;
     s32 j;
-    if (lbl_805D6F20 == 0) {
+    if (olga_flow_subordinate_actions_enabled == 0) {
         return;
     }
     read_be16_field2_forward((void*)(pkt));
@@ -172,10 +172,10 @@ void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt) {
     }
 }
 
-void TItemEffOrgaFlowShot__sub_80357204(void) { lbl_805D6F20 = 0; }
+void TItemEffOrgaFlowShot__sub_80357204(void) { olga_flow_subordinate_actions_enabled = 0; }
 
-    extern int lbl_805D6F20;
-void TItemEffOrgaFlowShot__sub_80357210(void) { lbl_805D6F20 = 1; }
+    extern int olga_flow_subordinate_actions_enabled;
+void TItemEffOrgaFlowShot__sub_80357210(void) { olga_flow_subordinate_actions_enabled = 1; }
 
 void bswap_6xAD_subordinate_action__20TItemEffOrgaFlowShotFPv(void* p) { read_be16_field2_forward((void*)(p)); TLobby__send_and_handle_60(p); }
 

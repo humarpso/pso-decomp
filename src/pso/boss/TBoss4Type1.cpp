@@ -546,7 +546,7 @@ void *boss4_type1_motion_states[120] = {
     (void *)0x2, (void *)0x0, (void *)0x50, (void *)0x4e,
     (void *)0x4d, (void *)0x4d, (void *)0x4d, (void *)0x3d,
 };
-void *lbl_804860A8[6] = {
+void *player_collider_radius_table[6] = {
     (void *)0x42960000, (void *)0x42700000, (void *)0x42700000, (void *)0x42700000,
     (void *)0x42200000, (void *)0x41f00000,
 };
@@ -697,7 +697,7 @@ void *__vt__11TBoss4Type1[83] = {
 #define lbl_80485AE0 ((u8 *)lbl_80485AE0)
 #define lbl_80485EB0 ((s32 *)lbl_80485EB0)
 #define boss4_type1_motion_states (*(RecoveredGlobal_80054530_lbl_80485EC8 *)boss4_type1_motion_states)
-#define lbl_804860A8 ((f32 *)lbl_804860A8)
+#define player_collider_radius_table ((f32 *)player_collider_radius_table)
 #define boss4_type1_xz_offset_table ((XZ_80053E40 *)boss4_type1_xz_offset_table)
 #define lbl_8048615C ((u8 * *)lbl_8048615C)
 #define boss4_type1_vec_table ((Vec_80053440 *)boss4_type1_vec_table)
@@ -1097,7 +1097,7 @@ void update_follow_camera_offsets__10TObjPlayerFPv(Obj_80053E40 *o) {
         Vec_80053E40 cam = camera_ctrl_instance->pos;
         Vec_80053E40 d;
         for (j = 0; j < o->count; j++) {
-            f32 r = lbl_805D8B24 + lbl_804860A8[j];
+            f32 r = lbl_805D8B24 + player_collider_radius_table[j];
             f32 len;
             d.x = cam.x - pts[j].x;
             d.y = lbl_805D8B20;
@@ -1409,7 +1409,7 @@ void push_players_out_of_colliders__10TObjPlayerFPv(Obj_80053E40 *o) {
             Vec_80053E40 d;
             Vec_80053E40 q;
             for (j = 0; j < o->count; j++) {
-                f32 r = lbl_804860A8[j];
+                f32 r = player_collider_radius_table[j];
                 f32 dist;
                 VecCopy__FP3VecPC3Vec(&d, &pos);
                 d.x = d.x - pts[j].x;

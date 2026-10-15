@@ -12,8 +12,8 @@ void TAdDialingGC__sub_801A4CA4(void *arg0);
 void TAdDialingGC__sub_801A4D2C(void);
 s32 select_dial_image__12TAdDialingGCFPvi(s32, s32);
 
-    extern int lbl_805D6688;
-void TAdDialingGC__sub_801A4C90(void) { lbl_805D6688 = 1; }
+    extern int player_action_provider_selector;
+void TAdDialingGC__sub_801A4C90(void) { player_action_provider_selector = 1; }
 
 extern s32 TAdDialingGC__instance;
 

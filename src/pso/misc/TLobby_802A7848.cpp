@@ -119,8 +119,8 @@ int match_coordinate_pair(void*);
 void TLobby__sub_802A7848(void* p, s32 _w1) { set_field_4__6TLobbyFPvi((void*)(p), (s32)(_w1)); }
 int TLobby__sub_802A7868(void* p) { return match_coordinate_pair(p); }
 
-    extern int lbl_805D6688;
-void set_photon_chair_flag__6TLobbyFi(int a0) { lbl_805D6688 = a0; }
+    extern int player_action_provider_selector;
+void set_photon_chair_flag__6TLobbyFi(int a0) { player_action_provider_selector = a0; }
 struct _VBase802A78E4_802a78e4_802A7848 { char pad[8]; };
 struct _VObj802A78E4_802a78e4_802A7848 : _VBase802A78E4_802a78e4_802A7848 { virtual s32 m0(s32, s32); };
 void set_field_4__6TLobbyFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) = v; }

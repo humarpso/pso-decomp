@@ -26,9 +26,9 @@ M2C_UNK render__9TMainTaskFv(void *);
 M2C_UNK run_task__9TMainTaskFv(void *);
 M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_802A1180_main_task main_task;
-extern s8 lbl_805D6638;
+extern s8 movie_finished_flag;
 void update_movie_phase(void);
-extern s8 lbl_805D6638;
+extern s8 movie_finished_flag;
 void set_movie_finished_flag(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
@@ -52,7 +52,7 @@ M2C_UNK free_keyboard_soft_resources__6TLobbyFv();
 M2C_UNK render_tick__Fv();
 M2C_UNK update_keyboard_menu__6TLobbyFv();
 
-extern s8 lbl_805D6638;
+extern s8 movie_finished_flag;
 extern u8 opening_movie_purpose;
 
 typedef char RecoveredGlobal_802A1180_main_task_size[sizeof(RecoveredGlobal_802A1180_main_task) == 0x34 ? 1 : -1];
@@ -75,7 +75,7 @@ void update_movie_phase(void) {
     process_async_file_reads();
     update_sound_request_slots();
     noop__23TAdSinglePlyChrSelectGCFv();
-    if ((s32) (*(u8 *)&lbl_805D6638) == 1) {
+    if ((s32) (*(u8 *)&movie_finished_flag) == 1) {
         request_queued_main_phase();
     }
     if (func_801A5E54__Fv() != 0) {
@@ -104,7 +104,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
         TKeyBoardControl__sub_8000F91C(5);
         break;
     }
-    lbl_805D6638 = 0;
+    movie_finished_flag = 0;
     if (__nw__7TObjectFUl(0x24) != 0U) {
         create_opening_movie_sequence();
     }
@@ -113,7 +113,7 @@ void update_menu_scene__16TKeyBoardControlFv(void) {
 
 void TKeyBoardControl__sub_802A12B8(void) {  }
 void TKeyBoardControl__sub_802A12BC(void) {  }
-void set_movie_finished_flag(void) { (*(unsigned char *)&lbl_805D6638) = 1; }
+void set_movie_finished_flag(void) { (*(unsigned char *)&movie_finished_flag) = 1; }
 void *TKeyBoardControl__sub_802A12CC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DCB64;

@@ -150,12 +150,12 @@ extern s32 lbl_804389E8[];
 s32 *csnVecterUnder(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8007911C(void);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
-extern s32 lbl_80500148[];
+extern s32 csn_query_map_object[];
 extern s32 lbl_80438988[];
 void *query_prepared_wall_polygons(void *self);
 void TObjPlayer__sub_8007911C(void);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
-extern s32 lbl_80500148[];
+extern s32 csn_query_map_object[];
 extern s32 lbl_804389A8[];
 void *query_wall_radial(Obj_8007A32C *self);
 M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
@@ -693,7 +693,7 @@ Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, 
 void *query_prepared_wall_polygons(void *self) {
     void *r;
     TObjPlayer__sub_8007911C();
-    r = lbl_80500148;
+    r = csn_query_map_object;
     if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
@@ -704,7 +704,7 @@ void *query_prepared_wall_polygons(void *self) {
 void *query_wall_radial(Obj_8007A32C *self) {
     void *r;
     TObjPlayer__sub_8007911C();
-    r = lbl_80500148;
+    r = csn_query_map_object;
     if (prepare_wall_query_polygons((void *)(self->fc), self->f4, (s32)(self->f8)) == 0) {
         r = 0;
     } else if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {

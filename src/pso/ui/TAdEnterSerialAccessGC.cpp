@@ -155,7 +155,7 @@ extern RecoveredGlobal_80321874_lbl_80476518 lbl_80476518;
 extern RecoveredGlobal_80321874_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
 extern RecoveredGlobal_80321874_lbl_80543090 TAdEnterSerialAccessGC_serial_buffer;
 M2C_UNK *TAdEnterSerialAccessGC__sub_80321874(void);
-extern RecoveredGlobal_80322418_lbl_804ED9F8 lbl_804ED9F8;
+extern RecoveredGlobal_80322418_lbl_804ED9F8 serial_access_entered_value_table;
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
@@ -886,7 +886,7 @@ s32 get_field20_state__22TAdEnterSerialAccessGCFPv(void *arg0) {
 
 typedef char RecoveredGlobal_80322418_lbl_804ED9F8_size[sizeof(RecoveredGlobal_80322418_lbl_804ED9F8) == 0x10 ? 1 : -1];
 void TAdEnterSerialAccessGC__sub_80322418(s32 arg0, s32 arg1) {
-    M2C_FIELD(((u8 *)(&lbl_804ED9F8.value) + (arg1 * 4)), s32 *, 0) = arg0;
+    M2C_FIELD(((u8 *)(&serial_access_entered_value_table.value) + (arg1 * 4)), s32 *, 0) = arg0;
 }
 
 void set_state_3__22TAdEnterSerialAccessGCFPv(void* p) { *(s32*)((char*)p + 0x700) = 3; }

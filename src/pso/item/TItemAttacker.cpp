@@ -18,7 +18,7 @@ s32 tmp_buf_release__6TLobbyFi(s32);
 void free__11TOBoss4RockFUi(u32);
 extern M2C_UNK lbl_8043E038[];
 extern s32 item_buffer_temp_mode;
-extern s32 lbl_805D5414;
+extern s32 item_buff_buffer;
 void TItemBuff__ct(void);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_from__13TItemAttackerFPvPv(void *arg0, void *arg1);
@@ -97,16 +97,16 @@ int get_item_chunk_buffer(int a0) {  return item_nj_chunk_buffer_table[a0]; }
 
 extern M2C_UNK lbl_8043E038[];
 extern s32 item_buffer_temp_mode;
-extern s32 lbl_805D5414;
+extern s32 item_buff_buffer;
 
 void TItemBuff__ct(void) {
-    if ((u32) (*(u32 *)&lbl_805D5414) != 0) {
+    if ((u32) (*(u32 *)&item_buff_buffer) != 0) {
         if ((s32) item_buffer_temp_mode != 0) {
             tmp_buf_release__6TLobbyFi((s32) &(*(RecoveredGlobal_8010355C_lbl_8043E038 *)&lbl_8043E038).value);
         } else {
-            free__11TOBoss4RockFUi((*(u32 *)&lbl_805D5414));
+            free__11TOBoss4RockFUi((*(u32 *)&item_buff_buffer));
         }
-        (*(u32 *)&lbl_805D5414) = 0;
+        (*(u32 *)&item_buff_buffer) = 0;
     }
 }
 
@@ -118,12 +118,12 @@ s32 create_item_buff(s32 arg0) {
         temp_r3 = TLobby__sub_8001EEF4();
         item_buffer_temp_mode = temp_r3;
         if ((temp_r3 != 0) && (arg0 < 0x40000)) {
-            lbl_805D5414 = tmp_buf_use_req__6TLobbyFPv(lbl_8043E038);
+            item_buff_buffer = tmp_buf_use_req__6TLobbyFPv(lbl_8043E038);
         } else {
-            lbl_805D5414 = alloc_buffer__11TOBoss4RockFPv(arg0);
+            item_buff_buffer = alloc_buffer__11TOBoss4RockFPv(arg0);
         }
     }
-    return lbl_805D5414;
+    return item_buff_buffer;
 }
 
 }

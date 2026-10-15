@@ -52,7 +52,7 @@ int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * load_gvm_texture_file(s32);
 extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
 extern RecoveredGlobal_80158078_lbl_804AFB24 bm_fs_obj_lazerguard_resource_descriptor;
-extern u32 lbl_805D5890;
+extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
 extern s32 lbl_805D5898;
 void load_resources__17TOBarrierEnergy01Fv(void);
@@ -65,7 +65,7 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
 extern M2C_UNK __vt__17TOBarrierEnergy01[];
 extern s32 lbl_805D2EA0;
-extern u32 lbl_805D5890;
+extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
 extern const f32 lbl_805DB2D8;
 extern const f32 lbl_805DB2DC;
@@ -87,7 +87,7 @@ M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
-extern u32 lbl_805D5890;
+extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
 
 void free_resources__17TOBarrierEnergy01Fv(void) {
@@ -98,9 +98,9 @@ void free_resources__17TOBarrierEnergy01Fv(void) {
             TOBarrierEnergy01__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5890 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5890, 1);
-        lbl_805D5890 = 0U;
+    if ((u32) barrier_energy_shared_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)barrier_energy_shared_bml_archive, 1);
+        barrier_energy_shared_bml_archive = 0U;
     }
 }
 
@@ -114,12 +114,12 @@ void load_resources__17TOBarrierEnergy01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_lazerguard_resource_descriptor.value, 0, 0, 0));
     }
-    (*(u8 * *)&lbl_805D5890) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&barrier_energy_shared_bml_archive) = (unsigned char *) ((void *) var_r0);
     lbl_805D5898 = get_bml_model((void *) var_r0, 0);
     (*(s32 *)&TOBarrierEnergy01__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)0xC);
     M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 4) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5890), 1);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 8) = TObjFish__sub_8001EDB0((*(u8 * *)&lbl_805D5890), 0);
+    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 4) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 1);
+    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 8) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 0);
 }
 
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
@@ -142,9 +142,9 @@ u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA0;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&lbl_805D5890))), (s32)((int) (1)));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&barrier_energy_shared_bml_archive))), (s32)((int) (1)));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__texture_lists;
-    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&lbl_805D5890), 0);
+    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB2D8);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB2DC;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));

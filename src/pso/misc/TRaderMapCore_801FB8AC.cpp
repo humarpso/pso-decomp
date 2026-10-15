@@ -39,7 +39,7 @@ struct VObj : Base {
 };
 
 extern "C" {
-extern u32 lbl_805D5F48;
+extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -56,7 +56,7 @@ void TLobby__sub_8001FE7C(void*, int);
 M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 M2C_UNK TLobby__sub_803DA16C(void*);
 
-extern u32 lbl_805D5F48;
+extern u32 TRaderMapCore__frame_model_resource;
 extern u32 TRaderMapCore__data_805D5F4C;
 
 void free_statics__13TRaderMapCoreFv(void) {
@@ -65,9 +65,9 @@ void free_statics__13TRaderMapCoreFv(void) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(TRaderMapCore__data_805D5F4C);
         TRaderMapCore__data_805D5F4C = 0U;
     }
-    if ((u32) lbl_805D5F48 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5F48, 1);
-        lbl_805D5F48 = 0U;
+    if ((u32) TRaderMapCore__frame_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TRaderMapCore__frame_model_resource, 1);
+        TRaderMapCore__frame_model_resource = 0U;
     }
 }
 typedef char RecoveredGlobal_8019A880_lbl_804B8F70_size[sizeof(RecoveredGlobal_8019A880_lbl_804B8F70) == 0x2C ? 1 : -1];
@@ -82,7 +82,7 @@ void load_frame_texture__13TRaderMapCoreFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &obj_f_enemy_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D5F48) = var_r0;
+    (*(s32 *)&TRaderMapCore__frame_model_resource) = var_r0;
     (*(u8 * *)&TRaderMapCore__data_805D5F4C) = load_gvm_texture_file((s32) &lbl_8044A7B8.value);
 }
 

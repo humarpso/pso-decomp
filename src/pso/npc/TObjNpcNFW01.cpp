@@ -100,8 +100,8 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_female_base__17TObjNpcFemaleBaseFPv(void *);
 extern M2C_UNK __vt__12TObjNpcNFW01[];
 extern s32 TObjNpcNFW01__name;
-extern s32 *TObjNpcNFW01__data_805D5828;
-extern s32 TObjNpcNFW01__data_805D582C;
+extern s32 *TObjNpcNFW01__shared_object_resource;
+extern s32 TObjNpcNFW01__texture_gvm;
 u8 *TObjNpcNFW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -137,8 +137,8 @@ u8 *TObjNpcNFW01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcNFW01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcNFW01__data_805D5828;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcNFW01__data_805D582C;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcNFW01__shared_object_resource;
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcNFW01__texture_gvm;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

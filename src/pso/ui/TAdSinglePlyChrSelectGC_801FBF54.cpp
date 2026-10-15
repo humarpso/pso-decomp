@@ -608,7 +608,7 @@ s32 poll_memcard_status__23TAdSinglePlyChrSelectGCFPv(void* p) { return verify_s
     extern int card_character_save_buffer;
     extern int selected_character_data;
     extern int active_character_save_record;
-    extern int lbl_805D5F74;
+    extern int TAdSinglePlyChrSelectGC__selection_index;
 
 s32 has_valid_slot__23TAdSinglePlyChrSelectGCFPv(Slot_801FCB04* arg0) {
     s32 i;
@@ -623,7 +623,7 @@ s32 has_valid_slot__23TAdSinglePlyChrSelectGCFPv(Slot_801FCB04* arg0) {
     return 0;
 }
 
-void load_tables(int a0) { lbl_805D5F74 = a0; memcpy((void*)(selected_character_data), (void*)TAdSinglePlyChrSelectGC__sub_801FCD04((void*)(card_character_save_buffer)), (void*)1052); memcpy((void*)(active_character_save_record), (void*)TAdSinglePlyChrSelectGC__sub_801FCD3C((void*)(card_character_save_buffer)), (void*)9072); game_state_load(); }
+void load_tables(int a0) { TAdSinglePlyChrSelectGC__selection_index = a0; memcpy((void*)(selected_character_data), (void*)TAdSinglePlyChrSelectGC__sub_801FCD04((void*)(card_character_save_buffer)), (void*)1052); memcpy((void*)(active_character_save_record), (void*)TAdSinglePlyChrSelectGC__sub_801FCD3C((void*)(card_character_save_buffer)), (void*)9072); game_state_load(); }
 
 }
 
@@ -4453,7 +4453,7 @@ extern s32 selected_character_data;
 extern s32 active_character_save_record;
 extern s32 guild_card_save_payload;
 extern s32 system_save_payload;
-extern s32 lbl_805D5F74;
+extern s32 TAdSinglePlyChrSelectGC__selection_index;
 extern s32 card_load_sequence_state;
 extern s32 character_save_card_slot;
 extern s32 card_load_channel;
@@ -4578,7 +4578,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
     u8 *var_r4;
     u8 *temp_r4;
 
-    lbl_805D5F74 = 0;
+    TAdSinglePlyChrSelectGC__selection_index = 0;
     card_load_followup_pending = 0;
     alloc_char_records__23TAdSinglePlyChrSelectGCFi((s32)chr_select_buffer_ptr_table);
     reset_slot_lists__23TAdSinglePlyChrSelectGCFPv(chr_select_request_buffer);

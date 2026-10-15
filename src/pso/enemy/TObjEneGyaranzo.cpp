@@ -47,6 +47,99 @@ typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
 typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #define M2C_BITWISE(type, expr) ((type)(expr))
+#pragma inline_depth(1)
+#pragma auto_inline off
+#pragma dont_inline off
+struct VBase_18_5c0ed3 { char pad[0x18]; };
+
+struct VObj_18_5c0ed3 : VBase_18_5c0ed3 {
+    virtual void m0();
+    virtual void m1();
+    virtual void m2();
+    virtual void m3();
+    virtual void m4();
+    virtual void m5();
+    virtual void m6();
+    virtual void m7();
+    virtual void m8();
+    virtual void m9();
+    virtual void m10();
+    virtual void m11();
+    virtual void m12();
+    virtual void m13();
+    virtual void m14();
+    virtual void m15();
+    virtual void m16();
+    virtual void m17();
+    virtual void m18();
+    virtual void m19();
+    virtual void m20();
+    virtual void m21();
+    virtual void m22();
+    virtual void m23();
+    virtual void m24();
+    virtual void m25();
+    virtual void m26();
+    virtual void m27();
+    virtual void m28();
+    virtual void m29();
+    virtual void m30();
+    virtual void m31();
+    virtual void m32();
+    virtual void m33();
+    virtual void m34();
+    virtual void m35();
+    virtual void m36();
+    virtual void m37();
+    virtual void m38();
+    virtual void m39();
+    virtual void m40();
+    virtual void m41();
+    virtual void m42();
+    virtual void m43();
+    virtual void m44();
+    virtual void m45();
+    virtual void m46();
+    virtual void m47();
+    virtual void m48();
+    virtual void m49();
+    virtual void m50();
+    virtual void m51();
+    virtual void m52();
+    virtual void m53();
+    virtual void m54();
+    virtual void m55();
+    virtual void m56();
+    virtual void m57();
+    virtual void m58();
+    virtual void m59();
+    virtual void m60();
+    virtual void m61();
+    virtual void m62();
+    virtual M2C_UNK m63(s16, f32 *);
+};
+
+struct M2CCopy_48 { u8 bytes[0x48]; };
+
+struct M2CCopy_4C { u8 bytes[0x4c]; };
+
+struct Vec_800D2900 { f32 x, y, z; };
+
+struct Params_800D2900 {
+    u8 pad0[0xC];
+    Vec_800D2900 pos;
+    u8 pad18[0x38 - 0x18];
+    f32 x38;
+    u8 pad3c[4];
+    s32 x40;
+    s32 x44;
+    u8 pad48[4];
+};
+
+struct Inner_800D2900 { u8 pad[0x3c]; s32 x3c; };
+
+struct Outer_800D2900 { u8 pad[0x42c]; Inner_800D2900 *p42c; };
+
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(s32);
 M2C_UNK spawn_particle_effect(void *, int);
@@ -59,6 +152,14 @@ extern const f32 lbl_805DA268;
 extern const f32 lbl_805DA26C;
 extern const f32 lbl_805DA270;
 
+M2C_UNK render_anim_model_at_pos__12TBoss3VoloptFPv(void *);
+u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
+void * __nw__7TObjectFUl(int);
+extern Params_800D2900 lbl_8043C35C;
+extern u8 *gyaranzo_resource_ptrs[];
+extern u32 gyaranzo_bml_resource;
+extern u8 *tl_05;
+void fn_800D2900(u8 *arg0);
 }
 
 extern "C" {
@@ -816,7 +917,6 @@ M2C_UNK TObjEnemyCustom__ct(void *);
 #define update_walk_to_target__10TObjPlayerFPv ((s32 (*)(void *))update_walk_to_target__10TObjPlayerFPv)
 #define init_params_from_table__19TObjGyaranzoMissileFPv ((M2C_UNK (*)(void *))init_params_from_table__19TObjGyaranzoMissileFPv)
 #define update__19TObjGyaranzoMissileFPv ((s32 (*)(void *))update__19TObjGyaranzoMissileFPv)
-s32 fn_800D2900(void *);
 s32 fn_800D2A68(void *);
 void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0);
 void update_death_breakup__10TObjPlayerFPv(Ene_800D2F6C *arg0);
@@ -1268,6 +1368,48 @@ void TObjEneGyaranzo::spawn_missile() {
 }
 #pragma pop
 
+void fn_800D2900(u8 *arg0) {
+    s32 start;
+    s32 end;
+    s32 i;
+    s32 idx;
+    Vec_800D2900 v;
+    void *obj;
+    if (M2C_FIELD(arg0, s32 *, 0x3A8) < 2) {
+        M2C_FIELD(arg0, s32 *, 0x3A8)++;
+        switch (M2C_FIELD(arg0, s32 *, 0x3A8)) {
+        case 1:
+            start = 0;
+            M2C_FIELD(arg0, s32 *, 0x38C) = 5;
+            end = 5;
+            break;
+        case 2:
+            start = 5;
+            M2C_FIELD(arg0, s32 *, 0x38C) = 0xD;
+            end = 0xD;
+            break;
+        }
+        render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
+        for (i = start; i < end; i++) {
+            idx = lbl_80494250[i];
+            ((VObj_18_5c0ed3 *)(arg0))->m63(lbl_80494224[idx], &v.x);
+            {
+                Params_800D2900 p = lbl_8043C35C;
+                p.pos.x = v.x;
+                p.pos.y = v.y;
+                p.pos.z = v.z;
+                p.x38 = M2C_FIELD(arg0, f32 *, 0x3C);
+                p.x40 = ((s32 *)&gyaranzo_resource_ptrs)[idx];
+                p.x44 = (*(Outer_800D2900 * *)&gyaranzo_bml_resource)->p42c->x3c;
+                obj = __nw__7TObjectFUl((int)(0x234));
+                if (obj != NULL) {
+                    construct_debris__8TObjChipFPvPvPv((u8 *)obj, tl_05, (u8 *)&p);
+                }
+            }
+        }
+    }
+}
+
 void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r3;
@@ -1430,7 +1572,7 @@ void TObjPlayer__sub_800D31EC(u8 *arg0) {
     }
     if (((s32) var_r3) != 0)
     {
-      fn_800D2900((void *) arg0);
+      fn_800D2900((u8 *)((u8 *) arg0));
     }
     *((s16 *) (((s8 *) arg0) + 0x33E)) = (s16) (*((s16 *) (((s8 *) arg0) + 0x32C)));
     play_sound_effect((void *) copy_target_state__14TObjEnePanarmsFPvPv((void *) arg0, (int) 0x4003AD0F), (void *) (arg0 + 0x38), (int) 0, (int) 0);

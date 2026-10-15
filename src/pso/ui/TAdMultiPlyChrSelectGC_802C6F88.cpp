@@ -21,8 +21,8 @@ s32 get_field_20__22TAdMultiPlyChrSelectGCFPv(void* p) { return *(s32*)((char*)p
     extern int TAdMultiPlyChrSelectGC__instance;
 int get_state__22TAdMultiPlyChrSelectGCFv(void) {  return TAdMultiPlyChrSelectGC__instance; }
 
-    extern int lbl_805D6F08;
-int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {  return lbl_805D6F08; }
+    extern int plyplt_anim_ctrl_instance;
+int get_selected_slot__22TAdMultiPlyChrSelectGCFv(void) {  return plyplt_anim_ctrl_instance; }
 
     extern int menu_selection_cursor_texture_list;
 int get_global_6700__22TAdMultiPlyChrSelectGCFv(void) {  return menu_selection_cursor_texture_list; }

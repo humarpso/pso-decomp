@@ -127,7 +127,7 @@ u32 create_yes_no_window(int, int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 extern void *TLobby__protocol_instance;
 extern u8 *TQuestListOnline__quest_list_buffer;
-extern s32 lbl_805D61F8;
+extern s32 online_quest_list_state;
 extern u8 lbl_805DC6A0;
 
 extern T_80217B30 TQuestListOnline__bin_download_state;
@@ -136,7 +136,7 @@ extern s32 TQuestListOnline__decompression_cursor;
 extern s32 online_quest_bin_data;
 extern s32 online_quest_dat_buffer;
 extern s32 quest_bin_decompressed_size;
-extern s32 lbl_805D61F4;
+extern s32 online_quest_list_decompressed_size;
 s32 prs_decompress_buffer(s32, s32);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 
@@ -248,7 +248,7 @@ void TQuestListOnline::decompress_quest_list_buffers() {
     quest_bin_decompressed_size = prs_decompress_buffer(TQuestListOnline__bin_download_state.f38, TQuestListOnline__decompression_cursor);
     online_quest_bin_data = TQuestListOnline__decompression_cursor;
     TQuestListOnline__decompression_cursor += quest_bin_decompressed_size;
-    lbl_805D61F4 = prs_decompress_buffer(TQuestListOnline__dat_download_state.f38, TQuestListOnline__decompression_cursor);
+    online_quest_list_decompressed_size = prs_decompress_buffer(TQuestListOnline__dat_download_state.f38, TQuestListOnline__decompression_cursor);
     online_quest_dat_buffer = TQuestListOnline__decompression_cursor;
     set_field_20__12TQuestListVMFPvi((void*)(this), (int)((void *)7));
 }
@@ -291,13 +291,13 @@ void TQuestListOnline::handle_list_selection() {
             __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(selected_entry, &QL_80217C1C->ents[idx]);
             switch ((TQuestListOnline__quest_list_buffer + idx * 0x98)[4]) {
             case 1:
-                lbl_805D61F8 = 0;
+                online_quest_list_state = 0;
                 break;
             case 2:
-                lbl_805D61F8 = 1;
+                online_quest_list_state = 1;
                 break;
             default:
-                lbl_805D61F8 = 0;
+                online_quest_list_state = 0;
                 break;
             }
             send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, selected_entry, get_unlocked_tier__16TQuestListOnlineFv(this), &lbl_805DC6A0, &lbl_805DC6A0);

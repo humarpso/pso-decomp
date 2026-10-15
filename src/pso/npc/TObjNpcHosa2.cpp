@@ -111,7 +111,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 
-extern u32 TObjNpcHosa2__data_805D69D8;
+extern u32 TObjNpcHosa2__shared_model_resource;
 void load_shared_resource__12TObjNpcHosa2Fv(void);
 s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
@@ -120,7 +120,7 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__12TObjNpcHosa2[];
 extern s32 TObjNpcHosa2__name;
-extern u32 TObjNpcHosa2__data_805D69D8;
+extern u32 TObjNpcHosa2__shared_model_resource;
 u8 *TObjNpcHosa2__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -132,12 +132,12 @@ void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
-extern u32 TObjNpcHosa2__data_805D69D8;
+extern u32 TObjNpcHosa2__shared_model_resource;
 
 void close_dialog_window__12TObjNpcHosa2Fv(void) {
-    if ((u32) TObjNpcHosa2__data_805D69D8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcHosa2__data_805D69D8, 1);
-        TObjNpcHosa2__data_805D69D8 = 0U;
+    if ((u32) TObjNpcHosa2__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcHosa2__shared_model_resource, 1);
+        TObjNpcHosa2__shared_model_resource = 0U;
     }
 }
 
@@ -151,7 +151,7 @@ void load_shared_resource__12TObjNpcHosa2Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &npc_hosa2_resource_descriptor, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcHosa2__data_805D69D8) = var_r0;
+    (*(s32 *)&TObjNpcHosa2__shared_model_resource) = var_r0;
 }
 
 void *__dt__12TObjNpcHosa2Fv(void *arg0, s16 arg1) {
@@ -171,8 +171,8 @@ u8 *TObjNpcHosa2__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcHosa2__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa2__data_805D69D8)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa2__data_805D69D8)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcHosa2__shared_model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

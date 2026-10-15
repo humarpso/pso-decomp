@@ -753,6 +753,7 @@ pso/item/TObjContainerEnemy.cpp
 pso/item/TObjContainerIdo.cpp
 pso/item/TObjContainerIdo_801A0B94.cpp
 pso/item/TObjContainerItem.cpp
+pso/item/TObjContainerJung.cpp
 pso/item/TObjContainerJungEnemy.cpp
 pso/item/TObjContainerJungEx.cpp
 pso/item/TObjContainerJungEx_8018D900.cpp

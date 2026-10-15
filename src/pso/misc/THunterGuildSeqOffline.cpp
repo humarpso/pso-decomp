@@ -393,7 +393,7 @@ void notify_quest_thread__22THunterGuildSeqOfflineFv(void) {
 
 void THunterGuildSeqOffline__sub_80213410(void* p) { reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv((void*)(p)); }
 
-extern void *lbl_805D61BC;
+extern void *hunter_guild_seq_online_client_instance;
 
 void reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv(void* _w0) {
     s32 i;
@@ -401,8 +401,8 @@ void reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv(void* _w0) {
 }
 
 s32 THunterGuildSeqOffline__sub_80213458(void) {
-    if ((void *) lbl_805D61BC != NULL) {
-        return M2C_FIELD(lbl_805D61BC, s32 *, 0x20);
+    if ((void *) hunter_guild_seq_online_client_instance != NULL) {
+        return M2C_FIELD(hunter_guild_seq_online_client_instance, s32 *, 0x20);
     }
     return -1;
 }

@@ -105,7 +105,7 @@ M2C_UNK notify_player_warp__16TObjCityMainWarpFPvi(void *, s32);
 
 extern s32 local_client_id;
 extern void *city_common_model_archive;
-extern s32 lbl_805D5B60;
+extern s32 city_main_warp_destination_id;
 
 void update_state__16TObjCityMainWarpFPv(void *arg0) {
     s16 temp_r0;
@@ -126,7 +126,7 @@ void update_state__16TObjCityMainWarpFPv(void *arg0) {
             temp_r3 = find_local_player_in_range__16TObjCityMainWarpFif(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
             if (temp_r3 != 0) {
                 notify_player_warp__16TObjCityMainWarpFPvi(arg0, local_client_id);
-                M2C_FIELD(arg0, s32 *, 0xBC) = (s32) lbl_805D5B60;
+                M2C_FIELD(arg0, s32 *, 0xBC) = (s32) city_main_warp_destination_id;
                 ((F_V_80186f84 *) arg0)->m17(temp_r3);
                 M2C_FIELD(arg0, s16 *, 0xE0) = 2;
             }

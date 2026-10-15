@@ -43,12 +43,12 @@ M2C_UNK set_depth_buffer_settings_2__Fv();
 M2C_UNK set_global_param__8TObjFishFi(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-extern s32 TAdMcSelectMcGC__data_805D6C98;
+extern s32 TAdMcSelectMcGC__texture_list_ptr;
 extern const f32 lbl_805DF748;
 
 void draw_status_window__15TAdMcSelectMcGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
-    set_global_param__8TObjFishFi((void *) (TAdMcSelectMcGC__data_805D6C98));
+    set_global_param__8TObjFishFi((void *) (TAdMcSelectMcGC__texture_list_ptr));
     set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
     get_player__20TWindowSubStatusDispFv();

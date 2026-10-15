@@ -46,7 +46,7 @@ void set_ppp_password__6TLobbyFi(s32);
 void strncpy(s32, s32, s32);
 M2C_UNK memset(void *, int, int);
 void fn_8032B318(void *, void *);
-extern u8 lbl_804ED9F0[];
+extern u8 password_screen_status_line_position[];
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
 s32 reset_input_state__22TAdEnterSerialAccessGCFPv(int);
 s32 add_item_rect__12TLevelSelectFPvPv(int, void *);
@@ -229,7 +229,7 @@ void *ppp_password_buffer[8] = {
 };
 
 void run_task__17TAdEnterPPPPassGCFv(TAdEnterPPPPassGC_80339378 *self) {
-    fn_8032B318(self, lbl_804ED9F0);
+    fn_8032B318(self, password_screen_status_line_position);
     self->state = password_entry_dispatch_state;
     static Pmf_80339378 tbl[5] = {
         (Pmf_80339378)&TAdEnterPPPPassGC::open_keyboard_window,

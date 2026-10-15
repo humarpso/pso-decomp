@@ -251,6 +251,12 @@ struct VObj_14_8d1630 : VBase_14_8d1630 {
     virtual s32 m8();
 };
 
+struct S_802FB220 { u32 a; f32 b; f32 c; u32 d; u32 e; };
+
+struct F3_802FB220 { f32 f[3]; };
+
+struct G_802FB220 { F3_802FB220 *value; u8 rest[8]; };
+
 extern "C" {
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
 M2C_UNK queue_destruction__7TObjectFv(void *);
@@ -483,6 +489,10 @@ void reset_action__12TBoss8DragonFPv(void* a0);
 void set_action_state__12TBoss8DragonFPv(void* p);
 extern const f32 TBoss8Dragon__data_805DEDD4;
 void TBoss8Dragon__sub_802F5BA0(u8 *arg0, u32 arg1);
+int setup_instance__12TBoss8DragonFPv(void* p, int, void *, int);
+extern S_802FB220 lbl_80474ACC;
+extern u8 *TBoss8Dragon__data_80541DDC[];
+void TBoss8Dragon__sub_802FB220(void *o, int x, u32 a);
 }
 
 extern "C" {
@@ -1810,7 +1820,6 @@ void select_freeze_target__12TBoss8DragonFPv(u8 *arg0);
 u16 find_player_on_floor__12TBoss8DragonFPv(void *arg0);
 void TBoss8Dragon__sub_802FB09C(s32 arg0);
 void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0);
-int setup_instance__12TBoss8DragonFPv(void* p);
 int get_state_flags__12TBoss8DragonFPv(void* p);
 int emit_effect__12TBoss8DragonFPv(void* p);
 void setup_breath_instance__12TBoss8DragonFPviUii(void *o, int x, u32 a, int w);
@@ -6417,11 +6426,18 @@ void spawn_ground_effect__12TBoss8DragonFPv(u8 *arg0) {
     }
 }
 
-int setup_instance__12TBoss8DragonFPv(void* p) { return setup_instance__9TObjEneDDFiiPvi(p); }
+int setup_instance__12TBoss8DragonFPv(void* p, int _w1, void * _w2, int _w3) { return setup_instance__9TObjEneDDFiiPvi(p); }
 
 int get_state_flags__12TBoss8DragonFPv(void* p) { return emit_effect_at_position__9TObjEneDDFPvPv(p); }
 
 int emit_effect__12TBoss8DragonFPv(void* p) { return emit_enemy_effect__9TObjEneDDFiiPvi(p); }
+
+void TBoss8Dragon__sub_802FB220(void *o, int x, u32 a) {
+    S_802FB220 s = lbl_80474ACC;
+    s.b = (*(G_802FB220 *)&TBoss8Dragon__data_80541DDC).value->f[1];
+    s.a = a;
+    setup_instance__12TBoss8DragonFPv((void*)(o), (int)(x), (void *)(&s), (int)(0));
+}
 
 void setup_breath_instance__12TBoss8DragonFPviUii(void *o, int x, u32 a, int w) {
     S_802FB290 s = TBoss8Dragon__breath_params;

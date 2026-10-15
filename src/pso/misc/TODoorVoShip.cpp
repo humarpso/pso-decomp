@@ -30,7 +30,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80163B8C_lbl_804B1760 bm_o_door_vo_ship_resource_descriptor;
-extern u32 TODoorVoShip__data_805D5980;
+extern u32 TODoorVoShip__shared_bml_archive;
 void load_shared_resource__12TODoorVoShipFv(void);
 s32 get_main_phase(void);
 s32 get_bml_motion(void *, s32);
@@ -45,7 +45,7 @@ M2C_UNK refresh_collision_body_centers(void *);
 extern RecoveredGlobal_80163C44_lbl_804B1770 lbl_804B1770;
 extern M2C_UNK __vt__12TODoorVoShip[];
 extern s32 TODoorVoShip__class_name;
-extern u32 TODoorVoShip__data_805D5980;
+extern u32 TODoorVoShip__shared_bml_archive;
 extern const f32 lbl_805DB534;
 extern const f32 lbl_805DB53C;
 extern const f32 lbl_805DB540;
@@ -182,12 +182,12 @@ void *create__12TODoorVoShipFPv(void *arg0) {
     return o;
 }
 
-extern u32 TODoorVoShip__data_805D5980;
+extern u32 TODoorVoShip__shared_bml_archive;
 
 void free_static_data__12TODoorVoShipFv(void) {
-    if ((u32) TODoorVoShip__data_805D5980 != 0U) {
-        TLobby__sub_8001FE7C((void*)TODoorVoShip__data_805D5980, 1);
-        TODoorVoShip__data_805D5980 = 0U;
+    if ((u32) TODoorVoShip__shared_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)TODoorVoShip__shared_bml_archive, 1);
+        TODoorVoShip__shared_bml_archive = 0U;
     }
 }
 
@@ -201,7 +201,7 @@ void load_shared_resource__12TODoorVoShipFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_door_vo_ship_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TODoorVoShip__data_805D5980) = var_r0;
+    (*(s32 *)&TODoorVoShip__shared_bml_archive) = var_r0;
 }
 
 void *__dt__12TODoorVoShipFv(void *arg0, s16 arg1) {
@@ -221,14 +221,14 @@ u8 *TODoorVoShip__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80163C44___vt__12TODoorVoShip *)&__vt__12TODoorVoShip).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorVoShip__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__data_805D5980), 1);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__data_805D5980), 1);
-    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorVoShip__data_805D5980), 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
+    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0xBC), u32 *, 4) - lbl_805DB53C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB53C;
-    M2C_FIELD(arg0, s32 *, 0xD0) = get_bml_motion((*(u8 * *)&TODoorVoShip__data_805D5980), 1);
-    M2C_FIELD(arg0, s32 *, 0xD4) = get_bml_model((*(u8 * *)&TODoorVoShip__data_805D5980), 0);
-    M2C_FIELD(arg0, s32 *, 0xD8) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__data_805D5980), 0);
+    M2C_FIELD(arg0, s32 *, 0xD0) = get_bml_motion((*(u8 * *)&TODoorVoShip__shared_bml_archive), 1);
+    M2C_FIELD(arg0, s32 *, 0xD4) = get_bml_model((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
+    M2C_FIELD(arg0, s32 *, 0xD8) = TObjFish__sub_8001EDB0((*(u8 * *)&TODoorVoShip__shared_bml_archive), 0);
     init_collision_body_parts(arg0, (s32) &lbl_804B1770.value, 1);
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

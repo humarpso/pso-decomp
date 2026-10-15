@@ -367,8 +367,8 @@ extern M2C_UNK *lbl_805D78C4;
 extern M2C_UNK *lbl_805D78C8;
 extern M2C_UNK *lbl_805D78CC;
 extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *lbl_805D78D4;
-extern M2C_UNK *lbl_805D78D8;
+extern M2C_UNK *quest_download_buffer_start;
+extern M2C_UNK *quest_vm_download_buffer_end;
 extern s32 lbl_805D78DC;
 extern s32 lbl_805D78F4;
 void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0);
@@ -428,8 +428,8 @@ extern M2C_UNK *lbl_805D78C4;
 extern M2C_UNK *lbl_805D78C8;
 extern M2C_UNK *lbl_805D78CC;
 extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *lbl_805D78D4;
-extern M2C_UNK *lbl_805D78D8;
+extern M2C_UNK *quest_download_buffer_start;
+extern M2C_UNK *quest_vm_download_buffer_end;
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 extern RecoveredGlobal_803E721C_lbl_8047E698 single_byte_to_jis_table;
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
@@ -638,8 +638,8 @@ extern RecoveredGlobal_803E6ACC_lbl_805A0498 quest_download_entry_table;
 extern M2C_UNK *lbl_805D78C4;
 extern M2C_UNK *lbl_805D78C8;
 extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *lbl_805D78D4;
-extern M2C_UNK *lbl_805D78D8;
+extern M2C_UNK *quest_download_buffer_start;
+extern M2C_UNK *quest_vm_download_buffer_end;
 s32 TQuestVmDownLoadServer__sub_803E6970(s32 start, s32 count, u16 *buf, s32 flag);
 extern R_803E76A4 quest_download_slot_table[];
 void invalidate_entries_by_id__22TQuestVmDownLoadServerFi(s32 id);
@@ -763,7 +763,7 @@ s32 TQuestVmDownLoadServer__sub_803E6970(s32 start, s32 count, u16 *buf, s32 fla
     hit = 0;
     while (e < end) {
         if (e == (Ent_803E6970 *)lbl_805D78C8) {
-            for (q = (u16 *)lbl_805D78D4; q < (u16 *)lbl_805D78D8; q++) {
+            for (q = (u16 *)quest_download_buffer_start; q < (u16 *)quest_vm_download_buffer_end; q++) {
                 c = *q;
                 if (c & 0x4000) {
                     c = TQuestVmDownLoadServer__sub_803E721C(c);
@@ -805,8 +805,8 @@ void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0) {
     init_entries__22TQuestVmDownLoadServerFv();
     lbl_805D78CC = &lbl_805A05D0.value;
     lbl_805D78D0 = &lbl_805A05D0.value;
-    lbl_805D78D4 = &lbl_805A05D0.value;
-    lbl_805D78D8 = &lbl_805A05D0.value;
+    quest_download_buffer_start = &lbl_805A05D0.value;
+    quest_vm_download_buffer_end = &lbl_805A05D0.value;
     lbl_805D78C4 = &quest_download_entry_table.value;
     lbl_805D78C8 = &quest_download_entry_table.value;
     lbl_805D78B8 = &lbl_805A0470.value;
@@ -933,8 +933,8 @@ typedef char RecoveredGlobal_803E6ED0_lbl_805A05D0_size[sizeof(RecoveredGlobal_8
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void) {
     lbl_805D78CC = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
     lbl_805D78D0 = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
-    lbl_805D78D4 = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
-    lbl_805D78D8 = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
+    quest_download_buffer_start = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
+    quest_vm_download_buffer_end = &(*(RecoveredGlobal_803E6ED0_lbl_805A05D0 *)&lbl_805A05D0).value;
     lbl_805D78C4 = &(*(RecoveredGlobal_803E6ED0_lbl_805A0498 *)&quest_download_entry_table).value;
     lbl_805D78C8 = &(*(RecoveredGlobal_803E6ED0_lbl_805A0498 *)&quest_download_entry_table).value;
     lbl_805D78B8 = &(*(RecoveredGlobal_803E6ED0_lbl_805A0470 *)&lbl_805A0470).value;

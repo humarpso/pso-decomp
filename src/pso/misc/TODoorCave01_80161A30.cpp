@@ -60,7 +60,7 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_80161BE4_lbl_804B13C8 TODoorCave01__collision_body_template;
 extern M2C_UNK __vt__12TODoorCave01[];
 extern s32 lbl_805D2F60;
-extern u32 lbl_805D5958;
+extern u32 door_cave_shared_bml_archive;
 extern const f32 lbl_805DB49C;
 extern const f32 lbl_805DB4A8;
 u8 *TODoorCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -73,7 +73,7 @@ extern u8 lbl_80440D7C[];
 extern u8 lbl_80440D94[];
 
 extern s32 enable_v2_features;
-extern u32 lbl_805D5958;
+extern u32 door_cave_shared_bml_archive;
 extern s32 *TODoorCave01__texture_lists;
 void load_resources__12TODoorCave01Fv(void);
 }
@@ -90,7 +90,7 @@ M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
 M2C_UNK free__11TOBoss4RockFUi(void*);
 M2C_UNK free_if_valid__10TObjPlayerFi(s32);
 
-extern u32 lbl_805D5958;
+extern u32 door_cave_shared_bml_archive;
 extern s32 *TODoorCave01__texture_lists;
 
 void free_resources__12TODoorCave01Fv(void) {
@@ -101,9 +101,9 @@ void free_resources__12TODoorCave01Fv(void) {
             TODoorCave01__texture_lists = NULL;
         }
     }
-    if ((u32) lbl_805D5958 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5958, 1);
-        lbl_805D5958 = 0U;
+    if ((u32) door_cave_shared_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)door_cave_shared_bml_archive, 1);
+        door_cave_shared_bml_archive = 0U;
     }
 }
 
@@ -117,17 +117,17 @@ void load_resources__12TODoorCave01Fv(void) {
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &cave_door01_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5958 = (u32)o;
+        door_cave_shared_bml_archive = (u32)o;
         TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D7C);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorCave01__resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5958 = (u32)o;
+        door_cave_shared_bml_archive = (u32)o;
         TODoorCave01__texture_lists[0] = load_gvm_texture_file(lbl_80440D94);
     }
-    TODoorCave01__texture_lists[1] = M2C_FIELD(M2C_FIELD(lbl_805D5958, void **, 0x42C), s32 *, 0xC);
+    TODoorCave01__texture_lists[1] = M2C_FIELD(M2C_FIELD(door_cave_shared_bml_archive, void **, 0x42C), s32 *, 0xC);
 }
 
 void *__dt__12TODoorCave01Fv(void *arg0, s16 arg1) {
@@ -150,9 +150,9 @@ u8 *TODoorCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80161BE4___vt__12TODoorCave01 *)&__vt__12TODoorCave01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F60;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5958), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5958), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5958), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_cave_shared_bml_archive), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_cave_shared_bml_archive), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_cave_shared_bml_archive), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB49C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB4A8;
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorCave01__collision_body_template.value), (int) (1));

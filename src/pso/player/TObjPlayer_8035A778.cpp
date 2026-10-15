@@ -13,7 +13,7 @@ M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
 extern M2C_UNK process_callback_list__10TObjPlayerFi[];
 extern s32 lbl_805D6F30;
 extern s32 lbl_805D6F34;
-extern s32 lbl_805D6F38;
+extern s32 node_matrix_array_base;
 extern s32 lbl_805D6F3C;
 
 void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0) {
@@ -21,7 +21,7 @@ void apply_with_callback__10TObjPlayerFPvif(void *arg0, s32 arg1, f32 farg0) {
     M2C_FIELD(arg0, f32 *, 0x24) = farg0;
     lbl_805D6F30 = 0;
     lbl_805D6F34 = M2C_FIELD(arg0, s32 *, 0x2C);
-    lbl_805D6F38 = M2C_FIELD(arg0, s32 *, 0x28);
+    node_matrix_array_base = M2C_FIELD(arg0, s32 *, 0x28);
     lbl_805D6F3C = M2C_FIELD(arg0, s32 *, 0x38);
     set_global_state__16TObjEneRe7BeruraFi(process_callback_list__10TObjPlayerFi);
     render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, s32 *, 0x1C), arg1, farg0);

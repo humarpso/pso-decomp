@@ -249,7 +249,7 @@ s16 fn_80042960(bool);
 M2C_UNK set_param__12TObjEneLappyFPvi(void *, s32);
 M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
 s32 rand();
-extern u8 lbl_80483DB8[];
+extern u8 TBoss3VoloptMonitor__init_param_block[];
 extern s8 volopt_target_slot_used[];
 extern s32 lbl_805D4C90;
 extern s32 lbl_805D4C94;
@@ -430,11 +430,11 @@ extern V12_800426EC volopt_slot_positions[];
 extern const f32 lbl_805D8754;
 extern const f32 lbl_805D8758;
 extern const f32 lbl_805D875C;
-u8 lbl_80483DB8[0x1C] = {
+u8 TBoss3VoloptMonitor__init_param_block[0x1C] = {
     0x43, 0x16, 0x00, 0x00, 0x3f, 0x0e, 0x38, 0xe3, 0x00, 0x00, 0x04, 0x00, 0x00, 0x1e, 0x00, 0x00,
     0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
 };
-void *lbl_80483DD4[44] = {
+void *TBoss3VoloptMonitor__collision_body_part_table[44] = {
     (void *)0x0, (void *)0x422c0000, (void *)0x0, (void *)0x41a00000,
     (void *)0x0, (void *)0x0, (void *)0x8005, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -447,7 +447,7 @@ void *lbl_80483DD4[44] = {
     (void *)0x41200000, (void *)0x0, (void *)0x0, (void *)0x8003,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-#define lbl_80483DD4 (*(RecoveredGlobal_80042888_lbl_80483DD4 *)lbl_80483DD4)
+#define TBoss3VoloptMonitor__collision_body_part_table (*(RecoveredGlobal_80042888_lbl_80483DD4 *)TBoss3VoloptMonitor__collision_body_part_table)
 void *lbl_80483E84[12] = {
     (void *)0x0, (void *)0x0, (void *)0xc2dc0000, (void *)0xc1d00000,
     (void *)0x0, (void *)0xc2dc0000, (void *)0x0, (void *)0x0,
@@ -615,7 +615,7 @@ void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
 }
 
 void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
-    M2C_FIELD(arg0, u8 **, 0x350) = lbl_80483DB8;
+    M2C_FIELD(arg0, u8 **, 0x350) = TBoss3VoloptMonitor__init_param_block;
     M2C_FIELD(lbl_805D4C90, s16 *, 6) = fn_80042960(M2C_FIELD(arg0, s16 *, 0x38C) % 4 != 0);
     recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4C90, lbl_805D4C94, lbl_805D4C98, lbl_805D8748, lbl_805D8748);
     M2C_FIELD(arg0, s16 *, 0x32C) = M2C_FIELD(arg0, s16 *, 0x2B8);
@@ -725,7 +725,7 @@ u8 *init_with_slot__19TBoss3VoloptMonitorFPvPviiii(u8 *arg0, u8 *arg1, s32 arg2,
         s16 k = M2C_FIELD(arg0, s16 *, 0x38C);
         m = (Mon_800426EC *) arg0;
         volopt_slot_positions[k].y = (k & 3) == 0 ? lbl_805D8758 : lbl_805D875C;
-        init_collision_body_parts(m, (G44_800426EC *) &lbl_80483DD4 + M2C_FIELD(m, s32 *, 0x368), 1);
+        init_collision_body_parts(m, (G44_800426EC *) &TBoss3VoloptMonitor__collision_body_part_table + M2C_FIELD(m, s32 *, 0x368), 1);
     }
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) |= 0x500;
     return arg0;
@@ -741,7 +741,7 @@ u8 *TBoss3VoloptMonitor__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0x368) = 0;
     M2C_FIELD(arg0, s16 *, 0x33C) = 0;
     TBoss3VoloptMonitor__sub_80042510((u8 *)((void *) (arg0)));
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_80483DD4.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&TBoss3VoloptMonitor__collision_body_part_table.value), (int) (1));
     TBoss3VoloptMonitor__sub_80042944((O_80042944 *)((void *) (arg0)), (s32)((int) (1)));
     return arg0;
 }

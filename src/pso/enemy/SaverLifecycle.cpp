@@ -327,7 +327,7 @@ void *bm_ene_df1_saver_motion_names[12] = {
 void *bm_ene_df1_saver_resource_descriptor[4] = {
     (void *)&lbl_8043A86C, (void *)&bm_ene_df1_saver_model_names, (void *)&bm_ene_df1_saver_motion_names, (void *)0x1000b,
 };
-void *lbl_80490A78[44] = {
+void *TObjEneSaver__trail_record_table[44] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f800000, (void *)0x1,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x1,
     (void *)0x20000, (void *)0x1, (void *)0x3f800000, (void *)0x4,
@@ -344,7 +344,7 @@ void *lbl_80490B28[7] = {
     (void *)0x437a0000, (void *)0x3fa00000, (void *)0x400, (void *)0x0,
     (void *)0x64, (void *)0x0, (void *)0x0,
 };
-void *lbl_80490B44[11] = {
+void *saver_collision_body_part_table[11] = {
     (void *)0x0, (void *)0x41480000, (void *)0x0, (void *)0x40c00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -2290,8 +2290,8 @@ u8 lbl_8043A824[];
 u8 lbl_8043A83C[];
 u8 lbl_8043A854[];
 u8 lbl_8043A86C[];
-#define lbl_80490A78 ((Rec_800A715C *)lbl_80490A78)
-#define lbl_80490B44 ((f32 *)lbl_80490B44)
+#define TObjEneSaver__trail_record_table ((Rec_800A715C *)TObjEneSaver__trail_record_table)
+#define saver_collision_body_part_table ((f32 *)saver_collision_body_part_table)
 #define RES ((Res_800A715C *)saver_bml_resource)
 void initialize_saver_resources(void) {
     Vec_800A715C pos;
@@ -2324,12 +2324,12 @@ void initialize_saver_resources(void) {
         r = (void *)init_trail_buffer__11TBoss4Type3FPvifff(r, 2, lbl_805D9A14, lbl_805D9A3C, lbl_805D9A40);
     }
     lbl_805D506C = (s32)r;
-    draw_trail_with_colors(lbl_805D5064, RES->sub->f8, RES->ents[lbl_80490A78[2].idx].b, 0x20, 0x21);
-    draw_trail_with_colors((s32)lbl_805D5068, RES->sub->f8, RES->ents[lbl_80490A78[4].idx].b, 0x20, 0x21);
+    draw_trail_with_colors(lbl_805D5064, RES->sub->f8, RES->ents[TObjEneSaver__trail_record_table[2].idx].b, 0x20, 0x21);
+    draw_trail_with_colors((s32)lbl_805D5068, RES->sub->f8, RES->ents[TObjEneSaver__trail_record_table[4].idx].b, 0x20, 0x21);
     pos.x = pos.y = pos.z = lbl_805D9A14;
     dir.x = lbl_805D9A94;
     dir.y = dir.z = lbl_805D9A14;
-    TObjEneMe3ShinowaMirage__sub_800D98D8(lbl_805D506C, RES->sub->f8, RES->ents[lbl_80490A78[3].idx].b, 0x19, &pos, &dir);
+    TObjEneMe3ShinowaMirage__sub_800D98D8(lbl_805D506C, RES->sub->f8, RES->ents[TObjEneSaver__trail_record_table[3].idx].b, 0x19, &pos, &dir);
     player_object_ptr_array = alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D5040 = register_boss__6TLobbyFPv(0x52);
     player_object_ptr_array[0] = dispatch_shared_handler_b__6TLobbyFPv(0x57);
@@ -2339,7 +2339,7 @@ void initialize_saver_resources(void) {
     lbl_805D504C = (f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x51);
     Init_800A715C init = lbl_8043A894;
     init.w[0] = (s32)RES->ents;
-    spawn_npc_enemy__6TLobbyFsiiiff(0x1A, RES->sub->f8, RES->sub->fC, &init, lbl_80490B44[3], lbl_805D9A14);
+    spawn_npc_enemy__6TLobbyFsiiiff(0x1A, RES->sub->f8, RES->sub->fC, &init, saver_collision_body_part_table[3], lbl_805D9A14);
 }
 Obj_800A73F8 *fn_800A73F8(Obj_800A73F8 *arg0, s16 arg1) {
     s32 i;
@@ -2392,13 +2392,13 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     set_param__12TObjEneLappyFPvi(arg0, 0x1E);
     M2C_FIELD(arg0, s32 *, 0x334) = 0;
     TObjPlayer__sub_800A7734((O_800A7734 *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
-    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80490A78;
+    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)TObjEneSaver__trail_record_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD((*(u8 * *)&saver_bml_resource), s32 *, 0x430);
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    init_collision_body_parts(arg0, (u8 *)lbl_80490B44, 1);
+    init_collision_body_parts(arg0, (u8 *)saver_collision_body_part_table, 1);
     M2C_FIELD(arg0, s16 *, 0x37C) = 0;
     M2C_FIELD(arg0, s16 *, 0x37E) = 0;
     bind_enemy_combat_stats((void *)(arg0), (int)(lbl_805D5040), (int)(player_object_ptr_array[M2C_FIELD(arg0, s16 *, 0x37C)]), (int)(lbl_805D5048));

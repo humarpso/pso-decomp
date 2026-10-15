@@ -182,7 +182,7 @@ extern char lbl_80444B78[];
 extern M2C_UNK fe_obj_tanmatu02_resource_descriptor[];
 extern M2C_UNK fs_obj_tanmatu02_resource_descriptor[];
 extern u32 TObjComputer__model_archive;
-extern u32 lbl_805D5B6C;
+extern u32 TObjComputer__texture_gvm_handle;
 extern s16 lbl_805D5B70;
 void load_computer_resources(void);
 M2C_UNK begin_effect_render__13TParticleCtrlFv();
@@ -197,7 +197,7 @@ s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(s32);
 M2C_UNK draw_ginja_object(void *);
 extern u32 actor_frame_tick;
-extern u32 lbl_805D5B6C;
+extern u32 TObjComputer__texture_gvm_handle;
 extern s16 lbl_805D5B70;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
@@ -240,7 +240,7 @@ M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
     if (self->model == NULL) {
         return;
     }
-    set_global_param__8TObjFishFi(lbl_805D5B6C);
+    set_global_param__8TObjFishFi(TObjComputer__texture_gvm_handle);
     push_matrix();
     post_translate_matrix(self->pos38);
     rotate_matrix_y(0, self->yaw60);
@@ -301,13 +301,13 @@ void *create__12TObjComputerFPv(void *arg0) {
 }
 
 extern u32 TObjComputer__model_archive;
-extern u32 lbl_805D5B6C;
+extern u32 TObjComputer__texture_gvm_handle;
 
 void free_resources__12TObjComputerFv(void) {
-    if ((u32) lbl_805D5B6C != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D5B6C);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D5B6C);
-        lbl_805D5B6C = 0U;
+    if ((u32) TObjComputer__texture_gvm_handle != 0U) {
+        TLobby__sub_803DA16C((void*)TObjComputer__texture_gvm_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjComputer__texture_gvm_handle);
+        TObjComputer__texture_gvm_handle = 0U;
     }
     if ((u32) TObjComputer__model_archive != 0U) {
         TLobby__sub_8001FE7C((void*)TObjComputer__model_archive, 1);
@@ -327,7 +327,7 @@ void load_computer_resources(void) {
             p = load_resource_from_descriptor(p, 5, fs_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
-        lbl_805D5B6C = load_gvm_texture_file(lbl_80444B60);
+        TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B60);
         lbl_805D5B70 = 0;
         break;
     default:
@@ -336,7 +336,7 @@ void load_computer_resources(void) {
             p = load_resource_from_descriptor(p, 5, fe_obj_tanmatu02_resource_descriptor, 0, 0, 0);
         }
         TObjComputer__model_archive = (u32) p;
-        lbl_805D5B6C = load_gvm_texture_file(lbl_80444B78);
+        TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B78);
         lbl_805D5B70 = 1;
         break;
     }

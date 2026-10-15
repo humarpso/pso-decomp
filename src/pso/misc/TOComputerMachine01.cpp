@@ -65,7 +65,7 @@ M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK draw_ginja_model(void *);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
 extern s32 actor_frame_tick;
-extern s32 TOComputerMachine01__data_805D58E4;
+extern s32 TOComputerMachine01__last_render_frame_tick;
 void render__19TOComputerMachine01Fv(u8 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -75,22 +75,22 @@ s32 init__5TOKeyFPv(void *, int);
 extern RecoveredGlobal_8015B644_lbl_804AFFF8 lbl_804AFFF8;
 extern M2C_UNK __vt__19TOComputerMachine01[];
 extern s32 lbl_805D2EEC;
-extern u8 *TOComputerMachine01__data_805D58E0;
+extern u8 *TOComputerMachine01__model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB390;
 extern const f32 lbl_805DB394;
 u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1);
 void TLobby__sub_8001FE7C(void *, s32);
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
-extern s32 TOComputerMachine01__data_805D58E4;
-extern u8 *TOComputerMachine01__data_805D58E0;
+extern s32 TOComputerMachine01__last_render_frame_tick;
+extern u8 *TOComputerMachine01__model_resource;
 void reset_state__19TOComputerMachine01Fv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern M2C_UNK bm_fs_obj_kenkyu_com_resource_descriptor[];
 extern RecoveredGlobal_8015B350_TOComputerMachine01__data_8050DB50 TOComputerMachine01__scroll_mesh_ptrs;
-extern s32 TOComputerMachine01__data_805D58E4;
-extern u8 *TOComputerMachine01__data_805D58E0;
+extern s32 TOComputerMachine01__last_render_frame_tick;
+extern u8 *TOComputerMachine01__model_resource;
 void load_model_resource__19TOComputerMachine01Fv(void);
 }
 
@@ -112,8 +112,8 @@ void render__19TOComputerMachine01Fv(u8 *arg0) {
     u8 *temp_r31_4;
     M2C_FIELD(arg0, s32 *, 0xE0) = ((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4));
     if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) == 1) {
-        if ((s32) TOComputerMachine01__data_805D58E4 != (s32) actor_frame_tick) {
-            TOComputerMachine01__data_805D58E4 = actor_frame_tick;
+        if ((s32) TOComputerMachine01__last_render_frame_tick != (s32) actor_frame_tick) {
+            TOComputerMachine01__last_render_frame_tick = actor_frame_tick;
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 0)), (int) (0), (int) (2), (int) (7), (int) (1));
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 4)), (int) (0), (int) (-2), (int) (7), (int) (1));
             scroll_ginja_mesh_uvs((int) (M2C_FIELD(&TOComputerMachine01__scroll_mesh_ptrs.value, s32 *, 8)), (int) (0), (int) (1), (int) (7), (int) (1));
@@ -150,13 +150,13 @@ extern M2C_UNK __vt__19TOComputerMachine01[];
 
 void reset_state__19TOComputerMachine01Fv(void) {
     s32 i;
-    TOComputerMachine01__data_805D58E4 = 0;
+    TOComputerMachine01__last_render_frame_tick = 0;
     for (i = 0; i < 0x4; i++) {
         ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[i] = 0;
     }
-    if ((*(void * *)&TOComputerMachine01__data_805D58E0) != 0) {
-        TLobby__sub_8001FE7C((*(void * *)&TOComputerMachine01__data_805D58E0), 1);
-        (*(void * *)&TOComputerMachine01__data_805D58E0) = 0;
+    if ((*(void * *)&TOComputerMachine01__model_resource) != 0) {
+        TLobby__sub_8001FE7C((*(void * *)&TOComputerMachine01__model_resource), 1);
+        (*(void * *)&TOComputerMachine01__model_resource) = 0;
     }
 }
 
@@ -167,13 +167,13 @@ void load_model_resource__19TOComputerMachine01Fv(void) {
     if (o != NULL) {
         o = load_resource_from_descriptor(o, 1, bm_fs_obj_kenkyu_com_resource_descriptor, 0, 0, 0);
     }
-    TOComputerMachine01__data_805D58E0 = o;
+    TOComputerMachine01__model_resource = o;
     n = ((Obj_8015B544 *)o)->model->res->head;
     ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[3] = n->val;
     ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[2] = n->next->val;
     ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[1] = n->next->next->val;
     ((s32 *)&TOComputerMachine01__scroll_mesh_ptrs)[0] = n->next->next->next->val;
-    TOComputerMachine01__data_805D58E4 = 0;
+    TOComputerMachine01__last_render_frame_tick = 0;
 }
 
 void *__dt__19TOComputerMachine01Fv(void *arg0, s16 arg1) {
@@ -195,8 +195,8 @@ u8 *TOComputerMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015B644___vt__19TOComputerMachine01 *)&__vt__19TOComputerMachine01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EEC;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__data_805D58E0, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__data_805D58E0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__model_resource, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOComputerMachine01__model_resource, u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB390;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB394;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);

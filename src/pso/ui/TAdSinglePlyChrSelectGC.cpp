@@ -47,7 +47,7 @@ void reset__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 M2C_UNK fn_802D50B8(void *, P_802D4F2C *, P_802D4F2C *, P_802D4F2C *);
 s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
-extern u8 lbl_80472510[];
+extern u8 single_chr_select_item_rect_table[];
 extern u8 lbl_80472530[];
 extern T_802D4F2C lbl_80472570;
 extern M2C_UNK __vt__23TAdSinglePlyChrSelectGC[];
@@ -205,7 +205,7 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
     M2C_FIELD(arg0, void **, 0x34) = p;
     p = __nw__7TObjectFUl(0x708);
     if (p != NULL) {
-        p = __ct__14TAdSelectCurGCFv(p, arg0, lbl_80472510, lbl_80472530);
+        p = __ct__14TAdSelectCurGCFv(p, arg0, single_chr_select_item_rect_table, lbl_80472530);
     }
     M2C_FIELD(arg0, void **, 0x2C) = p;
     p = __nw__7TObjectFUl(0x9C);

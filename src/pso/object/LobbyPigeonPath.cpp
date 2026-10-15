@@ -218,7 +218,7 @@ s32 get_bml_motion(void *, s32);
 
 s32 rand();
 extern M2C_UNK lobby_pigeon_vtable[];
-extern void* lbl_805D67B8;
+extern void* lobby_pigeon_bml_archive;
 LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void* source);
 
 void update_lobby_pigeon_visibility(LobbyPigeon *self);
@@ -625,14 +625,14 @@ extern M2C_UNK jungle_seagull_vtable[];
 extern M2C_UNK lbl_804E0910[];
 extern M2C_UNK lbl_804E094C[];
 extern M2C_UNK seabed_dolphin_vtable[];
-extern u32 lbl_805D6798;
-extern s32 lbl_805D679C;
-extern u32 lbl_805D67A0;
-extern u32 lbl_805D67A4;
-extern u32 lbl_805D67A8;
-extern u32 lbl_805D67AC;
-extern u32 lbl_805D67B0;
-extern u32 lbl_805D67B4;
+extern u32 seabed_dolphin_bml_archive;
+extern s32 seabed_dolphin_texture_handle;
+extern u32 jungle_ebi_model_resource;
+extern u32 jungle_ebi_texture_gvm_handle;
+extern u32 jungle_bird_bml_resource;
+extern u32 lobby_pigeon_texture_gvm;
+extern u32 lobby_kamome_model_resource;
+extern u32 lobby_kamome_texture_gvm_handle;
 extern void *tl_05;
 
 #pragma push
@@ -745,8 +745,8 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
     self->vtable = ((void* *)&lobby_pigeon_vtable);
     ((void (*)(LobbyPigeon *))select_lobby_pigeon_model)(self);
     self->scale = (1.0f);
-    self->model = ((void*)get_bml_model((void *)(lbl_805D67B8), (s32)(self->modelIndex)));
-    self->animation = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(0)));
+    self->model = ((void*)get_bml_model((void *)(lobby_pigeon_bml_archive), (s32)(self->modelIndex)));
+    self->animation = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(0)));
     selector = self->movementSelector;
     if (selector < 0) movement = 0;
     else {
@@ -754,7 +754,7 @@ LobbyPigeon* construct_lobby_pigeon(LobbyPigeon* self, void* parent, const void*
         if (selector <= 2) movement = selector;
     }
     self->movement = movement;
-    self->path = ((void*)get_bml_motion((void *)(lbl_805D67B8), (s32)(((PigeonMovement *)&lobby_pigeon_path_profiles)[self->movement].motion)));
+    self->path = ((void*)get_bml_motion((void *)(lobby_pigeon_bml_archive), (s32)(((PigeonMovement *)&lobby_pigeon_path_profiles)[self->movement].motion)));
     self->pathFrame = (0.0f);
     self->animationFrame = (0.0f);
     ((void (*)(LobbyPigeon *))initialize_lobby_pigeon_path)(self);
@@ -774,14 +774,14 @@ void *create_child_object__10TObjPlayerFPv(void *arg0) {
 }
 
 void destroy_instance__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D67B4 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D67B4);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67B4);
-        lbl_805D67B4 = 0U;
+    if ((u32) lobby_kamome_texture_gvm_handle != 0U) {
+        TLobby__sub_803DA16C((void*)lobby_kamome_texture_gvm_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lobby_kamome_texture_gvm_handle);
+        lobby_kamome_texture_gvm_handle = 0U;
     }
-    if ((u32) lbl_805D67B0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D67B0, 1);
-        lbl_805D67B0 = 0U;
+    if ((u32) lobby_kamome_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)lobby_kamome_model_resource, 1);
+        lobby_kamome_model_resource = 0U;
     }
 }
 
@@ -793,8 +793,8 @@ void load_kamome_resources__10TObjPlayerFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_kamome_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D67B0) = var_r0;
-    (*(u8 * *)&lbl_805D67B4) = load_gvm_texture_file((s32) &lbl_80471978.value);
+    (*(s32 *)&lobby_kamome_model_resource) = var_r0;
+    (*(u8 * *)&lobby_kamome_texture_gvm_handle) = load_gvm_texture_file((s32) &lbl_80471978.value);
 }
 
 s32 update_path_steering__10TObjPlayerFPv(Obj_802C1428 *self) {
@@ -886,7 +886,7 @@ void draw_debug_lines__10TObjPlayerFPv(u8 *arg0) {
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((M2C_UNK (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFi((*(s32 *)&lbl_805D67B4));
+    set_global_param__8TObjFishFi((*(s32 *)&lobby_kamome_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -946,12 +946,12 @@ void *TObjPlayer__sub_802C19E8(void *arg0) {
 
     ((M2C_UNK (*)(void))TObjPathObj__ct)();
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = jungle_seagull_vtable;
-    M2C_FIELD(arg0, s32 *, 0x98) = ((s32 (*)(s32, M2C_UNK))get_bml_model)((*(s32 *)&lbl_805D67B0), 0);
-    M2C_FIELD(arg0, s32 *, 0x9C) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lbl_805D67B0), 0);
+    M2C_FIELD(arg0, s32 *, 0x98) = ((s32 (*)(s32, M2C_UNK))get_bml_model)((*(s32 *)&lobby_kamome_model_resource), 0);
+    M2C_FIELD(arg0, s32 *, 0x9C) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), 0);
     temp_r3 = M2C_FIELD(arg0, s32 *, 0x84);
     var_r0 = (temp_r3 < 0) ? 0 : (temp_r3 > 2) ? 2 : temp_r3;
     M2C_FIELD(arg0, s32 *, 0xC8) = var_r0;
-    M2C_FIELD(arg0, s32 *, 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lbl_805D67B0), *(s32 *)((s8 *)((M2C_UNK *)&jungle_seagull_path_profiles) + (M2C_FIELD(arg0, s32 *, 0xC8) * 0x14)));
+    M2C_FIELD(arg0, s32 *, 0xA0) = ((s32 (*)(s32, s32))get_bml_motion)((*(s32 *)&lobby_kamome_model_resource), *(s32 *)((s8 *)((M2C_UNK *)&jungle_seagull_path_profiles) + (M2C_FIELD(arg0, s32 *, 0xC8) * 0x14)));
     M2C_FIELD(arg0, f32 *, 0xA4) = (f32) (0.0f);
     M2C_FIELD(arg0, f32 *, 0xA8) = (f32) (0.0f);
     ((M2C_UNK (*)(void *))TObjPlayer__sub_802C1660)(arg0);
@@ -971,14 +971,14 @@ void *create__10TObjPlayerFPv(void *arg0) {
 }
 
 void free_statics__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D67AC != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D67AC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67AC);
-        lbl_805D67AC = 0U;
+    if ((u32) lobby_pigeon_texture_gvm != 0U) {
+        TLobby__sub_803DA16C((void*)lobby_pigeon_texture_gvm);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(lobby_pigeon_texture_gvm);
+        lobby_pigeon_texture_gvm = 0U;
     }
-    if ((u32) lbl_805D67A8 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D67A8, 1);
-        lbl_805D67A8 = 0U;
+    if ((u32) jungle_bird_bml_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)jungle_bird_bml_resource, 1);
+        jungle_bird_bml_resource = 0U;
     }
 }
 
@@ -990,8 +990,8 @@ void load_jungle_bird_resources__10TObjPlayerFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_bird_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D67A8) = var_r0;
-    (*(u8 * *)&lbl_805D67AC) = load_gvm_texture_file((s32) &lbl_80471990.value);
+    (*(s32 *)&jungle_bird_bml_resource) = var_r0;
+    (*(u8 * *)&lobby_pigeon_texture_gvm) = load_gvm_texture_file((s32) &lbl_80471990.value);
 }
 
 s32 TObjPlayer__sub_802C1BFC(Obj_802C1BFC *self) {
@@ -1083,7 +1083,7 @@ void draw_demo_lines_and_meshes__10TObjPlayerFPv(u8 *arg0) {
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((M2C_UNK (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFi((*(s32 *)&lbl_805D67AC));
+    set_global_param__8TObjFishFi((*(s32 *)&lobby_pigeon_texture_gvm));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1125,8 +1125,8 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
   s32 temp_r3;
   ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C20E8_lbl_804E0910 *)&lbl_804E0910).value;
-  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D67A8), 0);
-  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D67A8), 0);
+  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&jungle_bird_bml_resource), 0);
+  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&jungle_bird_bml_resource), 0);
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x84));
   if (temp_r3 < 0)
   {
@@ -1141,7 +1141,7 @@ u8 *TObjPlayer__sub_802C20E8(u8 *arg0, s32 arg1, const void* _w2) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = var_r0;
-  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A8), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C20E8_lbl_80471890 *)&lobby_pigeon_path_parameters).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
+  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&jungle_bird_bml_resource), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C20E8_lbl_80471890 *)&lobby_pigeon_path_parameters).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (0.0f);
   ((s32 (*)(void *))TObjPlayer__sub_802C1E34)(arg0);
@@ -1157,14 +1157,14 @@ void *create_path_obj__10TObjPlayerFPv(void *arg0) {
 }
 
 void free_chr_select__10TObjPlayerFv(void) {
-    if ((u32) lbl_805D67A4 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D67A4);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D67A4);
-        lbl_805D67A4 = 0U;
+    if ((u32) jungle_ebi_texture_gvm_handle != 0U) {
+        TLobby__sub_803DA16C((void*)jungle_ebi_texture_gvm_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(jungle_ebi_texture_gvm_handle);
+        jungle_ebi_texture_gvm_handle = 0U;
     }
-    if ((u32) lbl_805D67A0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D67A0, 1);
-        lbl_805D67A0 = 0U;
+    if ((u32) jungle_ebi_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)jungle_ebi_model_resource, 1);
+        jungle_ebi_model_resource = 0U;
     }
 }
 
@@ -1176,8 +1176,8 @@ void load_jungle_ebi_resources__10TObjPlayerFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_jungle_ebi_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D67A0) = var_r0;
-    (*(u8 * *)&lbl_805D67A4) = load_gvm_texture_file((s32) &lbl_804719A4.value);
+    (*(s32 *)&jungle_ebi_model_resource) = var_r0;
+    (*(u8 * *)&jungle_ebi_texture_gvm_handle) = load_gvm_texture_file((s32) &lbl_804719A4.value);
 }
 
 struct Pl_802C26E4;
@@ -1294,7 +1294,7 @@ void draw_demo_trajectory__10TObjPlayerFPv(u8 *arg0) {
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((M2C_UNK (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFi((*(s32 *)&lbl_805D67A4));
+    set_global_param__8TObjFishFi((*(s32 *)&jungle_ebi_texture_gvm_handle));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1335,8 +1335,8 @@ u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
   s32 temp_r3;
   ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C27FC_lbl_804E094C *)&lbl_804E094C).value;
-  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D67A0), 0);
-  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D67A0), 0);
+  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&jungle_ebi_model_resource), 0);
+  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&jungle_ebi_model_resource), 0);
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x84));
   if (temp_r3 < 0)
   {
@@ -1351,7 +1351,7 @@ u8 *TObjPlayer__sub_802C27FC(u8 *arg0, s32 arg1, const void* _w2) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = var_r0;
-  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D67A0), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C27FC_lbl_80471848 *)&jungle_ebi_path_profiles).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x18))));
+  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&jungle_ebi_model_resource), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C27FC_lbl_80471848 *)&jungle_ebi_path_profiles).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x18))));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (0.0f);
   ((s32 (*)(void *))TObjPlayer__sub_802C2548)(arg0);
@@ -1367,14 +1367,14 @@ void *TObjPlayer__sub_802C28B4(void *arg0) {
 }
 
 void TObjPlayer__sub_802C2900(void) {
-    if ((u32) (*(u32 *)&lbl_805D679C) != 0U) {
-        TLobby__sub_803DA16C((void*)(*(u32 *)&lbl_805D679C));
-        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&lbl_805D679C));
-        (*(u32 *)&lbl_805D679C) = 0U;
+    if ((u32) (*(u32 *)&seabed_dolphin_texture_handle) != 0U) {
+        TLobby__sub_803DA16C((void*)(*(u32 *)&seabed_dolphin_texture_handle));
+        safe_free__23TAdSinglePlyChrSelectGCFUi((*(u32 *)&seabed_dolphin_texture_handle));
+        (*(u32 *)&seabed_dolphin_texture_handle) = 0U;
     }
-    if ((u32) lbl_805D6798 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D6798, 1);
-        lbl_805D6798 = 0U;
+    if ((u32) seabed_dolphin_bml_archive != 0U) {
+        TLobby__sub_8001FE7C((void*)seabed_dolphin_bml_archive, 1);
+        seabed_dolphin_bml_archive = 0U;
     }
 }
 
@@ -1383,11 +1383,11 @@ void load_seabed_dolphin__10TObjPlayerFv(void) {
     if (o != 0) {
         o = ((Obj_802C2958 * (*)(Obj_802C2958 *, s32, void *, s32, s32, s32))load_resource_from_descriptor)(o, 5, bm_obj_seabed_dolphin_resource_descriptor, 0, 0, 0);
     }
-    (*(Obj_802C2958 * *)&lbl_805D6798) = o;
-    lbl_805D679C = ((s32 (*)(void *))load_gvm_texture_file)(lbl_804719B8);
+    (*(Obj_802C2958 * *)&seabed_dolphin_bml_archive) = o;
+    seabed_dolphin_texture_handle = ((s32 (*)(void *))load_gvm_texture_file)(lbl_804719B8);
     Q_802C2958 q = *(Q_802C2958 *)lbl_80471838;
-    q.a = (*(Obj_802C2958 * *)&lbl_805D6798)->f430;
-    spawn_npc_enemy__6TLobbyFsiiiff(0x40, ((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&lbl_805D6798), 0, ((Q_802C2958 *)lbl_80471838)->c, ((Q_802C2958 *)lbl_80471838)->b, ((Q_802C2958 *)lbl_80471838)->a, lbl_80471838), lbl_805D679C, &q, (16.0f), (1e+01f));
+    q.a = (*(Obj_802C2958 * *)&seabed_dolphin_bml_archive)->f430;
+    spawn_npc_enemy__6TLobbyFsiiiff(0x40, ((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)lbl_80471838)->c, ((Q_802C2958 *)lbl_80471838)->b, ((Q_802C2958 *)lbl_80471838)->a, lbl_80471838), seabed_dolphin_texture_handle, &q, (16.0f), (1e+01f));
 }
 
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {
@@ -1479,7 +1479,7 @@ void draw_model_parts__10TObjPlayerFPv(u8 *arg0) {
     if ((check_demo_mode__10TObjPlayerFv() == 1) && (get_state_flag__9TMainTaskFv() == 0)) {
         ((M2C_UNK (*)(void *, s32, s32, f32))draw_line_strip__10TObjPlayerFPviif)(arg0, M2C_FIELD(arg0, s32 *, 0x98), M2C_FIELD(arg0, s32 *, 0xA0), (1.0f));
     }
-    set_global_param__8TObjFishFi(lbl_805D679C);
+    set_global_param__8TObjFishFi(seabed_dolphin_texture_handle);
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
     rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
@@ -1523,8 +1523,8 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
   s32 temp_r3;
   ((u8 * (*)(LobbyPigeon*, void*, const void*))TObjPathObj__ct)((LobbyPigeon*)(arg0), (void*)(arg1), (const void*)(_w2));
   *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802C2F04_lbl_804E0988 *)&seabed_dolphin_vtable).value;
-  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&lbl_805D6798), 0);
-  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&lbl_805D6798), 5);
+  *((s32 *) (((s8 *) arg0) + 0x98)) = get_bml_model((*(u8 * *)&seabed_dolphin_bml_archive), 0);
+  *((s32 *) (((s8 *) arg0) + 0x9C)) = get_bml_motion((*(u8 * *)&seabed_dolphin_bml_archive), 5);
   temp_r3 = *((s32 *) (((s8 *) arg0) + 0x84));
   if (temp_r3 < 0)
   {
@@ -1539,7 +1539,7 @@ u8 *TObjPlayer__sub_802C2F04(u8 *arg0, s32 arg1, const void* _w2) {
     }
   }
   *((s32 *) (((s8 *) arg0) + 0xC8)) = var_r0;
-  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&lbl_805D6798), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C2F04_lbl_804717D4 *)&seabed_dolphin_path_profiles).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
+  *((s32 *) (((s8 *) arg0) + 0xA0)) = get_bml_motion((*(u8 * *)&seabed_dolphin_bml_archive), *((M2C_UNK *) (((s8 *) (&(*(RecoveredGlobal_802C2F04_lbl_804717D4 *)&seabed_dolphin_path_profiles).value)) + ((*((s32 *) (((s8 *) arg0) + 0xC8))) * 0x14))));
   *((f32 *) (((s8 *) arg0) + 0xA4)) = (f32) (0.0f);
   *((f32 *) (((s8 *) arg0) + 0xA8)) = (f32) (0.0f);
   ((s32 (*)(void *))TObjPlayer__sub_802C2C48)(arg0);

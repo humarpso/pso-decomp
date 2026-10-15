@@ -64,7 +64,7 @@ void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1);
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1);
 void fn_800FF8CC(void *, void *, void *, void *);
 void *TObjEZRopeBase__ct(void *);
-extern u8 lbl_8049DCF0[];
+extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
 void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3);
 M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
@@ -85,7 +85,7 @@ M2C_UNK set_chunk_material_color(void *);
 M2C_UNK draw_chunk_object(void *);
 extern const f64 lbl_8043DF40;
 extern u8 lbl_8048DEF4[];
-extern u8 lbl_8049DCF0[];
+extern u8 ezrope_chunk_material_color_table[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -125,7 +125,7 @@ void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1) {
 
 #define SELF ((Obj_800FF070 *)arg0)
 void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
-    s32 base = (s32)lbl_8049DCF0;
+    s32 base = (s32)ezrope_chunk_material_color_table;
     s32 n1;
     s32 n2;
     E2_800FF070 *q;
@@ -254,7 +254,7 @@ void TObjPlayer__sub_800FF2D0(Obj_800FF2D0 *arg0) {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x10;
         set_chunk_material_override_pair(0, 0x800);
-        set_chunk_material_color(lbl_8049DCF0);
+        set_chunk_material_color(ezrope_chunk_material_color_table);
         for (b = arg0->blobs; b->scale >= lbl_805DAA58; b++) {
             f32 s;
             push_matrix();

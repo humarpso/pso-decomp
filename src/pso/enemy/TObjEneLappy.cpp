@@ -1731,7 +1731,7 @@ extern "C" void update_defense_stat_status();
 extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-extern void *lbl_80492BD8[3];
+extern void *TObjEneLappy__model_filename_table[3];
 extern void *lbl_80492BE4[11];
 extern void *lbl_80492C20[3];
 extern void *lbl_80492C2C[11];
@@ -1747,7 +1747,7 @@ extern void *lbl_80492D88[3];
 extern void *lbl_80492D94[11];
 extern void *lbl_80492DD0[3];
 extern void *lbl_80492DDC[11];
-void *lbl_80492BD8[3] = {
+void *TObjEneLappy__model_filename_table[3] = {
     (void *)&lbl_8043B7D8, (void *)&lbl_8043B7EC, (void *)0x0,
 };
 void *lbl_80492BE4[11] = {
@@ -1756,7 +1756,7 @@ void *lbl_80492BE4[11] = {
     (void *)&lbl_8043B8B4, (void *)&lbl_8043B8C8, (void *)0x0,
 };
 void *lbl_80492C10[4] = {
-    (void *)&lbl_8043B8DC, (void *)&lbl_80492BD8, (void *)&lbl_80492BE4, (void *)0x2000a,
+    (void *)&lbl_8043B8DC, (void *)&TObjEneLappy__model_filename_table, (void *)&lbl_80492BE4, (void *)0x2000a,
 };
 void *lbl_80492C20[3] = {
     (void *)&lbl_8043B7D8, (void *)&lbl_8043B7EC, (void *)0x0,

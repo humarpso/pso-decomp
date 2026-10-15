@@ -32,7 +32,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_801587D8_lbl_804AFC44 bm_o_bind_resource_descriptor;
-extern u32 TOBind__data_805D58A0;
+extern u32 TOBind__static_model_resource;
 void load_static_resource__6TOBindFv(void);
 u8 *get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(int, int);
@@ -44,7 +44,7 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80158890_lbl_804AFC54 lbl_804AFC54;
 extern M2C_UNK __vt__6TOBind[];
 extern s32 lbl_805D2EA8;
-extern u32 TOBind__data_805D58A0;
+extern u32 TOBind__static_model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB300;
 extern const f32 lbl_805DB304;
@@ -113,12 +113,12 @@ void *create__6TOBindFPv(void *arg0) {
     return o;
 }
 
-extern u32 TOBind__data_805D58A0;
+extern u32 TOBind__static_model_resource;
 
 void free_static_model__6TOBindFv(void) {
-    if ((u32) TOBind__data_805D58A0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOBind__data_805D58A0, 1);
-        TOBind__data_805D58A0 = 0U;
+    if ((u32) TOBind__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOBind__static_model_resource, 1);
+        TOBind__static_model_resource = 0U;
     }
 }
 
@@ -132,7 +132,7 @@ void load_static_resource__6TOBindFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_o_bind_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TOBind__data_805D58A0) = var_r0;
+    (*(s32 *)&TOBind__static_model_resource) = var_r0;
 }
 
 void *__dt__6TOBindFv(void *arg0, s16 arg1) {
@@ -155,11 +155,11 @@ u8 *TOBind__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     M2C_FIELD(arg0, s32 *, 0xB0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
-    M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__data_805D58A0)), (int) (1));
-    M2C_FIELD(arg0, u8 **, 0xCC) = get_bml_motion((*(s32 *)&TOBind__data_805D58A0), 0);
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
+    M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOBind__static_model_resource)), (int) (1));
+    M2C_FIELD(arg0, u8 **, 0xCC) = get_bml_motion((*(s32 *)&TOBind__static_model_resource), 0);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB300;
     M2C_FIELD(arg0, f32 *, 0xBC) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xCC), u32 *, 4) - lbl_805DB304);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB304;

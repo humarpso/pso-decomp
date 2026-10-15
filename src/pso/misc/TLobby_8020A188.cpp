@@ -19,7 +19,7 @@ s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
 
 extern u32 lbl_805D60A8;
 extern u32 lbl_805D60AC;
-extern u32 lbl_805D60B0;
+extern u32 TLobby__item_data_table_buffer;
 extern s32 lbl_805D60B4;
 extern s32 lbl_805D60BC;
 extern s32 lbl_805D60C0;
@@ -32,7 +32,7 @@ void init_buffers__6TLobbyFii(s32 arg0, s32 arg1) {
     lbl_805D60A8 = find_header_by_id__6TLobbyFPvi(arg1, arg0);
     lbl_805D60AC = find_chunk_by_id__6TLobbyFPvi(arg1, arg0);
     temp_r3 = find_type5_header__6TLobbyFPvi(arg1, arg0);
-    lbl_805D60B0 = temp_r3;
+    TLobby__item_data_table_buffer = temp_r3;
     if (((u32) lbl_805D60A8 != 0U) && ((u32) lbl_805D60AC != 0U) && (temp_r3 != 0U)) {
         lbl_805D60B4 = alloc__22TQuestVmDownLoadServerFPv(0x9000);
         lbl_805D60BC = alloc__22TQuestVmDownLoadServerFPv(0x1400);

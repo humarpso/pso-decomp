@@ -52,18 +52,18 @@ M2C_UNK set_state__16TAdStorySelectGCFi(void*);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
-extern RecoveredGlobal_802078A4_lbl_8044B778 lbl_8044B778;
+extern RecoveredGlobal_802078A4_lbl_8044B778 online_floor_map_variation_dimension_table;
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int selected_episode;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
 M2C_UNK memset(void *, int, int);
-extern struct Ids_80207C60 lbl_8044B898;
+extern struct Ids_80207C60 floor_map_registry_id_table;
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 void init_floor_map_registry(void);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 M2C_UNK memset(void *, int, int);
-extern struct Ids_80207C60 lbl_8044B8E0;
+extern struct Ids_80207C60 boss_warp_area_id_table;
 void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
 s32 get_instance__6TLobbyFv();
@@ -223,8 +223,8 @@ void randomize_adventure_maps(void) {
           *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         case 15:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
-          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B778.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         default:
           *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
@@ -241,7 +241,7 @@ void randomize_adventure_maps(void) {
 #pragma push
 #pragma opt_common_subs off
 void TLobby__sub_80207BB0(void) {
-    struct Ids_80207C60 ids = lbl_8044B8E0;
+    struct Ids_80207C60 ids = boss_warp_area_id_table;
     s32 i;
     memset((void *) ((struct Map_80207C60 *)&floor_map_registry), 0, 0xD8);
     for (i = 0; i < 18; i++) {
@@ -254,7 +254,7 @@ void TLobby__sub_80207BB0(void) {
 #pragma pop
 
 void init_floor_map_registry(void) {
-    struct Ids_80207C60 ids = lbl_8044B898;
+    struct Ids_80207C60 ids = floor_map_registry_id_table;
     s32 i;
     memset((void *) ((struct Map_80207C60 *)&floor_map_registry), 0, 0xD8);
     for (i = 0; i < 18; i++) {

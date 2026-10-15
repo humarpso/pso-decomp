@@ -104,19 +104,19 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BD54_lbl_804AA3F0 bm_n_efsm_i_body_3_resource_descriptor;
-extern u32 TObjNpcMaleDwarf__data_805D57E8;
+extern u32 TObjNpcMaleDwarf__shared_model_resource;
 void load_shared_resource__16TObjNpcMaleDwarfFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014BF2C_lbl_804AA580 bm_n_efm_i_body_resource_descriptor;
-extern u32 TObjNpcMaleFat__data_805D57F0;
+extern u32 TObjNpcMaleFat__static_model_resource;
 void load_static_resource__14TObjNpcMaleFatFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__16TObjNpcMaleDwarf[];
 extern s32 TObjNpcMaleDwarf__name;
-extern u32 TObjNpcMaleDwarf__data_805D57E8;
+extern u32 TObjNpcMaleDwarf__shared_model_resource;
 u8 *TObjNpcMaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -133,12 +133,12 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
-extern u32 TObjNpcMaleDwarf__data_805D57E8;
+extern u32 TObjNpcMaleDwarf__shared_model_resource;
 
 void unload_static_data__16TObjNpcMaleDwarfFv(void) {
-    if ((u32) TObjNpcMaleDwarf__data_805D57E8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcMaleDwarf__data_805D57E8, 1);
-        TObjNpcMaleDwarf__data_805D57E8 = 0U;
+    if ((u32) TObjNpcMaleDwarf__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcMaleDwarf__shared_model_resource, 1);
+        TObjNpcMaleDwarf__shared_model_resource = 0U;
     }
 }
 
@@ -152,7 +152,7 @@ void load_shared_resource__16TObjNpcMaleDwarfFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_efsm_i_body_3_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcMaleDwarf__data_805D57E8) = var_r0;
+    (*(s32 *)&TObjNpcMaleDwarf__shared_model_resource) = var_r0;
 }
 
 void *__dt__16TObjNpcMaleDwarfFv(void *arg0, s16 arg1) {
@@ -175,8 +175,8 @@ u8 *TObjNpcMaleDwarf__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcMaleDwarf__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__data_805D57E8), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__data_805D57E8), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__shared_model_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcMaleDwarf__shared_model_resource), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -195,12 +195,12 @@ void * TObjNpcMaleFat__create(void *arg0) {
     return o2;
 }
 
-extern u32 TObjNpcMaleFat__data_805D57F0;
+extern u32 TObjNpcMaleFat__static_model_resource;
 
 void free_static_model__14TObjNpcMaleFatFv(void) {
-    if ((u32) TObjNpcMaleFat__data_805D57F0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcMaleFat__data_805D57F0, 1);
-        TObjNpcMaleFat__data_805D57F0 = 0U;
+    if ((u32) TObjNpcMaleFat__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcMaleFat__static_model_resource, 1);
+        TObjNpcMaleFat__static_model_resource = 0U;
     }
 }
 void load_static_resource__14TObjNpcMaleFatFv(void) {
@@ -211,7 +211,7 @@ void load_static_resource__14TObjNpcMaleFatFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_n_efm_i_body_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcMaleFat__data_805D57F0) = var_r0;
+    (*(s32 *)&TObjNpcMaleFat__static_model_resource) = var_r0;
 }
 
 }

@@ -11,7 +11,7 @@ struct RecoveredGlobal_8034A5D0_lbl_804EFF80 {
 extern "C" {
 s32 __nw__7TObjectFUl(int);
 s32 TAdMcCheckGC__ct(int, void *, void *);
-extern RecoveredGlobal_8034A5D0_lbl_804EFF80 lbl_804EFAA0;
+extern RecoveredGlobal_8034A5D0_lbl_804EFF80 memcard_cursor_instance_table;
 s32 fn_8033F314(s32 arg0, s32 arg1);
 }
 
@@ -23,15 +23,15 @@ s32 fn_8033F314(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD(&lbl_804EFAA0.value, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) M2C_FIELD(&memcard_cursor_instance_table.value, M2C_UNK *, temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x3c));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = TAdMcCheckGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));
         }
-        M2C_FIELD(&lbl_804EFAA0.value, M2C_UNK *, temp_r30) = var_r0;
+        M2C_FIELD(&memcard_cursor_instance_table.value, M2C_UNK *, temp_r30) = var_r0;
     }
-    return M2C_FIELD(&lbl_804EFAA0.value, M2C_UNK *, temp_r30);
+    return M2C_FIELD(&memcard_cursor_instance_table.value, M2C_UNK *, temp_r30);
 }
 
 }

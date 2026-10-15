@@ -156,11 +156,11 @@ char *get_shared_capture_texture_list(void) {
 
 void TObjPlayer__sub_803078BC(void) {  }
 
-extern s32 lbl_805D6A5C;
+extern s32 ending_movie_active_flag;
 
 void disable_keyboard_control__10TObjPlayerFv(void) {
     queue_destruction__7TObjectFv();
-    if ((s32) lbl_805D6A5C != 0) {
+    if ((s32) ending_movie_active_flag != 0) {
         TKeyBoardControl__sub_8000F9CC(2);
         return;
     }

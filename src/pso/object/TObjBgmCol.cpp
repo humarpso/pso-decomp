@@ -11,7 +11,7 @@ void play_lobby_theme_music__14TObjBgmColCtrlFv();
 s32 check__10TObjBgmColFPv(void *arg0);
 s32 get_quest_bgm_issued_flag();
 void play_area_music(s32);
-extern s32 lbl_804B5780[];
+extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 extern s32 lbl_805D5B04;
 void run_task__10TObjBgmColFv(Zone_8017E748 *zone);
@@ -48,7 +48,7 @@ void run_task__10TObjBgmColFv(Zone_8017E748 *zone) {
                 if (zone->category == 4) {
                     play_lobby_theme_music__14TObjBgmColCtrlFv();
                 } else {
-                    play_area_music(lbl_804B5780[zone->category]);
+                    play_area_music(area_music_filename_table[zone->category]);
                 }
                 bgm_zone_category = zone->category;
             }

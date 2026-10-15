@@ -90,7 +90,7 @@ s32 TObjPlayer__sub_803D9DA8(int, void *);
 s32 TObjPlayer__sub_803DA104(int);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, void *);
 void TObjPlayer__sub_803DAD24(void);
-extern s32 lbl_805D7758;
+extern s32 player_ref_entry_active_count;
 s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2);
 s32 TObjPlayer__sub_803DA8E4(u32 arg0, u32 arg1, s32 arg2, s32 *arg3);
 s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2);
@@ -249,7 +249,7 @@ s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
     ((void (*)(u8 *)) TObjPlayer__sub_803DAD24)(spC);
     M2C_FIELD(spC, s32 *, 0x10) = 1;
     M2C_FIELD(M2C_FIELD(spC, s32 **, 0xC), s32 *, 0x24) = 1;
-    lbl_805D7758 += 1;
+    player_ref_entry_active_count += 1;
     return temp_r3;
 }
 

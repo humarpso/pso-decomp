@@ -51,7 +51,7 @@ extern Ent_802066BC scene_format_dispatch_tables[];
 extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
 extern u32 TScene__map_rel_load_buffer;
-extern s32 TScene__data_805D6010;
+extern s32 TScene__map_rel_load_size_limit;
 void load_scene_map_file(s32 arg0);
 M2C_UNK copy_name(M2C_UNK *);
 s32 update_lobby_scene__6TSceneFPv(char *);
@@ -70,11 +70,11 @@ extern s32 TScene__current_floor_name;
 extern s32 current_floor_index;
 extern s32 scene_resource_index;
 extern void *TScene__data_805D5FCC;
-extern s8 TScene__data_805D5FD4;
+extern s8 TScene__floor_scene_ready_flag;
 extern s32 TScene__data_805D5FE0;
 extern f32 TScene__visibility_radius_margin;
-extern s32 TScene__data_805D5FEC;
-extern s32 TScene__data_805D5FF0;
+extern s32 TScene__map_section_render_callback;
+extern s32 TScene__active_scene_callback;
 extern s32 TScene__render_callback;
 extern const f32 TScene__data_805DC5D8;
 extern M2C_UNK lbl_805DC604;
@@ -95,11 +95,11 @@ extern s32 TScene__current_floor_name;
 extern s32 current_floor_index;
 extern s32 scene_resource_index;
 extern void *TScene__data_805D5FCC;
-extern s8 TScene__data_805D5FD4;
+extern s8 TScene__floor_scene_ready_flag;
 extern s32 TScene__data_805D5FE0;
 extern f32 TScene__visibility_radius_margin;
-extern s32 TScene__data_805D5FEC;
-extern s32 TScene__data_805D5FF0;
+extern s32 TScene__map_section_render_callback;
+extern s32 TScene__active_scene_callback;
 extern s32 TScene__render_callback;
 extern s32 TScene__data_805D5FE8;
 extern s32 lbl_805D5FF8;
@@ -108,10 +108,10 @@ extern u32 TScene__collision_file_buffer;
 extern u32 TScene__texture_animation_buffer;
 extern u32 TScene__supplementary_rel_buffer;
 extern s32 lbl_805D600C;
-extern s32 TScene__data_805D6010;
+extern s32 TScene__map_rel_load_size_limit;
 extern s32 lbl_805D6014;
 extern s32 lbl_805D6018;
-extern s32 TScene__data_805D601C;
+extern s32 TScene__loaded_floor_rel_file_index;
 extern u32 TScene__data_805D6020;
 extern s32 lbl_805D6024;
 extern u32 TScene__material_info_buffer;
@@ -137,7 +137,7 @@ M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 extern u8 lbl_8044A938[];
 extern u32 TScene__texture_wave_resource;
 extern u32 TScene__supplementary_rel_buffer;
-extern s32 TScene__data_805D601C;
+extern s32 TScene__loaded_floor_rel_file_index;
 void load_supplementary_t_rel__6TSceneFv(s32 arg0);
 s32 *load_relocatable_file(M2C_UNK *, u32);
 s32 update_lobby_scene__6TSceneFPv(char *);
@@ -145,7 +145,7 @@ M2C_UNK replace_file_extension__6TLobbyFPvPvPv(M2C_UNK *, s32, M2C_UNK *);
 extern u8 lbl_8044A938[];
 extern u32 TScene__texture_wave_resource;
 extern u32 TScene__supplementary_rel_buffer;
-extern s32 TScene__data_805D601C;
+extern s32 TScene__loaded_floor_rel_file_index;
 void load_floor_rel_file__6TSceneFi(s32 arg0);
 s32 update_lobby_scene__6TSceneFPv(char *);
 M2C_UNK read_disc_file(char *, u32);
@@ -178,7 +178,7 @@ extern Ent_802066BC scene_format_dispatch_tables[];
 extern void *TScene__data_805D5FCC;
 extern s32 TScene__data_805D5FE8;
 extern u32 TScene__map_rel_load_buffer;
-extern s32 TScene__data_805D6010;
+extern s32 TScene__map_rel_load_size_limit;
 void load_scene_rel_file__6TSceneFi(s32 arg0);
 }
 
@@ -214,8 +214,8 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 update_lobby_scene__6TSceneFPv(char *);
 
 extern M2C_UNK __vt__6TScene[];
-extern s32 TScene__data_805D5FEC;
-extern s32 TScene__data_805D5FF0;
+extern s32 TScene__map_section_render_callback;
+extern s32 TScene__active_scene_callback;
 extern s32 TScene__render_callback;
 
 void *__dt__6TSceneFv(void *arg0, s16 arg1) {
@@ -223,8 +223,8 @@ void *__dt__6TSceneFv(void *arg0, s16 arg1) {
         M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__6TScene;
         TScene__sub_80205AE8((M2C_UNK *)arg0);
         TScene__sub_80205FD4(arg0);
-        TScene__data_805D5FEC = 0;
-        TScene__data_805D5FF0 = 0;
+        TScene__map_section_render_callback = 0;
+        TScene__active_scene_callback = 0;
         TScene__render_callback = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -271,7 +271,7 @@ extern s32 lbl_805D602C;
 void load_floor_rel_file__6TSceneFi(s32 arg0) {
     u8 sp8[0x20];
     replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A938);
-    if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__data_805D601C) {
+    if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__loaded_floor_rel_file_index) {
         if (TScene__supplementary_rel_buffer != 0U) {
             TScene__texture_wave_resource = (u32)load_relocatable_file((M2C_UNK *)sp8, TScene__supplementary_rel_buffer);
         } else {
@@ -298,7 +298,7 @@ void load_scene_map_file(s32 arg0) {
     TScene__data_805D5FCC = NULL;
     TScene__data_805D5FE8 = -1;
     replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A948);
-    if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__data_805D6010 && TScene__map_rel_load_buffer != 0) {
+    if (update_lobby_scene__6TSceneFPv((char *)sp8) <= TScene__map_rel_load_size_limit && TScene__map_rel_load_buffer != 0) {
         TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__map_rel_load_buffer);
     }
     if (TScene__data_805D5FCC != NULL) {
@@ -363,10 +363,10 @@ void load_floor_scene(void) {
     ((void (*)(s32))TScene__sub_802065EC)(ent);
     ((void (*)(s32))TScene__sub_802065E8)(ent);
     copy_name(&lbl_805DC604);
-    TScene__data_805D5FD4 = 1;
+    TScene__floor_scene_ready_flag = 1;
     TScene__data_805D5FE0 = 0;
-    TScene__data_805D5FEC = 0;
-    TScene__data_805D5FF0 = 0;
+    TScene__map_section_render_callback = 0;
+    TScene__active_scene_callback = 0;
     TScene__render_callback = 0;
     TScene__visibility_radius_margin = TScene__data_805DC5D8;
 }
@@ -532,14 +532,14 @@ void load_supplementary_t_rel__6TSceneFv(s32 arg0) {
     s32 n;
     TScene__texture_wave_resource = 0;
     TScene__supplementary_rel_buffer = 0U;
-    TScene__data_805D601C = 0;
+    TScene__loaded_floor_rel_file_index = 0;
     replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A938);
     n = update_lobby_scene__6TSceneFPv((char *)sp8);
     if (n > 0) {
         TScene__supplementary_rel_buffer = alloc__22TQuestVmDownLoadServerFPv(n);
         if (TScene__supplementary_rel_buffer != 0U) {
             TScene__texture_wave_resource = (u32)load_relocatable_file((M2C_UNK *)sp8, TScene__supplementary_rel_buffer);
-            TScene__data_805D601C = n;
+            TScene__loaded_floor_rel_file_index = n;
         }
     }
 }
@@ -552,7 +552,7 @@ void load_scene_rel_file__6TSceneFi(s32 arg0) {
     TScene__data_805D5FCC = NULL;
     size = 0;
     TScene__map_rel_load_buffer = 0U;
-    TScene__data_805D6010 = 0;
+    TScene__map_rel_load_size_limit = 0;
     TScene__data_805D5FE8 = -1;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         replace_file_extension__6TLobbyFPvPvPv((M2C_UNK *)sp8, arg0, (M2C_UNK *)lbl_8044A9AC);
@@ -567,14 +567,14 @@ void load_scene_rel_file__6TSceneFi(s32 arg0) {
             TScene__map_rel_load_buffer = alloc__22TQuestVmDownLoadServerFPv(0x80000);
             if (TScene__map_rel_load_buffer != 0U) {
                 TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__map_rel_load_buffer);
-                TScene__data_805D6010 = 0x80000;
+                TScene__map_rel_load_size_limit = 0x80000;
             }
         }
     } else if (size > 0) {
         TScene__map_rel_load_buffer = alloc__22TQuestVmDownLoadServerFPv(size);
         if (TScene__map_rel_load_buffer != 0U) {
             TScene__data_805D5FCC = load_relocatable_file((M2C_UNK *)sp8, TScene__map_rel_load_buffer);
-            TScene__data_805D6010 = size;
+            TScene__map_rel_load_size_limit = size;
         }
     }
     if (TScene__data_805D5FCC != NULL) {
@@ -638,9 +638,9 @@ void load_current_floor__6TSceneFv(void) {
     TScene__data_805D6020 = 0;
     TScene__material_info_buffer = 0;
     lbl_805D600C = 0;
-    TScene__data_805D6010 = 0;
+    TScene__map_rel_load_size_limit = 0;
     lbl_805D6014 = 0;
-    TScene__data_805D601C = 0;
+    TScene__loaded_floor_rel_file_index = 0;
     lbl_805D6018 = 0;
     lbl_805D6024 = 0;
     lbl_805D602C = 0;
@@ -668,10 +668,10 @@ void load_current_floor__6TSceneFv(void) {
     load_map_texture_archive__6TSceneFi(ent);
     load_floor_bin_file__6TSceneFi((s32)(ent));
     load_file_to_buffer__6TSceneFi(ent);
-    TScene__data_805D5FD4 = 1;
+    TScene__floor_scene_ready_flag = 1;
     TScene__data_805D5FE0 = 0;
-    TScene__data_805D5FEC = 0;
-    TScene__data_805D5FF0 = 0;
+    TScene__map_section_render_callback = 0;
+    TScene__active_scene_callback = 0;
     TScene__render_callback = 0;
     TScene__visibility_radius_margin = TScene__data_805DC5D8;
 }

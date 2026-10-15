@@ -11,7 +11,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_802FF0D8_lbl_804E6570 TAdMultiSaveGC__shared_resource_desc;
-extern u32 lbl_805D69E0;
+extern u32 admultisave_shared_model_resource;
 void load_shared_resource__14TAdMultiSaveGCFv(void);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__14TAdMultiSaveGCFv(void *self);
@@ -25,12 +25,12 @@ int begin_change_game_mode__21TAdMultiChgGameModeGCFv(void);
 void queue_destruction__14TAdMultiSaveGCFv(void);
 int queue_destruction__7TObjectFv(void);
 
-extern u32 lbl_805D69E0;
+extern u32 admultisave_shared_model_resource;
 
 void free_window__14TAdMultiSaveGCFv(void) {
-    if ((u32) lbl_805D69E0 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D69E0, 1);
-        lbl_805D69E0 = 0U;
+    if ((u32) admultisave_shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)admultisave_shared_model_resource, 1);
+        admultisave_shared_model_resource = 0U;
     }
 }
 
@@ -42,7 +42,7 @@ void load_shared_resource__14TAdMultiSaveGCFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TAdMultiSaveGC__shared_resource_desc.value, 0, 0, 0));
     }
-    (*(s32 *)&lbl_805D69E0) = var_r0;
+    (*(s32 *)&admultisave_shared_model_resource) = var_r0;
 }
 void render__14TAdMultiSaveGCFv(void *self) {
     if (get_state_flag__9TMainTaskFv() == 1) return;

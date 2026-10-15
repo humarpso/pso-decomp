@@ -35,11 +35,11 @@ M2C_UNK *resolve_indirect_node_record(M2C_UNK arg0, u8 *arg1) {
 
 void set_instance__6TSceneFi(int a0) { TScene__render_callback = a0; }
 
-    extern int TScene__data_805D5FF0;
-void set_active_scene__6TSceneFi(int a0) { TScene__data_805D5FF0 = a0; }
+    extern int TScene__active_scene_callback;
+void set_active_scene__6TSceneFi(int a0) { TScene__active_scene_callback = a0; }
 
-    extern int TScene__data_805D5FEC;
-void set_id__6TSceneFi(int a0) { TScene__data_805D5FEC = a0; }
+    extern int TScene__map_section_render_callback;
+void set_id__6TSceneFi(int a0) { TScene__map_section_render_callback = a0; }
 s32 is_global_state_in_table__19TContainerAncient01Fv(void) {
     struct Tbl_8020335C t = group_selection_area_id_table;
     s32 state = get_global_state__14TOKeyMachine01Fv();

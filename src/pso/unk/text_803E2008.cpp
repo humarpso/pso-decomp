@@ -12,7 +12,7 @@ extern G_803E2010 scene_projection_state;
 extern f32 scene_fog_end_distance;
 extern f32 lbl_805D77C0;
 extern u32 lbl_805D77C4;
-extern s8 lbl_805D77C8;
+extern s8 scene_fog_enable_flag;
 typedef struct { u8 r, g, b, a; } Col_803E2010;
 void Dolphin_GXSetFog(s32, f32, f32, f32, f32, Col_803E2010);
 void apply_scene_fog(void);
@@ -25,7 +25,7 @@ void set_scene_fog_type(s32 arg0) {
 
 void apply_scene_fog(void) {
     s32 type;
-    if (lbl_805D77C8 != 0) {
+    if (scene_fog_enable_flag != 0) {
         type = scene_fog_type;
     } else {
         type = 0;

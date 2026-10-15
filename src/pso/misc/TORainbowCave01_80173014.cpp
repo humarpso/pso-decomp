@@ -51,13 +51,13 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80173330_lbl_804B3A18 abeniji_fe_obj001_niji_resource_descriptor;
-extern u32 TORainbowCave01__data_805D5A70;
+extern u32 TORainbowCave01__static_model_resource;
 void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
 void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
 extern M2C_UNK __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
-extern u32 TORainbowCave01__data_805D5A70;
+extern u32 TORainbowCave01__static_model_resource;
 u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
@@ -171,12 +171,12 @@ void *create__15TORainbowCave01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TORainbowCave01__data_805D5A70;
+extern u32 TORainbowCave01__static_model_resource;
 
 void free_static_data__15TORainbowCave01Fv(void) {
-    if ((u32) TORainbowCave01__data_805D5A70 != 0U) {
-        TLobby__sub_8001FE7C((void*)TORainbowCave01__data_805D5A70, 1);
-        TORainbowCave01__data_805D5A70 = 0U;
+    if ((u32) TORainbowCave01__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TORainbowCave01__static_model_resource, 1);
+        TORainbowCave01__static_model_resource = 0U;
     }
 }
 
@@ -190,7 +190,7 @@ void load_resource_instance__15TORainbowCave01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &abeniji_fe_obj001_niji_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TORainbowCave01__data_805D5A70) = var_r0;
+    (*(s32 *)&TORainbowCave01__static_model_resource) = var_r0;
 }
 
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
@@ -209,8 +209,8 @@ u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801733D8___vt__15TORainbowCave01 *)&__vt__15TORainbowCave01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TORainbowCave01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TORainbowCave01__data_805D5A70), u8 **, 0x42C), s32 *, 8);
-    temp_r4 = (u8 *)(M2C_FIELD((*(u8 * *)&TORainbowCave01__data_805D5A70), u8 **, 0x42C));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TORainbowCave01__static_model_resource), u8 **, 0x42C), s32 *, 8);
+    temp_r4 = (u8 *)(M2C_FIELD((*(u8 * *)&TORainbowCave01__static_model_resource), u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r4, s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) 400.0f;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (4e+04f);

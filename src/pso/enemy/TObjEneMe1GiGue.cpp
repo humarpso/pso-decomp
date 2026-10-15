@@ -371,11 +371,11 @@ void update_object_view_visibility();
 extern "C" {
 void update_poison_status__10TObjPlayerFv();
 }
-extern void *lbl_804E11C8[4];
+extern void *TObjEneMe1GiGue__model_filename_table[4];
 extern void *lbl_804E11D8[10];
 extern void *lbl_804E1210[4];
 extern void *lbl_804E1220[10];
-void *lbl_804E11C8[4] = {
+void *TObjEneMe1GiGue__model_filename_table[4] = {
     (void *)&lbl_80472118, (void *)&lbl_80472128, (void *)&lbl_8047213C, (void *)0x0,
 };
 void *lbl_804E11D8[10] = {
@@ -384,7 +384,7 @@ void *lbl_804E11D8[10] = {
     (void *)&lbl_804721FC, (void *)0x0,
 };
 void *lbl_804E1200[4] = {
-    (void *)&lbl_80472214, (void *)&lbl_804E11C8, (void *)&lbl_804E11D8, (void *)0x30009,
+    (void *)&lbl_80472214, (void *)&TObjEneMe1GiGue__model_filename_table, (void *)&lbl_804E11D8, (void *)0x30009,
 };
 void *lbl_804E1210[4] = {
     (void *)&lbl_80472228, (void *)&lbl_80472128, (void *)&lbl_8047213C, (void *)0x0,
@@ -397,7 +397,7 @@ void *lbl_804E1220[10] = {
 void *lbl_804E1248[4] = {
     (void *)&lbl_8047223C, (void *)&lbl_804E1210, (void *)&lbl_804E1220, (void *)0x30009,
 };
-void *lbl_804E1258[36] = {
+void *gigue_enemy_param_table[36] = {
     (void *)0x20000, (void *)0x4, (void *)0x3f333333, (void *)0x0,
     (void *)0x10001, (void *)0x3, (void *)0x3f333333, (void *)0x1,
     (void *)0x20000, (void *)0x2, (void *)0x3f19999a, (void *)0x4,
@@ -2602,7 +2602,7 @@ u8 *TObjEneMe1GiGue__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 0x11);
     M2C_FIELD(arg0, s32 *, 0x36C) = M2C_FIELD(arg2, s16 *, 0x3E);
     load_params_from_table__15TObjEneMe1GiGueFPvi((O_802CDAEC *) arg0, M2C_FIELD(arg0, s32 *, 0x368));
-    M2C_FIELD(arg0, void **, 0xD8) = lbl_804E1258;
+    M2C_FIELD(arg0, void **, 0xD8) = gigue_enemy_param_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, void **, 0xD8));
     init_collision_body_parts(arg0, lbl_804E1304, 2);
     M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x44) &= ~1;

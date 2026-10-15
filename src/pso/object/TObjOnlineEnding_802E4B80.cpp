@@ -8,7 +8,7 @@ int get_instance__16TObjOnlineEndingFv(void);
 int TWindow__close(void*);
 void *__nw__7TObjectFUl(int);
 
-    extern int lbl_805D5878;
+    extern int player_unique_pair_entry_count;
 extern "C" void TLobby__sub_801A1FD8();
 extern "C" void TObjRoomId__sub_801A1E2C();
 extern "C" void TParticleCtrl__sub_801A2124();
@@ -159,7 +159,7 @@ void *__vt__16TObjOnlineEnding[13] = {
 #define online_ending_quad_vertices ((V2_802E4C70 *)online_ending_quad_vertices)
 #define __vt__16TObjOnlineEnding ((const M2C_UNK *)__vt__16TObjOnlineEnding)
 
-int get_instance__16TObjOnlineEndingFv(void) {  return lbl_805D5878; }
+int get_instance__16TObjOnlineEndingFv(void) {  return player_unique_pair_entry_count; }
 
     extern unsigned char lbl_8050DAD0[];
 void* get_attack_entry__16TObjOnlineEndingFi(int a0) {  return (char*)lbl_8050DAD0 + a0 * 8; }

@@ -3891,7 +3891,7 @@ extern void *lbl_80497748[4];
 extern void *lbl_80497758[2];
 extern void *lbl_80497760[12];
 extern void *lbl_80497790[4];
-void *lbl_804976C8[7] = {
+void *TObjEneMe3Stelth__shared_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -4304,7 +4304,7 @@ void init_common__16TObjEneMe3StelthFPv(u8 *arg0) {
     temp_r0 = M2C_FIELD(arg0, s32 *, 0x3C8);
     reset_hp__9TObjEneDDFPv((void *) (arg0), TObjEneMe3Stelth__base_params_by_variant[temp_r0], TObjEneMe3Stelth__attack_params_by_variant[temp_r0], TObjEneMe3Stelth__resistance_params_by_variant[temp_r0]);
     check_state_flag_4__9TObjEneDDFPv((void *) (arg0));
-    M2C_FIELD(arg0, void **, 0x350) = lbl_804976C8;
+    M2C_FIELD(arg0, void **, 0x350) = TObjEneMe3Stelth__shared_params;
     M2C_FIELD(arg0, f32 *, 0x37C) = (f32) TObjEneMe3Stelth__data_805DA824;
     enemy_init_acquire_period((void *) (arg0), (int) (0x1E));
     enemy_init_validate_period((void *) (arg0), (int) (0x1E));

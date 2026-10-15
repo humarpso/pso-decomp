@@ -29,7 +29,7 @@ M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
 extern RecoveredGlobal_80335354_lbl_804EE3B0 morfos_arm_motion_params;
 extern M2C_UNK __vt__16TObjEneMorfosArm[];
 extern s32 TObjEneMorfosArm__name;
-extern u32 lbl_805D6D38;
+extern u32 TObjEneMorfosArm__parent_morfos_instance;
 u8 *TObjEneMorfosArm__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
 }
 
@@ -48,10 +48,10 @@ M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 M2C_UNK toggle_particle_effect__10TObjPlayerFv();
 
-extern u32 lbl_805D6D38;
+extern u32 TObjEneMorfosArm__parent_morfos_instance;
 
 void render__16TObjEneMorfosArmFv(u8 *arg0) {
-    if ((u32) lbl_805D6D38 == 0U) {
+    if ((u32) TObjEneMorfosArm__parent_morfos_instance == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
@@ -101,11 +101,11 @@ u8 *TObjEneMorfosArm__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
     M2C_FIELD(arg0, u16 *, 0x100) = obj_getField1c(M2C_FIELD(arg0, u8 **, 0xFC));
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x38)), (int)((void *) (((s32)TObjEneMorfosArm__sub_803326B4((void *)((s32) M2C_FIELD(arg0, u8 **, 0xFC)))))));
     M2C_FIELD(arg0, s32 *, 0x60) = TObjEneMorfosArm__sub_803326BC(M2C_FIELD(arg0, u8 **, 0xFC));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D6D38), u8 **, 0x42C), s32 *, 8);
-    temp_r5 = (u8 *)(M2C_FIELD((*(u8 * *)&lbl_805D6D38), u8 **, 0x42C));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance), u8 **, 0x42C), s32 *, 8);
+    temp_r5 = (u8 *)(M2C_FIELD((*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance), u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r5, s32 *, 0xC);
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (&morfos_arm_motion_params.value), (int) (temp_r5));
-    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&lbl_805D6D38), s32 *, 0x430)));
+    set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&TObjEneMorfosArm__parent_morfos_instance), s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));
     set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (M2C_FIELD(arg0, s16 *, 0xB8)));

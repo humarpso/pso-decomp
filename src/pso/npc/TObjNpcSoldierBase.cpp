@@ -101,14 +101,14 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8014D7CC_lbl_804AB978 TObjNpcSoldierBase__body_resource_desc;
-extern u32 TObjNpcSoldierBase__data_805D5850;
+extern u32 TObjNpcSoldierBase__shared_model_resource;
 void load_shared_resource__18TObjNpcSoldierBaseFv(void);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern M2C_UNK __vt__18TObjNpcSoldierBase[];
 extern s32 TObjNpcSoldierBase__name;
-extern u32 TObjNpcSoldierBase__data_805D5850;
+extern u32 TObjNpcSoldierBase__shared_model_resource;
 u8 *TObjNpcSoldierBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 }
 
@@ -124,12 +124,12 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 
-extern u32 TObjNpcSoldierBase__data_805D5850;
+extern u32 TObjNpcSoldierBase__shared_model_resource;
 
 void release_static_instance__18TObjNpcSoldierBaseFv(void) {
-    if ((u32) TObjNpcSoldierBase__data_805D5850 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjNpcSoldierBase__data_805D5850, 1);
-        TObjNpcSoldierBase__data_805D5850 = 0U;
+    if ((u32) TObjNpcSoldierBase__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjNpcSoldierBase__shared_model_resource, 1);
+        TObjNpcSoldierBase__shared_model_resource = 0U;
     }
 }
 
@@ -143,7 +143,7 @@ void load_shared_resource__18TObjNpcSoldierBaseFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TObjNpcSoldierBase__body_resource_desc.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjNpcSoldierBase__data_805D5850) = var_r0;
+    (*(s32 *)&TObjNpcSoldierBase__shared_model_resource) = var_r0;
 }
 
 void *__dt__18TObjNpcSoldierBaseFv(void *arg0, s16 arg1) {
@@ -166,8 +166,8 @@ u8 *TObjNpcSoldierBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcSoldierBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcSoldierBase__data_805D5850), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcSoldierBase__data_805D5850), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcSoldierBase__shared_model_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjNpcSoldierBase__shared_model_resource), u8 **, 0x42C), s32 *, 0xC);
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

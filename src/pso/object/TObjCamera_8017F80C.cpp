@@ -82,7 +82,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8017FC78_lbl_804B5888 fe_obj_cam_resource_descriptor;
 extern u32 TObjCamera__bml_resource;
-extern s32 TObjCamera__data_805D5B1C;
+extern s32 TObjCamera__camera_slot_scan_index;
 void load_shared_resource__10TObjCameraFv(void);
 s32 get_bml_motion(u32, int);
 void TObjFish__sub_8001EDB0(u32, int);
@@ -98,7 +98,7 @@ void draw_ginja_model_with_motion(s32, s32, f32);
 void update_camera_slots__10TObjCameraFv(void);
 extern Vec_8017F80C camera_slot_positions[];
 extern u32 TObjCamera__bml_resource;
-extern s32 TObjCamera__data_805D5B1C;
+extern s32 TObjCamera__camera_slot_scan_index;
 extern const f32 lbl_805DBB60;
 extern const f32 lbl_805DBB64;
 void render__10TObjCameraFv(Obj_8017F80C *self);
@@ -166,7 +166,7 @@ void render__10TObjCameraFv(Obj_8017F80C *self) {
         push_matrix();
         post_translate_matrix(&self->pos);
         rotate_matrix_y(0, self->x60);
-        TObjCamera__data_805D5B1C = 0;
+        TObjCamera__camera_slot_scan_index = 0;
         set_model_node_callback((void *)update_camera_slots__10TObjCameraFv);
         draw_ginja_model_with_motion(get_bml_model(TObjCamera__bml_resource, 0),
                                get_bml_motion(TObjCamera__bml_resource, 0), self->xb0);
@@ -280,7 +280,7 @@ void release_static_resource__10TObjCameraFv(void) {
 void load_shared_resource__10TObjCameraFv(void) {
     s32 temp_r3;
     s32 var_r0;
-    TObjCamera__data_805D5B1C = 0;
+    TObjCamera__camera_slot_scan_index = 0;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
     var_r0 = temp_r3;
     if (var_r0 != 0) {

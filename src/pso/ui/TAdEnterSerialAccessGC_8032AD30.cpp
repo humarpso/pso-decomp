@@ -31,7 +31,7 @@ u8 *get_access_key_input_buffer();
 u8 *get_raw_serial_input_buffer();
 u8 *TAdEnterPasswordGC__sub_8013ADE4();
 u32 get_field_118__22TAdEnterSerialAccessGCFv();
-extern u32 lbl_804ED9F8[];
+extern u32 serial_access_entered_value_table[];
 extern u8 lbl_805DF77C[4];
 s32 TAdEndText__sub_8001B3BC(int);
 s32 TAdEndText__sub_8001B3EC(int);
@@ -115,7 +115,7 @@ u8 *get_serial_text__22TAdEnterSerialAccessGCFii(s32 arg0, s32 arg1) {
         case 2:
             return (u8 *) (get_instance__23TAdSinglePlyChrSelectGCFv() + 0x1154C);
         }
-    } else if (lbl_804ED9F8[arg1] == get_field_118__22TAdEnterSerialAccessGCFv()) {
+    } else if (serial_access_entered_value_table[arg1] == get_field_118__22TAdEnterSerialAccessGCFv()) {
         switch (arg1) {
         case 0:
             return get_raw_serial_input_buffer();

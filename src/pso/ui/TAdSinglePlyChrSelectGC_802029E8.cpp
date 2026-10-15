@@ -112,7 +112,7 @@ extern M2C_UNK lbl_805D5FB0;
 extern int card_character_save_buffer;
 extern s32 selected_character_data;
 extern s32 *active_character_save_record;
-extern int lbl_805D5F74;
+extern int TAdSinglePlyChrSelectGC__selection_index;
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 void init__9TItemDataFv(void *);
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
@@ -219,13 +219,13 @@ s32 *TAdSinglePlyChrSelectGC__sub_80202B38(Obj_80202B38 *self, s32 i) {
     return self->e[i].c;
 }
 
-    extern int lbl_805D5F74;
+    extern int TAdSinglePlyChrSelectGC__selection_index;
 
 void clear_inventory_slot_by_index__23TAdSinglePlyChrSelectGCFPvi(Obj_80202B4C *self, s32 i) {
     clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv((u8 *)(&self->e[i]));
 }
 
-int get_selection__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5F74; }
+int get_selection__23TAdSinglePlyChrSelectGCFv(void) {  return TAdSinglePlyChrSelectGC__selection_index; }
 
 extern s32 *active_character_save_record;
 

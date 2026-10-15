@@ -22,10 +22,10 @@ struct Quad_8024FD8C {
 };
 
 extern "C" {
-extern s32 lbl_805D6430;
-extern f32 lbl_805D6434;
+extern s32 text_draw_clip_context;
+extern f32 text_draw_depth;
 extern f32 lbl_805D6438;
-extern s32 lbl_805D643C;
+extern s32 text_clip_enabled_flag;
 extern s32 lbl_805D6440;
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 u8 get_small_font_glyph_width(s32);
@@ -39,9 +39,9 @@ void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(s32, u32);
-extern s32 lbl_805D6430;
-extern f32 lbl_805D6434;
-extern s32 lbl_805D643C;
+extern s32 text_draw_clip_context;
+extern f32 text_draw_depth;
+extern s32 text_clip_enabled_flag;
 extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCD8;
 extern const f32 lbl_805DCCDC;
@@ -58,10 +58,10 @@ s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(s32, void *);
 s32 clip_textured_quad__19TWindowKeyBoardSoftFPvPv(s32, void *);
 void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
-extern s32 lbl_805D6430;
-extern f32 lbl_805D6434;
+extern s32 text_draw_clip_context;
+extern f32 text_draw_depth;
 extern f32 lbl_805D6438;
-extern s32 lbl_805D643C;
+extern s32 text_clip_enabled_flag;
 extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCDC;
 extern const f32 lbl_805DCCE0;
@@ -118,9 +118,9 @@ s32 draw_small_font_string_clipped(f32 *pos, const char *s, u32 color, f32 width
             }
             x += (f32)adv;
             width -= (f32)adv;
-            if (lbl_805D643C == 0 || clip_textured_quad__19TWindowKeyBoardSoftFPvPv(lbl_805D6430, &q) != 0) {
-                apply_context_transform_to_rect(lbl_805D6430, &q);
-                draw_textured_quad_at_depth(&q, lbl_805D6434);
+            if (text_clip_enabled_flag == 0 || clip_textured_quad__19TWindowKeyBoardSoftFPvPv(text_draw_clip_context, &q) != 0) {
+                apply_context_transform_to_rect(text_draw_clip_context, &q);
+                draw_textured_quad_at_depth(&q, text_draw_depth);
             }
         }
     }
@@ -205,17 +205,17 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
             ok = 0;
             q.x2 = q.x + width;
         }
-        if (lbl_805D643C == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(lbl_805D6430, &q) != 0) {
+        if (text_clip_enabled_flag == 0 || is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(text_draw_clip_context, &q) != 0) {
             calc_gauge_scale__20TWindowSubStatusDispFPvPvi(glyph, &q, col);
             set_glyph_quad_extents(adv, &q);
             if ((f32)(u8)adv > width) {
                 q.x2 = q.x + width;
             }
-            if (lbl_805D643C != 0) {
-                clip_textured_quad__19TWindowKeyBoardSoftFPvPv(lbl_805D6430, &q);
+            if (text_clip_enabled_flag != 0) {
+                clip_textured_quad__19TWindowKeyBoardSoftFPvPv(text_draw_clip_context, &q);
             }
-            apply_context_transform_to_rect(lbl_805D6430, &q);
-            draw_textured_quad_at_depth(&q, lbl_805D6434);
+            apply_context_transform_to_rect(text_draw_clip_context, &q);
+            draw_textured_quad_at_depth(&q, text_draw_depth);
         }
         x += (f32)(u8)adv;
         width -= (f32)(u8)adv;
@@ -225,10 +225,10 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
 }
 
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
-    lbl_805D6430 = arg0;
-    lbl_805D6434 = farg0;
+    text_draw_clip_context = arg0;
+    text_draw_depth = farg0;
     lbl_805D6438 = farg1;
-    lbl_805D643C = arg1;
+    text_clip_enabled_flag = arg1;
     lbl_805D6440 = arg2;
 }
 

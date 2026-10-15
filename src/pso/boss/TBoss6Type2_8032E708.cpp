@@ -162,7 +162,7 @@ struct Ent_8033053C { u8 pad[0x18]; Fn_8033053C fn; };
 #pragma readonly_strings on
 extern "C" {
 const char *lbl_805D4220 = "TBoss6Mag";
-extern const E_8032E7B4 lbl_804773BC[4] = { {555, -1}, {556, -1}, {537, -1}, {542, 0} };
+extern const E_8032E7B4 TBoss6Type2__effect_emitter_id_table[4] = { {555, -1}, {556, -1}, {537, -1}, {542, 0} };
 extern const u32 lbl_804773DC[8] = { 3, 0, 0, 0, 0xFFFFFFFF, 0, 0, 0 };
 extern const u32 lbl_804773FC[2] = { 0xFFFF0000, 1 };
 extern const RecoveredGlobal_803300C8_lbl_80477404 lbl_80477404 = { 0 };
@@ -492,7 +492,7 @@ void destroy_part_object__11TBoss6Type2Fii(s32 arg0, s32 arg1) {
 void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1) {
     if (arg0->arr[arg1] == 0) {
         V3_8032E7B4 v = arg0->pos;
-        arg0->arr[arg1] = create_particle_emitter(&v, lbl_804773BC[arg1].a);
+        arg0->arr[arg1] = create_particle_emitter(&v, TBoss6Type2__effect_emitter_id_table[arg1].a);
         if (arg0->arr[arg1] != 0) {
             set_flags__11TBoss4Type2FPvUi((void *)arg0->arr[arg1], 0x40);
         }
@@ -501,7 +501,7 @@ void ensure_particle_emitter__11TBoss6Type2FPvi(O_8032E7B4 *arg0, s32 arg1) {
 
 void update_effect_positions__11TBoss6Type2FPv(O_8032E834 *arg0) {
     s32 i;
-    E_8032E834 *e = ((E_8032E834 *)&lbl_804773BC);
+    E_8032E834 *e = ((E_8032E834 *)&TBoss6Type2__effect_emitter_id_table);
     for (i = 0; i < 4; i++) {
         V3_8032E834 p = arg0->pos;
         E_8032E834 *ep = &e[i];

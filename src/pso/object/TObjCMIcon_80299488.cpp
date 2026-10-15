@@ -67,11 +67,11 @@ s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
 extern f32 lbl_804DBE6C[];
-extern Grp_802995A0 lbl_804DBDE0[];
+extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 void render__10TObjCMIconFv(M2C_UNK self);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
 s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
-extern Grp_802995A0 lbl_804DBDE0[];
+extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
 extern const f32 lbl_805DDC44;
@@ -170,7 +170,7 @@ void render__10TObjCMIconFv(M2C_UNK self) {
     for (i = 0; i < 7; i++) {
         id = idx[i];
         depth = keys[i];
-        g = &lbl_804DBDE0[id];
+        g = &TObjCMIcon__icon_group_table[id];
         pos.x = x0 + ((Ent_802995A0 *)&TObjCMIcon__icon_entries)[id].x;
         pos.y = lbl_804DBE6C[1] * get_scale__14TObjCMMainMenuFv();
         z = (-2.0f) - (1.0f - (f32)(i / 7));
@@ -203,7 +203,7 @@ void run_task__10TObjCMIconFv(M2C_UNK arg0) {
         }
     }
     x = 0.0f;
-    g = ((Grp_802997DC *)&lbl_804DBDE0);
+    g = ((Grp_802997DC *)&TObjCMIcon__icon_group_table);
     p = (Icon_802997DC *)&TObjCMIcon__icon_entries;
     {
     s32 k;

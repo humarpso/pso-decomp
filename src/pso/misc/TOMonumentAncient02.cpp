@@ -104,7 +104,7 @@ extern RecoveredGlobal_80172EA0_lbl_804B39A8 monument_ancient02_collision_parts;
 extern M2C_UNK __vt__19TOMonumentAncient02[];
 extern s32 enable_v2_features;
 extern s32 TOMonumentAncient02__name;
-extern u32 TOMonumentAncient02__data_805D5A68;
+extern u32 TOMonumentAncient02__model_resource;
 extern const f32 lbl_805DB92C;
 extern const f32 lbl_805DB934;
 extern const f32 lbl_805DB938;
@@ -112,7 +112,7 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern u32 TOMonumentAncient02__data_805D5A68;
+extern u32 TOMonumentAncient02__model_resource;
 void load_resources__19TOMonumentAncient02Fv(void);
 s32 rand(void);
 int rotate_matrix_y(int, int);
@@ -242,12 +242,12 @@ void *create__19TOMonumentAncient02FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOMonumentAncient02__data_805D5A68;
+extern u32 TOMonumentAncient02__model_resource;
 
 void free_shared_data__19TOMonumentAncient02Fv(void) {
-    if ((u32) TOMonumentAncient02__data_805D5A68 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOMonumentAncient02__data_805D5A68, 1);
-        TOMonumentAncient02__data_805D5A68 = 0U;
+    if ((u32) TOMonumentAncient02__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOMonumentAncient02__model_resource, 1);
+        TOMonumentAncient02__model_resource = 0U;
     }
 }
 
@@ -262,21 +262,21 @@ void load_resources__19TOMonumentAncient02Fv(void) {
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x8, 0, 0, 0);
         }
-        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        TOMonumentAncient02__model_resource = (u32)p;
         break;
     case 4:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x20, 0, 0, 0);
         }
-        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        TOMonumentAncient02__model_resource = (u32)p;
         break;
     case 7:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (p != NULL) {
             p = load_resource_from_descriptor(p, 5, tbl + 0x38, 0, 0, 0);
         }
-        TOMonumentAncient02__data_805D5A68 = (u32)p;
+        TOMonumentAncient02__model_resource = (u32)p;
         break;
     }
 }
@@ -302,8 +302,8 @@ u8 *TOMonumentAncient02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172EA0___vt__19TOMonumentAncient02 *)&__vt__19TOMonumentAncient02).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TOMonumentAncient02__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__data_805D5A68), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__model_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOMonumentAncient02__model_resource), u8 **, 0x42C), s32 *, 0xC);
     init_collision_body_parts(arg0, (s32) &monument_ancient02_collision_parts.value, 1);
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

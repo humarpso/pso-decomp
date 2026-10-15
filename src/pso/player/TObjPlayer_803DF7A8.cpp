@@ -360,7 +360,7 @@ void calc_bounds__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
 
 
 
-extern s8 lbl_805D77C8;
+extern s8 scene_fog_enable_flag;
 
 
 
@@ -414,16 +414,16 @@ void reload_texture__10TObjPlayerFPviUiPv(void *arg0, s32 arg1, u32 arg2, void *
 }
 
 void set_effect_active__10TObjPlayerFv(void) {
-    lbl_805D77C8 = 1;
+    scene_fog_enable_flag = 1;
 }
 
 
 
 
-extern s8 lbl_805D77C8;
+extern s8 scene_fog_enable_flag;
 
 void reset_particle_counter__10TObjPlayerFv(void) {
-    lbl_805D77C8 = 0;
+    scene_fog_enable_flag = 0;
 }
 
 }

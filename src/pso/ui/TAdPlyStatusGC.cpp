@@ -146,7 +146,7 @@ M2C_UNK disallow_rendering__7TObjectFv();
 u32 get_player_index__14TAdPlyStatusGCFv();
 int get_state_flag__9TMainTaskFv(void*);
 
-void *lbl_804EFAC0[8] = {
+void *TAdPlyStatusGC__status_window_box[8] = {
     (void *)0x42a60000, (void *)0x41200000, (void *)0x42e60000, (void *)0x42280000,
     (void *)0x0, (void *)0x0, (void *)0x3f800000, (void *)0x3f800000,
 };
@@ -162,7 +162,7 @@ void render__14TAdPlyStatusGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) !
 
 typedef char RecoveredGlobal_8033F93C_lbl_8050E3B8_size[sizeof(RecoveredGlobal_8033F93C_lbl_8050E3B8) == 0x1B0 ? 1 : -1];
 
-#define lbl_804EFAC0 (*(Box_8033F3D8 *)lbl_804EFAC0)
+#define TAdPlyStatusGC__status_window_box (*(Box_8033F3D8 *)TAdPlyStatusGC__status_window_box)
 #define lbl_804EFAE0 ((Vec2_8033F3D8 *)lbl_804EFAE0)
 #define lbl_804EFAF8 ((Vec2_8033F3D8 *)lbl_804EFAF8)
 #define OFF_8033F3D8 (ply_status_window_offset_table[TAdPlyStatusGC__window_offset_index])
@@ -204,11 +204,11 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
     draw_window_frame(arg0);
     if ((u32)ply_status_chcr_load_afs != 0 && is_unloaded__12TChCrLoadAfsFPv(ply_status_chcr_load_afs) != 0 && TAdPlyStatusGC__is_shown != 0 &&
         (*get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs))->f8 != 0) {
-        box = lbl_804EFAC0;
-        box.v[0] = lbl_804EFAC0.v[0] + OFF_8033F3D8.x;
-        box.v[2] = lbl_804EFAC0.v[2] + OFF_8033F3D8.x;
-        box.v[1] = lbl_804EFAC0.v[1] + OFF_8033F3D8.y;
-        box.v[3] = lbl_804EFAC0.v[3] + OFF_8033F3D8.y;
+        box = TAdPlyStatusGC__status_window_box;
+        box.v[0] = TAdPlyStatusGC__status_window_box.v[0] + OFF_8033F3D8.x;
+        box.v[2] = TAdPlyStatusGC__status_window_box.v[2] + OFF_8033F3D8.x;
+        box.v[1] = TAdPlyStatusGC__status_window_box.v[1] + OFF_8033F3D8.y;
+        box.v[3] = TAdPlyStatusGC__status_window_box.v[3] + OFF_8033F3D8.y;
         set_global_param__8TObjFishFi(get_status_sub__14TAdPlyStatusGCFPv(ply_status_chcr_load_afs));
         begin_screen_draw(1);
         set_draw_texture_and_color(0, -1);
@@ -237,7 +237,7 @@ void draw_status_window__14TAdPlyStatusGCFPvPv(void *arg0, void *arg1) {
 }
 #undef OFF_8033F3D8
 #define ply_status_window_offset_table (*(RecoveredGlobal_8033F9DC_lbl_804783E0 *)ply_status_window_offset_table)
-#undef lbl_804EFAC0
+#undef TAdPlyStatusGC__status_window_box
 #undef lbl_804EFAE0
 #undef lbl_804EFAF8
 

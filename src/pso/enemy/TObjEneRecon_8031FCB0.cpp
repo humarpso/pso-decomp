@@ -388,7 +388,7 @@ extern void *lbl_804EC6B0[7];
 extern void *lbl_804EC6CC[11];
 extern void *lbl_804EC708[7];
 extern void *TObjEneRecobox__resource_bundle[11];
-void *lbl_804EC668[7] = {
+void *TObjEneRecobox__attack_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -456,7 +456,7 @@ void *TObjEneRecobox__vtable[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneEpsilon__vt101, (void *)&update_if_800BB858__12TObjEneReconFPv, (void *)&draw_with_debug_info__12TObjEneReconFPv,
 };
-#define lbl_804EC668 ((u8 *)lbl_804EC668)
+#define TObjEneRecobox__attack_params ((u8 *)TObjEneRecobox__attack_params)
 #define lbl_804EC684 ((u8 *)lbl_804EC684)
 #define TObjEneRecobox__animation_entries ((u8 *)TObjEneRecobox__animation_entries)
 #define TObjEneRecobox__vtable ((u8 *)TObjEneRecobox__vtable)
@@ -542,7 +542,7 @@ u8 *TObjEneRecobox__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
     reset_hp__9TObjEneDDFPv(arg0, recobox_boss_register_id, lbl_805D6B14, TObjEneRecobox__shared_object_handle);
     check_state_flag_4__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, u8 **, 0x350) = lbl_804EC668;
+    M2C_FIELD(arg0, u8 **, 0x350) = TObjEneRecobox__attack_params;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x43);
     M2C_FIELD(arg0, f32 *, 0x37C) = lbl_805DF468;
     TObjEneRecon__sub_8031F800(arg0);

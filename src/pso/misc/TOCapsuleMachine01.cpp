@@ -39,9 +39,9 @@ struct RecoveredFields_8015A734_var_r4
 
 extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
-extern u8 *TOCapsuleMachine01__data_805D58C0;
+extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 lbl_805D58C4;
-extern s32 TOCapsuleMachine01__data_805D58C8;
+extern s32 TOCapsuleMachine01__last_update_frame_tick;
 void reset_static_state__18TOCapsuleMachine01Fv(void);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
@@ -50,7 +50,7 @@ s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
 extern M2C_UNK __vt__18TOCapsuleMachine01[];
 extern s32 lbl_805D2ED4;
-extern u8 *TOCapsuleMachine01__data_805D58C0;
+extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 tl_05;
 extern const f32 lbl_805DB380;
 extern const f32 lbl_805DB384;
@@ -58,8 +58,8 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
-extern u8 *TOCapsuleMachine01__data_805D58C0;
-extern s32 TOCapsuleMachine01__data_805D58C8;
+extern u8 *TOCapsuleMachine01__model_resource;
+extern s32 TOCapsuleMachine01__last_update_frame_tick;
 extern s32 lbl_805D58CC;
 void alloc_and_load_resource__18TOCapsuleMachine01Fv(void);
 }
@@ -98,12 +98,12 @@ M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
 M2C_UNK set_global_param__8TObjFishFi(s32);
 
 extern s32 actor_frame_tick;
-extern s32 TOCapsuleMachine01__data_805D58C8;
+extern s32 TOCapsuleMachine01__last_update_frame_tick;
 extern s32 lbl_805D58CC;
 
 void run_task__18TOCapsuleMachine01Fv(void) {
-    if ((s32) TOCapsuleMachine01__data_805D58C8 != (s32) actor_frame_tick) {
-        TOCapsuleMachine01__data_805D58C8 = actor_frame_tick;
+    if ((s32) TOCapsuleMachine01__last_update_frame_tick != (s32) actor_frame_tick) {
+        TOCapsuleMachine01__last_update_frame_tick = actor_frame_tick;
         scroll_ginja_mesh_uvs(lbl_805D58CC, 0, 5, 4, 1);
         PPCSync();
     }
@@ -131,11 +131,11 @@ void *create__18TOCapsuleMachine01FPv(void *arg0) {
 extern M2C_UNK __vt__18TOCapsuleMachine01[];
 
 void reset_static_state__18TOCapsuleMachine01Fv(void) {
-    TOCapsuleMachine01__data_805D58C8 = 0;
+    TOCapsuleMachine01__last_update_frame_tick = 0;
     lbl_805D58C4 = 0;
-    if ((void *) TOCapsuleMachine01__data_805D58C0 != NULL) {
-        TLobby__sub_8001FE7C(TOCapsuleMachine01__data_805D58C0, 1);
-        TOCapsuleMachine01__data_805D58C0 = NULL;
+    if ((void *) TOCapsuleMachine01__model_resource != NULL) {
+        TLobby__sub_8001FE7C(TOCapsuleMachine01__model_resource, 1);
+        TOCapsuleMachine01__model_resource = NULL;
     }
 }
 
@@ -152,10 +152,10 @@ void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
   {
     var_r4 = (long) load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cap_moto_resource_descriptor.value, 0, 0, 0);
   }
-  TOCapsuleMachine01__data_805D58C0 = (unsigned char *) ((void *) var_r4);
+  TOCapsuleMachine01__model_resource = (unsigned char *) ((void *) var_r4);
   new_var = (void **) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) ((RecoveredFields_8015A734_var_r4 *) var_r4)->field_42C) + 8)))) + 0x2C)))) + 0x30);
   lbl_805D58CC = *((int *) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) (*new_var)) + 0x2C)))) + 0x30)))) + 4));
-  TOCapsuleMachine01__data_805D58C8 = 0;
+  TOCapsuleMachine01__last_update_frame_tick = 0;
 }
 
 void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
@@ -177,8 +177,8 @@ u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01 *)&__vt__18TOCapsuleMachine01).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2ED4;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__data_805D58C0, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__data_805D58C0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__model_resource, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__model_resource, u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB380;
     M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB384;
     M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);

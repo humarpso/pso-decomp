@@ -170,8 +170,8 @@ void vec3_add_to(void *, void *);
 void draw_ginja_object(void *);
 void set_material_alpha_compare_reference(u32);
 extern s32 TScene__data_805D5FE0;
-extern void (*TScene__data_805D5FEC)(Vec_8020533C *, Ang_8020533C *, u32);
-extern void (*TScene__data_805D5FF0)(u32);
+extern void (*TScene__map_section_render_callback)(Vec_8020533C *, Ang_8020533C *, u32);
+extern void (*TScene__active_scene_callback)(u32);
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 xz_distance_squared(void *, void *);
@@ -237,7 +237,7 @@ SceneDispatchPrefix scene_format_dispatch_tables = {
 
 extern "C" {
 s32 TScene__sub_80205874(void*);
-extern s8 TScene__data_805D5FD4;
+extern s8 TScene__floor_scene_ready_flag;
 }
 
 extern "C" {
@@ -569,7 +569,7 @@ void TScene::render() {
     };
     s32 i;
 
-    if (TScene__data_805D5FD4 != 0 && TScene__data_805D5FCC != NULL) {
+    if (TScene__floor_scene_ready_flag != 0 && TScene__data_805D5FCC != NULL) {
         if (get_state_flag__9TMainTaskFv() == 0) {
             for (i = 0; i < TScene__data_805D5FCC->count; i++) {
                 TScene__data_805D5FCC->sections[i].flags &= ~0x10000;
@@ -679,7 +679,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
             }
         }
         node = (Node_8020533C *)resolve_indirect_node_record(arg0, e);
-        if (TScene__data_805D5FEC != NULL) {
+        if (TScene__map_section_render_callback != NULL) {
             Vec_8020533C v;
             Ang_8020533C a;
             v.x = node->pos.x;
@@ -689,7 +689,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
             a.x = node->ang.x + arg1->angles[0];
             a.y = node->ang.y + arg1->angles[1];
             a.z = node->ang.z + arg1->angles[2];
-            TScene__data_805D5FEC(&v, &a, e->flags);
+            TScene__map_section_render_callback(&v, &a, e->flags);
         }
         if (e->flags & 0x200) {
             if (e->flags & 0x80) {
@@ -745,8 +745,8 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
         if (e->flags & 1) {
             end_effect_render__13TParticleCtrlFv();
         }
-        if (TScene__data_805D5FF0 != NULL) {
-            TScene__data_805D5FF0(e->flags);
+        if (TScene__active_scene_callback != NULL) {
+            TScene__active_scene_callback(e->flags);
         }
     }
 }
@@ -804,7 +804,7 @@ void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *ar
       a.z = node->ang.z + arg1->angles[2];
       render_projected_shadow_receiver(&v, &a);
     }
-    if (TScene__data_805D5FEC != 0)
+    if (TScene__map_section_render_callback != 0)
     {
       Vec_8020533C v;
       Ang_8020533C a;
@@ -815,7 +815,7 @@ void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *ar
       a.x = node->ang.x + arg1->angles[0];
       a.y = node->ang.y + arg1->angles[1];
       a.z = node->ang.z + arg1->angles[2];
-      TScene__data_805D5FEC(&v, &a, e->flags);
+      TScene__map_section_render_callback(&v, &a, e->flags);
     }
     if (e->flags & 0x200)
     {
@@ -858,9 +858,9 @@ void render_animated_map_section__6TSceneFv(void *arg0, SceneMaterialSection *ar
     {
       end_effect_render__13TParticleCtrlFv();
     }
-    if (TScene__data_805D5FF0 != 0)
+    if (TScene__active_scene_callback != 0)
     {
-      TScene__data_805D5FF0(e->flags);
+      TScene__active_scene_callback(e->flags);
     }
   }
 

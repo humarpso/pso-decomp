@@ -1783,7 +1783,7 @@ void *lbl_80496EE0[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80496EFC[11] = {
+void *re4_sorcerer_collision_body_part_table[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x41000000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1838,7 +1838,7 @@ void *__vt__18TObjEneRe4Sorcerer[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneRe4Sorcerer__vt99, (void *)&TObjEneRe4Sorcerer__vt100, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneRe4Sorcerer__vt103, (void *)&TObjEneRe4Sorcerer__vt104,
 };
-#define lbl_80496EFC ((f32 *)lbl_80496EFC)
+#define re4_sorcerer_collision_body_part_table ((f32 *)re4_sorcerer_collision_body_part_table)
 #define bm_ene_re4_sorcerer_resource_descriptor ((u8 *)bm_ene_re4_sorcerer_resource_descriptor)
 #define __vt__18TObjEneRe4Sorcerer ((M2C_UNK *)__vt__18TObjEneRe4Sorcerer)
 
@@ -2998,7 +2998,7 @@ void init_enemy__18TObjEneRe4SorcererFPv(u8 *arg0) {
     M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&sorcerer_bml_resource), u8 **, 0x42C), s32 *, 8);
     temp_r6 = (u8 *)(M2C_FIELD((*(u8 * *)&sorcerer_bml_resource), u8 **, 0x42C));
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r6, s32 *, 0xC);
-    init_model__9TObjEneDDFPv((void *) (arg0), (void *) ((void * *)lbl_80496EFC), (int) (1), (int) (temp_r6));
+    init_model__9TObjEneDDFPv((void *) (arg0), (void *) ((void * *)re4_sorcerer_collision_body_part_table), (int) (1), (int) (temp_r6));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) lbl_80496F68);
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (M2C_FIELD((*(u8 * *)&sorcerer_bml_resource), s32 *, 0x430)));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
@@ -3101,7 +3101,7 @@ void load_resources__18TObjEneRe4SorcererFv(void) {
     TObjEneRe4Sorcerer__uv_scroll_buffer = r;
     Params_800F0464 p = lbl_8043D3F8;
     p.a = M2C_FIELD(sorcerer_bml_resource, s32 *, 0x430);
-    spawn_npc_enemy__6TLobbyFsiiiff(0x2A, M2C_FIELD(M2C_FIELD(sorcerer_bml_resource, u8 **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(sorcerer_bml_resource, u8 **, 0x42C), s32 *, 0xC), &p, lbl_80496EFC[3], TObjEneRe4Sorcerer__data_805DA78C);
+    spawn_npc_enemy__6TLobbyFsiiiff(0x2A, M2C_FIELD(M2C_FIELD(sorcerer_bml_resource, u8 **, 0x42C), s32 *, 8), M2C_FIELD(M2C_FIELD(sorcerer_bml_resource, u8 **, 0x42C), s32 *, 0xC), &p, re4_sorcerer_collision_body_part_table[3], TObjEneRe4Sorcerer__data_805DA78C);
 }
 
 void TBoss3Volopt__sub_800F059C(void) {  }

@@ -11,7 +11,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80173614_lbl_804B3A70 bm_fs_obj_yukakaiten01_resource_descriptor;
-extern u32 TORevlightCave01__data_805D5A78;
+extern u32 TORevlightCave01__static_model_resource;
 void load_shared_resource__16TORevlightCave01Fv(void);
 }
 
@@ -33,12 +33,12 @@ void *create__16TORevlightCave01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TORevlightCave01__data_805D5A78;
+extern u32 TORevlightCave01__static_model_resource;
 
 void release_static_instance__16TORevlightCave01Fv(void) {
-    if ((u32) TORevlightCave01__data_805D5A78 != 0U) {
-        TLobby__sub_8001FE7C((void*)TORevlightCave01__data_805D5A78, 1);
-        TORevlightCave01__data_805D5A78 = 0U;
+    if ((u32) TORevlightCave01__static_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TORevlightCave01__static_model_resource, 1);
+        TORevlightCave01__static_model_resource = 0U;
     }
 }
 void load_shared_resource__16TORevlightCave01Fv(void) {
@@ -49,7 +49,7 @@ void load_shared_resource__16TORevlightCave01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_yukakaiten01_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TORevlightCave01__data_805D5A78) = var_r0;
+    (*(s32 *)&TORevlightCave01__static_model_resource) = var_r0;
 }
 
 }

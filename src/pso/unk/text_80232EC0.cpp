@@ -26,7 +26,7 @@ M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_level_tier__10TObjPlayerFi(s32);
-extern Profile_80232EC0 lbl_8044D53C[];
+extern Profile_80232EC0 grants_effect_emitter_table[];
 extern void *lbl_804CC888[];
 Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *self, u8 *src, s32 level, void *parent);
 }
@@ -47,9 +47,9 @@ Task_80232EC0 *construct_grants_effect__12TBoss3VoloptFPvPviPv(Task_80232EC0 *se
         self->level = 0x1E;
     }
     self->tier = get_level_tier__10TObjPlayerFi(self->level);
-    self->emitters = alloc_buffer__11TOBoss4RockFPv(lbl_8044D53C[self->tier].count * 4);
-    for (i = 0; i < lbl_8044D53C[self->tier].count; i++) {
-        self->emitters[i] = spawn_continuous_particle_effect_with_flags(self->pos, lbl_8044D53C[self->tier].parts[i].id, 0x10);
+    self->emitters = alloc_buffer__11TOBoss4RockFPv(grants_effect_emitter_table[self->tier].count * 4);
+    for (i = 0; i < grants_effect_emitter_table[self->tier].count; i++) {
+        self->emitters[i] = spawn_continuous_particle_effect_with_flags(self->pos, grants_effect_emitter_table[self->tier].parts[i].id, 0x10);
         if (self->emitters[i] != 0) {
             set_owner_id__13TParticleCtrlFPvUs(self->emitters[i], self->owner);
         }

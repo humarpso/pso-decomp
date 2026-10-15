@@ -44,13 +44,13 @@ int TObjSeabedSuisoBrakable__model12_render_nodes[3];
 int lbl_80540AE0[4];
 
 extern u32 TObjSeabedSuisoBrakable__resource_bundle;
-extern u32 lbl_805D6674;
+extern u32 TObjSeabedSuisoBrakable__texture_gvm_handle;
 
 void free_static_resources__23TObjSeabedSuisoBrakableFv(void) {
-    if ((u32) lbl_805D6674 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6674);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D6674);
-        lbl_805D6674 = 0U;
+    if ((u32) TObjSeabedSuisoBrakable__texture_gvm_handle != 0U) {
+        TLobby__sub_803DA16C((void*)TObjSeabedSuisoBrakable__texture_gvm_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(TObjSeabedSuisoBrakable__texture_gvm_handle);
+        TObjSeabedSuisoBrakable__texture_gvm_handle = 0U;
     }
     if ((u32) TObjSeabedSuisoBrakable__resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)TObjSeabedSuisoBrakable__resource_bundle, 1);
@@ -77,10 +77,10 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
             p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_2_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
-        if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CE0)) != 0) {
+        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CE0)) != 0) {
             t1 = seabed_suiso_texture_name_table;
             for (i = 0; i < 5; i++) {
-                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t1.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(TObjSeabedSuisoBrakable__texture_gvm_handle, t1.w[i]);
             }
         }
         break;
@@ -91,10 +91,10 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
             p = (void *)load_resource_from_descriptor(p, 1, bm_obj_seabed_suiso_resource_descriptor, 0, 0, 0);
         }
         TObjSeabedSuisoBrakable__resource_bundle = (u32)p;
-        if ((lbl_805D6674 = load_gvm_texture_file(lbl_80466CF8)) != 0) {
+        if ((TObjSeabedSuisoBrakable__texture_gvm_handle = load_gvm_texture_file(lbl_80466CF8)) != 0) {
             t2 = lbl_80466C80;
             for (i = 0; i < 5; i++) {
-                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(lbl_805D6674, t2.w[i]);
+                TObjSeabedSuisoBrakable__break_model_entries[i] = find_entry_by_name__12TObjDoorJungFPvPv(TObjSeabedSuisoBrakable__texture_gvm_handle, t2.w[i]);
             }
         }
         break;

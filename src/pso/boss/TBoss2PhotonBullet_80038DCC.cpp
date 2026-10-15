@@ -181,7 +181,7 @@ extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
 
 void rotate_xz_pair_by_angle(void *, void *, s32);
-extern Rec_80039288 lbl_80435B08[];
+extern Rec_80039288 TBoss2PhotonPad__bullet_level_param_table[];
 extern void *__vt__15TBoss2PhotonPad[];
 extern s32 TBoss2PhotonPad__name;
 void queue_destruction__7TObjectFv(void *);
@@ -209,11 +209,11 @@ void run_task__15TBoss2PhotonPadFv(Pad_80039140 *self) {
         if (inst != NULL) {
             p = __nw__7TObjectFUl(0xE8);
             if (p != NULL) {
-                ((void *(*)(void *, void *, void *, s32, void *, f32))TBoss2PhotonBullet__ct)(p, self->parent, inst, self->unk1C, self->pos, (1.5f) * lbl_80435B08[self->level].d);
+                ((void *(*)(void *, void *, void *, s32, void *, f32))TBoss2PhotonBullet__ct)(p, self->parent, inst, self->unk1C, self->pos, (1.5f) * TBoss2PhotonPad__bullet_level_param_table[self->level].d);
             }
         }
-        self->timer = lbl_80435B08[self->level].b;
-        rotate_xz_pair_by_angle(self->pos, self->unk28, lbl_80435B08[self->level].c / lbl_80435B08[self->level].a);
+        self->timer = TBoss2PhotonPad__bullet_level_param_table[self->level].b;
+        rotate_xz_pair_by_angle(self->pos, self->unk28, TBoss2PhotonPad__bullet_level_param_table[self->level].c / TBoss2PhotonPad__bullet_level_param_table[self->level].a);
         self->shots--;
         if (self->shots == 0) {
             queue_destruction__7TObjectFv(self);
@@ -237,8 +237,8 @@ S_80039288 *__ct__15TBoss2PhotonPadFv(S_80039288 *o, void *parent, s32 arg2, voi
     o->f1c = arg2;
     o->f2c = arg4;
     VecCopy__FP3VecPC3Vec(o->v20, arg3);
-    rotate_xz_pair_by_angle(o->v20, o->v28, -(lbl_80435B08[o->f2c].c / 2));
-    o->f30 = lbl_80435B08[o->f2c].a;
+    rotate_xz_pair_by_angle(o->v20, o->v28, -(TBoss2PhotonPad__bullet_level_param_table[o->f2c].c / 2));
+    o->f30 = TBoss2PhotonPad__bullet_level_param_table[o->f2c].a;
     o->f34 = 0;
     return o;
 }

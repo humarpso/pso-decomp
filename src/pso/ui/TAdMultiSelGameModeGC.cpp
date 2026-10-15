@@ -66,7 +66,7 @@ void *__ct__13TAdGuideTxtGCFv(void *, void *);
 void set_ad_field__6TLobbyFPvi(void *, s32);
 extern s32 lbl_80474E40[];
 extern Cur_8030095C lbl_80474EAC[];
-extern Pos_8030095C lbl_80474EB4;
+extern Pos_8030095C TAdMultiSelGameModeGC__menu_position_table;
 extern void *__vt__21TAdMultiSelGameModeGC[];
 extern s32 TAdMultiSelGameModeGC__name;
 extern s32 game_difficulty_selection;
@@ -287,7 +287,7 @@ Obj_8030095C *__ct__21TAdMultiSelGameModeGCFv(Obj_8030095C *self, s32 parent, s3
     self->f38 = p;
     {
         Cur_8030095C cur = lbl_80474EAC[0];
-        Pos_8030095C pos = lbl_80474EB4;
+        Pos_8030095C pos = TAdMultiSelGameModeGC__menu_position_table;
         p = __nw__7TObjectFUl(0x708);
         if (p != NULL) {
             p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);

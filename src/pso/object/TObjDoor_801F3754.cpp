@@ -19,7 +19,7 @@ void TObjDoor__sub_801F3754(void) {
     extern int switch_doors_force_closed;
 void TObjDoor__sub_801F3760(void) { switch_doors_force_closed = 1; }
 
-    extern int lbl_805D5B60;
-void set_main_warp_id__8TObjDoorFi(int a0) { lbl_805D5B60 = a0; }
+    extern int city_main_warp_destination_id;
+void set_main_warp_id__8TObjDoorFi(int a0) { city_main_warp_destination_id = a0; }
 
 }

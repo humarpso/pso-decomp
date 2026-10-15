@@ -241,12 +241,12 @@ extern "C" {
 void destroy_instance__17TAdGameStartSubGCFv(void);
 void TLobby__sub_803DA16C(void*);
 
-extern int lbl_805D6900;
+extern int multiplay_texture_f512_handle;
 
 void destroy_instance__17TAdGameStartSubGCFv(void) {
-    if ((u32) lbl_805D6900 != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D6900);
-        lbl_805D6900 = 0U;
+    if ((u32) multiplay_texture_f512_handle != 0U) {
+        TLobby__sub_803DA16C((void*)multiplay_texture_f512_handle);
+        multiplay_texture_f512_handle = 0U;
     }
 }
 
@@ -256,8 +256,8 @@ extern "C" {
     int TLobby__sub_8023E4B4(void*, void*);
     extern const unsigned char lbl_80472C28[];
     extern void *texture_f512_multiplay_descriptor[];
-    extern int lbl_805D6900;
-void register_texture_f512_multiplay(void) { lbl_805D6900 = (int)texture_f512_multiplay_descriptor; TLobby__sub_8023E4B4((void *)lbl_80472C28, texture_f512_multiplay_descriptor); }
+    extern int multiplay_texture_f512_handle;
+void register_texture_f512_multiplay(void) { multiplay_texture_f512_handle = (int)texture_f512_multiplay_descriptor; TLobby__sub_8023E4B4((void *)lbl_80472C28, texture_f512_multiplay_descriptor); }
 __declspec(section ".rodata") extern const unsigned char lbl_80472C28[] = "f512_multiplay";
 __declspec(section ".rodata") extern const char lbl_80472C38[] = "TAdGameStartGC";
 __declspec(section ".rodata") extern const char lbl_80472C48[] = "TAdGameStartSubGC";

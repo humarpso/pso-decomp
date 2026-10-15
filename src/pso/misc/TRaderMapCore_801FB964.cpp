@@ -17,10 +17,10 @@ void __dt__7TObjectFv(void *, int);
     extern const float TRaderMapCore__data_805DC534;
 void reset__13TRaderMapCoreFPv(void* a0) { *(float*)((char*)a0 + 0x8) = TRaderMapCore__data_805DC528; *(float*)((char*)a0 + 0x4) = TRaderMapCore__data_805DC528; *(float*)((char*)a0 + 0x0) = TRaderMapCore__data_805DC528; *(int*)((char*)a0 + 0xc) = 0; *(float*)((char*)a0 + 0x10) = TRaderMapCore__data_805DC534; *(short*)((char*)a0 + 0x14) = 0; *(short*)((char*)a0 + 0x16) = -1; *(float*)((char*)a0 + 0x24) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x20) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x1c) = TRaderMapCore__data_805DC534; *(float*)((char*)a0 + 0x18) = TRaderMapCore__data_805DC534; }
 
-extern s32 lbl_805D5F48;
+extern s32 TRaderMapCore__frame_model_resource;
 
 void init_map_ptr__13TRaderMapCoreFv(void) {
-    get_bml_model(lbl_805D5F48);
+    get_bml_model(TRaderMapCore__frame_model_resource);
 }
 
 extern M2C_UNK lbl_804C88A8[];

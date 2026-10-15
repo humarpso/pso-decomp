@@ -27,13 +27,13 @@ int TObjPlayer__sub_801C210C(void*);
 
 int forward_801C210C__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801C210C(p); }
 
-    extern int lbl_805D6688;
+    extern int player_action_provider_selector;
 
 u8 is_action_id_none(s32 arg0) {
     return (u8) (arg0 == -1);
 }
 
-int get_hold_effect_count__10TObjPlayerFv(void) {  return lbl_805D6688; }
+int get_hold_effect_count__10TObjPlayerFv(void) {  return player_action_provider_selector; }
 
 int TObjPlayer__sub_801C00FC(void) { return 0; }
 int TObjPlayer__sub_801C0104(void) { return 0; }

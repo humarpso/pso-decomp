@@ -21,7 +21,7 @@ struct RecoveredGlobal_802911E8_lbl_804DAA78 {
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 s32 TLobby__sub_803DA16C(void *);
-extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
+extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern u32 cmicon_instance;
 void fn_80291138(void);
 void apply_view_params_if_flagged__11TCameraCtrlFPv(void *);
@@ -37,7 +37,7 @@ void TCharaMaking__resolve_creation_sprite_table(u8 **table, s32 *id);
 void load_texture_pvm_file__6TLobbyFPvi(int, void *);
 void init_icon_table__10TObjCMIconFv();
 s32 create__10TObjCMIconFPv(int);
-extern RecoveredGlobal_80291138_lbl_804D9668 lbl_804D9668;
+extern RecoveredGlobal_80291138_lbl_804D9668 creation_sprite_table;
 extern s32 lbl_804DA944[];
 extern f32 ui_sprite_scale;
 extern s32 current_language;
@@ -74,7 +74,7 @@ void fn_80291138(void) {
         queue_destruction__7TObjectFv((void *) (cmicon_instance));
     }
     cmicon_instance = 0U;
-    TLobby__sub_803DA16C((void *) (&lbl_804D9668.value));
+    TLobby__sub_803DA16C((void *) (&creation_sprite_table.value));
 }
 #pragma push
 #pragma fp_contract on
@@ -88,7 +88,7 @@ void fn_80291178(void) {
     }
     init_icon_table__10TObjCMIconFv();
     (*(s32 *)&cmicon_instance) = create__10TObjCMIconFPv(tl_06);
-    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[creation_sprite_table_index], ((s32 *)&lbl_804D9668));
+    load_texture_pvm_file__6TLobbyFPvi(lbl_804DA944[creation_sprite_table_index], ((s32 *)&creation_sprite_table));
 }
 
 void set_creation_projection_center(f32 farg0) {

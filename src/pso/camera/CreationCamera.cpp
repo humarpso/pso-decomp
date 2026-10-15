@@ -24,7 +24,7 @@ extern int creation_camera_mode;
 extern const f32 lbl_805DD990;
 extern const f32 lbl_805DD994;
 f32 calc_character_height(void *);
-extern CreationHeightBounds lbl_804DAA18[12];
+extern CreationHeightBounds creation_camera_height_bounds_table[12];
 extern CharacterAppearanceFields *creation_player_character;
 extern int creation_camera_mode;
 extern const f32 lbl_805DD978;
@@ -169,7 +169,7 @@ void CreationCamera::run_task() {
 }
 
 extern "C" {
-CreationHeightBounds lbl_804DAA18[12] = {
+CreationHeightBounds creation_camera_height_bounds_table[12] = {
     {1.04999995f, 1.58000004f},
     {1.17999995f, 1.52999997f},
     {1.5f, 1.88f},
@@ -362,8 +362,8 @@ void CreationCamera::begin_review(){
         M2C_FIELD(this, f32 *, 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (creation_player_character)));
         M2C_FIELD(this, f32 *, 0x80) = (f32) M2C_FIELD(this, f32 *, 0x6C);
         temp_r7 = (s8) M2C_FIELD(creation_player_character, u8 *, 0x31) * 8;
-        temp_f2 = M2C_FIELD(((u8 *)(lbl_804DAA18) + temp_r7), f32 *, 0);
-        M2C_FIELD(this, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(creation_player_character, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(lbl_804DAA18) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
+        temp_f2 = M2C_FIELD(((u8 *)(creation_camera_height_bounds_table) + temp_r7), f32 *, 0);
+        M2C_FIELD(this, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(creation_player_character, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(creation_camera_height_bounds_table) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
         M2C_FIELD(this, s32 *, 0x74) = 0;
         M2C_FIELD(this, s32 *, 0x70) = 0;
         creation_camera_mode = 2;

@@ -50,7 +50,7 @@ extern RecoveredGlobal_8011A350_main_task main_task;
 void run_frame__16TItemReverseTechFv(void);
 M2C_UNK render_tick__Fv();
 M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
-extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
+extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 extern RecoveredGlobal_8011A350_main_task main_task;
 void run_cleanup_callbacks__16TItemReverseTechFv(void);
 Hdr_8011A270 *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -82,7 +82,7 @@ void * __nw__7TObjectFUl(M2C_UNK);
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
-extern RecoveredGlobal_8011A3D8_lbl_804A03A8 lbl_804A03A8;
+extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 extern u8 default_scene_light_config[];
 extern s32 tl_camera;
 extern const float lbl_805DAC4C;
@@ -195,7 +195,7 @@ void run_cleanup_callbacks__16TItemReverseTechFv(void) {
   s32 var_r30;
   delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A3D8_main_task *)&main_task).value));
   var_r30 = 6;
-  var_r31 = ((u8 *) (&lbl_804A03A8.value)) + 0x30;
+  var_r31 = ((u8 *) (&TItemReverseTech__cleanup_callback_table.value)) + 0x30;
   do
   {
     temp_r12 = *((M2C_UNK (**)()) (((s8 *) var_r31) + 4));
@@ -220,7 +220,7 @@ void init_scene__16TItemReverseTechFv(void) {
     set_copy_clear_color_argb(0, 0, 0);
     reset_controller_input_state();
     clear_resource_load_tasks();
-    e = ((Ent_8011A43C *)&lbl_804A03A8);
+    e = ((Ent_8011A43C *)&TItemReverseTech__cleanup_callback_table);
     for (i = 0; i != 7; i++) {
         fn = e->fn;
         e++;

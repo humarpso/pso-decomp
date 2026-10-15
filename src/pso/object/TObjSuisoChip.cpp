@@ -156,7 +156,7 @@ typedef struct Obj_802A6490 {
 
 extern "C" {
 void *__nw__7TObjectFUl(int);
-extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
+extern RecoveredGlobal_802A6438_lbl_804DD388 TObjSeabedSuisoBrakable__chip_record_set_table;
 extern const f32 lbl_805DDFFC;
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 f32 fabs_float(f32);
@@ -171,7 +171,7 @@ u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1);
 
 void *__nw__7TObjectFUl(int);
 
-extern RecoveredGlobal_802A6438_lbl_804DD388 lbl_804DD388;
+extern RecoveredGlobal_802A6438_lbl_804DD388 TObjSeabedSuisoBrakable__chip_record_set_table;
 extern const f32 lbl_805DE000;
 extern const f32 lbl_805DE004;
 extern const f32 lbl_805DE008;
@@ -255,9 +255,9 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
     f32 var_f0;
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
-    var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
-    var_r3 = (M2C_UNK *)(&lbl_804DD388.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&lbl_804DD388.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
+    var_r3 = (M2C_UNK *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
+    var_r3 = (M2C_UNK *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
+    var_r3 = (M2C_UNK *)(M2C_FIELD(&TObjSeabedSuisoBrakable__chip_record_set_table.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
     M2C_FIELD(var_r31, s32 *, 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int) (var_r3));
     var_r3 = (M2C_UNK *)((u8 *)(NULL));
     M2C_FIELD(var_r31, s32 *, 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)((int) (0));
@@ -287,7 +287,7 @@ void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
     p.i48 = 0;
     p.i4c = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)(0);
     p.i50 = 17;
-    rec = ((Set_802A6490 *)&lbl_804DD388)[self->kind].recs;
+    rec = ((Set_802A6490 *)&TObjSeabedSuisoBrakable__chip_record_set_table)[self->kind].recs;
     for (i = 0; i < 17; i++, rec++) {
         if (rec->id >= 0) {
             p.i48 = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)(rec->id);
@@ -607,7 +607,7 @@ struct Obj_802A6DA8 : VBase_802A6DA8 {
 extern "C" {
 s32 create_particle_emitter(void *, s32);
 void init_map_object_base(void *, s32, s32);
-extern Ent18_802A6BD0 lbl_804DD278[];
+extern Ent18_802A6BD0 TObjSeabedSuiso__kind_param_table[];
 extern Ent2C_802A6DA8 lbl_804DD2D8[];
 extern s32 TObjSeabedSuiso_CH__name;
 extern const f32 lbl_805DDFF8;
@@ -621,10 +621,10 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     if (self->kind > 3) {
         self->kind = 3;
     }
-    self->fd4 = get_model__23TObjSeabedSuisoBrakableFi(lbl_804DD278[self->kind].a);
-    if (lbl_804DD278[self->kind].b != -1) {
-        self->fbc = (Snd_802A6BD0 *)get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(lbl_804DD278[self->kind].b);
-        self->fb8 = lbl_804DD278[self->kind].f8;
+    self->fd4 = get_model__23TObjSeabedSuisoBrakableFi(TObjSeabedSuiso__kind_param_table[self->kind].a);
+    if (TObjSeabedSuiso__kind_param_table[self->kind].b != -1) {
+        self->fbc = (Snd_802A6BD0 *)get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(TObjSeabedSuiso__kind_param_table[self->kind].b);
+        self->fb8 = TObjSeabedSuiso__kind_param_table[self->kind].f8;
     } else {
         self->fbc = 0;
         self->fb8 = lbl_805DDFF8;
@@ -632,8 +632,8 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     if (self->fbc != 0) {
         self->fb4 = (f32)self->fbc->len - lbl_805DE014;
     }
-    self->fc0 = lbl_804DD278[self->kind].f10;
-    self->fc4 = lbl_804DD278[self->kind].f14;
+    self->fc0 = TObjSeabedSuiso__kind_param_table[self->kind].f10;
+    self->fc4 = TObjSeabedSuiso__kind_param_table[self->kind].f14;
     if (self->kind == 3) {
         v = self->f88;
         self->fcc = v >> 16;
@@ -661,8 +661,8 @@ Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
     }
     init_collision_body_parts(self, (int)&lbl_804DD2D8[self->kind], 1);
     reset_photon_effect__10TObjPlayerFPv(self);
-    if (lbl_804DD278[self->kind].id >= 0) {
-        self->fd8 = create_particle_emitter(self->pos, lbl_804DD278[self->kind].id);
+    if (TObjSeabedSuiso__kind_param_table[self->kind].id >= 0) {
+        self->fd8 = create_particle_emitter(self->pos, TObjSeabedSuiso__kind_param_table[self->kind].id);
     } else {
         self->fd8 = 0;
     }
@@ -670,7 +670,7 @@ Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
 }
 #pragma pop
 
-    extern int lbl_805D6674;
+    extern int TObjSeabedSuisoBrakable__texture_gvm_handle;
 
 u8 *get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     if ((void *) TObjSeabedSuisoBrakable__resource_bundle != NULL) {
@@ -679,7 +679,7 @@ u8 *get_bml_motion_by_index__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     return NULL;
 }
 
-int get_instance__23TObjSeabedSuisoBrakableFv(void) {  return lbl_805D6674; }
+int get_instance__23TObjSeabedSuisoBrakableFv(void) {  return TObjSeabedSuisoBrakable__texture_gvm_handle; }
 u8 *get_model__23TObjSeabedSuisoBrakableFi(s32 arg0) {
     if ((void *) TObjSeabedSuisoBrakable__resource_bundle != NULL) {
         return get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, arg0);

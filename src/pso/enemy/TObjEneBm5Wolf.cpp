@@ -105,7 +105,7 @@ void set_field8_from_obj__14TObjEneBm5WolfFPvi(void *arg0, s32 arg1);
 void TObjEneBm5Wolf__sub_800B8A24(O_800B8A24 *self);
 u8 * TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 extern void* bm5_wolf_decision_row[];
-extern void* lbl_804920EC[];
+extern void* TObjEneBm5Wolf__collider_params[];
 extern void* bm_ene_bm5_wolf_resource_descriptor[];
 extern void* lbl_804921C8[];
 extern s32 TObjEneBm5Wolf__stat_params[];
@@ -139,7 +139,7 @@ void *bm5_wolf_decision_row[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804920EC[33] = {
+void *TObjEneBm5Wolf__collider_params[33] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40c00000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
@@ -3910,7 +3910,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     invoke_initialization_hook__9TObjEneDDFPv(arg0, arg2);
     select_subtype__14TObjEneBm5WolfFPv(arg0);
     init_position_vectors__9TObjEneDDFPv(arg0);
-    init_model__9TObjEneDDFPv(arg0, (void *)lbl_804920EC, 1);
+    init_model__9TObjEneDDFPv(arg0, (void *)TObjEneBm5Wolf__collider_params, 1);
     set_field_d8__10TObjPlayerFPvi(arg0, (void *)lbl_804921C8);
     set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(TObjEneBm5Wolf__bml_resource, s32 *, 0x430));
     M2C_FIELD(arg0, s16 *, 0xB8) = 0;
@@ -3947,7 +3947,7 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
         o = construct_collider_proxy__10TObjPlayerFPv(o, 0);
     }
     M2C_FIELD(arg0, void **, 0x410) = o;
-    init_collision_body_parts(M2C_FIELD(arg0, void **, 0x410), (void *)((u8 *)lbl_804920EC + 0x2C), 1);
+    init_collision_body_parts(M2C_FIELD(arg0, void **, 0x410), (void *)((u8 *)TObjEneBm5Wolf__collider_params + 0x2C), 1);
     M2C_FIELD(arg0, s32 *, 0x414) = 0;
     M2C_FIELD(arg0, u16 *, 0x418) = 0xFFFF;
     WV_800B8244(arg0)->m96();
@@ -4047,7 +4047,7 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #define fn_800B8B00 ((void* (*)(void*))fn_800B8B00)
 #define obj_getField1c ((s16 (*)(s32))obj_getField1c)
 #define TObjEneBm5Wolf__ct ((void * (*)(void *, void *, void *))TObjEneBm5Wolf__ct)
-#define lbl_804920EC ((f32 *)&lbl_804920EC)
+#define TObjEneBm5Wolf__collider_params ((f32 *)&TObjEneBm5Wolf__collider_params)
 #define bm_ene_bm5_wolf_resource_descriptor ((u8 *)&bm_ene_bm5_wolf_resource_descriptor)
 
 struct Vec_800B86B4 { f32 x, y, z; };
@@ -4140,8 +4140,8 @@ void load_resources__14TObjEneBm5WolfFv(void) {
     {
     Spawn_800B86B4 sp = lbl_8043B574;
     sp.a = TObjEneBm5Wolf__bml_resource->x430;
-    spawn_npc_enemy__6TLobbyFsiiiff(9, TObjEneBm5Wolf__bml_resource->p42c[6], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, lbl_804920EC[3], TObjEneBm5Wolf__data_805D9D78);
-    spawn_npc_enemy__6TLobbyFsiiiff(10, TObjEneBm5Wolf__bml_resource->p42c[2], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, lbl_804920EC[3], TObjEneBm5Wolf__data_805D9D78);
+    spawn_npc_enemy__6TLobbyFsiiiff(9, TObjEneBm5Wolf__bml_resource->p42c[6], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, TObjEneBm5Wolf__collider_params[3], TObjEneBm5Wolf__data_805D9D78);
+    spawn_npc_enemy__6TLobbyFsiiiff(10, TObjEneBm5Wolf__bml_resource->p42c[2], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, TObjEneBm5Wolf__collider_params[3], TObjEneBm5Wolf__data_805D9D78);
     }
 }
 
@@ -4228,7 +4228,7 @@ s32 get_group_id__14TObjEneBm5WolfFPv(void* p) { return *(s32*)((char*)p + 0x3dc
 #undef fn_800B8B00
 #undef obj_getField1c
 #undef TObjEneBm5Wolf__ct
-#undef lbl_804920EC
+#undef TObjEneBm5Wolf__collider_params
 #undef bm_ene_bm5_wolf_resource_descriptor
 
 extern "C" void register_global_objects__14TObjEneBm5WolfFv(void);

@@ -59,7 +59,7 @@ void *__nw__7TObjectFUl(int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern u32 TObjCurtainLobby__data_805D6F58;
+extern u32 TObjCurtainLobby__model_resource;
 extern s32 lbl_805D6F5C;
 void load_resources__16TObjCurtainLobbyFv(void);
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
@@ -147,9 +147,9 @@ void *create__16TObjCurtainLobbyFPv(void *arg0) {
     return o;
 }
 void close_dialog_window__16TObjCurtainLobbyFv(void) {
-    if ((u32) TObjCurtainLobby__data_805D6F58 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjCurtainLobby__data_805D6F58, 1);
-        TObjCurtainLobby__data_805D6F58 = 0U;
+    if ((u32) TObjCurtainLobby__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjCurtainLobby__model_resource, 1);
+        TObjCurtainLobby__model_resource = 0U;
     }
 }
 void load_resources__16TObjCurtainLobbyFv(void) {
@@ -160,7 +160,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor, 0, 0, 0));
     }
-    (*(s32 *)&TObjCurtainLobby__data_805D6F58) = var_r0;
+    (*(s32 *)&TObjCurtainLobby__model_resource) = var_r0;
     lbl_805D6F5C = get_lobby_type__6TLobbyFv();
 }
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
@@ -184,7 +184,7 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     }
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjCurtainLobby__data_805D6F58, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjCurtainLobby__model_resource, void **, 0x42C), s32 *, 8);
     M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F5C;
     return arg0;
 }

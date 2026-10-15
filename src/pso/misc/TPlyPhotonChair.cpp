@@ -141,7 +141,7 @@ extern const float lbl_805E012C;
 void run_task__15TPlyPhotonChairFv(u8 *arg0);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-extern u32 TPlyPhotonChair__data_805D6F40;
+extern u32 TPlyPhotonChair__shared_model_resource;
 s32 load_resources__15TPlyPhotonChairFv(void);
 void TPlyPhotonChair__sub_8035B66C(void* p);
 extern RecoveredGlobal_8035B630_lbl_804A7488 lbl_804A7488;
@@ -165,7 +165,7 @@ void *init__15TPlyPhotonChairFPv(void *arg0);
 extern RecoveredGlobal_8035B3C0_lbl_8047975C TPlyPhotonChair__section_id_color_table;
 extern M2C_UNK __vt__15TPlyPhotonChair[];
 extern s32 lbl_805D4418;
-extern u32 TPlyPhotonChair__data_805D6F40;
+extern u32 TPlyPhotonChair__shared_model_resource;
 extern const f32 lbl_805E0130;
 u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_state_flag__9TMainTaskFv();
@@ -209,7 +209,7 @@ void destroy__11TMainCursorFPvs(void *, int);
 void destroy__15TPlyPhotonChairFPvs(void *, int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern u32 TPlyPhotonChair__data_805D6F40;
+extern u32 TPlyPhotonChair__shared_model_resource;
 
 void render__15TPlyPhotonChairFv(Chair_8035B058 *self) {
     Vec_8035B058 out;
@@ -280,9 +280,9 @@ void run_task__15TPlyPhotonChairFv(u8 *arg0) {
 }
 
 void free_static_model__15TPlyPhotonChairFv(void) {
-    if ((u32) TPlyPhotonChair__data_805D6F40 != 0U) {
-        TLobby__sub_8001FE7C((void*)TPlyPhotonChair__data_805D6F40, 1);
-        TPlyPhotonChair__data_805D6F40 = 0U;
+    if ((u32) TPlyPhotonChair__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TPlyPhotonChair__shared_model_resource, 1);
+        TPlyPhotonChair__shared_model_resource = 0U;
     }
 }
 
@@ -296,7 +296,7 @@ s32 load_resources__15TPlyPhotonChairFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &photon_chair_resource_descriptor, 0, 0, 0));
     }
-    (*(u8 * *)&TPlyPhotonChair__data_805D6F40) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TPlyPhotonChair__shared_model_resource) = (unsigned char *) ((void *) var_r0);
     if ((u32) var_r0 == 0U) {
         return 0;
     }
@@ -334,14 +334,14 @@ u8 *TPlyPhotonChair__ct(u8 *arg0, s32 arg1, s32 arg2) {
         return arg0;
     }
     get_rader_map__11TMainCursorFPv((void *) (arg0 + 0xD0), (void *) ((u8 *)&TPlyPhotonChair__section_id_color_table.value + (get_actor_section_id((int) (temp_r3)) * 0x10)));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1));
-    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));
-    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (1)))));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1));
+    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
+    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0x98)), (s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (1)))));
     sync_field10_from_child__15TPlyPhotonChairFPv((void *) (arg0 + 0x98));
     TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0x98)), (f32) (lbl_805E0130));
     set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0x98)));
-    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (0)))));
-    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__data_805D6F40)), (int) (0)))));
+    set_type__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (get_bml_model((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (0)))));
+    set_field_8__15TPlyPhotonChairFPvi((void*)((void *) (arg0 + 0xB4)), (s32)((int) (get_bml_motion((int) ((*(s32 *)&TPlyPhotonChair__shared_model_resource)), (int) (0)))));
     sync_field10_from_child__15TPlyPhotonChairFPv((void *) (arg0 + 0xB4));
     TPlyPhotonChair__sub_8035B56C((void*)((void *) (arg0 + 0xB4)), (f32) (lbl_805E0130));
     set_state_ready__15TPlyPhotonChairFPv((void*)((void *) (arg0 + 0xB4)));

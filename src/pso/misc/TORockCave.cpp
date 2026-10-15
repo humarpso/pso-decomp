@@ -105,7 +105,7 @@ u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern u32 cave_rock_resource_bundle;
-extern u32 lbl_805D5A84;
+extern u32 rock_cave_model_resource;
 void load_resources__10TORockCaveFv(void);
 }
 
@@ -123,7 +123,7 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 
 extern u32 cave_rock_resource_bundle;
-extern u32 lbl_805D5A84;
+extern u32 rock_cave_model_resource;
 
 void draw_model__10TORockCaveFPv(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
@@ -139,9 +139,9 @@ void draw_model__10TORockCaveFPv(u8 *arg0) {
 }
 
 void free_instances__10TORockCaveFv(void) {
-    if ((u32) lbl_805D5A84 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5A84, 1);
-        lbl_805D5A84 = 0U;
+    if ((u32) rock_cave_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)rock_cave_model_resource, 1);
+        rock_cave_model_resource = 0U;
     }
     if ((u32) cave_rock_resource_bundle != 0U) {
         TLobby__sub_8001FE7C((void*)cave_rock_resource_bundle, 1);
@@ -165,19 +165,19 @@ void load_resources__10TORockCaveFv(void) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 3:
         MK_80175224(cave_rock_resource_bundle, 0x10)
-        MK_80175224(lbl_805D5A84, 0x88)
+        MK_80175224(rock_cave_model_resource, 0x88)
         break;
     case 4:
         MK_80175224(cave_rock_resource_bundle, 0x3C)
-        MK_80175224(lbl_805D5A84, 0xB4)
+        MK_80175224(rock_cave_model_resource, 0xB4)
         break;
     case 5:
         MK_80175224(cave_rock_resource_bundle, 0x5C)
-        MK_80175224(lbl_805D5A84, 0xE0)
+        MK_80175224(rock_cave_model_resource, 0xE0)
         break;
     default:
         cave_rock_resource_bundle = 0;
-        lbl_805D5A84 = 0;
+        rock_cave_model_resource = 0;
         break;
     }
 }

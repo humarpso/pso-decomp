@@ -33,7 +33,7 @@ M2C_UNK draw_ginja_object();
 M2C_UNK draw_chunk_object(int, void *);
 extern M2C_UNK city_aircar_model_indices[];
 extern M2C_UNK lbl_80443B40[];
-extern M2C_UNK lbl_80443B54[];
+extern M2C_UNK city_traffic_car_chunk_index_table[];
 extern M2C_UNK air_car_buffer_pair_table[];
 extern void **lbl_805D5B24;
 extern void **city_common_texture_list;
@@ -82,7 +82,7 @@ M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, int, int);
 M2C_UNK play_persistent_sound(int, void *, void *, int, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern u32 lbl_805D5B20;
+extern u32 city_air_car_model_resource;
 extern const f32 lbl_805DBBA8;
 extern const f32 lbl_805DBBAC;
 extern const f32 lbl_805DBBB0;
@@ -120,7 +120,7 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
         draw_ginja_object();
-        if ((void *) lbl_805D5B20 != NULL) {
+        if ((void *) city_air_car_model_resource != NULL) {
             temp_r3 = (u8 *)(M2C_FIELD(lbl_805D5B24, u8 **, 0));
             temp_r31 = M2C_FIELD(temp_r3, s32 *, 0x20);
             if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) >= 0x14) {
@@ -128,7 +128,7 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
             }
             set_global_param__8TObjFishFi((int) (lbl_805D5B24));
             scroll_strip_uvs(air_car_buffer_pair_table[M2C_FIELD(arg0, s32 *, 0x9C)], M2C_FIELD(arg0, s32 *, 0xA0), 0);
-            draw_chunk_object(M2C_FIELD(lbl_805D5B20, Rec16_80180D18 **, 0x42C)[((s32 *)lbl_80443B54)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (lbl_805D5B20));
+            draw_chunk_object(M2C_FIELD(city_air_car_model_resource, Rec16_80180D18 **, 0x42C)[((s32 *)city_traffic_car_chunk_index_table)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (city_air_car_model_resource));
             M2C_FIELD(M2C_FIELD(lbl_805D5B24, u8 **, 0), s32 *, 0x20) = temp_r31;
         }
         pop_matrix();
@@ -158,7 +158,7 @@ void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self) {
             play_persistent_sound(0x4004C101, self, &self->pos, 0, 0);
         }
     }
-    if (lbl_805D5B20 != 0) {
+    if (city_air_car_model_resource != 0) {
         self->fa0 -= 0xA;
         if (self->fa0 < 0) {
             self->fa0 += 0x100;

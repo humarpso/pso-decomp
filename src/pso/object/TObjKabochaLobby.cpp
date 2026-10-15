@@ -66,7 +66,7 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
-extern u32 TObjKabochaLobby__data_805D6EE8;
+extern u32 TObjKabochaLobby__model_resource;
 void load_resources__16TObjKabochaLobbyFv(void);
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -75,12 +75,12 @@ M2C_UNK init_map_object_base();
 extern M2C_UNK __vt__16TObjKabochaLobby[];
 extern s32 lbl_805D4384;
 
-extern s32 TObjKabochaLobby__data_805D6EEC;
+extern s32 TObjKabochaLobby__lobby_type;
 
 void render__16TObjKabochaLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) TObjKabochaLobby__data_805D6EEC != 0U) && (((VObj18_8035346c *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0)) {
+    if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) TObjKabochaLobby__lobby_type != 0U) && (((VObj18_8035346c *) arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0)) {
         begin_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
         push_matrix();
@@ -141,9 +141,9 @@ void *create__16TObjKabochaLobbyFPv(void *arg0) {
 }
 
 void unload_static_data__16TObjKabochaLobbyFv(void) {
-    if ((u32) TObjKabochaLobby__data_805D6EE8 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjKabochaLobby__data_805D6EE8, 1);
-        TObjKabochaLobby__data_805D6EE8 = 0U;
+    if ((u32) TObjKabochaLobby__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjKabochaLobby__model_resource, 1);
+        TObjKabochaLobby__model_resource = 0U;
     }
 }
 void load_resources__16TObjKabochaLobbyFv(void) {
@@ -154,8 +154,8 @@ void load_resources__16TObjKabochaLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_pumpkin_resource_descriptor, 0, 0, 0));
     }
-    (*(s32 *)&TObjKabochaLobby__data_805D6EE8) = var_r0;
-    TObjKabochaLobby__data_805D6EEC = get_lobby_type__6TLobbyFv();
+    (*(s32 *)&TObjKabochaLobby__model_resource) = var_r0;
+    TObjKabochaLobby__lobby_type = get_lobby_type__6TLobbyFv();
 }
 void *__dt__16TObjKabochaLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -178,8 +178,8 @@ void *TObjKabochaLobby__ct(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 0;
     }
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjKabochaLobby__data_805D6EE8, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjKabochaLobby__data_805D6EEC;
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjKabochaLobby__model_resource, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjKabochaLobby__lobby_type;
     return arg0;
 }
 

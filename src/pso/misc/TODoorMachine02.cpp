@@ -108,7 +108,7 @@ s32 init_door_base(void *);
 extern RecoveredGlobal_80163760_lbl_804B16C8 lbl_804B16C8;
 extern M2C_UNK __vt__15TODoorMachine02[];
 extern s32 TODoorMachine02__class_name;
-extern u32 lbl_805D5978;
+extern u32 door_machine02_model_resource;
 extern const f32 lbl_805DB51C;
 extern const f32 lbl_805DB528;
 u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -123,7 +123,7 @@ M2C_UNK draw_ginja_model_with_motion(void *, int, f32);
 M2C_UNK set_chunk_material_color(void *);
 extern char chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
-extern s32 *lbl_805D597C;
+extern s32 *door_machine02_texture_param_table;
 extern s32 model_render_flags;
 extern const f32 lbl_805DB524;
 void render__15TODoorMachine02Fv(Door_80163408 *arg0);
@@ -136,8 +136,8 @@ extern u8 lbl_80440FD8[];
 extern u8 lbl_80440FF0[];
 extern u8 bm_fs_obj_ki_doa2_a_resource_descriptor[];
 extern s32 enable_v2_features;
-extern u32 lbl_805D5978;
-extern s32 *lbl_805D597C;
+extern u32 door_machine02_model_resource;
+extern s32 *door_machine02_texture_param_table;
 void load_resources__15TODoorMachine02Fv(void);
 }
 
@@ -201,7 +201,7 @@ void render__15TODoorMachine02Fv(Door_80163408 *arg0) {
         post_translate_matrix(arg0->f38);
         rotate_matrix_y(0, arg0->f60);
         flag = arg0->fD0 & 1;
-        set_global_param__8TObjFishFi(lbl_805D597C[arg0->fD0 & 1]);
+        set_global_param__8TObjFishFi(door_machine02_texture_param_table[arg0->fD0 & 1]);
         if (arg0->fAC == 0) {
             n = arg0->model->root;
             post_translate_matrix(n->f8);
@@ -244,20 +244,20 @@ void *create__15TODoorMachine02FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5978;
-extern s32 *lbl_805D597C;
+extern u32 door_machine02_model_resource;
+extern s32 *door_machine02_texture_param_table;
 
 void free_statics__15TODoorMachine02Fv(void) {
-    if ((s32 *) lbl_805D597C != NULL) {
-        free_if_valid__10TObjPlayerFi(*lbl_805D597C);
-        if ((s32 *) lbl_805D597C != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D597C);
-            lbl_805D597C = NULL;
+    if ((s32 *) door_machine02_texture_param_table != NULL) {
+        free_if_valid__10TObjPlayerFi(*door_machine02_texture_param_table);
+        if ((s32 *) door_machine02_texture_param_table != NULL) {
+            free__11TOBoss4RockFUi((void*)door_machine02_texture_param_table);
+            door_machine02_texture_param_table = NULL;
         }
     }
-    if ((u32) lbl_805D5978 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5978, 1);
-        lbl_805D5978 = 0U;
+    if ((u32) door_machine02_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)door_machine02_model_resource, 1);
+        door_machine02_model_resource = 0U;
     }
 }
 
@@ -265,23 +265,23 @@ extern M2C_UNK __vt__15TODoorMachine02[];
 
 void load_resources__15TODoorMachine02Fv(void) {
     void *o;
-    lbl_805D597C = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
+    door_machine02_texture_param_table = (s32 *)alloc_buffer__11TOBoss4RockFPv(8);
     if (enable_v2_features == 1 && is_online_ready__6TLobbyFv() != 0) {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, bm_fs_obj_ki_doa2_a_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5978 = (u32)o;
-        lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FD8);
+        door_machine02_model_resource = (u32)o;
+        door_machine02_texture_param_table[0] = load_gvm_texture_file(lbl_80440FD8);
     } else {
         o = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
         if (o != NULL) {
             o = load_resource_from_descriptor(o, 1, &TODoorMachine02_resource_descriptor, 0, 0, 0);
         }
-        lbl_805D5978 = (u32)o;
-        lbl_805D597C[0] = load_gvm_texture_file(lbl_80440FF0);
+        door_machine02_model_resource = (u32)o;
+        door_machine02_texture_param_table[0] = load_gvm_texture_file(lbl_80440FF0);
     }
-    lbl_805D597C[1] = *(s32 *)(*(u8 **)((u8 *)lbl_805D5978 + 0x42C) + 0xC);
+    door_machine02_texture_param_table[1] = *(s32 *)(*(u8 **)((u8 *)door_machine02_model_resource + 0x42C) + 0xC);
 }
 
 void *__dt__15TODoorMachine02Fv(void *arg0, s16 arg1) {
@@ -303,9 +303,9 @@ u8 *TODoorMachine02__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80163760___vt__15TODoorMachine02 *)&__vt__15TODoorMachine02).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TODoorMachine02__class_name;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5978), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5978), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5978), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_machine02_model_resource), u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_machine02_model_resource), u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&door_machine02_model_resource), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB51C);
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB528;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B16C8.value), (int) (1));

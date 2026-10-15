@@ -20,7 +20,7 @@ u8 TEffIndirectCtrl__sub_802A9554(u8 *);
 u8 *TEffIndirectCtrl__ct(u8 *, s32, s32);
 extern u8 *indirect_effect_ctrl_table[];
 extern s32 tl_01;
-extern u8 lbl_805D66AC;
+extern u8 indirect_effect_ctrl_count;
 void register_indirect_effect_ctrl(s32 arg0);
 }
 
@@ -36,18 +36,18 @@ u8 *fn_802A8210(u8 *arg0, s32 arg1, u8 *arg2) {
 }
 void register_indirect_effect_ctrl(s32 arg0) {
     u8 *p;
-    if (((s8 (*)(s32))find_indirect_effect_ctrl)(arg0) < 0 && lbl_805D66AC < 6) {
+    if (((s8 (*)(s32))find_indirect_effect_ctrl)(arg0) < 0 && indirect_effect_ctrl_count < 6) {
         p = __nw__7TObjectFUl(0x54);
         if (p != NULL) {
             p = TEffIndirectCtrl__ct(p, arg0, tl_01);
         }
-        indirect_effect_ctrl_table[lbl_805D66AC] = p;
-        lbl_805D66AC++;
+        indirect_effect_ctrl_table[indirect_effect_ctrl_count] = p;
+        indirect_effect_ctrl_count++;
     }
 }
 s8 find_indirect_effect_ctrl(u8 arg0) {
     s32 i;
-    for (i = 0; i < lbl_805D66AC; i++) {
+    for (i = 0; i < indirect_effect_ctrl_count; i++) {
         if (indirect_effect_ctrl_table[i] != 0) {
             u8 id = TEffIndirectCtrl__sub_802A9554(indirect_effect_ctrl_table[i]);
             if (id == arg0) {

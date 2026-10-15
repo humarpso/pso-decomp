@@ -42,7 +42,7 @@ void TLobby__sub_8001FE7C(void*, int);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_80350808_lbl_804F0DF0 bm_obj_lobby_rainbow_resource_descriptor;
-extern u32 TObjRainbowLobby__data_805D6EB0;
+extern u32 TObjRainbowLobby__shared_model_resource;
 void load_shared_resource__16TObjRainbowLobbyFv(void);
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -112,9 +112,9 @@ void *create__16TObjRainbowLobbyFPv(void *arg0) {
 }
 
 void free_static_data__16TObjRainbowLobbyFv(void) {
-    if ((u32) TObjRainbowLobby__data_805D6EB0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TObjRainbowLobby__data_805D6EB0, 1);
-        TObjRainbowLobby__data_805D6EB0 = 0U;
+    if ((u32) TObjRainbowLobby__shared_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TObjRainbowLobby__shared_model_resource, 1);
+        TObjRainbowLobby__shared_model_resource = 0U;
     }
 }
 void load_shared_resource__16TObjRainbowLobbyFv(void) {
@@ -125,7 +125,7 @@ void load_shared_resource__16TObjRainbowLobbyFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_obj_lobby_rainbow_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TObjRainbowLobby__data_805D6EB0) = var_r0;
+    (*(s32 *)&TObjRainbowLobby__shared_model_resource) = var_r0;
 }
 void *__dt__16TObjRainbowLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -148,8 +148,8 @@ void *TObjRainbowLobby__ct(void *arg0, s32 arg1, s32 arg2) {
         M2C_FIELD(arg0, s32 *, 0xC8) = 3;
     }
     M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjRainbowLobby__data_805D6EB0, void **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjRainbowLobby__shared_model_resource, void **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjRainbowLobby__shared_model_resource, void **, 0x42C), s32 *, 0xC);
     return arg0;
 }
 

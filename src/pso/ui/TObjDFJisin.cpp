@@ -218,7 +218,7 @@ extern void *__vt__13TObjDFHorming[];
 extern void *__vt__13TObjDFRecBall[];
 extern void *__vt__16TObjDFBeamCursor[];
 extern const f64 lbl_804374F0;
-extern s32 lbl_804858C0[];
+extern s32 TObjDFJisin__particle_emitter_id_table[];
 extern s32 TObjDFRecBall__name;
 extern void *TObjDFBeamCursor__name;
 extern s32 TObjDFJisin__name;
@@ -375,7 +375,7 @@ u8 *TObjDFHorming__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, u16 arg3) {
     }
     M2C_FIELD(arg0, f32 *, 0x378) = lbl_805D8A88 * M2C_FIELD(arg0, f32 *, 0x364) + lbl_805D8A84;
     for (i = 0; i < 2; i++) {
-        if ((((Obj_80050AF8 *)arg0)->objs[i] = ((u32 (*)(void *, s32))create_particle_emitter)(arg0 + 0x2FC, lbl_804858C0[i])) != 0) {
+        if ((((Obj_80050AF8 *)arg0)->objs[i] = ((u32 (*)(void *, s32))create_particle_emitter)(arg0 + 0x2FC, TObjDFJisin__particle_emitter_id_table[i])) != 0) {
             ((M2C_UNK (*)(u32, u32))set_flags__11TBoss4Type2FPvUi)(((Obj_80050AF8 *)arg0)->objs[i], 0x40);
         }
     }

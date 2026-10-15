@@ -1005,7 +1005,7 @@ __declspec(section ".data") void *lbl_804966DC[2] = {
 __declspec(section ".data") void *lbl_804966E4[2] = {
     (void *)0x4, (void *)0x5,
 };
-__declspec(section ".data") void *lbl_804966EC[2] = {
+__declspec(section ".data") void *TObjEneSlime__attack_target_param_table[2] = {
     (void *)0x30, (void *)0x34,
 };
 __declspec(section ".data") void *lbl_804966F4[2] = {
@@ -1045,7 +1045,7 @@ void *__vt__22TObjEneSlimeTailAttack[83] = {
 };
 #define lbl_80496574 ((Ent_800EAE78 *)lbl_80496574)
 #define lbl_804966E4 ((s32 *)lbl_804966E4)
-#define lbl_804966EC ((s32 *)lbl_804966EC)
+#define TObjEneSlime__attack_target_param_table ((s32 *)TObjEneSlime__attack_target_param_table)
 #define lbl_80496704 (*(RecoveredGlobal_800E8128_lbl_80496704 *)lbl_80496704)
 #define lbl_80496710 (*(RecoveredGlobal_800E8128_lbl_80496710 *)lbl_80496710)
 #define __vt__22TObjEneSlimeTailAttack ((M2C_UNK *)__vt__22TObjEneSlimeTailAttack)
@@ -1457,7 +1457,7 @@ void *TObjEneSlimeWaterBomb__ct(void *arg0, void *arg1, void *arg2) {
     M2C_FIELD(arg0, f32 *, 0x37C) = lbl_805DA6D8 * c;
     M2C_FIELD(arg0, f32 *, 0x384) = lbl_805DA6B4;
     M2C_FIELD(arg0, s32 *, 0x388) = create_particle_emitter((u8 *) arg0 + 0x38, 0xCF);
-    M2C_FIELD(arg0, f32 *, 0x390) = *dispatch_shared_handler_a__6TLobbyFPv(lbl_804966EC[get_attack_target__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x38C))]);
+    M2C_FIELD(arg0, f32 *, 0x390) = *dispatch_shared_handler_a__6TLobbyFPv(TObjEneSlime__attack_target_param_table[get_attack_target__15TObjEneSlimeOneFPv(M2C_FIELD(arg0, s32 *, 0x38C))]);
     if (M2C_FIELD(arg0, f32 *, 0x390) < lbl_805DA6B4) {
         M2C_FIELD(arg0, f32 *, 0x390) = lbl_805DA6B4;
     }

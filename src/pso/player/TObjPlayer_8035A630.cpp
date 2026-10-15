@@ -17,11 +17,11 @@ M2C_UNK draw_chunk_model(s32);
 
 extern s32 lbl_805D6F30;
 extern s32 lbl_805D6F34;
-extern s32 lbl_805D6F38;
+extern s32 node_matrix_array_base;
 
 void process_callback_list__10TObjPlayerFi(s32 arg0) {
     if ((s32) lbl_805D6F30 < (s32) lbl_805D6F34) {
-        get_current_matrix(lbl_805D6F38 + (lbl_805D6F30 * 0x30));
+        get_current_matrix(node_matrix_array_base + (lbl_805D6F30 * 0x30));
     }
     if (((M2C_UNK (*)(s32)) lbl_805D6F3C) != NULL) {
         lbl_805D6F3C(arg0);
@@ -29,7 +29,7 @@ void process_callback_list__10TObjPlayerFi(s32 arg0) {
     lbl_805D6F30 += 1;
 }
 
-extern s32 lbl_805D6F38;
+extern s32 node_matrix_array_base;
 
 void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     M2C_UNK (*temp_r12)(void *);
@@ -40,7 +40,7 @@ void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     do {
         temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
         push_matrix();
-        concat_matrix__10TObjPlayerFUiUi(0, lbl_805D6F38 + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
+        concat_matrix__10TObjPlayerFUiUi(0, node_matrix_array_base + (M2C_FIELD(arg0, s32 *, 0x30) * 0x30));
         M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) + 1);
         temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(void *), 0x34);
         if (temp_r12 != NULL) {

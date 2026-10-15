@@ -23,7 +23,7 @@ s32 get_drop_table_mode_flags(void);
 void TItemDrop__vt0(void);
 extern u8 TLobby__data_805011D8[];
 extern s32 lbl_805D2B78;
-extern s32 TItemDrop__data_805D5470;
+extern s32 TItemDrop__drop_table_mode_flags;
 extern s32 TItemDrop__section_id;
 void refresh_drop_table_if_changed__9TItemDropFv(void);
 u8 can_drop__9TItemDropFv(void);
@@ -44,7 +44,7 @@ void apply_drop_restrictions(M2C_UNK arg0, Item_80105EA4 *it);
 s32 sprintf(void *, void *, ...);
 extern Names_80105DB0 item_drop_difficulty_name_table;
 extern char lbl_8043E0E4[];
-extern s32 TItemDrop__data_805D5470;
+extern s32 TItemDrop__drop_table_mode_flags;
 extern s32 TItemDrop__section_id;
 extern s32 game_difficulty_selection;
 extern char lbl_805DAAC8;
@@ -109,14 +109,14 @@ void format_drop_table_filename(void *out, s32 arg1) {
     char *s1;
     char *s2;
     s32 n;
-    if (TItemDrop__data_805D5470 & 1) {
+    if (TItemDrop__drop_table_mode_flags & 1) {
         s1 = &lbl_805DAAC8;
         n = 0;
     } else {
         s1 = &lbl_805DAACC;
         n = TItemDrop__section_id;
     }
-    sprintf(out, lbl_8043E0E4, arg1, s1, (TItemDrop__data_805D5470 & 2) ? &lbl_805DAAD0 : &lbl_805DAACC, names.n[game_difficulty_selection], n);
+    sprintf(out, lbl_8043E0E4, arg1, s1, (TItemDrop__drop_table_mode_flags & 2) ? &lbl_805DAAD0 : &lbl_805DAACC, names.n[game_difficulty_selection], n);
 }
 
 s32 calc_drop_offset__9TItemDropFi(s32 arg0) {
@@ -334,7 +334,7 @@ void count_unit_star_buckets__9TItemDropFv(void) {
 }
 void refresh_drop_table_if_changed__9TItemDropFv(void) {
     if (lbl_805D2B78 != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
-        TItemDrop__data_805D5470 != get_drop_table_mode_flags()) {
+        TItemDrop__drop_table_mode_flags != get_drop_table_mode_flags()) {
         TItemDrop__section_id = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
         TItemDrop__vt0();
     }
@@ -433,15 +433,15 @@ M2C_UNK TItemDrop__sub_8010F168(int, int);
 M2C_UNK free__11TOBoss4RockFUi(s32);
 M2C_UNK __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
-extern s32 TItemDrop__data_805D5458;
-extern s32 TItemDrop__data_805D545C;
+extern s32 TItemDrop__relocatable_load_buffer;
+extern s32 TItemDrop__second_relocatable_load_buffer;
 u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1);
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, M2C_UNK arg1, u32 arg2);
 u8 select_weighted_byte__9TItemDropFiiiii(s32 rng, s32 base, s32 off, s32 count, s32 stride);
 void prune_weapon_attributes__9TItemDropFPvPv(void *self, Obj_80106F4C *o);
 s32 can_drop__9TItemDropFv();
 s32 try_generate_rare_item__9TItemDropFiPvPv(s32 arg0, u8 *arg1, u8 *arg2);
-extern s32 *TItemDrop__data_805D5464;
+extern s32 *TItemDrop__rare_item_table_file;
 s32 select_rare_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *arg2);
 void roll_table_ratio__9TItemDropFPvUi(u8 *arg0, u32 arg1);
 u32 roll_channel_below__9TItemDropFPviUi(u8 *arg0, M2C_UNK arg1, u32 arg2);
@@ -471,8 +471,8 @@ s32 rand();
 extern M2C_UNK __vt__9TItemDrop[];
 extern RecoveredGlobal_80107840_lbl_8049EF88 lbl_8049EF88;
 extern s32 lbl_805D2B7C;
-extern s32 TItemDrop__data_805D5458;
-extern s32 TItemDrop__data_805D545C;
+extern s32 TItemDrop__relocatable_load_buffer;
+extern s32 TItemDrop__second_relocatable_load_buffer;
 extern s32 TItemDrop__section_id;
 extern const f32 lbl_805DAAD4;
 extern const f32 lbl_805DAAD8;
@@ -518,11 +518,11 @@ extern char lbl_8043E100[];
 extern char lbl_8043E108[];
 extern char lbl_8043E114[];
 extern s32 lbl_805D2B78;
-extern s32 TItemDrop__data_805D5458;
-extern s32 TItemDrop__data_805D545C;
+extern s32 TItemDrop__relocatable_load_buffer;
+extern s32 TItemDrop__second_relocatable_load_buffer;
 extern void *TItemDrop__common_probability_table;
-extern s32 *TItemDrop__data_805D5464;
-extern s32 TItemDrop__data_805D5470;
+extern s32 *TItemDrop__rare_item_table_file;
+extern s32 TItemDrop__drop_table_mode_flags;
 extern s32 TItemDrop__section_id;
 void TItemDrop__vt0(void);
 }
@@ -576,20 +576,20 @@ void __dt__9TItemDropFv(void) {
 
 void TItemDrop__vt1(void) {  }
 
-extern s32 *TItemDrop__data_805D5464;
+extern s32 *TItemDrop__rare_item_table_file;
 
 void TItemDrop__vt0(void) {
     char path[0x48];
     lbl_805D2B78 = calc_drop_offset__9TItemDropFi(TItemDrop__section_id);
-    TItemDrop__data_805D5470 = get_drop_table_mode_flags();
+    TItemDrop__drop_table_mode_flags = get_drop_table_mode_flags();
     if (lbl_805D2B78 >= 0 && lbl_805D2B78 <= 0xA0) {
         open_gsl_archive(lbl_8043E0F4);
         format_drop_table_filename(path, lbl_8043E100);
-        TItemDrop__common_probability_table = load_relocatable_file(path, TItemDrop__data_805D5458);
+        TItemDrop__common_probability_table = load_relocatable_file(path, TItemDrop__relocatable_load_buffer);
         close_gsl_archive();
         open_gsl_archive(lbl_8043E108);
         format_drop_table_filename(path, lbl_8043E114);
-        TItemDrop__data_805D5464 = (s32 *)load_relocatable_file(path, TItemDrop__data_805D545C);
+        TItemDrop__rare_item_table_file = (s32 *)load_relocatable_file(path, TItemDrop__second_relocatable_load_buffer);
         close_gsl_archive();
     }
 }
@@ -755,11 +755,11 @@ void generate_drop_item__9TItemDropFPviPv(u8 *self, s32 idx, u8 *item) {
 s32 select_rare_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *arg2) {
     s32 target;
     s32 i;
-    if ((*(RareTable_80106A90 * *)&TItemDrop__data_805D5464) != NULL && can_drop__9TItemDropFv() == 1) {
+    if ((*(RareTable_80106A90 * *)&TItemDrop__rare_item_table_file) != NULL && can_drop__9TItemDropFv() == 1) {
         target = arg1 + 1;
-        for (i = 0; i != (*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->count; i++) {
-            if (target == (*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->types[i]) {
-                if (try_generate_rare_item__9TItemDropFiPvPv(arg0, (u8 *)&(*(RareTable_80106A90 * *)&TItemDrop__data_805D5464)->items[i], arg2) != 0) {
+        for (i = 0; i != (*(RareTable_80106A90 * *)&TItemDrop__rare_item_table_file)->count; i++) {
+            if (target == (*(RareTable_80106A90 * *)&TItemDrop__rare_item_table_file)->types[i]) {
+                if (try_generate_rare_item__9TItemDropFiPvPv(arg0, (u8 *)&(*(RareTable_80106A90 * *)&TItemDrop__rare_item_table_file)->items[i], arg2) != 0) {
                     return 1;
                 }
             }
@@ -769,8 +769,8 @@ s32 select_rare_box_item__9TItemDropFiiPv(s32 arg0, s32 arg1, u8 *arg2) {
 }
 
 s32 drop_item__9TItemDropFiii(s32 arg0, s32 arg1, s32 arg2) {
-    if ((can_drop__9TItemDropFv() == 1) && ((s32 *) TItemDrop__data_805D5464 != NULL) && (arg1 > 0) && (arg1 < 0x58)) {
-        return try_generate_rare_item__9TItemDropFiPvPv((s32)(arg0), (u8 *)(*TItemDrop__data_805D5464 + (arg1 * 4)), (u8 *)(arg2));
+    if ((can_drop__9TItemDropFv() == 1) && ((s32 *) TItemDrop__rare_item_table_file != NULL) && (arg1 > 0) && (arg1 < 0x58)) {
+        return try_generate_rare_item__9TItemDropFiPvPv((s32)(arg0), (u8 *)(*TItemDrop__rare_item_table_file + (arg1 * 4)), (u8 *)(arg2));
     }
     return 0;
 }
@@ -1130,12 +1130,12 @@ u8 *TItemDrop__sub_80107840(u8 *arg0, s16 arg1) {
     var_r31 = (int) (*((s32 *) (((s8 *) arg0) + 0x1C)));
     TItemDrop__sub_8010F168(var_r31, (int) 1);
     *((s32 *) (((s8 *) arg0) + 0x1C)) = 0;
-    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__data_805D5458);
-    TItemDrop__data_805D5458 = 0;
-    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__data_805D545C);
+    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__relocatable_load_buffer);
+    TItemDrop__relocatable_load_buffer = 0;
+    safe_free__23TAdSinglePlyChrSelectGCFUi((int) TItemDrop__second_relocatable_load_buffer);
     var_r31 = 0;
     var_r30 = 0;
-    TItemDrop__data_805D545C = 0;
+    TItemDrop__second_relocatable_load_buffer = 0;
     do
     {
       __dl__FPv((int) (*((M2C_UNK *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x20)))) + var_r31))));
@@ -1173,8 +1173,8 @@ TItemDrop_80107900 *TItemDrop__ct(TItemDrop_80107900 *self, void *parent, s8 arg
         }
         self->list[i] = obj;
     }
-    TItemDrop__data_805D545C = alloc__22TQuestVmDownLoadServerFPv(0xC00);
-    TItemDrop__data_805D5458 = alloc__22TQuestVmDownLoadServerFPv(0xC00);
+    TItemDrop__second_relocatable_load_buffer = alloc__22TQuestVmDownLoadServerFPv(0xC00);
+    TItemDrop__relocatable_load_buffer = alloc__22TQuestVmDownLoadServerFPv(0xC00);
     self->unk1C = fn_8010F210(__vt__9TItemDrop);
     return self;
 }

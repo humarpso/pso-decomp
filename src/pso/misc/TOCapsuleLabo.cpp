@@ -54,7 +54,7 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
-extern u32 TOCapsuleLabo__data_805D6708;
+extern u32 TOCapsuleLabo__model_resource;
 extern s32 *lbl_805D670C;
 void load_resources__13TOCapsuleLaboFv(void);
 s32 is_split_screen();
@@ -72,7 +72,7 @@ extern RecoveredGlobal_802AF4F4_lbl_804DE450 TOCapsuleLabo__collision_parts;
 extern M2C_UNK __vt__13TOCapsuleLabo[];
 extern s32 enable_v2_features;
 extern s32 lbl_805D3E7C;
-extern u32 TOCapsuleLabo__data_805D6708;
+extern u32 TOCapsuleLabo__model_resource;
 extern const f32 lbl_805DE1E8;
 extern const f32 lbl_805DE1EC;
 u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
@@ -99,12 +99,12 @@ void destroy_key_object__5TOKeyFPvs(void *, int);
 M2C_UNK end_effect_render__13TParticleCtrlFv();
 M2C_UNK set_global_param__8TObjFishFi(int);
 
-extern u32 TOCapsuleLabo__data_805D6708;
+extern u32 TOCapsuleLabo__model_resource;
 
 void unload_static_data__13TOCapsuleLaboFv(void) {
-    if ((u32) TOCapsuleLabo__data_805D6708 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOCapsuleLabo__data_805D6708, 1);
-        TOCapsuleLabo__data_805D6708 = 0U;
+    if ((u32) TOCapsuleLabo__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOCapsuleLabo__model_resource, 1);
+        TOCapsuleLabo__model_resource = 0U;
     }
 }
 
@@ -119,7 +119,7 @@ void load_resources__13TOCapsuleLaboFv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &TOCapsuleLabo__resource_descriptor, 0, 0, 0));
     }
-    (*(u8 * *)&TOCapsuleLabo__data_805D6708) = (unsigned char *) ((void *) var_r0);
+    (*(u8 * *)&TOCapsuleLabo__model_resource) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = get_bml_model((void *) var_r0, 0);
     if (temp_r3_2 != 0) {
         (*(s32 *)&lbl_805D670C) = count_linked_switches__23TObjSeabedSuisoBrakableFUii(temp_r3_2, 3);
@@ -187,8 +187,8 @@ u8 *TOCapsuleLabo__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF4F4___vt__13TOCapsuleLabo *)&__vt__13TOCapsuleLabo).value;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E7C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708))), (s32)((int) (0)));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__data_805D6708)), (int) (0));
+    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((int) ((*(s32 *)&TOCapsuleLabo__model_resource))), (s32)((int) (0)));
+    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOCapsuleLabo__model_resource)), (int) (0));
     init_collision_body_parts((void *) (arg0), (void *) (&TOCapsuleLabo__collision_parts.value), (int) (1));
     set_indexed_flags((void *) (arg0), (int) (0), (int) (0x1288));
     refresh_collision_body_centers((void *) (arg0));

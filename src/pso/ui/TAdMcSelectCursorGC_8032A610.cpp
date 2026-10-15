@@ -53,7 +53,7 @@ void init_resource__19TAdMcSelectCursorGCFv(void) { TAdMcSelectCursorGC__texture
 
 s32 TAdMcSelectCursorGC__sub_8032A6D8(void* p) { return *(s32*)((char*)p + 0x1c); }
 
-    extern int lbl_804EFAA0[];
-int get_cursor_type__19TAdMcSelectCursorGCFi(int a0) {  return lbl_804EFAA0[a0]; }
+    extern int memcard_cursor_instance_table[];
+int get_cursor_type__19TAdMcSelectCursorGCFi(int a0) {  return memcard_cursor_instance_table[a0]; }
 
 }

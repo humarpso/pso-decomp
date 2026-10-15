@@ -105,7 +105,7 @@ s32 calc_random_scaled__10TObjPlayerFv();
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(void *, void *, void *, f32, f32);
 M2C_UNK construct_world_actor_base();
 s32 rand();
-extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
+extern RecoveredGlobal_8003A6F4_lbl_80435BD8 TObjBoss2CeilJunk__height_offset_table;
 extern M2C_UNK __vt__17TObjBoss2CeilJunk[];
 extern s32 TObjBoss2CeilJunk__name;
 u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, s32 arg2);
@@ -121,7 +121,7 @@ M2C_UNK set_chunk_material_override_pair(int, int);
 M2C_UNK set_chunk_material_color(void *);
 M2C_UNK set_chunk_blend(int);
 extern s32 lbl_80435BC0[];
-extern f32 lbl_80435BF0[];
+extern f32 TObjBoss2CeilJunk__radius_table[];
 extern Color_8003A1B4 lbl_80435C1C;
 extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
@@ -142,8 +142,8 @@ f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 M2C_UNK vec3_add_to(void *, void *);
 M2C_UNK subtract_vector(void *, void *);
-extern RecoveredGlobal_8003A6F4_lbl_80435BD8 lbl_80435BD8;
-extern f32 lbl_80435BF0[];
+extern RecoveredGlobal_8003A6F4_lbl_80435BD8 TObjBoss2CeilJunk__height_offset_table;
+extern f32 TObjBoss2CeilJunk__radius_table[];
 extern const f32 lbl_805D4BE0;
 void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o);
 }
@@ -166,7 +166,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   if (self->fA8 == 2)
   {
     Vec_8003A1B4 s;
-    f32 t = lbl_80435BF0[self->fAC];
+    f32 t = TObjBoss2CeilJunk__radius_table[self->fAC];
     new_var = (0.2f) * t;
     s.y = (1.0f);
     s.x = (s.z = new_var);
@@ -249,8 +249,8 @@ void run_task__17TObjBoss2CeilJunkFv(Junk_8003A314 *o) {
             hit = 0;
             n = get_game_mode__6TLobbyFv();
             top = o->pos.y - o->vel.y;
-            bottom = o->pos.y - ((f32 *)&lbl_80435BD8)[o->fAC];
-            rad = (1e+01f) + lbl_80435BF0[o->fAC];
+            bottom = o->pos.y - ((f32 *)&TObjBoss2CeilJunk__height_offset_table)[o->fAC];
+            rad = (1e+01f) + TObjBoss2CeilJunk__radius_table[o->fAC];
             for (i = 0; i < n; i++) {
                 pl = get_player_data__10TObjPlayerFi(i);
                 if (is_valid_target__9TObjEneDDFPv(pl) != 0) {
@@ -328,7 +328,7 @@ u8 *TObjBoss2CeilJunk__ct(struct RecoveredFields_8003A6F4_arg0 *arg0, s32 arg1, 
         arg0->field_A8 = 0;
     } else {
         arg0->field_A8 = 2;
-        arg0->field_54 = arg0->field_48 + M2C_FIELD(((u8 *)(&lbl_80435BD8.value) + (arg0->field_AC * 4)), f32 *, 0);
+        arg0->field_54 = arg0->field_48 + M2C_FIELD(((u8 *)(&TObjBoss2CeilJunk__height_offset_table.value) + (arg0->field_AC * 4)), f32 *, 0);
     }
     arg0->field_60 = calc_random_scaled__10TObjPlayerFv();
     arg0->field_5C = (s32) ((4096.0f) * rand_signed_unit());

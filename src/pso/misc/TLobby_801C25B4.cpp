@@ -1024,7 +1024,7 @@ s32 check_team_balance__6TLobbyFPvi(Lobby_801C484C *self, s32 arg1);
 M2C_UNK TKeyBoardControl__sub_8000F950();
 M2C_UNK queue_destruction__7TObjectFv(void *);
 M2C_UNK clear_counter__6TLobbyFv();
-extern void *TLobby__data_805D5608;
+extern void *TLobby__idle_timeout_object;
 extern s16 TLobby__data_805D5CE8;
 extern s32 evt2_random_enemies_mode;
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0);
@@ -1546,9 +1546,9 @@ struct Flags_801C3AF4;
 void end_battle_mode_cleanup__6TLobbyFPv(void *arg0) {
     switch (*(s32 *)((u8 *)arg0 + 0x20)) {
     case 0:
-        if (TLobby__data_805D5608 != NULL) {
-            delete (V_801C418C *)TLobby__data_805D5608;
-            TLobby__data_805D5608 = NULL;
+        if (TLobby__idle_timeout_object != NULL) {
+            delete (V_801C418C *)TLobby__idle_timeout_object;
+            TLobby__idle_timeout_object = NULL;
         }
         clear_counter__6TLobbyFv();
         evt2_random_enemies_mode = 0;

@@ -766,7 +766,7 @@ void *bm_ene_grass_motion_names[9] = {
 void *bm_ene_grass_resource_descriptor[4] = {
     (void *)&lbl_8043B760, (void *)&bm_ene_grass_model_names, (void *)&bm_ene_grass_motion_names, (void *)0x10008,
 };
-void *lbl_80492964[32] = {
+void *TObjGrass__grass_type_param_table[32] = {
     (void *)0x10000, (void *)0x6, (void *)0x3f333333, (void *)0x1,
     (void *)0x10001, (void *)0x7, (void *)0x3fa66666, (void *)0x1,
     (void *)0x20000, (void *)0x2, (void *)0x3f333333, (void *)0x4,
@@ -792,7 +792,7 @@ void *__vt__12TObjGrassWeb[13] = {
     (void *)&TObjRoomId__sub_801A1E2C,
 };
 #define bm_ene_grass_resource_descriptor ((M2C_UNK *)bm_ene_grass_resource_descriptor)
-#define lbl_80492964 ((s32 *)lbl_80492964)
+#define TObjGrass__grass_type_param_table ((s32 *)TObjGrass__grass_type_param_table)
 
 void TObjGrass__sub_800BCA2C(void * _w0) {  }
 
@@ -2064,8 +2064,8 @@ void load_resources__9TObjGrassFv(void) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, (0.0f), (2e+01f), (0.7f));
     }
     lbl_805D515C = (u32) p;
-    draw_trail_with_colors((void *) lbl_805D5158, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[lbl_80492964[9]].f4, 0x46, 0x48);
-    draw_trail_with_colors((void *) lbl_805D515C, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[lbl_80492964[13]].f4, 0x3C, 0x3E);
+    draw_trail_with_colors((void *) lbl_805D5158, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[9]].f4, 0x46, 0x48);
+    draw_trail_with_colors((void *) lbl_805D515C, ((Data_800BF66C *)TObjGrass__resource_bundle)->f42c->f8, ((Data_800BF66C *)TObjGrass__resource_bundle)->f430[TObjGrass__grass_type_param_table[13]].f4, 0x3C, 0x3E);
     TObjGrass__bml_resource = (u32) alloc_buffer__11TOBoss4RockFPv(0xC);
     lbl_805D5140 = register_boss__6TLobbyFPv(0x4E);
     ((s32 *) TObjGrass__bml_resource)[0] = dispatch_shared_handler_b__6TLobbyFPv(0x51);
@@ -2120,7 +2120,7 @@ u8 *TObjGrass__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     M2C_FIELD(arg0, s16 *, 0x33C) = M2C_FIELD(arg0, s16 *, 0x33A);
     M2C_FIELD(arg0, s32 *, 0x334) = 0;
     init_from_table_entry__9TObjGrassFPvi((O_800BFB8C *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x368)));
-    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)lbl_80492964;
+    M2C_FIELD(arg0, u8 **, 0xD8) = (u8 *)TObjGrass__grass_type_param_table;
     set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
     if ((0.0f) < M2C_FIELD(arg0, f32 *, 0x358)) {
         M2C_FIELD(arg0, s16 *, 0x39C) = 2;

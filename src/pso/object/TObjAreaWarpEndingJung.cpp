@@ -496,7 +496,7 @@ extern s32 TObjMapForceWarp__name;
 extern s32 TObjWarpString__name;
 extern s32 TObjAreaWarpEndingJung__name;
 extern s32 local_client_id;
-extern s32 lbl_805D5C80;
+extern s32 lobby_quest_progress_flag;
 extern Colors_8019C604 lbl_805DBFC8;
 extern Colors_8019C250 lbl_805DBFCC;
 extern Ids_8019BD84 lbl_805DBFD0;
@@ -1329,7 +1329,7 @@ void *TObjAreaWarp__ct(void *arg0) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjAreaWarp;
     M2C_FIELD(arg0, s32 *, 0) = (s32) TObjAreaWarp__name;
     M2C_FIELD(arg0, s32 *, 0xBC) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    if ((s32) lbl_805D5C80 != 0) {
+    if ((s32) lobby_quest_progress_flag != 0) {
         M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (get_current_floor() + 1);
     }
     M2C_FIELD(arg0, s32 *, 0xC0) = 0;

@@ -58,7 +58,7 @@ extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A108_lbl_804AFDF8 bm_fs_obj_cakeya_resource_descriptor;
-extern u32 TOCakeshopCave01__data_805D58B0;
+extern u32 TOCakeshopCave01__model_resource;
 void load_resource_instance__16TOCakeshopCave01Fv(void);
 s32 rand(void);
 extern const f32 lbl_805DB358;
@@ -73,7 +73,7 @@ M2C_UNK init_map_object_base(void *, s32);
 extern M2C_UNK lbl_804AFE08[];
 extern M2C_UNK __vt__16TOCakeshopCave01[];
 extern s32 lbl_805D2EC4;
-extern u32 TOCakeshopCave01__data_805D58B0;
+extern u32 TOCakeshopCave01__model_resource;
 extern s32 tl_05;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB36C;
@@ -171,12 +171,12 @@ void *create__16TOCakeshopCave01FPv(void *arg0) {
     return o;
 }
 
-extern u32 TOCakeshopCave01__data_805D58B0;
+extern u32 TOCakeshopCave01__model_resource;
 
 void close_dialog_window__16TOCakeshopCave01Fv(void) {
-    if ((u32) TOCakeshopCave01__data_805D58B0 != 0U) {
-        TLobby__sub_8001FE7C((void*)TOCakeshopCave01__data_805D58B0, 1);
-        TOCakeshopCave01__data_805D58B0 = 0U;
+    if ((u32) TOCakeshopCave01__model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)TOCakeshopCave01__model_resource, 1);
+        TOCakeshopCave01__model_resource = 0U;
     }
 }
 
@@ -190,7 +190,7 @@ void load_resource_instance__16TOCakeshopCave01Fv(void) {
     if (var_r0 != 0) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_cakeya_resource_descriptor.value, 0, 0, 0));
     }
-    (*(s32 *)&TOCakeshopCave01__data_805D58B0) = var_r0;
+    (*(s32 *)&TOCakeshopCave01__model_resource) = var_r0;
 }
 
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
@@ -212,8 +212,8 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOCakeshopCave01;
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EC4;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__data_805D58B0, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__data_805D58B0, u8 **, 0x42C), s32 *, 0xC);
+    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__model_resource, u8 **, 0x42C), s32 *, 8);
+    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__model_resource, u8 **, 0x42C), s32 *, 0xC);
     M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB36C;
     M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB370;
     M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;

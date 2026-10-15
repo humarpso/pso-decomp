@@ -98,7 +98,7 @@ u8 get_slot_count__14TItemProShieldFPv(s32);
 s32 get_attack_stage__11TItemWeaponFPv(void *);
 s32 has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_validated_attack_stage(void *);
-extern s32 lbl_804A2B50[];
+extern s32 knuckle_marker_joint_table[];
 extern s32 tl_05;
 }
 
@@ -137,7 +137,7 @@ void TItemWeaponFist::emit_marker_effects() {
     stage = get_validated_attack_stage(((u8 *) arg0->player) + 0x7CC);
     index = stage;
     index += k;
-    arg0->player->sample_joint_position(lbl_804A2B50[index], buf);
+    arg0->player->sample_joint_position(knuckle_marker_joint_table[index], buf);
     spawn_particle_effect(buf, 0x1D0);
   }
 }

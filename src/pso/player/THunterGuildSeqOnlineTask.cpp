@@ -77,8 +77,8 @@ extern s32 TLobby__protocol_instance;
 extern int TQuestListOnline__bin_download_complete;
 extern int TQuestListOnline__dat_download_complete;
 extern void *TQuestListOnline__download_barrier_window;
-extern s32 lbl_805D61B0;
-extern s32 lbl_805D61B4;
+extern s32 quest_download_received_bytes;
+extern s32 quest_download_graph_current_bytes;
 extern const f32 lbl_805DC660;
 void handle_quest_download_chunk__6TLobbyFPv(Pkt_80214F80 *p);
 }
@@ -251,8 +251,8 @@ void handle_quest_download_chunk__6TLobbyFPv(Pkt_80214F80 *p) {
         }
         if (buf != NULL) {
             memcpy(buf + (p->chunk << 10), p->data, p->size);
-            lbl_805D61B4 += p->size;
-            update_graph__8TDLGraphFii(lbl_805D61B4, lbl_805D61B0);
+            quest_download_graph_current_bytes += p->size;
+            update_graph__8TDLGraphFii(quest_download_graph_current_bytes, quest_download_received_bytes);
             if (p->size < 0x400) {
                 *flag = 1;
             }

@@ -409,7 +409,7 @@ void *lbl_804E0C10[44] = {
     (void *)0x40000000, (void *)0x41800000, (void *)0x1, (void *)0x10503,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804E0CC0[44] = {
+void *chain_saw_collision_body_part_table[44] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40400000,
     (void *)0x0, (void *)0x0, (void *)0x10403, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0xc1200000,
@@ -640,7 +640,7 @@ u8 *TOTrapChainSawKey__ct(u8 *arg0, void * _w1, void * _w2) {
     M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F08;
     ((VObj_18_373ea7 *)(arg0))->m13();
     ((VObj_18_373ea7 *)(arg0))->m14();
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)lbl_804E0CC0)->value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)(&((RecoveredGlobal_802C8910_lbl_804E0CC0 *)chain_saw_collision_body_part_table)->value) + (M2C_FIELD(arg0, s32 *, 0xF8) * 0x58)), (int) (2));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

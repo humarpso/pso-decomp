@@ -2228,14 +2228,14 @@ void apply_fireball_impact_damage__12TBoss1DragonFPvi(u8 *arg0, s32 arg1);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
-extern RecoveredGlobal_80027710_lbl_80435324 lbl_80435324;
+extern RecoveredGlobal_80027710_lbl_80435324 dragon_fireball_attack_params;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 void deliver_breath_attack__12TBoss1DragonFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 isV2Mode__12TBoss1DragonFv(void);
 M2C_UNK TBoss1Dragon__sub_80027514(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3);
 s32 is_dragon_trail_damaging(void *);
 void setup_instance__9TObjEneDDFiiPvi(s32, s32, void *, s32);
-extern RecoveredGlobal_800277D8_lbl_80435310 lbl_80435310;
+extern RecoveredGlobal_800277D8_lbl_80435310 dragon_breath_attack_params;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 void TBoss1Dragon__sub_800277D8(u8 *arg0);
 void update_switch_attack__12TBoss1DragonFPv(u8 *arg0);
@@ -6450,7 +6450,7 @@ void deliver_breath_attack__12TBoss1DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     CopyStack_80027710 copy_storage_80027710;
     s32 temp_r3;
     u8 *temp_r4;
-    temp_r4 = (u8 *)((void *)((u8 *)(&lbl_80435324.value) + -4));
+    temp_r4 = (u8 *)((void *)((u8 *)(&dragon_fireball_attack_params.value) + -4));
     *(M2CCopy_14 *)(copy_storage_80027710.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
     (*(f32 *)(copy_storage_80027710.bytes + 0x4)) = M2C_FIELD((*(RecoveredGlobal_80027710_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 0);
     (*(s32 *)(copy_storage_80027710.bytes)) = M2C_FIELD(arg0, s32 *, 0x770);
@@ -6475,7 +6475,7 @@ void TBoss1Dragon__sub_800277D8(u8 *arg0) {
     u8 *temp_r4;
     temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6D8));
     if ((temp_r3 != NULL) && (is_dragon_trail_damaging(temp_r3) != 0)) {
-        temp_r4 = (u8 *)((void *)((u8 *)(&lbl_80435310.value) + -4));
+        temp_r4 = (u8 *)((void *)((u8 *)(&dragon_breath_attack_params.value) + -4));
         *(M2CCopy_14 *)(copy_storage_800277D8.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
         (*(f32 *)(copy_storage_800277D8.bytes + 0x4)) = M2C_FIELD((*(RecoveredGlobal_800277D8_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value, f32 *, 8);
         temp_r3_2 = isV2Mode__12TBoss1DragonFv();
@@ -6644,9 +6644,9 @@ extern "C" {
 
 M2C_UNK fill_value_array(s32);
 M2C_UNK emit_enemy_effect__9TObjEneDDFiiPvi(void *, void *, void *, s32);
-extern M2CCopy_14 lbl_804352FC;
+extern M2CCopy_14 TBoss1Dragon__foot_step_attack_params;
 int apply_foot_step_attack__12TBoss1DragonFPvi(u8 *arg0, int arg1) {
-    M2CCopy_14 params = lbl_804352FC;
+    M2CCopy_14 params = TBoss1Dragon__foot_step_attack_params;
     u8 *a;
     u8 *b;
 

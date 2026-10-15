@@ -326,14 +326,14 @@ extern "C" {
 M2C_UNK init_switch_id__5TOKeyFPv(void *);
 extern M2C_UNK __vt__17TOSensorAncient01[];
 extern s32 TOSensorAncient01_class_name;
-extern u32 lbl_805D5A88;
+extern u32 sensor_ancient01_model_resource;
 u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 s32 load_gvm_texture_file(const void *);
-extern u32 lbl_805D5A88;
-extern void *lbl_805D5A8C;
+extern u32 sensor_ancient01_model_resource;
+extern void *ancient_sensor_resource_pair_table;
 extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
 extern s32 lbl_805D5A98;
@@ -378,7 +378,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
         rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi(M2C_FIELD(lbl_805D5A8C, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 8)));
+        set_global_param__8TObjFishFi(M2C_FIELD(ancient_sensor_resource_pair_table, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 8)));
         temp_r30 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
         post_translate_matrix((void *) (temp_r30 + 8));
         draw_ginja_model(M2C_FIELD(temp_r30, s32 *, 4));
@@ -386,7 +386,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         push_matrix();
         temp_r30_2 = (u8 *)(M2C_FIELD(temp_r30, u8 **, 0x2C));
         if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (3e+01f)) {
-            Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
+            Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_2 + 8));
@@ -395,7 +395,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         push_matrix();
         temp_r30_3 = (u8 *)(M2C_FIELD(temp_r30_2, u8 **, 0x30));
         if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (6e+01f)) {
-            Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
+            Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_3 + 8));
@@ -404,7 +404,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         push_matrix();
         temp_r30_4 = (u8 *)(M2C_FIELD(temp_r30_3, u8 **, 0x30));
         if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (9e+01f)) {
-            Pair_80175994 *tbl = (Pair_80175994 *)lbl_805D5A8C;
+            Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_4 + 8));
@@ -453,22 +453,22 @@ void *create__17TOSensorAncient01FPv(void *arg0) {
     return o;
 }
 
-extern u32 lbl_805D5A88;
-extern void *lbl_805D5A8C;
+extern u32 sensor_ancient01_model_resource;
+extern void *ancient_sensor_resource_pair_table;
 
 void destroy__17TOSensorAncient01Fv(void) {
-    if ((void *) lbl_805D5A8C != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0));
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 0xC));
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(lbl_805D5A8C, s32 *, 8));
-        if ((void *) lbl_805D5A8C != NULL) {
-            free__11TOBoss4RockFUi((void*)lbl_805D5A8C);
-            lbl_805D5A8C = NULL;
+    if ((void *) ancient_sensor_resource_pair_table != NULL) {
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 0));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 0xC));
+        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 8));
+        if ((void *) ancient_sensor_resource_pair_table != NULL) {
+            free__11TOBoss4RockFUi((void*)ancient_sensor_resource_pair_table);
+            ancient_sensor_resource_pair_table = NULL;
         }
     }
-    if ((u32) lbl_805D5A88 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D5A88, 1);
-        lbl_805D5A88 = 0U;
+    if ((u32) sensor_ancient01_model_resource != 0U) {
+        TLobby__sub_8001FE7C((void*)sensor_ancient01_model_resource, 1);
+        sensor_ancient01_model_resource = 0U;
     }
 }
 
@@ -486,12 +486,12 @@ void load_resources__17TOSensorAncient01Fv(void) {
     if (p != NULL) {
         p = load_resource_from_descriptor(p, 1, &TOSensorAncient01__resource_descriptor, 0, 0, 0);
     }
-    lbl_805D5A88 = (u32)p;
-    lbl_805D5A8C = alloc_buffer__11TOBoss4RockFPv(0x10);
-    ((Buf_80175D0C *)lbl_805D5A8C)->b = ((Obj_80175D0C *)lbl_805D5A88)->model->c;
-    ((Buf_80175D0C *)lbl_805D5A8C)->a = load_gvm_texture_file(lbl_804429E8);
-    ((Buf_80175D0C *)lbl_805D5A8C)->d = load_gvm_texture_file(lbl_80442A00);
-    ((Buf_80175D0C *)lbl_805D5A8C)->c = load_gvm_texture_file(lbl_80442A18);
+    sensor_ancient01_model_resource = (u32)p;
+    ancient_sensor_resource_pair_table = alloc_buffer__11TOBoss4RockFPv(0x10);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->b = ((Obj_80175D0C *)sensor_ancient01_model_resource)->model->c;
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->a = load_gvm_texture_file(lbl_804429E8);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->d = load_gvm_texture_file(lbl_80442A00);
+    ((Buf_80175D0C *)ancient_sensor_resource_pair_table)->c = load_gvm_texture_file(lbl_80442A18);
     lbl_805D5A90 = 0;
     lbl_805D5A94 = 0;
     lbl_805D5A98 = 0;
@@ -529,8 +529,8 @@ u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     } else if (temp_r0 >= 2) {
         M2C_FIELD(arg0, s32 *, 0x8C) = 1;
     }
-    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A88), u8 **, 0x42C), void **, 8));
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&lbl_805D5A88), u8 **, 0x430), void **, 4));
+    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&sensor_ancient01_model_resource), u8 **, 0x42C), void **, 8));
+    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&sensor_ancient01_model_resource), u8 **, 0x430), void **, 4));
     M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
     M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (1.0f);
     M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (4e+02f);
