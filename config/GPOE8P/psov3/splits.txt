@@ -51,6 +51,7 @@ pso/unk/text_80019EB8.cpp:
 
 pso/ui/TAdDrawLineTask.cpp:
 	.text       start:0x80019EF8 end:0x8001A3BC
+	.data       start:0x80480920 end:0x80480938
 
 pso/unk/text_8001A3BC.cpp:
 	.text       start:0x8001A3BC end:0x8001A430
@@ -672,6 +673,7 @@ pso/boss/TBoss5GryphonShockWave.cpp:
 
 pso/boss/TBoss5GryphonSnarl.cpp:
 	.text       start:0x80066A88 end:0x80066F10
+	.data       start:0x80488718 end:0x80488730
 
 pso/unk/text_80066F10.cpp:
 	.text       start:0x80066F10 end:0x80066F5C
@@ -2112,9 +2114,6 @@ pso/enemy/TObjEneMe3Stelth.cpp:
 	.bss        start:0x805010E0 end:0x80501130
 	.sdata2     start:0x805DA830 end:0x805DA838
 
-pso/enemy/EnemyFactoryTables.cpp:
-	.data       start:0x80497DC8 end:0x80498F28
-
 pso/system/ChunkTextureStripCollector.cpp:
 	.text       start:0x800F58A4 end:0x800F5BC0
 
@@ -2136,6 +2135,10 @@ pso/enemy/TObjEnePanarms_800F5E90.cpp:
 pso/object/TObjControl.cpp:
 	.text       start:0x800F5EE0 end:0x800F7744
 	.rodata     start:0x8043D778 end:0x8043D788
+	.data       start:0x80497C60 end:0x80497C78
+
+pso/enemy/EnemyFactoryTables.cpp:
+	.data       start:0x80497DC8 end:0x80498F28
 
 pso/misc/TLobby_800F7744.cpp:
 	.text       start:0x800F7744 end:0x800F7778
@@ -10302,6 +10305,7 @@ pso/object/TObjMistCtrl.cpp:
 
 pso/misc/TPlayerFootStamp.cpp:
 	.text       start:0x802AF968 end:0x802B01D8
+	.data       start:0x804DE4F8 end:0x804DE510
 
 pso/misc/TPlayerFootStamp_802B01D8.cpp:
 	.text       start:0x802B01D8 end:0x802B02B0
@@ -10437,6 +10441,7 @@ pso/player/TObjPlayer_802C422C.cpp:
 
 pso/ui/TAdSelectGameModeGC_802C4748.cpp:
 	.text       start:0x802C4748 end:0x802C4CA0
+	.data       start:0x804E0A18 end:0x804E0A30
 
 pso/menu/TAdPlyChrSelPlateGC_802C4CA0.cpp:
 	.text       start:0x802C4CA0 end:0x802C4FE8
@@ -10836,6 +10841,7 @@ pso/boss/TBoss7PhotonBullet_802EF26C.cpp:
 pso/boss/TBoss7TentacleNeedle.cpp:
 	.text       start:0x802EF800 end:0x802F0E24
 	.rodata     start:0x804740C8 end:0x804740E0
+	.data       start:0x804E4848 end:0x804E4860
 	.sdata2     start:0x805DEC40 end:0x805DEC4C
 
 pso/unk/text_802F0E24.cpp:
@@ -11148,6 +11154,7 @@ pso/unk/text_803098DC.cpp:
 
 pso/misc/TChCrTagInformationStr.cpp:
 	.text       start:0x803098F4 end:0x80309D80
+	.data       start:0x804E7560 end:0x804E7578
 
 pso/player/TObjPlayer_80309D80.cpp:
 	.text       start:0x80309D80 end:0x8030A364
