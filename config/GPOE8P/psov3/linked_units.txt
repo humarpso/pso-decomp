@@ -388,7 +388,6 @@ pso/enemy/TObjEneDelDepth_80315AD8.cpp
 pso/enemy/TObjEneDelDepth_8031624C.cpp
 pso/enemy/TObjEneDellBiter_800BC46C.cpp
 pso/enemy/TObjEneDf2Bringer_80097100.cpp
-pso/enemy/TObjEneDf2Bringer_80099F0C.cpp
 pso/enemy/TObjEneDimedian.cpp
 pso/enemy/TObjEneDolmOlm.cpp
 pso/enemy/TObjEneDubchik.cpp
@@ -434,7 +433,6 @@ pso/enemy/TObjEneMorfosArm.cpp
 pso/enemy/TObjEneMorfosArm_80335218.cpp
 pso/enemy/TObjEneMorfos_80337500.cpp
 pso/enemy/TObjEneNanoDrago.cpp
-pso/enemy/TObjEneNanoDrago_800DBF88.cpp
 pso/enemy/TObjEnePanarmsAtkColli.cpp
 pso/enemy/TObjEnePanarms_8002AE74.cpp
 pso/enemy/TObjEnePanarms_800DFB74.cpp
@@ -2073,6 +2071,7 @@ pso/object/TObjCityMainWarp_801867F4.cpp
 pso/object/TObjCityMainWarp_80186C44.cpp
 pso/object/TObjCityMainWarp_80186E24.cpp
 pso/object/TObjCollision.cpp
+pso/object/TObjComputer.cpp
 pso/object/TObjCurtainLobby_8035B87C.cpp
 pso/object/TObjDFDemo2.cpp
 pso/object/TObjDFDemo3.cpp
@@ -2927,9 +2926,6 @@ pso/unk/text_80090464.cpp
 pso/unk/text_80090488.cpp
 pso/unk/text_80092AE0.cpp
 pso/unk/text_80092B10.cpp
-pso/unk/text_8009A398.cpp
-pso/unk/text_8009A434.cpp
-pso/unk/text_8009A6AC.cpp
 pso/unk/text_8009F410.cpp
 pso/unk/text_800A01C0.cpp
 pso/unk/text_800A02AC.cpp
@@ -2957,7 +2953,6 @@ pso/unk/text_800D79A8.cpp
 pso/unk/text_800D97E8.cpp
 pso/unk/text_800D98D8.cpp
 pso/unk/text_800D9BBC.cpp
-pso/unk/text_800D9C34.cpp
 pso/unk/text_800DC420.cpp
 pso/unk/text_800EB778.cpp
 pso/unk/text_800F5BC0.cpp

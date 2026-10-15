@@ -293,6 +293,7 @@ force_active:
   - TObjPlayer__sub_800181DC
   - TObjPlayer__sub_800405D8
   - TObjPlayer__sub_80040ADC
+  - TObjPlayer__sub_800DA1F4
   - TObjPlayer__sub_800FF1FC
   - TObjPlayer__sub_800FF220
   - TObjPlayer__sub_800FF244
@@ -1405,6 +1406,7 @@ force_active:
   - draw_lights__20TODoorFourLightSpaceFPv
   - draw_model_12__25TBoss6Demo20_TYPE2_APPEARFv
   - draw_model_13__23TBoss6Demo21_TYPE2_DEADFv
+  - draw_model__12TObjComputerFPv
   - draw_model__15TODoorAncient09FPv
   - draw_model__15TObjEneMe1GiGueFPv
   - draw_model__15TObjLazerFence4FPv
@@ -7513,6 +7515,7 @@ force_active:
   - sound_effect_range_weapon
   - spawn_concentrate__12TPhotonGollaFPv
   - spawn_decorations_in_range
+  - spawn_directional_particle_at_slot__10TObjPlayerFPvi
   - spawn_effect__19TContainerAncient01FPvPvPv
   - spawn_effects__20TBoss3VoloptHiraisinFPv
   - spawn_fire_explosion__10TObjPlayerFUii

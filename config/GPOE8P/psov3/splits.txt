@@ -1522,25 +1522,10 @@ pso/enemy/TObjEneDf2Bringer_800972B0.cpp:
 pso/player/TObjPlayer_80099EF8.cpp:
 	.text       start:0x80099EF8 end:0x80099F0C
 
-pso/enemy/TObjEneDf2Bringer_80099F0C.cpp:
-	.text       start:0x80099F0C end:0x8009A398
-
-pso/unk/text_8009A398.cpp:
-	.text       start:0x8009A398 end:0x8009A434
-
-pso/unk/text_8009A434.cpp:
-	.text       start:0x8009A434 end:0x8009A4B8
-
-pso/unk/text_8009A4B8.cpp:
-	.text       start:0x8009A4B8 end:0x8009A6AC
-	.sdata2     start:0x805D9860 end:0x805D9874
-
-pso/unk/text_8009A6AC.cpp:
-	.text       start:0x8009A6AC end:0x8009A704
-
 pso/enemy/BringerEffects.cpp:
-	.text       start:0x8009A704 end:0x8009AB4C
+	.text       start:0x80099F0C end:0x8009AB4C
 	.rodata     start:0x8043A178 end:0x8043A180
+	.sdata2     start:0x805D9850 end:0x805D9888
 
 pso/enemy/TObjEneMe1Canadin.cpp:
 	.text       start:0x8009AB4C end:0x8009F410
@@ -1992,19 +1977,10 @@ pso/boss/TBoss4Type3_800D9960.cpp:
 pso/unk/text_800D9BBC.cpp:
 	.text       start:0x800D9BBC end:0x800D9C34
 
-pso/unk/text_800D9C34.cpp:
-	.text       start:0x800D9C34 end:0x800DA0B8
-
-pso/player/TObjPlayer_800DA0B8.cpp:
-	.text       start:0x800DA0B8 end:0x800DBAB8
-	.sdata2     start:0x805DA3F8 end:0x805DA450
-
-pso/enemy/TObjEneNanoDrago_800DBF88.cpp:
-	.text       start:0x800DBAB8 end:0x800DC410
-	.data       start:0x80494B10 end:0x80494E10
-
 pso/enemy/TObjEneNanoDrago.cpp:
-	.text       start:0x800DC410 end:0x800DC420
+	.text       start:0x800D9C34 end:0x800DC420
+	.data       start:0x80494B10 end:0x80494E10
+	.sdata2     start:0x805DA3F8 end:0x805DA478
 
 pso/unk/text_800DC420.cpp:
 	.text       start:0x800DC420 end:0x800DC9EC
