@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Matrix34 { f32 elements[3][4]; };
 struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 
 extern "C" {
-M2C_UNK matrix_apply_translation(int, f32, f32, f32);
+s32 matrix_apply_translation(int, f32, f32, f32);
 extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
-M2C_UNK PSMTXCopy(int, int);
+s32 PSMTXCopy(int, int);
 extern u32 current_matrix;
 void copy_matrix__10TObjPlayerFUiUi(u32 arg0, u32 arg1);
 f32 sin_table_lookup(int);

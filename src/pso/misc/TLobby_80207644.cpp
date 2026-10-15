@@ -1,34 +1,30 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80207798_lbl_80513920 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xD4];
 };
 
 struct RecoveredGlobal_802077CC_lbl_80513920 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xD4];
 };
 
 struct RecoveredGlobal_802078A4_lbl_8044B658
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x11C];
 };
 
 struct RecoveredGlobal_802078A4_lbl_8044B778
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x11C];
 };
 
 struct RecoveredGlobal_802078A4_lbl_80513920
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xD4];
 };
 
@@ -48,7 +44,7 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 s32 get_floor_map_selection(s32 arg0, u8 *arg1);
 s32 get_main_phase(void);
-M2C_UNK set_state__16TAdStorySelectGCFi(void*);
+s32 set_state__16TAdStorySelectGCFi(void*);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
 s32 rand(void);
 extern RecoveredGlobal_802078A4_lbl_8044B658 lbl_8044B658;
@@ -57,12 +53,12 @@ extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 extern int selected_episode;
 extern const f32 lbl_805DC610;
 void randomize_adventure_maps(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern struct Ids_80207C60 floor_map_registry_id_table;
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
 void init_floor_map_registry(void);
 extern RecoveredGlobal_80207798_lbl_80513920 floor_map_registry;
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern struct Ids_80207C60 boss_warp_area_id_table;
 void TLobby__sub_80207BB0(void);
 s32 get_current_floor();
@@ -87,7 +83,7 @@ void backup_story_select__6TLobbyFv(void);
 s32 get_player_floor__6TLobbyFi(s32 idx);
 void reset_story_select_state__6TLobbyFv(void);
 void sync_story_select__6TLobbyFv(void);
-M2C_UNK set_state__16TAdStorySelectGCFi(void*);
+s32 set_state__16TAdStorySelectGCFi(void*);
 
     extern int story_select_current;
     extern int selected_episode;
@@ -145,10 +141,10 @@ s32 set_floor_map_selection(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
         return 0;
     }
     temp_r0 = arg0 * 0xC;
-    M2C_FIELD(((u8 *)(&floor_map_registry.value) + temp_r0), s32 *, 0) = arg1;
+    *(s32 *)((s8 *)((u8 *)(&floor_map_registry.value) + temp_r0) + 0) = arg1;
     temp_r4 = (u8 *)(&floor_map_registry.value) + temp_r0;
-    M2C_FIELD(temp_r4, s32 *, 4) = arg2;
-    M2C_FIELD(temp_r4, s32 *, 8) = arg3;
+    *(s32 *)((s8 *)temp_r4 + 4) = arg2;
+    *(s32 *)((s8 *)temp_r4 + 8) = arg3;
     return 1;
 }
 #pragma pop
@@ -164,9 +160,9 @@ s32 get_floor_map_selection(s32 arg0, u8 *arg1) {
     }
     temp_r6 = arg0 * 0xC;
     temp_r5 = (u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&floor_map_registry).value) + temp_r6;
-    M2C_FIELD(arg1, s32 *, 0) = (s32) M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&floor_map_registry).value) + temp_r6), s32 *, 0);
-    M2C_FIELD(arg1, s32 *, 4) = (s32) M2C_FIELD(temp_r5, s32 *, 4);
-    M2C_FIELD(arg1, s32 *, 8) = (s32) M2C_FIELD(temp_r5, s32 *, 8);
+    *(s32 *)((s8 *)arg1 + 0) = (s32) *(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802077CC_lbl_80513920 *)&floor_map_registry).value) + temp_r6) + 0);
+    *(s32 *)((s8 *)arg1 + 4) = (s32) *(s32 *)((s8 *)temp_r5 + 4);
+    *(s32 *)((s8 *)arg1 + 8) = (s32) *(s32 *)((s8 *)temp_r5 + 8);
     return 1;
 }
 #pragma pop
@@ -201,10 +197,10 @@ void copy_table_entries__6TLobbyFPvUi(s32 *src, u32 size) {
 }
 
 void randomize_adventure_maps(void) {
-  M2C_UNK *var_r31;
+  s32 *var_r31;
   s32 var_r30;
   s32 var_r29;
-  var_r31 = (M2C_UNK *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
+  var_r31 = (s32 *) (&(*(RecoveredGlobal_802078A4_lbl_80513920 *)&floor_map_registry).value);
   set_state__16TAdStorySelectGCFi((void*)((*(s32 *)&selected_episode)));
   var_r30 = get_main_phase();
   if (is_not_split_screen__13TRaderMapCoreFv() == 1)
@@ -219,21 +215,21 @@ void randomize_adventure_maps(void) {
       switch (var_r30)
       {
         case 14:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
           *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         case 15:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
           *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&online_floor_map_variation_dimension_table.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
         default:
-          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((M2C_UNK *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
+          *((s32 *) (((s8 *) var_r31) + 4)) = (s32) (((f32) (*((s32 *) (((s8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))))) * (lbl_805DC610 * ((f32) rand())));
           *((s32 *) (((s8 *) var_r31) + 8)) = (s32) (((f32) (*((s32 *) (((s8 *) (((u8 *) (&lbl_8044B658.value)) + ((*((s32 *) (((s8 *) var_r31) + 0))) * 8))) + 4)))) * (lbl_805DC610 * ((f32) rand())));
           break;
       }
     }
     var_r29 += 1;
-    var_r31 = (M2C_UNK *) (((u8 *) var_r31) + 0xC);
+    var_r31 = (s32 *) (((u8 *) var_r31) + 0xC);
   }
   while (var_r29 < 0x12);
 }

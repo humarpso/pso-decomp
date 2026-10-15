@@ -8,7 +8,6 @@ struct TAdFloorLoadPrtGC_8034AD38 {
     Slot_8034AD38 slots[32];
 };
 
-typedef s32 M2C_UNK;
 struct Vec_8034ADE0 { f32 x, y, z; };
 
 struct Ang_8034ADE0 { s32 x, y, z; };
@@ -23,7 +22,6 @@ struct Prt_8034ADE0 {
     void *bg;
 };
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct Node_8034AF18 { s32 f0; s32 f4; };
 
 extern "C" {
@@ -34,10 +32,10 @@ extern void *__vt__17TAdFloorLoadPrtGC[];
 TAdFloorLoadPrtGC_8034AD38 *__dt__17TAdFloorLoadPrtGCFv(TAdFloorLoadPrtGC_8034AD38 *self, s16 deleting);
 extern s16 lbl_804F0070[];
 void push_recent_id(s16 arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
-M2C_UNK __ct__7TObjectFP7TObject(void *);
+s32 __ct__7TObjectFP7TObject(void *);
 void *memset(void *, int, u32);
 extern Vec_8034ADE0 floor_load_particle_positions[];
 extern Ang_8034ADE0 TAdFloorLoadPrtGC__emitter_angles[];
@@ -103,15 +101,15 @@ void push_recent_id(s16 arg0) {
     }
 }
 void clear_window_dd_nodes(void) {
-    if (M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x20) == NULL || M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x24) == NULL) {
+    if (*(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x20) == NULL || *(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x24) == NULL) {
         return;
     }
-    M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x20)->f4 = M2C_FIELD(lbl_804F0070, s32 *, 0x30);
-    M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x24)->f4 = M2C_FIELD(lbl_804F0070, s32 *, 0x30);
-    M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x20) = NULL;
-    M2C_FIELD(lbl_804F0070, Node_8034AF18 **, 0x24) = NULL;
-    M2C_FIELD(lbl_804F0070, s32 *, 0x28) = 0;
-    M2C_FIELD(lbl_804F0070, s32 *, 0x2C) = 0;
+    (*(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x20))->f4 = *(s32 *)((s8 *)lbl_804F0070 + 0x30);
+    (*(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x24))->f4 = *(s32 *)((s8 *)lbl_804F0070 + 0x30);
+    *(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x20) = NULL;
+    *(Node_8034AF18 **)((s8 *)lbl_804F0070 + 0x24) = NULL;
+    *(s32 *)((s8 *)lbl_804F0070 + 0x28) = 0;
+    *(s32 *)((s8 *)lbl_804F0070 + 0x2C) = 0;
 }
 
 }

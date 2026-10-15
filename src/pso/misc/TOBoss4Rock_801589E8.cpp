@@ -1,28 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct Vec_8015959C;
 extern "C" {
 s32 TObjFish__sub_8001EDB0(s32,s32);
 s32 get_bml_model(s32,s32);
-M2C_UNK rotate_matrix_y(int,int);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object(int);
+s32 rotate_matrix_y(int,int);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object(int);
 void* alloc_buffer__11TOBoss4RockFPv(s32);
 void TOBoss4__ct(void*,void*);
 void VecCopy__FP3VecPC3Vec(Vec_8015959C*,Vec_8015959C*);
 u8* TOBoss4Bird__ct(u8*,s32);
-extern M2C_UNK __vt__11TOBoss4Bird[];
+extern s32 __vt__11TOBoss4Bird[];
 }
 #include "types.h"
 extern "C" {
 extern const u32 lbl_805DB310 = 0x44FA0000;
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma fp_contract on
 struct Vec_801589E8 { f32 x, y, z; };
@@ -87,10 +81,6 @@ void run_task__11TOBoss4RockFv(Rock_801589E8 *self) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK;
 struct Vec_80158DCC { f32 x, y, z; };
 
 struct Rot_80158DCC { s32 x, y, z; };
@@ -125,14 +115,14 @@ struct Rock_80158DCC : VObj_80158DCC {
 };
 
 extern "C" {
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object(int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object(int);
 void render__11TOBoss4RockFv(Rock_80158DCC *self);
 }
 
@@ -173,17 +163,17 @@ void *create__11TOBoss4RockFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__11TOBoss4Rock[];
+extern s32 __vt__11TOBoss4Rock[];
 
 void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBoss4Rock;
-        if (M2C_FIELD(arg0, void **, 0xA0) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xA0)); }
-        if (M2C_FIELD(arg0, void **, 0xA4) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xA4)); }
-        if (M2C_FIELD(arg0, void **, 0xA8) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xA8)); }
-        if (M2C_FIELD(arg0, void **, 0xAC) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xAC)); }
-        if (M2C_FIELD(arg0, void **, 0xB0) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xB0)); }
-        if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xB4)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Rock;
+        if (*(void **)((s8 *)arg0 + 0xA0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA0)); }
+        if (*(void **)((s8 *)arg0 + 0xA4) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA4)); }
+        if (*(void **)((s8 *)arg0 + 0xA8) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xA8)); }
+        if (*(void **)((s8 *)arg0 + 0xAC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xAC)); }
+        if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xB0)); }
+        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xB4)); }
         __dt__7TOBoss4Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -194,11 +184,6 @@ void *__dt__11TOBoss4RockFv(void *arg0, s16 arg1) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 #pragma fp_contract on
 struct VBase_18_1a504b { char pad[0x18]; };
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -207,7 +192,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct Vec_80158FB4 { f32 x, y, z; };
@@ -231,7 +216,7 @@ extern "C" {
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void TOBoss4__ct(void *, void *);
 s32 rand();
-extern M2C_UNK __vt__11TOBoss4Rock[];
+extern s32 __vt__11TOBoss4Rock[];
 extern s32 lbl_805D2EBC;
 extern s32 lbl_805D58A8;
 
@@ -270,17 +255,17 @@ void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
     s32 i;
 
     TOBoss4__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBoss4Rock;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2EBC;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Rock;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2EBC;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D58A8, 1);
-    M2C_FIELD(arg0, f32 *, 0x94) = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), u8 **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 1);
-    self->spread = (5e+01f) + M2C_FIELD(arg0, f32 *, 0x68);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D58A8, 1);
+    *(f32 *)((s8 *)arg0 + 0x94) = *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 1);
+    self->spread = (5e+01f) + *(f32 *)((s8 *)arg0 + 0x68);
     if (self->f6c < (0.0f)) {
         self->f6c *= (-1.0f);
     }
-    self->count = M2C_FIELD(arg0, s32 *, 0x84);
+    self->count = *(s32 *)((s8 *)arg0 + 0x84);
     if (self->count < 1) {
         self->count = 1;
     } else if (self->count > 8) {
@@ -305,23 +290,18 @@ void *TOBoss4Rock__ct(void *arg0_, void *arg1) {
 
 #define TObjFish__sub_8001EDB0 ((s32 (*)(void*,int))TObjFish__sub_8001EDB0)
 #define get_bml_model ((s32 (*)(void*,int))get_bml_model)
-#define rotate_matrix_y ((M2C_UNK (*)(M2C_UNK,s32))rotate_matrix_y)
-#define set_global_param__8TObjFishFi ((M2C_UNK (*)(s32))set_global_param__8TObjFishFi)
-#define draw_ginja_object ((M2C_UNK (*)(s32))draw_ginja_object)
-#define TOBoss4__ct ((M2C_UNK (*)(void))TOBoss4__ct)
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#define rotate_matrix_y ((s32 (*)(s32,s32))rotate_matrix_y)
+#define set_global_param__8TObjFishFi ((s32 (*)(s32))set_global_param__8TObjFishFi)
+#define draw_ginja_object ((s32 (*)(s32))draw_ginja_object)
+#define TOBoss4__ct ((s32 (*)(void))TOBoss4__ct)
 
 struct RecoveredGlobal_80159514___vt__12TOBoss4Tower {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
 extern "C" {
-extern M2C_UNK __vt__12TOBoss4Tower[];
+extern s32 __vt__12TOBoss4Tower[];
 extern s32 lbl_805D2EB8;
 extern s32 lbl_805D58A8;
 u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1);
@@ -345,9 +325,9 @@ struct VObj_80159400 : Base_80159400 {
 void *TOBoss4Tower__create(void *arg0);
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1);
 void render__12TOBoss4TowerFv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 post_translate_matrix(void *);
+s32 push_matrix();
+s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TOBoss4Fv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -361,21 +341,21 @@ void *TOBoss4Tower__create(void *arg0) {
 }
 
 void render__12TOBoss4TowerFv(u8 *arg0) {
-    if (((VObj_80159400 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
+    if (((VObj_80159400 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
 }
 
-extern M2C_UNK __vt__12TOBoss4Tower[];
+extern s32 __vt__12TOBoss4Tower[];
 
 void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOBoss4Tower;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOBoss4Tower;
         __dt__7TOBoss4Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -386,12 +366,12 @@ void *__dt__12TOBoss4TowerFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80159514___vt__12TOBoss4Tower_size[sizeof(RecoveredGlobal_80159514___vt__12TOBoss4Tower) == 0x34 ? 1 : -1];
 u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
     TOBoss4__ct();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EB8;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80159514___vt__12TOBoss4Tower *)&__vt__12TOBoss4Tower).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EB8;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (lbl_805D58A8), (int) (5));
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) (6e+01f);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), (int) (5));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (lbl_805D58A8), (int) (5));
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) (6e+01f);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) (lbl_805D58A8), (int) (5));
     return arg0;
 }
 
@@ -403,7 +383,6 @@ u8 *TOBoss4Tower__ct(u8 *arg0, s32 arg1) {
 #undef set_global_param__8TObjFishFi
 #undef draw_ginja_object
 #undef TOBoss4__ct
-typedef s32 M2C_UNK;
 
 extern "C" {
 
@@ -490,7 +469,6 @@ void run_task__11TOBoss4BirdFv(Bird_8015959C *self) {
 
 }
 
-typedef s32 M2C_UNK;
 struct Vec_80159870 { f32 x, y, z; };
 
 struct VBase_80159870 { char pad[0x18]; };
@@ -530,11 +508,11 @@ struct Bird_80159870 : VObj_80159870 {
 };
 
 extern "C" {
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_model_with_motion(int, int, f32);
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 draw_ginja_model_with_motion(int, int, f32);
 void render__11TOBoss4BirdFv(Bird_80159870 *self);
 }
 
@@ -562,8 +540,6 @@ void render__11TOBoss4BirdFv(Bird_80159870 *self) {
 }
 
 #define TOBoss4Bird__ct ((void* (*)(void*,void*))TOBoss4Bird__ct)
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -582,13 +558,13 @@ void *create__11TOBoss4BirdFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__11TOBoss4Bird[];
+extern s32 __vt__11TOBoss4Bird[];
 
 void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBoss4Bird;
-        if (M2C_FIELD(arg0, void **, 0xBC) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xBC)); }
-        if (M2C_FIELD(arg0, void **, 0xC0) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xC0)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBoss4Bird;
+        if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xBC)); }
+        if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xC0)); }
         __dt__7TOBoss4Fv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -606,15 +582,11 @@ void *__dt__11TOBoss4BirdFv(void *arg0, s16 arg1) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define __vt__11TOBoss4Bird (*(u8 (*)[1])&__vt__11TOBoss4Bird)
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
 
-struct M2CCopy_48 { u8 bytes[0x48]; };
+struct ByteBlock_48 { u8 bytes[0x48]; };
 
 struct Vec_80159A10 { f32 x, y, z; };
 

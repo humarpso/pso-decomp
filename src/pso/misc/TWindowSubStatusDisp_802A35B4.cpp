@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -17,7 +15,7 @@ extern const f32 lbl_805DDF38;
 void render_status__20TWindowSubStatusDispFPv(void *arg0) {
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D6648);
-    set_draw_texture_and_color(M2C_FIELD(arg0, void **, 0x20), M2C_FIELD(arg0, void **, 0x80));
+    set_draw_texture_and_color(*(void **)((s8 *)arg0 + 0x20), *(void **)((s8 *)arg0 + 0x80));
     draw_textured_quad_at_depth((void *)((char *)arg0 + 68), lbl_805DDF38);
     get_player__20TWindowSubStatusDispFv();
 }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase { char pad[0x18]; };
 
@@ -18,12 +14,12 @@ struct VObj : VBase {
 };
 
 struct RecoveredGlobal_8018925C_lbl_804B63BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x158];
 };
 
 struct RecoveredGlobal_8018925C___vt__19TObjContainerNoItem {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -33,7 +29,6 @@ struct Obj_801894F8 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 
 struct Pkt_801894F8 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
-typedef s32 M2C_UNK;
 struct Base18 { char pad[0x18]; };
 
 struct VObj18 : Base18 {
@@ -118,12 +113,12 @@ struct VObj18 : Base18 {
 };
 
 struct RecoveredGlobal_801897A4_lbl_804B63BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x158];
 };
 
 struct RecoveredGlobal_801897A4___vt__18TObjContainerEnemy {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -152,9 +147,9 @@ struct Obj_8018990C { u8 pad[0x38]; f32 x, y, z; u8 pad44[0x326 - 0x44]; s16 f32
 struct CE_80189614 { u8 pad[0x34]; s32 f34; u8 f38[0x28]; s32 f60; u8 pad2[0x326 - 0x64]; s16 mode; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
@@ -162,7 +157,7 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_8018925C_lbl_804B63BC forest_box_collision_body_parts;
-extern M2C_UNK __vt__19TObjContainerNoItem[];
+extern s32 __vt__19TObjContainerNoItem[];
 extern s32 TObjContainerNoItem__name;
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 void set_global_count__12TObjNpcEnemyFi(s32 arg0);
@@ -183,9 +178,9 @@ f32 TObjContainerEnemy__vt20(Obj_801894F8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_container_param(int);
 extern s32 lbl_805D5B7C;
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-M2C_UNK play_container_break_sound(void *);
+s32 spawn_particle_effect_with_flags(void *, int, int);
+s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+s32 play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8018990C *const lbl_805D5B80;
 extern Spawn_8018990C *const lbl_805D5B84;
@@ -209,20 +204,20 @@ extern "C" {
 void TObjContainerNoItem__vt78(void *arg0);
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1);
 void *create__19TObjContainerNoItemFPv(void *arg0);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 submit_cursor_candidate(void *, s32);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
 
 void TObjContainerNoItem__vt78(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
             submit_cursor_candidate(arg0, -1);
         }
     case 1:
@@ -240,12 +235,12 @@ void *create__19TObjContainerNoItemFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__19TObjContainerNoItem[];
+extern s32 __vt__19TObjContainerNoItem[];
 
 void *__dt__19TObjContainerNoItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjContainerNoItem;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjContainerNoItem;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -259,16 +254,16 @@ typedef char RecoveredGlobal_8018925C_lbl_804B63BC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8018925C___vt__19TObjContainerNoItem_size[sizeof(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem) == 0x14C ? 1 : -1];
 u8 *TObjContainerNoItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem *)&__vt__19TObjContainerNoItem).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerNoItem__name;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8018925C___vt__19TObjContainerNoItem *)&__vt__19TObjContainerNoItem).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerNoItem__name;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_container_param((int) (1));
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&forest_box_collision_body_parts.value, f32 *, 4));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
     return arg0;
 }
 
@@ -279,13 +274,13 @@ void TObjContainerEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
             clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
-            M2C_FIELD(arg0, s16 *, 0x326) = 1;
+            *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         clear_player_status_flag__10TObjPlayerFPviUi((void *) (arg0), (int) (0), (int) (1));
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }
 }
 

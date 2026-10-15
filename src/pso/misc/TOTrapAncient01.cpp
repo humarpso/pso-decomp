@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801793A8_8017939C { char pad[0x18]; };
 struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
     virtual void m0();
@@ -93,7 +90,7 @@ struct VObj_801793A8_8017939C : Base_801793A8_8017939C {
 
 struct RecoveredGlobal_80179E34_lbl_804B4834
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xC];
 };
 
@@ -101,8 +98,7 @@ struct E_8017A1A4 { u8 pad[0xc]; f32 f; u8 pad2[0x2c - 0x10]; };
 
 struct Obj_8017A1A4 { u8 pad[0xa4]; E_8017A1A4 *arr; };
 
-typedef s32 M2C_UNK;
-struct Self_80179EC0 { u8 pad[0x18]; M2C_UNK *vt; u8 pad1c[0x358 - 0x1C]; u8 arr[4][0x1C]; };
+struct Self_80179EC0 { u8 pad[0x18]; s32 *vt; u8 pad1c[0x358 - 0x1C]; u8 arr[4][0x1C]; };
 
 struct VBase_18_a8c792 { char pad[0x18]; };
 
@@ -112,7 +108,7 @@ struct VObj_18_a8c792 : VBase_18_a8c792 {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
     virtual void m6();
     virtual void m7();
     virtual void m8();
@@ -292,9 +288,9 @@ extern "C" {
 void set_triggered_state__6TOTrapFPvUi(void *, void *, f32);
 void TOTrapAncient01__vt20(void *arg0, void *arg1, f32 farg0);
 u16 obj_getField1c(void *);
-M2C_UNK obj_clear_flag30_20000(int);
+s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFPv();
-M2C_UNK send_code_45_1__10TObjPlayerFi(int);
+s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 local_client_id;
@@ -303,20 +299,20 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
+s32 add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_80179E34_lbl_804B4834 bm_o_trap_ancient01_resource_descriptor;
 extern u32 TOTrapAncient01__bml_resource;
 extern const f32 TOTrapAncient01__data_805DBA4C;
 extern const f32 lbl_805DBA5C;
 void load_resources__15TOTrapAncient01Fv(void);
 f32 TObjPlayer__sub_8017A1A4(Obj_8017A1A4 *self, s32 i);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK __destroy_arr(void *, void *, int, int);
+s32 unregister_object_by_id(void *);
+s32 free_collision_body_parts(void *);
+s32 __destroy_arr(void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void *__dt__6TOTrapFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK __vt__15TOTrapAncient01[];
+extern s32 __vt__15TOTrapAncient01[];
 Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag);
 s32 get_main_phase();
 void calc_attach_pos__10TObjPlayerFPv(void *);
@@ -328,12 +324,12 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void TOTrap__ct(void *, void *, void *);
-M2C_UNK get_or_assign_actor_id(void *, int);
+s32 get_or_assign_actor_id(void *, int);
 void __construct_array(void *, void *, void *, int, int);
 void TObjPlayer__sub_800D7C58(void);
 void init_and_activate__10TObjPlayerFPv(void *);
-extern M2C_UNK lbl_804B4844[];
-extern M2C_UNK __vt__15TOTrapAncient01[];
+extern s32 lbl_804B4844[];
+extern s32 __vt__15TOTrapAncient01[];
 extern s32 TOTrapAncient01__class_name;
 extern u32 TOTrapAncient01__bml_resource;
 extern const f32 lbl_805DBA54;
@@ -400,8 +396,8 @@ void TOTrapAncient02R__sub_80141CF0(void *, void *, void *);
 void TOTrapAncient02R__sub_80154D78(void *);
 void *__nw__7TObjectFUl(int);
 s32 is_current_room(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
 
 void TOTrap__sub_8017939C(void) {  }
 void TOTrapAncient01__vt84(void) {  }
@@ -422,8 +418,8 @@ void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        if (M2C_FIELD(arg0, void **, 0x2A8) != NULL) {
-            temp_r3 = get_player_by_client_id((void *) (obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8))));
+        if (*(void **)((s8 *)arg0 + 0x2A8) != NULL) {
+            temp_r3 = get_player_by_client_id((void *) (obj_getField1c(*(void **)((s8 *)arg0 + 0x2A8))));
             if (temp_r3 != 0) {
                 if (check_player_flag1__6TLobbyFPv() != 0) {
                     send_code_45_1__10TObjPlayerFi((int) (temp_r3));
@@ -431,7 +427,7 @@ void release_trapped_player__15TOTrapAncient01FPv(u8 *arg0) {
                 obj_clear_flag30_20000((int) (temp_r3));
             }
         }
-    } else if ((M2C_FIELD(arg0, void **, 0x2A8) != NULL) && ((s32) local_client_id == (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x2A8)))) {
+    } else if ((*(void **)((s8 *)arg0 + 0x2A8) != NULL) && ((s32) local_client_id == (s32) obj_getField1c(*(void **)((s8 *)arg0 + 0x2A8)))) {
         temp_r3_2 = get_player_by_client_id((void *) local_client_id);
         if (temp_r3_2 != 0) {
             if (check_player_flag1__6TLobbyFPv() != 0) {
@@ -605,8 +601,8 @@ void release_static_resource__15TOTrapAncient01Fv(void) {
     }
 }
 
-extern M2C_UNK lbl_8050BEE0[];
-extern M2C_UNK lbl_804A7468[];
+extern s32 lbl_8050BEE0[];
+extern s32 lbl_804A7468[];
 
 typedef struct RecoveredGlobal_80179E34_lbl_804B4834 RecoveredGlobal_80179E34_lbl_804B4834;
 void load_resources__15TOTrapAncient01Fv(void) {
@@ -647,46 +643,46 @@ Self_80179EC0 *__dt__15TOTrapAncient01Fv(Self_80179EC0 *self, s16 flag) {
 void *TOTrapAncient01__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     TOTrap__ct(arg0, arg1, arg2);
-    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__15TOTrapAncient01;
+    *(s32 **)((s8 *)self + 0x18) = __vt__15TOTrapAncient01;
     __construct_array(self + 0x358, (void *)init_and_activate__10TObjPlayerFPv, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
-    M2C_FIELD(self, s32 *, 0) = TOTrapAncient01__class_name;
+    *(s32 *)((s8 *)self + 0) = TOTrapAncient01__class_name;
     ((VObj_18_a8c792 *)arg0)->m5((s32)arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
     calc_attach_pos__10TObjPlayerFPv(arg0);
-    M2C_FIELD(self, s32 *, 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
-    M2C_FIELD(self, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
-    M2C_FIELD(self, s16 *, 0x326) = 0;
-    M2C_FIELD(self, f32 *, 0x334) = 0.5f * M2C_FIELD(self, f32 *, 0x68) + 30.0f;
-    if (M2C_FIELD(self, f32 *, 0x6C) < 0.0f) {
-        M2C_FIELD(self, f32 *, 0x6C) = 0.0f;
+    *(s32 *)((s8 *)self + 0x34) = get_bml_model((void *)TOTrapAncient01__bml_resource, 3);
+    *(s32 *)((s8 *)self + 0x24) = TObjFish__sub_8001EDB0((void *)TOTrapAncient01__bml_resource, 3);
+    *(s16 *)((s8 *)self + 0x326) = 0;
+    *(f32 *)((s8 *)self + 0x334) = 0.5f * *(f32 *)((s8 *)self + 0x68) + 30.0f;
+    if (*(f32 *)((s8 *)self + 0x6C) < 0.0f) {
+        *(f32 *)((s8 *)self + 0x6C) = 0.0f;
     }
-    if (M2C_FIELD(self, f32 *, 0x70) < 1.0f) {
-        M2C_FIELD(self, f32 *, 0x70) = 1.0f;
+    if (*(f32 *)((s8 *)self + 0x70) < 1.0f) {
+        *(f32 *)((s8 *)self + 0x70) = 1.0f;
     }
-    M2C_FIELD(self, f32 *, 0x34C) = -M2C_FIELD(self, f32 *, 0x6C) / M2C_FIELD(self, f32 *, 0x70);
-    M2C_FIELD(self, f32 *, 0x350) = lbl_805DBA6C + (f32)M2C_FIELD(self, s32 *, 0x8C);
+    *(f32 *)((s8 *)self + 0x34C) = -*(f32 *)((s8 *)self + 0x6C) / *(f32 *)((s8 *)self + 0x70);
+    *(f32 *)((s8 *)self + 0x350) = lbl_805DBA6C + (f32)*(s32 *)((s8 *)self + 0x8C);
     if (get_main_phase() == 0xE) {
-        M2C_FIELD(self, f32 *, 0x350) *= lbl_805DBA74;
+        *(f32 *)((s8 *)self + 0x350) *= lbl_805DBA74;
     }
-    if (M2C_FIELD(self, f32 *, 0x350) < 0.0f) {
-        M2C_FIELD(self, f32 *, 0x350) = 0.0f;
+    if (*(f32 *)((s8 *)self + 0x350) < 0.0f) {
+        *(f32 *)((s8 *)self + 0x350) = 0.0f;
     }
-    M2C_FIELD(self, f32 *, 0x354) = M2C_FIELD(self, f32 *, 0x350);
-    if (M2C_FIELD(self, s32 *, 0x84) < 0) {
-        M2C_FIELD(self, s32 *, 0x84) = 0;
+    *(f32 *)((s8 *)self + 0x354) = *(f32 *)((s8 *)self + 0x350);
+    if (*(s32 *)((s8 *)self + 0x84) < 0) {
+        *(s32 *)((s8 *)self + 0x84) = 0;
     }
-    M2C_FIELD(self, f32 *, 0x348) = ((VObj_18_a8c792 *)arg0)->m85((f32)M2C_FIELD(self, s32 *, 0x84));
-    if (M2C_FIELD(self, s32 *, 0x88) < 0) {
-        M2C_FIELD(self, s32 *, 0x88) = 0;
-    } else if (M2C_FIELD(self, s32 *, 0x88) > 5) {
-        M2C_FIELD(self, s32 *, 0x88) = 5;
+    *(f32 *)((s8 *)self + 0x348) = ((VObj_18_a8c792 *)arg0)->m85((f32)*(s32 *)((s8 *)self + 0x84));
+    if (*(s32 *)((s8 *)self + 0x88) < 0) {
+        *(s32 *)((s8 *)self + 0x88) = 0;
+    } else if (*(s32 *)((s8 *)self + 0x88) > 5) {
+        *(s32 *)((s8 *)self + 0x88) = 5;
     }
-    M2C_FIELD(self, s32 *, 0x344) = M2C_FIELD(self, s32 *, 0x88);
-    M2C_FIELD(self, f32 *, 0x338) = lbl_805DBA54;
-    M2C_FIELD(self, u16 *, 0x33C) = 0xFFFF;
+    *(s32 *)((s8 *)self + 0x344) = *(s32 *)((s8 *)self + 0x88);
+    *(f32 *)((s8 *)self + 0x338) = lbl_805DBA54;
+    *(u16 *)((s8 *)self + 0x33C) = 0xFFFF;
     init_collision_body_parts(arg0, lbl_804B4844, 1);
     refresh_collision_body_centers(arg0);
-    M2C_FIELD(self, u32 *, 0x30) |= 0x60040000;
+    *(u32 *)((s8 *)self + 0x30) |= 0x60040000;
     get_or_assign_actor_id(arg0, 0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     for (i = 0; i < 4; i++) {

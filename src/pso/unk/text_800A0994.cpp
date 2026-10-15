@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct Player_800A0994 {
     u8 pad0[0x28];
     s16 f28;

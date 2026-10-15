@@ -1,12 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-M2C_UNK sndStreamMixParameter(u32, u8, u8, u8, u8);
+s32 sndStreamMixParameter(u32, u8, u8, u8, u8);
 s32 TLobby__sub_803C9CB0(s32);
-M2C_UNK TLobby__sub_803CBE64(s32, M2C_UNK);
+s32 TLobby__sub_803CBE64(s32, s32);
 void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 }
 
@@ -37,7 +34,7 @@ void fn_8023F660(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     if (arg5 > 0x7F) {
         arg5 = 0x7F;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x2A0) != 2) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x2A0) != 2) {
         arg4 = 0;
     }
     if (TLobby__sub_803C9CB0(arg1) == 3) {

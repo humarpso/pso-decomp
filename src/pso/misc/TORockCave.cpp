@@ -69,10 +69,6 @@ extern const char *bm_fe_obj_rb_liwa_motion_names[1];
 extern const char *bm_fe_obj_rb2_liwa_motion_names[1];
 extern const char *bm_fe_obj_rb3_liwa_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -85,21 +81,21 @@ struct VObj_18 : VBase_18 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(f32, f32);
+    virtual s32 m8(f32, f32);
     virtual void m9();
     virtual void m10();
     virtual void m11();
-    virtual M2C_UNK m12();
-    virtual M2C_UNK m13();
+    virtual s32 m12();
+    virtual s32 m13();
 };
 
 extern "C" {
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object(int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object(int);
 void draw_model__10TORockCaveFPv(u8 *arg0);
 u32 load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
@@ -126,13 +122,13 @@ extern u32 cave_rock_resource_bundle;
 extern u32 rock_cave_model_resource;
 
 void draw_model__10TORockCaveFPv(u8 *arg0) {
-    if (((VObj_18 *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
+    if (((VObj_18 *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         ((VObj_18 *)(arg0))->m12();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         ((VObj_18 *)(arg0))->m13();
     }
@@ -149,7 +145,7 @@ void free_instances__10TORockCaveFv(void) {
     }
 }
 
-extern M2C_UNK __vt__10TORockCave[];
+extern s32 __vt__10TORockCave[];
 
 #define MK_80175224(dst, off)                                                   \
     {                                                                           \
@@ -184,7 +180,7 @@ void load_resources__10TORockCaveFv(void) {
 
 void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TORockCave;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -195,16 +191,16 @@ void *__dt__10TORockCaveFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 extern const f32 lbl_805DB974;
-extern M2C_UNK __vt__10TORockCave[];
+extern s32 __vt__10TORockCave[];
 extern const f32 lbl_805DB978;
 extern void *TORockCave__class_name;
 
 void *TORockCave__ct(void *arg0) {
     construct_collider_proxy__10TObjPlayerFPv(arg0, tl_05);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TORockCave;
-    M2C_FIELD(arg0, void **, 0x0) = TORockCave__class_name;
-    M2C_FIELD(arg0, f32 *, 0xAC) = lbl_805DB974;
-    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DB978;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TORockCave;
+    *(void **)((s8 *)arg0 + 0x0) = TORockCave__class_name;
+    *(f32 *)((s8 *)arg0 + 0xAC) = lbl_805DB974;
+    *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DB978;
     return arg0;
 }
 

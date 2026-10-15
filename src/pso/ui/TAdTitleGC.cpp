@@ -1,10 +1,6 @@
 #include "pso/TAdTitleGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rec_802A0A60 { u8 pad[0x20]; };
 
@@ -29,7 +25,6 @@ typedef struct TAdTitleGC_802A0E08 {
     s32 f134;
 } TAdTitleGC_802A0E08;
 
-typedef s32 M2C_UNK;
 struct Rec_802A0C84 {
     f32 x0, y0, x1, y1;
     u8 pad[0x10];
@@ -44,36 +39,36 @@ struct Title_802A0C84 {
 
 extern "C" {
 u32 calc_text_width(void *);
-void calc_text_pos__10TAdTitleGCFiPvi(M2C_UNK arg0, u8 *arg1, s32 arg2);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(s32, s32);
+void calc_text_pos__10TAdTitleGCFiPvi(s32 arg0, u8 *arg1, s32 arg2);
+s32 set_global_param__8TObjFishFi(s32);
+s32 begin_screen_draw(s32);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D6630;
-M2C_UNK draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, M2C_UNK arg2);
+s32 draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
 u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
 extern s32 ad_title_gc_class_name;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
 extern f32 lbl_8046620C[];
-M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p);
+s32 update_title_rects__10TAdTitleGCFPv(void *p);
 }
 
 extern "C" {
 
 void render__10TAdTitleGCFv(u8 *arg0);
 void run_task__10TAdTitleGCFv(u8 *arg0);
-s32 get_localized_text_entry(M2C_UNK, s32);
-M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK fn_802A0A30(void *, void *, s32, s32, s32);
+s32 get_localized_text_entry(s32, s32);
+s32 set_cached_blend_factor(s32, s32);
+s32 restore_saved_depth_alpha_state();
+s32 fn_802A0A30(void *, void *, s32, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
+s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
-M2C_UNK draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, M2C_UNK arg2) {
+s32 draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 i;
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D6630);
@@ -85,7 +80,7 @@ M2C_UNK draw_title_layer__10TAdTitleGCFPvii(void *arg0, s32 arg1, M2C_UNK arg2) 
 }
 
 void render__10TAdTitleGCFv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x134) == 1) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x134) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -96,11 +91,11 @@ void render__10TAdTitleGCFv(u8 *arg0) {
 block_5:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        draw_title_layer__10TAdTitleGCFPvii((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x1C)), (M2C_UNK)(0x1FFFFFFF));
+        draw_title_layer__10TAdTitleGCFPvii((void *)(arg0), (s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(0x1FFFFFFF));
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        fn_802A0A30(arg0, arg0 + 0x120, M2C_FIELD(arg0, s32 *, 0x1C), (M2C_FIELD(arg0, s32 *, 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C)));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x134) == 0) {
+        fn_802A0A30(arg0, arg0 + 0x120, *(s32 *)((s8 *)arg0 + 0x1C), (*(s32 *)((s8 *)arg0 + 0x12C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x134) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -108,13 +103,13 @@ block_5:
 
 #pragma push
 #pragma fp_contract on
-void calc_text_pos__10TAdTitleGCFiPvi(M2C_UNK arg0, u8 *arg1, s32 arg2) {
-    M2C_FIELD(arg1, f32 *, 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((void *) (arg2)));
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (86.0f);
+void calc_text_pos__10TAdTitleGCFiPvi(s32 arg0, u8 *arg1, s32 arg2) {
+    *(f32 *)((s8 *)arg1 + 0) = (f32) ((6.2e+02f) - (f32) calc_text_width((void *) (arg2)));
+    *(f32 *)((s8 *)arg1 + 4) = (f32) (86.0f);
 }
 #pragma pop
 
-M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p) {
+s32 update_title_rects__10TAdTitleGCFPv(void *p) {
     Title_802A0C84 *arg0 = (Title_802A0C84 *)p;
     s32 i;
     for (i = 0; i < 8; i++) {
@@ -123,22 +118,22 @@ M2C_UNK update_title_rects__10TAdTitleGCFPv(void *p) {
         arg0->rects[i].x1 = (512.0f) + arg0->rects[i].x0;
         arg0->rects[i].y1 = (4e+01f) + arg0->rects[i].y0;
     }
-    return (M2C_UNK)p;
+    return (s32)p;
 }
 
 void run_task__10TAdTitleGCFv(u8 *arg0) {
     s32 temp_r3;
 
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x128);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x128);
     if (temp_r3 < 0xA) {
-        M2C_FIELD(arg0, s32 *, 0x128) = (s32) (temp_r3 + 1);
+        *(s32 *)((s8 *)arg0 + 0x128) = (s32) (temp_r3 + 1);
     }
-    M2C_FIELD(arg0, s32 *, 0x12C) = (s32) (M2C_FIELD(arg0, s32 *, 0x12C) + 0xC);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x12C) > 0xFF) {
-        M2C_FIELD(arg0, s32 *, 0x12C) = 0xFF;
+    *(s32 *)((s8 *)arg0 + 0x12C) = (s32) (*(s32 *)((s8 *)arg0 + 0x12C) + 0xC);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x12C) > 0xFF) {
+        *(s32 *)((s8 *)arg0 + 0x12C) = 0xFF;
     }
     update_title_rects__10TAdTitleGCFPv((void *)(arg0));
-    calc_text_pos__10TAdTitleGCFiPvi((M2C_UNK)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, M2C_FIELD(arg0, s32 *, 0x1C))));
+    calc_text_pos__10TAdTitleGCFiPvi((s32)(arg0), (u8 *)(arg0 + 0x120), (s32)(get_localized_text_entry(0x13, *(s32 *)((s8 *)arg0 + 0x1C))));
 }
 #pragma push
 #pragma opt_common_subs off

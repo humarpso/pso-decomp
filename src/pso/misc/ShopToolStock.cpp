@@ -1,24 +1,21 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct SRock_80224544_8022448C;
 
 struct RecoveredGlobal_8022559C_lbl_80513F50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_802259A0_lbl_80513F70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x67C];
 };
 
 struct RecoveredGlobal_802258C8_lbl_80513F70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x67C];
 };
 
@@ -120,7 +117,7 @@ void *TLobby__sub_8022598C(int a0);
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
 void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 void clear_shop_weapon_flags(void);
 int is_flag_set__6TLobbyFPv(void* p);
@@ -152,12 +149,12 @@ s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u8 lbl_8044C478[];
-extern M2C_UNK shop_tool_stock_buffers[];
+extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
-M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
-M2C_UNK free__11TOBoss4RockFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUi(u32);
+s32 free__11TOBoss4RockFUi(u32);
 extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
 void free_lobby_resources__6TLobbyFv(void);
@@ -273,9 +270,9 @@ int is_flag_set__6TLobbyFPv(void* p);
 s32 level_to_reward__6TLobbyFi(s32 arg0);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
-M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUi(u32);
 int TLobby__sub_80225A08(void*);
-M2C_UNK free__11TOBoss4RockFUi(u32);
+s32 free__11TOBoss4RockFUi(u32);
 
 u32 lobby_tool_random_rel;
 int shop_tool_stock_level;
@@ -283,7 +280,7 @@ int shop_tool_stock_level;
     extern int shop_tool_stock_level;
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1) { shop_tool_stock_level = a1; generate_shop_inventory__6TLobbyFi((s32)(a0)); }
 
-extern M2C_UNK shop_tool_stock_buffers[];
+extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 
 s32 shop_tool_stock_counts[4];
@@ -306,14 +303,14 @@ void generate_shop_inventory__6TLobbyFi(s32 idx) {
 
 void free_all_rocks__6TLobbyFv(void) {
     s32 var_r28 = 3;
-    M2C_UNK *var_r29 = shop_tool_stock_buffers;
+    s32 *var_r29 = shop_tool_stock_buffers;
     s32 var_r30 = 0;
     s32 var_r31 = 3;
     do {
         u32 v = (u32)var_r29[var_r31];
         if (v != 0U) {
             free__11TOBoss4RockFUi(v);
-            var_r29[var_r31] = (M2C_UNK)var_r30;
+            var_r29[var_r31] = (s32)var_r30;
         }
         var_r28 -= 1;
         var_r31 -= 1;

@@ -296,10 +296,6 @@ bool can_use_palette_action__10TObjPlayerFPvUcUc(TObjPlayer_801D8044 *self, u8 k
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_801D8474 { s8 a; u8 b; };
 
@@ -324,10 +320,6 @@ s32 can_use_palette_action_for_entry__10TObjPlayerFPvUi(Obj_801D8474 *p, u32 obj
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -344,10 +336,6 @@ s32 TObjPlayer__sub_801D84A8(void* p) { return *(s32*)((char*)p + 0x0); }
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u8 *TObjPlayer__sub_801D84B0(s32 *arg0);
@@ -364,7 +352,7 @@ s32 TObjPlayer__sub_801D84F0(void* p);
 int bswap_16__FPUs(void*);
 
 u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0) == 0) {
         return (u8 *)(arg0) + 4;
     }
     return (u8 *)(arg0) + 0x14;
@@ -373,10 +361,6 @@ u8 *TObjPlayer__sub_801D84B0(s32 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -385,7 +369,7 @@ void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1);
 int bswap_disp_config_field__10TObjPlayerFPv(void* p);
 void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 advance_item_id_counter(u16);
-M2C_UNK equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
+s32 equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(s32, void *);
 s32 TObjPlayer__sub_801D84A8(void* p);
 s32 TObjPlayer__sub_801D8664(s32, s16, s16);
 void *get_anim_table_entry__10TObjPlayerFPvi();
@@ -398,15 +382,15 @@ void set_animation_from_data__10TObjPlayerFii(s32 arg0, s32 arg1) {
     void *temp_r3;
 
     temp_r3 = get_anim_table_entry__10TObjPlayerFPvi();
-    TObjPlayer__sub_801D8664(arg0, M2C_FIELD(temp_r3, s16 *, 0), M2C_FIELD(temp_r3, s16 *, 2));
+    TObjPlayer__sub_801D8664(arg0, *(s16 *)((s8 *)temp_r3 + 0), *(s16 *)((s8 *)temp_r3 + 2));
     set_animation_default__10TObjPlayerFPv(arg0, arg1);
 }
 
 extern s32 local_client_id;
 
 void assign_lobby_slot_if_flagged__10TObjPlayerFiPv(s32 arg0, void *arg1) {
-    if (M2C_FIELD(arg1, s32 *, 4) & 8) {
-        M2C_FIELD(arg1, s32 *, 0x14) = advance_item_id_counter((u16) local_client_id);
+    if (*(s32 *)((s8 *)arg1 + 4) & 8) {
+        *(s32 *)((s8 *)arg1 + 0x14) = advance_item_id_counter((u16) local_client_id);
         equip_saved_item_if_slot_empty__10TObjPlayerFPvPv(arg0, arg1);
     }
 }

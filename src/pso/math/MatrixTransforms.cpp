@@ -1,15 +1,11 @@
 #include "types.h"
 #include "dolphin/mtx.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Matrix34 { f32 elements[3][4]; };
 struct ReflectionPlane { f32 origin[3]; f32 normal[3]; };
 
 extern "C" {
-M2C_UNK matrix_apply_translation(int, f32, f32, f32);
+s32 matrix_apply_translation(int, f32, f32, f32);
 extern u32 current_matrix;
 void translate_matrix(u32 arg0, f32 x, f32 y, f32 z);
 extern u32 current_matrix;
@@ -76,16 +72,16 @@ void euler_zyx_to_quaternion(u8 *arg0, u8 *arg1) {
     f32 temp_f29;
     f32 temp_f30;
     f32 temp_f31;
-    temp_f27 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 0) >> 1));
-    temp_f28 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 0) >> 1));
-    temp_f29 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 4) >> 1));
-    temp_f30 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 4) >> 1));
-    temp_f31 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 8) >> 1));
-    temp_f1 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 8) >> 1));
-    M2C_FIELD(arg1, f32 *, 0) = (f32) ((temp_f1 * (temp_f28 * temp_f30)) + (temp_f31 * (temp_f27 * temp_f29)));
-    M2C_FIELD(arg1, f32 *, 4) = (f32) ((temp_f31 * (-temp_f28 * temp_f29)) + (temp_f1 * (temp_f27 * temp_f30)));
-    M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f27 * (temp_f30 * temp_f31)) + (temp_f28 * (temp_f29 * temp_f1)));
-    M2C_FIELD(arg1, f32 *, 0xC) = (f32) ((temp_f29 * (-temp_f1 * temp_f27)) + (temp_f30 * (temp_f31 * temp_f28)));
+    temp_f27 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 0) >> 1));
+    temp_f28 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 0) >> 1));
+    temp_f29 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 4) >> 1));
+    temp_f30 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 4) >> 1));
+    temp_f31 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 8) >> 1));
+    temp_f1 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 8) >> 1));
+    *(f32 *)((s8 *)arg1 + 0) = (f32) ((temp_f1 * (temp_f28 * temp_f30)) + (temp_f31 * (temp_f27 * temp_f29)));
+    *(f32 *)((s8 *)arg1 + 4) = (f32) ((temp_f31 * (-temp_f28 * temp_f29)) + (temp_f1 * (temp_f27 * temp_f30)));
+    *(f32 *)((s8 *)arg1 + 8) = (f32) ((temp_f27 * (temp_f30 * temp_f31)) + (temp_f28 * (temp_f29 * temp_f1)));
+    *(f32 *)((s8 *)arg1 + 0xC) = (f32) ((temp_f29 * (-temp_f1 * temp_f27)) + (temp_f30 * (temp_f31 * temp_f28)));
 }
 
 void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1) {
@@ -95,16 +91,16 @@ void euler_yxz_to_quaternion(u8 *arg0, u8 *arg1) {
     f32 temp_f29;
     f32 temp_f30;
     f32 temp_f31;
-    temp_f27 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 0) >> 1));
-    temp_f28 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 0) >> 1));
-    temp_f29 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 4) >> 1));
-    temp_f30 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 4) >> 1));
-    temp_f31 = sin_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 8) >> 1));
-    temp_f1 = cos_table_lookup((int) ((s32) M2C_FIELD(arg0, s32 *, 8) >> 1));
-    M2C_FIELD(arg1, f32 *, 0) = (f32) ((temp_f1 * (temp_f28 * temp_f30)) + (temp_f31 * (temp_f27 * temp_f29)));
-    M2C_FIELD(arg1, f32 *, 4) = (f32) ((temp_f31 * (temp_f28 * temp_f29)) + (temp_f1 * (temp_f27 * temp_f30)));
-    M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f27 * (-temp_f30 * temp_f31)) + (temp_f28 * (temp_f29 * temp_f1)));
-    M2C_FIELD(arg1, f32 *, 0xC) = (f32) ((temp_f29 * (-temp_f1 * temp_f27)) + (temp_f30 * (temp_f31 * temp_f28)));
+    temp_f27 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 0) >> 1));
+    temp_f28 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 0) >> 1));
+    temp_f29 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 4) >> 1));
+    temp_f30 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 4) >> 1));
+    temp_f31 = sin_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 8) >> 1));
+    temp_f1 = cos_table_lookup((int) ((s32) *(s32 *)((s8 *)arg0 + 8) >> 1));
+    *(f32 *)((s8 *)arg1 + 0) = (f32) ((temp_f1 * (temp_f28 * temp_f30)) + (temp_f31 * (temp_f27 * temp_f29)));
+    *(f32 *)((s8 *)arg1 + 4) = (f32) ((temp_f31 * (temp_f28 * temp_f29)) + (temp_f1 * (temp_f27 * temp_f30)));
+    *(f32 *)((s8 *)arg1 + 8) = (f32) ((temp_f27 * (-temp_f30 * temp_f31)) + (temp_f28 * (temp_f29 * temp_f1)));
+    *(f32 *)((s8 *)arg1 + 0xC) = (f32) ((temp_f29 * (-temp_f1 * temp_f27)) + (temp_f30 * (temp_f31 * temp_f28)));
 }
 
 #pragma push

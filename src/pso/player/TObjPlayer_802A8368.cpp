@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ctrl_802A8728 {
     u8 pad0[0x1C];
@@ -27,7 +23,6 @@ struct Owner_802A85F0 {
     s32 list;
 };
 
-typedef s32 M2C_UNK;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -39,10 +34,10 @@ struct Owner_802A8448 {
 };
 
 extern "C" {
-extern M2C_UNK indirect_effect_ctrl_table[];
+extern s32 indirect_effect_ctrl_table[];
 extern u8 indirect_effect_ctrl_count;
 void TObjPlayer__sub_802A841C(void);
-extern M2C_UNK indirect_effect_ctrl_table[];
+extern s32 indirect_effect_ctrl_table[];
 void TObjPlayer__sub_802A83F4(void);
 s32 DCFlushRange(s32, s32);
 s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
@@ -71,7 +66,7 @@ void load_list_texture(s32, s32, s32, s32);
 extern Tbl5_802A8448 lbl_8046FC34;
 extern const f32 lbl_805DE020;
 extern const f32 lbl_805DE024;
-M2C_UNK setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
+s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
 }
 
 extern "C" {
@@ -87,7 +82,7 @@ s32 copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *, s32);
 s8 find_indirect_effect_ctrl();
 void render__16TEffIndirectCtrlFv(void);
 
-extern M2C_UNK indirect_effect_ctrl_table[];
+extern s32 indirect_effect_ctrl_table[];
 
 void play_particle_at_active_slot__10TObjPlayerFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5) {
     s32 temp_r3;
@@ -115,7 +110,7 @@ void TObjPlayer__sub_802A841C(void) {
 
 void *indirect_effect_tile_buffer;
 
-M2C_UNK setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
+s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
     Tbl5_802A8448 scales = lbl_8046FC34;
     f32 m0[2][3];
     f32 m1[2][3];
@@ -180,14 +175,14 @@ void update_scroll_mode__16TEffIndirectCtrlFPv(Ctrl_802A8728 *self) {
 }
 
 void update_eff_indirect(void *arg0) {
-    copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, get_indirect_source_pixels(M2C_FIELD(arg0, u8 *, 0x24)));
-    deform_indirect_texture_wave(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
-    DCFlushRange(M2C_FIELD(arg0, s32 *, 0x1C), 0x1000);
+    copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
+    deform_indirect_texture_wave(*(s32 *)((s8 *)arg0 + 0x1C), (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) *(f32 *)((s8 *)arg0 + 0x4C), *(s32 *)((s8 *)arg0 + 0x3C), *(s32 *)((s8 *)arg0 + 0x40), *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
+    DCFlushRange(*(s32 *)((s8 *)arg0 + 0x1C), 0x1000);
 }
 void eff_indirect_update_and_flush(void *arg0) {
-    copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, get_indirect_source_pixels(M2C_FIELD(arg0, u8 *, 0x24)));
-    update_indirect_texture_wave(M2C_FIELD(arg0, s32 *, 0x1C), (s32) M2C_FIELD(arg0, f32 *, 0x48), (s32) M2C_FIELD(arg0, f32 *, 0x4C), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, s32 *, 0x40), M2C_FIELD(M2C_FIELD(arg0, void **, 0x20), u8 *, 6));
-    DCFlushRange(M2C_FIELD(arg0, s32 *, 0x1C), 0x1000);
+    copy_and_flush_texture__16TEffIndirectCtrlFPvi(arg0, get_indirect_source_pixels(*(u8 *)((s8 *)arg0 + 0x24)));
+    update_indirect_texture_wave(*(s32 *)((s8 *)arg0 + 0x1C), (s32) *(f32 *)((s8 *)arg0 + 0x48), (s32) *(f32 *)((s8 *)arg0 + 0x4C), *(s32 *)((s8 *)arg0 + 0x3C), *(s32 *)((s8 *)arg0 + 0x40), *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0x20)) + 6));
+    DCFlushRange(*(s32 *)((s8 *)arg0 + 0x1C), 0x1000);
 }
 
 }

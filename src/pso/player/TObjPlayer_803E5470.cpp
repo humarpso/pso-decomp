@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -32,8 +28,8 @@ extern u32 chunk_render_flags;
 
 void set_global_7778__10TObjPlayerFi(s32 arg0);
 void update_render_state__10TObjPlayerFv(void);
-M2C_UNK resolve_render_keys__10TObjPlayerFPvPv();
-M2C_UNK advance_render_counters__10TObjPlayerFv();
+s32 resolve_render_keys__10TObjPlayerFPvPv();
+s32 advance_render_counters__10TObjPlayerFv();
 
 extern s32 lbl_805D7778;
 

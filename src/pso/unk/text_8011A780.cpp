@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_8011AED8 {
@@ -12,7 +8,7 @@ struct Stack_8011AED8 {
     f32 sp10;
     s16 sp14;
     u8 pad_16[0x2];
-    M2C_UNK sp18;
+    s32 sp18;
     u8 trailing_storage[0x10];
 };
 
@@ -20,7 +16,6 @@ struct Msg_8011A9D8 { u8 pad[2]; u16 u2; u32 u4; s16 s8; };
 
 struct Cmd_8011A9D8 { u8 pad[2]; u16 a; u16 b; s16 c; u32 d; };
 
-typedef s32 M2C_UNK;
 struct Item_8011AA68 { u8 data[12]; u32 id; u32 meseta; };
 
 struct Source_8011AA68 { u16 group; u16 claim; };
@@ -57,10 +52,10 @@ s32 get_global_state__14TOKeyMachine01Fv();
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
 u32 advance_item_id_counter(s32 arg0);
-M2C_UNK remove_item_condition__6TLobbyFii(s32, s32);
+s32 remove_item_condition__6TLobbyFii(s32, s32);
 void TLobby__sub_8011AA44(s16 arg0, s32 _w1);
-M2C_UNK bswap_6xa2_fields__6TLobbyFPv();
-M2C_UNK handle_box_drop_directive(void *);
+s32 bswap_6xa2_fields__6TLobbyFPv();
+s32 handle_box_drop_directive(void *);
 void handle_6xA2_specializable_item_drop_request(void *arg0);
 s32 copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 drop_stacked_item_passthrough__6TLobbyFi(void *);
@@ -124,7 +119,7 @@ extern "C" {
 
 void handle_6x5C_destroy_floor_item(void *arg0);
 void handle_6x62(void);
-M2C_UNK bswap_packet__6TLobbyFPv();
+s32 bswap_packet__6TLobbyFPv();
 
 u32 build_item_id(u16 arg0) {
     u32 id;
@@ -156,7 +151,7 @@ void observe_item_id__6TLobbyFi(int id) {
 
 void handle_6x5C_destroy_floor_item(void *arg0) {
     bswap_packet__6TLobbyFPv();
-    remove_item_condition__6TLobbyFii(M2C_FIELD(arg0, s32 *, 8), M2C_FIELD(arg0, s32 *, 4));
+    remove_item_condition__6TLobbyFii(*(s32 *)((s8 *)arg0 + 8), *(s32 *)((s8 *)arg0 + 4));
 }
 
 void handle_6x5A_pick_up_item_request(Msg_8011A9D8 *msg) {
@@ -239,16 +234,16 @@ void process_enemy_drop_request(s8 area, s16 source, int client, s16 room, int s
 void handle_6xA2_specializable_item_drop_request(void *arg0) {
     s8 temp_b;
     bswap_6xa2_fields__6TLobbyFPv();
-    temp_b = M2C_FIELD(arg0, u8 *, 5);
+    temp_b = *(u8 *)((s8 *)arg0 + 5);
     if (temp_b == 0x30) {
-        if (M2C_FIELD(arg0, s16 *, 0x12) != 0) {
-            drop_item_from_source__6TLobbyFsisiff((s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+        if (*(s16 *)((s8 *)arg0 + 0x12) != 0) {
+            drop_item_from_source__6TLobbyFsisiff((s16)(*(s16 *)((s8 *)arg0 + 6)), (int)(*(s8 *)((s8 *)arg0 + 4)), (s16)(*(s16 *)((s8 *)arg0 + 0x10)), (int)(*(s8 *)((s8 *)arg0 + 0x14)), *(f32 *)((s8 *)arg0 + 8), *(f32 *)((s8 *)arg0 + 0xC));
             return;
         }
         handle_box_drop_directive(arg0);
         return;
     }
-    process_enemy_drop_request((s8)(temp_b), (s16)(M2C_FIELD(arg0, s16 *, 6)), (int)(M2C_FIELD(arg0, s8 *, 4)), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (int)(M2C_FIELD(arg0, s8 *, 0x14)), M2C_FIELD(arg0, f32 *, 8), M2C_FIELD(arg0, f32 *, 0xC));
+    process_enemy_drop_request((s8)(temp_b), (s16)(*(s16 *)((s8 *)arg0 + 6)), (int)(*(s8 *)((s8 *)arg0 + 4)), (s16)(*(s16 *)((s8 *)arg0 + 0x10)), (int)(*(s8 *)((s8 *)arg0 + 0x14)), *(f32 *)((s8 *)arg0 + 8), *(f32 *)((s8 *)arg0 + 0xC));
 }
 #pragma pop
 
@@ -311,7 +306,7 @@ void TLobby__sub_8011AED8(s8 arg0, s16 arg1, u8 *arg2, f32 farg0, f32 farg1) {
     stack.sp10 = farg1;
     stack.sp14 = arg1;
     copy_item_data__6TLobbyFPvPv((void *) (&stack.sp18), (void *) (arg2));
-    observe_item_id__6TLobbyFi((int)((int) (M2C_FIELD(arg2, s32 *, 0xC))));
+    observe_item_id__6TLobbyFi((int)((int) (*(s32 *)((s8 *)arg2 + 0xC))));
     insert_sorted_entry__6TLobbyFPv((void *) (&stack.sp8));
 }
 

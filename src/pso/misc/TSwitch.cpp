@@ -1,10 +1,6 @@
 #include "pso/TSwitch.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void clear_current_floor_switch(s32 arg0);
@@ -17,17 +13,17 @@ void is_current_floor_switch_set(s32 arg0);
 u8 is_floor_switch_set(u32 id, s16 floor);
 s16 get_current_floor();
 void is_current_floor_switch_set(s32 arg0);
-M2C_UNK memcpy(void *, void *, void *);
+s32 memcpy(void *, void *, void *);
 extern u8 TSwitch__floor_switch_table[18][32];
 void restore_switch_table(s32 arg0, s32 arg1);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern u8 TSwitch__floor_switch_table[18][32];
 void clear_switch_table(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern u8 TSwitch__floor_switch_table[18][32];
 void init_switch_table(void);
 extern u8 TSwitch__floor_switch_table[18][32];
-M2C_UNK memcpy(void *, void *, void *);
+s32 memcpy(void *, void *, void *);
 u32 copy_switch_table(void* destination);
 extern u8 TSwitch__floor_switch_table[18][32];
 s32 get_floor_switch_flag(u32 id, s16 floor);
@@ -80,14 +76,13 @@ u8 is_floor_switch_set(u32 id, s16 floor) {
     return (u8) (get_floor_switch_flag((u32)(id), floor) != 0);
 }
 
-extern M2C_UNK __vt__7TSwitch[];
+extern s32 __vt__7TSwitch[];
 extern void *TSwitch__name;
 
 extern "C" {
 
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 void is_current_floor_switch_set(s32 arg0) {
     is_floor_switch_set((u32)arg0, (s16)((s16)((int) (get_current_floor()))));
 }
@@ -148,11 +143,11 @@ void set_current_floor_switch(s32 arg0) {
 
 void *__ct__7TSwitchFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__7TSwitch;
-    M2C_FIELD(arg0, void **, 0x0) = TSwitch__name;
-    M2C_FIELD(arg0, u8 *, 0x1C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__7TSwitch;
+    *(void **)((s8 *)arg0 + 0x0) = TSwitch__name;
+    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(u32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;
 }
 void clear_switch_table(void) {

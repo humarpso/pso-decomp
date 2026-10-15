@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_80368C14 { f32 x, y, z; };
 
@@ -33,7 +29,7 @@ struct VObj_18_5673ef : VBase_18_5673ef {
     virtual void m18();
     virtual void m19();
     virtual void m20();
-    virtual M2C_UNK m21(void *, s32 *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m21(void *, s32 *, s32, s32, s32);
     virtual void m22();
     virtual void m23();
     virtual void m24();
@@ -57,9 +53,9 @@ struct VObj_18_5673ef : VBase_18_5673ef {
     virtual void m42();
     virtual void m43();
     virtual void m44();
-    virtual M2C_UNK m45();
-    virtual M2C_UNK m46(M2C_UNK);
-    virtual M2C_UNK m47();
+    virtual s32 m45();
+    virtual s32 m46(s32);
+    virtual s32 m47();
 };
 
 struct Stack_80368AB8 {
@@ -151,12 +147,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct Key_80369228 { s32 a; s16 b; s16 c; s32 d; s32 e; };
 
-typedef s32 M2C_UNK;
 struct M_80368CE4 { u8 pad[0x384]; Vec_80368C14 home; };
 
 struct P_80368CE4 { u8 pad[0x38]; Vec_80368C14 pos; };
@@ -195,35 +190,35 @@ u32 get_hp__14TBoss6PlotFalzFv();
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 int TBoss6PlotFalz__sub_8036964C(void);
 void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
 u32 create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
-M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
+s32 set_param__12TObjEneLappyFPvi(void *, int);
 void bind_enemy_combat_stats(void *, s32, s32, s32);
 void initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 get_fish_count__8TObjFishFv();
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
-M2C_UNK normalize_vector(void *);
-extern M2C_UNK lbl_804F322C[];
+s32 normalize_vector(void *);
+extern s32 lbl_804F322C[];
 extern s32 lbl_805D44B0;
 s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 vector_length(Vec_80368C14 *);
 void subtract_vector(Vec_80368C14 *, void *);
 s32 is_player_in_range__13TBoss6MagMineFPv(void *arg0_);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void TBoss4DarkFalz__sub_8004B4F0(void *, s32);
 s32 get_next_point__14TBoss6PlotFalzFPvPvPv(u32, void *, void *);
 s32 get_phase__8TObjFishFPv();
@@ -245,39 +240,39 @@ s32 create__13TBoss6MagMineFi(s32 arg0);
 s32 get_field_0x42c__13TBoss6MagMineFPv(void* p);
 void init__13TBoss6MagMineFPv(void* p);
 void update_linked_state__13TBoss6MagMineFPv(void *arg0);
-M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, M2C_UNK, M2C_UNK, f32);
-M2C_UNK TBoss6PlotFalz__sub_802AC008(f32, f32);
+s32 apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(s32, s32, s32, f32);
+s32 TBoss6PlotFalz__sub_802AC008(f32, f32);
 int post_translate_matrix(void*);
 int spawn_particle_effect_with_flags(void*, void*, void*);
 s32 TObjControl__ct(s32, s32);
 void free_collision_body_parts(void *);
-M2C_UNK draw_model_motion(s32, s32, f32);
-s32 get_bml_motion(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 get_bml_model(s32, M2C_UNK);
+s32 draw_model_motion(s32, s32, f32);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-s32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 __nw__7TObjectFUl(s32);
+s32 clear_global_state__10TObjPlayerFv();
 int queue_destruction__7TObjectFv(void*);
 void request_destroy__11TBoss4Type2FUi(void *);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK update_camera_target__14TBoss6PlotFalzFv();
+s32 set_global_flag__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 update_camera_target__14TBoss6PlotFalzFv();
 
 void TBoss6MagMine__sub_8036897C(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x390) != 4) {
-        M2C_FIELD(arg0, s32 *, 0x390) = 4;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x390) != 4) {
+        *(s32 *)((s8 *)arg0 + 0x390) = 4;
     }
 }
 
 void TBoss6MagMine__sub_80368994(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
-    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) 1.0f;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
+    *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) 1.0f;
 }
 
 void copy_pos__13TBoss6MagMineFi(s32 arg0) {
@@ -290,12 +285,12 @@ void update_linked_state__13TBoss6MagMineFPv(void *arg0) {
     s32 temp_r30;
 
     set_global_flag__10TObjPlayerFv();
-    temp_r31 = TObjFish__sub_8001EDB0(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r30 = get_bml_model(M2C_FIELD(arg0, s32 *, 0x374), 2);
-    temp_r31_2 = get_bml_motion(M2C_FIELD(arg0, s32 *, 0x374), 0);
+    temp_r31 = TObjFish__sub_8001EDB0(*(s32 *)((s8 *)arg0 + 0x374), 2);
+    temp_r30 = get_bml_model(*(s32 *)((s8 *)arg0 + 0x374), 2);
+    temp_r31_2 = get_bml_motion(*(s32 *)((s8 *)arg0 + 0x374), 0);
     set_global_param__8TObjFishFi(temp_r31);
-    TBoss6PlotFalz__sub_802AC008(M2C_FIELD(arg0, f32 *, 0x3A8), 0.0f);
-    draw_model_motion(temp_r30, temp_r31_2, M2C_FIELD(arg0, f32 *, 0x398));
+    TBoss6PlotFalz__sub_802AC008(*(f32 *)((s8 *)arg0 + 0x3A8), 0.0f);
+    draw_model_motion(temp_r30, temp_r31_2, *(f32 *)((s8 *)arg0 + 0x398));
     update_camera_target__14TBoss6PlotFalzFv();
     clear_global_state__10TObjPlayerFv();
 }
@@ -313,7 +308,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
     s32 var_r31;
     void *boss;
     var_r31 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x3A4) < (s32) M2C_FIELD(arg0, s32 *, 0x3A0)) && (get_hp__14TBoss6PlotFalzFv() != 0U) && ((boss = ((void *(*)(void))TBoss6PlotFalz__sub_8036964C)()) != NULL)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x3A4) < (s32) *(s32 *)((s8 *)arg0 + 0x3A0)) && (get_hp__14TBoss6PlotFalzFv() != 0U) && ((boss = ((void *(*)(void))TBoss6PlotFalz__sub_8036964C)()) != NULL)) {
         temp_r3 = get_field_0x42c__13TBoss6MagMineFPv((void*)(boss));
         switch (temp_r3) {
         case 2:
@@ -336,7 +331,7 @@ void TBoss6MagMine__sub_80368AB8(u8 *arg0, u8 *arg1) {
         ((VObj_18_5673ef *)(arg1))->m45();
         return;
     default:
-        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFif((int) (M2C_FIELD(arg0, s32 *, 0x39C)), (f32) (0.1f));
+        temp_r3_2 = rand_vary_count__14TBoss6PlotFalzFif((int) (*(s32 *)((s8 *)arg0 + 0x39C)), (f32) (0.1f));
         stack.sp8 = 1;
         stack.sp10 = 1;
         stack.sp14 = (f32) temp_r3_2;
@@ -394,23 +389,23 @@ void vt3__13TBoss6MagMineFv(s32 arg0) {
     queue_destruction__7TObjectFv((void*)(arg0));
 }
 
-extern M2C_UNK lbl_804F322C[];
+extern s32 lbl_804F322C[];
 
 #pragma push
 #pragma opt_common_subs off
 void vt2__13TBoss6MagMineFv(u8 *arg0) {
     f32 temp_f1;
     if (is_player_in_range__13TBoss6MagMineFPv((void *)((void *) (arg0))) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x394) = 0x96;
+        *(s32 *)((s8 *)arg0 + 0x394) = 0x96;
     }
-    M2C_FIELD(arg0, f32 *, 0x398) += 0.33333334f;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x398);
+    *(f32 *)((s8 *)arg0 + 0x398) += 0.33333334f;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x398);
     if (temp_f1 >= 10.0f) {
-        M2C_FIELD(arg0, f32 *, 0x398) = (f32) (temp_f1 - 10.0f);
+        *(f32 *)((s8 *)arg0 + 0x398) = (f32) (temp_f1 - 10.0f);
     }
-    M2C_FIELD(arg0, s32 *, 0x394) = (s32) (M2C_FIELD(arg0, s32 *, 0x394) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x394) >= 0x96) {
-        M2C_FIELD(arg0, s32 *, 0x390) = 3;
+    *(s32 *)((s8 *)arg0 + 0x394) = (s32) (*(s32 *)((s8 *)arg0 + 0x394) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x394) >= 0x96) {
+        *(s32 *)((s8 *)arg0 + 0x390) = 3;
     }
 }
 #pragma pop
@@ -419,13 +414,13 @@ void vt2__13TBoss6MagMineFv(u8 *arg0) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 void vt1__13TBoss6MagMineFv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg0, f32 *, 0x384);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(arg0, f32 *, 0x38C);
-    M2C_FIELD(arg0, f32 *, 0x3C) += 1.0f;
-    if (M2C_FIELD(arg0, f32 *, 0x3C) >= 10.0f) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) 10.0f;
-        M2C_FIELD(arg0, s32 *, 0x394) = 0;
-        M2C_FIELD(arg0, s32 *, 0x390) = 2;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg0 + 0x384);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg0 + 0x38C);
+    *(f32 *)((s8 *)arg0 + 0x3C) += 1.0f;
+    if (*(f32 *)((s8 *)arg0 + 0x3C) >= 10.0f) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) 10.0f;
+        *(s32 *)((s8 *)arg0 + 0x394) = 0;
+        *(s32 *)((s8 *)arg0 + 0x390) = 2;
     }
 }
 #pragma pop
@@ -532,8 +527,8 @@ void TBoss6MagMine__sub_80368FA0(TBoss6MagMine_80368FA0 *self) {
 
 void *__dt__13TBoss6MagMineFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F322C;
-        if (M2C_FIELD(arg0, void **, 0x3B0) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3B0)); M2C_FIELD(arg0, M2C_UNK *, 0x3B0) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F322C;
+        if (*(void **)((s8 *)arg0 + 0x3B0) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x3B0)); *(s32 *)((s8 *)arg0 + 0x3B0) = 0; }
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -552,8 +547,8 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
     Key_80369228 key;
     u8 *d;
     ((void (*)(void *, s32))initialize__9TObjEnemyFPv)(self, arg1);
-    M2C_FIELD(self, M2C_UNK **, 0x18) = lbl_804F322C;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D44B0;
+    *(s32 **)((s8 *)self + 0x18) = lbl_804F322C;
+    *(s32 *)((s8 *)self + 0) = lbl_805D44B0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg2 + 0x40);
     VecCopy__FP3VecPC3Vec(arg0 + 0x384, arg2 + 0x4C);
     add_flags_2e4__10TObjPlayerFPvUi(self, 8);
@@ -563,44 +558,44 @@ s32 TBoss6MagMine__ct(s32 arg0, s32 arg1, s32 arg2) {
         key.c = 0;
         exchange_object_state__6TLobbyFPvis(self, &key, 0);
     }
-    M2C_FIELD(self, s32 *, 0x374) = get_fish_count__8TObjFishFv();
-    M2C_FIELD(self, s32 *, 0x24) = 0;
-    M2C_FIELD(self, s32 *, 0x34) = 0;
+    *(s32 *)((s8 *)self + 0x374) = get_fish_count__8TObjFishFv();
+    *(s32 *)((s8 *)self + 0x24) = 0;
+    *(s32 *)((s8 *)self + 0x34) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, VecCopy__FP3VecPC3Vec(arg0 + 0x50, VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38)));
     init_collision_body_parts(self, __vt__13TBoss6MagMine, 1);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    M2C_FIELD(self, f32 *, 0x308) = M2C_FIELD(self, f32 *, 0x30C) = M2C_FIELD(self, f32 *, 0x310) = 0.0f;
-    M2C_FIELD(self, s32 *, 0x2A8) = 0;
+    *(f32 *)((s8 *)self + 0x308) = *(f32 *)((s8 *)self + 0x30C) = *(f32 *)((s8 *)self + 0x310) = 0.0f;
+    *(s32 *)((s8 *)self + 0x2A8) = 0;
     bind_enemy_combat_stats(self, register_boss__6TLobbyFPv(0x2D), dispatch_shared_handler_b__6TLobbyFPv(0x2D), register_object__6TLobbyFPv(0x2D));
-    M2C_FIELD(self, s16 *, 0x33E) = M2C_FIELD(self, s16 *, 0x32C);
+    *(s16 *)((s8 *)self + 0x33E) = *(s16 *)((s8 *)self + 0x32C);
     reset_photon_effect__12TBoss3VoloptFPv(self);
     set_param__12TObjEneLappyFPvi(self, 0);
     d = dispatch_shared_handler_a__6TLobbyFPv(0x2D);
-    M2C_FIELD(self, s32 *, 0x39C) = (s32) M2C_FIELD(d, f32 *, 4);
-    if ((f32) M2C_FIELD(self, s32 *, 0x39C) <= 0.0f) {
-        M2C_FIELD(self, s32 *, 0x39C) = 0x14;
+    *(s32 *)((s8 *)self + 0x39C) = (s32) *(f32 *)((s8 *)d + 4);
+    if ((f32) *(s32 *)((s8 *)self + 0x39C) <= 0.0f) {
+        *(s32 *)((s8 *)self + 0x39C) = 0x14;
     }
-    M2C_FIELD(self, s32 *, 0x3A0) = (s32) M2C_FIELD(d, f32 *, 8);
-    if ((f32) M2C_FIELD(self, s32 *, 0x3A0) < 0.0f || M2C_FIELD(self, s32 *, 0x3A0) > 0x64) {
-        M2C_FIELD(self, s32 *, 0x3A0) = 0;
+    *(s32 *)((s8 *)self + 0x3A0) = (s32) *(f32 *)((s8 *)d + 8);
+    if ((f32) *(s32 *)((s8 *)self + 0x3A0) < 0.0f || *(s32 *)((s8 *)self + 0x3A0) > 0x64) {
+        *(s32 *)((s8 *)self + 0x3A0) = 0;
     }
-    M2C_FIELD(self, s32 *, 0x3A4) = (u16) (M2C_FIELD(self, u16 *, 0x1C) + (s32) (10.0f * (M2C_FIELD(self, f32 *, 0x38) + M2C_FIELD(self, f32 *, 0x40)))) % 100;
-    M2C_FIELD(self, f32 *, 0x3A8) = 0.0f;
-    M2C_FIELD(self, f32 *, 0x398) = 1.0f;
-    M2C_FIELD(self, s32 *, 0x394) = 0;
-    M2C_FIELD(self, s32 *, 0x390) = 0;
+    *(s32 *)((s8 *)self + 0x3A4) = (u16) (*(u16 *)((s8 *)self + 0x1C) + (s32) (10.0f * (*(f32 *)((s8 *)self + 0x38) + *(f32 *)((s8 *)self + 0x40)))) % 100;
+    *(f32 *)((s8 *)self + 0x3A8) = 0.0f;
+    *(f32 *)((s8 *)self + 0x398) = 1.0f;
+    *(s32 *)((s8 *)self + 0x394) = 0;
+    *(s32 *)((s8 *)self + 0x390) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x378, arg0 + 0x384);
     subtract_vector((Vec_80368C14 *) (self + 0x378), self + 0x38);
-    M2C_FIELD(self, f32 *, 0x37C) = 0.0f;
+    *(f32 *)((s8 *)self + 0x37C) = 0.0f;
     if (vector_length((Vec_80368C14 *) (self + 0x378)) <= 1e-05f) {
-        M2C_FIELD(self, f32 *, 0x378) = 1.0f;
+        *(f32 *)((s8 *)self + 0x378) = 1.0f;
     }
     normalize_vector(self + 0x378);
-    M2C_FIELD(self, f32 *, 0x378) *= 4.166667f;
-    M2C_FIELD(self, f32 *, 0x380) *= 4.166667f;
-    M2C_FIELD(self, u32 *, 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
-    if (M2C_FIELD(self, u32 *, 0x3B0) != 0U) {
-        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(self, void **, 0x3B0), 0x40);
+    *(f32 *)((s8 *)self + 0x378) *= 4.166667f;
+    *(f32 *)((s8 *)self + 0x380) *= 4.166667f;
+    *(u32 *)((s8 *)self + 0x3B0) = create_particle_emitter(self + 0x38, 0x146);
+    if (*(u32 *)((s8 *)self + 0x3B0) != 0U) {
+        set_flags__11TBoss4Type2FPvUi(*(void **)((s8 *)self + 0x3B0), 0x40);
     }
     return arg0;
 }

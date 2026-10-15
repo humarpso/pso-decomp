@@ -6,13 +6,9 @@ public:
 };
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802A28C0___vt__12TChCrTagName {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -118,7 +114,7 @@ void create_all__12TChCrTagNameFv(void);
 void render__12TChCrTagNameFv(void* p);
 void run_task__12TChCrTagNameFv(void *arg0);
 struct TChCrTagName_802A226C; int TChCrTagName__sub_802A226C(TChCrTagName_802A226C *);
-M2C_UNK update_fade__8TChCrTagFPv();
+s32 update_fade__8TChCrTagFPv();
 void *__nw__7TObjectFUl(int);
 
 #pragma push
@@ -312,7 +308,7 @@ void update_slide_in__12TChCrTagNameFPv(u8 *arg0) {
 void run_task__12TChCrTagNameFv(void *arg0) {
     update_fade__8TChCrTagFPv();
     update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + 1);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) + 1);
 }
 
 extern void *tl_03;
@@ -341,16 +337,16 @@ TChCrTagName::~TChCrTagName() {}
 
 u8 *__ct__12TChCrTagNameFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TChCrTagName;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TChCrTagName__class_name;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (0.033333335f);
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (-0.022222223f);
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (0.6666667f);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (-0.06666667f);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x40) = 0.8f - 0.053333335f * (f32) (0xC - M2C_FIELD(arg0, s32 *, 0x20));
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TChCrTagName;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TChCrTagName__class_name;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (0.033333335f);
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (-0.022222223f);
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (0.6666667f);
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (-0.06666667f);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x40) = 0.8f - 0.053333335f * (f32) (0xC - *(s32 *)((s8 *)arg0 + 0x20));
     update_slide_in__12TChCrTagNameFPv((u8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
+    *(s32 *)((s8 *)arg0 + 0x44) = 0;
     return arg0;
 }
 #pragma pop

@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 int close_and_advance__9TSaveChCrFPvPv(void*, int);
 int close_window__9TSaveChCrFPv(void*);
 void fn_80339D78(u8 *arg0);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(int, void *);
-extern M2C_UNK lbl_804C88C0[];
-extern M2C_UNK pso_system_card_filename[];
-extern M2C_UNK lbl_804C89BC[];
+extern s32 lbl_804C88C0[];
+extern s32 pso_system_card_filename[];
+extern s32 lbl_804C89BC[];
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void);
 }
 
@@ -43,14 +39,14 @@ int close_and_advance_to_3__9TSaveChCrFPv(void* p) { return close_and_advance__9
 void update_save_status__9TSaveChCrFPv(void *arg0) {
     s32 var_r3;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) <= 0) {
-        M2C_FIELD(arg0, s32 *, 0x28) = 0;
-        M2C_FIELD(arg0, s32 *, 0x2C) = poll_memcard_status();
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) <= 0) {
+        *(s32 *)((s8 *)arg0 + 0x28) = 0;
+        *(s32 *)((s8 *)arg0 + 0x2C) = poll_memcard_status();
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) != 0) {
             set_state__9TSaveChCrFPvi((void*)(arg0), (void*)(1));
             return;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 0) {
             var_r3 = save_character__9TSaveChCrFPv(arg0);
         } else {
             var_r3 = TSaveChCr__sub_8033A138(arg0);
@@ -69,10 +65,10 @@ int save_1__9TSaveChCrFPv(void* p) { return close_and_advance__9TSaveChCrFPvPv(p
 void update_save_state__9TSaveChCrFPv(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x2C);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x2C);
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) == 0U) {
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) == 0U) {
                 close_and_advance__9TSaveChCrFPvPv((void*)(arg0), 0);
             }
         } else {
@@ -87,9 +83,9 @@ void update_save_state__9TSaveChCrFPv(void *arg0) {
     }
 }
 void fn_80339D78(u8 *arg0) {
-    ((M2C_UNK)close_window__9TSaveChCrFPv((void*)(arg0)));
-    if (M2C_FIELD(arg0, s32 *, 0x2C) & 1) {
-        ((M2C_UNK)close_and_advance__9TSaveChCrFPvPv((void*)((void *) (arg0)), (int)((int) (0))));
+    ((s32)close_window__9TSaveChCrFPv((void*)(arg0)));
+    if (*(s32 *)((s8 *)arg0 + 0x2C) & 1) {
+        ((s32)close_and_advance__9TSaveChCrFPvPv((void*)((void *) (arg0)), (int)((int) (0))));
     }
 }
 s32 TAdSinglePlyChrSelectGC__sub_80339DBC(void) {

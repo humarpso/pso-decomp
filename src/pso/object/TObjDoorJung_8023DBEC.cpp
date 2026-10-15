@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct Ent_8023DBEC { const char *name; u32 a; u32 b; };
 
@@ -33,11 +31,11 @@ s32 find_entry_by_name__12TObjDoorJungFPvPv(List_8023DBEC *list, const char *nam
 }
 
 void free_children__12TObjDoorJungFPvPv(void *arg0, void *arg1) {
-    if (M2C_FIELD(arg0, void **, 0x8) != NULL) {
-        set_material_texture_slot(M2C_FIELD(arg0, void **, 0x8));
+    if (*(void **)((s8 *)arg0 + 0x8) != NULL) {
+        set_material_texture_slot(*(void **)((s8 *)arg0 + 0x8));
     }
-    if (M2C_FIELD(arg0, void **, 0xC) != NULL) {
-        ((void (*)(void *, void *))set_material_texture_slot)(M2C_FIELD(arg0, void **, 0xC), arg1);
+    if (*(void **)((s8 *)arg0 + 0xC) != NULL) {
+        ((void (*)(void *, void *))set_material_texture_slot)(*(void **)((s8 *)arg0 + 0xC), arg1);
     }
 }
 

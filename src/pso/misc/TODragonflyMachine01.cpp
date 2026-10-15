@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct DfBase_801651B0 { char pad[0x18]; };
 struct DfV_801651B0 : DfBase_801651B0 {
     virtual void vf00(); virtual void vf01(); virtual void vf02(); virtual void vf03();
@@ -19,11 +16,11 @@ struct VObj_18_c5489a : VBase_18_c5489a {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(int);
+    virtual s32 m5(int);
 };
 
 struct RecoveredGlobal_80165538___vt__20TODragonflyMachine01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3C];
 };
 
@@ -37,7 +34,7 @@ extern "C" {
 u8 * TODragonfly__ct(void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
-extern M2C_UNK __vt__20TODragonflyMachine01[];
+extern s32 __vt__20TODragonflyMachine01[];
 extern s32 TODragonflyMachine01__class_name;
 extern u32 TODragonflyMachine01__model_resource;
 extern const f32 lbl_805DB598;
@@ -69,21 +66,21 @@ void play_cave01_key_sound(void *arg0);
 void run_task__20TODragonflyMachine01Fv(void *arg0);
 void unload_static_data__20TODragonflyMachine01Fv(void);
 void update_timer__20TODragonflyMachine01Fv(void);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 f32 sin_table_lookup(s32);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TODragonflyMachine01__sub_80164F50(void *);
-M2C_UNK move_toward_target__11TODragonflyFPv(void *);
-M2C_UNK TODragonfly__sub_80164990(void *);
-M2C_UNK TODragonfly__sub_80164A90(void *);
-M2C_UNK update_idle__11TODragonflyFi(void *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
+s32 TODragonflyMachine01__sub_80164F50(void *);
+s32 move_toward_target__11TODragonflyFPv(void *);
+s32 TODragonfly__sub_80164990(void *);
+s32 TODragonfly__sub_80164A90(void *);
+s32 update_idle__11TODragonflyFi(void *);
+s32 rotate_matrix_y(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TODragonflyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
+s32 update_anim_phase__17TOBarrierEnergy01FPv(void *);
 
 extern s32 lbl_805D599C;
 extern s32 lbl_805D59A0;
@@ -98,14 +95,14 @@ void update_timer__20TODragonflyMachine01Fv(void) {
 void run_task__20TODragonflyMachine01Fv(void *arg0) {
     s32 temp_r0;
 
-    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (M2C_FIELD(arg0, s32 *, 0xFC) + M2C_FIELD(arg0, s32 *, 0xF8));
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xFC)));
+    *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (*(s32 *)((s8 *)arg0 + 0xFC) + *(s32 *)((s8 *)arg0 + 0xF8));
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xFC)));
     if (check_demo_mode__10TObjPlayerFv() == 1) {
         ((DfV_801651B0 *)arg0)->vf12();
         return;
     }
     update_anim_phase__17TOBarrierEnergy01FPv(arg0);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
     switch (temp_r0) {
     case 0:
         TODragonflyMachine01__sub_80164F50(arg0);
@@ -141,7 +138,7 @@ void unload_static_data__20TODragonflyMachine01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__20TODragonflyMachine01[];
+extern s32 __vt__20TODragonflyMachine01[];
 
 void create_attack_effect__20TODragonflyMachine01Fv(void) {
     T4_80165434 sp8;
@@ -164,7 +161,7 @@ void create_attack_effect__20TODragonflyMachine01Fv(void) {
 
 void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TODragonflyMachine01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TODragonflyMachine01;
         __dt__11TODragonflyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -177,18 +174,18 @@ void *__dt__20TODragonflyMachine01Fv(void *arg0, s16 arg1) {
 #pragma fp_contract on
 typedef char RecoveredGlobal_80165538___vt__20TODragonflyMachine01_size[sizeof(RecoveredGlobal_80165538___vt__20TODragonflyMachine01) == 0x40 ? 1 : -1];
 u8 *TODragonflyMachine01__ct(u8 *arg0, int arg1) {
-    struct Fields_arg0 { int field_0; u8 pad_4[20]; M2C_UNK * field_18; u8 pad_1C[8]; int field_24; u8 pad_28[12]; u8 * field_34; u8 pad_38[76]; int field_84; int field_88; u8 pad_8C[32]; int field_AC; u8 pad_B0[4]; f32 field_B4; f32 field_B8; u8 * field_BC; f32 field_C0; f32 field_C4; u8 pad_C8[36]; f32 field_EC; f32 field_F0; f32 field_F4; int field_F8; int field_FC; s16 field_100; s16 field_102; int field_104; };
+    struct Fields_arg0 { int field_0; u8 pad_4[20]; s32 * field_18; u8 pad_1C[8]; int field_24; u8 pad_28[12]; u8 * field_34; u8 pad_38[76]; int field_84; int field_88; u8 pad_8C[32]; int field_AC; u8 pad_B0[4]; f32 field_B4; f32 field_B8; u8 * field_BC; f32 field_C0; f32 field_C4; u8 pad_C8[36]; f32 field_EC; f32 field_F0; f32 field_F4; int field_F8; int field_FC; s16 field_100; s16 field_102; int field_104; };
     TODragonfly__ct(arg0);
     ((Fields_arg0*)arg0)->field_18 = &(*(RecoveredGlobal_80165538___vt__20TODragonflyMachine01 *)&__vt__20TODragonflyMachine01).value;
     ((Fields_arg0*)arg0)->field_0 = (int) TODragonflyMachine01__class_name;
     ((VObj_18_c5489a *)(arg0))->m5(arg1);
-    ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x42C), void **, 8));
-    ((Fields_arg0*)arg0)->field_24 = (int) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x42C), int *, 0xC);
-    ((Fields_arg0*)arg0)->field_BC = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TODragonflyMachine01__model_resource), u8 **, 0x430), void **, 4));
-    ((Fields_arg0*)arg0)->field_B4 = (f32) ((f32) M2C_FIELD(((Fields_arg0*)arg0)->field_BC, unsigned int *, 4) - lbl_805DB5B8);
+    ((Fields_arg0*)arg0)->field_34 = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x42C)) + 8));
+    ((Fields_arg0*)arg0)->field_24 = (int) *(int *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x42C)) + 0xC);
+    ((Fields_arg0*)arg0)->field_BC = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TODragonflyMachine01__model_resource) + 0x430)) + 4));
+    ((Fields_arg0*)arg0)->field_B4 = (f32) ((f32) *(unsigned int *)((s8 *)(((Fields_arg0*)arg0)->field_BC) + 4) - lbl_805DB5B8);
     ((Fields_arg0*)arg0)->field_B8 = (f32) lbl_805DB5B8;
     ((Fields_arg0*)arg0)->field_C0 = (f32) lbl_805DB5BC;
-    ((Fields_arg0*)arg0)->field_C4 = (f32) M2C_FIELD(M2C_FIELD(((Fields_arg0*)arg0)->field_34, void **, 4), f32 *, 0x14);
+    ((Fields_arg0*)arg0)->field_C4 = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(((Fields_arg0*)arg0)->field_34) + 4)) + 0x14);
     ((Fields_arg0*)arg0)->field_AC = 0;
     ((Fields_arg0*)arg0)->field_F4 = (f32) ((lbl_805DB5C0 * (f32) ((Fields_arg0*)arg0)->field_84) + lbl_805DB5B8);
     ((Fields_arg0*)arg0)->field_F8 = (int) (lbl_805DB5C4 * (lbl_805DB5C8 / (lbl_805DB5CC / ((Fields_arg0*)arg0)->field_F4)));
@@ -207,7 +204,7 @@ void play_cave01_key_sound(void *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 1:
         play_sound_effect(0x4005281F, 0, 0, 0);

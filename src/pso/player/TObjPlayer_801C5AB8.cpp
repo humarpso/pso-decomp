@@ -15,10 +15,6 @@ s32 decrement_clamp__10TObjPlayerFPvi(s32 *arg0, s32 arg1) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma fp_contract on
 
 extern "C" {
@@ -31,10 +27,10 @@ extern const f32 lbl_805DC334;
 void copy_offset_position__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f2;
 
-    temp_f2 = M2C_FIELD(get_quest_id__12TQuestListVMFPv(arg1), f32 *, 0x10);
-    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) ((lbl_805DC334 * temp_f2) + M2C_FIELD(arg1, f32 *, 0x3C));
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 0x40);
+    temp_f2 = *(f32 *)((s8 *)(get_quest_id__12TQuestListVMFPv(arg1)) + 0x10);
+    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) ((lbl_805DC334 * temp_f2) + *(f32 *)((s8 *)arg1 + 0x3C));
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 0x40);
 }
 
 }
@@ -44,14 +40,14 @@ extern "C" {
 void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2);
 
 void calc_pos_delta__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
-    M2C_FIELD(arg2, s16 *, 0) = (s16) (M2C_FIELD(arg1, s16 *, 0) - M2C_FIELD(arg0, s16 *, 0));
-    M2C_FIELD(arg2, s16 *, 2) = (s16) (M2C_FIELD(arg1, s16 *, 2) - M2C_FIELD(arg0, s16 *, 2));
-    M2C_FIELD(arg2, s16 *, 4) = (s16) (M2C_FIELD(arg1, s16 *, 4) - M2C_FIELD(arg0, s16 *, 4));
-    M2C_FIELD(arg2, s16 *, 6) = (s16) (M2C_FIELD(arg1, s16 *, 6) - M2C_FIELD(arg0, s16 *, 6));
-    M2C_FIELD(arg2, s16 *, 8) = (s16) (M2C_FIELD(arg1, s16 *, 8) - M2C_FIELD(arg0, s16 *, 8));
-    M2C_FIELD(arg2, s16 *, 0xA) = (s16) (M2C_FIELD(arg1, s16 *, 0xA) - M2C_FIELD(arg0, s16 *, 0xA));
-    M2C_FIELD(arg2, s16 *, 0x16) = (s16) (M2C_FIELD(arg1, s16 *, 0x16) - M2C_FIELD(arg0, s16 *, 0x16));
-    M2C_FIELD(arg2, s16 *, 0x18) = (s16) (M2C_FIELD(arg1, s16 *, 0x18) - M2C_FIELD(arg0, s16 *, 0x18));
+    *(s16 *)((s8 *)arg2 + 0) = (s16) (*(s16 *)((s8 *)arg1 + 0) - *(s16 *)((s8 *)arg0 + 0));
+    *(s16 *)((s8 *)arg2 + 2) = (s16) (*(s16 *)((s8 *)arg1 + 2) - *(s16 *)((s8 *)arg0 + 2));
+    *(s16 *)((s8 *)arg2 + 4) = (s16) (*(s16 *)((s8 *)arg1 + 4) - *(s16 *)((s8 *)arg0 + 4));
+    *(s16 *)((s8 *)arg2 + 6) = (s16) (*(s16 *)((s8 *)arg1 + 6) - *(s16 *)((s8 *)arg0 + 6));
+    *(s16 *)((s8 *)arg2 + 8) = (s16) (*(s16 *)((s8 *)arg1 + 8) - *(s16 *)((s8 *)arg0 + 8));
+    *(s16 *)((s8 *)arg2 + 0xA) = (s16) (*(s16 *)((s8 *)arg1 + 0xA) - *(s16 *)((s8 *)arg0 + 0xA));
+    *(s16 *)((s8 *)arg2 + 0x16) = (s16) (*(s16 *)((s8 *)arg1 + 0x16) - *(s16 *)((s8 *)arg0 + 0x16));
+    *(s16 *)((s8 *)arg2 + 0x18) = (s16) (*(s16 *)((s8 *)arg1 + 0x18) - *(s16 *)((s8 *)arg0 + 0x18));
 }
 
 }
@@ -66,14 +62,14 @@ s16 obj_getS16_2BA(s32);
 
 void init_shield_params__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     ((void (*)()) set_params__10TObjPlayerFPvPvPviPv)();
-    M2C_FIELD(arg0, s16 *, 0x16) = get_field_2b8__14TItemProShieldFPv(arg1);
-    M2C_FIELD(arg0, s16 *, 0x18) = obj_getS16_2BA(arg1);
+    *(s16 *)((s8 *)arg0 + 0x16) = get_field_2b8__14TItemProShieldFPv(arg1);
+    *(s16 *)((s8 *)arg0 + 0x18) = obj_getS16_2BA(arg1);
 }
 
 }
 
 struct RecoveredGlobal_801C5F54_TObjPlayer__data_8050E920 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xEC];
 };
 
@@ -93,7 +89,7 @@ struct Obj_801C5FCC { s32 n; Pair_801C5FCC e[16]; };
 extern "C" {
 extern Arrival_801C5F84 TObjPlayer__arrival_override_table[12];
 void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 farg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void set_arrival_override_pos(u16 idx, s32 yaw, void *pos);
 extern const f32 lbl_805DC32C;
 void clear_movement_history(Obj_801C5FCC *p);
@@ -104,24 +100,24 @@ extern "C" {
 s16 TObjPlayer__sub_800194E8(s32, s16);
 s32 get_attack_params_atp_max(s32);
 
-extern M2C_UNK lbl_80447120;
+extern s32 lbl_80447120;
 extern const f32 lbl_805DC330;
 
 void set_params__10TObjPlayerFPvPvPviPv(void *arg0, void *arg1, void *arg2, s32 arg3, void *arg4) {
     s16 temp_r4;
 
-    M2C_FIELD(arg0, s16 *, 0) = (s16) (M2C_FIELD(arg2, s16 *, 0) + get_attack_params_atp_max(arg3));
-    temp_r4 = M2C_FIELD(arg2, s16 *, 8);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) (temp_r4 + M2C_FIELD(arg4, s32 *, 0x1C));
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg2, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) (lbl_805DC330 * (f32) (M2C_FIELD(arg2, s16 *, 0xA) + TObjPlayer__sub_800194E8(arg3, temp_r4)));
-    M2C_FIELD(arg0, s16 *, 8) = (s16) (M2C_FIELD(arg2, s16 *, 4) + M2C_FIELD(arg4, s16 *, 0));
-    M2C_FIELD(arg0, s16 *, 0xA) = (s16) M2C_FIELD(arg2, s16 *, 0xC);
-    M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg4, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 0xE) = (s16) M2C_FIELD(arg4, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 0x10) = (s16) M2C_FIELD(arg4, s16 *, 6);
-    M2C_FIELD(arg0, s16 *, 0x12) = (s16) M2C_FIELD(arg4, s16 *, 8);
-    M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg4, s16 *, 0xA);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) (*(s16 *)((s8 *)arg2 + 0) + get_attack_params_atp_max(arg3));
+    temp_r4 = *(s16 *)((s8 *)arg2 + 8);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) (temp_r4 + *(s32 *)((s8 *)arg4 + 0x1C));
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg2 + 2);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) (lbl_805DC330 * (f32) (*(s16 *)((s8 *)arg2 + 0xA) + TObjPlayer__sub_800194E8(arg3, temp_r4)));
+    *(s16 *)((s8 *)arg0 + 8) = (s16) (*(s16 *)((s8 *)arg2 + 4) + *(s16 *)((s8 *)arg4 + 0));
+    *(s16 *)((s8 *)arg0 + 0xA) = (s16) *(s16 *)((s8 *)arg2 + 0xC);
+    *(s16 *)((s8 *)arg0 + 0xC) = (s16) *(s16 *)((s8 *)arg4 + 2);
+    *(s16 *)((s8 *)arg0 + 0xE) = (s16) *(s16 *)((s8 *)arg4 + 4);
+    *(s16 *)((s8 *)arg0 + 0x10) = (s16) *(s16 *)((s8 *)arg4 + 6);
+    *(s16 *)((s8 *)arg0 + 0x12) = (s16) *(s16 *)((s8 *)arg4 + 8);
+    *(s16 *)((s8 *)arg0 + 0x14) = (s16) *(s16 *)((s8 *)arg4 + 0xA);
 }
 #pragma push
 #pragma opt_common_subs off
@@ -130,12 +126,12 @@ void set_arrival_override_coords(u16 arg0, s32 arg1, f32 farg0, f32 farg1, f32 f
     s32 temp_r5;
     u8 *temp_r3;
     temp_r5 = arg0 * 0x14;
-    M2C_FIELD(((u8 *)TObjPlayer__arrival_override_table + temp_r5), s32 *, 0) = 1;
+    *(s32 *)((s8 *)((u8 *)TObjPlayer__arrival_override_table + temp_r5) + 0) = 1;
     temp_r3 = (u8 *)TObjPlayer__arrival_override_table + temp_r5;
-    M2C_FIELD(temp_r3, s32 *, 4) = arg1;
-    M2C_FIELD(temp_r3, f32 *, 8) = farg0;
-    M2C_FIELD(temp_r3, f32 *, 0xC) = farg1;
-    M2C_FIELD(temp_r3, f32 *, 0x10) = farg2;
+    *(s32 *)((s8 *)temp_r3 + 4) = arg1;
+    *(f32 *)((s8 *)temp_r3 + 8) = farg0;
+    *(f32 *)((s8 *)temp_r3 + 0xC) = farg1;
+    *(f32 *)((s8 *)temp_r3 + 0x10) = farg2;
 }
 #pragma pop
 

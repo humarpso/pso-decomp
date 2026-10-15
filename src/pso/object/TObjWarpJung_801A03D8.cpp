@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void free_children__12TObjDoorJungFPvPv(void *, u16);
@@ -16,7 +12,7 @@ extern "C" {
 
 void render_warp__12TObjWarpJungFPv(void* a0);
 s32 update_warp_display__12TObjWarpJungFv(void);
-M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 int draw_ginja_object(void);
 int get_bml_model(void*, void*);
 

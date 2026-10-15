@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803EE2E4_lbl_8058DC98 {
     s8 value;
@@ -10,104 +6,104 @@ struct RecoveredGlobal_803EE2E4_lbl_8058DC98 {
 };
 
 struct RecoveredGlobal_803E6ACC_lbl_805A0470 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_803E6ACC_lbl_805A0498 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x134];
 };
 
 struct RecoveredGlobal_803E6ACC_lbl_805A05D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC4];
 };
 
 struct RecoveredGlobal_803E8710_lbl_8058DE08 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x40];
 };
 
 struct RecoveredGlobal_803E875C_lbl_8058DE08 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x40];
 };
 
 struct RecoveredGlobal_803E9764_lbl_80591EC8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1FFC];
 };
 
 struct RecoveredGlobal_803E9F20_lbl_80595998 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8BC];
 };
 
 struct RecoveredGlobal_803EDB20_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803EDB3C_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803EDB58_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803EDB74_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803E6ED0_lbl_805A0470 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_803E6ED0_lbl_805A0498 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x134];
 };
 
 struct RecoveredGlobal_803E6ED0_lbl_805A05D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC4];
 };
 
 struct RecoveredGlobal_803E721C_lbl_8047E698 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1FC];
 };
 
 struct RecoveredGlobal_803E9594_lbl_80591EC8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1FFC];
 };
 
 struct RecoveredGlobal_803E7018_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803E6F98_lbl_8047F8B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803E8084_lbl_8058DE08
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x40];
 };
 
 struct RecoveredGlobal_803E8084_lbl_80590AC4
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xFFC];
 };
 
@@ -123,10 +119,9 @@ struct Node_803EB844 { u8 flags; u8 pad[0xF]; Node_803EB844 *next; };
 
 struct Node_803ECD1C { u8 pad[0xC]; Node_803ECD1C *next; };
 
-typedef s32 M2C_UNK;
-struct Node_803ECD8C { M2C_UNK *link; u8 pad[8]; Node_803ECD8C *next; };
+struct Node_803ECD8C { s32 *link; u8 pad[8]; Node_803ECD8C *next; };
 
-struct Node_803ECE5C { M2C_UNK *link; u8 pad[4]; Node_803ECE5C *next; };
+struct Node_803ECE5C { s32 *link; u8 pad[4]; Node_803ECE5C *next; };
 
 struct E_803E6F48 { u16 key; u8 val; u8 pad; };
 
@@ -360,15 +355,15 @@ extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
 extern RecoveredGlobal_803E6ACC_lbl_805A0498 quest_download_entry_table;
 extern RecoveredGlobal_803E6ACC_lbl_805A05D0 lbl_805A05D0;
 extern s32 lbl_805D7848;
-extern M2C_UNK *lbl_805D78B8;
-extern M2C_UNK *lbl_805D78BC;
+extern s32 *lbl_805D78B8;
+extern s32 *lbl_805D78BC;
 extern s32 lbl_805D78C0;
-extern M2C_UNK *lbl_805D78C4;
-extern M2C_UNK *lbl_805D78C8;
-extern M2C_UNK *lbl_805D78CC;
-extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *quest_download_buffer_start;
-extern M2C_UNK *quest_vm_download_buffer_end;
+extern s32 *lbl_805D78C4;
+extern s32 *lbl_805D78C8;
+extern s32 *lbl_805D78CC;
+extern s32 *lbl_805D78D0;
+extern s32 *quest_download_buffer_start;
+extern s32 *quest_vm_download_buffer_end;
 extern s32 lbl_805D78DC;
 extern s32 lbl_805D78F4;
 void TQuestVmDownLoadServer__sub_803E6ACC(s32 arg0);
@@ -421,15 +416,15 @@ void TQuestVmDownLoadServer__sub_803EE2E4(void);
 extern RecoveredGlobal_803E6ACC_lbl_805A0470 lbl_805A0470;
 extern RecoveredGlobal_803E6ACC_lbl_805A0498 quest_download_entry_table;
 extern RecoveredGlobal_803E6ACC_lbl_805A05D0 lbl_805A05D0;
-extern M2C_UNK *lbl_805D78B8;
-extern M2C_UNK *lbl_805D78BC;
+extern s32 *lbl_805D78B8;
+extern s32 *lbl_805D78BC;
 extern s32 lbl_805D78C0;
-extern M2C_UNK *lbl_805D78C4;
-extern M2C_UNK *lbl_805D78C8;
-extern M2C_UNK *lbl_805D78CC;
-extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *quest_download_buffer_start;
-extern M2C_UNK *quest_vm_download_buffer_end;
+extern s32 *lbl_805D78C4;
+extern s32 *lbl_805D78C8;
+extern s32 *lbl_805D78CC;
+extern s32 *lbl_805D78D0;
+extern s32 *quest_download_buffer_start;
+extern s32 *quest_vm_download_buffer_end;
 void init_buffer_pointers__22TQuestVmDownLoadServerFv(void);
 extern RecoveredGlobal_803E721C_lbl_8047E698 single_byte_to_jis_table;
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
@@ -444,8 +439,8 @@ extern s32 quest_download_initialized;
 extern s32 lbl_805D7834;
 extern s32 lbl_805D7908;
 extern s32 lbl_805D790C;
-extern M2C_UNK lbl_805E10D8;
-extern M2C_UNK lbl_805E10E0;
+extern s32 lbl_805E10D8;
+extern s32 lbl_805E10E0;
 s32 TQuestVmDownLoadServer__sub_803F09A4(void);
 extern s32 lbl_805D7888;
 s32 is_download_cmd_allowed__22TQuestVmDownLoadServerFUc(u8 arg0);
@@ -467,18 +462,18 @@ Node_803EB894 *detach_node_chain__22TQuestVmDownLoadServerFPv(Node_803EB894 *p);
 Node_803EB794 *advance_nodes__22TQuestVmDownLoadServerFPvi(Node_803EB794 *p, s32 n);
 s32 count_entries_until_terminator__22TQuestVmDownLoadServerFPvPv(const u8 *p, const u8 *end);
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 void free_node_list__22TQuestVmDownLoadServerFPv(Node_803ECD54 *p);
 Node_803EB878 *TQuestVmDownLoadServer__sub_803EB878(Node_803EB878 *p);
 s32 count_chain_nodes__22TQuestVmDownLoadServerFPv(Node_803EB844 *p);
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 void TQuestVmDownLoadServer__sub_803ECD1C(Node_803ECD1C *p);
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 void TQuestVmDownLoadServer__sub_803ECD8C(Node_803ECD8C *p);
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 void TQuestVmDownLoadServer__sub_803ECE5C(Node_803ECE5C *p);
 extern E_803E6F48 jis_to_single_byte_symbol_table[];
 s32 lookup_value_by_key__22TQuestVmDownLoadServerFUs(u16 arg0);
@@ -616,7 +611,7 @@ u32 strlen(const char *);
 extern s32 lbl_805D78EC;
 s32 TQuestVmDownLoadServer__sub_803EB7C0(Node_803EB7C0 *arg0);
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 void release_node_chain__22TQuestVmDownLoadServerFPv(Node_803ECDC4 *p);
 s32 TQuestVmDownLoadServer__sub_803EC71C(u16 *, u8 *, s32);
 s32 TQuestVmDownLoadServer__sub_803EE934(void);
@@ -635,11 +630,11 @@ s32 TQuestVmDownLoadServer__sub_803F0268(const char *name, s16 len, Out_803F0268
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0);
 s32 encode_char_with_attr__22TQuestVmDownLoadServerFPvUsi(u16 *, u16, s32);
 extern RecoveredGlobal_803E6ACC_lbl_805A0498 quest_download_entry_table;
-extern M2C_UNK *lbl_805D78C4;
-extern M2C_UNK *lbl_805D78C8;
-extern M2C_UNK *lbl_805D78D0;
-extern M2C_UNK *quest_download_buffer_start;
-extern M2C_UNK *quest_vm_download_buffer_end;
+extern s32 *lbl_805D78C4;
+extern s32 *lbl_805D78C8;
+extern s32 *lbl_805D78D0;
+extern s32 *quest_download_buffer_start;
+extern s32 *quest_vm_download_buffer_end;
 s32 TQuestVmDownLoadServer__sub_803E6970(s32 start, s32 count, u16 *buf, s32 flag);
 extern R_803E76A4 quest_download_slot_table[];
 void invalidate_entries_by_id__22TQuestVmDownLoadServerFi(s32 id);
@@ -742,7 +737,7 @@ s32 get_buffer_size__22TQuestVmDownLoadServerFv(void);
 s32 get_download_state__22TQuestVmDownLoadServerFv(void);
 s32 is_download_command__22TQuestVmDownLoadServerFUsi(u16 arg0, s32 arg1);
 s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0);
-void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0);
+void push_download_entry__22TQuestVmDownLoadServerFPv(s32 *arg0);
 void set_active__22TQuestVmDownLoadServerFv(void);
 
 typedef char RecoveredGlobal_803E6ACC_lbl_805A0470_size[sizeof(RecoveredGlobal_803E6ACC_lbl_805A0470) == 0x28 ? 1 : -1];
@@ -977,7 +972,7 @@ bool TQuestVmDownLoadServer__sub_803E6F98(s32 arg0) {
     if (TQuestVmDownLoadServer__sub_803E7098((void *) (&spC), (int) (var_r31)) != 1) {
         return 0;
     }
-    return (M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_803E6F98_lbl_8047F8B8 *)&lbl_8047F8B8).value) + spC), u8 *, 0) & 0xF) == 0xB;
+    return (*(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_803E6F98_lbl_8047F8B8 *)&lbl_8047F8B8).value) + spC) + 0) & 0xF) == 0xB;
 }
 
 bool TQuestVmDownLoadServer__sub_803E7018(s32 arg0) {
@@ -991,7 +986,7 @@ bool TQuestVmDownLoadServer__sub_803E7018(s32 arg0) {
     if (TQuestVmDownLoadServer__sub_803E7098((void *) (&spC), (int) (var_r31)) != 1) {
         return 0;
     }
-    return (M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_803E7018_lbl_8047F8B8 *)&lbl_8047F8B8).value) + spC), u8 *, 0) & 0xF) == 0xA;
+    return (*(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_803E7018_lbl_8047F8B8 *)&lbl_8047F8B8).value) + spC) + 0) & 0xF) == 0xA;
 }
 
 s32 TQuestVmDownLoadServer__sub_803E7098(u8 *p, u16 code) {
@@ -1058,7 +1053,7 @@ u16 map_key_to_code__22TQuestVmDownLoadServerFUi(u32 arg0) {
 
 u16 TQuestVmDownLoadServer__sub_803E721C(u16 arg0) {
     u16 temp_r3;
-    temp_r3 = M2C_FIELD(((u8 *)(&single_byte_to_jis_table.value) + ((arg0 * 2) & 0x1FE)), u16 *, 0);
+    temp_r3 = *(u16 *)((s8 *)((u8 *)(&single_byte_to_jis_table.value) + ((arg0 * 2) & 0x1FE)) + 0);
     if (((s32) (temp_r3 & 0xFF00) == 0x2500) && !(arg0 & 0x100)) {
         return (u8) temp_r3 | 0x2400;
     }
@@ -1347,7 +1342,7 @@ u8 *get_cached_page__22TQuestVmDownLoadServerFi(s32 page) {
 #pragma pop
 
 void set_active__22TQuestVmDownLoadServerFv(void) {
-    M2C_FIELD(file_page_cache_head, s32 *, 4) = 1;
+    *(s32 *)((s8 *)file_page_cache_head + 4) = 1;
 }
 
 typedef struct RecoveredGlobal_803E8084_lbl_8058DE08 RecoveredGlobal_803E8084_lbl_8058DE08;
@@ -2037,15 +2032,15 @@ u8 *get_buffer_ptr__22TQuestVmDownLoadServerFi(s32 arg0) {
 }
 
 void TQuestVmDownLoadServer__sub_803E9764(void) {
-    M2C_UNK *var_r4;
+    s32 *var_r4;
     s32 var_r3;
     s32 var_r5;
     if ((u8) (*(u8 *)&lbl_805D7868) != 0) {
         var_r3 = 0x1400;
         if (seek_or_reopen__22TQuestVmDownLoadServerFi((int)((int) (0x1400))) != -1) {
-            var_r4 = (M2C_UNK *)(&lbl_80591EC8.value);
+            var_r4 = (s32 *)(&lbl_80591EC8.value);
             var_r3 = lbl_805D7904;
-            var_r4 = (M2C_UNK *)(&lbl_80591EC8.value);
+            var_r4 = (s32 *)(&lbl_80591EC8.value);
             var_r5 = 0x2000;
             TQuestVmDownLoadServer__sub_803E8788((int)((int) (var_r3)), (void *)((void *) (&lbl_80591EC8.value)), (int)((int) (0x2000)));
         }
@@ -2941,7 +2936,7 @@ void TQuestVmDownLoadServer__sub_803EC09C(void) {
         q = TQuestVmDownLoadServer__sub_803ECE94();
         if (q == NULL) {
             for (; qh != NULL; qh = qh->next) {
-                push_download_entry__22TQuestVmDownLoadServerFPv((M2C_UNK *)qh->x8);
+                push_download_entry__22TQuestVmDownLoadServerFPv((s32 *)qh->x8);
             }
             qh = NULL;
             break;
@@ -3336,7 +3331,7 @@ s32 is_sjis_lead_byte__22TQuestVmDownLoadServerFUc(u8 arg0) {
 }
 
 extern s32 lbl_805D78AC;
-extern M2C_UNK *lbl_805D78B0;
+extern s32 *lbl_805D78B0;
 
 void TQuestVmDownLoadServer__sub_803ECD1C(Node_803ECD1C *p) {
     while (p != NULL) {
@@ -3368,7 +3363,7 @@ void TQuestVmDownLoadServer__sub_803ECD8C(Node_803ECD8C *p) {
         next = p->next;
         if (p != NULL) {
             p->link = lbl_805D78B0;
-            lbl_805D78B0 = (M2C_UNK *)p;
+            lbl_805D78B0 = (s32 *)p;
             lbl_805D78AC += 1;
         }
         p = next;
@@ -3399,14 +3394,14 @@ void TQuestVmDownLoadServer__sub_803ECE5C(Node_803ECE5C *p) {
         next = p->next;
         if (p != NULL) {
             p->link = lbl_805D78B0;
-            lbl_805D78B0 = (M2C_UNK *)p;
+            lbl_805D78B0 = (s32 *)p;
             lbl_805D78AC += 1;
         }
         p = next;
     }
 }
 
-void push_download_entry__22TQuestVmDownLoadServerFPv(M2C_UNK *arg0) {
+void push_download_entry__22TQuestVmDownLoadServerFPv(s32 *arg0) {
     if (arg0 != NULL) {
         *arg0 = (long) (lbl_805D78B0);
         lbl_805D78B0 = arg0;
@@ -3424,7 +3419,7 @@ void init_block_free_list__22TQuestVmDownLoadServerFv(void) {
     if (lbl_805D78A8 == 0 && lbl_805D78AC == 2000) {
         return;
     }
-    lbl_805D78B0 = (M2C_UNK *)quest_download_block_pool;
+    lbl_805D78B0 = (s32 *)quest_download_block_pool;
     for (p = quest_download_block_pool; p < &quest_download_block_pool[1999]; p++) {
         p->next = p + 1;
     }
@@ -3766,22 +3761,22 @@ s16 select_best_slot_entry__22TQuestVmDownLoadServerFiii(s32 idx, s32 max, s32 w
 #pragma pop
 
 s32 TQuestVmDownLoadServer__sub_803EDB20(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_8047F8B8.value) + arg0), u8 *, 0) & 0x20;
+    return *(u8 *)((s8 *)((u8 *)(&lbl_8047F8B8.value) + arg0) + 0) & 0x20;
 }
 
 typedef char RecoveredGlobal_803EDB3C_lbl_8047F8B8_size[sizeof(RecoveredGlobal_803EDB3C_lbl_8047F8B8) == 0x100 ? 1 : -1];
 s32 TQuestVmDownLoadServer__sub_803EDB3C(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_803EDB3C_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0), u8 *, 0) & 0x40;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_803EDB3C_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0) + 0) & 0x40;
 }
 
 typedef char RecoveredGlobal_803EDB58_lbl_8047F8B8_size[sizeof(RecoveredGlobal_803EDB58_lbl_8047F8B8) == 0x100 ? 1 : -1];
 s32 TQuestVmDownLoadServer__sub_803EDB58(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_803EDB58_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0), u8 *, 0) & 0x80;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_803EDB58_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0) + 0) & 0x80;
 }
 
 typedef char RecoveredGlobal_803EDB74_lbl_8047F8B8_size[sizeof(RecoveredGlobal_803EDB74_lbl_8047F8B8) == 0x100 ? 1 : -1];
 s32 TQuestVmDownLoadServer__sub_803EDB74(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_803EDB74_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0), u8 *, 0) & 0xC0;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_803EDB74_lbl_8047F8B8 *)&lbl_8047F8B8).value) + arg0) + 0) & 0xC0;
 }
 
 s32 sum_entry_sizes__22TQuestVmDownLoadServerFii(s32 start, s32 n) {
@@ -4359,7 +4354,7 @@ extern u32 lbl_805D7924;
 extern s32 quest_download_aram_dma_pending;
 
 void TQuestVmDownLoadServer__sub_803F0BE8(u8 *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 4) == (u32) lbl_805D7924) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 4) == (u32) lbl_805D7924) {
         quest_download_aram_dma_pending = 0;
     }
 }

@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8013BDCC___vt__11TMainCursor { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8013BDCC___vt__11TMainCursor { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8013BDCC___vt__11TMainCursor_size[sizeof(RecoveredGlobal_8013BDCC___vt__11TMainCursor) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_8013BC2C_lbl_804A7164 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
@@ -23,7 +19,7 @@ extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1, void* a2);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -43,19 +39,19 @@ s32 reset__11TMainCursorFi(void *);
 s32 TMainCursor__sub_8013E800(void *);
 s32 TMainCursor__sub_8013F1F0(void *);
 s32 __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK __vt__11TMainCursor[];
+extern s32 __vt__11TMainCursor[];
 extern s32 main_cursor_class_name;
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 check_can_pickup__11TMainCursorFi(void *);
 void update_position__11TMainCursorFi(s32 arg0);
 s32 check_visible__11TMainCursorFPv(void *, int, void *, int);
 s32 check_field_24__11TMainCursorFPv();
 s32 update__11TMainCursorFPv(void *);
-M2C_UNK check_flag_4__11TMainCursorFPv(void *);
+s32 check_flag_4__11TMainCursorFPv(void *);
 int forward_13E338_at_60__11TMainCursorFPv(void *);
 u8 update_sub_60__11TMainCursorFPv(void *);
-M2C_UNK get_rader_map__11TMainCursorFPv(void *, void *);
+s32 get_rader_map__11TMainCursorFPv(void *, void *);
 extern RecoveredGlobal_8013BC2C_lbl_804A7164 target_cursor_color_table;
 extern const f32 TMainCursor__data_805DB0CC;
 extern const f32 lbl_805DB0D4;
@@ -71,12 +67,12 @@ void update_position__11TMainCursorFi(s32 arg0);
 s32 is_channel_active__11TMainCursorFPv();
 void delete_this__11TMainCursorFis(void *, int);
 void *find_entity_by_id();
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void destroy__11TMainCursorFPvs(void *, int);
 void destroy__11TMainCursorFis(void *, int);
-M2C_UNK get_id__11TMainCursorFPv(s32);
+s32 get_id__11TMainCursorFPv(s32);
 u8 is_position_moved__11TMainCursorFPv(s32);
 
 void update_position__11TMainCursorFi(s32 arg0) {
@@ -85,12 +81,12 @@ void update_position__11TMainCursorFi(s32 arg0) {
     get_id__11TMainCursorFPv(arg0 + 0x60);
     temp_r3 = find_entity_by_id();
     if (temp_r3 != NULL) {
-        s32 base = M2C_FIELD(temp_r3, s32 *, 0xA4) + is_position_moved__11TMainCursorFPv(arg0) * 0x2C;
+        s32 base = *(s32 *)((s8 *)temp_r3 + 0xA4) + is_position_moved__11TMainCursorFPv(arg0) * 0x2C;
         VecCopy__FP3VecPC3Vec(arg0 + 0x40, base + 0x1C);
     }
 }
 
-extern M2C_UNK __vt__11TMainCursor[];
+extern s32 __vt__11TMainCursor[];
 
 typedef char RecoveredGlobal_8013BC2C_lbl_804A7164_size[sizeof(RecoveredGlobal_8013BC2C_lbl_804A7164) == 0x60 ? 1 : -1];
 void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
@@ -108,12 +104,12 @@ void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DB0D4;
-    M2C_FIELD(arg0, f32 *, 0x34) = M2C_FIELD(arg0, f32 *, 0x28) - TMainCursor__data_805DB0CC;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DB0D8 + M2C_FIELD(arg0, f32 *, 0x28);
-    M2C_FIELD(arg0, f32 *, 0x30) = M2C_FIELD(arg0, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DB0DC;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DB0D4;
+    *(f32 *)((s8 *)arg0 + 0x34) = *(f32 *)((s8 *)arg0 + 0x28) - TMainCursor__data_805DB0CC;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DB0D8 + *(f32 *)((s8 *)arg0 + 0x28);
+    *(f32 *)((s8 *)arg0 + 0x30) = *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DB0DC;
     update_position__11TMainCursorFi((s32) (arg0));
     if (check_can_pickup__11TMainCursorFi((void *) (arg0)) != 0) {
         check_flag_4__11TMainCursorFPv((void *) (arg0));
@@ -127,7 +123,7 @@ void refresh_target_marker__11TMainCursorFPv(u8 *arg0) {
 
 void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TMainCursor;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TMainCursor;
         destroy__11TMainCursorFis((s8 *)arg0 + 0x60, -1);
         destroy__11TMainCursorFPvs((s8 *)arg0 + 0x4C, -1);
         delete_this__11TMainCursorFis((s8 *)arg0 + 0x24, -1);
@@ -141,12 +137,12 @@ void *__dt__11TMainCursorFv(void *arg0, s16 arg1) {
 
 u8 *TMainCursor__ct(u8 *arg0, s32 arg1, s32 arg2, u8 arg3, u8 arg4, u8 arg5, s32 arg6, f32 farg0) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8013BDCC___vt__11TMainCursor *)&__vt__11TMainCursor).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8013BDCC___vt__11TMainCursor *)&__vt__11TMainCursor).value;
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x20));
     TMainCursor__sub_8013E800((void *) (arg0 + 0x24));
     TMainCursor__sub_8013F1F0((void *) (arg0 + 0x4C));
     reset__11TMainCursorFi((void *) (arg0 + 0x60));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) main_cursor_class_name;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) main_cursor_class_name;
     set_target_index_at_60__11TMainCursorFPvPv((void *) (arg0), (void *) (arg2));
     set_target_id_at_60__11TMainCursorFiUc((void *) (arg0), (void *) (arg3));
     TMainCursor__sub_8013E724((void *) (arg0), (f32) (farg0));

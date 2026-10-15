@@ -10,18 +10,14 @@ extern const char *bm_eff_ice_model_names[3];
 extern const char *bm_eff_ice_motion_names[2];
 extern BmlResourceDescriptor enemy_freeze_ice_resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80082080_lbl_8048E194 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80082080_lbl_8048E194 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80082080_lbl_8048E194_size[sizeof(RecoveredGlobal_80082080_lbl_8048E194) == 0x10 ? 1 : -1];
 
 #include <stddef.h>
 struct RecoveredFields_8008213C_arg0 {
     u8 unknown_0[0x18];
-    M2C_UNK * field_18;
+    s32 * field_18;
     u8 unknown_1C[0x18];
     s32 field_34;
     u8 unknown_38[0x28];
@@ -65,15 +61,15 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern u32 freeze_shell_bml_resource;
 void load_freeze_ice_resource__6TLobbyFv(void);
-M2C_UNK construct_actor_base__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 construct_actor_base__10TObjPlayerFPvPv(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, int);
 u8 *get_quest_id__12TQuestListVMFPv(void *);
 s32 create_particle_emitter(void *, int);
-M2C_UNK refresh_collision_body_centers(void *);
-extern M2C_UNK lbl_8048E1A4[];
+s32 refresh_collision_body_centers(void *);
+extern s32 lbl_8048E1A4[];
 extern u32 freeze_shell_bml_resource;
 extern s32 tl_05;
 extern const f32 lbl_805D9378;
@@ -105,7 +101,7 @@ void destroy_global_singleton__6TLobbyFv(void) {
     }
 }
 
-extern M2C_UNK lbl_8048E1A4[];
+extern s32 lbl_8048E1A4[];
 
 void load_freeze_ice_resource__6TLobbyFv(void) {
     s32 temp_r3;
@@ -120,8 +116,8 @@ void load_freeze_ice_resource__6TLobbyFv(void) {
 
 void *destroy_freeze_shell(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048E1A4;
-        if (M2C_FIELD(arg0, void **, 0x350) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x350)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E1A4;
+        if (*(void **)((s8 *)arg0 + 0x350) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x350)); }
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -166,7 +162,7 @@ u8 *construct_freeze_shell__10TObjPlayerFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
         } else if ((void *) ((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 != NULL) {
             refresh_collision_body_centers((void *) (arg1));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (((RecoveredFields_8008213C_arg1 *)arg1)->field_A4 + 0x1C));
-            ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * M2C_FIELD(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4, f32 *, 0xC));
+            ((RecoveredFields_8008213C_arg0 *)arg0)->field_338 = (f32) (lbl_805D9398 * *(f32 *)((s8 *)(((RecoveredFields_8008213C_arg1 *)arg1)->field_A4) + 0xC));
         } else {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg1 + 0x2FC));
             temp_r3 = get_quest_id__12TQuestListVMFPv(arg1);

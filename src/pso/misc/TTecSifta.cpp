@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8023B17C___vt__9TTecSifta {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -68,18 +64,17 @@ struct Sifta_8023AF94 {
     s32 captured;
 };
 
-typedef s32 M2C_UNK;
 extern "C" {
 s32 obj_getField1c(int);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 int TTecSifta__sub_8023AC88(void* p);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
-extern M2C_UNK __vt__9TTecSifta[];
+extern s32 __vt__9TTecSifta[];
 extern s32 lbl_805D3820;
 extern const f32 lbl_805DC940;
 u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(int, void *, int, int);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
 s32 obj_getField1c(int);
@@ -99,7 +94,7 @@ int TTecSifta__sub_8023AC88(void* p);
 void play_sifta_cast_sound(Obj_8023ACA8 *arg0);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void copy_technique_target_list(void *, void *);
-extern M2C_UNK __vt__9TTecSifta[];
+extern s32 __vt__9TTecSifta[];
 extern s32 lbl_805D3820;
 extern const f32 lbl_805DC940;
 void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4);
@@ -114,8 +109,8 @@ void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, vo
 void render__9TTecSiftaFv(void);
 void update_effect_params__9TTecSiftaFPv(u8 *arg0);
 void TObjPlayer__sub_8023AC84(void);
-M2C_UNK copy_params__8TTecAntiFPvPv(void *, s32);
-s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
+s32 copy_params__8TTecAntiFPvPv(void *, s32);
+s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__19TTecPlayerInfluenceFv(void *, int);
 void *__nw__7TObjectFUl(int);
@@ -151,9 +146,9 @@ void play_sifta_cast_sound(Obj_8023ACA8 *arg0) {
 
 void update_effect_params__9TTecSiftaFPv(u8 *arg0) {
     s32 res;
-    res = calc_technique_parameters(0xD, M2C_FIELD(arg0, s16 *, 0xA4), 0xFFFF);
+    res = calc_technique_parameters(0xD, *(s16 *)((s8 *)arg0 + 0xA4), 0xFFFF);
     copy_params__8TTecAntiFPvPv(arg0 + 0x74, res);
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) (M2C_FIELD(arg0, s16 *, 0x98) * M2C_FIELD(arg0, s16 *, 0xA4));
+    *(f32 *)((s8 *)arg0 + 0x74) = (f32) (*(s16 *)((s8 *)arg0 + 0x98) * *(s16 *)((s8 *)arg0 + 0xA4));
 }
 
 void create_instance__9TTecSiftaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
@@ -172,7 +167,7 @@ void create__9TTecSiftaFPvPvPv(void *arg0, void *arg1, void *arg2) {
     }
 }
 
-extern M2C_UNK __vt__9TTecSifta[];
+extern s32 __vt__9TTecSifta[];
 
 void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1) {
     HitInfo_8023AE8C h;
@@ -189,7 +184,7 @@ void TTecSifta__vt5(Obj_8023AE8C *arg0, VObj_18_b27ba1 *arg1) {
 
 void *__dt__9TTecSiftaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecSifta;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
         __dt__19TTecPlayerInfluenceFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -238,21 +233,21 @@ void *TTecSifta__ct(void *arg0_, void *arg1, void *arg2, void *arg3, void *arg4)
     u8 *temp_r3;
     u32 t;
     TTecPlayerInfluence__ct(arg0, arg1, arg2, arg4);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecSifta;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecSifta;
     construct_target_cursor_records__10TObjPlayerFi(arg0 + 0xE0);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3820;
-    M2C_FIELD(arg0, s32 *, 0x13C) = 1;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3820;
+    *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list(arg0 + 0xE0, arg3);
     update_effect_params__9TTecSiftaFPv(arg0);
-    temp_r3 = M2C_FIELD(arg0, u8 **, 0xDC);
+    temp_r3 = *(u8 **)((s8 *)arg0 + 0xDC);
     if (temp_r3 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = lbl_805DC940 + M2C_FIELD(arg0, f32 *, 0x7C);
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = lbl_805DC940 + *(f32 *)((s8 *)arg0 + 0x7C);
     }
-    t = M2C_FIELD(arg0, u32 *, 0x1C);
+    t = *(u32 *)((s8 *)arg0 + 0x1C);
     if (t != 0U) {
-        M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int)t);
+        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int)t);
     }
-    if (M2C_FIELD(arg0, s32 *, 0xAC) != 0) {
+    if (*(s32 *)((s8 *)arg0 + 0xAC) != 0) {
         TTecSifta__sub_8023AC88((void*)(arg0));
         play_sifta_cast_sound((Obj_8023ACA8 *)arg0);
     }
@@ -265,18 +260,18 @@ u8 *TTecSifta__sub_8023B17C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r3_2;
     u8 *temp_r3;
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023B17C___vt__9TTecSifta *)&__vt__9TTecSifta).value;
     construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3820;
-    M2C_FIELD(arg0, s32 *, 0x13C) = 0;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3820;
+    *(s32 *)((s8 *)arg0 + 0x13C) = 0;
     update_effect_params__9TTecSiftaFPv((u8 *)((void *) (arg0)));
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xDC));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));
     if (temp_r3 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 0xA4), f32 *, 0xC) = (f32) (lbl_805DC940 + M2C_FIELD(arg0, f32 *, 0x7C));
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 0xA4)) + 0xC) = (f32) (lbl_805DC940 + *(f32 *)((s8 *)arg0 + 0x7C));
     }
-    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x1C);
+    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3_2 != 0U) {
-        M2C_FIELD(arg0, s16 *, 0xA8) = obj_getField1c((int) (temp_r3_2));
+        *(s16 *)((s8 *)arg0 + 0xA8) = obj_getField1c((int) (temp_r3_2));
     }
     TTecSifta__sub_8023AC88((void*)((void *) (arg0)));
     play_sifta_cast_sound((Obj_8023ACA8 *)((void *)((void *) (arg0))));

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_800490E8_80048F40 { char pad[0xC]; };
 struct VObj_800490E8_80048F40 : Base_800490E8_80048F40 {
     virtual void m0(int);
@@ -110,7 +107,7 @@ struct VObj_18_345191 : VBase_18_345191 {
     virtual void m54();
     virtual void m55();
     virtual void m56();
-    virtual M2C_UNK m57();
+    virtual s32 m57();
 };
 
 struct Base_80048E80 { char pad[0x18]; };
@@ -202,7 +199,7 @@ s32 play_sound_effect(s32, u32, s16, s32);
 extern const f32 lbl_805D8874;
 extern const f32 lbl_805D8878;
 void TObjVoloptCage__sub_80049000(u8 *arg0);
-M2C_UNK check_object_collisions__10TObjPlayerFPv(void *, int);
+s32 check_object_collisions__10TObjPlayerFPv(void *, int);
 void update_collision_state__14TObjVoloptCageFPv(u8 *arg0);
 }
 
@@ -271,17 +268,17 @@ struct TObjVoloptCage_VObj_80048F40 : TObjVoloptCage_base_80048F40 {
     virtual void m58();
     virtual void m59();
     virtual void m60();
-    virtual M2C_UNK m61();
+    virtual s32 m61();
 };
 
 void destroy__14TObjVoloptCageFv(void);
 void update_capture__14TObjVoloptCageFPv(u8 *arg0);
-M2C_UNK TLobby__sub_80049568();
+s32 TLobby__sub_80049568();
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK send_6x2C_impose_hold(s32, void *, M2C_UNK, M2C_UNK, f32);
+s32 send_6x2C_impose_hold(s32, void *, s32, s32, f32);
 s32 get_player_by_client_id(u16);
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK obj_set_flag_20000(s32);
+s32 obj_setFlags30(void *, s32);
+s32 obj_set_flag_20000(s32);
 
 extern const f32 lbl_805D8870;
 
@@ -306,27 +303,27 @@ void update_breakup__14TObjVoloptCageFPv(u8 *arg0) {
     Vec_80048CDC v;
     s32 idx;
 
-    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
         play_sound_effect(0x4001C112, (u32)(arg0 + 0x38), 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
-        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(volopt_cage_breakup_model, lbl_804848FC, TObjVoloptCage__texture_list, arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
         trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
-        M2C_FIELD(arg0, s16 *, 0x33C) = 0xC;
+        *(s16 *)((s8 *)arg0 + 0x33C) = 0xC;
         disallow_rendering__7TObjectFv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         break;
     case 1:
-        if (M2C_FIELD(arg0, s16 *, 0x33C) & 1) {
+        if (*(s16 *)((s8 *)arg0 + 0x33C) & 1) {
             idx = (s32)(lbl_805D8860 * (lbl_805D8864 * (lbl_805D8868 * (f32)rand())));
-            v.x = lbl_805D886C * cos_table_lookup(idx) + M2C_FIELD(arg0, f32 *, 0x2FC);
-            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + M2C_FIELD(arg0, f32 *, 0x300);
-            v.z = lbl_805D886C * sin_table_lookup(idx) + M2C_FIELD(arg0, f32 *, 0x304);
+            v.x = lbl_805D886C * cos_table_lookup(idx) + *(f32 *)((s8 *)arg0 + 0x2FC);
+            v.y = lbl_805D886C * (lbl_805D8868 * (f32)rand()) + *(f32 *)((s8 *)arg0 + 0x300);
+            v.z = lbl_805D886C * sin_table_lookup(idx) + *(f32 *)((s8 *)arg0 + 0x304);
             spawn_particle_effect(&v, 0xFB);
         }
-        if ((M2C_FIELD(arg0, s16 *, 0x33C) -= 1) <= 0) {
+        if ((*(s16 *)((s8 *)arg0 + 0x33C) -= 1) <= 0) {
             queue_destruction__7TObjectFv(arg0);
         }
         break;
@@ -339,21 +336,21 @@ void update_collision_state__14TObjVoloptCageFPv(u8 *arg0) {
     s16 temp_r3;
     s32 temp_r0;
     s32 temp_r4;
-    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
-        M2C_FIELD(arg0, s16 *, 0x33C) = 0x1E;
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
+        *(s16 *)((s8 *)arg0 + 0x33C) = 0x1E;
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x38C);
-        M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (temp_r4 - 1);
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x38C);
+        *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (temp_r4 - 1);
         check_object_collisions__10TObjPlayerFPv((void *) (arg0), (int) (temp_r4));
-        if ((s16) (M2C_FIELD(arg0, s16 *, 0x33C) -= 1) <= 0) {
-            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
-            M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
-            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+        if ((s16) (*(s16 *)((s8 *)arg0 + 0x33C) -= 1) <= 0) {
+            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
+            *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
+            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
             ((VObj_80048E80 *)arg0)->m57();
         }
         break;
@@ -367,12 +364,12 @@ void update_capture__14TObjVoloptCageFPv(u8 *arg0) {
     s32 temp_r0_2;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
     case -1:
         break;
     case 0:
-        temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
+        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
         if (temp_r3 != 0) {
             if (is_locally_controlled__10TObjPlayerFPv() != 0) {
                 send_6x2C_impose_hold(temp_r3, arg0 + 0x38, -1, 0, lbl_805D8870);
@@ -380,10 +377,10 @@ void update_capture__14TObjVoloptCageFPv(u8 *arg0) {
             }
             TLobby__sub_80049568();
         }
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
-        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x38C) - 1;
-        M2C_FIELD(arg0, s32 *, 0x38C) = temp_r0_2;
+        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x38C) - 1;
+        *(s32 *)((s8 *)arg0 + 0x38C) = temp_r0_2;
         if (temp_r0_2 <= 0) {
             obj_setFlags30(arg0, 0x800);
             ((TObjVoloptCage_VObj_80048F40*)arg0)->m61();
@@ -398,25 +395,25 @@ extern struct VObj_800490E8_80048F40 *volopt_cage_breakup_model;
 #pragma opt_common_subs off
 void TObjVoloptCage__sub_80049000(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000);
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000);
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
         play_sound_effect(0x4003A80A, (u32) ((u8 *)(arg0) + 0x38), 0xA, 0);
         break;
     case 1:
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8874);
-        if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805D8878) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8878;
-            M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (TObjVoloptPillar__sub_80048118(4) + 0x1C2);
-            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8874);
+        if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8878) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8878;
+            *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (TObjVoloptPillar__sub_80048118(4) + 0x1C2);
+            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
             ((VObj_18_345191 *)(arg0))->m57();
             break;
         }
         break;
     case -1:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
         break;
     }
 }

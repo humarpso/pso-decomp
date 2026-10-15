@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_80226294 { u32 flags; u8 pad4[4]; s32 f8; u8 padC[0xC]; s16 f18; u8 pad1a[0xE]; };
 
@@ -52,8 +48,8 @@ void init_layout_positions__6TLobbyFv(void) {
 
 extern "C" {
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK set_mode__6TLobbyFi(int);
-M2C_UNK OSSetSoundMode(int);
+s32 set_mode__6TLobbyFi(int);
+s32 OSSetSoundMode(int);
 void set_sound_output_mode__6TLobbyFi(s32 arg0);
 extern Ent_80226294 lbl_805145F0[];
 extern u32 lbl_805DC748;
@@ -61,10 +57,10 @@ extern s32 lbl_805D62B0;
 void release_sound_with_fade(s32 idx);
 void stop_sound_request(s32 idx);
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK set_mode__6TLobbyFi(int);
+s32 set_mode__6TLobbyFi(int);
 u32 OSGetSoundMode();
 extern s8 lbl_805D3708;
-M2C_UNK TLobby__sub_80227D38();
+s32 TLobby__sub_80227D38();
 extern Ent_80226294 lbl_805145F0[];
 extern s32 lbl_805D62B0;
 extern u32 lbl_805DC748;
@@ -84,7 +80,7 @@ int TLobby__sub_80226308(void* p);
 void TTecRaFoie__sub_80226254(void);
 int get_lobby_data__6TLobbyFv(void);
 void update_technique_slot__10TTecRaFoieFi(s32 arg0);
-M2C_UNK set_sound_slot_pitch();
+s32 set_sound_slot_pitch();
 
 int get_lobby_data__6TLobbyFv(void) {  return lbl_805D6280; }
 
@@ -143,7 +139,7 @@ int init_sound_mode__6TLobbyFPv(void *) {
         set_mode__6TLobbyFi(1);
         lbl_805D3708 = 0;
         p = get_global_state__23TAdSinglePlyChrSelectGCFv();
-        if (p != NULL && p != NULL && M2C_FIELD(p, s16 *, 0xE) != 0) {
+        if (p != NULL && p != NULL && *(s16 *)((s8 *)p + 0xE) != 0) {
             lbl_805D3708 = 2;
             set_mode__6TLobbyFi(2);
         }
@@ -152,11 +148,11 @@ int init_sound_mode__6TLobbyFPv(void *) {
 }
 
 void set_sound_output_mode__6TLobbyFi(s32 arg0) {
-    M2C_UNK var_r30;
+    s32 var_r30;
     u8 *temp_r3;
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, s16 *, 0xE) = 0;
+        *(s16 *)((s8 *)temp_r3 + 0xE) = 0;
     }
     switch (arg0) {
     case 0:
@@ -166,7 +162,7 @@ void set_sound_output_mode__6TLobbyFi(s32 arg0) {
     case 2:
         OSSetSoundMode((int) (1));
         if (temp_r3 != NULL) {
-            M2C_FIELD(temp_r3, s16 *, 0xE) = 1;
+            *(s16 *)((s8 *)temp_r3 + 0xE) = 1;
         }
         var_r30 = 2;
         break;

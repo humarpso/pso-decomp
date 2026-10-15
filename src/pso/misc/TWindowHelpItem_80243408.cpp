@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80243464 { char pad[0x18]; };
 struct VObj_80243464 : Base_80243464 {
     virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
@@ -53,7 +50,7 @@ void set_help_text__15TWindowHelpItemFii(s32 arg0, s32 arg1);
 s32 get_help_value__15TWindowHelpItemFv(void);
 void *find_item_by_id();
 s32 get_palette_consumable_count();
-M2C_UNK set_sprite_uv_from_pixels(s32, f32, f32);
+s32 set_sprite_uv_from_pixels(s32, f32, f32);
 s32 test_card_flag_2__12TBoss8DragonFPv(s32);
 
 extern f32 lbl_805DCA1C;
@@ -104,11 +101,11 @@ void update_palette_item_count_label(u8 *arg0, u8 *arg1, u16 arg2, u16 arg3, s32
         return;
     }
     clear_visible_flag__20TWindowSubStatusDispFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x1C) = M2C_FIELD(arg1, s32 *, 0x2C);
-    M2C_FIELD(arg0, s32 *, 0x20) = v;
+    *(s32 *)((s8 *)arg0 + 0x1C) = *(s32 *)((s8 *)arg1 + 0x2C);
+    *(s32 *)((s8 *)arg0 + 0x20) = v;
     draw_right_aligned_number(arg0);
-    M2C_FIELD(arg0, f32 *, 8) = lbl_805DCA2C * M2C_FIELD(arg0, f32 *, 0x10) + (M2C_FIELD(arg1, f32 *, 8) - lbl_805DCA28);
-    M2C_FIELD(arg0, f32 *, 0xC) = M2C_FIELD(arg1, f32 *, 0xC) - lbl_805DCA30;
+    *(f32 *)((s8 *)arg0 + 8) = lbl_805DCA2C * *(f32 *)((s8 *)arg0 + 0x10) + (*(f32 *)((s8 *)arg1 + 8) - lbl_805DCA28);
+    *(f32 *)((s8 *)arg0 + 0xC) = *(f32 *)((s8 *)arg1 + 0xC) - lbl_805DCA30;
 }
 #pragma pop
 

@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80173330_lbl_804B3A18 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80173330_lbl_804B3A18 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80173330_lbl_804B3A18_size[sizeof(RecoveredGlobal_80173330_lbl_804B3A18) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -15,10 +11,10 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct RecoveredGlobal_801733D8___vt__15TORainbowCave01 { M2C_UNK value; u8 remaining[0x34]; };
+struct RecoveredGlobal_801733D8___vt__15TORainbowCave01 { s32 value; u8 remaining[0x34]; };
 
 struct Color_8017310C { f32 a, b, c, d; };
 
@@ -43,7 +39,6 @@ struct Cave_8017310C : VBase_8017310C {
     u8 fD4[4];
 };
 
-typedef s32 M2C_UNK;
 struct Cave_801731F8 { u8 pad[0xC8]; f32 speed; f32 alpha; f32 range; };
 
 extern "C" {
@@ -55,10 +50,10 @@ extern u32 TORainbowCave01__static_model_resource;
 void load_resource_instance__15TORainbowCave01Fv(void);
 u8 * init_map_object_base(void *);
 void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int, f32, f32);
-extern M2C_UNK __vt__15TORainbowCave01[];
+extern s32 __vt__15TORainbowCave01[];
 extern s32 TORainbowCave01__name;
 extern u32 TORainbowCave01__static_model_resource;
-u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv(void);
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
@@ -110,8 +105,8 @@ extern void *tl_05;
 #pragma fp_contract on
 void init_light_params__15TORainbowCave01FPviff(u8 *arg0, int _w1, f32 _w2, f32 _w3) {
     f32 k = 0.0009765625f;
-    M2C_FIELD(arg0, f32 *, 0xC8) = 1.0f / ((f32) M2C_FIELD(arg0, s32 *, 0x84) * k + 29.999998f);
-    M2C_FIELD(arg0, f32 *, 0xD0) = 4e+04f + (f32) M2C_FIELD(arg0, s32 *, 0x8C);
+    *(f32 *)((s8 *)arg0 + 0xC8) = 1.0f / ((f32) *(s32 *)((s8 *)arg0 + 0x84) * k + 29.999998f);
+    *(f32 *)((s8 *)arg0 + 0xD0) = 4e+04f + (f32) *(s32 *)((s8 *)arg0 + 0x8C);
     VecCopy__FP3VecPC3Vec(arg0 + 0xD4, arg0 + 0x68);
 }
 #pragma pop
@@ -166,7 +161,7 @@ void run_task__15TORainbowCave01Fv(Cave_801731F8 *self) {
 void *create__15TORainbowCave01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE0);
     if (o != NULL) {
-        o = TORainbowCave01__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TORainbowCave01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -180,7 +175,7 @@ void free_static_data__15TORainbowCave01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__15TORainbowCave01[];
+extern s32 __vt__15TORainbowCave01[];
 
 void load_resource_instance__15TORainbowCave01Fv(void) {
     s32 temp_r3;
@@ -195,7 +190,7 @@ void load_resource_instance__15TORainbowCave01Fv(void) {
 
 void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TORainbowCave01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORainbowCave01;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -203,18 +198,18 @@ void *__dt__15TORainbowCave01Fv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TORainbowCave01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TORainbowCave01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r4;
     init_map_object_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801733D8___vt__15TORainbowCave01 *)&__vt__15TORainbowCave01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TORainbowCave01__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801733D8___vt__15TORainbowCave01 *)&__vt__15TORainbowCave01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TORainbowCave01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TORainbowCave01__static_model_resource), u8 **, 0x42C), s32 *, 8);
-    temp_r4 = (u8 *)(M2C_FIELD((*(u8 * *)&TORainbowCave01__static_model_resource), u8 **, 0x42C));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(temp_r4, s32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) 400.0f;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (4e+04f);
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C)) + 8);
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TORainbowCave01__static_model_resource) + 0x42C));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)temp_r4 + 0xC);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) 400.0f;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (4e+04f);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
     init_light_params__15TORainbowCave01FPviff((u8 *)((void *) (arg0)), (int)((int) (temp_r4)), (f32) ((4e+04f)), (f32) (400.0f));
     return arg0;
 }

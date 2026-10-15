@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec2_8007DD28 { f32 x; f32 y; f32 z; };
 
@@ -41,22 +37,22 @@ extern "C" {
 void TObjBoss2Tunnel__sub_8007DD24(void);
 void load_data_buffers(void);
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1);
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E0FA4(M2C_UNK);
-s32 TAdPlayerLoadGC__sub_801E1B50(M2C_UNK);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(M2C_UNK, M2C_UNK *);
-M2C_UNK init_capture_texture(M2C_UNK);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
+s32 TAdPlayerLoadGC__sub_801E0FA4(s32);
+s32 TAdPlayerLoadGC__sub_801E1B50(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
+s32 init_capture_texture(s32);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 get_instance__15TAdPlayerLoadGCFv();
-s32 get_load_result__15TAdPlayerLoadGCFv(M2C_UNK);
-M2C_UNK memmove(void *, void *, s32);
-M2C_UNK memset(void *, s32, s32);
-s32 query_memcard_capacity__15TAdPlayerLoadGCFi(M2C_UNK, M2C_UNK);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 get_load_result__15TAdPlayerLoadGCFv(s32);
+s32 memmove(void *, void *, s32);
+s32 memset(void *, s32, s32);
+s32 query_memcard_capacity__15TAdPlayerLoadGCFi(s32, s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv(s32);
-u32 xmalloc__FUl(M2C_UNK);
+u32 xmalloc__FUl(s32);
 
 extern s32 screen_binary_filename;
 extern s16 TObjBoss2Tunnel__snapshot_state;
@@ -90,7 +86,7 @@ void load_data_buffers(void) {
     }
 }
 
-extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+extern s32 TObjBoss2Tunnel__data_80438A08[];
 
 s32 memcard_check_snapshot(s32 arg0, s32 *arg1) {
     s32 temp_r3;

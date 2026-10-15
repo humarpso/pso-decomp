@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Color_801AAF00 { f32 a, r, g, b; };
 
@@ -62,11 +58,11 @@ extern "C" {
 void TObjPlayer__sub_801AAE6C(void* a0);
 void destroy_global_buffer__10TObjPlayerFv(void);
 void update_all_slots__10TObjPlayerFPv(void *arg0);
-M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK queue_photon_blast_hit(u16, M2C_UNK, M2C_UNK, f32);
-M2C_UNK destroy_buffer_pair(void*, M2C_UNK);
+s32 mark_enemy_body_contacts(void *);
+s32 queue_photon_blast_hit(u16, s32, s32, f32);
+s32 destroy_buffer_pair(void*, s32);
 u32 get_battle_param__10TObjPlayerFi(s32);
-M2C_UNK init_all_slots__10TObjPlayerFv();
+s32 init_all_slots__10TObjPlayerFv();
 u32 obj_getField1c();
 
 extern u32 estlla_photon_blast_model;
@@ -86,7 +82,7 @@ void create_estlla_photon_blast_model(void) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x14);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, M2C_FIELD(M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), void **, 0x98), s32 *, 0x2C), 0));
+        var_r0 = (long) (alloc_tables__6TLobbyFPvii((void *) temp_r3, *(s32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x98)) + 0x2C), 0));
     }
     (*(s32 *)&estlla_photon_blast_model) = var_r0;
 }
@@ -98,11 +94,11 @@ void update_all_slots__10TObjPlayerFPv(void *arg0) {
 
     init_all_slots__10TObjPlayerFv();
     mark_enemy_body_contacts(arg0);
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 0x100000) {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x100000) {
         var_r31 = 0;
         do {
             if (get_battle_param__10TObjPlayerFi(var_r31) != 0U) {
-                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, M2C_FIELD(arg0, f32 *, 0x150));
+                queue_photon_blast_hit((u16) obj_getField1c(), 0, 0, *(f32 *)((s8 *)arg0 + 0x150));
             }
             var_r31 += 1;
         } while (var_r31 < 0x10);

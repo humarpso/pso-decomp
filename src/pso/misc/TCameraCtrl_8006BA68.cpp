@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct E_8006BAC8 { f32 x; f32 y; f32 z; };
 
@@ -76,7 +74,7 @@ void *TCameraCtrl__vt4(void) {
     return o;
 }
 
-extern M2C_UNK lbl_80488B38[];
+extern s32 lbl_80488B38[];
 
 #pragma push
 #pragma fp_contract on
@@ -108,7 +106,7 @@ void update_debug_orbit_camera__11TCameraCtrlFPv(Obj_8006BB1C *arg0) {
 
 void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488B38;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488B38;
         TCameraCtrl__sub_800686BC(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -122,10 +120,7 @@ void *__dt_deleting_3__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
 #include "pso/misc/CameraHelpers.h"
 #include <stddef.h>
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_8006C03C {
     s32 sp8;
@@ -140,12 +135,12 @@ struct Stack_8006C03C {
 };
 
 struct RecoveredGlobal_8006C03C_lbl_804383E0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8006C03C_lbl_804FF5E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -170,17 +165,17 @@ struct RecoveredFields_8006C03C_lbl_805D4DF0 {
 };
 
 struct RecoveredGlobal_8006C140_camera_controller_registry {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x64];
 };
 
 struct RecoveredGlobal_8006C140_lbl_80488C50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x11C];
 };
 
 struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3C];
 };
 
@@ -226,11 +221,6 @@ extern const f32 lbl_805D9020;
 void VecCopy__FP3VecPC3Vec(Vec*, const Vec*);
 u16 TCameraCtrl__sub_8006A5DC();
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 f32 fabs_float(f32);
@@ -374,19 +364,19 @@ void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
     stack.sp20 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_184;
     stack.sp24 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_188;
     stack.sp28 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_18C;
-    stack.sp8 = M2C_FIELD(&lbl_804383E0.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804383E0.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804383E0.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804383E0.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804383E0.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804383E0.value) + 8);
     set_camera_look_at((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
-    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
-    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;
-    M2C_FIELD(&lbl_804FF5E8.value, f32 *, 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_180;
+    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
+    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;
+    *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 8) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_180;
 }
 #pragma pop
 
 void cache_target_and_forward__11TCameraCtrlFii(s32 arg0, s32 arg1) {
     if ((void *) camera_ctrl_instance != NULL) {
-        TCameraCtrl__saved_projection_angle = M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C);
+        TCameraCtrl__saved_projection_angle = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
         scripted_camera_projection_angle = arg1;
     }
     configure_scripted_camera_playback((u8 *)(arg0), (s32)(arg1));

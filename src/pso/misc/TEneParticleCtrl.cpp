@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80338C88_lbl_804EF458 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80338C88___vt__16TEneParticleCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
@@ -26,7 +22,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern RecoveredGlobal_80338C88_lbl_804EF458 lbl_804EF458;
-extern M2C_UNK __vt__16TEneParticleCtrl[];
+extern s32 __vt__16TEneParticleCtrl[];
 extern s32 TEneParticleCtrl__name;
 u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *get_array_entry__20TWindowSubStatusDispFPvi(void *, s16);
@@ -52,12 +48,12 @@ int set_param_ptr__11TBoss4Type2FPvi(void*);
 void set_param__16TEneParticleCtrlFPv(void* p) { void* m = *(void**)((char*)p + 0xc0); if (m) set_param_ptr__11TBoss4Type2FPvi(m); }
 void free_particle_ctrl__16TEneParticleCtrlFPv(void* p) { void* m = *(void**)((char*)p + 0xc0); if (m) enable__13TParticleCtrlFPv(m); }
 
-extern M2C_UNK __vt__16TEneParticleCtrl[];
+extern s32 __vt__16TEneParticleCtrl[];
 
 void *__dt__16TEneParticleCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TEneParticleCtrl;
-        if (M2C_FIELD(arg0, void **, 0xC0) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0xC0)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TEneParticleCtrl;
+        if (*(void **)((s8 *)arg0 + 0xC0) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0xC0)); }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
@@ -74,20 +70,20 @@ u8 *TEneParticleCtrl__ct(u8 *arg0, s32 arg1, s32 arg2) {
     u32 temp_r3;
     u8 *temp_r4;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80338C88___vt__16TEneParticleCtrl *)&__vt__16TEneParticleCtrl).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TEneParticleCtrl__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80338C88___vt__16TEneParticleCtrl *)&__vt__16TEneParticleCtrl).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TEneParticleCtrl__name;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804EF458.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-    M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) & 0xFFFFFFFE);
-    M2C_FIELD(arg0, u16 *, 0xAC) = obj_getField1c((void *) (arg1));
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) & 0xFFFFFFFE);
+    *(u16 *)((s8 *)arg0 + 0xAC) = obj_getField1c((void *) (arg1));
     set_position_from__14TBoss4DarkFalzFPvPv((void *) (arg0), (void *) (arg1 + 0x74));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg1 + 0x2FC));
-    M2C_FIELD(arg0, s32 *, 0xB0) = arg2;
-    M2C_FIELD(arg0, u32 *, 0xC0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (M2C_FIELD(arg0, s32 *, 0xB0)), (int) (0x10));
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0xC0);
+    *(s32 *)((s8 *)arg0 + 0xB0) = arg2;
+    *(u32 *)((s8 *)arg0 + 0xC0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xB4), (int) (*(s32 *)((s8 *)arg0 + 0xB0)), (int) (0x10));
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0xC0);
     if (temp_r3 != 0U) {
-        set_owner_id__13TParticleCtrlFPvUs((int) (temp_r3), (int) (M2C_FIELD(arg0, u16 *, 0x1C)));
+        set_owner_id__13TParticleCtrlFPvUs((int) (temp_r3), (int) (*(u16 *)((s8 *)arg0 + 0x1C)));
     }
     return arg0;
 }

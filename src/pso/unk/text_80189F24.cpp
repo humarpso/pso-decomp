@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8018A0B4 { char pad[0x18]; };
 struct VObj_8018A0B4 : Base_8018A0B4 {
     virtual void m0();
@@ -108,7 +105,7 @@ struct VObj_18 : VBase_18 {
     virtual void m75();
     virtual void m76();
     virtual void m77();
-    virtual M2C_UNK m78();
+    virtual s32 m78();
 };
 
 struct SubBase_80189F24 { u8 pad[0x14]; };
@@ -219,11 +216,11 @@ struct Obj_80189F24 : VBase_80189F24 {
 };
 
 extern "C" {
-M2C_UNK step_laser_fence_fade(void *);
+s32 step_laser_fence_fade(void *);
 void step_laser_fence__10TObjPlayerFPv(u8 *arg0);
 f32 xyz_distance_squared(void *, void *);
 s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
-M2C_UNK send_object_state_update(void *, void *);
+s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
 extern f32 lbl_805DBCF4;
 f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0);
@@ -259,12 +256,12 @@ void render__17TObjContainerBaseFPv(Obj_80189F24 *self) {
 void step_laser_fence__10TObjPlayerFPv(u8 *arg0) {
     step_laser_fence_fade((void *) (arg0 + 0x340));
     ((VObj_18 *)(arg0))->m78();
-    M2C_FIELD(arg0, s32 *, 0x364) = 0;
+    *(s32 *)((s8 *)arg0 + 0x364) = 0;
 }
 
 f32 receive_physical_hit__17TObjContainerBaseFPv(u8 *arg0) {
     s16 sp8;
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0)) {
         sp8 = 1;
         access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
         send_object_state_update((void *) (arg0), (void *) (&sp8));
@@ -283,7 +280,7 @@ f32 receive_technique_hit__17TObjContainerBaseFPviPv(void *arg0, s32 arg1, s32 *
     return lbl_805DBCF4;
 }
 s32 is_within_range__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x33C);
+    return xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x33C);
 }
 
 }

@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredFields_801DF394_arg0
 {
   s32 field_0;
@@ -91,7 +86,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 void fn_801DF7F8(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -110,7 +105,7 @@ void clear_keyboard_key_state(void);
 void fn_801DF7F8(void* p);
 void fn_801DF874(void* p);
 s32 bswap__16TPlyGuildCardTagFv(s32);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -269,9 +264,9 @@ void fn_801DF7F8(void* p) { fn_801DF740((void*)(p)); }
 int bswap_packet_header_cmd_b1(void* p) { return bswap__13packet_headerFv(p); }
 
 void bswap_save_packet(s32 arg0) {
-    ((M2C_UNK)bswap__13packet_headerFv((void*)(arg0)));
-    ((M2C_UNK)bswap_32__FPUl((void*)(arg0 + 4)));
-    ((M2C_UNK)bswap_32__FPUl((void*)(arg0 + 8)));
+    ((s32)bswap__13packet_headerFv((void*)(arg0)));
+    ((s32)bswap_32__FPUl((void*)(arg0 + 4)));
+    ((s32)bswap_32__FPUl((void*)(arg0 + 8)));
 }
 
 void fn_801DF874(void* p) { bswap__13packet_headerFv((void*)(p)); bswap__16TPlyGuildCardTagFv((s32)((char*)p + 0x4)); }

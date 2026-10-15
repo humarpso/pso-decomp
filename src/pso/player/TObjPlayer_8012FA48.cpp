@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -11,11 +9,11 @@ void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 void set_effect_state__10TObjPlayerFPvi(void *, int);
 
-extern M2C_UNK lbl_804A65E0[];
+extern s32 lbl_804A65E0[];
 
 void *initialize_effect_object__10TObjPlayerFPv(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A65E0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A65E0;
     construct_target_cursor_records__10TObjPlayerFi((void *)((char *)arg0 + 516));
     set_flags__10TObjPlayerFPvUi((void *)((char *)arg0 + 376), 32);
     set_status_flags__10TObjPlayerFPvUi(arg0, 34);

@@ -6,7 +6,6 @@ struct Vec2_80275DE8 { f32 x, y; };
 
 struct Win_80275F90 { u8 pad[0x66]; s16 f66; };
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct Rect_80275DE8 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
@@ -63,17 +62,17 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
     Rect_80275DE8 r;
     Vec2_80275DE8 *t;
     f32 scale;
-    if (M2C_FIELD(arg0, s32 *, 0x30) < 0) {
+    if (*(s32 *)((s8 *)arg0 + 0x30) < 0) {
         return;
     }
     t = &lbl_8044F760[arg2 & 0xF];
-    scale = lbl_805DD550 / (lbl_805DD554 * farg0 + M2C_FIELD(arg0, f32 *, 0x38));
+    scale = lbl_805DD550 / (lbl_805DD554 * farg0 + *(f32 *)((s8 *)arg0 + 0x38));
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     set_draw_texture_and_color(0xC, -1);
-    r.x0 = arg1->x + M2C_FIELD(arg0, f32 *, 0x10);
-    r.y0 = arg1->y + M2C_FIELD(arg0, f32 *, 0x14);
+    r.x0 = arg1->x + *(f32 *)((s8 *)arg0 + 0x10);
+    r.y0 = arg1->y + *(f32 *)((s8 *)arg0 + 0x14);
     r.x1 = 72.32f + r.x0;
     r.y1 = 72.32f + r.y0;
     r.u0 = t->x / 256.0f;

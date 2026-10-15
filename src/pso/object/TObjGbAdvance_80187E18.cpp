@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VObjBase { char pad[0x18]; };
 struct VObj : VObjBase {
     virtual void m0();
@@ -19,14 +16,14 @@ struct VObj : VObjBase {
 extern "C" {
 
 void render__13TObjGbAdvanceFv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object();
-M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-M2C_UNK get_bml_model(s32, M2C_UNK);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi();
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object();
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi();
 
 extern s32 TObjGbAdvance__data_805D5B74;
 extern const f32 lbl_805DBCDC;
@@ -38,7 +35,7 @@ void render__13TObjGbAdvanceFv(u8 *arg0) {
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         get_bml_model(TObjGbAdvance__data_805D5B74, 0);
         draw_ginja_object();
         get_bml_model(TObjGbAdvance__data_805D5B74, 1);

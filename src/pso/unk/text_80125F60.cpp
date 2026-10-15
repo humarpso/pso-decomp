@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80125FD8_lbl_804A2868 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
@@ -14,11 +10,11 @@ struct Obj_80125FB8 { u8 pad[0x1f8]; s32 a; };
 struct Out_80125FB8 { u8 pad0[0x10]; s32 f10; u8 pad1[0x74 - 0x14]; void *f74; s32 f78; };
 
 extern "C" {
-u8 * TObjPlayer__sub_80125F24(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * TObjPlayer__sub_80125F24(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_obj_80125F60__10TObjPlayerFPv(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80126054(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -57,13 +53,13 @@ void TObjPlayer__sub_80125FB8(Obj_80125FB8 *self, Out_80125FB8 *o) {
 
 u8 *TObjPlayer__sub_80125FD8(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A2868.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2868.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x8000);
-    M2C_FIELD(arg0, f32 *, 0x1E4) = (f32) lbl_805DAD68;
+    *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD68;
     if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 0xA;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
     }
     return arg0;
 }

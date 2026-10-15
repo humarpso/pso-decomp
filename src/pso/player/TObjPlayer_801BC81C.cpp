@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -23,25 +19,22 @@ int is_script_controlled__10TObjPlayerFPv(void*);
 s32 apply_state_transform__10TObjPlayerFUi(s32);
 int can_cast_technique__10TObjPlayerFPv(void* p);
 int check_technique_castable__10TObjPlayerFi(void*);
-M2C_UNK enter_battle_state__10TObjPlayerFPv(void *);
+s32 enter_battle_state__10TObjPlayerFPv(void *);
 s32 is_current_room__10TObjRoomIdFPv(s32);
 s32 is_final_phase__10TObjPlayerFv();
 s32 obj_isState2_324();
 int queue_destruction__7TObjectFv(void*);
 s32 set_flag_400000__10TObjPlayerFPv(s32);
-M2C_UNK set_flag_400000__10TObjPlayerFi(void *);
+s32 set_flag_400000__10TObjPlayerFi(void *);
 void update_child__10TObjPlayerFPvPv(void *, void *);
 void update_if_active__10TObjPlayerFPv(void* p);
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 void init_battle__10TObjPlayerFi(s32 arg0) {
-    ((M2C_UNK (*)())TObjPlayer__sub_801BC8F0)();
+    ((s32 (*)())TObjPlayer__sub_801BC8F0)();
     set_flag_400000__10TObjPlayerFi((void *) (arg0));
     enter_battle_state__10TObjPlayerFPv((void *) (arg0 + 0x634));
 }
@@ -49,12 +42,9 @@ void init_battle__10TObjPlayerFi(s32 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-extern M2C_UNK update_photon_chair__10TObjPlayerFi[];
+extern s32 update_photon_chair__10TObjPlayerFi[];
 }
 
 extern "C" {
@@ -76,11 +66,6 @@ void destroy_owned_object__10TObjPlayerFPv(void* p) { if (*(unsigned int*)((char
 }
 
 #include "types.h"
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct E12_801BC948 { u8 b[12]; } E12_801BC948;
 
@@ -105,9 +90,9 @@ typedef struct Player_801BC948 {
 
 extern "C" {
 s32 obj_getField1c(void *);
-M2C_UNK TObjPlayer__sub_801BF9E0(void *, int);
-M2C_UNK TObjPlayer__sub_801C2244(void *, void *);
-M2C_UNK update_follow_particle__10TObjPlayerFii(void *, void *);
+s32 TObjPlayer__sub_801BF9E0(void *, int);
+s32 TObjPlayer__sub_801C2244(void *, void *);
+s32 update_follow_particle__10TObjPlayerFii(void *, void *);
 s32 get_class_index__10TObjPlayerFPv(void *);
 void TObjPlayer__sub_801BEF44(void *, void *);
 void TObjPlayer__sub_801C1F78(void *, s32);

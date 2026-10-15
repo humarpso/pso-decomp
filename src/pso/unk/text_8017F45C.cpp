@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
-struct RecoveredGlobal_8017F45C_lbl_804B5830 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8017F45C_lbl_804B5830 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017F45C_lbl_804B5830_size[sizeof(RecoveredGlobal_8017F45C_lbl_804B5830) == 0x10 ? 1 : -1];
 
 struct R_8017F52C { s32 a; u8 pad[0x14]; };
 
 struct O_8017F52C { u8 pad[0x100]; R_8017F52C recs[8]; };
 
-typedef s32 M2C_UNK;
 struct Entry_8017F4AC { u8 vec[0xC]; f32 time; void *obj; u32 done; };
 
 struct Self_8017F4AC { u8 pad[0xB0]; f32 t; u8 padb4[0xEC - 0xB4]; Entry_8017F4AC e[8]; };
@@ -32,7 +28,7 @@ extern RecoveredGlobal_8017F45C_lbl_804B5830 bm_o_abe_butterfly_resource_descrip
 extern s32 butterfly_bml_resource;
 void fn_8017F45C(void);
 void fn_8017F52C(O_8017F52C *self);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, void *, s32, s32);
 void fn_8017F4AC(Self_8017F4AC *self);
 void fn_8017F5F0(u8 *arg0, u8 *arg1);
 void vec3_add_to(void *, void *);
@@ -62,7 +58,7 @@ void fn_8017F4AC(Self_8017F4AC *self) {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (self->e[i].done == 0 && self->t >= self->e[i].time) {
-            play_sound_effect((M2C_UNK)self->e[i].obj, self->e[i].vec, 0, 0);
+            play_sound_effect((s32)self->e[i].obj, self->e[i].vec, 0, 0);
             self->e[i].done = 1;
         }
     }
@@ -89,10 +85,10 @@ void fn_8017F550(Obj_8017F550 *arg0) {
 }
 
 void fn_8017F5F0(u8 *arg0, u8 *arg1) {
-    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
 }
 
 }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -83,22 +79,21 @@ struct VObj_18 : VBase_18 {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77();
+    virtual s32 m77();
 };
 
 struct RecoveredGlobal_801889B8_lbl_804B63BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x158];
 };
 
 struct RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
 struct Obj_80188C8C { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
 
-typedef s32 M2C_UNK;
 struct Spawn_80188B3C {
     u8 pad0[0xC];
     f32 x, y, z;
@@ -113,16 +108,16 @@ struct Spawn_80188B3C {
 struct Obj_80188B3C { u8 pad[0x38]; f32 x, y, z; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 spawn_item__17TObjContainerItemFPvi(void *, void *);
+s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * init_container_base(void *, s32);
 extern RecoveredGlobal_801889B8_lbl_804B63BC forest_box_collision_body_parts;
-extern M2C_UNK __vt__21TObjContainerAbeEnemy[];
+extern s32 __vt__21TObjContainerAbeEnemy[];
 extern s32 TObjContainerAbeEnemy__name;
 u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1);
 s32 set_global_param__8TObjFishFi(s32);
@@ -135,9 +130,9 @@ s32 pop_matrix();
 extern void *container_breakup_model_archive;
 extern s32 lbl_805D5B8C;
 void TObjContainerBase__vt79(Obj_80188C8C *self);
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
-M2C_UNK play_container_break_sound(void *);
+s32 spawn_particle_effect_with_flags(void *, int, int);
+s32 construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
+s32 play_container_break_sound(void *);
 void dispatch_fish_event__6TLobbyFPv(void *a0);
 extern s32 lbl_805D5B8C;
 void *__nw__7TObjectFUl(int);
@@ -153,20 +148,20 @@ void TObjContainerAbeEnemy__vt78(void *arg0);
 void *TObjContainerBase__create(void *arg0);
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1);
 void *TObjContainerBase__ct(void *, void *, void *);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 submit_cursor_candidate(void *, s32);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
 
 void TObjContainerAbeEnemy__vt78(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
             submit_cursor_candidate(arg0, -1);
         }
     case 1:
@@ -174,12 +169,12 @@ void TObjContainerAbeEnemy__vt78(void *arg0) {
     }
 }
 
-extern M2C_UNK __vt__21TObjContainerAbeEnemy[];
+extern s32 __vt__21TObjContainerAbeEnemy[];
 
 void *__dt__21TObjContainerAbeEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TObjContainerAbeEnemy;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjContainerAbeEnemy;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -195,15 +190,15 @@ typedef char RecoveredGlobal_801889B8_lbl_804B63BC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy_size[sizeof(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy) == 0x14C ? 1 : -1];
 u8 *TObjContainerAbeEnemy__ct(u8 *arg0, s32 arg1) {
     init_container_base(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy *)&__vt__21TObjContainerAbeEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerAbeEnemy__name;
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801889B8___vt__21TObjContainerAbeEnemy *)&__vt__21TObjContainerAbeEnemy).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerAbeEnemy__name;
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts(arg0, (s32) &forest_box_collision_body_parts.value, 1);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2FC, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&forest_box_collision_body_parts.value, f32 *, 4));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
     return arg0;
 }
 
@@ -221,12 +216,12 @@ void TObjContainerBase__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
             spawn_item__17TObjContainerItemFPvi((void *) (arg0), (void *) (arg0));
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
-            M2C_FIELD(arg0, s16 *, 0x326) = 1;
+            *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }
 }
 

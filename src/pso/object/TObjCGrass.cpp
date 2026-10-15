@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rec_800B8B08 { u8 vec[0x18]; s32 f18; u32 flags; };
 
@@ -70,28 +66,28 @@ s32 pop_matrices(int);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_model_motion(int, int, f32);
 void render__10TObjCGrassFv(Obj_800B8B08 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
 u8 *csnVectorUnder(void *, void *, int);
-M2C_UNK vec3_add_to(void *, void *);
+s32 vec3_add_to(void *, void *);
 extern s32 actor_frame_tick;
 extern const f32 lbl_805D9E60;
 extern const f32 TObjCGrass__data_805D9E64;
 void run_task__10TObjCGrassFv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK register_object__10TObjPlayerFi(void *);
-M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 register_object__10TObjPlayerFi(void *);
+s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 u8 *csnVectorUnder(void *, void *, int);
-M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
-M2C_UNK TObjMotion__ct(void *, s32);
+s32 set_animation__10TObjPlayerFPvs(void *, int);
+s32 TObjMotion__ct(void *, s32);
 s32 alloc_buffer__11TOBoss4RockFPv(int);
 s32 rand(void);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
 s32 pop_matrices(int);
-extern M2C_UNK lbl_80492510[];
-extern M2C_UNK __vt__10TObjCGrass[];
+extern s32 lbl_80492510[];
+extern s32 __vt__10TObjCGrass[];
 extern u8 identity_matrix[];
 extern s32 lbl_805D2A28;
 extern u32 TObjCGrass_bml_resource;
@@ -121,25 +117,25 @@ struct Stack_800B8DC4 {
     s32 sp10;
     s32 sp14;
 };
-u8 *load_resource_from_descriptor(void *, s32, M2C_UNK *, s32, s32, s32);
-u8 *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+u8 *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
+u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 check_v2_mode__9TObjEneDDFv();
-u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
+u8 *load_enemy_bml_resource_named(s32 *, s32 *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 struct RecoveredGlobal_800B8DC4_lbl_8043B628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_8043B628_size[sizeof(RecoveredGlobal_800B8DC4_lbl_8043B628) == 0x10 ? 1 : -1];
 extern RecoveredGlobal_800B8DC4_lbl_8043B628 lbl_8043B628;
 struct RecoveredGlobal_800B8DC4_lbl_8043B638 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_8043B638_size[sizeof(RecoveredGlobal_800B8DC4_lbl_8043B638) == 0x14 ? 1 : -1];
 extern RecoveredGlobal_800B8DC4_lbl_8043B638 lbl_8043B638;
 struct RecoveredGlobal_800B8DC4_lbl_80492500 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_80492500_size[sizeof(RecoveredGlobal_800B8DC4_lbl_80492500) == 0x10 ? 1 : -1];
@@ -235,21 +231,21 @@ void load_resources__10TObjCGrassFv(void) {
         }
         TObjCGrass_bml_resource = (u32) var_r0;
     }
-    stack.sp8 = M2C_FIELD(&lbl_8043B628.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043B628.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8043B628.value, s32 *, 8);
-    stack.sp14 = M2C_FIELD(&lbl_8043B628.value, s32 *, 0xC);
-    stack.sp8 = M2C_FIELD(TObjCGrass_bml_resource, s32 *, 0x430);
-    temp_r5 = (u8 *)(M2C_FIELD(TObjCGrass_bml_resource, u8 **, 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x36), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043B628.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)TObjCGrass_bml_resource + 0x430);
+    temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x36), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
 }
 
-extern M2C_UNK __vt__10TObjCGrass[];
+extern s32 __vt__10TObjCGrass[];
 
 void *__dt__10TObjCGrassFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjCGrass;
-        if (M2C_FIELD(arg0, void **, 0xFC) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xFC)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCGrass;
+        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xFC)); }
         __dt__10TObjMotionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

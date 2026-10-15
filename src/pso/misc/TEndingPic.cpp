@@ -1,10 +1,7 @@
 #include "pso/TEndingPic.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_803530C4_80352BB8 { char pad[0x18]; };
 struct VObj_803530C4_80352BB8 : Base_803530C4_80352BB8 {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -21,7 +18,7 @@ struct VObj_803530C4_80352BB8 : Base_803530C4_80352BB8 {
     virtual void m44(); virtual void m45(); virtual void m46(); virtual void m47();
 };
 
-struct RecoveredGlobal_80352F6C___vt__10TEndingPic { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_80352F6C___vt__10TEndingPic { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80352F6C___vt__10TEndingPic_size[sizeof(RecoveredGlobal_80352F6C___vt__10TEndingPic) == 0x18 ? 1 : -1];
 
 struct VBase_18_c82b17 { char pad[0x18]; };
@@ -48,7 +45,7 @@ struct VObj_18_c82b17 : VBase_18_c82b17 {
     virtual void m18();
     virtual void m19();
     virtual void m20();
-    virtual M2C_UNK m21(void *, void *, s32, s32, s32);
+    virtual s32 m21(void *, void *, s32, s32, s32);
 };
 
 struct Q_80353018 { s32 x; f32 y; };
@@ -92,14 +89,14 @@ int send_nearby_player_ids(void*, f32);
 s32 add_actor_hp(s32, s32);
 s32 add_actor_tp(s32, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 begin_screen_draw(int);
+s32 set_draw_texture_and_color(int, int);
 s32 get_field_2b8__14TItemProShieldFPv(s32);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
+s32 get_player__20TWindowSubStatusDispFv();
 s32 obj_getS16_2BA(s32);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK update_flag890_state__10TObjPlayerFi(s32);
+s32 set_global_param__8TObjFishFi(s32);
+s32 update_flag890_state__10TObjPlayerFi(s32);
 
 extern s32 TEndingPic__animation_state;
 
@@ -114,51 +111,51 @@ void advance_animation_state__10TEndingPicFPv(void *arg0) {
 
     switch ((s32) TEndingPic__animation_state) {
     case 1:
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3;
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3 > (s32) ((temp_r4 * 3) - temp_r4)) {
             TEndingPic__animation_state = 2;
-            update_flag890_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
+            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
+            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
         }
         break;
     case 2:
-        temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_2;
-        if (temp_r3_2 > (s32) (M2C_FIELD(arg0, s32 *, 0xEC) * 0xD)) {
+        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_2;
+        if (temp_r3_2 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0xD)) {
             TEndingPic__animation_state = 3;
             return;
         }
         break;
     case 3:
-        temp_r3_3 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_3;
-        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0xEC);
+        temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_3;
+        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3_3 > (s32) ((temp_r4_2 * 0xE) - temp_r4_2)) {
             TEndingPic__animation_state = 4;
-            update_flag890_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-            M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + 1);
+            update_flag890_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
+            *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + 1);
             return;
         }
         break;
     case 4:
-        temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x1C) + 1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3_4;
-        if (temp_r3_4 > (s32) (M2C_FIELD(arg0, s32 *, 0xEC) * 0x18)) {
-            M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+        temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x1C) + 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3_4;
+        if (temp_r3_4 > (s32) (*(s32 *)((s8 *)arg0 + 0xEC) * 0x18)) {
+            *(s32 *)((s8 *)arg0 + 0x1C) = 0;
             TEndingPic__animation_state = 1;
-            temp_r0 = M2C_FIELD(arg0, s32 *, 0x28) + 1;
-            M2C_FIELD(arg0, s32 *, 0x28) = temp_r0;
+            temp_r0 = *(s32 *)((s8 *)arg0 + 0x28) + 1;
+            *(s32 *)((s8 *)arg0 + 0x28) = temp_r0;
             if (temp_r0 > 5) {
-                M2C_FIELD(arg0, s32 *, 0x28) = 5;
+                *(s32 *)((s8 *)arg0 + 0x28) = 5;
                 TEndingPic__animation_state = 5;
                 return;
             }
         }
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x28) = 5;
+        *(s32 *)((s8 *)arg0 + 0x28) = 5;
         break;
     }
 }
@@ -173,12 +170,12 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
     case 3:
         break;
     case 2:
-        set_draw_texture_and_color((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 2), (int) (-1));
+        set_draw_texture_and_color((int) ((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 2), (int) (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xAC), (f32) (lbl_805DFEF0));
         break;
     case 4:
     case 5:
-        set_draw_texture_and_color((int) ((M2C_FIELD(arg0, s32 *, 0x28) * 2) + 3), (int) (-1));
+        set_draw_texture_and_color((int) ((*(s32 *)((s8 *)arg0 + 0x28) * 2) + 3), (int) (-1));
         draw_textured_quad_at_depth((void *) (arg0 + 0xCC), (f32) (lbl_805DFEF0));
         break;
     default:
@@ -221,22 +218,22 @@ TEndingPic::~TEndingPic() {}
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TEndingPic.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4378;
-    M2C_FIELD(arg0, s32 *, 0x1C) = -1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TEndingPic.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4378;
+    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
     TEndingPic__animation_state = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0xFF;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
     lbl_805D6EE4 = ((s32)get_ending_ab_wall_texture_list());
     init_positions__10TEndingPicFPv((void*)(arg0));
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xEC) = 0x1E;
+        *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
         break;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xEC) = 0x19;
+        *(s32 *)((s8 *)arg0 + 0xEC) = 0x19;
         break;
     }
     return arg0;
@@ -261,9 +258,9 @@ void set_phase_18__10TEndingPicFPv(void* p) { send_obj_position_event__10TEnding
 void TEndingPic__sub_803530A0(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(17)); }
 
 void update_player_object__10TEndingPicFPv(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
+    void *temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
     if (is_locally_controlled__10TObjPlayerFPv(temp_r3) != 0) {
-        struct VObj_803530C4_80352BB8 *o = (struct VObj_803530C4_80352BB8 *)M2C_FIELD(arg0, void **, 0xF0);
+        struct VObj_803530C4_80352BB8 *o = (struct VObj_803530C4_80352BB8 *)*(void **)((s8 *)arg0 + 0xF0);
         o->m47();
     }
 }
@@ -271,10 +268,10 @@ void update_player_object__10TEndingPicFPv(void *arg0) {
 void TEndingPic__sub_80353110(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(16)); }
 void TEndingPic__sub_80353134(void* p) { send_obj_position_event__10TEndingPicFPvi((T_80353018 *)(p), (s32)(15)); }
 void update_shield__10TEndingPicFPv(void *arg0) {
-    add_actor_hp(M2C_FIELD(arg0, s32 *, 0xF0), get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, s32 *, 0xF0)));
+    add_actor_hp(*(s32 *)((s8 *)arg0 + 0xF0), get_field_2b8__14TItemProShieldFPv(*(s32 *)((s8 *)arg0 + 0xF0)));
 }
 void TEndingPic__sub_80353194(void *arg0) {
-    add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), obj_getS16_2BA(M2C_FIELD(arg0, s32 *, 0xF0)));
+    add_actor_tp(*(s32 *)((s8 *)arg0 + 0xF0), obj_getS16_2BA(*(s32 *)((s8 *)arg0 + 0xF0)));
 }
 
     extern const f32 lbl_805DFF34;

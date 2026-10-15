@@ -30,10 +30,6 @@ void set_flag_8__10TObjPlayerFPv(void* p) { set_status_flags__10TObjPlayerFPvUi(
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3);
 }
@@ -60,8 +56,8 @@ int TObjPlayer__sub_801D2F4C(void*);
 void set_weapon_trail_joints(s32 arg0, s32 arg1, s8 arg2, s8 arg3) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(arg0 + arg1);
-    M2C_FIELD(temp_r3, s8 *, 0x19C) = arg2;
-    M2C_FIELD(temp_r3, s8 *, 0x1A0) = arg3;
+    *(s8 *)((s8 *)temp_r3 + 0x19C) = arg2;
+    *(s8 *)((s8 *)temp_r3 + 0x1A0) = arg3;
 }
 
 }

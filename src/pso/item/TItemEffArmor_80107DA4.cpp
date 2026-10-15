@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80107DA4_lbl_8049EFB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_80107DF0_lbl_8050BEC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_80107DF0_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -23,8 +19,8 @@ extern "C" {
 u16 obj_getField1c(void *);
 void queue_destruction__7TObjectFv(void *);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK publish_actor_light_scalars(int, f32, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 publish_actor_light_scalars(int, f32, f32);
 extern const f32 TItemEffArmor__data_805DAAEC;
 extern const f32 lbl_805DAAF0;
 extern const f32 lbl_805DAAF4;
@@ -34,13 +30,13 @@ extern RecoveredGlobal_80107DA4_lbl_8049EFB8 lbl_8049EFB8;
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_model_with_motion(int, int, f32);
-M2C_UNK set_chunk_material_color(void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 draw_ginja_model_with_motion(int, int, f32);
+s32 set_chunk_material_color(void *);
 extern RecoveredGlobal_80107DF0_lbl_8050BEC0 saved_model_draw_color;
 extern RecoveredGlobal_80107DF0_lbl_8058D4C0 model_material_color;
 extern s32 lbl_805D5660;
@@ -54,9 +50,9 @@ extern "C" {
 typedef char RecoveredGlobal_80107DA4_lbl_8049EFB8_size[sizeof(RecoveredGlobal_80107DA4_lbl_8049EFB8) == 0x18 ? 1 : -1];
 u8 *fn_80107DA4(u8 *arg0, u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_8049EFB8.value;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg2;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_8049EFB8.value;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s16 *)((s8 *)arg0 + 0x20) = arg2;
     return arg0;
 }
 
@@ -66,15 +62,15 @@ void render__13TItemEffArmorFv(u8 *arg0) {
     f32 temp_f1;
     push_matrix();
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x2C));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x68)));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28);
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x68)));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x28);
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (TItemEffArmor__data_805DAAEC), (f32) (temp_f1));
     lbl_805D5660 = model_render_flags;
     model_render_flags |= 0x10;
     copy_vec4__13TRaderMapCoreFPvPv(&saved_model_draw_color.value, &model_material_color.value);
     set_chunk_material_color((void *) ((u8 *)(arg0) + 0x38));
-    notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x78));
-    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (f32) (M2C_FIELD(arg0, f32 *, 0x24)));
+    notify_fish_if_valid__10TObjPlayerFUi(*(u32 *)((s8 *)arg0 + 0x78));
+    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (f32) (*(f32 *)((s8 *)arg0 + 0x24)));
     copy_vec4__13TRaderMapCoreFPvPv(&model_material_color.value, &saved_model_draw_color.value);
     model_render_flags = lbl_805D5660;
     pop_matrix();
@@ -84,29 +80,29 @@ void run_task__13TItemEffArmorFv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     u8 *temp_r4;
-    M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 0x139D);
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6C));
+    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 0x139D);
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
     if (temp_r4 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (temp_r4 + 0x38));
     }
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x30) + ((M2C_FIELD(arg0, f32 *, 0x24) * M2C_FIELD(arg0, f32 *, 0x58)) / lbl_805DAAF0));
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + ((*(f32 *)((s8 *)arg0 + 0x24) * *(f32 *)((s8 *)arg0 + 0x58)) / lbl_805DAAF0));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
         copy_pos__11TNowLoadingFPvPv(temp_r3, arg0 + 0x2C);
     }
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) (TItemEffArmor__data_805DAAEC - (M2C_FIELD(arg0, f32 *, 0x24) / lbl_805DAAF0));
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x6C));
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) (TItemEffArmor__data_805DAAEC - (*(f32 *)((s8 *)arg0 + 0x24) / lbl_805DAAF0));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x6C));
     if (temp_r3_2 != NULL) {
-        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (M2C_FIELD(arg0, f32 *, 0x60)), (f32) (M2C_FIELD(arg0, f32 *, 0x5C)));
+        publish_actor_light_scalars((int) (obj_getField1c(temp_r3_2)), (f32) (*(f32 *)((s8 *)arg0 + 0x60)), (f32) (*(f32 *)((s8 *)arg0 + 0x5C)));
     }
-    if (M2C_FIELD(arg0, f32 *, 0x5C) >= TItemEffArmor__data_805DAAEC) {
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (lbl_805DAAF4 * M2C_FIELD(arg0, f32 *, 0x64));
+    if (*(f32 *)((s8 *)arg0 + 0x5C) >= TItemEffArmor__data_805DAAEC) {
+        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (lbl_805DAAF4 * *(f32 *)((s8 *)arg0 + 0x64));
     }
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) (M2C_FIELD(arg0, f32 *, 0x5C) + M2C_FIELD(arg0, f32 *, 0x64));
-    if (lbl_805DAAF0 == M2C_FIELD(arg0, f32 *, 0x24)) {
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + *(f32 *)((s8 *)arg0 + 0x64));
+    if (lbl_805DAAF0 == *(f32 *)((s8 *)arg0 + 0x24)) {
         queue_destruction__7TObjectFv(arg0);
     }
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + TItemEffArmor__data_805DAAEC);
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + TItemEffArmor__data_805DAAEC);
 }
 
 }

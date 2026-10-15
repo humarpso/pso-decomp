@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Vec_8013BF0C { f32 x, y, z; } Vec_8013BF0C;
 
@@ -16,7 +12,7 @@ struct Best_8013C288 { s32 index; u8 pad4[2]; u16 id; u8 pad8[4]; f32 dist; };
 
 extern "C" {
 u8 * csnVector(s32, s32, s32);
-void init_target_vector__11TMainCursorFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
+void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void update_scale__15TObjBoss2TunnelFPv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -38,20 +34,20 @@ s32 obj_testFlags30(void *, s32);
 s32 obj_getField1c(void *);
 s32 target_in_vertical_cone(Vec_8013BF0C *p, Vec_8013BF0C *q, s32 yaw, f32 range, f32 dist);
 s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw, f32 range, f32 dist);
-void init_target_vector__11TMainCursorFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
+void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_body_exclude_mask__11TMainCursorFPv(void *);
 s32 get_body_include_mask__11TMainCursorFPv(void *);
 s32 get_actor_exclude_mask__11TMainCursorFPv(void *);
 s32 get_actor_include_mask__11TMainCursorFPv(void *);
-M2C_UNK set_cursor_id__11TMainCursorFPvs(M2C_UNK, int);
-M2C_UNK set_field2__11TMainCursorFPvs(M2C_UNK, s16);
-M2C_UNK set_size__11TMainCursorFPvf(f32);
-M2C_UNK TMainCursor__sub_8013F13C(void *);
-f32 TMainCursor__sub_8013F14C(M2C_UNK);
-M2C_UNK get_record_at__11TMainCursorFPvi(void *, int);
+s32 set_cursor_id__11TMainCursorFPvs(s32, int);
+s32 set_field2__11TMainCursorFPvs(s32, s16);
+s32 set_size__11TMainCursorFPvf(f32);
+s32 TMainCursor__sub_8013F13C(void *);
+f32 TMainCursor__sub_8013F14C(s32);
+s32 get_record_at__11TMainCursorFPvi(void *, int);
 s32 TMainCursor__sub_8013F168(void *);
 f32 horizontal_distance_squared(void *, void *);
-M2C_UNK set_flag_bit__11TMainCursorFPviUs(void *, int, int);
+s32 set_flag_bit__11TMainCursorFPviUs(void *, int, int);
 s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -68,21 +64,21 @@ void reset_slots__11TMainCursorFi(s32 arg0);
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 int check_type_and_enabled__11TMainCursorFPvPvPv(void* p);
 struct Ent_8013C678 { u32 id; f32 key; };
-M2C_UNK fn_8004438C(void *);
-M2C_UNK store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 *);
+s32 fn_8004438C(void *);
+s32 store_sorted_record__11TMainCursorFPvPvPv(s32, Ent_8013C678 *, Ent_8013C678 *);
 s32 quick_sort_partition__11TMainCursorFiPvii(s32 self, Ent_8013C678 *a, s32 lo, s32 hi);
 s32 is_channel_active__11TMainCursorFPv();
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1 = 0, void* a2 = 0);
 int init_slot__11TMainCursorFPvi(void*, void*);
 u8 TMainCursor__sub_8013E900(s32);
-M2C_UNK get_record_at__11TMainCursorFPvi(void *, int);
-M2C_UNK TMainCursor__sub_8013F170(void *, int);
-M2C_UNK fn_80044330(s32);
+s32 get_record_at__11TMainCursorFPvi(void *, int);
+s32 TMainCursor__sub_8013F170(void *, int);
+s32 fn_80044330(s32);
 u8 get_active__11TMainCursorFPv(s32);
 s32 get_selected_entry__11TMainCursorFPv(s32);
-M2C_UNK reset_slot__11TMainCursorFPv(s32);
-M2C_UNK set_cursor_id__11TMainCursorFPvs(M2C_UNK, int);
-M2C_UNK set_size__11TMainCursorFPvf(f32);
+s32 reset_slot__11TMainCursorFPv(s32);
+s32 set_cursor_id__11TMainCursorFPvs(s32, int);
+s32 set_size__11TMainCursorFPvf(f32);
 
 s32 try_move__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (is_channel_active__11TMainCursorFPv() != 0) {
@@ -177,7 +173,7 @@ s32 target_in_xz_cone(Vec_8013C0A0 *p, Vec_8013C0A0 *q, Vec_8013C0A0 *r, s32 yaw
 }
 #pragma pop
 
-void init_target_vector__11TMainCursorFiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void init_target_vector__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2) {
     csnVector(arg2, arg1, 0x28A0);
 }
 
@@ -269,7 +265,7 @@ s32 try_add_target_candidate__11TMainCursorFPvPvPvPv(u8 *cursor, u8 *player, u8 
             slot = TMainCursor__sub_8013F168(cursor + 0x40);
             TMainCursor__sub_8013F13C(cursor + 0x40);
         }
-        ((void (*)(M2C_UNK, f32))set_size__11TMainCursorFPvf)(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), dist);
+        ((void (*)(s32, f32))set_size__11TMainCursorFPvf)(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), dist);
         set_field2__11TMainCursorFPvs(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), i);
         set_cursor_id__11TMainCursorFPvs(get_record_at__11TMainCursorFPvi(cursor + 0x40, slot), obj_getField1c(player));
         found = 1;
@@ -282,7 +278,7 @@ void reset_cursor_parts__11TMainCursorFPv(u8 *arg0) {
 
     TMainCursor__sub_8013F170((void *) (arg0 + 0x40), (int) (0));
     var_r30 = 0;
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) TMainCursor__data_805DB0C0;
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) TMainCursor__data_805DB0C0;
     do {
         get_record_at__11TMainCursorFPvi((void *) (arg0 + 0x40), (int) (var_r30));
         set_size__11TMainCursorFPvf((f32) (TMainCursor__data_805DB0C0));

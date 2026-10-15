@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Vec_801AC36C { f32 x, y, z; } Vec_801AC36C;
 
@@ -32,7 +28,6 @@ struct Laser_801AC36C {
     s16 f370;
 };
 
-typedef s32 M2C_UNK;
 struct Laser_801AC17C {
     s32 f0;
     u8 pad4[0x18 - 4];
@@ -54,10 +49,10 @@ extern "C" {
 void construct_actor_base__10TObjPlayerFPvPv(void *, void *);
 Vec_801AC36C *VecCopy__FP3VecPC3Vec(Vec_801AC36C *, const Vec_801AC36C *);
 s32 create_particle_emitter(Vec_801AC36C *, s32);
-extern M2C_UNK __vt__12TPhotonLaser[];
+extern s32 __vt__12TPhotonLaser[];
 extern s32 lbl_805D34F0;
 Laser_801AC36C *TPhotonLaser__ct(Laser_801AC36C *self, Params_801AC36C *p, void *parent, s16 arg3);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void spawn_particle_effect(void *, s32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void *find_entity_by_id(u16);
@@ -81,17 +76,17 @@ void TObjPlayer__sub_801AC440(void);
 void TObjPlayer__sub_801AC444(void* a0);
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1);
 void render__12TPhotonLaserFv(void);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
 int begin_effect_render__13TParticleCtrlFv(void);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 int end_effect_render__13TParticleCtrlFv(void);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void render__12TPhotonLaserFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
-extern M2C_UNK __vt__12TPhotonLaser[];
+extern s32 __vt__12TPhotonLaser[];
 
 void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
     Vec_801AC36C in;
@@ -134,12 +129,12 @@ void run_task__12TPhotonLaserFv(Laser_801AC17C *o) {
 
 void *__dt__12TPhotonLaserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TPhotonLaser;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TPhotonLaser;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x364) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x364));
-            M2C_FIELD(arg0, u32 *, 0x364) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x364) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x364));
+            *(u32 *)((s8 *)arg0 + 0x364) = 0U;
         }
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

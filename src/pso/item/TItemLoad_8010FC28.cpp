@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8010FCB4_lbl_8049F42C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 extern "C" {
 s32 test_flags_any(void *, int);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK TItemLoad__sub_80110010(void *, int);
+s32 __dl__FPv(void *);
+s32 TItemLoad__sub_80110010(void *, int);
 extern RecoveredGlobal_8010FCB4_lbl_8049F42C lbl_8049F42C;
 extern s32 item_load_work_buffer_busy;
 u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
@@ -21,10 +17,10 @@ u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1);
 extern "C" {
 
 void advance_load_state__9TItemLoadFPv(u8 *arg0);
-M2C_UNK request_load__9TItemLoadFPvi(void *, void *);
+s32 request_load__9TItemLoadFPvi(void *, void *);
 u32 load_data__9TItemLoadFPvi(void *, int);
-M2C_UNK TItemLoad__sub_801107DC(void *);
-M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
+s32 TItemLoad__sub_801107DC(void *);
+s32 set_flags__10TObjPlayerFPvUi(void *, int);
 s32 test_flags_any(void *, int);
 
 extern s32 item_load_compressed_work_buffer;
@@ -39,17 +35,17 @@ void advance_load_state__9TItemLoadFPv(u8 *arg0) {
         }
     } else {
 block_3:
-        if (load_data__9TItemLoadFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x20))) != 0U) {
+        if (load_data__9TItemLoadFPvi((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x20))) != 0U) {
             TItemLoad__sub_801107DC((void *) (arg0));
             request_load__9TItemLoadFPvi((void *) (arg0), (void *) (item_load_compressed_work_buffer));
-            M2C_FIELD(arg0, s32 *, 0x18) = 2;
+            *(s32 *)((s8 *)arg0 + 0x18) = 2;
         }
     }
 }
 typedef char RecoveredGlobal_8010FCB4_lbl_8049F42C_size[sizeof(RecoveredGlobal_8010FCB4_lbl_8049F42C) == 0x10 ? 1 : -1];
 u8 *TItemLoad__sub_8010FCB4(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x14) = &lbl_8049F42C.value;
+        *(s32 **)((s8 *)arg0 + 0x14) = &lbl_8049F42C.value;
         if (test_flags_any((void *) (arg0 + 0x1C), (int) (4)) != 0) {
             item_load_work_buffer_busy = 0;
         }

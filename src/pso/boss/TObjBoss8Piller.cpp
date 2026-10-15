@@ -4,13 +4,9 @@ TObjBoss8Piller::~TObjBoss8Piller() {}
 
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -42,14 +38,14 @@ extern u32 TObjBoss8Piller__shared_resource;
 typedef char RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller_size[sizeof(RecoveredGlobal_8030AF60___vt__15TObjBoss8Piller) == 0x18 ? 1 : -1];
 u8 *__ct__15TObjBoss8PillerFv(u8 *arg0, u8 *arg1, u8 *arg2, s16 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TObjBoss8Piller.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBoss8Piller__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TObjBoss8Piller.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss8Piller__class_name;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DF158;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DF158;
-    M2C_FIELD(arg0, s16 *, 0x30) = arg3;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (lbl_805DF15C * (lbl_805DF160 * (f32) rand()));
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjBoss8Piller__shared_resource), u8 **, 0x430), s32 *, 4);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DF158;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DF158;
+    *(s16 *)((s8 *)arg0 + 0x30) = arg3;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (lbl_805DF15C * (lbl_805DF160 * (f32) rand()));
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjBoss8Piller__shared_resource) + 0x430)) + 4);
     return arg0;
 }
 

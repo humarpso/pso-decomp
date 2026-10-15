@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_PTR18_8030A400 { char pad[0x18]; };
 
@@ -23,7 +19,7 @@ struct VObj_PTR18_8030A400 : VBase_PTR18_8030A400 {
     virtual void m52(); virtual void m53(); virtual void m54(); virtual void m55();
     virtual void m56(); virtual void m57(); virtual void m58(); virtual void m59();
     virtual void m60(); virtual void m61(); virtual void m62();
-    virtual M2C_UNK m63(M2C_UNK, s32);
+    virtual s32 m63(s32, s32);
 };
 
 struct Stack_8030A1E4
@@ -48,17 +44,17 @@ void create_left_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void *get_player_by_client_id(u16);
 u16 get_lifetime__22TPlyFollowParticleCtrlFPv();
 s32 get_position_ptr__10TObjPlayerFPv(s32);
-extern M2C_UNK __vt__22TPlyPtclObjectLeftHand[];
+extern s32 __vt__22TPlyPtclObjectLeftHand[];
 s32 TPlyPtclObjectRightHand__vt7(s32 arg0);
 s32 create_oneshot_particle_emitter(s32, s32, s32, s32);
-M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u32 find_entity_by_id(s32);
 s32 create_attached_oneshot_emitter(unsigned long long arg1, s32 arg2);
-s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
-void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_sand_step_particles(s32 arg0, s32 arg1);
 void emit_water_step_particles(s32 arg0, s32 arg1);
-void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2);
+void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2);
 void emit_idle_water_splash(s32 arg0, s32 arg1);
 s32 emit_player_particle(void* p, void* a1, void* a2);
 s32 get_instance__13TParticleCtrlFv();
@@ -84,15 +80,15 @@ void enable_foot_stamp__10TObjPlayerFii(s32 arg1, s32 arg2);
 void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p);
 void update_child__10TObjPlayerFPvPv(void *arg0, void *arg1);
 void update_follow_particle__10TObjPlayerFii(s32 arg0, s32 arg1);
-s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
-M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 u32 find_entity_by_id(s32);
 int TPlyFollowParticleCtrl__sub_8030A694(void*);
 s32 __dl__FPv(s32 a0 = 0);
 s32 __dt__22TPlyFollowParticleCtrlFis(s32 a0 = 0, s32 a1 = 0);
-M2C_UNK create__16TPlayerFootStampFPvPv(s32, M2C_UNK);
+s32 create__16TPlayerFootStampFPvPv(s32, s32);
 s32 obj_getField1c(void *);
-M2C_UNK set_type__22TPlyFollowParticleCtrlFPvs(void *, void *);
+s32 set_type__22TPlyFollowParticleCtrlFPvs(void *, void *);
 
 void enable_foot_stamp__10TObjPlayerFii(s32 arg1, s32 arg2) {
     create__16TPlayerFootStampFPvPv(arg2, 1);
@@ -140,8 +136,8 @@ Fol_80309E9C *TObjPlayer__sub_80309E9C(Fol_80309E9C *o) {
 s32 check_hit_by_id_431__10TObjPlayerFPvi(void* p, int a1) { return check_hit_by_id__10TObjPlayerFiii((s32)(p), (s32)(a1), (s32)(431)); }
 
 void emit_idle_water_splash(s32 arg0, s32 arg1) {
-    emit_player_sprite_particle((M2C_UNK)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
-    emit_player_model_particle((s32)((M2C_UNK)((void *) (arg0))), (s32)((M2C_UNK)((void *) (arg1))), (s32)((M2C_UNK)((int) (0xA6))), (s32)((s32)((int) (2))));
+    emit_player_sprite_particle((s32)((void *) (arg0)), (s32)((void *) (arg1)), (s32)((int) (0xA2)));
+    emit_player_model_particle((s32)((s32)((void *) (arg0))), (s32)((s32)((void *) (arg1))), (s32)((s32)((int) (0xA6))), (s32)((s32)((int) (2))));
 }
 
 void emit_sand_step_particles(s32 arg0, s32 arg1) {
@@ -162,7 +158,7 @@ void create_right_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     if (o != NULL) {
         o = TPlyPtclObjectRightHand__ct(o, arg1);
     }
-    M2C_FIELD(arg0, void **, 0x4) = o;
+    *(void **)((s8 *)arg0 + 0x4) = o;
 }
 
 void create_left_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1) {
@@ -171,7 +167,7 @@ void create_left_hand_ptcl__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     if (o != NULL) {
         o = TPlyPtclObjectLeftHand__ct(o, arg1);
     }
-    M2C_FIELD(arg0, void **, 0x0) = o;
+    *(void **)((s8 *)arg0 + 0x0) = o;
 }
 
 s32 dt_follow_particle_ctrl__10TObjPlayerFis(s32 arg0, s16 arg1) {
@@ -187,8 +183,8 @@ void* init_follow_particle_ctrl__10TObjPlayerFPv(void* p) { TPlyFollowParticleCt
 
 typedef struct Stack_8030A1E4 Stack_8030A1E4;
 
-void emit_player_sprite_particle(M2C_UNK arg0, s32 arg1, s32 arg2) {
-    spawn_particle_effect_with_flags((s32)((void *) (arg1)), (s32)((void *) (arg2)), (M2C_UNK)((int) (0x2000)));
+void emit_player_sprite_particle(s32 arg0, s32 arg1, s32 arg2) {
+    spawn_particle_effect_with_flags((s32)((void *) (arg1)), (s32)((void *) (arg2)), (s32)((int) (0x2000)));
 }
 
 s32 emit_player_model_particle(s32 owner, s32 position, s32 entry, s32 model) {

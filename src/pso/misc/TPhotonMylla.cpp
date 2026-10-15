@@ -1,22 +1,18 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 #include <stddef.h>
 struct Stack_801AD5D8 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 pad_10[0x4];
-    M2C_UNK sp14;
+    s32 sp14;
     f32 sp18;
     u8 pad_1C[0x4];
-    M2C_UNK sp20;
+    s32 sp20;
     f32 sp24;
     u8 pad_28[0x4];
-    M2C_UNK sp2C;
+    s32 sp2C;
     f32 sp30;
 };
 
@@ -57,7 +53,6 @@ struct Self_801AD4C0 {
     s32 started;
 };
 
-typedef s32 M2C_UNK;
 #define NEW_801AD970(n) (((u8 *(*)(int))__nw__7TObjectFUl)(n))
 #define F_801AD970(o, t, off) (*(t *)((u8 *)(o) + (off)))
 struct Vec_801AD970 { f32 x, y, z; };
@@ -99,17 +94,17 @@ extern "C" {
 u16 obj_getField1c(void *);
 s32 spawn_particle_effect(s32, s32);
 u8 * find_entity_by_id(u16);
-u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
+u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK advance_animation_playback(void *);
-M2C_UNK queue_photon_blast_hit(int, int, int, f32);
-M2C_UNK begin_photon_summon_camera(void *, int);
-M2C_UNK update_photon_blast_attachments(void *);
-M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
-M2C_UNK update_state__10TSceneSoraFPv(void *);
-u8 *__nw__7TObjectFUl(M2C_UNK, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 advance_animation_playback(void *);
+s32 queue_photon_blast_hit(int, int, int, f32);
+s32 begin_photon_summon_camera(void *, int);
+s32 update_photon_blast_attachments(void *);
+s32 spawn_photon_blast_attachment_effects(void *, int);
+s32 update_state__10TSceneSoraFPv(void *);
+u8 *__nw__7TObjectFUl(s32, f32);
 extern const f32 lbl_805DC1FC;
 extern const f32 lbl_805DC200;
 extern const f32 lbl_805DC204;
@@ -146,17 +141,17 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void render__12TPhotonMyllaFv(Self_801AD4C0 *self);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 * find_entity_by_id(u16);
-M2C_UNK begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
-M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
+s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
-u8 * TPhotonMagicSquare__ct(void *, M2C_UNK, s32, s32, s32, f32);
+u8 * TPhotonMagicSquare__ct(void *, s32, s32, s32, s32, f32);
 void TPhotonMylla__sub_801AD4A8(void* a0);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
@@ -166,7 +161,7 @@ extern YPkt_801AD970 lbl_80446E50;
 extern u8 lbl_80446E80[];
 extern u8 lbl_80446E8C[];
 extern u8 lbl_804C39D8[];
-extern M2C_UNK __vt__12TPhotonMylla[];
+extern s32 __vt__12TPhotonMylla[];
 extern s32 lbl_805D3510;
 extern Game_801AD970 *photon_blast_shared_resource;
 extern const f32 lbl_805DC1FC;
@@ -186,14 +181,14 @@ struct VObj_801AD8FC_801AD4A8 : Base_801AD8FC_801AD4A8 {
 
 void TPhotonMylla__sub_801AD4A8(void* a0);
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_photon_motion_object(void *, M2C_UNK);
-M2C_UNK free_photon__10TObjPlayerFPv(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_photon_motion_object(void *, s32);
+s32 free_photon__10TObjPlayerFPv(void *);
 
     extern const float lbl_805DC1F8;
 void TPhotonMylla__sub_801AD4A8(void* a0) { *(float*)((char*)a0 + 0x184) = lbl_805DC1F8; *(float*)((char*)a0 + 0x188) = lbl_805DC1F8; *(float*)((char*)a0 + 0x18c) = lbl_805DC1F8; *(float*)((char*)a0 + 0x190) = lbl_805DC1F8; }
 
-extern M2C_UNK __vt__12TPhotonMylla[];
+extern s32 __vt__12TPhotonMylla[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -322,7 +317,7 @@ void run_task__12TPhotonMyllaFv(u8 *arg0) {
 void *__dt__12TPhotonMyllaFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         struct VObj_801AD8FC_801AD4A8 *o = (struct VObj_801AD8FC_801AD4A8 *)arg0;
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TPhotonMylla;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TPhotonMylla;
         o->m13();
         free_photon__10TObjPlayerFPv(arg0);
         destroy_photon_motion_object(arg0, 0);
@@ -412,7 +407,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
         v.y = v.y + lbl_805DC1FC;
         o = NEW_801AD970(0xD0);
         if (o != NULL) {
-            TPhotonMagicSquare__ct(o, (M2C_UNK)self, 5, (s32)&v, 0xAA, lbl_805DC200);
+            TPhotonMagicSquare__ct(o, (s32)self, 5, (s32)&v, 0xAA, lbl_805DC200);
         }
         spawn_photon_blast_attachment_effects(self, 5);
         play_cue_stream_file(lbl_80446E80);

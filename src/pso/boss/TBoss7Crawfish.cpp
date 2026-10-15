@@ -1,9 +1,5 @@
 #include <dolphin/mtx.h>
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 
@@ -28,12 +24,12 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 struct RecoveredGlobal_80308840_lbl_8047559C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80308840_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -67,8 +63,8 @@ struct VObj_18_405891 : VBase_18_405891 {
     virtual void m17();
     virtual s32 m18(s32, f32);
     virtual void m19();
-    virtual M2C_UNK m20(s32, f32);
-    virtual M2C_UNK m21(s32, s32 *, s32, M2C_UNK, M2C_UNK);
+    virtual s32 m20(s32, f32);
+    virtual s32 m21(s32, s32 *, s32, s32, s32);
 };
 
 struct Pair_8030895C { s32 id; f32 v; };
@@ -83,7 +79,7 @@ extern "C" {
 s32 obj_isState2_324(int);
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0);
 int rand(void);
-extern M2C_UNK lbl_804755A8;
+extern s32 lbl_804755A8;
 extern s32 game_difficulty_selection;
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0E0;
@@ -108,13 +104,13 @@ extern const f32 lbl_805DF0CC;
 extern const f32 lbl_805DF0D0;
 extern const f32 lbl_805DF0D4;
 s32 is_visible__14TBoss7CrawfishFPv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_is_hit_receivable(u32);
-M2C_UNK apply_status_effect__10TObjPlayerFi(void *);
-M2C_UNK reset_global_table();
+s32 apply_status_effect__10TObjPlayerFi(void *);
+s32 reset_global_table();
 s32 get_instance__16TObjOnlineEndingFv();
 Slot_803086A8 *get_attack_entry__16TObjOnlineEndingFi(s32);
-M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
+s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *, void *);
 void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o);
 }
 
@@ -127,11 +123,11 @@ void check_band_and_destroy__14TBoss7CrawfishFi(s32 arg0);
 void free_child__14TBoss7CrawfishFPv(void* p);
 void render__14TBoss7CrawfishFv(void* p);
 void spawn_effect__14TBoss7CrawfishFii(s32 arg0, s32 arg1);
-M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 int change_state__14TBoss7CrawfishFPvi(void*, int);
 int scale_current_matrix(void*);
 int post_translate_matrix(void*);
-M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
+s32 play_persistent_sound(s32, s32, s32, s32, s32);
 int rotate_matrix_yxz(void*, void*, void*, void*);
 int push_matrix(void);
 int pop_matrix(void);
@@ -146,7 +142,7 @@ int set_global_flag__10TObjPlayerFv(void);
 extern f32 lbl_805DF0C8;
 
 s32 TBoss7Crawfish__sub_80308688(void *arg0) {
-    return (u32) __cntlzw((u32) (lbl_805DF0C8 < M2C_FIELD(arg0, f32 *, 0x38))) >> 5;
+    return (u32) __cntlzw((u32) (lbl_805DF0C8 < *(f32 *)((s8 *)arg0 + 0x38))) >> 5;
 }
 
 void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
@@ -158,7 +154,7 @@ void register_attack_hits__14TBoss7CrawfishFPv(Obj_803086A8 *o) {
     msg.p = (u8 *)o + 0x374;
     msg.one = 1;
     VecCopy__FP3VecPC3Vec(&msg.pos, (u8 *)o + 0x38);
-    msg.id = M2C_FIELD(o, s32 *, 0x60);
+    msg.id = *(s32 *)((s8 *)o + 0x60);
     apply_status_effect__10TObjPlayerFi(&msg);
     for (i = 0; i != get_instance__16TObjOnlineEndingFv(); i++) {
         if ((u32)o->count < 4) {
@@ -207,22 +203,22 @@ void free_child__14TBoss7CrawfishFPv(void* p) { if (*(unsigned int*)((char*)p + 
 
 void spawn_ground_effects__14TBoss7CrawfishFPv(u8 *arg0) {
     Vec position;
-    position.x = M2C_FIELD(arg0, f32 *, 0x38);
+    position.x = *(f32 *)((s8 *)arg0 + 0x38);
     position.y = TBoss7Crawfish__data_805DF0D8;
-    position.z = M2C_FIELD(arg0, f32 *, 0x40);
+    position.z = *(f32 *)((s8 *)arg0 + 0x40);
     spawn_particle_effect((void *) (&position.x), (int) (0x20D));
     spawn_particle_effect((void *) (&position.x), (int) (0x20E));
 }
 
 #define arg0 ((s32)arg0_)
 #define arg1 ((u8 *)arg1_)
-M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
+s32 apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
     Pair_8030895C p;
 
     u8 *temp_r31;
 
     if (arg1 != NULL) {
-        temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
+        temp_r31 = (u8 *)(*(u8 **)((s8 *)arg1 + 0));
         if (TBoss7Crawfish__sub_80308AA8((u8 *)arg0_) != 0) {
             if (((VObj_18_405891 *)(temp_r31))->m18(arg0, TBoss7Crawfish__data_805DF0DC) != 0) {
                 ((VObj_18_405891 *)(temp_r31))->m20(arg0, TBoss7Crawfish__data_805DF0DC);
@@ -240,7 +236,7 @@ M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
             p.v = lbl_805DF0E8;
             {
                 Pair_8030895C q = p;
-                ((VObj_18_405891 *)(temp_r31))->m21(arg0, (s32 *)&q, M2C_FIELD(M2C_FIELD(arg1, u8 **, 0), s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C), -1, -1);
+                ((VObj_18_405891 *)(temp_r31))->m21(arg0, (s32 *)&q, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg1 + 0)) + 0xA4) + (*(s32 *)((s8 *)arg1 + 4) * 0x2C), -1, -1);
             }
         }
     }
@@ -249,7 +245,7 @@ M2C_UNK apply_hit_to_target__14TBoss7CrawfishFPvPv(void *arg0_, void *arg1_) {
 #undef arg1
 
 s32 TBoss7Crawfish__sub_80308AA8(u8 *arg0) {
-    return TBoss7Crawfish__data_805DF0D8 == M2C_FIELD(arg0, f32 *, 0x354);
+    return TBoss7Crawfish__data_805DF0D8 == *(f32 *)((s8 *)arg0 + 0x354);
 }
 
 void render__14TBoss7CrawfishFv(void* p) { if (is_visible__14TBoss7CrawfishFPv((u8 *)(p)) != 0) { notify_fish_if_valid__10TObjPlayerFUi(*(void**)((char*)p + 0x24)); set_global_flag__10TObjPlayerFv(); push_matrix(); post_translate_matrix((char*)p + 0x38); rotate_matrix_yxz((void*)0, *(void**)((char*)p + 0x5c), *(void**)((char*)p + 0x60), *(void**)((char*)p + 0x64)); scale_current_matrix((char*)p + 0x68); draw__16TObjEneRe7BeruraFPv(p); pop_matrix(); clear_global_state__10TObjPlayerFv(); } }

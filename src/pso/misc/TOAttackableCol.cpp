@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,20 +8,19 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80157AD8_lbl_804AF9A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80157AD8___vt__15TOAttackableCol {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x138];
 };
 
-typedef s32 M2C_UNK;
 struct Msg_801575AC {
     u16 cmd;
     u16 room;
@@ -72,14 +67,14 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0);
 void release__15TOAttackableColFPv(void* p);
 void release__15TOAttackableColFPv(void* p);
 void check_door_trigger__15TOAttackableColFPv(void *arg0);
-extern M2C_UNK __vt__11TOVS2Wall01[];
+extern s32 __vt__11TOVS2Wall01[];
 void run_task__15TOAttackableColFv(u8 *arg0);
-M2C_UNK access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 int handle_6x91_update_state__15TOAttackableColFPv(void* p);
 void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 u8 is_current_floor_switch_set(int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK set_parent__7TObjectFP7TObject(int, int);
+s32 set_parent__7TObjectFP7TObject(int, int);
 volatile int is_locally_controlled__10TObjPlayerFPv(void *);
 u16 obj_getField1c(void *);
 s32 spawn_particle_effect(void *, int);
@@ -93,19 +88,19 @@ f32 apply_hit__15TOAttackableColFPvi(u8 *arg0, s32 arg1);
 s32 construct_actor_base__10TObjPlayerFPvPv(void *, int);
 s32 calc_attach_pos__10TObjPlayerFPv(void *);
 s32 obj_setFlags30(void *, int);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 set_indexed_flags(void *, s32, s32);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 void init_params__15TOAttackableColFPv(void *arg0);
 extern RecoveredGlobal_80157AD8_lbl_804AF9A8 TOAttackableCol__collision_parts;
-extern M2C_UNK __vt__15TOAttackableCol[];
+extern s32 __vt__15TOAttackableCol[];
 extern s32 lbl_805D2E98;
 extern s32 tl_05;
 extern const f32 lbl_805DB2CC;
 extern const f32 lbl_805DB2D0;
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1);
 s8 get_current_floor();
-M2C_UNK access_object_saved_state(void *, void *, int);
+s32 access_object_saved_state(void *, void *, int);
 void broadcast_state__15TOAttackableColFPv(void* p);
 void *fn_80157CA8(void *arg0);
 int send_state_change__15TOAttackableColFPvUs(void *arg0, u16 state);
@@ -127,17 +122,17 @@ void render__15TOAttackableColFv(void);
 int TLobby__send_and_handle_60(void*);
 int TLobby__sub_80156BA8(void*);
 void TOBarrierEnergy01__vt18(void);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
 s32 submit_cursor_candidate(void *, s32);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 int bswap_header__6TLobbyFi(void*);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, int, int);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 int queue_destruction__7TObjectFv(void*);
 int set_flag8__6TLobbyFPv(void*);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 set_indexed_flags(void *, s32, s32);
 
 void TOAttackableCol__sub_80157310(void * _w0) {  }
 
@@ -148,39 +143,39 @@ void init_params__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0_2;
     s32 temp_r0_3;
 
-    M2C_FIELD(arg0, s32 *, 0x33C) = (s32) (M2C_FIELD(arg0, s32 *, 0x84) + 1);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x33C);
+    *(s32 *)((s8 *)arg0 + 0x33C) = (s32) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x33C);
     if (temp_r0 < 1) {
-        M2C_FIELD(arg0, s32 *, 0x33C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x33C) = 1;
     } else if (temp_r0 > 0x100) {
-        M2C_FIELD(arg0, s32 *, 0x33C) = 0x100;
+        *(s32 *)((s8 *)arg0 + 0x33C) = 0x100;
     }
-    M2C_FIELD(arg0, s32 *, 0x340) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x340) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x340) = 0;
+    *(s32 *)((s8 *)arg0 + 0x340) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x340) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x340) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x344) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x344) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x344) = 0;
+    *(s32 *)((s8 *)arg0 + 0x344) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x344) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x344) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x34C) = (s32) M2C_FIELD(arg0, f32 *, 0x68);
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x34C);
+    *(s32 *)((s8 *)arg0 + 0x34C) = (s32) *(f32 *)((s8 *)arg0 + 0x68);
+    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x34C);
     if ((temp_r0_2 < 0) || (temp_r0_2 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0x34C) = -1;
+        *(s32 *)((s8 *)arg0 + 0x34C) = -1;
     }
-    if (M2C_FIELD(arg0, f32 *, 0x6C) < lbl_805DB2C8) {
+    if (*(f32 *)((s8 *)arg0 + 0x6C) < lbl_805DB2C8) {
         set_indexed_flags(arg0, 0, 0x08000000);
     } else {
         clear_player_status_flag__10TObjPlayerFPviUi((void*)(arg0), (int)(0), (int)(0x08000000));
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
-        temp_r0_3 = M2C_FIELD(arg0, s32 *, 0x348);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x344) == 0) {
+        *(s32 *)((s8 *)arg0 + 0x348) = (s32) *(f32 *)((s8 *)arg0 + 0x70);
+        temp_r0_3 = *(s32 *)((s8 *)arg0 + 0x348);
         if ((temp_r0_3 < 0) || (temp_r0_3 >= 0x100)) {
-            M2C_FIELD(arg0, s32 *, 0x348) = -1;
+            *(s32 *)((s8 *)arg0 + 0x348) = -1;
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0x348) = -1;
+        *(s32 *)((s8 *)arg0 + 0x348) = -1;
     }
 }
 
@@ -215,20 +210,20 @@ void TOAttackableCol__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
     s16 sp8;
     s32 temp_r0;
     if (arg1 != NULL) {
-        M2C_FIELD(arg0, s16 *, 0x326) = (s16) *arg1;
+        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *arg1;
     }
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if (temp_r0 != 1) {
         if ((temp_r0 >= 1) || (temp_r0 < 0)) {
-            M2C_FIELD(arg0, s16 *, 0x326) = 0;
+            *(s16 *)((s8 *)arg0 + 0x326) = 0;
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0x33C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x33C) = 0;
         if (arg2 != 0) {
             handle_6x91_update_state__15TOAttackableColFPv((void*)((void *) (arg0)));
         }
     }
-    sp8 = M2C_FIELD(arg0, s16 *, 0x326);
+    sp8 = *(s16 *)((s8 *)arg0 + 0x326);
     access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
 }
 
@@ -308,9 +303,9 @@ void check_door_trigger__15TOAttackableColFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x34C);
-    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) M2C_FIELD(arg0, s32 *, 0x33C) > 0) == 0)) || (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 0) && (temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
-        M2C_FIELD(arg0, s32 *, 0x33C) = 0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x34C);
+    if (((temp_r0 < 0) || (temp_r0 >= 0x100) || (is_current_floor_switch_set((u16) temp_r0) == 1)) && ((submit_cursor_candidate(arg0, -1), (((s32) *(s32 *)((s8 *)arg0 + 0x33C) > 0) == 0)) || (((s32) *(s32 *)((s8 *)arg0 + 0x344) == 0) && (temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x348), ((temp_r0_2 < 0) == 0)) && (temp_r0_2 < 0x100) && (is_current_floor_switch_set((u16) temp_r0_2) == 1)))) {
+        *(s32 *)((s8 *)arg0 + 0x33C) = 0;
         send_state_change__15TOAttackableColFPvUs((void *)((void *)(arg0)), (u16)((s32)(1)));
     }
 }
@@ -321,10 +316,10 @@ void run_task__15TOAttackableColFv(u8 *arg0) {
         TOAttackableCol__sub_80157310((void *)((void *) (arg0)));
         return;
     }
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     default:
-        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+        *(s16 *)((s8 *)arg0 + 0x326) = 0;
     case 0:
         check_door_trigger__15TOAttackableColFPv((void *)((void*)((void *) (arg0))));
         return;
@@ -336,7 +331,7 @@ void run_task__15TOAttackableColFv(u8 *arg0) {
 
 void render__15TOAttackableColFv(void) {  }
 
-extern M2C_UNK __vt__15TOAttackableCol[];
+extern s32 __vt__15TOAttackableCol[];
 
 void * create__15TOAttackableColFPv(void *arg0) {
     void *o;
@@ -349,7 +344,7 @@ void * create__15TOAttackableColFPv(void *arg0) {
 
 void *__dt__15TOAttackableColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TOAttackableCol;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TOAttackableCol;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
@@ -364,17 +359,17 @@ typedef char RecoveredGlobal_80157AD8_lbl_804AF9A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80157AD8___vt__15TOAttackableCol_size[sizeof(RecoveredGlobal_80157AD8___vt__15TOAttackableCol) == 0x13C ? 1 : -1];
 u8 *TOAttackableCol__ct(u8 *arg0, s32 arg1) {
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0), (int) (tl_05));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2E98;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80157AD8___vt__15TOAttackableCol *)&__vt__15TOAttackableCol).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2E98;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
     obj_setFlags30((void *) (arg0), (int) (0x60000000));
     init_collision_body_parts((void *) (arg0), (void *) (&TOAttackableCol__collision_parts.value), (int) (1));
-    set_indexed_flags((void *)((void *) (arg0)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0x718)));
+    set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x718)));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, f32 *, 0x334) = (f32) lbl_805DB2CC;
-    M2C_FIELD(arg0, f32 *, 0x338) = (f32) lbl_805DB2D0;
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(f32 *)((s8 *)arg0 + 0x334) = (f32) lbl_805DB2CC;
+    *(f32 *)((s8 *)arg0 + 0x338) = (f32) lbl_805DB2D0;
     init_params__15TOAttackableColFPv((void *) (arg0));
     return arg0;
 }
@@ -402,10 +397,10 @@ void broadcast_state__15TOAttackableColFPv(void* p) { bswap_state__15TOAttackabl
 
 void *fn_80157CA8(void *arg0) {
     init__17TOBarrierEnergy01FPv(arg0);
-    M2C_FIELD(arg0, u16 *, 0xC) = 0;
-    M2C_FIELD(arg0, u16 *, 0xE) = 0;
-    M2C_FIELD(arg0, u8 *, 0x0) = 145;
-    M2C_FIELD(arg0, u8 *, 0x1) = 5;
+    *(u16 *)((s8 *)arg0 + 0xC) = 0;
+    *(u16 *)((s8 *)arg0 + 0xE) = 0;
+    *(u8 *)((s8 *)arg0 + 0x0) = 145;
+    *(u8 *)((s8 *)arg0 + 0x1) = 5;
     return arg0;
 }
 

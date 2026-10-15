@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_801E3FA4 {
     u16 id;
@@ -35,12 +31,12 @@ void handle_6x02(void);
 void handle_6x03(void);
 void handle_6x04_legacy_activate_switch_by_token(void *arg0);
 void handle_6x9E_player_camera_shutter_sound(void);
-M2C_UNK TObjDoorKey__sub_8018FAEC(u16, u16);
+s32 TObjDoorKey__sub_8018FAEC(u16, u16);
 void TObjEneRe4Sorcerer__sub_801E3F14(void);
 void TObjEneRe4Sorcerer__sub_801E3F18(void);
 void TObjEneRe4Sorcerer__sub_801E3F1C(void);
 void TObjEneRe4Sorcerer__sub_801E3F20(void);
-M2C_UNK bswap_switch_activate_token__6TLobbyFPv();
+s32 bswap_switch_activate_token__6TLobbyFPv();
 
 void TObjPlayer__sub_801E3F24(s32 arg0) {
     *(s32 *)0xCC008000 = arg0;
@@ -65,7 +61,7 @@ void handle_6x9E_player_camera_shutter_sound(void) {
 
 void handle_6x04_legacy_activate_switch_by_token(void *arg0) {
     bswap_switch_activate_token__6TLobbyFPv();
-    TObjDoorKey__sub_8018FAEC(M2C_FIELD(arg0, u16 *, 2), M2C_FIELD(arg0, u16 *, 4));
+    TObjDoorKey__sub_8018FAEC(*(u16 *)((s8 *)arg0 + 2), *(u16 *)((s8 *)arg0 + 4));
 }
 
 void handle_6x03(void) {  }

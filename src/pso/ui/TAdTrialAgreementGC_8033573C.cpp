@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_803357EC_8033573C { char pad[0x18]; };
 struct VObj_803357EC_8033573C : Base_803357EC_8033573C {
     virtual void m0();
@@ -25,11 +22,11 @@ struct VObj_18_f8ef8c : VBase_18_f8ef8c {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5();
+    virtual s32 m5();
 };
 
 struct RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -37,13 +34,13 @@ extern "C" {
 s32 draw_with_camera__6TLobbyFiiif(void *, void *, int, f32);
 s32 get_record__6TLobbyFi(void *);
 extern const f32 lbl_805DF8B0;
-void draw_record_with_camera__19TAdTrialAgreementGCFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
+void draw_record_with_camera__19TAdTrialAgreementGCFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 queue_destruction__7TObjectFv(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TAdScrollWinGC__ct(int, void *, int, int);
 s32 TAdAgreementBaseGC__ct(void *);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
-extern M2C_UNK __vt__19TAdTrialAgreementGC[];
+extern s32 __vt__19TAdTrialAgreementGC[];
 extern s32 TAdTrialAgreementGC__name;
 u8 *TAdTrialAgreementGC__ct(u8 *arg0);
 }
@@ -53,15 +50,15 @@ extern "C" {
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1);
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0);
 void run_task__19TAdTrialAgreementGCFv(void *arg0);
-s32 probe_and_check_card__15TAdPlayerLoadGCFi(M2C_UNK);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
-s32 find_card_file__15TAdPlayerLoadGCFiPv(M2C_UNK, M2C_UNK *);
+s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
+s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, s32 *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TAdAgreementBaseGCFv(void *, int);
-s32 check_memcard_status__15TAdPlayerLoadGCFi(M2C_UNK);
-M2C_UNK wait_for_load__19TAdTrialAgreementGCFv(s32);
+s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
+s32 wait_for_load__19TAdTrialAgreementGCFv(s32);
 
-extern M2C_UNK pso_system_card_filename[];
+extern s32 pso_system_card_filename[];
 
 s32 check_card_file__19TAdTrialAgreementGCFi(s32 arg0) {
     s32 temp_r3;
@@ -89,11 +86,11 @@ void run_task__19TAdTrialAgreementGCFv(void *arg0) {
     o->m9();
 }
 
-extern M2C_UNK __vt__19TAdTrialAgreementGC[];
+extern s32 __vt__19TAdTrialAgreementGC[];
 
 void *__dt__19TAdTrialAgreementGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TAdTrialAgreementGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TAdTrialAgreementGC;
         __dt__18TAdAgreementBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -107,9 +104,9 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
     TAdAgreementBaseGC__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdTrialAgreementGC__name;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80335870___vt__19TAdTrialAgreementGC *)&__vt__19TAdTrialAgreementGC).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TAdTrialAgreementGC__name;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
     if (check_card_file__19TAdTrialAgreementGCFi((s32)((void *) (arg0))) != 0) {
         ((VObj_18_f8ef8c *)(arg0))->m5();
         queue_destruction__7TObjectFv((void *) (arg0));
@@ -120,11 +117,11 @@ u8 *TAdTrialAgreementGC__ct(u8 *arg0) {
     if (var_r0 != 0) {
         var_r0 = TAdScrollWinGC__ct((int) (temp_r3), (void *) (arg0), (int) (1), (int) (0));
     }
-    M2C_FIELD(arg0, s32 *, 0x38) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x38) = var_r0;
     return arg0;
 }
 
-void draw_record_with_camera__19TAdTrialAgreementGCFiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void draw_record_with_camera__19TAdTrialAgreementGCFiii(s32 arg0, s32 arg1, s32 arg2) {
     draw_with_camera__6TLobbyFiiif((void *) (get_record__6TLobbyFi((void *) (arg1))), (void *) (arg2), (int) (0x20), (f32) (lbl_805DF8B0));
 }
 

@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802072E0___vt__10TSceneSora {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_802075F8_lbl_80515BA0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80207340___vt__10TSceneSora {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -31,7 +27,6 @@ struct TSceneSora_80207238 {
     f32 frame;
 };
 
-typedef s32 M2C_UNK;
 struct Ref_80207478 { s32 id; s32 idx; s32 pad; };
 
 struct Ent_80207478 { s32 f0; char *name; };
@@ -45,7 +40,7 @@ extern s32 TSceneSora__instance;
 extern u32 TSceneSora__sky_bml_resource;
 void TSceneSora__sub_80207430(void);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_802072E0___vt__10TSceneSora __vt__10TSceneSora;
 extern s32 TSceneSora__instance;
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1);
@@ -66,15 +61,15 @@ extern s32 TSceneSora__has_sky_motion;
 extern const f32 lbl_805DC608;
 extern const f32 lbl_805DC60C;
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK draw_ginja_model_with_motion(int, int, f32);
+s32 draw_ginja_object(int);
+s32 draw_ginja_model_with_motion(int, int, f32);
 s32 TObjFish__sub_8001EDB0(int, int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi();
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 set_global_param__8TObjFishFi();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__sky_bml_resource;
 void render__10TSceneSoraFv(u8 *arg0);
@@ -85,11 +80,11 @@ void *get_current_floor();
 u32 TLobby__sub_8002058C(void *, int, Res_80207478 *, Res_80207478 *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 update_lobby_scene__6TSceneFPv(void *);
-M2C_UNK replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
+s32 replace_file_extension__6TLobbyFPvPvPv(char *, char *, char *);
 s32 lookup_scene_object__6TLobbyFPv(void *, Ref_80207478 *);
 Ent_80207478 *get_floor_scene_table(s32);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-M2C_UNK close_adxf_handle__6TLobbyFPv(void *);
+s32 close_adxf_handle__6TLobbyFPv(void *);
 void *adxf_open__6TLobbyFUii(char *, int);
 extern char lbl_8044A9D0[];
 extern char lbl_8044A9D8[];
@@ -105,7 +100,7 @@ extern "C" {
 
 void TLobby__sub_802075F4(void);
 void create_instance__10TSceneSoraFv(void);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 
 extern s32 TSceneSora__instance;
 extern u32 TSceneSora__sky_bml_resource;
@@ -119,11 +114,11 @@ void render__10TSceneSoraFv(u8 *arg0) {
         TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
         set_global_param__8TObjFishFi();
         push_matrix();
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x94) != 0U) {
-            draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (f32) (M2C_FIELD(arg0, f32 *, 0xA0)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x94) != 0U) {
+            draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (*(s32 *)((s8 *)arg0 + 0x94)), (f32) (*(f32 *)((s8 *)arg0 + 0xA0)));
         } else {
-            draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x90)));
+            draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x90)));
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
@@ -148,7 +143,7 @@ void run_task__10TSceneSoraFv(TSceneSora_80207238 *sky) {
 
 u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TSceneSora.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TSceneSora.value;
         TSceneSora__instance = 0;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -161,17 +156,17 @@ u8 *__dt__10TSceneSoraFv(u8 *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80207340___vt__10TSceneSora_size[sizeof(RecoveredGlobal_80207340___vt__10TSceneSora) == 0x38 ? 1 : -1];
 u8 *TSceneSora__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3624;
-    M2C_FIELD(arg0, s32 *, 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80207340___vt__10TSceneSora *)&__vt__10TSceneSora).value;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3624;
+    *(s32 *)((s8 *)arg0 + 0x90) = get_bml_model((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     if (TSceneSora__has_sky_motion != 0) {
-        M2C_FIELD(arg0, s32 *, 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+        *(s32 *)((s8 *)arg0 + 0x94) = get_bml_motion((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
     } else {
-        M2C_FIELD(arg0, s32 *, 0x94) = 0;
+        *(s32 *)((s8 *)arg0 + 0x94) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
-    M2C_FIELD(arg0, f32 *, 0x9C) = lbl_805DC60C;
-    M2C_FIELD(arg0, f32 *, 0xA0) = lbl_805DC608;
+    *(s32 *)((s8 *)arg0 + 0x98) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TSceneSora__sky_bml_resource)), (int) (0));
+    *(f32 *)((s8 *)arg0 + 0x9C) = lbl_805DC60C;
+    *(f32 *)((s8 *)arg0 + 0xA0) = lbl_805DC608;
     return arg0;
 }
 

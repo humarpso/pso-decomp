@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_f15a7b { char pad[0x18]; };
 
 struct VObj_18_f15a7b : VBase_18_f15a7b {
@@ -52,7 +49,7 @@ struct VObj_18_f15a7b : VBase_18_f15a7b {
     virtual void m43();
     virtual void m44();
     virtual void m45();
-    virtual M2C_UNK m46(s32);
+    virtual s32 m46(s32);
     virtual void m47();
     virtual void m48();
     virtual void m49();
@@ -78,7 +75,7 @@ struct VObj_18_f15a7b : VBase_18_f15a7b {
     virtual void m69();
     virtual void m70();
     virtual void m71();
-    virtual M2C_UNK m72(M2C_UNK);
+    virtual s32 m72(s32);
 };
 
 struct Obj_80126180 { u8 pad[0x1f8]; s32 a; s32 b; s32 c; };
@@ -162,9 +159,9 @@ extern "C" {
 #pragma fp_contract on
 void frozen_shooter_freeze_hit(int arg0, u8 *arg1) {
     u8 *temp_r31;
-    if ((arg1 != NULL) && (obj_is_hit_receivable((void *) (M2C_FIELD(arg1, u8 **, 0))) != 0)) {
-        temp_r31 = (u8 *)(M2C_FIELD(arg1, u8 **, 0));
-        ((VObj_18_f15a7b *)(temp_r31))->m46(M2C_FIELD(temp_r31, s32 *, 0xA4) + (M2C_FIELD(arg1, s32 *, 4) * 0x2C));
+    if ((arg1 != NULL) && (obj_is_hit_receivable((void *) (*(u8 **)((s8 *)arg1 + 0))) != 0)) {
+        temp_r31 = (u8 *)(*(u8 **)((s8 *)arg1 + 0));
+        ((VObj_18_f15a7b *)(temp_r31))->m46(*(s32 *)((s8 *)temp_r31 + 0xA4) + (*(s32 *)((s8 *)arg1 + 4) * 0x2C));
         ((VObj_18_f15a7b *)(temp_r31))->m72(0);
     }
 }

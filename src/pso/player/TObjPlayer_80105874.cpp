@@ -1,12 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_801058AC_lbl_8049EE60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74];
 };
 
@@ -17,7 +12,7 @@ void fn_80103674(void);
 s32 fn_8010F210(s32);
 void init_resources__9TItemLoadFv(void);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
-extern M2C_UNK lbl_805D5440;
+extern s32 lbl_805D5440;
 extern int lbl_805D5444;
 void init_game_resources__10TObjPlayerFv(void);
 }
@@ -50,7 +45,7 @@ void init_game_resources__10TObjPlayerFv(void) {
 void fn_801058E8(void* p) { *(u8*)((char*)p + 0x7) |= 0x1; }
 
 u8 is_script_controlled__10TObjPlayerFPv(u8 *arg0) {
-    return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 6);
+    return (u8) (*(s16 *)((s8 *)arg0 + 0x324) == 6);
 }
 
 int activate_d04_slot__10TObjPlayerFPv(void* p) { return get_slot_value__10TObjPlayerFPvi((char*)p + 0xd04, 1); }

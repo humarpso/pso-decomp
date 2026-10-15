@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 struct RecoveredGlobal_8020ECD8_lbl_80513D78 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8020ECA8_lbl_80513D58 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct Ent_8020EC68 { u8 pad[0x10]; s32 v; };
 
-typedef s32 M2C_UNK;
 struct Item_8020E934 { u8 b[0x14]; };
 
 struct Ctr_8020E934 { u8 b[0x74]; };
@@ -32,7 +28,7 @@ struct Rec_8020E700 { u8 a, b, c, d, e, f; u8 pad[0x14 - 6]; };
 extern "C" {
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
 void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_8020ECA8_lbl_80513D58 shop_armor_stock_generated_flags;
 void clear_shop_armor_flags(void);
 extern RecoveredGlobal_8020ECD8_lbl_80513D78 lbl_80513D78;
@@ -154,7 +150,7 @@ void clear_shop_armor_flags(void) {
 }
 
 void copy_armor_shop_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
-    *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&lbl_80513D78.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
+    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)(&lbl_80513D78.value) + (arg2 * 4)) + (arg1 * 0x14));
 }
 
 }

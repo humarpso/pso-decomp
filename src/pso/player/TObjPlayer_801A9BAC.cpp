@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -17,11 +13,11 @@ typedef struct SA9_801a9bac {
 
 void update_and_destroy__10TObjPlayerFPv(u8 *arg0);
 void update_target__10TObjPlayerFPv(void *arg0);
-M2C_UNK deliver_photon_blast_results_delayed(void *);
-M2C_UNK step_photon_blast_sequence(void *);
+s32 deliver_photon_blast_results_delayed(void *);
+s32 step_photon_blast_sequence(void *);
 s32 get_player_by_client_id(u16);
-M2C_UNK queue_deferred_photon_blast_support(s32, s32, M2C_UNK);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_deferred_photon_blast_support(s32, s32, s32);
+s32 queue_destruction__7TObjectFv(void *);
 
 void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
     SA9_801a9bac *self = (SA9_801a9bac *)arg0;
@@ -51,8 +47,8 @@ void update_and_destroy__10TObjPlayerFPv(u8 *arg0) {
 }
 
 void update_target__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x38) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x3C));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x4C) != 0) {
+    *(s32 *)((s8 *)arg0 + 0x38) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x3C));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x4C) != 0) {
         step_photon_blast_sequence(arg0);
         return;
     }

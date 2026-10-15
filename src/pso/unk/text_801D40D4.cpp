@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 typedef struct Rec_801D40D4 {
     u8 pad0[4];
     s32 flags;
@@ -150,8 +145,8 @@ int reset(void* p) { return memset(p, 0, 28); }
 
 s32 export_inventory_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     if (copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *) (arg1 + 8)) != 0) {
-        M2C_FIELD(arg1, s8 *, 0) = TObjPlayer__sub_80102C30((void *) (arg0));
-        M2C_FIELD(arg1, s32 *, 4) = get_item_flags__10TObjPlayerFPv((void *) (arg0));
+        *(s8 *)((s8 *)arg1 + 0) = TObjPlayer__sub_80102C30((void *) (arg0));
+        *(s32 *)((s8 *)arg1 + 4) = get_item_flags__10TObjPlayerFPv((void *) (arg0));
         return 1;
     }
     return 0;

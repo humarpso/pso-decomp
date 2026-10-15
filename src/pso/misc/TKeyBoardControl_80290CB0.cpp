@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 extern u8 main_menu_scene_active_flag;
@@ -12,13 +8,13 @@ void TKeyBoardControl__sub_80290D10(void);
 extern "C" {
 
 void update_main_menu_scene__16TKeyBoardControlFv(void);
-M2C_UNK TKeyBoardControl__sub_8000F90C(M2C_UNK);
-M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
-M2C_UNK TKeyBoardControl__sub_8000F92C();
-M2C_UNK reset_controller_input_state();
-M2C_UNK set_copy_clear_color_argb(M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK init_creation_menu_scene();
-M2C_UNK render_tick__Fv();
+s32 TKeyBoardControl__sub_8000F90C(s32);
+s32 TKeyBoardControl__sub_8000F91C(s32);
+s32 TKeyBoardControl__sub_8000F92C();
+s32 reset_controller_input_state();
+s32 set_copy_clear_color_argb(s32, s32, s32);
+s32 init_creation_menu_scene();
+s32 render_tick__Fv();
 
 extern u8 main_menu_scene_active_flag;
 

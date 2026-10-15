@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80158078_lbl_80440200 { char value[0x17]; };
 typedef char RecoveredGlobal_80158078_lbl_80440200_size[sizeof(RecoveredGlobal_80158078_lbl_80440200) == 0x17 ? 1 : -1];
 
-struct RecoveredGlobal_80158078_lbl_804AFB24 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80158078_lbl_804AFB24 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80158078_lbl_804AFB24_size[sizeof(RecoveredGlobal_80158078_lbl_804AFB24) == 0x10 ? 1 : -1];
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
@@ -18,7 +14,7 @@ struct VObj_18_4a4f5b : VBase_18_4a4f5b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
     virtual void m6();
     virtual void m7();
     virtual void m8();
@@ -30,16 +26,16 @@ struct VObj_18_4a4f5b : VBase_18_4a4f5b {
     virtual void m14();
     virtual void m15();
     virtual void m16();
-    virtual M2C_UNK m17();
+    virtual s32 m17();
 };
 
 struct RecoveredGlobal_80158188_lbl_804AFB34 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x50];
 };
 
@@ -63,7 +59,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_door_base(void *);
 extern RecoveredGlobal_80158188_lbl_804AFB34 lbl_804AFB34;
-extern M2C_UNK __vt__17TOBarrierEnergy01[];
+extern s32 __vt__17TOBarrierEnergy01[];
 extern s32 lbl_805D2EA0;
 extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
@@ -71,7 +67,7 @@ extern const f32 lbl_805DB2D8;
 extern const f32 lbl_805DB2DC;
 extern const f32 lbl_805DB2E0;
 extern const f32 lbl_805DB2E4;
-u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -80,12 +76,12 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1);
 void free_resources__17TOBarrierEnergy01Fv(void);
 void update_anim_phase__17TOBarrierEnergy01FPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_ancient_door_base__15TODoorAncient01FPvs(void *, M2C_UNK);
-M2C_UNK free__11TOBoss4RockFUi(void*);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_ancient_door_base__15TODoorAncient01FPvs(void *, s32);
+s32 free__11TOBoss4RockFUi(void*);
+s32 free_if_valid__10TObjPlayerFi(s32);
 
 extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
@@ -104,7 +100,7 @@ void free_resources__17TOBarrierEnergy01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__17TOBarrierEnergy01[];
+extern s32 __vt__17TOBarrierEnergy01[];
 
 void load_resources__17TOBarrierEnergy01Fv(void) {
     s32 temp_r3;
@@ -117,14 +113,14 @@ void load_resources__17TOBarrierEnergy01Fv(void) {
     (*(u8 * *)&barrier_energy_shared_bml_archive) = (unsigned char *) ((void *) var_r0);
     lbl_805D5898 = get_bml_model((void *) var_r0, 0);
     (*(s32 *)&TOBarrierEnergy01__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)0xC);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), u8 **, 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 4) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 1);
-    M2C_FIELD((*(s32 *)&TOBarrierEnergy01__texture_lists), s32 *, 8) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 0);
+    *(u8 **)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
+    *(s32 *)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 4) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 1);
+    *(s32 *)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 8) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 0);
 }
 
 void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOBarrierEnergy01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOBarrierEnergy01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_ancient_door_base__15TODoorAncient01FPvs(arg0, 0);
@@ -137,22 +133,22 @@ void *__dt__17TOBarrierEnergy01Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80158188_lbl_804AFB34_size[sizeof(RecoveredGlobal_80158188_lbl_804AFB34) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80158188___vt__17TOBarrierEnergy01_size[sizeof(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01) == 0x54 ? 1 : -1];
-u8 *TOBarrierEnergy01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOBarrierEnergy01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_door_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EA0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80158188___vt__17TOBarrierEnergy01 *)&__vt__17TOBarrierEnergy01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EA0;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&barrier_energy_shared_bml_archive))), (s32)((int) (1)));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TOBarrierEnergy01__texture_lists;
-    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB2D8);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DB2DC;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *)((void *) ((*(s32 *)&barrier_energy_shared_bml_archive))), (s32)((int) (1)));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TOBarrierEnergy01__texture_lists;
+    *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&barrier_energy_shared_bml_archive), 0);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB2D8);
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DB2DC;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFB34.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB2E0;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB2E4;
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB2E0;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB2E4;
     return arg0;
 }
 
@@ -160,11 +156,11 @@ void update_anim_phase__17TOBarrierEnergy01FPv(void *arg0) {
     f32 temp_f0;
     f32 temp_f1;
 
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0xB0);
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0xB0);
     if (temp_f1 < temp_f0) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (temp_f0 - temp_f1);
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (temp_f0 - temp_f1);
     }
 }
 

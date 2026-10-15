@@ -1,12 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8026EA60_lbl_8050E208
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x1AC];
 };
 
@@ -52,14 +48,14 @@ s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p);
 void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0);
 u8 * find_item_by_id(s32);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
-s32 canSetMenuCursorAction(M2C_UNK, s32, u8, u8);
+s32 canSetMenuCursorAction(s32, s32, u8, u8);
 s32 get_player_by_client_id(s32);
 u32 TItemObject__sub_80115DE8(int);
-M2C_UNK set_slot__20TWindowActionPaletteFPvUc(int, int);
-M2C_UNK set_mode__20TWindowActionPaletteFPvUc(int, int);
-M2C_UNK TMainCursor__sub_8013DFC4(int);
+s32 set_slot__20TWindowActionPaletteFPvUc(int, int);
+s32 set_mode__20TWindowActionPaletteFPvUc(int, int);
+s32 TMainCursor__sub_8013DFC4(int);
 void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1);
-extern M2C_UNK lbl_805DD380;
+extern s32 lbl_805DD380;
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0);
 s32 fn_8002AE08(int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -94,9 +90,9 @@ void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0);
 s16 get_selected_index__20TWindowShortListCtrlFPv(void* p);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK TWindow__close(void *);
-M2C_UNK clear_flag_8__11TWindowCtrlFv();
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 TWindow__close(void *);
+s32 clear_flag_8__11TWindowCtrlFv();
+s32 queue_destruction__7TObjectFv(void *);
 extern RecoveredGlobal_8026EA60_lbl_8050E208 controller_input_state;
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
@@ -148,25 +144,25 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1);
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1);
 void *create_window_menu(s32, s32, s32);
 s32 get_player_by_client_id(s32);
-M2C_UNK end_player_keyboard_hold(s32);
+s32 end_player_keyboard_hold(s32);
 s32 TWindowCtrl__sub_8024A1A8();
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
-M2C_UNK TWindowHelpItem__set_displayed_item_by_id(u32);
-M2C_UNK TWindow__close(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK clear_flag_8__11TWindowCtrlFv();
-M2C_UNK init_parts__10TObjPlayerFPv(s32);
+s32 TWindowHelpItem__set_displayed_item_by_id(u32);
+s32 TWindow__close(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 clear_flag_8__11TWindowCtrlFv();
+s32 init_parts__10TObjPlayerFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
 s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 s32 set_flag70_bit10__16TObjCityMainWarpFPv();
 
 void set_displayed_item__20TWindowShortListCtrlFPvi(void *arg0, s32 arg1) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) && (arg1 != (s32) M2C_FIELD(arg0, s32 *, 0x38))) {
-        M2C_FIELD(arg0, s32 *, 0x38) = arg1;
-        TWindowHelpItem__set_displayed_item_by_id(M2C_FIELD(arg0, u32 *, 0x34));
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) && (arg1 != (s32) *(s32 *)((s8 *)arg0 + 0x38))) {
+        *(s32 *)((s8 *)arg0 + 0x38) = arg1;
+        TWindowHelpItem__set_displayed_item_by_id(*(u32 *)((s8 *)arg0 + 0x34));
     }
 }
 
@@ -174,7 +170,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
     u32 temp_r3;
     u8 *temp_r31;
 
-    temp_r3 = get_player_by_client_id((s32)((int) (M2C_FIELD(arg0, s32 *, 0x24))));
+    temp_r3 = get_player_by_client_id((s32)((int) (*(s32 *)((s8 *)arg0 + 0x24))));
     if (temp_r3 == 0U) {
         return 0;
     }
@@ -185,7 +181,7 @@ s32 is_technique_usable__20TWindowShortListCtrlFPv(u8 *arg0) {
     if (is_technique_ready__8TTecCtrlFv() != 0) {
         return 1;
     }
-    return ((u32) M2C_FIELD(temp_r31, u32 *, 0x34) >> 4U) & 1;
+    return ((u32) *(u32 *)((s8 *)temp_r31 + 0x34) >> 4U) & 1;
 }
 
 void TWindowShortListCtrl__sub_8026E884(s16 *dst) {
@@ -216,7 +212,7 @@ void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1) {
     var_r3 = arg1;
     var_r30 = get_player_by_client_id((s32)(var_r3));
     if (var_r30 != 0) {
-        var_r29 = M2C_FIELD(var_r30, u32 *, 0x424);
+        var_r29 = *(u32 *)((s8 *)var_r30 + 0x424);
         if (var_r29 != 0U) {
             var_r3 = var_r31;
             temp_r3 = (unsigned long) (find_item_by_id((s32) var_r3));
@@ -246,18 +242,18 @@ void assign_item_to_palette__20TWindowShortListCtrlFUiUi(u32 arg0, u32 arg1) {
 }
 
 void destroy_children__20TWindowShortListCtrlFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
-        M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30));
+        *(u32 *)((s8 *)arg0 + 0x30) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-        queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x2C));
-        M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x2C));
+        *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
     }
 }
 
 void TWindowShortListCtrl__sub_8026EA48(u8 *arg0) {
-    M2C_FIELD(arg0, u8 *, 0x1D) = (u8) M2C_FIELD(((u8 *)(&lbl_805DD380) + (s8) M2C_FIELD(arg0, u8 *, 0x1C)), u8 *, 0);
+    *(u8 *)((s8 *)arg0 + 0x1D) = (u8) *(u8 *)((s8 *)((u8 *)(&lbl_805DD380) + (s8) *(u8 *)((s8 *)arg0 + 0x1C)) + 0);
 }
 
 typedef struct RecoveredFields_8026EA60_arg0 RecoveredFields_8026EA60_arg0;
@@ -341,9 +337,9 @@ void refresh_technique_rows__20TWindowShortListCtrlFPviPv(Wn_8026EBB0 *arg0, s32
 void *create_window__20TWindowShortListCtrlFPvii(void *arg0, s32 arg1, s32 arg2) {
     void *temp_r31;
 
-    temp_r31 = create_window_menu(arg1, 0x13, M2C_FIELD(arg0, s32 *, 0x24));
+    temp_r31 = create_window_menu(arg1, 0x13, *(s32 *)((s8 *)arg0 + 0x24));
     set_flag70_bit10__16TObjCityMainWarpFPv();
-    M2C_FIELD(temp_r31, s32 *, 0x5C) = 0x01000000;
+    *(s32 *)((s8 *)temp_r31 + 0x5C) = 0x01000000;
     set_flag70_bit100__17TWindowOptionCtrlFPv(temp_r31);
     refresh_technique_rows__20TWindowShortListCtrlFPviPv((Wn_8026EBB0 *)((void*)((void*)(arg0))), (s32)((void*)((void*)(temp_r31))), (Sc_8026EBB0 *)((void*)((void*)(arg2))));
     return temp_r31;
@@ -546,24 +542,24 @@ void *__dt__20TWindowShortListCtrlFv(void *arg0, s16 arg1) {
     s32 temp_r3;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = __vt__20TWindowShortListCtrl;
-        temp_r3 = get_player_by_client_id((s32)(M2C_FIELD(arg0, s32 *, 0x24)));
-        if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFi(M2C_FIELD(arg0, s32 *, 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
+        *(void **)((s8 *)arg0 + 0x18) = __vt__20TWindowShortListCtrl;
+        temp_r3 = get_player_by_client_id((s32)(*(s32 *)((s8 *)arg0 + 0x24)));
+        if ((temp_r3 != 0) && (has_player_active_menu__11TWindowCtrlFi(*(s32 *)((s8 *)arg0 + 0x24)) == 0) && (TWindowCtrl__sub_8024A1A8() == 0)) {
             init_parts__10TObjPlayerFPv(temp_r3);
         }
-        end_player_keyboard_hold(M2C_FIELD(arg0, s32 *, 0x24));
+        end_player_keyboard_hold(*(s32 *)((s8 *)arg0 + 0x24));
         clear_flag_8__11TWindowCtrlFv();
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x34));
-            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x34));
+            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x30));
-            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x30));
+            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
-            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
+            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -579,7 +575,7 @@ void set_card_window_flags__20TWindowShortListCtrlFii(s32 arg0, s32 arg1) {
 s16 get_cursor_pos__20TWindowShortListCtrlFPv(void* p) { return *(s16*)((char*)p + 0x78); }
 
 void update_cursor_pos__20TWindowShortListCtrlFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x7A) = get_cursor_pos__20TWindowShortListCtrlFPv((void*)arg0);
+    *(s16 *)((s8 *)arg0 + 0x7A) = get_cursor_pos__20TWindowShortListCtrlFPv((void*)arg0);
 }
 
 s16 get_selected_index__20TWindowShortListCtrlFPv(void* p) { return *(s16*)((char*)p + 0x7a); }

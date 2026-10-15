@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct D_803501BC { u8 a, b, c; u8 rest[0x14 - 3]; };
 
 struct E_803501BC { u8 a, b, c; u8 w; };

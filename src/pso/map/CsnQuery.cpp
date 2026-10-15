@@ -1,17 +1,13 @@
 #include "types.h"
 #include "pso/map/CsnQuery.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct RecoveredGlobal_800790F0_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
@@ -46,7 +42,6 @@ struct Result_80079608 {
     f32 best;
 };
 
-typedef s32 M2C_UNK;
 struct Poly_8007970C { u8 pad[0x24]; };
 
 struct Mesh_8007970C {
@@ -132,40 +127,40 @@ void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
 extern RecoveredGlobal_800790F0_lbl_804F5800 lbl_804F5800;
 s32 get_csn_group_flags(u8 arg0);
 void TObjPlayer__sub_80079108(void);
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK *);
+s32 TObjPlayer__sub_80079118(s32 *);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079120(s32);
 s32 evaluate_ground_triangles(s32, s32, u32 *);
-extern M2C_UNK lbl_804389CC[];
-extern M2C_UNK lbl_80500140[];
-M2C_UNK *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
+extern s32 lbl_804389CC[];
+extern s32 lbl_80500140[];
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2);
 void TObjPlayer__sub_80079108(void);
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
+s32 TObjPlayer__sub_80079118(s32 * _w0);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079120(s32 _w0);
 s32 evaluate_ground_triangles(s32, s32, u32 *);
-extern M2C_UNK lbl_80500140[];
+extern s32 lbl_80500140[];
 extern u32 lbl_804FFD40[];
 extern s32 lbl_804389E8[];
 s32 *csnVecterUnder(s32 arg0, s32 arg1);
 void TObjPlayer__sub_8007911C(void);
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
+s32 TObjPlayer__sub_80079118(s32 * _w0);
 extern s32 csn_query_map_object[];
 extern s32 lbl_80438988[];
 void *query_prepared_wall_polygons(void *self);
 void TObjPlayer__sub_8007911C(void);
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
+s32 TObjPlayer__sub_80079118(s32 * _w0);
 extern s32 csn_query_map_object[];
 extern s32 lbl_804389A8[];
 void *query_wall_radial(Obj_8007A32C *self);
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0);
+s32 TObjPlayer__sub_80079118(s32 * _w0);
 void TObjPlayer__sub_8007911C(void);
 void TObjPlayer__sub_80079124(void *, void *);
 u32 TObjPlayer__sub_80079DE0(void *, void *);
-extern M2C_UNK lbl_804389C0[];
+extern s32 lbl_804389C0[];
 extern u32 lbl_804FFD40[];
-extern M2C_UNK lbl_80500140[];
-M2C_UNK *csnLookAt(s32 arg0, s32 arg1);
+extern s32 lbl_80500140[];
+s32 *csnLookAt(s32 arg0, s32 arg1);
 void vsub(void *, void *, void *);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 extern E_80079580 *wall_query_scene_buffer;
@@ -180,16 +175,16 @@ s32 select_deepest_wall_ray(Query_80079608 *q, Result_80079608 *r);
 void TObjPlayer__sub_80079124(void * _w0, void * _w1);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
-extern M2C_UNK lbl_80500140[];
+extern s32 lbl_80500140[];
 extern f32 csn_query_nearest_hit_t;
-extern M2C_UNK *csn_query_hit_buffer;
+extern s32 *csn_query_hit_buffer;
 extern s32 wall_query_hit_result;
 extern const f32 lbl_805D91F4;
 s32 query_segment_wall_meshes(void *arg0, void *arg1, u32 arg2, Node_8007970C **list);
 s32 intersect_wall_triangle_one_sided(void *, void *, void *, E_80079580 *, u32, s32);
 void vsub(void *, void *, void *);
-extern M2C_UNK lbl_80500140[];
-extern M2C_UNK *csn_query_hit_buffer;
+extern s32 lbl_80500140[];
+extern s32 *csn_query_hit_buffer;
 extern s32 wall_query_hit_result;
 s32 check_line_hits_walls__10TObjPlayerFPvPviPv(void *arg0, void *arg1, int arg2, Node_800797DC **list);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -244,14 +239,14 @@ void TObjPlayer__sub_8007911C(void);
 
 typedef char RecoveredGlobal_800790F0_lbl_804F5800_size[sizeof(RecoveredGlobal_800790F0_lbl_804F5800) == 0x100 ? 1 : -1];
 s32 get_csn_group_flags(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_804F5800.value) + arg0), u8 *, 0) & 0xC0;
+    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5800.value) + arg0) + 0) & 0xC0;
 }
 
 void TObjPlayer__sub_80079108(void) {  }
 void TObjPlayer__sub_8007910C(void) {  }
 void TObjPlayer__sub_80079110(void) {  }
 void TObjPlayer__sub_80079114(void) {  }
-M2C_UNK TObjPlayer__sub_80079118(M2C_UNK * _w0) {  }
+s32 TObjPlayer__sub_80079118(s32 * _w0) {  }
 void TObjPlayer__sub_8007911C(void) {  }
 void TObjPlayer__sub_80079120(s32 _w0) {  }
 void TObjPlayer__sub_80079124(void * _w0, void * _w1) {  }
@@ -459,14 +454,14 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
             *csn_query_hit_buffer = 1;
             VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
             VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
-            M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
+            *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         }
         break;
     case 1:
         *csn_query_hit_buffer = 1;
         VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
         VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
-        M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
+        *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         break;
     case 2:
         if (csn_query_hit_count >= 0x20) {
@@ -475,7 +470,7 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
         *csn_query_hit_buffer = 1;
         VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
         VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
-        M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
+        *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         wall_query_hit_result += 0x1C;
         csn_query_hit_count++;
         break;
@@ -484,7 +479,7 @@ s32 intersect_wall_triangle_one_sided(void *arg0, void *arg1, void *arg2, E_8007
             csn_query_nearest_hit_t = t;
             VecCopy__FP3VecPC3Vec((void *)wall_query_hit_result, &lbl_8050BF60);
             VecCopy__FP3VecPC3Vec((void *)(wall_query_hit_result + 0xC), &n);
-            M2C_FIELD(wall_query_hit_result, u32 *, 0x18) = FACE->flags;
+            *(u32 *)((s8 *)wall_query_hit_result + 0x18) = FACE->flags;
         }
         break;
     }
@@ -637,12 +632,12 @@ s32 prepare_wall_query_polygons(void *arg0, f32 r, s32 mask) {
 #pragma pop
 
 void copy_wall_polygon__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
-    M2C_FIELD(arg0, u16 *, 6) = (u16) M2C_FIELD(arg1, u16 *, 6);
-    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
-    *(M2CCopy_C *)((s32) arg0 + 0x14) = *(const M2CCopy_C *)((s32) arg1 + 0x14);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg1, f32 *, 0x20);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(u16 *)((s8 *)arg0 + 4) = (u16) *(u16 *)((s8 *)arg1 + 4);
+    *(u16 *)((s8 *)arg0 + 6) = (u16) *(u16 *)((s8 *)arg1 + 6);
+    *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
+    *(ByteBlock_C *)((s32) arg0 + 0x14) = *(const ByteBlock_C *)((s32) arg1 + 0x14);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x20);
 }
 
 Wall_8007A138 *query_collision_segment_groups(Vec_8007A138 *a, Vec_8007A138 *b, u32 mask) {
@@ -697,7 +692,7 @@ void *query_prepared_wall_polygons(void *self) {
     if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
-    TObjPlayer__sub_80079118((M2C_UNK *)(lbl_80438988));
+    TObjPlayer__sub_80079118((s32 *)(lbl_80438988));
     return r;
 }
 
@@ -710,26 +705,26 @@ void *query_wall_radial(Obj_8007A32C *self) {
     } else if (select_deepest_wall_ray((Query_80079608 *)(self), (Result_80079608 *)(r)) == 0) {
         r = 0;
     }
-    TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389A8));
+    TObjPlayer__sub_80079118((s32 *)(lbl_804389A8));
     return r;
 }
 
-M2C_UNK *csnLookAt(s32 arg0, s32 arg1) {
-    M2C_UNK *var_r31;
+s32 *csnLookAt(s32 arg0, s32 arg1) {
+    s32 *var_r31;
     TObjPlayer__sub_8007911C();
-    var_r31 = (M2C_UNK *)(lbl_80500140);
+    var_r31 = (s32 *)(lbl_80500140);
     TObjPlayer__sub_80079124((void *)((void *) (arg0)), (void *)((void *) (arg1)));
     if (TObjPlayer__sub_80079DE0((void *) (arg0), (void *) (arg1)) == 0U) {
-        var_r31 = (M2C_UNK *)((u8 *)(NULL));
-    } else if (check_line_hits_walls__10TObjPlayerFPvPviPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (int)((int) (0x8000)), (Node_800797DC **)((void *) (((M2C_UNK *)&lbl_804FFD40)))) == 0) {
-        var_r31 = (M2C_UNK *)((u8 *)(NULL));
+        var_r31 = (s32 *)((u8 *)(NULL));
+    } else if (check_line_hits_walls__10TObjPlayerFPvPviPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (int)((int) (0x8000)), (Node_800797DC **)((void *) (((s32 *)&lbl_804FFD40)))) == 0) {
+        var_r31 = (s32 *)((u8 *)(NULL));
     }
-    TObjPlayer__sub_80079118((M2C_UNK *)((void *) (lbl_804389C0)));
+    TObjPlayer__sub_80079118((s32 *)((void *) (lbl_804389C0)));
     return var_r31;
 }
 
-M2C_UNK *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2) {
-    M2C_UNK *var_r31;
+s32 *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2) {
+    s32 *var_r31;
     TObjPlayer__sub_80079108();
     TObjPlayer__sub_8007911C();
     TObjPlayer__sub_80079120((s32)(arg0));
@@ -751,7 +746,7 @@ M2C_UNK *csnVectorUnder(s32 arg0, u32 *arg1, s32 arg2) {
         }
     }
 done:
-    TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389CC));
+    TObjPlayer__sub_80079118((s32 *)(lbl_804389CC));
     return var_r31;
 }
 s32 *csnVecterUnder(s32 arg0, s32 arg1) {
@@ -765,7 +760,7 @@ s32 *csnVecterUnder(s32 arg0, s32 arg1) {
     } else if (evaluate_ground_triangles(arg0, arg1, lbl_804FFD40) == 0) {
         var_r31 = 0;
     }
-    TObjPlayer__sub_80079118((M2C_UNK *)(lbl_804389E8));
+    TObjPlayer__sub_80079118((s32 *)(lbl_804389E8));
     return var_r31;
 }
 

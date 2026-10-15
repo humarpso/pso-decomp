@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_802FE024 { f32 x, y, z; };
 
@@ -21,7 +17,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 void *__ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK __vt__21TBoss8DragonEffBreath[];
+extern s32 __vt__21TBoss8DragonEffBreath[];
 extern s32 TBoss8DragonEffBreath__name;
 extern const f32 lbl_805DEEF8;
 Obj_802FE024 *TBoss8DragonEffBreath__ct(Obj_802FE024 *self, void *parent, void *p, void *v, s32 a, s16 b);
@@ -32,13 +28,13 @@ extern "C" {
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1);
 void render__21TBoss8DragonEffBreathFv(void);
 void run_task__21TBoss8DragonEffBreathFv(u8 *arg0);
-M2C_UNK vec3_add_to(void *, void *);
+s32 vec3_add_to(void *, void *);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK setup_breath_instance__12TBoss8DragonFPviUii(u32, void *, int, int);
+s32 setup_breath_instance__12TBoss8DragonFPviUii(u32, void *, int, int);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 u32 get_enemy_entity(int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void render__21TBoss8DragonEffBreathFv(void) {  }
 
@@ -50,23 +46,23 @@ void run_task__21TBoss8DragonEffBreathFv(u8 *arg0) {
     u32 ent;
 
     vec3_add_to((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
     if (temp_f1 < lbl_805DEEF0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (M2C_FIELD(arg0, u16 *, 0x38)))) != 0U)) {
-        setup_breath_instance__12TBoss8DragonFPviUii(ent, (void *) (arg0 + 0x1C), (int) (M2C_FIELD(arg0, s32 *, 0x34)), (int) (M2C_FIELD(arg0, s32 *, 0x3C)));
+    if ((temp_f1 < lbl_805DEEF4) && ((ent = get_enemy_entity((int) (*(u16 *)((s8 *)arg0 + 0x38)))) != 0U)) {
+        setup_breath_instance__12TBoss8DragonFPviUii(ent, (void *) (arg0 + 0x1C), (int) (*(s32 *)((s8 *)arg0 + 0x34)), (int) (*(s32 *)((s8 *)arg0 + 0x3C)));
     }
 }
 
-extern M2C_UNK __vt__21TBoss8DragonEffBreath[];
+extern s32 __vt__21TBoss8DragonEffBreath[];
 
 void *__dt__21TBoss8DragonEffBreathFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TBoss8DragonEffBreath;
-        delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0x3C), 1);
-        M2C_FIELD(arg0, M2C_UNK *, 0x3C) = 0;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBreath;
+        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0x3C), 1);
+        *(s32 *)((s8 *)arg0 + 0x3C) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V3_800C7458 { f32 x; s32 y; f32 z; };
 
@@ -59,23 +55,23 @@ void collect_active_nodes__12TBoss3VoloptFPv(void *arg0) {
 
     var_r31 = arg0;
     do {
-        if (!(M2C_FIELD(var_r31, s32 *, 0) & 8) && ((u32) M2C_FIELD(var_r31, u32 *, 4) != 0U)) {
+        if (!(*(s32 *)((s8 *)var_r31 + 0) & 8) && ((u32) *(u32 *)((s8 *)var_r31 + 4) != 0U)) {
             temp_r3 = lbl_805D5190;
             lbl_805D5190 = temp_r3 + 1;
             *temp_r3 = var_r31;
             lbl_805D5194 += 1;
         }
-        if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
-            collect_active_nodes__12TBoss3VoloptFPv(M2C_FIELD(var_r31, void **, 0x2C));
+        if ((u32) *(u32 *)((s8 *)var_r31 + 0x2C) != 0U) {
+            collect_active_nodes__12TBoss3VoloptFPv(*(void **)((s8 *)var_r31 + 0x2C));
         }
-        var_r31 = M2C_FIELD(var_r31, void **, 0x30);
+        var_r31 = *(void **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
 }
 
 }
 
 struct RecoveredGlobal_800C7698_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -87,7 +83,7 @@ struct Stack_800C762C {
 };
 
 struct RecoveredGlobal_800C762C_lbl_8043BCA0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -104,7 +100,7 @@ s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_800C762C_lbl_8043BCA0 lbl_8043BCA0;
 extern s32 anim_model_matrix_array;
-void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2);
+void TBoss3Volopt__sub_800C762C(s32 arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -121,12 +117,12 @@ s32 query_field_30__12TBoss3VoloptFPvPv(void *arg0, s32 *arg1) {
     if (arg1 == NULL) {
         return 0;
     }
-    temp_r31 = M2C_FIELD(arg0, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    temp_r31 = *(s32 *)((s8 *)arg0 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
     (*(s32 **)&lbl_805D5190) = arg1;
     lbl_805D5194 = 0;
-    ((M2C_UNK (*)())collect_active_nodes__12TBoss3VoloptFPv)();
-    M2C_FIELD(arg0, s32 *, 0x30) = temp_r31;
+    ((s32 (*)())collect_active_nodes__12TBoss3VoloptFPv)();
+    *(s32 *)((s8 *)arg0 + 0x30) = temp_r31;
     *(*(s32 **)&lbl_805D5190) = 0;
     return lbl_805D5194;
 }
@@ -134,14 +130,14 @@ s32 query_field_30__12TBoss3VoloptFPvPv(void *arg0, s32 *arg1) {
 typedef char RecoveredGlobal_800C7698_lbl_8058D490_size[sizeof(RecoveredGlobal_800C7698_lbl_8058D490) == 0x30 ? 1 : -1];
 
 typedef char RecoveredGlobal_800C762C_lbl_8043BCA0_size[sizeof(RecoveredGlobal_800C762C_lbl_8043BCA0) == 0xC ? 1 : -1];
-void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void TBoss3Volopt__sub_800C762C(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_800C762C, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800C762C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_800C762C, sp10) == 0x8) ? 1 : -1];
     Stack_800C762C stack;
-    stack.sp8 = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8043BCA0.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043BCA0.value) + 8);
     push_matrix_from((void *) (anim_model_matrix_array + (arg1 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg2));
     pop_matrix();
@@ -150,8 +146,8 @@ void TBoss3Volopt__sub_800C762C(M2C_UNK arg0, s32 arg1, s32 arg2) {
 void render_anim_model_at_pos__12TBoss3VoloptFPv(u8 *arg0) {
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     pop_matrix();
 }
 

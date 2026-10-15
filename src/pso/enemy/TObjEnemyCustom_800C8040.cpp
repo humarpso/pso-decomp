@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 void bswap_packet_header__6TLobbyFPv(s32);
 u32 get_enemy_entity(u16);
@@ -28,13 +23,13 @@ void handle_6x09_legacy_kill_enemy(s32 arg0) {
     u16 temp_r3;
     u32 temp_r3_2;
     bswap_packet_header__6TLobbyFPv(arg0);
-    temp_r3 = M2C_FIELD(arg0, u16 *, 2);
+    temp_r3 = *(u16 *)((s8 *)arg0 + 2);
     temp_r5 = (temp_r3 * 4) & 0x3FFFC;
-    if ((s32) M2C_FIELD(legacy_enemy_kill_received_flags, M2C_UNK *, temp_r5) == 0) {
-        M2C_FIELD(legacy_enemy_kill_received_flags, M2C_UNK *, temp_r5) = 1;
+    if ((s32) *(s32 *)((s8 *)legacy_enemy_kill_received_flags + temp_r5) == 0) {
+        *(s32 *)((s8 *)legacy_enemy_kill_received_flags + temp_r5) = 1;
         temp_r3_2 = get_enemy_entity(temp_r3);
         if (temp_r3_2 != 0) {
-            M2C_FIELD(temp_r3_2, s32 *, 0x30) = (s32) (M2C_FIELD(temp_r3_2, s32 *, 0x30) | 0x800);
+            *(s32 *)((s8 *)temp_r3_2 + 0x30) = (s32) (*(s32 *)((s8 *)temp_r3_2 + 0x30) | 0x800);
         }
     }
 }

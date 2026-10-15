@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Q_803D98E4 { f32 x, y, z, w; };
 
@@ -61,7 +57,7 @@ extern G_803D9DA8 lbl_8058D470;
 u32 *find_gvrt_texture_chunk(void *arg0, u32 *arg1, u32 *arg2);
 s32 find_free_slot__10TObjPlayerFPvPv(void *, int);
 s32 find_record_index__10TObjPlayerFUiUi(int, int);
-M2C_UNK TObjPlayer__sub_803DAD24(int, int);
+s32 TObjPlayer__sub_803DAD24(int, int);
 extern s32 record_array_ptr;
 s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3);
 }
@@ -247,47 +243,47 @@ s32 TObjPlayer__sub_803D9E38(s32 *arg0, u32 arg1, s32 *arg2, u32 *arg3) {
     s32 temp_r6;
     u8 *temp_r29;
     u8 *temp_r31;
-    temp_r6 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r6 = *(s32 *)((s8 *)arg0 + 0);
     temp_r31 = (u8 *)(temp_r6 + (arg1 * 0xC));
-    temp_r3 = M2C_FIELD(temp_r31, s32 *, 4);
+    temp_r3 = *(s32 *)((s8 *)temp_r31 + 4);
     if (((u32) (temp_r3 & 0x10000) != 0) && (arg1 != 0)) {
-        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+        *(u32 *)((s8 *)arg3 + 0) = (u32) (*(s32 *)((s8 *)temp_r31 + 8) & 0xFC000000) >> 0x1AU;
         j = arg1 - 1;
         temp_r29 = ((Tbl_803D9E38 *)temp_r6)->arr[j].p;
-        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(M2C_FIELD(temp_r29, s32 **, 0xC), s32 *, 0);
-        temp_r3_2 = find_record_index__10TObjPlayerFUiUi((int) (M2C_FIELD(arg2, s32 *, 0)), (int) (M2C_FIELD(arg3, u32 *, 0)));
+        *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)(*(s32 **)((s8 *)temp_r29 + 0xC)) + 0);
+        temp_r3_2 = find_record_index__10TObjPlayerFUiUi((int) (*(s32 *)((s8 *)arg2 + 0)), (int) (*(u32 *)((s8 *)arg3 + 0)));
         if (temp_r3_2 < 0) {
             if (find_free_slot__10TObjPlayerFPvPv((void *) (&sp8), (int) (0)) < 0) {
                 return -1;
             }
-            M2C_FIELD(temp_r31, s32 *, 8) = sp8;
-            M2C_FIELD(sp8, u32 *, 8) = (u32) M2C_FIELD(arg3, u32 *, 0);
-            M2C_FIELD(sp8, s32 **, 0xC) = (s32 *) M2C_FIELD(temp_r29, s32 **, 0xC);
-            M2C_FIELD(sp8, s32 *, 0x10) = 1;
-            temp_r4 = (s32 *)(M2C_FIELD(sp8, s32 **, 0xC));
-            M2C_FIELD(temp_r4, s32 *, 0x24) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x24) + 1);
-            M2C_FIELD(sp8, s32 *, 0x14) = (s32) M2C_FIELD(temp_r29, s32 *, 0x14);
+            *(s32 *)((s8 *)temp_r31 + 8) = sp8;
+            *(u32 *)((s8 *)sp8 + 8) = (u32) *(u32 *)((s8 *)arg3 + 0);
+            *(s32 **)((s8 *)sp8 + 0xC) = (s32 *) *(s32 **)((s8 *)temp_r29 + 0xC);
+            *(s32 *)((s8 *)sp8 + 0x10) = 1;
+            temp_r4 = (s32 *)(*(s32 **)((s8 *)sp8 + 0xC));
+            *(s32 *)((s8 *)temp_r4 + 0x24) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x24) + 1);
+            *(s32 *)((s8 *)sp8 + 0x14) = (s32) *(s32 *)((s8 *)temp_r29 + 0x14);
             TObjPlayer__sub_803DAD24((int) (sp8), (int) (temp_r4));
             goto block_7;
         }
         temp_r0 = record_array_ptr + (temp_r3_2 * 0x18);
         sp8 = temp_r0;
-        M2C_FIELD(temp_r31, s32 *, 8) = temp_r0;
-        temp_r4_2 = (s32 *)(M2C_FIELD(sp8, s32 **, 0xC));
-        M2C_FIELD(temp_r4_2, s32 *, 0x24) = (s32) (M2C_FIELD(temp_r4_2, s32 *, 0x24) + 1);
-        M2C_FIELD(sp8, s32 *, 0x10) = (s32) (M2C_FIELD(sp8, s32 *, 0x10) + 1);
+        *(s32 *)((s8 *)temp_r31 + 8) = temp_r0;
+        temp_r4_2 = (s32 *)(*(s32 **)((s8 *)sp8 + 0xC));
+        *(s32 *)((s8 *)temp_r4_2 + 0x24) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0x24) + 1);
+        *(s32 *)((s8 *)sp8 + 0x10) = (s32) (*(s32 *)((s8 *)sp8 + 0x10) + 1);
 block_7:
         return 1;
     }
     if ((u32) (temp_r3 & 0x800000) != 0) {
-        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(temp_r31, s32 *, 8);
-        M2C_FIELD(arg3, u32 *, 0) = -1U;
+        *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)temp_r31 + 8);
+        *(u32 *)((s8 *)arg3 + 0) = -1U;
     } else if ((u32) (temp_r3 & 0x01000000) != 0) {
-        M2C_FIELD(arg2, s32 *, 0) = M2C_FIELD(temp_r31, s32 *, 8) & 0x03FFFFFF;
-        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+        *(s32 *)((s8 *)arg2 + 0) = *(s32 *)((s8 *)temp_r31 + 8) & 0x03FFFFFF;
+        *(u32 *)((s8 *)arg3 + 0) = (u32) (*(s32 *)((s8 *)temp_r31 + 8) & 0xFC000000) >> 0x1AU;
     } else {
-        M2C_FIELD(arg2, s32 *, 0) = -1;
-        M2C_FIELD(arg3, u32 *, 0) = (u32) (M2C_FIELD(temp_r31, s32 *, 8) & 0xFC000000) >> 0x1AU;
+        *(s32 *)((s8 *)arg2 + 0) = -1;
+        *(u32 *)((s8 *)arg3 + 0) = (u32) (*(s32 *)((s8 *)temp_r31 + 8) & 0xFC000000) >> 0x1AU;
     }
     return 0;
 }

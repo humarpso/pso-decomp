@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -37,17 +34,17 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 u8 *get_player_by_client_id(u16);
 extern const f32 lbl_805DB850;
 void run_task__10TOMineDispFv(u8 *arg0);
-M2C_UNK get_camera_mode__11TCameraCtrlFv();
+s32 get_camera_mode__11TCameraCtrlFv();
 u16 get_nth_view_player_id__11TCameraCtrlFi();
-M2C_UNK free_sub_objects__6TOMineFPv(int);
-M2C_UNK free_parts__6TOMineFPv(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_chunk_material_color(void *, int);
+s32 free_sub_objects__6TOMineFPv(int);
+s32 free_parts__6TOMineFPv(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_chunk_material_color(void *, int);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -61,9 +58,9 @@ extern "C" {
 typedef char RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp_size[sizeof(RecoveredGlobal_8016EF68___vt__14TOMineTrapDisp) == 0x34 ? 1 : -1];
 u8 *TOMineTrapDisp__ct(u8 *arg0, s32 arg1, s32 arg2, s16 arg3) {
     TOMineDisp__ct((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TOMineTrapDisp.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMineTrapDisp__name;
-    M2C_FIELD(arg0, s16 *, 0xAC) = arg3;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TOMineTrapDisp.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOMineTrapDisp__name;
+    *(s16 *)((s8 *)arg0 + 0xAC) = arg3;
     return arg0;
 }
 
@@ -71,19 +68,19 @@ void draw__10TOMineDispFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r4;
     u16 id = ((u16 (*)(s32))get_nth_view_player_id__11TCameraCtrlFi)(get_camera_mode__11TCameraCtrlFv());
-    if (id != M2C_FIELD(arg0, u16 *, 0xA8)) {
+    if (id != *(u16 *)((s8 *)arg0 + 0xA8)) {
         return;
     }
-    if (M2C_FIELD(arg0, s32 *, 0xA4) != 2) {
+    if (*(s32 *)((s8 *)arg0 + 0xA4) != 2) {
         return;
     }
     if (((VObj_8016EFB4 *)arg0)->m8(lbl_805DB854, lbl_805DB858) == 0) {
         return;
     }
     push_matrix();
-    temp_r31 = M2C_FIELD(arg0, s32 *, 0x10);
+    temp_r31 = *(s32 *)((s8 *)arg0 + 0x10);
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     free_parts__6TOMineFPv(temp_r31);
     begin_effect_render__13TParticleCtrlFv();
     temp_r4 = model_render_flags;
@@ -91,7 +88,7 @@ void draw__10TOMineDispFPv(u8 *arg0) {
     model_render_flags = temp_r4 | 0x20;
     set_chunk_material_color(arg0 + 0x94, temp_r4);
     free_sub_objects__6TOMineFPv(temp_r31);
-    ((M2C_UNK (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
+    ((s32 (*)(void *))set_chunk_material_color)(chunk_material_color_half_alpha_f32);
     model_render_flags = lbl_805D5660;
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();

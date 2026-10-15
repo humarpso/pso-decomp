@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80052200_lbl_804858A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80052200___vt__14TObjDFUsoTower {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -20,7 +16,7 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u8 * construct_world_actor_base(void *);
 extern RecoveredGlobal_80052200_lbl_804858A8 lbl_804858A8;
-extern M2C_UNK __vt__14TObjDFUsoTower[];
+extern s32 __vt__14TObjDFUsoTower[];
 extern s32 TObjDFUsoTower__name;
 extern u8 *lbl_805D58A8;
 extern const f32 lbl_805D8A30;
@@ -38,11 +34,11 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern M2C_UNK __vt__14TObjDFUsoTower[];
+extern s32 __vt__14TObjDFUsoTower[];
 
 void *__dt__14TObjDFUsoTowerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjDFUsoTower;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjDFUsoTower;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -55,13 +51,13 @@ typedef char RecoveredGlobal_80052200_lbl_804858A8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80052200___vt__14TObjDFUsoTower_size[sizeof(RecoveredGlobal_80052200___vt__14TObjDFUsoTower) == 0x34 ? 1 : -1];
 u8 *TObjDFUsoTower__ct(u8 *arg0, s32 _w1) {
     construct_world_actor_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80052200___vt__14TObjDFUsoTower *)&__vt__14TObjDFUsoTower).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjDFUsoTower__name;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(lbl_805D58A8, 5);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80052200___vt__14TObjDFUsoTower *)&__vt__14TObjDFUsoTower).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjDFUsoTower__name;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(lbl_805D58A8, 5);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(lbl_805D58A8, 5);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, &lbl_804858A8.value);
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805D8A30;
-    M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805D8A30;
+    *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;
 }
 

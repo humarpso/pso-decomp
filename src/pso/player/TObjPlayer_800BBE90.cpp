@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VPad800BC050_800bc050_800BBE90 { char pad[0x18]; };
 struct VObj800BC050_800bc050_800BBE90 : VPad800BC050_800bc050_800BBE90 {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -95,7 +92,7 @@ struct VObj_18_c1e16f : VBase_18_c1e16f {
     virtual void m17();
     virtual void m18();
     virtual void m19();
-    virtual M2C_UNK m20(void *, void *);
+    virtual s32 m20(void *, void *);
 };
 
 struct Rec_800BC080 { u8 pad0[0x18]; s32 flags; u8 pad1C[0x2C - 0x1C]; };
@@ -121,7 +118,6 @@ struct P_800BC080 : VB_800BC080 {
     Tgt_800BC080 *self_tgt;
 };
 
-typedef s32 M2C_UNK;
 struct Tgt_800BC250 { u8 pad[0x30]; s32 x30; };
 
 struct Arg_800BC250 { s32 x0; s32 flags; };
@@ -158,17 +154,17 @@ s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
-M2C_UNK init_all_slots__10TObjPlayerFv();
-M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
+s32 init_all_slots__10TObjPlayerFv();
+s32 mark_enemy_body_contacts(void *);
+s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_physical(P_800BC080 *arg0, Arg_800BC080 *arg1, void *arg2, f32 farg0);
 s32 obj_is_hit_receivable();
 Tgt_800BC080 *get_battle_param__10TObjPlayerFi(s32);
 s32 is_area_attack_target_eligible(void *, int);
 s32 attack_target_history_add(void *, void *);
-M2C_UNK init_all_slots__10TObjPlayerFv();
-M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
+s32 init_all_slots__10TObjPlayerFv();
+s32 mark_enemy_body_contacts(void *);
+s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 s32 area_attack_deliver_direct(P_800BC250 *arg0, Arg_800BC250 *arg1, s32 arg2, void *arg3, f32 farg0);
 }
 
@@ -207,7 +203,7 @@ s32 obj_isState2_324(void *);
 extern const f32 lbl_805D9EB0;
 
 void apply_hit_if_active__10TObjPlayerFPvPvPv(void *arg0, void *arg1, f32 *arg2) {
-    ((VObj_800bbe90*)arg1)->m20(M2C_FIELD(arg0, s32 *, 0xAC), lbl_805D9EB0);
+    ((VObj_800bbe90*)arg1)->m20(*(s32 *)((s8 *)arg0 + 0xAC), lbl_805D9EB0);
     if (obj_isState2_324(arg1) == 0) {
         ((VObj_800bbe90*)arg0)->m18(arg1, *arg2);
     }

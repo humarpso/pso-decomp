@@ -1,9 +1,5 @@
 #include "pso/misc/WindowControlState.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8024CCDC { u8 p0[8]; f32 f8; f32 fC; u8 p10[0xC]; };
 struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
@@ -11,11 +7,11 @@ struct RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730 {
     u8 remaining[0xA4];
 };
 struct RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xA4];
 };
 struct RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xA4];
 };
 
@@ -135,15 +131,15 @@ s32 TWindowCtrlMain__sub_8024CDB0(void* p) { return TWindowCtrlMain__sub_8024CDD
 typedef char RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730_size[sizeof(RecoveredGlobal_8024CDD0_TWindowCtrlMain__data_80518730) == 0xA8 ? 1 : -1];
 s32 TWindowCtrlMain__sub_8024CDD0(s32 arg0) {
     if (is_split_screen() != 0) {
-        return M2C_FIELD(&TWindowCtrlMain__viewport_states.value, s32 *, (arg0 * 0x1C));
+        return *(s32 *)((s8 *)(&TWindowCtrlMain__viewport_states.value) + (arg0 * 0x1C));
     }
     return TWindowCtrlMain__viewport_states.value;
 }
 s32 TWindowCtrlMain__sub_8024CE24(void) {
-    return M2C_FIELD(&(*(RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__viewport_states).value, s32 *, 0x8C);
+    return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8024CE24_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__viewport_states).value) + 0x8C);
 }
 s32 TWindowCtrlMain__sub_8024CE34(void) {
-    return M2C_FIELD(&(*(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__viewport_states).value, s32 *, 0x70);
+    return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8024CE34_TWindowCtrlMain__data_80518730 *)&TWindowCtrlMain__viewport_states).value) + 0x70);
 }
 #undef TWindowCtrlMain__viewport_states
 

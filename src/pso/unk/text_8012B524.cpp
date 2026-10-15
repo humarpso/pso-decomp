@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8012B524_lbl_804A4D70 { M2C_UNK value; u8 remaining[0xF4]; };
+struct RecoveredGlobal_8012B524_lbl_804A4D70 { s32 value; u8 remaining[0xF4]; };
 typedef char RecoveredGlobal_8012B524_lbl_804A4D70_size[sizeof(RecoveredGlobal_8012B524_lbl_804A4D70) == 0xF8 ? 1 : -1];
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_partisan_weapon(u8 *arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -24,17 +20,17 @@ extern "C" {
 
 u8 *TItemWeaponPartisan__ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &partisan_weapon_vtable.value;
-    M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
-    M2C_FIELD(arg0, f32 *, 0x1FC) = (f32) lbl_805DAEA4;
-    M2C_FIELD(arg0, f32 *, 0x200) = (f32) lbl_805DAEA4;
-    M2C_FIELD(arg0, f32 *, 0x204) = (f32) lbl_805DAEA4;
-    M2C_FIELD(arg0, f32 *, 0x208) = (f32) lbl_805DAE88;
-    M2C_FIELD(arg0, f32 *, 0x20C) = (f32) lbl_805DAE88;
-    M2C_FIELD(arg0, f32 *, 0x210) = (f32) lbl_805DAE88;
-    M2C_FIELD(arg0, f32 *, 0x214) = (f32) lbl_805DAE88;
-    M2C_FIELD(arg0, f32 *, 0x218) = (f32) lbl_805DAE88;
-    M2C_FIELD(arg0, f32 *, 0x21C) = (f32) lbl_805DAE88;
+    *(s32 **)((s8 *)arg0 + 0x18) = &partisan_weapon_vtable.value;
+    *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
+    *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DAEA4;
+    *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DAEA4;
+    *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DAEA4;
+    *(f32 *)((s8 *)arg0 + 0x208) = (f32) lbl_805DAE88;
+    *(f32 *)((s8 *)arg0 + 0x20C) = (f32) lbl_805DAE88;
+    *(f32 *)((s8 *)arg0 + 0x210) = (f32) lbl_805DAE88;
+    *(f32 *)((s8 *)arg0 + 0x214) = (f32) lbl_805DAE88;
+    *(f32 *)((s8 *)arg0 + 0x218) = (f32) lbl_805DAE88;
+    *(f32 *)((s8 *)arg0 + 0x21C) = (f32) lbl_805DAE88;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     if (get_slot_count__14TItemProShieldFPv(arg0) == 6) {
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x20);

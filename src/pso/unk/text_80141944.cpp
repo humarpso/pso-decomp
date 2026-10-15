@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80141944_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -26,26 +23,26 @@ extern "C" {
 
 typedef char RecoveredGlobal_80141944_lbl_8050C000_size[sizeof(RecoveredGlobal_80141944_lbl_8050C000) == 0x28 ? 1 : -1];
 void set_depth_buffer_settings_1__Fv(void) {
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 4) = 0;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 5) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, s32 *, 8) = 3;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xC) = 0;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xD) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 5) = 1;
+    *(s32 *)((s8 *)(&depth_buffer_settings.value) + 8) = 3;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 0xC) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 0xD) = 0;
     GXSetZCompLoc(0);
     GXSetZMode(1U, 3, 0);
     set_material_alpha_compare_reference(0);
 }
 void set_depth_buffer_settings_3__Fv(void) {
     depth_buffer_settings.value = 7;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 4) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 5) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, s32 *, 8) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xC) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD) = 0xBF;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 1;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 5) = 1;
+    *(s32 *)((s8 *)(&depth_buffer_settings.value) + 8) = 1;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 0xC) = 1;
+    *(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD) = 0xBF;
     GXSetAlphaCompare(7, 0, 0, 7, 0);
     GXSetZCompLoc(1);
     GXSetZMode(1U, 1, 1);
-    set_material_alpha_compare_reference(M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD));
+    set_material_alpha_compare_reference(*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD));
 }
 
 }

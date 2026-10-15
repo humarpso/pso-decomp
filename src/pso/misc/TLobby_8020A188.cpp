@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -12,10 +8,10 @@ int free_boss4rock__6TLobbyFPvs(void*, void*);
 u32 find_type5_header__6TLobbyFPvi(s32, s32);
 u32 find_chunk_by_id__6TLobbyFPvi(s32, s32);
 u32 find_header_by_id__6TLobbyFPvi(s32, s32);
-M2C_UNK TLobby__sub_80209D34(s32);
+s32 TLobby__sub_80209D34(s32);
 int __dl__FPv(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 
 extern u32 lbl_805D60A8;
 extern u32 lbl_805D60AC;

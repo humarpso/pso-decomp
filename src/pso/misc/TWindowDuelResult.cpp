@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8024F5B0___vt__17TWindowDuelResult {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x70];
 };
 
 struct RecoveredGlobal_8024F5B0_lbl_804CF020 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -39,14 +35,14 @@ extern "C" {
 s8 get_type__20TWindowSubStatusDispFPv(int);
 s32 destroy_all_items__20TWindowSubStatusDispFPv(void *);
 s32 setup_window_draw_context(void *, void *);
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK draw_list_page_indicator(int, int);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+s32 draw_list_page_indicator(int, int);
 void draw_window__17TWindowDuelResultFPv(u8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
-M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
+s32 TWindowDuelResult__sub_8024F3CC(void *);
 u8 *init__21TWindowSubComCardListFPviii(void *, s32, s32, s32);
 s32 get_window_layout_position(int);
 
@@ -83,14 +79,14 @@ void sub_8024F090__17TWindowDuelResultFv(void);
 void sub_8024EF3C__17TWindowDuelResultFv(void);
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1);
 void update__17TWindowDuelResultFPv(u8 *arg0);
-M2C_UNK TWindowDuelResult__sub_8024F330(void *);
-M2C_UNK TWindowDuelResult__sub_8024F3CC(void *);
+s32 TWindowDuelResult__sub_8024F330(void *);
+s32 TWindowDuelResult__sub_8024F3CC(void *);
 s32 handle_list_page_flip_input(s32);
-M2C_UNK update_window_entry_list(void *, void *);
+s32 update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
+s32 initialize_subwindow__9TWindowDDFPv(void *);
 
 extern "C" u8 lbl_805D63F0[];
 extern "C" const char lbl_805DCCA8[] = ":";
@@ -286,14 +282,14 @@ void draw_window__17TWindowDuelResultFPv(u8 *arg0) {
     temp_r3 = setup_window_draw_context(arg0, (void *) (arg0 + 0x60));
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_list_page_indicator((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r3));
+    draw_list_page_indicator((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r3));
 }
 
 void update__17TWindowDuelResultFPv(u8 *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    if (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x68)) != 0) {
+    if (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x68)) != 0) {
         TWindowDuelResult__sub_8024F3CC(arg0);
     }
     TWindowDuelResult__sub_8024F330(arg0);
@@ -306,12 +302,12 @@ void *lbl_804CF020[6] = {
     (void *)0x0, (void *)0x0, (void *)&destroy__17TWindowDuelResultFPvs, (void *)&update__17TWindowDuelResultFPv,
     (void *)&draw_window__17TWindowDuelResultFPv, (void *)&render_shadows__7TObjectFv,
 };
-#define lbl_804CF020 ((M2C_UNK *)lbl_804CF020)
+#define lbl_804CF020 ((s32 *)lbl_804CF020)
 
 void *destroy__17TWindowDuelResultFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CF020;
-        delete_if_allocated(M2C_FIELD(arg0, void **, 0x68), 1);
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CF020;
+        delete_if_allocated(*(void **)((s8 *)arg0 + 0x68), 1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -325,23 +321,23 @@ u8 *TWindowDuelResult__ct(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&__vt__17TWindowDuelResult.value), (void *) (arg1), (int) (get_window_layout_position((int) (0x24))));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38F0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8024F5B0_lbl_804CF020 *)lbl_804CF020).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38F0;
     temp_r3 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv((void *)0xC));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(init__21TWindowSubComCardListFPviii(temp_r3, 0, 2, (s32) M2C_FIELD(arg0, s16 *, 0x20)));
+        var_r0 = (u8 *)(init__21TWindowSubComCardListFPviii(temp_r3, 0, 2, (s32) *(s16 *)((s8 *)arg0 + 0x20)));
     }
-    M2C_FIELD(arg0, u8 **, 0x68) = var_r0;
+    *(u8 **)((s8 *)arg0 + 0x68) = var_r0;
     if (get_camera_id__11TCameraCtrlFv() > 2) {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (0.8f);
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (0.8f);
+        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (0.8f);
+        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (0.8f);
     } else if (get_camera_id__11TCameraCtrlFv() == 2) {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (1.0f);
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (1.0f);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x60) = (f32) (1.0f);
-        M2C_FIELD(arg0, f32 *, 0x64) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0 + 0x60) = (f32) (1.0f);
+        *(f32 *)((s8 *)arg0 + 0x64) = (f32) (1.0f);
     }
     TWindowDuelResult__sub_8024F3CC((void *) (arg0));
     return arg0;

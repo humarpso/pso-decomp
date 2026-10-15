@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct VBase_8003508C_80035084 {
     char pad[0x18];
     virtual void m0();
@@ -98,7 +93,7 @@ struct VBase_8003508C_80035084 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct O_801C0708 { u8 a; u8 b; u8 pad[2]; s32 c; u16 d; u16 e; };
 
@@ -116,13 +111,13 @@ extern const f32 lbl_805DC3C0;
 extern const f32 lbl_805DC3C4;
 int TFontSmallLobby__sub_801C013C(void* p);
 void init_forward__10TObjPlayerFPv(void *);
-extern M2C_UNK fn_80152EF8[];
+extern s32 fn_80152EF8[];
 void __construct_array(void *, void *, int, int, int);
 void reset_tech_state__10TObjPlayerFPv(void *);
 void *TFontSmallLobby__sub_801C0164(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -140,7 +135,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void TFontSmallLobby__sub_801C029C(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -160,7 +155,7 @@ void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
 void TFontSmallLobby__sub_801C0378(void* p);
 int send_60_sized__6TLobbyFPv(void*);
 void bswap_battle_damage_packet__15TFontSmallLobbyFPv(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -169,7 +164,7 @@ void bswap_6x90_set_player_battle_team__15TFontSmallLobbyFPv(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -180,7 +175,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void TFontSmallLobby__sub_801C044C(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -191,7 +186,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void send_font_state_msg__15TFontSmallLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -202,7 +197,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void cleanup_small_font__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -210,7 +205,7 @@ void cleanup_small_font__6TLobbyFPv(void* p);
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1);
 void TObjPlayer__sub_801C0734(void* p);
 int TLobby__send_and_handle_60(void*);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -228,7 +223,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C04DC(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -241,7 +236,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C056C(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -252,7 +247,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C05B4(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -263,7 +258,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C05FC(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -274,7 +269,7 @@ int TFontSmallLobby__sub_801C01BC(void* p);
 void fn_801C0644(void* p);
 int TLobby__send_and_handle_60(void*);
 int TFontSmallLobby__sub_801C01BC(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -310,7 +305,7 @@ int TFontSmallLobby__sub_801C01BC(void* p) { return read_be16_field2__10TObjPlay
 
 void *TFontSmallLobby__sub_801C01DC(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
-    M2C_FIELD(arg0, u8 *, 0x4) = M2C_FIELD(arg1, u8 *, 0x4);
+    *(u8 *)((s8 *)arg0 + 0x4) = *(u8 *)((s8 *)arg1 + 0x4);
     __copy((void *)((char *)arg0 + 5), (void *)((char *)arg1 + 5), 3);
     return arg0;
 }
@@ -320,12 +315,12 @@ void* TFontSmallLobby__sub_801C0228(void* p, void* _w1) { TFontSmallLobby__sub_8
 void TFontSmallLobby__sub_801C0258(void* p, void* q) { *(u8*)((char*)p + 0x0) = *(u8*)((char*)q + 0x0); *(u8*)((char*)p + 0x1) = *(u8*)((char*)q + 0x1); *(u16*)((char*)p + 0x2) = *(u16*)((char*)q + 0x2); }
 
 void init_packet_6x9b_level_up__15TFontSmallLobbyFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 4) = 0;
-    M2C_FIELD(arg0, s8 *, 5) = 0;
-    M2C_FIELD(arg0, s8 *, 6) = 0;
-    M2C_FIELD(arg0, s8 *, 7) = 0;
-    M2C_FIELD(arg0, u8 *, 0) = 0x9B;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s8 *)((s8 *)arg0 + 4) = 0;
+    *(s8 *)((s8 *)arg0 + 5) = 0;
+    *(s8 *)((s8 *)arg0 + 6) = 0;
+    *(s8 *)((s8 *)arg0 + 7) = 0;
+    *(u8 *)((s8 *)arg0 + 0) = 0x9B;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void TFontSmallLobby__sub_801C029C(void* p) { TFontSmallLobby__sub_801C01BC((void*)(p)); TLobby__send_and_handle_60(p); }
@@ -347,14 +342,14 @@ void bswap_6x90_set_player_battle_team__15TFontSmallLobbyFPv(void* p) { read_be1
 
 void *TFontSmallLobby__sub_801C03E0(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
-    M2C_FIELD(arg0, void **, 0x4) = M2C_FIELD(arg1, void **, 0x4);
+    *(void **)((s8 *)arg0 + 0x4) = *(void **)((s8 *)arg1 + 0x4);
     return arg0;
 }
 
 void TFontSmallLobby__sub_801C041C(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, u8 *, 0) = 0x90;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(u8 *)((s8 *)arg0 + 0) = 0x90;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void TFontSmallLobby__sub_801C0438(void* p) { *(u8*)((char*)p + 0x0) = 130; *(u8*)((char*)p + 0x1) = 1; }
@@ -398,9 +393,9 @@ void bswap_change_hp_packet__10TObjPlayerFPv(void *arg0) {
 
 void *TObjPlayer__sub_801C06BC(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
-    M2C_FIELD(arg0, void **, 0x4) = M2C_FIELD(arg1, void **, 0x4);
-    M2C_FIELD(arg0, u16 *, 0x8) = M2C_FIELD(arg1, s16 *, 0x8);
-    M2C_FIELD(arg0, u16 *, 0xA) = M2C_FIELD(arg1, u16 *, 0xA);
+    *(void **)((s8 *)arg0 + 0x4) = *(void **)((s8 *)arg1 + 0x4);
+    *(u16 *)((s8 *)arg0 + 0x8) = *(s16 *)((s8 *)arg1 + 0x8);
+    *(u16 *)((s8 *)arg0 + 0xA) = *(u16 *)((s8 *)arg1 + 0xA);
     return arg0;
 }
 
@@ -423,8 +418,8 @@ void byteswap_packet_body__10TObjPlayerFPv(void *arg0) {
 }
 u8 *TObjPlayer__sub_801C07B4(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228(arg0, arg1);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
     return arg0;
 }
 

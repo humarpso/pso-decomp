@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 struct Eff_8032E34C {
     u8 pad0[0x18];
@@ -21,8 +19,8 @@ struct Eff_8032E34C {
 };
 
 extern "C" {
-M2C_UNK anchor_card_effect(int);
-M2C_UNK normalize_vector(int, int);
+s32 anchor_card_effect(int);
+s32 normalize_vector(int, int);
 extern s32 lbl_805D4218;
 extern const f32 lbl_805DF7E0;
 void TItemWpnCardEffect__ct(u8 *arg0);

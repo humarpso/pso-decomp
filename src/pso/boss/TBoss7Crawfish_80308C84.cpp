@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Craw_80308D1C {
     u8 pad0[0x60];
@@ -16,7 +12,7 @@ struct Craw_80308D1C {
 extern "C" {
 u16 find_nearest_visible_player(void *, void *, f32);
 f64 atan2_float(f32, f32);
-M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
+s32 change_state__14TBoss7CrawfishFPvi(void *, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void normalize_vector(void *);
@@ -30,12 +26,12 @@ void aim_at_nearest_player__14TBoss7CrawfishFPv(Craw_80308D1C *o);
 extern "C" {
 
 void update_motion_and_release__14TBoss7CrawfishFPv(u8 *arg0);
-M2C_UNK register_attack_hits__14TBoss7CrawfishFPv(void *, void *, f32, f32);
-M2C_UNK TBoss7Crawfish__sub_803087D4(void *, int);
+s32 register_attack_hits__14TBoss7CrawfishFPv(void *, void *, f32, f32);
+s32 TBoss7Crawfish__sub_803087D4(void *, int);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
-M2C_UNK change_state__14TBoss7CrawfishFPvi(void *, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK free_child__14TBoss7CrawfishFPv(void *);
+s32 change_state__14TBoss7CrawfishFPvi(void *, int);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 free_child__14TBoss7CrawfishFPv(void *);
 
 extern const f32 TBoss7Crawfish__data_805DF0DC;
 extern const f32 lbl_805DF0F4;
@@ -43,11 +39,11 @@ extern const f32 lbl_805DF0F4;
 void update_motion_and_release__14TBoss7CrawfishFPv(u8 *arg0) {
     f32 *temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, f32 **, 0x3A0);
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (lbl_805DF0F4 * (TBoss7Crawfish__data_805DF0DC + *temp_r4));
+    temp_r4 = *(f32 **)((s8 *)arg0 + 0x3A0);
+    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (lbl_805DF0F4 * (TBoss7Crawfish__data_805DF0DC + *temp_r4));
     register_attack_hits__14TBoss7CrawfishFPv((void *) (arg0), (void *) (temp_r4), (f32) (TBoss7Crawfish__data_805DF0DC), (f32) (lbl_805DF0F4));
     {
-        void *temp_ptr = (void *) M2C_FIELD(arg0, u32 *, 0x3CC);
+        void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x3CC);
         if (temp_ptr != NULL) {
             copy_pos__11TNowLoadingFPvPv(temp_ptr, (void *) (arg0 + 0x38));
         }

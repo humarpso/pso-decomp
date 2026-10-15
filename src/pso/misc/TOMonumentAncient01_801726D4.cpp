@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80172758_lbl_804B38E0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80172758_lbl_804B38E0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80172758_lbl_804B38E0_size[sizeof(RecoveredGlobal_80172758_lbl_804B38E0) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -15,24 +11,24 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80172810_lbl_804B38F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80172810___vt__19TOMonumentAncient01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x40];
 };
 
 extern "C" {
 s32 calc_angle_to__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK send_object_state_update(void *, void *);
+s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-M2C_UNK start_camera_pan__10TObjPlayerFPvs(int, int, void *);
+s32 start_camera_pan__10TObjPlayerFPvs(int, int, void *);
 s32 get_player_by_client_id(void *);
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -48,15 +44,15 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *);
 s32 init__5TOKeyFPv(void *);
 extern RecoveredGlobal_80172810_lbl_804B38F0 lbl_804B38F0;
-extern M2C_UNK __vt__19TOMonumentAncient01[];
+extern s32 __vt__19TOMonumentAncient01[];
 extern s32 TOMonumentAncient01__name;
 extern u32 TOMonumentAncient01__resource_bundle;
 extern const f32 lbl_805DB918;
 extern const f32 lbl_805DB91C;
-u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 access_object_saved_state(void *, void *, int);
 s32 get_story_flag(s32);
-M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
+s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(s32);
 void TOMonumentAncient02__vt4(void *arg0, s16 *arg1);
 }
 
@@ -66,18 +62,18 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1);
 void *create__19TOMonumentAncient01FPv(void *arg0);
 void release_static_resource__19TOMonumentAncient01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_key_object__5TOKeyFPvs(void *, M2C_UNK);
+s32 destroy_key_object__5TOKeyFPvs(void *, s32);
 
 extern void *tl_05;
 
 void *create__19TOMonumentAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xE4);
     if (o != NULL) {
-        o = TOMonumentAncient01__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TOMonumentAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -91,7 +87,7 @@ void release_static_resource__19TOMonumentAncient01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__19TOMonumentAncient01[];
+extern s32 __vt__19TOMonumentAncient01[];
 
 void load_resource_instance__19TOMonumentAncient01Fv(void) {
     s32 temp_r3;
@@ -106,7 +102,7 @@ void load_resource_instance__19TOMonumentAncient01Fv(void) {
 
 void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TOMonumentAncient01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TOMonumentAncient01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_key_object__5TOKeyFPvs(arg0, 0);
@@ -119,33 +115,33 @@ void *__dt__19TOMonumentAncient01Fv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80172810_lbl_804B38F0_size[sizeof(RecoveredGlobal_80172810_lbl_804B38F0) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80172810___vt__19TOMonumentAncient01_size[sizeof(RecoveredGlobal_80172810___vt__19TOMonumentAncient01) == 0x44 ? 1 : -1];
-u8 *TOMonumentAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOMonumentAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init__5TOKeyFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMonumentAncient01__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80172810___vt__19TOMonumentAncient01 *)&__vt__19TOMonumentAncient01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOMonumentAncient01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOMonumentAncient01__resource_bundle)), (int) (2));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B38F0.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     update_heal_gauge_state__13TOHealGeneralFPv((void *) (arg0));
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB918;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB91C;
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB918;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB91C;
     return arg0;
 }
 
 void TOMonumentAncient02__vt4(void *arg0, s16 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0xAC) = (s32) *arg1;
-    switch (M2C_FIELD(arg0, s32 *, 0xAC)) {
+    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
+    switch (*(s32 *)((s8 *)arg0 + 0xAC)) {
     case 2:
-        dispatch_by_main_phase__14TBoss4DarkFalzFUs(M2C_FIELD(arg0, s32 *, 0xD0));
-        M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+        dispatch_by_main_phase__14TBoss4DarkFalzFUs(*(s32 *)((s8 *)arg0 + 0xD0));
+        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
         break;
     default:
-        if (get_story_flag(M2C_FIELD(arg0, s32 *, 0xD0)) != 0) {
-            M2C_FIELD(arg0, s32 *, 0xAC) = 2;
-            M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+        if (get_story_flag(*(s32 *)((s8 *)arg0 + 0xD0)) != 0) {
+            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
+            *(s32 *)((s8 *)arg0 + 0xC8) = 1;
         }
         break;
     }
@@ -158,14 +154,14 @@ void TOMonumentAncient02__vt4(void *arg0, s16 *arg1) {
 void TOMonumentAncient02__vt11(u8 *arg0, u16 arg1) {
     s16 sp8;
     s32 temp_r3;
-    switch (M2C_FIELD(arg0, s32 *, 0xAC)) {
+    switch (*(s32 *)((s8 *)arg0 + 0xAC)) {
     case 1:
         temp_r3 = get_player_by_client_id((void *) (arg1));
         if (temp_r3 != 0) {
-            M2C_FIELD(arg0, s32 *, 0xAC) = 2;
+            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
             start_camera_pan__10TObjPlayerFPvs((int) (temp_r3), (int) (0xC), (void *) (calc_angle_to__10TObjPlayerFPvPv((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38))));
             if (access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (1)) != 0) {
-                sp8 = (s16) M2C_FIELD(arg0, s32 *, 0xAC);
+                sp8 = (s16) *(s32 *)((s8 *)arg0 + 0xAC);
                 access_object_saved_state((void *) (arg0), (void *) (&sp8), (int) (0));
                 send_object_state_update((void *) (arg0), (void *) (&sp8));
             }

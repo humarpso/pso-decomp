@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_802FE378_lbl_80474B68 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_802FE378_lbl_80474B74 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_802FE378_lbl_80474B80 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -53,7 +49,7 @@ f32 subtract_vector(void *, void *);
 extern RecoveredGlobal_802FE378_lbl_80474B68 lbl_80474B68;
 extern RecoveredGlobal_802FE378_lbl_80474B74 lbl_80474B74;
 extern RecoveredGlobal_802FE378_lbl_80474B80 lbl_80474B80;
-extern M2C_UNK __vt__21TBoss8DragonEffBullet[];
+extern s32 __vt__21TBoss8DragonEffBullet[];
 extern s32 TBoss8DragonEffBullet__name;
 extern const f32 lbl_805DEF04;
 u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5);
@@ -78,7 +74,7 @@ void queue_destruction__7TObjectFv(void *);
 
 void render__21TBoss8DragonEffBulletFv(void) {  }
 
-extern M2C_UNK __vt__21TBoss8DragonEffBullet[];
+extern s32 __vt__21TBoss8DragonEffBullet[];
 
 #pragma push
 #pragma fp_contract on
@@ -107,7 +103,7 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
         arg0->field_20 += arg0->field_2C * var_f2;
         arg0->field_24 += arg0->field_30 * var_f2;
         if ((u8 *) arg0->field_4C == NULL) {
-            arg0->field_4C = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD(arg0->field_54, s32 *, 0), 0x40);
+            arg0->field_4C = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, *(s32 *)((s8 *)arg0->field_54 + 0), 0x40);
         }
         if (((s32) arg0->field_44 == 3) && ((u8 *) arg0->field_50 == NULL)) {
             arg0->field_50 = spawn_continuous_particle_effect_with_flags(&arg0->field_1C, 0x204, 0x40);
@@ -124,7 +120,7 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
     case 1:
         arg0->field_34 += 1;
         if ((s32) arg0->field_34 == 1) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD(arg0->field_54, u8 **, 4), 0x40);
+            spawn_particle_effect_with_flags(&arg0->field_1C, *(u8 **)((s8 *)arg0->field_54 + 4), 0x40);
             temp_r3_3 = (u8 *)(arg0->field_50);
             if (temp_r3_3 != NULL) {
                 queue_destruction__7TObjectFv(temp_r3_3);
@@ -139,7 +135,7 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
             TBoss8Dragon__sub_802FB220(get_enemy_entity((s32) arg0->field_48), &arg0->field_1C, arg0->field_44);
         }
         if ((s32) arg0->field_34 <= 2) {
-            spawn_particle_effect_with_flags(&arg0->field_1C, M2C_FIELD(arg0->field_54, u8 **, 8), 0x40);
+            spawn_particle_effect_with_flags(&arg0->field_1C, *(u8 **)((s8 *)arg0->field_54 + 8), 0x40);
             return;
         }
         arg0->field_38 = 2;
@@ -156,9 +152,9 @@ void run_task__21TBoss8DragonEffBulletFv(struct RecoveredFields_802FE0E4_arg0 *a
 
 void *__dt__21TBoss8DragonEffBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TBoss8DragonEffBullet;
-        if (M2C_FIELD(arg0, void **, 0x50) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x50)); M2C_FIELD(arg0, M2C_UNK *, 0x50) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x4C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x4C)); M2C_FIELD(arg0, M2C_UNK *, 0x4C) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TBoss8DragonEffBullet;
+        if (*(void **)((s8 *)arg0 + 0x50) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x50)); *(s32 *)((s8 *)arg0 + 0x50) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x4C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x4C)); *(s32 *)((s8 *)arg0 + 0x4C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -173,30 +169,30 @@ typedef char RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet_size[sizeof(
 u8 *TBoss8DragonEffBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s16 arg5) {
     s32 temp_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss8DragonEffBullet__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802FE378___vt__21TBoss8DragonEffBullet *)&__vt__21TBoss8DragonEffBullet).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss8DragonEffBullet__name;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x1C), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg3));
     subtract_vector((void *) (arg0 + 0x28), (void *) (arg0 + 0x1C));
-    M2C_FIELD(arg0, f32 *, 0x40) = update_scale__15TObjBoss2TunnelFPv((void *) (arg0 + 0x28));
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DEF04;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, s32 *, 0x44) = arg4;
-    M2C_FIELD(arg0, s16 *, 0x48) = arg5;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    *(f32 *)((s8 *)arg0 + 0x40) = update_scale__15TObjBoss2TunnelFPv((void *) (arg0 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DEF04;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)((s8 *)arg0 + 0x44) = arg4;
+    *(s16 *)((s8 *)arg0 + 0x48) = arg5;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
     play_sound_effect((int) (0x4003B20B), (void *) (arg0 + 0x1C), (int) (0), (int) (0));
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x44);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x44);
     switch (temp_r0) {
     case 1:
-        M2C_FIELD(arg0, M2C_UNK **, 0x54) = &lbl_80474B68.value;
+        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B68.value;
         break;
     case 2:
-        M2C_FIELD(arg0, M2C_UNK **, 0x54) = &lbl_80474B74.value;
+        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B74.value;
         break;
     case 3:
-        M2C_FIELD(arg0, M2C_UNK **, 0x54) = &lbl_80474B80.value;
+        *(s32 **)((s8 *)arg0 + 0x54) = &lbl_80474B80.value;
         break;
     }
     return arg0;

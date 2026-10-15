@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/item/TItem.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -19,9 +16,9 @@ struct VObj_18 : VBase_18 {
     virtual void m9();
     virtual void m10();
     virtual void m11();
-    virtual M2C_UNK m12();
-    virtual M2C_UNK m13();
-    virtual M2C_UNK m14();
+    virtual s32 m12();
+    virtual s32 m13();
+    virtual s32 m14();
 };
 
 struct VBase_18_f23361 { char pad[0x18]; };
@@ -52,16 +49,16 @@ struct VObj_18_f23361 : VBase_18_f23361 {
     virtual void m22();
     virtual void m23();
     virtual void m24();
-    virtual M2C_UNK m25();
+    virtual s32 m25();
 };
 
 struct RecoveredGlobal_8010255C_lbl_8050BEC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_8010255C_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -95,7 +92,7 @@ struct VObj_18_441505 : VBase_18_441505 {
     virtual void m24();
     virtual void m25();
     virtual void m26();
-    virtual M2C_UNK m27();
+    virtual s32 m27();
 };
 
 struct ItemData_80102424 {
@@ -120,13 +117,13 @@ struct TItem_80102424 : VObj_18_441505 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
-M2C_UNK update_owner_visibility__5TItemFPv(void *);
-M2C_UNK update_timer__5TItemFPv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
+s32 update_owner_visibility__5TItemFPv(void *);
+s32 update_timer__5TItemFPv(void *);
 u16 get_id__13TItemProArmorFPv(void *);
 u32 get_player_by_client_id(void *);
-M2C_UNK push_to_player_list__5TItemFPv();
+s32 push_to_player_list__5TItemFPv();
 void run_task__5TItemFPv(u8 *arg0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 clear_shadow_flag__10TObjPlayerFPv(void *);
@@ -146,7 +143,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void render__5TItemFPv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_current_floor(void);
 void spawn_particle_effect(void *, s32);
 void set_mode__5TItemFPvc(void *, s32);
@@ -264,16 +261,16 @@ void run_task__5TItemFPv(u8 *arg0) {
         update_timer__5TItemFPv((void *) (arg0));
         return;
     case 1:
-        M2C_FIELD(arg0, u32 *, 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
+        *(u32 *)((s8 *)arg0 + 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
             update_owner_visibility__5TItemFPv((void *) (arg0));
             ((VObj_18 *)(arg0))->m12();
             ((VObj_18 *)(arg0))->m13();
         }
         break;
     case 2:
-        M2C_FIELD(arg0, u32 *, 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
-        temp_r4 = M2C_FIELD(arg0, u32 *, 0xF0);
+        *(u32 *)((s8 *)arg0 + 0xF0) = get_player_by_client_id((void *) (get_id__13TItemProArmorFPv((void *) (arg0))));
+        temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);
         if (temp_r4 != 0U) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (temp_r4 + 0x38));
             update_owner_visibility__5TItemFPv((void *) (arg0));
@@ -290,25 +287,21 @@ void run_task__5TItemFPv(u8 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__dt__5TItemFv(void *arg0, s16 arg1);
 void set_mode__5TItemFPvc(void *, s32);
-M2C_UNK unregister_item__5TItemFPv(void *);
+s32 unregister_item__5TItemFPv(void *);
 void free_obj_heap__10TObjPlayerFPv(void *);
-M2C_UNK clear_obj_links(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 clear_obj_links(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
 
 extern void *__vt__5TItem[];
 
 void *__dt__5TItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__5TItem;
+        *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__5TItem;
         set_mode__5TItemFPvc(arg0, 3);
         clear_obj_links(arg0);
         unregister_item__5TItemFPv(arg0);
@@ -323,10 +316,7 @@ void *__dt__5TItemFv(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_801028D8 { char pad[0x18]; };
 
 struct TItem_801028D8 : VBase_18_801028D8 {
@@ -366,25 +356,25 @@ extern "C" {
 
 u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     construct_collider_proxy__10TObjPlayerFPv(self, parent);
-    M2C_FIELD(self, void **, 0x18) = __vt__5TItem;
-    M2C_FIELD(self, s32 *, 0) = TItem__name;
+    *(void **)((s8 *)self + 0x18) = __vt__5TItem;
+    *(s32 *)((s8 *)self + 0) = TItem__name;
     obj_setFlags30(self, 0x80000000);
     fn_8002B630(self + 0xAC, lbl_8043DF68);
     TItem__sub_801031C0(self + 0x98);
     initialize_linked_object_reference(self, self + 0xAC);
-    M2C_FIELD(self, u16 *, 0xE4) = 0xFFFF;
-    M2C_FIELD(self, s32 *, 0xD8) = M2C_FIELD(item, s32 *, 0xC);
-    M2C_FIELD(self, s32 *, 0xDC) = 0;
-    M2C_FIELD(self, s16 *, 0xE6) = 0;
-    M2C_FIELD(self, s32 *, 0xE0) = 0;
-    M2C_FIELD(self, u8 *, 0xEC) = item[0];
-    M2C_FIELD(self, u8 *, 0xED) = item[1];
-    M2C_FIELD(self, u8 *, 0xEE) = item[2];
-    M2C_FIELD(self, s32 *, 0xF0) = 0;
-    M2C_FIELD(self, s32 *, 0xF4) = 0;
-    M2C_FIELD(self, s16 *, 0xE8) = 0;
+    *(u16 *)((s8 *)self + 0xE4) = 0xFFFF;
+    *(s32 *)((s8 *)self + 0xD8) = *(s32 *)((s8 *)item + 0xC);
+    *(s32 *)((s8 *)self + 0xDC) = 0;
+    *(s16 *)((s8 *)self + 0xE6) = 0;
+    *(s32 *)((s8 *)self + 0xE0) = 0;
+    *(u8 *)((s8 *)self + 0xEC) = item[0];
+    *(u8 *)((s8 *)self + 0xED) = item[1];
+    *(u8 *)((s8 *)self + 0xEE) = item[2];
+    *(s32 *)((s8 *)self + 0xF0) = 0;
+    *(s32 *)((s8 *)self + 0xF4) = 0;
+    *(s16 *)((s8 *)self + 0xE8) = 0;
     apply_item_flags__10TObjPlayerFPvi(self, item);
-    M2C_FIELD(self, s8 *, 0xEA) = get_type_nibble__9TItemDataFPv(item);
+    *(s8 *)((s8 *)self + 0xEA) = get_type_nibble__9TItemDataFPv(item);
     if (is_rare_item__9TItemDataFPv(item) != 0) {
         TObjPlayer__sub_8010043C(self, 4);
     } else {
@@ -405,10 +395,6 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u32 alloc_buffer__11TOBoss4RockFPv(s32 size);
@@ -447,10 +433,10 @@ void TObjPlayer__sub_80102C68(void* p);
 void bswap_32__FPUl(u32* p);
 s32 check_flag__10TObjPlayerFPvi(s32, s32);
 void free__11TOBoss4RockFUi(void*);
-M2C_UNK free_global_805D6FB8__10TObjPlayerFv();
-M2C_UNK free_item_globals__10TObjPlayerFv();
+s32 free_global_805D6FB8__10TObjPlayerFv();
+s32 free_item_globals__10TObjPlayerFv();
 void free_rock_objects__6TLobbyFis(void*, int);
-M2C_UNK free_static_buffer__10TObjPlayerFv();
+s32 free_static_buffer__10TObjPlayerFv();
 int get_equip_field_d04__10TObjPlayerFPv(void* p);
 u8 get_field_ec__12TOSwitchItemFPv(void* p);
 int get_flag_40__8TItemMagFPv(void* p);
@@ -461,7 +447,7 @@ s16 get_stat__10TObjPlayerFPv(void* p);
 s16 get_stat_bonus__10TObjPlayerFPv(void* p);
 int heap_alloc__5THeapFUl(void*, void*);
 int heap_free__5THeapFPv(void*, void*);
-M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
+s32 init_forward__10TObjPlayerFPv(s32 *);
 s32 is_matching_id__6TLobbyFiUs(void *, u16);
 void read_be16_field2__10TObjPlayerFPv(void* p);
 void set_facing__10TObjPlayerFPvs(void* p, s16 v);
@@ -502,7 +488,7 @@ void free_globals__10TObjPlayerFv(void) {
     item_registry_count = 0;
 }
 
-extern M2C_UNK lbl_805D53EC;
+extern s32 lbl_805D53EC;
 
 void alloc_game_systems__10TObjPlayerFv(void) {
     void *p;
@@ -531,7 +517,7 @@ void clear_item_flags__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0x
 void add_item_flags__10TObjPlayerFPvUi(void* p, u32 v) { *(u32*)((char*)p + 0xdc) |= v; }
 int has_flag_128__10TObjPlayerFPv(void* p) { return test_item_flags__10TObjPlayerFPvUi((void*)((void*)(p)), (u32)((u32)(128))); }
 s8 TObjPlayer__sub_80102C30(u8 *arg0) {
-    return (s8) M2C_FIELD(arg0, u8 *, 0xEB);
+    return (s8) *(u8 *)((s8 *)arg0 + 0xEB);
 }
 
 }

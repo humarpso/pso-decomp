@@ -3,10 +3,6 @@ struct CreationCameraVTable { void* reserved[2]; void (*methods[10])(); };
 #include "pso/misc/CharacterAppearance.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct CreationHeightBounds { f32 minimum, maximum; };
 
@@ -19,7 +15,7 @@ struct Cam_80291784 {
 };
 
 extern "C" {
-s32 TObjCMProportion__sub_8029916C(M2C_UNK);
+s32 TObjCMProportion__sub_8029916C(s32);
 extern int creation_camera_mode;
 extern const f32 lbl_805DD990;
 extern const f32 lbl_805DD994;
@@ -51,8 +47,6 @@ extern "C" {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 #include "pso/camera/CreationCamera.h"
 
@@ -77,13 +71,9 @@ void update_creation_camera_auto(Cam_80291784*);
 
 #include "types.h"
 #include "pso/camera/CreationCamera.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80291D4C_lbl_80540958 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -98,9 +88,9 @@ void* construct_creation_camera(void* a0);
     extern int TObjCMMainMenu__selected_entry_id;
 u32 get_character_creation_selected_entry_id(void);
 s32 get_character_save_record(u32);
-M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
+s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_80291D4C_lbl_80540958 lbl_80540958;
-M2C_UNK *TLobby__sub_80291D4C(void);
+s32 *TLobby__sub_80291D4C(void);
 }
 
 extern "C" {
@@ -125,11 +115,11 @@ void *TCameraCtrl__vt8(void);
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1);
 void* construct_creation_camera(void* a0);
 u32 get_character_creation_selected_entry_id(void);
-M2C_UNK *TLobby__sub_80291D4C(void);
+s32 *TLobby__sub_80291D4C(void);
 }
 #pragma defer_codegen on
 extern "C" {
-M2C_UNK *TLobby__sub_80291D4C(void) {
+s32 *TLobby__sub_80291D4C(void) {
     s32 temp_r3;
     temp_r3 = get_character_save_record(0xFFFFU);
     decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_80540958.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
@@ -148,7 +138,7 @@ void* construct_creation_camera(void* a0) { TCameraCtrl__sub_80068714(); *(int*)
 extern "C" {
 void *TCameraCtrl__sub_80291C64(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)&lbl_804DAB08;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)&lbl_804DAB08;
         TCameraCtrl__sub_800686BC(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -359,15 +349,15 @@ void CreationCamera::begin_review(){
     f32 temp_f2;
     s32 temp_r7;
     if ((void *) creation_player_character != NULL) {
-        M2C_FIELD(this, f32 *, 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (creation_player_character)));
-        M2C_FIELD(this, f32 *, 0x80) = (f32) M2C_FIELD(this, f32 *, 0x6C);
-        temp_r7 = (s8) M2C_FIELD(creation_player_character, u8 *, 0x31) * 8;
-        temp_f2 = M2C_FIELD(((u8 *)(creation_camera_height_bounds_table) + temp_r7), f32 *, 0);
-        M2C_FIELD(this, f32 *, 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - M2C_FIELD(creation_player_character, f32 *, 0x4C)) * (M2C_FIELD(((u8 *)(creation_camera_height_bounds_table) + temp_r7), f32 *, 4) - temp_f2)) + temp_f2));
-        M2C_FIELD(this, s32 *, 0x74) = 0;
-        M2C_FIELD(this, s32 *, 0x70) = 0;
+        *(f32 *)((s8 *)this + 0x6C) = (f32) (lbl_805DD99C * calc_character_height((void *) (creation_player_character)));
+        *(f32 *)((s8 *)this + 0x80) = (f32) *(f32 *)((s8 *)this + 0x6C);
+        temp_r7 = (s8) *(u8 *)((s8 *)creation_player_character + 0x31) * 8;
+        temp_f2 = *(f32 *)((s8 *)((u8 *)(creation_camera_height_bounds_table) + temp_r7) + 0);
+        *(f32 *)((s8 *)this + 0x4C) = (f32) (lbl_805DD9A0 * (((lbl_805DD978 - *(f32 *)((s8 *)creation_player_character + 0x4C)) * (*(f32 *)((s8 *)((u8 *)(creation_camera_height_bounds_table) + temp_r7) + 4) - temp_f2)) + temp_f2));
+        *(s32 *)((s8 *)this + 0x74) = 0;
+        *(s32 *)((s8 *)this + 0x70) = 0;
         creation_camera_mode = 2;
-        M2C_FIELD(this, s32 *, 0x84) = 0x78;
+        *(s32 *)((s8 *)this + 0x84) = 0x78;
     }
 }
 #pragma pop
@@ -389,35 +379,35 @@ void CreationCamera::update_idle(){
     s32 temp_r0;
     s32 temp_r0_2;
     if (TObjCMProportion__sub_8029916C(0x6F0) != 0) {
-        M2C_FIELD(this, u32 *, 0x84) = 0U;
+        *(u32 *)((s8 *)this + 0x84) = 0U;
         creation_camera_mode = 4;
         return;
     }
-    M2C_FIELD(this, u32 *, 0x84) = (u32) (M2C_FIELD(this, u32 *, 0x84) + 1);
-    if (M2C_FIELD(this, u32 *, 0x84) & 0x100) {
-        if ((M2C_FIELD(this, s32 *, 0x70) > -0x6D) && (M2C_FIELD(this, s32 *, 0x70) < 0x6D)) {
-            M2C_FIELD(this, s32 *, 0x70) = 0;
+    *(u32 *)((s8 *)this + 0x84) = (u32) (*(u32 *)((s8 *)this + 0x84) + 1);
+    if (*(u32 *)((s8 *)this + 0x84) & 0x100) {
+        if ((*(s32 *)((s8 *)this + 0x70) > -0x6D) && (*(s32 *)((s8 *)this + 0x70) < 0x6D)) {
+            *(s32 *)((s8 *)this + 0x70) = 0;
         } else {
-            temp_r0 = M2C_FIELD(this, s32 *, 0x70);
+            temp_r0 = *(s32 *)((s8 *)this + 0x70);
             if (temp_r0 < 0) {
-                M2C_FIELD(this, s32 *, 0x70) = temp_r0 + 0x6D;
+                *(s32 *)((s8 *)this + 0x70) = temp_r0 + 0x6D;
             } else {
-                M2C_FIELD(this, s32 *, 0x70) = temp_r0 - 0x6D;
+                *(s32 *)((s8 *)this + 0x70) = temp_r0 - 0x6D;
             }
         }
-        temp_r0_2 = ((u32) M2C_FIELD(this, u32 *, 0x84) >> 9U) & 3;
+        temp_r0_2 = ((u32) *(u32 *)((s8 *)this + 0x84) >> 9U) & 3;
         switch (temp_r0_2) {
         case 0:
-            M2C_FIELD(this, s32 *, 0x74) = (s32) (M2C_FIELD(this, s32 *, 0x74) + 0xDA);
+            *(s32 *)((s8 *)this + 0x74) = (s32) (*(s32 *)((s8 *)this + 0x74) + 0xDA);
             return;
         case 1:
-            M2C_FIELD(this, f32 *, 0x6C) = (f32) (M2C_FIELD(this, f32 *, 0x6C) + lbl_805DD990);
+            *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DD990);
             return;
         case 2:
-            M2C_FIELD(this, s32 *, 0x74) = (s32) (M2C_FIELD(this, s32 *, 0x74) - 0xDA);
+            *(s32 *)((s8 *)this + 0x74) = (s32) (*(s32 *)((s8 *)this + 0x74) - 0xDA);
             return;
         case 3:
-            M2C_FIELD(this, f32 *, 0x6C) = (f32) (M2C_FIELD(this, f32 *, 0x6C) + lbl_805DD994);
+            *(f32 *)((s8 *)this + 0x6C) = (f32) (*(f32 *)((s8 *)this + 0x6C) + lbl_805DD994);
             break;
         }
     }

@@ -1,19 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
-M2C_UNK sync_player_globals__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80052390();
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390();
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_model_motion(s32, s32, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 extern void *lbl_80485550[3];
 
 struct O_8004D9A8 { u8 pad0[0xBC]; s32 bc[6]; s32 d4[6]; s32 ec[6]; f32 f104; f32 f108; f32 f10c; };
@@ -109,7 +106,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
     f32 v;
     for (i = 0; i < 5; i++) {
         Ent_8004DA7C *e = &((Ent_8004DA7C *)TObjDFDemo0__entry_table)[i];
-        s32 t = M2C_FIELD(self, s32 *, 0x90);
+        s32 t = *(s32 *)((s8 *)self + 0x90);
         if (t >= e->end) {
             if (((Self_8004DA7C *)self)->p[i] != NULL) {
                 request_destroy__11TBoss4Type2FUi(((Self_8004DA7C *)self)->p[i]);
@@ -142,7 +139,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         }
     }
     {
-        s32 t = M2C_FIELD(self, s32 *, 0x90);
+        s32 t = *(s32 *)((s8 *)self + 0x90);
         if (t >= 0x8C && t < 0x91) {
             void *p;
             Vec_8004DA7C c = V90;
@@ -153,7 +150,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
             }
         }
     }
-    if (M2C_FIELD(self, s32 *, 0x90) >= 0xAA) {
+    if (*(s32 *)((s8 *)self + 0x90) >= 0xAA) {
         v = (0.1f); v = S->f10c + v;
         S->f10c = v;
         if (v > 1.0f) {
@@ -170,7 +167,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
     if (v > 139.0f) {
         S->f108 = 139.0f;
     }
-    switch (M2C_FIELD(self, s32 *, 0x90)) {
+    switch (*(s32 *)((s8 *)self + 0x90)) {
     case 0:
         play_sound_effect(0x4003BC07, lbl_804854F0, 0, 1);
         play_sound_effect(0x3C604, lbl_804854F0, 0, 1);
@@ -199,7 +196,7 @@ void TBoss3Volopt__sub_8004DA7C(u8 *self) {
         break;
     }
     scroll_strips__11TBoss4Type2FPv(self + 0x94);
-    if (++M2C_FIELD(self, s32 *, 0x90) >= 0x118) {
+    if (++*(s32 *)((s8 *)self + 0x90) >= 0x118) {
         queue_destruction__7TObjectFv(self);
     }
 }

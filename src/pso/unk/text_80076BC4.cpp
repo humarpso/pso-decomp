@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct TPlyGuildCardTag { u32 a; u32 b; TPlyGuildCardTag(u16, u32); };
 
 struct Tag_80076BC8 { u32 a; u32 b; };
@@ -43,7 +39,7 @@ void submit_chat_text(u8 *arg0) {
 
 extern "C" {
 void chat_dispatch_accepted_result(s32 *arg0);
-M2C_UNK set_field22__11TWindowCtrlFv();
+s32 set_field22__11TWindowCtrlFv();
 s32 is_submit_cooldown_clear__11TWindowCtrlFv();
 s32 chat_accept_submission(s32 arg0);
 int get_chat_shortcut(s32 arg0);
@@ -95,7 +91,7 @@ void send_chat_shortcut(void) { ((int (*)()) get_chat_shortcut)(); ((int (*)()) 
 
 }
 
-struct M2CCopy_50 { u8 bytes[0x50]; };
+struct ByteBlock_50 { u8 bytes[0x50]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline on
@@ -127,7 +123,7 @@ s32 store_chat_shortcut(s32 arg0, s32 arg1) { return TAdSinglePlyChrSelectGC__su
 
 s32 TAdSinglePlyChrSelectGC__sub_80076D9C(s32 arg0, s32 arg1) {
     TAdSinglePlyChrSelectGC__sub_80076DF4((void*)(arg0), (void*)(arg1));
-    *(M2CCopy_50 *)(arg0 + 4) = *(const M2CCopy_50 *)(arg1 + 4);
+    *(ByteBlock_50 *)(arg0 + 4) = *(const ByteBlock_50 *)(arg1 + 4);
     return arg0;
 }
 

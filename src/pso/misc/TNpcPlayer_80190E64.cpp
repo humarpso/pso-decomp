@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,16 +8,16 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_8019118C_lbl_804B7BD8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_8019118C_lbl_804B7C1C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
@@ -45,20 +41,20 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7BD8 lbl_804B7BD8;
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
-u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void request_file_read__6TLobbyFiiPvPv(void *, s32, void *, int);
 void ensure_rock_singleton__10TNpcPlayerFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 extern u8 lbl_80445910[];
-extern M2C_UNK lbl_804B7C04[];
+extern s32 lbl_804B7C04[];
 extern s32 lbl_805D5860;
 Npc_80190F3C *TNpcPlayer__sub_80190F3C(Npc_80190F3C *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, void *arg6);
 void unregister_object_by_id(void *);
 void free_collision_body_parts(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 Ctrl_801910F4 *get_player_by_client_id(u32);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8019118C_lbl_804B7C1C lbl_804B7C1C;
 Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1);
 int queue_destruction__7TObjectFv(void*);
@@ -82,31 +78,31 @@ void TLobby__sub_80190FD8(void);
 u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1);
 void queue_destruction_if_dead__10TNpcPlayerFPv(void* p);
 s32 build_npc_player_record__10TNpcPlayerFi(s32);
-M2C_UNK send_6x24_teleport_player(u16, void *, s32);
-u8 *create_player_object(u16, M2C_UNK, s32);
-M2C_UNK queue_player_injured_pose();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK set_player_quest_control_flag(void *);
+s32 send_6x24_teleport_player(u16, void *, s32);
+u8 *create_player_object(u16, s32, s32);
+s32 queue_player_injured_pose();
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 set_player_quest_control_flag(void *);
 int queue_destruction__7TObjectFv(void*);
 
 void queue_destruction_if_dead__10TNpcPlayerFPv(void* p) { if (*(int*)((char*)p + 0x2c) == 1) { queue_destruction__7TObjectFv(p); } }
 
-extern M2C_UNK lbl_804B7C04[];
+extern s32 lbl_804B7C04[];
 
 u8 *destroy_and_materialize_player__10TNpcPlayerFPvs(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B7C04;
-        temp_r3 = create_player_object(M2C_FIELD(arg0, u16 *, 0x30), 6, build_npc_player_record__10TNpcPlayerFi(M2C_FIELD(arg0, s32 *, 0x34)));
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B7C04;
+        temp_r3 = create_player_object(*(u16 *)((s8 *)arg0 + 0x30), 6, build_npc_player_record__10TNpcPlayerFi(*(s32 *)((s8 *)arg0 + 0x34)));
         if (temp_r3 != NULL) {
-            M2C_FIELD(temp_r3, s16 *, 0x324) = 6;
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 1) {
+            *(s16 *)((s8 *)temp_r3 + 0x324) = 6;
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == 1) {
                 queue_player_injured_pose();
                 set_player_quest_control_flag(temp_r3);
             }
-            send_6x24_teleport_player(M2C_FIELD(arg0, u16 *, 0x30), arg0 + 0x1C, M2C_FIELD(arg0, s32 *, 0x28));
+            send_6x24_teleport_player(*(u16 *)((s8 *)arg0 + 0x30), arg0 + 0x1C, *(s32 *)((s8 *)arg0 + 0x28));
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -191,13 +187,13 @@ Obj_801910F4 *TLobby__sub_801910F4(Obj_801910F4 *arg0, s16 arg1) {
     return arg0;
 }
 
-u8 *TLobby__sub_8019118C(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TLobby__sub_8019118C(u8 *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804B7C1C.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804B7C1C.value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s16 *, 0xAC) = 3;
-    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+    *(s16 *)((s8 *)arg0 + 0xAC) = 3;
+    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B7BD8.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;

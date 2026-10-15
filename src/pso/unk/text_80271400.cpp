@@ -1,9 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_80271400_lbl_804D0F78 { M2C_UNK value; u8 remaining[0x10]; };
+
+struct RecoveredGlobal_80271400_lbl_804D0F78 { s32 value; u8 remaining[0x10]; };
 typedef char RecoveredGlobal_80271400_lbl_804D0F78_size[sizeof(RecoveredGlobal_80271400_lbl_804D0F78) == 0x14 ? 1 : -1];
 
 extern "C" {

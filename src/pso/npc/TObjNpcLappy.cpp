@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_8014B704 { char pad[0x18]; };
 struct VObj_8014B704 : VBase_8014B704 {
@@ -85,13 +81,13 @@ struct VObj_8014B704 : VBase_8014B704 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
     virtual void m80();
     virtual void m81();
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(M2C_UNK, M2C_UNK);
+    virtual s32 m85(s32, s32);
 };
 
 extern "C" {
@@ -252,7 +248,7 @@ extern u8 *rappy_bml_resource;
 
 void *dt__12TObjNpcLappyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TObjNpcLappy;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TObjNpcLappy;
         __dt__11TObjNpcBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -282,10 +278,10 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
 
 void request_action__15TObjNpcMaleBaseFPvi(void *arg0, s32 arg1) {
     if (arg1 != 1) {
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         return;
     }
-    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
 }
 
 }

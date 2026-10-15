@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct DS_80142108 { u16 y; u8 b2; u8 b3; u8 b4; u8 b5; u8 b6; u8 b7; };
 
@@ -48,7 +44,7 @@ void reset_transform_state__10TObjPlayerFv(void);
 void vsub(void *arg0, void *arg1, void *arg2);
 f32 sin_table_lookup();
 f32 vec_squared_length();
-M2C_UNK normalize_vector(s32);
+s32 normalize_vector(s32);
 int set_cached_blend_factor(int, int);
 f64 atan2_float(f32, f32);
 
@@ -68,9 +64,9 @@ void calc_direction_vector__10TObjPlayerFiPvf(s32 arg0, void *arg1, f32 farg0) {
     f32 temp_f1;
 
     temp_f1 = farg0 * sin_table_lookup();
-    M2C_FIELD(arg1, f32 *, 0) = temp_f1;
-    M2C_FIELD(arg1, f32 *, 4) = (f32) lbl_805DB150;
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (farg0 * cos_table_lookup(arg0));
+    *(f32 *)((s8 *)arg1 + 0) = temp_f1;
+    *(f32 *)((s8 *)arg1 + 4) = (f32) lbl_805DB150;
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (farg0 * cos_table_lookup(arg0));
 }
 
 extern const f64 lbl_8043F2C0;
@@ -78,17 +74,17 @@ extern const f64 lbl_8043F2C0;
 #pragma push
 #pragma fp_contract on
 void calc_circle_offset_pos__10TObjPlayerFiPvPvf(s32 arg0, void *arg1, void *arg2, f32 farg0) {
-    M2C_FIELD(arg2, f32 *, 0) = (f32) ((farg0 * sin_table_lookup()) + M2C_FIELD(arg1, f32 *, 0));
-    M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg2, f32 *, 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + M2C_FIELD(arg1, f32 *, 8));
+    *(f32 *)((s8 *)arg2 + 0) = (f32) ((farg0 * sin_table_lookup()) + *(f32 *)((s8 *)arg1 + 0));
+    *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg2 + 8) = (f32) ((farg0 * cos_table_lookup((s32)(arg0))) + *(f32 *)((s8 *)arg1 + 8));
 }
 #pragma pop
 
 s32 calc_angle_to__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     f32 temp_f3;
 
-    temp_f3 = M2C_FIELD(arg1, f32 *, 0);
-    return (s32) (lbl_8043F2C0 * atan2_float(temp_f3 - M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8)));
+    temp_f3 = *(f32 *)((s8 *)arg1 + 0);
+    return (s32) (lbl_8043F2C0 * atan2_float(temp_f3 - *(f32 *)((s8 *)arg0 + 0), *(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)arg0 + 8)));
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80141E8C(f32 v) {
@@ -148,10 +144,10 @@ void get_current_date_stamp__23TAdSinglePlyChrSelectGCFPv(DS_80142108 *arg0) {
 void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (M2C_FIELD(arg0, f32 *, 0))));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 8);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0);
-    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 8)), (f32) (*(f32 *)((s8 *)arg0 + 0))));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 8);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0);
+    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 4)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -160,10 +156,10 @@ void direction_to_rotation_yx(u8 *arg0, s32 *arg1, s32 *arg2) {
 void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg2 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (M2C_FIELD(arg0, f32 *, 4))));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 4);
-    *arg1 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 8)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg2 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0)), (f32) (*(f32 *)((s8 *)arg0 + 4))));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 4);
+    *arg1 = (s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 8)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -172,10 +168,10 @@ void direction_to_rotation_xz(u8 *arg0, s32 *arg1, s32 *arg2) {
 void direction_to_rotation_xy(u8 *arg0, s32 *arg1, s32 *arg2) {
     f32 temp_f0;
     f32 temp_f1;
-    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 4)), (f32) (M2C_FIELD(arg0, f32 *, 8))));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 4);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 8);
-    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (M2C_FIELD(arg0, f32 *, 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
+    *arg1 = -(s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 4)), (f32) (*(f32 *)((s8 *)arg0 + 8))));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 4);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 8);
+    *arg2 = (s32) (lbl_8043F2C0 * atan2_float((f32) (*(f32 *)((s8 *)arg0 + 0)), (f32) (newton_sqrtf((f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0))))));
 }
 #pragma pop
 
@@ -211,9 +207,9 @@ u16 approach_angle_limited(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void vsub(void *arg0, void *arg1, void *arg2) {
-    M2C_FIELD(arg2, f32 *, 0) = (f32) (M2C_FIELD(arg1, f32 *, 0) - M2C_FIELD(arg0, f32 *, 0));
-    M2C_FIELD(arg2, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 4) - M2C_FIELD(arg0, f32 *, 4));
-    M2C_FIELD(arg2, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) - M2C_FIELD(arg0, f32 *, 8));
+    *(f32 *)((s8 *)arg2 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) - *(f32 *)((s8 *)arg0 + 0));
+    *(f32 *)((s8 *)arg2 + 4) = (f32) (*(f32 *)((s8 *)arg1 + 4) - *(f32 *)((s8 *)arg0 + 4));
+    *(f32 *)((s8 *)arg2 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) - *(f32 *)((s8 *)arg0 + 8));
 }
 
 extern f32 lbl_805DB15C;

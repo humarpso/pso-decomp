@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_80190BA0 { u32 header; s32 target; s32 event; };
 
@@ -38,7 +33,7 @@ struct Obj_80190AA0 {
 extern "C" {
 s32 is_sound_enabled__12TObjEnvSoundFPvi(void *, int);
 s32 fn_801908F8(f32);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
 void run_task__12TObjEnvSoundFv(u8 *arg0);
 void byteswap_event_packet__6TLobbyFi(Pkt_80190BA0 *pkt);
 s32 get_current_floor(void);
@@ -51,7 +46,7 @@ void copy_pair__18TObjEnvSoundGlobalFPvPv(Row_80190AA0 *, Row_80190AA0 *);
 void construct_world_actor_base(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern Row_80190AA0 *environment_sound_tables_by_area[];
-extern M2C_UNK __vt__12TObjEnvSound[];
+extern s32 __vt__12TObjEnvSound[];
 extern s32 TObjEnvSound__class_name;
 extern const f32 lbl_805DBE18;
 extern const f32 lbl_805DBE1C;
@@ -67,22 +62,22 @@ void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
 void render__12TObjEnvSoundFv(void) {  }
 
-extern M2C_UNK __vt__12TObjEnvSound[];
+extern s32 __vt__12TObjEnvSound[];
 
 void run_task__12TObjEnvSoundFv(u8 *arg0) {
     f32 temp_f0;
     s32 temp_r0;
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x90);
-    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvi((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x98))) != 0)) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x9C);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0x90);
+    if ((fn_801908F8((f32) (temp_f0 * temp_f0)) != 0) && (is_sound_enabled__12TObjEnvSoundFPvi((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x98))) != 0)) {
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0x9C);
         switch (temp_r0) {
         case 0:
             break;
         case 1:
-            play_persistent_sound((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
+            play_persistent_sound((int) (*(s32 *)((s8 *)arg0 + 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
             return;
         case 2:
-            play_persistent_sound((int) (M2C_FIELD(arg0, s32 *, 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (M2C_FIELD(arg0, s32 *, 0x94)), (int) (2));
+            play_persistent_sound((int) (*(s32 *)((s8 *)arg0 + 0x98)), (void *) (arg0), (void *) (arg0 + 0x38), (int) (*(s32 *)((s8 *)arg0 + 0x94)), (int) (2));
             break;
         }
     }
@@ -90,7 +85,7 @@ void run_task__12TObjEnvSoundFv(u8 *arg0) {
 
 void *__dt__12TObjEnvSoundFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjEnvSound;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEnvSound;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

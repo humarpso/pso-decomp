@@ -1,20 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80291138_lbl_804D9668 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x12D8];
 };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_48 { u8 bytes[0x48]; };
+struct ByteBlock_48 { u8 bytes[0x48]; };
 
 struct RecoveredGlobal_802911E8_lbl_804DAA78 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8C];
 };
 
@@ -94,7 +91,7 @@ void fn_80291178(void) {
 void set_creation_projection_center(f32 farg0) {
     struct CopyStack_802911E8 { u8 bytes[0x48]; };
     CopyStack_802911E8 copy_storage_802911E8;
-    *(M2CCopy_48 *)(copy_storage_802911E8.bytes) = *(const M2CCopy_48 *)((s32) ((u8 *)(&lbl_804DAA78.value) + -4) + 4);
+    *(ByteBlock_48 *)(copy_storage_802911E8.bytes) = *(const ByteBlock_48 *)((s32) ((u8 *)(&lbl_804DAA78.value) + -4) + 4);
     (*(f32 *)(copy_storage_802911E8.bytes + 0x8)) = lbl_805DD968 * ((lbl_805DD970 * farg0) + lbl_805DD96C);
     apply_view_params_if_flagged__11TCameraCtrlFPv((copy_storage_802911E8.bytes));
     lbl_805D3CA0 = farg0;

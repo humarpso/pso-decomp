@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80327F88_lbl_804ED598 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -16,58 +12,58 @@ struct Obj_80327D30 { u8 pad0[0x1C]; f32 w; f32 h; u8 pos[0xC]; u8 pad30; u8 f31
 extern "C" {
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-extern M2C_UNK lbl_804ED598[];
+s32 queue_destruction__7TObjectFv(void *);
+extern s32 lbl_804ED598[];
 void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int set_ginja_post_texgen_count(int);
-extern M2C_UNK lbl_804ED598[];
+extern s32 lbl_804ED598[];
 void set_tev_direct__13TParticleCtrlFi(s32 arg0);
-extern M2C_UNK lbl_804ED5B0[];
+extern s32 lbl_804ED5B0[];
 int register_indirect_effect_ctrl(void*);
-extern M2C_UNK lbl_804ED5B0[];
+extern s32 lbl_804ED5B0[];
 int get_object__13TParticleCtrlFPv(void* p);
 int GXSetNumIndStages(int);
 int GXSetTevDirect(int);
 int set_ginja_post_texgen_count(int);
-extern M2C_UNK lbl_804ED5B0[];
-extern M2C_UNK lbl_804ED5B0[];
+extern s32 lbl_804ED5B0[];
+extern s32 lbl_804ED5B0[];
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-extern M2C_UNK lbl_804ED5B0[];
+extern s32 lbl_804ED5B0[];
 void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 __nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 s32 construct_indirect_effect_task(int, int, int, int);
-extern M2C_UNK lbl_804ED598[];
+extern s32 lbl_804ED598[];
 extern s32 tl_05;
 u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 arg5, s32 arg6, f32 farg0, f32 farg1);
 s32 play_particle_at_active_slot__10TObjPlayerFiiiiii(s32, s32, s32, s32, s32, s32);
 void play_indirect_effect_recipe(u8 arg0, u16 arg1, s32 arg2);
-M2C_UNK disable_if_single_screen__13TParticleCtrlFv();
-M2C_UNK setup_particle_tev(int);
-M2C_UNK load_projected_texture_matrix(f32);
-M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 disable_if_single_screen__13TParticleCtrlFv();
+s32 setup_particle_tev(int);
+s32 load_projected_texture_matrix(f32);
+s32 set_depth_buffer_settings_2__Fv();
+s32 restore_saved_depth_alpha_state();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 void reset_ind_tev_stages__13TParticleCtrlFv(void *);
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2);
-M2C_UNK GXSetNumTexGens(int);
-M2C_UNK GXSetNumTevStages(int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_texture_num(int);
-M2C_UNK reset_particles__13TParticleCtrlFv();
-M2C_UNK TParticleCtrl__sub_803E2A1C(void *, int);
-M2C_UNK setup_particle_draw__13TParticleCtrlFi(int);
+s32 GXSetNumTexGens(int);
+s32 GXSetNumTevStages(int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_texture_num(int);
+s32 reset_particles__13TParticleCtrlFv();
+s32 TParticleCtrl__sub_803E2A1C(void *, int);
+s32 setup_particle_draw__13TParticleCtrlFi(int);
 extern u8 lbl_804C5820[];
 extern u8 *camera_ctrl_instance;
 void render_marker__13TParticleCtrlFPv(Obj_80327D30 *o);
@@ -136,14 +132,14 @@ void update_lifetime__13TParticleCtrlFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r4;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x40) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x40) == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x3C);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x3C);
     if (temp_r4 != 0) {
         temp_r0 = temp_r4 - 1;
-        M2C_FIELD(arg0, s32 *, 0x3C) = temp_r0;
+        *(s32 *)((s8 *)arg0 + 0x3C) = temp_r0;
         if (temp_r0 == 0) {
             queue_destruction__7TObjectFv((void *)(arg0));
         }
@@ -151,9 +147,9 @@ void update_lifetime__13TParticleCtrlFPv(void *arg0) {
 }
 void *__dt__13TParticleCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED598;
-        if (M2C_FIELD(arg0, void **, 0x40) != NULL) { queue_destruction__7TObjectFv((void *)(M2C_FIELD(arg0, void **, 0x40))); M2C_FIELD(arg0, M2C_UNK *, 0x40) = 0; }
-        M2C_FIELD(arg0, M2C_UNK *, 0x40) = 0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED598;
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x40))); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        *(s32 *)((s8 *)arg0 + 0x40) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -167,21 +163,21 @@ u8 *create_telepipe_marker(u8 *arg0, s32 arg1, s8 arg2, s8 arg3, s32 arg4, s32 a
     s32 temp_r3;
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg4));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
-    M2C_FIELD(arg0, f32 *, 0x1C) = farg0;
-    M2C_FIELD(arg0, f32 *, 0x20) = farg1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80327F88_lbl_804ED598 *)&lbl_804ED598).value;
+    *(f32 *)((s8 *)arg0 + 0x1C) = farg0;
+    *(f32 *)((s8 *)arg0 + 0x20) = farg1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg1));
-    M2C_FIELD(arg0, s8 *, 0x30) = arg2;
-    M2C_FIELD(arg0, s8 *, 0x31) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x34) = arg5;
+    *(s8 *)((s8 *)arg0 + 0x30) = arg2;
+    *(s8 *)((s8 *)arg0 + 0x31) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x34) = arg5;
     temp_r3 = __nw__7TObjectFUl((int) (0x20));
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = construct_indirect_effect_task((int) (temp_r3), (int) (0x1F), (int) (0), (int) (tl_05));
     }
-    M2C_FIELD(arg0, s32 *, 0x40) = var_r0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 1;
-    M2C_FIELD(arg0, s32 *, 0x3C) = arg6;
+    *(s32 *)((s8 *)arg0 + 0x40) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 1;
+    *(s32 *)((s8 *)arg0 + 0x3C) = arg6;
     return arg0;
 }
 
@@ -203,13 +199,13 @@ int get_object__13TParticleCtrlFPv(void* p) { return register_indirect_effect_ct
 void reset_ind_tev_stages__13TParticleCtrlFv(void * _w0) { GXSetTevDirect(1); GXSetNumIndStages(0); set_ginja_post_texgen_count(0); }
 void play_particle__13TParticleCtrlFPvis(void *arg0, s32 arg1, s16 arg2) {
     if (arg2 < 0) {
-        arg2 = (s16) M2C_FIELD(arg0, u8 *, 0x1C);
+        arg2 = (s16) *(u8 *)((s8 *)arg0 + 0x1C);
     }
-    play_particle_at_active_slot__10TObjPlayerFiiiiii((u8)((u8) arg2), (u8)(M2C_FIELD(arg0, u8 *, 0x1D)), (s32)(0), (s32)(0), (s32)(0), (s32)(1));
+    play_particle_at_active_slot__10TObjPlayerFiiiiii((u8)((u8) arg2), (u8)(*(u8 *)((s8 *)arg0 + 0x1D)), (s32)(0), (s32)(0), (s32)(0), (s32)(1));
 }
 void *TParticleCtrl__sub_80328160(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804ED5B0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804ED5B0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

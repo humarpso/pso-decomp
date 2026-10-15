@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Wn_80278DA4 { u8 pad0[0x20]; s16 f20; u8 pad22[0x50]; s16 f72; };
 
 extern "C" {
@@ -65,16 +62,16 @@ void build_mag_item_candidates(void *arg0, u16 arg1) {
     u32 n;
     u32 i;
     u8 *pl;
-    pl = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
+    pl = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (pl != NULL) {
-        n = run_and_get_result__10TObjPlayerFPvi(M2C_FIELD(pl, s32 *, 0xD00), ids);
+        n = run_and_get_result__10TObjPlayerFPvi(*(s32 *)((s8 *)pl + 0xD00), ids);
         for (i = 0; i < n; i++) {
             item = find_item_by_id(ids[i]);
             if ((item != 0) && (arg1 == get_field_ec__12TOSwitchItemFPv()) && (get_usable_action_flags__5TItemFPvUiUi(item, 8, 0) != 0U)) {
                 add_list_entry__23TShopJudgmentItemWindowFPvii(arg0, item, ids[i]);
             }
         }
-        if (M2C_FIELD(arg0, s16 *, 0x72) <= 0) {
+        if (*(s16 *)((s8 *)arg0 + 0x72) <= 0) {
             add_list_entry__20TWindowSubStatusDispFPvi(arg0, -1);
         }
         calc_list_content_extent(arg0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_803D6DDC {
@@ -18,22 +14,22 @@ struct Stack_803D6E8C {
 };
 
 struct RecoveredGlobal_803D662C_lbl_8058D4D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_8047E3C8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_804FA500 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_804FA50C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -43,7 +39,7 @@ struct RecoveredGlobal_803D77C0_lbl_804FA51C {
 };
 
 struct RecoveredGlobal_803D78A8_lbl_8058CAB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x7C];
 };
 
@@ -127,12 +123,12 @@ extern "C" {
 
 s32 sample_motion_vector_channel(s32 arg0);
 s32 TObjPlayer__sub_803D6C1C(s32 arg0);
-void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
+void select_motion_sampler(s32 *arg0, f32 farg0);
 void select_motion_context(s32 arg0);
 extern u8 *current_motion_context;
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0);
-M2C_UNK C_MTXPerspective(void *, f32, f32, f32, f32);
-M2C_UNK GXSetProjection(void *, int);
+s32 C_MTXPerspective(void *, f32, f32, f32, f32);
+s32 GXSetProjection(void *, int);
 f64 atan(f32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -189,7 +185,7 @@ extern RecoveredGlobal_803D77C0_lbl_804FA50C motion_angle_sampler_table;
 extern RecoveredGlobal_803D77C0_lbl_804FA51C lbl_804FA51C;
 extern u8 *current_motion_context;
 extern s32 motion_packed_rotation_mode;
-void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
+void select_motion_sampler(s32 *arg0, f32 farg0);
 void bind_motion_context(s32 arg0, f32 farg0);
 extern RecoveredGlobal_803D78A8_lbl_8058CAB8 lbl_8058CAB8;
 extern u8 *current_motion_context;
@@ -231,7 +227,7 @@ extern u8 *current_motion_context;
 s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
 u32 find_motion_key_partition_u16(u8 *base, u32 stride, u32 hi, u32 key);
 void find_motion_key_interval_u16(u8 *keys, u32 stride, u32 count, f32 t, u16 **k0, u16 **k1, f32 *frac);
-void select_motion_sampler(M2C_UNK *arg0, f32 farg0);
+void select_motion_sampler(s32 *arg0, f32 farg0);
 s32 sample_motion_vector_channel(s32 arg0);
 s32 run_next_key_callback__10TObjPlayerFi(s32 arg0);
 s32 sample_next_quaternion_key__10TObjPlayerFi(s32 arg0);
@@ -308,8 +304,8 @@ void set_clamped_offsets__11TCameraCtrlFff(f32 farg0, f32 farg1) {
     if (var_f2 < lbl_805E0E04) {
         var_f2 = lbl_805E0E04;
     }
-    M2C_FIELD(&camera_clip_parameters.value, f32 *, 4) = (f32) -var_f1;
-    M2C_FIELD(&camera_clip_parameters.value, f32 *, 0) = (f32) -var_f2;
+    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 4) = (f32) -var_f1;
+    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 0) = (f32) -var_f2;
 }
 #pragma pop
 
@@ -382,8 +378,8 @@ void set_perspective_projection_from_fov(s32 arg0, f32 farg0, f32 farg1, f32 far
     lbl_8058D4F8.f4 = b;
     lbl_8058D4F8.f10 = one / a;
     lbl_8058D4F8.f14 = one / (f32)(f64)b;
-    M2C_FIELD(&camera_clip_parameters.value, f32 *, 0) = farg2;
-    M2C_FIELD(&camera_clip_parameters.value, f32 *, 4) = farg1;
+    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 0) = farg2;
+    *(f32 *)((s8 *)(&camera_clip_parameters.value) + 4) = farg1;
 }
 
 void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
@@ -392,66 +388,66 @@ void sample_camera_motion(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s32 *temp_r29;
     u8 *temp_r27;
     u8 *temp_r26;
-    temp_r27 = (u8 *)(M2C_FIELD(arg2, u8 **, 0));
-    temp_r26 = (u8 *)(M2C_FIELD(arg2, u8 **, 4));
-    temp_r30 = (s32 *)(M2C_FIELD(arg2, s32 **, 8));
-    temp_r29 = (s32 *)(M2C_FIELD(arg2, s32 **, 0xC));
+    temp_r27 = (u8 *)(*(u8 **)((s8 *)arg2 + 0));
+    temp_r26 = (u8 *)(*(u8 **)((s8 *)arg2 + 4));
+    temp_r30 = (s32 *)(*(s32 **)((s8 *)arg2 + 8));
+    temp_r29 = (s32 *)(*(s32 **)((s8 *)arg2 + 0xC));
     select_motion_context((int) (0));
-    select_motion_sampler((M2C_UNK *) (arg1), (f32) (farg0));
-    temp_r31 = M2C_FIELD(current_motion_context, s32 *, 0x20);
+    select_motion_sampler((s32 *) (arg1), (f32) (farg0));
+    temp_r31 = *(s32 *)((s8 *)current_motion_context + 0x20);
     if ((u32) (temp_r31 & 1) != 0) {
         if (sample_motion_vector_channel((int) (temp_r27)) == 0) {
-            M2C_FIELD(temp_r27, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0);
-            M2C_FIELD(temp_r27, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 4);
-            M2C_FIELD(temp_r27, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 8);
+            *(f32 *)((s8 *)temp_r27 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0);
+            *(f32 *)((s8 *)temp_r27 + 4) = (f32) *(f32 *)((s8 *)arg0 + 4);
+            *(f32 *)((s8 *)temp_r27 + 8) = (f32) *(f32 *)((s8 *)arg0 + 8);
         }
     } else {
-        M2C_FIELD(temp_r27, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0);
-        M2C_FIELD(temp_r27, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 4);
-        M2C_FIELD(temp_r27, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 8);
+        *(f32 *)((s8 *)temp_r27 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0);
+        *(f32 *)((s8 *)temp_r27 + 4) = (f32) *(f32 *)((s8 *)arg0 + 4);
+        *(f32 *)((s8 *)temp_r27 + 8) = (f32) *(f32 *)((s8 *)arg0 + 8);
     }
     if ((u32) (temp_r31 & 2) != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x1C) = (s32) (M2C_FIELD(current_motion_context, s32 *, 0x1C) + 1);
+        *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
     if ((u32) (temp_r31 & 4) != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x1C) = (s32) (M2C_FIELD(current_motion_context, s32 *, 0x1C) + 1);
+        *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
     if ((u32) (temp_r31 & 0x40) != 0) {
         if (sample_motion_vector_channel((int) (temp_r26)) != 0) {
-            M2C_FIELD(temp_r26, f32 *, 0) = (f32) (M2C_FIELD(temp_r26, f32 *, 0) - M2C_FIELD(temp_r27, f32 *, 0));
-            M2C_FIELD(temp_r26, f32 *, 4) = (f32) (M2C_FIELD(temp_r26, f32 *, 4) - M2C_FIELD(temp_r27, f32 *, 4));
-            M2C_FIELD(temp_r26, f32 *, 8) = (f32) (M2C_FIELD(temp_r26, f32 *, 8) - M2C_FIELD(temp_r27, f32 *, 8));
+            *(f32 *)((s8 *)temp_r26 + 0) = (f32) (*(f32 *)((s8 *)temp_r26 + 0) - *(f32 *)((s8 *)temp_r27 + 0));
+            *(f32 *)((s8 *)temp_r26 + 4) = (f32) (*(f32 *)((s8 *)temp_r26 + 4) - *(f32 *)((s8 *)temp_r27 + 4));
+            *(f32 *)((s8 *)temp_r26 + 8) = (f32) (*(f32 *)((s8 *)temp_r26 + 8) - *(f32 *)((s8 *)temp_r27 + 8));
         } else {
-            M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-            M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
-            M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+            *(f32 *)((s8 *)temp_r26 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
+            *(f32 *)((s8 *)temp_r26 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
+            *(f32 *)((s8 *)temp_r26 + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
         }
     } else if ((u32) (temp_r31 & 8) != 0) {
         if (sample_motion_vector_channel((int) (temp_r26)) == 0) {
-            M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-            M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
-            M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+            *(f32 *)((s8 *)temp_r26 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
+            *(f32 *)((s8 *)temp_r26 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
+            *(f32 *)((s8 *)temp_r26 + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
         }
     } else {
-        M2C_FIELD(temp_r26, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-        M2C_FIELD(temp_r26, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
-        M2C_FIELD(temp_r26, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x14);
+        *(f32 *)((s8 *)temp_r26 + 0) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
+        *(f32 *)((s8 *)temp_r26 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
+        *(f32 *)((s8 *)temp_r26 + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x14);
     }
     if ((u32) (temp_r31 & 0x10) != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x1C) = (s32) (M2C_FIELD(current_motion_context, s32 *, 0x1C) + 1);
+        *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
     if ((u32) (temp_r31 & 0x20) != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x1C) = (s32) (M2C_FIELD(current_motion_context, s32 *, 0x1C) + 1);
+        *(s32 *)((s8 *)current_motion_context + 0x1C) = (s32) (*(s32 *)((s8 *)current_motion_context + 0x1C) + 1);
     }
     if (((u32) (temp_r31 & 0x80) != 0) && (TObjPlayer__sub_803D6C1C((int) (temp_r30)) == 0)) {
-        M2C_FIELD(temp_r30, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x18);
+        *(s32 *)((s8 *)temp_r30 + 0) = *(s32 *)((s8 *)arg0 + 0x18);
     }
     if ((u32) (temp_r31 & 0x100) != 0) {
         if (TObjPlayer__sub_803D6C1C((int) (temp_r29)) == 0) {
-            M2C_FIELD(temp_r29, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x1C);
+            *(s32 *)((s8 *)temp_r29 + 0) = *(s32 *)((s8 *)arg0 + 0x1C);
         }
     } else {
-        M2C_FIELD(temp_r29, s32 *, 0) = M2C_FIELD(arg0, s32 *, 0x1C);
+        *(s32 *)((s8 *)temp_r29 + 0) = *(s32 *)((s8 *)arg0 + 0x1C);
     }
 }
 #pragma pop
@@ -524,12 +520,12 @@ void interpolate_motion_vector_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     f32 temp_f2_2;
     f32 temp_f2_3;
     find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
-    temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
-    M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
-    temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
-    M2C_FIELD(arg2, f32 *, 4) = (f32) (temp_f2_2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 8) - temp_f2_2)));
-    temp_f2_3 = M2C_FIELD(stack.spC, f32 *, 0xC);
-    M2C_FIELD(arg2, f32 *, 8) = (f32) (temp_f2_3 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 0xC) - temp_f2_3)));
+    temp_f2 = *(f32 *)((s8 *)stack.spC + 4);
+    *(f32 *)((s8 *)arg2 + 0) = (f32) (temp_f2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 4) - temp_f2)));
+    temp_f2_2 = *(f32 *)((s8 *)stack.spC + 8);
+    *(f32 *)((s8 *)arg2 + 4) = (f32) (temp_f2_2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 8) - temp_f2_2)));
+    temp_f2_3 = *(f32 *)((s8 *)stack.spC + 0xC);
+    *(f32 *)((s8 *)arg2 + 8) = (f32) (temp_f2_3 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 0xC) - temp_f2_3)));
 }
 #pragma pop
 
@@ -543,11 +539,11 @@ void interpolate_motion_vector_keys_xy(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) 
     f32 temp_f2;
     f32 temp_f2_2;
     find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
-    temp_f2 = M2C_FIELD(stack.spC, f32 *, 4);
-    M2C_FIELD(arg2, f32 *, 0) = (f32) (temp_f2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 4) - temp_f2)));
-    temp_f2_2 = M2C_FIELD(stack.spC, f32 *, 8);
-    M2C_FIELD(arg2, f32 *, 4) = (f32) (temp_f2_2 + (stack.sp10 * (M2C_FIELD(stack.sp8, f32 *, 8) - temp_f2_2)));
-    M2C_FIELD(arg2, f32 *, 8) = (f32) lbl_805E0E50;
+    temp_f2 = *(f32 *)((s8 *)stack.spC + 4);
+    *(f32 *)((s8 *)arg2 + 0) = (f32) (temp_f2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 4) - temp_f2)));
+    temp_f2_2 = *(f32 *)((s8 *)stack.spC + 8);
+    *(f32 *)((s8 *)arg2 + 4) = (f32) (temp_f2_2 + (stack.sp10 * (*(f32 *)((s8 *)stack.sp8 + 8) - temp_f2_2)));
+    *(f32 *)((s8 *)arg2 + 8) = (f32) lbl_805E0E50;
 }
 #pragma pop
 
@@ -562,8 +558,8 @@ void interpolate_motion_key__10TObjPlayerFPviPvf(u8 *arg0, s32 arg1, s32 *arg2, 
     s32 temp_r5;
 
     find_motion_key_interval(arg0, 8, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
-    temp_r5 = M2C_FIELD(stack.spC, s32 *, 4);
-    *arg2 = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 4) - temp_r5)));
+    temp_r5 = *(s32 *)((s8 *)stack.spC + 4);
+    *arg2 = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 4) - temp_r5)));
 }
 #pragma pop
 
@@ -580,12 +576,12 @@ void sample_motion_angle_keys(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s32 temp_r5_3;
 
     find_motion_key_interval(arg0, 0x10, arg1, farg0, &stack.spC, &stack.sp8, &stack.sp10);
-    temp_r5 = M2C_FIELD(stack.spC, s32 *, 4);
-    M2C_FIELD(arg2, s32 *, 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 4) - temp_r5)));
-    temp_r5_2 = M2C_FIELD(stack.spC, s32 *, 8);
-    M2C_FIELD(arg2, s32 *, 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 8) - temp_r5_2)));
-    temp_r5_3 = M2C_FIELD(stack.spC, s32 *, 0xC);
-    M2C_FIELD(arg2, s32 *, 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s32 *, 0xC) - temp_r5_3)));
+    temp_r5 = *(s32 *)((s8 *)stack.spC + 4);
+    *(s32 *)((s8 *)arg2 + 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 4) - temp_r5)));
+    temp_r5_2 = *(s32 *)((s8 *)stack.spC + 8);
+    *(s32 *)((s8 *)arg2 + 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 8) - temp_r5_2)));
+    temp_r5_3 = *(s32 *)((s8 *)stack.spC + 0xC);
+    *(s32 *)((s8 *)arg2 + 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (*(s32 *)((s8 *)stack.sp8 + 0xC) - temp_r5_3)));
 }
 #pragma pop
 
@@ -602,12 +598,12 @@ void sample_motion_angle_keys_s16(u8 *arg0, s32 arg1, u8 *arg2, f32 farg0) {
     s16 temp_r5_3;
 
     find_motion_key_interval_u16(arg0, 8, arg1, farg0, (u16 **)&stack.spC, (u16 **)&stack.sp8, &stack.sp10);
-    temp_r5 = M2C_FIELD(stack.spC, s16 *, 2);
-    M2C_FIELD(arg2, s32 *, 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 2) - temp_r5)));
-    temp_r5_2 = M2C_FIELD(stack.spC, s16 *, 4);
-    M2C_FIELD(arg2, s32 *, 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 4) - temp_r5_2)));
-    temp_r5_3 = M2C_FIELD(stack.spC, s16 *, 6);
-    M2C_FIELD(arg2, s32 *, 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (M2C_FIELD(stack.sp8, s16 *, 6) - temp_r5_3)));
+    temp_r5 = *(s16 *)((s8 *)stack.spC + 2);
+    *(s32 *)((s8 *)arg2 + 0) = (s32) ((f32) temp_r5 + (stack.sp10 * (f32) (s16) (*(s16 *)((s8 *)stack.sp8 + 2) - temp_r5)));
+    temp_r5_2 = *(s16 *)((s8 *)stack.spC + 4);
+    *(s32 *)((s8 *)arg2 + 4) = (s32) ((f32) temp_r5_2 + (stack.sp10 * (f32) (s16) (*(s16 *)((s8 *)stack.sp8 + 4) - temp_r5_2)));
+    temp_r5_3 = *(s16 *)((s8 *)stack.spC + 6);
+    *(s32 *)((s8 *)arg2 + 8) = (s32) ((f32) temp_r5_3 + (stack.sp10 * (f32) (s16) (*(s16 *)((s8 *)stack.sp8 + 6) - temp_r5_3)));
 }
 #pragma pop
 
@@ -651,9 +647,9 @@ void interpolate_spline_cyclic_cubic(struct SplineKey_803D7288 *keys, u32 count,
 #pragma scheduling off
 void bind_motion_blend_channels(u8 *arg0, f32 farg0) {
     select_motion_context((s32)((int) (1)));
-    bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 4))), (f32) (M2C_FIELD(arg0, f32 *, 0xC)));
+    bind_motion_channel_samplers((int)((int) (*(s32 *)((s8 *)arg0 + 4))), (f32) (*(f32 *)((s8 *)arg0 + 0xC)));
     select_motion_context((s32)((int) (0)));
-    bind_motion_channel_samplers((int)((int) (M2C_FIELD(arg0, s32 *, 0))), (f32) (M2C_FIELD(arg0, f32 *, 8)));
+    bind_motion_channel_samplers((int)((int) (*(s32 *)((s8 *)arg0 + 0))), (f32) (*(f32 *)((s8 *)arg0 + 8)));
     motion_blend_factor = farg0;
 }
 #pragma pop
@@ -768,29 +764,29 @@ void advance_motion_row(void) {
 }
 #pragma pop
 
-void select_motion_sampler(M2C_UNK *arg0, f32 farg0) {
-    M2C_UNK *var_r3;
+void select_motion_sampler(s32 *arg0, f32 farg0) {
+    s32 *var_r3;
     s32 temp_r31;
     s32 temp_r4;
-    var_r3 = (M2C_UNK *)(arg0);
+    var_r3 = (s32 *)(arg0);
     if (var_r3 == NULL) {
-        var_r3 = (M2C_UNK *)(&lbl_8047E3C8.value);
+        var_r3 = (s32 *)(&lbl_8047E3C8.value);
     }
-    temp_r31 = (s32) (M2C_FIELD(var_r3, u16 *, 0xA) & 0xC0) >> 6;
-    M2C_FIELD(current_motion_context, s32 *, 0) = (s32) M2C_FIELD(var_r3, s32 *, 0);
-    M2C_FIELD(current_motion_context, s32 *, 0x18) = (s32) M2C_FIELD(var_r3, s32 *, 4);
-    M2C_FIELD(current_motion_context, s32 *, 0x20) = (s32) M2C_FIELD(var_r3, u16 *, 8);
-    M2C_FIELD(current_motion_context, f32 *, 0x14) = farg0;
-    M2C_FIELD(current_motion_context, s32 *, 0x1C) = 0;
-    set_motion_row_stride((s32)((int) (M2C_FIELD(var_r3, u16 *, 0xA) & 0xFFFFFF3F)));
+    temp_r31 = (s32) (*(u16 *)((s8 *)var_r3 + 0xA) & 0xC0) >> 6;
+    *(s32 *)((s8 *)current_motion_context + 0) = (s32) *(s32 *)((s8 *)var_r3 + 0);
+    *(s32 *)((s8 *)current_motion_context + 0x18) = (s32) *(s32 *)((s8 *)var_r3 + 4);
+    *(s32 *)((s8 *)current_motion_context + 0x20) = (s32) *(u16 *)((s8 *)var_r3 + 8);
+    *(f32 *)((s8 *)current_motion_context + 0x14) = farg0;
+    *(s32 *)((s8 *)current_motion_context + 0x1C) = 0;
+    set_motion_row_stride((s32)((int) (*(u16 *)((s8 *)var_r3 + 0xA) & 0xFFFFFF3F)));
     temp_r4 = temp_r31 * 4;
-    M2C_FIELD(current_motion_context, s32 *, 0x24) = (s32) M2C_FIELD(&lbl_804FA500.value, M2C_UNK *, temp_r4);
+    *(s32 *)((s8 *)current_motion_context + 0x24) = (s32) *(s32 *)((s8 *)(&lbl_804FA500.value) + temp_r4);
     if ((s32) motion_packed_rotation_mode != 0) {
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&motion_angle_sampler_table.value, s32 *, 0xC);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)(&motion_angle_sampler_table.value) + 0xC);
     } else {
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(&motion_angle_sampler_table.value, M2C_UNK *, temp_r4);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)(&motion_angle_sampler_table.value) + temp_r4);
     }
-    M2C_FIELD(current_motion_context, s32 *, 0x2C) = (s32) lbl_804FA51C.value;
+    *(s32 *)((s8 *)current_motion_context + 0x2C) = (s32) lbl_804FA51C.value;
 }
 #pragma pop
 
@@ -891,28 +887,28 @@ void bind_motion_context(s32 arg0, f32 farg0) {
 
 void bind_motion_channel_samplers(int arg0, f32 farg0) {
     s32 temp_r5;
-    select_motion_sampler((M2C_UNK *)arg0, farg0);
-    temp_r5 = M2C_FIELD(current_motion_context, s32 *, 0x20);
+    select_motion_sampler((s32 *)arg0, farg0);
+    temp_r5 = *(s32 *)((s8 *)current_motion_context + 0x20);
     if ((u32) (temp_r5 & 1) != 0) {
-        M2C_FIELD(current_motion_context, void **, 0x30) = (void *)sample_motion_vector_channel;
+        *(void **)((s8 *)current_motion_context + 0x30) = (void *)sample_motion_vector_channel;
     } else {
-        M2C_FIELD(current_motion_context, void **, 0x30) = (void *)TObjPlayer__sub_803D7FD0;
+        *(void **)((s8 *)current_motion_context + 0x30) = (void *)TObjPlayer__sub_803D7FD0;
     }
     if ((u32) (temp_r5 & 2) != 0) {
-        M2C_FIELD(current_motion_context, void **, 0x34) = (void *)run_next_key_callback__10TObjPlayerFi;
-        M2C_FIELD(current_motion_context, void **, 0x3C) = NULL;
+        *(void **)((s8 *)current_motion_context + 0x34) = (void *)run_next_key_callback__10TObjPlayerFi;
+        *(void **)((s8 *)current_motion_context + 0x3C) = NULL;
     } else if ((u32) (temp_r5 & 0x2000) != 0) {
-        M2C_FIELD(current_motion_context, void **, 0x34) = NULL;
-        M2C_FIELD(current_motion_context, void **, 0x3C) = (void *)sample_next_quaternion_key__10TObjPlayerFi;
+        *(void **)((s8 *)current_motion_context + 0x34) = NULL;
+        *(void **)((s8 *)current_motion_context + 0x3C) = (void *)sample_next_quaternion_key__10TObjPlayerFi;
     } else {
-        M2C_FIELD(current_motion_context, void **, 0x34) = (void *)TObjPlayer__sub_803D7FD8;
-        M2C_FIELD(current_motion_context, void **, 0x3C) = NULL;
+        *(void **)((s8 *)current_motion_context + 0x34) = (void *)TObjPlayer__sub_803D7FD8;
+        *(void **)((s8 *)current_motion_context + 0x3C) = NULL;
     }
     if ((u32) (temp_r5 & 4) != 0) {
-        M2C_FIELD(current_motion_context, void **, 0x38) = (void *)sample_motion_vector_channel;
+        *(void **)((s8 *)current_motion_context + 0x38) = (void *)sample_motion_vector_channel;
         return;
     }
-    M2C_FIELD(current_motion_context, void **, 0x38) = (void *)TObjPlayer__sub_803D7FD0;
+    *(void **)((s8 *)current_motion_context + 0x38) = (void *)TObjPlayer__sub_803D7FD0;
 }
 
 void compose_motion_node_matrix(void *arg0) {

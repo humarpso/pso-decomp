@@ -1,68 +1,64 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80146CB8_lbl_8050CCE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x128];
 };
 
 struct RecoveredGlobal_8014672C_lbl_8050C0A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6D8];
 };
 
 struct RecoveredGlobal_80146588_lbl_8050CCE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x128];
 };
 
 struct RecoveredGlobal_80146D14_lbl_8050CCE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x128];
 };
 
 struct RecoveredGlobal_80146CA0_lbl_8050C784 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x560];
 };
 
 struct RecoveredGlobal_80146D44_lbl_8050CE14 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x150];
 };
 
 struct RecoveredGlobal_80146D50_lbl_8050C784 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x560];
 };
 
 extern "C" {
 void flush_pending_flags__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803FAFDC();
-M2C_UNK TLobby__sub_803FB184(void *);
-M2C_UNK TLobby__sub_803FB1A4(void *);
-M2C_UNK TLobby__sub_80407358();
-M2C_UNK flush_flags_step__6TLobbyFv();
-M2C_UNK TLobby__sub_8041509C();
-M2C_UNK TLobby__sub_80423064(void *, int);
-M2C_UNK TLobby__sub_80424CA8();
-M2C_UNK TLobby__sub_80424CF4(void *, void *, int);
+s32 TLobby__sub_803FAFDC();
+s32 TLobby__sub_803FB184(void *);
+s32 TLobby__sub_803FB1A4(void *);
+s32 TLobby__sub_80407358();
+s32 flush_flags_step__6TLobbyFv();
+s32 TLobby__sub_8041509C();
+s32 TLobby__sub_80423064(void *, int);
+s32 TLobby__sub_80424CA8();
+s32 TLobby__sub_80424CF4(void *, void *, int);
 void TLobby__sub_801469B8(void* p);
     extern int lbl_805D5708;
 void call_146CA0_with_5708__6TLobbyFv(void);
 void* TLobby__sub_80146D68(int a0);
 void TLobby__sub_8014715C(void* p, void* q);
-M2C_UNK TLobby__sub_8040A3C0();
-M2C_UNK clear_all_used_records__6TLobbyFv();
+s32 TLobby__sub_8040A3C0();
+s32 clear_all_used_records__6TLobbyFv();
 extern s32 lbl_805D570C;
 void teardown_boss2__6TLobbyFv(void);
 s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void strncpy(s32, s32, s32);
-M2C_UNK memset(int, int, int);
+s32 memset(int, int, int);
 void set_ppp_password__6TLobbyFi(s32 arg0);
 void TLobby__sub_8014672C(s32 *arg0);
 extern s32 lbl_805D56D8;
@@ -74,7 +70,7 @@ s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 u8 *TLobby__sub_80146D14(void);
 u8 *TLobby__sub_80146CA0(s32 arg0);
-M2C_UNK *TLobby__sub_80146D44(void);
+s32 *TLobby__sub_80146D44(void);
 u8 *TLobby__sub_80146D50(s32 arg0);
 s32 TLobby__sub_801466F4(u32 arg0);
 s32 is_state_active__6TLobbyFv(void);
@@ -193,15 +189,15 @@ s32 query_task_active__6TLobbyFv(void);
 void set_battle_flag__6TLobbyFi(s32 arg0);
 int TLobby__sub_80145A94(void);
 int TLobby__sub_80145DB4(void*);
-M2C_UNK TLobby__sub_80147284();
+s32 TLobby__sub_80147284();
 int get_network_config_buffer_size(void*);
-M2C_UNK cleanup_subsystems__6TLobbyFv();
-M2C_UNK TLobby__sub_804219D0(M2C_UNK, M2C_UNK, s32);
-M2C_UNK TLobby__sub_80421A50(M2C_UNK, M2C_UNK, s32);
+s32 cleanup_subsystems__6TLobbyFv();
+s32 TLobby__sub_804219D0(s32, s32, s32);
+s32 TLobby__sub_80421A50(s32, s32, s32);
 s16 query_link_status__6TLobbyFv();
 s8 func_801A5E54__Fv();
 s32 get_task_count__6TLobbyFv();
-M2C_UNK send_and_handle__6TLobbyFPv();
+s32 send_and_handle__6TLobbyFPv();
 void xfree__FPv(void*);
 int xmalloc__FUl(void);
 
@@ -265,11 +261,11 @@ void set_battle_flag__6TLobbyFi(s32 arg0) {
 
 typedef char RecoveredGlobal_80146588_lbl_8050CCE8_size[sizeof(RecoveredGlobal_80146588_lbl_8050CCE8) == 0x12C ? 1 : -1];
 s32 TLobby__sub_80146588(s32 *arg0) {
-    lbl_805D56D8 = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 0) = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 8);
-    lobby_connect_battle_flag = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 0x18);
-    lobby_dns_server_addr = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 0x10);
-    lbl_805D56E0 = M2C_FIELD(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value, s32 *, 0x14);
+    lbl_805D56D8 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value) + 4);
+    *(s32 *)((s8 *)arg0 + 0) = *(s32 *)((s8 *)(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value) + 8);
+    lobby_connect_battle_flag = *(s32 *)((s8 *)(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value) + 0x18);
+    lobby_dns_server_addr = *(s32 *)((s8 *)(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value) + 0x10);
+    lbl_805D56E0 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_80146588_lbl_8050CCE8 *)&lbl_8050CCE8).value) + 0x14);
     return 0;
 }
 
@@ -322,7 +318,7 @@ int TLobby__sub_80146724(void) { return 3; }
 
 typedef char RecoveredGlobal_8014672C_lbl_8050C0A8_size[sizeof(RecoveredGlobal_8014672C_lbl_8050C0A8) == 0x6DC ? 1 : -1];
 void TLobby__sub_8014672C(s32 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = M2C_FIELD(&lbl_8050C0A8.value, s32 *, 4);
+    *(s32 *)((s8 *)arg0 + 0) = *(s32 *)((s8 *)(&lbl_8050C0A8.value) + 4);
 }
 
 int TLobby__sub_80146740(void) { return 0; }
@@ -481,7 +477,7 @@ u8 *TLobby__sub_80146D14(void) {
 }
 
 typedef char RecoveredGlobal_80146D44_lbl_8050CE14_size[sizeof(RecoveredGlobal_80146D44_lbl_8050CE14) == 0x154 ? 1 : -1];
-M2C_UNK *TLobby__sub_80146D44(void) {
+s32 *TLobby__sub_80146D44(void) {
     return &lbl_8050CE14.value;
 }
 
@@ -584,26 +580,21 @@ void teardown_boss2__6TLobbyFv(void) {
 #undef lbl_8050CE14
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80147A74_lbl_804EF500 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x94];
 };
 
 struct S_801472F8 { u8 pad0[4]; s16 a; s16 b; u8 rest[0x38]; };
 
-typedef s32 M2C_UNK;
 struct Req_801471A0 { s32 type; u32 addr; u8 pad[0x18]; };
 
 struct Cfg_801471A0 { u8 pad[0x558]; u32 dns1; u32 dns2; };
 
 extern "C" {
 extern RecoveredGlobal_80147A74_lbl_804EF500 ppp_password_buffer;
-M2C_UNK *get_ppp_password_buffer(void);
+s32 *get_ppp_password_buffer(void);
 void TLobby__sub_801472F8(s16 *arg0, s16 *arg1);
 void OSReport(const char *, ...);
 s16 init_net_tables__6TLobbyFv();
@@ -620,11 +611,11 @@ s32 TLobby__sub_80147284(void);
 void TLobby__sub_80147978(void);
 void fn_80147A60(int a0);
 void fn_80147A68(void);
-M2C_UNK TLobby__sub_803FAFDC();
+s32 TLobby__sub_803FAFDC();
 
 #define lbl_8050C784 (*(Cfg_801471A0 *)lbl_8050C784)
 #define TLobby__sub_803FB184 ((s16 (*)(void *))TLobby__sub_803FB184)
-#define TLobby__sub_80423064 ((M2C_UNK (*)(s16, M2C_UNK))TLobby__sub_80423064)
+#define TLobby__sub_80423064 ((s32 (*)(s16, s32))TLobby__sub_80423064)
 extern s32 lbl_805D2D00;
 extern s32 TLobby__connect_pending_flags;
 
@@ -729,7 +720,7 @@ void fn_80147A60(int a0) { lbl_805D56D0 = a0; }
     extern int lbl_805D56D0;
 void fn_80147A68(void) { lbl_805D56D0 = 0; }
 typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
-M2C_UNK *get_ppp_password_buffer(void) {
+s32 *get_ppp_password_buffer(void) {
     return &ppp_password_buffer.value;
 }
 

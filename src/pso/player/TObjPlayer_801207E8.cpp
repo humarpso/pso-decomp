@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -11,12 +7,12 @@ typedef struct { f32 sp8; f32 spC; f32 sp10; } FloatTriplet;
 s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void draw_status_icon__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 get_view_matrix__11TCameraCtrlFv();
-M2C_UNK concat_matrix__11TCameraCtrlFUiUi(M2C_UNK, s32);
+s32 concat_matrix__11TCameraCtrlFUiUi(s32, s32);
 s32 get_model_joint_matrix(void *, s32);
-M2C_UNK transform_point_by_current_matrix(f32 *, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK copy_matrix__10TObjPlayerFUiUi(M2C_UNK, s32);
+s32 transform_point_by_current_matrix(f32 *, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 copy_matrix__10TObjPlayerFUiUi(s32, s32);
 
 extern const f32 lbl_805DAC98;
 
@@ -26,7 +22,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
     FloatTriplet floats;
     void *temp_r3;
 
-    temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
+    temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
     if (temp_r3 == NULL) {
         return 0;
     }
@@ -34,12 +30,12 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
         ((VObj_104_801207e8 *)temp_r3)->m63(0x30);
     } else if (arg1 == -2) {
         ((VObj_104_801207e8 *)temp_r3)->m63(0x23);
-    } else if ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U) {
+    } else if ((u32) *(u32 *)((s8 *)arg0 + 0xF4) != 0U) {
         floats.sp10 = lbl_805DAC98;
         floats.spC = lbl_805DAC98;
         floats.sp8 = lbl_805DAC98;
         push_matrix();
-        copy_matrix__10TObjPlayerFUiUi(0, get_model_joint_matrix(M2C_FIELD(arg0, void **, 0xF0), arg1));
+        copy_matrix__10TObjPlayerFUiUi(0, get_model_joint_matrix(*(void **)((s8 *)arg0 + 0xF0), arg1));
         concat_matrix__11TCameraCtrlFUiUi(0, get_view_matrix__11TCameraCtrlFv());
         transform_point_by_current_matrix(&floats.sp8, arg2);
         pop_matrix();
@@ -50,7 +46,7 @@ s32 draw_icon__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
 }
 
 void draw_status_icon__10TObjPlayerFPvi(void *arg0, s32 arg1) {
-    draw_icon__10TObjPlayerFPvii((void *)(arg0), (s32)(M2C_FIELD(arg0, s16 *, 0x1CE)), (s32)(arg1));
+    draw_icon__10TObjPlayerFPvii((void *)(arg0), (s32)(*(s16 *)((s8 *)arg0 + 0x1CE)), (s32)(arg1));
 }
 
 }

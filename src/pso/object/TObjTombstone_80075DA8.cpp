@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_80076098 {
     f32 x;
@@ -49,11 +45,11 @@ int format_enemy_text__13TObjTombstoneFPv(void*);
 int build_name_text__13TObjTombstoneFPv(void*);
 int format_label__13TObjTombstoneFPv(void*);
 int format_player_name__13TObjTombstoneFPv(void*);
-M2C_UNK TObjTombstone__sub_80075DFC(void *);
+s32 TObjTombstone__sub_80075DFC(void *);
 void __dl__7TObjectFPv(void *);
 s32 check_owner__13TObjTombstoneFPv();
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); format_label__13TObjTombstoneFPv(p); build_name_text__13TObjTombstoneFPv(p); format_enemy_text__13TObjTombstoneFPv(p); format_quoted_name__13TObjTombstoneFPv(p); format_date_text__13TObjTombstoneFPv(p); }
 
@@ -96,17 +92,17 @@ s32 is_player_nearby__13TObjTombstoneFPv(void *arg0) {
 void update_rise__13TObjTombstoneFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
-    if ((is_other_tombstone_closer__13TObjTombstoneFPv() == 0) && (M2C_FIELD(arg0, f32 *, 0xB0) < TObjTombstone__data_805D917C)) {
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4) + lbl_805D91B4;
-        M2C_FIELD(arg0, f32 *, 0xB4) = temp_f1;
+    if ((is_other_tombstone_closer__13TObjTombstoneFPv() == 0) && (*(f32 *)((s8 *)arg0 + 0xB0) < TObjTombstone__data_805D917C)) {
+        temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4) + lbl_805D91B4;
+        *(f32 *)((s8 *)arg0 + 0xB4) = temp_f1;
         if (temp_f1 > TObjTombstone__data_805D9178) {
-            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9178;
+            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9178;
         }
     } else {
-        temp_f1_2 = M2C_FIELD(arg0, f32 *, 0xB4) + lbl_805D91B8;
-        M2C_FIELD(arg0, f32 *, 0xB4) = temp_f1_2;
+        temp_f1_2 = *(f32 *)((s8 *)arg0 + 0xB4) + lbl_805D91B8;
+        *(f32 *)((s8 *)arg0 + 0xB4) = temp_f1_2;
         if (temp_f1_2 < TObjTombstone__data_805D9174) {
-            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9174;
+            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9174;
         }
     }
 }
@@ -117,20 +113,20 @@ void run_task__13TObjTombstoneFv(void *arg0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0xB0) = get_distance_to_local_player_xz__13TObjTombstoneFPvPv(arg0);
+    *(f32 *)((s8 *)arg0 + 0xB0) = get_distance_to_local_player_xz__13TObjTombstoneFPvPv(arg0);
     update_rise__13TObjTombstoneFPv((u8 *)(arg0));
     if (is_player_nearby__13TObjTombstoneFPv((void *)(arg0)) != 0) {
         TObjTombstone__sub_80075DFC(arg0);
     }
-    M2C_FIELD(arg0, s32 *, 0x230) = (s32) (M2C_FIELD(arg0, s32 *, 0x230) + 1);
+    *(s32 *)((s8 *)arg0 + 0x230) = (s32) (*(s32 *)((s8 *)arg0 + 0x230) + 1);
     lbl_805D4E4C = 0;
 }
 
-extern M2C_UNK __vt__13TObjTombstone[];
+extern s32 __vt__13TObjTombstone[];
 
 void *__dt__13TObjTombstoneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTombstone;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTombstone;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

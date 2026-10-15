@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8018D9B0_lbl_804B7158 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8018D9B0_lbl_804B7158 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8018D9B0_lbl_804B7158_size[sizeof(RecoveredGlobal_8018D9B0_lbl_804B7158) == 0x10 ? 1 : -1];
 
 struct O_8018DB94 { u8 pad[0xac]; s32 state; f32 pos; f32 max; f32 speed; };
@@ -103,10 +99,10 @@ void load_resource_instance__19TObjContainerJungExFv(void) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 void TObjDoaEx01__vt16(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) - M2C_FIELD(arg0, f32 *, 0xB8));
-    if (M2C_FIELD(arg0, f32 *, 0xB0) < TObjDoaEx01__data_805DBDA0) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
-        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) - *(f32 *)((s8 *)arg0 + 0xB8));
+    if (*(f32 *)((s8 *)arg0 + 0xB0) < TObjDoaEx01__data_805DBDA0) {
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TObjDoaEx01__data_805DBDA0;
+        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
     }
 }

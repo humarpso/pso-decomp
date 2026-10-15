@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -46,7 +42,7 @@ void* get_status_data__14TAdPlyStatusGCFPv(void* p);
 void* get_status_sub__14TAdPlyStatusGCFPv(void* p);
 void set_status_index__14TAdPlyStatusGCFii(int a0, int a1);
 void set_status_param__14TAdPlyStatusGCFii(int a0, int a1);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 
 s32 get_field_498__14TAdPlyStatusGCFPv(void* p) { return *(s32*)((char*)p + 0x498); }
 void* get_chara_making_data__14TAdPlyStatusGCFPv(void* p) { return (char*)p + 0x1b8; }
@@ -69,9 +65,9 @@ extern s32 TAdPlyStatusGC__window_offset_index;
 
 void close_window__14TAdPlyStatusGCFPvi(void *arg0, s32 arg1) {
     TAdPlyStatusGC__window_offset_index = arg1;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x6C) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x6C));
-        M2C_FIELD(arg0, u32 *, 0x6C) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x6C) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x6C));
+        *(u32 *)((s8 *)arg0 + 0x6C) = 0U;
     }
 }
 

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
 typedef struct Slot_803F3478 {
@@ -22,11 +18,11 @@ typedef struct Slot_803F3478 {
 struct S_803F3690 { s16 f0; s16 pad2; s32 state; u8 card[0x80]; };
 
 extern "C" {
-M2C_UNK OSFreeToHeap(int, void *);
+s32 OSFreeToHeap(int, void *);
 s32 get_network_config_mode();
-M2C_UNK get_or_set_network_config_mode(int);
-M2C_UNK get_or_set_network_config_backup_mode(int);
-M2C_UNK set_network_config_card_channel(int);
+s32 get_or_set_network_config_mode(int);
+s32 get_or_set_network_config_backup_mode(int);
+s32 set_network_config_card_channel(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lobby_net_config_buffer;
@@ -34,17 +30,17 @@ extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 extern S_803F3328 lbl_805A29B0[];
 s32 CARDClose(void *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
@@ -53,7 +49,7 @@ s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 TAdPlayerLoadGC__sub_803F3998(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 extern Slot_803F3478 TAdPlayerLoadGC__load_request_slots[];
 extern S_803F3328 lbl_805A29B0[];
@@ -65,7 +61,7 @@ extern "C" {
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1);
 
-extern M2C_UNK lbl_805D4700;
+extern s32 lbl_805D4700;
 
 extern s32 lbl_805D7940;
 

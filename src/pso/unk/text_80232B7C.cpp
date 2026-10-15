@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Ent_80232E0C { u32 a; u32 count; };
 
 struct Obj_80232E0C {
@@ -29,7 +26,6 @@ struct Obj_80232B7C {
     f32 f4c;
 };
 
-typedef s32 M2C_UNK;
 struct Obj_80232B7C;
 struct SEnt_80232C50 { s32 a; u32 flags; s32 c; };
 
@@ -63,12 +59,12 @@ extern const f32 lbl_805DC854;
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 void queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(s32, u32);
-M2C_UNK attach_particle_model(s32, s32, s32, int, int, f32);
+s32 attach_particle_model(s32, s32, s32, int, int, f32);
 s32 spawn_particle_effect(void *, s32);
 u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
-M2C_UNK construct_timed_sound_voice(void *, void *, int, int, int, void *);
+s32 construct_timed_sound_voice(void *, void *, int, int, int, void *);
 extern SGrp_80232C50 lbl_8044D56C[];
 extern void *tl_07;
 extern s32 technique_effect_bml;

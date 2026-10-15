@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_800BB45C_lbl_80500B98 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -34,7 +30,7 @@ u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range);
 u16 obj_getField1c(void *);
 s32 get_game_mode__6TLobbyFv(void);
 s32 is_alive__9TObjEneDDFPv(void *);
-M2C_UNK TBoss8Dragon__sub_800BB650(void *, void *);
+s32 TBoss8Dragon__sub_800BB650(void *, void *);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 s32 collect_enemy_target_candidates(s32 arg0, Ent_800BB484 *out, f32 farg0);
@@ -49,7 +45,7 @@ Ent_800BB388 *get_player_data__10TObjPlayerFi(s32);
 }
 
 void set_squared_value__9TObjEneDDFf(f32 farg0) {
-    ((M2C_UNK (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);
+    ((s32 (*)(f32))enemy_nearest_visible_enemy_sq)(farg0 * farg0);
 }
 u16 enemy_nearest_visible_enemy_sq(Ent_800BB388 *self, f32 range) {
     s32 count;

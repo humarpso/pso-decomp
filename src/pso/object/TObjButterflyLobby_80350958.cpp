@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct ButterflyLobbyBase_80350958 { char pad[0x18]; };
 struct ButterflyLobbyVObj_80350958 : ButterflyLobbyBase_80350958 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -37,13 +34,13 @@ extern "C" {
 s32 is_connected__6TLobbyFv();
 s32 is_lobby_obj_active__6TLobbyFv();
 void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 csnVector(void *, void *, int);
 void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0);
 s32 rand();
 f32 sin_table_lookup(int);
 void rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
+s32 rotate_matrix_y(int, int);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern u8 identity_matrix[];
@@ -55,17 +52,17 @@ extern "C" {
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFPv(u8 *arg0);
 void render__18TObjButterflyLobbyFv(void *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK draw_ginja_model_with_motion(int, void *, f32);
+s32 post_translate_matrix(void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
+s32 draw_ginja_model_with_motion(int, void *, f32);
 s32 get_bml_motion(void *, int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 extern s32 lobby_butterfly_bml_resource;
 
@@ -74,32 +71,32 @@ void render__18TObjButterflyLobbyFPv(u8 *arg0) {
 
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     rotate_matrix_x((int) (0), (int) (-0x2000));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 3) {
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x90) != 3) {
+        temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
         scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
     }
-    draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0xC4)), (void *) (get_bml_motion((void *) (lobby_butterfly_bml_resource), (int) (0))), (f32) (M2C_FIELD(arg0, f32 *, 0xB0)));
+    draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0xC4)), (void *) (get_bml_motion((void *) (lobby_butterfly_bml_resource), (int) (0))), (f32) (*(f32 *)((s8 *)arg0 + 0xB0)));
     pop_matrix();
 }
 
 void init_params__18TObjButterflyLobbyFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x98, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0xA4) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0xA8) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0xAC) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
-    M2C_FIELD(arg0, f32 *, 0xB8) = 0.0f;
-    M2C_FIELD(arg0, s8 *, 0xC0) = 0;
-    M2C_FIELD(arg0, s8 *, 0xC1) = 0;
-    M2C_FIELD(arg0, s16 *, 0xBC) = 0x1E;
-    M2C_FIELD(arg0, s16 *, 0xBE) = 0;
+    *(f32 *)((s8 *)arg0 + 0xA4) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0xA8) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0xAC) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (0.5f * (3.0517578125e-05f * (f32) rand()));
+    *(f32 *)((s8 *)arg0 + 0xB8) = 0.0f;
+    *(s8 *)((s8 *)arg0 + 0xC0) = 0;
+    *(s8 *)((s8 *)arg0 + 0xC1) = 0;
+    *(s16 *)((s8 *)arg0 + 0xBC) = 0x1E;
+    *(s16 *)((s8 *)arg0 + 0xBE) = 0;
 }
 
 void render__18TObjButterflyLobbyFv(void *arg0) {
-    if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(400.0f, 20.0f) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x90) != 0)) {
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
+    if ((((ButterflyLobbyVObj_80350958*)arg0)->m8(400.0f, 20.0f) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x90) != 0)) {
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xC8));
         render__18TObjButterflyLobbyFPv((u8 *)(arg0));
     }
 }
@@ -134,7 +131,7 @@ void update_fade__18TObjButterflyLobbyFPv(Obj_80350AE4 *arg0) {
 }
 #pragma push
 #pragma fp_contract on
-typedef s32 M2C_UNK;
+
 struct Obj_80350AE4;
 #define FRND() (3.0517578125e-05f * (f32)rand())
 void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
@@ -296,10 +293,10 @@ void run_task__18TObjButterflyLobbyFv(Butterfly_80350BC4 *o) {
 extern "C" {
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK construct_world_actor_base();
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 construct_world_actor_base();
 s32 is_lobby_event_active();
-extern M2C_UNK __vt__18TObjButterflyLobby[];
+extern s32 __vt__18TObjButterflyLobby[];
 extern s32 lbl_805D4360;
 u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2);
 }
@@ -314,11 +311,11 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern M2C_UNK __vt__18TObjButterflyLobby[];
+extern s32 __vt__18TObjButterflyLobby[];
 
 void *__dt__18TObjButterflyLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjButterflyLobby;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -331,23 +328,23 @@ extern void *tl_05;
 
 u8 *TObjButterflyLobby__ct(u8 *arg0, int arg1, u8 *arg2) {
     construct_world_actor_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjButterflyLobby;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D4360;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjButterflyLobby;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D4360;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2 + 0xC));
     copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x5C), (void *) (arg2 + 0x18));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x68), (void *) (arg2 + 0x24));
     if (is_lobby_event_active() != 0) {
-        M2C_FIELD(arg0, s32 *, 0x90) = 0;
+        *(s32 *)((s8 *)arg0 + 0x90) = 0;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x90) = 3;
+        *(s32 *)((s8 *)arg0 + 0x90) = 3;
     }
-    M2C_FIELD(arg0, f32 *, 0x94) = 1.0f;
-    if ((s32) M2C_FIELD(arg2, s32 *, 0x30) < 1) {
-        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (0));
-        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (0));
+    *(f32 *)((s8 *)arg0 + 0x94) = 1.0f;
+    if ((s32) *(s32 *)((s8 *)arg2 + 0x30) < 1) {
+        *(s32 *)((s8 *)arg0 + 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (0));
+        *(s32 *)((s8 *)arg0 + 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (0));
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (1));
-        M2C_FIELD(arg0, s32 *, 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (1));
+        *(s32 *)((s8 *)arg0 + 0xC4) = get_bml_model((void *) (lobby_butterfly_bml_resource), (int) (1));
+        *(s32 *)((s8 *)arg0 + 0xC8) = TObjFish__sub_8001EDB0((void *) (lobby_butterfly_bml_resource), (int) (1));
     }
     init_params__18TObjButterflyLobbyFPv((u8 *) (arg0));
     return arg0;

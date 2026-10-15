@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base1 { char pad[0x18]; };
 
@@ -14,15 +10,15 @@ struct VObj1 : Base1 {
 
 extern "C" {
 s32 is_in_view_depth(void *, f32);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_ginja_object(s32);
+s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 door_ancient05_static_model_nodes;
 extern const f32 lbl_805DB410;
 extern const f32 lbl_805DB414;
@@ -31,7 +27,7 @@ extern const f32 lbl_805DB41C;
 void render__15TODoorAncient05Fv(u8 *arg0);
 void set_indexed_flags(void *, s32, s32);
 s32 is_any_player_within_radius_xz(void *, f32);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern u8 *TODoorAncient05__switch_texture_lists;
 extern const f32 lbl_805DB424;
 void TODoorAncient05__vt13(u8 *arg0);
@@ -41,11 +37,11 @@ extern "C" {
 
 void TODoorAncient05__vt15(u8 *arg0);
 void *create__15TODoorAncient05FPv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, void *, s32, s32);
 void *TODoorAncient05__ct(void *, void *, void *);
 s32 is_any_player_within_radius_xz(void *, f32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 
 extern u8 *TODoorAncient05__switch_texture_lists;
 extern const f32 lbl_805DB420;
@@ -55,10 +51,10 @@ void render__15TODoorAncient05Fv(u8 *arg0) {
     if ((self->m8(lbl_805DB410, lbl_805DB414) != 0) && (is_in_view_depth(arg0, lbl_805DB418) != 0)) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        if (((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) && (lbl_805DB41C != M2C_FIELD(arg0, f32 *, 0xB0))) {
-            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, f32 *, 0xB0));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        if (((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) && (lbl_805DB41C != *(f32 *)((s8 *)arg0 + 0xB0))) {
+            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
         } else {
             draw_ginja_object(door_ancient05_static_model_nodes);
             draw_ginja_object(door_ancient05_static_model_nodes + 0x38);
@@ -71,17 +67,17 @@ void render__15TODoorAncient05Fv(u8 *arg0) {
 }
 
 void TODoorAncient05__vt15(u8 *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__switch_texture_lists, s32 *, 4);
+    if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz(arg0, lbl_805DB420) != 1) {
-            M2C_FIELD(arg0, s32 *, 0xAC) = 3;
-            clear_player_status_flag__10TObjPlayerFPviUi(arg0, (M2C_UNK)0, (M2C_UNK)8);
+            *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+            clear_player_status_flag__10TObjPlayerFPviUi(arg0, (s32)0, (s32)8);
             play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0xAC) = 3;
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__switch_texture_lists, s32 *, 0);
-        clear_player_status_flag__10TObjPlayerFPviUi(arg0, (M2C_UNK)NULL, (M2C_UNK)8);
+        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 0);
+        clear_player_status_flag__10TObjPlayerFPviUi(arg0, (s32)NULL, (s32)8);
         play_sound_effect(0x4004B708, arg0 + 0x38, 0, 0);
     }
 }
@@ -89,15 +85,15 @@ void TODoorAncient05__vt15(u8 *arg0) {
 extern void *tl_05;
 
 void TODoorAncient05__vt13(u8 *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0xD0) & 1) {
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__switch_texture_lists, s32 *, 4);
+    if (*(s32 *)((s8 *)arg0 + 0xD0) & 1) {
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 4);
         if (is_any_player_within_radius_xz((void *)((s32) arg0), lbl_805DB424) == 1) {
-            M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+            *(s32 *)((s8 *)arg0 + 0xAC) = 1;
             set_indexed_flags(arg0, 0, 8);
-            play_sound_effect((M2C_UNK)(0x4004B708), (void *)((u32) (arg0 + 0x38)), (M2C_UNK)(0), (M2C_UNK)(0));
+            play_sound_effect((s32)(0x4004B708), (void *)((u32) (arg0 + 0x38)), (s32)(0), (s32)(0));
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(TODoorAncient05__switch_texture_lists, s32 *, 0);
+        *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)TODoorAncient05__switch_texture_lists + 0);
     }
 }
 

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 extern u32 indirect_effect_tile_buffer;
@@ -41,7 +37,7 @@ void free_buffers__16TEffIndirectCtrlFv(void) {
 
 u16 get_indirect_tile_coord(u8 arg0, s32 arg1) {
     if ((u32) indirect_effect_tile_buffer != 0U) {
-        return M2C_FIELD((indirect_effect_tile_buffer + ((arg0 + ((arg1 << 6) & 0x3FC0)) * 2)), u16 *, 0);
+        return *(u16 *)((s8 *)(indirect_effect_tile_buffer + ((arg0 + ((arg1 << 6) & 0x3FC0)) * 2)) + 0);
     }
     return 0U;
 }

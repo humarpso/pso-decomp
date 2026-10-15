@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8019601C { u8 pad[0x6]; u16 id; };
 
@@ -14,7 +9,7 @@ struct Obj_80195F50 : Base_80195F50 { virtual ~Obj_80195F50(); };
 extern "C" {
 int run_tasks__7TObjectFv(void*);
 void run_task__13TQuestColCtrlFv(void);
-M2C_UNK TQuestColCtrl__sub_80196EC0();
+s32 TQuestColCtrl__sub_80196EC0();
 extern u32 quest_collision_task_root;
 extern u32 quest_collision_task_root;
 int run_tasks__7TObjectFv(void*);
@@ -25,7 +20,7 @@ extern u32 quest_collision_task_root;
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id);
 void __dt__7TObjectFv(void *, s32);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK __vt__13TQuestColCtrl[];
+extern s32 __vt__13TQuestColCtrl[];
 extern u32 quest_collision_task_root;
 void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1);
 }
@@ -38,7 +33,7 @@ void __ct__7TObjectFP7TObject(void *);
 
 void render__13TQuestColCtrlFv(void) {  }
 
-extern M2C_UNK __vt__13TQuestColCtrl[];
+extern s32 __vt__13TQuestColCtrl[];
 extern void *lbl_805D3404;
 
 void run_task__13TQuestColCtrlFv(void) {
@@ -65,8 +60,8 @@ void *__dt__13TQuestColCtrlFv(void *arg0, s16 arg1) {
 
 void *TQuestColCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TQuestColCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3404;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TQuestColCtrl;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3404;
     return arg0;
 }
 Obj_8019601C *create_quest_col_apc_inw__6TLobbyFPvPv(void *arg, s32 *out_id) {

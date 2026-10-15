@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -13,17 +9,17 @@ typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_8 { u8 bytes[0x8]; };
+struct ByteBlock_8 { u8 bytes[0x8]; };
 
-struct M2CCopy_2C { u8 bytes[0x2C]; };
+struct ByteBlock_2C { u8 bytes[0x2C]; };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -44,7 +40,7 @@ struct Cur_801D32A0 { u8 pad[0x28]; f32 x28; f32 x2c; f32 x30; u8 pad2[8]; f32 x
 struct Pl_801D32A0 { u8 pad[0x424]; void *cursor; };
 
 extern "C" {
-M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
+s32 TFontSmallLobby__sub_801C0228(void *, void *);
 #define TFontSmallLobby__sub_801C0228 ((int (*)(void*))TFontSmallLobby__sub_801C0228)
 void *TObjPlayer__sub_801C092C(void *arg0, void *arg1);
 }
@@ -75,12 +71,12 @@ void set_code_50_1__10TObjPlayerFPv(void* p);
 extern const f32 TObjPlayer__data_805DC278;
 
 void init_cmd_6x24__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, s8 *, 0) = 0x24;
-    M2C_FIELD(arg0, s8 *, 1) = 5;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 8) = (f32) TObjPlayer__data_805DC278;
+    *(s8 *)((s8 *)arg0 + 0) = 0x24;
+    *(s8 *)((s8 *)arg0 + 1) = 5;
 }
 
 void send_lobby_update__10TObjPlayerFPv(void* p) { byteswap_packet_body__10TObjPlayerFPv(p); TLobby__send_and_handle_60(p); }
@@ -141,12 +137,12 @@ void set_code_45_1__10TObjPlayerFPv(void* p) { *(u8*)((char*)p + 0x0) = 45; *(u8
 void send_lobby_update_font__10TObjPlayerFPv(void* p) { TFontSmallLobby__sub_801C01BC(p); TLobby__send_and_handle_60(p); }
 void bswap_pkt_u16x2_u32__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x10); bswap_pkt_u32x2__10TObjPlayerFPv((char*)p + 0x8); }
 void build_6x2C_impose_hold_packet__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = 0;
-    M2C_FIELD(arg0, s16 *, 6) = 0;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, s8 *, 0) = 0x2C;
-    M2C_FIELD(arg0, s8 *, 1) = 5;
+    *(s16 *)((s8 *)arg0 + 4) = 0;
+    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 8) = (f32) TObjPlayer__data_805DC278;
+    *(s8 *)((s8 *)arg0 + 0) = 0x2C;
+    *(s8 *)((s8 *)arg0 + 1) = 5;
 }
 
 }
@@ -193,16 +189,16 @@ void bswap_body_dwords__10TObjPlayerFi(s32 arg0) {
 }
 void *copy_pair_fields__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228();
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     return arg0;
 }
 
 void TObjPlayer__sub_801C0C04(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x2E;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x2E;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 void send_swapped_packet_6x30__10TObjPlayerFPv(void* p) { swap_endian__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60((void*)(p)); }
@@ -220,16 +216,16 @@ void swap_endian__10TObjPlayerFi(s32 arg0) {
 }
 
 void build_6x30_change_level_packet__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = 0;
-    M2C_FIELD(arg0, s16 *, 6) = 0;
-    M2C_FIELD(arg0, s16 *, 8) = 0;
-    M2C_FIELD(arg0, s16 *, 0xA) = 0;
-    M2C_FIELD(arg0, s16 *, 0xC) = 0;
-    M2C_FIELD(arg0, s16 *, 0xE) = 0;
-    M2C_FIELD(arg0, s16 *, 0x10) = 0;
-    M2C_FIELD(arg0, s16 *, 0x12) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x30;
-    M2C_FIELD(arg0, s8 *, 1) = 5;
+    *(s16 *)((s8 *)arg0 + 4) = 0;
+    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(s16 *)((s8 *)arg0 + 8) = 0;
+    *(s16 *)((s8 *)arg0 + 0xA) = 0;
+    *(s16 *)((s8 *)arg0 + 0xC) = 0;
+    *(s16 *)((s8 *)arg0 + 0xE) = 0;
+    *(s16 *)((s8 *)arg0 + 0x10) = 0;
+    *(s16 *)((s8 *)arg0 + 0x12) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x30;
+    *(s8 *)((s8 *)arg0 + 1) = 5;
 }
 
 void bswap_body_dwords2__10TObjPlayerFi(s32 arg0) {
@@ -239,16 +235,16 @@ void bswap_body_dwords2__10TObjPlayerFi(s32 arg0) {
 }
 void *copy_pair_fields2__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228();
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     return arg0;
 }
 
 void TObjPlayer__sub_801C0D7C(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s32 *, 8) = -1;
-    M2C_FIELD(arg0, s8 *, 0) = 0x28;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s32 *)((s8 *)arg0 + 8) = -1;
+    *(s8 *)((s8 *)arg0 + 0) = 0x28;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 void bswap_and_send_body_dwords2__10TObjPlayerFPv(void* p) { bswap_body_dwords2__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
@@ -259,14 +255,14 @@ void bswap_cmd_u32__10TObjPlayerFi(s32 arg0) {
 }
 void *copy_field_4__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228();
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
     return arg0;
 }
 
 void init_6x27_use_item_cmd(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s8 *, 0) = 0x27;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s8 *)((s8 *)arg0 + 0) = 0x27;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void send_use_item_cmd__10TObjPlayerFPv(void* p) { bswap_cmd_u32__10TObjPlayerFi((s32)((s32)(p))); TLobby__send_and_handle_60((void*)((void*)(p))); }
@@ -279,7 +275,7 @@ void send_use_item_cmd__10TObjPlayerFPv(void* p) { bswap_cmd_u32__10TObjPlayerFi
 #undef read_be16_field2__10TObjPlayerFPv
 
 extern "C" {
-M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
+s32 TFontSmallLobby__sub_801C0228(void *, void *);
 int TLobby__send_and_handle_60(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
@@ -289,12 +285,12 @@ void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void*);
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_78 { u8 bytes[0x78]; };
+struct ByteBlock_78 { u8 bytes[0x78]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -302,9 +298,9 @@ struct M2CCopy_C { u8 bytes[0xc]; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_10 { u8 bytes[0x10]; };
+struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -365,7 +361,7 @@ u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1);
 s32 bswap__9TItemDataFv(s32);
 void bswap_cmd_item_data__10TObjPlayerFi(s32 arg0);
 void* copy__10TObjPlayerFPvPv(void* p, void* a1);
-M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
+s32 TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1);
 void* init_pkt_6x2B__10TObjPlayerFPv(void* p);
 void set_code_43_6__10TObjPlayerFPv(void* p);
@@ -376,7 +372,7 @@ int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int read_be16_field2__10TObjPlayerFPv(void*);
 void bswap_fields__10TObjPlayerFi(s32 arg0);
-M2C_UNK TFontSmallLobby__sub_801C0228(void *, void *);
+s32 TFontSmallLobby__sub_801C0228(void *, void *);
 u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DC278;
 void init_6x2A__10TObjPlayerFPv(u8 *arg0);
@@ -418,7 +414,7 @@ void* copy__10TObjPlayerFPvPv(void* p, void* a1) { TObjPlayer__sub_801C0F10((u8 
 
 u8 *TObjPlayer__sub_801C0F10(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)((void *)(arg1)));
-    *(M2CCopy_14 *)((s32) arg0 + 4) = *(const M2CCopy_14 *)((s32) arg1 + 4);
+    *(ByteBlock_14 *)((s32) arg0 + 4) = *(const ByteBlock_14 *)((s32) arg1 + 4);
     return arg0;
 }
 
@@ -440,22 +436,22 @@ void bswap_fields__10TObjPlayerFi(s32 arg0) {
 
 u8 *TObjPlayer__sub_801C106C(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void *)(arg0), (void *)(arg1));
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(ByteBlock_C *)((s32) arg0 + 0xC) = *(const ByteBlock_C *)((s32) arg1 + 0xC);
     return arg0;
 }
 
 void init_6x2A__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = 0;
-    M2C_FIELD(arg0, s16 *, 6) = 0;
-    M2C_FIELD(arg0, s32 *, 8) = -1;
-    M2C_FIELD(arg0, f32 *, 0x14) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, s8 *, 0) = 0x2A;
-    M2C_FIELD(arg0, s8 *, 1) = 6;
+    *(s16 *)((s8 *)arg0 + 4) = 0;
+    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(s32 *)((s8 *)arg0 + 8) = -1;
+    *(f32 *)((s8 *)arg0 + 0x14) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TObjPlayer__data_805DC278;
+    *(s8 *)((s8 *)arg0 + 0) = 0x2A;
+    *(s8 *)((s8 *)arg0 + 1) = 6;
 }
 
 void bswap_fields_and_send__10TObjPlayerFPv(void* p) { bswap_fields__10TObjPlayerFi((s32)(p)); TLobby__send_and_handle_60(p); }
@@ -464,8 +460,8 @@ void bswap_body_words__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayer
 
 void *copy_short_fields__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
     return arg0;
 }
 
@@ -483,8 +479,8 @@ void byteswap_data__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv
 
 u8 *TObjPlayer__sub_801C1268(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    *(M2CCopy_78 *)(arg0 + 4 + 4) = *(const M2CCopy_78 *)((s32) (arg1 + 4) + 4);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(ByteBlock_78 *)(arg0 + 4 + 4) = *(const ByteBlock_78 *)((s32) (arg1 + 4) + 4);
     return arg0;
 }
 
@@ -502,16 +498,16 @@ void bswap_body_dwords3__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlay
 
 void *copy_pair_fields3__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     return arg0;
 }
 
 void init_cmd_6x29__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x29;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x29;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 void bswap_body_dwords3_and_send__10TObjPlayerFPv(void* p) { bswap_body_dwords3__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
@@ -521,26 +517,26 @@ void bswap_body_dwords4_and_send__10TObjPlayerFPv(void* p) { bswap_body_dwords4_
 void bswap_body_dwords4__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 
 void init_cmd_6x26__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x26;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x26;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 void bswap_body_dwords5__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 
 void *copy_pair_fields4__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     return arg0;
 }
 
 void init_command__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x25;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x25;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 void bswap_body_dwords5_and_send__10TObjPlayerFPv(void* p) { bswap_body_dwords5__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60(p); }
@@ -549,20 +545,20 @@ void bswap_pkt_u16x2_u32x2__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjP
 
 void *copy_from__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, u16 *, 6) = (u16) M2C_FIELD(arg1, u16 *, 6);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(u16 *)((s8 *)arg0 + 6) = (u16) *(u16 *)((s8 *)arg1 + 6);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
     return arg0;
 }
 
 void build_6xAE_set_animation_state_packet__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = 0;
-    M2C_FIELD(arg0, s16 *, 6) = 0;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, u8 *, 0) = 0xAE;
-    M2C_FIELD(arg0, s8 *, 1) = 4;
+    *(s16 *)((s8 *)arg0 + 4) = 0;
+    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TObjPlayer__data_805DC278;
+    *(u8 *)((s8 *)arg0 + 0) = 0xAE;
+    *(s8 *)((s8 *)arg0 + 1) = 4;
 }
 
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0xc); bswap_32__FPUl((char*)p + 0x10); bswap_32__FPUl((char*)p + 0x14); }
@@ -571,20 +567,20 @@ extern const f32 TObjPlayer__data_805DC278;
 
 u8 *TObjPlayer__sub_801C1664(u8 *arg0, u8 *arg1) {
     TFontSmallLobby__sub_801C0228((void *)((void *)(arg0)), (void *)(arg1));
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
     return arg0;
 }
 
 void init_cmd_6x20__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) TObjPlayer__data_805DC278;
-    M2C_FIELD(arg0, s32 *, 0x14) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x20;
-    M2C_FIELD(arg0, s8 *, 1) = 6;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TObjPlayer__data_805DC278;
+    *(f32 *)((s8 *)arg0 + 8) = (f32) TObjPlayer__data_805DC278;
+    *(s32 *)((s8 *)arg0 + 0x14) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x20;
+    *(s8 *)((s8 *)arg0 + 1) = 6;
 }
 
 }
@@ -603,7 +599,7 @@ void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
 void send_player_floor_packet_u32x5__10TObjPlayerFPv(void* p);
 s32 send_60_sized__6TLobbyFPv(s32);
 void bswap_pkt_u32x5__10TObjPlayerFPv(void* p);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -648,9 +644,9 @@ void bswap_set_floor_packet__10TObjPlayerFPv(void* p) { read_be16_field2__10TObj
 void* handle_6x1F_set_floor__10TObjPlayerFPvPv(void* p, void* a1) { TFontSmallLobby__sub_801C0228(p); *(void**)((char*)p + 0x4) = *(void**)((char*)a1 + 0x4); return p; }
 
 void init_6x1F_floor_packet(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x1F;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x1F;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void bswap_and_send_set_floor__10TObjPlayerFPv(void* p) { bswap_set_floor_packet__10TObjPlayerFPv((void*)(p)); send_60_sized__6TLobbyFPv((s32)(p)); }

@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_80128128 { u8 pad[0x200]; f32 c; };
 
 extern "C" {
-u8 * construct_state_variant__10TObjPlayerFPv(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * construct_state_variant__10TObjPlayerFPv(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_variant__10TObjPlayerFPv(u8 *arg0);
 extern const f32 lbl_805DADE0;

@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_8003508C_80035084 {
     char pad[0x18];
     virtual void m0();
@@ -110,7 +106,7 @@ void send_warp_packet__10TObjPlayerFPv(void* p);
 s32 TLobby__send_and_handle_60(s32);
 void bswap_warp_packet__10TObjPlayerFPv(void* p);
 int init_packet_9a__10TObjPlayerFPv(void);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -161,7 +157,7 @@ int clear_flag_1_at_1c__10TObjPlayerFPv(void* p);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 int clear_flag_1_at_1c__10TObjPlayerFPv(void* p);
 int handle_input_forward__20TWindowActionPaletteFPv(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -181,7 +177,7 @@ int run_item_count_update__9TItemListFPv(void);
 int TItemList__sub_801D591C(void);
 int TItemList__sub_801D598C(void);
 int TItemList__sub_801D59A0(void);
-extern M2C_UNK __vt__9TItemList[];
+extern s32 __vt__9TItemList[];
 extern void *TItemList__name;
 int TItemList__sub_801D5804(void);
 int TItemList__sub_801D5854(void);
@@ -221,7 +217,7 @@ void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0);
 void TObjPlayer__sub_801C18E0(void* p);
 s32 TLobby__send_and_handle_60(s32);
 void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0);
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -269,7 +265,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 void fn_801C1EA4(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -301,7 +297,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 void fn_801C1EF4(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -327,7 +323,7 @@ void fn_801C1E98(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1EE8(void* p);
 void fn_801C1F40(s32 *arg0);
-M2C_UNK is_channel_active__11TMainCursorFPv(s32);
+s32 is_channel_active__11TMainCursorFPv(s32);
 void is_channel_active_at__20TWindowActionPaletteFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 set_slot__20TWindowActionPaletteFPvUc(s32, u8);
 s32 set_mode__20TWindowActionPaletteFPvUc(s32, u8);
@@ -374,9 +370,9 @@ s32 bswap_pkt_u16x2_u32x2__10TObjPlayerFPv();
 s32 bswap_pkt_u32x5__10TObjPlayerFPv();
 
 void init_6x21_inter_level_warp_packet(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s8 *, 0) = 0x21;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0x21;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void send_warp_packet__10TObjPlayerFPv(void* p) { bswap_warp_packet__10TObjPlayerFPv((void*)(p)); TLobby__send_and_handle_60((s32)(p)); }
@@ -395,12 +391,12 @@ void byteswap_set_position_cmd__10TObjPlayerFi(s32 arg0) {
 }
 
 void init_set_position_packet__10TObjPlayerFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 4) = 0;
-    M2C_FIELD(arg0, s16 *, 6) = 0;
-    M2C_FIELD(arg0, s16 *, 8) = -1;
-    M2C_FIELD(arg0, s16 *, 0xA) = -1;
-    M2C_FIELD(arg0, s8 *, 0) = 0x3F;
-    M2C_FIELD(arg0, s8 *, 1) = 6;
+    *(s16 *)((s8 *)arg0 + 4) = 0;
+    *(s16 *)((s8 *)arg0 + 6) = 0;
+    *(s16 *)((s8 *)arg0 + 8) = -1;
+    *(s16 *)((s8 *)arg0 + 0xA) = -1;
+    *(s8 *)((s8 *)arg0 + 0) = 0x3F;
+    *(s8 *)((s8 *)arg0 + 1) = 6;
 }
 
 f32 fn_801C19A4(void* p) { return *(f32*)((char*)p + 0xc); }

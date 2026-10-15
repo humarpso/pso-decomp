@@ -2,10 +2,6 @@
 #include "pso/object/TCMCharacter.h"
 #include "pso/misc/CharacterShape.h"
 #include "pso/misc/CharacterCreationTextureCache.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct W_80290250 { u8 pad[0xfc]; s32 bufp; s32 rc; u8 data[4]; };
 
@@ -81,13 +77,13 @@ extern u32 chara_select_hair_node_a;
 extern u32 chara_select_hair_node_b;
 extern u32 chara_select_head_node;
 void update_chara_preview__23TAdSinglePlyChrSelectGCFi(s32 arg0);
-M2C_UNK TLobby__sub_8001FE7C(void *, int);
-M2C_UNK __dt__10TObjMotionFv(void *, int);
-M2C_UNK free__11TOBoss4RockFUi(int);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 TLobby__sub_8001FE7C(void *, int);
+s32 __dt__10TObjMotionFv(void *, int);
+s32 free__11TOBoss4RockFUi(int);
+s32 __dl__7TObjectFPv(void *);
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802905D4(void *);
+s32 TAdSinglePlyChrSelectGC__sub_802905D4(void *);
 extern s32 lbl_805D49B4;
 extern int char_creation_figure_draw_flag;
 extern u32 creation_figure_object;
@@ -158,10 +154,10 @@ s32 map_button_code__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0);
 void update_pair__23TAdSinglePlyChrSelectGCFPv(void* p);
 int TAdSinglePlyChrSelectGC__sub_8029071C(void*);
-M2C_UNK TLobby__sub_803DA16C(void *);
+s32 TLobby__sub_803DA16C(void *);
 int set_motion_interpolation_flag(void*);
 int draw_model_with_callback__10TObjPlayerFPv(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 
 extern "C" {
 }
@@ -1127,14 +1123,14 @@ struct Sel_802902CC {
 
 extern s32 char_select_active_flag;
 
-s32 load_resource_from_descriptor(s32, M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, s32);
-M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 load_resource_from_descriptor(s32, s32, s32, s32, s32, s32);
+s32 set_field_dc__10TObjPlayerFPvi(void *, s32);
+s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-M2C_UNK set_animation__10TObjPlayerFPvs(void *, s16);
-M2C_UNK TObjMotion__ct(void *, void *);
-s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-M2C_UNK reset_character_creation_figure_rotation();
+s32 set_animation__10TObjPlayerFPvs(void *, s16);
+s32 TObjMotion__ct(void *, void *);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 reset_character_creation_figure_rotation();
 extern s32 lbl_805D3BBC;
 extern void *creation_menu_main_obj;
 extern const f32 lbl_805DD940;
@@ -1175,7 +1171,7 @@ void *TCMCharacter__ct(void *arg0, void *arg1);
 extern void* creation_region_sample_index_table[24]; extern void* lbl_804D400C[18]; extern void* lbl_804D4054[21];
 }
 #define creation_region_sample_index_table ((s32 *)creation_region_sample_index_table)
-#define lbl_804D4054 ((M2C_UNK *)lbl_804D4054)
+#define lbl_804D4054 ((s32 *)lbl_804D4054)
 #pragma defer_codegen on
 extern "C" {
 void *TCMCharacter__ct(void *arg0, void *arg1) {
@@ -1184,8 +1180,8 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     u32 cm;
 
     TObjMotion__ct(arg0, arg1);
-    M2C_FIELD(arg0, void **, 0x18) = (void *)lbl_804D4054;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3BBC;
+    *(void **)((s8 *)arg0 + 0x18) = (void *)lbl_804D4054;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3BBC;
     lbl_805D49B4 = 1;
     cm = creation_player_character;
     char_select_active_flag = 0;
@@ -1209,16 +1205,16 @@ void *TCMCharacter__ct(void *arg0, void *arg1) {
     ((void (*)(int))TAdSinglePlyChrSelectGC__sub_8028ED54)(0);
     char_select_current_entry = 0;
     set_field_d8__10TObjPlayerFPvi(arg0, (void *)lbl_804D3EE4);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(creation_menu_main_obj, s32 *, 0x430));
-    M2C_FIELD(arg0, s16 *, 0xB8) = creation_motion_group(creation_player_character);
-    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    M2C_FIELD(arg0, s32 *, 0xE0) = alloc_buffer__11TOBoss4RockFPv(0xC00);
-    M2C_FIELD(arg0, f32 *, 0x40) = lbl_805DD940;
-    M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DD940;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DD940;
-    M2C_FIELD(arg0, s32 *, 0x64) = 0;
-    M2C_FIELD(arg0, s32 *, 0x60) = 0;
-    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)creation_menu_main_obj + 0x430));
+    *(s16 *)((s8 *)arg0 + 0xB8) = creation_motion_group(creation_player_character);
+    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    *(s32 *)((s8 *)arg0 + 0xE0) = alloc_buffer__11TOBoss4RockFPv(0xC00);
+    *(f32 *)((s8 *)arg0 + 0x40) = lbl_805DD940;
+    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DD940;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DD940;
+    *(s32 *)((s8 *)arg0 + 0x64) = 0;
+    *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     load_creation_shape_rel((W_80290250 *)arg0);
     reset_character_creation_figure_rotation();
     creation_resource_ready_state = 0;
@@ -1231,7 +1227,7 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
     CreationTextureCacheEntry *p;
     CreationTextureCacheEntry *end;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804D4054;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804D4054;
         for (p = creation_texture_cache, end = creation_texture_cache + 128; p < end; p++) {
             if (p->in_use != 0) {
                 update_char_panels__23TAdSinglePlyChrSelectGCFPv((u8 *) p);
@@ -1244,8 +1240,8 @@ u8 *TAdSinglePlyChrSelectGC__sub_802908CC(u8 *arg0, s16 arg1) {
         (*(s32 *)&chara_select_head_node) = 0;
         (*(s32 *)&chara_select_hair_node_b) = 0;
         (*(s32 *)&chara_select_hair_node_a) = 0;
-        M2C_FIELD(arg0, s32 *, 0x34) = 0;
-        free__11TOBoss4RockFUi((int) (M2C_FIELD(arg0, s32 *, 0xE0)));
+        *(s32 *)((s8 *)arg0 + 0x34) = 0;
+        free__11TOBoss4RockFUi((int) (*(s32 *)((s8 *)arg0 + 0xE0)));
         creation_resource_ready_state = 0;
         creation_figure_object = 0;
         lbl_805D49B4 = 0;
@@ -1419,8 +1415,8 @@ void load_creation_shape_rel(W_80290250 *arg0) {
 
 extern "C" {
 void free_field_FC__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, s32 *, 0xFC));
-    M2C_FIELD(arg0, s32 *, 0xFC) = 0;
+    safe_free__23TAdSinglePlyChrSelectGCFUi(*(s32 *)((s8 *)arg0 + 0xFC));
+    *(s32 *)((s8 *)arg0 + 0xFC) = 0;
 }
 }
 
@@ -1459,7 +1455,7 @@ void *lbl_804D4054[21] = {
 };
 
 #define creation_region_sample_index_table ((s32 *)creation_region_sample_index_table)
-#define lbl_804D4054 ((M2C_UNK *)lbl_804D4054)
+#define lbl_804D4054 ((s32 *)lbl_804D4054)
 
 }
 void TCMCharacter::apply_character_appearance() {
@@ -1554,9 +1550,9 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
         get_item_ptr__10TObjPlayerFPvi(arg0, 0x3A);
         push_matrix_from();
         set_global_param__8TObjFishFi((u8 *)char_select_current_entry + 0x2EC);
-        play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[M2C_FIELD(char_select_current_entry, s16 *, 0xA)].b);
+        play_phase_transition_sound__10TObjPlayerFi(lbl_80540928[*(s16 *)((s8 *)char_select_current_entry + 0xA)].b);
         pop_matrix();
-        v = lbl_805408D8[M2C_FIELD(char_select_current_entry, s16 *, 0xC)].b;
+        v = lbl_805408D8[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             enable_making__12TCharaMakingFv();
             get_item_ptr__10TObjPlayerFPvi(arg0, 0x3B);
@@ -1566,7 +1562,7 @@ void draw_creation_figure__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
             pop_matrix();
             clear_flag_bit0__12TCharaMakingFv();
         }
-        v = lbl_80540888[M2C_FIELD(char_select_current_entry, s16 *, 0xC)].b;
+        v = lbl_80540888[*(s16 *)((s8 *)char_select_current_entry + 0xC)].b;
         if (v != 0) {
             enable_making__12TCharaMakingFv();
             get_item_ptr__10TObjPlayerFPvi(arg0, 0x3B);
@@ -1623,15 +1619,15 @@ s32 find_shape_triangle_region(u8 *arg0) {
     f32 temp_f3;
     f32 temp_f4;
     f32 temp_f4_2;
-    temp_f3 = M2C_FIELD(arg0, f32 *, 0);
+    temp_f3 = *(f32 *)((s8 *)arg0 + 0);
     if (temp_f3 > lbl_805DD948) {
-        if ((lbl_805DD94C * (temp_f3 - lbl_805DD948)) <= M2C_FIELD(arg0, f32 *, 4)) {
+        if ((lbl_805DD94C * (temp_f3 - lbl_805DD948)) <= *(f32 *)((s8 *)arg0 + 4)) {
             return 6;
         }
         return 7;
     }
     if (temp_f3 <= lbl_805DD950) {
-        temp_f4 = M2C_FIELD(arg0, f32 *, 4);
+        temp_f4 = *(f32 *)((s8 *)arg0 + 4);
         if (temp_f3 >= (lbl_805DD948 * temp_f4)) {
             return 0;
         }
@@ -1640,7 +1636,7 @@ s32 find_shape_triangle_region(u8 *arg0) {
         }
         return 2;
     }
-    temp_f4_2 = M2C_FIELD(arg0, f32 *, 4);
+    temp_f4_2 = *(f32 *)((s8 *)arg0 + 4);
     if (temp_f3 <= (lbl_805DD954 * (temp_f4_2 - lbl_805DD944))) {
         return 3;
     }
@@ -1784,13 +1780,13 @@ s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 extern "C" {
 void update_char_panels__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x14) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x10) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x14) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x10) != 0)) {
         TLobby__sub_803DA16C(arg0 + 0x178);
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x188) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x184) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x188) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x184) != 0)) {
         TLobby__sub_803DA16C(arg0 + 0x2EC);
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x2F8) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x2F8) != 0) {
         TLobby__sub_803DA16C(arg0 + 0x460);
     }
 }

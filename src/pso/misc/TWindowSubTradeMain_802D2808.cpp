@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802D2870_TLobby__data_80540BD0
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x3DC];
 };
 
 extern "C" {
 void set_trade_field_4__6TLobbyFii(s32, s32);
-M2C_UNK snapshot_player_trade_inventory(void *, void *);
-extern M2C_UNK TLobby__trade_window_state[];
+s32 snapshot_player_trade_inventory(void *, void *);
+extern s32 TLobby__trade_window_state[];
 extern s32 local_client_id;
 extern u8 TLobby__trade_partner_client_id;
 extern s32 TLobby__data_805D688C;
@@ -74,15 +70,15 @@ void set_local_trade_offer_confirmation(void) {
     trade_protocol_flags |= 0x10;
 }
 
-extern M2C_UNK TLobby__trade_window_state[];
+extern s32 TLobby__trade_window_state[];
 extern void *TLobby__trade_main_window;
 
 typedef struct RecoveredGlobal_802D2870_TLobby__data_80540BD0 RecoveredGlobal_802D2870_TLobby__data_80540BD0;
 typedef char RecoveredGlobal_802D2870_TLobby__data_80540BD0_size[((sizeof(RecoveredGlobal_802D2870_TLobby__data_80540BD0)) == 0x3E0) ? (1) : (-1)];
 void TWindowSubTradeMain__sub_802D2870(void) {
-  M2C_UNK *temp_r31;
+  s32 *temp_r31;
   snapshot_player_trade_inventory((void *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value), (void *) local_client_id);
-  temp_r31 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value)) + 0x1F0)));
+  temp_r31 = (s32 *) ((u8 *) ((s32 *) (((u8 *) (&(*(RecoveredGlobal_802D2870_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value)) + 0x1F0)));
   snapshot_player_trade_inventory((void *) temp_r31, (void *) ((s32) ((s8) (TLobby__trade_partner_client_id & 0xFFFFFFFFFFFFFFFFu))));
   set_trade_field_4__6TLobbyFii((s32) temp_r31, TLobby__data_805D688C);
 }
@@ -95,7 +91,7 @@ void draw_offer__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {
     }
 }
 
-extern M2C_UNK TLobby__trade_window_state[];
+extern s32 TLobby__trade_window_state[];
 extern void *TLobby__trade_main_window;
 
 void draw_request__19TWindowSubTradeMainFPvPv(void *arg0, void *arg1) {

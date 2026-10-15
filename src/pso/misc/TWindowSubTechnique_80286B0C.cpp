@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80286B0C { char pad[0x18]; };
 struct VObj_80286B0C : Base_80286B0C {
     virtual void v0();
@@ -25,7 +22,7 @@ void get_selection__19TWindowSubTechniqueFPvPvi(s16 *arg0, s32 *arg1, s32 arg2) 
 
     temp_r3 = get_player_by_client_id(arg2);
     if (temp_r3 != NULL) {
-        *arg0 = M2C_FIELD(temp_r3, s16 *, 0x32E);
+        *arg0 = *(s16 *)((s8 *)temp_r3 + 0x32E);
         *arg1 = ((VObj_80286B0C *)temp_r3)->v36();
     }
 }

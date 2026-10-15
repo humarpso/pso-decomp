@@ -12,7 +12,6 @@ struct DateStamp {
     u8 _pad;
 };
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -92,7 +91,7 @@ void system_reset(void) { VISetBlack(1); VIFlush(); VIWaitForRetrace(); OSResetS
 void draw_ginja_model_tree__10TObjPlayerFPvPv(void *arg0, void *arg1) {
     bind_motion_blend_channels(arg1);
     void *g = model_draw_context;
-    M2C_FIELD(g, void (**)(), 0xC) = draw_ginja_model_lists;
+    *(void (**)())((s8 *)g + 0xC) = draw_ginja_model_lists;
     prepare_ginja_model(g);
     render_model_tree__10TObjPlayerFPv(arg0);
     end_ginja_model_draw();

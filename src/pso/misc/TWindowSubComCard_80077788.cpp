@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_28 { u8 bytes[0x28]; };
+struct ByteBlock_28 { u8 bytes[0x28]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -157,7 +153,7 @@ void TWindowSubComCard__sub_800778B4(Out_800778B4 *arg0, Tbl_800777C4 *arg1) {
 }
 
 u8 * copy_struct28__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
-    *(M2CCopy_28 *)(arg0) = *(const M2CCopy_28 *)(arg1);
+    *(ByteBlock_28 *)(arg0) = *(const ByteBlock_28 *)(arg1);
     return (u8 *)arg0;
 }
 void TWindowSubComCard__sub_80077980(S_80077980 *arr) {

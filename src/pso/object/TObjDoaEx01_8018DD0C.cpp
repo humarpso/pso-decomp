@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct NjObj_8018DD0C {
     u32 evalflags;
     u32 model;
@@ -30,32 +25,32 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 extern "C" {
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_by_node_angles(void *, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_model(int);
-M2C_UNK set_chunk_material_color(void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_by_node_angles(void *, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_model(int);
+s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern s32 model_render_flags;
-M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
-s32 get_bml_motion(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 get_bml_model(s32, M2C_UNK);
-M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
-M2C_UNK free_children__12TObjDoorJungFPvPv(s32, M2C_UNK);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi();
-M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
+s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1);
+s32 free_children__12TObjDoorJungFPvPv(s32, s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi();
+s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern s32 TObjDoaEx01__resource_bundle;
 extern u8 *TObjDoaEx01__alpha_model_node;
 extern u8 *TObjDoaEx01__alpha_model_sibling;
@@ -68,14 +63,14 @@ void draw_model__11TObjDoaEx01FPv(u8 *arg0);
 extern "C" {
 
 void try_open__11TObjDoaEx01FPv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK free_children__12TObjDoorJungFPvPv(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 get_bml_model(s32, M2C_UNK);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi();
+s32 post_translate_matrix(void *);
+s32 free_children__12TObjDoorJungFPvPv(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi();
 
 struct TObjDoaEx01_base { char pad[0x18]; };
 struct TObjDoaEx01_VObj : TObjDoaEx01_base {
@@ -87,7 +82,7 @@ struct TObjDoaEx01_VObj : TObjDoaEx01_base {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(f32, f32);
+    virtual s32 m8(f32, f32);
 };
 extern s32 TObjDoaEx01__resource_bundle;
 extern u8 *TObjDoaEx01__alpha_model_node;
@@ -95,7 +90,7 @@ extern u8 *TObjDoaEx01__alpha_model_sibling;
 extern const f32 lbl_805DBDB4;
 extern const f32 lbl_805DBDB8;
 
-M2C_UNK draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
+s32 draw_object_tree__11TObjDoaEx01FPvi(void *arg0, s32 arg1) {
     NjObj_8018DD0C *obj = (NjObj_8018DD0C *)arg1;
     u32 flags = obj->evalflags;
     push_matrix();
@@ -136,13 +131,13 @@ void try_open__11TObjDoaEx01FPv(u8 *arg0) {
 
     temp_r31 = get_bml_model(TObjDoaEx01__resource_bundle, 0);
     if (((TObjDoaEx01_VObj*)arg0)->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__alpha_model_node, s32 *, 4), 1);
-        free_children__12TObjDoorJungFPvPv(M2C_FIELD(TObjDoaEx01__alpha_model_sibling, s32 *, 4), 1);
+        free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4), 1);
+        free_children__12TObjDoorJungFPvPv(*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4), 1);
         TObjFish__sub_8001EDB0(TObjDoaEx01__resource_bundle, 0);
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_object_tree__11TObjDoaEx01FPvi((void *)(arg0), (s32)(temp_r31));
         pop_matrix();
     }
@@ -152,15 +147,15 @@ void draw_model__11TObjDoaEx01FPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r31_2;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBDB4, lbl_805DBDB8) != 0) {
-        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__alpha_model_node, s32 *, 4)), (0));
-        free_children__12TObjDoorJungFPvPv((M2C_FIELD(TObjDoaEx01__alpha_model_sibling, s32 *, 4)), (0));
+        free_children__12TObjDoorJungFPvPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_node + 4)), (0));
+        free_children__12TObjDoorJungFPvPv((*(s32 *)((s8 *)TObjDoaEx01__alpha_model_sibling + 4)), (0));
         temp_r31 = get_bml_model((TObjDoaEx01__resource_bundle), (0));
         TObjFish__sub_8001EDB0((TObjDoaEx01__resource_bundle), (0));
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((0), (M2C_FIELD(arg0, s32 *, 0x60)));
-        temp_f31 = M2C_FIELD(arg0, f32 *, 0xB0);
+        rotate_matrix_y((0), (*(s32 *)((s8 *)arg0 + 0x60)));
+        temp_f31 = *(f32 *)((s8 *)arg0 + 0xB0);
         if (temp_f31 > TObjDoaEx01__data_805DBDA0) {
             temp_r31 = get_bml_motion((TObjDoaEx01__resource_bundle), (0));
             draw_ginja_model_with_motion(get_bml_model((TObjDoaEx01__resource_bundle), (0)), temp_r31, temp_f31);

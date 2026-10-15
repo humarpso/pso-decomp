@@ -4,11 +4,6 @@ TBoss2Tentacle::~TBoss2Tentacle() {}
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct V3_80039DE0 { f32 x, y, z; };
 
 struct Obj_80039DE0 { u8 pad[0x30]; V3_80039DE0 pts[14]; s32 vals[14]; };
@@ -23,7 +18,6 @@ struct Vec_8003933C { f32 x, y, z; };
 
 struct Ten_8003933C { char pad0[0x30]; Vec_8003933C pos[14]; s32 vals[14]; };
 
-typedef s32 M2C_UNK;
 struct Obj_80039F50 {
     s32 f0;
     u8 pad4[0x18 - 4];
@@ -79,28 +73,28 @@ extern s32 TBoss2Tentacle__segment_point_defaults[];
 void reset_segment_points__14TBoss2TentacleFPv(Obj_80039DE0 *self);
 extern G_80039C44 *TBoss2Tentacle__motion_data;
 void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK draw_chunk_object(void *);
-M2C_UNK draw_model_motion(void *, int, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 draw_chunk_object(void *);
+s32 draw_model_motion(void *, int, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 extern Node_8003933C lbl_804FE5D8[];
-extern M2C_UNK *lbl_805D4BD0;
+extern s32 *lbl_805D4BD0;
 extern G_80039C44 *TBoss2Tentacle__motion_data;
 extern s32 lbl_805D4BD8;
 extern const f32 lbl_805D8528;
 void render__14TBoss2TentacleFv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
-M2C_UNK emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
+s32 emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *, void *);
 void *get_instance__13TBoss2DeRolLeFv(void);
 void TBoss2Tentacle__sub_8003998C(void);
 void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self);
@@ -115,14 +109,14 @@ void init_motion_from_table__14TBoss2TentacleFPv(void* a0);
 void reset__14TBoss2TentacleFPv(void* a0);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 approach_angle_limited(s32, s32, s32);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 f32 sin_table_lookup(s32);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity(int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 matrix_mult_vec(int, void *, void *);
+s32 set_matrix_identity(int);
+s32 subtract_vector(void *, void *);
+s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 extern int TBoss2Tentacle__rest_angles[];
 extern s32 lbl_80435B88[];
 extern const f64 lbl_80435BA8[];
@@ -138,7 +132,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 calc_random_scaled__10TObjPlayerFv();
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand();
-extern M2C_UNK __vt__14TBoss2Tentacle[];
+extern s32 __vt__14TBoss2Tentacle[];
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern s32 TBoss2Tentacle__segment_point_defaults[];
 extern s32 TBoss2Tentacle__name;
@@ -194,32 +188,32 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     set_global_param__8TObjFishFi((void *) (lbl_805D4BD8));
     push_matrix();
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 1:
     case 4:
     case 5:
-        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
-        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (M2C_FIELD(arg0, f32 *, 0x114)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        draw_model_motion((void *) (lbl_805D4BD0), (int) (TBoss2Tentacle__motion_data), (f32) (*(f32 *)((s8 *)arg0 + 0x114)));
         break;
     case 2:
-        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x110)));
-        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
+        concat_matrix__10TObjPlayerFUiUi((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x110)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
         draw_chunk_object((void *) (lbl_805D4BD0));
         break;
     case 3:
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x140));
         scale_matrix((int) (0), (f32) (lbl_805D8528), (f32) (lbl_805D8528), (f32) (lbl_805D8528));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x11C)));
-        rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x120)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x11C)));
+        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x120)));
         for (i = 0; i < 14; i++) {
             lbl_804FE5D8[i].x = ((Ten_8003933C *)arg0)->pos[i].x;
             lbl_804FE5D8[i].y = ((Ten_8003933C *)arg0)->pos[i].y;
@@ -235,7 +229,7 @@ void render__14TBoss2TentacleFv(u8 *arg0) {
 
 typedef V3_80039DE0 V3_800394DC;
 typedef struct { u8 pad[0x30]; V3_800394DC pts[14]; } Ten_800394DC;
-#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
 void run_task__14TBoss2TentacleFv(u8 *arg0) {
     if (F(s32, 0x20) != F(s32, 0x1C)) {
         switch (F(s32, 0x20)) {
@@ -440,7 +434,7 @@ void advance_motion_position__14TBoss2TentacleFPv(Obj_80039C44 *self) {
 }
 
 u8 TBoss2Tentacle__sub_80039CA0(u8 *arg0) {
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x1C) == 4);
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x1C) == 4);
 }
 
 void TBoss2Tentacle__sub_80039CB4(void* p) { *(s32*)((char*)p + 0x11c) = 0; *(s32*)((char*)p + 0x120) = 16384; }
@@ -486,7 +480,7 @@ void start_attack_at_target__14TBoss2TentacleFPvPvi(u8 *arg0, u8 *arg1, s32 arg2
     if ((var_r5 <= 0) || (var_r5 >= 0x258)) {
         var_r5 = 0x78;
     }
-    M2C_FIELD(arg0, s32 *, 0x154) = var_r5;
+    *(s32 *)((s8 *)arg0 + 0x154) = var_r5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x12C, arg1);
     TBoss2Tentacle__sub_80039DB0((void*)(arg0));
 }

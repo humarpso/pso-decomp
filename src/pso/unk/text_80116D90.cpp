@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
 struct VObj_8011620C_80115D6C : Base_8011620C_80115D6C {
@@ -91,7 +88,7 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
 
 extern "C" {
 void *TItemProShield__sub_80116D54(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_star_atomizer_item(u8 *arg0);
 }

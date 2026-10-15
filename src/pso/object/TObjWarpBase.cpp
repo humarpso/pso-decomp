@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_8019DAC0 { s32 f0; u8 pad4[0x14]; };
 
@@ -28,7 +24,7 @@ u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0);
 void construct_collider_proxy__10TObjPlayerFPv(Warp_8019DAC0 *, void *, void *);
 void *construct_field_collider__9TTecLukerFPviii(void *, void *, Warp_8019DAC0 *, s32);
 void *__nw__7TObjectFUl(u32);
-extern M2C_UNK __vt__12TObjWarpBase[];
+extern s32 __vt__12TObjWarpBase[];
 extern s32 TObjWarpBase__name;
 extern const f32 lbl_805DBFEC;
 Warp_8019DAC0 *TObjWarpBase__ct(Warp_8019DAC0 *self, void *parent, void *set);
@@ -47,31 +43,31 @@ struct VObj_8019DA54_8019D964 : Base_8019DA54_8019D964 {
 void *TObjWarpBase__vt0(void *arg0, s16 arg1);
 void TObjWarpBase__vt12(void *arg0);
 void free_globals__12TObjWarpBaseFv(void);
-M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_8001FE7C(s32, s32);
+s32 TLobby__sub_803DA16C(void*);
 u32 get_player_by_client_id(u16);
-M2C_UNK TWindow__close(u32);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK fn_8019DD24(s32, M2C_UNK);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TWindow__close(u32);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 fn_8019DD24(s32, s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void TObjWarpBase__vt12(void *arg0) {
     u32 temp_r3;
 
-    temp_r3 = (u32) M2C_FIELD(arg0, u32 *, 0xB0);
+    temp_r3 = (u32) *(u32 *)((s8 *)arg0 + 0xB0);
     if (temp_r3 != 0U) {
         TWindow__close(temp_r3);
-        M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
-        temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xB8));
+        *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
+        temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xB8));
         if (temp_r3 != 0U) {
             fn_8019DD24(temp_r3 + 0x550, 4);
         }
-        M2C_FIELD(arg0, u16 *, 0xB8) = 0xFFFFU;
+        *(u16 *)((s8 *)arg0 + 0xB8) = 0xFFFFU;
     }
 }
 
-extern M2C_UNK __vt__12TObjWarpBase[];
+extern s32 __vt__12TObjWarpBase[];
 
 u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
   u8 *temp_r3;
@@ -90,7 +86,7 @@ u8 *find_warp_player_in_range(s32 arg0, short arg1, f32 farg0) {
 void *TObjWarpBase__vt0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         struct VObj_8019DA54_8019D964 *o = (struct VObj_8019DA54_8019D964 *)arg0;
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjWarpBase;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjWarpBase;
         o->m12();
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

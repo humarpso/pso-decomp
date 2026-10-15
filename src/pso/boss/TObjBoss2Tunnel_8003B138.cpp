@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8003B138 { char pad[0x18]; };
 struct VObj_8003B138 : Base_8003B138 {
     virtual void m0();
@@ -14,8 +11,8 @@ extern "C" {
 void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0);
 struct Obj_8003B250;
 void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0);
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void *__nw__7TObjectFUl(M2C_UNK);
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, s32, s32, s32, s32, s32);
+void *__nw__7TObjectFUl(s32);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
 
 void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0) {
@@ -25,7 +22,7 @@ void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0
     if (var_r31 != NULL) {
         var_r31 = initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(var_r31, arg0, get_particle_by_index__13TParticleCtrlFi(arg1), 1, 0, 0, 1, 0x40);
     }
-#define release_children__15TObjBoss2TunnelFPvf ((M2C_UNK (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
+#define release_children__15TObjBoss2TunnelFPvf ((s32 (*)(void *, f32))release_children__15TObjBoss2TunnelFPvf)
     if (var_r31 != NULL) {
         ((VObj_8003B138 *)var_r31)->m1();
         release_children__15TObjBoss2TunnelFPvf(var_r31, farg0);
@@ -37,10 +34,6 @@ void create_particle_effect__15TObjBoss2TunnelFiif(s32 arg0, s32 arg1, f32 farg0
 #undef release_children__15TObjBoss2TunnelFPvf
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Child_8003B250 { u8 pad0[0x44]; f32 f44; };
 struct Obj_8003B250 { u8 pad0[0x14]; Child_8003B250 *child; };
@@ -80,8 +73,6 @@ void release_children__15TObjBoss2TunnelFPvf(Obj_8003B250 *arg0, f32 farg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct S_8003C108 {
     u8 pad0[0x20];
@@ -92,7 +83,6 @@ struct S_8003C108 {
 
 struct Rec_8003C108 { s32 a, b, c; };
 
-typedef s32 M2C_UNK;
 struct Vec_8003B2EC { f32 x, y, z; };
 
 struct Model_8003B2EC { s32 a; s32 b; s32 obj; s32 c; };
@@ -175,13 +165,13 @@ s32 get_state_flag__9TMainTaskFv();
 struct O_8003C21C;
 u8 * TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
-M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK draw_ginja_object(s32);
+s32 rotate_matrix_z(s32, s32);
+s32 translate_matrix(s32, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 draw_ginja_object(s32);
 extern Vec_8003B2EC lbl_80435EB8[];
 extern s32 boss2_tunnel_model_index_table[];
 extern s32 boss2_tunnel_model_order_table[];
@@ -666,10 +656,6 @@ void update_particles__15TObjBoss2TunnelFPv(S_8003C108 *o) {
 #undef enable_fog__15TObjBoss2TunnelFPv
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct S_8003C21C { u8 pad[0x1f]; u8 x; };
 
@@ -707,10 +693,6 @@ u8 *TObjBoss2Tunnel__sub_8003C21C(O_8003C21C *self) {
 #define TObjBoss2Tunnel__global_flags (*(s32 *)&TObjBoss2Tunnel__global_flags)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8003C374 { u8 pad[0x28]; s32 start; s32 q[6]; };
 
@@ -731,15 +713,15 @@ extern s32 lbl_804834D4[];
 
 extern "C" {
 
-M2C_UNK update_all__8TFogCtrlFii(s32, M2C_UNK);
+s32 update_all__8TFogCtrlFii(s32, s32);
 
 void enable_fog__15TObjBoss2TunnelFPv(void *arg0) {
-    update_all__8TFogCtrlFii((s32)(M2C_FIELD(arg0, s32 *, 0xB0)), (M2C_UNK)(1));
+    update_all__8TFogCtrlFii((s32)(*(s32 *)((s8 *)arg0 + 0xB0)), (s32)(1));
     TObjBoss2Tunnel__global_flags |= 4;
 }
 
 void enable_fog__15TObjBoss2TunnelFv(void) {
-    update_all__8TFogCtrlFii((s32)(0xB), (M2C_UNK)(1));
+    update_all__8TFogCtrlFii((s32)(0xB), (s32)(1));
     TObjBoss2Tunnel__global_flags |= 2;
 }
 
@@ -791,10 +773,6 @@ void init_queue_from_start__15TObjBoss2TunnelFPv(Obj_8003C374 *self) {
 #define __ct__7TObjectFP7TObject ((void (*)(void *))__ct__7TObjectFP7TObject)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Tunnel_8003C45C {
     s32 name;
@@ -843,7 +821,7 @@ void reset_floats__15TObjBoss2TunnelFPv(void *a0);
 s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
 extern u8 lbl_80435E90[];
 extern u8 lbl_80483578[];
-extern M2C_UNK __vt__15TObjBoss2Tunnel[];
+extern s32 __vt__15TObjBoss2Tunnel[];
 extern s32 lbl_805D2708;
 void *TObjBoss2Tunnel__ct(void *arg0, void *arg1);
 }
@@ -863,11 +841,11 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void dt__15TObjBoss2TunnelFis(void *, int);
 
-extern M2C_UNK __vt__15TObjBoss2Tunnel[];
+extern s32 __vt__15TObjBoss2Tunnel[];
 
 void *__dt__15TObjBoss2TunnelFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss2Tunnel;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss2Tunnel;
         dt__15TObjBoss2TunnelFis((s8 *)arg0 + 0x68, -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -979,38 +957,38 @@ void clear_target_flags__15TObjBoss2TunnelFv(void) {
     s32 *temp_r3_2;
 
     TObjBoss2Tunnel__global_flags = 0;
-    temp_r3 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(boss2_tunnel_instance, void **, 0x42C), void **, 0xA8), void **, 0x2C), s32 **, 0x30);
+    temp_r3 = *(s32 **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)boss2_tunnel_instance + 0x42C)) + 0xA8)) + 0x2C)) + 0x30);
     lbl_805D4C08 = temp_r3;
-    temp_r3_2 = M2C_FIELD(temp_r3, s32 **, 0x30);
+    temp_r3_2 = *(s32 **)((s8 *)temp_r3 + 0x30);
     lbl_805D4C04 = temp_r3_2;
     *temp_r3_2 &= 0xFFFFFFFE;
     *lbl_805D4C08 &= 0xFFFFFFFE;
 }
 
-extern M2C_UNK lbl_804835D8[];
+extern s32 lbl_804835D8[];
 
 #pragma push
 #pragma opt_common_subs off
 void update_fade_out_and_destroy__15TObjBoss2TunnelFPv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 0x1E) {
-        M2C_FIELD(arg0, f32 *, 0x20) += (1.0f);
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 0x1E) {
+        *(f32 *)((s8 *)arg0 + 0x20) += (1.0f);
+        temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
         if (temp_f1 > (7e+01f)) {
-            M2C_FIELD(arg0, f32 *, 0x20) = (f32) (7e+01f);
+            *(f32 *)((s8 *)arg0 + 0x20) = (f32) (7e+01f);
             queue_destruction__7TObjectFv(arg0);
             return;
         }
-        M2C_FIELD((*(u8 * *)&lbl_805D4C04), f32 *, 8) = (f32) -temp_f1;
-        M2C_FIELD((*(u8 * *)&lbl_805D4C08), f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x20);
+        *(f32 *)((s8 *)(*(u8 * *)&lbl_805D4C04) + 8) = (f32) -temp_f1;
+        *(f32 *)((s8 *)(*(u8 * *)&lbl_805D4C08) + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x20);
     }
 }
 #pragma pop
 
 void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804835D8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804835D8;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1019,13 +997,13 @@ void *__dt_deleting__15TObjBoss2TunnelFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804835D8[];
+extern s32 lbl_804835D8[];
 
 void *init__15TObjBoss2TunnelFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804835D8;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x20) = (0.0f);
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804835D8;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x20) = (0.0f);
     return arg0;
 }
 

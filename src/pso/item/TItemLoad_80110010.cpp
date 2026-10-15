@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801104C4_80110010 { char pad[0x18]; };
 struct VObj_801104C4_80110010 : Base_801104C4_80110010 {
     virtual int m0();
@@ -21,7 +18,6 @@ struct Node_801103F4 : Base_801103F4 {
     virtual void m0(s32);
 };
 
-typedef s32 M2C_UNK;
 struct Load_8011006C { void *buf; s32 f4; s32 f8; s32 fC; s32 f10; void *f14; };
 
 extern "C" {
@@ -47,7 +43,7 @@ extern s32 *TItemLoad__model_slot_in_use;
 void release_resource_by_id__9TItemLoadFi(s32 id);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 void TLobby__sub_801E3E9C(s32, s32, void *, s32);
-extern M2C_UNK lbl_8049F43C[];
+extern s32 lbl_8049F43C[];
 Load_8011006C *init_buffer__9TItemLoadFPviii(Load_8011006C *self, s32 arg1, s32 arg2, s32 count);
 }
 
@@ -60,22 +56,22 @@ void get_model_ids__9TItemLoadFUcPvPv(u8 arg0, s32 *arg1, s32 *arg2);
 void lookup_item_data__9TItemLoadFiPv(s32 arg0, s32 *arg1);
 void update__9TItemLoadFv(void);
 s32 TItemLoad__sub_801107F4(void *);
-s32 get_bml_motion(s32, M2C_UNK);
-s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 get_bml_motion(s32, s32);
+s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK free_texture__9TItemLoadFPv(M2C_UNK *);
-M2C_UNK set_parent__7TObjectFP7TObject(void *, u32);
-M2C_UNK update_all__9TItemLoadFv();
+s32 __dl__FPv(void *);
+s32 free__11TOBoss4RockFUi(s32);
+s32 free_texture__9TItemLoadFPv(s32 *);
+s32 set_parent__7TObjectFP7TObject(void *, u32);
+s32 update_all__9TItemLoadFv();
 
-extern M2C_UNK lbl_8049F43C[];
+extern s32 lbl_8049F43C[];
 
 void *TItemLoad__sub_80110010(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK *, 0x14) = (M2C_UNK)lbl_8049F43C;
-        free_texture__9TItemLoadFPv((M2C_UNK *)arg0);
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0));
+        *(s32 *)((s8 *)arg0 + 0x14) = (s32)lbl_8049F43C;
+        free_texture__9TItemLoadFPv((s32 *)arg0);
+        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -213,7 +209,7 @@ void update__9TItemLoadFv(void) {
 
     update_all__9TItemLoadFv();
     if (((void *) TItemLoad__model_load_task_root != NULL) && ((u32) TItemLoad__completed_model_load_task_root != 0U)) {
-        temp_r31 = M2C_FIELD(TItemLoad__model_load_task_root, void **, 0x14);
+        temp_r31 = *(void **)((s8 *)TItemLoad__model_load_task_root + 0x14);
         if (temp_r31 != NULL) {
             ((VObj_801104C4_80110010 *)temp_r31)->m1();
             if (TItemLoad__sub_801107F4(temp_r31) == 1) {

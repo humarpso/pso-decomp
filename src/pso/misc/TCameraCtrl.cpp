@@ -1,15 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_8006ABAC_lbl_804FF610 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 struct RecoveredGlobal_8006ABAC_lbl_804FF61C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
-typedef s32 M2C_UNK;
+
 struct Vec_8006AF9C { f32 x, y, z; };
 
 struct Obj_8006AF9C {
@@ -18,8 +17,8 @@ struct Obj_8006AF9C {
 };
 
 extern "C" {
-M2C_UNK set_camera_look_at(void *, void *, void *);
-M2C_UNK set_perspective_projection_from_fov(int, f32, f32, f32);
+s32 set_camera_look_at(void *, void *, void *);
+s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 f32 vec_squared_length(void *);
 extern f32 lbl_804FF5E8[10];
 extern u32 TCameraCtrl__up_vector[3];
@@ -46,10 +45,6 @@ extern void *lbl_80488AC0[6];
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct A_8006A35C { s8 f0; u8 pad1; s16 f2; s32 f4; s32 f8; };
 struct B_8006A35C { u8 pad[8]; f32 f8; f32 fc; u8 pad10[8]; f32 f18; u8 pad1c[0xC]; f32 f28; f32 f2c; f32 f30; f32 f34; f32 f38; f32 f3c; f32 f40; f32 f44; };
@@ -79,12 +74,12 @@ struct VObj_18_f8ef8c : VBase_18_f8ef8c {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5();
+    virtual s32 m5();
 };
 
 struct RecoveredGlobal_8006A788_camera_controller_registry
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x64];
 };
 
@@ -101,32 +96,32 @@ struct VBase_18_9639c7
 
 struct VObj_18_9639c7 : VBase_18_9639c7 {
     virtual void m0();
-    virtual M2C_UNK m1();
+    virtual s32 m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(M2C_UNK);
+    virtual s32 m4(s32);
     virtual void m5();
     virtual void m6();
     virtual void m7();
     virtual void m8();
-    virtual M2C_UNK m9();
+    virtual s32 m9();
 };
 
 struct RecoveredGlobal_8006A7D8_camera_controller_registry
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x64];
 };
 
 struct RecoveredGlobal_8006A7D8_TCameraCtrl__data_804FF628
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006A5EC_camera_controller_registry
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x64];
 };
 
@@ -178,15 +173,15 @@ extern "C" {
 u8 TCameraCtrl__sub_8006A5DC(void);
 void select_camera_controller(s8 arg0);
 s32 is_split_screen();
-M2C_UNK apply_camera_controller_pose(int);
-M2C_UNK resolve_anchor_obstruction__11TCameraCtrlFPv(void *, int);
-M2C_UNK clamp_to_target_obstruction__11TCameraCtrlFPv(void *, int);
-M2C_UNK update_target_smoothing__11TCameraCtrlFPv(void *);
-M2C_UNK update_position__11TCameraCtrlFPv(void *);
-M2C_UNK update_pose_smoothing__11TCameraCtrlFPv(void *);
-M2C_UNK update_shake__11TCameraCtrlFv(void *);
+s32 apply_camera_controller_pose(int);
+s32 resolve_anchor_obstruction__11TCameraCtrlFPv(void *, int);
+s32 clamp_to_target_obstruction__11TCameraCtrlFPv(void *, int);
+s32 update_target_smoothing__11TCameraCtrlFPv(void *);
+s32 update_position__11TCameraCtrlFPv(void *);
+s32 update_pose_smoothing__11TCameraCtrlFPv(void *);
+s32 update_shake__11TCameraCtrlFv(void *);
 s32 get_camera_no__11TCameraCtrlFv();
-M2C_UNK set_perspective_projection_from_fov(int, f32, f32, f32);
+s32 set_perspective_projection_from_fov(int, f32, f32, f32);
 extern const f32 TCameraCtrl__data_805D8FAC;
 extern const f32 TCameraCtrl__data_805D8FDC;
 extern const f32 TCameraCtrl__data_805D8FE0;
@@ -197,7 +192,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_getField1c(void *);
 s32 is_split_screen();
 void set_target__11TCameraCtrlFPvUi(Ctrl_8006A410 *, void *);
-M2C_UNK *get_character_select_request_buffer(void);
+s32 *get_character_select_request_buffer(void);
 s32 is_boss_area(void);
 extern u8 *camera_ctrl_instance;
 void reset_cameras_to_actor(void *actor);
@@ -206,17 +201,17 @@ void reset_cameras_to_actor(void *actor);
 extern "C" {
 
 void reset__11TCameraCtrlFv(void);
-M2C_UNK TCameraCtrl__sub_80068354();
+s32 TCameraCtrl__sub_80068354();
 
 extern s16 TCameraCtrl__data_805D4E0A;
 
 void reset__11TCameraCtrlFv(void) {
     TCameraCtrl__data_805D4E0A = 0;
     TCameraCtrl__sub_80068354();
-    M2C_FIELD(TCameraCtrl__view_state, s8 *, 0) = 0;
-    M2C_FIELD(TCameraCtrl__view_state, s16 *, 2) = 0;
-    M2C_FIELD(TCameraCtrl__view_state, s32 *, 4) = 0;
-    M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) = 0;
+    *(s8 *)((s8 *)TCameraCtrl__view_state + 0) = 0;
+    *(s16 *)((s8 *)TCameraCtrl__view_state + 2) = 0;
+    *(s32 *)((s8 *)TCameraCtrl__view_state + 4) = 0;
+    *(s32 *)((s8 *)TCameraCtrl__view_state + 8) = 0;
 }
 void reset_view_state__11TCameraCtrlFv(void) {
     A_8006A35C *pa = (A_8006A35C *)TCameraCtrl__view_state;
@@ -383,7 +378,7 @@ void select_active_controller__11TCameraCtrlFc(s8 arg0) {
 void select_camera_controller(s8 arg0) {
   u8 *temp_r0;
   (*(RecoveredGlobal_8006A788_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value = arg0;
-  temp_r0 = (u8 *) (*((M2C_UNK *) (((s8 *) (&camera_controller_registry.value)) + ((arg0 * 4) & 0x3FC))));
+  temp_r0 = (u8 *) (*((s32 *) (((s8 *) (&camera_controller_registry.value)) + ((arg0 * 4) & 0x3FC))));
   if (temp_r0 != 0)
   {
     PSO_VCALL_VObj_18_f8ef8c_m5(temp_r0);
@@ -495,14 +490,10 @@ void update_active_controller__11TCameraCtrlFPv(u8 *arg0) {
 #define camera_controller_registry ((Ctl_8006AA90 **)camera_controller_registry)
 #define lbl_80488AC0 ((u8 *)lbl_80488AC0)
 #define camera_ctrl_instance (*(s32 *)&camera_ctrl_instance)
-#define reset_cameras_to_actor ((M2C_UNK (*)(M2C_UNK, M2C_UNK))reset_cameras_to_actor)
-#define select_camera_controller ((M2C_UNK (*)(int))select_camera_controller)
+#define reset_cameras_to_actor ((s32 (*)(s32, s32))reset_cameras_to_actor)
+#define select_camera_controller ((s32 (*)(int))select_camera_controller)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ctl_8006AA90 {
     u8 pad[0x18];
@@ -523,13 +514,13 @@ u32 get_player_by_client_id(s32);
 extern s32 local_client_id;
 
 void update_target_from_state__11TCameraCtrlFPv(void *arg0) {
-    if ((!(M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 4) && !(M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 8)) || (M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 0x20) || (M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 0x80) || (M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 0x800)) {
-        if (M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 2) {
-            select_camera_controller(M2C_FIELD(arg0, s32 *, 0x20) + 9);
+    if ((!(*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 4) && !(*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 8)) || (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x20) || (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x80) || (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x800)) {
+        if (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 2) {
+            select_camera_controller(*(s32 *)((s8 *)arg0 + 0x20) + 9);
             return;
         }
-        if ((M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 0x20) || (M2C_FIELD(TCameraCtrl__view_state, s32 *, 8) & 0x80)) {
-            select_camera_controller(M2C_FIELD(TCameraCtrl__view_state, u8 *, 1));
+        if ((*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x20) || (*(s32 *)((s8 *)TCameraCtrl__view_state + 8) & 0x80)) {
+            select_camera_controller(*(u8 *)((s8 *)TCameraCtrl__view_state + 1));
             u32 temp = get_player_by_client_id(local_client_id);
             if (temp != 0U) {
                 reset_cameras_to_actor(temp, 0);
@@ -566,18 +557,14 @@ Ctl_8006AA90 *TCameraCtrl__sub_8006AA90(Ctl_8006AA90 *self, s16 arg1) {
 #undef select_camera_controller
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_30 { u8 bytes[0x30]; };
+struct ByteBlock_30 { u8 bytes[0x30]; };
 
 struct RecoveredGlobal_8006B324_lbl_805137F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
@@ -592,17 +579,17 @@ struct Stack_8006ABAC {
 };
 
 struct RecoveredGlobal_8006ABAC_lbl_804381A4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006ABAC_lbl_804381B0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006ABAC_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -616,27 +603,27 @@ struct Stack_8006AC70 {
 };
 
 struct RecoveredGlobal_8006AC70_lbl_8043818C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006AC70_lbl_80438198 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006AC70_lbl_804FF610 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006AC70_lbl_804FF61C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006AC70_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -708,7 +695,7 @@ extern RecoveredGlobal_8006ABAC_lbl_804381B0 lbl_804381B0;
 extern RecoveredGlobal_8006ABAC_lbl_804FF610 lbl_804FF610;
 extern RecoveredGlobal_8006ABAC_lbl_804FF61C camera_pitch_rotated_up_vector;
 extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
-void calc_axes_from_angles__11TCameraCtrlFiii(M2C_UNK arg0, s32 arg1, s32 arg2);
+void calc_axes_from_angles__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 rotate_matrix_y(int, void *);
 s32 rotate_matrix_x(int, void *);
 s32 push_matrix_from(void *);
@@ -722,9 +709,9 @@ extern RecoveredGlobal_8006ABAC_lbl_8058D490 identity_matrix;
 void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0);
 struct V3_8006AD34 { f32 x, y, z; };
 u8 *get_target__11TCameraCtrlFPv(void *);
-M2C_UNK reset_view_flags__11TCameraCtrlFv(void *);
-M2C_UNK cycle_spectate_target__11TCameraCtrlFv(void *);
-M2C_UNK render__15TObjBoss2TunnelFPvPv(void *, void *);
+s32 reset_view_flags__11TCameraCtrlFv(void *);
+s32 cycle_spectate_target__11TCameraCtrlFv(void *);
+s32 render__15TObjBoss2TunnelFPvPv(void *, void *);
 s32 get_camera_no__11TCameraCtrlFv();
 void vector_length(void *);
 f32 vec_squared_length(void *);
@@ -809,10 +796,10 @@ void *lbl_80488AC0[6] = {
 
 void reset_split_flag__11TCameraCtrlFPv(void *arg0) {
     if ((is_split_screen() == 0) && (get_state_flag__9TMainTaskFv() != 1)) {
-        if ((u8) M2C_FIELD(arg0, u8 *, 0x1C) == 0) {
+        if ((u8) *(u8 *)((s8 *)arg0 + 0x1C) == 0) {
             setup_default_view__11TCameraCtrlFPvPv((Obj_8006AF9C *)(arg0), (Vec_8006AF9C *)(0));
         }
-        M2C_FIELD(arg0, u8 *, 0x1C) = 0U;
+        *(u8 *)((s8 *)arg0 + 0x1C) = 0U;
     }
 }
 
@@ -826,7 +813,7 @@ typedef char RecoveredGlobal_8006ABAC_lbl_804381B0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF610_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF610) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_804FF61C_size[sizeof(RecoveredGlobal_8006ABAC_lbl_804FF61C) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_8006ABAC_lbl_8058D490_size[sizeof(RecoveredGlobal_8006ABAC_lbl_8058D490) == 0x30 ? 1 : -1];
-void calc_axes_from_angles__11TCameraCtrlFiii(M2C_UNK arg0, s32 arg1, s32 arg2) {
+void calc_axes_from_angles__11TCameraCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_8006ABAC, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8006ABAC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8006ABAC, sp10) == 0x8) ? 1 : -1];
@@ -834,12 +821,12 @@ void calc_axes_from_angles__11TCameraCtrlFiii(M2C_UNK arg0, s32 arg1, s32 arg2) 
     typedef char sp18_offset[(offsetof(Stack_8006ABAC, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8006ABAC, sp1C) == 0x14) ? 1 : -1];
     Stack_8006ABAC stack;
-    stack.sp14 = M2C_FIELD(&lbl_804381A4.value, s32 *, 0);
-    stack.sp18 = M2C_FIELD(&lbl_804381A4.value, s32 *, 4);
-    stack.sp1C = M2C_FIELD(&lbl_804381A4.value, s32 *, 8);
-    stack.sp8 = M2C_FIELD(&lbl_804381B0.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804381B0.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804381B0.value, s32 *, 8);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_804381A4.value) + 0);
+    stack.sp18 = *(s32 *)((s8 *)(&lbl_804381A4.value) + 4);
+    stack.sp1C = *(s32 *)((s8 *)(&lbl_804381A4.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804381B0.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804381B0.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
     rotate_matrix_y((int) (0), (void *) (arg2));
     rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&lbl_804FF610.value));
@@ -866,18 +853,18 @@ void calc_rotated_axes__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp18_offset[(offsetof(Stack_8006AC70, sp18) == 0x10) ? 1 : -1];
     typedef char sp1C_offset[(offsetof(Stack_8006AC70, sp1C) == 0x14) ? 1 : -1];
     Stack_8006AC70 stack;
-    stack.sp14 = M2C_FIELD(&lbl_8043818C.value, s32 *, 0);
-    stack.sp18 = M2C_FIELD(&lbl_8043818C.value, s32 *, 4);
-    stack.sp1C = M2C_FIELD(&lbl_8043818C.value, s32 *, 8);
-    stack.sp8 = M2C_FIELD(&lbl_80438198.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_80438198.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_80438198.value, s32 *, 8);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043818C.value) + 0);
+    stack.sp18 = *(s32 *)((s8 *)(&lbl_8043818C.value) + 4);
+    stack.sp1C = *(s32 *)((s8 *)(&lbl_8043818C.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_80438198.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_80438198.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_80438198.value) + 8);
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_y((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x194))));
+    rotate_matrix_y((int)((int) (0)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x194))));
     rotate_vector_by_current_matrix((void *) (&stack.sp14), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF610 *)&lbl_804FF610).value));
     pop_matrix();
     push_matrix_from((void *) (&(*(RecoveredGlobal_8006AC70_lbl_8058D490 *)&identity_matrix).value));
-    rotate_matrix_x((int)((int) (0)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x190))));
+    rotate_matrix_x((int)((int) (0)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x190))));
     rotate_vector_by_current_matrix((void *) (&stack.sp8), (void *) (&(*(RecoveredGlobal_8006AC70_lbl_804FF61C *)&camera_pitch_rotated_up_vector).value));
     pop_matrix();
 }
@@ -943,7 +930,7 @@ void update_view__11TCameraCtrlFPv(u8 *arg0) {
 #undef GF
 
 u8 * copy_view_params__11TCameraCtrlFii(s32 arg0, s32 arg1) {
-    *(M2CCopy_30 *)(arg0) = *(const M2CCopy_30 *)(arg1);
+    *(ByteBlock_30 *)(arg0) = *(const ByteBlock_30 *)(arg1);
     return (u8 *)arg0;
 }
 
@@ -1078,7 +1065,7 @@ u8 *TCameraCtrl__ct(u8 *arg0, void *parent) {
 #undef self
 
 typedef char RecoveredGlobal_8006B324_lbl_805137F8_size[sizeof(RecoveredGlobal_8006B324_lbl_805137F8) == 0x24 ? 1 : -1];
-M2C_UNK *get_character_select_request_buffer(void) {
+s32 *get_character_select_request_buffer(void) {
     return &chr_select_request_buffer.value;
 }
 

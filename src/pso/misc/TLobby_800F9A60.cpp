@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -11,7 +9,7 @@ void *ct_object__9TItemDropFPv(void *, void *);
 void memset(void *, int, int);
 void strncpy(void *, void *, int);
 
-extern M2C_UNK resource_load_task_root[];
+extern s32 resource_load_task_root[];
 struct VOff_800F9A60_o_800f9a60 { char pad_0[0x28]; char f_28[1]; };
 
 void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
@@ -22,9 +20,9 @@ void TLobby__sub_800F9A60(void *arg0, void *arg1, void *arg2) {
     }
     memset(o->f_28, 0, 17);
     strncpy(o->f_28, arg0, 16);
-    M2C_FIELD(o, void **, 0x0) = o->f_28;
-    M2C_FIELD(o, void **, 0x1C) = arg1;
-    M2C_FIELD(o, void **, 0x20) = arg2;
+    *(void **)((s8 *)o + 0x0) = o->f_28;
+    *(void **)((s8 *)o + 0x1C) = arg1;
+    *(void **)((s8 *)o + 0x20) = arg2;
     apply_rel_relocations(o);
 }
 

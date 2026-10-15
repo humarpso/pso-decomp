@@ -1,37 +1,32 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Base_801A2E00 { u8 pad0[0x18]; };
 
 struct Ctrl_801A2E00 : Base_801A2E00 { virtual void v0(int); };
 
 extern "C" {
 s32 is_multiplayer_character_slot_selected(s32);
-M2C_UNK create_player_object(s32, s32, u32);
+s32 create_player_object(s32, s32, u32);
 u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 is_split_screen();
 extern s32 local_client_id;
 extern s32 lbl_805D53A8;
 void apply_char_to_players__6TLobbyFv(void);
-M2C_UNK reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
-M2C_UNK reset_floor_items__6TLobbyFv();
-M2C_UNK reset_item_id_counters__6TLobbyFv();
+s32 reset_quest_result_callbacks__22THunterGuildSeqOfflineFPv();
+s32 reset_floor_items__6TLobbyFv();
+s32 reset_item_id_counters__6TLobbyFv();
 int clear_counter__6TLobbyFv(void);
-M2C_UNK clear_quest_state__6TLobbyFv();
-M2C_UNK reset_quest_counter__6TLobbyFv();
-M2C_UNK set_cleanup_flag__6TLobbyFv();
-M2C_UNK reset_door_state__6TLobbyFv();
-M2C_UNK clear_enabled_main_warps();
-M2C_UNK reset_instance__8TObjDoorFv();
-M2C_UNK free_map_data__13TRaderMapCoreFv();
-M2C_UNK clear_switch_table();
-M2C_UNK apply_all_players__9TTecLukerFv();
+s32 clear_quest_state__6TLobbyFv();
+s32 reset_quest_counter__6TLobbyFv();
+s32 set_cleanup_flag__6TLobbyFv();
+s32 reset_door_state__6TLobbyFv();
+s32 clear_enabled_main_warps();
+s32 reset_instance__8TObjDoorFv();
+s32 free_map_data__13TRaderMapCoreFv();
+s32 clear_switch_table();
+s32 apply_all_players__9TTecLukerFv();
 void enable_all_battle_ctrl__10TNpcPlayerFv();
-M2C_UNK queue_destruction__7TObjectFv(u32);
+s32 queue_destruction__7TObjectFv(u32);
 extern u32 quest_mission_manager;
 void reset_quest_state__6TLobbyFv(void);
 void apply_char_to_players__6TLobbyFv(void);

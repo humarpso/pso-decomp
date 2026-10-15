@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -18,12 +14,12 @@ struct Win_80260020 { u8 pad0[0x70]; State_80260020 *state; };
 extern "C" {
 s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
-extern M2C_UNK lbl_8044F0CC[];
-extern M2C_UNK lbl_8044F0D4[];
-extern M2C_UNK lbl_8044F0DC[];
-extern M2C_UNK lbl_8044F0EC[];
-extern M2C_UNK lbl_8044F0FC[];
-extern M2C_UNK lbl_8044F104[];
+extern s32 lbl_8044F0CC[];
+extern s32 lbl_8044F0D4[];
+extern s32 lbl_8044F0DC[];
+extern s32 lbl_8044F0EC[];
+extern s32 lbl_8044F0FC[];
+extern s32 lbl_8044F104[];
 extern s32 current_language;
 extern const f32 lbl_805DD068;
 extern const f32 lbl_805DD06C;
@@ -70,7 +66,7 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
 
 void render__19TWindowKeyBoardHardFv(void *arg0) {
     s32 temp;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFPv() == 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x68) > 0) && (is_key_active__19TWindowKeyBoardHardFPv() == 0)) {
         temp = draw_default_entry__9TWindowDDFi(arg0);
         draw_status_text__19TWindowKeyBoardHardFPvPv((Win_80260020 *)(arg0), (Ctx_80260020 *)(temp));
     }

@@ -13,11 +13,6 @@ public:
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef s32 M2C_UNK;
 struct Ent_802E6750 { s32 idx; f32 x; f32 y; s32 c; };
 
 struct Obj_802E6750 {
@@ -49,8 +44,8 @@ u32 __ct__20TAdGameStartShadowGCFv(int, void *);
 u32 __ct__18TAdGameStartLineGCFv(int, void *);
 u32 __ct__19TAdGameStartShineGCFv(int, void *);
 void create_effects__14TAdGameStartGCFPv(u8 *arg0);
-M2C_UNK __ct__7TObjectFP7TObject(void *);
-extern M2C_UNK __vt__14TAdGameStartGC[];
+s32 __ct__7TObjectFP7TObject(void *);
+extern s32 __vt__14TAdGameStartGC[];
 extern void *ad_game_start_name_ptr[2];
 Obj_802E6750 *__ct__14TAdGameStartGCFv(Obj_802E6750 *arg0);
 s32 queue_destruction__7TObjectFv(int);
@@ -122,51 +117,51 @@ void create_effects__14TAdGameStartGCFPv(u8 *arg0) {
     u32 var_r0_2;
     u32 var_r0_3;
     u32 var_r0_4;
-    M2C_FIELD(arg0, s32 *, 0xA0) = 1;
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0xC4);
+    *(s32 *)((s8 *)arg0 + 0xA0) = 1;
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0xC4);
     if (temp_r3 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3));
-        M2C_FIELD(arg0, u32 *, 0xC4) = 0U;
+        *(u32 *)((s8 *)arg0 + 0xC4) = 0U;
     }
-    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0xC8);
+    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0xC8);
     if (temp_r3_2 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_2));
-        M2C_FIELD(arg0, u32 *, 0xC8) = 0U;
+        *(u32 *)((s8 *)arg0 + 0xC8) = 0U;
     }
-    temp_r3_3 = M2C_FIELD(arg0, u32 *, 0xCC);
+    temp_r3_3 = *(u32 *)((s8 *)arg0 + 0xCC);
     if (temp_r3_3 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_3));
-        M2C_FIELD(arg0, u32 *, 0xCC) = 0U;
+        *(u32 *)((s8 *)arg0 + 0xCC) = 0U;
     }
-    temp_r3_4 = M2C_FIELD(arg0, u32 *, 0xD0);
+    temp_r3_4 = *(u32 *)((s8 *)arg0 + 0xD0);
     if (temp_r3_4 != 0U) {
         queue_destruction__7TObjectFv((int) (temp_r3_4));
-        M2C_FIELD(arg0, u32 *, 0xD0) = 0U;
+        *(u32 *)((s8 *)arg0 + 0xD0) = 0U;
     }
     temp_r3_5 = __nw__7TObjectFUl((int) (0xC8));
     var_r0 = temp_r3_5;
     if (var_r0 != 0U) {
         var_r0 = __ct__20TAdGameStartShadowGCFv((int) (temp_r3_5), (void *) (arg0));
     }
-    M2C_FIELD(arg0, u32 *, 0xC4) = var_r0;
+    *(u32 *)((s8 *)arg0 + 0xC4) = var_r0;
     temp_r3_6 = __nw__7TObjectFUl((int) (0x80));
     var_r0_2 = temp_r3_6;
     if (var_r0_2 != 0U) {
         var_r0_2 = __ct__18TAdGameStartBackGCFv((int) (temp_r3_6), (void *) (arg0));
     }
-    M2C_FIELD(arg0, u32 *, 0xC8) = var_r0_2;
+    *(u32 *)((s8 *)arg0 + 0xC8) = var_r0_2;
     temp_r3_7 = __nw__7TObjectFUl((int) (0x160));
     var_r0_3 = temp_r3_7;
     if (var_r0_3 != 0U) {
         var_r0_3 = __ct__18TAdGameStartLineGCFv((int) (temp_r3_7), (void *) (arg0));
     }
-    M2C_FIELD(arg0, u32 *, 0xCC) = var_r0_3;
+    *(u32 *)((s8 *)arg0 + 0xCC) = var_r0_3;
     temp_r3_8 = __nw__7TObjectFUl((int) (0x80));
     var_r0_4 = temp_r3_8;
     if (var_r0_4 != 0U) {
         var_r0_4 = __ct__19TAdGameStartShineGCFv((int) (temp_r3_8), (void *) (arg0));
     }
-    M2C_FIELD(arg0, u32 *, 0xD0) = var_r0_4;
+    *(u32 *)((s8 *)arg0 + 0xD0) = var_r0_4;
 }
 
 void run_task__14TAdGameStartGCFv(u8 *arg0) {
@@ -268,11 +263,11 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, int, f32);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, int, f32);
+s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D6908;
 
 void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
@@ -280,8 +275,8 @@ void draw_background__17TAdGameStartSubGCFPv(u8 *arg0) {
 
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D6908));
-    set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);
+    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x80) << 0x18) | 0xFF0000 | 0xFFFF));
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
     draw_textured_quad_at_depth((void *) (arg0 + 0x40), (int) (temp_r4), (f32) (((0.01f) * (f32) temp_r4) + (0.8f)));
     get_player__20TWindowSubStatusDispFv();
 }
@@ -292,7 +287,7 @@ extern "C" {
 void run_task__17TAdGameStartSubGCFv(u8 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 get_instance__10TObjPlayerFv(void);
-extern M2C_UNK __vt__17TAdGameStartSubGC[];
+extern s32 __vt__17TAdGameStartSubGC[];
 extern void *lbl_805D3FB0[2];
 extern s32 lbl_805D6908;
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2);
@@ -315,47 +310,47 @@ void run_task__17TAdGameStartSubGCFv(u8 *arg0) {
     f32 temp_f2_4;
     s32 temp_r4;
     s32 var_r0;
-    M2C_FIELD(arg0, s32 *, 0x84) = (s32) (M2C_FIELD(arg0, s32 *, 0x84) + 1);
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x84);
+    *(s32 *)((s8 *)arg0 + 0x84) = (s32) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r4 < 4) {
-        M2C_FIELD(arg0, f32 *, 0x70) = (f32) ((3.0f) - ((0.6666667f) * (f32) temp_r4));
-        M2C_FIELD(arg0, f32 *, 0x74) = (f32) ((3.0f) - ((0.6666667f) * (f32) M2C_FIELD(arg0, s32 *, 0x84)));
+        *(f32 *)((s8 *)arg0 + 0x70) = (f32) ((3.0f) - ((0.6666667f) * (f32) temp_r4));
+        *(f32 *)((s8 *)arg0 + 0x74) = (f32) ((3.0f) - ((0.6666667f) * (f32) *(s32 *)((s8 *)arg0 + 0x84)));
     } else if (temp_r4 > 0x1C) {
-        M2C_FIELD(arg0, f32 *, 0x70) = (f32) ((1.0f) - ((-0.6666667f) * (f32) (temp_r4 - 0x1D)));
-        M2C_FIELD(arg0, f32 *, 0x74) = (f32) ((1.0f) - ((-0.6666667f) * (f32) (M2C_FIELD(arg0, s32 *, 0x84) - 0x1D)));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x84) > 0x1D) {
-            M2C_FIELD(arg0, s32 *, 0x80) = (s32) (M2C_FIELD(arg0, s32 *, 0x80) - 0x55);
+        *(f32 *)((s8 *)arg0 + 0x70) = (f32) ((1.0f) - ((-0.6666667f) * (f32) (temp_r4 - 0x1D)));
+        *(f32 *)((s8 *)arg0 + 0x74) = (f32) ((1.0f) - ((-0.6666667f) * (f32) (*(s32 *)((s8 *)arg0 + 0x84) - 0x1D)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x84) > 0x1D) {
+            *(s32 *)((s8 *)arg0 + 0x80) = (s32) (*(s32 *)((s8 *)arg0 + 0x80) - 0x55);
         }
-        var_r0 = M2C_FIELD(arg0, s32 *, 0x80);
+        var_r0 = *(s32 *)((s8 *)arg0 + 0x80);
         if (var_r0 < 0) {
             var_r0 = 0;
         }
-        M2C_FIELD(arg0, s32 *, 0x80) = var_r0;
+        *(s32 *)((s8 *)arg0 + 0x80) = var_r0;
     }
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((M2C_FIELD(arg0, f32 *, 0x70) * (M2C_FIELD(arg0, f32 *, 0x20) - temp_f2)) + temp_f2);
-    temp_f2_2 = M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x24) - temp_f2_2)) + temp_f2_2);
-    temp_f2_3 = M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) ((M2C_FIELD(arg0, f32 *, 0x70) * (M2C_FIELD(arg0, f32 *, 0x28) - temp_f2_3)) + temp_f2_3);
-    temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x2C) - temp_f2_4)) + temp_f2_4);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x68);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) ((*(f32 *)((s8 *)arg0 + 0x70) * (*(f32 *)((s8 *)arg0 + 0x20) - temp_f2)) + temp_f2);
+    temp_f2_2 = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) ((*(f32 *)((s8 *)arg0 + 0x74) * (*(f32 *)((s8 *)arg0 + 0x24) - temp_f2_2)) + temp_f2_2);
+    temp_f2_3 = *(f32 *)((s8 *)arg0 + 0x68);
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) ((*(f32 *)((s8 *)arg0 + 0x70) * (*(f32 *)((s8 *)arg0 + 0x28) - temp_f2_3)) + temp_f2_3);
+    temp_f2_4 = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x74) * (*(f32 *)((s8 *)arg0 + 0x2C) - temp_f2_4)) + temp_f2_4);
 }
 #pragma pop
 
 #pragma push
 #pragma fp_contract on
-#define F(o) M2C_FIELD(arg0, f32 *, o)
-#define I(o) M2C_FIELD(arg0, s32 *, o)
+#define F(o) (*(f32 *)((s8 *)(arg0) + (o)))
+#define I(o) (*(s32 *)((s8 *)(arg0) + (o)))
 TAdGameStartSubGC::~TAdGameStartSubGC() {}
 u8 *__ct__17TAdGameStartSubGCFv(u8 *arg0, void *arg1, u8 *arg2) {
     s32 t;
     ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdGameStartSubGC;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdGameStartSubGC;
     I(0) = (s32)lbl_805D3FB0[0];
-    I(0x1C) = M2C_FIELD(arg2, s32 *, 0);
+    I(0x1C) = *(s32 *)((s8 *)arg2 + 0);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x60, arg2 + 4);
-    t = M2C_FIELD(arg2, s32 *, 0xC);
+    t = *(s32 *)((s8 *)arg2 + 0xC);
     I(0x7C) = t;
     I(0x84) = -1;
     F(0x70) = (3.0f);
@@ -387,20 +382,20 @@ void __dt__17TAdGameStartSubGCFv();
 void render_shadows__7TObjectFv();
 void *lbl_804E3B60[3] = {(void *)lbl_80472C28, 0, 0};
 __declspec(section ".data") void *texture_f512_multiplay_descriptor[2] = {(void *)lbl_804E3B60, (void *)1};
-M2C_UNK __vt__14TAdGameStartGC[] = {
+s32 __vt__14TAdGameStartGC[] = {
     0, 0,
-    (M2C_UNK)__dt__14TAdGameStartGCFv,
-    (M2C_UNK)run_task__14TAdGameStartGCFv,
-    (M2C_UNK)render__14TAdGameStartGCFv,
-    (M2C_UNK)render_shadows__7TObjectFv,
+    (s32)__dt__14TAdGameStartGCFv,
+    (s32)run_task__14TAdGameStartGCFv,
+    (s32)render__14TAdGameStartGCFv,
+    (s32)render_shadows__7TObjectFv,
     0,
 };
-M2C_UNK __vt__17TAdGameStartSubGC[] = {
+s32 __vt__17TAdGameStartSubGC[] = {
     0, 0,
-    (M2C_UNK)__dt__17TAdGameStartSubGCFv,
-    (M2C_UNK)run_task__17TAdGameStartSubGCFv,
-    (M2C_UNK)render__17TAdGameStartSubGCFv,
-    (M2C_UNK)render_shadows__7TObjectFv,
+    (s32)__dt__17TAdGameStartSubGCFv,
+    (s32)run_task__17TAdGameStartSubGCFv,
+    (s32)render__17TAdGameStartSubGCFv,
+    (s32)render_shadows__7TObjectFv,
 };
 void *ad_game_start_name_ptr[2] = {(void *)lbl_80472C38, 0};
 void *lbl_805D3FB0[2] = {(void *)lbl_80472C48, 0};

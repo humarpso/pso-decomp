@@ -1,15 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK send_6x76_set_entity_set_flags(void *, M2C_UNK);
+s32 send_6x76_set_entity_set_flags(void *, s32);
 
 s32 send_entity_set_flags__6TLobbyFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
         send_6x76_set_entity_set_flags(arg0, 8);
         return 1;
     }
@@ -19,9 +15,9 @@ s32 send_entity_set_flags__6TLobbyFPv(void *arg0) {
 s32 set_flag8__6TLobbyFPv(void *arg0) {
     void *temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, void **, 0x80);
+    temp_r4 = *(void **)((s8 *)arg0 + 0x80);
     if (temp_r4 != NULL) {
-        M2C_FIELD(temp_r4, s16 *, 2) = (s16) (M2C_FIELD(temp_r4, s16 *, 2) | 8);
+        *(s16 *)((s8 *)temp_r4 + 2) = (s16) (*(s16 *)((s8 *)temp_r4 + 2) | 8);
         return 1;
     }
     return 0;
@@ -30,10 +26,7 @@ s32 set_flag8__6TLobbyFPv(void *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase { char pad[0x18]; };
 struct VObj : VBase {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -64,7 +57,7 @@ s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2);
 u8 *construct_enemy_from_set_row(void *);
 u8 *resolve_matching_object__6TLobbyFPv(s32);
 s32 get_object_type__6TLobbyFi(s32);
-M2C_UNK append_wave_member(s32, void *);
+s32 append_wave_member(s32, void *);
 
 extern s32 TLobby__data_805D60FC;
 extern s32 TLobby__data_805D6144;
@@ -85,24 +78,24 @@ s32 spawn_matching_objects__6TLobbyFssi(s16 arg0, s16 arg1, s32 arg2) {
     var_r29 = resolve_matching_object__6TLobbyFPv(TLobby__data_805D60FC);
     temp_r31 = get_object_type__6TLobbyFi(TLobby__data_805D60FC);
     for (var_r28 = 0; var_r28 < temp_r31; var_r28 += 1, var_r29 += 0x48) {
-        temp_r3 = M2C_FIELD(var_r29, s16 *, 2);
-        if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) M2C_FIELD(var_r29, s16 *, 0xC) == arg0) && ((s16) M2C_FIELD(var_r29, s16 *, 0xE) == arg1)) {
+        temp_r3 = *(s16 *)((s8 *)var_r29 + 2);
+        if (!(temp_r3 & 8) && !(temp_r3 & 2) && ((s16) *(s16 *)((s8 *)var_r29 + 0xC) == arg0) && ((s16) *(s16 *)((s8 *)var_r29 + 0xE) == arg1)) {
             temp_r3_2 = construct_enemy_from_set_row(var_r29);
             if (temp_r3_2 != NULL) {
-                M2C_FIELD(var_r29, void **, 0x44) = temp_r3_2;
-                M2C_FIELD(var_r29, s16 *, 2) = (s16) (M2C_FIELD(var_r29, s16 *, 2) | 2);
-                M2C_FIELD(temp_r3_2, s16 *, 0x28) = (s16) M2C_FIELD(var_r29, s16 *, 0xC);
-                M2C_FIELD(temp_r3_2, s16 *, 0x2A) = (s16) M2C_FIELD(var_r29, s16 *, 0xE);
-                M2C_FIELD(temp_r3_2, s16 *, 0x2C) = (s16) M2C_FIELD(var_r29, s16 *, 4);
-                M2C_FIELD(temp_r3_2, void **, 0x80) = var_r29;
-                temp_r0 = M2C_FIELD(temp_r3_2, s16 *, 0x2C);
+                *(void **)((s8 *)var_r29 + 0x44) = temp_r3_2;
+                *(s16 *)((s8 *)var_r29 + 2) = (s16) (*(s16 *)((s8 *)var_r29 + 2) | 2);
+                *(s16 *)((s8 *)temp_r3_2 + 0x28) = (s16) *(s16 *)((s8 *)var_r29 + 0xC);
+                *(s16 *)((s8 *)temp_r3_2 + 0x2A) = (s16) *(s16 *)((s8 *)var_r29 + 0xE);
+                *(s16 *)((s8 *)temp_r3_2 + 0x2C) = (s16) *(s16 *)((s8 *)var_r29 + 4);
+                *(void **)((s8 *)temp_r3_2 + 0x80) = var_r29;
+                temp_r0 = *(s16 *)((s8 *)temp_r3_2 + 0x2C);
                 if (temp_r0 != -1) {
                     ((VObj *)temp_r3_2)->m77(TLobby__data_805D6144 + (temp_r0 * 0xC));
                 }
                 append_wave_member(arg2, temp_r3_2);
                 var_r30 += 1;
             } else {
-                M2C_FIELD(var_r29, void **, 0x44) = NULL;
+                *(void **)((s8 *)var_r29 + 0x44) = NULL;
             }
         }
     }

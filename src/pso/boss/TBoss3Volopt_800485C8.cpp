@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8004885C_lbl_80484888 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -24,7 +20,7 @@ void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_80484888[];
+extern s32 lbl_80484888[];
 extern u8 *tl_07;
 extern const f32 lbl_805D8848;
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1);
@@ -52,11 +48,11 @@ void __dt__7TObjectFv(void *, int);
 
 void TBoss3Volopt__sub_800485C8(void) {  }
 
-extern M2C_UNK lbl_80484870[];
+extern s32 lbl_80484870[];
 
 void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484870;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484870;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -66,17 +62,17 @@ void *dt__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
 }
 
 extern void *tl_05;
-extern M2C_UNK lbl_80484870[];
+extern s32 lbl_80484870[];
 
 void *ct__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0, tl_05);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484870;
-    M2C_FIELD(arg0, void **, 0x1C) = arg1;
-    M2C_FIELD(arg0, void **, 0x20) = arg2;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484870;
+    *(void **)((s8 *)arg0 + 0x1C) = arg1;
+    *(void **)((s8 *)arg0 + 0x20) = arg2;
     return arg0;
 }
 
-extern M2C_UNK lbl_80484888[];
+extern s32 lbl_80484888[];
 
 #pragma push
 #pragma fp_contract on
@@ -84,17 +80,17 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
     Raw_80048674 v;
     s32 ang;
     f32 d;
-    M2C_FIELD(arg0, f32 *, 0x28) += M2C_FIELD(arg0, f32 *, 0x24);
-    while (M2C_FIELD(arg0, f32 *, 0x28) >= lbl_805D8844) {
+    *(f32 *)((s8 *)arg0 + 0x28) += *(f32 *)((s8 *)arg0 + 0x24);
+    while (*(f32 *)((s8 *)arg0 + 0x28) >= lbl_805D8844) {
         ang = lbl_805D8838 * (lbl_805D883C * (lbl_805D8840 * (f32)rand()));
         v = *(Raw_80048674 *)(arg0 + 0x2C);
-        d = M2C_FIELD(arg0, f32 *, 0x44) * (lbl_805D8840 * (f32)rand());
-        M2C_FIELD(&v, f32 *, 0) += d * cos_table_lookup(ang);
-        M2C_FIELD(&v, f32 *, 8) += d * sin_table_lookup(ang);
-        spawn_directional_particle(&v, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x1C));
-        M2C_FIELD(arg0, f32 *, 0x28) -= lbl_805D8844;
+        d = *(f32 *)((s8 *)arg0 + 0x44) * (lbl_805D8840 * (f32)rand());
+        *(f32 *)((s8 *)(&v) + 0) += d * cos_table_lookup(ang);
+        *(f32 *)((s8 *)(&v) + 8) += d * sin_table_lookup(ang);
+        spawn_directional_particle(&v, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x1C));
+        *(f32 *)((s8 *)arg0 + 0x28) -= lbl_805D8844;
     }
-    if (--M2C_FIELD(arg0, s32 *, 0x20) <= 0) {
+    if (--*(s32 *)((s8 *)arg0 + 0x20) <= 0) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -102,7 +98,7 @@ void update_particle_emitter__12TBoss3VoloptFPv(u8 *arg0) {
 
 void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484888;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484888;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -114,25 +110,25 @@ void *TBoss3Volopt__sub_80048804(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8004885C_lbl_80484888_size[sizeof(RecoveredGlobal_8004885C_lbl_80484888) == 0x18 ? 1 : -1];
 u8 *TBoss3Volopt__sub_8004885C(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, u8 *arg4, f32 farg0, f32 farg1) {
     __ct__7TObjectFP7TObject(arg0, tl_07);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8004885C_lbl_80484888 *)&lbl_80484888).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8004885C_lbl_80484888 *)&lbl_80484888).value;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg1);
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = arg3;
-    M2C_FIELD(arg0, f32 *, 0x24) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x20) = arg3;
+    *(f32 *)((s8 *)arg0 + 0x24) = farg0;
     if (arg4 != NULL) {
         copy_xyz__10TObjPlayerFPvPv(arg0 + 0x38, arg4);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x38) = 0;
-        M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-        M2C_FIELD(arg0, s32 *, 0x40) = 0;
+        *(s32 *)((s8 *)arg0 + 0x38) = 0;
+        *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x40) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D8848;
-    M2C_FIELD(arg0, f32 *, 0x44) = farg1;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D8848;
+    *(f32 *)((s8 *)arg0 + 0x44) = farg1;
     return arg0;
 }
 
 void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0) {
-  M2C_UNK (*temp_r12)();
+  s32 (*temp_r12)();
   const f32 *new_var;
   if (!arg0)
   {
@@ -141,7 +137,7 @@ void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0) {
   if ((*((f32 *) (((s8 *) arg0) + 0x1C))) <= (*(new_var = &lbl_805D8854)))
   {
     *((f32 *) (((s8 *) arg0) + 0x1C)) = (f32) (*new_var);
-    temp_r12 = *((M2C_UNK (**)()) (((s8 *) arg0) + 0x24));
+    temp_r12 = *((s32 (**)()) (((s8 *) arg0) + 0x24));
     if (temp_r12 != 0)
     {
       temp_r12();
@@ -157,11 +153,7 @@ void fade_out_and_finish__12TBoss3VoloptFPv(u8 *arg0) {
 }
 
 #pragma pop
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern u32 TBoss3Volopt__fade_active_flag;
 extern const f32 lbl_805D8850;
@@ -180,11 +172,11 @@ void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK lbl_804848A0[];
+extern s32 lbl_804848A0[];
 
 void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804848A0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
         destroy_task_object__12TBoss3VoloptFPvs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -193,11 +185,11 @@ void *TBoss3Volopt__sub_80048988(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804999E8[];
+extern s32 lbl_804999E8[];
 
 void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999E8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999E8;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -208,34 +200,34 @@ void *destroy_task_object__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
 
 extern void *tl_fade;
 extern const f32 lbl_805D8858;
-extern M2C_UNK lbl_804848A0[];
+extern s32 lbl_804848A0[];
 
 void *init_fade_color__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv((void *)(arg0), (void *)(tl_fade));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804848A0;
-    M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805D8858;
-    M2C_FIELD(arg0, u8 *, 0x20) = 255;
-    M2C_FIELD(arg0, u8 *, 0x21) = 255;
-    M2C_FIELD(arg0, u8 *, 0x22) = 255;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848A0;
+    *(void **)((s8 *)arg0 + 0x24) = arg2;
+    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805D8858;
+    *(u8 *)((s8 *)arg0 + 0x20) = 255;
+    *(u8 *)((s8 *)arg0 + 0x21) = 255;
+    *(u8 *)((s8 *)arg0 + 0x22) = 255;
     lbl_805D4D14 = 0;
     return arg0;
 }
 
-extern M2C_UNK lbl_804848B8[];
+extern s32 lbl_804848B8[];
 
 #pragma push
 #pragma opt_common_subs off
 void update_fade_out__12TBoss3VoloptFPv(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) + lbl_805D8850);
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= lbl_805D8858) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D8858;
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) + lbl_805D8850);
+    if (*(f32 *)((s8 *)arg0 + 0x1C) >= lbl_805D8858) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805D8858;
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
         } else {
-            ((M2C_UNK (*)())queue_destruction__7TObjectFv)();
+            ((s32 (*)())queue_destruction__7TObjectFv)();
         }
         (*(s32 *)&TBoss3Volopt__fade_active_flag) = 1;
     }
@@ -244,7 +236,7 @@ void update_fade_out__12TBoss3VoloptFPv(u8 *arg0) {
 
 void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804848B8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
         destroy_task_object__12TBoss3VoloptFPvs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -255,26 +247,26 @@ void *TBoss3Volopt__sub_80048B08(void *arg0, s16 arg1) {
 
 extern void *tl_fade;
 extern const f32 lbl_805D8854;
-extern M2C_UNK lbl_804848B8[];
+extern s32 lbl_804848B8[];
 extern u32 TBoss3Volopt__fade_active_flag;
 
 void *init_fade__12TBoss3VoloptFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv((void *)((void *)(arg0)), (void *)((void *)(tl_fade)));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804848B8;
-    M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805D8854;
-    M2C_FIELD(arg0, u8 *, 0x20) = 255;
-    M2C_FIELD(arg0, u8 *, 0x21) = 255;
-    M2C_FIELD(arg0, u8 *, 0x22) = 255;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804848B8;
+    *(void **)((s8 *)arg0 + 0x24) = arg2;
+    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805D8854;
+    *(u8 *)((s8 *)arg0 + 0x20) = 255;
+    *(u8 *)((s8 *)arg0 + 0x21) = 255;
+    *(u8 *)((s8 *)arg0 + 0x22) = 255;
     TBoss3Volopt__fade_active_flag = 0;
     return arg0;
 }
 
-extern M2C_UNK lbl_804999E8[];
+extern s32 lbl_804999E8[];
 
 void *init_object__12TBoss3VoloptFPvPv(void *arg0, void *) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999E8;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999E8;
     return arg0;
 }
 

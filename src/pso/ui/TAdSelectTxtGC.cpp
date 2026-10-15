@@ -1,10 +1,6 @@
 #include "pso/TAdSelectTxtGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Sel_802A16CC {
     u8 pad0[0xC0];
@@ -88,7 +84,7 @@ void reset_slots__14TAdSelectTxtGCFPvPvPv(Sel_802A16CC *arg0, void *arg1, void *
     init_slot_entries__14TAdSelectTxtGCFPvPvPv((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg1), (void *)(arg2));
 }
 
-extern M2C_UNK __vt__14TAdSelectTxtGC[];
+extern s32 __vt__14TAdSelectTxtGC[];
 extern void *lbl_805D3D88;
 
 void run_task__14TAdSelectTxtGCFv(Sel_802A1740 *arg0) {
@@ -120,8 +116,8 @@ void init_slot_entries__14TAdSelectTxtGCFPvPvPv(Sel_802A1838 *arg0, Src_802A1838
 
 void *__ct__14TAdSelectTxtGCFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TAdSelectTxtGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3D88;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TAdSelectTxtGC;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3D88;
     init_slot_entries__14TAdSelectTxtGCFPvPvPv((Sel_802A1838 *)(arg0), (Src_802A1838 *)(arg2), (void *)(arg3));
     return arg0;
 }

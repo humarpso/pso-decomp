@@ -3,15 +3,12 @@
 TObjNewFloorWin::~TObjNewFloorWin() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 extern "C" {
 s32 is_split_screen(void);
 void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2);
 s32 get_player_by_client_id(u32);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
 u8 *create_new_floor_windows__6TLobbyFi(s32 arg0);
 }
 
@@ -23,18 +20,18 @@ void __ct__7TObjectFP7TObject(void *);
 int close_active_window__11TWindowCtrlFv(void*);
 void set_flag_40__16TAdChrSelASlotGCFPv(void* p);
 
-extern M2C_UNK __vt__15TObjNewFloorWin[];
+extern s32 __vt__15TObjNewFloorWin[];
 extern void *TObjNewFloorWin__class_name;
 
 void *__ct__15TObjNewFloorWinFv(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjNewFloorWin;
-    M2C_FIELD(arg0, void **, 0x0) = TObjNewFloorWin__class_name;
-    M2C_FIELD(arg0, void **, 0x4C) = arg2;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, u32 *, 0x24) = 450;
-    M2C_FIELD(arg0, u32 *, 0x28) = 150;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjNewFloorWin;
+    *(void **)((s8 *)arg0 + 0x0) = TObjNewFloorWin__class_name;
+    *(void **)((s8 *)arg0 + 0x4C) = arg2;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(u32 *)((s8 *)arg0 + 0x24) = 450;
+    *(u32 *)((s8 *)arg0 + 0x28) = 150;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
 

@@ -29,10 +29,7 @@ struct TMedicalCenterMesInput { u8 pad[0x20]; u8 buttons[0x30]; };
 extern "C" TMedicalCenterMesInput controller_input_state[];
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_802163AC { char pad[0x18]; };
 struct VObj_802163AC : Base_802163AC {
     virtual void m0();
@@ -85,7 +82,7 @@ struct VObj_18_a93f07 : VBase_18_a93f07 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+    virtual s32 m4(s32, s32);
 };
 
 struct Stack_80216830
@@ -95,22 +92,22 @@ struct Stack_80216830
 };
 
 struct RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -127,8 +124,8 @@ struct VObj_18_0e2b36 : VBase_18_0e2b36 {
     virtual void m7();
     virtual void m8();
     virtual void m9();
-    virtual M2C_UNK m10();
-    virtual M2C_UNK m11();
+    virtual s32 m10();
+    virtual s32 m11();
 };
 
 struct Base_802164A4 { char pad[0x18]; };
@@ -165,12 +162,12 @@ s32 set_service_counter_camera(void *, int);
 s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC688;
 extern const f32 lbl_805DC68C;
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK close_message_window__13TShopSequenceFPv(void *);
-M2C_UNK __dt__13TShopSequenceFv(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 close_message_window__13TShopSequenceFPv(void *);
+s32 __dt__13TShopSequenceFv(void *, int);
 s32 TShopWindowBase__sub_8022397C(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TWindow__close(u32);
+s32 __dl__7TObjectFPv(void *);
+s32 TWindow__close(u32);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1);
@@ -179,12 +176,12 @@ s32 TShopWindowBase__sub_8022397C(void *);
 extern RecoveredGlobal_802169A8___vt__22TMedicalCenterSequence __vt__22TMedicalCenterSequence;
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 extern s32 TMedicalCenterSequence__class_name;
-u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
+u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 handle_window_input__22TMedicalCenterSequenceFPv(void *arg0);
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0);
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0);
-M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0);
+s32 open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0);
 void TMedicalCenterSequence__vt9(u8 *arg0);
 extern RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90 TMedicalCenterSequence__data_80513E90;
 void clear_window_slots__22TMedicalCenterSequenceFv(void);
@@ -207,25 +204,25 @@ extern "C" {
 
 void TMedicalCenterSequence__vt10(void* p);
 void TMedicalCenterSequence__vt11(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK try_spend_actor_meseta(s32, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 try_spend_actor_meseta(s32, s32);
 s32 are_traps_full__10TObjPlayerFPv(s32);
-M2C_UNK refill_traps__10TObjPlayerFPv(s32);
+s32 refill_traps__10TObjPlayerFPv(s32);
 u32 get_recovery_need_flags__10TObjPlayerFPv(s32);
 int TShopWindowBase__sub_802239EC(void *);
 int TShopWindowBase__sub_80223A48(void *);
 s32 get_selected_menu_value(u32);
-M2C_UNK TWindow__close(u32);
-M2C_UNK close_window__13TShopSequenceFPv(void *);
+s32 TWindow__close(u32);
+s32 close_window__13TShopSequenceFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
 s32 is_alive_and_ready__10TObjPlayerFi(s32);
 s32 is_visible__17TWindowSubComCardFPv(u32);
 s32 obj_getPtr2B0_20(s32);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFPv(void*);
-M2C_UNK send_code50_packet__10TObjPlayerFi(s32);
-M2C_UNK send_code_49_1__10TObjPlayerFi(s32);
-M2C_UNK send_field_state__10TObjPlayerFi(s32);
+s32 send_code50_packet__10TObjPlayerFi(s32);
+s32 send_code_49_1__10TObjPlayerFi(s32);
+s32 send_field_state__10TObjPlayerFi(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 
 void clear_window_slots__22TMedicalCenterSequenceFv(void) {
@@ -244,36 +241,36 @@ void clear_slot_data__22TMedicalCenterSequenceFv(void) {
 
 typedef char RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence_size[sizeof(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence) == 0x38 ? 1 : -1];
 typedef char RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90_size[sizeof(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90) == 0x10 ? 1 : -1];
-u8 *TMedicalCenterSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TMedicalCenterSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence *)&__vt__22TMedicalCenterSequence).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TMedicalCenterSequence__class_name;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80216A70___vt__22TMedicalCenterSequence *)&__vt__22TMedicalCenterSequence).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TMedicalCenterSequence__class_name;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80216A70_TMedicalCenterSequence__data_80513E90 *)&TMedicalCenterSequence__data_80513E90).value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 
 u8 *__dt__22TMedicalCenterSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__22TMedicalCenterSequence.value;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x34));
-            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__22TMedicalCenterSequence.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x34));
+            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
         }
         close_message_window__13TShopSequenceFPv((void *) (arg0));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-            TWindow__close((u32)(M2C_FIELD(arg0, void **, 0x2C)));
-            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+            TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x2C)));
+            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-            TWindow__close((u32)(M2C_FIELD(arg0, void **, 0x30)));
-            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+            TWindow__close((u32)(*(void **)((s8 *)arg0 + 0x30)));
+            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
-        M2C_FIELD(&TMedicalCenterSequence__data_80513E90.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TMedicalCenterSequence__data_80513E90.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -287,7 +284,7 @@ typedef char RecoveredGlobal_802169A8_TMedicalCenterSequence__data_80513E90_size
 
 void TMedicalCenterSequence__vt9(u8 *arg0) {
     u32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
         ((VObj_18_0e2b36 *)(arg0))->m10();
@@ -329,7 +326,7 @@ typedef struct Stack_80216830 Stack_80216830;
 typedef struct VBase_18_a93f07 VBase_18_a93f07;
 typedef struct VObj_18_a93f07 VObj_18_a93f07;
 #define PSO_VCALL_VObj_18_a93f07_m4(_self, _arg0, _arg1) (((VObj_18_a93f07 *)(_self))->m4((_arg0), (_arg1)))
-M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
+s32 open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
   Stack_80216830 stack;
   stack.sp8 = lbl_805DC688;
   stack.spC = lbl_805DC68C;
@@ -343,7 +340,7 @@ M2C_UNK open_greeting_window__22TMedicalCenterSequenceFPv(u8 *arg0) {
 void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
     struct VObj_80216784_802163AC *o = (struct VObj_80216784_802163AC *)arg0;
     if ((o->m8() != 0) && ((TShopWindowBase__sub_80223A48((void *)(arg0)) != 0) || (TShopWindowBase__sub_802239EC((void *)(arg0)) != 0))) {
-        if ((get_recovery_need_flags__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) && (are_traps_full__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x24)) == 0))) {
+        if ((get_recovery_need_flags__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24)) != 0U) || ((is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24)) != 0) && (are_traps_full__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24)) == 0))) {
             set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(7));
             return;
         }
@@ -354,44 +351,44 @@ void handle_confirm__22TMedicalCenterSequenceFPv(void *arg0) {
 void handle_window_result__22TMedicalCenterSequenceFPv(void *arg0) {
     s32 temp_r3;
 
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (is_visible__17TWindowSubComCardFPv((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
-        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x30));
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (is_visible__17TWindowSubComCardFPv((u32) *(u32 *)((s8 *)arg0 + 0x30)) != 0)) {
+        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x30));
         if (temp_r3 == 0) {
-            TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
-            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+            TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
+            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
             set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(4));
             return;
         }
         if (temp_r3 == 1) {
-            TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
-            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+            TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
+            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
             set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(5));
             return;
         }
         goto block_6;
     }
 block_6:
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) && (get_status_flag__17TWindowSubComCardFPv((u32) M2C_FIELD(arg0, u32 *, 0x30)) != 0)) {
-        TWindow__close(M2C_FIELD(arg0, u32 *, 0x30));
-        M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) && (get_status_flag__17TWindowSubComCardFPv((u32) *(u32 *)((s8 *)arg0 + 0x30)) != 0)) {
+        TWindow__close(*(u32 *)((s8 *)arg0 + 0x30));
+        *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(5));
     }
 }
 
 void exec_heal__22TMedicalCenterSequenceFPv(void *arg0) {
-    if (obj_getPtr2B0_20(M2C_FIELD(arg0, s32 *, 0x24)) < 0xA) {
+    if (obj_getPtr2B0_20(*(s32 *)((s8 *)arg0 + 0x24)) < 0xA) {
         ((VObj_802165D8_802163AC *)arg0)->m4(0xF, 1);
         set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
         return;
     }
     play_sound_effect(0x42D08, 0, 0, 0);
-    send_code_49_1__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-    send_code50_packet__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-    if (is_alive_and_ready__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24)) != 0) {
-        refill_traps__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x24));
+    send_code_49_1__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
+    send_code50_packet__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
+    if (is_alive_and_ready__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24)) != 0) {
+        refill_traps__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x24));
     }
-    send_field_state__10TObjPlayerFi(M2C_FIELD(arg0, s32 *, 0x24));
-    try_spend_actor_meseta(M2C_FIELD(arg0, s32 *, 0x24), 0xA);
+    send_field_state__10TObjPlayerFi(*(s32 *)((s8 *)arg0 + 0x24));
+    try_spend_actor_meseta(*(s32 *)((s8 *)arg0 + 0x24), 0xA);
     ((VObj_802165D8_802163AC *)arg0)->m4(0x22, 1);
     set_field_20__12TQuestListVMFPvi((void*)(arg0), (void*)(0xA));
 }
@@ -415,7 +412,7 @@ void show_fee_prompt__22TMedicalCenterSequenceFv(VObj_802164A4 *self) {
     set_field_20__12TQuestListVMFPvi(self, (void *)3);
 }
 
-M2C_UNK handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
+s32 handle_window_input__22TMedicalCenterSequenceFPv(void *arg0) {
     VObj_8021641C_802163AC *o = (VObj_8021641C_802163AC *)arg0;
     if (o->m8() != 0 && (TShopWindowBase__sub_80223A48((void *)((void *)(arg0))) != 0 || TShopWindowBase__sub_802239EC((void *)((void *)(arg0))) != 0)) {
         o->m4(0x22, 1);

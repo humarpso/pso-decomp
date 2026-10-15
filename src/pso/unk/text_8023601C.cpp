@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Stack_8023601C {
     f32 sp8;
     f32 spC;
@@ -11,7 +8,7 @@ struct Stack_8023601C {
 
 extern "C" {
 f32 vec_squared_length(void *, f32);
-M2C_UNK normalize_vector(void *);
+s32 normalize_vector(void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DC88C;
 void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0);
@@ -25,16 +22,16 @@ void offset_point_toward_camera(u8 *arg0, u8 *arg1, f32 farg0) {
     Stack_8023601C stack;
     f32 temp_f1;
     if ((void *) camera_ctrl_instance != NULL) {
-        stack.sp8 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x178) - M2C_FIELD(arg0, f32 *, 0);
-        stack.spC = M2C_FIELD(camera_ctrl_instance, f32 *, 0x17C) - M2C_FIELD(arg0, f32 *, 4);
-        temp_f1 = M2C_FIELD(camera_ctrl_instance, f32 *, 0x180);
-        stack.sp10 = temp_f1 - M2C_FIELD(arg0, f32 *, 8);
+        stack.sp8 = *(f32 *)((s8 *)camera_ctrl_instance + 0x178) - *(f32 *)((s8 *)arg0 + 0);
+        stack.spC = *(f32 *)((s8 *)camera_ctrl_instance + 0x17C) - *(f32 *)((s8 *)arg0 + 4);
+        temp_f1 = *(f32 *)((s8 *)camera_ctrl_instance + 0x180);
+        stack.sp10 = temp_f1 - *(f32 *)((s8 *)arg0 + 8);
         if (lbl_805DC88C != vec_squared_length((void *) (&stack.sp8), (f32) (temp_f1))) {
             normalize_vector((void *) (&stack.sp8));
         }
-        M2C_FIELD(arg1, f32 *, 0) = (f32) ((stack.sp8 * farg0) + M2C_FIELD(arg0, f32 *, 0));
-        M2C_FIELD(arg1, f32 *, 4) = (f32) ((stack.spC * farg0) + M2C_FIELD(arg0, f32 *, 4));
-        M2C_FIELD(arg1, f32 *, 8) = (f32) ((stack.sp10 * farg0) + M2C_FIELD(arg0, f32 *, 8));
+        *(f32 *)((s8 *)arg1 + 0) = (f32) ((stack.sp8 * farg0) + *(f32 *)((s8 *)arg0 + 0));
+        *(f32 *)((s8 *)arg1 + 4) = (f32) ((stack.spC * farg0) + *(f32 *)((s8 *)arg0 + 4));
+        *(f32 *)((s8 *)arg1 + 8) = (f32) ((stack.sp10 * farg0) + *(f32 *)((s8 *)arg0 + 8));
     }
 }
 #pragma pop

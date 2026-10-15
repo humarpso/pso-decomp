@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void *TBoss3VoloptHiraisin__init_param_table[45] = {
@@ -90,13 +86,13 @@ struct VObj_18_345191 : VBase_18_345191 {
     virtual void m54();
     virtual void m55();
     virtual void m56();
-    virtual M2C_UNK m57();
+    virtual s32 m57();
 };
 
 extern "C" {
-M2C_UNK advance_animation_playback(int);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK play_sound_effect(int, void *, int, int, int);
+s32 advance_animation_playback(int);
+s32 refresh_collision_body_centers(void *);
+s32 play_sound_effect(int, void *, int, int, int);
 void fn_80040FDC(u8 *arg0);
 }
 
@@ -104,27 +100,27 @@ extern "C" {
 
 void fn_80040FDC(u8 *arg0) {
     u8 *p;
-    switch (M2C_FIELD(arg0, s32 *, 0x37C)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x37C)) {
     case -1:
         break;
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x388) |= 1;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        *(s32 *)((s8 *)arg0 + 0x388) |= 1;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((void (*)(u8 *))advance_animation_playback)(arg0);
-        M2C_FIELD(arg0, f32 *, 0x3C) = 80.0f;
-        M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000;
-        p = M2C_FIELD(arg0, u8 **, 0xA4);
-        M2C_FIELD(p, s32 *, 0x18) |= 4;
-        p = M2C_FIELD(arg0, u8 **, 0xA4);
-        M2C_FIELD(p, s32 *, 0x18) &= ~2;
+        *(f32 *)((s8 *)arg0 + 0x3C) = 80.0f;
+        *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000;
+        p = *(u8 **)((s8 *)arg0 + 0xA4);
+        *(s32 *)((s8 *)p + 0x18) |= 4;
+        p = *(u8 **)((s8 *)arg0 + 0xA4);
+        *(s32 *)((s8 *)p + 0x18) &= ~2;
         ((void (*)(int, void *, int, int))play_sound_effect)(0x4003A306, arg0 + 0x38, 0, 0);
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
-        M2C_FIELD(arg0, f32 *, 0x3C) -= 0.5f;
-        if (M2C_FIELD(arg0, f32 *, 0x3C) <= 50.0f) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = 50.0f;
-            M2C_FIELD(arg0, s32 *, 0x388) &= ~1;
-            M2C_FIELD(arg0, s32 *, 0x30) &= ~0x40000;
+        *(f32 *)((s8 *)arg0 + 0x3C) -= 0.5f;
+        if (*(f32 *)((s8 *)arg0 + 0x3C) <= 50.0f) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = 50.0f;
+            *(s32 *)((s8 *)arg0 + 0x388) &= ~1;
+            *(s32 *)((s8 *)arg0 + 0x30) &= ~0x40000;
             ((VObj_18_345191 *)(arg0))->m57();
         }
         break;
@@ -133,8 +129,8 @@ void fn_80040FDC(u8 *arg0) {
 }
 
 }
-#define play_sound_effect ((M2C_UNK (*)(M2C_UNK, void *, M2C_UNK, M2C_UNK))play_sound_effect)
-#define TBoss3VoloptHiraisin__init_param_table ((M2C_UNK *)TBoss3VoloptHiraisin__init_param_table)
+#define play_sound_effect ((s32 (*)(s32, void *, s32, s32))play_sound_effect)
+#define TBoss3VoloptHiraisin__init_param_table ((s32 *)TBoss3VoloptHiraisin__init_param_table)
 
 #include <stddef.h>
 struct VBase_18_26a62c { char pad[0x18]; };
@@ -199,7 +195,7 @@ typedef struct Hira_800411F0 {
 } Hira_800411F0;
 
 extern "C" {
-s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
+s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(int, int);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 toggle_particle_effect__10TObjPlayerFv();
@@ -231,24 +227,24 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self);
 extern "C" {
 
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0);
-s32 TObjFish__sub_8001EDB0(s32, M2C_UNK);
-M2C_UNK TObjEnemyCustom__sub_800C7860(void *, s32);
-M2C_UNK create_breakup_mdl__12TBoss3VoloptFiiiii(s32, M2C_UNK *, s32, void *, s32);
-M2C_UNK trigger_dell_biter_events__10TObjPlayerFPv(void *);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 TObjEnemyCustom__sub_800C7860(void *, s32);
+s32 create_breakup_mdl__12TBoss3VoloptFiiiii(s32, s32 *, s32, void *, s32);
+s32 trigger_dell_biter_events__10TObjPlayerFPv(void *);
 
 void start_attack__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     s16 temp_r4;
     s32 temp_r4_2;
 
-    create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptHiraisin__breakup_model, TBoss3VoloptHiraisin__init_param_table, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10), arg0 + 0x2FC, M2C_FIELD(arg0, s32 *, 0x60));
+    create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptHiraisin__breakup_model, TBoss3VoloptHiraisin__init_param_table, TObjFish__sub_8001EDB0(TBoss3VoloptHiraisin__resource_bundle, 0x10), arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
     trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
     play_sound_effect(0x4001C112, arg0 + 0x38, 0, 0);
-    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8);
-    M2C_FIELD(arg0, s16 *, 0x33E) = temp_r4;
-    M2C_FIELD(arg0, s16 *, 0x32C) = temp_r4;
-    temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (temp_r4_2 & ~0xA00);
+    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8);
+    *(s16 *)((s8 *)arg0 + 0x33E) = temp_r4;
+    *(s16 *)((s8 *)arg0 + 0x32C) = temp_r4;
+    temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (temp_r4_2 & ~0xA00);
     TObjEnemyCustom__sub_800C7860(arg0, temp_r4_2);
 }
 #pragma push
@@ -294,7 +290,7 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
             self->state = 2;
             self->sub->flags &= ~4;
             self->sub->flags |= 2;
-            play_sound_effect((M2C_UNK)(0x4003A808), (void *)(&self->x), (M2C_UNK)(0), (M2C_UNK)(0));
+            play_sound_effect((s32)(0x4003A808), (void *)(&self->x), (s32)(0), (s32)(0));
         }
         break;
     case 2:
@@ -313,20 +309,20 @@ void update_drop__20TBoss3VoloptHiraisinFPv(Hira_800411F0 *self) {
 
 void TBoss3VoloptHiraisin__sub_80041314(void *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
     case -1:
         break;
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFDFFFFF);
-        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFDFFFFF);
+        *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
         advance_animation_playback(arg0);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xB4) != 8U) {
-            M2C_FIELD(arg0, s16 *, 0x33E) = (s16) M2C_FIELD(arg0, s16 *, 0x32C);
-            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFFFDFF);
-            M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xB4) != 8U) {
+            *(s16 *)((s8 *)arg0 + 0x33E) = (s16) *(s16 *)((s8 *)arg0 + 0x32C);
+            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFFFDFF);
+            *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
             ((VObj18*)arg0)->m57();
         }
         break;
@@ -364,7 +360,7 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
             temp_f31 = (1.0f) - ((0.02202643f) * (((RecoveredFields_800413C8_arg0 *)arg0)->field_3C - (4.6f)));
             translate_matrix((int) (0), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_38), (f32) ((4.5f)), (f32) (((RecoveredFields_800413C8_arg0 *)arg0)->field_40));
             scale_matrix((int) (0), (f32) (temp_f31), (f32) (temp_f31), (f32) (temp_f31));
-            set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), (M2C_UNK)((int) (0)))));
+            set_global_param__8TObjFishFi((int) (TObjFish__sub_8001EDB0((s32)((int) (TBoss3VoloptHiraisin__resource_bundle)), (s32)((int) (0)))));
             draw_chunk_object((int) (get_bml_model((int) (TBoss3VoloptHiraisin__resource_bundle), (int) (0))));
             pop_matrix();
         }
@@ -376,11 +372,11 @@ void render__20TBoss3VoloptHiraisinFv(u8 *arg0) {
 #undef play_sound_effect
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef advance_animation_playback
-#define copy_position__20TBoss3VoloptHiraisinFi ((M2C_UNK (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
-#define TBoss3VoloptHiraisin__sub_8004118C ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_8004118C)
-#define update_drop__20TBoss3VoloptHiraisinFPv ((M2C_UNK (*)())update_drop__20TBoss3VoloptHiraisinFPv)
-#define TBoss3VoloptHiraisin__sub_80041314 ((M2C_UNK (*)())TBoss3VoloptHiraisin__sub_80041314)
-#define fn_80040FDC ((M2C_UNK (*)())fn_80040FDC)
+#define copy_position__20TBoss3VoloptHiraisinFi ((s32 (*)(void *))copy_position__20TBoss3VoloptHiraisinFi)
+#define TBoss3VoloptHiraisin__sub_8004118C ((s32 (*)())TBoss3VoloptHiraisin__sub_8004118C)
+#define update_drop__20TBoss3VoloptHiraisinFPv ((s32 (*)())update_drop__20TBoss3VoloptHiraisinFPv)
+#define TBoss3VoloptHiraisin__sub_80041314 ((s32 (*)())TBoss3VoloptHiraisin__sub_80041314)
+#define fn_80040FDC ((s32 (*)())fn_80040FDC)
 #define TBoss3VoloptHiraisin__breakup_model (*(void **)&TBoss3VoloptHiraisin__breakup_model)
 
 struct Base_8004172C_8004155C { char pad[0xC]; };
@@ -447,23 +443,23 @@ struct VObj_18_6fcf4f : VBase_18_6fcf4f {
     virtual void m50();
     virtual void m51();
     virtual void m52();
-    virtual M2C_UNK m53(s32, void *);
+    virtual s32 m53(s32, void *);
     virtual void m54();
     virtual void m55();
     virtual void m56();
     virtual void m57();
     virtual void m58();
     virtual void m59();
-    virtual M2C_UNK m60();
-    virtual M2C_UNK m61();
+    virtual s32 m60();
+    virtual s32 m61();
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK submit_cursor_candidate(void *, int);
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 submit_cursor_candidate(void *, int);
+s32 minimap_render_dot(void *, int, int, int);
 extern u8 *lbl_805D4C84;
 void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0);
 }
@@ -476,7 +472,7 @@ void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     case 0:
     case 1:
@@ -559,7 +555,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #undef TBoss3VoloptHiraisin__sub_80041314
 #undef fn_80040FDC
 #undef TBoss3VoloptHiraisin__breakup_model
-#define __vt__20TBoss3VoloptHiraisin ((M2C_UNK *)__vt__20TBoss3VoloptHiraisin)
+#define __vt__20TBoss3VoloptHiraisin ((s32 *)__vt__20TBoss3VoloptHiraisin)
 #define VecCopy__FP3VecPC3Vec ((int (*)(s32, s32))VecCopy__FP3VecPC3Vec)
 #define TObjEnemyCustom__sub_800C7860 ((void (*)(void *))TObjEnemyCustom__sub_800C7860)
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
@@ -649,7 +645,7 @@ struct VObj_18_8712ff : VBase_18_8712ff {
     virtual void m58();
     virtual void m59();
     virtual void m60();
-    virtual M2C_UNK m61();
+    virtual s32 m61();
 };
 
 #include <stddef.h>
@@ -741,11 +737,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -837,7 +833,7 @@ s32 spawn_particle_effect(void *, int);
 void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0);
 s32 TObjEnemyCustom__ct(void *);
 extern s32 lbl_805D2738;
-u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2);
 void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i);
 void TBoss3VoloptHiraisin__sub_80041D0C(O_80041D0C *self);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
@@ -871,17 +867,17 @@ void init_models__20TBoss3VoloptHiraisinFv(void);
 void update_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
 void free_collision_body_parts(void *);
-#define get_bml_model ((s32 (*)(s32, M2C_UNK))get_bml_model)
+#define get_bml_model ((s32 (*)(s32, s32))get_bml_model)
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void *__nw__7TObjectFUl(int);
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 *collect_and_count__12TBoss3VoloptFUii(M2C_UNK, M2C_UNK);
-s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
-s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
-M2C_UNK link_photon__10TObjPlayerFUs(u16, M2C_UNK);
-s32 register_boss__6TLobbyFPv(M2C_UNK);
-s32 register_object__6TLobbyFPv(M2C_UNK);
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 link_photon__10TObjPlayerFUs(u16, s32);
+s32 register_boss__6TLobbyFPv(s32);
+s32 register_object__6TLobbyFPv(s32);
 
 extern s32 boss3_volopt_resources;
 
@@ -909,14 +905,14 @@ extern void *tl_04;
 void *create__20TBoss3VoloptHiraisinFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x390);
     if (o != NULL) {
-        o = TBoss3VoloptHiraisin__sub_80041AA0((u8 *)(o), (M2C_UNK)(tl_04), (s32)(arg0));
+        o = TBoss3VoloptHiraisin__sub_80041AA0((u8 *)(o), (s32)(tl_04), (s32)(arg0));
     }
     return o;
 }
 
 void *__dt__20TBoss3VoloptHiraisinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TBoss3VoloptHiraisin;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss3VoloptHiraisin;
         free_collision_body_parts(arg0);
         __dt__15TObjEnemyCustomFv(arg0, 0);
         if (arg1 > 0) {
@@ -975,10 +971,10 @@ S_80041A08 *TBoss3VoloptHiraisin__ct(S_80041A08 *o, S_80041A08 *src, s16 a, s16 
 }
 
 typedef char RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin_size[sizeof(RecoveredGlobal_80041AA0___vt__20TBoss3VoloptHiraisin) == 0x14C ? 1 : -1];
-u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TBoss3VoloptHiraisin__sub_80041AA0(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEnemyCustom__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TBoss3VoloptHiraisin;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2738;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TBoss3VoloptHiraisin;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2738;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_params__20TBoss3VoloptHiraisinFPv((Hira_800418C8 *)((void *) (arg0)));
     return arg0;
@@ -996,7 +992,7 @@ void load_params_from_table__20TBoss3VoloptHiraisinFPvi(O_80041B34 *self, s32 i)
 }
 
 void set_hit_flags_and_notify__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) | 0x40000);
+    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) | 0x40000);
     obj_setFlags30(arg0, 0x800U);
     ((VObj_18_8712ff *)(arg0))->m61();
 }
@@ -1007,15 +1003,15 @@ void spawn_effects__20TBoss3VoloptHiraisinFPv(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80041BB4, sp10) == 0x8) ? 1 : -1];
     Stack_80041BB4 stack;
     stack.sp8 = 0;
-    stack.spC = M2C_FIELD(arg0, s32 *, 0x60);
+    stack.spC = *(s32 *)((s8 *)arg0 + 0x60);
     stack.sp10 = 0;
-    spawn_directional_particle((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(M2C_FIELD(arg0, s16 *, 0x38C) & 3) >> 5) + 0x61));
+    spawn_directional_particle((void *) (arg0 + 0x2FC), (void *) (&stack.sp8), (int) (((u32)__cntlzw(*(s16 *)((s8 *)arg0 + 0x38C) & 3) >> 5) + 0x61));
     spawn_particle_effect((void *) (arg0 + 0x2FC), (int) (0x45));
 }
 
 void damage_player_if_aligned__20TBoss3VoloptHiraisinFPv(void *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x388) & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) M2C_FIELD(arg0, s16 *, 0x38C) / 4))) {
-        link_photon__10TObjPlayerFUs(M2C_FIELD(arg0, u16 *, 0x2D4), 0);
+    if (!(*(s32 *)((s8 *)arg0 + 0x388) & 0x40000) && ((s32) vol_opt_active_hit_zone >= 0) && ((s32) ((s32) vol_opt_active_hit_zone / 4) == (s32) ((s16) *(s16 *)((s8 *)arg0 + 0x38C) / 4))) {
+        link_photon__10TObjPlayerFUs(*(u16 *)((s8 *)arg0 + 0x2D4), 0);
     }
 }
 
@@ -1023,21 +1019,21 @@ void update_state__20TBoss3VoloptHiraisinFPv(void *arg0) {
     s16 temp_r4;
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02040000);
-        M2C_FIELD(arg0, s32 *, 0x37C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02040000);
+        *(s32 *)((s8 *)arg0 + 0x37C) = 1;
     case 1:
-        temp_r4 = M2C_FIELD(arg0, s16 *, 0x33C);
+        temp_r4 = *(s16 *)((s8 *)arg0 + 0x33C);
         temp_r4 -= 1;
-        M2C_FIELD(arg0, s16 *, 0x33C) = temp_r4;
+        *(s16 *)((s8 *)arg0 + 0x33C) = temp_r4;
         if (temp_r4 <= 0) {
             ((VObj_80041C78_80041770 *)arg0)->m57();
         }
         break;
     case -1:
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFBFFFF);
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFDFBFFFF);
         break;
     }
 }

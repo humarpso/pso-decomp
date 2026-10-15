@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" const u8 dimedian_sl_body_model_filename[20] = "df3_sl_wala_body.nj";
 extern "C" const u8 dimedian_ssl_body_model_filename[24] = "df3_ssl_wala_body.nj";
@@ -47,8 +43,8 @@ struct VObj_18_c99286 : VBase_18_c99286 {
     virtual void m65(); virtual void m66(); virtual void m67(); virtual void m68(); virtual void m69();
     virtual void m70(); virtual void m71(); virtual void m72(); virtual void m73(); virtual void m74();
     virtual void m75(); virtual void m76(); virtual void m77(); virtual void m78();
-    virtual M2C_UNK m79(s32);
-    virtual M2C_UNK m80();
+    virtual s32 m79(s32);
+    virtual s32 m80();
 };
 
 struct Anim_800A8118 { s32 motions; void *actions; s32 initial_action; s32 counts; };
@@ -371,13 +367,11 @@ void free_boss_objects__15TObjEneDimedianFv(void) {
 #define dimedian_type3_object (*(void **)&dimedian_type3_object)
 #define lbl_805D5088 (*(void **)&lbl_805D5088)
 
-#undef M2C_FIELD
-#define M2C_FIELD(expr, type, offset) (*(type *)((s8 *)(expr) + (offset)))
 #define RES_800A8118 ((Res_800A8118 *)dimedian_resource_ptr)
 #define dimedian_resource_descriptor ((u8 *)dimedian_resource_descriptor)
 #define dimedian_action_table ((Act_800A8118 *)dimedian_action_table)
 #define dimedian_collision_body_table ((Part_800A8118 *)dimedian_collision_body_table)
-#define CHAIN_800A8118(p) M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, u8 *, 0x2C), u8 *, 0x30), u8 *, 0x30), u8 *, 4), s32, 4)
+#define CHAIN_800A8118(p) (*(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)(p) + 0x2C)) + 0x30)) + 0x30)) + 4)) + 4))
 
 void load_dimedian_resources__6TLobbyFv(void) {
     u8 *r;
@@ -392,10 +386,10 @@ void load_dimedian_resources__6TLobbyFv(void) {
         }
         dimedian_resource_ptr = (u8 *)p;
     }
-    r = M2C_FIELD(dimedian_resource_ptr, u8 *, 0x42C);
-    lbl_80500988[0] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x8));
-    lbl_80500988[1] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x18));
-    lbl_80500988[2] = CHAIN_800A8118(M2C_FIELD(r, u8 *, 0x28));
+    r = *(u8 **)((s8 *)dimedian_resource_ptr + 0x42C);
+    lbl_80500988[0] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x8));
+    lbl_80500988[1] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x18));
+    lbl_80500988[2] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x28));
     lbl_80500994[0] = 0;
     lbl_80500994[1] = 0;
     lbl_80500994[2] = 0;
@@ -433,8 +427,8 @@ void load_dimedian_resources__6TLobbyFv(void) {
         s16 ids[3] = { 0x1B, 0x1C, 0x1D };
         Anim_800A8118 anim = { (s32)RES_800A8118->motions, dimedian_action_table, 2, 0xC0000 };
         for (i = 0; i < 3; i++) {
-            u8 *b = M2C_FIELD(dimedian_resource_ptr, u8 *, 0x42C) + i * 0x10;
-            spawn_npc_enemy__6TLobbyFsiiiff(ids[i], M2C_FIELD(b, s32, 8), M2C_FIELD(b, s32, 0xC), &anim,
+            u8 *b = *(u8 **)((s8 *)dimedian_resource_ptr + 0x42C) + i * 0x10;
+            spawn_npc_enemy__6TLobbyFsiiiff(ids[i], *(s32 *)((s8 *)b + 8), *(s32 *)((s8 *)b + 0xC), &anim,
                 dimedian_collision_body_table[i].radius, lbl_805D9AC4);
         }
     }
@@ -444,8 +438,7 @@ void load_dimedian_resources__6TLobbyFv(void) {
 #undef dimedian_resource_descriptor
 #undef dimedian_action_table
 #undef dimedian_collision_body_table
-#undef M2C_FIELD
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 O_800A846C *TObjPlayer__sub_800A846C(O_800A846C *arg0, s16 arg1) {
     s32 i;
     if (arg0 != NULL) {
@@ -479,43 +472,43 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
     s32 color;
     s32 i;
     ((void (*)(void *, s32, s32))init_enemy_base__10TObjPlayerFPv)(arg0, arg1, arg2);
-    M2C_FIELD(arg0, u8 **, 0x18) = __vt__15TObjEneDimedian;
+    *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TObjEneDimedian;
     init_vtable_and_field18__10TObjPlayerFPv(arg0 + 0x3A8);
     __construct_array(arg0 + 0x3CC, (void *)&init_and_activate__10TObjPlayerFPv, (void *)&TObjPlayer__sub_800D7C58, 0x1C, 4);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D29F0;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D29F0;
     ((VObj_18_c99286 *)arg0)->m79(arg2);
     init_position_vectors__10TObjPlayerFi(arg0);
-    M2C_FIELD(arg0, s32 *, 0x334) = M2C_FIELD(arg0, s32 *, 0x368);
+    *(s32 *)((s8 *)arg0 + 0x334) = *(s32 *)((s8 *)arg0 + 0x368);
     TObjPlayer__sub_800A7B54(arg0);
-    load_dimedian_param_entry(arg0, M2C_FIELD(arg0, s32 *, 0x368));
-    M2C_FIELD(arg0, u8 **, 0xD8) = dimedian_action_table;
-    set_field_d8__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, u8 **, 0xD8));
-    M2C_FIELD(arg0, s32 *, 0xDC) = M2C_FIELD(dimedian_resource_ptr, s32 *, 0x430);
-    M2C_FIELD(arg0, s16 *, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    init_collision_body_parts(arg0, dimedian_collision_body_table + M2C_FIELD(arg0, s32 *, 0x334) * 0x2C, 1);
-    bind_enemy_combat_stats(arg0, dimedian_boss_object_buf[M2C_FIELD(arg0, s32 *, 0x334)],
-        lbl_805D5074[M2C_FIELD(arg0, s32 *, 0x334)], TObjEneDimedian__boss_objects[M2C_FIELD(arg0, s32 *, 0x334)]);
-    M2C_FIELD(arg0, u8 **, 0x350) = dimedian_movement_params + M2C_FIELD(arg0, s32 *, 0x334) * 0x1C;
-    M2C_FIELD(arg0, s16 *, 0x33E) = M2C_FIELD(arg0, s16 *, 0x32C);
+    load_dimedian_param_entry(arg0, *(s32 *)((s8 *)arg0 + 0x368));
+    *(u8 **)((s8 *)arg0 + 0xD8) = dimedian_action_table;
+    set_field_d8__10TObjPlayerFPvi(arg0, *(u8 **)((s8 *)arg0 + 0xD8));
+    *(s32 *)((s8 *)arg0 + 0xDC) = *(s32 *)((s8 *)dimedian_resource_ptr + 0x430);
+    *(s16 *)((s8 *)arg0 + 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    init_collision_body_parts(arg0, dimedian_collision_body_table + *(s32 *)((s8 *)arg0 + 0x334) * 0x2C, 1);
+    bind_enemy_combat_stats(arg0, dimedian_boss_object_buf[*(s32 *)((s8 *)arg0 + 0x334)],
+        lbl_805D5074[*(s32 *)((s8 *)arg0 + 0x334)], TObjEneDimedian__boss_objects[*(s32 *)((s8 *)arg0 + 0x334)]);
+    *(u8 **)((s8 *)arg0 + 0x350) = dimedian_movement_params + *(s32 *)((s8 *)arg0 + 0x334) * 0x1C;
+    *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);
     copy_position__20TBoss3VoloptHiraisinFi(arg0);
     initialize_enemy_photon_effect(arg0);
     f = lbl_805D9ACC * calc_boss4_scale__10TObjPlayerFi(arg0);
-    M2C_FIELD(arg0, s32 *, 0x2AC) = (s32)(lbl_805D9AC8 * f);
-    M2C_FIELD(arg0, s16 *, 0x33A) = 0xF;
-    M2C_FIELD(arg0, s16 *, 0x33C) = M2C_FIELD(arg0, s16 *, 0x33A);
-    M2C_FIELD(arg0, s16 *, 0x328) = 0;
-    M2C_FIELD(arg0, s16 *, 0x374) = 0;
-    M2C_FIELD(arg0, s16 *, 0x376) = 0;
-    M2C_FIELD(arg0, s32 *, 0x378) = 0;
-    M2C_FIELD(arg0, s32 *, 0x37C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2AC) = (s32)(lbl_805D9AC8 * f);
+    *(s16 *)((s8 *)arg0 + 0x33A) = 0xF;
+    *(s16 *)((s8 *)arg0 + 0x33C) = *(s16 *)((s8 *)arg0 + 0x33A);
+    *(s16 *)((s8 *)arg0 + 0x328) = 0;
+    *(s16 *)((s8 *)arg0 + 0x374) = 0;
+    *(s16 *)((s8 *)arg0 + 0x376) = 0;
+    *(s32 *)((s8 *)arg0 + 0x378) = 0;
+    *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     add_flags_2e4__10TObjPlayerFPvUi(arg0, 8);
-    M2C_FIELD(arg0, u32 *, 0x30) |= 0x40000;
-    M2C_FIELD(arg0, f32 *, 0x388) = lbl_805D9AD0;
+    *(u32 *)((s8 *)arg0 + 0x30) |= 0x40000;
+    *(f32 *)((s8 *)arg0 + 0x388) = lbl_805D9AD0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        switch (M2C_FIELD(arg0, s32 *, 0x334)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x334)) {
         case 0:
         default:
             color = 0xFF20FF20;
@@ -528,7 +521,7 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
             break;
         }
     } else {
-        switch (M2C_FIELD(arg0, s32 *, 0x334)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x334)) {
         default:
             color = 0xFF0000FF;
             break;
@@ -540,13 +533,13 @@ void *TObjEneDimedian__ct(void *arg0_, void *arg1_, void *arg2_) {
             break;
         }
     }
-    M2C_FIELD(arg0, s32 *, 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, color);
-    M2C_FIELD(arg0, s32 *, 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, color);
-    M2C_FIELD(arg0, s32 *, 0x390) = 1;
-    M2C_FIELD(arg0, f32 *, 0x398) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][0];
-    M2C_FIELD(arg0, f32 *, 0x3A0) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][1];
-    M2C_FIELD(arg0, f32 *, 0x39C) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][2];
-    M2C_FIELD(arg0, f32 *, 0x3A4) = ((f32 **)dimedian_buffer_ptr)[M2C_FIELD(arg0, s32 *, 0x334)][3];
+    *(s32 *)((s8 *)arg0 + 0x3C4) = create__12TObjEneSaverFPvPv(0xA0303030, color);
+    *(s32 *)((s8 *)arg0 + 0x3C8) = create__12TObjEneSaverFPvPv(0xA0303030, color);
+    *(s32 *)((s8 *)arg0 + 0x390) = 1;
+    *(f32 *)((s8 *)arg0 + 0x398) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][0];
+    *(f32 *)((s8 *)arg0 + 0x3A0) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][1];
+    *(f32 *)((s8 *)arg0 + 0x39C) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][2];
+    *(f32 *)((s8 *)arg0 + 0x3A4) = ((f32 **)dimedian_buffer_ptr)[*(s32 *)((s8 *)arg0 + 0x334)][3];
     for (i = 0; i < 4; i++) {
         activate_and_dispatch__10TObjPlayerFPv(&((Self_800A8530 *)arg0)->subs[i]);
     }

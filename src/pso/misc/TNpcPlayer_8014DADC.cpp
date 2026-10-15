@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Msg_8014DC5C { s16 hdr; s16 type; s16 angle; s16 flag; };
 
@@ -18,8 +14,8 @@ struct Self_8014DC5C {
 
 extern "C" {
 u32 get_npc_state__10TNpcPlayerFPv(s32);
-M2C_UNK npc_counter_reset_if_reached(void *, M2C_UNK, M2C_UNK);
-M2C_UNK set_partner_counter(void *, M2C_UNK, M2C_UNK);
+s32 npc_counter_reset_if_reached(void *, s32, s32);
+s32 set_partner_counter(void *, s32, s32);
 u32 TNpcPlayer__sub_80152978(s32);
 void partner_request_physical_attack(u8 *arg0);
 u8 *find_active_entity_by_id(s32);
@@ -50,35 +46,35 @@ void TNpcPlayer__sub_8014DC30(void);
 int TNpcPlayer__sub_8014DC3C(void* p);
 void init_equipment__10TNpcPlayerFPv(void *arg0);
 int request_technique_cast__10TNpcPlayerFPvi(void*);
-M2C_UNK set_technique_seed_level(s32, M2C_UNK, u8);
-M2C_UNK clamp_and_set_unit_value__10TObjPlayerFiUci(s32, u8, M2C_UNK);
+s32 set_technique_seed_level(s32, s32, u8);
+s32 clamp_and_set_unit_value__10TObjPlayerFiUci(s32, u8, s32);
 
 void init_equipment__10TNpcPlayerFPv(void *arg0) {
     s32 temp_r31;
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x34);
-    temp_r31 = M2C_FIELD(M2C_FIELD(arg0, void **, 0x78), s32 *, 0x94);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x34);
+    temp_r31 = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x78)) + 0x94);
     if (temp_r4 & 4) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 0);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 1);
-        set_technique_seed_level(temp_r31 + 0x428, 0, M2C_FIELD(arg0, u8 *, 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 1, M2C_FIELD(arg0, u8 *, 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 0);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 1);
+        set_technique_seed_level(temp_r31 + 0x428, 0, *(u8 *)((s8 *)arg0 + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 1, *(u8 *)((s8 *)arg0 + 0x50));
     } else if (temp_r4 & 8) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 3);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 4);
-        set_technique_seed_level(temp_r31 + 0x428, 3, M2C_FIELD(arg0, u8 *, 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 4, M2C_FIELD(arg0, u8 *, 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 3);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 4);
+        set_technique_seed_level(temp_r31 + 0x428, 3, *(u8 *)((s8 *)arg0 + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 4, *(u8 *)((s8 *)arg0 + 0x50));
     } else if (temp_r4 & 0x10) {
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 6);
-        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x50), 8);
-        set_technique_seed_level(temp_r31 + 0x428, 6, M2C_FIELD(arg0, u8 *, 0x50));
-        set_technique_seed_level(temp_r31 + 0x428, 8, M2C_FIELD(arg0, u8 *, 0x50));
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 6);
+        clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x50), 8);
+        set_technique_seed_level(temp_r31 + 0x428, 6, *(u8 *)((s8 *)arg0 + 0x50));
+        set_technique_seed_level(temp_r31 + 0x428, 8, *(u8 *)((s8 *)arg0 + 0x50));
     }
-    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0xF);
-    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, M2C_FIELD(arg0, u8 *, 0x51), 0x10);
-    set_technique_seed_level(temp_r31 + 0x428, 0xF, M2C_FIELD(arg0, u8 *, 0x51));
-    set_technique_seed_level(temp_r31 + 0x428, 0x10, M2C_FIELD(arg0, u8 *, 0x51));
+    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x51), 0xF);
+    clamp_and_set_unit_value__10TObjPlayerFiUci(temp_r31, *(u8 *)((s8 *)arg0 + 0x51), 0x10);
+    set_technique_seed_level(temp_r31 + 0x428, 0xF, *(u8 *)((s8 *)arg0 + 0x51));
+    set_technique_seed_level(temp_r31 + 0x428, 0x10, *(u8 *)((s8 *)arg0 + 0x51));
 }
 
     extern int TNpcPlayer__data_805D5864;
@@ -154,8 +150,8 @@ void send_partner_attack_stage_request(Self_8014DC5C *self) {
 void partner_request_physical_attack(u8 *arg0) {
     u32 temp_r31;
     u32 temp_r3;
-    temp_r31 = TNpcPlayer__sub_80152978(M2C_FIELD(arg0, s32 *, 0x78));
-    temp_r3 = get_npc_state__10TNpcPlayerFPv(M2C_FIELD(arg0, s32 *, 0x78));
+    temp_r31 = TNpcPlayer__sub_80152978(*(s32 *)((s8 *)arg0 + 0x78));
+    temp_r3 = get_npc_state__10TNpcPlayerFPv(*(s32 *)((s8 *)arg0 + 0x78));
     if (temp_r3 != temp_r31) {
         set_partner_counter(arg0 + 0x5C, 1, 0);
     }

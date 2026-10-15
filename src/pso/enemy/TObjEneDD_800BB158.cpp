@@ -1,10 +1,6 @@
 #include <dolphin/mtx.h>
 #include "types.h"
 #pragma fp_contract on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_800BB218
 {
@@ -27,21 +23,21 @@ u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1);
 extern "C" {
 
 void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *, s32);
 
 void calc_shot_position__9TObjEneDDFPvPvfff(u8 *arg0, u8 *arg1, f32 farg0, f32 farg1, f32 farg2) {
     s32 temp_r5;
 
-    f32 temp_f3 = farg2 + M2C_FIELD(arg0, f32 *, 0x37C);
+    f32 temp_f3 = farg2 + *(f32 *)((s8 *)arg0 + 0x37C);
     if (enemy_probe_wall_ahead((u8 *)(arg0), farg0, farg1, temp_f3) == 0U) {
-        M2C_FIELD(arg1, f32 *, 0) = (f32) ((farg0 * farg2) + M2C_FIELD(arg0, f32 *, 0x38));
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) ((farg1 * farg2) + M2C_FIELD(arg0, f32 *, 0x40));
-        M2C_FIELD(arg0, s32 *, 0x380) = 0;
+        *(f32 *)((s8 *)arg1 + 0) = (f32) ((farg0 * farg2) + *(f32 *)((s8 *)arg0 + 0x38));
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) ((farg1 * farg2) + *(f32 *)((s8 *)arg0 + 0x40));
+        *(s32 *)((s8 *)arg0 + 0x380) = 0;
         return;
     }
-    temp_r5 = M2C_FIELD(arg0, s32 *, 0x380);
-    M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_r5 + 1);
+    temp_r5 = *(s32 *)((s8 *)arg0 + 0x380);
+    *(s32 *)((s8 *)arg0 + 0x380) = (s32) (temp_r5 + 1);
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38, temp_r5);
 }
 typedef struct Stack_800BB218 Stack_800BB218;
@@ -63,9 +59,9 @@ s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
 u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1) {
     Vec position;
     u8 *temp_r3;
-    position.x = M2C_FIELD(arg1, f32 *, 0);
-    position.y = M2C_FIELD(arg1, f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), f32 *, 0x10);
-    position.z = M2C_FIELD(arg1, f32 *, 8);
+    position.x = *(f32 *)((s8 *)arg1 + 0);
+    position.y = *(f32 *)((s8 *)arg1 + 4) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0x10);
+    position.z = *(f32 *)((s8 *)arg1 + 8);
     if (csnVectorUnder(&position.x, arg0 + 0x120, 0xE0) != NULL) {
         return NULL;
     }
@@ -73,7 +69,7 @@ u8 *TObjEneDD__vt100(u8 *arg0, u8 *arg1) {
     if (temp_r3 == NULL) {
         return NULL;
     }
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), f32 *, 4);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4);
     return temp_r3;
 }
 

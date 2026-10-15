@@ -22,23 +22,19 @@ extern const char *item_model_names[15];
 extern const char *item_motion_names[2];
 extern BmlResourceDescriptor item_bml_resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801105AC { char pad[0x18]; };
 struct VObj_801105AC : Base_801105AC {
     virtual void m0(s32);
 };
 
-typedef s32 M2C_UNK;
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
 void TItemLoad__sub_8010F5A0();
 void alloc_work_buffer__9TItemLoadFv();
 u32 alloc_buffer__11TOBoss4RockFPv(u32);
-void * __nw__7TObjectFUl(M2C_UNK);
+void * __nw__7TObjectFUl(s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
 extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
@@ -59,14 +55,14 @@ s32 TItemLoad__sub_801107DC(void* p);
 s32 TItemLoad__sub_801107E4(void* p);
 void* TItemLoad__sub_801107EC(void* p);
 int TItemLoad__sub_801107F4(void* p);
-M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
+s32 TLobby__sub_8001FE7C(s32, s32);
 int TLobby__sub_803CC4C0(void*);
 int test_flags_any(void*, int);
-M2C_UNK __ct__9TItemLoadFv(void *, s32);
-void * __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK free_all_models__9TItemLoadFv();
-M2C_UNK free_boss4_rock__9TItemLoadFv();
+s32 __ct__9TItemLoadFv(void *, s32);
+void * __nw__7TObjectFUl(s32);
+s32 free__11TOBoss4RockFUi(s32);
+s32 free_all_models__9TItemLoadFv();
+s32 free_boss4_rock__9TItemLoadFv();
 int get_ring_lobby__9TItemLoadFPv(void* p);
 int update_item__9TItemLoadFPv(void* p);
 

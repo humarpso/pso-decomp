@@ -2,23 +2,19 @@
 #include "pso/player/TPlayerReadyCallback.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_8 { u8 bytes[0x8]; };
+struct ByteBlock_8 { u8 bytes[0x8]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct RecoveredGlobal_801BF414_lbl_804C3FA8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -31,15 +27,15 @@ struct RecoveredGlobal_801BF414_lbl_804C3FA8 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_2C { u8 bytes[0x2C]; };
+struct ByteBlock_2C { u8 bytes[0x2C]; };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43CC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_801D2CF4_lbl_804C43D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -115,13 +111,13 @@ int emit_grass_footstep_particle__10TObjPlayerFPvi(void* p, int a1);
 void* TObjPlayer__sub_801BF31C(void* p);
 void emit_grass_footstep_effect(s32 arg0);
 void* get_surface_contact_point(void* p);
-M2C_UNK emit_water_step_particles(void *, int);
+s32 emit_water_step_particles(void *, int);
 void emit_water_footstep_effect(s32 arg0);
 void* get_surface_contact_point(void* p);
-M2C_UNK emit_sand_step_particles(void *, int);
+s32 emit_sand_step_particles(void *, int);
 void emit_sand_footstep_effect(s32 arg0);
 void* get_surface_contact_point(void* p);
-M2C_UNK emit_idle_water_splash(void *, int);
+s32 emit_idle_water_splash(void *, int);
 void emit_idle_water_effect(s32 arg0);
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1);
 void copy_player_record_header__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1);
@@ -133,7 +129,7 @@ int emit_deband_support_effect(void* p, int a1);
 int emit_deband_support_effect_at__10TObjPlayerFPv(u16 *arg0);
 int check_hit_by_id_276__10TObjPlayerFPvi(void* p, int a1);
 int emit_movement_effect_at__10TObjPlayerFPv(u16 *arg0);
-M2C_UNK check_hit_by_id_431__10TObjPlayerFPvi(void *, u16);
+s32 check_hit_by_id_431__10TObjPlayerFPvi(void *, u16);
 void check_hit_by_id_431_from_packet__10TObjPlayerFPv(u16 *arg0);
 void emit_photon_blast_feedback_effects(s32 arg0, s32 arg1);
 void emit_photon_blast_feedback_from_packet__10TObjPlayerFPv(u16 *arg0);
@@ -179,7 +175,7 @@ void try_add_item__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void try_add_item_count_kind3__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void try_add_item_count_type2__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 int update_action_palette__10TObjPlayerFPv(void* p);
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 int set_mode__20TWindowActionPaletteFPvUc(void*);
@@ -218,11 +214,11 @@ void TObjPlayer__sub_801BEDA8(void* p, u8 v) { *(u8*)((char*)p + 0x2) = v; }
 void TObjPlayer__sub_801BEDB0(void* p, u8 v) { *(u8*)((char*)p + 0x1) = v; }
 void TObjPlayer__sub_801BEDB8(void* p, u8 v) { *(u8*)((char*)p + 0x0) = v; }
 
-extern M2C_UNK lbl_804C3E44[];
+extern s32 lbl_804C3E44[];
 
 void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 8) = lbl_804C3E44;
+        *(s32 **)((s8 *)arg0 + 8) = lbl_804C3E44;
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -233,7 +229,7 @@ void *TObjPlayer__sub_801BEDC0(void *arg0, s16 arg1) {
 void set_position__10TObjPlayerFPvfff(void* p, f32 a, f32 b, f32 c) { *(f32*)((char*)p + 0x38) = a; *(f32*)((char*)p + 0x3c) = b; *(f32*)((char*)p + 0x40) = c; }
 
 void set_meseta__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x20) = arg1;
+    *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2B0)) + 0x20) = arg1;
 }
 
 void TObjPlayer__sub_801BEE24(void* p, s16 v) { *(s16*)((char*)p + 0x2be) = v; }
@@ -260,22 +256,22 @@ typedef char RecoveredGlobal_801D2CF4_lbl_804C43CC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801D2CF4_lbl_804C43D8_size[sizeof(RecoveredGlobal_801D2CF4_lbl_804C43D8) == 0x10 ? 1 : -1];
 
 void TObjPlayer__sub_801BEEAC(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    *(M2CCopy_8 *)((s32) arg0 + 0xC) = *(const M2CCopy_8 *)((s32) arg1 + 0xC);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(ByteBlock_8 *)((s32) arg0 + 0xC) = *(const ByteBlock_8 *)((s32) arg1 + 0xC);
 }
 
 void TObjPlayer__sub_801BEEE0(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); }
 
 void copy_player_record_header__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    *(M2CCopy_C *)((s32) arg0 + 8) = *(const M2CCopy_C *)((s32) arg1 + 8);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    *(u16 *)((s8 *)arg0 + 0) = (u16) *(u16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(ByteBlock_C *)((s32) arg0 + 8) = *(const ByteBlock_C *)((s32) arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
 }
 
 void TObjPlayer__sub_801BEF30(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(u32*)((char*)p + 0x4) = *(u32*)((char*)q + 0x4); }
@@ -289,9 +285,9 @@ void prepare_heavy_attack_particles_default__10TObjPlayerFPv(void* p) { prepare_
 #pragma push
 #pragma fp_contract on
 void prepare_heavy_attack_particles(u8 *arg0) {
-    if (M2C_FIELD(arg0, u32 *, 4) != 0U) {
-        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x11)));
-        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x12)));
+    if (*(u32 *)((s8 *)arg0 + 4) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), (int)((int) (0x11)));
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), (int)((int) (0x12)));
     }
 }
 #pragma pop
@@ -309,11 +305,11 @@ void emit_jellen_support_effect_default__10TObjPlayerFPv(void* p) { emit_jellen_
 #pragma push
 #pragma fp_contract on
 void emit_jellen_support_effect(u8 *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
-        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
+        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0)))), (int)((int) (0x1C)));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) {
-        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
+        create_attached_oneshot_emitter((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), (int)((int) (0x1C)));
     }
 }
 #pragma pop
@@ -323,11 +319,11 @@ void emit_shifta_support__10TObjPlayerFPv(void* p) { emit_shifta_support_effect(
 #pragma push
 #pragma fp_contract on
 void emit_shifta_support_effect(u8 *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0) != 0U) {
-        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 0)))), (int)((int) (0x1C)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 0)))), (int)((int) (0x1C)));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 4) != 0U) {
-        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) M2C_FIELD(arg0, u32 *, 4)))), (int)((int) (0x1C)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 4) != 0U) {
+        check_hit_by_id__10TObjPlayerFiii((void*)((void *) (arg0)), (int)((int) (obj_getField1c((int) *(u32 *)((s8 *)arg0 + 4)))), (int)((int) (0x1C)));
     }
 }
 #pragma pop

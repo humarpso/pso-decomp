@@ -1,35 +1,31 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_802384E0 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802384E0_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 
 struct Stack_802385EC {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802385EC_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 
 struct RecoveredGlobal_80238D10_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80238D10_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -79,7 +75,7 @@ struct VObj_18_4560ce : VBase_18_4560ce {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(u32);
+    virtual s32 m4(u32);
 };
 
 struct Entry_802336F0 { u16 id; u8 pad[6]; };
@@ -120,7 +116,6 @@ struct Jelin_80233958 {
     u8 sub[4];
 };
 
-typedef s32 M2C_UNK;
 struct Vec_80233958;
 struct Vec_80233808 { f32 x, y, z; };
 
@@ -148,15 +143,15 @@ struct Jelin_80233808 {
 
 extern "C" {
 void TTecJelin__vt4(u8 *self, u8 *target);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-M2C_UNK apply_technique_to_area_targets(void *);
+s32 apply_technique_to_area_targets(void *);
 s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
 extern s32 lbl_805D37D8;
-extern M2C_UNK __vt__9TTecJelin[];
+extern s32 __vt__9TTecJelin[];
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
 s32 play_sound_effect(int, void *, int, int);
@@ -171,7 +166,7 @@ s32 play_sound_effect(int, void *, int, int);
 void copy_technique_target_list(void *, void *);
 void init_technique_effect_base(void *, void *, void *, void *);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
-extern M2C_UNK __vt__9TTecJelin[];
+extern s32 __vt__9TTecJelin[];
 extern s32 lbl_805D37D8;
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
 }
@@ -182,8 +177,8 @@ void *__dt__9TTecJelinFv(void *arg0, s16 arg1);
 void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void render__9TTecJelinFv(void);
-M2C_UNK copy_params__8TTecAntiFPvPv(void *, s32);
-s32 calc_technique_parameters(M2C_UNK, s16, M2C_UNK);
+s32 copy_params__8TTecAntiFPvPv(void *, s32);
+s32 calc_technique_parameters(s32, s16, s32);
 void __dl__7TObjectFPv(void *);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
@@ -192,9 +187,9 @@ extern const f64 lbl_8044D658;
 
 void init_tech_params__9TTecJelinFPv(u8 *arg0) {
     s32 res;
-    res = calc_technique_parameters(0xB, M2C_FIELD(arg0, s16 *, 0x78), 0xFFFF);
+    res = calc_technique_parameters(0xB, *(s16 *)((s8 *)arg0 + 0x78), 0xFFFF);
     copy_params__8TTecAntiFPvPv(arg0 + 0x88, res);
-    M2C_FIELD(arg0, f32 *, 0x88) = (f32) (M2C_FIELD(arg0, s16 *, 0xAC) * M2C_FIELD(arg0, s16 *, 0x78));
+    *(f32 *)((s8 *)arg0 + 0x88) = (f32) (*(s16 *)((s8 *)arg0 + 0xAC) * *(s16 *)((s8 *)arg0 + 0x78));
 }
 
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
@@ -220,7 +215,7 @@ void create__9TTecJelinFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 void render__9TTecJelinFv(void) {  }
 
-extern M2C_UNK __vt__9TTecJelin[];
+extern s32 __vt__9TTecJelin[];
 
 void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
     s32 i;
@@ -245,7 +240,7 @@ void run_task__9TTecJelinFv(struct Self_802336F0 *self) {
 
 void *__dt__9TTecJelinFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecJelin;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecJelin;
         destroy_technique_base__9TTecLukerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

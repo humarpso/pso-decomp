@@ -1,51 +1,48 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Inner_80132A5C { char pad8[0x8]; u32 f8; };
 struct Outer_80132A5C { struct Inner_80132A5C *f0; };
 
 struct Outer_80132A5C;
 extern "C" {
-u8 *load_text_resource_pair(M2C_UNK *);
-extern M2C_UNK lbl_8043ECD4[];
-extern M2C_UNK lbl_8043ECE4[];
-extern M2C_UNK lbl_8043ECF0[];
-extern M2C_UNK lbl_8043ECFC[];
-extern M2C_UNK lbl_8043ED08[];
+u8 *load_text_resource_pair(s32 *);
+extern s32 lbl_8043ECD4[];
+extern s32 lbl_8043ECE4[];
+extern s32 lbl_8043ECF0[];
+extern s32 lbl_8043ECFC[];
+extern s32 lbl_8043ED08[];
 extern int TWindowKeyBoardSoft__text_resource;
 extern int text_language_group_table;
 extern int TWindowKeyBoardSoft__language_text_resources;
 void select_language_text_resources(s32 arg0);
-M2C_UNK tmp_buf_release__6TLobbyFi(void *);
+s32 tmp_buf_release__6TLobbyFi(void *);
 s32 tmp_buf_use_req__6TLobbyFPv(void *);
-M2C_UNK begin_render__20TWindowSubStatusDispFv();
-M2C_UNK decode_font_data__9TLanguageFPvPvii(void *, void *, int, int);
-M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
+s32 begin_render__20TWindowSubStatusDispFv();
+s32 decode_font_data__9TLanguageFPvPvii(void *, void *, int, int);
+s32 draw_string__9TLanguageFPvPvi(void *, void *, int);
 struct Outer_80132A5C *load_gvm_texture_file(void *);
-M2C_UNK set_entry_index__9TLanguageFii(int, int);
-extern M2C_UNK lbl_8043EAE8[];
-extern M2C_UNK lbl_8043EAF4[];
-extern M2C_UNK lbl_8043EB08[];
-extern M2C_UNK lbl_8043EB24[];
-extern M2C_UNK lbl_8043EB34[];
-extern M2C_UNK lbl_8043EB50[];
-extern M2C_UNK lbl_8043EB68[];
-extern M2C_UNK lbl_8043EB7C[];
-extern M2C_UNK lbl_8043EB98[];
-extern M2C_UNK lbl_8043EBA8[];
-extern M2C_UNK lbl_8043EBC4[];
-extern M2C_UNK lbl_8043EBDC[];
-extern M2C_UNK lbl_8043EBF0[];
-extern M2C_UNK lbl_8043EC0C[];
-extern M2C_UNK lbl_8043EC28[];
-extern M2C_UNK lbl_8043EC3C[];
-extern M2C_UNK lbl_8043EC58[];
-extern M2C_UNK lbl_8043EC74[];
-extern M2C_UNK lbl_8043EC88[];
-extern M2C_UNK lbl_8043ECA4[];
-extern M2C_UNK lbl_8043ECC0[];
+s32 set_entry_index__9TLanguageFii(int, int);
+extern s32 lbl_8043EAE8[];
+extern s32 lbl_8043EAF4[];
+extern s32 lbl_8043EB08[];
+extern s32 lbl_8043EB24[];
+extern s32 lbl_8043EB34[];
+extern s32 lbl_8043EB50[];
+extern s32 lbl_8043EB68[];
+extern s32 lbl_8043EB7C[];
+extern s32 lbl_8043EB98[];
+extern s32 lbl_8043EBA8[];
+extern s32 lbl_8043EBC4[];
+extern s32 lbl_8043EBDC[];
+extern s32 lbl_8043EBF0[];
+extern s32 lbl_8043EC0C[];
+extern s32 lbl_8043EC28[];
+extern s32 lbl_8043EC3C[];
+extern s32 lbl_8043EC58[];
+extern s32 lbl_8043EC74[];
+extern s32 lbl_8043EC88[];
+extern s32 lbl_8043ECA4[];
+extern s32 lbl_8043ECC0[];
 extern struct Outer_80132A5C *localized_alphabet_list;
 void TLanguage__ct(s32 arg0);
 }
@@ -55,8 +52,8 @@ extern "C" {
 void free_instance__19TWindowKeyBoardSoftFv(void);
 void free_resources__19TWindowKeyBoardSoftFv(void);
 int free_nodes_with_id__6TLobbyFUi(void*);
-M2C_UNK TLobby__sub_803DA16C(void *);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+s32 TLobby__sub_803DA16C(void *);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
 extern struct Outer_80132A5C *localized_alphabet_list;
 
@@ -144,17 +141,13 @@ void select_language_text_resources(s32 arg0) {
         (*(u8 * *)&TWindowKeyBoardSoft__text_resource) = load_text_resource_pair(lbl_8043ED08);
         break;
     }
-    (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = M2C_FIELD((*(u8 * *)&TWindowKeyBoardSoft__text_resource), s32 *, 0);
-    (*(s32 *)&text_language_group_table) = M2C_FIELD((*(u8 * *)&TWindowKeyBoardSoft__text_resource), s32 *, 4);
+    (*(s32 *)&TWindowKeyBoardSoft__language_text_resources) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 0);
+    (*(s32 *)&text_language_group_table) = *(s32 *)((s8 *)(*(u8 * *)&TWindowKeyBoardSoft__text_resource) + 4);
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -174,7 +167,7 @@ s32 set_language__19TWindowKeyBoardSoftFc(s8 arg0) {
     free_resources__19TWindowKeyBoardSoftFv();
     temp_r3 = get_global_state__23TAdSinglePlyChrSelectGCFv();
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, s8 *, 7) = arg0;
+        *(s8 *)((s8 *)temp_r3 + 7) = arg0;
     }
     current_language = (s32)(s8) arg0;
     select_language_text_resources((s8) current_language);

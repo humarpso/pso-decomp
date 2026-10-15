@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031DE2C { char pad[0x18]; };
 struct VObj_8031DE2C : Base_8031DE2C {
     virtual void v0();
@@ -34,37 +31,33 @@ extern f32 *TObjEneRecon__data_805D6AFC;
 void update_collide_flag__12TObjEneReconFPv(void *arg0) {
     void *temp_r5;
 
-    temp_r5 = M2C_FIELD(arg0, void **, 0x350);
-    if (TObjEneEpsilon__sub_800B92F8(arg0, M2C_FIELD(temp_r5, s32 *, 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
-        M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
+    temp_r5 = *(void **)((s8 *)arg0 + 0x350);
+    if (TObjEneEpsilon__sub_800B92F8(arg0, *(s32 *)((s8 *)temp_r5 + 8), temp_r5, *TObjEneRecon__data_805D6AFC) != 0U) {
+        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
 }
 
 void set_flag2__12TObjEneReconFPv(void *arg0) {
     if (move_with_wall_slide_commit__9TObjEneDDFPvfff() != 0U) {
-        M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
+        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
 }
 
 void update_flag_0x444__12TObjEneReconFPv(void *arg0) {
     if (((VObj_8031DE2C *)arg0)->v102() != 0U) {
-        M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) | 2);
+        *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) | 2);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x444) = (s32) (M2C_FIELD(arg0, s32 *, 0x444) & 0xFFFFFFFD);
+    *(s32 *)((s8 *)arg0 + 0x444) = (s32) (*(s32 *)((s8 *)arg0 + 0x444) & 0xFFFFFFFD);
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void enemy_copy_target_destination(void *);
@@ -84,19 +77,15 @@ void TObjEneRecon__vt26(void);
 #pragma fp_contract on
 void set_orbit_destination__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
     enemy_copy_target_destination(arg0);
-    M2C_FIELD(arg0, f32 *, 0x394) = (f32) ((M2C_FIELD(arg0, f32 *, 0x468) * sin_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x394));
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);
-    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x468) * cos_table_lookup(arg1)) + M2C_FIELD(arg0, f32 *, 0x39C));
+    *(f32 *)((s8 *)arg0 + 0x394) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * sin_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x394));
+    *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
+    *(f32 *)((s8 *)arg0 + 0x39C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x468) * cos_table_lookup(arg1)) + *(f32 *)((s8 *)arg0 + 0x39C));
 }
 #pragma pop
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -107,11 +96,11 @@ void TObjEneRecon__vt26(void);
 
 void advance_field398__12TObjEneReconFPv(void *arg0) {
     ((s32 (*)())enemy_copy_target_destination)();
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) (M2C_FIELD(arg0, f32 *, 0x398) + M2C_FIELD(arg0, f32 *, 0x464));
+    *(f32 *)((s8 *)arg0 + 0x398) = (f32) (*(f32 *)((s8 *)arg0 + 0x398) + *(f32 *)((s8 *)arg0 + 0x464));
 }
 void sync_height__12TObjEneReconFPv(void *arg0) {
     ((s32 (*)())enemy_copy_target_destination)();
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) M2C_FIELD(arg0, f32 *, 0x460);
+    *(f32 *)((s8 *)arg0 + 0x398) = (f32) *(f32 *)((s8 *)arg0 + 0x460);
 }
 void TObjEneRecon__vt59(void) {  }
 void TObjEneRecon__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { transition_enemy_state(p, (void*)6); } }
@@ -119,10 +108,6 @@ void TObjEneRecon__vt60(void* p) { if (*(short*)((char*)p + 0x326) != 6) { trans
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 int transition_enemy_state(void*, void*);
@@ -138,7 +123,7 @@ void TObjEneRecon__vt26(void);
 
 void TObjEneRecon__vt61(u8 *arg0) {
     s16 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 7) && (temp_r0 != 8)) {
         transition_enemy_state((void*)((void *)(arg0)), (void*)((int) (7)));
     }
@@ -147,10 +132,6 @@ void TObjEneRecon__vt61(u8 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 

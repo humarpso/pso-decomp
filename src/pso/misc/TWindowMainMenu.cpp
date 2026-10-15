@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8026492C___vt__15TWindowMainMenu { M2C_UNK value; u8 remaining[0x24]; };
+struct RecoveredGlobal_8026492C___vt__15TWindowMainMenu { s32 value; u8 remaining[0x24]; };
 
 struct VBase_802647CC { char pad[0x18]; };
 
@@ -31,7 +27,6 @@ struct Menu_802647CC {
     Ent_802647CC *ents;
 };
 
-typedef s32 M2C_UNK;
 struct Ent_802646E4 {
     s16 id;
     s16 pad[3];
@@ -58,9 +53,9 @@ struct Win_802649C0 {
 
 extern "C" {
 void update_submenu__15TWindowMainMenuFPv(void *arg0);
-M2C_UNK get_window_layout_position(int);
-M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
-M2C_UNK append_child_rows__15TWindowMainMenuFPvi(int, void *);
+s32 get_window_layout_position(int);
+s32 TWindowMainMenu__sub_802ADADC(int, int);
+s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
@@ -89,11 +84,11 @@ s32 get_menu_flag__15TWindowMainMenuFPv(u32);
 void handle_menu_selection__15TWindowMainMenuFPv(Menu_802647CC *arg0);
 s32 filter_menu_entry__15TWindowMainMenuFPvPvPv(void *, s16 *, s32 *);
 void update_description_text__15TWindowMainMenuFPvi(void *, int);
-M2C_UNK get_window_layout_position(int);
+s32 get_window_layout_position(int);
 s32 get_selected_item_type__15TWindowMainMenuFPv(u32);
-M2C_UNK TWindowMainMenu__sub_802ADADC(int, int);
+s32 TWindowMainMenu__sub_802ADADC(int, int);
 void update_if_active__15TWindowMainMenuFv(int, int);
-M2C_UNK append_child_rows__15TWindowMainMenuFPvi(int, void *);
+s32 append_child_rows__15TWindowMainMenuFPvi(int, void *);
 int update_scaled_position__15TWindowMainMenuFi(void*);
 u32 create_menu__15TWindowMainMenuFPvPv(void *, int);
 void populate_menu__15TWindowMainMenuFPvPv(u8 *arg0, Ent_802646E4 *arg1);
@@ -132,9 +127,9 @@ int window_request_show(void*);
 void show_child_window__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { window_request_show(*(void**)((char*)p + 0x1c)); update_scaled_position__15TWindowMainMenuFi(*(void**)((char*)p + 0x1c)); } }
 void update_trade_submenu__15TWindowMainMenuFPv(void* p) { void* m = *(void**)((char*)p + 0x1c); if (m) request_close__19TWindowSubTradeMainFPv(m); }
 void update_submenu__15TWindowMainMenuFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        park_selection__15TWindowMainMenuFPv((void*)(M2C_FIELD(arg0, void **, 0x1C)));
-        update_scaled_position__15TWindowMainMenuFi((void*)(M2C_FIELD(arg0, u32 *, 0x1C)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
+        park_selection__15TWindowMainMenuFPv((void*)(*(void **)((s8 *)arg0 + 0x1C)));
+        update_scaled_position__15TWindowMainMenuFi((void*)(*(u32 *)((s8 *)arg0 + 0x1C)));
     }
     if (is_split_screen() != 0) {
         update_trade_submenu__15TWindowMainMenuFPv((void*)((void*)((void*)(arg0))));
@@ -147,10 +142,10 @@ void close__15TWindowMainMenuFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c
 
 void open_menu_with_entry__15TWindowMainMenuFPvs(u8 *arg0, s16 arg1) {
     u32 temp_r31;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
-        M2C_FIELD(arg0, u32 *, 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (M2C_FIELD(arg0, s32 *, 0x54)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
+        *(u32 *)((s8 *)arg0 + 0x1C) = create_menu__15TWindowMainMenuFPvPv((void *)(get_window_layout_position((int) (0x1A))), (int) (*(s32 *)((s8 *)arg0 + 0x54)));
     }
-    temp_r31 = M2C_FIELD(arg0, u32 *, 0x1C);
+    temp_r31 = *(u32 *)((s8 *)arg0 + 0x1C);
     append_child_rows__15TWindowMainMenuFPvi((int) (temp_r31), (void *) (arg1));
     TWindowMainMenu__sub_802ADADC((int) (temp_r31), (int) (0));
     update_submenu__15TWindowMainMenuFPv((void *) (arg0));
@@ -227,9 +222,9 @@ void run_task__15TWindowMainMenuFv(void) {  }
 u8 *__dt__15TWindowMainMenuFv(u8 *arg0, s16 arg1) {
     u32 temp_r3;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TWindowMainMenu.value;
-        if (M2C_FIELD(arg0, s32 *, 0x4C) & 1) {
-            temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u32 *, 0x54));
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TWindowMainMenu.value;
+        if (*(s32 *)((s8 *)arg0 + 0x4C) & 1) {
+            temp_r3 = get_player_by_client_id(*(u32 *)((s8 *)arg0 + 0x54));
             if (temp_r3 != 0U) {
                 init_parts__10TObjPlayerFPv((s32) temp_r3);
             }

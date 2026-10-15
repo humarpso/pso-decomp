@@ -1,18 +1,14 @@
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803F76F4_lbl_805A9008 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x108C];
 };
 
 struct RecoveredGlobal_803F7790_lbl_805A9008 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x108C];
 };
 
@@ -28,12 +24,12 @@ struct NetworkPacketBufferStorage {
 typedef char NetworkPacketBufferStorage_size[sizeof(NetworkPacketBufferStorage) == 0x4C18 ? 1 : -1];
 
 struct RecoveredGlobal_803F79C0_lbl_805A9008 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x108C];
 };
 
 struct RecoveredGlobal_803F7A30_lbl_805C18A0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -123,7 +119,7 @@ extern "C" {
 void init_net_buffer_table__6TLobbyFPv(u8 *arg0);
 void init_net_block_620_params__6TLobbyFPv(u8 *arg0);
 extern NetworkPacketBufferStorage network_packet_buffer_storage;
-extern M2C_UNK lbl_805D7A00;
+extern s32 lbl_805D7A00;
 void init_buffer_desc_b__6TLobbyFPv(u8 *arg0);
 void init_net_buffer_desc__6TLobbyFPv(u8 *arg0);
 s32 send_atx_command__23TAdSinglePlyChrSelectGCFi(s32);
@@ -142,8 +138,8 @@ extern s32 queue_thread_handle;
 extern u32 TLobby__send_ring_mutex;
 extern s16 network_pppoe_transport_enabled;
 void TLobby__sub_803F8238(void);
-M2C_UNK unlock_mutex__10TUdpSocketFi(int);
-M2C_UNK lock_mutex__6TLobbyFi(int);
+s32 unlock_mutex__10TUdpSocketFi(int);
+s32 lock_mutex__6TLobbyFi(int);
 void TLobby__sub_803F95E4(u32);
 void cancel_thread_if_running__6TLobbyFi(s32);
 void deactivate_entry_by_key__6TLobbyFUi(u32);
@@ -190,8 +186,8 @@ s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32);
 extern s16 net_slot_id;
 extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8090(void);
-M2C_UNK unlock_mutex__10TUdpSocketFi(int);
-M2C_UNK lock_mutex__6TLobbyFi(int);
+s32 unlock_mutex__10TUdpSocketFi(int);
+s32 lock_mutex__6TLobbyFi(int);
 extern u32 TLobby__send_ring_mutex;
 extern s32 send_ring_buffer_base;
 extern s32 lobby_ring_buffer_size;
@@ -201,8 +197,8 @@ extern Q_803F7AF4 TLobby__next_send_chunk;
 extern s32 lbl_805D7A38;
 Q_803F7AF4 *get_next_send_chunk__6TLobbyFv(void);
 s32 OSIsThreadSuspended(s32);
-M2C_UNK unlock_mutex__10TUdpSocketFi(int);
-M2C_UNK lock_mutex__6TLobbyFi(int);
+s32 unlock_mutex__10TUdpSocketFi(int);
+s32 lock_mutex__6TLobbyFi(int);
 void resume_thread__6TLobbyFv(s32);
 void NetMemcpy(void *, void *, s32);
 extern s32 queue_thread_handle;
@@ -212,8 +208,8 @@ extern s32 lobby_ring_buffer_size;
 extern s32 lobby_ring_buffer_write_pos;
 extern s32 lobby_send_ring_pending_bytes;
 s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
-M2C_UNK unlock_mutex__10TUdpSocketFi(int);
-M2C_UNK lock_mutex__6TLobbyFi(int);
+s32 unlock_mutex__10TUdpSocketFi(int);
+s32 lock_mutex__6TLobbyFi(int);
 s16 TLobby__sub_803F96AC(void *);
 void NetResumeThread(s32);
 s16 TLobby__sub_803F9B94(void *, void *);
@@ -283,7 +279,7 @@ void TLobby__sub_803F808C(void);
 s32 TLobby__sub_803F811C(s16 *arg0);
 void TLobby__sub_803F86BC(void);
 
-extern M2C_UNK lbl_805D79F8;
+extern s32 lbl_805D79F8;
 
 __declspec(section ".sdata2") extern const char modem_tone_dial_command[] = "ATDT";
 __declspec(section ".sdata2") extern const char modem_pulse_dial_command[] = "ATDP";
@@ -340,7 +336,7 @@ void TLobby__sub_803F76F0(void) {
 
 typedef char RecoveredGlobal_803F76F4_lbl_805A9008_size[sizeof(RecoveredGlobal_803F76F4_lbl_805A9008) == 0x1090 ? 1 : -1];
 void init_net_buffer_table__6TLobbyFPv(u8 *arg0) {
-    struct Fields_arg0 { u8 * field_0; u8 * field_4; u8 * field_8; u8 * field_C; u8 * field_10; u8 * field_14; u8 * field_18; u8 * field_1C; M2C_UNK * field_20; s16 field_24; s16 field_26; s16 field_28; s16 field_2A; s16 field_2C; s16 field_2E; s16 field_30; s16 field_32; s16 field_34; s8 field_36; s8 field_37; s16 field_38; };
+    struct Fields_arg0 { u8 * field_0; u8 * field_4; u8 * field_8; u8 * field_C; u8 * field_10; u8 * field_14; u8 * field_18; u8 * field_1C; s32 * field_20; s16 field_24; s16 field_26; s16 field_28; s16 field_2A; s16 field_2C; s16 field_2E; s16 field_30; s16 field_32; s16 field_34; s8 field_36; s8 field_37; s16 field_38; };
     ((Fields_arg0*)arg0)->field_0 = (u8 *)(&lbl_805A9008.value) + 0x808;
     ((Fields_arg0*)arg0)->field_4 = (u8 *)(&lbl_805A9008.value) + 0x788;
     ((Fields_arg0*)arg0)->field_8 = (u8 *)(&lbl_805A9008.value) + 0x708;
@@ -440,7 +436,7 @@ void TLobby__sub_803F7980(void) {
 }
 
 void init_buffer_desc_b__6TLobbyFPv(u8 *arg0) {
-    struct Fields_arg0 { u8 pad_0[12]; M2C_UNK * field_C; M2C_UNK * field_10; s16 field_14; s16 field_16; };
+    struct Fields_arg0 { u8 pad_0[12]; s32 * field_C; s32 * field_10; s16 field_14; s16 field_16; };
     ((Fields_arg0*)arg0)->field_C = &lbl_805D7A00;
     ((Fields_arg0*)arg0)->field_10 = (s32 *)network_packet_buffer_storage.packet_slots;
     ((Fields_arg0*)arg0)->field_16 = 4;
@@ -452,7 +448,7 @@ void TLobby__sub_803F79AC(void) {
 }
 
 void TLobby__sub_803F79B0(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 8) = 0x28;
+    *(s16 *)((s8 *)arg0 + 8) = 0x28;
 }
 
 void TLobby__sub_803F79BC(void) {
@@ -482,11 +478,11 @@ void init_net_buffer_desc__6TLobbyFPv(u8 *arg0) {
 
 typedef char RecoveredGlobal_803F7A30_lbl_805C18A0_size[sizeof(RecoveredGlobal_803F7A30_lbl_805C18A0) == 0x10 ? 1 : -1];
 void stop_network_thread__6TLobbyFv(void) {
-    lock_mutex__6TLobbyFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
-    cancel_thread_if_running__6TLobbyFi((s32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
-    deactivate_entry_by_key__6TLobbyFUi((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 4))));
-    unlock_mutex__10TUdpSocketFi((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0)));
-    TLobby__sub_803F95E4((u32)((int) (M2C_FIELD(&lbl_805C18A0.value, s32 *, 0))));
+    lock_mutex__6TLobbyFi((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0)));
+    cancel_thread_if_running__6TLobbyFi((s32)((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 4))));
+    deactivate_entry_by_key__6TLobbyFUi((u32)((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 4))));
+    unlock_mutex__10TUdpSocketFi((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0)));
+    TLobby__sub_803F95E4((u32)((int) (*(s32 *)((s8 *)(&lbl_805C18A0.value) + 0))));
 }
 
 void TLobby__sub_803F7A90(void) {
@@ -851,7 +847,7 @@ s32 TLobby__sub_803F8314(A_803F8314 *arg0) {
 u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2) {
     u32 temp_r3;
     send_ring_buffer_base = arg1;
-    lobby_ring_buffer_size = M2C_FIELD(arg0, s32 *, 0x10);
+    lobby_ring_buffer_size = *(s32 *)((s8 *)arg0 + 0x10);
     temp_r3 = arg1 + lobby_ring_buffer_size;
     if (temp_r3 > arg2) {
         send_ring_buffer_base = 0;
@@ -903,25 +899,25 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
 #pragma opt_common_subs off
 s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0) {
     s32 temp_r5;
-    if ((u16) M2C_FIELD(arg0, u16 *, 4) > 0x200U) {
+    if ((u16) *(u16 *)((s8 *)arg0 + 4) > 0x200U) {
         return -1;
     }
-    if ((u16) M2C_FIELD(arg0, u16 *, 6) > 0x400U) {
+    if ((u16) *(u16 *)((s8 *)arg0 + 6) > 0x400U) {
         return -1;
     }
-    temp_r5 = M2C_FIELD(arg0, s32 *, 8);
+    temp_r5 = *(s32 *)((s8 *)arg0 + 8);
     if ((temp_r5 < 0x400) || (temp_r5 > 0xFFFF)) {
         return -1;
     }
-    lbl_805D47F8 = M2C_FIELD(arg0, s16 *, 0);
-    lbl_805D4804 = M2C_FIELD(arg0, s16 *, 2);
-    net_param_player_count = M2C_FIELD(arg0, u16 *, 4);
-    net_param_room_count = M2C_FIELD(arg0, u16 *, 6);
-    lbl_805D4800 = M2C_FIELD(arg0, s32 *, 8);
-    lbl_805D4808 = M2C_FIELD(arg0, s32 *, 0xC);
-    lbl_805D480C = M2C_FIELD(arg0, s32 *, 0x10);
-    lbl_805D7A48 = M2C_FIELD(arg0, s32 *, 0x14);
-    lbl_805D7A4C = M2C_FIELD(arg0, s32 *, 0x18);
+    lbl_805D47F8 = *(s16 *)((s8 *)arg0 + 0);
+    lbl_805D4804 = *(s16 *)((s8 *)arg0 + 2);
+    net_param_player_count = *(u16 *)((s8 *)arg0 + 4);
+    net_param_room_count = *(u16 *)((s8 *)arg0 + 6);
+    lbl_805D4800 = *(s32 *)((s8 *)arg0 + 8);
+    lbl_805D4808 = *(s32 *)((s8 *)arg0 + 0xC);
+    lbl_805D480C = *(s32 *)((s8 *)arg0 + 0x10);
+    lbl_805D7A48 = *(s32 *)((s8 *)arg0 + 0x14);
+    lbl_805D7A4C = *(s32 *)((s8 *)arg0 + 0x18);
     return TLobby__sub_803F861C((Info_803F861C *)((int) (0)));
 }
 #pragma pop

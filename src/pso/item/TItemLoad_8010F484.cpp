@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -10,19 +6,19 @@ void *init__9TItemLoadFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3
 void update_all__9TItemLoadFv(void);
 void clear_slots__9TItemLoadFPv(void *);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK update_state__9TItemLoadFPv(void *);
+s32 update_state__9TItemLoadFPv(void *);
 
-extern M2C_UNK lbl_8049F3F4[];
+extern s32 lbl_8049F3F4[];
 
 void *init__9TItemLoadFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F3F4;
-    M2C_FIELD(arg0, void **, 0x1C) = arg2;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, void **, 0x24) = arg3;
-    M2C_FIELD(arg0, void **, 0x28) = arg4;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F3F4;
+    *(void **)((s8 *)arg0 + 0x1C) = arg2;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(void **)((s8 *)arg0 + 0x24) = arg3;
+    *(void **)((s8 *)arg0 + 0x28) = arg4;
     clear_slots__9TItemLoadFPv((void *)((char *)arg0 + 44));
-    M2C_FIELD(arg0, u32 *, 0x20) = 1;
+    *(u32 *)((s8 *)arg0 + 0x20) = 1;
     return arg0;
 }
 

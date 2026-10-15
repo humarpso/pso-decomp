@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_80302FD8 {
     s32 sp8;
@@ -11,12 +8,12 @@ struct Stack_80302FD8 {
 };
 
 struct RecoveredGlobal_80302FD8_lbl_8047512C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80302FD8_lbl_804E6AF8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x58];
 };
 
@@ -44,23 +41,23 @@ u8 *fn_80302FD8(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 
     typedef char sp10_offset[(offsetof(Stack_80302FD8, sp10) == 0x8) ? 1 : -1];
     Stack_80302FD8 stack;
     construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804E6AF8.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneDellBiter_Eff_TpAbsorb1__class_name;
-    M2C_FIELD(arg0, f32 *, 0xC8) = farg0;
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEFAC;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DEFAC;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804E6AF8.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneDellBiter_Eff_TpAbsorb1__class_name;
+    *(f32 *)((s8 *)arg0 + 0xC8) = farg0;
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEFAC;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DEFAC;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg3));
-    M2C_FIELD(arg0, f32 *, 0xB0) = sin_table_lookup((void *) (arg4));
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805DEFAC;
-    M2C_FIELD(arg0, f32 *, 0xB8) = cos_table_lookup((void *) (arg4));
-    M2C_FIELD(arg0, s32 *, 0xBC) = arg5;
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x14) = 1;
-    stack.spC = M2C_FIELD(&lbl_8047512C.value, s32 *, 4);
-    stack.sp8 = M2C_FIELD(&lbl_8047512C.value, s32 *, 0);
-    stack.sp10 = M2C_FIELD(&lbl_8047512C.value, s32 *, 8);
+    *(f32 *)((s8 *)arg0 + 0xB0) = sin_table_lookup((void *) (arg4));
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805DEFAC;
+    *(f32 *)((s8 *)arg0 + 0xB8) = cos_table_lookup((void *) (arg4));
+    *(s32 *)((s8 *)arg0 + 0xBC) = arg5;
+    *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x14) = 1;
+    stack.spC = *(s32 *)((s8 *)(&lbl_8047512C.value) + 4);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 0);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8047512C.value) + 8);
     stack.spC = arg4 - 0x4000;
-    M2C_FIELD(arg0, s32 *, 0xCC) = create_particle_controller_with_angles((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (0x210), (int) (0x32), (int) (2));
-    clear_active_flag__13TParticleCtrlFPv((int) (M2C_FIELD(arg0, s32 *, 0xCC)));
+    *(s32 *)((s8 *)arg0 + 0xCC) = create_particle_controller_with_angles((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (0x210), (int) (0x32), (int) (2));
+    clear_active_flag__13TParticleCtrlFPv((int) (*(s32 *)((s8 *)arg0 + 0xCC)));
     return arg0;
 }
 

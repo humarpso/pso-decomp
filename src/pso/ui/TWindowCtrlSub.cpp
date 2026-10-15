@@ -3,16 +3,12 @@
 extern s32 TWindowCtrlMain__sub_controller;
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void run_task__14TWindowCtrlSubFv(void);
-M2C_UNK update_fade_alphas__15TWindowCtrlMainFv();
-M2C_UNK resolve_chat_balloon_overlaps();
-M2C_UNK run_tasks__7TObjectFv(s32);
+s32 update_fade_alphas__15TWindowCtrlMainFv();
+s32 resolve_chat_balloon_overlaps();
+s32 run_tasks__7TObjectFv(s32);
 extern s32 TWindowCtrlMain__window_task_root;
 void run_task__14TWindowCtrlSubFv(void);
 }
@@ -22,7 +18,7 @@ extern "C" {
 void *TWindowCtrlSub__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
-extern M2C_UNK __vt__14TWindowCtrlSub[];
+extern s32 __vt__14TWindowCtrlSub[];
 extern void *TWindowCtrlSub__name;
 
 void run_task__14TWindowCtrlSubFv(void) {
@@ -36,8 +32,8 @@ TWindowCtrlSub::~TWindowCtrlSub() {
 }
 void *TWindowCtrlSub__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TWindowCtrlSub;
-    M2C_FIELD(arg0, void **, 0x0) = TWindowCtrlSub__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowCtrlSub;
+    *(void **)((s8 *)arg0 + 0x0) = TWindowCtrlSub__name;
     return arg0;
 }
 

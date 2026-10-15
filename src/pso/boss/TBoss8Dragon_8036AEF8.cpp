@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8036AF40_lbl_804F3610 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -18,16 +14,16 @@ struct Obj_8036B1AC {
 };
 
 extern "C" {
-extern M2C_UNK lbl_804F3610[];
-void TBoss8Dragon__sub_8036AF40(M2C_UNK **arg0);
-M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK set_draw_texture_and_color(int, int);
+extern s32 lbl_804F3610[];
+void TBoss8Dragon__sub_8036AF40(s32 **arg0);
+s32 restore_full_screen_view__11TCameraCtrlFv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 set_draw_texture_and_color(int, int);
 extern s32 lbl_805D63F0;
 extern s32 lbl_805D7000;
 void TBoss8Dragon__sub_8036B088(void);
@@ -40,13 +36,13 @@ void TBoss8Dragon__sub_8036AF50(f32 *o, f32 *p, s32 a, s32 b);
 
 extern "C" {
 
-M2C_UNK **TBoss8Dragon__sub_8036AEF8(M2C_UNK **arg0, s16 arg1);
+s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1);
 void fn_8036B18C(void);
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 
-extern M2C_UNK lbl_804F3610[];
+extern s32 lbl_804F3610[];
 
-M2C_UNK **TBoss8Dragon__sub_8036AEF8(M2C_UNK **arg0, s16 arg1) {
+s32 **TBoss8Dragon__sub_8036AEF8(s32 **arg0, s16 arg1) {
     if (arg0 != NULL) {
         *arg0 = lbl_804F3610;
         if (arg1 > 0) {
@@ -59,7 +55,7 @@ M2C_UNK **TBoss8Dragon__sub_8036AEF8(M2C_UNK **arg0, s16 arg1) {
 extern s32 lbl_805D7000;
 
 typedef char RecoveredGlobal_8036AF40_lbl_804F3610_size[sizeof(RecoveredGlobal_8036AF40_lbl_804F3610) == 0x18 ? 1 : -1];
-void TBoss8Dragon__sub_8036AF40(M2C_UNK **arg0) {
+void TBoss8Dragon__sub_8036AF40(s32 **arg0) {
     *arg0 = &(*(RecoveredGlobal_8036AF40_lbl_804F3610 *)&lbl_804F3610).value;
 }
 

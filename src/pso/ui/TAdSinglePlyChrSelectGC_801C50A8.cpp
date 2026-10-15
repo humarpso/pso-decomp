@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 extern int active_character_save_record;
 u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void);
@@ -26,13 +21,13 @@ extern int active_character_save_record;
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void);
     extern int duel_result_window;
 void TAdSinglePlyChrSelectGC__sub_801C5120(void);
-M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 queue_destruction__7TObjectFv(void*);
 extern u32 ad_single_ply_chr_select_instance;
 void destroy__23TAdSinglePlyChrSelectGCFv(void);
 extern u32 ad_single_ply_chr_select_instance;
 void TAdSinglePlyChrSelectGC__sub_801C5158(void);
 s32 get_global_state__14TOKeyMachine01Fv();
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 u32 fn_801C5380(void *, s32);
 extern u32 ad_single_ply_chr_select_instance;
 extern s32 tl_00;
@@ -46,23 +41,23 @@ void set_slot__23TAdSinglePlyChrSelectGCFi(int a0);
     extern int active_character_save_record;
 void set_slot__23TAdSinglePlyChrSelectGCFi(int a0) { *(short*)((char*)active_character_save_record + 0x21b0) = a0; }
 u16 get_char_select_slot__23TAdSinglePlyChrSelectGCFv(void) {
-    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21B0);
+    return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21B0);
 }
 void TAdSinglePlyChrSelectGC__sub_801C50C0(int a0) { *(short*)((char*)active_character_save_record + 0x21ae) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50CC(void) {
-    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AE);
+    return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21AE);
 }
 void TAdSinglePlyChrSelectGC__sub_801C50D8(int a0) { *(short*)((char*)active_character_save_record + 0x21ac) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50E4(void) {
-    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AC);
+    return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21AC);
 }
 void TAdSinglePlyChrSelectGC__sub_801C50F0(int a0) { *(short*)((char*)active_character_save_record + 0x21aa) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C50FC(void) {
-    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21AA);
+    return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21AA);
 }
 void TAdSinglePlyChrSelectGC__sub_801C5108(int a0) { *(short*)((char*)active_character_save_record + 0x21a8) = a0; }
 u16 TAdSinglePlyChrSelectGC__sub_801C5114(void) {
-    return M2C_FIELD((*(u8 * *)&active_character_save_record), u16 *, 0x21A8);
+    return *(u16 *)((s8 *)(*(u8 * *)&active_character_save_record) + 0x21A8);
 }
 void TAdSinglePlyChrSelectGC__sub_801C5120(void) { duel_result_window = 0; }
 void destroy__23TAdSinglePlyChrSelectGCFv(void) {

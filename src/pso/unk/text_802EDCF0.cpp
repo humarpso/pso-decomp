@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Obj_802EDCF0 {
     u8 pad0[0x6D4];
     s32 f6D4;
@@ -20,16 +17,16 @@ struct Obj_802EDCF0 {
 };
 
 extern "C" {
-M2C_UNK __dt__7TObjectFv(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK free_if_positive__13TBoss2DeRolLeFis(void *, int);
-M2C_UNK __dt__9TObjEneDDFv(void *, int);
-M2C_UNK delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK clear_obj_links(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_child__8TObjFishFPv(void *);
-extern M2C_UNK TBoss7DeRolLeC__vtable[];
+s32 __dt__7TObjectFv(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 free_if_positive__13TBoss2DeRolLeFis(void *, int);
+s32 __dt__9TObjEneDDFv(void *, int);
+s32 delete_buffer__12TBoss8DragonFis(void *, int);
+s32 free__11TOBoss4RockFUi(s32);
+s32 clear_obj_links(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_child__8TObjFishFPv(void *);
+extern s32 TBoss7DeRolLeC__vtable[];
 extern u32 boss7_joint_state;
 u8 *fn_802EDCF0(u8 *arg0, s16 arg1);
 }
@@ -40,7 +37,7 @@ u8 *fn_802EDCF0(u8 *arg0, s16 arg1) {
     Obj_802EDCF0 *o = (Obj_802EDCF0 *) arg0;
     s32 i;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = TBoss7DeRolLeC__vtable;
+        *(s32 **)((s8 *)arg0 + 0x18) = TBoss7DeRolLeC__vtable;
         if (o->f784 != 0) {
             queue_destruction__7TObjectFv(o->f784);
             o->f784 = 0;

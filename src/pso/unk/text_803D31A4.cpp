@@ -1,19 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_803D31A4_lbl_8058B6B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
 struct RecoveredGlobal_803D31A4_lbl_8058B6D4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
-
-typedef s32 M2C_UNK;
 
 struct P_803D33D4 { s32 a; s32 b; };
 struct P_803D33E4 { s32 a; s32 b; };
@@ -27,12 +22,12 @@ struct Cb_803D3678 { s32 fn; s32 arg; };
 #include "stdarg.h"
 
 extern "C" {
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern s32 lobby_callback_tables_refcount;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 void init_callback_tables__6TLobbyFv(void);
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
 void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1);
@@ -40,7 +35,7 @@ void TLobby__sub_803D33D4(s32 arg0, s32 arg1);
 void TLobby__sub_803D33E4(s32 arg0, s32 arg1);
 void TLobby__sub_803D346C(s32 arg0);
 char *strncpy(char *, const char *, unsigned long);
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 void set_message_and_notify__6TLobbyFPv(char *arg0);
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
@@ -49,24 +44,24 @@ char *strncpy(char *, const char *, unsigned long);
 extern char lbl_8047DF3C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 void SVM_DelCbSvr__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 int vsprintf(char *s, const char *fmt, va_list ap);
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 void TLobby__sub_803D38B4(const char *fmt, ...);
 char *strncpy(char *, const char *, unsigned long);
 extern char svm_invalid_callback_server_id_error[];
 extern char lbl_8047DF14[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 void SVM_SetCbSvrId__6TLobbyFiiii(s32 arg0, s32 arg1, s32 fn, s32 arg);
 char *strncpy(char *, const char *, unsigned long);
 extern char lbl_8047DF5C[];
 extern P_803D33D4 lbl_805D7664;
 extern P_803D33E4 lbl_805D766C;
-extern M2C_UNK lbl_805D765C;
+extern s32 lbl_805D765C;
 s32 svm_set_cb_svr__6TLobbyFiii(s32 arg0, s32 fn, s32 arg);
 }
 
@@ -86,10 +81,10 @@ void init_callback_tables__6TLobbyFv(void) {
         memset((void *) (&worker_callback_flag_table.value), (int) (0), (int) (0x1C));
         memset((void *) (&lbl_805D766C), (int) (0), (int) (8));
         memset((void *) (&lbl_805D7664), (int) (0), (int) (8));
-        M2C_FIELD(&svm_callback_counts.value, s32 *, 0) = 0;
-        M2C_FIELD(&svm_callback_counts.value, s32 *, 4) = 0;
-        M2C_FIELD(&svm_callback_counts.value, s32 *, 8) = 0;
-        M2C_FIELD(&svm_callback_counts.value, s32 *, 0xC) = 0;
+        *(s32 *)((s8 *)(&svm_callback_counts.value) + 0) = 0;
+        *(s32 *)((s8 *)(&svm_callback_counts.value) + 4) = 0;
+        *(s32 *)((s8 *)(&svm_callback_counts.value) + 8) = 0;
+        *(s32 *)((s8 *)(&svm_callback_counts.value) + 0xC) = 0;
     }
     lobby_callback_tables_refcount += 1;
 }
@@ -135,13 +130,13 @@ void TLobby__sub_803D33E4(s32 arg0, s32 arg1) {
     lbl_805D766C.b = arg1;
 }
 void set_callback_params__6TLobbyFii(s32 arg0, s32 arg1) {
-    if (((M2C_UNK (*)(s32)) M2C_FIELD(&lbl_805D766C, M2C_UNK (**)(s32), 0)) != NULL) {
-        M2C_FIELD(&lbl_805D766C, M2C_UNK (**)(s32), 0)(M2C_FIELD(&lbl_805D766C, s32 *, 4));
+    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0)) != NULL) {
+        (*(s32 (**)(s32))((s8 *)(&lbl_805D766C) + 0))(*(s32 *)((s8 *)(&lbl_805D766C) + 4));
     }
-    M2C_FIELD(&lbl_805D765C, s32 *, 0) = arg0;
-    M2C_FIELD(&lbl_805D765C, s32 *, 4) = arg1;
-    if (((M2C_UNK (*)(s32)) M2C_FIELD(&lbl_805D7664, M2C_UNK (**)(s32), 0)) != NULL) {
-        M2C_FIELD(&lbl_805D7664, M2C_UNK (**)(s32), 0)(M2C_FIELD(&lbl_805D7664, s32 *, 4));
+    *(s32 *)((s8 *)(&lbl_805D765C) + 0) = arg0;
+    *(s32 *)((s8 *)(&lbl_805D765C) + 4) = arg1;
+    if (((s32 (*)(s32)) *(s32 (**)(s32))((s8 *)(&lbl_805D7664) + 0)) != NULL) {
+        (*(s32 (**)(s32))((s8 *)(&lbl_805D7664) + 0))(*(s32 *)((s8 *)(&lbl_805D7664) + 4));
     }
 }
 void TLobby__sub_803D346C(s32 arg0) {

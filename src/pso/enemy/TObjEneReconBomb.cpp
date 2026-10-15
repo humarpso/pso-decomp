@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_8031B618 { f32 x, y, z; };
 
@@ -12,7 +8,6 @@ struct Ctrl_8031B618 { u8 pad[0xA4]; Sub_8031B618 *sub; u8 pad2[0x2FC - 0xA8]; V
 
 struct Obj_8031B618 { u8 pad[0x38]; Vec_8031B618 pos; u8 pad2[0x2FC - 0x44]; Vec_8031B618 pos2; };
 
-typedef s32 M2C_UNK;
 struct Obj_8031B618;
 struct Vec_8031B808 { f32 x, y, z; };
 
@@ -75,20 +70,20 @@ struct Obj_8031B808 {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 s16 obj_getField1c(int);
 f32 horizontal_distance_squared(void *, void *);
 s32 fn_8031B618(Obj_8031B618 *arg0);
 VObj_8031B808 *get_player_data__10TObjPlayerFi(s32);
 s32 is_valid_and_active__10TObjPlayerFUi(void *);
 u32 csnVector(void *, void *, int);
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 project_actor_to_ground(void *, void *, void *);
-M2C_UNK play_sound_effect(s32, void *, int, int);
+s32 play_sound_effect(s32, void *, int, int);
 s32 TObjEneRecon__sub_8031C250(u32);
 s32 remap_area_sound_id__14TObjEneRecoboxFUi(u32);
-M2C_UNK vec3_add_to(void *, void *);
+s32 vec3_add_to(void *, void *);
 extern s32 lbl_805D5868;
 extern const f32 lbl_805DF3AC;
 extern const f32 lbl_805DF3B0;
@@ -97,20 +92,20 @@ void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0);
 }
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
 s32 get_bml_model(void *, int);
-M2C_UNK draw_blob_shadow(int);
-M2C_UNK direction_to_rotation_xz(void *, void *, void *);
-M2C_UNK rotate_matrix_zyx(int, int, int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_chunk_object(int);
+s32 draw_blob_shadow(int);
+s32 direction_to_rotation_xz(void *, void *, void *);
+s32 rotate_matrix_zyx(int, int, int, int);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_chunk_object(int);
 s32 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 Ctrl_8031B618 *get_player_by_client_id(s32);
@@ -129,13 +124,13 @@ s32 calc_scaled_value__12TObjEneReconFv(int);
 f32 TObjEneRecon__sub_8031C2BC(int);
 f32 TObjEneRecon__sub_8031C2C8(int);
 f32 TObjEneRecon__sub_8031C2D4(int);
-M2C_UNK construct_actor_base__10TObjPlayerFPvPv();
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *, int);
+s32 construct_actor_base__10TObjPlayerFPvPv();
+s32 VecCopy__FP3VecPC3Vec(void *, void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 s16 obj_getField1c(int);
 
-extern M2C_UNK __vt__16TObjEneReconBomb[];
+extern s32 __vt__16TObjEneReconBomb[];
 
 s32 fn_8031B618(Obj_8031B618 *arg0) {
     s32 var_r30 = 0;
@@ -171,17 +166,17 @@ void render__16TObjEneReconBombFv(u8 *arg0) {
     temp_r31 = get_bml_model((void *) (recon_bomb_bml_resource), (int) (2));
     temp_r30 = TObjFish__sub_8001EDB0((void *) (recon_bomb_bml_resource), (int) (2));
     push_matrix();
-    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) ((2.0f) + M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
-    rotate_matrix_zyx((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (M2C_FIELD(arg0, s32 *, 0x60)), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((2.0f) + *(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    rotate_matrix_zyx((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (*(s32 *)((s8 *)arg0 + 0x60)), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
     set_global_param__8TObjFishFi((int) (temp_r30));
     draw_chunk_object((int) (temp_r31));
     pop_matrix();
     push_matrix();
-    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) ((0.1f) + M2C_FIELD(arg0, f32 *, 0x348)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) ((0.1f) + *(f32 *)((s8 *)arg0 + 0x348)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
     direction_to_rotation_xz((void *) (arg0 + 0x248), (void *) (&spC), (void *) (&sp8));
     rotate_matrix_z((int) (0), (int) (sp8));
     rotate_matrix_x((int) (0), (void *) (spC + 0x4000));
-    var_f1 = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x348);
+    var_f1 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x348);
     if (var_f1 > 40.0f) {
         var_f1 = 40.0f;
     } else if (var_f1 < 0.0f) {
@@ -264,7 +259,7 @@ void run_task__16TObjEneReconBombFv(Obj_8031B808 *arg0) {
 
 void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjEneReconBomb;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjEneReconBomb;
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -273,7 +268,7 @@ void *__dt__16TObjEneReconBombFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__16TObjEneReconBomb[];
+extern s32 __vt__16TObjEneReconBomb[];
 extern s32 TObjEneReconBomb__name;
 
 u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
@@ -282,24 +277,24 @@ u8 *TObjEneReconBomb__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r5;
 
     construct_actor_base__10TObjPlayerFPvPv();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *) __vt__16TObjEneReconBomb;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneReconBomb__name;
-    M2C_FIELD(arg0, s32 *, 0x334) = arg2;
-    M2C_FIELD(arg0, s16 *, 0x338) = obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x334)));
-    M2C_FIELD(arg0, f32 *, 0x34C) = TObjEneRecon__sub_8031C2D4((int) (M2C_FIELD(arg0, s32 *, 0x334)));
-    M2C_FIELD(arg0, f32 *, 0x350) = TObjEneRecon__sub_8031C2C8((int) (M2C_FIELD(arg0, s32 *, 0x334)));
-    M2C_FIELD(arg0, f32 *, 0x354) = TObjEneRecon__sub_8031C2BC((int) (M2C_FIELD(arg0, s32 *, 0x334)));
-    M2C_FIELD(arg0, s32 *, 0x358) = calc_scaled_value__12TObjEneReconFv((int) (M2C_FIELD(arg0, s32 *, 0x334)));
-    temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x10));
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) M2C_FIELD(temp_r5, s32 *, 0x60);
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *) __vt__16TObjEneReconBomb;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneReconBomb__name;
+    *(s32 *)((s8 *)arg0 + 0x334) = arg2;
+    *(s16 *)((s8 *)arg0 + 0x338) = obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x334)));
+    *(f32 *)((s8 *)arg0 + 0x34C) = TObjEneRecon__sub_8031C2D4((int) (*(s32 *)((s8 *)arg0 + 0x334)));
+    *(f32 *)((s8 *)arg0 + 0x350) = TObjEneRecon__sub_8031C2C8((int) (*(s32 *)((s8 *)arg0 + 0x334)));
+    *(f32 *)((s8 *)arg0 + 0x354) = TObjEneRecon__sub_8031C2BC((int) (*(s32 *)((s8 *)arg0 + 0x334)));
+    *(s32 *)((s8 *)arg0 + 0x358) = calc_scaled_value__12TObjEneReconFv((int) (*(s32 *)((s8 *)arg0 + 0x334)));
+    temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x10));
+    *(s32 *)((s8 *)arg0 + 0x60) = (s32) *(s32 *)((s8 *)temp_r5 + 0x60);
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg3), (int) (temp_r5));
-    temp_f31 = sin_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    temp_f1 = cos_table_lookup((int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) * temp_f31);
-    M2C_FIELD(arg0, f32 *, 0x340) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x344) = (f32) (M2C_FIELD(arg0, f32 *, 0x354) * temp_f1);
-    M2C_FIELD(arg0, s32 *, 0x360) = 0;
-    M2C_FIELD(arg0, s32 *, 0x35C) = 0;
+    temp_f31 = sin_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    temp_f1 = cos_table_lookup((int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    *(f32 *)((s8 *)arg0 + 0x33C) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f31);
+    *(f32 *)((s8 *)arg0 + 0x340) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x344) = (f32) (*(f32 *)((s8 *)arg0 + 0x354) * temp_f1);
+    *(s32 *)((s8 *)arg0 + 0x360) = 0;
+    *(s32 *)((s8 *)arg0 + 0x35C) = 0;
     return arg0;
 }
 

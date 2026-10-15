@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
@@ -11,7 +7,7 @@ typedef struct { f32 x, y, z, w; } Quat_803D8E0C;
 
 extern "C" {
 extern s32 current_matrix;
-M2C_UNK PSMTXMultVecArraySR(int);
+s32 PSMTXMultVecArraySR(int);
 void fn_803D8DE0(u32 arg0);
 }
 

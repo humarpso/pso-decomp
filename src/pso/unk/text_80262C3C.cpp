@@ -1,9 +1,5 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_7b8813
 {
@@ -133,14 +129,14 @@ u16 obj_getField1c(void *);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 void refresh_status_display__9TWindowDDFv(void *);
 void init_window_layout_entries(void *, void *, int);
-M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
+s32 reset_float_field__15TWindowHelpItemFPv(int);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 void update_for_player_index__13TWindowLockOnFPvi(void *, s32);
 extern Cb_802634E8 lockon_photon_blast_marker_callback;
 extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD124;
 extern const f32 lbl_805DD128;
-M2C_UNK TWindowLockOn__update_for_other_player(s32 a0, s32 a1);
+s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1);
 }
 
 extern "C" {
@@ -148,7 +144,7 @@ extern const f32 lbl_805DD12C;
 
 extern u8 lockon_window_layout_entries[];
 extern Cb_80263370 lbl_804D0288;
-extern M2C_UNK __vt__13TWindowLockOn[];
+extern s32 __vt__13TWindowLockOn[];
 extern const f32 lbl_805DD100;
 extern const f32 TWindowLockOn__data_805DD110;
 extern const f32 lbl_805DD114;
@@ -156,7 +152,7 @@ extern const f32 lbl_805DD118;
 extern const f32 lbl_805DD11C;
 extern const f32 lbl_805DD120;
 
-s32 obj_testFlags30(s32, M2C_UNK);
+s32 obj_testFlags30(s32, s32);
 s8 TObjPlayer__sub_80102C30(void *);
 s32 find_entity_by_id(u16);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
@@ -177,16 +173,16 @@ u8 calc_display_grade__5TItemFPv(void *);
 f32 get_item_star_row_width(void *);
 f32 get_target_distance__13TWindowLockOnFv(s32);
 s32 setup_window_draw_context(void *, void *);
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(s32);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+s32 destroy_all_items__20TWindowSubStatusDispFPv(s32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 void *__nw__7TObjectFUl(u32);
 u8 *TWindowLockOn__ct(u8 *, s16, s32);
 s32 get_camera_id__11TCameraCtrlFv(void);
-M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 get_window_layout_position(int);
 extern u8 lbl_804D0268[];
 extern s32 lbl_805D3948;
@@ -198,7 +194,7 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0);
 void refresh_ground_item__13TWindowLockOnFv(void);
 void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0);
 void TWindowLockOn__update_for_enemy(s32, s32);
-M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1);
+s32 TWindowLockOn__update_for_item(s32 a0, s32 a1);
 void update_for_target__13TWindowLockOnFii(s32 arg0, s32 arg1);
 void bind_target__13TWindowLockOnFv(Win_8026366C *w, u16 id);
 void *create_for_target__13TWindowLockOnFiUs(s32 arg0, u16 arg1);
@@ -254,19 +250,19 @@ bool is_lockable_target__13TWindowLockOnFi(s32 arg0) {
     if (arg0 == 0) {
         return 0;
     }
-    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x10000000))) != 0) {
+    if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x10000000))) != 0) {
         if ((obj_isState3_324((void *) (arg0)) != 0) || (is_script_controlled__10TObjPlayerFPv((void *) (arg0)) != 0)) {
             return 0;
         }
         return 1;
     }
-    if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x20000000))) != 0) {
-        if (obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x40000000))) != 0) {
+    if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x20000000))) != 0) {
+        if (obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x40000000))) != 0) {
             return 0;
         }
         return get_target_id__13TWindowLockOnFPv((void *) (arg0)) != 0;
     }
-    return obj_testFlags30((s32)((void *) (arg0)), (M2C_UNK)((int) (0x80000000))) != 0;
+    return obj_testFlags30((s32)((void *) (arg0)), (s32)((int) (0x80000000))) != 0;
 }
 
 void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
@@ -304,7 +300,7 @@ void refresh_enemy_statuses__13TWindowLockOnFv(u8 *self) {
 void refresh_ground_item__13TWindowLockOnFv(void) {  }
 
 void update_photon_blast_marker__13TWindowLockOnFPv(u8 *arg0) {
-    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) M2C_FIELD(arg0, u16 *, 0x60));
+    update_photon_blast_player_marker(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0), (u32) *(u16 *)((s8 *)arg0 + 0x60));
 }
 
 struct Obj_80263014;
@@ -339,8 +335,8 @@ s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 enemy_name_for_rt_index(int);
 u32 calc_text_width(int);
 int get_field_20__17TWindowSubComCardFPv(int);
-M2C_UNK reset_float_field__15TWindowHelpItemFPv(int);
-M2C_UNK set_default_status__17TWindowDuelResultFPvi(void *, int);
+s32 reset_float_field__15TWindowHelpItemFPv(int);
+s32 set_default_status__17TWindowDuelResultFPvi(void *, int);
 extern Data_80263014 lock_on_window_params;
 extern const f32 lbl_805DD104;
 extern const f32 lbl_805DD108;
@@ -420,7 +416,7 @@ void TWindowLockOn__update_for_enemy(s32 a0, s32 a1) {
 #pragma fp_contract on
 #define arg0 ((Lock_80263370 *)a0)
 #define item ((void *)a1)
-M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
+s32 TWindowLockOn__update_for_item(s32 a0, s32 a1) {
     Ent_80263370 *e;
     Ent_80263370 *e2;
     f32 r;
@@ -459,7 +455,7 @@ M2C_UNK TWindowLockOn__update_for_item(s32 a0, s32 a1) {
 #pragma fp_contract on
 #define arg0 ((Lock_802634E8 *)a0)
 #define arg1 ((void *)a1)
-M2C_UNK TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
+s32 TWindowLockOn__update_for_other_player(s32 a0, s32 a1) {
     Ent_802634E8 *w;
     u16 id;
     init_window_layout_entries(arg0->sub, &lock_on_window_params, arg0->player);
@@ -540,7 +536,7 @@ void render__13TWindowLockOnFv(u8 *arg0) {
 
     temp_r3 = setup_window_draw_context(arg0, arg0 + 0x68);
     draw_window_frame(arg0, temp_r3);
-    if ((M2C_FIELD(arg0, f32 *, 0x30) == M2C_FIELD(arg0, f32 *, 0x40)) && (M2C_FIELD(arg0, f32 *, 0x34) == M2C_FIELD(arg0, f32 *, 0x44)) && (M2C_FIELD(arg0, f32 *, 0x38) == M2C_FIELD(arg0, f32 *, 0x48)) && (M2C_FIELD(arg0, f32 *, 0x3C) == M2C_FIELD(arg0, f32 *, 0x4C))) {
+    if ((*(f32 *)((s8 *)arg0 + 0x30) == *(f32 *)((s8 *)arg0 + 0x40)) && (*(f32 *)((s8 *)arg0 + 0x34) == *(f32 *)((s8 *)arg0 + 0x44)) && (*(f32 *)((s8 *)arg0 + 0x38) == *(f32 *)((s8 *)arg0 + 0x48)) && (*(f32 *)((s8 *)arg0 + 0x3C) == *(f32 *)((s8 *)arg0 + 0x4C))) {
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     }
 }
@@ -564,7 +560,7 @@ void run_task__13TWindowLockOnFv(Win_8026385C *w) {
 
 void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowLockOn;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowLockOn;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -575,21 +571,21 @@ void *__dt__13TWindowLockOnFv(void *arg0, s16 arg1) {
 
 u8 *TWindowLockOn__ct(u8 *arg0, s16 arg1, s32 arg2) {
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (lbl_804D0268), (void *) (arg1), (int) (get_window_layout_position((int) (0x1E))));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TWindowLockOn;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3948;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TWindowLockOn;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3948;
     if (get_camera_id__11TCameraCtrlFv() > 2) {
-        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DD130;
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DD130;
+        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD130;
+        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD130;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DD134;
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DD134;
+        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DD134;
+        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DD134;
     }
-    M2C_FIELD(arg0, u16 *, 0x60) = 0xFFFF;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x64) = 0;
-    M2C_FIELD(arg0, PMF_80263944 *, 0x70) = 0;
+    *(u16 *)((s8 *)arg0 + 0x60) = 0xFFFF;
+    *(s16 *)((s8 *)arg0 + 0x20) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x64) = 0;
+    *(PMF_80263944 *)((s8 *)arg0 + 0x70) = 0;
     ((void (*)(void *, s32))bind_target__13TWindowLockOnFv)(arg0, arg2);
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
 }
 

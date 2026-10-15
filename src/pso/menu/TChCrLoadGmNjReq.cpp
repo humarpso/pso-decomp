@@ -4,15 +4,11 @@ extern "C" void fn_8028C8A8(void*);
 extern "C" void TLobby__sub_8001FE7C(void*, int);
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv();
-M2C_UNK update_model_load__6TLobbyFPv();
-M2C_UNK start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
+s32 queue_destruction__7TObjectFv();
+s32 update_model_load__6TLobbyFPv();
+s32 start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
 }
 
 extern "C" {
@@ -25,19 +21,19 @@ void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void strncpy(void *, void *, int);
 
-extern M2C_UNK __vt__16TChCrLoadGmNjReq[];
+extern s32 __vt__16TChCrLoadGmNjReq[];
 extern void *lbl_805D3B58;
 
 void run_task__16TChCrLoadGmNjReqFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x70) - 1;
-    M2C_FIELD(arg0, s32 *, 0x70) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x70) - 1;
+    *(s32 *)((s8 *)arg0 + 0x70) = temp_r0;
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv();
         return;
     }
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C);
     switch (temp_r0_2) {
     case 0:
         start_character_load_task__23TAdSinglePlyChrSelectGCFPv();
@@ -57,19 +53,19 @@ TChCrLoadGmNjReq::~TChCrLoadGmNjReq() {
 void *TChCrLoadGmNjReq__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8028C7BC_arg0_8028C6EC *self = (struct VOff_8028C7BC_arg0_8028C6EC *)arg0;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TChCrLoadGmNjReq;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3B58;
-    M2C_FIELD(arg0, void **, 0x24) = M2C_FIELD(arg2, void **, 0x8);
-    M2C_FIELD(arg0, void **, 0x28) = M2C_FIELD(arg2, void **, 0x10);
-    M2C_FIELD(arg0, void **, 0x1C) = M2C_FIELD(arg2, void **, 0x4);
-    M2C_FIELD(arg0, void **, 0x20) = M2C_FIELD(arg2, void **, 0xC);
-    strncpy(self->f_30, M2C_FIELD(arg2, void **, 0x0), 48);
-    M2C_FIELD(arg0, void **, 0x60) = self->f_30;
-    M2C_FIELD(arg0, u32 *, 0x64) = 0;
-    M2C_FIELD(arg0, u32 *, 0x68) = 0;
-    M2C_FIELD(arg0, u32 *, 0x6C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x70) = 5370;
-    M2C_FIELD(arg0, u32 *, 0x2C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TChCrLoadGmNjReq;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3B58;
+    *(void **)((s8 *)arg0 + 0x24) = *(void **)((s8 *)arg2 + 0x8);
+    *(void **)((s8 *)arg0 + 0x28) = *(void **)((s8 *)arg2 + 0x10);
+    *(void **)((s8 *)arg0 + 0x1C) = *(void **)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)arg0 + 0x20) = *(void **)((s8 *)arg2 + 0xC);
+    strncpy(self->f_30, *(void **)((s8 *)arg2 + 0x0), 48);
+    *(void **)((s8 *)arg0 + 0x60) = self->f_30;
+    *(u32 *)((s8 *)arg0 + 0x64) = 0;
+    *(u32 *)((s8 *)arg0 + 0x68) = 0;
+    *(u32 *)((s8 *)arg0 + 0x6C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x70) = 5370;
+    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;
 }
 

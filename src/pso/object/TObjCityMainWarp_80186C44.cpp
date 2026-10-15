@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_80186CC8 { u8 cmd; u8 size; u16 id; u16 value; u16 pad; };
 
@@ -33,30 +29,30 @@ void close_windows__16TObjCityMainWarpFPv(void *arg0);
 void notify_player_warp__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
-M2C_UNK end_player_keyboard_hold(s32);
-M2C_UNK unsuppress_slot__11TWindowCtrlFi(s32);
-M2C_UNK TWindow__close(void *);
-M2C_UNK clear_flag__11TWindowCtrlFv();
-M2C_UNK close__17TWindowSubComCardFPv(void *);
-M2C_UNK obj_clear_flag30_20000(s32);
-M2C_UNK obj_set_flag_20000(s32);
-M2C_UNK play_effect_default__10TObjPlayerFii(s32, s32);
-M2C_UNK send_code_45_1__10TObjPlayerFi();
+s32 end_player_keyboard_hold(s32);
+s32 unsuppress_slot__11TWindowCtrlFi(s32);
+s32 TWindow__close(void *);
+s32 clear_flag__11TWindowCtrlFv();
+s32 close__17TWindowSubComCardFPv(void *);
+s32 obj_clear_flag30_20000(s32);
+s32 obj_set_flag_20000(s32);
+s32 play_effect_default__10TObjPlayerFii(s32, s32);
+s32 send_code_45_1__10TObjPlayerFi();
 
 extern s32 local_client_id;
 
 void close_windows__16TObjCityMainWarpFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x168) != 0U) {
-        close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x168));
-        M2C_FIELD(arg0, u32 *, 0x168) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x168) != 0U) {
+        close__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x168));
+        *(u32 *)((s8 *)arg0 + 0x168) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xB0) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0xB0));
-        M2C_FIELD(arg0, u32 *, 0xB0) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xB0) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0xB0));
+        *(u32 *)((s8 *)arg0 + 0xB0) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x164) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x164));
-        M2C_FIELD(arg0, u32 *, 0x164) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x164) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x164));
+        *(u32 *)((s8 *)arg0 + 0x164) = 0U;
     }
     end_player_keyboard_hold(local_client_id);
     clear_flag__11TWindowCtrlFv();
@@ -88,7 +84,7 @@ void trigger_warp_effect__16TObjCityMainWarpFPvi(void *arg0, s32 arg1) {
     if (temp_r3 != 0) {
         play_effect_default__10TObjPlayerFii(temp_r3, -1);
         obj_set_flag_20000(temp_r3);
-        M2C_FIELD(arg0, s32 *, 0x174) = 0x12C;
+        *(s32 *)((s8 *)arg0 + 0x174) = 0x12C;
     }
 }
 void update_floor_switch_state__16TObjCityMainWarpFPv(Obj_80186DA0 *arg0) {

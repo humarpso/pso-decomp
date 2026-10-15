@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void draw_if_visible__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
-M2C_UNK translate_matrix_vec3(M2C_UNK, void *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix_from(M2C_UNK);
-M2C_UNK pop_matrix();
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 render_with_position_override__10TObjPlayerFPvPvi(void *, s32, s32);
+s32 translate_matrix_vec3(s32, void *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix_from(s32);
+s32 pop_matrix();
+s32 draw__16TObjEneRe7BeruraFPv(void *);
 
 extern s32 model_render_flags;
 
@@ -31,12 +27,12 @@ struct VObj_8014C610 : Base_8014C610 {
 };
 
 void draw_if_visible__10TObjPlayerFPv(u8 *arg0) {
-    if ((((VObj_8014C610 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
+    if ((((VObj_8014C610 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0x398), *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1)) {
         model_render_flags |= 1;
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw__16TObjEneRe7BeruraFPv(arg0);
         pop_matrix();
         model_render_flags &= 0xFFFFFFFE;

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_8024B000 {
     s32 sp8;
@@ -11,7 +8,7 @@ struct Stack_8024B000 {
 };
 
 struct RecoveredGlobal_8024B000_lbl_804CE9D4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -22,7 +19,7 @@ struct Stack_8024AFB8 {
 };
 
 struct RecoveredGlobal_8024AFB8_lbl_804CE9E0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -33,7 +30,7 @@ struct Stack_8024AF74 {
 };
 
 struct RecoveredGlobal_8024AF74_lbl_804CE9EC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -44,7 +41,7 @@ struct Stack_8024AEF0 {
 };
 
 struct RecoveredGlobal_8024AEF0_lbl_804CE9F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -55,17 +52,17 @@ struct Stack_8024AEAC {
 };
 
 struct RecoveredGlobal_8024AEAC_lbl_804CEA04 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 extern "C" {
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024B000_lbl_804CE9D4 lbl_804CE9D4;
-void TWindowCtrl__sub_8024B000(M2C_UNK arg0, s32 arg1);
+void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AFB8_lbl_804CE9E0 window_ctrl_apply_default_vec_callback_entry;
-void apply_default_vec__11TWindowCtrlFii(M2C_UNK arg0, s32 arg1);
+void apply_default_vec__11TWindowCtrlFii(s32 arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024B098(void *, void *);
 extern RecoveredGlobal_8024AF74_lbl_804CE9EC TWindowCtrl__player_menu_query_cb;
 void has_player_active_menu__11TWindowCtrlFi(s32 arg0);
@@ -95,9 +92,9 @@ void suppress_slot__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AEAC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AEAC, sp10) == 0x8) ? 1 : -1];
     Stack_8024AEAC stack;
-    stack.sp8 = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&TWindowCtrl__suppress_slot_cb.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__suppress_slot_cb.value) + 8);
     ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -106,9 +103,9 @@ void unsuppress_slot__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AEF0, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AEF0, sp10) == 0x8) ? 1 : -1];
     Stack_8024AEF0 stack;
-    stack.sp8 = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&TWindowCtrl__unsuppress_slot_cb.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__unsuppress_slot_cb.value) + 8);
     ((void (*)(void *, void *))call_window_method__11TWindowCtrlFPvi)((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -124,31 +121,31 @@ void has_player_active_menu__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024AF74, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AF74, sp10) == 0x8) ? 1 : -1];
     Stack_8024AF74 stack;
-    stack.sp8 = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&TWindowCtrl__player_menu_query_cb.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&TWindowCtrl__player_menu_query_cb.value) + 8);
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
 }
 
-void apply_default_vec__11TWindowCtrlFii(M2C_UNK arg0, s32 arg1) {
+void apply_default_vec__11TWindowCtrlFii(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8024AFB8, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024AFB8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024AFB8, sp10) == 0x8) ? 1 : -1];
     Stack_8024AFB8 stack;
-    stack.sp8 = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&window_ctrl_apply_default_vec_callback_entry.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_apply_default_vec_callback_entry.value) + 8);
     TWindowCtrl__sub_8024B098((void *) (arg1), (void *) (&stack.sp8));
 }
 
-void TWindowCtrl__sub_8024B000(M2C_UNK arg0, s32 arg1) {
+void TWindowCtrl__sub_8024B000(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_8024B000, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8024B000, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024B000, sp10) == 0x8) ? 1 : -1];
     Stack_8024B000 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804CE9D4.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804CE9D4.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804CE9D4.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804CE9D4.value) + 8);
     TWindowCtrl__sub_8024B098((void *) (arg1), (void *) (&stack.sp8));
 }
 

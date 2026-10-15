@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct V3_80037264 { f32 x, y, z; };
 
@@ -11,7 +9,6 @@ struct S_80037264 {
     s32 a10c, a110, a114, a118, a11c, a120;
 };
 
-typedef s32 M2C_UNK;
 struct Obj_800372F0 {
     u8 pad0[0x1C];
     s32 f1C;
@@ -25,13 +22,13 @@ struct Obj_800372F0 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_80482C58[];
+extern s32 lbl_80482C58[];
 extern const f32 TBoss2LaserLight__data_805D849C;
 S_80037264 *ct_init_points__16TBoss2LaserLightFPvPvii(S_80037264 *o, void *parent, s32 arg2, s32 arg3);
-M2C_UNK noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_80133508(void *);
-M2C_UNK forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-M2C_UNK set_vec3__23TAdSinglePlyChrSelectGCFPvPv(void *, s32);
+s32 noop_laser__23TAdSinglePlyChrSelectGCFv(void *);
+s32 TAdSinglePlyChrSelectGC__sub_80133508(void *);
+s32 forward_to_field_0x14__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+s32 set_vec3__23TAdSinglePlyChrSelectGCFPvPv(void *, s32);
 extern const f32 lbl_805D84A8;
 void run_task__16TBoss2LaserLightFv(Obj_800372F0 *self);
 }
@@ -48,12 +45,12 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_80482C58[];
+extern s32 lbl_80482C58[];
 
 void *__dt__16TBoss2LaserLightFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80482C58;
-        if (M2C_FIELD(arg0, void **, 0x11C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x11C)); M2C_FIELD(arg0, M2C_UNK *, 0x11C) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482C58;
+        if (*(void **)((s8 *)arg0 + 0x11C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x11C)); *(s32 *)((s8 *)arg0 + 0x11C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -138,12 +135,12 @@ void run_task__16TBoss2LaserLightFv(Obj_800372F0 *self) {
 void TBoss2LaserLight__sub_80037474(void* p) { *(s32*)((char*)p + 0x24) = 2; }
 void TBoss2LaserLight__sub_80037480(void* p) { *(s32*)((char*)p + 0x24) = 1; }
 
-extern M2C_UNK __vt__16TBoss2LaserLight[];
+extern s32 __vt__16TBoss2LaserLight[];
 
 void *__dt__16TBoss2LaserLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TBoss2LaserLight;
-        if (M2C_FIELD(arg0, void **, 0x40) != NULL) { unregister_and_free__9TObjLightFPv(M2C_FIELD(arg0, void **, 0x40)); M2C_FIELD(arg0, M2C_UNK *, 0x40) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss2LaserLight;
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { unregister_and_free__9TObjLightFPv(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

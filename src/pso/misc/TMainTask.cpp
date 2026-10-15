@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -16,19 +12,19 @@ void render_screen_overlay__9TMainTaskFv(void *arg0);
 void some_empty_func__9TMainTaskFv(void);
 int clear_flag_3__7TObjectFv(void*);
 int delete_children__7TObjectFv(void*);
-M2C_UNK empty_func__7TObjectFv(void *);
+s32 empty_func__7TObjectFv(void *);
 int TMainTask__sub_801F34D0(void*);
-M2C_UNK TLobby__sub_803384D4();
-M2C_UNK render_clipout_and_fade__9TMainTaskFv();
+s32 TLobby__sub_803384D4();
+s32 render_clipout_and_fade__9TMainTaskFv();
 
 void render_screen_overlay__9TMainTaskFv(void *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0x1C) & 0x100) {
+    if (*(s32 *)((s8 *)arg0 + 0x1C) & 0x100) {
         render_clipout_and_fade__9TMainTaskFv();
         empty_func__7TObjectFv(arg0);
         TMainTask__sub_8022988C(arg0);
         TLobby__sub_803384D4();
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFE7F);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFE7F);
 }
 
 void some_empty_func__9TMainTaskFv(void) {

@@ -1,6 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK;
 struct Cur_8013B0F0 {
     u8 pad0[0x4EC];
     u8 pos[0x4F8 - 0x4EC];
@@ -15,14 +14,14 @@ struct Pl_8013B0F0 {
 
 extern "C" {
 s32 get_main_phase();
-M2C_UNK init_slots__11TMainCursorFPv(Cur_8013B0F0 *);
-M2C_UNK bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
+s32 init_slots__11TMainCursorFPv(Cur_8013B0F0 *);
+s32 bind_action_channels__11TMainCursorFv(Cur_8013B0F0 *);
 s32 TMainCursor__sub_8013E03C(void *);
-M2C_UNK set_target_index__11TMainCursorFPvs(void *, int);
-M2C_UNK update_cursor_pos__11TMainCursorFPv(void *);
-M2C_UNK reset_nearest_target_record(void *);
+s32 set_target_index__11TMainCursorFPvs(void *, int);
+s32 update_cursor_pos__11TMainCursorFPv(void *);
+s32 reset_nearest_target_record(void *);
 s32 test_flag_2000000__10TObjPlayerFPv(Pl_8013B0F0 *);
-M2C_UNK submit_cursor_candidate(Pl_8013B0F0 *, int);
+s32 submit_cursor_candidate(Pl_8013B0F0 *, int);
 Pl_8013B0F0 *get_player_by_client_id(u16);
 extern Pl_8013B0F0 *player_slot_table[12];
 void run_cursor_reset_task(s32 arg0);

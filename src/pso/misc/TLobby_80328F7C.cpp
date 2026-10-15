@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80328F7C { char pad[0x8]; };
 struct VObj_80328F7C : Base_80328F7C {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -106,12 +103,12 @@ struct VObj_80329044 : Base_80329044 {
 };
 
 struct RecoveredGlobal_80329088_lbl_805430E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1BC];
 };
 
 struct RecoveredGlobal_80329088_lbl_805432A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1BC];
 };
 
@@ -140,12 +137,12 @@ struct VObj_802A7328_802A7290 : Base_802A7328_802A7290 {
 };
 
 struct RecoveredGlobal_802A7444_lbl_804DDBD8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_802A74B8_lbl_804DD9F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -153,13 +150,13 @@ extern "C" {
 s32 is_valid_state__6TLobbyFPvi(void *unused, s32 arg1);
 extern RecoveredGlobal_80329088_lbl_805430E8 lbl_805430E8;
 extern RecoveredGlobal_80329088_lbl_805432A8 lbl_805432A8;
-M2C_UNK *get_state_table__6TLobbyFii(s32 arg0, s32 _w1);
+s32 *get_state_table__6TLobbyFii(s32 arg0, s32 _w1);
 int is_valid_player_motion_variant(void* a0);
 int TLobby__sub_802A7278(void* a0);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
 int is_valid_player_motion_variant(void* a0 = 0);
 int TLobby__sub_802A7278(void* a0 = 0);
-s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2);
+s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2);
 extern RecoveredGlobal_802A7444_lbl_804DDBD8 town_player_motion_clip_index_tables;
 s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c);
 }
@@ -203,21 +200,21 @@ void set_player_handle_valid__6TLobbyFPv(void *arg0) {
 }
 typedef char RecoveredGlobal_80329088_lbl_805430E8_size[sizeof(RecoveredGlobal_80329088_lbl_805430E8) == 0x1C0 ? 1 : -1];
 typedef char RecoveredGlobal_80329088_lbl_805432A8_size[sizeof(RecoveredGlobal_80329088_lbl_805432A8) == 0x1C0 ? 1 : -1];
-M2C_UNK *get_state_table__6TLobbyFii(s32 arg0, s32 _w1) {
-    M2C_UNK *var_r3;
+s32 *get_state_table__6TLobbyFii(s32 arg0, s32 _w1) {
+    s32 *var_r3;
     s32 temp_r3;
     temp_r3 = is_valid_state__6TLobbyFPvi((void *)(arg0), (s32)(_w1));
     switch (temp_r3) {
     case 0:
-        var_r3 = (M2C_UNK *)(&lbl_805430E8.value);
-        var_r3 = (M2C_UNK *)(&lbl_805430E8.value);
+        var_r3 = (s32 *)(&lbl_805430E8.value);
+        var_r3 = (s32 *)(&lbl_805430E8.value);
         return &lbl_805430E8.value;
     case 1:
-        var_r3 = (M2C_UNK *)(&lbl_805432A8.value);
-        var_r3 = (M2C_UNK *)(&lbl_805432A8.value);
+        var_r3 = (s32 *)(&lbl_805432A8.value);
+        var_r3 = (s32 *)(&lbl_805432A8.value);
         return &lbl_805432A8.value;
     default:
-        var_r3 = (M2C_UNK *)((u8 *)(NULL));
+        var_r3 = (s32 *)((u8 *)(NULL));
         return NULL;
     }
 }
@@ -227,12 +224,12 @@ s32 TLobby__sub_803290DC(void *self, s32 a, s32 b, s32 c) {
     return ((s32 ** *)&town_player_motion_clip_index_tables)[a][b][c];
 }
 
-s32 player_motion_provider0_get_clip_indices(M2C_UNK arg0, s32 arg1, s32 arg2) {
+s32 player_motion_provider0_get_clip_indices(s32 arg0, s32 arg1, s32 arg2) {
     if (((s32)TLobby__sub_802A7278((void*)((void *) (arg1)))) == 0) {
         return 0;
     }
     if (((s32)is_valid_player_motion_variant((void*)((void *) (arg2)))) != 0) {
-        return M2C_FIELD(M2C_FIELD(&town_player_motion_clip_index_tables.value, M2C_UNK *, (arg1 * 4)), M2C_UNK *, (arg2 * 4));
+        return *(s32 *)((s8 *)(*(s32 *)((s8 *)(&town_player_motion_clip_index_tables.value) + (arg1 * 4))) + (arg2 * 4));
     }
     return 0;
 }
@@ -250,10 +247,6 @@ typedef char RecoveredGlobal_802A74B8_lbl_804DD9F8_size[sizeof(RecoveredGlobal_8
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -293,15 +286,11 @@ void free_singleton_805D6C80__6TLobbyFv(void) {
 #undef lbl_805D6C80
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void alloc_work_buffer__6TLobbyFv(void);
-s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
 
 extern s32 lbl_805D6C80;
 
@@ -312,21 +301,17 @@ void alloc_work_buffer__6TLobbyFv(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *TLobby__sub_80329310(void *arg0, s16 arg1);
 void update_photon_chair__6TLobbyFv(void);
 void update_photon_chairs__6TLobbyFv(void);
-M2C_UNK TLobby__sub_802A7AF8(void *, M2C_UNK);
+s32 TLobby__sub_802A7AF8(void *, s32);
 s32 load_resources__15TPlyPhotonChairFv();
 
 int clear_flag_at_6c84__6TLobbyFv(void);
-M2C_UNK free__10TObjPlayerFPv(void *);
+s32 free__10TObjPlayerFPv(void *);
 
 int free_static_model__15TPlyPhotonChairFv(void);
 int set_photon_chair_flag__6TLobbyFi(int);
@@ -341,11 +326,11 @@ void update_photon_chair__6TLobbyFv(void) {
     load_resources__15TPlyPhotonChairFv();
 }
 
-extern M2C_UNK lbl_804ED7D0[];
+extern s32 lbl_804ED7D0[];
 
 void *TLobby__sub_80329310(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 8) = lbl_804ED7D0;
+        *(s32 **)((s8 *)arg0 + 8) = lbl_804ED7D0;
         TLobby__sub_802A7AF8(arg0, 0);
         if (arg1 > 0) {
             free__10TObjPlayerFPv(arg0);
@@ -357,27 +342,23 @@ void *TLobby__sub_80329310(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *init_vtable8__6TLobbyFPv(void *arg0);
 void init_player_forward__6TLobbyFv(void);
 void TLobby__sub_802A7B50(void *);
-M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
+s32 init_forward__10TObjPlayerFPv(s32 *);
 
-extern M2C_UNK lbl_804ED7D0[];
+extern s32 lbl_804ED7D0[];
 
 void *init_vtable8__6TLobbyFPv(void *arg0) {
     TLobby__sub_802A7B50(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x8) = lbl_804ED7D0;
+    *(s32 **)((s8 *)arg0 + 0x8) = lbl_804ED7D0;
     return arg0;
 }
 
-extern M2C_UNK lbl_805D6C84;
+extern s32 lbl_805D6C84;
 
 void init_player_forward__6TLobbyFv(void) {
     init_forward__10TObjPlayerFPv(&lbl_805D6C84);
@@ -388,11 +369,6 @@ void init_player_forward__6TLobbyFv(void) {
 __declspec(section ".ctors") static void *const __sinit_TLobby_80328F7C_80329368_cpp_ref = (void *)init_player_forward__6TLobbyFv;
 
 #include "types.h"
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 

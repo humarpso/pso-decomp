@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8018B820_8018B79C { char pad[0x18]; };
 struct VObj_8018B820_8018B79C : Base_8018B820_8018B79C {
     virtual void m0();
@@ -39,11 +36,11 @@ void queue_destruction__7TObjectFv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 u32 get_bml_motion(int, int);
 s32 get_bml_model(int, int);
-M2C_UNK TContainerAncient01__sub_8018B284(void *);
-M2C_UNK TContainerAncient01__sub_8018B48C(void *);
-M2C_UNK update_wait_for_player__19TContainerAncient01FPv(void *);
-M2C_UNK submit_cursor_candidate(void *, int, f32);
-M2C_UNK run_task__7TObjectFv(void *);
+s32 TContainerAncient01__sub_8018B284(void *);
+s32 TContainerAncient01__sub_8018B48C(void *);
+s32 update_wait_for_player__19TContainerAncient01FPv(void *);
+s32 submit_cursor_candidate(void *, int, f32);
+s32 run_task__7TObjectFv(void *);
 extern s32 TContainerAncient01__bml_resource;
 extern f32 TContainerAncient01__data_805DBD10;
 extern const f32 TContainerAncient01__data_805DBD1C;
@@ -62,27 +59,27 @@ int TContainerAncient01__vt19(void);
 f32 TContainerAncient01__vt20(void *arg0);
 f32 TContainerAncient01__vt21(void *arg0, s32 arg1, s32 *arg2);
 void render__19TContainerAncient01Fv(u8 *arg0);
-M2C_UNK scale_current_matrix(void *);
-s32 access_object_saved_state(void *, s16 *, M2C_UNK);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-M2C_UNK send_object_state_update(void *, s16 *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 scale_current_matrix(void *);
+s32 access_object_saved_state(void *, s16 *, s32);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(s32);
+s32 draw_ginja_model_with_motion(s32, s32, f32);
+s32 send_object_state_update(void *, s16 *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK reset_state__19TContainerAncient01FPv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 reset_state__19TContainerAncient01FPv();
+s32 set_global_param__8TObjFishFi(s32);
 
 extern f32 TContainerAncient01__data_805DBD14;
 
 f32 TContainerAncient01__vt20(void *arg0) {
     s16 sp8;
 
-    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x1000U) {
+    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x1000U) {
         reset_state__19TContainerAncient01FPv();
-        if (((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
+        if (((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state(arg0, &sp8, 1) != 0)) {
             sp8 = 1;
             access_object_saved_state(arg0, &sp8, 0);
             send_object_state_update(arg0, &sp8);
@@ -116,17 +113,17 @@ s32 TContainerAncient01__vt18(s32 arg0, s32 arg1) {
 
 void render__19TContainerAncient01Fv(u8 *arg0) {
     if (((VObj8018B8BC_8018B79C *) arg0)->m8(TContainerAncient01__data_805DBD3C, lbl_805DBD4C) != 0) {
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x35C) != 0) {
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) != 0) {
             scale_current_matrix(arg0 + 0x360);
         }
         if (check_demo_mode__10TObjPlayerFv() == 1) {
-            draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+            draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
-            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         }
         pop_matrix();
     }
@@ -136,8 +133,8 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
     f32 temp_f1_2;
     s16 temp_r0;
     if (check_demo_mode__10TObjPlayerFv() == 0) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x35C) == 0) {
-            temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x35C) == 0) {
+            temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
             switch (temp_r0) {
             case 0:
                 update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
@@ -149,32 +146,32 @@ void run_task__19TContainerAncient01Fv(u8 *arg0) {
                 TContainerAncient01__sub_8018B284((void *) (arg0));
                 break;
             default:
-                M2C_FIELD(arg0, s16 *, 0x326) = 0;
-                M2C_FIELD(arg0, s16 *, 0xB8) = (s16) M2C_FIELD(arg0, s16 *, 0x326);
-                M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
+                *(s16 *)((s8 *)arg0 + 0x326) = 0;
+                *(s16 *)((s8 *)arg0 + 0xB8) = (s16) *(s16 *)((s8 *)arg0 + 0x326);
+                *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) TContainerAncient01__data_805DBD1C;
                 update_wait_for_player__19TContainerAncient01FPv((void *) (arg0));
                 break;
             }
-            temp_f1 = M2C_FIELD(arg0, f32 *, 0x2B4);
-            M2C_FIELD(arg0, f32 *, 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
+            temp_f1 = *(f32 *)((s8 *)arg0 + 0x2B4);
+            *(f32 *)((s8 *)arg0 + 0x2B4) = (f32) (temp_f1 + (*(const f32 *)&TContainerAncient01__data_805DBD10));
             submit_cursor_candidate((void *) (arg0), (int) (-1), (f32) (temp_f1));
         } else {
-            temp_f1_2 = M2C_FIELD(arg0, f32 *, 0x364);
+            temp_f1_2 = *(f32 *)((s8 *)arg0 + 0x364);
             if (temp_f1_2 <= lbl_805DBD50) {
-                M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) - lbl_805DBD54);
-                if (M2C_FIELD(arg0, f32 *, 0x3C) <= (lbl_805DBD58 * M2C_FIELD(arg0, f32 *, 0x364))) {
+                *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - lbl_805DBD54);
+                if (*(f32 *)((s8 *)arg0 + 0x3C) <= (lbl_805DBD58 * *(f32 *)((s8 *)arg0 + 0x364))) {
                     queue_destruction__7TObjectFv(arg0);
                 }
             } else {
-                M2C_FIELD(arg0, f32 *, 0x364) = (f32) (temp_f1_2 - lbl_805DBD54);
+                *(f32 *)((s8 *)arg0 + 0x364) = (f32) (temp_f1_2 - lbl_805DBD54);
             }
         }
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (0))) {
+        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (0));
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
-        M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) == get_bml_motion((int) (TContainerAncient01__bml_resource), (int) (1))) {
+        *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) (TContainerAncient01__bml_resource), (int) (1));
     }
     run_task__7TObjectFv((void *) (arg0));
 }

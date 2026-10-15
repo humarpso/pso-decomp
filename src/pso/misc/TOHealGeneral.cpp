@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801695a8_80169520 { char pad[0x18]; };
 struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
     virtual void m0();
@@ -13,18 +10,18 @@ struct VObj_801695a8_80169520 : Base_801695a8_80169520 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(f32, f32);
+    virtual s32 m8(f32, f32);
 };
 
 struct RecoveredGlobal_80169710_lbl_804B2748
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80169710_lbl_804B2760
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xC];
 };
 
@@ -35,7 +32,6 @@ typedef struct TOHealGeneral_801697C0 {
     u32 handles[2];
 } TOHealGeneral_801697C0;
 
-typedef s32 M2C_UNK;
 struct Vec_80169858 { f32 x, y, z; };
 
 struct VBase_80169858 { char pad[0x18]; };
@@ -126,19 +122,19 @@ s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 u8 is_current_floor_switch_set(u16);
 s32 is_any_player_within_radius_xz(f32);
-M2C_UNK TOHangerMachine01__sub_80169168(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_model(int);
-M2C_UNK find_heal_target__13TOHealGeneralFPv(void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 TOHangerMachine01__sub_80169168(void *);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_model(int);
+s32 find_heal_target__13TOHealGeneralFPv(void *);
+s32 rotate_matrix_y(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
 void *__nw__7TObjectFUl(int);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK update_closing__13TOHealGeneralFPv(void *);
-M2C_UNK update_opening__13TOHealGeneralFPv(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 update_closing__13TOHealGeneralFPv(void *);
+s32 update_opening__13TOHealGeneralFPv(void *);
+s32 set_global_param__8TObjFishFi(int);
 
 void run_task__13TOHealGeneralFv(void *arg0) {
     s32 temp_r0;
@@ -147,7 +143,7 @@ void run_task__13TOHealGeneralFv(void *arg0) {
         TOHangerMachine01__sub_80169168(arg0);
         return;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
     switch (temp_r0) {
     case 0:
         find_heal_target__13TOHealGeneralFPv(arg0);
@@ -166,25 +162,25 @@ void render__13TOHealGeneralFv(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
 
-    if (((VObj_801695a8_80169520 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+    if (((VObj_801695a8_80169520 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (temp_r31 + 8));
-        draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         push_matrix();
-        temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
+        temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
         post_translate_matrix((void *) (temp_r31_2 + 8));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xCC)));
-        draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xCC)));
+        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
         pop_matrix();
         push_matrix();
-        temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
-        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r31_3, f32 *, 8)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0xD0)), (f32) (M2C_FIELD(temp_r31_3, f32 *, 0x10)));
-        rotate_matrix_y((int) (0), (int) (-M2C_FIELD(arg0, s32 *, 0xCC)));
-        draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+        temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r31_3 + 8)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0xC) - *(f32 *)((s8 *)arg0 + 0xD0)), (f32) (*(f32 *)((s8 *)temp_r31_3 + 0x10)));
+        rotate_matrix_y((int) (0), (int) (-*(s32 *)((s8 *)arg0 + 0xCC)));
+        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
         pop_matrix();
         pop_matrix();
     }
@@ -280,9 +276,9 @@ void *TOHealGeneral__ct(void *arg0, void *arg1) {
     self->vtable = __vt__13TOHealGeneral;
     self->f0 = TOHealGeneral__class_name;
     ((VObj_80169858 *)self)->m5(arg1);
-    self->f34 = M2C_FIELD(M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C), s32 *, 8);
-    model = M2C_FIELD(TOHealGeneral__model_archive, u8 **, 0x42C);
-    self->f24 = M2C_FIELD(model, s32 *, 0xC);
+    self->f34 = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C)) + 8);
+    model = *(u8 **)((s8 *)TOHealGeneral__model_archive + 0x42C);
+    self->f24 = *(s32 *)((s8 *)model + 0xC);
     self->fC4 = lbl_805DB6CC;
     init_collision_body_parts(self, lbl_804B2770, 1, model);
     refresh_collision_body_centers(self);
@@ -316,22 +312,22 @@ void TOHealGeneral__sub_801699F4(void) {  }
 extern f32 lbl_805DB6D8;
 
 void TOHealGeneral__sub_801699F8(u8 *arg0, s16 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0xAC) = (s32) *arg1;
+    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *arg1;
 }
 
 void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1) {
     void *p;
-    if (M2C_FIELD(arg0, s32 *, 0xD8) > 0) {
+    if (*(s32 *)((s8 *)arg0 + 0xD8) > 0) {
         if (arg1 == local_client_id) {
             p = get_player_by_client_id(arg1);
-            if (p == NULL || M2C_FIELD(arg0, s32 *, 0xAC) != 1) {
+            if (p == NULL || *(s32 *)((s8 *)arg0 + 0xAC) != 1) {
                 return;
             }
-            M2C_FIELD(arg0, s32 *, 0xAC) = 2;
-            M2C_FIELD(arg0, u16 *, 0x94) = arg1;
+            *(s32 *)((s8 *)arg0 + 0xAC) = 2;
+            *(u16 *)((s8 *)arg0 + 0x94) = arg1;
             play_effect_default__10TObjPlayerFii(p, -1);
         } else {
-            M2C_FIELD(arg0, u16 *, 0x94) = 0xFFFF;
+            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFF;
         }
     }
 }
@@ -339,24 +335,24 @@ void accept_player__13TOHealGeneralFPvUs(void *arg0, u16 arg1) {
 s32 update_active_state__13TOHealGeneralFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
     switch (temp_r0) {
     case 1:
         if (is_any_player_within_radius_xz(lbl_805DB6D8) != 0) {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 1;
+            *(s32 *)((s8 *)arg0 + 0xCC) = 1;
         } else {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+            *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         }
         break;
     case 2:
-        if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xD0)) == 1) {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 1;
+        if (is_current_floor_switch_set((u16) *(s32 *)((s8 *)arg0 + 0xD0)) == 1) {
+            *(s32 *)((s8 *)arg0 + 0xCC) = 1;
         } else {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+            *(s32 *)((s8 *)arg0 + 0xCC) = 0;
         }
         break;
     }
-    return M2C_FIELD(arg0, s32 *, 0xCC);
+    return *(s32 *)((s8 *)arg0 + 0xCC);
 }
 
 void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
@@ -366,7 +362,7 @@ void set_enable_count__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
     if (var_r4 < 0) {
         var_r4 = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0xD8) = var_r4;
+    *(s32 *)((s8 *)arg0 + 0xD8) = var_r4;
 }
 
 void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
@@ -376,24 +372,24 @@ void set_script_entry__13TOHealGeneralFPvi(void *arg0, s32 arg1) {
     if (var_r4 < 0) {
         var_r4 = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0xD4) = var_r4;
+    *(s32 *)((s8 *)arg0 + 0xD4) = var_r4;
 }
 
 s32 update_heal_gauge_state__13TOHealGeneralFPv(void *arg0) {
     s32 temp_r0;
 
-    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
+    *(s32 *)((s8 *)arg0 + 0xD0) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
     if (temp_r0 > 0xFF) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     } else if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 1;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 2;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 2;
     }
-    set_script_entry__13TOHealGeneralFPvi((void *)((void *)(arg0)), (s32)((s32)(M2C_FIELD(arg0, s32 *, 0x88))));
-    set_enable_count__13TOHealGeneralFPvi((void *)(arg0), (s32)(M2C_FIELD(arg0, s32 *, 0x8C)));
-    return M2C_FIELD(arg0, s32 *, 0xD0);
+    set_script_entry__13TOHealGeneralFPvi((void *)((void *)(arg0)), (s32)((s32)(*(s32 *)((s8 *)arg0 + 0x88))));
+    set_enable_count__13TOHealGeneralFPvi((void *)(arg0), (s32)(*(s32 *)((s8 *)arg0 + 0x8C)));
+    return *(s32 *)((s8 *)arg0 + 0xD0);
 }
 
 }

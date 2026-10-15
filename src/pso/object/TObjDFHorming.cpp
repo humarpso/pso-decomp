@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u8 *get_player_data__10TObjPlayerFi(s32);
@@ -114,7 +110,7 @@ struct Stack_8004B084 {
 union MemberActionStorage_8004B084 { s32 words[3]; void (TBoss4DarkFalz::*action)(); };
 
 struct RecoveredGlobal_8004B084_TBoss4DarkFalz__data_80485108 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x33C];
 };
 
@@ -127,7 +123,7 @@ struct Stack_8004B0F8 {
 union MemberActionStorage_8004B0F8 { s32 words[3]; void (TBoss4DarkFalz::*action)(); };
 
 struct RecoveredGlobal_8004B0F8_TBoss4DarkFalz__data_80485108 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x33C];
 };
 
@@ -198,16 +194,16 @@ V(20)V(21)V(22)V(23)V(24)V(25)V(26)V(27)V(28)V(29)V(30)V(31)V(32)V(33)V(34)V(35)
 V(40)V(41)V(42)V(43)V(44)V(45)V(46)V(47)V(48)V(49)V(50)V(51)V(52)V(53)V(54)V(55)V(56)V(57)V(58)V(59)
 V(60)V(61)V(62)V(63)V(64)V(65)V(66)V(67)V(68)V(69)V(70)V(71)V(72)V(73)V(74)V(75)V(76)
 #undef V
-    virtual M2C_UNK m77(s32 *);
+    virtual s32 m77(s32 *);
 };
 extern "C" {
 s32 is_split_screen();
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK exchange_object_state__6TLobbyFPvis(void *, void *, int);
-M2C_UNK send_6x0A_enemy_state(void *, void *);
-M2C_UNK distribute_experience(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
+s32 send_6x0A_enemy_state(void *, void *);
+s32 distribute_experience(void *);
 s32 get_player_by_client_id(void *);
-M2C_UNK send_entity_set_flags__6TLobbyFPv(void *);
+s32 send_entity_set_flags__6TLobbyFPv(void *);
 extern s32 local_client_id;
 s32 rand();
 extern const f64 lbl_804371D8;
@@ -306,22 +302,22 @@ u8 is_ending_or_split_screen__14TBoss4DarkFalzFv(void);
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0);
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0);
 s32 is_local_client_floor_leader();
-void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+void *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 get_main_phase();
 s32 is_split_screen();
 
 s32 TBoss4DarkFalz__sub_8004AF5C(u8 *arg0, s16 *arg1, s16 *arg2) {
     s32 temp_r6;
-    temp_r6 = M2C_FIELD(arg0, s32 *, 0x384);
+    temp_r6 = *(s32 *)((s8 *)arg0 + 0x384);
     if ((temp_r6 < 1) || (temp_r6 > 0x1FE)) {
         return 0;
     }
     if (temp_r6 > 0x1FD) {
         return 0;
     }
-    *arg1 = M2C_FIELD(arg0, s16 *, 0x2C) + temp_r6;
-    *arg2 = M2C_FIELD(arg0, u16 *, 0x1C) + M2C_FIELD(arg0, s32 *, 0x384);
-    M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);
+    *arg1 = *(s16 *)((s8 *)arg0 + 0x2C) + temp_r6;
+    *arg2 = *(u16 *)((s8 *)arg0 + 0x1C) + *(s32 *)((s8 *)arg0 + 0x384);
+    *(s32 *)((s8 *)arg0 + 0x384) = (s32) (*(s32 *)((s8 *)arg0 + 0x384) + 1);
     return 1;
 }
 
@@ -427,16 +423,16 @@ void change_state__14TBoss4DarkFalzFPvi(Boss_8004B20C *arg0, s32 arg1) {
 
 void update_visible_flag__14TBoss4DarkFalzFPv(void *arg0) {
     if (is_local_client_floor_leader() != 0) {
-        M2C_FIELD(arg0, s32 *, 0x378) = 0;
+        *(s32 *)((s8 *)arg0 + 0x378) = 0;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x378) = 1;
+    *(s32 *)((s8 *)arg0 + 0x378) = 1;
 }
 
 s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0) {
     s32 temp_r3;
 
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x390);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x390);
     if (temp_r3 > 0) {
         return 0x10000 / temp_r3;
     }
@@ -446,11 +442,11 @@ s32 calc_rate_from_field__14TBoss4DarkFalzFPv(void *arg0) {
 s32 is_timer_expired__14TBoss4DarkFalzFPv(void *arg0) {
     s32 var_r4;
 
-    var_r4 = M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x35), s32 *, 0x18);
+    var_r4 = *(s32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x35)) + 0x18);
     if ((var_r4 < 1) || (var_r4 > 0x13)) {
         var_r4 = 2;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x38C) >= (s32) (var_r4 * M2C_FIELD(arg0, s32 *, 0x390))) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x38C) >= (s32) (var_r4 * *(s32 *)((s8 *)arg0 + 0x390))) {
         return 1;
     }
     return 0;
@@ -594,7 +590,7 @@ void TBoss4DarkFalz__sub_8004B730(u8 *arg0, s32 arg1, f32 farg0) {
     f32 var_f1;
     u8 *temp_r3;
     var_f1 = farg0;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x398));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x398));
     if ((temp_r3 != NULL) && !(var_f1 <= lbl_805D8908)) {
         if (var_f1 > lbl_805D8910) {
             var_f1 = lbl_805D8910;
@@ -698,13 +694,13 @@ void freeze_all_players__14TBoss4DarkFalzFPv(void *self) {
 void update_roar_sound_timer__14TBoss4DarkFalzFPv(void *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x37C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x37C);
     if (temp_r0 >= 9 || temp_r0 < 4) {
         return;
     }
     {
-        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374) - 1;
-        M2C_FIELD(arg0, s32 *, 0x374) = temp_r0_2;
+        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x374) - 1;
+        *(s32 *)((s8 *)arg0 + 0x374) = temp_r0_2;
         if (temp_r0_2 < 0) {
             if ((lbl_805D8918 * (f32) rand()) < lbl_805D8930) {
                 play_sound_effect((s32)(0x3A300), (s32)(0), (s32)(0), (s32)(0));
@@ -713,7 +709,7 @@ void update_roar_sound_timer__14TBoss4DarkFalzFPv(void *arg0) {
             }
             {
                 f32 r = lbl_805D8918 * (f32) rand();
-                M2C_FIELD(arg0, s32 *, 0x374) = (s32) ((lbl_805D8934 * r) + lbl_805D8934);
+                *(s32 *)((s8 *)arg0 + 0x374) = (s32) ((lbl_805D8934 * r) + lbl_805D8934);
             }
         }
     }

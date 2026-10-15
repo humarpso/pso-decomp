@@ -3,10 +3,6 @@
 TAdMultiSelGameModeGC::~TAdMultiSelGameModeGC() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Self_80300770 {
     u8 pad0[0x1C];
@@ -21,7 +17,6 @@ typedef void (Self_80300770::*Action_80300770)();
 
 struct Ent_80300850 { u8 pad[0x364]; s32 f364; };
 
-typedef s32 M2C_UNK;
 struct Pos_8030095C { s32 v[8]; };
 
 struct Cur_8030095C { s32 v[2]; };
@@ -165,7 +160,7 @@ void exit_keyboard_mode__21TAdMultiSelGameModeGCFv(void) { reset_count__14TObjEn
 void update_transition_state__21TAdMultiSelGameModeGCFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
         begin_transition__21TAdMultiChgGameModeGCFv();

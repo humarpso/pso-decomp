@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80216BCC_80216B44 { char pad[0x18]; };
 struct VObj_80216BCC_80216B44 : Base_80216BCC_80216B44 {
     virtual void v0();
@@ -12,7 +9,7 @@ struct VObj_80216BCC_80216B44 : Base_80216BCC_80216B44 {
     virtual void v4();
     virtual void v5();
     virtual void v6();
-    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m7(s32, s32);
     virtual s32 m8();
 };
 struct Entry_80216BCC_80216B44 {
@@ -20,7 +17,6 @@ struct Entry_80216BCC_80216B44 {
     s32 field18;
 };
 
-typedef s32 M2C_UNK;
 struct Base_80216CF8 { char pad[0x18]; };
 
 struct VObj_80216CF8 : Base_80216CF8 {
@@ -31,7 +27,7 @@ struct VObj_80216CF8 : Base_80216CF8 {
     virtual void v4();
     virtual void v5();
     virtual void v6();
-    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m7(s32, s32);
     virtual s32 m8();
 };
 
@@ -70,7 +66,7 @@ struct VObj_80216F50 : Base_80216F50 {
     virtual void v4();
     virtual void v5();
     virtual void v6();
-    virtual M2C_UNK m7(M2C_UNK, M2C_UNK);
+    virtual s32 m7(s32, s32);
     virtual s32 m8();
 };
 
@@ -103,17 +99,17 @@ struct Win_80216F50 {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 get_camera_id__11TCameraCtrlFv();
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 get_status_flag__6TLobbyFPv(void *);
 s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 get_quest_list_text(s32, s32);
 f32 get_scale__15TShopWindowBaseFv(void *);
-M2C_UNK set_position_xy(void *, f32, f32);
-M2C_UNK TWindow__close(void *);
-M2C_UNK set_field_1c__6TLobbyFPvf(void *, f32);
+s32 set_position_xy(void *, f32, f32);
+s32 TWindow__close(void *);
+s32 set_field_1c__6TLobbyFPvf(void *, f32);
 void *create_yes_no_window(void *, s32, s32, s32);
 s32 select_cursor_entry__6TLobbyFPv(s32);
-M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
+s32 send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *create_message_window__6TLobbyFiiUis(void *, void *, s32, s32);
 void *get_window_layout_position(s32);
 extern Pos_80216CF8 lbl_8044BEA4[];
@@ -121,17 +117,17 @@ extern const f32 lbl_805DC694;
 extern const f32 lbl_805DC698;
 void update_list_navigation__17TQuestListOfflineFPv(Win_80216CF8 *self);
 u16 obj_getField1c(void *);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 get_story_flag(s16);
 s32 are_all_story_quests_complete();
-M2C_UNK refresh_story_quest_availability(void *);
+s32 refresh_story_quest_availability(void *);
 s32 get_quest_list_text(s32, s32);
 void *get_guild_text(s32);
-M2C_UNK calc_list_content_extent(void *);
-M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, s32);
+s32 calc_list_content_extent(void *);
+s32 send_and_handle__6TLobbyFPvii(void *, s32, s32);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, s32);
 void *get_window_layout_position(s32);
-M2C_UNK add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
+s32 add_list_entry__6TLobbyFPviii(void *, s32, s32, s32);
 void *create_item_list_window(void *, s32, s32);
 extern Pos_80216F50 lbl_8044BE9C[];
 extern void *story_quest_list_resource;
@@ -142,30 +138,30 @@ extern "C" {
 
 void close_sub_windows__7TWindowFPv(void *arg0);
 void handle_confirm_dialog(void *arg0);
-M2C_UNK prepare_offline_quest_filenames(s32);
+s32 prepare_offline_quest_filenames(s32);
 s32 get_selected_menu_value(u32);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(s32);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 
 void close_sub_windows__7TWindowFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x38));
-        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x38));
+        *(u32 *)((s8 *)arg0 + 0x38) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x44) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x44));
-        M2C_FIELD(arg0, u32 *, 0x44) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x44) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x44));
+        *(u32 *)((s8 *)arg0 + 0x44) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x40) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x40));
-        M2C_FIELD(arg0, u32 *, 0x40) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x40) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x40));
+        *(u32 *)((s8 *)arg0 + 0x40) = 0U;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
-        M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
+        *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
     }
 }
 
@@ -176,19 +172,19 @@ void handle_confirm_dialog(void *arg0) {
     VObj_80216BCC_80216B44 *temp_r3_3;
     VObj_80216BCC_80216B44 *temp_r3_4;
 
-    temp_r3 = M2C_FIELD(arg0, VObj_80216BCC_80216B44 **, 0x34);
+    temp_r3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
     if (temp_r3->m8() != 0) {
-        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
-            temp_r3_2 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x38));
+        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (is_visible__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x38)) != 0)) {
+            temp_r3_2 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
             if (temp_r3_2 == 0) {
-                temp_r0 = select_cursor_entry__6TLobbyFPv(M2C_FIELD(arg0, s32 *, 0x3C));
-                prepare_offline_quest_filenames(M2C_FIELD(arg0, Entry_80216BCC_80216B44 **, 0x54)[temp_r0].field18);
+                temp_r0 = select_cursor_entry__6TLobbyFPv(*(s32 *)((s8 *)arg0 + 0x3C));
+                prepare_offline_quest_filenames((*(Entry_80216BCC_80216B44 **)((s8 *)arg0 + 0x54))[temp_r0].field18);
                 set_field_20__12TQuestListVMFPvi(arg0, 3);
                 return;
             }
             if (temp_r3_2 == 1) {
                 close_sub_windows__7TWindowFPv((void *)(arg0));
-                temp_r3_3 = M2C_FIELD(arg0, VObj_80216BCC_80216B44 **, 0x34);
+                temp_r3_3 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
                 if (temp_r3_3 != NULL) {
                     temp_r3_3->m7(0x19, 1);
                 }
@@ -198,9 +194,9 @@ void handle_confirm_dialog(void *arg0) {
             goto block_9;
         }
 block_9:
-        if ((M2C_FIELD(arg0, void **, 0x38) != NULL) && (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x38)) != 0)) {
+        if ((*(void **)((s8 *)arg0 + 0x38) != NULL) && (get_status_flag__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x38)) != 0)) {
             close_sub_windows__7TWindowFPv((void *)(arg0));
-            temp_r3_4 = M2C_FIELD(arg0, VObj_80216BCC_80216B44 **, 0x34);
+            temp_r3_4 = *(VObj_80216BCC_80216B44 **)((s8 *)arg0 + 0x34);
             if (temp_r3_4 != NULL) {
                 temp_r3_4->m7(0x19, 1);
             }

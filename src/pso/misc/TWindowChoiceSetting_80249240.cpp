@@ -1,24 +1,19 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802492C8_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 extern "C" {
 void render__20TWindowChoiceSettingFv(u8 *arg0);
-M2C_UNK draw_window_frame(void *, s32);
+s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
-M2C_UNK draw_visible_window_entries(void *, void *, s32);
-M2C_UNK draw_window_scrollbar(s32, s32, void *);
-M2C_UNK draw_setting__20TWindowChoiceSettingFPvi(void *, s32);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
-extern M2C_UNK choice_setting_popup_vtable[];
+s32 draw_visible_window_entries(void *, void *, s32);
+s32 draw_window_scrollbar(s32, s32, void *);
+s32 draw_setting__20TWindowChoiceSettingFPvi(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
+extern s32 choice_setting_popup_vtable[];
 void render__20TWindowChoiceSettingFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -53,7 +48,7 @@ void destroy_children__20TWindowSubStatusDispFPvs(void *, int);
 int fn_80268C5C(void*);
 void fn_80269004(void *);
 
-extern M2C_UNK __vt__20TWindowChoiceSetting[];
+extern s32 __vt__20TWindowChoiceSetting[];
 
 void render__20TWindowChoiceSettingFv(u8 *arg0) {
     s32 temp_r3;
@@ -61,11 +56,11 @@ void render__20TWindowChoiceSettingFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_setting__20TWindowChoiceSettingFPvi(arg0, temp_r3);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x78) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x78), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x78) != 0U) {
+        forward_render__20TWindowSubStatusDispFPv(*(u32 *)((s8 *)arg0 + 0x78), temp_r3);
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x7C) != 0U) {
-        draw_window_scrollbar(M2C_FIELD(arg0, u32 *, 0x7C), temp_r3, arg0 + 0x68);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x7C) != 0U) {
+        draw_window_scrollbar(*(u32 *)((s8 *)arg0 + 0x7C), temp_r3, arg0 + 0x68);
     }
 }
 
@@ -77,7 +72,7 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
     u8 *temp_r30_2;
     u8 *temp_r30_3;
     if ((is_selected__20TWindowChoiceSettingFPv((void *) (arg0)) == 0) && (is_open__17TWindowSubComCardFPv((void *) (arg0)) == 0)) {
-        if (M2C_FIELD(arg0, u16 *, 0x70) & 0x10) {
+        if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r30 = (u8 *)&controller_input_state.value + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
                 move_cursor_prev__20TWindowChoiceSettingFPv((void *) (arg0));
@@ -102,12 +97,12 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
             request_close__20TWindowChoiceSettingFPv((void *) (arg0));
         }
     }
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCBC0) {
-        temp_r3 = M2C_FIELD(arg0, u32 *, 0x78);
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCBC0) {
+        temp_r3 = *(u32 *)((s8 *)arg0 + 0x78);
         if (temp_r3 != 0U) {
             update_subwindow__20TWindowSubStatusDispFPv((int) (temp_r3));
         }
-        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x7C);
+        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x7C);
         if (temp_r3_2 != 0U) {
             increment_counter__20TWindowSubStatusDispFPv((int) (temp_r3_2));
         }
@@ -122,7 +117,7 @@ void run_task__20TWindowChoiceSettingFv(u8 *arg0) {
 
 void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowChoiceSetting;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowChoiceSetting;
         destroy_children__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -131,14 +126,14 @@ void *__dt__20TWindowChoiceSettingFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__20TWindowChoiceSetting[];
+extern s32 __vt__20TWindowChoiceSetting[];
 extern void *lbl_805D38B8;
 
 void *TWindowChoiceSetting__ct(void *arg0) {
     fn_80269004(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowChoiceSetting;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D38B8;
-    M2C_FIELD(arg0, u16 *, 0x80) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowChoiceSetting;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D38B8;
+    *(u16 *)((s8 *)arg0 + 0x80) = 0;
     return arg0;
 }
 

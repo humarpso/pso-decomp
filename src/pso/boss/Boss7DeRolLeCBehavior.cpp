@@ -1,7 +1,6 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 extern "C" {
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 advance_animation_playback(void *);
@@ -268,10 +267,6 @@ void fn_802E79B0(Obj_802E79B0 *arg0) {
 #undef vec3_add_to
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -283,20 +278,16 @@ void set_flag_800__11TBoss7JointFPv(void* p) { *(u32*)((char*)p + 0x628) |= 0x80
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802E7F30_lbl_804739AC
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_802E7F30_lbl_804739D4
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x24];
 };
 
@@ -341,7 +332,7 @@ s32 render_actor_shadows_default(void *);
 void set_flag_800__11TBoss7JointFPv(void* p);
 
 void fn_802E7B10(void *arg0) {
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 1) {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
         render_actor_shadows_default(arg0);
     }
 }
@@ -373,7 +364,7 @@ void TObjFish__sub_802E7B94(Fish_802E7B94* o) {
 }
 
 void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
-  M2C_UNK *var_r4;
+  s32 *var_r4;
   s32 var_r31;
   u8 *temp_r3;
   u8 *temp_r3_2;
@@ -382,12 +373,12 @@ void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
   if ((var_r31 >= 0) && (var_r31 < 0xA))
   {
     var_r3 = (u8 *) 0;
-    var_r4 = (M2C_UNK *) (&lbl_804739AC.value);
+    var_r4 = (s32 *) (&lbl_804739AC.value);
     var_r31 *= 4;
     if (1)
     {
-      var_r4 = (M2C_UNK *) (&lbl_804739AC.value);
-      var_r4 = (M2C_UNK *) (*((M2C_UNK *) (((s8 *) (&lbl_804739AC.value)) + var_r31)));
+      var_r4 = (s32 *) (&lbl_804739AC.value);
+      var_r4 = (s32 *) (*((s32 *) (((s8 *) (&lbl_804739AC.value)) + var_r31)));
       temp_r3 = (u8 *) collect_and_count__12TBoss3VoloptFUii(queue_boss_effect__10TObjPlayerFPv((int) 0), (s32) var_r4);
     }
     if (temp_r3 != 0)
@@ -396,9 +387,9 @@ void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
       ((RecoveredFields_802E7F30_var_r3 *) var_r3)->field_4 = 0;
     }
     var_r3 = (u8 *) 0;
-    var_r4 = (M2C_UNK *) (&lbl_804739D4.value);
-    var_r4 = (M2C_UNK *) (&lbl_804739D4.value);
-    var_r4 = (M2C_UNK *) (*((M2C_UNK *) (((s8 *) (&lbl_804739D4.value)) + var_r31)));
+    var_r4 = (s32 *) (&lbl_804739D4.value);
+    var_r4 = (s32 *) (&lbl_804739D4.value);
+    var_r4 = (s32 *) (*((s32 *) (((s8 *) (&lbl_804739D4.value)) + var_r31)));
     temp_r3_2 = (u8 *) collect_and_count__12TBoss3VoloptFUii(queue_boss_effect__10TObjPlayerFPv((int) 0), (s32) var_r4);
     if (temp_r3_2 != 0)
     {
@@ -413,10 +404,6 @@ void TObjPlayer__sub_802E7F30(void *unused, s32 arg1) {
 #undef queue_boss_effect__10TObjPlayerFPv
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_802E8274 {
@@ -431,29 +418,29 @@ struct Stack_802E8274 {
     f32 sp28;
 };
 
-struct RecoveredGlobal_802E8274_lbl_80472CB0 { M2C_UNK value; u8 remaining[0x50]; };
+struct RecoveredGlobal_802E8274_lbl_80472CB0 { s32 value; u8 remaining[0x50]; };
 typedef char RecoveredGlobal_802E8274_lbl_80472CB0_size[sizeof(RecoveredGlobal_802E8274_lbl_80472CB0) == 0x54 ? 1 : -1];
 
-struct RecoveredGlobal_802E8274_lbl_804E3BFC { M2C_UNK value; u8 remaining[0x2C]; };
+struct RecoveredGlobal_802E8274_lbl_804E3BFC { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_802E8274_lbl_804E3BFC_size[sizeof(RecoveredGlobal_802E8274_lbl_804E3BFC) == 0x30 ? 1 : -1];
 
 struct RecoveredGlobal_802E80F4_lbl_8050BEC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_802E80F4_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
 struct RecoveredGlobal_802E80F4_lbl_805412C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x264];
 };
 
 struct RecoveredGlobal_802E80F4_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -461,7 +448,7 @@ extern "C" {
 s32 mult_vec_array__10TObjPlayerFUii(int, void *, void *, int);
 s32 get_current_matrix(void *);
 f32 subtract_vector(void *, void *);
-M2C_UNK transform_point_by_current_matrix(void *, void *);
+s32 transform_point_by_current_matrix(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
 extern RecoveredGlobal_802E8274_lbl_80472CB0 lbl_80472CB0;
@@ -495,7 +482,7 @@ extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
 extern u8 *lbl_805D693C;
-extern M2C_UNK *lbl_805D6940;
+extern s32 *lbl_805D6940;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -542,7 +529,7 @@ typedef char RecoveredGlobal_802E80F4_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8
 void TObjPlayer__sub_802E80F4(u8 *arg0) {
     s32 *var_r30;
     s32 var_r29;
-    if (!(get_mode__11TCameraCtrlFPv((void *) (&main_task.value)) & 0x20) || !(M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805DEA1C)) {
+    if (!(get_mode__11TCameraCtrlFPv((void *) (&main_task.value)) & 0x20) || !(*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805DEA1C)) {
         var_r30 = (s32 *)((u8 *)(arg0 + 0x5F8));
         var_r29 = 0;
         do {
@@ -559,14 +546,14 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
         clear_global_flag_400__9TObjEneDDFv();
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x7AC) != 0U) {
-            if (M2C_FIELD(arg0, s32 *, 0x628) & 0x40) {
-                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = &boss7_derolle_light_pool.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x7AC) != 0U) {
+            if (*(s32 *)((s8 *)arg0 + 0x628) & 0x40) {
+                *(s32 **)((s8 *)lbl_805D693C + 0x2C) = &boss7_derolle_light_pool.value;
             } else {
-                M2C_FIELD(lbl_805D693C, M2C_UNK **, 0x2C) = (M2C_UNK *) lbl_805D6940;
+                *(s32 **)((s8 *)lbl_805D693C + 0x2C) = (s32 *) lbl_805D6940;
             }
             draw_effect__10TObjPlayerFv();
-            draw_node_tree_if_visible__10TObjPlayerFPv((int) (M2C_FIELD(arg0, u32 *, 0x7AC)));
+            draw_node_tree_if_visible__10TObjPlayerFPv((int) (*(u32 *)((s8 *)arg0 + 0x7AC)));
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
@@ -581,11 +568,11 @@ void TObjPlayer__sub_802E80F4(u8 *arg0) {
 
 void TObjPlayer__sub_802E8234(u8 *arg0) {
     boss7_derolle_c_motion_id = 0;
-    lbl_805D6924 = M2C_FIELD(arg0, s32 *, 0x628);
+    lbl_805D6924 = *(s32 *)((s8 *)arg0 + 0x628);
     lbl_805D6920 = 0;
     lbl_805D6928 = (long) (arg0 + 0x3EC);
-    lbl_805D6930 = M2C_FIELD(arg0, s32 *, 0x6D8);
-    lbl_805D6934 = M2C_FIELD(arg0, s32 *, 0x6D4);
+    lbl_805D6930 = *(s32 *)((s8 *)arg0 + 0x6D8);
+    lbl_805D6934 = *(s32 *)((s8 *)arg0 + 0x6D4);
     lbl_805D692C = (long) (arg0 + 0x4DC);
     lbl_805D6944 = (long) (arg0 + 0x7B4);
 }
@@ -612,7 +599,7 @@ void TObjPlayer__sub_802E8274(void) {
         stack.sp1C = lbl_805DEA10;
         transform_point_by_current_matrix((void *) (&stack.sp14), (void *) (lbl_805D6944 + 0xC));
     }
-    if ((s32) boss7_derolle_c_motion_id == (s32) M2C_FIELD(&lbl_80472CB0.value, M2C_UNK *, (lbl_805D6920 * 4))) {
+    if ((s32) boss7_derolle_c_motion_id == (s32) *(s32 *)((s8 *)(&lbl_80472CB0.value) + (lbl_805D6920 * 4))) {
         stack.sp8 = lbl_805DEA10;
         stack.spC = lbl_805DEA10;
         stack.sp10 = lbl_805DEA10;
@@ -645,10 +632,6 @@ void TObjPlayer__sub_802E8274(void) {
 
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -662,15 +645,15 @@ void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1);
 f32 TObjFish__sub_802ED3E4(u8 *arg0);
 void set_swim_direction__8TObjFishFPv(void *arg0);
 }
-#define TBoss7LaserPtcl__sub_802ECE28 ((M2C_UNK (*)(void *))TBoss7LaserPtcl__sub_802ECE28)
-#define free_laser_light__15TBoss7LaserPtclFPv ((M2C_UNK (*)(void *))free_laser_light__15TBoss7LaserPtclFPv)
-#define release_laser_light__15TBoss7LaserPtclFPv ((M2C_UNK (*)(void *, int))release_laser_light__15TBoss7LaserPtclFPv)
+#define TBoss7LaserPtcl__sub_802ECE28 ((s32 (*)(void *))TBoss7LaserPtcl__sub_802ECE28)
+#define free_laser_light__15TBoss7LaserPtclFPv ((s32 (*)(void *))free_laser_light__15TBoss7LaserPtclFPv)
+#define release_laser_light__15TBoss7LaserPtclFPv ((s32 (*)(void *, int))release_laser_light__15TBoss7LaserPtclFPv)
 #define TObjFish__sub_802ED4AC ((s32 (*)(void *, int))TObjFish__sub_802ED4AC)
 #define TObjFish__sub_802ED3E4 ((f32 (*)(void *))TObjFish__sub_802ED3E4)
 #define set_swim_direction__8TObjFishFPv ((void (*)(void *, s32))set_swim_direction__8TObjFishFPv)
-struct M2CCopy_10 { u8 bytes[0x10]; };
+struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 struct Pt_802E95F8 { f32 x, y, z; };
 
@@ -703,7 +686,6 @@ struct Fish_802E85E0 {
     s32 f738;
 };
 
-typedef s32 M2C_UNK;
 struct V_802EAAC8 { f32 x, y, z; };
 
 struct Fish_802EAAC8 {
@@ -833,7 +815,7 @@ struct VObj_18_2c2cb3 : VBase_18_2c2cb3 {
     virtual void m69();
     virtual void m70();
     virtual void m71();
-    virtual M2C_UNK m72(M2C_UNK);
+    virtual s32 m72(s32);
 };
 
 struct Vec_802E8B50 { f32 x, y, z; };
@@ -982,14 +964,14 @@ struct Fish_802EB90C {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK fill_value_array(int);
-u8 *csnVector(M2C_UNK *, void *, M2C_UNK);
+s32 fill_value_array(int);
+u8 *csnVector(s32 *, void *, s32);
 s32 enemy_check_target_valid(void *);
-M2C_UNK setup_instance__9TObjEneDDFiiPvi(void *, int, void *, int);
+s32 setup_instance__9TObjEneDDFiiPvi(void *, int, void *, int);
 s32 advance_animation_playback(void *);
 u32 __nw__7TObjectFUl(int);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
@@ -997,48 +979,48 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 void pick_random_target__8TObjFishFPv(u8 *self);
 void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
 #define set_state_and_send__8TObjFishFPvi ((s32 (*)(void *, int))set_state_and_send__8TObjFishFPvi)
-M2C_UNK push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
+s32 push_ring_point__15TBoss7LaserPtclFPvPv(void *, void *);
 u32 construct_with_params__16TBoss7LaserLightFPviii(void *, void *, int, int);
-M2C_UNK calc_laser_ray_hit_point(int, void *);
-M2C_UNK calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
+s32 calc_laser_ray_hit_point(int, void *);
+s32 calc_world_position__15TBoss7LaserPtclFPvPv(int, int);
 s32 is_state_2__15TBoss7LaserPtclFPv(void *);
-M2C_UNK init_laser__15TBoss7LaserPtclFPv(void *);
-M2C_UNK calc_position__15TBoss7LaserPtclFPvPvPv(void *, void *, void *);
-M2C_UNK destroy_particles__15TBoss7LaserPtclFi(void *);
+s32 init_laser__15TBoss7LaserPtclFPv(void *);
+s32 calc_position__15TBoss7LaserPtclFPvPvPv(void *, void *, void *);
+s32 destroy_particles__15TBoss7LaserPtclFi(void *);
 u32 TBoss7LaserPtcl__ct(u32, void *, void *, int);
-extern M2C_UNK lbl_80472D90[];
+extern s32 lbl_80472D90[];
 void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 advance_animation_playback(void *);
 void advance_action_sequence__8TObjFishFPv(u8 *arg0);
-M2C_UNK TObjFish__sub_802ECE90(void *, int, int);
+s32 TObjFish__sub_802ECE90(void *, int, int);
 
 void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK restore_player_cameras();
+s32 restore_player_cameras();
 s32 activate_camera_mode(int);
-M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-M2C_UNK get_target_state_a__9TObjEneDDFPv(void *);
-M2C_UNK get_target_state_b__9TObjEneDDFPv(void *);
+s32 get_target_state_a__9TObjEneDDFPv(void *);
+s32 get_target_state_b__9TObjEneDDFPv(void *);
 s32 query_teammate_state__9TObjEneDDFPv();
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 int play_sound_effect(void*, void*, void*, void*);
-M2C_UNK init_all_slots__11TWindowCtrlFv();
-M2C_UNK init_all_slots2__11TWindowCtrlFv();
-M2C_UNK update_attached_orientation__8TObjFishFPv(void *);
-M2C_UNK destroy_child__8TObjFishFPv(void *);
+s32 init_all_slots__11TWindowCtrlFv();
+s32 init_all_slots2__11TWindowCtrlFv();
+s32 update_attached_orientation__8TObjFishFPv(void *);
+s32 destroy_child__8TObjFishFPv(void *);
 void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 
 extern Vec_802EBBC8 lbl_80473F78;
 extern Vec_802EBBC8 lbl_80473F84;
 void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
 s32 enemy_has_live_target(void *);
@@ -1070,7 +1052,7 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1);
 void TObjFish__sub_802EBE50(void* o, u32 k);
 void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 advance_scalar_motion_profile(void *);
@@ -1079,51 +1061,51 @@ s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-M2C_UNK update_attached_orientation__8TObjFishFPv(void *);
-M2C_UNK destroy_child__8TObjFishFPv(void *);
+s32 update_attached_orientation__8TObjFishFPv(void *);
+s32 destroy_child__8TObjFishFPv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
 void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 void update_wobble_angle__8TObjFishFPv(void *);
 
 void TObjFish__sub_802EAAC8(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 void *create_particle_controller_with_angles(void *, void *, s32, s32, s32);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
 void enable__13TParticleCtrlFPv(void *);
-void fn_802EC52C(M2C_UNK arg0, s32 arg1);
+void fn_802EC52C(s32 arg0, s32 arg1);
 extern s32 lbl_804E3E3C[];
 extern f32 lbl_804E3E48[];
 void TParticleCtrl__sub_802EC550(PCtrl_802EC550 *o);
-M2C_UNK assign_slots_from_list(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 assign_slots_from_list(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK restore_player_cameras();
+s32 restore_player_cameras();
 s32 activate_camera_mode(int);
-M2C_UNK cache_target_and_forward__11TCameraCtrlFii(void *, int);
+s32 cache_target_and_forward__11TCameraCtrlFii(void *, int);
 u8 *get_scripted_camera_playback();
-M2C_UNK create_timed_particle_emitter_with_flags(void *, int, int, int, int);
+s32 create_timed_particle_emitter_with_flags(void *, int, int, int, int);
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-M2C_UNK refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
-M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
+s32 refresh_and_send_entity_flags__12TBoss8DragonFPv(void *);
+s32 update_prev_position__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
-M2C_UNK dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
+s32 dispatch_by_main_phase__14TBoss4DarkFalzFUs(int);
 int play_sound_effect(void*, void*, void*, void*);
-M2C_UNK queue_destruction_for_each_node__7TObjectFv(void *);
-M2C_UNK init_all_slots__11TWindowCtrlFv();
-M2C_UNK init_all_slots2__11TWindowCtrlFv();
-M2C_UNK update_attached_orientation__8TObjFishFPv(void *);
-M2C_UNK destroy_child__8TObjFishFPv(void *);
+s32 queue_destruction_for_each_node__7TObjectFv(void *);
+s32 init_all_slots__11TWindowCtrlFv();
+s32 init_all_slots2__11TWindowCtrlFv();
+s32 update_attached_orientation__8TObjFishFPv(void *);
+s32 destroy_child__8TObjFishFPv(void *);
 
-M2C_UNK TBoss7Tentacle__sub_802F0AD0(void *);
-M2C_UNK clear_flags_0x3000__15TObjBoss2TunnelFv();
+s32 TBoss7Tentacle__sub_802F0AD0(void *);
+s32 clear_flags_0x3000__15TObjBoss2TunnelFv();
 extern Vec_802E8B50 lbl_80473F90[];
 void handle_death_state__8TObjFishFPvUi(Fish_802E8B50 *o, u32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
 s32 enemy_has_live_target(void *);
@@ -1144,10 +1126,10 @@ void set_effect_target_position__8TObjFishFPvPvPv(void* p, void* a1, void* a2);
 void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 
 void TBoss7Tentacle__sub_802F0AF0(s32);
-M2C_UNK clear_flags_0x3000__15TObjBoss2TunnelFv();
+s32 clear_flags_0x3000__15TObjBoss2TunnelFv();
 void TObjFish__sub_802E979C(Fish_802E979C *o, u32 k, s32 dir);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 void set_shake_preset__11TCameraCtrlFi(int);
@@ -1166,7 +1148,7 @@ void TObjBoss2Tunnel__sub_802F22C4(void);
 void TObjBoss2Tunnel__sub_802F22DC(void);
 void TBoss7LaserPtcl__sub_8035AE54(u32, void *, void *);
 void TObjFish__sub_802E9DBC(u8 *arg0, u32 arg1, s32 arg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 advance_scalar_motion_profile(void *);
@@ -1195,7 +1177,7 @@ struct Stack_802EC468 {
 };
 
 struct RecoveredGlobal_802EC468_lbl_804FF5E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -1206,7 +1188,7 @@ struct Fish_802E8AD4 { u8 pad[0x628]; u32 flags; };
 typedef char RecoveredGlobal_802EC468_lbl_804FF5E8_size[sizeof(RecoveredGlobal_802EC468_lbl_804FF5E8) == 0x28 ? 1 : -1];
 
 struct RecoveredGlobal_802EC7F0_lbl_804E3C2C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -1424,17 +1406,17 @@ struct Fish_802ECC44 {
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 u8 * get_player_data__10TObjPlayerFi(s32);
 s32 queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv();
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 s32 spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK enemy_clear_target(void *);
-M2C_UNK set_target_player__13TBoss2DeRolLeFPvPv(void *, void *);
+s32 enemy_clear_target(void *);
+s32 set_target_player__13TBoss2DeRolLeFPvPv(void *, void *);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
-M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
+s32 project_sound_origin_from_camera(void *, void *, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 s32 is_alive__9TObjEneDDFPv();
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
@@ -1459,7 +1441,7 @@ void TObjFish__sub_802EC32C(void);
 void update_projectile_spawns__8TObjFishFPv(u8 *arg0);
 void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1);
 void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2);
-void fn_802EC52C(M2C_UNK arg0, s32 arg1);
+void fn_802EC52C(s32 arg0, s32 arg1);
 void advance_action_sequence__8TObjFishFPv(u8 *arg0);
 void TBoss7DeRolLeC__sub_802EC994(void* p);
 void fn_802EC9A4(void *arg0, void *arg1);
@@ -1476,10 +1458,10 @@ void pick_random_target__8TObjFishFPv(u8 *self);
 
 void read_state__11TBoss7JointFPv(void *);
 void byteswap_action_packet__11TBoss7JointFPv(void *);
-M2C_UNK spawn_default_particle__8TObjFishFv(s32, M2C_UNK);
-M2C_UNK TObjFish__sub_802F18E8(void *);
+s32 spawn_default_particle__8TObjFishFv(s32, s32);
+s32 TObjFish__sub_802F18E8(void *);
 void set_flag_0x200__15TObjBoss2TunnelFv(void);
-M2C_UNK vec3_add_to(int, void *);
+s32 vec3_add_to(int, void *);
 
 extern Ent_802E88F8 *lbl_804E3C2C[];
 extern RecoveredGlobal_802EC468_lbl_804FF5E8 lbl_804FF5E8;
@@ -1686,12 +1668,12 @@ void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
     s32 temp_r3;
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x728) = lbl_804E3C2C[game_difficulty_selection][M2C_FIELD(arg0, s32 *, 0x6B4)].b * 0x1E;
+        *(s32 *)((s8 *)arg0 + 0x728) = lbl_804E3C2C[game_difficulty_selection][*(s32 *)((s8 *)arg0 + 0x6B4)].b * 0x1E;
         return;
     case 0:
         advance_animation_playback(arg0);
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x728);
-        M2C_FIELD(arg0, s32 *, 0x728) = temp_r3 - 1;
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x728);
+        *(s32 *)((s8 *)arg0 + 0x728) = temp_r3 - 1;
         if (temp_r3 == 0) {
             ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
         }
@@ -1710,17 +1692,17 @@ void TObjFish__sub_802E88F8(u8 *arg0, u32 arg1) {
 void TObjFish__sub_802E8990(u8 *arg0, u32 arg1) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x728) = M2C_FIELD(arg0, s16 *, 0xF4);
-        M2C_FIELD(arg0, s16 *, 0xF4) = 1;
+        *(s32 *)((s8 *)arg0 + 0x728) = *(s16 *)((s8 *)arg0 + 0xF4);
+        *(s16 *)((s8 *)arg0 + 0xF4) = 1;
         return;
     case 0:
         advance_animation_playback(arg0);
-        if (get_node_count__7TObjectFv(M2C_FIELD(arg0, s32 *, 0x7A4)) == 0) {
+        if (get_node_count__7TObjectFv(*(s32 *)((s8 *)arg0 + 0x7A4)) == 0) {
             ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
         }
         return;
     case 5:
-        M2C_FIELD(arg0, s16 *, 0xF4) = M2C_FIELD(arg0, s32 *, 0x728);
+        *(s16 *)((s8 *)arg0 + 0xF4) = *(s32 *)((s8 *)arg0 + 0x728);
         return;
     case 1: return;
     case 2: return;
@@ -1736,21 +1718,21 @@ void TBoss7DeRolLeC__handle_crawfish_spawn_state(u8 *self, u32 event, s32 varian
     s32 index;
     switch (event) {
     case 4:
-        M2C_FIELD(self, s32 *, 0x72C) = 9;
-        M2C_FIELD(self, s32 *, 0x728) = 0;
-        M2C_FIELD(self, s32 *, 0x730) = 0;
+        *(s32 *)((s8 *)self + 0x72C) = 9;
+        *(s32 *)((s8 *)self + 0x728) = 0;
+        *(s32 *)((s8 *)self + 0x730) = 0;
         set_field_b8__14TObjEnePanarmsFPvs(self, 1);
         return;
     case 0:
         advance_animation_playback(self);
-        index = M2C_FIELD(self, s32 *, 0x728);
-        if (index < M2C_FIELD(self, s32 *, 0x72C)) {
-            if (M2C_FIELD(self, s32 *, 0x730) <= 0) {
-                M2C_FIELD(self, s32 *, 0x728) = index + 1;
+        index = *(s32 *)((s8 *)self + 0x728);
+        if (index < *(s32 *)((s8 *)self + 0x72C)) {
+            if (*(s32 *)((s8 *)self + 0x730) <= 0) {
+                *(s32 *)((s8 *)self + 0x728) = index + 1;
                 TBoss7DeRolLeC__try_spawn_pattern_crawfish(self, variant, index);
-                M2C_FIELD(self, s32 *, 0x730) = 5;
+                *(s32 *)((s8 *)self + 0x730) = 5;
             } else {
-                M2C_FIELD(self, s32 *, 0x730)--;
+                (*(s32 *)((s8 *)self + 0x730))--;
             }
             return;
         }
@@ -1908,24 +1890,24 @@ void handle_death_state__8TObjFishFPvUi(Fish_802E8B50 *o, u32 arg1) {
 void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x628) = M2C_FIELD(arg0, s32 *, 0x628) | 4;
-        M2C_FIELD(arg0, s32 *, 0x628) = M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFEFF;
+        *(s32 *)((s8 *)arg0 + 0x628) = *(s32 *)((s8 *)arg0 + 0x628) | 4;
+        *(s32 *)((s8 *)arg0 + 0x628) = *(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFEFF;
         ((s32 (*)(void *))TObjFish__sub_802ECC44)(arg0);
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x6F0) = lbl_805DEA10;
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+        *(f32 *)((s8 *)arg0 + 0x6F0) = lbl_805DEA10;
         return;
     case 9:
-        if (M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+        if (*(s16 *)((s8 *)arg0 + 0xB8) == 1) {
             ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)(arg0);
         }
         return;
     case 8:
-        if (M2C_FIELD(arg0, f32 *, 0x6F0) < lbl_805DEA40) {
+        if (*(f32 *)((s8 *)arg0 + 0x6F0) < lbl_805DEA40) {
             set_state_and_send__8TObjFishFPvi(arg0, 0x1C);
         }
         return;
     case 0:
-        M2C_FIELD(arg0, f32 *, 0x6F0) = M2C_FIELD(arg0, f32 *, 0x6F0) - lbl_805DEA44;
+        *(f32 *)((s8 *)arg0 + 0x6F0) = *(f32 *)((s8 *)arg0 + 0x6F0) - lbl_805DEA44;
         return;
     case 1: return;
     case 2: return;
@@ -1939,22 +1921,22 @@ void TObjFish__sub_802E8E34(u8 *arg0, u32 arg1) {
 void TObjFish__sub_802E8EEC(u8 *arg0, u32 arg1, s32 _w2) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x100);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFFB);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x100);
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xE));
         ((s32 (*)(void *))TObjFish__sub_802ECBDC)((void *) (arg0));
-        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
-        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
+        *(s32 *)((s8 *)arg0 + 0x6C0) = 3;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6C0)));
         break;
     case 2:
-        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+        if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1) {
             set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (2));
             break;
         }
     default:
         break;
     case 9:
-        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1) {
+        if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1) {
             ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)((void *) (arg0));
             break;
         }
@@ -1985,26 +1967,26 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
     temp_r30 = (u8 *)((void *)((u8 *)(arg0) + 0x76C));
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x100);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFFB);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x100);
         TObjFish__sub_802ECBDC((Fish_802ECBDC *)arg0);
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xF));
-        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
-        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
-        fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0x718)));
-        M2C_FIELD(arg0, s32 *, 0x728) = 0;
-        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
-        M2C_FIELD(arg0, s32 *, 0x730) = 0;
-        M2C_FIELD(arg0, s32 *, 0x73C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x748) = (f32) lbl_805DEA10;
-        M2C_FIELD(arg0, f32 *, 0x76C) = (f32) lbl_805DEA10;
-        M2C_FIELD(temp_r30, f32 *, 4) = (f32) lbl_805DEA10;
-        M2C_FIELD(temp_r30, f32 *, 8) = (f32) lbl_805DEA10;
-        M2C_FIELD(arg0, u32 *, 0x784) = 0U;
+        *(s32 *)((s8 *)arg0 + 0x6C0) = 3;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6C0)));
+        fill_value_array((int) (*(s32 *)((s8 *)arg0 + 0x718)));
+        *(s32 *)((s8 *)arg0 + 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x72C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x730) = 0;
+        *(s32 *)((s8 *)arg0 + 0x73C) = 0;
+        *(f32 *)((s8 *)arg0 + 0x748) = (f32) lbl_805DEA10;
+        *(f32 *)((s8 *)arg0 + 0x76C) = (f32) lbl_805DEA10;
+        *(f32 *)((s8 *)temp_r30 + 4) = (f32) lbl_805DEA10;
+        *(f32 *)((s8 *)temp_r30 + 8) = (f32) lbl_805DEA10;
+        *(u32 *)((s8 *)arg0 + 0x784) = 0U;
         return;
     case 2:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x728) == 4) {
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x724) >= 4) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x728) == 4) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x724) >= 4) {
                 set_state_and_send__8TObjFishFPvi(arg0, 0x19);
             } else {
                 set_state_and_send__8TObjFishFPvi(arg0, 0x18);
@@ -2012,38 +1994,38 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
         }
         break;
     case 9:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x728) == 4) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x728) == 4) {
             advance_action_sequence__8TObjFishFPv(arg0);
             return;
         }
         break;
     case 0:
-        ((M2C_UNK)advance_animation_playback(arg0));
-        M2C_FIELD(arg0, s32 *, 0x7A0) = 6;
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x728);
+        ((s32)advance_animation_playback(arg0));
+        *(s32 *)((s8 *)arg0 + 0x7A0) = 6;
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0x728);
         switch (temp_r0) {
         case 0:
-            M2C_FIELD(arg0, s32 *, 0x72C) = (s32) (M2C_FIELD(arg0, s32 *, 0x72C) + 1);
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x72C) >= 0x14) {
-                M2C_FIELD(arg0, s32 *, 0x72C) = 0;
-                M2C_FIELD(arg0, s32 *, 0x728) = 1;
-                fill_value_array((int) (M2C_FIELD(arg0, s32 *, 0x718)));
+            *(s32 *)((s8 *)arg0 + 0x72C) = (s32) (*(s32 *)((s8 *)arg0 + 0x72C) + 1);
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x72C) >= 0x14) {
+                *(s32 *)((s8 *)arg0 + 0x72C) = 0;
+                *(s32 *)((s8 *)arg0 + 0x728) = 1;
+                fill_value_array((int) (*(s32 *)((s8 *)arg0 + 0x718)));
                 set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xD));
                 if (enemy_check_target_valid((void *) (arg0)) != 0) {
-                    VecCopy__FP3VecPC3Vec((int)((int) (temp_r30)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x390) + 0x38)));
+                    VecCopy__FP3VecPC3Vec((int)((int) (temp_r30)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x390) + 0x38)));
                 } else {
-                    M2C_FIELD(arg0, f32 *, 0x76C) = (f32) lbl_805DEA10;
-                    M2C_FIELD(temp_r30, f32 *, 4) = (f32) lbl_805DEA10;
-                    M2C_FIELD(temp_r30, f32 *, 8) = (f32) lbl_805DEA10;
+                    *(f32 *)((s8 *)arg0 + 0x76C) = (f32) lbl_805DEA10;
+                    *(f32 *)((s8 *)temp_r30 + 4) = (f32) lbl_805DEA10;
+                    *(f32 *)((s8 *)temp_r30 + 8) = (f32) lbl_805DEA10;
                 }
-                if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                    queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x7A8));
+                if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+                    queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x7A8));
                 }
                 var_r0 = __nw__7TObjectFUl((int) (0x58));
                 if (var_r0 != 0U) {
                     var_r0 = TBoss7LaserPtcl__ct(var_r0, (void *) (arg0), (void *) ((u8 *)(arg0) + 0x4DC), (int) (temp_r30));
                 }
-                M2C_FIELD(arg0, u32 *, 0x7A8) = var_r0;
+                *(u32 *)((s8 *)arg0 + 0x7A8) = var_r0;
                 TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
                 free_laser_light__15TBoss7LaserPtclFPv((void *) (arg0));
                 set_effect_target_position__8TObjFishFPvPvPv((void *) (arg0), (void *) (0x39E0F), (void *) ((u8 *)(arg0) + 0x50C));
@@ -2051,18 +2033,18 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             }
             break;
         case 1:
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                calc_position__15TBoss7LaserPtclFPvPvPv(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+                calc_position__15TBoss7LaserPtclFPvPvPv(*(void **)((s8 *)arg0 + 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
             }
-            if ((lbl_805DEA38 < M2C_FIELD(arg0, f32 *, 0xC0)) && ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U)) {
-                destroy_particles__15TBoss7LaserPtclFi(M2C_FIELD(arg0, void **, 0x7A8));
+            if ((lbl_805DEA38 < *(f32 *)((s8 *)arg0 + 0xC0)) && ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U)) {
+                destroy_particles__15TBoss7LaserPtclFi(*(void **)((s8 *)arg0 + 0x7A8));
             }
             TBoss7LaserPtcl__sub_802ECE28((void *) (arg0));
-            if (lbl_805DEA4C <= M2C_FIELD(arg0, f32 *, 0xC0)) {
-                M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEA4C;
-                M2C_FIELD(arg0, s32 *, 0x728) = 2;
-                if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                    init_laser__15TBoss7LaserPtclFPv(M2C_FIELD(arg0, void **, 0x7A8));
+            if (lbl_805DEA4C <= *(f32 *)((s8 *)arg0 + 0xC0)) {
+                *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEA4C;
+                *(s32 *)((s8 *)arg0 + 0x728) = 2;
+                if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+                    init_laser__15TBoss7LaserPtclFPv(*(void **)((s8 *)arg0 + 0x7A8));
                 }
                 set_effect_target_position__8TObjFishFPvPvPv((void *) (arg0), (void *) (0x3A310), (void *) ((u8 *)(arg0) + 0x50C));
                 return;
@@ -2070,51 +2052,51 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
             break;
         case 2:
             temp_r30_2 = (u8 *)((void *)((u8 *)(arg0) + 0x778));
-            M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DEA4C;
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                calc_position__15TBoss7LaserPtclFPvPvPv(M2C_FIELD(arg0, void **, 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
-                calc_world_position__15TBoss7LaserPtclFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (int) (temp_r30_2));
-                calc_laser_ray_hit_point((int) (M2C_FIELD(arg0, u32 *, 0x7A8)), (void *) (&sp8));
+            *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DEA4C;
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+                calc_position__15TBoss7LaserPtclFPvPvPv(*(void **)((s8 *)arg0 + 0x7A8), (void *) ((u8 *)(arg0) + 0x4DC), (void *) ((u8 *)(arg0) + 0x4E8));
+                calc_world_position__15TBoss7LaserPtclFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x7A8)), (int) (temp_r30_2));
+                calc_laser_ray_hit_point((int) (*(u32 *)((s8 *)arg0 + 0x7A8)), (void *) (&sp8));
             }
-            temp_r3 = (u8 *)(csnVector((M2C_UNK *)&sp8, temp_r30_2, 0x16EF));
+            temp_r3 = (u8 *)(csnVector((s32 *)&sp8, temp_r30_2, 0x16EF));
             if (temp_r3 != NULL) {
-                VecCopy__FP3VecPC3Vec((int)((int) (temp_r30_2)), (void *)((int) (M2C_FIELD(temp_r3, s32 *, 4))));
-                if ((u32) M2C_FIELD(arg0, u32 *, 0x71C) == 0U) {
+                VecCopy__FP3VecPC3Vec((int)((int) (temp_r30_2)), (void *)((int) (*(s32 *)((s8 *)temp_r3 + 4))));
+                if ((u32) *(u32 *)((s8 *)arg0 + 0x71C) == 0U) {
                     var_r0_2 = __nw__7TObjectFUl((int) (0x124));
                     if (var_r0_2 != 0U) {
                         var_r0_2 = construct_with_params__16TBoss7LaserLightFPviii((void *) var_r0_2, (void *) (arg0), (int) (6), (int) (0x208));
                     }
-                    M2C_FIELD(arg0, u32 *, 0x71C) = var_r0_2;
+                    *(u32 *)((s8 *)arg0 + 0x71C) = var_r0_2;
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(M2C_FIELD(arg0, void **, 0x71C), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x71C), temp_r30_2);
                 }
-                if ((u32) M2C_FIELD(arg0, u32 *, 0x720) == 0U) {
+                if ((u32) *(u32 *)((s8 *)arg0 + 0x720) == 0U) {
                     var_r0_3 = __nw__7TObjectFUl((int) (0x124));
                     if (var_r0_3 != 0U) {
                         var_r0_3 = construct_with_params__16TBoss7LaserLightFPviii((void *) var_r0_3, (void *) (arg0), (int) (0xF), (int) (0x209));
                     }
-                    M2C_FIELD(arg0, u32 *, 0x720) = var_r0_3;
+                    *(u32 *)((s8 *)arg0 + 0x720) = var_r0_3;
                 } else {
-                    push_ring_point__15TBoss7LaserPtclFPvPv(M2C_FIELD(arg0, void **, 0x720), temp_r30_2);
+                    push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), temp_r30_2);
                 }
             }
             temp_r4 = (u8 *)((void *)((u8 *)(lbl_80472D90) + -4));
-            *(M2CCopy_14 *)(copy_storage_802E8FCC.bytes) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
-            (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = M2C_FIELD(M2C_FIELD(arg0, f32 **, 0x620), f32 *, 0);
-            setup_instance__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r30_2), (void *) ((copy_storage_802E8FCC.bytes)), (int) (M2C_FIELD(arg0, s32 *, 0x718)));
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-                if (is_state_2__15TBoss7LaserPtclFPv(M2C_FIELD(arg0, void **, 0x7A8)) != 0) {
-                    M2C_FIELD(arg0, s32 *, 0x728) = 3;
+            *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
+            (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x620)) + 0);
+            setup_instance__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r30_2), (void *) ((copy_storage_802E8FCC.bytes)), (int) (*(s32 *)((s8 *)arg0 + 0x718)));
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+                if (is_state_2__15TBoss7LaserPtclFPv(*(void **)((s8 *)arg0 + 0x7A8)) != 0) {
+                    *(s32 *)((s8 *)arg0 + 0x728) = 3;
                     return;
                 }
             } else {
-                M2C_FIELD(arg0, s32 *, 0x728) = 3;
+                *(s32 *)((s8 *)arg0 + 0x728) = 3;
                 return;
             }
             break;
         case 3:
             if (get_flag_b4__21TObjEneMe3ShinowaRealFPv((void *) (arg0)) != 0) {
-                M2C_FIELD(arg0, s32 *, 0x728) = 4;
+                *(s32 *)((s8 *)arg0 + 0x728) = 4;
                 return;
             }
             break;
@@ -2124,24 +2106,24 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
         pick_random_target__8TObjFishFPv(arg0);
         return;
     case 5:
-        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x724);
-        M2C_FIELD(arg0, s32 *, 0x724) = (s32) (temp_r4_2 + 1);
+        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x724);
+        *(s32 *)((s8 *)arg0 + 0x724) = (s32) (temp_r4_2 + 1);
         release_laser_light__15TBoss7LaserPtclFPv(arg0, (int) (temp_r4_2));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x784) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x784));
-            M2C_FIELD(arg0, u32 *, 0x784) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x784) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x784));
+            *(u32 *)((s8 *)arg0 + 0x784) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x71C) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x71C));
-            M2C_FIELD(arg0, u32 *, 0x71C) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x71C) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x71C));
+            *(u32 *)((s8 *)arg0 + 0x71C) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x720) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x720));
-            M2C_FIELD(arg0, u32 *, 0x720) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x720) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x720));
+            *(u32 *)((s8 *)arg0 + 0x720) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x7A8) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x7A8));
-            M2C_FIELD(arg0, u32 *, 0x7A8) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x7A8) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x7A8));
+            *(u32 *)((s8 *)arg0 + 0x7A8) = 0U;
         }
         break;
     }
@@ -2155,33 +2137,33 @@ void TObjFish__sub_802E9458(u8 *arg0, u32 arg1) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x100);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFFB);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x100);
         ((s32 (*)(void *))TObjFish__sub_802ECBDC)((void *) (arg0));
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0xC));
-        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
-        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
-        M2C_FIELD(arg0, s32 *, 0x728) = 0;
-        M2C_FIELD(arg0, s32 *, 0x724) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6C0) = 3;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6C0)));
+        *(s32 *)((s8 *)arg0 + 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x724) = 0;
         return;
     case 2:
-        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 0xF) {
+        if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
             set_state_and_send__8TObjFishFPvi((void *) (arg0), (int) (0x18));
         }
     default:
         return;
     case 9:
-        if ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 0xF) {
+        if ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
             ((s32 (*)(void *))advance_action_sequence__8TObjFishFPv)((void *) (arg0));
             return;
         }
         break;
     case 0:
         advance_animation_playback((void *) (arg0));
-        M2C_FIELD(arg0, s32 *, 0x728) = (s32) (M2C_FIELD(arg0, s32 *, 0x728) + 1);
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0xC0);
-        if ((temp_f1 >= lbl_805DEA50) && (temp_f1 <= lbl_805DEA54) && ((f32) M2C_FIELD(arg0, s32 *, 0x728) >= lbl_805DEA58)) {
-            M2C_FIELD(arg0, s32 *, 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x728) = (s32) (*(s32 *)((s8 *)arg0 + 0x728) + 1);
+        temp_f1 = *(f32 *)((s8 *)arg0 + 0xC0);
+        if ((temp_f1 >= lbl_805DEA50) && (temp_f1 <= lbl_805DEA54) && ((f32) *(s32 *)((s8 *)arg0 + 0x728) >= lbl_805DEA58)) {
+            *(s32 *)((s8 *)arg0 + 0x728) = 0;
             VecCopy__FP3VecPC3Vec((int) (&v), (void *) ((u8 *)(arg0) + 0x38));
             v.x = lbl_805DEA5C * calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0)) + v.x;
             v.y = lbl_805DEA60;
@@ -2204,16 +2186,16 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
     case 4:
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (3));
         TObjFish__sub_802ECBDC((Fish_802ECBDC *)arg0);
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFFB);
-        M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFEFF);
-        M2C_FIELD(arg0, s32 *, 0x6C0) = arg2;
-        TObjFish__sub_802ED4AC((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x6C0)));
-        M2C_FIELD(arg0, s32 *, 0x728) = 0;
-        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x744) = (f32) lbl_805DEA68;
-        M2C_FIELD(arg0, s32 *, 0x704) = (s32) (M2C_FIELD(arg0, s32 *, 0x704) + 1);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x704) >= 3) {
-            M2C_FIELD(arg0, s32 *, 0x704) = 0;
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFFB);
+        *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFEFF);
+        *(s32 *)((s8 *)arg0 + 0x6C0) = arg2;
+        TObjFish__sub_802ED4AC((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x6C0)));
+        *(s32 *)((s8 *)arg0 + 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x72C) = 0;
+        *(f32 *)((s8 *)arg0 + 0x744) = (f32) lbl_805DEA68;
+        *(s32 *)((s8 *)arg0 + 0x704) = (s32) (*(s32 *)((s8 *)arg0 + 0x704) + 1);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x704) >= 3) {
+            *(s32 *)((s8 *)arg0 + 0x704) = 0;
         }
     default:
         return;
@@ -2231,12 +2213,12 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
         break;
     case 0:
         advance_animation_playback((void *) (arg0));
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x72C);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0x72C);
         switch (temp_r0) {
         case 0:
-            if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
-                TObjFish__sub_802ECE90((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x728)), (int) (M2C_FIELD(arg0, s32 *, 0x704)));
-                M2C_FIELD(arg0, s32 *, 0x72C) = 1;
+            if (!(*(s32 *)((s8 *)arg0 + 0xB0) & 4)) {
+                TObjFish__sub_802ECE90((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x728)), (int) (*(s32 *)((s8 *)arg0 + 0x704)));
+                *(s32 *)((s8 *)arg0 + 0x72C) = 1;
                 return;
             }
             break;
@@ -2244,10 +2226,10 @@ void TObjFish__sub_802E95F8(u8 *arg0, u32 arg1, s32 arg2) {
             temp_r4 = ((Fish_802E95F8 *)arg0)->idx;
             if (((Fish_802E95F8 *)arg0)->pts[temp_r4].x < ((Fish_802E95F8 *)arg0)->pts[temp_r4 + 1].x) {
                 ((Fish_802E95F8 *)arg0)->idx = temp_r4 + 1;
-                if ((f32) M2C_FIELD(arg0, s32 *, 0x728) >= lbl_805DEA6C) {
-                    M2C_FIELD(arg0, s32 *, 0x72C) = 2;
+                if ((f32) *(s32 *)((s8 *)arg0 + 0x728) >= lbl_805DEA6C) {
+                    *(s32 *)((s8 *)arg0 + 0x72C) = 2;
                 }
-                TObjFish__sub_802ECE90((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x728)), (int) (M2C_FIELD(arg0, s32 *, 0x704)));
+                TObjFish__sub_802ECE90((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x728)), (int) (*(s32 *)((s8 *)arg0 + 0x704)));
             }
             break;
         }
@@ -2679,92 +2661,92 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
     case 4:
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 1);
         TObjFish__sub_802ECBDC((Fish_802ECBDC *)arg0);
-        M2C_FIELD(arg0, s32 *, 0x628) |= 4;
-        M2C_FIELD(arg0, s32 *, 0x628) &= ~0x100;
-        M2C_FIELD(arg0, s32 *, 0x6C0) = 3;
-        TObjFish__sub_802ED4AC(arg0, M2C_FIELD(arg0, s32 *, 0x6C0));
-        M2C_FIELD(arg0, s32 *, 0x728) = 0;
-        M2C_FIELD(arg0, s32 *, 0x730) = 0;
-        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x744) = lbl_805DEA10;
-        M2C_FIELD(arg0, f32 *, 0x748) = lbl_805DEA10;
-        M2C_FIELD(arg0, f32 *, 0x74C) = lbl_805DEA10;
-        M2C_FIELD(arg0, f32 *, 0x750) = lbl_805DEA10;
-        M2C_FIELD(arg0, s32 *, 0x734) = 0;
+        *(s32 *)((s8 *)arg0 + 0x628) |= 4;
+        *(s32 *)((s8 *)arg0 + 0x628) &= ~0x100;
+        *(s32 *)((s8 *)arg0 + 0x6C0) = 3;
+        TObjFish__sub_802ED4AC(arg0, *(s32 *)((s8 *)arg0 + 0x6C0));
+        *(s32 *)((s8 *)arg0 + 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x730) = 0;
+        *(s32 *)((s8 *)arg0 + 0x72C) = 0;
+        *(f32 *)((s8 *)arg0 + 0x744) = lbl_805DEA10;
+        *(f32 *)((s8 *)arg0 + 0x748) = lbl_805DEA10;
+        *(f32 *)((s8 *)arg0 + 0x74C) = lbl_805DEA10;
+        *(f32 *)((s8 *)arg0 + 0x750) = lbl_805DEA10;
+        *(s32 *)((s8 *)arg0 + 0x734) = 0;
         break;
     case 2:
-        if (M2C_FIELD(arg0, s32 *, 0x728) == 3) {
+        if (*(s32 *)((s8 *)arg0 + 0x728) == 3) {
             set_state_and_send__8TObjFishFPvi(arg0, 2);
         }
         break;
     case 9:
-        if (M2C_FIELD(arg0, s32 *, 0x728) == 3) {
+        if (*(s32 *)((s8 *)arg0 + 0x728) == 3) {
             advance_action_sequence__8TObjFishFPv(arg0);
         }
         break;
     case 0:
         advance_animation_playback(arg0);
-        switch (M2C_FIELD(arg0, s32 *, 0x728)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x728)) {
         case 0:
-            M2C_FIELD(arg0, s32 *, 0x730)++;
-            if (M2C_FIELD(arg0, s32 *, 0x730) > 0x14) {
+            (*(s32 *)((s8 *)arg0 + 0x730))++;
+            if (*(s32 *)((s8 *)arg0 + 0x730) > 0x14) {
                 set_field_b8__14TObjEnePanarmsFPvs(arg0, 4);
-                M2C_FIELD(arg0, s32 *, 0x728) = 1;
+                *(s32 *)((s8 *)arg0 + 0x728) = 1;
             }
-            M2C_FIELD(arg0, f32 *, 0x74C) -= lbl_805DEA74;
-            if (M2C_FIELD(arg0, f32 *, 0x74C) < lbl_805DEAC4) {
-                M2C_FIELD(arg0, f32 *, 0x74C) = lbl_805DEAC4;
+            *(f32 *)((s8 *)arg0 + 0x74C) -= lbl_805DEA74;
+            if (*(f32 *)((s8 *)arg0 + 0x74C) < lbl_805DEAC4) {
+                *(f32 *)((s8 *)arg0 + 0x74C) = lbl_805DEAC4;
             }
-            M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
+            *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x74C);
             break;
         case 1:
-            if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
-                M2C_FIELD(arg0, s32 *, 0x728) = 2;
+            if (!(*(s32 *)((s8 *)arg0 + 0xB0) & 4)) {
+                *(s32 *)((s8 *)arg0 + 0x728) = 2;
             }
             break;
         case 2:
-            switch (M2C_FIELD(arg0, s32 *, 0x72C)) {
+            switch (*(s32 *)((s8 *)arg0 + 0x72C)) {
             case 0:
-                if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DEAD0) {
-                    M2C_FIELD(arg0, s32 *, 0x72C) = 1;
-                    M2C_FIELD(arg0, f32 *, 0x750) = ((lbl_805DEAD8 * -M2C_FIELD(arg0, f32 *, 0x74C)) + (lbl_805DEAD4 - M2C_FIELD(arg0, f32 *, 0x40))) / lbl_805DEADC;
-                    M2C_FIELD(arg0, s32 *, 0x734) = 0;
+                if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEAD0) {
+                    *(s32 *)((s8 *)arg0 + 0x72C) = 1;
+                    *(f32 *)((s8 *)arg0 + 0x750) = ((lbl_805DEAD8 * -*(f32 *)((s8 *)arg0 + 0x74C)) + (lbl_805DEAD4 - *(f32 *)((s8 *)arg0 + 0x40))) / lbl_805DEADC;
+                    *(s32 *)((s8 *)arg0 + 0x734) = 0;
                 }
                 break;
             case 1:
-                if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DEAE0) {
-                    M2C_FIELD(arg0, s32 *, 0x72C) = 2;
-                    M2C_FIELD(arg0, f32 *, 0x744) = (lbl_805DEA6C * (lbl_805DEABC - M2C_FIELD(arg0, f32 *, 0x3C))) / lbl_805DEAE4;
-                    M2C_FIELD(arg0, f32 *, 0x748) = (lbl_805DEA44 * M2C_FIELD(arg0, f32 *, 0x744)) / lbl_805DEAE4;
-                    M2C_FIELD(arg0, s32 *, 0x734) = 0;
+                if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEAE0) {
+                    *(s32 *)((s8 *)arg0 + 0x72C) = 2;
+                    *(f32 *)((s8 *)arg0 + 0x744) = (lbl_805DEA6C * (lbl_805DEABC - *(f32 *)((s8 *)arg0 + 0x3C))) / lbl_805DEAE4;
+                    *(f32 *)((s8 *)arg0 + 0x748) = (lbl_805DEA44 * *(f32 *)((s8 *)arg0 + 0x744)) / lbl_805DEAE4;
+                    *(s32 *)((s8 *)arg0 + 0x734) = 0;
                 }
                 break;
             case 2:
-                if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DEAE8) {
-                    M2C_FIELD(arg0, s32 *, 0x72C) = 3;
-                    M2C_FIELD(arg0, f32 *, 0x74C) *= lbl_805DEA14;
-                    M2C_FIELD(arg0, f32 *, 0x750) = lbl_805DEA10;
+                if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEAE8) {
+                    *(s32 *)((s8 *)arg0 + 0x72C) = 3;
+                    *(f32 *)((s8 *)arg0 + 0x74C) *= lbl_805DEA14;
+                    *(f32 *)((s8 *)arg0 + 0x750) = lbl_805DEA10;
                 }
                 break;
             case 3:
-                if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DEAEC) {
-                    M2C_FIELD(arg0, s32 *, 0x72C) = 4;
+                if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEAEC) {
+                    *(s32 *)((s8 *)arg0 + 0x72C) = 4;
                 }
                 break;
             }
-            if (M2C_FIELD(arg0, s16 *, 0xB8) != 1) {
+            if (*(s16 *)((s8 *)arg0 + 0xB8) != 1) {
                 if (objInBand__FP7GameObjf(arg0, lbl_805DEA6C) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DEAE8) != 0) {
                     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x39905, arg0 + 0x50C);
                 } else if (objInBand__FP7GameObjf(arg0, lbl_805DEA54) != 0) {
                     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x39906, arg0 + 0x50C);
                 }
             }
-            switch (M2C_FIELD(arg0, s32 *, 0x72C)) {
+            switch (*(s32 *)((s8 *)arg0 + 0x72C)) {
             case 1:
-                M2C_FIELD(arg0, s32 *, 0x734)++;
-                if (M2C_FIELD(arg0, f32 *, 0xC0) >= lbl_805DEAF0 && M2C_FIELD(arg0, s32 *, 0x734) >= 2) {
+                (*(s32 *)((s8 *)arg0 + 0x734))++;
+                if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805DEAF0 && *(s32 *)((s8 *)arg0 + 0x734) >= 2) {
                     Vec_802EA4D8 v;
-                    M2C_FIELD(arg0, s32 *, 0x734) = 0;
+                    *(s32 *)((s8 *)arg0 + 0x734) = 0;
                     VecCopy__FP3VecPC3Vec((int)&v, arg0 + 0x38);
                     v.x = lbl_805DEAB8 * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
                     v.y = lbl_805DEA60;
@@ -2774,12 +2756,12 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
                 break;
             case 2:
             case 3:
-                M2C_FIELD(arg0, s32 *, 0x734)++;
-                if (M2C_FIELD(arg0, s32 *, 0x734) >= 2) {
-                    f32 f = M2C_FIELD(arg0, f32 *, 0xC0);
+                (*(s32 *)((s8 *)arg0 + 0x734))++;
+                if (*(s32 *)((s8 *)arg0 + 0x734) >= 2) {
+                    f32 f = *(f32 *)((s8 *)arg0 + 0xC0);
                     if (f >= lbl_805DEAF8 && f <= lbl_805DEAFC) {
                         Vec_802EA4D8 v;
-                        M2C_FIELD(arg0, s32 *, 0x734) = 0;
+                        *(s32 *)((s8 *)arg0 + 0x734) = 0;
                         VecCopy__FP3VecPC3Vec((int)&v, arg0 + 0x38);
                         v.x = lbl_805DEAB8 * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
                         v.y = lbl_805DEA60;
@@ -2789,40 +2771,40 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
                 }
                 break;
             }
-            switch (M2C_FIELD(arg0, s32 *, 0x72C)) {
+            switch (*(s32 *)((s8 *)arg0 + 0x72C)) {
             case 0:
-                M2C_FIELD(arg0, f32 *, 0x74C) -= lbl_805DEA74;
-                if (M2C_FIELD(arg0, f32 *, 0x74C) < lbl_805DEAC4) {
-                    M2C_FIELD(arg0, f32 *, 0x74C) = lbl_805DEAC4;
+                *(f32 *)((s8 *)arg0 + 0x74C) -= lbl_805DEA74;
+                if (*(f32 *)((s8 *)arg0 + 0x74C) < lbl_805DEAC4) {
+                    *(f32 *)((s8 *)arg0 + 0x74C) = lbl_805DEAC4;
                 }
-                M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
+                *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x74C);
                 break;
             case 1:
-                M2C_FIELD(arg0, f32 *, 0x74C) += M2C_FIELD(arg0, f32 *, 0x750);
-                M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
-                M2C_FIELD(arg0, f32 *, 0x744) = TObjFish__sub_802ED3E4(arg0);
+                *(f32 *)((s8 *)arg0 + 0x74C) += *(f32 *)((s8 *)arg0 + 0x750);
+                *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x74C);
+                *(f32 *)((s8 *)arg0 + 0x744) = TObjFish__sub_802ED3E4(arg0);
                 break;
             case 2:
-                M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
-                M2C_FIELD(arg0, f32 *, 0x6F0) += M2C_FIELD(arg0, f32 *, 0x744);
-                M2C_FIELD(arg0, f32 *, 0x744) -= M2C_FIELD(arg0, f32 *, 0x748);
-                M2C_FIELD(arg0, f32 *, 0xC0) -= lbl_805DEB04;
+                *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x74C);
+                *(f32 *)((s8 *)arg0 + 0x6F0) += *(f32 *)((s8 *)arg0 + 0x744);
+                *(f32 *)((s8 *)arg0 + 0x744) -= *(f32 *)((s8 *)arg0 + 0x748);
+                *(f32 *)((s8 *)arg0 + 0xC0) -= lbl_805DEB04;
                 break;
             case 3:
             case 4:
-                if (M2C_FIELD(arg0, f32 *, 0x750) <= lbl_805DEA10) {
-                    M2C_FIELD(arg0, f32 *, 0x74C) -= lbl_805DEA74;
-                    if (M2C_FIELD(arg0, f32 *, 0x74C) <= lbl_805DEA10) {
-                        M2C_FIELD(arg0, f32 *, 0x750) = lbl_805DEA18;
-                        set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x670, lbl_805DEA98, fabs_float(lbl_805DEB08 - M2C_FIELD(arg0, f32 *, 0x40)), lbl_805DEA74, lbl_805DEB0C);
-                        M2C_FIELD(arg0, f32 *, 0x74C) = M2C_FIELD(arg0, f32 *, 0x40);
+                if (*(f32 *)((s8 *)arg0 + 0x750) <= lbl_805DEA10) {
+                    *(f32 *)((s8 *)arg0 + 0x74C) -= lbl_805DEA74;
+                    if (*(f32 *)((s8 *)arg0 + 0x74C) <= lbl_805DEA10) {
+                        *(f32 *)((s8 *)arg0 + 0x750) = lbl_805DEA18;
+                        set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x670, lbl_805DEA98, fabs_float(lbl_805DEB08 - *(f32 *)((s8 *)arg0 + 0x40)), lbl_805DEA74, lbl_805DEB0C);
+                        *(f32 *)((s8 *)arg0 + 0x74C) = *(f32 *)((s8 *)arg0 + 0x40);
                     } else {
-                        M2C_FIELD(arg0, f32 *, 0x40) += M2C_FIELD(arg0, f32 *, 0x74C);
+                        *(f32 *)((s8 *)arg0 + 0x40) += *(f32 *)((s8 *)arg0 + 0x74C);
                     }
                 } else if (advance_scalar_motion_profile(arg0 + 0x670) == 3) {
-                    M2C_FIELD(arg0, s32 *, 0x728) = 3;
+                    *(s32 *)((s8 *)arg0 + 0x728) = 3;
                 } else {
-                    M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x74C) - M2C_FIELD(arg0, f32 *, 0x688);
+                    *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x74C) - *(f32 *)((s8 *)arg0 + 0x688);
                 }
                 update_wobble_angle__8TObjFishFPv(arg0);
                 break;
@@ -2831,8 +2813,8 @@ void TObjFish__sub_802EA4D8(u8 *arg0, u32 arg1) {
         }
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x6C0) = 1;
-        M2C_FIELD(arg0, s32 *, 0x628) &= ~4;
+        *(s32 *)((s8 *)arg0 + 0x6C0) = 1;
+        *(s32 *)((s8 *)arg0 + 0x628) &= ~4;
         break;
     }
 }
@@ -3154,28 +3136,28 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
     case 4:
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
         TObjFish__sub_802ECC44((Fish_802ECC44 *) arg0);
-        M2C_FIELD(arg0, s32 *, 0x628) &= ~4;
-        M2C_FIELD(arg0, s32 *, 0x628) &= ~0x100;
-        M2C_FIELD(arg0, f32 *, 0x6F0) = lbl_805DEA10;
-        M2C_FIELD(arg0, s32 *, 0x728) = 0;
-        M2C_FIELD(arg0, s32 *, 0x72C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x628) &= ~4;
+        *(s32 *)((s8 *)arg0 + 0x628) &= ~0x100;
+        *(f32 *)((s8 *)arg0 + 0x6F0) = lbl_805DEA10;
+        *(s32 *)((s8 *)arg0 + 0x728) = 0;
+        *(s32 *)((s8 *)arg0 + 0x72C) = 0;
         init_all_slots__11TWindowCtrlFv();
         get_target_state_b__9TObjEneDDFPv(arg0);
         break;
     case 2:
-        if (M2C_FIELD(arg0, s32 *, 0x728) == 1) {
-            M2C_FIELD(arg0, s32 *, 0x6C0) = 0;
+        if (*(s32 *)((s8 *)arg0 + 0x728) == 1) {
+            *(s32 *)((s8 *)arg0 + 0x6C0) = 0;
             set_state_and_send__8TObjFishFPvi(arg0, 2);
         }
         break;
     case 9:
-        if (M2C_FIELD(arg0, s32 *, 0x728) == 1) {
-            M2C_FIELD(arg0, s32 *, 0x6C0) = 0;
+        if (*(s32 *)((s8 *)arg0 + 0x728) == 1) {
+            *(s32 *)((s8 *)arg0 + 0x6C0) = 0;
             advance_action_sequence__8TObjFishFPv(arg0);
         }
         break;
     case 0:
-        if (M2C_FIELD(arg0, s32 *, 0x72C) == 0) {
+        if (*(s32 *)((s8 *)arg0 + 0x72C) == 0) {
             if (query_teammate_state__9TObjEneDDFPv() == 0) {
                 Cam_802EBBC8 cam;
                 cam.b = 0;
@@ -3185,7 +3167,7 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
                 cam.e = lbl_805DEA28;
                 activate_camera_mode(5);
                 cache_target_and_forward__11TCameraCtrlFii(&cam, 0x1C71);
-                M2C_FIELD(arg0, s32 *, 0x72C) = 1;
+                *(s32 *)((s8 *)arg0 + 0x72C) = 1;
             }
         } else {
             advance_animation_playback(arg0);
@@ -3194,7 +3176,7 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
             }
             if (objInBand__FP7GameObjf(arg0, lbl_805DEB78) != 0) {
                 destroy_child__8TObjFishFPv(arg0);
-                M2C_FIELD(arg0, s32 *, 0x7B0) = spawn_continuous_particle_effect_with_flags(arg0 + 0x7B4, 0x20F, 0x40);
+                *(s32 *)((s8 *)arg0 + 0x7B0) = spawn_continuous_particle_effect_with_flags(arg0 + 0x7B4, 0x20F, 0x40);
             }
             if (objInBand__FP7GameObjf(arg0, lbl_805DEB7C) != 0) {
                 destroy_child__8TObjFishFPv(arg0);
@@ -3212,7 +3194,7 @@ void TObjFish__sub_802EBBC8(u8 *arg0, u32 arg1) {
             if (*(u16 *) (get_scripted_camera_playback() + 2) & 1) {
                 restore_player_cameras();
                 advance_action_sequence__8TObjFishFPv(arg0);
-                M2C_FIELD(arg0, s32 *, 0x728) = 1;
+                *(s32 *)((s8 *)arg0 + 0x728) = 1;
             }
         }
         break;
@@ -3338,7 +3320,7 @@ void TBoss7DeRolLeC__dispatch_state(u8 *arg0, u32 arg1, u32 arg2) {
         return;
     case 0x28:
     case 0x29:
-        temp_r6 = M2C_FIELD(arg0, s32 *, 0x6C0);
+        temp_r6 = *(s32 *)((s8 *)arg0 + 0x6C0);
         if (temp_r6 < 5) {
             TObjFish__sub_802EB270(arg0, arg2, temp_r6, temp_r6 + 5);
             return;
@@ -3446,21 +3428,21 @@ void update_projectile_spawns__8TObjFishFPv(u8 *arg0) {
     temp_r31 = arg0 + 0x524;
     VecCopy__FP3VecPC3Vec((int) (temp_r31), (void *) (arg0 + 0x518));
     vec3_add_to((int) (temp_r31), (void *) (arg0 + 0x518));
-    M2C_FIELD(temp_r31, f32 *, 0) = (f32) (M2C_FIELD(temp_r31, f32 *, 0) * lbl_805DEA14);
-    M2C_FIELD(temp_r31, f32 *, 4) = (f32) (M2C_FIELD(temp_r31, f32 *, 4) * lbl_805DEA14);
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) * lbl_805DEA14);
-    if ((M2C_FIELD(arg0, s32 *, 0x628) & 0x100) && ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA58)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA30)) != 0))) {
-        M2C_FIELD(arg0, s32 *, 0x6BC) = 0;
+    *(f32 *)((s8 *)temp_r31 + 0) = (f32) (*(f32 *)((s8 *)temp_r31 + 0) * lbl_805DEA14);
+    *(f32 *)((s8 *)temp_r31 + 4) = (f32) (*(f32 *)((s8 *)temp_r31 + 4) * lbl_805DEA14);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(f32 *)((s8 *)temp_r31 + 8) * lbl_805DEA14);
+    if ((*(s32 *)((s8 *)arg0 + 0x628) & 0x100) && ((objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA58)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (lbl_805DEA30)) != 0))) {
+        *(s32 *)((s8 *)arg0 + 0x6BC) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x6BC) <= 0x10) {
-        if (M2C_FIELD(arg0, s32 *, 0x628) & 0x400) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x6BC) <= 0x10) {
+        if (*(s32 *)((s8 *)arg0 + 0x628) & 0x400) {
             spawn_via_trap__8TObjFishFiii((s32)((void *) (arg0)), (s32)((int) (0x39704)), (s32)((void *) (arg0 + 0x524)));
         } else {
             spawn_via_trap__8TObjFishFiii((s32)((void *) (arg0)), (s32)((int) (0x3A303)), (s32)((void *) (arg0 + 0x524)));
         }
-        M2C_FIELD(arg0, s32 *, 0x6BC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6BC) + 1);
+        *(s32 *)((s8 *)arg0 + 0x6BC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6BC) + 1);
     }
-    if (M2C_FIELD(arg0, s32 *, 0x628) & 0x200) {
+    if (*(s32 *)((s8 *)arg0 + 0x628) & 0x200) {
         spawn_via_trap__8TObjFishFiii((s32)((void *) (arg0)), (s32)((int) (0x39F08)), (s32)((void *) (arg0 + 0x50C)));
     }
 }
@@ -3473,9 +3455,9 @@ void TObjFish__sub_802EC468(s32 arg0, f32 farg0, f32 farg1) {
     typedef char sp10_offset[(offsetof(Stack_802EC468, sp10) == 0x8) ? 1 : -1];
     Stack_802EC468 stack;
     VecCopy__FP3VecPC3Vec((int)((void *) (&stack.sp8)), (void *)((void *) (arg0)));
-    stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
-    stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
-    stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
+    stack.sp8 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC) * farg1) - stack.sp8);
+    stack.spC -= (*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10) * farg1) - farg0;
+    stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14) * farg1) - stack.sp10);
     spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
 }
 extern int fold_flush_1;
@@ -3485,7 +3467,7 @@ void spawn_particle_201__8TObjFishFii(s32 arg1, s32 arg2) {
     spawn_default_particle__8TObjFishFv(arg2, 0x201);
 }
 
-void fn_802EC52C(M2C_UNK arg0, s32 arg1) {
+void fn_802EC52C(s32 arg0, s32 arg1) {
     TObjFish__sub_802F18E8((void *) (arg1));
 }
 
@@ -3567,8 +3549,8 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
     s32 var_r4;
     do {
         var_r30 = 0;
-        M2C_FIELD(arg0, s32 *, 0x6B4) = (s32) (M2C_FIELD(arg0, s32 *, 0x6B4) + 1);
-        var_r4 = M2C_FIELD((M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)), s32 *, 0) + (M2C_FIELD(arg0, s32 *, 0x6B4) * 8)), s32 *, 0);
+        *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) (*(s32 *)((s8 *)arg0 + 0x6B4) + 1);
+        var_r4 = *(s32 *)((s8 *)(*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_802EC7F0_lbl_804E3C2C *)&lbl_804E3C2C).value) + (game_difficulty_selection * 4)) + 0) + (*(s32 *)((s8 *)arg0 + 0x6B4) * 8)) + 0);
         switch (var_r4) {
         case 0x1E:
             if (calc_elapsed_scaled__9TObjEneDDFv((void *) (arg0)) > lbl_805DEA10) {
@@ -3578,7 +3560,7 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
             }
             break;
         case 0x1F:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 5;
             } else {
                 var_r4 = 9;
@@ -3592,42 +3574,42 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
             }
             break;
         case 0x21:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 3;
             } else {
                 var_r4 = 0xB;
             }
             break;
         case 0x23:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 4;
             } else {
                 var_r4 = 0xA;
             }
             break;
         case 0x24:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 0xF;
             } else {
                 var_r4 = 0x10;
             }
             break;
         case 0x25:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 0x11;
             } else {
                 var_r4 = 0x12;
             }
             break;
         case 0x26:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 0x13;
             } else {
                 var_r4 = 0x14;
             }
             break;
         case 0x27:
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x6C4) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x6C4) == 0) {
                 var_r4 = 0x15;
             } else {
                 var_r4 = 0x16;
@@ -3635,7 +3617,7 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
             break;
         case 0x45:
             var_r30 = 1;
-            M2C_FIELD(arg0, s32 *, 0x6B4) = 1;
+            *(s32 *)((s8 *)arg0 + 0x6B4) = 1;
             break;
         }
     } while (var_r30 != 0);
@@ -3645,20 +3627,20 @@ void advance_action_sequence__8TObjFishFPv(u8 *arg0) {
 void TBoss7DeRolLeC__sub_802EC994(void* p) { *(s32*)((char*)p + 0x6b0) = 0; *(s32*)((char*)p + 0x6b4) = 0; }
 
 void fn_802EC9A4(void *arg0, void *arg1) {
-    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
-    M2C_FIELD(arg0, s32 *, 0x6B4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
+    enemy_set_target_id(arg0, (u16) *(s32 *)((s8 *)arg1 + 8));
+    *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void fn_802EC9F0(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s32 *, 0x6B4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
+    *(s32 *)((s8 *)arg0 + 0x6B4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void handle_6xAA_barba_ray_boss_actions(void *arg0) {
     void *x;
     read_state__11TBoss7JointFPv(arg0);
-    x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
+    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
     if (x != NULL) {
         fn_802EC9A4((void *)(x), (void *)(arg0));
     }
@@ -3667,7 +3649,7 @@ void handle_6xAA_barba_ray_boss_actions(void *arg0) {
 void handle_6xA9_barba_ray_boss_actions(void *arg0) {
     void *x;
     byteswap_action_packet__11TBoss7JointFPv(arg0);
-    x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
+    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
     if (x != NULL) {
         fn_802EC9F0((void *)(x), (void *)(arg0));
     }
@@ -3688,19 +3670,19 @@ u8 TObjPlayer__sub_802ECB10(void *arg0) {
     s32 var_r4;
 
     var_r4 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6FC) <= 0) && !(M2C_FIELD(arg0, s32 *, 0x628) & 4)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6FC) <= 0) && !(*(s32 *)((s8 *)arg0 + 0x628) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
 }
 
 void set_hooked_effect_target__8TObjFishFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x88);
+    *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x88);
     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3A312, arg0 + 0x38);
 }
 
 void apply_damage_and_set_effect__8TObjFishFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x6FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6FC) - (s32) (lbl_805DEA14 * (f32) arg1));
+    *(s32 *)((s8 *)arg0 + 0x6FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6FC) - (s32) (lbl_805DEA14 * (f32) arg1));
     set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3B213, arg0 + 0x38);
 }
 
@@ -3762,41 +3744,37 @@ void pick_random_target__8TObjFishFPv(u8 *self) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 }
 
 extern "C" {
 
-M2C_UNK TBoss7LaserLight__sub_802EF120(void *);
-M2C_UNK TBoss7LaserLight__sub_802EF12C(void *);
+s32 TBoss7LaserLight__sub_802EF120(void *);
+s32 TBoss7LaserLight__sub_802EF12C(void *);
 
 void release_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0x708);
+    void *temp_r3 = *(void **)((s8 *)arg0 + 0x708);
     if ((u32) temp_r3 != 0U) {
         TBoss7LaserLight__sub_802EF120(temp_r3);
     }
-    M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) & 0xFFFFFFEF);
+    *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) & 0xFFFFFFEF);
 }
 
 void free_laser_light__15TBoss7LaserPtclFPv(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0x708);
+    void *temp_r3 = *(void **)((s8 *)arg0 + 0x708);
     if ((u32) temp_r3 != 0U) {
         TBoss7LaserLight__sub_802EF12C(temp_r3);
     }
-    M2C_FIELD(arg0, s32 *, 0x628) = (s32) (M2C_FIELD(arg0, s32 *, 0x628) | 0x10);
+    *(s32 *)((s8 *)arg0 + 0x628) = (s32) (*(s32 *)((s8 *)arg0 + 0x628) | 0x10);
 }
 #pragma push
 #pragma fp_contract on
 void TBoss7LaserPtcl__sub_802ECE28(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x70C, arg0 + 0x4DC);
-    M2C_FIELD(arg0, f32 *, 0x70C) = (f32) ((lbl_805DEA5C * M2C_FIELD(arg0, f32 *, 0x4E8)) + M2C_FIELD(arg0, f32 *, 0x70C));
-    M2C_FIELD(arg0, f32 *, 0x710) = (f32) ((lbl_805DEA5C * M2C_FIELD(arg0, f32 *, 0x4EC)) + M2C_FIELD(arg0, f32 *, 0x710));
-    M2C_FIELD(arg0, f32 *, 0x714) = (f32) ((lbl_805DEA5C * M2C_FIELD(arg0, f32 *, 0x4F0)) + M2C_FIELD(arg0, f32 *, 0x714));
+    *(f32 *)((s8 *)arg0 + 0x70C) = (f32) ((lbl_805DEA5C * *(f32 *)((s8 *)arg0 + 0x4E8)) + *(f32 *)((s8 *)arg0 + 0x70C));
+    *(f32 *)((s8 *)arg0 + 0x710) = (f32) ((lbl_805DEA5C * *(f32 *)((s8 *)arg0 + 0x4EC)) + *(f32 *)((s8 *)arg0 + 0x710));
+    *(f32 *)((s8 *)arg0 + 0x714) = (f32) ((lbl_805DEA5C * *(f32 *)((s8 *)arg0 + 0x4F0)) + *(f32 *)((s8 *)arg0 + 0x714));
 }
 #pragma pop
 
@@ -3806,35 +3784,30 @@ void TBoss7LaserPtcl__sub_802ECE28(u8 *arg0) {
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802ED4AC_lbl_80472D04 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74];
 };
 
-typedef s32 M2C_UNK;
 struct Vec_802ED3E4 { f32 x, y, z; };
 
 extern "C" {
-M2C_UNK advance_scalar_motion_profile(void *);
+s32 advance_scalar_motion_profile(void *);
 u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0);
 extern RecoveredGlobal_802ED4AC_lbl_80472D04 lbl_80472D04;
-M2C_UNK advance_scalar_motion_profile(void *);
+s32 advance_scalar_motion_profile(void *);
 u32 update_phase_settling__8TObjFishFPv(u8 *arg0);
-M2C_UNK advance_scalar_motion_profile(void *);
+s32 advance_scalar_motion_profile(void *);
 u32 update_anim_state__8TObjFishFPv(u8 *arg0);
-M2C_UNK bind_motion_context(int, f32);
-M2C_UNK compose_motion_node_matrix(int);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK transform_point_by_current_matrix(void *, void *);
-M2C_UNK pop_matrix();
+s32 bind_motion_context(int, f32);
+s32 compose_motion_node_matrix(int);
+s32 scale_matrix(int, f32, f32, f32);
+s32 push_matrix_from(void *);
+s32 transform_point_by_current_matrix(void *, void *);
+s32 pop_matrix();
 extern u8 identity_matrix[];
-M2C_UNK advance_scalar_motion_profile(void *);
+s32 advance_scalar_motion_profile(void *);
 u8 update_phase_rising__8TObjFishFPv(u8 *arg0);
 }
 
@@ -3843,8 +3816,8 @@ extern "C" {
 s32 TBoss7Joint_get_shell_max_hp(void);
 s32 is_all_parts_done__8TObjFishFPv(u8 *arg0);
 void update_wobble_angle__8TObjFishFPv(void *arg0);
-M2C_UNK advance_scalar_motion_profile(void *);
-void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+s32 advance_scalar_motion_profile(void *);
+void *dispatch_shared_handler_a__6TLobbyFPv(s32);
 
 #pragma push
 #pragma opt_common_subs off
@@ -3854,35 +3827,35 @@ u8 update_phase_rising__8TObjFishFPv(u8 *arg0) {
     s32 var_r3;
     advance_scalar_motion_profile(arg0 + 0x630);
     if (advance_scalar_motion_profile(arg0 + 0x650) == 3) {
-        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+        *(s32 *)((s8 *)arg0 + 0x6CC) = 1;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x6D0);
     switch (temp_r0) {
     case 2:
         break;
     case 1:
-        var_f2 = M2C_FIELD(arg0, f32 *, 0x680) - lbl_805DEA7C;
+        var_f2 = *(f32 *)((s8 *)arg0 + 0x680) - lbl_805DEA7C;
         if (var_f2 < lbl_805DEB88) {
             var_f2 = lbl_805DEB88;
         }
-        M2C_FIELD(arg0, f32 *, 0x680) = var_f2;
-        M2C_FIELD(arg0, f32 *, 0x688) = (f32) (M2C_FIELD(arg0, f32 *, 0x688) + var_f2);
-        if (M2C_FIELD(arg0, f32 *, 0x648) > lbl_805DEA5C) {
-            M2C_FIELD(arg0, s32 *, 0x6D0) = 3;
+        *(f32 *)((s8 *)arg0 + 0x680) = var_f2;
+        *(f32 *)((s8 *)arg0 + 0x688) = (f32) (*(f32 *)((s8 *)arg0 + 0x688) + var_f2);
+        if (*(f32 *)((s8 *)arg0 + 0x648) > lbl_805DEA5C) {
+            *(s32 *)((s8 *)arg0 + 0x6D0) = 3;
         }
         break;
     case 3:
         if (advance_scalar_motion_profile(arg0 + 0x670) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
+            *(s32 *)((s8 *)arg0 + 0x6D0) = 4;
         }
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0xC8) += lbl_805DEA7C;
-    if (M2C_FIELD(arg0, f32 *, 0xC8) > lbl_805DEB64) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805DEB64;
+    *(f32 *)((s8 *)arg0 + 0xC8) += lbl_805DEA7C;
+    if (*(f32 *)((s8 *)arg0 + 0xC8) > lbl_805DEB64) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DEB64;
     }
     var_r3 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6D0) == 4) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6D0) == 4) && ((s32) *(s32 *)((s8 *)arg0 + 0x6CC) == 1)) {
         var_r3 = 1;
     }
     return var_r3;
@@ -3896,27 +3869,27 @@ u8 update_tail_anim_state__8TObjFishFPv(u8 *arg0) {
     s32 var_r3;
     advance_scalar_motion_profile(arg0 + 0x670);
     if (((s32)advance_scalar_motion_profile(arg0 + 0x650)) == 3) {
-        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+        *(s32 *)((s8 *)arg0 + 0x6CC) = 1;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x6C8);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB68;
-        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEA94) {
-            M2C_FIELD(arg0, s32 *, 0x6C8) = 1;
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DEB68;
+        if (*(f32 *)((s8 *)arg0 + 0x688) > lbl_805DEA94) {
+            *(s32 *)((s8 *)arg0 + 0x6C8) = 1;
         }
         break;
     case 1:
         if (((s32)advance_scalar_motion_profile(arg0 + 0x630)) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
+            *(s32 *)((s8 *)arg0 + 0x6C8) = 2;
         }
         break;
     }
-    if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEA94) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+    if (*(f32 *)((s8 *)arg0 + 0x688) > lbl_805DEA94) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DEB64;
     }
     var_r3 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6C8) == 2) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6C8) == 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x6CC) == 1)) {
         var_r3 = 1;
     }
     return (u8) var_r3;
@@ -3931,33 +3904,33 @@ u32 update_phase_settling__8TObjFishFPv(u8 *arg0) {
     u8 var_r3;
     advance_scalar_motion_profile((void *) (arg0 + 0x630));
     if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x650))) == 3) {
-        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+        *(s32 *)((s8 *)arg0 + 0x6CC) = 1;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6D0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x6D0);
     switch (temp_r0) {
     case 0:
-        if (M2C_FIELD(arg0, f32 *, 0x648) > lbl_805DEB8C) {
-            M2C_FIELD(arg0, s32 *, 0x6D0) = 2;
+        if (*(f32 *)((s8 *)arg0 + 0x648) > lbl_805DEB8C) {
+            *(s32 *)((s8 *)arg0 + 0x6D0) = 2;
         }
         break;
     case 2:
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB68;
-        M2C_FIELD(arg0, s32 *, 0x6D0) = 3;
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DEB68;
+        *(s32 *)((s8 *)arg0 + 0x6D0) = 3;
         break;
     case 3:
         if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x670))) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x6D0) = 4;
+            *(s32 *)((s8 *)arg0 + 0x6D0) = 4;
         }
-        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEB90) {
-            M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + lbl_805DEA7C);
-            if (M2C_FIELD(arg0, f32 *, 0xC8) > lbl_805DEB64) {
-                M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+        if (*(f32 *)((s8 *)arg0 + 0x688) > lbl_805DEB90) {
+            *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) + lbl_805DEA7C);
+            if (*(f32 *)((s8 *)arg0 + 0xC8) > lbl_805DEB64) {
+                *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DEB64;
             }
         }
         break;
     }
     var_r3 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6D0) == 4) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6D0) == 4) && ((s32) *(s32 *)((s8 *)arg0 + 0x6CC) == 1)) {
         var_r3 = 1;
     }
     return var_r3;
@@ -3971,27 +3944,27 @@ u32 update_anim_state__8TObjFishFPv(u8 *arg0) {
     u8 var_r3;
     advance_scalar_motion_profile((void *) (arg0 + 0x670));
     if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x650))) == 3) {
-        M2C_FIELD(arg0, s32 *, 0x6CC) = 1;
+        *(s32 *)((s8 *)arg0 + 0x6CC) = 1;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x6C8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x6C8);
     switch (temp_r0) {
     case 0:
-        if (M2C_FIELD(arg0, f32 *, 0x688) > lbl_805DEB94) {
-            M2C_FIELD(arg0, s32 *, 0x6C8) = 1;
+        if (*(f32 *)((s8 *)arg0 + 0x688) > lbl_805DEB94) {
+            *(s32 *)((s8 *)arg0 + 0x6C8) = 1;
         }
         break;
     case 1:
         if (((s32)advance_scalar_motion_profile((void *) (arg0 + 0x630))) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x6C8) = 2;
+            *(s32 *)((s8 *)arg0 + 0x6C8) = 2;
         }
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + lbl_805DEA7C);
-    if (M2C_FIELD(arg0, f32 *, 0xC8) > lbl_805DEB64) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) lbl_805DEB64;
+    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) + lbl_805DEA7C);
+    if (*(f32 *)((s8 *)arg0 + 0xC8) > lbl_805DEB64) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) lbl_805DEB64;
     }
     var_r3 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6C8) == 2) && ((s32) M2C_FIELD(arg0, s32 *, 0x6CC) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6C8) == 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x6CC) == 1)) {
         var_r3 = 1;
     }
     return var_r3;
@@ -4002,7 +3975,7 @@ s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
     advance_scalar_motion_profile(arg0 + 0x670);
     advance_scalar_motion_profile(arg0 + 0x630);
     advance_scalar_motion_profile(arg0 + 0x650);
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x630) == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x650) == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x670) == 3)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x630) == 3) && ((s32) *(s32 *)((s8 *)arg0 + 0x650) == 3) && ((s32) *(s32 *)((s8 *)arg0 + 0x670) == 3)) {
         return 1;
     }
     return 0;
@@ -4011,16 +3984,16 @@ s32 is_all_parts_done__8TObjFishFPv(u8 *arg0) {
 void update_wobble_angle__8TObjFishFPv(void *arg0) {
     f32 temp_f2;
 
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x6F0);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x6F0);
     if (temp_f2 > lbl_805DEB60) {
-        M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) (temp_f2 - lbl_805DEB60);
+        *(f32 *)((s8 *)arg0 + 0x6F0) = (f32) (temp_f2 - lbl_805DEB60);
         return;
     }
     if (temp_f2 < lbl_805DEB98) {
-        M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) (temp_f2 + lbl_805DEB60);
+        *(f32 *)((s8 *)arg0 + 0x6F0) = (f32) (temp_f2 + lbl_805DEB60);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) lbl_805DEA10;
+    *(f32 *)((s8 *)arg0 + 0x6F0) = (f32) lbl_805DEA10;
 }
 
 f32 TObjFish__sub_802ED3E4(u8 *arg0) {
@@ -4030,34 +4003,34 @@ f32 TObjFish__sub_802ED3E4(u8 *arg0) {
     v.z = lbl_805DEA10;
     push_matrix_from(identity_matrix);
     scale_matrix(0, lbl_805DEB24, lbl_805DEB24, lbl_805DEB24);
-    bind_motion_context(M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
-    compose_motion_node_matrix(M2C_FIELD(arg0, s32 *, 0x34));
+    bind_motion_context(*(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+    compose_motion_node_matrix(*(s32 *)((s8 *)arg0 + 0x34));
     transform_point_by_current_matrix(&v, &v);
     pop_matrix();
     return v.y;
 }
 
 void set_swim_direction__8TObjFishFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x6C0) == 0) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DEB9C;
-        M2C_FIELD(arg0, s32 *, 0x64) = 0x500;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x6C0) == 0) {
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DEB9C;
+        *(s32 *)((s8 *)arg0 + 0x64) = 0x500;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DEA94;
-        M2C_FIELD(arg0, s32 *, 0x64) = -0x500;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DEA94;
+        *(s32 *)((s8 *)arg0 + 0x64) = -0x500;
     }
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DEA50;
-    M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) lbl_805DEA6C;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DEA50;
+    *(f32 *)((s8 *)arg0 + 0x6F0) = (f32) lbl_805DEA6C;
 }
 
 typedef char RecoveredGlobal_802ED4AC_lbl_80472D04_size[sizeof(RecoveredGlobal_802ED4AC_lbl_80472D04) == 0x78 ? 1 : -1];
 void TObjFish__sub_802ED4AC(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, (u8 *)&lbl_80472D04.value + (arg1 * 0xC));
-    M2C_FIELD(arg0, f32 *, 0x6F0) = (f32) (*(const f32 *)&lbl_805DEA10);
-    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    *(f32 *)((s8 *)arg0 + 0x6F0) = (f32) (*(const f32 *)&lbl_805DEA10);
+    *(s32 *)((s8 *)arg0 + 0x64) = 0;
 }
 
 s32 TBoss7Joint_get_shell_max_hp(void) {
-    return M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0xF), s32 *, 0x1C);
+    return *(s32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0xF)) + 0x1C);
 }
 
 }
@@ -4068,12 +4041,7 @@ s32 TBoss7Joint_get_shell_max_hp(void) {
 #undef set_state_and_send__8TObjFishFPvi
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct VB_802ED62C { u8 pad[0x18]; };
 
 struct V_802ED62C : VB_802ED62C {
@@ -4177,36 +4145,36 @@ void TBoss7Joint__sub_802EE7B8(void *);
 void broadcast_state__11TBoss7JointFPv(void *);
 void TBoss7Joint__sub_802EE800(void *);
 void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1);
-s32 register_object__6TLobbyFPv(M2C_UNK);
-s32 dispatch_shared_handler_b__6TLobbyFPv(M2C_UNK);
-s32 register_boss__6TLobbyFPv(M2C_UNK);
-M2C_UNK reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
+s32 register_object__6TLobbyFPv(s32);
+s32 dispatch_shared_handler_b__6TLobbyFPv(s32);
+s32 register_boss__6TLobbyFPv(s32);
+s32 reload_stats_keep_hp_tp__9TObjEneDDFPv(void *, s32, s32, s32);
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1);
-M2C_UNK update_local_colliders_from_world(void *, void *);
+s32 update_local_colliders_from_world(void *, void *);
 void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0);
 }
-#define VecCopy__FP3VecPC3Vec ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)
+#define VecCopy__FP3VecPC3Vec ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 
 extern "C" {
 
 void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *arg0, void *arg1);
 void flee_if_disturbed__8TObjFishFPv(u8 *arg0);
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
-M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
-void *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+s32 add_radar_scaled_marker(void *, int, int, int, f32);
+void *dispatch_shared_handler_a__6TLobbyFPv(s32);
 void emit_effect__9TObjEneDDFPvii(void *, void *, void *);
-M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFPv(void *);
 
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void) {
-    return M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0xF), f32 *, 4);
+    return *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0xF)) + 4);
 }
 
-extern M2C_UNK lbl_80472D7C[];
+extern s32 lbl_80472D7C[];
 
 void emit_hit_effect__18TBoss7PhotonBulletFPvPv(void *arg0, void *arg1) {
     TBoss7PhotonBullet__sub_802ED5A0((void *)(arg0), (int)(2));
     emit_effect__9TObjEneDDFPvii(arg0, arg1, lbl_80472D7C);
-    ((void (*)(void *, void *))TBoss7PhotonBullet__sub_802ED5A0)(arg0, M2C_FIELD(arg0, void **, 0x62C));
+    ((void (*)(void *, void *))TBoss7PhotonBullet__sub_802ED5A0)(arg0, *(void **)((s8 *)arg0 + 0x62C));
 }
 
 void TBoss7PhotonBullet__sub_802ED5A0(void *arg0, int arg1) {
@@ -4232,22 +4200,22 @@ void set_state_and_send__8TObjFishFPvi(u8 *arg0, s32 arg1) {
     ((V_802ED62C *)arg0)->m85(arg1, 6);
     if (((u32)(arg1 - 0x13) <= 1U) || ((u32)(arg1 - 0x40) <= 1U) || (arg1 == 0x44) || (arg1 == 0x18)) {
         TBoss7Joint__sub_802EE800(&pa);
-        pa.a = M2C_FIELD(arg0, u16 *, 0x1C);
+        pa.a = *(u16 *)((s8 *)arg0 + 0x1C);
         pa.b = arg1;
-        pa.c = (s16)M2C_FIELD(arg0, s32 *, 0x6B4);
-        pa.d = M2C_FIELD(arg0, u16 *, 0x38C);
+        pa.c = (s16)*(s32 *)((s8 *)arg0 + 0x6B4);
+        pa.d = *(u16 *)((s8 *)arg0 + 0x38C);
         broadcast_state__11TBoss7JointFPv(&pa);
         return;
     }
     TBoss7Joint__sub_802EE7B8(&pb);
-    pb.a = M2C_FIELD(arg0, u16 *, 0x1C);
+    pb.a = *(u16 *)((s8 *)arg0 + 0x1C);
     pb.b = arg1;
-    pb.c = (s16)M2C_FIELD(arg0, s32 *, 0x6B4);
+    pb.c = (s16)*(s32 *)((s8 *)arg0 + 0x6B4);
     update_and_send_60__11TBoss7JointFPv(&pb);
 }
 
 void flee_if_disturbed__8TObjFishFPv(u8 *arg0) {
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 1) {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 1) {
         set_player_state_default__12TBoss8DragonFPv((void *) (arg0));
         add_radar_scaled_marker((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (1), (f32) (lbl_805DEA44));
     }
@@ -4260,7 +4228,7 @@ void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
     s32 i;
     VecCopy__FP3VecPC3Vec(sp8, arg0 + 0x434);
     update_local_colliders_from_world(arg0, sp8);
-    f = M2C_FIELD(arg0, f32 *, 0x3C);
+    f = *(f32 *)((s8 *)arg0 + 0x3C);
     if (f < lbl_805DEA1C) {
         set = 0;
         clr = 7;
@@ -4271,14 +4239,14 @@ void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
         set = 3;
         clr = 4;
     }
-    f = M2C_FIELD(arg0, f32 *, 0x40);
+    f = *(f32 *)((s8 *)arg0 + 0x40);
     if (f < lbl_805DEBA0 && lbl_805DEAF4 < f) {
         set = 0;
         clr = 7;
     }
-    for (i = 0; i != M2C_FIELD(arg0, s32 *, 0xA8); i++) {
-        M2C_FIELD(arg0, Elem_802ED73C **, 0xA4)[i].flags |= set;
-        M2C_FIELD(arg0, Elem_802ED73C **, 0xA4)[i].flags &= ~clr;
+    for (i = 0; i != *(s32 *)((s8 *)arg0 + 0xA8); i++) {
+        (*(Elem_802ED73C **)((s8 *)arg0 + 0xA4))[i].flags |= set;
+        (*(Elem_802ED73C **)((s8 *)arg0 + 0xA4))[i].flags &= ~clr;
     }
 }
 
@@ -4288,14 +4256,10 @@ void update_collider_flags_by_depth__8TObjFishFPv(u8 *arg0) {
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void set_flag_800__11TBoss7JointFPv(void *);
 void set_effect_target_position__8TObjFishFPvPvPv(void *, void *, void *);
-M2C_UNK clear_attack_receipts(void *);
+s32 clear_attack_receipts(void *);
 void TObjFish__sub_802ED86C(u8 *arg0);
 }
 #define VecCopy__FP3VecPC3Vec ((s32 (*)(s32, s32))VecCopy__FP3VecPC3Vec)
@@ -4315,19 +4279,19 @@ void TObjFish__sub_802ED868(void) {  }
 
 void TObjFish__sub_802ED86C(u8 *arg0) {
     s32 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8) - M2C_FIELD(arg0, s16 *, 0x32C);
-    if (M2C_FIELD(arg0, s32 *, 0x628) & 8) {
-        M2C_FIELD(arg0, s32 *, 0x6FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6FC) - temp_r4);
-        TObjFish__sub_802EC468((int) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (f32) (lbl_805DEA44), (f32) (lbl_805DEA48));
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8) - *(s16 *)((s8 *)arg0 + 0x32C);
+    if (*(s32 *)((s8 *)arg0 + 0x628) & 8) {
+        *(s32 *)((s8 *)arg0 + 0x6FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6FC) - temp_r4);
+        TObjFish__sub_802EC468((int) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (f32) (lbl_805DEA44), (f32) (lbl_805DEA48));
         set_effect_target_position__8TObjFishFPvPvPv(arg0, (void *)0x3B213, arg0 + 0x50C);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x700) = (s32) (M2C_FIELD(arg0, s32 *, 0x700) - temp_r4);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x700) < 0) {
-            M2C_FIELD(arg0, s32 *, 0x700) = 0;
+        *(s32 *)((s8 *)arg0 + 0x700) = (s32) (*(s32 *)((s8 *)arg0 + 0x700) - temp_r4);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x700) < 0) {
+            *(s32 *)((s8 *)arg0 + 0x700) = 0;
             set_hooked_effect_target__8TObjFishFPv(arg0);
         }
     }
-    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
+    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
     set_flag_800__11TBoss7JointFPv(arg0);
     clear_attack_receipts((void *) (arg0));
 }

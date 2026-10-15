@@ -1,11 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct O_800B98C0;
 extern "C" {
-s32 tick_period_counter(M2C_UNK, void *, s32);
+s32 tick_period_counter(s32, void *, s32);
 int copy_position__14TObjEneEpsilonFPv(void *, void *);
 void enemy_clear_target(O_800B98C0 *self, u16 _w1);
 s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale);
@@ -13,7 +10,7 @@ void spawn_part__14TObjEneEpsilonFi(s32 arg0);
 s32 enemy_bind_or_clear_target(void *self, u16 x);
 u16 enemy_find_nearest_player_in_range(void *, f32);
 }
-#define enemy_clear_target ((M2C_UNK (*)(void *))enemy_clear_target)
+#define enemy_clear_target ((s32 (*)(void *))enemy_clear_target)
 #define enemy_tick_target_acquisition ((int (*)(void *, void *, void *))enemy_tick_target_acquisition)
 
 struct VBase_18_807e53 { char pad[0x18]; };
@@ -118,7 +115,7 @@ struct VObj_18_807e53 : VBase_18_807e53 {
     virtual void m96();
     virtual void m97();
     virtual void m98();
-    virtual M2C_UNK m99(M2C_UNK *);
+    virtual s32 m99(s32 *);
 };
 
 extern "C" {
@@ -136,7 +133,7 @@ void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0);
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0);
 s32 enemy_has_live_target(void *);
-s32 tick_period_counter(M2C_UNK, void *, s32);
+s32 tick_period_counter(s32, void *, s32);
 s32 transform_relative_position__9TObjEneDDFPvPv(void *, int);
 s32 enemy_validate_retained_target(u8 *arg0);
 }
@@ -180,33 +177,33 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 s32 is_player_entity_id(u16);
-M2C_UNK calc_wall_clamped_destination(void *, s32, f32, f32, f32);
-M2C_UNK calc_wall_slide_destination(void *, s32, f32, f32, f32);
+s32 calc_wall_clamped_destination(void *, s32, f32, f32, f32);
+s32 calc_wall_slide_destination(void *, s32, f32, f32, f32);
 s16 approach_angle_limited(s32, s32, s32);
 int VecCopy__FP3VecPC3Vec(void*);
-M2C_UNK calc_shot_position__9TObjEneDDFPvPvfff(void *, s32, f32, f32, f32);
+s32 calc_shot_position__9TObjEneDDFPvPvfff(void *, s32, f32, f32, f32);
 f64 atan2_float(f32, f32);
 
 void TObjEneEpsilon__sub_800B92AC(u8 *arg0, s32 arg1, f32 farg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     fire_attack_a__14TObjEneEpsilonFPviif(arg0, (s32) &sp8, arg1, farg0);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void TObjEneEpsilon__sub_800B92F8(u8 *arg0, s32 arg1, f32 farg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     fire_attack_b__14TObjEneEpsilonFPviif(arg0, (s32) &sp8, arg1, farg0);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void enemy_turn_and_move_on_ground(u8 *arg0, s32 arg1, f32 farg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     fire_attack_b__14TObjEneEpsilonFPviif(arg0, (s32) &sp8, arg1, farg0);
     try_move_actor_xz_on_ground(arg0, &sp8);
 }
 
 void TObjEneEpsilon__sub_800B9384(u8 *arg0, s32 arg1, f32 farg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     fire_attack_c__14TObjEneEpsilonFPviif(arg0, (s32) &sp8, arg1, farg0);
     try_move_actor_xz_on_ground(arg0, &sp8);
 }
@@ -217,8 +214,8 @@ void fire_attack_a__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_wall_clamped_destination(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+    calc_wall_clamped_destination(arg0, arg1, sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -227,8 +224,8 @@ void fire_attack_b__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_wall_slide_destination(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+    calc_wall_slide_destination(arg0, arg1, sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)), temp_f31, temp_f30);
 }
 
 void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
@@ -237,18 +234,18 @@ void fire_attack_c__14TObjEneEpsilonFPviif(void *arg0, s32 arg1, s32 arg2, f32 f
 
     temp_f30 = farg0;
     update_angle__14TObjEneEpsilonFPvi((void *)(arg0), (s32)(arg2));
-    temp_f31 = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x60));
-    calc_shot_position__9TObjEneDDFPvPvfff(arg0, arg1, sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x60)), temp_f31, temp_f30);
+    temp_f31 = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
+    calc_shot_position__9TObjEneDDFPvPvfff(arg0, arg1, sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60)), temp_f31, temp_f30);
 }
 
 extern const f64 lbl_8043B698;
 
 void update_angle__14TObjEneEpsilonFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), (s32) (lbl_8043B698 * atan2_float(M2C_FIELD(arg0, f32 *, 0x3A0), M2C_FIELD(arg0, f32 *, 0x3A8))), arg1);
+    *(s32 *)((s8 *)arg0 + 0x60) = (s32) approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), (s32) (lbl_8043B698 * atan2_float(*(f32 *)((s8 *)arg0 + 0x3A0), *(f32 *)((s8 *)arg0 + 0x3A8))), arg1);
 }
 
 s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
-    if ((((VObj_800B9578_800B92AC *)arg0)->m97() == 0) && (is_player_entity_id(M2C_FIELD(arg0, u16 *, 0x38C)) == 0)) {
+    if ((((VObj_800B9578_800B92AC *)arg0)->m97() == 0) && (is_player_entity_id(*(u16 *)((s8 *)arg0 + 0x38C)) == 0)) {
         enemy_clear_target(arg0);
         return 0;
     }
@@ -256,8 +253,8 @@ s32 update_death_check__14TObjEneEpsilonFPv(void *arg0) {
 }
 
 s32 enemy_validate_retained_target(u8 *arg0) {
-    if (tick_period_counter((s32) arg0, arg0 + 0x3B8, M2C_FIELD(arg0, s32 *, 0x3BC)) != 0) {
-        if (transform_relative_position__9TObjEneDDFPvPv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0x390))) != 0) {
+    if (tick_period_counter((s32) arg0, arg0 + 0x3B8, *(s32 *)((s8 *)arg0 + 0x3BC)) != 0) {
+        if (transform_relative_position__9TObjEneDDFPvPv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0x390))) != 0) {
             return 1;
         }
         goto block_5;
@@ -271,14 +268,14 @@ block_5:
 }
 
 void enemy_init_validate_period(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x3BC) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x3B8) = (s32) ((M2C_FIELD(arg0, u16 *, 0x1C) + 3) % M2C_FIELD(arg0, s32 *, 0x3BC));
+    *(s32 *)((s8 *)arg0 + 0x3BC) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x3B8) = (s32) ((*(u16 *)((s8 *)arg0 + 0x1C) + 3) % *(s32 *)((s8 *)arg0 + 0x3BC));
 }
 
 int copy_position__14TObjEneEpsilonFPv(void* p, void * _w1) { return VecCopy__FP3VecPC3Vec((char*)p + 0x394); }
 void enemy_copy_target_destination(u8 *arg0) {
     u32 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, u32 *, 0x390);
+    temp_r4 = *(u32 *)((s8 *)arg0 + 0x390);
     if (temp_r4 != 0U) {
         copy_position__14TObjEneEpsilonFPv((void *)((void *)(arg0)), (void *)((void *) (temp_r4 + 0x38)));
     }
@@ -290,7 +287,7 @@ void enemy_copy_target_destination(u8 *arg0) {
 
 #define copy_position__14TObjEneEpsilonFPv ((int (*)(void *))copy_position__14TObjEneEpsilonFPv)
 #define tick_period_counter ((s32 (*)(void *, s32 *, s32))tick_period_counter)
-#define enemy_clear_target ((M2C_UNK (*)(void *))enemy_clear_target)
+#define enemy_clear_target ((s32 (*)(void *))enemy_clear_target)
 
 struct VBase_18_8e9c4f { char pad[0x18]; };
 
@@ -411,7 +408,7 @@ int VecCopy__FP3VecPC3Vec(void*);
 
 s32 update_linked_position__14TObjEneEpsilonFPv(void *p, f32 scale) {
     return enemy_tick_target_acquisition((u8 *)p, (s32 *)((u8 *)p + 0x3B0),
-                               M2C_FIELD(p, s32 *, 0x3B4), scale);
+                               *(s32 *)((s8 *)p + 0x3B4), scale);
 }
 s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale) {
     s32 var_r31;
@@ -431,7 +428,7 @@ s32 enemy_tick_target_acquisition(u8 *arg0, s32 *counter, s32 limit, f32 scale) 
 #undef tick_period_counter
 #undef enemy_clear_target
 
-#define enemy_bind_or_clear_target ((M2C_UNK (*)(s32, s32))enemy_bind_or_clear_target)
+#define enemy_bind_or_clear_target ((s32 (*)(s32, s32))enemy_bind_or_clear_target)
 #define enemy_find_nearest_player_in_range ((s32 (*)())enemy_find_nearest_player_in_range)
 
 extern "C" {
@@ -439,7 +436,7 @@ extern "C" {
 void spawn_part__14TObjEneEpsilonFi(s32 arg0);
 
 void spawn_part__14TObjEneEpsilonFi(s32 arg0) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)enemy_find_nearest_player_in_range();
+    s8 *tmp = (s8 *)enemy_find_nearest_player_in_range();
     enemy_bind_or_clear_target(arg0, (s32)tmp);
 }
 
@@ -458,7 +455,7 @@ struct VObj_800B97B4 : Base_800B97B4 {
 extern "C" {
 
 void select_and_apply_target__14TObjEneEpsilonFPvf(void *arg0, f32 farg0);
-M2C_UNK enemy_bind_or_clear_target(void *, u16);
+s32 enemy_bind_or_clear_target(void *, u16);
 u16 set_squared_value__9TObjEneDDFf(void *, f32);
 u16 enemy_find_nearest_player_in_range(void *, f32);
 
@@ -516,8 +513,8 @@ s32 enemy_bind_or_clear_target(void *self, u16 x) {
 int TObjEneEpsilon__vt101(void* p) { return spawn_part__14TObjEneEpsilonFi(p); }
 
 void enemy_init_acquire_period(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x3B0) = (s32) (M2C_FIELD(arg0, u16 *, 0x1C) % arg1);
-    M2C_FIELD(arg0, s32 *, 0x3B4) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x3B0) = (s32) (*(u16 *)((s8 *)arg0 + 0x1C) % arg1);
+    *(s32 *)((s8 *)arg0 + 0x3B4) = arg1;
 }
 
 void enemy_clear_target(O_800B98C0 *self, u16 _w1) {

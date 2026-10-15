@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct Obj_80196448 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0xac - 0x44]; f32 radius; };
 
@@ -21,7 +19,7 @@ int destroy_board__17TQuestThreadBoardFv(void*);
 
 void TObjQuestColApc__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
-extern M2C_UNK __vt__15TObjQuestColApc[];
+extern s32 __vt__15TObjQuestColApc[];
 extern void *obj_quest_col_apc_class_name;
 
 s32 TObjQuestColApc__vt13(Obj_80196448 *self) {
@@ -40,8 +38,8 @@ s32 TObjQuestColApc__vt13(Obj_80196448 *self) {
 
 void *TObjQuestColApc__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjQuestColApc;
-    M2C_FIELD(arg0, void **, 0x0) = obj_quest_col_apc_class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjQuestColApc;
+    *(void **)((s8 *)arg0 + 0x0) = obj_quest_col_apc_class_name;
     return arg0;
 }
 

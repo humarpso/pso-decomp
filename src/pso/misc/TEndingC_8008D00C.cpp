@@ -30,12 +30,8 @@ typedef char TEndingC_timing_rate_offset[offsetof(TEndingC, timing_rate) == 0x90
 typedef char TEndingC_fade_in_ticks_offset[offsetof(TEndingC, fade_in_ticks) == 0x94 ? 1 : -1];
 typedef char TEndingC_fade_out_ticks_offset[offsetof(TEndingC, fade_out_ticks) == 0x98 ? 1 : -1];
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8008D3D4___vt__8TEndingC { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8008D3D4___vt__8TEndingC { s32 value; u8 remaining[0x14]; };
 
 extern "C" {
 s32 TKeyBoardControl__sub_8000F828(void);
@@ -65,13 +61,13 @@ extern const f32 lbl_805D95D4;
 
 extern "C" {
 
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK set_draw_texture_and_color(M2C_UNK, s32, f32);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 begin_screen_draw(s32);
+s32 set_draw_texture_and_color(s32, s32, f32);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 set_global_param__8TObjFishFi(void *);
 
-extern M2C_UNK TEndingC__wall_texture_list_entry[];
+extern s32 TEndingC__wall_texture_list_entry[];
 extern const f32 lbl_805D95C0;
 extern const f32 lbl_805D95C4;
 extern const f32 lbl_805D95C8;
@@ -245,57 +241,52 @@ extern "C" {
 u8 *__ct__8TEndingCFv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TEndingC;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2960;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805D95D8;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D95DC;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D95E0;
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D95E4;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805D95CC;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805D95E8;
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805D95EC;
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805D95E0;
-    M2C_FIELD(arg0, f32 *, 0x60) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x64) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805D95E4;
-    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805D95E8;
-    M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805D95F0;
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) lbl_805D95F4;
-    M2C_FIELD(arg0, f32 *, 0x7C) = (f32) lbl_805D95E0;
-    M2C_FIELD(arg0, f32 *, 0x80) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x84) = (f32) lbl_805D95D4;
-    M2C_FIELD(arg0, f32 *, 0x88) = (f32) lbl_805D95CC;
-    M2C_FIELD(arg0, f32 *, 0x8C) = (f32) lbl_805D95CC;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TEndingC;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2960;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D95D4;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D95D8;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805D95DC;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D95E4;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805D95CC;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805D95E8;
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805D95EC;
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)arg0 + 0x60) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x64) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805D95E4;
+    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805D95E8;
+    *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805D95F0;
+    *(f32 *)((s8 *)arg0 + 0x74) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) lbl_805D95F4;
+    *(f32 *)((s8 *)arg0 + 0x7C) = (f32) lbl_805D95E0;
+    *(f32 *)((s8 *)arg0 + 0x80) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x84) = (f32) lbl_805D95D4;
+    *(f32 *)((s8 *)arg0 + 0x88) = (f32) lbl_805D95CC;
+    *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805D95CC;
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x90) = 0x1E;
+        *(s32 *)((s8 *)arg0 + 0x90) = 0x1E;
         break;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x90) = 0x19;
+        *(s32 *)((s8 *)arg0 + 0x90) = 0x19;
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) (lbl_805D95F8 * (f32) M2C_FIELD(arg0, s32 *, 0x90));
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) (lbl_805D95F8 * (f32) M2C_FIELD(arg0, s32 *, 0x90));
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)arg0 + 0x90));
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) (lbl_805D95F8 * (f32) *(s32 *)((s8 *)arg0 + 0x90));
     return arg0;
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -318,11 +309,6 @@ extern "C" {
     extern unsigned char lbl_804398EC[];
 void register_texture_ed_512kabe_c(void) { TEndingC__wall_texture_list = (int)TEndingC__wall_texture_list_entry; bind_gvm_texture_list(lbl_804398EC, TEndingC__wall_texture_list_entry); }
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
@@ -402,11 +388,11 @@ struct VObj_18 : VBase_18 {
     virtual void m60();
     virtual void m61();
     virtual void m62();
-    virtual M2C_UNK m63(M2C_UNK, void *);
+    virtual s32 m63(s32, void *);
 };
 
 extern "C" {
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
+s32 update_if_active__15TObjEneMe1GiGueFPv(void *, s32);
 void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0);
 }
 
@@ -427,8 +413,8 @@ void TEndingPic__sub_8008D5AC(void) { TEndingPic__animation_state = 1; }
 int TEnding__sub_8008D5B8(void) {  return ending_frame_counter; }
 
 void clear_flag_in_state7__14TObjEneBalClawFPv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x374) == 7) {
-        M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) & 0xFFFFFFFE);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x374) == 7) {
+        *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) & 0xFFFFFFFE);
         update_if_active__15TObjEneMe1GiGueFPv(arg0, 0);
     }
 }

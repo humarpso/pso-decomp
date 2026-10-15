@@ -17,11 +17,6 @@ __declspec(section ".data") const char *bm_obj_labodoor_nrm_motion_names[2] = { 
 BmlResourceDescriptor labo_door_resource_descriptor_2 = { lbl_80465F30, bm_obj_labodoor_nrm_model_names, bm_obj_labodoor_nrm_motion_names, 1, 1 };
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -72,8 +67,8 @@ s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 extern Tbl_8029F7E0 lbl_80466014;
 extern Tbl_8029FAE4 door_labo_link_table;
 extern u8 labo_door_collision_body_parts[];
-extern M2C_UNK __vt__16TODoorLaboNormal[];
-extern M2C_UNK __vt__10TODoorLabo[];
+extern s32 __vt__16TODoorLaboNormal[];
+extern s32 __vt__10TODoorLabo[];
 extern s32 door_labo_normal_class_name;
 extern s32 odoor_labo_class_name;
 extern const f32 lbl_805DDDB8;
@@ -107,12 +102,12 @@ s32 TODoorLabo__vt20(void);
 void *__dt__10TODoorLaboFv(void *arg0, s16 arg1);
 void free_resources__10TODoorLaboFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TODoorFourLightBaseFv(void *, int);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void init_field_d4__16TODoorLaboNormalFPv(void* a0) { *(int*)((char*)a0 + 0xd4) = get_bml_model((s32)(TODoorLabo__model_archive), 0); }
 
@@ -126,7 +121,7 @@ s32 TODoorLaboNormal__vt19(void) {
 
 void *__dt__16TODoorLaboNormalFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TODoorLaboNormal;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TODoorLaboNormal;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
@@ -194,13 +189,13 @@ void init_model_by_type__10TODoorLaboFPv(void *arg0) {
     s32 tbl[2];
     tbl[0] = lbl_80465FF8[0];
     tbl[1] = lbl_80465FF8[1];
-    if (M2C_FIELD(arg0, s32 *, 0x88) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x88) = 0;
+    if (*(s32 *)((s8 *)arg0 + 0x88) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x88) = 0;
     }
-    if (M2C_FIELD(arg0, s32 *, 0x88) > 1) {
-        M2C_FIELD(arg0, s32 *, 0x88) = 1;
+    if (*(s32 *)((s8 *)arg0 + 0x88) > 1) {
+        *(s32 *)((s8 *)arg0 + 0x88) = 1;
     }
-    M2C_FIELD(arg0, s32 *, 0xD4) = get_bml_model(TODoorLabo__bml_resource, tbl[M2C_FIELD(arg0, s32 *, 0x88)]);
+    *(s32 *)((s8 *)arg0 + 0xD4) = get_bml_model(TODoorLabo__bml_resource, tbl[*(s32 *)((s8 *)arg0 + 0x88)]);
 }
 
 s32 TODoorLabo__vt20(void) {
@@ -215,7 +210,7 @@ s32 TODoorLabo__vt19(void) {
 
 void *__dt__10TODoorLaboFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TODoorLabo;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TODoorLabo;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
@@ -238,7 +233,7 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
     reset_photon_effect__10TObjPlayerFPv(arg0);
     init_model_by_type__10TODoorLaboFPv(arg0);
     arg0->fBC = (u8 *)get_bml_motion(TODoorLabo__bml_resource, 0);
-    arg0->fB4 = (f32)M2C_FIELD(arg0->fBC, u32 *, 4) - lbl_805DDDB8;
+    arg0->fB4 = (f32)*(u32 *)((s8 *)arg0->fBC + 4) - lbl_805DDDB8;
     arg0->fB8 = lbl_805DDDBC;
     tbl = door_labo_link_table;
     for (i = 0; i < 8; i++) {
@@ -254,17 +249,13 @@ Door_8029FAE4 *TODoorLabo__ct(Door_8029FAE4 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void free_all_resources__23TAdSinglePlyChrSelectGCFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void free_all_resources__23TAdSinglePlyChrSelectGCFv(void) {
     if ((u32) labo_door_red_textures != 0U) {
@@ -314,10 +305,6 @@ void load_labo_door_resources(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -341,11 +328,11 @@ s32 TODoorFourLightSeabedU__vt19(void) {
     return TODoorFourLightSeabedU__texture_list;
 }
 
-extern M2C_UNK __vt__22TODoorFourLightSeabedU[];
+extern s32 __vt__22TODoorFourLightSeabedU[];
 
 void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TODoorFourLightSeabedU;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TODoorFourLightSeabedU;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
@@ -357,11 +344,6 @@ void *__dt__22TODoorFourLightSeabedUFv(void *arg0, s16 arg1) {
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma push
 #pragma inline_depth(1)
@@ -384,9 +366,9 @@ struct Door_8029FD70 {
     s32 fD8[8];
 };
 
-M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
+s32 clamp_light_index__19TODoorFourLightBaseFPv(void *);
 extern Tbl_8029FD70 door_four_light_seabed_u_table;
-extern M2C_UNK __vt__22TODoorFourLightSeabedU[];
+extern s32 __vt__22TODoorFourLightSeabedU[];
 extern s32 odoor_four_light_seabed_u_class_name;
 extern u32 seabed_four_light_door_bml_resource;
 extern const f32 lbl_805DDDB8;
@@ -420,21 +402,17 @@ u8 *TODoorFourLightSeabedU__ct(u8 *arg0) {
 #pragma pop
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern M2C_UNK lbl_804660AC[];
-extern M2C_UNK lbl_804660C8[];
-extern M2C_UNK lbl_804660DC[];
-extern M2C_UNK lbl_804660FC[];
-extern M2C_UNK bm_o_door_seabed01_u_resource_descriptor[];
+extern s32 lbl_804660AC[];
+extern s32 lbl_804660C8[];
+extern s32 lbl_804660DC[];
+extern s32 lbl_804660FC[];
+extern s32 bm_o_door_seabed01_u_resource_descriptor[];
 extern u32 seabed_four_light_door_bml_resource;
 void TLanguage__sub_8029FF0C(void);
 }
@@ -443,8 +421,8 @@ extern "C" {
 
 void free_global_buffers__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 seabed_four_light_door_bml_resource;
 
@@ -494,10 +472,6 @@ void TLanguage__sub_8029FF0C(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -521,11 +495,11 @@ s32 TODoorFourLightSeabed__vt19(void) {
     return lbl_805D6608;
 }
 
-extern M2C_UNK __vt__21TODoorFourLightSeabed[];
+extern s32 __vt__21TODoorFourLightSeabed[];
 
 void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TODoorFourLightSeabed;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TODoorFourLightSeabed;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__19TODoorFourLightBaseFv(arg0, 0);
@@ -537,10 +511,6 @@ void *__dt__21TODoorFourLightSeabedFv(void *arg0, s16 arg1) {
 }
 
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma push
 #pragma inline_depth(1)
@@ -563,9 +533,9 @@ struct Door_802A0068 {
     s32 fD8[8];
 };
 
-M2C_UNK clamp_light_index__19TODoorFourLightBaseFPv(void *);
+s32 clamp_light_index__19TODoorFourLightBaseFPv(void *);
 extern Tbl_802A0068 lbl_80465F74;
-extern M2C_UNK __vt__21TODoorFourLightSeabed[];
+extern s32 __vt__21TODoorFourLightSeabed[];
 extern s32 TODoorFourLightSeabed__class_name;
 extern s32 door_labo_bml_resource;
 extern const f32 lbl_805DDDB8;

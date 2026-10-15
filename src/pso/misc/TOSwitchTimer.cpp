@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_801783BC {
     f32 sp8;
@@ -11,7 +7,7 @@ struct Stack_801783BC {
     f32 sp14;
 };
 
-struct RecoveredGlobal_8017858C___vt__13TOSwitchTimer { M2C_UNK value; u8 remaining[0x34]; };
+struct RecoveredGlobal_8017858C___vt__13TOSwitchTimer { s32 value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_8017858C___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_8017858C___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -22,17 +18,17 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80178604___vt__13TOSwitchTimer {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
+s32 TObjRoomId__sub_80141CF4(s32, f32 *, f32, f32, f32);
 extern const f32 lbl_805DBA18;
 extern const f32 lbl_805DBA1C;
 extern const f32 lbl_805DBA20;
@@ -47,7 +43,7 @@ s32 fn_801782A0(void *);
 s32 construct_world_actor_base(void *);
 extern RecoveredGlobal_8017858C___vt__13TOSwitchTimer __vt__13TOSwitchTimer;
 extern s32 lbl_805D3188;
-u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -56,10 +52,10 @@ void TOSwitchTimer__sub_80178584(void);
 void TOSwitchTimer__sub_80178588(void);
 void *create__13TOSwitchTimerFPv(void *arg0);
 void run_task__13TOSwitchTimerFv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK send_switch_states__12TOChatSensorFPv(void *);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 send_switch_states__12TOChatSensorFPv(void *);
 u8 is_current_floor_switch_set(u16);
-M2C_UNK play_persistent_sound(M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_persistent_sound(s32, void *, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
 
 void render__13TOSwitchTimerFv(s32 arg0) {
@@ -78,36 +74,36 @@ void run_task__13TOSwitchTimerFv(void *arg0) {
     s32 temp_r3_2;
     u32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x90);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x90);
     switch (temp_r0) {
     case 0:
-        temp_r3 = is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0xA8));
-        if ((s32) M2C_FIELD(arg0, u8 *, 0xB0) != (s32) temp_r3) {
-            M2C_FIELD(arg0, u8 *, 0xB0) = temp_r3;
+        temp_r3 = is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0xA8));
+        if ((s32) *(u8 *)((s8 *)arg0 + 0xB0) != (s32) temp_r3) {
+            *(u8 *)((s8 *)arg0 + 0xB0) = temp_r3;
             if (temp_r3 == 1) {
-                M2C_FIELD(arg0, s32 *, 0x90) = 1;
-                M2C_FIELD(arg0, s32 *, 0x94) = 0;
-                if ((u32) M2C_FIELD(arg0, u32 *, 0x98) == 0U) {
-                    M2C_FIELD(arg0, u8 *, 0xB0) = 0U;
+                *(s32 *)((s8 *)arg0 + 0x90) = 1;
+                *(s32 *)((s8 *)arg0 + 0x94) = 0;
+                if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
+                    *(u8 *)((s8 *)arg0 + 0xB0) = 0U;
                 }
             }
         }
         return;
     case 1:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) == 1) {
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x94) < (s32) M2C_FIELD(arg0, s32 *, 0xA4)) {
-                if ((M2C_FIELD(arg0, s32 *, 0x94) % 30) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) == 1) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x94) < (s32) *(s32 *)((s8 *)arg0 + 0xA4)) {
+                if ((*(s32 *)((s8 *)arg0 + 0x94) % 30) == 0) {
                     play_sound_effect(0x53218, 0, 0, 0);
                 }
             } else {
                 play_persistent_sound(0x53218, arg0, 0, 0, 0);
             }
         }
-        temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x94);
-        M2C_FIELD(arg0, s32 *, 0x94) = (s32) (temp_r3_2 + 1);
-        if (temp_r3_2 == (s32) M2C_FIELD(arg0, s32 *, 0xA0)) {
+        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x94);
+        *(s32 *)((s8 *)arg0 + 0x94) = (s32) (temp_r3_2 + 1);
+        if (temp_r3_2 == (s32) *(s32 *)((s8 *)arg0 + 0xA0)) {
             send_switch_states__12TOChatSensorFPv(arg0);
-            M2C_FIELD(arg0, s32 *, 0x90) = 0;
+            *(s32 *)((s8 *)arg0 + 0x90) = 0;
         }
         break;
     }
@@ -118,7 +114,7 @@ extern void *tl_05;
 void *create__13TOSwitchTimerFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xB8);
     if (o != NULL) {
-        o = TOSwitchTimer__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TOSwitchTimer__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -127,9 +123,9 @@ void TOSwitchTimer__sub_80178584(void) {  }
 void TOSwitchTimer__sub_80178588(void) {  }
 u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TOSwitchTimer.value;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x98) == 0U) {
-            clear_floor_switch_flag(M2C_FIELD(arg0, u16 *, 0xA8), (s16) M2C_FIELD(arg0, s32 *, 0xB4));
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TOSwitchTimer.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
+            clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 0xA8), (s16) *(s32 *)((s8 *)arg0 + 0xB4));
         }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -139,10 +135,10 @@ u8 *__dt__13TOSwitchTimerFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_80178604___vt__13TOSwitchTimer_size[sizeof(RecoveredGlobal_80178604___vt__13TOSwitchTimer) == 0x38 ? 1 : -1];
-u8 *TOSwitchTimer__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOSwitchTimer__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3188;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80178604___vt__13TOSwitchTimer *)&__vt__13TOSwitchTimer).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3188;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     fn_801782A0((void *) (arg0));
     return arg0;

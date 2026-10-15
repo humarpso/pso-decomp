@@ -34,7 +34,7 @@ void sndSeqVolume(s8 arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 u16 seqGetMIDIPriority(u8 arg0, u8 arg1) {
     extern RecoveredGlobal_803AA0C0_lbl_80556E88 lbl_80556E88;
-    return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)), u16 *, 0);
+    return *(u16 *)((s8 *)((u8 *)(((u8 *)(&lbl_80556E88.value) + ((arg0 << 5) & 0x1FE0))) + ((arg1 * 2) & 0x1FE)) + 0);
 }
 
 }

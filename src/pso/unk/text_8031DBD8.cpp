@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_67c185 { char pad[0x18]; };
 
 struct VObj_18_67c185 : VBase_18_67c185 {
@@ -101,8 +98,8 @@ struct VObj_18_67c185 : VBase_18_67c185 {
     virtual void m92();
     virtual void m93();
     virtual void m94();
-    virtual M2C_UNK m95();
-    virtual M2C_UNK m96();
+    virtual s32 m95();
+    virtual s32 m96();
 };
 
 struct Vec_8031DBD8 { f32 x, y, z; };
@@ -117,23 +114,23 @@ extern "C" {
 
 void TObjEneRecon__vt86(u8 *arg0) {
     f32 d;
-    u8 *t = M2C_FIELD(arg0, u8 **, 0x390);
-    if (t != NULL && M2C_FIELD(arg0, s16 *, 0x326) == 2) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = M2C_FIELD(t, f32 *, 0x3C);
+    u8 *t = *(u8 **)((s8 *)arg0 + 0x390);
+    if (t != NULL && *(s16 *)((s8 *)arg0 + 0x326) == 2) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = *(f32 *)((s8 *)t + 0x3C);
     } else {
         Vec_8031DBD8 v = *(Vec_8031DBD8 *)(arg0 + 0x38);
-        v.y += M2C_FIELD(arg0, f32 *, 0x448);
+        v.y += *(f32 *)((s8 *)arg0 + 0x448);
         if (project_actor_to_ground(arg0, &v, (int)(arg0 + 0x248)) != 0) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = v.y;
+            *(f32 *)((s8 *)arg0 + 0x3C) = v.y;
         }
     }
-    d = M2C_FIELD(arg0, f32 *, 0x448) - M2C_FIELD(arg0, f32 *, 0x3C);
+    d = *(f32 *)((s8 *)arg0 + 0x448) - *(f32 *)((s8 *)arg0 + 0x3C);
     if (d >= lbl_805DF3C8) {
         ((VObj_18_67c185 *)(arg0))->m95();
     } else {
         ((VObj_18_67c185 *)(arg0))->m96();
     }
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 4) = d;
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 4) = d;
 }
 
 }

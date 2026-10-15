@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80049E9C_lbl_80484AD0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80049E9C_lbl_80484AFC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_80049E9C_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -58,7 +54,7 @@ s32 rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
 extern RecoveredGlobal_80049E9C_lbl_80484AD0 lbl_80484AD0;
-extern M2C_UNK lbl_80484AFC[];
+extern s32 lbl_80484AFC[];
 extern RecoveredGlobal_80049E9C_lbl_8058D490 identity_matrix;
 extern u8 *boss3_volopt_resources;
 extern s32 lbl_805D4D30;
@@ -89,12 +85,12 @@ void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self);
 extern "C" {
 
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 free_collision_body_parts(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 __dl__7TObjectFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_80484AFC[];
+extern s32 lbl_80484AFC[];
 
 void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
     Tgt_80049C10 *t;
@@ -147,10 +143,10 @@ void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
 
 void *TBoss3Volopt__sub_80049E2C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80484AFC;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484AFC;
         free_collision_body_parts(arg0);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xE0) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xE0));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xE0) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xE0));
         }
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -165,29 +161,29 @@ typedef char RecoveredGlobal_80049E9C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r4;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_80484AD0.value), (int) (1));
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805D88AC;
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805D88AC;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0xCC) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x60) = arg3;
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) lbl_805D88B0;
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805D88B0;
-    M2C_FIELD(arg0, f32 *, 0xBC) = TBoss3Volopt__sub_8004812C((int) (0));
+    *(s32 *)((s8 *)arg0 + 0xCC) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x60) = arg3;
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) lbl_805D88B0;
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805D88B0;
+    *(f32 *)((s8 *)arg0 + 0xBC) = TBoss3Volopt__sub_8004812C((int) (0));
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
     temp_r4 = (u8 *)(arg0 + 0xB4);
     matrix_mult_vec((int) (0), (int) (temp_r4), (int) (temp_r4));
     pop_matrix();
-    M2C_FIELD(arg0, s32 *, 0xAC) = (s32) M2C_FIELD(M2C_FIELD(boss3_volopt_resources, u8 **, 0x42C), s32 *, 0x168);
-    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) M2C_FIELD(M2C_FIELD(boss3_volopt_resources, u8 **, 0x42C), s32 *, 0x16C);
-    M2C_FIELD(arg0, s32 *, 0xD0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
+    *(s32 *)((s8 *)arg0 + 0xAC) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x168);
+    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x16C);
+    *(s32 *)((s8 *)arg0 + 0xD0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
     lbl_805D4D30 = (s32) TBoss3Volopt__sub_8004812C((int) (3)) + 0xF0;
     return arg0;
 }

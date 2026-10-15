@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_800BA138 { char pad[0x18]; };
 struct VObj_800BA138 : Base_800BA138 {
     virtual void g0();
@@ -49,7 +46,7 @@ struct VObj_18_0c879f : VBase_18_0c879f {
     virtual void m18();
     virtual void m19();
     virtual void m20();
-    virtual M2C_UNK m21(s32, s32 *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m21(s32, s32 *, s32, s32, s32);
 };
 
 struct Stack_800BA318 {
@@ -58,7 +55,7 @@ struct Stack_800BA318 {
 };
 
 struct RecoveredGlobal_800BA318_lbl_8043B68C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -151,14 +148,14 @@ void transform_relative_position__9TObjEneDDFPvPv(void* p, void* a1);
 int is_target_unobstructed__9TObjEneDDFii(void* a0 = 0, void* a1 = 0, void* a2 = 0);
 int add_flags_2e4__10TObjPlayerFPvUi(void*, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK fn_800BC3E8(void *, s32);
-M2C_UNK get_position__12TBoss1DragonFPv(void *, s32);
+s32 fn_800BC3E8(void *, s32);
+s32 get_position__12TBoss1DragonFPv(void *, s32);
 
 void TObjEneDD__vt92(void *arg0) {
     struct VObj_800BA138 *o = (struct VObj_800BA138 *)arg0;
     o->m88();
     o->m91();
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x04040000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x04040000);
 }
 
 void TObjEneDD__vt91(O_800BA190 *self) {
@@ -201,8 +198,8 @@ void send_damage_message__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = M2C_FIELD(&lbl_8043B68C.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043B68C.value, s32 *, 4);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B68C.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043B68C.value) + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -210,8 +207,8 @@ void TObjEneDD__sub_800BA378(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = M2C_FIELD(&lbl_8043B684.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043B684.value, s32 *, 4);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B684.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043B684.value) + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -219,8 +216,8 @@ void inflict_poison__9TObjEneDDFiPv(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = M2C_FIELD(&lbl_8043B67C.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043B67C.value, s32 *, 4);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B67C.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043B67C.value) + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -228,8 +225,8 @@ void TObjEneDD__sub_800BA438(s32 arg0, u8 *arg1) {
     typedef char sp8_offset[(offsetof(Stack_800BA318, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800BA318, spC) == 0x4) ? 1 : -1];
     Stack_800BA318 stack;
-    stack.sp8 = M2C_FIELD(&lbl_8043B674.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043B674.value, s32 *, 4);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B674.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043B674.value) + 4);
     ((VObj_18_0c879f *)(arg1))->m21(arg0, &stack.sp8, 0, -1, -1);
 }
 
@@ -243,9 +240,9 @@ extern const f32 lbl_805D9EA0;
 void emit_enemy_effect__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(obj_ene_dd_instance, arg0);
     get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
-    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
-    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), s32 *, 0x18) = 0x9D03;
-    if (M2C_FIELD(arg2, f32 *, 8) > lbl_805D9EA0) {
+    *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
+    *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
+    if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
         ((EneDDObj2_800BA138*)obj_ene_dd_instance)->m16((void*)(arg2 + 0xC), (void*)arg3);
         return;
     }
@@ -262,9 +259,9 @@ extern const f32 lbl_805D9EA0;
 void setup_instance__9TObjEneDDFiiPvi(s32 arg0, s32 arg1, u8 *arg2, s32 arg3) {
     fn_800BC3E8(obj_ene_dd_instance, arg0);
     get_position__12TBoss1DragonFPv(obj_ene_dd_instance, arg1);
-    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), f32 *, 0xC) = (f32) M2C_FIELD(arg2, f32 *, 8);
-    M2C_FIELD(M2C_FIELD(obj_ene_dd_instance, void **, 0xA4), s32 *, 0x18) = 0x9D03;
-    if (M2C_FIELD(arg2, f32 *, 8) > lbl_805D9EA0) {
+    *(f32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0xC) = (f32) *(f32 *)((s8 *)arg2 + 8);
+    *(s32 *)((s8 *)(*(void **)((s8 *)obj_ene_dd_instance + 0xA4)) + 0x18) = 0x9D03;
+    if (*(f32 *)((s8 *)arg2 + 8) > lbl_805D9EA0) {
         ((EneDDObj_800BA138*)obj_ene_dd_instance)->m13((void*)(arg2 + 0xC), (void*)arg2, (void*)arg3);
         return;
     }
@@ -277,7 +274,7 @@ u8 is_alive__9TObjEneDDFPv(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((arg0 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(M2C_FIELD(arg0, s32 *, 0x30) & 0x02040800)) {
+    if ((arg0 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv() != 0) && !(*(s32 *)((s8 *)arg0 + 0x30) & 0x02040800)) {
         var_r31 = 1;
     }
     return (u8) var_r31;

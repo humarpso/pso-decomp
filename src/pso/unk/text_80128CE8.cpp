@@ -1,10 +1,6 @@
 #include "types.h"
 struct Obj_80128E08 { u8 pad[0x184]; void *f184; void *f188; u8 pad2[0x1fc - 0x18c]; u8 f1fc[4]; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -57,7 +53,7 @@ struct VObj_18 : VBase_18 {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual s32 m49(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m49(void *, s32, s32, s32);
 };
 
 extern "C" {
@@ -65,12 +61,12 @@ s32 get_player_list__10TObjPlayerFv(void);
 s32 test_flags_any(void *p, s32 n);
 void draw_ginja_object(void *p);
 void srank_punch_node_callback(Obj_80128E08 *self);
-M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
-M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
-M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
-M2C_UNK increment_burst_counter(int);
+s32 set_flags__10TObjPlayerFPvUi(void *, int);
+s32 clear_flags__11TAdRicoRingFPvUi(void *, int);
+s32 spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
+s32 increment_burst_counter(int);
 s32 get_burst_counter(int);
-M2C_UNK TObjPlayer__sub_80128A70();
+s32 TObjPlayer__sub_80128A70();
 void clear_rico_ring_flag__10TObjPlayerFUi(u32);
 void srank_punch_marker(u8 *arg0);
 }
@@ -82,7 +78,7 @@ void srank_punch_marker(u8 *arg0) {
     s32 var_r30;
     u32 temp_r3;
     TObjPlayer__sub_80128A70();
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0xF0);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r3 == 0U) return;
     temp_r31 = temp_r3 + 0x7CC;
     if (get_burst_counter((int) (temp_r31)) == 0) {

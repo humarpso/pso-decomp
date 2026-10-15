@@ -1,37 +1,33 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80249BA8_lbl_804CE8D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_80249BA8___vt__14TWindowComCard {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-extern M2C_UNK __vt__14TWindowMessage[];
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+extern s32 __vt__14TWindowMessage[];
 void render__14TWindowComCardFv(s32 arg0);
 extern u8 *text_language_group_table;
 s32 get_class_name_text(s32 arg0);
 s32 TWindowSubComCard__sub_8007B070(s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv(void);
-M2C_UNK clear_and_init__17TWindowSubComCardFPvPv(int, void *);
+s32 clear_and_init__17TWindowSubComCardFPvPv(int, void *);
 void *__nw__7TObjectFUl(int);
 extern s32 local_client_id;
 s32 create_com_card_window__17TWindowSubComCardFi(s32 arg0);
 void *__nw__7TObjectFUl(int);
 u8 *create_for_card__14TWindowComCardFiii(s32 arg0, s32 arg1, s32 arg2);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
-M2C_UNK update_com_card_display(s32, s32);
+s32 update_com_card_display(s32, s32);
 extern s32 lbl_805D38C0;
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -51,7 +47,7 @@ int update_window_entry_list(void*, void*);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-M2C_UNK update_com_card_display(s32, s32);
+s32 update_com_card_display(s32, s32);
 int initialize_subwindow__9TWindowDDFPv(void*);
 int update_fade__17TWindowSubComCardFPv(void*);
 
@@ -108,9 +104,9 @@ void *lbl_804CE964[6] = {
     (void *)&update_status_disp__14TWindowComCardFi, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowComCard__window_desc (*(RecoveredGlobal_80249BA8_lbl_804CE8D0 *)TWindowComCard__window_desc)
-#define __vt__14TWindowComCard ((M2C_UNK *)__vt__14TWindowComCard)
+#define __vt__14TWindowComCard ((s32 *)__vt__14TWindowComCard)
 #define TWindowComCard__window_desc_b ((s32 *)TWindowComCard__window_desc_b)
-#define lbl_804CE964 ((M2C_UNK *)lbl_804CE964)
+#define lbl_804CE964 ((s32 *)lbl_804CE964)
 
 void TWindowComCard__sub_80249920(s32 arg0, s32 arg1, s32 arg2) {
     s32 temp = arg2 + (arg1 * 0x90);
@@ -199,7 +195,7 @@ void run_task__14TWindowComCardFv(void* p) { initialize_subwindow__9TWindowDDFPv
 
 void *__dt__14TWindowComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TWindowComCard;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowComCard;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -212,8 +208,8 @@ typedef char RecoveredGlobal_80249BA8_lbl_804CE8D0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80249BA8___vt__14TWindowComCard_size[sizeof(RecoveredGlobal_80249BA8___vt__14TWindowComCard) == 0x1C ? 1 : -1];
 u8 *TWindowComCard__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &TWindowComCard__window_desc.value, 4, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__14TWindowComCard;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D38C0;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__14TWindowComCard;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D38C0;
     update_com_card_display((s32)(arg0 + 0x24), (s32)(arg2));
     return arg0;
 }
@@ -222,16 +218,12 @@ void* get_kbd_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0x20; }
 u8 TWindowComCard__sub_80249C18(void* p) { return *(u8*)((char*)p + 0x8e); }
 u8 TWindowComCard__sub_80249C20(void* p) { return *(u8*)((char*)p + 0x8d); }
 s32 get_class_name_text(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x1C), M2C_UNK *, (arg0 * 4));
+    return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x1C)) + (arg0 * 4));
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_status_effect_icon_index(u32 arg0);
@@ -241,7 +233,7 @@ extern "C" {
 
 void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1);
 void* get_card_name_ptr__14TWindowComCardFPv(void* p);
-M2C_UNK set_sprite_uv_from_pixels(void *, f32, f32);
+s32 set_sprite_uv_from_pixels(void *, f32, f32);
 
 extern u8 com_card_help_panel_rect_table[];
 
@@ -249,17 +241,17 @@ void set_help_mode__14TWindowComCardFPvi(void *arg0, s32 arg1) {
     void *temp_r4;
 
     if (arg1 == 0xE) {
-        M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 2);
+        *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 2);
         return;
     }
-    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) & 0xFFFFFFFD);
+    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) & 0xFFFFFFFD);
     if (arg1 < 0xA) {
-        M2C_FIELD(arg0, s32 *, 0x34) = 1;
+        *(s32 *)((s8 *)arg0 + 0x34) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x34) = 2;
+        *(s32 *)((s8 *)arg0 + 0x34) = 2;
     }
     temp_r4 = com_card_help_panel_rect_table + (arg1 * 8);
-    set_sprite_uv_from_pixels(arg0, M2C_FIELD(temp_r4, f32 *, 0), M2C_FIELD(temp_r4, f32 *, 4));
+    set_sprite_uv_from_pixels(arg0, *(f32 *)((s8 *)temp_r4 + 0), *(f32 *)((s8 *)temp_r4 + 4));
 }
 
 void* get_card_name_ptr__14TWindowComCardFPv(void* p) { return (char*)p + 0xa; }
@@ -293,32 +285,24 @@ s32 get_status_effect_icon_index(u32 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1);
-M2C_UNK get_array_entry__20TWindowSubStatusDispFPvi(void *, M2C_UNK);
+s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, s32);
 
 void set_selected_index__14TWindowComCardFPvi(void *arg0, s32 arg1) {
-    M2C_UNK temp;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x70) != arg1) {
-        M2C_FIELD(arg0, s32 *, 0x70) = arg1;
+    s32 temp;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x70) != arg1) {
+        *(s32 *)((s8 *)arg0 + 0x70) = arg1;
         temp = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-        ((M2C_UNK (*)(M2C_UNK, s32))set_help_mode__14TWindowComCardFPvi)(temp, M2C_FIELD(arg0, s32 *, 0x70));
+        ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)(temp, *(s32 *)((s8 *)arg0 + 0x70));
     }
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -329,10 +313,10 @@ extern const f32 lbl_805DCBD0;
 #pragma push
 #pragma fp_contract on
 void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != arg1) {
-        M2C_FIELD(arg0, s32 *, 0x6C) = arg1;
-        M2C_FIELD(arg0, f32 *, 0x30) = (f32) ((lbl_805DCBD0 * (f32) M2C_FIELD(arg0, s32 *, 0x6C)) + (M2C_FIELD(M2C_FIELD(arg0, void **, 0x60), f32 *, 0x40) + M2C_FIELD(arg0, f32 *, 0x64)));
-        M2C_FIELD(arg0, s32 *, 0x50) = 0xF;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != arg1) {
+        *(s32 *)((s8 *)arg0 + 0x6C) = arg1;
+        *(f32 *)((s8 *)arg0 + 0x30) = (f32) ((lbl_805DCBD0 * (f32) *(s32 *)((s8 *)arg0 + 0x6C)) + (*(f32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x60)) + 0x40) + *(f32 *)((s8 *)arg0 + 0x64)));
+        *(s32 *)((s8 *)arg0 + 0x50) = 0xF;
     }
 }
 #pragma pop
@@ -340,10 +324,6 @@ void TWindowComCard__sub_80249D7C(u8 *arg0, s32 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 typedef struct Parent_80249ED8 {
@@ -390,28 +370,28 @@ void update_status_disp__14TWindowComCardFi(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK set_flag1e_bit8__11TWindowCtrlFPv(void*);
+s32 set_flag1e_bit8__11TWindowCtrlFPv(void*);
 
 void update_status_disp__14TWindowComCardFi(s32 arg0) {
-    M2C_UNK8 *tmp = (M2C_UNK8 *)draw_default_entry__9TWindowDDFi();
-    ((M2C_UNK (*)(s32, s32, s32))draw_visible_window_entries)(arg0, arg0 + 0x24, (s32)tmp);
+    s8 *tmp = (s8 *)draw_default_entry__9TWindowDDFi();
+    ((s32 (*)(s32, s32, s32))draw_visible_window_entries)(arg0, arg0 + 0x24, (s32)tmp);
 }
 
 void TWindowComCard__sub_80249E24(u8 *arg0) {
     f32 temp_f1;
     u8 *temp_r4;
-    temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x60));
-    temp_f1 = M2C_FIELD(temp_r4, f32 *, 0x44);
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x68));
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x34);
-    ((M2C_UNK (*)(void *, int, f32))initialize_subwindow__9TWindowDDFPv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
-    ((M2C_UNK (*)(void *))update_fade__17TWindowSubComCardFPv)((void *) (arg0));
-    ((M2C_UNK (*)(void *, void *))update_window_entry_list)((void *) (arg0), (void *) (arg0 + 0x24));
+    temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x60));
+    temp_f1 = *(f32 *)((s8 *)temp_r4 + 0x44);
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x68));
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x34);
+    ((s32 (*)(void *, int, f32))initialize_subwindow__9TWindowDDFPv)((void *)(arg0), (int) (temp_r4), (f32) (temp_f1));
+    ((s32 (*)(void *))update_fade__17TWindowSubComCardFPv)((void *) (arg0));
+    ((s32 (*)(void *, void *))update_window_entry_list)((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
 void *TWindowComCard__sub_80249E80(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CE964;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE964;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -433,7 +413,7 @@ Win_80249ED8 *TWindowComCard__sub_80249ED8(Win_80249ED8 *o, Parent_80249ED8 *par
     o->x = lbl_805DCBD0 * (f32)o->col + (o->parent->x + o->ofs.x);
     o->y = o->parent->y + o->ofs.y;
     save_position__17TWindowSubComCardFPv(o);
-    ((M2C_UNK (*)(M2C_UNK, s32))set_help_mode__14TWindowComCardFPvi)((M2C_UNK)((void * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(o, 0), mode);
+    ((s32 (*)(s32, s32))set_help_mode__14TWindowComCardFPvi)((s32)((void * (*)(void *, s32))get_array_entry__20TWindowSubStatusDispFPvi)(o, 0), mode);
     return o;
 }
 #pragma pop
@@ -444,10 +424,10 @@ void close_request_window__19TWindowTradeRequestFv(void) {
     u8 *temp_r3;
     lbl_805D63FC &= 0xFFFFFFF7;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
-        temp_r3 = (u8 *)(M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x40));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x40));
         if (temp_r3 != NULL) {
             queue_destruction__7TObjectFv(temp_r3);
-            M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x40) = NULL;
+            *(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x40) = NULL;
         }
     }
 }

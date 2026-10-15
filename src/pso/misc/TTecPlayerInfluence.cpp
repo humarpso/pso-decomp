@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -10,7 +6,7 @@ struct VObj_18 : VBase_18 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4();
+    virtual s32 m4();
 };
 
 #include <stddef.h>
@@ -21,7 +17,7 @@ struct Stack_80237194 {
 };
 
 struct RecoveredGlobal_80237194_lbl_8044D8EC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -167,7 +163,7 @@ void init_collision_body_parts(void *, f32 *, s32);
 void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 int get_level_tier__10TObjPlayerFi(s32);
-extern M2C_UNK __vt__19TTecPlayerInfluence[];
+extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 Obj_80237310 *TTecPlayerInfluence__ct(Obj_80237310 *self, Owner_80237310 *owner, void *pos, s32 level);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -198,11 +194,11 @@ extern "C" {
 void TTecPlayerInfluence__vt5(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 void render__19TTecPlayerInfluenceFv(u8 *arg0) {
@@ -210,23 +206,23 @@ void render__19TTecPlayerInfluenceFv(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_80237194, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80237194, sp10) == 0x8) ? 1 : -1];
     Stack_80237194 stack;
-    stack.sp8 = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8044D8EC.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8044D8EC.value) + 8);
     approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp8), (f32) ((2.7f)));
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)));
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)));
 }
 
 void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x68) = (s32) (M2C_FIELD(arg0, s32 *, 0x68) + 1);
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x68) > M2C_FIELD(arg0, f32 *, 0x70)) {
+    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (*(s32 *)((s8 *)arg0 + 0x68) + 1);
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x68) > *(f32 *)((s8 *)arg0 + 0x70)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
 void TTecPlayerInfluence__sub_80237258(void* p) { *(f32*)((char*)p + 0xbc) = *(f32*)((char*)p + 0x3c); }
 
-extern M2C_UNK __vt__19TTecPlayerInfluence[];
+extern s32 __vt__19TTecPlayerInfluence[];
 
 void run_task__19TTecPlayerInfluenceFv(void *arg0) {
     TTecPlayerInfluence__sub_80237258((void*)(arg0));
@@ -235,8 +231,8 @@ void run_task__19TTecPlayerInfluenceFv(void *arg0) {
 
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TTecPlayerInfluence;
-        if (M2C_FIELD(arg0, void **, 0xDC) != NULL) { free_collision_body_parts(M2C_FIELD(arg0, void **, 0xDC)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TTecPlayerInfluence;
+        if (*(void **)((s8 *)arg0 + 0xDC) != NULL) { free_collision_body_parts(*(void **)((s8 *)arg0 + 0xDC)); }
         __dt__7TEffectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

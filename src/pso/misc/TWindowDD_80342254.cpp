@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { M2C_UNK value; u8 remaining[0x3C]; };
+struct RecoveredGlobal_80342384_TWindowDD__data_804EFC50 { s32 value; u8 remaining[0x3C]; };
 typedef char RecoveredGlobal_80342384_TWindowDD__data_804EFC50_size[sizeof(RecoveredGlobal_80342384_TWindowDD__data_804EFC50) == 0x40 ? 1 : -1];
 
 struct O_80342268 { u8 pad[0x60]; s32 f; };
@@ -15,15 +11,15 @@ struct O_803422F0 { s32 f0; u8 pad[0x14]; void *f18; u8 pad2[0x5C - 0x1C]; s32 f
 
 extern "C" {
 s16 TWindowDD__sub_80342158(int);
-M2C_UNK apply_entry_layout__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_803435A0(void *);
-M2C_UNK update_selection_state__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_80347C50();
-M2C_UNK play_se__9TWindowDDFv();
-M2C_UNK play_sound__9TWindowDDFv();
+s32 apply_entry_layout__9TWindowDDFPv(void *);
+s32 TWindowDD__sub_803435A0(void *);
+s32 update_selection_state__9TWindowDDFPv(void *);
+s32 TWindowDD__sub_80347C50();
+s32 play_se__9TWindowDDFv();
+s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 test_input_flag_4__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_803484C4(void *);
+s32 TWindowDD__sub_803484C4(void *);
 void TWindowDD__sub_80342428(u8 *arg0);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1);
@@ -73,7 +69,7 @@ void *lbl_804EFC90[6] = {
     (void *)&TWindowDD__sub_80341500, (void *)&render_shadows__7TObjectFv,
 };
 #define TWindowDD__data_804EFC50 (*(RecoveredGlobal_80342384_TWindowDD__data_804EFC50 *)TWindowDD__data_804EFC50)
-#define lbl_804EFC90 ((M2C_UNK *)lbl_804EFC90)
+#define lbl_804EFC90 ((s32 *)lbl_804EFC90)
 
 u8 TWindowDD__sub_80342254(O_80342254 *self) {
     return !(self->f & 1);
@@ -85,8 +81,8 @@ u8 TWindowDD__sub_80342268(O_80342268 *self) {
 
 void *destroy__9TWindowDDFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EFC90;
-        if (M2C_FIELD(arg0, void **, 0x80) != NULL) { free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x80)); M2C_FIELD(arg0, M2C_UNK *, 0x80) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EFC90;
+        if (*(void **)((s8 *)arg0 + 0x80) != NULL) { free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x80)); *(s32 *)((s8 *)arg0 + 0x80) = 0; }
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -122,7 +118,7 @@ s32 TWindowDD__sub_803422F0(int a0, void *a1, void *a2) {
 s32 TWindowDD__sub_80342384(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
-    M2C_FIELD(&TWindowDD__data_804EFC50.value, s32 *, 4) = arg1;
+    *(s32 *)((s8 *)(&TWindowDD__data_804EFC50.value) + 4) = arg1;
     temp_r3 = __nw__7TObjectFUl((int) (0x90));
     var_r0 = temp_r3;
     if (var_r0 != 0) {

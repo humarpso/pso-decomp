@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK TProtocol__send_60(int, int, int);
-M2C_UNK dispatch_6x_subcommand(void *);
+s32 TProtocol__send_60(int, int, int);
+s32 dispatch_6x_subcommand(void *);
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
 void TLobby__send_and_handle_60(u8 *arg0);
-M2C_UNK TProtocol__send_60(int, int, int);
+s32 TProtocol__send_60(int, int, int);
 extern u32 TLobby__protocol_instance;
 void send_60_sized__6TLobbyFPv(u8 *arg0);
-M2C_UNK send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
-M2C_UNK dispatch_6x_subcommand(void *);
+s32 send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
+s32 dispatch_6x_subcommand(void *);
 extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
 extern s32 lbl_805D5E50;
@@ -50,14 +46,14 @@ void bswap_switch_activate_token__6TLobbyFPv(void* p);
 void dispatch_packet__6TLobbyFPv(void *arg0);
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1);
 void update_players__6TLobbyFi(s32 arg0);
-M2C_UNK dispatch_6x_subcommand(void *);
-M2C_UNK send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
+s32 dispatch_6x_subcommand(void *);
+s32 send_subcommand_to_client__9TProtocolFPviPvi(u32, s32, void *, s32);
 int bswap_16__FPUs(void*);
-M2C_UNK bswap_32__FPUl(s32 *);
-M2C_UNK append_command_to_batch_buffer(void *, s32);
+s32 bswap_32__FPUl(s32 *);
+s32 append_command_to_batch_buffer(void *, s32);
 s32 get_main_phase();
 int read_be16_field2__10TObjPlayerFPv(void*);
-M2C_UNK send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
+s32 send_pso_data_long2__9TProtocolFcR17long_game_commandUl(void*, u32, void *, s32);
 
 extern u32 local_client_id;
 extern u32 TLobby__protocol_instance;
@@ -66,7 +62,7 @@ extern s32 lbl_805D5E50;
 void send_command__6TLobbyFPvUi(void *arg0, u32 arg1) {
     s32 sp8;
 
-    sp8 = M2C_FIELD(arg0, s32 *, 4);
+    sp8 = *(s32 *)((s8 *)arg0 + 4);
     bswap_32__FPUl(&sp8);
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
@@ -86,7 +82,7 @@ extern s32 lbl_805D5E50;
 void dispatch_packet__6TLobbyFPv(void *arg0) {
     s32 temp_r31;
 
-    temp_r31 = M2C_FIELD(arg0, u8 *, 1) * 4;
+    temp_r31 = *(u8 *)((s8 *)arg0 + 1) * 4;
     if (get_main_phase() == 0xE) {
         lbl_805D5E50 = 1;
         dispatch_6x_subcommand((void *)(arg0));
@@ -102,11 +98,9 @@ extern s32 TLobby__join_state_flag;
 extern void *game_protocol_instance;
 extern s32 lbl_805D5E50;
 
-typedef s32 M2C_UNK;
-
 void send_subcommand_to_client__6TLobbyFPvUi(void *arg0, u32 arg1) {
     s32 size;
-    size = M2C_FIELD(arg0, u8 *, 1) * 4;
+    size = *(u8 *)((s8 *)arg0 + 1) * 4;
     if ((u32) local_client_id == arg1) {
         lbl_805D5E50 = 1;
         dispatch_6x_subcommand(arg0);
@@ -132,7 +126,7 @@ void TLobby__send_and_handle_60(u8 *arg0) {
     u8 *var_r4;
     var_r31 = (u8 *)(arg0);
     var_r4 = (u8 *)((*(u8 * *)&TLobby__protocol_instance));
-    var_r5 = M2C_FIELD(arg0, u8 *, 1) * 4;
+    var_r5 = *(u8 *)((s8 *)arg0 + 1) * 4;
     if (var_r4 != NULL) {
         var_r3 = (u8 *)(var_r4);
         var_r4 = (u8 *)(var_r31);
@@ -152,10 +146,10 @@ void update_players__6TLobbyFi(s32 arg0) {
         return;
     }
     if ((void *) game_protocol_instance != NULL) {
-        var_r31 = M2C_FIELD(game_protocol_instance, void **, 0x14);
+        var_r31 = *(void **)((s8 *)game_protocol_instance + 0x14);
         while (var_r31 != NULL) {
             append_command_to_batch_buffer(var_r31, arg0);
-            var_r31 = M2C_FIELD(var_r31, void **, 0xC);
+            var_r31 = *(void **)((s8 *)var_r31 + 0xC);
         }
     }
     lbl_805D5E50 = 1;

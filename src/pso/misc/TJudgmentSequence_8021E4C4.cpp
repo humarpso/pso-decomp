@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8021E524_8021E4C4 { char pad[0x18]; };
 struct VObj_8021E524_8021E4C4 : Base_8021E524_8021E4C4 {
     virtual void m0();
@@ -44,14 +41,14 @@ void *create__17TJudgmentSequenceFPv(void *arg0) {
 int get_judgment_shop_slot_flags(int a0) {  return TJudgmentSequence__slot_flags[a0]; }
 
 void TShopGetItemWindow__vt5(void *arg0) {
-    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)M2C_FIELD(arg0, void **, 0x5C);
+    struct VObj_8021E524_8021E4C4 *o = (struct VObj_8021E524_8021E4C4 *)*(void **)((s8 *)arg0 + 0x5C);
     if (o != NULL) {
         o->m5();
     }
 }
 
 void TShopGetItemWindow__vt4(void *arg0) {
-    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)M2C_FIELD(arg0, void **, 0x5C);
+    struct VObj_8021E55C_8021E4C4 *o = (struct VObj_8021E55C_8021E4C4 *)*(void **)((s8 *)arg0 + 0x5C);
     if (o != NULL) {
         o->m4();
     }

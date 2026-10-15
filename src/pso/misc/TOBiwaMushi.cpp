@@ -15,12 +15,8 @@ extern const char *bm_obj_meka_fish_1_model_names[2];
 extern const char *bm_obj_meka_fish_1_motion_names[2];
 extern BmlResourceDescriptor TOMekaFish01__shared_resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_802AA354_lbl_804DE000 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_802AA354_lbl_804DE000 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA354_lbl_804DE000_size[sizeof(RecoveredGlobal_802AA354_lbl_804DE000) == 0x10 ? 1 : -1];
 
 extern "C" {
@@ -59,7 +55,7 @@ void free_shared_data__11TOBiwaMushiFv(void) {
     }
 }
 
-extern M2C_UNK __vt__11TOBiwaMushi[];
+extern s32 __vt__11TOBiwaMushi[];
 
 void load_resource_instance__11TOBiwaMushiFv(void) {
     s32 temp_r3;
@@ -74,7 +70,7 @@ void load_resource_instance__11TOBiwaMushiFv(void) {
 
 void *__dt__11TOBiwaMushiFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TOBiwaMushi;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TOBiwaMushi;
         __dt__11TODragonflyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -166,7 +162,7 @@ void *TOBiwaMushi__ct(void *arg0, void *arg1) {
 #pragma pop
 }
 
-struct RecoveredGlobal_802AA644_lbl_804DDFE0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_802AA644_lbl_804DDFE0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA644_lbl_804DDFE0_size[sizeof(RecoveredGlobal_802AA644_lbl_804DDFE0) == 0x10 ? 1 : -1];
 
 extern "C" {
@@ -204,7 +200,7 @@ void free_static_data__12TOMekaFish01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__12TOMekaFish01[];
+extern s32 __vt__12TOMekaFish01[];
 
 void load_shared_resource__12TOMekaFish01Fv(void) {
     s32 temp_r3;
@@ -219,7 +215,7 @@ void load_shared_resource__12TOMekaFish01Fv(void) {
 
 void *__dt__12TOMekaFish01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOMekaFish01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOMekaFish01;
         __dt__11TODragonflyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -332,7 +328,7 @@ void *TOMekaFish00__create(void *arg0) {
 
 #undef TOMekaFish00__ct
 
-struct RecoveredGlobal_802AA934_lbl_804DDFC0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_802AA934_lbl_804DDFC0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802AA934_lbl_804DDFC0_size[sizeof(RecoveredGlobal_802AA934_lbl_804DDFC0) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -343,10 +339,10 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { M2C_UNK value; u8 remaining[0x3C]; };
+struct RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 { s32 value; u8 remaining[0x3C]; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -359,7 +355,7 @@ void load_shared_resource__12TOMekaFish00Fv(void);
 #define TODragonfly__ct ((u8 * (*)(void *))TODragonfly__ct)
 s32 rand(void);
 f32 sin_table_lookup(s32);
-extern M2C_UNK __vt__12TOMekaFish00[];
+extern s32 __vt__12TOMekaFish00[];
 extern s32 TOMekaFish00__name;
 extern u32 TOMekaFish00__model_resource;
 extern const f32 lbl_805DE068;
@@ -392,7 +388,7 @@ void release_static_instance__12TOMekaFish00Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__12TOMekaFish00[];
+extern s32 __vt__12TOMekaFish00[];
 
 void load_shared_resource__12TOMekaFish00Fv(void) {
     s32 temp_r3;
@@ -407,7 +403,7 @@ void load_shared_resource__12TOMekaFish00Fv(void) {
 
 void *__dt__12TOMekaFish00Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOMekaFish00;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOMekaFish00;
         __dt__11TODragonflyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -422,22 +418,22 @@ extern u32 TBoss6PlotFalz__instance;
 #pragma fp_contract on
 u8 *TOMekaFish00__ct(u8 *arg0, s32 arg1) {
     TODragonfly__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMekaFish00__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AA9DC___vt__12TOMekaFish00 *)&__vt__12TOMekaFish00).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOMekaFish00__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    M2C_FIELD(arg0, s32 *, 0xBC) = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, s32 *, 0xBC), u32 *, 4) - lbl_805DE068);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805DE06C;
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DE070;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, s32 *, 0x34), void **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0xAC) = 0;
-    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) ((lbl_805DE074 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) + lbl_805DE068);
-    M2C_FIELD(arg0, s32 *, 0xF8) = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / M2C_FIELD(arg0, f32 *, 0xF4))));
-    M2C_FIELD(arg0, s32 *, 0xFC) = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) ((lbl_805DE074 * (f32) M2C_FIELD(arg0, s32 *, 0x88)) + lbl_805DE068);
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xFC)));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(s32 *)((s8 *)arg0 + 0xBC) = get_bml_motion((*(u8 * *)&TOMekaFish00__model_resource), 0);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DE068);
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DE06C;
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DE070;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(s32 *)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) + lbl_805DE068);
+    *(s32 *)((s8 *)arg0 + 0xF8) = (s32) (lbl_805DE078 * (lbl_805DE07C / (lbl_805DE080 / *(f32 *)((s8 *)arg0 + 0xF4))));
+    *(s32 *)((s8 *)arg0 + 0xFC) = (s32) (lbl_805DE078 * (lbl_805DE07C * (lbl_805DE084 * (f32) rand())));
+    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) ((lbl_805DE074 * (f32) *(s32 *)((s8 *)arg0 + 0x88)) + lbl_805DE068);
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xFC)));
     return arg0;
 }
 #pragma pop

@@ -1,6 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct Obj_8019978C;
 struct Pair_80198F14;
 struct RecoveredGlobal_80198DCC_lbl_8050E208;
@@ -9,9 +8,9 @@ struct Vec_80198E84;
 struct Vec_80199674;
 struct Vec_8019978C;
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void*,void*);
-M2C_UNK queue_destruction__7TObjectFv(void*);
-M2C_UNK spawn_particle_effect_with_flags(void*,int,int);
+s32 VecCopy__FP3VecPC3Vec(void*,void*);
+s32 queue_destruction__7TObjectFv(void*);
+s32 spawn_particle_effect_with_flags(void*,int,int);
 extern Sys_80198A2C gogo_ball_configuration;
 extern Vec_80198E84 gogo_ball_sync_state[];
 void send_gogo_ball__12TWindowTimerFi(s32);
@@ -20,15 +19,15 @@ extern RecoveredGlobal_80198DCC_lbl_8050E208 controller_input_state;
 void throw_gogo_ball__12TWindowTimerFPvii(u8*,s32,s32);
 u8* TWindowTimer__sub_80199410(u8*,u8*);
 void __dl__7TObjectFPv(void*);
-void* __nw__7TObjectFUl(M2C_UNK);
+void* __nw__7TObjectFUl(s32);
 extern s32 tl_03;
 extern s32 gogo_ball_bml_resource;
 extern void* language_lobby_texture_descriptor[];
 extern Pair_80198F14 gogo_ball_team_scores[];
 int set_timer_value__12TWindowTimerFii(int,int);
 void bswap_6x79_gogo_ball__12TWindowTimerFi(s32);
-M2C_UNK rotate_matrix_y(int,s32);
-void TObjPlayer__sub_801994DC(M2C_UNK,void*,void*,s32,void*,f32);
+s32 rotate_matrix_y(int,s32);
+void TObjPlayer__sub_801994DC(s32,void*,void*,s32,void*,f32);
 int TWindowTimer__sub_8019A770(void*);
 s16 get_timer_value__12TWindowTimerFi(s32);
 f32 xyz_distance(Vec_80199674*,void*);
@@ -42,10 +41,7 @@ extern void* lbl_804B8DA0[];
 #define gogo_ball_sync_state (*(Pad_80198A2C *)&gogo_ball_sync_state)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Vec_80198A2C { f32 x, y, z; };
 
 struct Obj_80198A2C {
@@ -68,13 +64,13 @@ struct Pad_80198A2C { u8 pad0[0x10]; s16 buttons; };
 struct Sys_80198A2C { u8 pad0[0x48]; u16 mode; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
-M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
+s32 spawn_particle_effect(void *, int);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 play_sound_effect(int, void *, int, int);
 extern Vec_80198A2C lbl_80446070;
 extern Sys_80198A2C gogo_ball_configuration;
 void TBoss3Volopt__sub_80198A2C(u8 *arg0);
@@ -142,19 +138,15 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
 #undef gogo_ball_sync_state
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
-#define send_gogo_ball__12TWindowTimerFi ((M2C_UNK (*)(void*))send_gogo_ball__12TWindowTimerFi)
-#define TWindowTimer__sub_8019A6F8 ((M2C_UNK (*)(void*))TWindowTimer__sub_8019A6F8)
-#define TWindowTimer__sub_80199410 ((M2C_UNK (*)(void*,s32))TWindowTimer__sub_80199410)
+#define send_gogo_ball__12TWindowTimerFi ((s32 (*)(void*))send_gogo_ball__12TWindowTimerFi)
+#define TWindowTimer__sub_8019A6F8 ((s32 (*)(void*))TWindowTimer__sub_8019A6F8)
+#define TWindowTimer__sub_80199410 ((s32 (*)(void*,s32))TWindowTimer__sub_80199410)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_80198DCC {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 spC;
     s32 sp10;
     f32 sp14;
@@ -163,21 +155,21 @@ struct Stack_80198DCC {
     u8 trailing_storage[0x3];
 };
 
-struct RecoveredGlobal_80198DCC_lbl_8050E208 { M2C_UNK value; u8 remaining[0x1AC]; };
+struct RecoveredGlobal_80198DCC_lbl_8050E208 { s32 value; u8 remaining[0x1AC]; };
 typedef char RecoveredGlobal_80198DCC_lbl_8050E208_size[sizeof(RecoveredGlobal_80198DCC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 
 struct RecoveredGlobal_80198CF8_lbl_804B8DE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 extern "C" {
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern RecoveredGlobal_80198DCC_lbl_8050E208 controller_input_state;
 void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_804B8DE8[];
+extern s32 lbl_804B8DE8[];
 u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5);
 }
 
@@ -187,14 +179,14 @@ void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1);
 void TWindowTimer__sub_80198D98(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-void * __nw__7TObjectFUl(M2C_UNK);
+void * __nw__7TObjectFUl(s32);
 
-extern M2C_UNK lbl_804B8DE8[];
+extern s32 lbl_804B8DE8[];
 
 void *TWindowTimer__sub_80198C84(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8DE8;
-        if (M2C_FIELD(arg0, void **, 0x3C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x3C)); M2C_FIELD(arg0, M2C_UNK *, 0x3C) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8DE8;
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -208,19 +200,19 @@ extern s32 tl_03;
 typedef char RecoveredGlobal_80198CF8_lbl_804B8DE8_size[sizeof(RecoveredGlobal_80198CF8_lbl_804B8DE8) == 0x18 ? 1 : -1];
 u8 *TWindowTimer__sub_80198CF8(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4, u8 *arg5) {
     __ct__7TObjectFP7TObject(arg0, arg5);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80198CF8_lbl_804B8DE8 *)&lbl_804B8DE8).value;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg0 + 0x1C);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) - (16.0f));
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, s32 *, 0x48) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    M2C_FIELD(arg0, s32 *, 0x50) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x54) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) - (16.0f));
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)((s8 *)arg0 + 0x48) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x44) = 0;
+    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x54) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     return arg0;
 }
 
@@ -241,8 +233,8 @@ void throw_gogo_ball__12TWindowTimerFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowTimer__sub_8019A6F8((void *) (&stack.sp8));
     stack.spC = arg2;
     stack.sp10 = arg1;
-    stack.sp14 = M2C_FIELD(arg0, f32 *, 0);
-    stack.sp18 = M2C_FIELD(arg0, f32 *, 8);
+    stack.sp14 = *(f32 *)((s8 *)arg0 + 0);
+    stack.sp18 = *(f32 *)((s8 *)arg0 + 8);
     if (is_on_current_screen__11TCameraCtrlFPv((void *) ((u8 *)&controller_input_state.value + 0x20), (int) (4)) != 0) {
         play_sound_effect((int) (0x4001A311), (void *) (arg0), (int) (0), (int) (0));
         stack.sp1C = 1;
@@ -362,26 +354,22 @@ void load_lobby_textures__9TLanguageFv(void) {
 #define __nw__7TObjectFUl ((void* (*)(int))__nw__7TObjectFUl)
 #define tl_03 (*(void* *)&tl_03)
 #define set_timer_value__12TWindowTimerFii ((void (*)(s32,s32))set_timer_value__12TWindowTimerFii)
-#define bswap_6x79_gogo_ball__12TWindowTimerFi ((M2C_UNK (*)(void))bswap_6x79_gogo_ball__12TWindowTimerFi)
+#define bswap_6x79_gogo_ball__12TWindowTimerFi ((s32 (*)(void))bswap_6x79_gogo_ball__12TWindowTimerFi)
 #define TWindowTimer__sub_8019A770 ((void (*)(void))TWindowTimer__sub_8019A770)
 #define get_timer_value__12TWindowTimerFi ((s16 (*)(int))get_timer_value__12TWindowTimerFi)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
-struct RecoveredGlobal_80199410_lbl_804B8E00 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_80199410_lbl_804B8E00 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_80199410_lbl_804B8E00_size[sizeof(RecoveredGlobal_80199410_lbl_804B8E00) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_80199470_lbl_8050DDAC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -407,26 +395,26 @@ void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1);
 s32 get_internet_beat__6TLobbyFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 void create_timer__11TWindowCtrlFv(void);
-extern M2C_UNK lbl_804B8E00[];
+extern s32 lbl_804B8E00[];
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1);
 void handle_6x79_gogo_ball(u8 *arg0);
 void clear_status_flags__12TWindowTimerFv(void);
-M2C_UNK direction_to_rotation_xz(void *, void *, void *);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK draw_shadow_quad__10TObjPlayerFPvii(void *, int, int);
-M2C_UNK rotate_matrix_y(int, s32);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_chunk_material_color(void *);
+s32 direction_to_rotation_xz(void *, void *, void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 draw_shadow_quad__10TObjPlayerFPvii(void *, int, int);
+s32 rotate_matrix_y(int, s32);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 set_chunk_material_color(void *);
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern u32 blob_shadow_texture_list;
-void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
+void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0);
 }
 
 extern "C" {
@@ -434,7 +422,7 @@ extern "C" {
 void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK lbl_804B8E00[];
+extern s32 lbl_804B8E00[];
 
 void clear_status_flags__12TWindowTimerFv(void) {
     (*(G_80199078 *)&gogo_ball_sync_state).flags &= ~1;
@@ -444,9 +432,6 @@ void clear_status_flags__12TWindowTimerFv(void) {
 }
 
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -567,9 +552,9 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
         set_timer_value__12TWindowTimerFii(0, 0);
     }
     m = get_internet_beat__6TLobbyFv();
-    r = (s32)fabs_float((f32)(m - M2C_FIELD(arg0, s32 *, 0x1C)));
+    r = (s32)fabs_float((f32)(m - *(s32 *)((s8 *)arg0 + 0x1C)));
     if (r == 1 || r == 999) {
-        M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 1;
+        *(s16 *)((s8 *)(&gogo_ball_sync_state.value) + 0x12) = 1;
         idx = m % 10;
         if (idx >= 10) {
             idx = 9;
@@ -581,48 +566,48 @@ void TWindowTimer__sub_801990B4(u8 *arg0) {
             ((u8 *(*)(void *, void *))TWindowTimer__sub_8019A574)(o, tl_03);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x38, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), (u8 *)tl_04);
+            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x38, 1, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), (u8 *)tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x2C, 0, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), (u8 *)tl_04);
+            TWindowTimer__sub_801988E8((u8 *)o, gogo_ball_configuration + 0x2C, 0, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), (u8 *)tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8D94, 1, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), tl_04);
+            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8D94, 1, 1, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), tl_04);
         }
         if ((o = __nw__7TObjectFUl(0x44)) != NULL) {
-            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8DA0, 0, 1, M2C_FIELD(gogo_ball_configuration, s16 *, 0x14), tl_04);
+            TWindowTimer__sub_8019886C(o, (void *)lbl_804B8DA0, 0, 1, *(s16 *)((s8 *)gogo_ball_configuration + 0x14), tl_04);
         }
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = m;
+    *(s32 *)((s8 *)arg0 + 0x1C) = m;
 }
 
 }
 
 extern "C" {
 void copy_state__12TWindowTimerFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
-    M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg1, s16 *, 0x14);
-    M2C_FIELD(arg0, u8 *, 0x16) = (u8) M2C_FIELD(arg1, u8 *, 0x16);
-    M2C_FIELD(arg0, u8 *, 0x17) = (u8) M2C_FIELD(arg1, u8 *, 0x17);
-    M2C_FIELD(arg0, u8 *, 0x18) = (u8) M2C_FIELD(arg1, u8 *, 0x18);
-    M2C_FIELD(arg0, u8 *, 0x19) = (u8) M2C_FIELD(arg1, u8 *, 0x19);
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
-    *(M2CCopy_C *)((s32) arg0 + 0x20) = *(const M2CCopy_C *)((s32) arg1 + 0x20);
-    *(M2CCopy_C *)((s32) arg0 + 0x2C) = *(const M2CCopy_C *)((s32) arg1 + 0x2C);
-    *(M2CCopy_C *)((s32) arg0 + 0x38) = *(const M2CCopy_C *)((s32) arg1 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg1, f32 *, 0x44);
-    M2C_FIELD(arg0, u16 *, 0x48) = (u16) M2C_FIELD(arg1, u16 *, 0x48);
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg1, f32 *, 0x4C);
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) M2C_FIELD(arg1, f32 *, 0x50);
+    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(s16 *)((s8 *)arg0 + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
+    *(u8 *)((s8 *)arg0 + 0x16) = (u8) *(u8 *)((s8 *)arg1 + 0x16);
+    *(u8 *)((s8 *)arg0 + 0x17) = (u8) *(u8 *)((s8 *)arg1 + 0x17);
+    *(u8 *)((s8 *)arg0 + 0x18) = (u8) *(u8 *)((s8 *)arg1 + 0x18);
+    *(u8 *)((s8 *)arg0 + 0x19) = (u8) *(u8 *)((s8 *)arg1 + 0x19);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
+    *(ByteBlock_C *)((s32) arg0 + 0x20) = *(const ByteBlock_C *)((s32) arg1 + 0x20);
+    *(ByteBlock_C *)((s32) arg0 + 0x2C) = *(const ByteBlock_C *)((s32) arg1 + 0x2C);
+    *(ByteBlock_C *)((s32) arg0 + 0x38) = *(const ByteBlock_C *)((s32) arg1 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg1 + 0x44);
+    *(u16 *)((s8 *)arg0 + 0x48) = (u16) *(u16 *)((s8 *)arg1 + 0x48);
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg1 + 0x4C);
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)arg1 + 0x50);
 }
 
 void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8E00;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8E00;
         TWindowTimer__sub_8019A770();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -633,8 +618,8 @@ void *dt__12TWindowTimerFPvs(void *arg0, s16 arg1) {
 }
 u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
-    M2C_FIELD(arg0, s32 *, 0x1C) = get_internet_beat__6TLobbyFv();
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80199410_lbl_804B8E00 *)&lbl_804B8E00).value;
+    *(s32 *)((s8 *)arg0 + 0x1C) = get_internet_beat__6TLobbyFv();
     create_timer__11TWindowCtrlFv();
     set_timer_value__12TWindowTimerFii(1, 0);
     set_timer_value__12TWindowTimerFii(0, 0);
@@ -643,15 +628,15 @@ u8 *TWindowTimer__sub_80199410(u8 *arg0, u8 *arg1) {
 typedef char RecoveredGlobal_80199470_lbl_8050DDAC_size[sizeof(RecoveredGlobal_80199470_lbl_8050DDAC) == 0x1C ? 1 : -1];
 void handle_6x79_gogo_ball(u8 *arg0) {
     bswap_6x79_gogo_ball__12TWindowTimerFi();
-    M2C_FIELD(&gogo_ball_sync_state.value, s16 *, 0x12) = 0;
-    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 0) = (f32) M2C_FIELD(arg0, f32 *, 0xC);
-    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 4) = (f32) (0.0f);
-    M2C_FIELD(&gogo_ball_sync_state.value, f32 *, 8) = (f32) M2C_FIELD(arg0, f32 *, 0x10);
-    M2C_FIELD(&gogo_ball_sync_state.value, s32 *, 0xC) = (s32) M2C_FIELD(arg0, s32 *, 8);
-    M2C_FIELD(&gogo_ball_sync_state.value, u8 *, 0x18) = (u8) M2C_FIELD(arg0, u8 *, 0x14);
-    M2C_FIELD(&gogo_ball_sync_state.value, s32 *, 0x14) = (s32) M2C_FIELD(arg0, s32 *, 4);
+    *(s16 *)((s8 *)(&gogo_ball_sync_state.value) + 0x12) = 0;
+    *(f32 *)((s8 *)(&gogo_ball_sync_state.value) + 0) = (f32) *(f32 *)((s8 *)arg0 + 0xC);
+    *(f32 *)((s8 *)(&gogo_ball_sync_state.value) + 4) = (f32) (0.0f);
+    *(f32 *)((s8 *)(&gogo_ball_sync_state.value) + 8) = (f32) *(f32 *)((s8 *)arg0 + 0x10);
+    *(s32 *)((s8 *)(&gogo_ball_sync_state.value) + 0xC) = (s32) *(s32 *)((s8 *)arg0 + 8);
+    *(u8 *)((s8 *)(&gogo_ball_sync_state.value) + 0x18) = (u8) *(u8 *)((s8 *)arg0 + 0x14);
+    *(s32 *)((s8 *)(&gogo_ball_sync_state.value) + 0x14) = (s32) *(s32 *)((s8 *)arg0 + 4);
 }
-void TObjPlayer__sub_801994DC(M2C_UNK arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0) {
+void TObjPlayer__sub_801994DC(s32 arg0, void *arg1, void *arg2, s32 arg3, void *arg4, f32 farg0) {
     Ang_801994DC ang;
     Col_801994DC col;
     Fx_801994DC fx;
@@ -868,14 +853,10 @@ s32 reflect_velocity_off_collision(Obj_8019978C *o, Vec_8019978C *p, Vec_8019978
 #define VecCopy__FP3VecPC3Vec ((void (*)(void*,void*))VecCopy__FP3VecPC3Vec)
 #define gogo_ball_configuration (*(Glob_80199A44 *)&gogo_ball_configuration)
 #define gogo_ball_bml_resource (*(void* *)&gogo_ball_bml_resource)
-#define rotate_matrix_y ((M2C_UNK (*)(int,int))rotate_matrix_y)
+#define rotate_matrix_y ((s32 (*)(int,int))rotate_matrix_y)
 #define vector_length ((f32 (*)(void*))vector_length)
-#define normalize_vector ((M2C_UNK (*)(void*))normalize_vector)
-#define draw_shadow_on_ground ((M2C_UNK (*)(void*))draw_shadow_on_ground)
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+#define normalize_vector ((s32 (*)(void*))normalize_vector)
+#define draw_shadow_on_ground ((s32 (*)(void*))draw_shadow_on_ground)
 
 extern "C" {
 
@@ -885,22 +866,22 @@ struct Glob_80199A44 { u8 pad[0x1C]; f32 scale; u8 pad20[0x28]; u16 kind; };
 
 s32 get_bml_model(void *, s32);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK set_cull_none__8TObjFishFv();
-M2C_UNK set_cull_mode_front__8TObjFishFv();
-M2C_UNK set_cull_back__8TObjFishFv();
+s32 set_cull_none__8TObjFishFv();
+s32 set_cull_mode_front__8TObjFishFv();
+s32 set_cull_back__8TObjFishFv();
 void direction_to_rotation_yx(void *, void *, void *);
 s32 approach_angle_limited(int, int, int);
 s32 matrix_mult_vec(int, void *, void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_about_axis(int, void *, int);
-M2C_UNK translate_matrix_vec3(int, void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_about_axis(int, void *, int);
+s32 translate_matrix_vec3(int, void *);
 f32 vec_squared_length(void *);
 s32 push_matrix_from(void *);
 void pop_matrices(s32);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFi(s32);
 void set_chunk_material_override_pair(s32, s32);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(s32);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object(s32);
 extern Color_80199A44 lbl_80446060[];
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
@@ -914,7 +895,7 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 
-#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
 extern const f32 lbl_805DBF40;
 void draw_model__8TObjFishFPv(u8 *arg0) {
     Vec_80199A44 dir;
@@ -1031,9 +1012,9 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define queue_destruction__7TObjectFv ((void (*)(void*))queue_destruction__7TObjectFv)
 #define spawn_particle_effect_with_flags ((void (*)(void*,int,int))spawn_particle_effect_with_flags)
 #define gogo_ball_configuration (*(RecoveredGlobal_8019A574_lbl_8050DD58 *)&gogo_ball_configuration)
-#define gogo_ball_sync_state (*(M2C_UNK (*)[1])&gogo_ball_sync_state)
+#define gogo_ball_sync_state (*(s32 (*)[1])&gogo_ball_sync_state)
 #define throw_gogo_ball__12TWindowTimerFPvii ((void (*)(void*,s32,s32))throw_gogo_ball__12TWindowTimerFPvii)
-#define __dl__7TObjectFPv ((M2C_UNK (*)(void*))__dl__7TObjectFPv)
+#define __dl__7TObjectFPv ((s32 (*)(void*))__dl__7TObjectFPv)
 #define gogo_ball_team_scores (*(int (*)[1])&gogo_ball_team_scores)
 #define xyz_distance ((f32 (*)(void*,void*))xyz_distance)
 #define vector_length ((f32 (*)(void*,f32))vector_length)
@@ -1042,23 +1023,19 @@ void draw_model__8TObjFishFPv(u8 *arg0) {
 #define lbl_804B8DA0 (*(Vec_8019A104 *)&lbl_804B8DA0)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8019A574_lbl_804B8E18 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x13C];
 };
 
 struct RecoveredGlobal_8019A574_lbl_8050DD58 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x50];
 };
 
 struct RecoveredGlobal_8019A574_lbl_8050DDAC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -1068,7 +1045,6 @@ struct Player_8019A098 { u8 pad[0x60]; s32 area; };
 
 struct Win_8019A44C { u8 pad0[0x50]; f32 f50[3]; u8 pad5C[0x2D8]; s32 f334; u8 pad338[0xC]; f32 f344; f32 f348; f32 f34C; u8 pad350[0x40]; f32 f390; f32 f394; f32 f398; f32 f39C; f32 f3A0; };
 
-typedef s32 M2C_UNK;
 struct Vec_80199F14 { f32 x, y, z; };
 
 struct Tbl_80199F14 { u8 pad[0x14]; s16 limit; u8 pad16[6]; f32 yofs; };
@@ -1116,7 +1092,7 @@ int TWindowTimer__sub_8019A770(void* p);
 u8 * construct_actor_base__10TObjPlayerFPvPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(s32);
 s32 initialize_linked_object_reference(void *, s32);
-extern M2C_UNK lbl_804B8E18[];
+extern s32 lbl_804B8E18[];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0);
 s16 get_timer_value__12TWindowTimerFi(s32 i);
 void add_gogo_ball_three_point_score(s32 i);
@@ -1154,25 +1130,25 @@ extern "C" {
 void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1);
 void send_gogo_ball__12TWindowTimerFi(s32 arg0);
 void update_best_time__12TWindowTimerFPv(void *arg0);
-M2C_UNK TLobby__send_and_handle_60(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
+s32 TLobby__send_and_handle_60(void *);
+s32 unregister_object_by_id(s32 *);
 s32 bswap_32__FPUl(s32);
-M2C_UNK clear_obj_links(void *);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 clear_obj_links(void *);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 s32 read_be16_field2__10TObjPlayerFPv();
 
 void update_best_time__12TWindowTimerFPv(void *arg0) {
-    if ((M2C_FIELD(gogo_ball_sync_state, s16 *, 0x12) == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x354) <= (s32) M2C_FIELD(gogo_ball_sync_state, s32 *, 0x14))) {
-        M2C_FIELD(arg0, s32 *, 0x354) = (s32) M2C_FIELD(gogo_ball_sync_state, s32 *, 0x14);
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 0);
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 4);
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(gogo_ball_sync_state, f32 *, 8);
-        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(M2C_FIELD(gogo_ball_sync_state, s32 *, 0xC)));
+    if ((*(s16 *)((s8 *)gogo_ball_sync_state + 0x12) == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x354) <= (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14))) {
+        *(s32 *)((s8 *)arg0 + 0x354) = (s32) *(s32 *)((s8 *)gogo_ball_sync_state + 0x14);
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 0);
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 4);
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)gogo_ball_sync_state + 8);
+        TWindowTimer__sub_8019A44C((Win_8019A44C *)(arg0), (s32)(*(s32 *)((s8 *)gogo_ball_sync_state + 0xC)));
     }
-    M2C_FIELD(gogo_ball_sync_state, s16 *, 0x12) = 1;
+    *(s16 *)((s8 *)gogo_ball_sync_state + 0x12) = 1;
 }
 
-extern M2C_UNK lbl_804B8E18[];
+extern s32 lbl_804B8E18[];
 
 void update_motion__12TWindowTimerFPv(Timer_80199F14 *self) {
     s32 i;
@@ -1316,8 +1292,8 @@ void TWindowTimer__sub_8019A44C(Win_8019A44C *arg0, s32 arg1) {
 
 void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B8E18;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B8E18;
+        unregister_object_by_id((s32 *)arg0);
         clear_obj_links(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -1328,10 +1304,7 @@ void *destroy_player_obj__12TWindowTimerFPvs(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 typedef char RecoveredGlobal_8019A574_lbl_804B8E18_size[sizeof(RecoveredGlobal_8019A574_lbl_804B8E18) == 0x140 ? 1 : -1];
@@ -1339,37 +1312,37 @@ typedef char RecoveredGlobal_8019A574_lbl_8050DD58_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8019A574_lbl_8050DDAC_size[sizeof(RecoveredGlobal_8019A574_lbl_8050DDAC) == 0x1C ? 1 : -1];
 u8 *TWindowTimer__sub_8019A574(u8 *arg0) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019A574_lbl_804B8E18 *)&lbl_804B8E18).value;
-    M2C_FIELD(arg0, f32 *, 0x390) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x394) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x39C) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x344) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x348) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x24);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x350) = 0;
-    M2C_FIELD(arg0, s32 *, 0x354) = 0;
-    M2C_FIELD(arg0, s32 *, 0x334) = 0;
-    M2C_FIELD(arg0, s32 *, 0x338) = 0;
-    M2C_FIELD(arg0, f32 *, 0x33C) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 0x340) = (f32) M2C_FIELD(&gogo_ball_configuration.value, f32 *, 4);
-    M2C_FIELD(arg0, s32 *, 0x358) = 0;
-    M2C_FIELD(arg0, f32 *, 0x364) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x368) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x36C) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0x370) = (f32) (2.0f);
-    M2C_FIELD(arg0, f32 *, 0x374) = (f32) (1.0f);
-    M2C_FIELD(arg0, s32 *, 0x378) = 1;
-    M2C_FIELD(arg0, s32 *, 0x37C) = 0x40107;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019A574_lbl_804B8E18 *)&lbl_804B8E18).value;
+    *(f32 *)((s8 *)arg0 + 0x390) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x394) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x398) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x39C) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x344) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x348) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)(&gogo_ball_configuration.value) + 0x20);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)(&gogo_ball_configuration.value) + 0x24);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)(&gogo_ball_configuration.value) + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x350) = 0;
+    *(s32 *)((s8 *)arg0 + 0x354) = 0;
+    *(s32 *)((s8 *)arg0 + 0x334) = 0;
+    *(s32 *)((s8 *)arg0 + 0x338) = 0;
+    *(f32 *)((s8 *)arg0 + 0x33C) = (f32) *(f32 *)((s8 *)(&gogo_ball_configuration.value) + 0);
+    *(f32 *)((s8 *)arg0 + 0x340) = (f32) *(f32 *)((s8 *)(&gogo_ball_configuration.value) + 4);
+    *(s32 *)((s8 *)arg0 + 0x358) = 0;
+    *(f32 *)((s8 *)arg0 + 0x364) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x368) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x36C) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0x370) = (f32) (2.0f);
+    *(f32 *)((s8 *)arg0 + 0x374) = (f32) (1.0f);
+    *(s32 *)((s8 *)arg0 + 0x378) = 1;
+    *(s32 *)((s8 *)arg0 + 0x37C) = 0x40107;
     initialize_linked_object_reference(arg0, (s32) (arg0 + 0x364));
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
-    M2C_FIELD(arg0, s32 *, 0x35C) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value, s16 *, 0x10) = 0;
-    M2C_FIELD(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value, s8 *, 0x18) = 0;
-    M2C_FIELD(arg0, s32 *, 0x360) = 0;
+    *(s32 *)((s8 *)arg0 + 0x35C) = 0;
+    *(s16 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x10) = 0;
+    *(s8 *)((s8 *)(&(*(RecoveredGlobal_8019A574_lbl_8050DDAC *)&gogo_ball_sync_state).value) + 0x18) = 0;
+    *(s32 *)((s8 *)arg0 + 0x360) = 0;
     return arg0;
 }
 

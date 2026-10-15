@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_8006C668 { s32 a; void *p; };
 
@@ -39,7 +35,7 @@ void* reset__11TCameraCtrlFPv(void* a0);
 void update__11TCameraCtrlFPv(void *arg0);
 void TCameraCtrl__sub_800686BC(void *, int);
 int TCameraCtrl__sub_80068714(void);
-void *get_player_by_client_id(M2C_UNK);
+void *get_player_by_client_id(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void *get_params__11TCameraCtrlFPv(u32);
@@ -110,22 +106,22 @@ void update__11TCameraCtrlFPv(void *arg0) {
         temp_r31 = get_params__11TCameraCtrlFPv(camera_ctrl_instance);
         temp_r3 = get_player_by_client_id(0);
         if (temp_r3 != NULL) {
-            M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(temp_r3, f32 *, 0x38);
-            M2C_FIELD(arg0, f32 *, 0x4C) = (f32) (lbl_805D9038 + M2C_FIELD(temp_r3, f32 *, 0x3C));
-            M2C_FIELD(arg0, f32 *, 0x50) = (f32) M2C_FIELD(temp_r3, f32 *, 0x40);
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(temp_r31, f32 *, 0x1C);
-            M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(temp_r31, f32 *, 0x20);
-            M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(temp_r31, f32 *, 0x24);
-            M2C_FIELD(arg0, f32 *, 0x58) = (f32) M2C_FIELD(temp_r31, f32 *, 0x10);
+            *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)temp_r3 + 0x38);
+            *(f32 *)((s8 *)arg0 + 0x4C) = (f32) (lbl_805D9038 + *(f32 *)((s8 *)temp_r3 + 0x3C));
+            *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)temp_r3 + 0x40);
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)temp_r31 + 0x1C);
+            *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r31 + 0x20);
+            *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r31 + 0x24);
+            *(f32 *)((s8 *)arg0 + 0x58) = (f32) *(f32 *)((s8 *)temp_r31 + 0x10);
         }
     }
 }
 
-extern M2C_UNK lbl_80488D70[];
+extern s32 lbl_80488D70[];
 
 void *__dt_deleting_5__11TCameraCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488D70;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488D70;
         TCameraCtrl__sub_800686BC(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

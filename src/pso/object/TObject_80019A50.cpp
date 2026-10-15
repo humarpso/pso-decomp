@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_80019B08 { s32 key; s32 val; };
 
@@ -29,11 +25,11 @@ void TAdDrawLineTask__sub_80019A8C(void* p, void* q);
 s32 get_logo_texture_e_handle(void);
 void func_80019A68__Fv(void);
 void queue_destruction__7TObjectFv(void *arg0);
-M2C_UNK TBoss8Dragon__sub_8036B088();
-M2C_UNK fn_8036B18C();
+s32 TBoss8Dragon__sub_8036B088();
+s32 fn_8036B18C();
 
 void queue_destruction__7TObjectFv(void *arg0) {
-    M2C_FIELD(arg0, u16 *, 4) = (u16) (M2C_FIELD(arg0, u16 *, 4) | 1);
+    *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) | 1);
 }
 
 extern s32 logo_texture_e_handle;

@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1);
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK __ct__8TObjChipFv(void *, void *);
+s32 construct_debris__8TObjChipFPvPvPv(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 __ct__8TObjChipFv(void *, void *);
 void __dt__8TObjChipFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__dt__13TObjSuisoChipFv(void *self, s16 arg1);
@@ -23,7 +19,7 @@ extern const f32 lbl_805DDFF8;
 
 void *__dt__13TObjSuisoChipFv(void *self, s16 arg1) {
     if (self != NULL) {
-        M2C_FIELD(self, void ***, 0x18) = __vt__13TObjSuisoChip;
+        *(void ***)((s8 *)self + 0x18) = __vt__13TObjSuisoChip;
         __dt__8TObjChipFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -34,19 +30,19 @@ void *__dt__13TObjSuisoChipFv(void *self, s16 arg1) {
 
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
     __ct__8TObjChipFv((void *) (arg0), (void *) (tl_05));
-    M2C_FIELD(arg0, void ***, 0x18) = __vt__13TObjSuisoChip;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E08;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E08;
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
-        M2C_FIELD(arg0, s32 *, 0x240) = (s32) M2C_FIELD(arg1, s32 *, 0x60);
+        *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x238) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, f32 *, 0x238) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, f32 *, 0x234) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, s32 *, 0x240) = 0;
+        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)arg0 + 0x234) = (f32) lbl_805DDFF8;
+        *(s32 *)((s8 *)arg0 + 0x240) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x244) = 0;
-    M2C_FIELD(arg0, s32 *, 0x248) = 0x14;
+    *(s32 *)((s8 *)arg0 + 0x244) = 0;
+    *(s32 *)((s8 *)arg0 + 0x248) = 0x14;
     return arg0;
 }
 
@@ -57,29 +53,26 @@ extern const f32 lbl_805DDFF8;
 
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
     construct_debris__8TObjChipFPvPvPv((void *) (arg0), (void *) (tl_05));
-    M2C_FIELD(arg0, void ***, 0x18) = __vt__13TObjSuisoChip;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E08;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E08;
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
-        M2C_FIELD(arg0, s32 *, 0x240) = (s32) M2C_FIELD(arg1, s32 *, 0x60);
+        *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x238) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, f32 *, 0x238) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, f32 *, 0x234) = (f32) lbl_805DDFF8;
-        M2C_FIELD(arg0, s32 *, 0x240) = 0;
+        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)arg0 + 0x238) = (f32) lbl_805DDFF8;
+        *(f32 *)((s8 *)arg0 + 0x234) = (f32) lbl_805DDFF8;
+        *(s32 *)((s8 *)arg0 + 0x240) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x244) = 0;
-    M2C_FIELD(arg0, s32 *, 0x248) = 0x14;
+    *(s32 *)((s8 *)arg0 + 0x244) = 0;
+    *(s32 *)((s8 *)arg0 + 0x248) = 0x14;
     return arg0;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" int get_instance__23TObjSeabedSuisoBrakableFv(void);
 extern "C" u8 * get_model__23TObjSeabedSuisoBrakableFi(s32 arg0);
 struct Base_802A63F8_802A62E8 { char pad[0x18]; };
@@ -91,7 +84,7 @@ struct VObj_802A63F8_802A62E8 : Base_802A63F8_802A62E8 {
 };
 
 struct RecoveredGlobal_802A6438_lbl_804DD388 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x35C];
 };
 
@@ -103,20 +96,19 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_802A6668_lbl_804DD6E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x80];
 };
 
 struct RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x4C];
 };
 
-typedef s32 M2C_UNK;
 typedef struct Vec_802A6490 { f32 x, y, z; } Vec_802A6490;
 
 typedef struct Rec_802A6490 {
@@ -162,7 +154,7 @@ void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 f32 fabs_float(f32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 u8 * TORockCaveBrakable__ct(void *);
-M2C_UNK init_collision_body_parts(void *, int, int);
+s32 init_collision_body_parts(void *, int, int);
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0);
 RecoveredGlobal_802A6668_lbl_804DD6E8 lbl_804DD6E8 = { 0, { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x41, 0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x40, 0xA0, 0x00, 0x00, 0x41, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 } };
 extern void *__vt__23TObjSeabedSuisoBrakable[];
@@ -191,21 +183,21 @@ void notify_break__23TObjSeabedSuisoBrakableFUi(u32 arg0);
 void render__23TObjSeabedSuisoBrakableFv(void *arg0);
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p);
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0);
-M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, u16, M2C_UNK);
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, u16, s32);
 u8 is_current_floor_switch_set(u16);
-M2C_UNK draw_model__10TORockCaveFPv(void *);
+s32 draw_model__10TORockCaveFPv(void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 struct Obj_802A6DA8; Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *, s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
-u32 get_table0_entry__23TObjSeabedSuisoBrakableFi(M2C_UNK);
-s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(M2C_UNK);
+s32 begin_effect_render__13TParticleCtrlFv();
+void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, s32);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(s32);
+u32 get_table0_entry__23TObjSeabedSuisoBrakableFi(s32);
+s32 *get_table1_entry__23TObjSeabedSuisoBrakableFi(s32);
 int update_anim_phase__17TOBarrierEnergy01FPv(void*);
 
 extern s32 actor_frame_tick;
@@ -217,25 +209,25 @@ void TObjSeabedSuisoBrakable__vt12(void *arg0) {
     void *temp_r31;
     void *temp_r31_2;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 2) {
-        temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 2);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 2) {
+        temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0x34), 2);
         if ((s32) lbl_805D667C != (s32) actor_frame_tick) {
-            if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
+            if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
                 temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(1);
                 if (temp_r3 != -1) {
-                    scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r31, u32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(1), (u16)((u16) temp_r3), (M2C_UNK)(1));
+                    scroll_ginja_mesh_uvs((s32)(*(u32 *)((s8 *)temp_r31 + 4)), (s32)(0), (s32)(1), (u16)((u16) temp_r3), (s32)(1));
                 }
             }
             lbl_805D667C = actor_frame_tick;
         }
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 0) {
-        temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0x34), 8);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 0) {
+        temp_r31_2 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0x34), 8);
         if ((s32) lbl_805D667C != (s32) actor_frame_tick) {
-            if ((temp_r31_2 != NULL) && ((u32) M2C_FIELD(temp_r31_2, u32 *, 4) != 0U)) {
+            if ((temp_r31_2 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31_2 + 4) != 0U)) {
                 temp_r3_2 = get_break_data__23TObjSeabedSuisoBrakableFi(2);
                 if (temp_r3_2 != -1) {
-                    scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r31_2, u32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(1), (u16)((u16) temp_r3_2), (M2C_UNK)(1));
+                    scroll_ginja_mesh_uvs((s32)(*(u32 *)((s8 *)temp_r31_2 + 4)), (s32)(0), (s32)(1), (u16)((u16) temp_r3_2), (s32)(1));
                 }
             }
             lbl_805D667C = actor_frame_tick;
@@ -251,18 +243,18 @@ void render__23TObjSeabedSuisoBrakableFv(void *arg0) {
 
 typedef char RecoveredGlobal_802A6438_lbl_804DD388_size[sizeof(RecoveredGlobal_802A6438_lbl_804DD388) == 0x360 ? 1 : -1];
 void TObjSeabedSuisoBrakable__sub_802A6438(u8 *arg0) {
-    M2C_UNK *var_r3;
+    s32 *var_r3;
     f32 var_f0;
     u8 *var_r31;
     var_r31 = (u8 *)(arg0);
-    var_r3 = (M2C_UNK *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
-    var_r3 = (M2C_UNK *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&TObjSeabedSuisoBrakable__chip_record_set_table.value, M2C_UNK *, (M2C_FIELD(var_r31, s32 *, 0xBC) * 0x120)));
-    M2C_FIELD(var_r31, s32 *, 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int) (var_r3));
-    var_r3 = (M2C_UNK *)((u8 *)(NULL));
-    M2C_FIELD(var_r31, s32 *, 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)((int) (0));
+    var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
+    var_r3 = (s32 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value);
+    var_r3 = (s32 *)(*(s32 *)((s8 *)(&TObjSeabedSuisoBrakable__chip_record_set_table.value) + (*(s32 *)((s8 *)var_r31 + 0xBC) * 0x120)));
+    *(s32 *)((s8 *)var_r31 + 0x34) = ((s32 (*)(int))get_model__23TObjSeabedSuisoBrakableFi)((int) (var_r3));
+    var_r3 = (s32 *)((u8 *)(NULL));
+    *(s32 *)((s8 *)var_r31 + 0x24) = ((s32 (*)(int))get_instance__23TObjSeabedSuisoBrakableFv)((int) (0));
     var_f0 = lbl_805DDFFC;
-    M2C_FIELD(var_r31, f32 *, 0xB0) = var_f0;
+    *(f32 *)((s8 *)var_r31 + 0xB0) = var_f0;
 }
 
 void TObjSeabedSuisoBrakable__vt14(Obj_802A6490 *self) {
@@ -317,7 +309,7 @@ void * create_instance__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 
 void *__dt__23TObjSeabedSuisoBrakableFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__23TObjSeabedSuisoBrakable;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__23TObjSeabedSuisoBrakable;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__18TORockCaveBrakableFv(arg0, 0);
@@ -333,20 +325,20 @@ typedef char RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable_size[sizeo
 u8 *TObjSeabedSuisoBrakable__ct(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     TORockCaveBrakable__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjSeabedSuisoBrakable__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A6668___vt__23TObjSeabedSuisoBrakable *)&__vt__23TObjSeabedSuisoBrakable).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjSeabedSuisoBrakable__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0xBC) = (s32) fabs_float((f32) M2C_FIELD(arg0, s32 *, 0x88));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) > 2) {
-        M2C_FIELD(arg0, s32 *, 0xBC) = 2;
+    *(s32 *)((s8 *)arg0 + 0xBC) = (s32) fabs_float((f32) *(s32 *)((s8 *)arg0 + 0x88));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) > 2) {
+        *(s32 *)((s8 *)arg0 + 0xBC) = 2;
     }
     TObjSeabedSuisoBrakable__sub_802A6438((u8 *)((void *) (arg0)));
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
     }
-    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (M2C_FIELD(arg0, s32 *, 0xBC) * 0x2C)), (int) (1));
+    init_collision_body_parts((void *) (arg0), (int) ((u8 *)&lbl_804DD6E8.value + (*(s32 *)((s8 *)arg0 + 0xBC) * 0x2C)), (int) (1));
     reset_photon_effect__10TObjPlayerFPv(arg0);
     return arg0;
 }
@@ -387,10 +379,10 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 var_r30;
 
     var_r31 = 1;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xCC) > 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) > 0) {
         var_r30 = 0;
-        while (var_r30 < (s32) M2C_FIELD(arg0, s32 *, 0xCC)) {
-            if (is_current_floor_switch_set((u16) (M2C_FIELD(arg0, s32 *, 0xD0) + var_r30)) == 0) {
+        while (var_r30 < (s32) *(s32 *)((s8 *)arg0 + 0xCC)) {
+            if (is_current_floor_switch_set((u16) (*(s32 *)((s8 *)arg0 + 0xD0) + var_r30)) == 0) {
                 var_r31 = 0;
             }
             var_r30 += 1;
@@ -419,12 +411,12 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         temp_r31 = get_break_data__23TObjSeabedSuisoBrakableFi(4);
         temp_r3_5 = get_table1_entry__23TObjSeabedSuisoBrakableFi(2);
         if ((temp_r3_5 != NULL) && (temp_r31 != -1)) {
-            scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r3_5, s32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(1), (u16)((u16) temp_r31), (M2C_UNK)(1));
+            scroll_ginja_mesh_uvs((s32)(*(s32 *)((s8 *)temp_r3_5 + 4)), (s32)(0), (s32)(1), (u16)((u16) temp_r31), (s32)(1));
         }
         temp_r31_2 = get_break_data__23TObjSeabedSuisoBrakableFi(3);
         temp_r3_6 = get_table1_entry__23TObjSeabedSuisoBrakableFi(0);
         if ((temp_r3_6 != NULL) && (temp_r31_2 != -1)) {
-            scroll_ginja_mesh_uvs((s32)(M2C_FIELD(temp_r3_6, s32 *, 4)), (M2C_UNK)(0), (M2C_UNK)(3), (u16)((u16) temp_r31_2), (M2C_UNK)(1));
+            scroll_ginja_mesh_uvs((s32)(*(s32 *)((s8 *)temp_r3_6 + 4)), (s32)(0), (s32)(3), (u16)((u16) temp_r31_2), (s32)(1));
         }
         lbl_805D6678 = actor_frame_tick;
     }
@@ -435,9 +427,9 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 extern "C" {
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0);
-s32 get_break_data__23TObjSeabedSuisoBrakableFi(M2C_UNK);
-void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, M2C_UNK);
-M2C_UNK set_model_node_callback(M2C_UNK *);
+s32 get_break_data__23TObjSeabedSuisoBrakableFi(s32);
+void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, s32);
+s32 set_model_node_callback(s32 *);
 
 extern s32 actor_frame_tick;
 extern s32 lbl_805D6678;
@@ -446,35 +438,35 @@ void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 temp_r3;
     void *temp_r31;
 
-    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(M2C_FIELD(arg0, s32 *, 0xD4), 4);
+    temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0xD4), 4);
     if ((s32) lbl_805D6678 != (s32) actor_frame_tick) {
-        if ((temp_r31 != NULL) && ((u32) M2C_FIELD(temp_r31, u32 *, 4) != 0U)) {
+        if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
             temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(0);
             if (temp_r3 != -1) {
-                ((M2C_UNK (*)(u32, M2C_UNK, M2C_UNK, u16, M2C_UNK))scroll_ginja_mesh_uvs)(M2C_FIELD(temp_r31, u32 *, 4), 1, 0, (u16) temp_r3, 1);
+                ((s32 (*)(u32, s32, s32, u16, s32))scroll_ginja_mesh_uvs)(*(u32 *)((s8 *)temp_r31 + 4), 1, 0, (u16) temp_r3, 1);
             }
         }
         lbl_805D6678 = actor_frame_tick;
     }
-    set_model_node_callback((M2C_UNK *)notify_break__23TObjSeabedSuisoBrakableFUi);
+    set_model_node_callback((s32 *)notify_break__23TObjSeabedSuisoBrakableFUi);
 }
 
 }
 
 struct Base18 { char pad[0x18]; };
 
-struct VObj : Base18 { virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_UNK m2(); virtual M2C_UNK m3(); virtual M2C_UNK m4(); virtual M2C_UNK m5(); virtual M2C_UNK m6(); virtual M2C_UNK m7(); virtual M2C_UNK m8(f32, f32); };
+struct VObj : Base18 { virtual s32 m0(); virtual s32 m1(); virtual s32 m2(); virtual s32 m3(); virtual s32 m4(); virtual s32 m5(); virtual s32 m6(); virtual s32 m7(); virtual s32 m8(f32, f32); };
 
 extern "C" {
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK draw_ginja_box_tree(s32);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 draw_ginja_box_tree(s32);
 void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi();
-M2C_UNK draw_ginja_model_with_motion(s32, void *, f32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi();
+s32 draw_ginja_model_with_motion(s32, void *, f32);
 void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0);
 }
 
@@ -485,35 +477,35 @@ void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0);
 void update_state__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
     switch (temp_r0) {
     case 2:
-        ((M2C_UNK (*)(void))notify_break__23TObjSeabedSuisoBrakableFPv)();
+        ((s32 (*)(void))notify_break__23TObjSeabedSuisoBrakableFPv)();
         return;
     case 3:
-        ((M2C_UNK (*)(void))update_switch_lock__23TObjSeabedSuisoBrakableFPv)();
+        ((s32 (*)(void))update_switch_lock__23TObjSeabedSuisoBrakableFPv)();
     case 0:
         return;
     }
 }
 void draw_model__23TObjSeabedSuisoBrakableFPv(u8 *arg0) {
     void *p;
-    if (((VObj *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+    if (((VObj *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         end_effect_render__13TParticleCtrlFv();
         update_state__23TObjSeabedSuisoBrakableFPv(arg0);
-        ((M2C_UNK (*)(M2C_UNK))get_instance__23TObjSeabedSuisoBrakableFv)(0);
+        ((s32 (*)(s32))get_instance__23TObjSeabedSuisoBrakableFv)(0);
         set_global_param__8TObjFishFi();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        p = M2C_FIELD(arg0, void **, 0xBC);
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        p = *(void **)((s8 *)arg0 + 0xBC);
         if (p != NULL) {
-            draw_ginja_model_with_motion(M2C_FIELD(arg0, s32 *, 0xD4), p, M2C_FIELD(arg0, f32 *, 0xB0));
+            draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0xD4), p, *(f32 *)((s8 *)arg0 + 0xB0));
         } else {
-            draw_ginja_box_tree(M2C_FIELD(arg0, s32 *, 0xD4));
+            draw_ginja_box_tree(*(s32 *)((s8 *)arg0 + 0xD4));
         }
         pop_matrix();
-        ((M2C_UNK (*)(M2C_UNK))set_model_node_callback)(0);
+        ((s32 (*)(s32))set_model_node_callback)(0);
     }
 }
 
@@ -542,8 +534,8 @@ extern void *__vt__18TObjSeabedSuiso_CH[];
 
 void *__dt__18TObjSeabedSuiso_CHFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__18TObjSeabedSuiso_CH;
-        if (M2C_FIELD(arg0, void **, 0xD8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD8)); M2C_FIELD(arg0, M2C_UNK *, 0xD8) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__18TObjSeabedSuiso_CH;
+        if (*(void **)((s8 *)arg0 + 0xD8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD8)); *(s32 *)((s8 *)arg0 + 0xD8) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
@@ -651,7 +643,7 @@ void init_kind_params__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 #pragma opt_propagation off
 Obj_802A6DA8 *TObjSeabedSuiso_CH__ct(Obj_802A6DA8 *self, s32 arg1, s32 arg2) {
     init_map_object_base(self, arg1, arg2);
-    *(M2C_UNK **)((u8 *)self + 0x18) = (M2C_UNK *)__vt__18TObjSeabedSuiso_CH;
+    *(s32 **)((u8 *)self + 0x18) = (s32 *)__vt__18TObjSeabedSuiso_CH;
     *(s32 *)self = TObjSeabedSuiso_CH__name;
     self->m5(arg2);
     init_kind_params__23TObjSeabedSuisoBrakableFPv(self);

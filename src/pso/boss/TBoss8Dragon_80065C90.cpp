@@ -1,22 +1,19 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 struct RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x350];
 };
 struct RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 struct RecoveredGlobal_80065F08_lbl_80437938_80065C90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -32,7 +29,7 @@ extern "C" {
 
 void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK *TBoss8Dragon__sub_80065F08(void);
+s32 *TBoss8Dragon__sub_80065F08(void);
 void TBoss8Dragon__sub_80065F1C(void);
 void TBoss8Dragon__sub_80065F20(void);
 void TBoss8Dragon__sub_80065F24(void);
@@ -56,7 +53,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv(void *);
 
-extern M2C_UNK lbl_80434088;
+extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
@@ -75,29 +72,29 @@ typedef char RecoveredGlobal_80065EA0_lbl_80487CD8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80065DB4_lbl_804FF5B4_size[sizeof(RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90) == 0xC ? 1 : -1];
 void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     s32 temp_r0;
-    M2C_FIELD(arg1, f32 *, 0) = (f32) lbl_805D8D5C;
-    M2C_FIELD(arg2, f32 *, 0) = (f32) lbl_805D8D5C;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x4E4);
+    *(f32 *)((s8 *)arg1 + 0) = (f32) lbl_805D8D5C;
+    *(f32 *)((s8 *)arg2 + 0) = (f32) lbl_805D8D5C;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x4E4);
     switch (temp_r0) {
     default:
     case 2:
     case 0:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 4);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 8);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0xC);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 4);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 8);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0xC);
         return;
     case 1:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0x10);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 0), f32 *, 0x14);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 4);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0x10);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 0)) + 0x14);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 4);
         return;
     case 3:
-        M2C_FIELD(arg1, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 8);
-        M2C_FIELD(arg1, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0xC);
-        M2C_FIELD(arg2, f32 *, 4) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0x10);
-        M2C_FIELD(arg2, f32 *, 8) = (f32) M2C_FIELD(M2C_FIELD(&boss5_gryphon_behavior_params.value, u8 **, 4), f32 *, 0x14);
+        *(f32 *)((s8 *)arg1 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 8);
+        *(f32 *)((s8 *)arg1 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0xC);
+        *(f32 *)((s8 *)arg2 + 4) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0x10);
+        *(f32 *)((s8 *)arg2 + 8) = (f32) *(f32 *)((s8 *)(*(u8 **)((s8 *)(&boss5_gryphon_behavior_params.value) + 4)) + 0x14);
         return;
     }
 }
@@ -112,7 +109,7 @@ void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
 }
 
 typedef char RecoveredGlobal_80065F08_lbl_80437938_size[sizeof(RecoveredGlobal_80065F08_lbl_80437938_80065C90) == 0xC ? 1 : -1];
-M2C_UNK *TBoss8Dragon__sub_80065F08(void) {
+s32 *TBoss8Dragon__sub_80065F08(void) {
     return &lbl_80437938.value;
 }
 
@@ -158,18 +155,18 @@ void bswap_boss_actions__12TBoss8DragonFi(s32 arg0) {
 void TBoss8Dragon__sub_800660A4(void* p) { *(u8*)((char*)p + 0x0) = 159; *(u8*)((char*)p + 0x1) = 4; }
 
 void fn_800660B8(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFB);
-    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) | 1);
+    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFB);
+    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) | 1);
 }
 
 void attach_particle_model(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
-    M2C_FIELD(arg0, s32 *, 0x4C) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x50) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x54) = arg3;
-    M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x200);
-    M2C_FIELD(arg0, f32 *, 0x5C) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x4C) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x50) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x54) = arg3;
+    *(u16 *)((s8 *)arg0 + 0x2C) = (u16) (*(u16 *)((s8 *)arg0 + 0x2C) | 0x200);
+    *(f32 *)((s8 *)arg0 + 0x5C) = farg0;
     if (arg4 != 0) {
-        M2C_FIELD(arg0, u16 *, 0x2C) = (u16) (M2C_FIELD(arg0, u16 *, 0x2C) | 0x400);
+        *(u16 *)((s8 *)arg0 + 0x2C) = (u16) (*(u16 *)((s8 *)arg0 + 0x2C) | 0x400);
     }
 }
 

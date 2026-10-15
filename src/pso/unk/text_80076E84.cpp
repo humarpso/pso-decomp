@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_80076E98 { u8 pad[4]; s32 f4; u32 f8; };
 
@@ -25,7 +21,7 @@ void handle_6x07_symbol_chat(Pkt_80076E98 *arg0);
 extern "C" {
 
 s32 get_technique_name(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x10), M2C_UNK *, (arg0 * 4));
+    return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x10)) + (arg0 * 4));
 }
 void handle_6x07_symbol_chat(Pkt_80076E98 *arg0) {
     u32 *p;

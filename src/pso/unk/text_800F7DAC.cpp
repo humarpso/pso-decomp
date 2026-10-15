@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 struct RecoveredGlobal_800F81A8_lbl_80499970 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 typedef char RecoveredGlobal_800F81A8_lbl_80499970_size[sizeof(RecoveredGlobal_800F81A8_lbl_80499970) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_800F8428_lbl_80499988 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -53,7 +49,7 @@ struct Fade_800F88D8 {
 };
 
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag_4__9TObjLukerFPv(void *);
+s32 set_flag_4__9TObjLukerFPv(void *);
 void destroy_task_object__12TBoss3VoloptFPvs(void *, int);
 void init_object__12TBoss3VoloptFPvPv(void *, void *);
 void TCameraCtrl__sub_80068EF0(void);
@@ -90,15 +86,15 @@ void __ct__7TObjectFP7TObject(void *);
 u32 TWindowCtrlMain__sub_8024CD5C(s32);
 void set_value__15TWindowCtrlMainFii(s32, s32);
 u32 prs_decompress(int, int, int, int);
-M2C_UNK destroy_ep3_exist__6TLobbyFis(int, int);
+s32 destroy_ep3_exist__6TLobbyFis(int, int);
 u32 reset_counters__6TLobbyFPv();
 void set_cached_blend_factor(s32, s32);
 
 extern RecoveredGlobal_800F81A8_lbl_80499970 lbl_80499970;
 extern RecoveredGlobal_800F8428_lbl_80499988 lbl_80499988;
-extern M2C_UNK lbl_804999A0[];
-extern M2C_UNK lbl_804999B8[];
-extern M2C_UNK lbl_804999D0[];
+extern s32 lbl_804999A0[];
+extern s32 lbl_804999B8[];
+extern s32 lbl_804999D0[];
 extern void *screen_fade_controller;
 extern s32 local_client_id;
 extern void *tl_fade;
@@ -116,7 +112,7 @@ u32 prs_decompress_buffer(s32 arg0, s32 arg1) {
   u32 var_r31;
   u32 var_r3;
   u32 phi_r30;
-  M2C_UNK saved_reg_r30;
+  s32 saved_reg_r30;
   var_r30 = saved_reg_r30;
   var_r28 = arg0;
   var_r29 = arg1;
@@ -182,7 +178,7 @@ void render_screen_fade(Fade_800F7E28 *self) {
 void dispatch_state__6TLobbyFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     switch (temp_r0) {
     case 1:
         step_fade_opacity_decrease((u8 *)(arg0));
@@ -200,15 +196,15 @@ void dispatch_state__6TLobbyFPv(void *arg0) {
 #pragma push
 #pragma opt_common_subs off
 void tick_fade_counter__6TLobbyFPv(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) += 1.0f;
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (128.0f)) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (128.0f);
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) += 1.0f;
+    if (*(f32 *)((s8 *)arg0 + 0x1C) >= (128.0f)) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (128.0f);
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
 extern int fold_flush_1;
@@ -217,15 +213,15 @@ extern int fold_flush_1;
 #pragma push
 #pragma opt_common_subs off
 void step_fade_opacity_increase(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) += 8.0f;
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (255.0f)) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (255.0f);
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) += 8.0f;
+    if (*(f32 *)((s8 *)arg0 + 0x1C) >= (255.0f)) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (255.0f);
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
 extern int fold_flush_2;
@@ -233,27 +229,27 @@ extern int fold_flush_2;
 
 void init_fadeout_state__6TLobbyFi(s32 arg0) {
     if ((void *) screen_fade_controller != NULL) {
-        M2C_FIELD(screen_fade_controller, s32 *, 0x28) = arg0;
-        M2C_FIELD(screen_fade_controller, f32 *, 0x1C) = (f32) (0.0f);
-        M2C_FIELD(screen_fade_controller, s8 *, 0x20) = 0;
-        M2C_FIELD(screen_fade_controller, s8 *, 0x21) = 0;
-        M2C_FIELD(screen_fade_controller, s8 *, 0x22) = 0;
-        M2C_FIELD(screen_fade_controller, s32 *, 0x24) = 2;
+        *(s32 *)((s8 *)screen_fade_controller + 0x28) = arg0;
+        *(f32 *)((s8 *)screen_fade_controller + 0x1C) = (f32) (0.0f);
+        *(s8 *)((s8 *)screen_fade_controller + 0x20) = 0;
+        *(s8 *)((s8 *)screen_fade_controller + 0x21) = 0;
+        *(s8 *)((s8 *)screen_fade_controller + 0x22) = 0;
+        *(s32 *)((s8 *)screen_fade_controller + 0x24) = 2;
     }
 }
 
 #pragma push
 #pragma opt_common_subs off
 void step_fade_opacity_decrease(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - (8.0f));
-    if (M2C_FIELD(arg0, f32 *, 0x1C) <= (0.0f)) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (0.0f);
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - (8.0f));
+    if (*(f32 *)((s8 *)arg0 + 0x1C) <= (0.0f)) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (0.0f);
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
         }
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
     }
 }
 extern int fold_flush_3;
@@ -261,25 +257,25 @@ extern int fold_flush_3;
 
 void set_fade_params__6TLobbyFi(s32 arg0) {
     if ((void *) screen_fade_controller != NULL) {
-        M2C_FIELD(screen_fade_controller, s32 *, 0x28) = arg0;
-        M2C_FIELD(screen_fade_controller, f32 *, 0x1C) = (f32) (255.0f);
-        M2C_FIELD(screen_fade_controller, s8 *, 0x20) = 0;
-        M2C_FIELD(screen_fade_controller, s8 *, 0x21) = 0;
-        M2C_FIELD(screen_fade_controller, s8 *, 0x22) = 0;
-        M2C_FIELD(screen_fade_controller, s32 *, 0x24) = 1;
+        *(s32 *)((s8 *)screen_fade_controller + 0x28) = arg0;
+        *(f32 *)((s8 *)screen_fade_controller + 0x1C) = (f32) (255.0f);
+        *(s8 *)((s8 *)screen_fade_controller + 0x20) = 0;
+        *(s8 *)((s8 *)screen_fade_controller + 0x21) = 0;
+        *(s8 *)((s8 *)screen_fade_controller + 0x22) = 0;
+        *(s32 *)((s8 *)screen_fade_controller + 0x24) = 1;
     }
 }
 
 s32 get_quest_thread_state__6TLobbyFv(void) {
     if ((void *) screen_fade_controller != NULL) {
-        return M2C_FIELD(screen_fade_controller, s32 *, 0x24);
+        return *(s32 *)((s8 *)screen_fade_controller + 0x24);
     }
     return 0;
 }
 
 u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499970.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499970.value;
         (*(s32 *)&screen_fade_controller) = 0;
         __dt__7TObjectFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -291,9 +287,9 @@ u8 *dtor_clear_singleton__6TLobbyFPvs(u8 *arg0, s16 arg1) {
 
 void *ct_register__6TLobbyFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = ((M2C_UNK *)&lbl_80499970);
+    *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)&lbl_80499970);
     screen_fade_controller = arg0;
-    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    *(u32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;
 }
 
@@ -305,28 +301,28 @@ s32 TLobby__sub_800F8250(void *arg0, f32 farg0) {
     u8 temp_r12;
     u8 temp_r31;
 
-    temp_r10 = M2C_FIELD(arg0, u8 *, 0x29);
-    temp_r12 = M2C_FIELD(arg0, u8 *, 0x2A);
-    temp_r11 = M2C_FIELD(arg0, u8 *, 0x28);
-    temp_r31 = M2C_FIELD(arg0, u8 *, 0x2B);
-    return (((((((s32) ((farg0 * (f32) (M2C_FIELD(arg0, u8 *, 0x2C) - temp_r11)) + (f32) temp_r11) << 0x18)) | (((s32) ((farg0 * (f32) (M2C_FIELD(arg0, u8 *, 0x2D) - temp_r10)) + (f32) temp_r10) << 0x10) & 0xFF0000 & ~0xFF000000)) & ~0xFF00) | (((s32) ((farg0 * (f32) (M2C_FIELD(arg0, u8 *, 0x2E) - temp_r12)) + (f32) temp_r12) << 8) & 0xFF00)) & ~0xFF) | ((s32) ((farg0 * (f32) (M2C_FIELD(arg0, u8 *, 0x2F) - temp_r31)) + (f32) temp_r31) & 0xFF);
+    temp_r10 = *(u8 *)((s8 *)arg0 + 0x29);
+    temp_r12 = *(u8 *)((s8 *)arg0 + 0x2A);
+    temp_r11 = *(u8 *)((s8 *)arg0 + 0x28);
+    temp_r31 = *(u8 *)((s8 *)arg0 + 0x2B);
+    return (((((((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2C) - temp_r11)) + (f32) temp_r11) << 0x18)) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2D) - temp_r10)) + (f32) temp_r10) << 0x10) & 0xFF0000 & ~0xFF000000)) & ~0xFF00) | (((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2E) - temp_r12)) + (f32) temp_r12) << 8) & 0xFF00)) & ~0xFF) | ((s32) ((farg0 * (f32) (*(u8 *)((s8 *)arg0 + 0x2F) - temp_r31)) + (f32) temp_r31) & 0xFF);
 }
 extern int fold_flush_4;
 #pragma pop
 
 void TLobby__sub_800F838C(u8 *arg0) {
     s32 temp_r3;
-    set_value__15TWindowCtrlMainFii(local_client_id, TLobby__sub_800F8250(arg0, (f32) M2C_FIELD(arg0, s32 *, 0x20) / (f32) M2C_FIELD(arg0, s32 *, 0x24)));
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x20) + 1;
-    M2C_FIELD(arg0, s32 *, 0x20) = temp_r3;
-    if (temp_r3 > (s32) M2C_FIELD(arg0, s32 *, 0x24)) {
+    set_value__15TWindowCtrlMainFii(local_client_id, TLobby__sub_800F8250(arg0, (f32) *(s32 *)((s8 *)arg0 + 0x20) / (f32) *(s32 *)((s8 *)arg0 + 0x24)));
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x20) + 1;
+    *(s32 *)((s8 *)arg0 + 0x20) = temp_r3;
+    if (temp_r3 > (s32) *(s32 *)((s8 *)arg0 + 0x24)) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
 u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499988.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499988.value;
         set_value__15TWindowCtrlMainFii(local_client_id, TLobby__sub_800F8250(arg0, (1.0f)));
         ((u8 * (*)(void *, s16))__dt__7TObjectFv)(arg0, 0);
         if (arg1 > 0) {
@@ -339,43 +335,43 @@ u8 *TLobby__sub_800F8428(u8 *arg0, s16 arg1) {
 void *TLobby__sub_800F8498(void *arg0, void *arg1, s32 arg2, s32 arg3, u8 arg4, u8 arg5, u8 arg6, u8 arg7) {
     u32 c;
     ((void (*)(void *, void *))__ct__7TObjectFP7TObject)(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80499988.value;
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80499988.value;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = arg3;
     c = TWindowCtrlMain__sub_8024CD5C(local_client_id);
-    M2C_FIELD(arg0, u8 *, 0x2B) = c;
-    M2C_FIELD(arg0, u8 *, 0x2A) = c >> 8;
-    M2C_FIELD(arg0, u8 *, 0x29) = c >> 16;
-    M2C_FIELD(arg0, u8 *, 0x28) = c >> 24;
-    M2C_FIELD(arg0, u8 *, 0x2F) = arg4;
-    M2C_FIELD(arg0, u8 *, 0x2C) = arg5;
-    M2C_FIELD(arg0, u8 *, 0x2D) = arg6;
-    M2C_FIELD(arg0, u8 *, 0x2E) = arg7;
+    *(u8 *)((s8 *)arg0 + 0x2B) = c;
+    *(u8 *)((s8 *)arg0 + 0x2A) = c >> 8;
+    *(u8 *)((s8 *)arg0 + 0x29) = c >> 16;
+    *(u8 *)((s8 *)arg0 + 0x28) = c >> 24;
+    *(u8 *)((s8 *)arg0 + 0x2F) = arg4;
+    *(u8 *)((s8 *)arg0 + 0x2C) = arg5;
+    *(u8 *)((s8 *)arg0 + 0x2D) = arg6;
+    *(u8 *)((s8 *)arg0 + 0x2E) = arg7;
     return arg0;
 }
 
 void TLobby__sub_800F8530(void) {  }
 
 void update_fade_in_alpha__6TLobbyFPv(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) += 2.0f;
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= 128.0f) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = 128.0f;
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x28);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) += 2.0f;
+    if (*(f32 *)((s8 *)arg0 + 0x1C) >= 128.0f) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = 128.0f;
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x28);
         if (temp_r12 != NULL) {
             temp_r12();
         }
         ((void (*)(void *))set_flag_4__9TObjLukerFPv)((void *) (arg0));
     }
-    M2C_FIELD(arg0, s8 *, 0x23) = (s8) M2C_FIELD(arg0, f32 *, 0x1C);
-    set_value__15TWindowCtrlMainFii(M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, s32 *, 0x20));
+    *(s8 *)((s8 *)arg0 + 0x23) = (s8) *(f32 *)((s8 *)arg0 + 0x1C);
+    set_value__15TWindowCtrlMainFii(*(s32 *)((s8 *)arg0 + 0x24), *(s32 *)((s8 *)arg0 + 0x20));
 }
 
 void *TLobby__sub_800F85C0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999A0;
-        ((void (*)(void *, int))set_value__15TWindowCtrlMainFii)(M2C_FIELD(arg0, void **, 0x24), 0);
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999A0;
+        ((void (*)(void *, int))set_value__15TWindowCtrlMainFii)(*(void **)((s8 *)arg0 + 0x24), 0);
         destroy_task_object__12TBoss3VoloptFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -389,11 +385,11 @@ void* init_entry_fields__6TLobbyFPviii(void* a0, int a1, int a2, int a3) { ((int
 #pragma push
 #pragma opt_common_subs off
 void TLobby__sub_800F8690(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - (8.0f));
-    if (M2C_FIELD(arg0, f32 *, 0x1C) <= 0.0f) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) 0.0f;
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - (8.0f));
+    if (*(f32 *)((s8 *)arg0 + 0x1C) <= 0.0f) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) 0.0f;
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
         }
@@ -405,7 +401,7 @@ extern int fold_flush_5;
 
 void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999B8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999B8;
         destroy_task_object__12TBoss3VoloptFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -416,23 +412,23 @@ void *TLobby__sub_800F86FC(void *arg0, s16 arg1) {
 
 void *init_fade__6TLobbyFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv(arg0, tl_fade);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999B8;
-    M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (255.0f);
-    M2C_FIELD(arg0, u8 *, 0x20) = 0;
-    M2C_FIELD(arg0, u8 *, 0x21) = 0;
-    M2C_FIELD(arg0, u8 *, 0x22) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999B8;
+    *(void **)((s8 *)arg0 + 0x24) = arg2;
+    *(f32 *)((s8 *)arg0 + 0x1C) = (255.0f);
+    *(u8 *)((s8 *)arg0 + 0x20) = 0;
+    *(u8 *)((s8 *)arg0 + 0x21) = 0;
+    *(u8 *)((s8 *)arg0 + 0x22) = 0;
     return arg0;
 }
 
 #pragma push
 #pragma opt_common_subs off
 void TLobby__sub_800F87B4(u8 *arg0) {
-    M2C_UNK (*temp_r12)();
-    M2C_FIELD(arg0, f32 *, 0x1C) += 8.0f;
-    if (M2C_FIELD(arg0, f32 *, 0x1C) >= (255.0f)) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (255.0f);
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(), 0x24);
+    s32 (*temp_r12)();
+    *(f32 *)((s8 *)arg0 + 0x1C) += 8.0f;
+    if (*(f32 *)((s8 *)arg0 + 0x1C) >= (255.0f)) {
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (255.0f);
+        temp_r12 = *(s32 (**)())((s8 *)arg0 + 0x24);
         if (temp_r12 != NULL) {
             temp_r12();
         }
@@ -444,7 +440,7 @@ extern int fold_flush_6;
 
 void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999D0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999D0;
         destroy_task_object__12TBoss3VoloptFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -455,12 +451,12 @@ void *THunterGuildSeqOffline__sub_800F8820(void *arg0, s16 arg1) {
 
 void *init__22THunterGuildSeqOfflineFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_object__12TBoss3VoloptFPvPv(arg0, tl_fade);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804999D0;
-    M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (0.0f);
-    M2C_FIELD(arg0, u8 *, 0x20) = 0;
-    M2C_FIELD(arg0, u8 *, 0x21) = 0;
-    M2C_FIELD(arg0, u8 *, 0x22) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804999D0;
+    *(void **)((s8 *)arg0 + 0x24) = arg2;
+    *(f32 *)((s8 *)arg0 + 0x1C) = (0.0f);
+    *(u8 *)((s8 *)arg0 + 0x20) = 0;
+    *(u8 *)((s8 *)arg0 + 0x21) = 0;
+    *(u8 *)((s8 *)arg0 + 0x22) = 0;
     return arg0;
 }
 

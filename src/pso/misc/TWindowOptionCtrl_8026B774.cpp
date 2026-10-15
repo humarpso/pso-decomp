@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 get_localized_text_entry(int, int);
-M2C_UNK align_menu_entry_positions(int);
-M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 align_menu_entry_positions(int);
+s32 update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
-M2C_UNK get_option_entry__17TWindowOptionCtrlFi(int);
+s32 get_option_entry__17TWindowOptionCtrlFi(int);
 extern const f32 lbl_805DD268;
 s32 create_sub_menu_window__17TWindowOptionCtrlFv(void);
 }

@@ -1,28 +1,23 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct O_8006A044 { u8 pad[0x1c0]; s32 id; f32 v; };
 
-typedef s32 M2C_UNK;
 struct Big_8006A13C { u8 pad[0x70]; u8 unk70[0x10]; };
 
 struct Sel_8006A13C { u8 busy; u8 pad1; u16 slot; u8 pad4[0xC]; };
 
 extern "C" {
 extern void *camera_ctrl_instance;
-M2C_UNK queue_event_1D__12TBoss3VoloptFss(M2C_UNK, M2C_UNK, void *);
+s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
 void TCameraCtrl__sub_8006A044(s32 id, f32 v);
-s32 obj_testFlags30(u32, M2C_UNK);
+s32 obj_testFlags30(u32, s32);
 s32 is_split_screen();
 s32 get_field_3e4__10TObjPlayerFPv(u32);
-M2C_UNK reset_cameras_to_actor(u32, M2C_UNK);
+s32 reset_cameras_to_actor(u32, s32);
 s32 is_quest_active();
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
-M2C_UNK refresh_equipment_slot__10TObjPlayerFv(u32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
+s32 refresh_equipment_slot__10TObjPlayerFv(u32);
 u32 get_player_by_client_id(s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern Sel_8006A13C TCameraCtrl__view_state;
@@ -35,7 +30,7 @@ extern "C" {
 
 void* get_params__11TCameraCtrlFPv(void* p);
 void set_shake_preset__11TCameraCtrlFi(s32 arg0);
-M2C_UNK queue_event_1D__12TBoss3VoloptFss(M2C_UNK, M2C_UNK, void *);
+s32 queue_event_1D__12TBoss3VoloptFss(s32, s32, void *);
 
 void* get_params__11TCameraCtrlFPv(void* p) { return (char*)p + 0x20; }
 
@@ -50,7 +45,7 @@ void TCameraCtrl__sub_8006A044(s32 id, f32 v) {
         (*(O_8006A044 * *)&camera_ctrl_instance)->v = v;
         p = (*(O_8006A044 * *)&camera_ctrl_instance);
         p->id = id;
-        queue_event_1D__12TBoss3VoloptFss((M2C_UNK)(0x60), (M2C_UNK)((s16)id), (void *)(p));
+        queue_event_1D__12TBoss3VoloptFss((s32)(0x60), (s32)((s16)id), (void *)(p));
     }
 }
 
@@ -60,21 +55,21 @@ void set_shake_preset__11TCameraCtrlFi(s32 arg0) {
     if ((void *) camera_ctrl_instance != NULL) {
         switch (arg0) {
         case 0:
-            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x14;
+            *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x14;
             p = camera_ctrl_instance;
-            M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FE8;
+            *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FE8;
             queue_event_1D__12TBoss3VoloptFss(0x60, 0x14, p);
             return;
         case 1:
-            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x1E;
+            *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x1E;
             p = camera_ctrl_instance;
-            M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FEC;
+            *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FEC;
             queue_event_1D__12TBoss3VoloptFss(0xA0, 0x1E, p);
             return;
         case 2:
-            M2C_FIELD(camera_ctrl_instance, s32 *, 0x1C0) = 0x1E;
+            *(s32 *)((s8 *)camera_ctrl_instance + 0x1C0) = 0x1E;
             p = camera_ctrl_instance;
-            M2C_FIELD(p, f32 *, 0x1C4) = (f32) lbl_805D8FF0;
+            *(f32 *)((s8 *)p + 0x1C4) = (f32) lbl_805D8FF0;
             queue_event_1D__12TBoss3VoloptFss(0xE0, 0x1E, p);
             break;
         }

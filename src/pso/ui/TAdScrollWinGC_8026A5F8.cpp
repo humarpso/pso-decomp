@@ -1,29 +1,24 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8026A6DC_lbl_805187D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74];
 };
 
 extern "C" {
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0);
 int send_and_handle__6TLobbyFPvii(void *, int, int);
-M2C_UNK update_scroll_position__17TWindowMessageLogFPv(void *);
+s32 update_scroll_position__17TWindowMessageLogFPv(void *);
 void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1);
-M2C_UNK heap_free__5THeapFPv(s32, void *);
+s32 heap_free__5THeapFPv(s32, void *);
 u8 *heap_alloc__5THeapFUl(s32, s32);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
-M2C_UNK strncpy(int, void *, int);
+s32 strncpy(int, void *, int);
 extern s32 current_language;
 extern s32 TAdScrollWinGC__chat_log_heap;
 extern u8 *chat_last_line_buffer;
 void cache_last_chat_line(u32 arg0);
-M2C_UNK heap_free__5THeapFPv(s32, void *);
+s32 heap_free__5THeapFPv(s32, void *);
 s32 move_words__6TLobbyFPvPvi(int, void *, void *);
 extern RecoveredGlobal_8026A6DC_lbl_805187D8 chat_log_lines;
 extern s32 TAdScrollWinGC__chat_log_heap;
@@ -55,9 +50,9 @@ void append_line__17TWindowMessageLogFPvi(u8 *arg0, s32 arg1) {
 }
 
 void TWindowSubLog__sub_8026A664(u8 *arg0, f32 farg0) {
-    if (farg0 != M2C_FIELD(arg0, f32 *, 0x3C)) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = farg0;
-        M2C_FIELD(arg0, s32 *, 0x50) = 3;
+    if (farg0 != *(f32 *)((s8 *)arg0 + 0x3C)) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = farg0;
+        *(s32 *)((s8 *)arg0 + 0x50) = 3;
     }
 }
 
@@ -85,7 +80,7 @@ void chat_log_remove_line(s32 arg0) {
         if (arg0 < 0x1D) {
             move_words__6TLobbyFPvPvi((int) (temp_r31), (void *) ((u8 *)&chat_log_lines.value + ((arg0 + 1) * 4)), (void *) ((0x1D - arg0) & 0x3FFFFFFF));
         }
-        M2C_FIELD(&chat_log_lines.value, s32 *, 0x74) = 0;
+        *(s32 *)((s8 *)(&chat_log_lines.value) + 0x74) = 0;
     }
 }
 
@@ -124,12 +119,12 @@ void cache_last_chat_line(u32 arg0) {
         }
         chat_last_line_buffer = var_r3;
         if (temp_r31 != 0) {
-            M2C_FIELD(var_r3, s8 *, 0) = 9;
+            *(s8 *)((s8 *)var_r3 + 0) = 9;
             if ((s32) current_language == 0) {
-                M2C_FIELD(var_r3, s8 *, 1) = 0x4A;
+                *(s8 *)((s8 *)var_r3 + 1) = 0x4A;
                 var_r3 += 2;
             } else {
-                M2C_FIELD(var_r3, s8 *, 1) = 0x45;
+                *(s8 *)((s8 *)var_r3 + 1) = 0x45;
                 var_r3 += 2;
             }
             var_r30 -= 2;
@@ -154,9 +149,9 @@ void chat_log_add_line(s32 arg0) {
         var_r30 = find_free_chat_log_slot__6TLobbyFv();
     }
     temp_r30 = var_r30 * 4;
-    M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0) = var_r28;
-    strncpy((int) (M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0)), (void *) (arg0), (int) (temp_r29));
-    M2C_FIELD((temp_r29 + M2C_FIELD(((u8 *)(&chat_log_lines.value) + temp_r30), s32 *, 0)), s8 *, 0) = 0;
+    *(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0) = var_r28;
+    strncpy((int) (*(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0)), (void *) (arg0), (int) (temp_r29));
+    *(s8 *)((s8 *)(temp_r29 + *(s32 *)((s8 *)((u8 *)(&chat_log_lines.value) + temp_r30) + 0)) + 0) = 0;
 }
 
 }

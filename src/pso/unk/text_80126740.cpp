@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
+s32 set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805DAD80;
 void fist_reset_attack_rate(u8 *arg0);
-M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
+s32 set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
-extern M2C_UNK __vt__14TObjEneEpsilon[];
-extern M2C_UNK TObjPlayer__sub_800D7C58[];
-extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
+extern s32 __vt__14TObjEneEpsilon[];
+extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 init_and_activate__10TObjPlayerFPv[];
 extern void *TObjEneEpsilon__class_name;
-extern M2C_UNK lbl_804F26E0[];
+extern s32 lbl_804F26E0[];
 void s_rank_knuckle_equip(u8 *arg0);
-extern M2C_UNK lbl_804F26E0[];
+extern s32 lbl_804F26E0[];
 void fist_reset_attack_rate(u8 *arg0);
-u8 * baranz_launcher_ct(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * baranz_launcher_ct(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_baranz_launcher(u8 *arg0);
 }
@@ -42,7 +38,7 @@ u8 *create_baranz_launcher(u8 *arg0) {
 }
 
 void fist_reset_attack_rate(u8 *arg0) {
-    set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805DAD80));
+    set_evp__12TItemProUnitFPvf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805DAD80));
 }
 
 }

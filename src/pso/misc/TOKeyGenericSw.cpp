@@ -30,10 +30,7 @@ extern BmlResourceBlock_804B2D18 fs_obj_hanyousu_light_j_resource_bundle;
 extern const char *fs_obj_hanyousu_body1_motion_names[1];
 extern const char *fs_obj_hanyousu_body1_j_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8016CB88_8016CA60 { char pad[0x18]; };
 struct VObj_8016CB88_8016CA60 : Base_8016CB88_8016CA60 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -124,7 +121,7 @@ void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv();
+s32 update_anim_phase__17TOBarrierEnergy01FPv();
 
 void TOKeyGenericSw__vt23(void) {  }
 
@@ -160,19 +157,19 @@ void render__14TOKeyGenericSwFv(Obj_8016CA64 *self) {
 void TOKeyGenericSw__vt15(void *arg0) {
     update_anim_phase__17TOBarrierEnergy01FPv();
     ((VObj_8016CB88_8016CA60*)arg0)->m18();
-    M2C_FIELD(arg0, s32 *, 0xF4) = 1;
-    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(arg0, s32 *, 0xF4);
+    *(s32 *)((s8 *)arg0 + 0xF4) = 1;
+    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF8) = (s32) *(s32 *)((s8 *)arg0 + 0xF4);
 }
 
 void TOKeyGenericSw__vt14(void *arg0) {
     update_anim_phase__17TOBarrierEnergy01FPv();
     ((VObj_8016CBE4_8016CA60*)arg0)->m18();
-    M2C_FIELD(arg0, s32 *, 0xEC) = 1;
-    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF0) = (s32) M2C_FIELD(arg0, s32 *, 0xEC);
+    *(s32 *)((s8 *)arg0 + 0xEC) = 1;
+    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) *(s32 *)((s8 *)arg0 + 0xEC);
 }
 
 extern void *tl_05;
@@ -185,7 +182,7 @@ void *create__14TOKeyGenericSwFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__14TOKeyGenericSw[];
+extern s32 __vt__14TOKeyGenericSw[];
 
 void free_shared_resources__14TOKeyGenericSwFv(void) {
     if (TOKeyGenericSw__texture_lists != NULL) {
@@ -221,8 +218,8 @@ void load_resources__14TOKeyGenericSwFv(void) {
         }
         TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
         TOKeyGenericSw__texture_lists = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
-        TOKeyGenericSw__texture_lists[0] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[0]->area, s32 *, 0xC);
-        TOKeyGenericSw__texture_lists[1] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
+        TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
         TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D04);
     } else {
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
@@ -236,15 +233,15 @@ void load_resources__14TOKeyGenericSwFv(void) {
         }
         TOKeyGenericSw__shared_resource_ptrs[1] = (Map_8016CA64 *)p;
         TOKeyGenericSw__texture_lists = (s32 *)alloc_buffer__11TOBoss4RockFPv(0xC);
-        TOKeyGenericSw__texture_lists[0] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[0]->area, s32 *, 0xC);
-        TOKeyGenericSw__texture_lists[1] = M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1]->area, s32 *, 0xC);
+        TOKeyGenericSw__texture_lists[0] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[0]->area + 0xC);
+        TOKeyGenericSw__texture_lists[1] = *(s32 *)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1]->area + 0xC);
         TOKeyGenericSw__texture_lists[2] = load_gvm_texture_file(lbl_80441D24);
     }
 }
 
 void *__dt__14TOKeyGenericSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TOKeyGenericSw;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__5TOKeyFv(arg0, 0);

@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 get_main_phase();
 s32 is_quest_active();
-u32 get_character_save_record(M2C_UNK);
-M2C_UNK notify_quest_thread__22THunterGuildSeqOfflineFv();
+u32 get_character_save_record(s32);
+s32 notify_quest_thread__22THunterGuildSeqOfflineFv();
 s32 is_not_split_screen__13TRaderMapCoreFv();
-M2C_UNK memcpy(s32, M2C_UNK *, M2C_UNK);
+s32 memcpy(s32, s32 *, s32);
 extern u8 quest_story_flags_by_difficulty[4][128];
 extern s32 game_difficulty_selection;
 
@@ -24,7 +20,7 @@ void copy_card_window_data(void) {
         }
         temp_r3 = get_character_save_record(0);
         if (temp_r3 != 0U) {
-            memcpy(temp_r3 + 0x44, (M2C_UNK *)quest_story_flags_by_difficulty, 0x200);
+            memcpy(temp_r3 + 0x44, (s32 *)quest_story_flags_by_difficulty, 0x200);
         }
     }
 }

@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_802EE4E0_lbl_804E3C5C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x48];
 };
 
@@ -38,7 +34,7 @@ void run_load_callback_table(void *, int);
 u8 *collect_and_count__12TBoss3VoloptFUii(s32, s32);
 void init_all_slots__11TWindowCtrlFv();
 extern RecoveredGlobal_802EE4E0_lbl_804E3C5C lbl_804E3C5C;
-extern M2C_UNK lbl_804E3D1C[];
+extern s32 lbl_804E3D1C[];
 extern Light_802EE574 boss7_derolle_light_pool[];
 extern u8 *lbl_805D6918;
 extern s32 boss7_derolle_c_motion_id;
@@ -96,8 +92,8 @@ void TObjPlayer__sub_802EE574(void) {
     lbl_805D6934 = 0;
     boss7_joint_state = 0;
     run_load_callback_table(&lbl_804E3C5C.value, 0x30);
-    lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(M2C_FIELD(M2C_FIELD(lbl_805D6918, u8 **, 0x42C), s32 *, 8), 0x4D);
-    lbl_805D6940 = M2C_FIELD(lbl_805D693C, s32 *, 0x2C);
+    lbl_805D693C = collect_and_count__12TBoss3VoloptFUii(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D6918 + 0x42C)) + 8), 0x4D);
+    lbl_805D6940 = *(s32 *)((s8 *)lbl_805D693C + 0x2C);
     for (i = 0; i < 11; i++) {
         Light_802EE574 *l = &boss7_derolle_light_pool[i];
         l->type = 0xF;

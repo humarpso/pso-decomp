@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -10,13 +6,13 @@ struct VObj_18 : VBase_18 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(u32);
+    virtual s32 m4(u32);
 };
 
-struct RecoveredGlobal_8023A094_lbl_804CC1CC { M2C_UNK value; u8 remaining[0x340]; };
+struct RecoveredGlobal_8023A094_lbl_804CC1CC { s32 value; u8 remaining[0x340]; };
 typedef char RecoveredGlobal_8023A094_lbl_804CC1CC_size[sizeof(RecoveredGlobal_8023A094_lbl_804CC1CC) == 0x344 ? 1 : -1];
 
-struct RecoveredGlobal_8023A094___vt__12TTecReverser { M2C_UNK value; u8 remaining[0x24]; };
+struct RecoveredGlobal_8023A094___vt__12TTecReverser { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_8023A094___vt__12TTecReverser_size[sizeof(RecoveredGlobal_8023A094___vt__12TTecReverser) == 0x28 ? 1 : -1];
 
 struct Vec_80239E44 { f32 x, y, z; };
@@ -55,7 +51,7 @@ struct VObj_8023A244 : VBase_8023A244 { virtual void m0(); virtual void m1(); vi
 struct List_8023A244 { u32 objs[16]; s32 vals[16]; s32 count; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 s32 is_active__12TTecReverserFPv();
@@ -68,13 +64,13 @@ s32 copy_technique_target_list(void *, void *);
 s32 fn_8022BE64(void *, void *, void *);
 s32 init_technique_effect_base(void *, void *, void *, void *);
 extern RecoveredGlobal_8023A094_lbl_804CC1CC technique_param_table;
-extern M2C_UNK __vt__12TTecReverser[];
+extern s32 __vt__12TTecReverser[];
 extern s32 lbl_805D3818;
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void __ct__7TObjectFP7TObject(void *self, void *parent);
 void VecCopy__FP3VecPC3Vec(Vec_80239E44 *, Vec_80239E44 *);
 void *create_timed_particle_emitter(void *owner, s32 idx, s32 b, s32 c);
-extern M2C_UNK lbl_804CCC28[];
+extern s32 lbl_804CCC28[];
 extern Entry_80239E44 revival_particle_table[];
 extern const f32 lbl_805DC910;
 Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239E44 *player, void *parent);
@@ -88,14 +84,14 @@ extern char lbl_8044DBEC[];
 void debug_print_tech_params__16TObjEneBm5GibonUFPv(Rev_8023A364 *self);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 u8 *query_technique_enemy_contacts(void *, s32);
 u8 *query_technique_player_contacts(void *, s32);
 void dispatch_technique_contact(u8 *arg0);
 s32 obj_getField1c(int);
 s32 get_type__10TObjPlayerFPv(int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 is_valid_and_active__10TObjPlayerFUi(int);
 u8 *query_technique_enemy_contacts(void *, s32);
 u8 *query_technique_player_contacts(void *, s32);
@@ -109,18 +105,18 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1);
 void create__12TTecReverserFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__12TTecReverserFv(void);
 void update__12TTecReverserFPv(u8 *arg0);
-M2C_UNK spawn_particle_effect(void *, M2C_UNK);
+s32 spawn_particle_effect(void *, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_804CCC28[];
+extern s32 lbl_804CCC28[];
 
 void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CCC28;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CCC28;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -130,16 +126,15 @@ void *__dt__12TTecReverserFPvs(void *arg0, s16 arg1) {
 }
 
 void update__12TTecReverserFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0xA) {
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0xA) {
         spawn_particle_effect(arg0 + 0x2C, 0x38);
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x28) > 0xC8) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) > 0xC8) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
-typedef s32 M2C_UNK;
 Obj_80239E44 *construct_revival_particle_effect(Obj_80239E44 *self, Player_80239E44 *player, void *parent) {
     s32 i;
     __ct__7TObjectFP7TObject(self, parent);
@@ -163,16 +158,16 @@ void render__12TTecReverserFv(void) {  }
 
 void run_task__12TTecReverserFv(u8 *arg0) {
     u32 temp_r31;
-    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xEC) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xEC) == 0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r31 = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xF0)));
+    temp_r31 = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xF0)));
     if ((is_active__12TTecReverserFPv() == 0) && (is_valid_and_active__10TObjPlayerFUi((int) (temp_r31)) != 0)) {
         ((VObj_18 *)(arg0))->m4(temp_r31);
     }
@@ -187,11 +182,11 @@ void create__12TTecReverserFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *a
     }
 }
 
-extern M2C_UNK __vt__12TTecReverser[];
+extern s32 __vt__12TTecReverser[];
 
 void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TTecReverser;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TTecReverser;
         destroy_technique_base__9TTecLukerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -202,44 +197,44 @@ void *__dt__12TTecReverserFv(void *arg0, s16 arg1) {
 u8 *TTecReverser__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u32 temp_r3;
     init_technique_effect_base((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023A094___vt__12TTecReverser *)&__vt__12TTecReverser).value;
     construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xEC));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3818;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3818;
     copy_params__8TTecAntiFPvPv((void *) (arg0 + 0x88), (void *) ((u8 *)&technique_param_table.value + 0x2EC));
     fn_8022BE64((void *) (arg0), (void *) (arg0 + 0x88), (void *) (arg4));
     copy_technique_target_list((void *) (arg0 + 0xEC), (void *) (arg3));
     play_sound_effect((int) (0x4002A812), (void *) (arg0 + 0x20), (int) (0), (int) (0));
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
-        M2C_FIELD(arg0, s16 *, 0xB4) = obj_getField1c((int) (temp_r3));
+        *(s16 *)((s8 *)arg0 + 0xB4) = obj_getField1c((int) (temp_r3));
     }
     return arg0;
 }
 
 void dispatch_technique_contact(u8 *arg0) {
     u8 *var_r31;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x128) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
-        if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
-            var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+    if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x1C))) < 4U) {
+        if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x828)) != 0) {
+            var_r31 = query_technique_player_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
         } else {
-            var_r31 = query_technique_enemy_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            var_r31 = query_technique_enemy_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
         }
     } else {
-        var_r31 = query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        var_r31 = query_technique_player_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
     }
     if (var_r31 == NULL) {
         ((VObj_8023A148*)arg0)->m4();
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if (is_valid_and_active__10TObjPlayerFUi((int) (M2C_FIELD(var_r31, u32 *, 0))) != 0) {
-        void *p = M2C_FIELD(var_r31, void **, 0);
+    if (is_valid_and_active__10TObjPlayerFUi((int) (*(u32 *)((s8 *)var_r31 + 0))) != 0) {
+        void *p = *(void **)((s8 *)var_r31 + 0);
         if (p != NULL) {
-            M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(var_r31, s32 *, 0x40);
+            *(s32 *)((s8 *)arg0 + 0xF8) = (s32) *(s32 *)((s8 *)var_r31 + 0x40);
             ((VObj_8023A148*)arg0)->m6(p);
         }
     }
@@ -248,18 +243,18 @@ void dispatch_technique_contact(u8 *arg0) {
 void dispatch_all_technique_contacts(u8 *arg0) {
     List_8023A244 *list;
     s32 i;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x128) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x128) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    if ((u16) obj_getField1c((int) (M2C_FIELD(arg0, s32 *, 0x1C))) < 4U) {
-        if (get_type__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x1C) + 0x828)) != 0) {
-            list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+    if ((u16) obj_getField1c((int) (*(s32 *)((s8 *)arg0 + 0x1C))) < 4U) {
+        if (get_type__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0x1C) + 0x828)) != 0) {
+            list = (List_8023A244 *) query_technique_player_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
         } else {
-            list = (List_8023A244 *) query_technique_enemy_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+            list = (List_8023A244 *) query_technique_enemy_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
         }
     } else {
-        list = (List_8023A244 *) query_technique_player_contacts(arg0, M2C_FIELD(arg0, s32 *, 0x1C));
+        list = (List_8023A244 *) query_technique_player_contacts(arg0, *(s32 *)((s8 *)arg0 + 0x1C));
     }
     if (list == NULL) {
         ((VObj_8023A244 *) arg0)->m4();
@@ -270,7 +265,7 @@ void dispatch_all_technique_contacts(u8 *arg0) {
         if (is_valid_and_active__10TObjPlayerFUi((int) list->objs[i]) != 0) {
             void *p = (void *) list->objs[i];
             if (p != NULL) {
-                M2C_FIELD(arg0, s32 *, 0xF8) = list->vals[i];
+                *(s32 *)((s8 *)arg0 + 0xF8) = list->vals[i];
                 ((VObj_8023A244 *) arg0)->m6(p);
             }
         }

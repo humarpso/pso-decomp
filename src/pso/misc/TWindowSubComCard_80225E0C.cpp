@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void submit_card_password__17TWindowSubComCardFi(s32 arg0);
-M2C_UNK strncmp(void *, void *, M2C_UNK);
-M2C_UNK TWindowSubComCard__sub_80225E80(void *, void *);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
+s32 strncmp(void *, void *, s32);
+s32 TWindowSubComCard__sub_80225E80(void *, void *);
+s32 memset(void *, s32, s32);
+s32 strncpy(void *, s32, s32);
 
 void submit_card_password__17TWindowSubComCardFi(s32 arg0) {
     char sp1C[0x11];

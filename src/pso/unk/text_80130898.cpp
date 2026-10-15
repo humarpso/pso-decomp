@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct PlB_80130974 { char pad[0x18]; };
 
@@ -62,7 +58,7 @@ struct Pl_80130974 : PlB_80130974 {
 struct Pl2_80130974 : Pl_80130974 { u8 pad[0x1F8-0x1C]; s32 f1f8; u8 pad2[0xC]; u8 f208[12]; u8 f214[12]; };
 
 extern "C" {
-M2C_UNK spawn_weapon_casing__10TObjPlayerFiUiUiUiUi(int, void *, void *, void *, void *, int);
+s32 spawn_weapon_casing__10TObjPlayerFiUiUiUiUi(int, void *, void *, void *, void *, int);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 extern s32 tl_05;
@@ -83,26 +79,26 @@ extern "C" {
 #pragma opt_common_subs off
 void yasminkov_9000m_update_recoil(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1F8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1F8);
     switch (temp_r0) {
     case 1:
-        M2C_FIELD(arg0, f32 *, 0x200) = (f32) (M2C_FIELD(arg0, f32 *, 0x200) - lbl_805DB008);
-        if (M2C_FIELD(arg0, f32 *, 0x200) <= lbl_805DB00C) {
-            M2C_FIELD(arg0, f32 *, 0x200) = (f32) lbl_805DB00C;
-            M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
+        *(f32 *)((s8 *)arg0 + 0x200) = (f32) (*(f32 *)((s8 *)arg0 + 0x200) - lbl_805DB008);
+        if (*(f32 *)((s8 *)arg0 + 0x200) <= lbl_805DB00C) {
+            *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DB00C;
+            *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
             break;
         }
         break;
     case 2:
-        M2C_FIELD(arg0, f32 *, 0x200) = (f32) (M2C_FIELD(arg0, f32 *, 0x200) + lbl_805DB008);
-        if (lbl_805DB010 <= M2C_FIELD(arg0, f32 *, 0x200)) {
-            M2C_FIELD(arg0, f32 *, 0x200) = (f32) lbl_805DB010;
-            M2C_FIELD(arg0, s32 *, 0x1F8) = 3;
+        *(f32 *)((s8 *)arg0 + 0x200) = (f32) (*(f32 *)((s8 *)arg0 + 0x200) + lbl_805DB008);
+        if (lbl_805DB010 <= *(f32 *)((s8 *)arg0 + 0x200)) {
+            *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DB010;
+            *(s32 *)((s8 *)arg0 + 0x1F8) = 3;
             break;
         }
         break;
     case 3:
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
         yasminkov_9000m_eject_casing((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x220)), (s32)(0x4000));
         yasminkov_9000m_eject_casing((u8 *)(arg0), (s32)((s32) ((u8 *)(arg0) + 0x22C)), (s32)(-0x4000));
         break;
@@ -127,14 +123,14 @@ void yasminkov_9000m_eject_casing(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r31;
     s32 temp_r8;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     if (temp_r3 != NULL) {
-        temp_r31 = M2C_FIELD(temp_r3, s32 *, 0x60) - arg2;
+        temp_r31 = *(s32 *)((s8 *)temp_r3 + 0x60) - arg2;
         buffer_14[0] = sin_table_lookup((int) (temp_r31));
         buffer_14[1] = lbl_805DB014;
         buffer_14[2] = cos_table_lookup((int) (temp_r31));
         buffer_8[0] = 0x4000;
-        temp_r8 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60);
+        temp_r8 = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60);
         buffer_8[1] = temp_r8;
         buffer_8[2] = 0;
         spawn_weapon_casing__10TObjPlayerFiUiUiUiUi((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&buffer_14[0]), (void *) (&buffer_8[0]), (int) (temp_r8));

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_801537CC { char pad[0x18]; };
 
@@ -21,10 +17,10 @@ s32 TObjFogCollision__sub_80153F70(void *self);
 s32 TObjFogCollision__sub_80153F68(void *self);
 void run_task__22TObjFogCollisionPoisonFv(void *self);
 s32 is_split_screen();
-M2C_UNK init_base__22TObjFogCollisionPoisonFPvPvs(void *, void *, u16);
-M2C_UNK TObjFogCollisionSwitch__ct(void *, void *, void *);
+s32 init_base__22TObjFogCollisionPoisonFPvPvs(void *, void *, u16);
+s32 TObjFogCollisionSwitch__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-extern M2C_UNK __vt__22TObjFogCollisionPoison[];
+extern s32 __vt__22TObjFogCollisionPoison[];
 extern s32 lbl_805D2E80;
 extern s32 local_client_id;
 void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2);
@@ -35,7 +31,7 @@ extern char lbl_80440090[];
 extern char lbl_804400A4[];
 extern char lbl_804400B8[];
 void TObjFogCollisionSwitch__vt12(O_801538D4 *arg0);
-M2C_UNK record_fog_collision_hit(s32, s32, u8);
+s32 record_fog_collision_hit(s32, s32, u8);
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0);
 s32 check_collision__16TObjFogCollisionFPvUs(void *, u16);
 s32 TObjFogCollision__sub_80153F68(void *self);
@@ -73,7 +69,7 @@ void run_task__22TObjFogCollisionPoisonFv(void *self) {
 void TObjFogCollisionPoison__vt11(void *arg0) {
     f32 var_f2;
 
-    M2C_FIELD(arg0, s32 *, 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(M2C_FIELD(arg0, f32 *, 0x6C));
+    *(s32 *)((s8 *)arg0 + 0x98) = (s32) get_random_float__21TObjEneMe3ShinowaRealFv(*(f32 *)((s8 *)arg0 + 0x6C));
     switch ((s32) game_difficulty_selection) {
     default:
     case 0:
@@ -89,14 +85,14 @@ void TObjFogCollisionPoison__vt11(void *arg0) {
         var_f2 = lbl_805DB25C;
         break;
     }
-    M2C_FIELD(arg0, s32 *, 0x98) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x98) * var_f2);
+    *(s32 *)((s8 *)arg0 + 0x98) = (s32) ((f32) *(s32 *)((s8 *)arg0 + 0x98) * var_f2);
 }
 
-extern M2C_UNK __vt__22TObjFogCollisionPoison[];
+extern s32 __vt__22TObjFogCollisionPoison[];
 
 void *__dt__22TObjFogCollisionPoisonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionPoison;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionPoison;
         __dt__22TObjFogCollisionSwitchFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -111,8 +107,8 @@ void *TObjFogCollisionPoison__ct(void *arg0, void *arg1, void *arg2) {
     u16 i;
     void *o;
     TObjFogCollisionSwitch__ct(arg0, arg1, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionPoison;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2E80;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionPoison;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2E80;
     ((VObj_801537CC *)arg0)->m11();
     if (is_split_screen() != 0) {
         for (i = 0; i != 4; i++) {
@@ -153,10 +149,10 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
     u16 i;
     if (TObjFogCollision__sub_80153F70(arg0) == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         st = TObjFogCollisionSwitch__sub_80153A0C((u8 *)arg0);
-        if (st == is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0x8C))) {
+        if (st == is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0x8C))) {
             for (i = 0; i != 4; i++) {
                 if (check_collision__16TObjFogCollisionFPvUs(arg0, i) != 0) {
-                    record_fog_collision_hit(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);
+                    record_fog_collision_hit(i, *(s32 *)((s8 *)arg0 + 0x84), *(s32 *)((s8 *)arg0 + 0x88) == 0);
                 }
             }
         }
@@ -164,7 +160,7 @@ void run_task__22TObjFogCollisionSwitchFv(void *arg0) {
 }
 
 s32 TObjFogCollisionSwitch__sub_80153A0C(u8 *arg0) {
-    return M2C_FIELD(arg0, f32 *, 0x70) >= lbl_805DB250;
+    return *(f32 *)((s8 *)arg0 + 0x70) >= lbl_805DB250;
 }
 
 }

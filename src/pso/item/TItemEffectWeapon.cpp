@@ -1,8 +1,4 @@
 #include "pso/item/TItemEffectWeapon.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u32 get_mode__11TCameraCtrlFPv(void*);
@@ -36,11 +32,11 @@ void  __ct__15TItemHeapObjectFP7TObject(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void* memcpy(void* destination, const void* source, size_t size);
 
-extern M2C_UNK lbl_804F28E0[];
+extern s32 lbl_804F28E0[];
 
 void *TItemEffectWeapon__sub_803633B4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F28E0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F28E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -124,8 +120,8 @@ extern void *__vt__17TItemEffectWeapon[];
 
 void *__dt__17TItemEffectWeaponFv(void *self, s32 flag) {
     if (self) {
-        M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
-        TItemEffectWeapon::release_trail_buffer((void*)M2C_FIELD(self, s32 *, 0x1C));
+        *(void **)((s8 *)self + 0x18) = __vt__17TItemEffectWeapon;
+        TItemEffectWeapon::release_trail_buffer((void*)*(s32 *)((s8 *)self + 0x1C));
         __dt__15TItemHeapObjectFv(self, 0);
         if ((s16)flag > 0) {
             __dl__15TItemHeapObjectFPv(self);
@@ -139,12 +135,12 @@ extern s32 TItemEffectWeapon__class_name;
 
 void *__ct__17TItemEffectWeaponFv(void *self, s32 arg1, s32 param) {
     __ct__15TItemHeapObjectFP7TObject(self);
-    M2C_FIELD(self, void **, 0x18) = __vt__17TItemEffectWeapon;
-    M2C_FIELD(self, s32 *, 0) = TItemEffectWeapon__class_name;
-    M2C_FIELD(self, s32 *, 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
-    M2C_FIELD(self, s32 *, 0x24) = param;
-    M2C_FIELD(self, s32 *, 0x20) = 0;
-    M2C_FIELD(self, s32 *, 0x28) = 0;
+    *(void **)((s8 *)self + 0x18) = __vt__17TItemEffectWeapon;
+    *(s32 *)((s8 *)self + 0) = TItemEffectWeapon__class_name;
+    *(s32 *)((s8 *)self + 0x1C) = (s32)TItemEffectWeapon::allocate_trail_buffer();
+    *(s32 *)((s8 *)self + 0x24) = param;
+    *(s32 *)((s8 *)self + 0x20) = 0;
+    *(s32 *)((s8 *)self + 0x28) = 0;
     return self;
 }
 

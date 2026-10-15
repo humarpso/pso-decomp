@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8021B2E8 { char pad[0x18]; };
 struct VObj_8021B2E8 : Base_8021B2E8 {
     virtual void m0();
@@ -42,12 +39,12 @@ void enter_quest_list__26TShopEquipmentGearSequenceFPv(void *arg0);
 void handle_confirm__26TShopEquipmentGearSequenceFPv(void *arg0);
 void open_gear_shop__26TShopEquipmentGearSequenceFPv(struct VObj_8021B288 *arg0);
 void try_close__26TShopEquipmentGearSequenceFPv(void *arg0);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, s32);
-M2C_UNK close_if_single_screen__13TShopSequenceFv(void *);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 close_if_single_screen__13TShopSequenceFv(void *);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-M2C_UNK close_window__13TShopSequenceFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 close_window__13TShopSequenceFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 lbl_805D6218;
 extern s32 lbl_805D621C;

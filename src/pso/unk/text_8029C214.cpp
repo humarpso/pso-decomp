@@ -1,5 +1,5 @@
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -99,20 +99,20 @@ void *lbl_804DC448[16] = {
 #define rock_jungle_collision_body_parts (*(Inner_8029C214 *)rock_jungle_collision_body_parts)
 u8 *TORockJungleL01__ct(u8 *arg0, s32 arg1) {
     TORockCave__ct(arg0);
-    M2C_FIELD(arg0, s32 **, 0x18) = (s32 *)lbl_804DC448;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_804DC448;
     init_and_activate__10TObjPlayerFPv(arg0 + 0xB4);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3D44;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3D44;
     ((VObj_8029C214 *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(4);
-    M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource(4);
-    M2C_FIELD(arg0, f32 *, 0xB0) = lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
+    *(u8 **)((s8 *)arg0 + 0x34) = get_model__15TORockJungleS01Fi(4);
+    *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource(4);
+    *(f32 *)((s8 *)arg0 + 0xB0) = lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
     ((s32 (*)(void *, void *, int, f32))init_collision_body_parts)(arg0, &rock_jungle_collision_body_parts.v, 1, lbl_805DDD1C);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
     {
         Copy_8029C214 c = *(Copy_8029C214 *)arg1;
         VecCopy__FP3VecPC3Vec((u8 *)&c + 0x24, rock_jungle_vec3_table);
-        M2C_FIELD(arg0, s32 *, 0xD4) = create__10TObjMapCsnFi(&c);
+        *(s32 *)((s8 *)arg0 + 0xD4) = create__10TObjMapCsnFi(&c);
     }
     activate_and_dispatch__10TObjPlayerFPv(arg0 + 0xB4);
     return arg0;

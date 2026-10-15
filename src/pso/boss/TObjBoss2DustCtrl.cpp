@@ -1,9 +1,5 @@
 #include "pso/TObjBoss2DustCtrl.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -54,40 +50,40 @@ void *TObjBoss2DustCtrl__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void TObjBoss2DustCtrl__sub_8003AD50(void);
 void create__17TObjBoss2DustCtrlFv(void);
-void* __nw__7TObjectFUl(M2C_UNK);
-extern M2C_UNK __vt__17TObjBoss2DustCtrl[];
+void* __nw__7TObjectFUl(s32);
+extern s32 __vt__17TObjBoss2DustCtrl[];
 extern void *lbl_805D26F8;
 extern s32 tl_05;
 struct RecoveredGlobal_8003AB00_lbl_804FEA80 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3E4];
 };
 
 extern "C" {
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK post_translate_matrix(int);
-M2C_UNK draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
-void boss2_dust_draw_at(M2C_UNK *arg0, s32 arg1);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 post_translate_matrix(int);
+s32 draw_trail_strip__10TObjPlayerFPvPvi(int, int, int);
+void boss2_dust_draw_at(s32 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-void boss2_dust_draw_at(M2C_UNK *arg0, s32 arg1) {
-    M2C_UNK *var_r30;
-    M2C_UNK *var_r3;
+void boss2_dust_draw_at(s32 *arg0, s32 arg1) {
+    s32 *var_r30;
+    s32 *var_r3;
     s32 var_r31;
     s32 var_r4;
     s32 var_r5;
-    var_r30 = (M2C_UNK *)(arg0);
+    var_r30 = (s32 *)(arg0);
     var_r31 = arg1;
     end_effect_render__13TParticleCtrlFv();
     push_matrix();
-    var_r3 = (M2C_UNK *)(var_r30);
+    var_r3 = (s32 *)(var_r30);
     post_translate_matrix((int) (var_r3));
     var_r5 = var_r31 * 0x60;
-    var_r3 = (M2C_UNK *)((M2C_UNK *)boss2_dust_output_table);
+    var_r3 = (s32 *)((s32 *)boss2_dust_output_table);
     var_r4 = 6;
-    var_r3 = (M2C_UNK *)((u8 *)(M2C_UNK *)boss2_dust_output_table + var_r5);
+    var_r3 = (s32 *)((u8 *)(s32 *)boss2_dust_output_table + var_r5);
     var_r5 = 0;
     draw_trail_strip__10TObjPlayerFPvPvi((int) (var_r3), (int) (6), (int) (0));
     pop_matrix();
@@ -150,15 +146,15 @@ extern "C" {
 
 void *TObjBoss2DustCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjBoss2DustCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D26F8;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjBoss2DustCtrl;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D26F8;
     return arg0;
 }
 
 void create__17TObjBoss2DustCtrlFv(void) {
     void* obj = __nw__7TObjectFUl(0x1C);
     if (obj != 0) {
-        ((M2C_UNK (*)(void *, s32))TObjBoss2DustCtrl__ct)(obj, tl_05);
+        ((s32 (*)(void *, s32))TObjBoss2DustCtrl__ct)(obj, tl_05);
     }
 }
 

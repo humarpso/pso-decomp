@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8020ED44_lbl_80513D58 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8020ED44_lbl_80513D68 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -31,9 +28,9 @@ void generate_armor_shop_stock(s32 arg0) {
     s32 temp_r7;
     if ((u32) lbl_805D6158 != 0U) {
         temp_r7 = arg0 * 4;
-        if ((s32) M2C_FIELD(&shop_armor_stock_generated_flags.value, M2C_UNK *, temp_r7) == 0) {
-            M2C_FIELD(&shop_armor_stock_generated_flags.value, M2C_UNK *, temp_r7) = 1;
-            M2C_FIELD(&lbl_80513D68.value, M2C_UNK *, temp_r7) = 0;
+        if ((s32) *(s32 *)((s8 *)(&shop_armor_stock_generated_flags.value) + temp_r7) == 0) {
+            *(s32 *)((s8 *)(&shop_armor_stock_generated_flags.value) + temp_r7) = 1;
+            *(s32 *)((s8 *)(&lbl_80513D68.value) + temp_r7) = 0;
             generate_shop_armor_pool(arg0);
             generate_shop_shield_pool(arg0);
             generate_shop_unit_pool(arg0);

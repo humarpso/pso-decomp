@@ -1,13 +1,9 @@
 #include "pso/TObjVoloptShutter.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8004A86C___vt__17TObjVoloptShutter {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -38,14 +34,14 @@ void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self);
 extern "C" {
 
 void render__17TObjVoloptShutterFv(void *arg0);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK draw_chunk_model(s32);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
+s32 rotate_matrix_y(s32, s32);
+s32 translate_matrix(s32, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 draw_chunk_model(s32);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 toggle_particle_effect__10TObjPlayerFv();
 
 extern s32 lbl_805D4D48;
 extern s32 lbl_805D4D4C;
@@ -57,22 +53,22 @@ extern const f32 TObjVoloptShutter__data_805D88F4;
 #pragma opt_common_subs off
 void update_shutter_slide__17TObjVoloptShutterFPv(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     if (temp_r0 != 1) {
         if (temp_r0 < 1) {
             if (temp_r0 >= 0) {
-                M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - lbl_805D88F0);
-                if (M2C_FIELD(arg0, f32 *, 0x2C) >= (*(const f32 *)&TObjVoloptShutter__data_805D88F4)) {
-                    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (*(const f32 *)&TObjVoloptShutter__data_805D88F4);
-                    M2C_FIELD(arg0, s32 *, 0x24) = 1;
+                *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - lbl_805D88F0);
+                if (*(f32 *)((s8 *)arg0 + 0x2C) >= (*(const f32 *)&TObjVoloptShutter__data_805D88F4)) {
+                    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(const f32 *)&TObjVoloptShutter__data_805D88F4);
+                    *(s32 *)((s8 *)arg0 + 0x24) = 1;
                 }
             }
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) - lbl_805D88F8);
-        if (M2C_FIELD(arg0, f32 *, 0x28) >= (*(const f32 *)&TObjVoloptShutter__data_805D88F4)) {
-            M2C_FIELD(arg0, f32 *, 0x28) = (f32) (*(const f32 *)&TObjVoloptShutter__data_805D88F4);
-            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) - lbl_805D88F8);
+        if (*(f32 *)((s8 *)arg0 + 0x28) >= (*(const f32 *)&TObjVoloptShutter__data_805D88F4)) {
+            *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(const f32 *)&TObjVoloptShutter__data_805D88F4);
+            *(s32 *)((s8 *)arg0 + 0x20) = 0;
         }
     }
 }
@@ -83,22 +79,22 @@ void update_shutter_slide__17TObjVoloptShutterFPv(u8 *arg0) {
 #pragma opt_propagation off
 void update_shutter_state__17TObjVoloptShutterFPv(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     if (temp_r0 != 1) {
         if (temp_r0 < 1) {
             if (temp_r0 >= 0) {
-                M2C_FIELD(arg0, f32 *, 0x28) = (f32) (M2C_FIELD(arg0, f32 *, 0x28) + lbl_805D88F8);
-                if (M2C_FIELD(arg0, f32 *, 0x28) <= lbl_805D88FC) {
-                    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D88FC;
-                    M2C_FIELD(arg0, s32 *, 0x24) = 1;
+                *(f32 *)((s8 *)arg0 + 0x28) = (f32) (*(f32 *)((s8 *)arg0 + 0x28) + lbl_805D88F8);
+                if (*(f32 *)((s8 *)arg0 + 0x28) <= lbl_805D88FC) {
+                    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D88FC;
+                    *(s32 *)((s8 *)arg0 + 0x24) = 1;
                 }
             }
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) + lbl_805D88F0);
-        if (M2C_FIELD(arg0, f32 *, 0x2C) <= lbl_805D8900) {
-            M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805D8900;
-            M2C_FIELD(arg0, s32 *, 0x20) = 0;
+        *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) + lbl_805D88F0);
+        if (*(f32 *)((s8 *)arg0 + 0x2C) <= lbl_805D8900) {
+            *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D8900;
+            *(s32 *)((s8 *)arg0 + 0x20) = 0;
         }
     }
 }
@@ -109,11 +105,11 @@ void render__17TObjVoloptShutterFv(void *arg0) {
     set_global_param__8TObjFishFi(lbl_805D4D50);
     push_matrix();
     model_render_flags &= 0xFFFFFBFF;
-    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x30));
+    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x30));
     push_matrix();
-    translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x2C));
+    translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)arg0 + 0x2C));
     draw_chunk_model(lbl_805D4D4C);
-    translate_matrix(0, TObjVoloptShutter__data_805D88F4, M2C_FIELD(arg0, f32 *, 0x28), TObjVoloptShutter__data_805D88F4);
+    translate_matrix(0, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)arg0 + 0x28), TObjVoloptShutter__data_805D88F4);
     draw_chunk_model(lbl_805D4D48);
     pop_matrix();
     pop_matrix();
@@ -137,12 +133,12 @@ void run_task__17TObjVoloptShutterFv(Obj_8004A7CC *self) {
 TObjVoloptShutter::~TObjVoloptShutter() {}
 u8 *__ct__17TObjVoloptShutterFv(u8 *arg0, s32 arg1) {
     __ct__7TObjectFP7TObject(arg0, tl_04);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TObjVoloptShutter.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2768;
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (lbl_805D8904 * (f32) (-0x5A - (arg1 * 0x3C)));
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) TObjVoloptShutter__data_805D88F4;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) TObjVoloptShutter__data_805D88F4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TObjVoloptShutter.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2768;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (lbl_805D8904 * (f32) (-0x5A - (arg1 * 0x3C)));
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) TObjVoloptShutter__data_805D88F4;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) TObjVoloptShutter__data_805D88F4;
     return arg0;
 }
 

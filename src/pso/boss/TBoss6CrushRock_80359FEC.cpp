@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 queue_destruction__7TObjectFv(void *);
 int is_falz_alive__15TBoss6CrushRockFv(void*);
@@ -36,16 +32,16 @@ void run_task__15TBoss6CrushRockFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) + M2C_FIELD(arg0, s32 *, 0x48));
-    M2C_FIELD(arg0, s32 *, 0x40) = (s32) (M2C_FIELD(arg0, s32 *, 0x40) + M2C_FIELD(arg0, s32 *, 0x4C));
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) (M2C_FIELD(arg0, s32 *, 0x44) + M2C_FIELD(arg0, s32 *, 0x50));
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) (M2C_FIELD(arg0, f32 *, 0x34) + lbl_805E00B8);
+    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) + *(s32 *)((s8 *)arg0 + 0x48));
+    *(s32 *)((s8 *)arg0 + 0x40) = (s32) (*(s32 *)((s8 *)arg0 + 0x40) + *(s32 *)((s8 *)arg0 + 0x4C));
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32) (*(s32 *)((s8 *)arg0 + 0x44) + *(s32 *)((s8 *)arg0 + 0x50));
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) (*(f32 *)((s8 *)arg0 + 0x34) + lbl_805E00B8);
     vec3_add_to((void *) (arg0 + 0x24), (void *) (arg0 + 0x30));
-    if (M2C_FIELD(arg0, f32 *, 0x28) < lbl_805E00BC) {
-        M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805E00BC;
-        M2C_FIELD(arg0, f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x30) * lbl_805E00C0);
-        M2C_FIELD(arg0, f32 *, 0x34) = (f32) (M2C_FIELD(arg0, f32 *, 0x34) * lbl_805E00B8);
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) (M2C_FIELD(arg0, f32 *, 0x38) * lbl_805E00C0);
+    if (*(f32 *)((s8 *)arg0 + 0x28) < lbl_805E00BC) {
+        *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805E00BC;
+        *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) * lbl_805E00C0);
+        *(f32 *)((s8 *)arg0 + 0x34) = (f32) (*(f32 *)((s8 *)arg0 + 0x34) * lbl_805E00B8);
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) (*(f32 *)((s8 *)arg0 + 0x38) * lbl_805E00C0);
         if (vector_length((void *) (arg0 + 0x30)) < lbl_805E00C4) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }

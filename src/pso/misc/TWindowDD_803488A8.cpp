@@ -1,14 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Src_80348A9C { f32 x; f32 y; };
 
 struct Dst_80348A9C { u8 pad[0xc]; f32 x; f32 y; u8 pad2[4]; };
-
-typedef s32 M2C_UNK;
 
 struct A_803489B8 { u8 pad0[4]; f32 f4; u8 pad8[4]; f32 fC; u8 pad10[0x1C]; f32 f2C; };
 
@@ -46,11 +40,11 @@ void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2);
 void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 s32 get_draw_count__9TWindowDDFPv(void **arg0);
 s32 get_entry__9TWindowDDFi(s32 arg0);
-M2C_UNK reset_entries__9TWindowDDFPvf(Buf *, M2C_UNK);
+s32 reset_entries__9TWindowDDFPvf(Buf *, s32);
 s32 can_append_chars__9TWindowDDFiPv(s32, s32 *);
-M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, M2C_UNK, s32, M2C_UNK);
+s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(Buf *, s32, s32, s32);
 s32 strlen();
-M2C_UNK strncpy(s32, s32, s32);
+s32 strncpy(s32, s32, s32);
 
 void append_string__9TWindowDDFiiPv(s32 arg0, s32 arg1, s32 *arg2) {
     s32 temp_r31;
@@ -71,7 +65,7 @@ void draw__9TWindowDDFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     s32 temp_r31;
 
     temp_r31 = get_draw_count__9TWindowDDFPv((void **)(lbl_805D63F0));
-    TWindowDD__sub_80348AD4(M2C_FIELD(arg0, f32 *, 0x54), farg0);
+    TWindowDD__sub_80348AD4(*(f32 *)((s8 *)arg0 + 0x54), farg0);
     reset_entries__9TWindowDDFPvf(&sp8, -1);
     copy_point_table__9TWindowDDFPvi((Dst_80348A9C *)(&sp8), (s32)(arg2));
     TWindowDD__sub_80348A2C((void *)(arg1), (void *)(&sp8));
@@ -161,7 +155,7 @@ f32 TWindowDD__sub_80348AD4(f32 farg0, f32 farg1) {
 #pragma pop
 
 s32 get_draw_count__9TWindowDDFPv(void **arg0) {
-    return *M2C_FIELD(M2C_FIELD(*arg0, void **, 0x20), s32 **, 0xC);
+    return **(s32 **)((s8 *)(*(void **)((s8 *)(*arg0) + 0x20)) + 0xC);
 }
 
 extern s32 TWindowDD__ws_data_table;
@@ -177,23 +171,23 @@ void calc_inner_rect__9TWindowDDFPvPv(u8 *arg0, u8 *arg1) {
     f32 y;
     f32 w;
     f32 h;
-    x = M2C_FIELD(arg0, f32 *, 0x40);
-    y = M2C_FIELD(arg0, f32 *, 0x44);
+    x = *(f32 *)((s8 *)arg0 + 0x40);
+    y = *(f32 *)((s8 *)arg0 + 0x44);
     ky = lbl_805DFB5C;
     x0 = x + TWindowDD__data_805DFB58;
-    w = M2C_FIELD(arg0, f32 *, 0x48);
-    h = M2C_FIELD(arg0, f32 *, 0x4C);
+    w = *(f32 *)((s8 *)arg0 + 0x48);
+    h = *(f32 *)((s8 *)arg0 + 0x4C);
     y0 = y + ky;
-    M2C_FIELD(arg1, f32 *, 0x10) = x0;
-    M2C_FIELD(arg1, f32 *, 0x14) = y0;
-    M2C_FIELD(arg1, f32 *, 0x18) = w - lbl_805DFCD4 * TWindowDD__data_805DFB58;
-    M2C_FIELD(arg1, f32 *, 0x1C) = h - lbl_805DFCD4 * ky;
-    M2C_FIELD(arg1, f32 *, 0x3C) = x0;
-    M2C_FIELD(arg1, f32 *, 0x40) = y0;
-    M2C_FIELD(arg1, f32 *, 0x44) = (x + w) - TWindowDD__data_805DFB58;
-    M2C_FIELD(arg1, f32 *, 0x48) = (y + h) - ky;
-    M2C_FIELD(arg1, f32 *, 0x20) = TWindowDD__data_805DFCD8 * w + x;
-    M2C_FIELD(arg1, f32 *, 0x24) = TWindowDD__data_805DFCD8 * h + y;
+    *(f32 *)((s8 *)arg1 + 0x10) = x0;
+    *(f32 *)((s8 *)arg1 + 0x14) = y0;
+    *(f32 *)((s8 *)arg1 + 0x18) = w - lbl_805DFCD4 * TWindowDD__data_805DFB58;
+    *(f32 *)((s8 *)arg1 + 0x1C) = h - lbl_805DFCD4 * ky;
+    *(f32 *)((s8 *)arg1 + 0x3C) = x0;
+    *(f32 *)((s8 *)arg1 + 0x40) = y0;
+    *(f32 *)((s8 *)arg1 + 0x44) = (x + w) - TWindowDD__data_805DFB58;
+    *(f32 *)((s8 *)arg1 + 0x48) = (y + h) - ky;
+    *(f32 *)((s8 *)arg1 + 0x20) = TWindowDD__data_805DFCD8 * w + x;
+    *(f32 *)((s8 *)arg1 + 0x24) = TWindowDD__data_805DFCD8 * h + y;
 }
 #pragma pop
 

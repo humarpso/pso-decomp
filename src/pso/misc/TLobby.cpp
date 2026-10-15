@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -13,11 +9,11 @@ extern "C" {
 void dispatch_by_index__6TLobbyFi(s32 arg0);
 s32 get_option_state__6TLobbyFv(void);
 int render__6TLobbyFv(void* p);
-M2C_UNK clear_serial_buffer__22TAdEnterSerialAccessGCFv();
-M2C_UNK clear_state();
+s32 clear_serial_buffer__22TAdEnterSerialAccessGCFv();
+s32 clear_state();
 int get_instance__15TAdPlayerLoadGCFv(void*);
 s32 get_option_field_C__17TWindowOptionCtrlFv();
-M2C_UNK store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32, s32, s32);
+s32 store_serial_access_key__22TAdEnterSerialAccessGCFiii(s32, s32, s32);
 
 void *__nw__7TObjectFUl(int);
 void *TAdScrollWinGC__ct(void *, s32, s32, void *);
@@ -81,20 +77,20 @@ void copy_player_records__6TLobbyFPvi(In_80134B58 *arg0, s32 arg1) {
     }
 }
 
-struct M2CCopy_100 { u8 bytes[0x100]; };
+struct ByteBlock_100 { u8 bytes[0x100]; };
 void copy_player_record__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    *(M2CCopy_100 *)((s32) arg0 + 4) = *(const M2CCopy_100 *)((s32) arg1 + 4);
-    M2C_FIELD(arg0, u16 *, 0x104) = (u16) M2C_FIELD(arg1, u16 *, 0x104);
-    M2C_FIELD(arg0, u16 *, 0x106) = (u16) M2C_FIELD(arg1, u16 *, 0x106);
-    M2C_FIELD(arg0, u16 *, 0x108) = (u16) M2C_FIELD(arg1, u16 *, 0x108);
-    M2C_FIELD(arg0, u16 *, 0x10A) = (u16) M2C_FIELD(arg1, u16 *, 0x10A);
-    M2C_FIELD(arg0, u16 *, 0x10C) = (u16) M2C_FIELD(arg1, u16 *, 0x10C);
-    M2C_FIELD(arg0, u16 *, 0x10E) = (u16) M2C_FIELD(arg1, u16 *, 0x10E);
-    M2C_FIELD(arg0, u16 *, 0x110) = (u16) M2C_FIELD(arg1, u16 *, 0x110);
-    M2C_FIELD(arg0, u16 *, 0x112) = (u16) M2C_FIELD(arg1, u16 *, 0x112);
-    M2C_FIELD(arg0, s32 *, 0x114) = (s32) M2C_FIELD(arg1, s32 *, 0x114);
-    M2C_FIELD(arg0, s32 *, 0x118) = (s32) M2C_FIELD(arg1, s32 *, 0x118);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(ByteBlock_100 *)((s32) arg0 + 4) = *(const ByteBlock_100 *)((s32) arg1 + 4);
+    *(u16 *)((s8 *)arg0 + 0x104) = (u16) *(u16 *)((s8 *)arg1 + 0x104);
+    *(u16 *)((s8 *)arg0 + 0x106) = (u16) *(u16 *)((s8 *)arg1 + 0x106);
+    *(u16 *)((s8 *)arg0 + 0x108) = (u16) *(u16 *)((s8 *)arg1 + 0x108);
+    *(u16 *)((s8 *)arg0 + 0x10A) = (u16) *(u16 *)((s8 *)arg1 + 0x10A);
+    *(u16 *)((s8 *)arg0 + 0x10C) = (u16) *(u16 *)((s8 *)arg1 + 0x10C);
+    *(u16 *)((s8 *)arg0 + 0x10E) = (u16) *(u16 *)((s8 *)arg1 + 0x10E);
+    *(u16 *)((s8 *)arg0 + 0x110) = (u16) *(u16 *)((s8 *)arg1 + 0x110);
+    *(u16 *)((s8 *)arg0 + 0x112) = (u16) *(u16 *)((s8 *)arg1 + 0x112);
+    *(s32 *)((s8 *)arg0 + 0x114) = (s32) *(s32 *)((s8 *)arg1 + 0x114);
+    *(s32 *)((s8 *)arg0 + 0x118) = (s32) *(s32 *)((s8 *)arg1 + 0x118);
 }
 
 struct Ent_80134C44 { u8 pad[4]; u32 key; u32 val; };

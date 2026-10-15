@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -10,11 +8,11 @@ void TPlyFollowParticleCtrl__ct(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__22TPlyFollowParticleCtrlFv(void *, int);
 
-extern M2C_UNK __vt__23TPlyPtclObjectRightHand[];
+extern s32 __vt__23TPlyPtclObjectRightHand[];
 
 void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TPlyPtclObjectRightHand;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TPlyPtclObjectRightHand;
         __dt__22TPlyFollowParticleCtrlFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -23,13 +21,13 @@ void *__dt__23TPlyPtclObjectRightHandFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__23TPlyPtclObjectRightHand[];
+extern s32 __vt__23TPlyPtclObjectRightHand[];
 extern void *TPlyPtclObjectRightHand__class_name;
 
 void *TPlyPtclObjectRightHand__ct(void *arg0) {
     TPlyFollowParticleCtrl__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TPlyPtclObjectRightHand;
-    M2C_FIELD(arg0, void **, 0x0) = TPlyPtclObjectRightHand__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TPlyPtclObjectRightHand;
+    *(void **)((s8 *)arg0 + 0x0) = TPlyPtclObjectRightHand__class_name;
     return arg0;
 }
 

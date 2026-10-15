@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct VBase_18_5c1903 { char pad[0x18]; };
 
 struct VObj_18_5c1903 : VBase_18_5c1903 {
@@ -29,7 +24,7 @@ struct VObj_18_5c1903 : VBase_18_5c1903 {
     virtual void m18();
     virtual void m19();
     virtual void m20();
-    virtual M2C_UNK m21(s32, s32 *, void *, M2C_UNK, M2C_UNK);
+    virtual s32 m21(s32, s32 *, void *, s32, s32);
     u8 pad1c[0x30 - 0x1C];
     u32 f30;
     u8 pad34[0xA4 - 0x34];
@@ -92,8 +87,8 @@ struct Crater_8002C288 : VBase_8002C288 {
 struct V3_8002C288 { f32 x, y, z; };
 
 extern "C" {
-M2C_UNK TBoss1Dragon__sub_8002AB6C(void *);
-void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3);
+s32 TBoss1Dragon__sub_8002AB6C(void *);
+void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 isV2Mode__12TBoss1DragonFv();
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
@@ -102,7 +97,7 @@ void construct_collision_body(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
 s32 rand();
 extern const V3_8002C544 lbl_80435560;
-extern M2C_UNK __vt__15TObjBoss1Crater[];
+extern s32 __vt__15TObjBoss1Crater[];
 extern Crater_8002C544 *TObjBoss1Crater__instance_list[];
 extern s32 TObjBoss1Crater__name;
 extern s32 TObjBoss1Crater__instance_count;
@@ -123,15 +118,15 @@ void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1);
 s32 is_count_below_limit__15TObjBoss1CraterFv(void);
 void render__15TObjBoss1CraterFv(u8 *arg0);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_chunk_object(void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 post_translate_matrix(void *);
+s32 draw_chunk_object(void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFi(void *);
 
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
@@ -141,14 +136,14 @@ void render__15TObjBoss1CraterFv(u8 *arg0) {
     push_matrix();
     set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     model_render_flags |= 0x01000000;
-    draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 8)));
+    draw_chunk_object((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 8)));
     model_render_flags &= 0xFEFFFFFF;
     pop_matrix();
 }
 
-extern M2C_UNK __vt__15TObjBoss1Crater[];
+extern s32 __vt__15TObjBoss1Crater[];
 
 void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
     s32 n;
@@ -187,7 +182,7 @@ void run_task__15TObjBoss1CraterFv(Crater_8002C288 *self) {
     }
 }
 
-void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg2, s32 *arg3) {
+void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, s32 arg2, s32 *arg3) {
     s32 off;
     s32 i;
     Ent_8002C3FC *e;
@@ -208,9 +203,9 @@ void TObjBoss1Crater__vt19(Src_8002C3FC *arg0, VObj_18_5c1903 *self, M2C_UNK arg
 
 void *__dt__15TObjBoss1CraterFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss1Crater;
-        if (M2C_FIELD(arg0, void **, 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0xB4), 1); M2C_FIELD(arg0, M2C_UNK *, 0xB4) = 0; }
-        if (M2C_FIELD(arg0, void **, 0xB0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xB0)); M2C_FIELD(arg0, M2C_UNK *, 0xB0) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss1Crater;
+        if (*(void **)((s8 *)arg0 + 0xB4) != NULL) { delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB4), 1); *(s32 *)((s8 *)arg0 + 0xB4) = 0; }
+        if (*(void **)((s8 *)arg0 + 0xB0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xB0)); *(s32 *)((s8 *)arg0 + 0xB0) = 0; }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

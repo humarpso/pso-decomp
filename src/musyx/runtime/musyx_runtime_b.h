@@ -5,23 +5,19 @@
 #include "types.h"
 #include "pso/audio/SoundMixVoice.h"
 #include "pso/audio/SoundReverb.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803C0B08_lbl_80570AC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x9BC];
 };
 
 struct RecoveredGlobal_803C0AD8_lbl_80570AC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x9BC];
 };
 
 struct RecoveredGlobal_803BD5C4_lbl_805663D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6DC];
 };
 
@@ -250,7 +246,7 @@ struct Slot_803BD19C {
     u8 pad_b4[0xe4 - 0xb4 - 0x0]; u8 fe4; u8 pad_e5[0xf4 - 0xe5];
 };
 
-typedef M2C_UNK (*RecoveredCallback_d26337a2813d)();
+typedef s32 (*RecoveredCallback_d26337a2813d)();
 
 struct Cb_803BE7D8 { s32 a; void (*fn)(s32); };
 
@@ -424,7 +420,7 @@ void hwSetSRCType(s32 index, u8 entry);
 extern s32 lbl_805D748C;
 void hwSetPolyPhaseFilter(s32 index, u8 entry);
 void hwSetITDMode(s32 i, u8 mode);
-M2C_UNK salDeactivateVoice(void *);
+s32 salDeactivateVoice(void *);
 void hwOff(s32 arg0);
 void hwTransAddr(void);
 void hwFrameDone(void);
@@ -444,27 +440,27 @@ void AIRegisterDMACallback(void (*)(void));
 void salCallback(void);
 void dspInitCallback(void);
 s32 get_offset_58__6TLobbyFi(s32 arg0);
-M2C_UNK get_field_34__6TLobbyFPv(int);
+s32 get_field_34__6TLobbyFPv(int);
 void TLobby__sub_803BFE58(u8 *arg0);
-M2C_UNK get_field30__6TLobbyFPv(int);
+s32 get_field30__6TLobbyFPv(int);
 void dispatch_field4_event__6TLobbyFPv(u8 *arg0);
-M2C_UNK get_field_2c__6TLobbyFPv(int);
+s32 get_field_2c__6TLobbyFPv(int);
 void send_with_offset4_alt__6TLobbyFPv(u8 *arg0);
-M2C_UNK get_field_28__6TLobbyFPv(int);
+s32 get_field_28__6TLobbyFPv(int);
 void notify_client__6TLobbyFPv(u8 *arg0);
-M2C_UNK get_slot__6TLobbyFPv(int);
+s32 get_slot__6TLobbyFPv(int);
 void TLobby__sub_803BFEE8(u8 *arg0);
-M2C_UNK TLobby__sub_803C3ABC(int);
+s32 TLobby__sub_803C3ABC(int);
 void send_packet_by_id__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803C3AC4(int);
+s32 TLobby__sub_803C3AC4(int);
 void notify_field_4_alt__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803C3ACC(int);
+s32 TLobby__sub_803C3ACC(int);
 void send_packet_by_id_2__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803C3B38(int);
+s32 TLobby__sub_803C3B38(int);
 void send_with_offset4__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803C3B44(int);
+s32 TLobby__sub_803C3B44(int);
 void notify_field_4__6TLobbyFPv(u8 *arg0);
-M2C_UNK get_field_a8__6TLobbyFPv(int);
+s32 get_field_a8__6TLobbyFPv(int);
 void TLobby__sub_803BFFC0(u8 *arg0);
 void set_field_44__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_field_40__6TLobbyFPvi(u8 *arg0, s32 arg1);
@@ -472,23 +468,23 @@ void set_field_3c__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void TLobby__sub_803BFFFC(u8 *arg0, s32 arg1, s32 arg2);
 void set_count__6TLobbyFPvi(u8 *arg0, s32 arg1);
 s32 TLobby__sub_803C0010(u8 *arg0);
-M2C_UNK TLobby__sub_803C39CC(int);
+s32 TLobby__sub_803C39CC(int);
 void reset_flag__6TLobbyFPv(u8 *arg0);
 void TLobby__sub_803C0758(u8 *arg0);
-M2C_UNK TLobby__sub_803C1A00(int);
+s32 TLobby__sub_803C1A00(int);
 void set_network_result__6TLobbyFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_803C1A24(int);
+s32 TLobby__sub_803C1A24(int);
 void set_param_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void clear_record__6TLobbyFPv(void *);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
-M2C_UNK memset(void *, int, int);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
+s32 memset(void *, int, int);
 void TLobby__sub_803C07F4(u8 *arg0);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C0AD8(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void TLobby__sub_803C406C(void);
 extern RecoveredGlobal_803C0B08_lbl_80570AC0 lbl_80570AC0;
 void TLobby__sub_803C0B08(void);
@@ -629,10 +625,10 @@ void hwBreak(s32 i);
 extern s32 lbl_805D748C;
 extern s8 lbl_805D74B8;
 void hwSetPitch(s32 i, u16 v);
-M2C_UNK PPCSync();
+s32 PPCSync();
 u32 DSPCheckMailToDSP();
-M2C_UNK DSPSendMailToDSP(void *);
-M2C_UNK salBuildCommandList(void *, int);
+s32 DSPSendMailToDSP(void *);
+s32 salBuildCommandList(void *, int);
 extern u16 lbl_805D7474;
 extern s32 lbl_805D7478;
 extern s32 lbl_805D74F0;
@@ -707,7 +703,7 @@ extern u8 lbl_804F68DC[];
 void hwSetADSR(s32 n, void *arg1, u8 mode);
 s32 OSDisableInterrupts(void);
 s32 OSRestoreInterrupts(s32 level);
-M2C_UNK ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
+s32 ARQPostRequest(Req_803BDAE4 *, s32, s32, s32, u8 *, u32, u32, void *);
 void aramQueueCallback(u32 ptr);
 extern AramQueues_803BDCD0 lbl_8056E158;
 extern Obj_803BDCB8 lbl_8056E3DC;

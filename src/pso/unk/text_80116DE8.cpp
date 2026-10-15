@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18_ddf499 { char pad[0x18]; };
 
 struct VObj_18_ddf499 : VBase_18_ddf499 {
@@ -78,22 +74,22 @@ struct VObj_18_ddf499 : VBase_18_ddf499 {
     virtual void m68();
     virtual void m69();
     virtual void m70();
-    virtual M2C_UNK m71();
+    virtual s32 m71();
 };
 
 extern "C" {
-M2C_UNK obj_getField1c(void *);
+s32 obj_getField1c(void *);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs();
 s16 calc_equip_bonus__10TObjPlayerFUs();
 s32 check_class_equip_permission(void *, int);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK apply_luck_reward__10TObjPlayerFiUc(void *, int);
-M2C_UNK add_dfp_material__10TObjPlayerFiUc(void *, int);
-M2C_UNK add_evp_material__10TObjPlayerFiUc(void *, int);
-M2C_UNK add_mst_and_item__10TObjPlayerFiUc(void *, int);
-M2C_UNK add_stat_and_item__10TObjPlayerFiUc(void *, int);
-M2C_UNK set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
-M2C_UNK apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
+s32 apply_luck_reward__10TObjPlayerFiUc(void *, int);
+s32 add_dfp_material__10TObjPlayerFiUc(void *, int);
+s32 add_evp_material__10TObjPlayerFiUc(void *, int);
+s32 add_mst_and_item__10TObjPlayerFiUc(void *, int);
+s32 add_stat_and_item__10TObjPlayerFiUc(void *, int);
+s32 set_speed_scaled_by_camera__10TObjPlayerFiUc(void *, int);
+s32 apply_speed_with_camera_scale__10TObjPlayerFiUc(void *, int);
 void apply_material_item(u8 *arg0);
 }
 
@@ -153,41 +149,41 @@ void apply_material_item(u8 *arg0) {
     temp_r3 = get_slot_count__14TItemProShieldFPv();
     switch (temp_r3) {
     case 0:
-        add_stat_and_item__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        add_stat_and_item__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         break;
     case 1:
-        if (check_class_equip_permission((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0) {
-            add_mst_and_item__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        if (check_class_equip_permission((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (0xD7)) == 0) {
+            add_mst_and_item__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         }
         break;
     case 2:
-        add_evp_material__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        add_evp_material__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         break;
     case 3:
-        obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+        obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
         if (calc_equip_bonus__10TObjPlayerFUs() < 0xFA) {
-            apply_speed_with_camera_scale__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+            apply_speed_with_camera_scale__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         }
         break;
     case 4:
-        obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
-        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (0xD7)) == 0)) {
-            set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
+        if ((calc_stat_bonus_sum__10TObjPlayerFUs() < 0xFA) && (check_class_equip_permission((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (0xD7)) == 0)) {
+            set_speed_scaled_by_camera__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         }
         break;
     case 5:
-        add_dfp_material__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        add_dfp_material__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         break;
     case 6:
-        apply_luck_reward__10TObjPlayerFiUc((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (2));
+        apply_luck_reward__10TObjPlayerFiUc((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (2));
         break;
     }
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     ((VObj_18_ddf499 *)(temp_r3_2))->m71();
 }
 void *item_object_variant_deleting_dtor_80116F10(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8049FBC0;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049FBC0;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

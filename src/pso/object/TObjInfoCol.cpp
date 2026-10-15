@@ -1,12 +1,8 @@
 #include "types.h"
 #include "pso/object/TObjInfoCol.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80191E28_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -18,17 +14,17 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80191EC0___vt__11TObjInfoCol {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 extern "C" {
 s32 is_inactive__10TObjPlayerFPv(int);
-M2C_UNK open_lobby_warp_menu__6TLobbyFv();
+s32 open_lobby_warp_menu__6TLobbyFv();
 s32 is_idle__6TLobbyFv();
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 check_flag_100__10TObjPlayerFPv();
@@ -36,7 +32,7 @@ u32 get_player_by_client_id(s32);
 extern RecoveredGlobal_80191E28_lbl_8050E208 controller_input_state;
 extern s32 local_client_id;
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-extern M2C_UNK __vt__11TObjInfoCol[];
+extern s32 __vt__11TObjInfoCol[];
 extern s32 TObjInfoCol__class_name;
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
@@ -70,7 +66,7 @@ s32 TObjInfoCol::is_target_in_range(f32 radius_squared) {
 
 extern "C" {
 
-extern M2C_UNK __vt__11TObjInfoCol[];
+extern s32 __vt__11TObjInfoCol[];
 
 typedef char RecoveredGlobal_80191E28_lbl_8050E208_size[sizeof(RecoveredGlobal_80191E28_lbl_8050E208) == 0x1B0 ? 1 : -1];
 }
@@ -93,16 +89,16 @@ extern "C" {
 typedef char RecoveredGlobal_80191EC0___vt__11TObjInfoCol_size[sizeof(RecoveredGlobal_80191EC0___vt__11TObjInfoCol) == 0x38 ? 1 : -1];
 u8 *TObjInfoCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjInfoCol__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80191EC0___vt__11TObjInfoCol *)&__vt__11TObjInfoCol).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjInfoCol__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
+    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
     return arg0;
 }
 
 void *__dt__11TObjInfoColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjInfoCol;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjInfoCol;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

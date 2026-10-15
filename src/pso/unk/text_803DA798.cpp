@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct RecoveredFields_803DA84C_arg0 {
@@ -43,8 +39,6 @@ struct Obj_803DAD84 {
 struct Obj_803DA8E4 { u8 pad[0x24]; s32 refs; };
 
 struct Rec_803DA8E4 { u32 a; u32 b; u32 c; Obj_803DA8E4 *obj; s32 cnt; s32 v14; };
-
-typedef s32 M2C_UNK;
 
 struct B_803DAE1C { u32 a; u32 b; Obj_803DAD84 *c; };
 
@@ -111,7 +105,7 @@ s32 set_global_param__8TObjFishFi(s32 arg0);
 extern u8 *current_render_context;
 
 s32 set_global_param__8TObjFishFi(s32 arg0) {
-    M2C_FIELD(current_render_context, s32 *, 0x20) = arg0;
+    *(s32 *)((s8 *)current_render_context + 0x20) = arg0;
     return 1;
 }
 
@@ -176,7 +170,7 @@ s32 TObjPlayer__sub_803DA84C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 #pragma push
 #pragma peephole off
 s32 TObjPlayer__sub_803DA8B4(u8 *arg0, s32 arg1) {
-    TObjPlayer__sub_803DA808((void *)((int) (M2C_FIELD(arg0, s32 *, 0x1C))), (s32)((void *) (arg1)), (void *)((int) (M2C_FIELD(arg0, s32 *, 0x14))));
+    TObjPlayer__sub_803DA808((void *)((int) (*(s32 *)((s8 *)arg0 + 0x1C))), (s32)((void *) (arg1)), (void *)((int) (*(s32 *)((s8 *)arg0 + 0x14))));
     return 0;
 }
 #pragma pop
@@ -233,22 +227,22 @@ s32 TObjPlayer__sub_803DAA70(u32 arg0, u32 arg1, s32 *arg2) {
     if (temp_r3 < 0) {
         return -1;
     }
-    M2C_FIELD(spC, s32 **, 0xC) = sp8;
+    *(s32 **)((s8 *)spC + 0xC) = sp8;
     if (TObjPlayer__sub_803D9DA8((int) (spC), (void *) (arg2)) != 1) {
-        M2C_FIELD(spC, s32 **, 0xC) = NULL;
+        *(s32 **)((s8 *)spC + 0xC) = NULL;
         return -1;
     }
     if ((u32) arg0 != 0xFFFFFFFFU) {
-        M2C_FIELD(M2C_FIELD(spC, s32 **, 0xC), s32 *, 0) = arg0;
+        *(s32 *)((s8 *)(*(s32 **)((s8 *)spC + 0xC)) + 0) = arg0;
     }
-    if (TObjPlayer__sub_803DA104((int) (M2C_FIELD(arg2, s32 *, 0))) != 0) {
-        M2C_FIELD(spC, s32 *, 8) = arg1;
+    if (TObjPlayer__sub_803DA104((int) (*(s32 *)((s8 *)arg2 + 0))) != 0) {
+        *(s32 *)((s8 *)spC + 8) = arg1;
     } else {
-        M2C_FIELD(spC, s32 *, 8) = -1;
+        *(s32 *)((s8 *)spC + 8) = -1;
     }
     ((void (*)(u8 *)) TObjPlayer__sub_803DAD24)(spC);
-    M2C_FIELD(spC, s32 *, 0x10) = 1;
-    M2C_FIELD(M2C_FIELD(spC, s32 **, 0xC), s32 *, 0x24) = 1;
+    *(s32 *)((s8 *)spC + 0x10) = 1;
+    *(s32 *)((s8 *)(*(s32 **)((s8 *)spC + 0xC)) + 0x24) = 1;
     player_ref_entry_active_count += 1;
     return temp_r3;
 }
@@ -321,12 +315,12 @@ s32 TObjPlayer__sub_803DAD28(u32 arg0) {
     }
     var_r4 = (u8 *)((*(u8 * *)&record_array_ptr));
     var_r4 += temp_r3 * 0x18;
-    var_r3 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0xC));
+    var_r3 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0xC));
     temp_r0 = (long) (var_r3 + 4);
     var_r3 = (u8 *)(current_render_context);
-    M2C_FIELD(var_r3, s32 *, 8) = temp_r0;
+    *(s32 *)((s8 *)var_r3 + 8) = temp_r0;
     var_r3 = (u8 *)(current_render_context);
-    M2C_FIELD(var_r3, s32 *, 0x18) = (s32) M2C_FIELD(var_r4, s32 *, 8);
+    *(s32 *)((s8 *)var_r3 + 0x18) = (s32) *(s32 *)((s8 *)var_r4 + 8);
     var_r3 = (u8 *)((void *)1);
     return 1;
 }
@@ -370,21 +364,21 @@ s32 TObjPlayer__sub_803DAE98(u8 *arg0, s32 _w1) {
     s32 temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r4;
-    if ((void *) M2C_FIELD(arg0, u8 **, 0xC) == NULL) {
+    if ((void *) *(u8 **)((s8 *)arg0 + 0xC) == NULL) {
         return -1;
     }
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x10);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x10);
     if (temp_r3 > 0) {
-        M2C_FIELD(arg0, s32 *, 0x10) = (s32) (temp_r3 - 1);
+        *(s32 *)((s8 *)arg0 + 0x10) = (s32) (temp_r3 - 1);
     }
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));
-    temp_r3_2 = M2C_FIELD(temp_r4, s32 *, 0x24);
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
+    temp_r3_2 = *(s32 *)((s8 *)temp_r4 + 0x24);
     if (temp_r3_2 > 0) {
-        M2C_FIELD(temp_r4, s32 *, 0x24) = (s32) (temp_r3_2 - 1);
-        temp_r3_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));
-        if ((s32) M2C_FIELD(temp_r3_3, s32 *, 0x24) == 0) {
+        *(s32 *)((s8 *)temp_r4 + 0x24) = (s32) (temp_r3_2 - 1);
+        temp_r3_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
+        if ((s32) *(s32 *)((s8 *)temp_r3_3 + 0x24) == 0) {
             fn_803DB20C(temp_r3_3 + 4);
-            M2C_FIELD(current_render_context, s32 *, 0x14) = -1;
+            *(s32 *)((s8 *)current_render_context + 0x14) = -1;
         }
     }
     release_empty_ref_entry__10TObjPlayerFPv(arg0);

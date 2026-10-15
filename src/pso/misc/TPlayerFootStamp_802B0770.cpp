@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK stop_audio_streams__6TLobbyFv();
-M2C_UNK queue_instance_destruction__14TBoss6PlotFalzFv(void *);
-M2C_UNK freeze_all_players__14TBoss6PlotFalzFv();
+s32 stop_audio_streams__6TLobbyFv();
+s32 queue_instance_destruction__14TBoss6PlotFalzFv(void *);
+s32 freeze_all_players__14TBoss6PlotFalzFv();
 s32 get_target_pos_b__14TBoss6PlotFalzFii(void *, void *);
 s32 create__14TBoss6PlotFalzFPvPv(void *, void *);
 void reset_and_recreate__14TBoss6PlotFalzFPv(u8 *arg0);
@@ -29,13 +25,13 @@ int is_ready__14TBoss6PlotFalzFv(void*);
 
 void set_state4_if_ready__14TBoss6PlotFalzFPv(void* p) { if (is_ready__14TBoss6PlotFalzFv(p) != 0) { send_6xA3_action__14TBoss6PlotFalzFPvc(p, (void*)4); } }
 void reset_and_recreate__14TBoss6PlotFalzFPv(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     get_target_pos_b__14TBoss6PlotFalzFii((void *) (arg0), (void *) (&sp8));
     queue_instance_destruction__14TBoss6PlotFalzFv((void *) (arg0));
     stop_audio_streams__6TLobbyFv();
     freeze_all_players__14TBoss6PlotFalzFv();
-    M2C_FIELD(arg0, s32 *, 0x3D0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x3CC) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3D0) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3CC) = 0;
     create__14TBoss6PlotFalzFPvPv((void *) (arg0), (void *) (&sp8));
 }
 

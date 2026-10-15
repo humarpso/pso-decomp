@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Trap_8016F704 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x84 - 0x44]; s32 delay; u8 pad88[0x2A8 - 0x88]; void *target; u8 pad2AC[0x34C - 0x2AC]; f32 range; u8 pad350[0x35C - 0x350]; u16 targetId; };
 
@@ -26,7 +22,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void *__nw__7TObjectFUl(u32);
 extern s32 enable_v2_features;
 s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_split_screen();
 void *TOMineDisp__ct(void *, void *, u16);
 void *__nw__7TObjectFUl(u32);
@@ -118,7 +114,7 @@ struct VObj_18 : VBase_18 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
+    virtual s32 m81();
 };
 
 struct Base_801708A4_8016F6F8 { char pad[0x18]; };
@@ -229,7 +225,7 @@ struct VObj_18_d0f3c0 : VBase_18_d0f3c0 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79();
+    virtual s32 m79();
 };
 
 struct VBase_18_33b813
@@ -258,7 +254,7 @@ struct VObj_18_33b813 : VBase_18_33b813 {
     virtual void m17();
     virtual void m18();
     virtual void m19();
-    virtual M2C_UNK m20(M2C_UNK, f32);
+    virtual s32 m20(s32, f32);
 };
 
 struct Stack_80170AC8
@@ -295,10 +291,10 @@ struct VObj_18_1da615 : VBase_18_1da615 {
     virtual void m17();
     virtual void m18();
     virtual void m19();
-    virtual M2C_UNK m20(M2C_UNK, f32);
+    virtual s32 m20(s32, f32);
     virtual f32 m21(void *, void *, s32, s32, s32);
     virtual void m22();
-    virtual M2C_UNK m23(void *, f32);
+    virtual s32 m23(void *, f32);
 };
 
 struct Pair_80170DD8 { s32 a; s32 b; };
@@ -316,30 +312,30 @@ s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK apply_object_set_data();
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 apply_object_set_data();
 void init_object_set_pos__10TOMineTrapFPv(u8 *arg0);
 void TOMineTrap__sub_80170570(void);
 int get_localized_text_entry(void*, void*);
 void init_trap__10TOMineTrapFv(void);
 s32 get_main_phase();
 void update_state__10TOMineTrapFPv(void *arg0);
-M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s8 mine_trap_effect_table[];
 void spawn_effect__10TOMineTrapFi(s32 arg0);
-M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern s8 mine_trap_keymachine_table[];
 void attach_to_keymachine__10TOMineTrapFi(s32 arg0);
-u32 spawn_particle_effect(s32, M2C_UNK);
-M2C_UNK set_position_xy__10TObjPlayerFPvff(f32, f32);
+u32 spawn_particle_effect(s32, s32);
+s32 set_position_xy__10TObjPlayerFPvff(f32, f32);
 extern f32 lbl_805DB864;
 void detonate_if_triggered__10TOMineTrapFi(s32 arg0);
-u32 spawn_particle_effect(s32, M2C_UNK);
+u32 spawn_particle_effect(s32, s32);
 void TOMineTrap__sub_8017070C(u8 *arg0);
-s32 access_object_saved_state(void*, s16 *, M2C_UNK);
-M2C_UNK send_object_state_update(void *, s16 *);
+s32 access_object_saved_state(void*, s16 *, s32);
+s32 send_object_state_update(void *, s16 *);
 extern f32 lbl_805DB85C;
 f32 trigger_explosion__10TOMineTrapFPv(void *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
@@ -347,8 +343,8 @@ s16 obj_getS16_116(s32);
 extern f32 lbl_805DB85C;
 extern const f32 TOMineTrap__data_805DB868;
 f32 calc_trigger_range__10TOMineTrapFPvi(void *arg0, s32 arg1);
-s32 access_object_saved_state(void*, s16 *, M2C_UNK);
-M2C_UNK send_object_state_update(void *, s16 *);
+s32 access_object_saved_state(void*, s16 *, s32);
+s32 send_object_state_update(void *, s16 *);
 void update_trigger__10TOMineTrapFPv(void *arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 void set_indexed_flags(void *, s32, s32);
@@ -356,7 +352,7 @@ int refresh_collision_body_centers(void*);
 void TOMineTrap__sub_80170A5C(u8 *arg0);
 void TOMineTrap__sub_80170CD4(void* p);
 int refresh_collision_body_centers(void*);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void sync_position__10TOMineTrapFPv(void* p);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0);
 u16 obj_getField1c(void *);
@@ -370,7 +366,7 @@ extern const f32 lbl_805DB888;
 void update_float_height__10TOMineTrapFPv(u8 *arg0);
 f32 atan2_float(f64, f64);
 void calc_attach_pos__10TObjPlayerFPv(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int refresh_collision_body_centers(void*);
 s32 update_enemy_collision_flags__10TObjPlayerFPv(void *);
 f32 vec3_add_to(void *, void *);
@@ -386,7 +382,7 @@ void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 void set_indexed_flags(void *, s32, s32);
 int refresh_collision_body_centers(void*);
-s32 access_object_saved_state(void*, s16 *, M2C_UNK);
+s32 access_object_saved_state(void*, s16 *, s32);
 void TOMineTrap__sub_8017070C(u8 *arg0);
 s32 set_flag8__6TLobbyFPv(void *);
 s32 queue_destruction_for_each_node__7TObjectFv(void *);
@@ -430,11 +426,11 @@ extern "C" {
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1);
 void* get_mine_data_ptr__10TOMineTrapFPv(void* p);
 void set_state__10TOMineTrapFPv(void* p);
-M2C_UNK free_collision_body_parts(void *);
+s32 free_collision_body_parts(void *);
 s32 is_locally_controlled__10TObjPlayerFPv(u32 a0 = 0);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__6TOMineFv(void *, s32);
 
 void set_state__10TOMineTrapFPv(void* p) { *(s16*)((char*)p + 0x326) = 4; }
 
@@ -483,15 +479,15 @@ s32 find_target_in_range__10TOMineTrapFPv(Trap_8016F704 *self) {
 }
 
 void set_triggered__10TOMineTrapFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x326) = 3;
+    *(s16 *)((s8 *)arg0 + 0x326) = 3;
     set_indexed_flags(arg0, 0, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
 }
 
 void TOMineTrap__vt84(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x326) = 2;
+    *(s16 *)((s8 *)arg0 + 0x326) = 2;
     set_indexed_flags(arg0, 0, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
 }
 
 void destroy_matching_traps__10TOMineTrapFv(void) {
@@ -526,11 +522,11 @@ s32 create_placed_trap__10TOMineTrapFUiss(u32 arg0, s16 arg1, s16 arg2) {
 
 void* get_mine_data_ptr__10TOMineTrapFPv(void* p) { return (char*)p + 0x334; }
 
-extern M2C_UNK __vt__10TOMineTrap[];
+extern s32 __vt__10TOMineTrap[];
 
 void *__dt__10TOMineTrapFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TOMineTrap;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TOMineTrap;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);
@@ -564,7 +560,7 @@ s32 check_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)arg0 + 0x2A8))) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -576,7 +572,7 @@ s32 can_trigger__10TOMineTrapFPvUi(void *arg0, u32 arg1) {
     if (is_target_in_list__10TOMineTrapFPvPv((Self_801702C8 *)(arg0), (void *)(arg1)) == 1) {
         return 0;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x344) == 2) && (arg1 == (u32) M2C_FIELD(arg0, u32 *, 0x2A8))) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x344) == 2) && (arg1 == (u32) *(u32 *)((s8 *)arg0 + 0x2A8))) {
         return 0;
     }
     if (is_locally_controlled__10TObjPlayerFPv(arg1) != 0) {
@@ -620,22 +616,22 @@ void TOMineTrap__sub_80170570(void) {  }
 void init_trap__10TOMineTrapFv(void) { get_localized_text_entry((void*)16, (void*)16); }
 void update_state__10TOMineTrapFPv(void *arg0) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x348) = (s32) M2C_FIELD(arg0, f32 *, 0x70);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x348);
+    *(s32 *)((s8 *)arg0 + 0x348) = (s32) *(f32 *)((s8 *)arg0 + 0x70);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x348);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x344) = 0;
+        *(s32 *)((s8 *)arg0 + 0x344) = 0;
         return;
     }
     if (temp_r0 > 0) {
-        M2C_FIELD(arg0, s32 *, 0x344) = 1;
+        *(s32 *)((s8 *)arg0 + 0x344) = 1;
         return;
     }
     if (get_main_phase() == 0xE) {
-        M2C_FIELD(arg0, s32 *, 0x344) = 0;
-        M2C_FIELD(arg0, s32 *, 0x8C) = 0x1E;
+        *(s32 *)((s8 *)arg0 + 0x344) = 0;
+        *(s32 *)((s8 *)arg0 + 0x8C) = 0x1E;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x344) = 2;
+    *(s32 *)((s8 *)arg0 + 0x344) = 2;
 }
 void spawn_effect__10TOMineTrapFi(s32 arg0) {
     s32 idx = get_global_state__14TOKeyMachine01Fv();
@@ -657,40 +653,40 @@ void detonate_if_triggered__10TOMineTrapFi(s32 arg0) {
     }
 }
 void TOMineTrap__sub_8017070C(u8 *arg0) {
-    spawn_particle_effect((s32)((void *) (arg0 + 0x2FC)), (M2C_UNK)((int) (0x47)));
+    spawn_particle_effect((s32)((void *) (arg0 + 0x2FC)), (s32)((int) (0x47)));
     ((VObj_18 *)(arg0))->m80();
     ((VObj_18 *)(arg0))->m78();
 }
 
 void TOMineTrap__sub_80170768(u8 *arg0, s16 *arg1, s32 arg2) {
     s16 temp_r0;
-    temp_r0 = M2C_FIELD(arg1, s16 *, 0);
+    temp_r0 = *(s16 *)((s8 *)arg1 + 0);
     if (temp_r0 == 5) {
         if (arg2 == 1) {
             TOMineTrap__sub_8017070C((u8 *)((void *) (arg0)));
         }
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (M2C_UNK)((int) (0)));
+        access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (s32)((int) (0)));
         return;
     }
     if (temp_r0 == 3) {
-        M2C_FIELD(arg0, s16 *, 0x326) = temp_r0;
+        *(s16 *)((s8 *)arg0 + 0x326) = temp_r0;
         set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (1)));
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
         calc_attach_pos__10TObjPlayerFPv((void *) (arg0));
         refresh_collision_body_centers((void*)((void *) (arg0)));
         ((VObj_18_d0f3c0 *)(arg0))->m79();
-        access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (M2C_UNK)((int) (0)));
+        access_object_saved_state((void*)((void *) (arg0)), (s16 *)((void *) (arg1)), (s32)((int) (0)));
         queue_destruction_for_each_node__7TObjectFv((void *) (arg0));
     }
 }
 
 f32 trigger_explosion__10TOMineTrapFPv(void *arg0) {
     s16 sp8;
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x4000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (M2C_UNK)(1)) != 0)) {
-        M2C_FIELD(arg0, s16 *, 0x326) = 5;
-        sp8 = M2C_FIELD(arg0, s16 *, 0x326);
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        *(s16 *)((s8 *)arg0 + 0x326) = 5;
+        sp8 = *(s16 *)((s8 *)arg0 + 0x326);
         send_object_state_update(arg0, &sp8);
     }
     return lbl_805DB85C;
@@ -754,16 +750,16 @@ f32 TOMineTrap__sub_80170924(u8 *arg0, s32 arg1, s32 *arg2) {
 
 void update_trigger__10TOMineTrapFPv(void *arg0) {
     s16 sp8;
-    if (((u16) M2C_FIELD(arg0, u16 *, 0x1C) >= 0x4000U) && ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (M2C_UNK)(1)) != 0)) {
-        M2C_FIELD(arg0, s16 *, 0x326) = 3;
-        sp8 = M2C_FIELD(arg0, s16 *, 0x326);
+    if (((u16) *(u16 *)((s8 *)arg0 + 0x1C) >= 0x4000U) && ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) && (access_object_saved_state((void*)(arg0), (s16 *)(&sp8), (s32)(1)) != 0)) {
+        *(s16 *)((s8 *)arg0 + 0x326) = 3;
+        sp8 = *(s16 *)((s8 *)arg0 + 0x326);
         send_object_state_update(arg0, &sp8);
     }
 }
 void TOMineTrap__sub_80170A5C(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x326) = 2;
+    *(s16 *)((s8 *)arg0 + 0x326) = 2;
     set_indexed_flags(arg0, 0, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFFFBFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFFFBFFFF);
     calc_attach_pos__10TObjPlayerFPv(arg0);
     refresh_collision_body_centers((void*)((void *) (arg0)));
     ((VObj_18_d0f3c0 *)(arg0))->m79();
@@ -829,17 +825,17 @@ void TOMineTrap__sub_80170CD4(void* p) { sync_position__10TOMineTrapFPv((void*)(
 void update_float_height__10TOMineTrapFPv(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f4;
-    if (!(M2C_FIELD(arg0, s32 *, 0x340) & 2)) {
-        temp_f4 = M2C_FIELD(arg0, f32 *, 0x338);
-        M2C_FIELD(arg0, f32 *, 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + M2C_FIELD(arg0, f32 *, 0x54)) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
-        temp_f1 = lbl_805DB888 + M2C_FIELD(arg0, f32 *, 0x54);
-        if (temp_f1 <= M2C_FIELD(arg0, f32 *, 0x338)) {
-            M2C_FIELD(arg0, f32 *, 0x338) = temp_f1;
-            M2C_FIELD(arg0, s32 *, 0x340) = (s32) (M2C_FIELD(arg0, s32 *, 0x340) | 2);
+    if (!(*(s32 *)((s8 *)arg0 + 0x340) & 2)) {
+        temp_f4 = *(f32 *)((s8 *)arg0 + 0x338);
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (temp_f4 + ((lbl_805DB884 * ((lbl_805DB888 + *(f32 *)((s8 *)arg0 + 0x54)) - temp_f4)) + (*(const f32 *)&TOMineTrap__data_805DB868)));
+        temp_f1 = lbl_805DB888 + *(f32 *)((s8 *)arg0 + 0x54);
+        if (temp_f1 <= *(f32 *)((s8 *)arg0 + 0x338)) {
+            *(f32 *)((s8 *)arg0 + 0x338) = temp_f1;
+            *(s32 *)((s8 *)arg0 + 0x340) = (s32) (*(s32 *)((s8 *)arg0 + 0x340) | 2);
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x800);
-        M2C_FIELD(arg0, f32 *, 0x338) = (f32) (M2C_FIELD(arg0, f32 *, 0x338) + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x5C)));
+        *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x800);
+        *(f32 *)((s8 *)arg0 + 0x338) = (f32) (*(f32 *)((s8 *)arg0 + 0x338) + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x5C)));
     }
 }
 #pragma pop

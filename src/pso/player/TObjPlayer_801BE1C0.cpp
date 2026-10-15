@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801BE210_801BE1C0 { char pad[0x18]; };
 struct VObj_801BE210_801BE1C0 : Base_801BE210_801BE1C0 {
     virtual void m0();
@@ -90,8 +87,8 @@ int set_flag_41c_bit1__10TObjPlayerFPv(void* p);
 s32 is_quest_active();
 int subtract_photon_blast_charge(void*);
 int add_photon_blast_chain_charge(void*);
-M2C_UNK __dl__FPv(s32);
-M2C_UNK __dt__12TPlyCharDataFv(s32, M2C_UNK);
+s32 __dl__FPv(s32);
+s32 __dt__12TPlyCharDataFv(s32, s32);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 
 s32 destroy_char_data__10TObjPlayerFis(s32 arg0, s16 arg1) {

@@ -1,15 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80252FCC___vt__17TWindowGetComCard {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
-typedef s32 M2C_UNK;
 struct Pad_80252CCC { u8 pad[0x20]; u8 m20[0x30]; };
 
 struct GetCard_80252CCC {
@@ -25,18 +20,18 @@ s32 get_shared_text_buffer();
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 s32 init_com_card__17TWindowSubComCardFv();
 s32 TWindowGetComCard__sub_8007B594();
-M2C_UNK reset_equip_slots__10TObjPlayerFPv();
+s32 reset_equip_slots__10TObjPlayerFPv();
 u32 get_player_by_client_id(s32);
-M2C_UNK get_com_card_list__6TLobbyFPv(int);
-M2C_UNK text_builder_append();
-M2C_UNK text_builder_reset();
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK TObjPlayer__sub_8024ABDC(void *);
-M2C_UNK fn_8024AC64(void *);
-M2C_UNK send_and_handle__6TLobbyFPvii(int, int, int);
+s32 get_com_card_list__6TLobbyFPv(int);
+s32 text_builder_append();
+s32 text_builder_reset();
+s32 __ct__7TObjectFP7TObject();
+s32 TObjPlayer__sub_8024ABDC(void *);
+s32 fn_8024AC64(void *);
+s32 send_and_handle__6TLobbyFPvii(int, int, int);
 s32 set_window_mode_4__6TLobbyFPvii(void *, void *, int);
-extern M2C_UNK lbl_8044ED94[];
-extern M2C_UNK lbl_8044ED9C[];
+extern s32 lbl_8044ED94[];
+extern s32 lbl_8044ED9C[];
 extern void *__vt__17TWindowGetComCard[];
 extern s32 TWindowGetComCard__name;
 extern s32 local_client_id;
@@ -78,16 +73,16 @@ int is_active__15TWindowFukidasiFPv(void* p);
 int is_flag_set__15TWindowFukidasiFPv(void* p);
 void render__17TWindowGetComCardFv(void);
 void set_flag__15TWindowFukidasiFPv(void* p);
-M2C_UNK TLobby__sub_8024AC20(s32);
+s32 TLobby__sub_8024AC20(s32);
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrl__sub_8024A314();
-M2C_UNK TWindowReturnCity__sub_8024ACA8(s32);
-M2C_UNK TWindow__close(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+s32 TWindowReturnCity__sub_8024ACA8(s32);
+s32 TWindow__close(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
 void clear_flag2c_bit100__15TWindowFukidasiFPv(void* p);
 void clear_flag2c_bit200__15TWindowFukidasiFPv(void* p);
-M2C_UNK init_parts__10TObjPlayerFPv();
+s32 init_parts__10TObjPlayerFPv();
 void set_flag2c_bit100__15TWindowFukidasiFPv(void* p);
 void set_flag2c_bit200__15TWindowFukidasiFPv(void* p);
 
@@ -174,14 +169,14 @@ void run_task__17TWindowGetComCardFv(GetCard_80252CCC *self) {
 
 void *__dt__17TWindowGetComCardFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = __vt__17TWindowGetComCard;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x20));
-            M2C_FIELD(arg0, u32 *, 0x20) = 0U;
+        *(void **)((s8 *)arg0 + 0x18) = __vt__17TWindowGetComCard;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x20));
+            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x1C));
-            M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x1C));
+            *(u32 *)((s8 *)arg0 + 0x1C) = 0U;
         }
         TWindowReturnCity__sub_8024ACA8(local_client_id);
         TLobby__sub_8024AC20(local_client_id);
@@ -199,10 +194,10 @@ typedef char RecoveredGlobal_80252FCC___vt__17TWindowGetComCard_size[sizeof(Reco
 u8 *TWindowGetComCard__ct(u8 *arg0) {
     s32 temp_r31;
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard *)&__vt__17TWindowGetComCard).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowGetComCard__name;
-    M2C_FIELD(arg0, s32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), (int) (1));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80252FCC___vt__17TWindowGetComCard *)&__vt__17TWindowGetComCard).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowGetComCard__name;
+    *(s32 *)((s8 *)arg0 + 0x1C) = set_window_mode_4__6TLobbyFPvii((void *) (lbl_8044ED94), (void *) (lbl_8044ED9C), (int) (1));
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
     if (init_com_card__17TWindowSubComCardFv() != 0) {
         temp_r31 = TWindowGetComCard__sub_8007B594();
         text_builder_reset();
@@ -210,18 +205,18 @@ u8 *TWindowGetComCard__ct(u8 *arg0) {
         text_builder_append();
         get_message_10__20TWindowSubStatusDispFPv((int) (0x36));
         text_builder_append();
-        send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (get_shared_text_buffer()), (int) (2));
-        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+        send_and_handle__6TLobbyFPvii((int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (get_shared_text_buffer()), (int) (2));
+        *(s32 *)((s8 *)arg0 + 0x28) = 0;
     } else {
-        send_and_handle__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x37))), (int) (0));
-        M2C_FIELD(arg0, s32 *, 0x28) = 0x384;
+        send_and_handle__6TLobbyFPvii((int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (get_message_10__20TWindowSubStatusDispFPv((int) (0x37))), (int) (0));
+        *(s32 *)((s8 *)arg0 + 0x28) = 0x384;
     }
     if (get_player_by_client_id((s32)((void *) (local_client_id))) != 0U) {
         reset_equip_slots__10TObjPlayerFPv();
     }
     TObjPlayer__sub_8024ABDC((void *) (local_client_id));
     fn_8024AC64((void *) (local_client_id));
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;
 }
 

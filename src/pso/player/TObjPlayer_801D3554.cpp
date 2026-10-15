@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -11,9 +7,9 @@ typedef struct Rec_801D35FC {
     u8 b[0x1C];
 } Rec_801D35FC;
 
-struct M2CCopy_10 { u8 bytes[0x10]; };
+struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 extern "C" {
 int TItemList__sub_801D3B00(void*, void*, void*, void*);
@@ -83,8 +79,8 @@ u8 *copy_drop_node(u8 *arg0, u8 *arg1) {
     fn_801D371C((void*)((void *) (arg0)), (void*)((void *) (arg1)));
     temp_r5 = (u8 *)(arg0 + 4);
     temp_r4 = (u8 *)(arg1 + 4);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    *(M2CCopy_14 *)((s32) temp_r5 + 4) = *(const M2CCopy_14 *)((s32) temp_r4 + 4);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(ByteBlock_14 *)((s32) temp_r5 + 4) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
     return arg0;
 }
 

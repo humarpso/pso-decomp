@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Slot_8022C5CC { s16 id; s16 pad; f32 amount; };
 
 struct RecoveredGlobal_8022C680_lbl_80515FBC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xBC];
 };
 
@@ -27,7 +23,7 @@ f32 calc_technique_boost(s32, u16);
 f32 get_battle_value__10TObjPlayerFiii(void *, s32, s16);
 void *get_player_by_client_id(u16);
 extern const f32 lbl_805DC7D8;
-M2C_UNK calc_technique_parameters();
+s32 calc_technique_parameters();
 
 void TTecCtrl__sub_8022C444(void) {  }
 void TTecCtrl__sub_8022C448(void) {  }

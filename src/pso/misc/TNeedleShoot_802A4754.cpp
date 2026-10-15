@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_802A47C8 {
     f32 x, y, z;
@@ -52,7 +48,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(Vec_802A47C8 *);
 void normalize_vector(Vec_802A47C8 *);
 extern const f64 lbl_80466688[];
-extern M2C_UNK __vt__12TNeedleShoot[];
+extern s32 __vt__12TNeedleShoot[];
 extern u32 TNeedleShoot__name;
 extern void *tl_06;
 extern const f32 lbl_805DDF6C;
@@ -74,12 +70,12 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 int queue_destruction__7TObjectFv(void*);
 
-extern M2C_UNK __vt__12TNeedleShoot[];
+extern s32 __vt__12TNeedleShoot[];
 
 void *__dt__12TNeedleShootFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TNeedleShoot;
-        if (M2C_FIELD(arg0, void **, 0x68) != NULL) { free_collision_body_parts(M2C_FIELD(arg0, void **, 0x68)); M2C_FIELD(arg0, M2C_UNK *, 0x68) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TNeedleShoot;
+        if (*(void **)((s8 *)arg0 + 0x68) != NULL) { free_collision_body_parts(*(void **)((s8 *)arg0 + 0x68)); *(s32 *)((s8 *)arg0 + 0x68) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

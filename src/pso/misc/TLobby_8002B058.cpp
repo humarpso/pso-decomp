@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void copy_header__6TLobbyFPvPv(void *arg0, void *arg1);
 
 void copy_header__6TLobbyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, u16 *, 4) = (u16) M2C_FIELD(arg1, u16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
-    M2C_FIELD(arg0, u8 *, 8) = (u8) M2C_FIELD(arg1, u8 *, 8);
-    M2C_FIELD(arg0, u8 *, 9) = (u8) M2C_FIELD(arg1, u8 *, 9);
-    M2C_FIELD(arg0, u8 *, 0xA) = (u8) M2C_FIELD(arg1, u8 *, 0xA);
-    M2C_FIELD(arg0, u8 *, 0xB) = (u8) M2C_FIELD(arg1, u8 *, 0xB);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(u16 *)((s8 *)arg0 + 4) = (u16) *(u16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(u8 *)((s8 *)arg0 + 8) = (u8) *(u8 *)((s8 *)arg1 + 8);
+    *(u8 *)((s8 *)arg0 + 9) = (u8) *(u8 *)((s8 *)arg1 + 9);
+    *(u8 *)((s8 *)arg0 + 0xA) = (u8) *(u8 *)((s8 *)arg1 + 0xA);
+    *(u8 *)((s8 *)arg0 + 0xB) = (u8) *(u8 *)((s8 *)arg1 + 0xB);
 }
 
 }

@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void notify_all_battle_players__10TObjPlayerFv(void);
 void update_4p_battle_ctrls__10TObjPlayerFv(void);
 u32 get_player_by_client_id(s32);
-M2C_UNK notify_field1c__10TObjPlayerFi();
-M2C_UNK send_item_pickup_request__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFi();
+s32 send_item_pickup_request__10TObjPlayerFi();
 
 void notify_all_battle_players__10TObjPlayerFv(void) {
     s32 var_r31;

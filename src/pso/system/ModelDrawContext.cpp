@@ -1,15 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803DCBD8_lbl_8058D380 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xEC];
 };
 
-typedef M2C_UNK (*RecoveredCallback_92513335c3ed)(void *);
+typedef s32 (*RecoveredCallback_92513335c3ed)(void *);
 typedef void (*RecoveredCallback_2be3cacebb2e)(void);
 struct MotionCtx_803DC894 {
     u8 pad[0xC];
@@ -80,16 +76,16 @@ void draw_motion_node_tree_with_context(struct Node_803DCB40 *arg0);
 __declspec(section ".rodata") extern const Tbl_803DCC34 gx_blend_mode_table;
 extern u8 *current_render_context;
 void set_cached_blend_factor(s32 arg0, s32 arg1);
-M2C_UNK get_current_matrix(void *);
-M2C_UNK apply_quat_rotation__10TObjPlayerFPvf(void *, f32);
-M2C_UNK rotate_matrix_by_node_angles(void *, void *);
+s32 get_current_matrix(void *);
+s32 apply_quat_rotation__10TObjPlayerFPvf(void *, f32);
+s32 rotate_matrix_by_node_angles(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
 void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src);
-extern M2C_UNK node_saved_matrix[];
-void traverse_model_node_tree(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32));
+extern s32 node_saved_matrix[];
+void traverse_model_node_tree(struct N_803DC9E4 *p, s32 (*cb)(s32));
 }
 
 extern "C" {
@@ -124,19 +120,19 @@ void draw_ginja_motion_node_tree(u8 *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix((int) (var_r31));
-        if (((M2C_UNK (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&model_node_callback)) != NULL) {
+        if (((s32 (*)(void *)) (*(RecoveredCallback_92513335c3ed *)&model_node_callback)) != NULL) {
             (*(RecoveredCallback_92513335c3ed *)&model_node_callback)(var_r31);
         }
-        temp_r3 = M2C_FIELD(var_r31, u32 *, 4);
-        if ((temp_r3 != 0U) && ((u32) (M2C_FIELD(var_r31, s32 *, 0) & 8) == 0)) {
+        temp_r3 = *(u32 *)((s8 *)var_r31 + 4);
+        if ((temp_r3 != 0U) && ((u32) (*(s32 *)((s8 *)var_r31 + 0) & 8) == 0)) {
             queue_model_draw_matrix((int) (temp_r3), (void *) (current_matrix));
         }
-        temp_r3_2 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x2C));
+        temp_r3_2 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x2C));
         if (temp_r3_2 != NULL) {
             draw_ginja_motion_node_tree(temp_r3_2);
         }
         pop_matrix();
-        var_r31 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x30));
+        var_r31 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x30));
     } while (var_r31 != NULL);
 }
 #pragma pop
@@ -155,7 +151,7 @@ void copy_rotation_to_current_matrix(struct Mtx_803DC994 *src) {
 }
 
 struct Mtx_803DC994;
-void traverse_model_node_tree(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
+void traverse_model_node_tree(struct N_803DC9E4 *p, s32 (*cb)(s32)) {
     do {
         u32 f = p->flags;
         if (f & 0x800) {
@@ -177,7 +173,7 @@ void traverse_model_node_tree(struct N_803DC9E4 *p, M2C_UNK (*cb)(s32)) {
                 if (f & 0x1000) {
                     copy_rotation_to_current_matrix((struct Mtx_803DC994 *) (node_saved_matrix));
                 } else if (f & 0x400) {
-                    ((M2C_UNK (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
+                    ((s32 (*)(f32, void *))apply_quat_rotation__10TObjPlayerFPvf)(p->f34, p->m14);
                 } else {
                     rotate_matrix_by_node_angles(p->m14, (void *) (f & 0x20));
                 }
@@ -247,7 +243,7 @@ void set_cached_blend_factor(s32 arg0, s32 arg1) {
 }
 
 void apply_cached_blend_mode(s32 arg0) {
-    u32 v = M2C_FIELD(current_render_context, u32 *, 0xC);
+    u32 v = *(u32 *)((s8 *)current_render_context + 0xC);
     int src = cached_blend_factor_table[(v & 0xE0000000) >> 29];
     int dst = cached_blend_factor_table[(v & 0x1C000000) >> 26];
     if (arg0 != 0) {

@@ -1,25 +1,21 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8024E548_lbl_804CEB70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_8024E548___vt__14TWindowDeposit
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x18];
 };
 
 extern "C" {
 s32 setup_window_draw_context(void *, void *);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
 void render__14TWindowDepositFv(s32 arg0);
 f32 get_base_y__20TWindowSubStatusDispFf(f32);
 f32 TWindowSubStatusDisp__sub_802877A4(f32);
@@ -32,7 +28,7 @@ s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, void *, int);
 s32 set_text_entry_string(int, int, int);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8024E548_lbl_804CEB70 window_deposit_layout;
-extern M2C_UNK __vt__14TWindowDeposit[];
+extern s32 __vt__14TWindowDeposit[];
 extern s32 TWindowDeposit__name;
 extern const f32 lbl_805DCC60;
 extern const f32 lbl_805DCC64;
@@ -55,14 +51,14 @@ int TWindowMainMenu__sub_8024E3F4(void* p);
 void TWindowMainMenu__vt4(void);
 void TWindowMainMenu__vt6(void);
 int update_window_entry_list(void*, void*);
-M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
+s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 int initialize_subwindow__9TWindowDDFPv(void*);
 
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1) {
-    draw_window_tab(arg1, arg1 + 0x10, 3, M2C_FIELD(arg0, f32 *, 0x60));
+    draw_window_tab(arg1, arg1 + 0x10, 3, *(f32 *)((s8 *)arg0 + 0x60));
 }
 
 void render__14TWindowDepositFv(s32 arg0) {
@@ -74,11 +70,11 @@ void render__14TWindowDepositFv(s32 arg0) {
 
 void run_task__14TWindowDepositFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
-extern M2C_UNK __vt__14TWindowDeposit[];
+extern s32 __vt__14TWindowDeposit[];
 
 void *__dt__14TWindowDepositFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TWindowDeposit;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TWindowDeposit;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -100,7 +96,7 @@ u8 *TWindowDeposit__ct(u8 *arg0, s32 arg1) {
   u32 temp_r3_2;
   u8 *temp_r31;
   construct_base__9TWindowDDFPvPvsPv((void *) arg0, (void *) (&window_deposit_layout.value), (void *) arg1, (int) get_window_layout_position((int) 0x29));
-  *((M2C_UNK **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
+  *((s32 **) (((s8 *) arg0) + (((((0x18 & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu) & 0xFFFFFFFFFFFFFFFFu))) = &(*(RecoveredGlobal_8024E548___vt__14TWindowDeposit *)&__vt__14TWindowDeposit).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) TWindowDeposit__name;
   temp_r3 = TQuestVmDownLoadServer__sub_8006EF6C((int) 2);
   temp_r3_2 = calc_text_width((int) temp_r3);

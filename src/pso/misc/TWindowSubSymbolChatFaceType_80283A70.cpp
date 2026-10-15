@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80283F38
 {
@@ -11,12 +7,12 @@ struct Stack_80283F38
 };
 
 struct RecoveredGlobal_80283A70_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 struct RecoveredGlobal_80284074_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -26,9 +22,9 @@ struct Ent_80283FA8 { u8 pad[0x2c]; s32 f2c; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+s32 forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 s32 fn_802839A4(void *);
@@ -69,28 +65,28 @@ void handle_input__28TWindowSubSymbolChatFaceTypeFPv(u8 *arg0) {
     if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0xF0), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0xF0), (int) (6), (int) (1)) != 0)) {
         play_sound_effect(0x54100, 0U, 0, 0);
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
-            M2C_FIELD(arg0, u8 *, 0x62) = (u8) (M2C_FIELD(arg0, u8 *, 0x62) - 1);
+            *(u8 *)((s8 *)arg0 + 0x62) = (u8) (*(u8 *)((s8 *)arg0 + 0x62) - 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x20), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x20), (int) (6), (int) (1)) != 0)) {
-            M2C_FIELD(arg0, u8 *, 0x62) = (u8) (M2C_FIELD(arg0, u8 *, 0x62) + 1);
+            *(u8 *)((s8 *)arg0 + 0x62) = (u8) (*(u8 *)((s8 *)arg0 + 0x62) + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x80), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x80), (int) (6), (int) (1)) != 0)) {
-            M2C_FIELD(arg0, u8 *, 0x61) = (u8) (M2C_FIELD(arg0, u8 *, 0x61) + 1);
+            *(u8 *)((s8 *)arg0 + 0x61) = (u8) (*(u8 *)((s8 *)arg0 + 0x61) + 1);
         }
         if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r30), (int) (0x40), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x40), (int) (6), (int) (1)) != 0)) {
-            M2C_FIELD(arg0, u8 *, 0x61) = (u8) (M2C_FIELD(arg0, u8 *, 0x61) - 1);
+            *(u8 *)((s8 *)arg0 + 0x61) = (u8) (*(u8 *)((s8 *)arg0 + 0x61) - 1);
         }
-        if ((s8) M2C_FIELD(arg0, u8 *, 0x61) < 0) {
-            M2C_FIELD(arg0, u8 *, 0x61) = 0U;
+        if ((s8) *(u8 *)((s8 *)arg0 + 0x61) < 0) {
+            *(u8 *)((s8 *)arg0 + 0x61) = 0U;
         }
-        if ((s8) M2C_FIELD(arg0, u8 *, 0x61) >= 2) {
-            M2C_FIELD(arg0, u8 *, 0x61) = 1U;
+        if ((s8) *(u8 *)((s8 *)arg0 + 0x61) >= 2) {
+            *(u8 *)((s8 *)arg0 + 0x61) = 1U;
         }
-        if ((s8) M2C_FIELD(arg0, u8 *, 0x62) < 0) {
-            M2C_FIELD(arg0, u8 *, 0x62) = 0U;
+        if ((s8) *(u8 *)((s8 *)arg0 + 0x62) < 0) {
+            *(u8 *)((s8 *)arg0 + 0x62) = 0U;
         }
-        if ((s8) M2C_FIELD(arg0, u8 *, 0x62) >= 2) {
-            M2C_FIELD(arg0, u8 *, 0x62) = 1U;
+        if ((s8) *(u8 *)((s8 *)arg0 + 0x62) >= 2) {
+            *(u8 *)((s8 *)arg0 + 0x62) = 1U;
         }
     }
 }
@@ -120,14 +116,14 @@ void render__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     update_parts_entries__28TWindowSubSymbolChatFaceTypeFPv((Win_80283FA8 *)((void *) (arg0)));
     draw_window_frame((void *) (arg0), (int) (temp_r31));
     TWindowSubSymbolChatFaceType__sub_80283F38((u8 *)((void *) (arg0)), (u8 *)((int) (temp_r31)));
-    forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x68)), (int) (temp_r31));
+    forward_render__20TWindowSubStatusDispFPv((int) (*(s32 *)((s8 *)arg0 + 0x68)), (int) (temp_r31));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r31));
 }
 typedef char RecoveredGlobal_80284074_lbl_8050E208_size[sizeof(RecoveredGlobal_80284074_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
     u8 *temp_r31;
-    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
     if (is_open__20TWindowSubSymbolChatFPv((void *) (arg0)) == 0) {
         handle_input__28TWindowSubSymbolChatFaceTypeFPv((u8 *)((void *) (arg0)));
@@ -139,8 +135,8 @@ void run_task__28TWindowSubSymbolChatFaceTypeFv(u8 *arg0) {
             close_when_chat_closed__28TWindowSubSymbolChatFaceTypeFPv((void *) (arg0));
         }
     }
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD784) {
-        update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x68)));
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD784) {
+        update_subwindow__20TWindowSubStatusDispFPv((int) (*(s32 *)((s8 *)arg0 + 0x68)));
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

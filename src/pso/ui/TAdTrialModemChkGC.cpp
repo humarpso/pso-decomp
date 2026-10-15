@@ -1,7 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct Base_80335508_803354A4 { char pad[0x18]; };
 struct VObj_80335508_803354A4 : Base_80335508_803354A4 {
     virtual void m0();
@@ -69,11 +67,11 @@ void run_task__18TAdTrialModemChkGCFv(void *arg0) {
     o->m6();
 }
 
-extern M2C_UNK __vt__18TAdTrialModemChkGC[];
+extern s32 __vt__18TAdTrialModemChkGC[];
 
 void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdTrialModemChkGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdTrialModemChkGC;
         TAdWarningBaseGC__vt0(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -82,13 +80,13 @@ void *__dt__18TAdTrialModemChkGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__18TAdTrialModemChkGC[];
+extern s32 __vt__18TAdTrialModemChkGC[];
 extern void *TAdTrialModemChkGC__name;
 
 void *TAdTrialModemChkGC__ct(void *arg0) {
     TAdWarningBaseGC__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdTrialModemChkGC;
-    M2C_FIELD(arg0, void **, 0x0) = TAdTrialModemChkGC__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdTrialModemChkGC;
+    *(void **)((s8 *)arg0 + 0x0) = TAdTrialModemChkGC__name;
     return arg0;
 }
 

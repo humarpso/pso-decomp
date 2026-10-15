@@ -11,10 +11,6 @@ void dispatch_fish_event__6TLobbyFPv(void* a0) { get_bml_model((void*)(container
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -34,8 +30,8 @@ extern "C" {
 
 void free_chr_select_slot__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 container_breakup_model_archive;
 extern u32 lbl_805D5B8C;
@@ -86,17 +82,13 @@ void get_container_param(void* a0) { get_bml_model((void*)(lbl_805D5B78), a0); }
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void free_char_select_resources__6TLobbyFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 lbl_805D5B78;
 extern u32 lbl_805D5B7C;

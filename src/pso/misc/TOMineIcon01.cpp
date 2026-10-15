@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct Base_801714E8 { char pad[0x18]; };
 
 struct VIcon_801714E8 : Base_801714E8 {
@@ -43,7 +38,7 @@ struct Icon_801714E8 {
 };
 
 extern "C" {
-M2C_UNK spawn_particle_effect(void *, int);
+s32 spawn_particle_effect(void *, int);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -54,7 +49,7 @@ void init_collision_body_parts(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
-extern M2C_UNK __vt__12TOMineIcon01[];
+extern s32 __vt__12TOMineIcon01[];
 extern s32 TOMineIcon01__name;
 extern s32 game_difficulty_selection;
 extern void *lbl_805D5A50;
@@ -71,10 +66,10 @@ extern "C" {
 void TOMineIcon02__vt82(void);
 void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1);
 void *create__12TOMineIcon01FPv(void *arg0);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__6TOMineFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -87,11 +82,11 @@ void *create__12TOMineIcon01FPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__12TOMineIcon01[];
+extern s32 __vt__12TOMineIcon01[];
 
 void *__dt__12TOMineIcon01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOMineIcon01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOMineIcon01;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);

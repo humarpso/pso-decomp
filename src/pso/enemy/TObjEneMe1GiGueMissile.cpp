@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -29,15 +25,15 @@ void render__22TObjEneMe1GiGueMissileFv(u8 *arg0);
 u16 obj_getField1c(void *);
 s32 play_sound_effect(s32, u32, s16, s32);
 u8 * TNeedleShoot__ct(void *, s32, void *, void *);
-extern M2C_UNK __vt__22TObjEneMe1GiGueMissile[];
+extern s32 __vt__22TObjEneMe1GiGueMissile[];
 extern s32 lbl_805D3F20;
 extern const f32 lbl_805DE6DC;
 u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
 int queue_destruction__7TObjectFv(void*);
 u32 find_entity_by_id(int);
-M2C_UNK TObjPlayer__sub_802A445C(void *, int);
-M2C_UNK update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
-M2C_UNK update_position__12TNeedleShootFPv(void *);
+s32 TObjPlayer__sub_802A445C(void *, int);
+s32 update_lifetime__22TObjEneMe1GiGueMissileFPv(void *);
+s32 update_position__12TNeedleShootFPv(void *);
 extern const f32 lbl_805DE6DC;
 extern const f32 lbl_805DE6E0;
 void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0);
@@ -54,7 +50,7 @@ void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 fa
 void explode__22TObjEneMe1GiGueMissileFPvPv(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__12TNeedleShootFv(void *, int);
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 int get_barrier_count__15TObjEneMe1GiGueFv(void);
 int queue_destruction__7TObjectFv(void*);
 
@@ -94,10 +90,10 @@ void explode__22TObjEneMe1GiGueMissileFPvPv(void *self, void *pos) {
         if (p != NULL && horizontal_distance_squared((u8 *)p + 0x38, pos) <= lbl_805DE6D4) {
             Hit_802CE088 h;
             h.kind = 0;
-            h.power = M2C_FIELD(self, f32 *, 0xC0);
+            h.power = *(f32 *)((s8 *)self + 0xC0);
             {
                 Hit_802CE088 h1 = h;
-                if (p->m21(M2C_FIELD(self, void **, 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
+                if (p->m21(*(void **)((s8 *)self + 0x1C), &h1, 0, -1, -1) > lbl_805DE6D8) {
                     obj_setFlags30(p, 0x600);
                 }
             }
@@ -123,11 +119,11 @@ void create__22TObjEneMe1GiGueMissileFiiiff(s32 arg0, s32 arg1, s32 arg2, f32 fa
     }
 }
 
-extern M2C_UNK __vt__22TObjEneMe1GiGueMissile[];
+extern s32 __vt__22TObjEneMe1GiGueMissile[];
 
 void *__dt__22TObjEneMe1GiGueMissileFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjEneMe1GiGueMissile;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneMe1GiGueMissile;
         __dt__12TNeedleShootFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -164,15 +160,15 @@ typedef char RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile_size[sizeof
 #pragma opt_common_subs off
 void run_task__22TObjEneMe1GiGueMissileFv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0x34)));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0x34)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void*)((void *) (arg0)));
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (M2C_FIELD(arg0, f32 *, 0xBC) + lbl_805DE6DC);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xBC);
+    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (*(f32 *)((s8 *)arg0 + 0xBC) + lbl_805DE6DC);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0xBC);
     if (temp_f1 >= lbl_805DE6E0) {
-        M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
+        *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f1 - lbl_805DE6E0);
     }
     update_position__12TNeedleShootFPv((void *) (arg0));
     update_lifetime__22TObjEneMe1GiGueMissileFPv((void *) (arg0));
@@ -184,20 +180,20 @@ u8 *TObjEneMe1GiGueMissile__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0
     u8 *temp_r3;
     u8 *temp_r3_2;
     TNeedleShoot__ct(arg0, arg1, arg2, arg3);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile *)&__vt__22TObjEneMe1GiGueMissile).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F20;
-    M2C_FIELD(arg0, f32 *, 0xC0) = farg1;
-    M2C_FIELD(arg0, f32 *, 0xAC) = farg0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802CE428___vt__22TObjEneMe1GiGueMissile *)&__vt__22TObjEneMe1GiGueMissile).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F20;
+    *(f32 *)((s8 *)arg0 + 0xC0) = farg1;
+    *(f32 *)((s8 *)arg0 + 0xAC) = farg0;
     play_sound_effect(0x4002A600, (u32) (arg0 + 0x6C), 0, 0);
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, u16 *, 0x34) = obj_getField1c(temp_r3);
+        *(u16 *)((s8 *)arg0 + 0x34) = obj_getField1c(temp_r3);
     }
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x68));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x68));
     if (temp_r3_2 != NULL) {
-        M2C_FIELD(M2C_FIELD(temp_r3_2, u8 **, 0xA4), f32 *, 0xC) = (f32) lbl_805DE6DC;
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_2 + 0xA4)) + 0xC) = (f32) lbl_805DE6DC;
     }
-    M2C_FIELD(arg0, s32 *, 0xB0) = 1;
+    *(s32 *)((s8 *)arg0 + 0xB0) = 1;
     return arg0;
 }
 

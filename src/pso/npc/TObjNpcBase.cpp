@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Npc_801491B4 {
     s32 f0;
     u8 pad4[0x14];
@@ -37,7 +33,7 @@ extern "C" {
 void initialize__9TObjEnemyFPv(void *, void *, void *);
 void TObjNpcBase__sub_80149368(void* p);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern M2C_UNK __vt__11TObjNpcBase[];
+extern s32 __vt__11TObjNpcBase[];
 extern s32 TObjNpcBase__name;
 extern const f32 lbl_805DB1B8;
 extern const f32 lbl_805DB1BC;
@@ -61,11 +57,11 @@ s32 bswap_16__FPUs(s32);
 s32 bswap_32__FPUl(s32);
 s32 read_be16_field2__10TObjPlayerFPv();
 
-extern M2C_UNK __vt__11TObjNpcBase[];
+extern s32 __vt__11TObjNpcBase[];
 
 void *__dt__11TObjNpcBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjNpcBase;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjNpcBase;
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {

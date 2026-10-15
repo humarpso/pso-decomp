@@ -2,10 +2,6 @@
 #include "pso/TBoss5GryphonLightningWing.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80351DA8 {
     f32 sp8;
@@ -17,7 +13,7 @@ struct Stack_80351DA8 {
 
 #pragma opt_lifetimes off
 struct Stack_80351A80 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 trailing_storage[0x8];
 };
 
@@ -41,13 +37,13 @@ struct Wing_80351C18 {
 extern "C" {
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *csnVecterUnder(M2C_UNK *, s32);
+u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 extern const f32 lbl_805D8D48;
 s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5);
 s32 queue_destruction__7TObjectFv(void *);
 s32 play_sound_effect(int, void *, int, int);
-M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
+s32 get_wing_position__26TBoss5GryphonLightningWingFii(s32, s32 *);
 s32 update_wing_segments(void *);
 s32 spawn_gryphon_lightning(void *);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
@@ -69,14 +65,14 @@ void TLobby__sub_80351DF8(void);
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0);
 u8 is_lobby_event_active(void);
 void render__26TBoss5GryphonLightningWingFv(void);
-M2C_UNK TBoss8Dragon__sub_80063FB8(s32, M2C_UNK *, f32);
+s32 TBoss8Dragon__sub_80063FB8(s32, s32 *, f32);
 s32 get_instance_count__12TBoss8DragonFv();
-M2C_UNK get_wing_position__26TBoss5GryphonLightningWingFii(s32, M2C_UNK *);
+s32 get_wing_position__26TBoss5GryphonLightningWingFii(s32, s32 *);
 
 extern f32 lbl_805DFED0;
 
 void apply_lightning_effect__26TBoss5GryphonLightningWingFi(s32 arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
 
     temp_r3 = get_instance_count__12TBoss8DragonFv();
@@ -92,22 +88,22 @@ void render__26TBoss5GryphonLightningWingFv(void) {  }
 #pragma opt_common_subs off
 void run_task__26TBoss5GryphonLightningWingFv(u8 *arg0) {
     Stack_80351A80 stack;
-    M2C_FIELD(arg0, f32 *, 0x88) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x94) / (f32) M2C_FIELD(arg0, s32 *, 0x9C));
-    if (M2C_FIELD(arg0, f32 *, 0x88) > lbl_805DFED4) {
-        M2C_FIELD(arg0, f32 *, 0x88) = (f32) lbl_805DFED4;
+    *(f32 *)((s8 *)arg0 + 0x88) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x94) / (f32) *(s32 *)((s8 *)arg0 + 0x9C));
+    if (*(f32 *)((s8 *)arg0 + 0x88) > lbl_805DFED4) {
+        *(f32 *)((s8 *)arg0 + 0x88) = (f32) lbl_805DFED4;
     }
-    M2C_FIELD(arg0, f32 *, 0x8C) = (f32) ((f32) M2C_FIELD(arg0, s32 *, 0x94) / (f32) M2C_FIELD(arg0, s32 *, 0x98));
-    if (M2C_FIELD(arg0, f32 *, 0x8C) > lbl_805DFED4) {
-        M2C_FIELD(arg0, f32 *, 0x8C) = (f32) lbl_805DFED4;
+    *(f32 *)((s8 *)arg0 + 0x8C) = (f32) ((f32) *(s32 *)((s8 *)arg0 + 0x94) / (f32) *(s32 *)((s8 *)arg0 + 0x98));
+    if (*(f32 *)((s8 *)arg0 + 0x8C) > lbl_805DFED4) {
+        *(f32 *)((s8 *)arg0 + 0x8C) = (f32) lbl_805DFED4;
     }
     update_wing_segments((void *) (arg0));
     apply_lightning_effect__26TBoss5GryphonLightningWingFi((s32)((void *) (arg0)));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) == (s32) M2C_FIELD(arg0, s32 *, 0x98)) {
-        get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (M2C_UNK *)((void *) (&stack.sp8)));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) == (s32) *(s32 *)((s8 *)arg0 + 0x98)) {
+        get_wing_position__26TBoss5GryphonLightningWingFii((s32)((void *) (arg0)), (s32 *)((void *) (&stack.sp8)));
         play_sound_effect((int) (0x40032516), (void *) (&stack.sp8), (int) (0), (int) (0));
     }
     spawn_gryphon_lightning((void *) (arg0));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x94) >= (s32) M2C_FIELD(arg0, s32 *, 0x9C)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x94) >= (s32) *(s32 *)((s8 *)arg0 + 0x9C)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -139,11 +135,11 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s3
     s32 effect;
     u8* collision;
     VecCopy__FP3VecPC3Vec(&position, (void*)arg3);
-    collision = csnVecterUnder((M2C_UNK*)&position, 0x16EF);
+    collision = csnVecterUnder((s32*)&position, 0x16EF);
     if (collision == NULL) {
         position.y = lbl_805D8D48;
     } else {
-        ground_height = M2C_FIELD(M2C_FIELD(collision, u8**, 4), f32*, 4);
+        ground_height = *(f32*)((s8 *)(*(u8**)((s8 *)collision + 4)) + 4);
         if (ground_height > lbl_805D8D48) {
             position.y = lbl_805D8D48;
         } else {
@@ -160,9 +156,9 @@ s32 spawn_lightning_wing__12TBoss8DragonFiiiiii(s32 arg0, s32 arg1, s32 arg2, s3
 
 void fn_80351DA8(s32 arg0, u8 *arg1, u8 *arg2, s32 arg3, s32 arg4) {
     Stack_80351DA8 stack;
-    stack.sp8 = M2C_FIELD(arg2, f32 *, 0);
-    stack.spC = M2C_FIELD(arg1, f32 *, 4);
-    stack.sp10 = M2C_FIELD(arg2, f32 *, 8);
+    stack.sp8 = *(f32 *)((s8 *)arg2 + 0);
+    stack.spC = *(f32 *)((s8 *)arg1 + 4);
+    stack.sp10 = *(f32 *)((s8 *)arg2 + 8);
     spawn_lightning_wing__12TBoss8DragonFiiiiii((s32)(arg0), (s32)((s32) arg1), (s32)((s32) &stack.sp8), (s32)((s32) arg2), (s32)(arg3), (s32)(arg4));
 }
 

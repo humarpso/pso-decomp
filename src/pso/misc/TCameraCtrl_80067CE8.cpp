@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Stack_80067EE0 {
     f32 sp8;
     f32 spC;
@@ -17,7 +13,7 @@ struct Stack_80067E30 {
     f32 sp10;
 };
 
-struct RecoveredGlobal_80067E30_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
+struct RecoveredGlobal_80067E30_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_80067E30_lbl_8058D490_size[sizeof(RecoveredGlobal_80067E30_lbl_8058D490) == 0x30 ? 1 : -1];
 
 struct Vec_80067D20 { f32 x, y, z; };
@@ -44,11 +40,11 @@ struct Obj_80067D20 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void *construct_derived__11TCameraCtrlFPv(void *);
-M2C_UNK set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
-u8 *get_player_by_client_id(M2C_UNK);
+s32 set_target_pos__11TCameraCtrlFPvPv(void *, void *, f32);
+u8 *get_player_by_client_id(s32);
 extern const f32 lbl_805D8F78;
 void target_player0__11TCameraCtrlFi(s32 arg0);
-u8 *get_player_by_client_id(M2C_UNK);
+u8 *get_player_by_client_id(s32);
 s32 matrix_mult_vec(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(void *);
@@ -113,19 +109,19 @@ void reset_behind_player__11TCameraCtrlFPv(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80067E30, sp10) == 0x8) ? 1 : -1];
     Stack_80067E30 stack;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(get_player_by_client_id((M2C_UNK)(0)));
+    temp_r3 = (u8 *)(get_player_by_client_id((s32)(0)));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(temp_r3, s32 *, 0x60);
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)temp_r3 + 0x60);
         stack.sp8 = lbl_805D8F74;
         stack.spC = lbl_805D8F74;
-        stack.sp10 = M2C_FIELD(arg0, f32 *, 0x70);
+        stack.sp10 = *(f32 *)((s8 *)arg0 + 0x70);
         push_matrix_from((void *) (&identity_matrix.value));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
         matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
         pop_matrix();
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x48) + stack.sp8);
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x4C) + stack.spC);
-        M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x50) + stack.sp10);
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x48) + stack.sp8);
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg0 + 0x4C) + stack.spC);
+        *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)arg0 + 0x50) + stack.sp10);
     }
 }
 
@@ -134,9 +130,9 @@ void target_player0__11TCameraCtrlFi(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(0));
     if (temp_r3 != NULL) {
-        stack.sp8 = M2C_FIELD(temp_r3, f32 *, 0x38);
-        stack.spC = lbl_805D8F78 + M2C_FIELD(temp_r3, f32 *, 0x3C);
-        stack.sp10 = M2C_FIELD(temp_r3, f32 *, 0x40);
+        stack.sp8 = *(f32 *)((s8 *)temp_r3 + 0x38);
+        stack.spC = lbl_805D8F78 + *(f32 *)((s8 *)temp_r3 + 0x3C);
+        stack.sp10 = *(f32 *)((s8 *)temp_r3 + 0x40);
         set_target_pos__11TCameraCtrlFPvPv((void *) (arg0), (void *) (&stack.sp8), (f32) (lbl_805D8F78));
     }
 }

@@ -1,13 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 void* TObjPlayer__sub_80363C5C(void*);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void* init_vtable_804F2A10__10TObjPlayerFPv(void*);
-extern M2C_UNK lbl_804F29F8[];
-extern M2C_UNK lbl_804F2A10[];
+extern s32 lbl_804F29F8[];
+extern s32 lbl_804F2A10[];
 extern u8 model_material_color[];
 extern u8 * lbl_805D6FB8;
 extern int player_item_id_list;
@@ -27,11 +25,11 @@ void __dt__7TObjectFv(void *, int);
     extern int player_item_id_list;
 void reset_id_array_global__10TObjPlayerFv(void) { reset_id_array__10TObjPlayerFPv((void*)(player_item_id_list)); }
 
-extern M2C_UNK lbl_804F29F8[];
+extern s32 lbl_804F29F8[];
 
 void *TObjPlayer__sub_80363C04(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F29F8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F29F8;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -77,9 +75,6 @@ void create_cleanup_object__10TObjPlayerFPv(void *arg0) {
 #undef TObjPlayer__sub_80363C5C
 
 #define player_item_id_list (*(u32 *)&player_item_id_list)
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -128,7 +123,7 @@ struct VObj_18_1419ea : VBase_18_1419ea {
     virtual void m23();
     virtual void m24();
     virtual void m25();
-    virtual M2C_UNK m26();
+    virtual s32 m26();
 };
 
 extern "C" {
@@ -208,24 +203,24 @@ void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1);
 void apply_loaded_item__10TObjPlayerFv(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK get_model_ids__9TItemLoadFUcPvPv(M2C_UNK, void **, M2C_UNK *);
-M2C_UNK submit_computer_command__10TObjPlayerFPv(s32, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 get_model_ids__9TItemLoadFUcPvPv(s32, void **, s32 *);
+s32 submit_computer_command__10TObjPlayerFPv(s32, s32, s32, s32);
 
 void apply_loaded_item__10TObjPlayerFv(void) {
     void *spC;
-    M2C_UNK sp8;
+    s32 sp8;
 
     get_model_ids__9TItemLoadFUcPvPv(5, &spC, &sp8);
     if (spC != NULL) {
-        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(spC, s32 *, 0x2C), 2, 2, 0xB);
+        submit_computer_command__10TObjPlayerFPv(*(s32 *)((s8 *)spC + 0x2C), 2, 2, 0xB);
     }
 }
 
-extern M2C_UNK lbl_804F2A10[];
+extern s32 lbl_804F2A10[];
 
 void *TObjPlayer__sub_80363EC4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F2A10;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F2A10;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -253,15 +248,15 @@ void* init_vtable_804F2A10__10TObjPlayerFPv(void* a0) { __ct__7TObjectFP7TObject
 #undef reset_id_array__10TObjPlayerFPv
 
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
-#define push_to_list__10TObjPlayerFPvi ((M2C_UNK (*)(void *, s32))push_to_list__10TObjPlayerFPvi)
-#define reset_id_array__10TObjPlayerFPv ((M2C_UNK (*)(void *))reset_id_array__10TObjPlayerFPv)
+#define push_to_list__10TObjPlayerFPvi ((s32 (*)(void *, s32))push_to_list__10TObjPlayerFPvi)
+#define reset_id_array__10TObjPlayerFPv ((s32 (*)(void *))reset_id_array__10TObjPlayerFPv)
 
 extern "C" {
 
 void push_id_to_list__10TObjPlayerFi(s32 arg0);
 
 void push_id_to_list__10TObjPlayerFi(s32 arg0) {
-    if ((s32) M2C_FIELD(lbl_805D6FB8, s32 *, 0xB0) == 0) {
+    if ((s32) *(s32 *)((s8 *)lbl_805D6FB8 + 0xB0) == 0) {
         reset_id_array__10TObjPlayerFPv(lbl_805D6FB8);
     }
     push_to_list__10TObjPlayerFPvi(lbl_805D6FB8, arg0);
@@ -278,26 +273,25 @@ void push_id_to_list__10TObjPlayerFi(s32 arg0) {
 #define lbl_805D6FB8 (*(void * *)&lbl_805D6FB8)
 
 struct RecoveredGlobal_803640C8_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8036414C_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80364198_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_803640F8_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
-typedef s32 M2C_UNK;
 struct Rec_80364028 { f32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
@@ -310,10 +304,10 @@ extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
 void TObjPlayer__sub_80364198(void);
-void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0);
-void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0);
+void push_model_fade_color__10TObjPlayerFPv(s32 *arg0);
+void push_model_fade_color__10TObjPlayerFPv(s32 *arg0);
 void set_chunk_material_override_pair(s32, s32);
-M2C_UNK set_chunk_blend(M2C_UNK);
+s32 set_chunk_blend(s32);
 extern Rec_80364028 lbl_80479FF8;
 extern s32 model_render_flags;
 extern const f32 lbl_805E0288;
@@ -324,7 +318,7 @@ extern "C" {
 
 void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0);
 void warn_if_gauge_low__10TObjPlayerFv(void);
-M2C_UNK set_chunk_blend(M2C_UNK);
+s32 set_chunk_blend(s32);
 void *__nw__7TObjectFUl(int);
 
 void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0) {
@@ -338,7 +332,7 @@ void spawn_cleanup_helper__10TObjPlayerFPv(void *arg0) {
 extern const f32 lbl_805E0288;
 
 void warn_if_gauge_low__10TObjPlayerFv(void) {
-    if (M2C_FIELD(lbl_805D6FB8, f32 *, 0x2C) < lbl_805E0288) {
+    if (*(f32 *)((s8 *)lbl_805D6FB8 + 0x2C) < lbl_805E0288) {
         set_chunk_blend(0x2500);
         copy_gauge_warn_vec__10TObjPlayerFv();
     }
@@ -352,7 +346,7 @@ void set_model_fade_alpha__10TObjPlayerFf(f32 farg0) {
         set_chunk_blend(0x2500);
         Rec_80364028 r = lbl_80479FF8;
         r.a = farg0 - lbl_805E0288;
-        push_model_fade_color__10TObjPlayerFPv((M2C_UNK *)&r);
+        push_model_fade_color__10TObjPlayerFPv((s32 *)&r);
     }
     *(f32 *)((u8 *)lbl_805D6FB8 + 0x2C) = farg0;
 }
@@ -363,7 +357,7 @@ void copy_gauge_warn_vec__10TObjPlayerFv(void) {
 typedef char RecoveredGlobal_8036414C_lbl_8058D4C0_size[sizeof(RecoveredGlobal_8036414C_lbl_8058D4C0) == 0x10 ? 1 : -1];
 
 typedef char RecoveredGlobal_803640F8_lbl_8058D4C0_size[sizeof(RecoveredGlobal_803640F8_lbl_8058D4C0) == 0x10 ? 1 : -1];
-void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0) {
+void push_model_fade_color__10TObjPlayerFPv(s32 *arg0) {
     copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(s32 *)&lbl_805D6FB8) + 0x1C), (void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value));
     if (arg0 != NULL) {
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_803640F8_lbl_8058D4C0 *)&model_material_color).value), (void *) (arg0));
@@ -371,17 +365,17 @@ void push_model_fade_color__10TObjPlayerFPv(M2C_UNK *arg0) {
 }
 
 void TObjPlayer__sub_8036414C(void) {
-    model_render_flags = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0);
+    model_render_flags = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 0);
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_8036414C_lbl_8058D4C0 *)&model_material_color).value), (void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC));
-    chunk_polygon_flags_and_mask = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4);
-    chunk_polygon_flags_or_mask = M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8);
+    chunk_polygon_flags_and_mask = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 4);
+    chunk_polygon_flags_or_mask = *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 8);
 }
 typedef char RecoveredGlobal_80364198_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80364198_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void TObjPlayer__sub_80364198(void) {
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 0) = (s32) model_render_flags;
+    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 0) = (s32) model_render_flags;
     copy_vec4__13TRaderMapCoreFPvPv((void *) ((*(u8 * *)&lbl_805D6FB8) + 0xC), (void *) (&(*(RecoveredGlobal_80364198_lbl_8058D4C0 *)&model_material_color).value));
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 4) = (s32) chunk_polygon_flags_and_mask;
-    M2C_FIELD((*(u8 * *)&lbl_805D6FB8), s32 *, 8) = (s32) chunk_polygon_flags_or_mask;
+    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 4) = (s32) chunk_polygon_flags_and_mask;
+    *(s32 *)((s8 *)(*(u8 * *)&lbl_805D6FB8) + 8) = (s32) chunk_polygon_flags_or_mask;
 }
 
 }
@@ -438,10 +432,10 @@ void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 void push_to_list__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
     if (temp_r0 < 0x20) {
         ((struct Elt80364258_80364258 *)(arg0 + 0x30))[temp_r0].f0 = arg1;
-        M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) + 1);
+        *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) + 1);
     }
 }
 
@@ -462,7 +456,7 @@ void reset_id_array__10TObjPlayerFPv(void *arg0) {
 
 }
 
-#define reset_id_array__10TObjPlayerFPv ((M2C_UNK (*)(void))reset_id_array__10TObjPlayerFPv)
+#define reset_id_array__10TObjPlayerFPv ((s32 (*)(void))reset_id_array__10TObjPlayerFPv)
 
 extern "C" {
 

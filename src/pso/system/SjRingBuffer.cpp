@@ -1,6 +1,5 @@
 #include "pso/system/MiddlewareInterruptLock.h"
 #include "pso/system/SjRingBuffer.h"
-typedef s32 M2C_UNK;
 
 #pragma optimize_for_size off
 
@@ -158,7 +157,7 @@ void sj_ring_buffer_reset(SjRingBuffer *arg0);
 void sj_ring_buffer_set_error_callback(SjRingBuffer *arg0, SjErrorCallback arg1, void* arg2);
 const u8* sj_ring_buffer_get_uuid(SjRingBuffer *arg0);
 void sj_ring_buffer_destroy(SjRingBuffer *arg0);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 
 s32 sj_ring_buffer_get_available(SjRingBuffer *arg0, s32 arg1) {
     SjErrorCallback temp_r12;

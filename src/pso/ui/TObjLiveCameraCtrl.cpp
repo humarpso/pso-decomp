@@ -1,15 +1,11 @@
 #include "pso/TObjLiveCameraCtrl.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Cam_8030BED4 {
     s32 f0;
     u8 pad4[0x18 - 4];
-    M2C_UNK *vt;
+    s32 *vt;
     s16 f1c, f1e;
     s32 f20;
     u16 f24;
@@ -28,19 +24,19 @@ void update_toggle_state__12TBoss8DragonFPv(void *);
 void update_live_camera__12TBoss8DragonFPv(void *);
 void choose_next_camera_shot__12TBoss8DragonFPv(void *);
 void copy_position_vectors__11TCameraCtrlFPvPvPv(void *, void *, void *);
-M2C_UNK get_current_floor();
+s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
-M2C_UNK init_single_player_chr_select__6TLobbyFPv(void *);
+s32 init_single_player_chr_select__6TLobbyFPv(void *);
 void *fn_800832EC(void *, int, int, void *, void *, f32);
-s32 is_room_enemy_set_cleared(M2C_UNK, int);
+s32 is_room_enemy_set_cleared(s32, int);
 void *__nw__7TObjectFUl(u32);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
 extern s32 lbl_804757E0[];
-extern M2C_UNK __vt__18TObjLiveCameraCtrl[];
+extern s32 __vt__18TObjLiveCameraCtrl[];
 extern s32 TObjLiveCameraCtrl__class_name;
 extern s32 tl_particlemodel;
 extern s32 live_camera_controller_next_slot;
-extern M2C_UNK TObjLiveCameraCtrl__instances;
+extern s32 TObjLiveCameraCtrl__instances;
 extern const f32 lbl_805DF168;
 extern const f32 lbl_805DF19C;
 extern const f32 lbl_805DF1B4;
@@ -56,9 +52,9 @@ s32 TObjLiveMonitor__sub_8030C050(void* p);
 void fn_8030C058(void);
 s32 get_table_entry__18TObjLiveCameraCtrlFi(s32 arg0);
 void reset_globals_805D6A84(void);
-M2C_UNK memset(M2C_UNK *, M2C_UNK, M2C_UNK);
+s32 memset(s32 *, s32, s32);
 
-extern M2C_UNK TObjLiveCameraCtrl__instances;
+extern s32 TObjLiveCameraCtrl__instances;
 
 }
 
@@ -77,7 +73,7 @@ void __dl__7TObjectFPv(void *);
 
 TObjLiveCameraCtrl *__dt__18TObjLiveCameraCtrlFv(TObjLiveCameraCtrl *self, s16 flag) {
     if (self != NULL) {
-        M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__18TObjLiveCameraCtrl;
+        *(s32 **)((s8 *)self + 0x18) = __vt__18TObjLiveCameraCtrl;
         ((TObject **)&TObjLiveCameraCtrl__instances)[self->slot_index] = NULL;
         if (self->camera_object != NULL) queue_destruction__7TObjectFv(self->camera_object);
         __dt__7TObjectFv(self, 0);
@@ -99,7 +95,7 @@ Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
     init_single_player_chr_select__6TLobbyFPv(arg0->f54);
     arg0->f0 = TObjLiveCameraCtrl__class_name;
     n = live_camera_controller_next_slot;
-    M2C_FIELD(((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4), Cam_8030BED4 **, 0) = arg0;
+    *(Cam_8030BED4 **)((s8 *)((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4) + 0) = arg0;
     live_camera_controller_next_slot = n + 1;
     arg0->f4c = n;
     arg0->f1c = 0;
@@ -148,7 +144,7 @@ s32 TObjLiveMonitor__sub_8030C050(void* p) { return *(s32*)((char*)p + 0x20); }
 void fn_8030C058(void) {  }
 
 extern s32 live_camera_controller_next_slot;
-extern M2C_UNK TObjLiveCameraCtrl__instances;
+extern s32 TObjLiveCameraCtrl__instances;
 
 void reset_globals_805D6A84(void) {
     live_camera_controller_next_slot = 0;

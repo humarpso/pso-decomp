@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 struct RecoveredGlobal_80230D9C_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80230D9C_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -52,7 +48,7 @@ struct Profile_80231224 { u32 a; u32 count; };
 
 struct RecoveredGlobal_80231638___vt__10TTecGiFoie
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x24];
 };
 
@@ -155,7 +151,7 @@ struct Vec_802312E4;
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f32 newton_sqrtf(f32);
-M2C_UNK queue_destruction__7TObjectFv(int);
+s32 queue_destruction__7TObjectFv(int);
 void set_position_xy__10TObjPlayerFPvff(u32, f32, f32);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
@@ -333,13 +329,13 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
     var_r31 = 0;
     var_r29 = var_r31;
     var_r31 = 0;
-    *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &__vt__10TTecGiFoie.value;
+    *((s32 **) (((s8 *) arg0) + 0x18)) = &__vt__10TTecGiFoie.value;
     do
     {
       temp_r30 = var_r31 + 0xEC;
-      if (is_parents_unqueued__9TTecLukerFUi(*((M2C_UNK *) (((s8 *) arg0) + temp_r30))) != 0)
+      if (is_parents_unqueued__9TTecLukerFUi(*((s32 *) (((s8 *) arg0) + temp_r30))) != 0)
       {
-        queue_destruction__7TObjectFv((int) (*((M2C_UNK *) (((s8 *) arg0) + temp_r30))));
+        queue_destruction__7TObjectFv((int) (*((s32 *) (((s8 *) arg0) + temp_r30))));
       }
       var_r29 += 1;
       var_r31 += 4;
@@ -348,7 +344,7 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
     destroy_technique_base__9TTecLukerFPvs(arg0, 0);
     if (arg1 > 0)
     {
-      ((M2C_UNK (*)(void *))__dl__7TObjectFPv)((void *) arg0);
+      ((s32 (*)(void *))__dl__7TObjectFPv)((void *) arg0);
     }
   }
   return arg0;
@@ -361,22 +357,22 @@ u8 *__dt__10TTecGiFoieFv(u8 *arg0, s16 arg1) {
 #pragma opt_dead_assignments off
 void run_task__10TTecGiFoieFv(u8 *self) {
     f32 distance;
-    if (M2C_FIELD(self, void **, 0xE8) == NULL) {
+    if (*(void **)((s8 *)self + 0xE8) == NULL) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    M2C_FIELD(self, void **, 0x1C) = find_entity_by_id(M2C_FIELD(self, u16 *, 0xB4));
-    if (M2C_FIELD(self, void **, 0x1C) == NULL) {
+    *(void **)((s8 *)self + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)self + 0xB4));
+    if (*(void **)((s8 *)self + 0x1C) == NULL) {
         queue_destruction__7TObjectFv((int) self);
         return;
     }
-    if (is_parents_unqueued__9TTecLukerFUi(M2C_FIELD(self, u32 *, 0xEC)) != 0) {
-        distance = newton_sqrtf(horizontal_distance_squared(M2C_FIELD(self, u8 **, 0xEC) + 0x2C, self + 0x20));
-        if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
-            M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = TTecGiFoie__data_805DC81C + distance;
+    if (is_parents_unqueued__9TTecLukerFUi(*(u32 *)((s8 *)self + 0xEC)) != 0) {
+        distance = newton_sqrtf(horizontal_distance_squared(*(u8 **)((s8 *)self + 0xEC) + 0x2C, self + 0x20));
+        if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
+            *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + distance;
         }
         apply_technique_to_area_targets(self);
-        if (distance >= M2C_FIELD(self, f32 *, 0x90)) {
+        if (distance >= *(f32 *)((s8 *)self + 0x90)) {
             queue_destruction__7TObjectFv((int) self);
         }
     }
@@ -394,7 +390,7 @@ void *TTecGiFoie__ct(void *self_, void *source, void *origin, void *level) {
     self->x0 = TTecGiFoie__name;
     ((void (*)(void *))calc_params__10TTecGiFoieFPv)(self_);
     if (self->effect != NULL) {
-        M2C_FIELD(M2C_FIELD(self->effect, u8 **, 0xA4), f32 *, 0xC) = TTecGiFoie__data_805DC81C + self->radius;
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)self->effect + 0xA4)) + 0xC) = TTecGiFoie__data_805DC81C + self->radius;
     }
     for (i = 0; i < 32; i++) {
         self->ids[i] = 0xFFFF;

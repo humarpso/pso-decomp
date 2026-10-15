@@ -3,23 +3,19 @@
 TTecZondeEff::~TTecZondeEff() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8023D988___vt__12TTecZondeEff {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8023DADC___vt__12TTecZondeEff {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8023DA10___vt__12TTecZondeEff {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -390,9 +386,9 @@ s32 calc_dominant_axis__12TTecZondeEffFPv(void *arg0) {
     f32 temp_f30;
     f32 temp_f31;
 
-    temp_f30 = fabs_float(M2C_FIELD(arg0, f32 *, 0x28));
-    temp_f31 = fabs_float(M2C_FIELD(arg0, f32 *, 0x2C));
-    temp_f1 = fabs_float(M2C_FIELD(arg0, f32 *, 0x30));
+    temp_f30 = fabs_float(*(f32 *)((s8 *)arg0 + 0x28));
+    temp_f31 = fabs_float(*(f32 *)((s8 *)arg0 + 0x2C));
+    temp_f1 = fabs_float(*(f32 *)((s8 *)arg0 + 0x30));
     if (temp_f30 > temp_f31) {
         if (temp_f30 > temp_f1) {
             return 0;
@@ -521,17 +517,17 @@ void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0) {
 
 u8 *__ct__12TTecZondeEffFv(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TTecZondeEff.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
-    M2C_FIELD(arg0, f32 *, 0x244) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x254) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x258) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x250) = 0;
-    M2C_FIELD(arg0, s16 *, 0x25C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
-    M2C_FIELD(arg0, s32 *, 0x248) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
-    M2C_FIELD(arg0, s16 *, 0x25E) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TTecZondeEff.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecZondeEff_class_name;
+    *(f32 *)((s8 *)arg0 + 0x244) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x254) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x258) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x250) = 0;
+    *(s16 *)((s8 *)arg0 + 0x25C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
+    *(s32 *)((s8 *)arg0 + 0x248) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
+    *(s16 *)((s8 *)arg0 + 0x25E) = 0;
     return arg0;
 }
 
@@ -540,43 +536,43 @@ typedef char RecoveredGlobal_8023DADC___vt__12TTecZondeEff_size[sizeof(Recovered
 typedef char RecoveredGlobal_8023DA10___vt__12TTecZondeEff_size[sizeof(RecoveredGlobal_8023DA10___vt__12TTecZondeEff) == 0x18 ? 1 : -1];
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DA10___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
-    M2C_FIELD(arg0, f32 *, 0x244) = farg1;
-    M2C_FIELD(arg0, s32 *, 0x254) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x258) = arg5;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023DA10___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecZondeEff_class_name;
+    *(f32 *)((s8 *)arg0 + 0x244) = farg1;
+    *(s32 *)((s8 *)arg0 + 0x254) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x258) = arg5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
-    M2C_FIELD(arg0, f32 *, 0x34) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x250) = 0;
-    M2C_FIELD(arg0, s16 *, 0x25C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
+    *(f32 *)((s8 *)arg0 + 0x34) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x250) = 0;
+    *(s16 *)((s8 *)arg0 + 0x25C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
     init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
     randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x248) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
-    M2C_FIELD(arg0, s16 *, 0x25E) = 0;
+    *(s32 *)((s8 *)arg0 + 0x248) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
+    *(s16 *)((s8 *)arg0 + 0x25E) = 0;
     return arg0;
 }
 
 u8 *construct__12TTecZondeEffFPvPvPvPvf(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023DADC___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecZondeEff_class_name;
-    M2C_FIELD(arg0, f32 *, 0x244) = (f32) TTecZondeEff__data_805DC994;
-    M2C_FIELD(arg0, s32 *, 0x254) = 0x08000000;
-    M2C_FIELD(arg0, s32 *, 0x258) = 0x14;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023DADC___vt__12TTecZondeEff *)&__vt__12TTecZondeEff).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecZondeEff_class_name;
+    *(f32 *)((s8 *)arg0 + 0x244) = (f32) TTecZondeEff__data_805DC994;
+    *(s32 *)((s8 *)arg0 + 0x254) = 0x08000000;
+    *(s32 *)((s8 *)arg0 + 0x258) = 0x14;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg3);
-    M2C_FIELD(arg0, f32 *, 0x34) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x250) = 0;
-    M2C_FIELD(arg0, s16 *, 0x25C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0xD;
+    *(f32 *)((s8 *)arg0 + 0x34) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x250) = 0;
+    *(s16 *)((s8 *)arg0 + 0x25C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0xD;
     init_bolt_points__12TTecZondeEffFPv((void *)(arg0));
     randomize_bolt_jitter__12TTecZondeEffFPv((Obj_8023D4A8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x248) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24C) = 0xFF000000;
-    M2C_FIELD(arg0, s16 *, 0x25E) = 0;
+    *(s32 *)((s8 *)arg0 + 0x248) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24C) = 0xFF000000;
+    *(s16 *)((s8 *)arg0 + 0x25E) = 0;
     return arg0;
 }
 

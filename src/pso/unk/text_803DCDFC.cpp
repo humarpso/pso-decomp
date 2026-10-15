@@ -14,10 +14,10 @@ extern "C" void get_render_mode_for_tv_format(GXRenderModeObj_803DD430 *rmode, G
 
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
+
+
+
 
 struct RMode_803DCDFC {
     u32 viTVmode;
@@ -62,7 +62,7 @@ void VIFlush(void);
 void VISetNextFrameBuffer(void *);
 void VISetBlack(s32);
 u32 VIGetRetraceCount(void);
-M2C_UNK LCEnable();
+s32 LCEnable();
 s32 OSCreateHeap(int, int);
 void *GXInit(s32, s32);
 void GXInitTlutRegion(Tlut_803DD0D8 *, u32, u32);
@@ -88,7 +88,7 @@ extern s32 gx_fifo_buffer_size;
 extern s32 gx_fifo_buffer;
 extern s32 display_heap_size;
 extern s32 locked_cache_heap_handle;
-extern M2C_UNK lbl_8058D340[];
+extern s32 lbl_8058D340[];
 extern Tlut_803DD0D8 lbl_8058CE40[];
 extern void *lbl_805D771C;
 extern void *lbl_805D7720;
@@ -99,7 +99,7 @@ void fn_803DCF0C(void);
 void present_frame_and_wait_vsync(void);
 void run_callback__6TMovieFv(void);
 void init_locked_cache_heap(u8 *arg0);
-void set_present_interval(M2C_UNK *arg0, s32 arg1);
+void set_present_interval(s32 *arg0, s32 arg1);
 void init_gx_display(void);
 void fn_803DD294(void);
 }
@@ -159,12 +159,12 @@ void present_frame_and_wait_vsync(void) {
 }
 
 
-#define frame_update_callback (*(M2C_UNK (**)())&frame_update_callback)
+#define frame_update_callback (*(s32 (**)())&frame_update_callback)
 #define video_current_framebuffer (*(s32 *)&video_current_framebuffer)
 #define video_initial_draw_framebuffer (*(s32 *)&video_initial_draw_framebuffer)
 #define video_initial_display_framebuffer (*(s32 *)&video_initial_display_framebuffer)
 void run_callback__6TMovieFv(void) {
-    if (((M2C_UNK (*)()) frame_update_callback) != NULL) {
+    if (((s32 (*)()) frame_update_callback) != NULL) {
         frame_update_callback();
     }
 }
@@ -174,28 +174,28 @@ void init_locked_cache_heap(u8 *arg0) {
     s32 temp_r3;
 
     LCEnable();
-    video_initial_display_framebuffer = M2C_FIELD(arg0, s32 *, 8);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC);
+    video_initial_display_framebuffer = *(s32 *)((s8 *)arg0 + 8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC);
     video_initial_draw_framebuffer = temp_r0;
     video_current_framebuffer = temp_r0;
-    gx_fifo_buffer = M2C_FIELD(arg0, s32 *, 0x10);
-    gx_fifo_buffer_size = M2C_FIELD(arg0, s32 *, 0x14);
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x18);
-    locked_cache_heap_handle = OSCreateHeap((int) (temp_r3), (int) (temp_r3 + M2C_FIELD(arg0, s32 *, 0x1C)));
-    display_heap_size = M2C_FIELD(arg0, s32 *, 0x1C);
+    gx_fifo_buffer = *(s32 *)((s8 *)arg0 + 0x10);
+    gx_fifo_buffer_size = *(s32 *)((s8 *)arg0 + 0x14);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x18);
+    locked_cache_heap_handle = OSCreateHeap((int) (temp_r3), (int) (temp_r3 + *(s32 *)((s8 *)arg0 + 0x1C)));
+    display_heap_size = *(s32 *)((s8 *)arg0 + 0x1C);
 }
 
 
 #define last_present_retrace_count (*(s32 *)&last_present_retrace_count)
 
-void set_present_interval(M2C_UNK *arg0, s32 arg1) {
+void set_present_interval(s32 *arg0, s32 arg1) {
     s32 var_r4;
     var_r4 = arg1;
     if (arg0 != NULL) {
-        (*(M2C_UNK * *)&active_gx_render_mode) = arg0;
+        (*(s32 * *)&active_gx_render_mode) = arg0;
     } else {
-        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(M2C_UNK * *)&active_gx_render_mode)), (GXRenderModeObj_803DD430 *) (lbl_8058D340));
-        (*(M2C_UNK * *)&active_gx_render_mode) = lbl_8058D340;
+        get_render_mode_for_tv_format((GXRenderModeObj_803DD430 *) ((*(s32 * *)&active_gx_render_mode)), (GXRenderModeObj_803DD430 *) (lbl_8058D340));
+        (*(s32 * *)&active_gx_render_mode) = lbl_8058D340;
         var_r4 = 1;
     }
     video_present_interval_retraces = var_r4;
@@ -268,10 +268,10 @@ void fn_803DD294(void) {
 
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
+
+
+
 
 extern "C" {
 
@@ -306,7 +306,7 @@ extern f32 lbl_805D777C;
 extern s32 model_render_flags;
 
 void update_camera__16TKeyBoardControlFv(void);
-M2C_UNK init_projection_state__11TCameraCtrlFv();
+s32 init_projection_state__11TCameraCtrlFv();
 
 
 void update_camera__16TKeyBoardControlFv(void) {
@@ -397,10 +397,10 @@ s32 fn_803DD3DC(Fmt_803DD3DC *arg0) {
 
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
+
+
+
 
 extern "C" {
 

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_aa4667 { char pad[0x18]; };
 
 struct VObj_18_aa4667 : VBase_18_aa4667 {
@@ -85,11 +82,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_80359420___vt__14TObjNpcNgcBase {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x174];
 };
 
@@ -105,21 +102,21 @@ s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
 extern RecoveredGlobal_80359420___vt__14TObjNpcNgcBase __vt__14TObjNpcNgcBase;
 extern s32 TObjNpcNgcBase__name;
-u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3);
+u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void fn_803594B4(O_803594B4 *self, s32 v, f32 f);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_80359420___vt__14TObjNpcNgcBase_size[sizeof(RecoveredGlobal_80359420___vt__14TObjNpcNgcBase) == 0x178 ? 1 : -1];
-u8 *TObjNpcNgcBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3) {
+u8 *TObjNpcNgcBase__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_male_npc_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjNpcNgcBase.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcNgcBase__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjNpcNgcBase.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNgcBase__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (arg3), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) (arg3), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (arg3), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) (arg3), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

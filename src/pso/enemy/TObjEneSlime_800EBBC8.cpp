@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_fe72f9 { char pad[0x18]; };
 
@@ -86,12 +82,12 @@ struct VObj_18_fe72f9 : VBase_18_fe72f9 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(void *);
-    virtual M2C_UNK m80();
+    virtual s32 m79(void *);
+    virtual s32 m80();
 };
 
 struct RecoveredGlobal_800EBC28___vt__12TObjEneSlime {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14C];
 };
 
@@ -101,9 +97,9 @@ s32 TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 init_slots__12TObjEneSlimeFPv(void *);
 s32 initialize__9TObjEnemyFPv(void *);
-extern M2C_UNK __vt__12TObjEneSlime[];
+extern s32 __vt__12TObjEneSlime[];
 extern s32 lbl_805D2AD8;
-u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2);
 }
 
 extern "C" {
@@ -115,11 +111,11 @@ void release_split_slimes__12TObjEneSlimeFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
 
-extern M2C_UNK __vt__12TObjEneSlime[];
+extern s32 __vt__12TObjEneSlime[];
 
 void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjEneSlime;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjEneSlime;
         release_split_slimes__12TObjEneSlimeFPv(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -132,25 +128,25 @@ void *__dt__12TObjEneSlimeFv(void *arg0, s16 arg1) {
 extern u32 slime_bml_resource;
 
 typedef char RecoveredGlobal_800EBC28___vt__12TObjEneSlime_size[sizeof(RecoveredGlobal_800EBC28___vt__12TObjEneSlime) == 0x150 ? 1 : -1];
-u8 *TObjEneSlime__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
+u8 *TObjEneSlime__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 temp_r0;
     initialize__9TObjEnemyFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2AD8;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800EBC28___vt__12TObjEneSlime *)&__vt__12TObjEneSlime).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AD8;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);
     ((VObj_18_fe72f9 *)(arg0))->m80();
     reset_photon_effect__12TBoss3VoloptFPv((void *) (arg0));
     TBoss4DarkFalz__sub_8004B4F0((void *) (arg0 + 0x374), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0x3B4) = (s32) M2C_FIELD(arg2, s16 *, 2);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x3B4);
+    *(s32 *)((s8 *)arg0 + 0x3B4) = (s32) *(s16 *)((s8 *)arg2 + 2);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x3B4);
     if (temp_r0 < 1) {
         if (check_demo_mode__10TObjPlayerFv() != 0) {
-            M2C_FIELD(arg0, s32 *, 0x3B4) = 3;
+            *(s32 *)((s8 *)arg0 + 0x3B4) = 3;
         }
     } else if (temp_r0 > 4) {
-        M2C_FIELD(arg0, s32 *, 0x3B4) = 4;
+        *(s32 *)((s8 *)arg0 + 0x3B4) = 4;
     }
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     init_slots__12TObjEneSlimeFPv((void *) (arg0));
     return arg0;
 }

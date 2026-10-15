@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Stack_800B9D94 {
     s32 sp8;
     u8 pad_C[0x4];
@@ -17,18 +12,18 @@ struct Obj_800B9E84 {
 };
 
 extern "C" {
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 minimap_render_dot(void *, int, int, int);
 void TObjEneDD__vt97(u8 *arg0);
-M2C_UNK draw_blob_shadow(int);
-M2C_UNK direction_to_rotation_xz(void *, void *, void *);
-M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
+s32 draw_blob_shadow(int);
+s32 direction_to_rotation_xz(void *, void *, void *);
+s32 rotate_matrix_y(int, void *);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
 extern const f32 TObjEneDD__data_805D9E8C;
 extern const f32 lbl_805D9E90;
 void draw_oriented_shadow__9TObjEneDDFiiiUi(s32 arg0, s32 arg1, s32 arg2, u32 arg3);
@@ -62,7 +57,7 @@ int update_lobby_state__9TObjEneDDFPv(void* p);
     extern int model_render_flags;
 
 void TObjEneDD__vt97(u8 *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x30) & 0x40800)) {
+    if (!(*(s32 *)((s8 *)arg0 + 0x30) & 0x40800)) {
         minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) (1), (int) (0));
     }
 }

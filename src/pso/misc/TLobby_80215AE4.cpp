@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
     int create_named_object(void*);
@@ -15,9 +11,9 @@ extern "C" {
 
 void update_all__6TLobbyFi(s32 arg0);
 void free_window__6TLobbyFv(void);
-M2C_UNK adjust_appraisal_percentages(s32);
-M2C_UNK roll_item_grind_bonus__6TLobbyFPv(s32);
-M2C_UNK adjust_appraisal_special(s32);
+s32 adjust_appraisal_percentages(s32);
+s32 roll_item_grind_bonus__6TLobbyFPv(s32);
+s32 adjust_appraisal_special(s32);
 s32 is_slot_match__6TLobbyFPv();
 void free_nodes_with_id__6TLobbyFUi(void*);
 

@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -46,11 +44,11 @@ void conditional_delete_ex__10TObjPlayerFis(void *, int);
 void TObjPlayer__sub_801BF9F0(void *, int);
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
 void __dl__7TObjectFPv(void *);
-extern M2C_UNK __vt__10TObjPlayer[];
+extern s32 __vt__10TObjPlayer[];
 
 void *__dt__10TObjPlayerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
         release_child_object__10TObjPlayerFPv(arg0);
         free_chara_making__10TObjPlayerFPv(arg0);
         destroy_child__10TObjPlayerFPv(arg0);
@@ -142,7 +140,7 @@ extern void *lbl_805D3530;
 
 void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     setup_ctrl__10TObjPlayerFPv((void *)((char *)arg0 + 844));
     init_state__10TObjPlayerFi((void *)((char *)arg0 + 864));
@@ -178,9 +176,9 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
     clear_header_struct__10TObjPlayerFPv((void *)((char *)arg0 + 3500));
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3530;
     init_action_provider__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg0, u16 *, 0x1C) = 0;
+    *(u16 *)((s8 *)arg0 + 0x1C) = 0;
     setup_control_role__10TObjPlayerFPvi(arg0, 7);
     ((Fn_vpvp_801BD570)update_body_parts__10TObjPlayerFPv)(arg0, arg2);
     init_player_data__10TObjPlayerFPv(arg0, (void *)((char *)arg2 + 136));
@@ -190,7 +188,7 @@ void *TObjPlayer__ct(void *arg0, void *arg1, void *arg2) {
 
 void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     construct_actor_base__10TObjPlayerFPvPv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjPlayer;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjPlayer;
     init_subobject__10TObjPlayerFPv((void *)((char *)arg0 + 832));
     setup_ctrl__10TObjPlayerFPv((void *)((char *)arg0 + 844));
     init_state__10TObjPlayerFi((void *)((char *)arg0 + 864));
@@ -226,7 +224,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     init_forward__10TObjPlayerFPv((void *)((char *)arg0 + 2136));
     reset_and_return__10TObjPlayerFi((void *)((char *)arg0 + 3332));
     clear_header_struct__10TObjPlayerFPv((void *)((char *)arg0 + 3500));
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3530;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3530;
     init_from_data__10TObjPlayerFPvPv(arg0, arg2);
     setup_control_role__10TObjPlayerFPvi(arg0, 4);
     ((Fn_vpvp_801BD570)TObjPlayer__sub_801BD384)(arg0, (void *)((char *)arg2 + 200));
@@ -242,7 +240,7 @@ void *__ct__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {
     TObjPlayer__sub_801BBB70(arg0, arg2);
     init_class_flags__10TObjPlayerFPvi(arg0, arg2);
     TObjPlayer__sub_801BB85C(arg0, arg2);
-    M2C_FIELD(arg0, u16 *, 0x32C) = M2C_FIELD(arg2, s16 *, 0x22);
+    *(u16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg2 + 0x22);
     return arg0;
 }
 

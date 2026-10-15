@@ -1,27 +1,21 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_801A5EC4_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 struct RecoveredGlobal_801A5B00_TKeyBoardControl__data_80506270
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xAC];
 };
 
-typedef s32 M2C_UNK;
 struct RecoveredGlobal_801A5EC4_lbl_8050E208;
 struct Pad_801A5C4C {
     u8 pad0[0x20];
@@ -65,11 +59,11 @@ struct Set_801A5F1C {
 struct Obj_801A5F1C { u8 pad0[0x94]; s32 base[4]; };
 
 extern "C" {
-M2C_UNK check_and_read__16TKeyBoardControlFi(void *);
+s32 check_and_read__16TKeyBoardControlFi(void *);
 void read_key_checked__16TKeyBoardControlFUc(u8 arg0);
 s32 is_split_screen();
-M2C_UNK TKeyBoardControl__sub_80132650(void *);
-M2C_UNK update_button_hold_counters(int);
+s32 TKeyBoardControl__sub_80132650(void *);
+s32 update_button_hold_counters(int);
 extern RecoveredGlobal_801A5EC4_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 void update_input_frame__16TKeyBoardControlFv(void);
@@ -85,7 +79,7 @@ extern s32 lbl_805D49B4;
 extern u8 lbl_805D5D09;
 s32 func_801A5E54__Fv(void);
 s32 check_reset_button__16TKeyBoardControlFv();
-M2C_UNK PADRecalibrate(u32);
+s32 PADRecalibrate(u32);
 extern Masks_801A5C4C pad_recalibration_bit_masks;
 extern const f64 lbl_804469E8[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
@@ -101,7 +95,7 @@ void update_pad_recalibration(void);
 void bind_controller_devices(void);
 void map_c_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
 void map_main_stick_to_buttons(u8 *arg0, s16 arg1, s16 arg2, s32 arg3);
-M2C_UNK update_button_hold_counters(int);
+s32 update_button_hold_counters(int);
 extern const f64 lbl_80446A00[];
 extern RecoveredGlobal_801A5EC4_lbl_8050E208 controller_input_state;
 extern u8 controller_physical_port_bank[];
@@ -272,7 +266,7 @@ void update_input_frame__16TKeyBoardControlFv(void) {
     TKeyBoardControl__sub_80132650((void *) (&TKeyBoardControl__global_key_state.value));
     if (is_split_screen() == 0) {
         temp_r31 = (u8 *)&controller_input_state.value + 0x160;
-        ((M2C_UNK (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
+        ((s32 (*)(int))poll_key_state__16TKeyBoardControlFPv)((int) (temp_r31));
         update_button_hold_counters((int) (temp_r31));
     }
 }

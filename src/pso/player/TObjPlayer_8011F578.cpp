@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8011F5E0 { char pad[0x18]; };
 struct VObj_8011F5E0 : Base_8011F5E0 {
     virtual void v0();
@@ -22,8 +19,8 @@ extern "C" {
 
 void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0);
 void update_active_game_effect__10TObjPlayerFPv(void *arg0);
-M2C_UNK restore_action_type__11TItemWeaponFPv(void *);
-M2C_UNK remap_extra_attack_type(void *);
+s32 restore_action_type__11TItemWeaponFPv(void *);
+s32 remap_extra_attack_type(void *);
 s32 is_active_in_game__10TObjPlayerFPv();
 
 struct Base_8011F578 { char pad[0x18]; };
@@ -52,7 +49,7 @@ void apply_scale_if_active__10TObjPlayerFPvf(void *arg0, f32 farg0) {
 
     if (is_active_in_game__10TObjPlayerFPv() != 0) {
         remap_extra_attack_type(arg0);
-        temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
+        temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
         ((VObj_8011F578 *)temp_r3)->m65(farg0);
         restore_action_type__11TItemWeaponFPv(arg0);
     }
@@ -65,7 +62,7 @@ void update_active_game_effect__10TObjPlayerFPv(void *arg0) {
 
     if (is_active_in_game__10TObjPlayerFPv() != 0) {
         remap_extra_attack_type(arg0);
-        temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
+        temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
         ((VObj_8011F5E0 *)temp_r3)->v67(lbl_805DAC9C);
         restore_action_type__11TItemWeaponFPv(arg0);
     }

@@ -254,30 +254,26 @@ void *TWindowSubStatusDisp__window_layout[5] = {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct SD_80281760 { s32 f0; u8 pad4[0x14]; void *vt; u8 pad1c[4]; s16 f20; u8 pad22[0x3E]; s16 f60; s16 f62; u8 pad64[4]; void *f68; f32 f6c; f32 f70; };
 
 extern "C" {
-M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
-M2C_UNK update_window_entry_list(void *, void *);
-M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(void *);
-M2C_UNK fn_8026C7AC(int, int);
+s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 update_window_entry_list(void *, void *);
+s32 destroy_all_items__20TWindowSubStatusDispFPv(void *);
+s32 fn_8026C7AC(int, int);
 s32 handle_list_page_flip_input(int);
-M2C_UNK dispatch_page_update__20TWindowSubStatusDispFv(void *);
-M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
-extern M2C_UNK lbl_805DD6F4;
+s32 dispatch_page_update__20TWindowSubStatusDispFv(void *);
+s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
+extern s32 lbl_805DD6F4;
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, s32);
 void *init__21TWindowSubComCardListFPviii(void *, int, int, s32);
 s32 get_window_layout_position(int);
-M2C_UNK dispatch_page_init__20TWindowSubStatusDispFv(void *);
+s32 dispatch_page_init__20TWindowSubStatusDispFv(void *);
 
-extern M2C_UNK __vt__20TWindowSubStatusDisp[];
+extern s32 __vt__20TWindowSubStatusDisp[];
 extern s32 TWindowSubStatusDisp__class_name;
 extern const f32 lbl_805DD70C;
 SD_80281760 *TWindowSubStatusDisp__ct(SD_80281760 *arg0, s32 arg1);
@@ -289,9 +285,9 @@ void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 void update_status__20TWindowSubStatusDispFPv(u8 *arg0);
 u32 get_player_by_client_id(s16);
 s32 setup_window_draw_context(void *, void *);
-M2C_UNK draw_window_frame(void *, s32);
-M2C_UNK draw_visible_window_entries(void *, void *, s32);
-M2C_UNK draw_list_page_indicator(s32, s32);
+s32 draw_window_frame(void *, s32);
+s32 draw_visible_window_entries(void *, void *, s32);
+s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -356,15 +352,15 @@ extern "C" {
 void update_status__20TWindowSubStatusDispFPv(u8 *arg0) {
     s32 temp_r3;
 
-    if (get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20)) != 0U) {
+    if (get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20)) != 0U) {
         temp_r3 = setup_window_draw_context(arg0, arg0 + 0x6C);
         draw_window_frame(arg0, temp_r3);
         draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
-        draw_list_page_indicator(M2C_FIELD(arg0, s32 *, 0x68), temp_r3);
+        draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x68), temp_r3);
     }
 }
 
-extern M2C_UNK __vt__20TWindowSubStatusDisp[];
+extern s32 __vt__20TWindowSubStatusDisp[];
 
 void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
   s16 temp_r3;
@@ -390,8 +386,8 @@ void TWindowSubStatusDisp__sub_80281644(u8 *arg0) {
 
 void *dt__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TWindowSubStatusDisp;
-        delete_if_allocated(M2C_FIELD(arg0, void **, 0x68), 1);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TWindowSubStatusDisp;
+        delete_if_allocated(*(void **)((s8 *)arg0 + 0x68), 1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

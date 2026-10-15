@@ -1,10 +1,6 @@
 #include "pso/TObjBagWarnWin.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Sub_8006EC20 {
     u8 pad[0x1C];
@@ -21,7 +17,7 @@ struct Ctrl_8006EC20 {
 };
 
 extern "C" {
-M2C_UNK TWindow__close(int);
+s32 TWindow__close(int);
 s32 TWindowCtrlMain__sub_8024CE58();
 void run_task__14TObjBagWarnWinFv(u8 *arg0);
 s32 fn_8006EF80();
@@ -35,13 +31,13 @@ extern const f32 lbl_805D90C0;
 extern const f32 lbl_805D90C4;
 s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
-s32 TQuestVmDownLoadServer__sub_8006EF6C(M2C_UNK);
-M2C_UNK set_position_xy(u32, f32, f32);
-M2C_UNK set_field_1c__6TLobbyFPvf(u32, f32);
-M2C_UNK send_and_handle__6TLobbyFPvii(u32, void *, M2C_UNK);
-u32 set_window_mode_4__6TLobbyFPvii(M2C_UNK, void *, M2C_UNK);
-M2C_UNK get_window_layout_position(M2C_UNK);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
+s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
+s32 set_position_xy(u32, f32, f32);
+s32 set_field_1c__6TLobbyFPvf(u32, f32);
+s32 send_and_handle__6TLobbyFPvii(u32, void *, s32);
+u32 set_window_mode_4__6TLobbyFPvii(s32, void *, s32);
+s32 get_window_layout_position(s32);
+s32 strncpy(void *, s32, s32);
 extern u8 TObjBagWarnWin__message_window_size[];
 extern const f32 lbl_805D90C8;
 extern const f32 lbl_805D90CC;
@@ -83,37 +79,37 @@ s32 should_show_warning__14TObjBagWarnWinFPv(void *arg0) {
 
 void run_task__14TObjBagWarnWinFv(u8 *arg0) {
     s32 temp_r0;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         if (TWindowCtrlMain__sub_8024CE58() != 0) {
             if (should_show_warning__14TObjBagWarnWinFPv((void *)((void *) (arg0))) != 0) {
-                temp_r0 = M2C_FIELD(arg0, s32 *, 0xA0) - 1;
-                M2C_FIELD(arg0, s32 *, 0xA0) = temp_r0;
+                temp_r0 = *(s32 *)((s8 *)arg0 + 0xA0) - 1;
+                *(s32 *)((s8 *)arg0 + 0xA0) = temp_r0;
                 if (temp_r0 < 0) {
-                    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+                    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
                 }
             } else {
-                M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
+                *(s32 *)((s8 *)arg0 + 0xA0) = 0x1E;
             }
-            if ((s32) M2C_FIELD(arg0, s32 *, 0xA0) == 0) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0xA0) == 0) {
                 open_message_window__14TObjBagWarnWinFPv((u8 *)((void *) (arg0)));
             }
         }
     } else if (should_show_warning__14TObjBagWarnWinFPv((void *)((void *) (arg0))) == 0) {
-        TWindow__close((int) (M2C_FIELD(arg0, u32 *, 0x1C)));
-        M2C_FIELD(arg0, u32 *, 0x1C) = 0U;
-        M2C_FIELD(arg0, s32 *, 0xA0) = 0x1E;
+        TWindow__close((int) (*(u32 *)((s8 *)arg0 + 0x1C)));
+        *(u32 *)((s8 *)arg0 + 0x1C) = 0U;
+        *(s32 *)((s8 *)arg0 + 0xA0) = 0x1E;
     }
 }
 void open_message_window__14TObjBagWarnWinFPv(u8 *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x38), TObjBagWarnWin__message_window_size, 1);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        set_field_1c__6TLobbyFPvf(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90C8);
+    *(u32 *)((s8 *)arg0 + 0x1C) = set_window_mode_4__6TLobbyFPvii(get_window_layout_position(0x38), TObjBagWarnWin__message_window_size, 1);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
+        set_field_1c__6TLobbyFPvf(*(u32 *)((s8 *)arg0 + 0x1C), lbl_805D90C8);
         if (get_camera_id__11TCameraCtrlFv() == 4) {
-            set_position_xy(M2C_FIELD(arg0, u32 *, 0x1C), lbl_805D90CC, lbl_805D90CC);
+            set_position_xy(*(u32 *)((s8 *)arg0 + 0x1C), lbl_805D90CC, lbl_805D90CC);
         }
         strncpy(arg0 + 0x20, TQuestVmDownLoadServer__sub_8006EF6C(0x59), 0x7F);
-        M2C_FIELD(arg0, s8 *, 0x9F) = 0;
-        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, u32 *, 0x1C), arg0 + 0x20, 0);
+        *(s8 *)((s8 *)arg0 + 0x9F) = 0;
+        send_and_handle__6TLobbyFPvii(*(u32 *)((s8 *)arg0 + 0x1C), arg0 + 0x20, 0);
     }
 }
 TObjBagWarnWin::~TObjBagWarnWin() {}

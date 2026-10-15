@@ -1,35 +1,31 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8025E9E4_lbl_804CFA70 { M2C_UNK value; u8 remaining[0x10]; };
+struct RecoveredGlobal_8025E9E4_lbl_804CFA70 { s32 value; u8 remaining[0x10]; };
 typedef char RecoveredGlobal_8025E9E4_lbl_804CFA70_size[sizeof(RecoveredGlobal_8025E9E4_lbl_804CFA70) == 0x14 ? 1 : -1];
 
-struct RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase_size[sizeof(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase) == 0x18 ? 1 : -1];
 
 extern "C" {
 u8 * init_text_buffer_holder__19TWindowKeyBoardBaseFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 * get_window_layout_position(s32);
-M2C_UNK init_keyboard_text_buffer(void *, int, int);
-M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
-M2C_UNK init_keyboard_text_field(void *, int, int);
+s32 init_keyboard_text_buffer(void *, int, int);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
+s32 init_keyboard_text_field(void *, int, int);
 extern RecoveredGlobal_8025E9E4_lbl_804CFA70 TWindowKeyBoardBase__window_descriptor;
-extern M2C_UNK __vt__19TWindowKeyBoardBase[];
+extern s32 __vt__19TWindowKeyBoardBase[];
 extern s32 keyboard_base_type_name_pointer;
 extern s32 current_language;
 u8 *TWindowKeyBoardBase__ct(u8 *arg0);
-M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, s32, s32, s32);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 set_stream_and_load_file__6TLobbyFi(M2C_UNK *);
-s32 get_resource_file_size__6TLobbyFPv(M2C_UNK *);
+s32 aram_transfer_sync__6TLobbyFiUiii(s32, s32, s32, s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 set_stream_and_load_file__6TLobbyFi(s32 *);
+s32 get_resource_file_size__6TLobbyFPv(s32 *);
 s32 Dolphin_ARAlloc(s32);
-M2C_UNK TQuestVmDownLoadServer__sub_803F09A4();
-M2C_UNK TQuestVmDownLoadServer__sub_803F0C04(s32, s32, M2C_UNK, M2C_UNK, M2C_UNK);
-extern M2C_UNK lbl_8044F098[];
+s32 TQuestVmDownLoadServer__sub_803F09A4();
+s32 TQuestVmDownLoadServer__sub_803F0C04(s32, s32, s32, s32, s32);
+extern s32 lbl_8044F098[];
 void load_ask_dictionary__6TLobbyFv(void);
 }
 
@@ -40,8 +36,8 @@ void render__19TWindowKeyBoardBaseFv(void *arg0);
 void run_task__19TWindowKeyBoardBaseFv(void* p);
 s32 TWindowChat__sub_8025CB10(void *);
 s32 TWindowKeyBoardHard__sub_8025EB68();
-M2C_UNK draw_window_frame(void *, s32);
-M2C_UNK TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
+s32 draw_window_frame(void *, s32);
+s32 TWindowSubStatusDisp__sub_8025E6DC(void *, s32);
 void __dl__7TObjectFPv(void *);
 void destroy__19TWindowKeyBoardBaseFPvs(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
@@ -53,9 +49,9 @@ int update_fade__17TWindowSubComCardFPv(void*);
 void render__19TWindowKeyBoardBaseFv(void *arg0) {
     s32 temp_r31;
 
-    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(arg0) != 0) || (M2C_FIELD(arg0, u16 *, 0x62) & 2))) {
+    if ((TWindowKeyBoardHard__sub_8025EB68() == 0) && ((TWindowChat__sub_8025CB10(arg0) != 0) || (*(u16 *)((s8 *)arg0 + 0x62) & 2))) {
         temp_r31 = draw_default_entry__9TWindowDDFi(arg0);
-        if (M2C_FIELD(arg0, u16 *, 0x62) & 2) {
+        if (*(u16 *)((s8 *)arg0 + 0x62) & 2) {
             draw_window_frame(arg0, temp_r31);
         }
         TWindowSubStatusDisp__sub_8025E6DC(arg0, temp_r31);
@@ -64,12 +60,12 @@ void render__19TWindowKeyBoardBaseFv(void *arg0) {
 
 void run_task__19TWindowKeyBoardBaseFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
 
-extern M2C_UNK __vt__19TWindowKeyBoardBase[];
+extern s32 __vt__19TWindowKeyBoardBase[];
 
 void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowKeyBoardBase;
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x9C));
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowKeyBoardBase;
+        free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x9C));
         destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x84, -1);
         destroy__19TWindowKeyBoardBaseFPvs((s8 *)arg0 + 0x6C, -1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
@@ -82,26 +78,26 @@ void *__dt__19TWindowKeyBoardBaseFv(void *arg0, s16 arg1) {
 u8 *TWindowKeyBoardBase__ct(u8 *arg0) {
     s32 temp_r31;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowKeyBoardBase__window_descriptor.value), (int) (4), (int) (get_window_layout_position(0xB7)));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8025E9E4___vt__19TWindowKeyBoardBase *)&__vt__19TWindowKeyBoardBase).value;
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x6C);
     init_text_buffer_holder__19TWindowKeyBoardBaseFPv(arg0 + 0x84);
-    M2C_FIELD(arg0, s32 *, 0) = (s32) keyboard_base_type_name_pointer;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) keyboard_base_type_name_pointer;
     temp_r31 = current_language;
     init_keyboard_text_field((void *) (arg0), (int) (0), (int) (0));
     init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0), (int) (0));
-    M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
-    M2C_FIELD(arg0, s32 *, 0xB4) = 0;
-    M2C_FIELD(arg0, s16 *, 0x62) = 0;
-    M2C_FIELD(arg0, s8 *, 0x65) = -1;
-    M2C_FIELD(arg0, s32 *, 0x9C) = 0;
-    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xA4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xA8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+    *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
+    *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+    *(s16 *)((s8 *)arg0 + 0x62) = 0;
+    *(s8 *)((s8 *)arg0 + 0x65) = -1;
+    *(s32 *)((s8 *)arg0 + 0x9C) = 0;
+    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xA4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xA8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     if (temp_r31 == 0) {
         init_keyboard_text_buffer((void *) (arg0 + 0x84), (int) (0x24), (int) (0));
-        M2C_FIELD(arg0, s32 *, 0x9C) = alloc_buffer__11TOBoss4RockFPv((void *)0x194);
-        M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
+        *(s32 *)((s8 *)arg0 + 0x9C) = alloc_buffer__11TOBoss4RockFPv((void *)0x194);
+        *(s32 *)((s8 *)arg0 + 0xB0) = 0x94;
     }
     return arg0;
 }

@@ -263,10 +263,6 @@ void *__vt__13TBoss2DeRolLe[107] = {
 #pragma push
 namespace body_animation_view {
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Base_8002E784 { char pad[0xC]; };
 struct VObj_8002E784 : Base_8002E784 {
     virtual void m0(int);
@@ -284,7 +280,6 @@ struct Rec_8002ED48 { u8 pad[4]; u8 f4[0xC]; u8 tail[0xC]; };
 
 struct Obj_8002ED48 { u8 pad[4]; Rec_8002ED48 *recs; };
 
-typedef s32 M2C_UNK;
 typedef struct Vec_8002EA64 {
     f32 x, y, z;
 } Vec_8002EA64;
@@ -307,7 +302,7 @@ typedef struct Part_8002EA64 {
 
 typedef struct Obj_8002EA64 {
     u8 pad0[0x18];
-    M2C_UNK *vtbl;
+    s32 *vtbl;
     u8 pad1C[4];
     Part_8002EA64 parts[19];
 } Obj_8002EA64;
@@ -323,7 +318,7 @@ struct VObj_18_38992e : VBase_18_38992e {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(f32, f32);
+    virtual s32 m8(f32, f32);
 };
 
 struct Vec_8002EFE8 { s32 x, y, z; };
@@ -371,8 +366,8 @@ u8 * init_from_model__11TBreakUpMdlFPvi(void *, s32);
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern u8 *lbl_805D4BA4;
 void create_breakup_model__10TObjPlayerFv(void);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 void TObjPlayer__sub_8002E974(u8 *arg0);
 f32 vec3_add_to(void *, void *);
 extern const f32 lbl_805D822C;
@@ -407,7 +402,7 @@ f32 rand_signed_unit(void);
 void *init_base__10TObjPlayerFPv(void *arg0);
 s32 calc_random_scaled__10TObjPlayerFv(void);
 f32 vec3_add_to(void *, void *);
-extern M2C_UNK lbl_804820A8[];
+extern s32 lbl_804820A8[];
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 extern const f32 lbl_805D8228;
 extern const f32 lbl_805D8234;
@@ -416,21 +411,21 @@ extern const f32 lbl_805D823C;
 extern const f32 lbl_805D8240;
 Obj_8002EA64 *TObjPlayer__sub_8002EA64(Obj_8002EA64 *arg0, void *arg1, Vec_8002EA64 *arg2);
 void fn_8002F5AC(void *);
-M2C_UNK TBoss2Joint__sub_8003688C(s32);
-M2C_UNK check_v2_mode__9TObjEneDDFv(void);
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
-M2C_UNK TObjLight__sub_801337F8(s32);
+s32 TBoss2Joint__sub_8003688C(s32);
+s32 check_v2_mode__9TObjEneDDFv(void);
+s32 clear_global_flag_400__9TObjEneDDFv();
+s32 TObjLight__sub_801337F8(s32);
 s32 is_on_current_screen__11TCameraCtrlFPv(void *, int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
 void push_matrix(void);
 void pop_matrix(void);
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_model_motion(int, void *, f32);
-M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_model_motion(int, void *, f32);
+s32 set_global_state__16TObjEneRe7BeruraFi(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002EFE8 lbl_804359E4;
 extern u8 controller_input_state[];
@@ -464,17 +459,17 @@ s32 rand();
 
 extern void *lbl_805D4B8C;
 
-extern M2C_UNK lbl_804820A8[];
+extern s32 lbl_804820A8[];
 
 extern struct VObj8002EB88_8002eb88_8002E784 *shared_breakup_model;
 
 struct VObj8002EB88_8002eb88_8002E784;
 
-extern M2C_UNK lbl_804820C0[];
+extern s32 lbl_804820C0[];
 
-extern M2C_UNK lbl_804820C0[];
+extern s32 lbl_804820C0[];
 
-extern M2C_UNK lbl_80435620;
+extern s32 lbl_80435620;
 extern const f32 lbl_805D8244;
 extern const f32 lbl_805D8248;
 
@@ -551,10 +546,6 @@ int TObjLight__sub_8002F238(void* p) { return get_target_info__9TObjEneDDFPv(p);
 
 #pragma push
 namespace body_render_view {
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_3a6650 { char pad[0x18]; };
 struct VObj_18_3a6650 : VBase_18_3a6650 {
@@ -566,7 +557,7 @@ struct VObj_18_3a6650 : VBase_18_3a6650 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(f32, f32);
+    virtual s32 m8(f32, f32);
     virtual void m9();
     virtual void m10();
     virtual void m11();
@@ -662,7 +653,7 @@ struct VObj_18_3a6650 : VBase_18_3a6650 {
     virtual void m101();
     virtual void m102();
     virtual void m103();
-    virtual M2C_UNK m104();
+    virtual s32 m104();
 };
 
 struct Vec_8002F258 { f32 x, y, z; };
@@ -694,31 +685,31 @@ struct Me_8002F258 : VObj_18_3a6650 {
 extern "C" {
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void fn_8002F5AC(void *);
-M2C_UNK update_pulsing_colors__13TBoss2DeRolLeFPv(void *);
-M2C_UNK TBoss2Joint__sub_8003688C(s32);
+s32 update_pulsing_colors__13TBoss2DeRolLeFPv(void *);
+s32 TBoss2Joint__sub_8003688C(s32);
 s32 is_active__15TObjBoss2TunnelFv();
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
+s32 clear_global_flag_400__9TObjEneDDFv();
 int get_target_info__9TObjEneDDFPv(void*);
-M2C_UNK TObjLight__sub_801336DC(s32);
-M2C_UNK TObjLight__sub_8013379C(s32, void *);
-M2C_UNK TObjLight__sub_801337F8(s32);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK render_nodes__7TObjectFv(void *);
+s32 TObjLight__sub_801336DC(s32);
+s32 TObjLight__sub_8013379C(s32, void *);
+s32 TObjLight__sub_801337F8(s32);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 render_nodes__7TObjectFv(void *);
 f32 vec3_add_to(void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
 void push_matrix(void);
 void pop_matrix(void);
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_global_state__16TObjEneRe7BeruraFi(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002F258 lbl_804359D8[];
 extern u8 lbl_804FE328[];
@@ -844,12 +835,8 @@ void copy_vec4__13TRaderMapCoreFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x0)
 #pragma push
 namespace draw_state_view {
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8002F5AC_lbl_804FE30C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -872,11 +859,11 @@ typedef char RecoveredGlobal_8002F5AC_lbl_804FE30C_size[sizeof(RecoveredGlobal_8
 void fn_8002F5AC(u8 *arg0) {
     TBoss2DeRolLe__current_attack_id = 0;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (&lbl_804FE30C.value), (void *) (arg0 + 0x608));
-    lbl_805D4BB0 = M2C_FIELD(arg0, s32 *, 0x3C0);
+    lbl_805D4BB0 = *(s32 *)((s8 *)arg0 + 0x3C0);
     TBoss2DeRolLe__sequence_match_index = 0;
     lbl_805D4BB4 = arg0 + 0x3F8;
-    lbl_805D4BBC = M2C_FIELD(arg0, s32 *, 0x61C);
-    lbl_805D4BC0 = M2C_FIELD(arg0, s32 *, 0x618);
+    lbl_805D4BBC = *(s32 *)((s8 *)arg0 + 0x61C);
+    lbl_805D4BC0 = *(s32 *)((s8 *)arg0 + 0x618);
     lbl_805D4BB8 = arg0 + 0x4E8;
 }
 
@@ -888,33 +875,29 @@ void fn_8002F5AC(u8 *arg0) {
 #pragma push
 namespace joint_transform_view {
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8002F61C_lbl_80435628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x50];
 };
 
 struct RecoveredGlobal_8002F61C_lbl_804820D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_8002F61C_lbl_804FE31C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 extern "C" {
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 void update_camera_sequence__9TObjEneDDFPv(void);
-M2C_UNK mult_vec_array__10TObjPlayerFUii(int, void *, void *, int);
-M2C_UNK get_current_matrix(void *);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 mult_vec_array__10TObjPlayerFUii(int, void *, void *, int);
+s32 get_current_matrix(void *);
+s32 subtract_vector(void *, void *);
+s32 push_matrix();
+s32 pop_matrix();
 extern RecoveredGlobal_8002F61C_lbl_80435628 lbl_80435628;
 extern RecoveredGlobal_8002F61C_lbl_804820D8 derolle_part_transform_template;
 extern RecoveredGlobal_8002F61C_lbl_804FE31C lbl_804FE31C;
@@ -934,7 +917,7 @@ typedef char RecoveredGlobal_8002F61C_lbl_80435628_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8002F61C_lbl_804820D8_size[sizeof(RecoveredGlobal_8002F61C_lbl_804820D8) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_8002F61C_lbl_804FE31C_size[sizeof(RecoveredGlobal_8002F61C_lbl_804FE31C) == 0xC ? 1 : -1];
 void TObjPlayer__sub_8002F61C(void) {
-    if ((s32) TBoss2DeRolLe__current_attack_id == (s32) M2C_FIELD(&lbl_80435628.value, M2C_UNK *, (TBoss2DeRolLe__sequence_match_index * 4))) {
+    if ((s32) TBoss2DeRolLe__current_attack_id == (s32) *(s32 *)((s8 *)(&lbl_80435628.value) + (TBoss2DeRolLe__sequence_match_index * 4))) {
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_804FE31C.value, lbl_805D4BB4);
         TBoss2DeRolLe__sequence_match_index += 1;
         lbl_805D4BB4 += 0xC;
@@ -971,12 +954,6 @@ void TObjPlayer__sub_8002F61C(void) {
 #pragma push
 namespace behavior_view {
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-typedef s32 M2C_UNK;
 struct Obj_80034034;
 struct Obj_800341F0;
 struct Vec_800310F8 { f32 x, y, z; };
@@ -1297,13 +1274,13 @@ u8 TBoss2DeRolLe__sub_80034800(u8 *arg0);
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
 u8 update_phase_is_done__13TBoss2DeRolLeFPv(u8 *arg0);
 void TBoss2DeRolLe__sub_800344A4(DeRolLe_800344A4 *self, s32 idx, s32 arg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
-void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
+void TBoss2DeRolLe__sub_80033A80(s32 arg0, s32 arg1);
 void *create_particle_controller_with_angles(void *, void *, int, int, int);
-M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, u32);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 set_flags__11TBoss4Type2FPvUi(void *, u32);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 enable__13TParticleCtrlFPv(void *);
 extern s32 boss2_derolle_particle_node_indices[];
 extern f32 boss2_derolle_particle_limits[];
 extern const f32 TBoss2DeRolLe__data_805D8294;
@@ -1314,18 +1291,18 @@ extern const f32 lbl_805D82E0;
 extern const f32 TBoss2DeRolLe__data_805D8328;
 void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 void queue_destruction__7TObjectFv(void *);
 int play_sound(void* p, int a1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
-M2C_UNK forward_80039DC8__14TBoss2TentacleFPv(s32);
-M2C_UNK TObjBoss2Tunnel__sub_8003C5F8();
-M2C_UNK TObjBoss2Tunnel__sub_8003C610();
-M2C_UNK set_shake_preset__11TCameraCtrlFi(int);
+s32 forward_80039DC8__14TBoss2TentacleFPv(s32);
+s32 TObjBoss2Tunnel__sub_8003C5F8();
+s32 TObjBoss2Tunnel__sub_8003C610();
+s32 set_shake_preset__11TCameraCtrlFi(int);
 void *create_particle_emitter(void *, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 enable__13TParticleCtrlFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -1356,7 +1333,7 @@ extern const f32 lbl_805D8368;
 extern const f32 lbl_805D836C;
 extern const f32 lbl_805D8370;
 void TBoss2DeRolLe__sub_800313F8(DR_800313F8 *o, u32 arg1, s32 arg2);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 atan2_float(f32, f32);
 void queue_destruction__7TObjectFv(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
@@ -1375,14 +1352,14 @@ void clamp_velocity__15TObjBoss2TunnelFPv(void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 void *spawn_continuous_particle_effect_with_flags(void *, int, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 enable__13TParticleCtrlFPv(void *);
 s32 enemy_check_target_valid(void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 void setup_instance__9TObjEneDDFiiPvi(void *, void *, void *, s32);
 void advance_animation_playback(void *);
 void *__nw__7TObjectFUl(u32);
-M2C_UNK vec3_add_to(int, void *);
+s32 vec3_add_to(int, void *);
 void subtract_vector(void *, void *);
 extern Inst_8002FE60 lbl_804356FC[];
 extern const f64 lbl_80435A10[];
@@ -1400,17 +1377,17 @@ extern const f32 lbl_805D842C;
 void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0);
 }
 #define TBoss2DeRolLe__sub_80034574 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034574)
-#define init_wave_params__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_wave_params__13TBoss2DeRolLeFPv)
+#define init_wave_params__13TBoss2DeRolLeFPv ((s32 (*)(void *))init_wave_params__13TBoss2DeRolLeFPv)
 #define update_state__13TBoss2DeRolLeFPv ((s32 (*)(void *))update_state__13TBoss2DeRolLeFPv)
-#define init_move_params__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_move_params__13TBoss2DeRolLeFPv)
+#define init_move_params__13TBoss2DeRolLeFPv ((s32 (*)(void *))init_move_params__13TBoss2DeRolLeFPv)
 #define TBoss2DeRolLe__sub_80034800 ((s32 (*)(void *))TBoss2DeRolLe__sub_80034800)
-#define init_movement__13TBoss2DeRolLeFPv ((M2C_UNK (*)(void *))init_movement__13TBoss2DeRolLeFPv)
+#define init_movement__13TBoss2DeRolLeFPv ((s32 (*)(void *))init_movement__13TBoss2DeRolLeFPv)
 #define update_phase_is_done__13TBoss2DeRolLeFPv ((s32 (*)(void *))update_phase_is_done__13TBoss2DeRolLeFPv)
-#define TBoss2DeRolLe__sub_800344A4 ((M2C_UNK (*)(void *, int, int))TBoss2DeRolLe__sub_800344A4)
+#define TBoss2DeRolLe__sub_800344A4 ((s32 (*)(void *, int, int))TBoss2DeRolLe__sub_800344A4)
 
 extern "C" {
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 void pick_random_target__13TBoss2DeRolLeFi(s32 arg0);
 s32 check_v2_mode__9TObjEneDDFv(void);
 void advance_animation_playback(void *);
@@ -1428,7 +1405,7 @@ extern const f32 lbl_805D8340;
 extern const f32 lbl_805D8344;
 void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2);
 void TBoss2DeRolLe__sub_800338BC(void);
-M2C_UNK init_head_params__13TBoss2DeRolLeFPv(void *);
+s32 init_head_params__13TBoss2DeRolLeFPv(void *);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 void advance_animation_playback(void *);
 extern const f32 TBoss2DeRolLe__data_805D82BC;
@@ -1436,11 +1413,11 @@ extern const f32 TBoss2DeRolLe__data_805D832C;
 void TBoss2DeRolLe__sub_800327C8(void *arg0, void *arg1, int arg2, int arg3);
 void assign_slots_from_list(void *, s32);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 void TBoss2Tentacle__sub_80039E54(s32);
-M2C_UNK restore_player_cameras();
+s32 restore_player_cameras();
 s32 activate_camera_mode(int);
 void set_scripted_camera_pose(void *, void *, void *);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
@@ -1453,8 +1430,8 @@ int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
 int play_sound_effect(void*, int, int, int);
 void play_cue_stream_file(const void *);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-M2C_UNK init_all_slots__11TWindowCtrlFv();
-M2C_UNK init_all_slots2__11TWindowCtrlFv();
+s32 init_all_slots__11TWindowCtrlFv();
+s32 init_all_slots2__11TWindowCtrlFv();
 f32 cos_table_lookup(s32);
 extern const char lbl_804359F8[] = "deldeath.adx";
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -1476,17 +1453,17 @@ extern const f32 lbl_805D82C0;
 extern const f32 lbl_805D82C4;
 extern const f32 lbl_805D82C8;
 void handle_death_state__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 check_v2_mode__9TObjEneDDFv(void);
 s32 activate_camera_mode(int);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
-M2C_UNK init_all_slots__11TWindowCtrlFv();
-M2C_UNK init_all_slots2__11TWindowCtrlFv();
-M2C_UNK get_target_state_a__9TObjEneDDFPv(void *);
-M2C_UNK get_target_state_b__9TObjEneDDFPv(void *);
-M2C_UNK set_move_target_point__13TBoss2DeRolLeFPvi(void *, s32);
-M2C_UNK get_node_world_pos__13TBoss2DeRolLeFPvPv(void *, void *);
-M2C_UNK vec3_add_to(int, void *);
+s32 init_all_slots__11TWindowCtrlFv();
+s32 init_all_slots2__11TWindowCtrlFv();
+s32 get_target_state_a__9TObjEneDDFPv(void *);
+s32 get_target_state_b__9TObjEneDDFPv(void *);
+s32 set_move_target_point__13TBoss2DeRolLeFPvi(void *, s32);
+s32 get_node_world_pos__13TBoss2DeRolLeFPvPv(void *, void *);
+s32 vec3_add_to(int, void *);
 void advance_animation_playback(void *);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
@@ -1494,7 +1471,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 int play_sound_effect(void*, int, int, int);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 Play_80032E38 *get_scripted_camera_playback(void);
-M2C_UNK restore_player_cameras();
+s32 restore_player_cameras();
 extern const f32 TBoss2DeRolLe__data_805D827C;
 extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 TBoss2DeRolLe__data_805D82A4;
@@ -1519,11 +1496,11 @@ extern const f32 lbl_805D8424;
 extern const f32 lbl_805D8428;
 void TBoss2DeRolLe__sub_80032E38(void *arg0, void *arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 f32 fabs_float(f32);
 int play_sound(void* p, int a1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
-M2C_UNK update_angle__13TBoss2DeRolLeFPv(void *);
+s32 update_angle__13TBoss2DeRolLeFPv(void *);
 f32 calc_node_height__13TBoss2DeRolLeFPv(void *);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 s32 advance_scalar_motion_profile(void *);
@@ -1577,7 +1554,7 @@ struct Stack_800339BC {
 };
 
 struct RecoveredGlobal_800339BC_lbl_804FF5E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -1692,7 +1669,7 @@ struct Rec_80030898 { f32 a; f32 b; f32 c; };
 struct Obj_80030898 { u8 pad0[0x544]; Rec_80030898 recs[8]; };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 s32 get_player_data__10TObjPlayerFi(int);
 void queue_destruction__7TObjectFv(void *);
 s32 get_game_mode__6TLobbyFv();
@@ -1717,7 +1694,7 @@ void TBoss2DeRolLe__sub_800338BC(void);
 void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0);
 void spawn_offset_particle__13TBoss2DeRolLeFiff(s32 arg0, f32 farg0, f32 farg1);
 void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2);
-void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1);
+void TBoss2DeRolLe__sub_80033A80(s32 arg0, s32 arg1);
 void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self);
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p);
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1);
@@ -1736,30 +1713,30 @@ void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034034 *self, s32 mode);
 void swap_endian__13TBoss2DeRolLeFPv(void *);
 void swap_6x13_fields__13TBoss2DeRolLeFPv(void *);
-M2C_UNK init_launch__10TBoss2MineFPvPvii(s32, void *, s32, s32);
-M2C_UNK set_launch_position_velocity__10TBoss2MineFPvPvPv(s32, void *, void *);
-M2C_UNK create_particle__17TObjBoss2CeilJunkFv(s32, M2C_UNK);
-M2C_UNK TObjBoss2Tunnel__sub_8003B1D8(void *);
+s32 init_launch__10TBoss2MineFPvPvii(s32, void *, s32, s32);
+s32 set_launch_position_velocity__10TBoss2MineFPvPvPv(s32, void *, void *);
+s32 create_particle__17TObjBoss2CeilJunkFv(s32, s32);
+s32 TObjBoss2Tunnel__sub_8003B1D8(void *);
 void set_global_flag_200__15TObjBoss2TunnelFv(void);
 s32 is_active__15TObjBoss2TunnelFv(void);
 void set_global_flag_800__15TObjBoss2TunnelFv(void);
 s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 enemy_has_live_target(void *);
-M2C_UNK enemy_clear_target(void *);
-M2C_UNK set_target_player__13TBoss2DeRolLeFPvPv(void *, int);
+s32 enemy_clear_target(void *);
+s32 set_target_player__13TBoss2DeRolLeFPvPv(void *, int);
 s32 enemy_set_target_id(void * a0 = 0, u16 a1 = 0);
 s32 check_v2_mode__9TObjEneDDFv(void);
-M2C_UNK project_sound_origin_from_camera(void *, void *, f32);
+s32 project_sound_origin_from_camera(void *, void *, f32);
 f32 calc_elapsed_scaled__9TObjEneDDFv(void *);
-M2C_UNK TObjEneDD__vt90();
+s32 TObjEneDD__vt90();
 s32 is_alive__9TObjEneDDFPv();
 s32 transition_enemy_state(void * a0 = 0, s16 a1 = 0);
 void * get_enemy_entity(int);
 s32 objInBand__FP7GameObjf(void *, f32);
 void advance_animation_playback(void *);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
 int play_sound_effect(void*, int, int, int);
-M2C_UNK vec3_add_to(int, void *);
+s32 vec3_add_to(int, void *);
 
 extern Vec_80030720 TBoss2DeRolLe__mine_ground_targets[];
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -1891,7 +1868,7 @@ void handle_death_state__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
         cam.c = 0;
         cam.d = TBoss2DeRolLe__data_805D827C;
         cam.e = lbl_805D828C;
-        ((M2C_UNK (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
+        ((s32 (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
         cache_target_and_forward__11TCameraCtrlFii(&cam, 0x2AAA);
         set_scripted_camera_pose(&o->pos, &o->pos, &o->f5C);
         break;
@@ -2061,7 +2038,7 @@ void TBoss2DeRolLe__sub_8002FD9C(DeRolLe_8002FD9C *self, u32 arg1, s32 arg2) {
         }
         break;
     case 0:
-        ((M2C_UNK (*)(void *))advance_animation_playback)(self);
+        ((s32 (*)(void *))advance_animation_playback)(self);
         break;
     }
 }
@@ -2308,32 +2285,32 @@ void state_ceiling_attack__13TBoss2DeRolLeFPvUi(u8 *arg0, u32 arg1) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) & ~4;
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) | 0x100;
-        ((M2C_UNK (*)(void))TBoss2DeRolLe__sub_800341F0)();
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0xC;
-        M2C_FIELD(arg0, s32 *, 0x654) = 3;
-        ((M2C_UNK (*)(void *, int))set_position_index__13TBoss2DeRolLeFPvi)(arg0, M2C_FIELD(arg0, s32 *, 0x654));
-        M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6DC) = 0;
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) & ~4;
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) | 0x100;
+        ((s32 (*)(void))TBoss2DeRolLe__sub_800341F0)();
+        *(s16 *)((s8 *)arg0 + 0xB8) = 0xC;
+        *(s32 *)((s8 *)arg0 + 0x654) = 3;
+        ((s32 (*)(void *, int))set_position_index__13TBoss2DeRolLeFPvi)(arg0, *(s32 *)((s8 *)arg0 + 0x654));
+        *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6DC) = 0;
         return;
     case 2:
-        if (M2C_FIELD(arg0, s16 *, 0xB8) == 0xF) {
+        if (*(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
             set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 0x1B);
         }
         return;
     case 9:
-        if (M2C_FIELD(arg0, s16 *, 0xB8) == 0xF) {
+        if (*(s16 *)((s8 *)arg0 + 0xB8) == 0xF) {
             advance_action_sequence__13TBoss2DeRolLeFPv((Obj_80034034 *)arg0);
             return;
         }
         break;
     case 0:
         advance_animation_playback(arg0);
-        M2C_FIELD(arg0, s32 *, 0x6E0) = M2C_FIELD(arg0, s32 *, 0x6E0) + 1;
-        frame = M2C_FIELD(arg0, f32 *, 0xC0);
-        if (frame >= TBoss2DeRolLe__data_805D82E4 && frame <= lbl_805D82EC && (f32)M2C_FIELD(arg0, s32 *, 0x6E0) >= TBoss2DeRolLe__data_805D82F0) {
-            M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E0) = *(s32 *)((s8 *)arg0 + 0x6E0) + 1;
+        frame = *(f32 *)((s8 *)arg0 + 0xC0);
+        if (frame >= TBoss2DeRolLe__data_805D82E4 && frame <= lbl_805D82EC && (f32)*(s32 *)((s8 *)arg0 + 0x6E0) >= TBoss2DeRolLe__data_805D82F0) {
+            *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
             VecCopy__FP3VecPC3Vec((int)&v, arg0 + 0x38);
             v.x = TBoss2DeRolLe__data_805D82DC * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
             v.y = TBoss2DeRolLe__data_805D82A8;
@@ -2374,7 +2351,7 @@ void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2) {
         }
         break;
     case 0:
-        ((M2C_UNK (*)(void *))advance_animation_playback)((void *)(self));
+        ((s32 (*)(void *))advance_animation_playback)((void *)(self));
         if (objInBand__FP7GameObjf(self, lbl_805D82F4) != 0) {
             pos = self->f4D0;
             if (arg2 == 0x18) {
@@ -2391,7 +2368,7 @@ void TBoss2DeRolLe__sub_80030720(Obj_80030720 *self, u32 arg1, s32 arg2) {
         break;
     case 6:
         if (arg2 == 0x19) {
-            ((M2C_UNK (*)(void *))pick_random_target__13TBoss2DeRolLeFi)(self);
+            ((s32 (*)(void *))pick_random_target__13TBoss2DeRolLeFi)(self);
         }
         break;
     }
@@ -2402,18 +2379,18 @@ void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
-        ((M2C_UNK (*)(void))TBoss2DeRolLe__sub_800341F0)();
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) & ~4;
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) & ~0x100;
-        M2C_FIELD(arg0, s32 *, 0x654) = arg2;
-        ((M2C_UNK (*)(void *, int))set_position_index__13TBoss2DeRolLeFPvi)(arg0, M2C_FIELD(arg0, s32 *, 0x654));
-        M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6E4) = 0;
-        M2C_FIELD(arg0, f32 *, 0x6FC) = lbl_805D82F8;
-        M2C_FIELD(arg0, s32 *, 0x6B4) = M2C_FIELD(arg0, s32 *, 0x6B4) + 1;
-        if (M2C_FIELD(arg0, s32 *, 0x6B4) >= 3) {
-            M2C_FIELD(arg0, s32 *, 0x6B4) = 0;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 3;
+        ((s32 (*)(void))TBoss2DeRolLe__sub_800341F0)();
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) & ~4;
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) & ~0x100;
+        *(s32 *)((s8 *)arg0 + 0x654) = arg2;
+        ((s32 (*)(void *, int))set_position_index__13TBoss2DeRolLeFPvi)(arg0, *(s32 *)((s8 *)arg0 + 0x654));
+        *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E4) = 0;
+        *(f32 *)((s8 *)arg0 + 0x6FC) = lbl_805D82F8;
+        *(s32 *)((s8 *)arg0 + 0x6B4) = *(s32 *)((s8 *)arg0 + 0x6B4) + 1;
+        if (*(s32 *)((s8 *)arg0 + 0x6B4) >= 3) {
+            *(s32 *)((s8 *)arg0 + 0x6B4) = 0;
         }
         return;
     case 2:
@@ -2430,22 +2407,22 @@ void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        switch (M2C_FIELD(arg0, s32 *, 0x6E4)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x6E4)) {
         case 0:
-            if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
-                TBoss2DeRolLe__sub_800344A4(arg0, M2C_FIELD(arg0, s32 *, 0x6E0), M2C_FIELD(arg0, s32 *, 0x6B4));
-                M2C_FIELD(arg0, s32 *, 0x6E4) = 1;
+            if (!(*(s32 *)((s8 *)arg0 + 0xB0) & 4)) {
+                TBoss2DeRolLe__sub_800344A4(arg0, *(s32 *)((s8 *)arg0 + 0x6E0), *(s32 *)((s8 *)arg0 + 0x6B4));
+                *(s32 *)((s8 *)arg0 + 0x6E4) = 1;
                 return;
             }
             break;
         case 1:
-            i = M2C_FIELD(arg0, s32 *, 0x6E0);
+            i = *(s32 *)((s8 *)arg0 + 0x6E0);
             if (((Obj_80030898 *)arg0)->recs[i].a < ((Obj_80030898 *)arg0)->recs[i + 1].a) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = i + 1;
-                if ((f32)M2C_FIELD(arg0, s32 *, 0x6E0) >= TBoss2DeRolLe__data_805D82FC) {
-                    M2C_FIELD(arg0, s32 *, 0x6E4) = 2;
+                *(s32 *)((s8 *)arg0 + 0x6E0) = i + 1;
+                if ((f32)*(s32 *)((s8 *)arg0 + 0x6E0) >= TBoss2DeRolLe__data_805D82FC) {
+                    *(s32 *)((s8 *)arg0 + 0x6E4) = 2;
                 }
-                TBoss2DeRolLe__sub_800344A4(arg0, M2C_FIELD(arg0, s32 *, 0x6E0), M2C_FIELD(arg0, s32 *, 0x6B4));
+                TBoss2DeRolLe__sub_800344A4(arg0, *(s32 *)((s8 *)arg0 + 0x6E0), *(s32 *)((s8 *)arg0 + 0x6B4));
             }
             break;
         }
@@ -2456,8 +2433,8 @@ void TBoss2DeRolLe__sub_80030898(u8 *arg0, u32 arg1, s32 arg2) {
 }
 
 struct Vec_80030A38 { f32 x, y, z; };
-M2C_UNK create__17TObjBoss2CeilJunkFPv(void *);
-M2C_UNK set_global_flag_400__15TObjBoss2TunnelFv();
+s32 create__17TObjBoss2CeilJunkFPv(void *);
+s32 set_global_flag_400__15TObjBoss2TunnelFv();
 extern const f32 TBoss2DeRolLe__data_805D82B4;
 extern const f32 TBoss2DeRolLe__data_805D82B8;
 extern const f32 TBoss2DeRolLe__data_805D8300;
@@ -2478,105 +2455,105 @@ void TBoss2DeRolLe__sub_80030A38(u8 *arg0, u32 arg1) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-        ((M2C_UNK (*)(void))TBoss2DeRolLe__sub_800341F0)();
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) | 4;
-        M2C_FIELD(arg0, s32 *, 0x3C0) = M2C_FIELD(arg0, s32 *, 0x3C0) & ~0x100;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+        ((s32 (*)(void))TBoss2DeRolLe__sub_800341F0)();
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) | 4;
+        *(s32 *)((s8 *)arg0 + 0x3C0) = *(s32 *)((s8 *)arg0 + 0x3C0) & ~0x100;
         set_position_index__13TBoss2DeRolLeFPvi(arg0, 3);
-        M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6E4) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6E8) = 0x1E;
-        M2C_FIELD(arg0, f32 *, 0x6FC) = TBoss2DeRolLe__data_805D827C;
-        M2C_FIELD(arg0, f32 *, 0x700) = TBoss2DeRolLe__data_805D82F0;
+        *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E4) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E8) = 0x1E;
+        *(f32 *)((s8 *)arg0 + 0x6FC) = TBoss2DeRolLe__data_805D827C;
+        *(f32 *)((s8 *)arg0 + 0x700) = TBoss2DeRolLe__data_805D82F0;
         return;
     case 2:
-        if (M2C_FIELD(arg0, s32 *, 0x6E0) == 6) {
+        if (*(s32 *)((s8 *)arg0 + 0x6E0) == 6) {
             set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 2);
         }
         return;
     case 9:
-        if (M2C_FIELD(arg0, s32 *, 0x6E0) == 6) {
+        if (*(s32 *)((s8 *)arg0 + 0x6E0) == 6) {
             advance_action_sequence__13TBoss2DeRolLeFPv((Obj_80034034 *)arg0);
             return;
         }
         break;
     case 0:
         advance_animation_playback(arg0);
-        switch (M2C_FIELD(arg0, s32 *, 0x6E0)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x6E0)) {
         case 0:
-            M2C_FIELD(arg0, f32 *, 0x6FC) = M2C_FIELD(arg0, f32 *, 0x6FC) + TBoss2DeRolLe__data_805D8300;
-            M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg0, f32 *, 0x6FC);
-            M2C_FIELD(arg0, f32 *, 0x700) = M2C_FIELD(arg0, f32 *, 0x700) + lbl_805D8304;
-            M2C_FIELD(arg0, f32 *, 0x6A4) = M2C_FIELD(arg0, f32 *, 0x6A4) + M2C_FIELD(arg0, f32 *, 0x700);
-            if (M2C_FIELD(arg0, f32 *, 0x6A4) < lbl_805D8308) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 1;
-                M2C_FIELD(arg0, s32 *, 0x6E4) = 0;
+            *(f32 *)((s8 *)arg0 + 0x6FC) = *(f32 *)((s8 *)arg0 + 0x6FC) + TBoss2DeRolLe__data_805D8300;
+            *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)((s8 *)arg0 + 0x6FC);
+            *(f32 *)((s8 *)arg0 + 0x700) = *(f32 *)((s8 *)arg0 + 0x700) + lbl_805D8304;
+            *(f32 *)((s8 *)arg0 + 0x6A4) = *(f32 *)((s8 *)arg0 + 0x6A4) + *(f32 *)((s8 *)arg0 + 0x700);
+            if (*(f32 *)((s8 *)arg0 + 0x6A4) < lbl_805D8308) {
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 1;
+                *(s32 *)((s8 *)arg0 + 0x6E4) = 0;
             }
             break;
         case 1:
-            M2C_FIELD(arg0, s32 *, 0x6E4) = M2C_FIELD(arg0, s32 *, 0x6E4) + 1;
-            if (M2C_FIELD(arg0, s32 *, 0x6E4) >= 0x2D) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 2;
-                M2C_FIELD(arg0, s16 *, 0xB8) = 2;
-                M2C_FIELD(arg0, f32 *, 0x40) = lbl_805D830C;
-                M2C_FIELD(arg0, s32 *, 0x64) = 0x8000;
-                M2C_FIELD(arg0, f32 *, 0x6A4) = lbl_805D8310;
+            *(s32 *)((s8 *)arg0 + 0x6E4) = *(s32 *)((s8 *)arg0 + 0x6E4) + 1;
+            if (*(s32 *)((s8 *)arg0 + 0x6E4) >= 0x2D) {
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 2;
+                *(s16 *)((s8 *)arg0 + 0xB8) = 2;
+                *(f32 *)((s8 *)arg0 + 0x40) = lbl_805D830C;
+                *(s32 *)((s8 *)arg0 + 0x64) = 0x8000;
+                *(f32 *)((s8 *)arg0 + 0x6A4) = lbl_805D8310;
             }
             break;
         case 2:
-            M2C_FIELD(arg0, s32 *, 0x6E8) = M2C_FIELD(arg0, s32 *, 0x6E8) + 1;
-            if (M2C_FIELD(arg0, s32 *, 0x6E8) >= 0x1E) {
-                M2C_FIELD(arg0, s32 *, 0x6E8) = 0;
+            *(s32 *)((s8 *)arg0 + 0x6E8) = *(s32 *)((s8 *)arg0 + 0x6E8) + 1;
+            if (*(s32 *)((s8 *)arg0 + 0x6E8) >= 0x1E) {
+                *(s32 *)((s8 *)arg0 + 0x6E8) = 0;
             }
             ((int (*)(int, void *, void *))spawn_trap__13TBoss2DeRolLeFPvii)(0x40039E02, arg0, arg0 + 0x518);
-            M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x40) + TBoss2DeRolLe__data_805D82B8;
-            if (M2C_FIELD(arg0, f32 *, 0x40) >= lbl_805D8314) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 3;
-                M2C_FIELD(arg0, f32 *, 0x700) = TBoss2DeRolLe__data_805D827C;
+            *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) + TBoss2DeRolLe__data_805D82B8;
+            if (*(f32 *)((s8 *)arg0 + 0x40) >= lbl_805D8314) {
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 3;
+                *(f32 *)((s8 *)arg0 + 0x700) = TBoss2DeRolLe__data_805D827C;
             }
-            if (calc_boss4_scale__10TObjPlayerFi(arg0) <= M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 0x10)) {
+            if (calc_boss4_scale__10TObjPlayerFi(arg0) <= *(f32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x10)) {
                 VecCopy__FP3VecPC3Vec((int)&v, arg0 + 0x38);
-                v.x = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 0xC) * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
+                v.x = *(f32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0xC) * calc_elapsed_scaled__9TObjEneDDFv(arg0) + v.x;
                 v.z = v.z - TBoss2DeRolLe__data_805D82B4 * calc_boss4_scale__10TObjPlayerFi(arg0);
-                v.y = v.y + (TBoss2DeRolLe__data_805D82E4 + M2C_FIELD(arg0, f32 *, 0x6A4));
+                v.y = v.y + (TBoss2DeRolLe__data_805D82E4 + *(f32 *)((s8 *)arg0 + 0x6A4));
                 create__17TObjBoss2CeilJunkFPv(&v);
             }
             break;
         case 3:
-            M2C_FIELD(arg0, f32 *, 0xC8) = M2C_FIELD(arg0, f32 *, 0xC8) - lbl_805D8318;
-            if (M2C_FIELD(arg0, f32 *, 0xC8) < 0.0f) {
-                M2C_FIELD(arg0, f32 *, 0xC8) = 0.0f;
+            *(f32 *)((s8 *)arg0 + 0xC8) = *(f32 *)((s8 *)arg0 + 0xC8) - lbl_805D8318;
+            if (*(f32 *)((s8 *)arg0 + 0xC8) < 0.0f) {
+                *(f32 *)((s8 *)arg0 + 0xC8) = 0.0f;
             }
-            if (M2C_FIELD(arg0, f32 *, 0x6A4) > TBoss2DeRolLe__data_805D827C) {
-                M2C_FIELD(arg0, f32 *, 0x700) = M2C_FIELD(arg0, f32 *, 0x700) + lbl_805D831C;
-                M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x40) + lbl_805D8320;
+            if (*(f32 *)((s8 *)arg0 + 0x6A4) > TBoss2DeRolLe__data_805D827C) {
+                *(f32 *)((s8 *)arg0 + 0x700) = *(f32 *)((s8 *)arg0 + 0x700) + lbl_805D831C;
+                *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) + lbl_805D8320;
             } else {
-                M2C_FIELD(arg0, f32 *, 0x40) = M2C_FIELD(arg0, f32 *, 0x40) + lbl_805D8324;
+                *(f32 *)((s8 *)arg0 + 0x40) = *(f32 *)((s8 *)arg0 + 0x40) + lbl_805D8324;
             }
-            M2C_FIELD(arg0, f32 *, 0x6A4) = M2C_FIELD(arg0, f32 *, 0x6A4) + M2C_FIELD(arg0, f32 *, 0x700);
-            if (M2C_FIELD(arg0, f32 *, 0x6A4) < lbl_805D8308) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 4;
-                M2C_FIELD(arg0, s32 *, 0x6E4) = 0;
+            *(f32 *)((s8 *)arg0 + 0x6A4) = *(f32 *)((s8 *)arg0 + 0x6A4) + *(f32 *)((s8 *)arg0 + 0x700);
+            if (*(f32 *)((s8 *)arg0 + 0x6A4) < lbl_805D8308) {
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 4;
+                *(s32 *)((s8 *)arg0 + 0x6E4) = 0;
                 ((int (*)(int, void *))play_sound)(0x4003AD12, arg0 + 0x518);
             }
             break;
         case 4:
-            M2C_FIELD(arg0, s32 *, 0x6E4) = M2C_FIELD(arg0, s32 *, 0x6E4) + 1;
-            if (M2C_FIELD(arg0, s32 *, 0x6E4) >= 0x2D) {
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 5;
-                M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-                M2C_FIELD(arg0, s32 *, 0x654) = 1;
-                set_position_index__13TBoss2DeRolLeFPvi(arg0, M2C_FIELD(arg0, s32 *, 0x654));
-                M2C_FIELD(arg0, s32 *, 0x64) = 0;
-                M2C_FIELD(arg0, f32 *, 0x6A4) = lbl_805D8308;
+            *(s32 *)((s8 *)arg0 + 0x6E4) = *(s32 *)((s8 *)arg0 + 0x6E4) + 1;
+            if (*(s32 *)((s8 *)arg0 + 0x6E4) >= 0x2D) {
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 5;
+                *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+                *(s32 *)((s8 *)arg0 + 0x654) = 1;
+                set_position_index__13TBoss2DeRolLeFPvi(arg0, *(s32 *)((s8 *)arg0 + 0x654));
+                *(s32 *)((s8 *)arg0 + 0x64) = 0;
+                *(f32 *)((s8 *)arg0 + 0x6A4) = lbl_805D8308;
                 set_global_flag_400__15TObjBoss2TunnelFv();
             }
             break;
         case 5:
-            M2C_FIELD(arg0, f32 *, 0x6A4) = M2C_FIELD(arg0, f32 *, 0x6A4) + TBoss2DeRolLe__data_805D8328;
-            if (M2C_FIELD(arg0, f32 *, 0x6A4) >= 0.0f) {
-                M2C_FIELD(arg0, f32 *, 0x6A4) = 0.0f;
-                M2C_FIELD(arg0, s32 *, 0x6E0) = 6;
+            *(f32 *)((s8 *)arg0 + 0x6A4) = *(f32 *)((s8 *)arg0 + 0x6A4) + TBoss2DeRolLe__data_805D8328;
+            if (*(f32 *)((s8 *)arg0 + 0x6A4) >= 0.0f) {
+                *(f32 *)((s8 *)arg0 + 0x6A4) = 0.0f;
+                *(s32 *)((s8 *)arg0 + 0x6E0) = 6;
             }
             break;
         }
@@ -2599,7 +2576,7 @@ extern const f32 lbl_805D833C;
 #pragma push
 #pragma fp_contract on
 #define arg0 ((u8 *)arg0_)
-#define F(t, o) M2C_FIELD(arg0, t *, o)
+#define F(t, o) (*(t *)((s8 *)(arg0) + (o)))
 
 void TBoss2DeRolLe__sub_80030DFC(void *arg0_, void *arg1_, int arg2) {
     switch ((u32)arg1_) {
@@ -2710,8 +2687,8 @@ void TBoss2DeRolLe__sub_800310F8(void *arg0, void *arg1, int arg2) {
         self->timer = 0;
         self->idx = 0;
         if (check_v2_mode__9TObjEneDDFv() != 0) {
-            self->limit = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x24);
-            self->life = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x28);
+            self->limit = *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x24);
+            self->life = *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x28);
         } else {
             self->limit = 0xB4;
             self->life = 0x78;
@@ -2837,14 +2814,14 @@ struct Rol_80031AD4 {
 
 extern "C" {
 
-M2C_UNK VecCopy__FP3VecPC3Vec(int, void *);
+s32 VecCopy__FP3VecPC3Vec(int, void *);
 void set_state_and_send__13TBoss2DeRolLeFPvi(Obj_80034034 *self, s32 mode);
 void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self);
 void TBoss2DeRolLe__sub_800341F0(Obj_800341F0 *self);
 void set_position_index__13TBoss2DeRolLeFPvi(void *, s32);
 f32 calc_node_height__13TBoss2DeRolLeFPv(void *);
 s32 advance_scalar_motion_profile(void *);
-M2C_UNK update_angle__13TBoss2DeRolLeFPv(void *);
+s32 update_angle__13TBoss2DeRolLeFPv(void *);
 void set_move_params__13TBoss2DeRolLeFPvffff(void *, f32, f32, f32, f32);
 f32 fabs_float(f32);
 void advance_animation_playback(void *);
@@ -3593,20 +3570,20 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         TBoss2DeRolLe__sub_800341F0((Obj_800341F0 *)arg0);
-        M2C_FIELD(arg0, s32 *, 0x3C0) &= ~4;
-        M2C_FIELD(arg0, s32 *, 0x3C0) |= 0x100;
-        M2C_FIELD(arg0, f32 *, 0x6A4) = TBoss2DeRolLe__data_805D827C;
-        M2C_FIELD(arg0, s32 *, 0x64) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6E4) = 1;
-        M2C_FIELD(arg0, s32 *, 0x6E8) = 0;
-        M2C_FIELD(arg0, s32 *, 0x6E0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x3C0) &= ~4;
+        *(s32 *)((s8 *)arg0 + 0x3C0) |= 0x100;
+        *(f32 *)((s8 *)arg0 + 0x6A4) = TBoss2DeRolLe__data_805D827C;
+        *(s32 *)((s8 *)arg0 + 0x64) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E4) = 1;
+        *(s32 *)((s8 *)arg0 + 0x6E8) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6E0) = 0;
         break;
     case 2:
-        switch (M2C_FIELD(arg0, s32 *, 0x654)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x654)) {
         case 0:
-            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            b = (*(Pad_80032B28 **)((s8 *)arg0 + 0x3CC))->buttons;
             if (b & 0x10) {
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 3);
             } else if (b & 0x40) {
@@ -3618,12 +3595,12 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
             } else if (b & 4) {
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 0x10);
             } else if (b & 2) {
-                M2C_FIELD(arg0, f32 *, 0x40) = lbl_805D83FC;
+                *(f32 *)((s8 *)arg0 + 0x40) = lbl_805D83FC;
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 1);
             }
             break;
         case 1:
-            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            b = (*(Pad_80032B28 **)((s8 *)arg0 + 0x3CC))->buttons;
             if (b & 0x40) {
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 6);
             } else if (b & 0x20) {
@@ -3638,7 +3615,7 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
             }
             break;
         case 2:
-            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            b = (*(Pad_80032B28 **)((s8 *)arg0 + 0x3CC))->buttons;
             if (b & 0x20) {
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 9);
             } else if (b & 0x80) {
@@ -3654,7 +3631,7 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
             }
             break;
         case 3:
-            b = M2C_FIELD(arg0, Pad_80032B28 **, 0x3CC)->buttons;
+            b = (*(Pad_80032B28 **)((s8 *)arg0 + 0x3CC))->buttons;
             if (b & 0x80) {
                 set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)arg0, 0xC);
             } else if (b & 0x10) {
@@ -3679,10 +3656,10 @@ void handle_debug_pad_input__13TBoss2DeRolLeFPvPv(void *arg0_, void *arg1_) {
         break;
     case 0:
         advance_animation_playback(arg0);
-        if (!(M2C_FIELD(arg0, s32 *, 0xB0) & 4)) {
-            M2C_FIELD(arg0, f32 *, 0xC8) -= 0.03f;
-            if (M2C_FIELD(arg0, f32 *, 0xC8) < 0.6f) {
-                M2C_FIELD(arg0, f32 *, 0xC8) = 0.6f;
+        if (!(*(s32 *)((s8 *)arg0 + 0xB0) & 4)) {
+            *(f32 *)((s8 *)arg0 + 0xC8) -= 0.03f;
+            if (*(f32 *)((s8 *)arg0 + 0xC8) < 0.6f) {
+                *(f32 *)((s8 *)arg0 + 0xC8) = 0.6f;
             }
         }
         break;
@@ -3730,7 +3707,7 @@ void TBoss2DeRolLe__sub_80032E38(void *arg0, void *arg1) {
             cam.c = 0;
             cam.d = TBoss2DeRolLe__data_805D827C;
             cam.e = lbl_805D8408;
-            ((M2C_UNK (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
+            ((s32 (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
             cache_target_and_forward__11TCameraCtrlFii(&cam, 0x1C71);
         } else {
             cam2.b = 0;
@@ -3738,7 +3715,7 @@ void TBoss2DeRolLe__sub_80032E38(void *arg0, void *arg1) {
             cam2.c = 0;
             cam2.d = TBoss2DeRolLe__data_805D827C;
             cam2.e = lbl_805D8408;
-            ((M2C_UNK (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
+            ((s32 (*)(int, f32))activate_camera_mode)(5, TBoss2DeRolLe__data_805D827C);
             cache_target_and_forward__11TCameraCtrlFii(&cam2, 0x1C71);
         }
         init_all_slots__11TWindowCtrlFv();
@@ -3857,7 +3834,7 @@ void TBoss2DeRolLe__sub_800333F4(Obj_800333F4 *self, u32 arg1) {
     switch (arg1) {
     case 4: self->f_B8 = 1; return;
     case 2: set_state_and_send__13TBoss2DeRolLeFPvi((Obj_80034034 *)(self), (s32)(1)); return;
-    case 0: ((M2C_UNK (*)(void *))advance_animation_playback)(self); return;
+    case 0: ((s32 (*)(void *))advance_animation_playback)(self); return;
     case 1: return;
     case 3: return;
     case 5: return;
@@ -3993,7 +3970,7 @@ void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0) {
     f32 wrap;
     f32 step;
     f32 ph;
-    t = M2C_FIELD(arg0, f32 *, 0x6D4);
+    t = *(f32 *)((s8 *)arg0 + 0x6D4);
     if (t > TBoss2DeRolLe__data_805D82BC) {
         t = TBoss2DeRolLe__data_805D82A0 - t;
     }
@@ -4007,7 +3984,7 @@ void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0) {
     half = TBoss2DeRolLe__data_805D82BC;
     scale = lbl_805D842C;
     mul = TBoss2DeRolLe__data_805D8328;
-    ph = M2C_FIELD(arg0, f32 *, 0x6D4);
+    ph = *(f32 *)((s8 *)arg0 + 0x6D4);
     add = TBoss2DeRolLe__data_805D8334;
     for (i = 0; i < 10; i++) {
         ph += step;
@@ -4028,10 +4005,10 @@ void update_pulsing_colors__13TBoss2DeRolLeFPv(u8 *arg0) {
 #pragma opt_common_subs off
 void advance_phase_wrap__13TBoss2DeRolLeFPv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, f32 *, 0x6D4) = (f32) (M2C_FIELD(arg0, f32 *, 0x6D4) + M2C_FIELD(arg0, f32 *, 0x6D8));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x6D4);
+    *(f32 *)((s8 *)arg0 + 0x6D4) = (f32) (*(f32 *)((s8 *)arg0 + 0x6D4) + *(f32 *)((s8 *)arg0 + 0x6D8));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x6D4);
     if (temp_f1 >= TBoss2DeRolLe__data_805D82A0) {
-        M2C_FIELD(arg0, f32 *, 0x6D4) = (f32) (temp_f1 - TBoss2DeRolLe__data_805D82A0);
+        *(f32 *)((s8 *)arg0 + 0x6D4) = (f32) (temp_f1 - TBoss2DeRolLe__data_805D82A0);
     }
 }
 extern int fold_flush_1;
@@ -4051,15 +4028,15 @@ void update_projectile_spawns__13TBoss2DeRolLeFPv(u8 *arg0) {
     temp_r31 = arg0 + 0x530;
     VecCopy__FP3VecPC3Vec((int) (temp_r31), (void *) (arg0 + 0x524));
     vec3_add_to((int) (temp_r31), (void *) (arg0 + 0x524));
-    M2C_FIELD(temp_r31, f32 *, 0) = (f32) (M2C_FIELD(temp_r31, f32 *, 0) * TBoss2DeRolLe__data_805D8288);
-    M2C_FIELD(temp_r31, f32 *, 4) = (f32) (M2C_FIELD(temp_r31, f32 *, 4) * TBoss2DeRolLe__data_805D8288);
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) (M2C_FIELD(temp_r31, f32 *, 8) * TBoss2DeRolLe__data_805D8288);
-    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 0x100) && ((objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss2DeRolLe__data_805D82F0)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss2DeRolLe__data_805D8294)) != 0))) {
-        M2C_FIELD(arg0, s32 *, 0x53C) = 0;
+    *(f32 *)((s8 *)temp_r31 + 0) = (f32) (*(f32 *)((s8 *)temp_r31 + 0) * TBoss2DeRolLe__data_805D8288);
+    *(f32 *)((s8 *)temp_r31 + 4) = (f32) (*(f32 *)((s8 *)temp_r31 + 4) * TBoss2DeRolLe__data_805D8288);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) (*(f32 *)((s8 *)temp_r31 + 8) * TBoss2DeRolLe__data_805D8288);
+    if ((*(s32 *)((s8 *)arg0 + 0x3C0) & 0x100) && ((objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss2DeRolLe__data_805D82F0)) != 0) || (objInBand__FP7GameObjf((void *) (arg0), (f32) (TBoss2DeRolLe__data_805D8294)) != 0))) {
+        *(s32 *)((s8 *)arg0 + 0x53C) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x53C) <= 0x10) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x53C) <= 0x10) {
         play_persistent_sound((int)((int) (0x4003AD00)), (void *)((void *) (arg0)), (void *)((void *) (arg0 + 0x530)), (int)((int) (0)), (int)((int) (0)));
-        M2C_FIELD(arg0, s32 *, 0x53C) = (s32) (M2C_FIELD(arg0, s32 *, 0x53C) + 1);
+        *(s32 *)((s8 *)arg0 + 0x53C) = (s32) (*(s32 *)((s8 *)arg0 + 0x53C) + 1);
     }
 }
 
@@ -4071,9 +4048,9 @@ void spawn_offset_particle__13TBoss2DeRolLeFiff(s32 arg0, f32 farg0, f32 farg1) 
     typedef char sp10_offset[(offsetof(Stack_800339BC, sp10) == 0x8) ? 1 : -1];
     Stack_800339BC stack;
     VecCopy__FP3VecPC3Vec((int)((void *) (&stack.sp8)), (void *)((void *) (arg0)));
-    stack.sp8 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC) * farg1) - stack.sp8);
-    stack.spC -= (M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10) * farg1) - farg0;
-    stack.sp10 = -((M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14) * farg1) - stack.sp10);
+    stack.sp8 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC) * farg1) - stack.sp8);
+    stack.spC -= (*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10) * farg1) - farg0;
+    stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14) * farg1) - stack.sp10);
     spawn_particle_effect_with_flags((void *) (&stack.sp8), (int) (0x127), (int) (0x40));
 }
 extern int fold_flush_2;
@@ -4083,7 +4060,7 @@ void spawn_ceil_junk__13TBoss2DeRolLeFii(s32 arg1, s32 arg2) {
     create_particle__17TObjBoss2CeilJunkFv(arg2, 0x121);
 }
 
-void TBoss2DeRolLe__sub_80033A80(M2C_UNK arg0, s32 arg1) {
+void TBoss2DeRolLe__sub_80033A80(s32 arg0, s32 arg1) {
     TObjBoss2Tunnel__sub_8003B1D8((void *) (arg1));
 }
 
@@ -4126,7 +4103,7 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
                 f32 r = fabs_float(v->y - lbl_805D82E0);
                 f32 lim = boss2_derolle_particle_limits[k];
                 if (r < TBoss2DeRolLe__data_805D8328 * lim) {
-                    ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, v);
+                    ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, v);
                     lim -= r;
                     t.y = TBoss2DeRolLe__data_805D82A8;
                     t.x += lim;
@@ -4139,7 +4116,7 @@ void update_particle_ctrls__13TBoss2DeRolLeFPv(Obj_80033AA4 *o) {
                 }
             }
         } else {
-            ((M2C_UNK (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, &o->pos[o->f758]);
+            ((s32 (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&t, &o->pos[o->f758]);
             t.y = TBoss2DeRolLe__data_805D82A8;
             t.x += TBoss2DeRolLe__data_805D8294;
             copy_pos__11TNowLoadingFPvPv(o->ctl[0], &t);
@@ -4162,11 +4139,11 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
     s32 mode;
     do {
         retry = 0;
-        M2C_FIELD(self, s32 *, 0x3D4)++;
+        (*(s32 *)((s8 *)self + 0x3D4))++;
         if (check_v2_mode__9TObjEneDDFv() != 0) {
-            mode = lbl_804821B8[M2C_FIELD(self, s32 *, 0x3D4)];
+            mode = lbl_804821B8[*(s32 *)((s8 *)self + 0x3D4)];
         } else {
-            mode = lbl_80482108[M2C_FIELD(self, s32 *, 0x3D4)];
+            mode = lbl_80482108[*(s32 *)((s8 *)self + 0x3D4)];
         }
         switch (mode) {
         case 33:
@@ -4177,7 +4154,7 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
             }
             break;
         case 34:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 5;
             } else {
                 mode = 9;
@@ -4191,7 +4168,7 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
             }
             break;
         case 36:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 3;
             } else {
                 mode = 0xB;
@@ -4205,35 +4182,35 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
             }
             break;
         case 39:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 4;
             } else {
                 mode = 0xA;
             }
             break;
         case 40:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 0x10;
             } else {
                 mode = 0x11;
             }
             break;
         case 41:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 0x12;
             } else {
                 mode = 0x13;
             }
             break;
         case 42:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 0x14;
             } else {
                 mode = 0x15;
             }
             break;
         case 43:
-            if (M2C_FIELD(self, s32 *, 0x658) == 0) {
+            if (*(s32 *)((s8 *)self + 0x658) == 0) {
                 mode = 0x16;
             } else {
                 mode = 0x17;
@@ -4241,7 +4218,7 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
             break;
         case 44:
             retry = 1;
-            M2C_FIELD(self, s32 *, 0x3D4) = 5;
+            *(s32 *)((s8 *)self + 0x3D4) = 5;
             break;
         }
     } while (retry != 0);
@@ -4251,20 +4228,20 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
 void reset_fields_3d0__13TBoss2DeRolLeFPv(void* p) { *(s32*)((char*)p + 0x3d0) = 0; *(s32*)((char*)p + 0x3d4) = 0; }
 
 void set_params__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
-    enemy_set_target_id(arg0, (u16) M2C_FIELD(arg1, s32 *, 8));
-    M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
+    enemy_set_target_id(arg0, (u16) *(s32 *)((s8 *)arg1 + 8));
+    *(s32 *)((s8 *)arg0 + 0x3D4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void init_from_param__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s32 *, 0x3D4) = (s32) M2C_FIELD(arg1, s16 *, 6);
-    transition_enemy_state(arg0, M2C_FIELD(arg1, s16 *, 4));
+    *(s32 *)((s8 *)arg0 + 0x3D4) = (s32) *(s16 *)((s8 *)arg1 + 6);
+    transition_enemy_state(arg0, *(s16 *)((s8 *)arg1 + 4));
 }
 
 void handle_6x14_de_rol_le_boss_actions_with_target(void *arg0) {
     void *x;
     swap_endian__13TBoss2DeRolLeFPv(arg0);
-    x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
+    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
     if (x != NULL) {
         set_params__13TBoss2DeRolLeFPvPv((void *)(x), (void *)(arg0));
     }
@@ -4273,7 +4250,7 @@ void handle_6x14_de_rol_le_boss_actions_with_target(void *arg0) {
 void handle_6x13_de_rol_le_boss_actions(void *arg0) {
     void *x;
     swap_6x13_fields__13TBoss2DeRolLeFPv(arg0);
-    x = get_enemy_entity(M2C_FIELD(arg0, u16 *, 0x2));
+    x = get_enemy_entity(*(u16 *)((s8 *)arg0 + 0x2));
     if (x != NULL) {
         init_from_param__13TBoss2DeRolLeFPvPv((void *)(x), (void *)(arg0));
     }
@@ -4296,7 +4273,7 @@ u8 is_ready__13TBoss2DeRolLeFPv(void *arg0) {
     int var_r4;
 
     var_r4 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x6AC) <= 0) && !(M2C_FIELD(arg0, s32 *, 0x3C0) & 4)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x6AC) <= 0) && !(*(s32 *)((s8 *)arg0 + 0x3C0) & 4)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -4306,27 +4283,27 @@ void clear_play_flags__13TBoss2DeRolLeFPv(void *arg0) {
     void *temp_r3;
     void *temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, void **, 0xA4);
-    M2C_FIELD(temp_r4, s32 *, 0x44) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x44) & 0xFFFFFFFE);
-    temp_r3 = M2C_FIELD(arg0, void **, 0xA4);
-    M2C_FIELD(temp_r3, s32 *, 0x70) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x70) & 0xFFFFFFFE);
+    temp_r4 = *(void **)((s8 *)arg0 + 0xA4);
+    *(s32 *)((s8 *)temp_r4 + 0x44) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x44) & 0xFFFFFFFE);
+    temp_r3 = *(void **)((s8 *)arg0 + 0xA4);
+    *(s32 *)((s8 *)temp_r3 + 0x70) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x70) & 0xFFFFFFFE);
 }
 
 void set_flags_play_sound__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x88);
-    ((M2C_UNK (*)(void))clear_play_flags__13TBoss2DeRolLeFPv)();
-    ((M2C_UNK (*)(M2C_UNK, void *))play_sound)(0x4003AA06, arg0 + 0x38);
+    *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x88);
+    ((s32 (*)(void))clear_play_flags__13TBoss2DeRolLeFPv)();
+    ((s32 (*)(s32, void *))play_sound)(0x4003AA06, arg0 + 0x38);
 }
 
 void apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x6AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6AC) - (s32) (TBoss2DeRolLe__data_805D8288 * (f32) arg1));
-    ((M2C_UNK (*)(M2C_UNK, void *))play_sound)((M2C_UNK)((int) (0x4003A80F)), (void *)((void *) (arg0 + 0x38)));
+    *(s32 *)((s8 *)arg0 + 0x6AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6AC) - (s32) (TBoss2DeRolLe__data_805D8288 * (f32) arg1));
+    ((s32 (*)(s32, void *))play_sound)((s32)((int) (0x4003A80F)), (void *)((void *) (arg0 + 0x38)));
 }
 
 void update_check__13TBoss2DeRolLeFPv(void *arg0) {
     TObjEneDD__vt90();
-    if ((M2C_FIELD(arg0, s32 *, 0x3C0) & 8) || (check_v2_mode__9TObjEneDDFv() != 0)) {
-        ((M2C_UNK (*)(void *))clear_play_flags__13TBoss2DeRolLeFPv)(arg0);
+    if ((*(s32 *)((s8 *)arg0 + 0x3C0) & 8) || (check_v2_mode__9TObjEneDDFv() != 0)) {
+        ((s32 (*)(void *))clear_play_flags__13TBoss2DeRolLeFPv)(arg0);
     }
 }
 
@@ -4389,10 +4366,6 @@ void pick_random_target__13TBoss2DeRolLeFi(s32 arg0) {
 
 #define VecCopy__FP3VecPC3Vec ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)
 #define play_sound_effect ((void (*)(s32, Vec_800344A4 *, s32, s32))play_sound_effect)
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 advance_scalar_motion_profile(void *);
@@ -4429,23 +4402,23 @@ void init_movement__13TBoss2DeRolLeFPv(u8 *arg0);
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0);
 u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 advance_scalar_motion_profile(void *);
-M2C_UNK TBoss2LaserLight__sub_80037474(void *);
-M2C_UNK TBoss2LaserLight__sub_80037480(void *);
+s32 TBoss2LaserLight__sub_80037474(void *);
+s32 TBoss2LaserLight__sub_80037480(void *);
 f32 fabs_float(f32);
-M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
+s32 init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
 void free_laser__13TBoss2DeRolLeFPv(void *arg0, s32 _w1) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
-        TBoss2LaserLight__sub_80037474(M2C_FIELD(arg0, void **, 0x6B8));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x6B8) != 0U) {
+        TBoss2LaserLight__sub_80037474(*(void **)((s8 *)arg0 + 0x6B8));
     }
-    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) & 0xFFFFFFEF);
+    *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) & 0xFFFFFFEF);
 }
 
 void activate_laser_light__13TBoss2DeRolLeFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x6B8) != 0U) {
-        TBoss2LaserLight__sub_80037480(M2C_FIELD(arg0, void **, 0x6B8));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x6B8) != 0U) {
+        TBoss2LaserLight__sub_80037480(*(void **)((s8 *)arg0 + 0x6B8));
     }
-    M2C_FIELD(arg0, s32 *, 0x3C0) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C0) | 0x10);
+    *(s32 *)((s8 *)arg0 + 0x3C0) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C0) | 0x10);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D82D8;
@@ -4458,9 +4431,9 @@ extern const f32 TBoss2DeRolLe__data_805D83DC;
 #pragma fp_contract on
 void calc_offset_position__13TBoss2DeRolLeFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x6BC, arg0 + 0x4E8);
-    M2C_FIELD(arg0, f32 *, 0x6BC) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F4)) + M2C_FIELD(arg0, f32 *, 0x6BC));
-    M2C_FIELD(arg0, f32 *, 0x6C0) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4F8)) + M2C_FIELD(arg0, f32 *, 0x6C0));
-    M2C_FIELD(arg0, f32 *, 0x6C4) = (f32) ((TBoss2DeRolLe__data_805D82DC * M2C_FIELD(arg0, f32 *, 0x4FC)) + M2C_FIELD(arg0, f32 *, 0x6C4));
+    *(f32 *)((s8 *)arg0 + 0x6BC) = (f32) ((TBoss2DeRolLe__data_805D82DC * *(f32 *)((s8 *)arg0 + 0x4F4)) + *(f32 *)((s8 *)arg0 + 0x6BC));
+    *(f32 *)((s8 *)arg0 + 0x6C0) = (f32) ((TBoss2DeRolLe__data_805D82DC * *(f32 *)((s8 *)arg0 + 0x4F8)) + *(f32 *)((s8 *)arg0 + 0x6C0));
+    *(f32 *)((s8 *)arg0 + 0x6C4) = (f32) ((TBoss2DeRolLe__data_805D82DC * *(f32 *)((s8 *)arg0 + 0x4FC)) + *(f32 *)((s8 *)arg0 + 0x6C4));
 }
 #pragma pop
 
@@ -4487,38 +4460,38 @@ u8 TBoss2DeRolLe__sub_80034574(u8 *arg0) {
     f32 var_f2;
     s32 temp_r0;
     advance_scalar_motion_profile(arg0 + 0x664);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x660);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x660);
     switch (temp_r0) {
     case 2:
         break;
     case 1:
-        var_f2 = M2C_FIELD(arg0, f32 *, 0x694) - 0.1f;
+        var_f2 = *(f32 *)((s8 *)arg0 + 0x694) - 0.1f;
         if (var_f2 < -4.0f) {
             var_f2 = -4.0f;
         }
-        M2C_FIELD(arg0, f32 *, 0x694) = var_f2;
-        M2C_FIELD(arg0, f32 *, 0x69C) = (f32) (M2C_FIELD(arg0, f32 *, 0x69C) + var_f2);
-        if (M2C_FIELD(arg0, f32 *, 0x67C) > 30.0f) {
-            M2C_FIELD(arg0, s32 *, 0x660) = 3;
+        *(f32 *)((s8 *)arg0 + 0x694) = var_f2;
+        *(f32 *)((s8 *)arg0 + 0x69C) = (f32) (*(f32 *)((s8 *)arg0 + 0x69C) + var_f2);
+        if (*(f32 *)((s8 *)arg0 + 0x67C) > 30.0f) {
+            *(s32 *)((s8 *)arg0 + 0x660) = 3;
         }
         break;
     case 3:
         if (advance_scalar_motion_profile(arg0 + 0x684) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x660) = 4;
+            *(s32 *)((s8 *)arg0 + 0x660) = 4;
         }
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0xC8) += 0.1f;
-    if (M2C_FIELD(arg0, f32 *, 0xC8) > 0.9f) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = 0.9f;
+    *(f32 *)((s8 *)arg0 + 0xC8) += 0.1f;
+    if (*(f32 *)((s8 *)arg0 + 0xC8) > 0.9f) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = 0.9f;
     }
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x660) == 4);
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x660) == 4);
 }
 
 void init_wave_params__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x660) = 1;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
+    *(s32 *)((s8 *)arg0 + 0x660) = 1;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - *(f32 *)((s8 *)arg0 + 0x38)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D8358 - *(f32 *)((s8 *)arg0 + 0x40)), TBoss2DeRolLe__data_805D8330);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D8280;
@@ -4529,24 +4502,24 @@ u8 update_state__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r0;
 
     advance_scalar_motion_profile(arg0 + 0x684);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x65C);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8280;
-        if (M2C_FIELD(arg0, f32 *, 0x69C) > TBoss2DeRolLe__data_805D82B4) {
-            M2C_FIELD(arg0, s32 *, 0x65C) = 1;
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) TBoss2DeRolLe__data_805D8280;
+        if (*(f32 *)((s8 *)arg0 + 0x69C) > TBoss2DeRolLe__data_805D82B4) {
+            *(s32 *)((s8 *)arg0 + 0x65C) = 1;
         }
         break;
     case 1:
         if (advance_scalar_motion_profile(arg0 + 0x664) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x65C) = 2;
+            *(s32 *)((s8 *)arg0 + 0x65C) = 2;
         }
         break;
     }
-    if (M2C_FIELD(arg0, f32 *, 0x69C) > TBoss2DeRolLe__data_805D82B4) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
+    if (*(f32 *)((s8 *)arg0 + 0x69C) > TBoss2DeRolLe__data_805D82B4) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
     }
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x65C) == 2);
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x65C) == 2);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D82F0;
@@ -4557,9 +4530,9 @@ extern const f32 TBoss2DeRolLe__data_805D83AC;
 extern const f32 lbl_805D8434;
 
 void init_move_params__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x65C) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(lbl_805D8434 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    *(s32 *)((s8 *)arg0 + 0x65C) = 0;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-*(f32 *)((s8 *)arg0 + 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(lbl_805D8434 - *(f32 *)((s8 *)arg0 + 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D82F0;
@@ -4606,33 +4579,33 @@ u8 TBoss2DeRolLe__sub_80034800(u8 *arg0) {
 }
 
 void init_movement__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x660) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(TBoss2DeRolLe__data_805D8358 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
+    *(s32 *)((s8 *)arg0 + 0x660) = 0;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(TBoss2DeRolLe__data_805D83DC - *(f32 *)((s8 *)arg0 + 0x38)), TBoss2DeRolLe__data_805D8330);
+    set_move_params__13TBoss2DeRolLeFPvffff(arg0 + 0x684, TBoss2DeRolLe__data_805D8348, fabs_float(TBoss2DeRolLe__data_805D8358 - *(f32 *)((s8 *)arg0 + 0x40)), TBoss2DeRolLe__data_805D8300, TBoss2DeRolLe__data_805D83AC);
 }
 #pragma push
 #pragma opt_common_subs off
 u8 update_phase_is_done__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r0;
     advance_scalar_motion_profile((void *) (arg0 + 0x684));
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x65C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x65C);
     switch (temp_r0) {
     case 0:
-        if (M2C_FIELD(arg0, f32 *, 0x69C) > lbl_805D8440) {
-            M2C_FIELD(arg0, s32 *, 0x65C) = 1;
+        if (*(f32 *)((s8 *)arg0 + 0x69C) > lbl_805D8440) {
+            *(s32 *)((s8 *)arg0 + 0x65C) = 1;
         }
         break;
     case 1:
         if (advance_scalar_motion_profile((void *) (arg0 + 0x664)) == 3) {
-            M2C_FIELD(arg0, s32 *, 0x65C) = 2;
+            *(s32 *)((s8 *)arg0 + 0x65C) = 2;
         }
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) + TBoss2DeRolLe__data_805D8334);
-    if (M2C_FIELD(arg0, f32 *, 0xC8) > TBoss2DeRolLe__data_805D8328) {
-        M2C_FIELD(arg0, f32 *, 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
+    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) + TBoss2DeRolLe__data_805D8334);
+    if (*(f32 *)((s8 *)arg0 + 0xC8) > TBoss2DeRolLe__data_805D8328) {
+        *(f32 *)((s8 *)arg0 + 0xC8) = (f32) TBoss2DeRolLe__data_805D8328;
     }
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x65C) == 2);
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x65C) == 2);
 }
 #pragma pop
 
@@ -4646,11 +4619,6 @@ u8 update_phase_is_done__13TBoss2DeRolLeFPv(u8 *arg0) {
 
 #pragma push
 namespace joint_state_view {
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase18 { char pad[0x18]; };
 
@@ -4666,12 +4634,12 @@ struct VObj18 : VBase18 {
 typedef struct Vec { float x, y, z; } Vec;
 
 struct RecoveredGlobal_80034C90_lbl_8043567C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80034C2C_lbl_8043567C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -4687,7 +4655,7 @@ struct Stack_80034AC8 {
 };
 
 struct RecoveredGlobal_80034AC8_lbl_804359CC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -4801,7 +4769,7 @@ void forward_switch_phase_stats__13TBoss2DeRolLeFi(s32 arg0);
 extern f32 TBoss2DeRolLe__data_805D82BC;
 void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-M2C_UNK update_local_colliders_from_world(s32, Vec *);
+s32 update_local_colliders_from_world(s32, Vec *);
 void update_colliders_from_offsets__13TBoss2DeRolLeFi(s32 arg0);
 int play_sound(void *, int);
 void spawn_offset_particle__13TBoss2DeRolLeFiff(s32, f32, f32);
@@ -4863,7 +4831,7 @@ void update_angle__13TBoss2DeRolLeFPv(void *arg0);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void emit_effect__9TObjEneDDFPvii(void *, void *, void *);
 f32 fabs_float(f32);
-M2C_UNK init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
+s32 init_params__13TBoss2DeRolLeFPvfff(void *, f32, f32, f32);
 
 extern const f32 TBoss2DeRolLe__data_805D82D8;
 extern const f32 TBoss2DeRolLe__data_805D82E8;
@@ -4871,9 +4839,9 @@ extern const f32 TBoss2DeRolLe__data_805D82F0;
 extern const f32 TBoss2DeRolLe__data_805D8330;
 
 void init_head_params__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x65C) = 0;
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-M2C_FIELD(arg0, f32 *, 0x38)), TBoss2DeRolLe__data_805D8330);
-    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D82E8 - M2C_FIELD(arg0, f32 *, 0x40)), TBoss2DeRolLe__data_805D8330);
+    *(s32 *)((s8 *)arg0 + 0x65C) = 0;
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x664, TBoss2DeRolLe__data_805D82F0, fabs_float(-*(f32 *)((s8 *)arg0 + 0x38)), TBoss2DeRolLe__data_805D8330);
+    init_params__13TBoss2DeRolLeFPvfff(arg0 + 0x684, TBoss2DeRolLe__data_805D82D8, fabs_float(TBoss2DeRolLe__data_805D82E8 - *(f32 *)((s8 *)arg0 + 0x40)), TBoss2DeRolLe__data_805D8330);
 }
 
 extern const f32 TBoss2DeRolLe__data_805D827C;
@@ -4883,16 +4851,16 @@ extern f32 lbl_805D8444;
 void update_angle__13TBoss2DeRolLeFPv(void *arg0) {
     f32 temp_f2;
 
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x6A4);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x6A4);
     if (temp_f2 > lbl_805D8284) {
-        M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (temp_f2 - lbl_805D8284);
+        *(f32 *)((s8 *)arg0 + 0x6A4) = (f32) (temp_f2 - lbl_805D8284);
         return;
     }
     if (temp_f2 < lbl_805D8444) {
-        M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (temp_f2 + lbl_805D8284);
+        *(f32 *)((s8 *)arg0 + 0x6A4) = (f32) (temp_f2 + lbl_805D8284);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x6A4) = (f32) TBoss2DeRolLe__data_805D827C;
 }
 
 extern const f32 TBoss2DeRolLe__data_805D82B4;
@@ -4906,17 +4874,17 @@ void get_node_world_pos__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1) {
     typedef char spC_offset[(offsetof(Stack_80034AC8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80034AC8, sp10) == 0x8) ? 1 : -1];
     Stack_80034AC8 stack;
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
+    *(f32 *)((s8 *)arg1 + 0) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
+    *(f32 *)((s8 *)arg1 + 4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
     push_matrix();
     set_matrix_identity((int) (0));
-    stack.sp8 = M2C_FIELD(&lbl_804359CC.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804359CC.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804359CC.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804359CC.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804359CC.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804359CC.value) + 8);
     scale_current_matrix((void *) (&stack.sp8));
-    bind_motion_context((int) (M2C_FIELD(arg0, s32 *, 0xF8)), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
-    compose_motion_node_matrix((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+    bind_motion_context((int) (*(s32 *)((s8 *)arg0 + 0xF8)), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
+    compose_motion_node_matrix((int) (*(s32 *)((s8 *)arg0 + 0x34)));
     matrix_mult_vec((int) (0), (void *) (arg1), (void *) (arg1));
     pop_matrix();
 }
@@ -4936,15 +4904,15 @@ f32 calc_node_height__13TBoss2DeRolLeFPv(Obj_80034B60 *self) {
 }
 
 void set_move_direction__13TBoss2DeRolLeFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x654) == 0) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805D82C0;
-        M2C_FIELD(arg0, s32 *, 0x64) = 0x500;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x654) == 0) {
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805D82C0;
+        *(s32 *)((s8 *)arg0 + 0x64) = 0x500;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) TBoss2DeRolLe__data_805D82B4;
-        M2C_FIELD(arg0, s32 *, 0x64) = -0x500;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) TBoss2DeRolLe__data_805D82B4;
+        *(s32 *)((s8 *)arg0 + 0x64) = -0x500;
     }
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) TBoss2DeRolLe__data_805D82E4;
-    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) TBoss2DeRolLe__data_805D82FC;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) TBoss2DeRolLe__data_805D82E4;
+    *(f32 *)((s8 *)arg0 + 0x6A4) = (f32) TBoss2DeRolLe__data_805D82FC;
 }
 
 extern u8 *TBoss2DeRolLe__data_805D4BA0;
@@ -4965,38 +4933,38 @@ void set_move_target_point__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
 
 void set_position_index__13TBoss2DeRolLeFPvi(u8 *arg0, s32 arg1) {
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x38), (s32)((u8 *)&TBoss2DeRolLe__position_point_table.value + (arg1 * 0xC)));
-    M2C_FIELD(arg0, f32 *, 0x6A4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
-    M2C_FIELD(arg0, s32 *, 0x64) = 0;
+    *(f32 *)((s8 *)arg0 + 0x6A4) = (f32) (*(const f32 *)&TBoss2DeRolLe__data_805D827C);
+    *(s32 *)((s8 *)arg0 + 0x64) = 0;
 }
 
 s32 TBoss2Joint_get_shell_max_hp(void) {
-    return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x1C);
+    return *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x1C);
 }
 
-extern M2C_UNK lbl_804356AC[];
+extern s32 lbl_804356AC[];
 
 f32 TBoss2DeRolLe__sub_80034CEC(void) {
-    return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 8);
+    return *(f32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 8);
 }
 
 f32 TBoss2DeRolLe__sub_80034CF8(void) {
-    return M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, f32 *, 4);
+    return *(f32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 4);
 }
 
 void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)(arg0), (s32)(2));
     emit_effect__9TObjEneDDFPvii(arg0, arg1, lbl_804356AC);
-    ((void (*)(void *, void *))reload_stats_for_phase__13TBoss2DeRolLeFPvi)(arg0, M2C_FIELD(arg0, void **, 0x3C4));
+    ((void (*)(void *, void *))reload_stats_for_phase__13TBoss2DeRolLeFPvi)(arg0, *(void **)((s8 *)arg0 + 0x3C4));
 }
 
 void switch_phase_stats__13TBoss2DeRolLeFPvPv(u8 *arg0, u8 *arg1) {
     u8 *temp_r5;
-    temp_r5 = M2C_FIELD(arg1, u8 **, 0xA4);
+    temp_r5 = *(u8 **)((s8 *)arg1 + 0xA4);
     if (temp_r5 != NULL) {
-        M2C_FIELD(temp_r5, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r5, s32 *, 0x18) | 0x04000000);
+        *(s32 *)((s8 *)temp_r5 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r5 + 0x18) | 0x04000000);
         reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)((void *)arg0), (s32)(1));
         ((VObj18 *)arg1)->m20(arg0, TBoss2DeRolLe__data_805D82BC);
-        reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)((void *) (arg0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x3C4))));
+        reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)((void *) (arg0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x3C4))));
     }
 }
 
@@ -5072,19 +5040,19 @@ void backup_pos__13TBoss2DeRolLeFi(s32 arg0) {
 void TBoss2DeRolLe__sub_80034FD8(void) {  }
 void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
     s32 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x2B8) - M2C_FIELD(arg0, s16 *, 0x32C);
-    if (M2C_FIELD(arg0, s32 *, 0x3C0) & 8) {
-        M2C_FIELD(arg0, s32 *, 0x6AC) = (s32) (M2C_FIELD(arg0, s32 *, 0x6AC) - temp_r4);
-        spawn_offset_particle__13TBoss2DeRolLeFiff(M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x2B8) - *(s16 *)((s8 *)arg0 + 0x32C);
+    if (*(s32 *)((s8 *)arg0 + 0x3C0) & 8) {
+        *(s32 *)((s8 *)arg0 + 0x6AC) = (s32) (*(s32 *)((s8 *)arg0 + 0x6AC) - temp_r4);
+        spawn_offset_particle__13TBoss2DeRolLeFiff(*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C, TBoss2DeRolLe__data_805D82A0, lbl_805D8448);
         play_sound((void *)0x4003A80F, (s32) (arg0 + 0x518));
     } else {
-        M2C_FIELD(arg0, s32 *, 0x6B0) = (s32) (M2C_FIELD(arg0, s32 *, 0x6B0) - temp_r4);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x6B0) < 0) {
-            M2C_FIELD(arg0, s32 *, 0x6B0) = 0;
+        *(s32 *)((s8 *)arg0 + 0x6B0) = (s32) (*(s32 *)((s8 *)arg0 + 0x6B0) - temp_r4);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x6B0) < 0) {
+            *(s32 *)((s8 *)arg0 + 0x6B0) = 0;
             set_flags_play_sound__13TBoss2DeRolLeFPv(arg0);
         }
     }
-    M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
+    *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
     clear_attack_receipts(arg0);
 }
 
@@ -5096,10 +5064,6 @@ void apply_damage_taken__13TBoss2DeRolLeFPv(u8 *arg0) {
 #pragma push
 namespace lifecycle_view {
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_8003508C_80035084 {
     char pad[0x18];
     virtual void m0();
@@ -5235,8 +5199,8 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m36();
     virtual void m37();
     virtual void m38();
-    virtual M2C_UNK m39();
-    virtual M2C_UNK m40();
+    virtual s32 m39();
+    virtual s32 m40();
     virtual void m41();
     virtual void m42();
     virtual void m43();
@@ -5256,7 +5220,7 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m57();
     virtual void m58();
     virtual void m59();
-    virtual M2C_UNK m60();
+    virtual s32 m60();
     virtual void m61();
     virtual void m62();
     virtual void m63();
@@ -5281,8 +5245,8 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
-    virtual M2C_UNK m86();
+    virtual s32 m85(s16, s32);
+    virtual s32 m86();
     virtual void m87();
     virtual void m88();
     virtual void m89();
@@ -5299,7 +5263,7 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m100();
     virtual void m101();
     virtual void m102();
-    virtual M2C_UNK m103();
+    virtual s32 m103();
 };
 
 struct Stack_800365C8 {
@@ -5309,7 +5273,7 @@ struct Stack_800365C8 {
 };
 
 struct RecoveredGlobal_800365C8_lbl_80435A44 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -5374,13 +5338,13 @@ extern const f32 TBoss2DeRolLe__data_805D82A0;
 extern const f32 TBoss2DeRolLe__data_805D82BC;
 extern const f32 lbl_805D844C;
 void TBoss2DeRolLe__sub_800360A8(void *arg0);
-M2C_UNK advance_action_sequence__13TBoss2DeRolLeFPv(void *);
+s32 advance_action_sequence__13TBoss2DeRolLeFPv(void *);
 s32 queue_destruction__7TObjectFv(void *);
 s32 construct_piece_controller__10TObjPlayerFPvii(int, void *, int);
 s32 advance_phase_wrap__13TBoss2DeRolLeFPv(void *);
 s32 update_projectile_spawns__13TBoss2DeRolLeFPv(void *);
 s32 update_particle_ctrls__13TBoss2DeRolLeFPv(void *);
-M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
+s32 TBoss2DeRolLe__sub_80034034(void *);
 s32 is_ready__13TBoss2DeRolLeFPv(void *);
 s32 backup_pos__13TBoss2DeRolLeFi(void *);
 void TBoss2DeRolLe__sub_8003508C(void *arg0);
@@ -5400,14 +5364,14 @@ void init_link_points__9TBoss2FinFPv(u8 *arg0);
 s32 fn_800FF788(void *, void *);
 extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 void run_task__9TBoss2FinFv(s32 arg0);
-M2C_UNK __dt__7TObjectFv(void *, int);
+s32 __dt__7TObjectFv(void *, int);
 s32 queue_destruction__7TObjectFv(void *);
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1);
-M2C_UNK __dt__9TObjEneDDFv(void *, int);
-M2C_UNK delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK free__11TOBoss4RockFUi(int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dt__9TObjEneDDFv(void *, int);
+s32 delete_buffer__12TBoss8DragonFis(void *, int);
+s32 free__11TOBoss4RockFUi(int);
+s32 free_collision_body_parts(void *);
+s32 __dl__7TObjectFPv(void *);
 extern u8 __vt__13TBoss2DeRolLe[];
 extern s32 TBoss2DeRolLe__instance;
 u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1);
@@ -5415,18 +5379,18 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
-M2C_UNK TObjLight__sub_801337F8(s32);
-M2C_UNK scale_matrix(int, f32, f32, f32);
+s32 TObjLight__sub_801337F8(s32);
+s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-M2C_UNK translate_matrix_vec3(int, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK normalize_vector(void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_chunk_object(void *);
+s32 translate_matrix_vec3(int, void *);
+s32 rotate_matrix_y(int, int);
+s32 subtract_vector(void *, void *);
+s32 rotate_matrix_x(int, int);
+s32 normalize_vector(void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_chunk_object(void *);
 extern const f64 lbl_80435A50[];
 extern u32 lbl_805D4BA4;
 extern s32 current_scene_light;
@@ -5501,18 +5465,18 @@ void swap_6x13_fields__13TBoss2DeRolLeFPv(void* p);
 void swap_endian__13TBoss2DeRolLeFPv(void* p);
 void update_and_send__13TBoss2DeRolLeFPv(void* p);
 void *TBoss2DeRolLe__ct(void *, void *, void *);
-M2C_UNK TBoss2DeRolLe__sub_80034034(void *);
-M2C_UNK TBoss2Fin__sub_800367C0();
-M2C_UNK TBoss2Mine__sub_80038D84();
-M2C_UNK TBoss2Tentacle__sub_8003A0A8();
+s32 TBoss2DeRolLe__sub_80034034(void *);
+s32 TBoss2Fin__sub_800367C0();
+s32 TBoss2Mine__sub_80038D84();
+s32 TBoss2Tentacle__sub_8003A0A8();
 int TLobby__send_and_handle_60(void*);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TObjPlayer__sub_8002EB88();
+s32 TObjPlayer__sub_8002EB88();
 int __dl__FPv();
 void *__nw__7TObjectFUl(int);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
-M2C_UNK clear_target_ref__10TObjPlayerFv();
+s32 clear_target_ref__10TObjPlayerFv();
 int read_be16_field2__10TObjPlayerFPv(void*);
 
 void TBoss2DeRolLe__sub_80035084(void) {  }
@@ -5524,7 +5488,7 @@ void TBoss2DeRolLe__sub_8003508C(void *arg0) {
         TBoss2DeRolLe__sub_80034034(arg0);
         return;
     }
-    o->m85(M2C_FIELD(arg0, s16 *, 0x326), 9);
+    o->m85(*(s16 *)((s8 *)arg0 + 0x326), 9);
 }
 
 extern u32 lbl_805D4BA4;
@@ -5734,9 +5698,6 @@ u8 *__dt__13TBoss2DeRolLeFPvs(u8 *arg0, s16 arg1) {
 namespace constructor_view {
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -5832,17 +5793,17 @@ struct VObj_18_bd2ad6 : VBase_18_bd2ad6 {
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
+    virtual s32 m85(s16, s32);
 };
 struct Data_8003563C { u8 pad0[0x48]; s32 f48[10]; s32 f70[10]; s32 f98; };
 
 void VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
-M2C_UNK set_field_dc__10TObjPlayerFPvi(void *, int);
-M2C_UNK set_field_d8__10TObjPlayerFPvi(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 set_field_dc__10TObjPlayerFPvi(void *, int);
+s32 set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-M2C_UNK fill_value_array(void *);
-M2C_UNK reset_fields_3d0__13TBoss2DeRolLeFPv(void *);
+s32 fill_value_array(void *);
+s32 reset_fields_3d0__13TBoss2DeRolLeFPv(void *);
 void init_float_block__13TBoss2DeRolLeFPv(u8 *arg0);
 s32 init_resources__13TBoss2DeRolLeFi(s32 arg0);
 void *__ct__9TBoss2FinFv(void *, void *, void *, void *);
@@ -5852,23 +5813,23 @@ void *create__10TBoss2MineFPviii(void *, void *, u16, int);
 void *TBoss2Mine__sub_800381B8(void *, void *, u16, int);
 void *__ct__14TBoss2TentacleFP7TObjectii(void *, void *, void *, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-M2C_UNK enemy_init_validate_period(void *, int);
-M2C_UNK enemy_init_acquire_period(void *, int);
-M2C_UNK init_object__9TObjEneDDFPv(void *, void *);
+s32 enemy_init_validate_period(void *, int);
+s32 enemy_init_acquire_period(void *, int);
+s32 init_object__9TObjEneDDFPv(void *, void *);
 s32 update_lobby_state__9TObjEneDDFPv(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
-M2C_UNK reset_hp__9TObjEneDDFPv(void *, int, int, int);
-M2C_UNK initialize_enemy_state__9TObjEneDDFPv(void *, int);
-M2C_UNK check_state_flag_2__9TObjEneDDFPv(void *);
-M2C_UNK init_model__9TObjEneDDFPv(void *, void *, int, void *);
-M2C_UNK invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
-M2C_UNK init_position_vectors__9TObjEneDDFPv(void *);
+s32 reset_hp__9TObjEneDDFPv(void *, int, int, int);
+s32 initialize_enemy_state__9TObjEneDDFPv(void *, int);
+s32 check_state_flag_2__9TObjEneDDFPv(void *);
+s32 init_model__9TObjEneDDFPv(void *, void *, int, void *);
+s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+s32 init_position_vectors__9TObjEneDDFPv(void *);
 void *TBoss8Dragon__sub_800BC5EC(void *, int);
-M2C_UNK set_animation__10TObjPlayerFPvs(void *, int);
+s32 set_animation__10TObjPlayerFPvs(void *, int);
 Buf_8003563C *alloc_buffer__11TOBoss4RockFPv(int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-M2C_UNK set_matrix_identity(void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 set_matrix_identity(void *);
 struct W3_8003563C;
 extern W3_8003563C lbl_804359C0[];
 extern u8 controller_input_state[];
@@ -6099,7 +6060,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     struct { W3_8003563C v; u32 flags; } locals;
 
     init_object__9TObjEneDDFPv(arg0, arg1);
-    M2C_FIELD(self, u8 **, 0x18) = (u8 *)__vt__13TBoss2DeRolLe;
+    *(u8 **)((s8 *)self + 0x18) = (u8 *)__vt__13TBoss2DeRolLe;
     __ct__7TObjectFP7TObject(self->obj3D8, 0);
     init_resources__13TBoss2DeRolLeFi((s32)self->r664);
     init_resources__13TBoss2DeRolLeFi((s32)self->r684);
@@ -6118,23 +6079,23 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     init_position_vectors__9TObjEneDDFPv(self);
     {
         u8 *q;
-        q = M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C);
-        self->f34 = M2C_FIELD(q, s32 *, 0x28);
-        q = M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C);
-        self->f24 = M2C_FIELD(q, s32 *, 0x2C);
+        q = *(u8 **)((s8 *)lbl_805D4BA4 + 0x42C);
+        self->f34 = *(s32 *)((s8 *)q + 0x28);
+        q = *(u8 **)((s8 *)lbl_805D4BA4 + 0x42C);
+        self->f24 = *(s32 *)((s8 *)q + 0x2C);
         init_model__9TObjEneDDFPv(self, (u8 *)lbl_804822A8, 3, q);
     }
-    M2C_FIELD(self, s32 *, 0xB0) = 0;
+    *(s32 *)((s8 *)self + 0xB0) = 0;
     set_field_d8__10TObjPlayerFPvi(self, (u8 *)lbl_804823A8);
-    set_field_dc__10TObjPlayerFPvi(self, M2C_FIELD(lbl_805D4BA4, s32 *, 0x430));
-    M2C_FIELD(self, s16 *, 0xB8) = 0;
-    set_animation__10TObjPlayerFPvs(self, M2C_FIELD(self, s16 *, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(self, M2C_FIELD(self, s16 *, 0xB8));
+    set_field_dc__10TObjPlayerFPvi(self, *(s32 *)((s8 *)lbl_805D4BA4 + 0x430));
+    *(s16 *)((s8 *)self + 0xB8) = 0;
+    set_animation__10TObjPlayerFPvs(self, *(s16 *)((s8 *)self + 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(self, *(s16 *)((s8 *)self + 0xB8));
     reset_hp__9TObjEneDDFPv(self, TBoss2DeRolLe__base_params, ((s32 *)TBoss2DeRolLe__attack_params_table)[0], TBoss2DeRolLe__resistance_params);
     check_state_flag_2__9TObjEneDDFPv(self);
-    M2C_FIELD(self, u8 **, 0x350) = (u8 *)lbl_8048228C;
+    *(u8 **)((s8 *)self + 0x350) = (u8 *)lbl_8048228C;
     initialize_enemy_state__9TObjEneDDFPv(self, 0x2D);
-    M2C_FIELD(self, f32 *, 0x37C) = TBoss2DeRolLe__data_805D8294;
+    *(f32 *)((s8 *)self + 0x37C) = TBoss2DeRolLe__data_805D8294;
     enemy_init_acquire_period(self, 0x1E);
     enemy_init_validate_period(self, 0x1E);
     self->f3C4 = 0;
@@ -6161,8 +6122,8 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     }
     {
         locals.v = lbl_804359C0[0];
-        a = M2C_FIELD(self, u16 *, 0x1C) + 1;
-        b = M2C_FIELD(self, s16 *, 0x2C) + 1;
+        a = *(u16 *)((s8 *)self + 0x1C) + 1;
+        b = *(s16 *)((s8 *)self + 0x2C) + 1;
         for (j = 0; j < 10; j++) {
             VecCopy__FP3VecPC3Vec(&self->v540[j], &locals.v);
             self->f5B8[j] = -1;
@@ -6199,9 +6160,9 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     init_float_block__13TBoss2DeRolLeFPv(self->r664);
     init_float_block__13TBoss2DeRolLeFPv(self->r684);
     self->f6A4 = TBoss2DeRolLe__data_805D827C;
-    self->f6A8 = self->f6AC = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x18);
-    self->f6B0 = M2C_FIELD(TBoss2DeRolLe__data_805D4BA0, s32 *, 0x20);
-    M2C_FIELD(self, s16 *, 0x2B8) = M2C_FIELD(self, s16 *, 0x32C) = 0x4E20;
+    self->f6A8 = self->f6AC = *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x18);
+    self->f6B0 = *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x20);
+    *(s16 *)((s8 *)self + 0x2B8) = *(s16 *)((s8 *)self + 0x32C) = 0x4E20;
     self->f6B4 = 0;
     p = __nw__7TObjectFUl(0x44);
     if (p != NULL) {
@@ -6275,8 +6236,8 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
     }
     reset_fields_3d0__13TBoss2DeRolLeFPv(self);
     if (!(self->f3C0 & 0x8000)) {
-        M2C_FIELD(self, s16 *, 0x326) = 1;
-        ((VObj_18_bd2ad6 *)self)->m85(M2C_FIELD(self, s16 *, 0x326), 4);
+        *(s16 *)((s8 *)self + 0x326) = 1;
+        ((VObj_18_bd2ad6 *)self)->m85(*(s16 *)((s8 *)self + 0x326), 4);
     }
     return self;
 }
@@ -6411,34 +6372,34 @@ s32 advance_scalar_motion_profile(void *arg0) {
     f32 temp_f1;
     f32 temp_f1_2;
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) + M2C_FIELD(arg0, f32 *, 4));
-        if (M2C_FIELD(arg0, f32 *, 0x10) > M2C_FIELD(arg0, f32 *, 0xC)) {
-            M2C_FIELD(arg0, f32 *, 0x10) = M2C_FIELD(arg0, f32 *, 0xC);
-            M2C_FIELD(arg0, s32 *, 0) = 1;
+        *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) + *(f32 *)((s8 *)arg0 + 4));
+        if (*(f32 *)((s8 *)arg0 + 0x10) > *(f32 *)((s8 *)arg0 + 0xC)) {
+            *(f32 *)((s8 *)arg0 + 0x10) = *(f32 *)((s8 *)arg0 + 0xC);
+            *(s32 *)((s8 *)arg0 + 0) = 1;
         }
         break;
     case 1:
-        if (M2C_FIELD(arg0, f32 *, 0x18) > M2C_FIELD(arg0, f32 *, 0x1C)) {
-            M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - M2C_FIELD(arg0, f32 *, 8));
-            M2C_FIELD(arg0, s32 *, 0) = 2;
+        if (*(f32 *)((s8 *)arg0 + 0x18) > *(f32 *)((s8 *)arg0 + 0x1C)) {
+            *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) - *(f32 *)((s8 *)arg0 + 8));
+            *(s32 *)((s8 *)arg0 + 0) = 2;
         }
         break;
     case 2:
-        M2C_FIELD(arg0, f32 *, 0x10) = (f32) (M2C_FIELD(arg0, f32 *, 0x10) - M2C_FIELD(arg0, f32 *, 8));
-        if (M2C_FIELD(arg0, f32 *, 0x10) < 0.0f) {
-            M2C_FIELD(arg0, f32 *, 0x10) = 0.0f;
-            M2C_FIELD(arg0, s32 *, 0) = 3;
+        *(f32 *)((s8 *)arg0 + 0x10) = (f32) (*(f32 *)((s8 *)arg0 + 0x10) - *(f32 *)((s8 *)arg0 + 8));
+        if (*(f32 *)((s8 *)arg0 + 0x10) < 0.0f) {
+            *(f32 *)((s8 *)arg0 + 0x10) = 0.0f;
+            *(s32 *)((s8 *)arg0 + 0) = 3;
         }
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) (M2C_FIELD(arg0, f32 *, 0x18) + M2C_FIELD(arg0, f32 *, 0x10));
-    if (M2C_FIELD(arg0, f32 *, 0x18) > M2C_FIELD(arg0, f32 *, 0x14)) {
-        M2C_FIELD(arg0, f32 *, 0x18) = M2C_FIELD(arg0, f32 *, 0x14);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
+    if (*(f32 *)((s8 *)arg0 + 0x18) > *(f32 *)((s8 *)arg0 + 0x14)) {
+        *(f32 *)((s8 *)arg0 + 0x18) = *(f32 *)((s8 *)arg0 + 0x14);
     }
-    return M2C_FIELD(arg0, s32 *, 0);
+    return *(s32 *)((s8 *)arg0 + 0);
 }
 
 void TBoss2DeRolLe__sub_800360A8(void *arg0) {
@@ -6467,38 +6428,38 @@ void TBoss2DeRolLe__sub_800360A8(void *arg0) {
 }
 
 void set_move_params__13TBoss2DeRolLeFPvffff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3) {
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, f32 *, 4) = farg2;
-    M2C_FIELD(arg0, f32 *, 8) = farg3;
-    M2C_FIELD(arg0, f32 *, 0xC) = farg0;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x14) = farg1;
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
+    *(f32 *)((s8 *)arg0 + 4) = farg2;
+    *(f32 *)((s8 *)arg0 + 8) = farg3;
+    *(f32 *)((s8 *)arg0 + 0xC) = farg0;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x14) = farg1;
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
     TBoss2DeRolLe__sub_800360A8((void *)(arg0));
 }
 
 extern const f32 TBoss2DeRolLe__data_805D827C;
 
 void init_params__13TBoss2DeRolLeFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, f32 *, 4) = farg2;
-    M2C_FIELD(arg0, f32 *, 8) = farg2;
-    M2C_FIELD(arg0, f32 *, 0xC) = farg0;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x14) = farg1;
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
+    *(f32 *)((s8 *)arg0 + 4) = farg2;
+    *(f32 *)((s8 *)arg0 + 8) = farg2;
+    *(f32 *)((s8 *)arg0 + 0xC) = farg0;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x14) = farg1;
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
     TBoss2DeRolLe__sub_800360A8((void *)(arg0));
 }
 
 void init_float_block__13TBoss2DeRolLeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, f32 *, 4) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x14) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
+    *(f32 *)((s8 *)arg0 + 4) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 8) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x14) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) TBoss2DeRolLe__data_805D827C;
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) TBoss2DeRolLe__data_805D827C;
 }
 
 s32 free_if_positive__13TBoss2DeRolLeFis(s32 arg0, s16 arg1) {

@@ -1,17 +1,12 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -19,9 +14,9 @@ extern "C" {
 extern u8 *text_language_group_table;
 s32 TAdDialingGC__sub_8013ADBC(s32 arg0);
 extern RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8 TAdEnterSerialAccessGC__raw_serial_buffer;
-M2C_UNK *get_raw_serial_input_buffer(void);
+s32 *get_raw_serial_input_buffer(void);
 extern RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4 TAdEnterSerialAccessGC__access_key_input_buffer;
-M2C_UNK *get_access_key_input_buffer(void);
+s32 *get_access_key_input_buffer(void);
 }
 
 extern "C" {
@@ -46,19 +41,19 @@ u8 TLobby__sub_8013AD6C(void* p) { return *(u8*)((char*)p + 0x1e); }
 int TLobby__sub_8013AD74(void* p) { return *(u8*)((char*)p + 0x1d) & 0x1; }
 
 typedef char RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4_size[sizeof(RecoveredGlobal_8013AD80_TAdEnterSerialAccessGC__data_804EC9C4) == 0x10 ? 1 : -1];
-M2C_UNK *get_access_key_input_buffer(void) {
+s32 *get_access_key_input_buffer(void) {
     return &TAdEnterSerialAccessGC__access_key_input_buffer.value;
 }
 
 void init_serial_access__6TLobbyFv(void) { get_raw_serial_input_buffer(); hex_to_decimal_string__22TAdEnterSerialAccessGCFi(); }
 
 typedef char RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8_size[sizeof(RecoveredGlobal_8013ADB0_TAdEnterSerialAccessGC__data_804EC9B8) == 0xC ? 1 : -1];
-M2C_UNK *get_raw_serial_input_buffer(void) {
+s32 *get_raw_serial_input_buffer(void) {
     return &TAdEnterSerialAccessGC__raw_serial_buffer.value;
 }
 
 s32 TAdDialingGC__sub_8013ADBC(s32 arg0) {
-    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0x30), M2C_UNK *, (arg0 * 4));
+    return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0x30)) + (arg0 * 4));
 }
 
 }

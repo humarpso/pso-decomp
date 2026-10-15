@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
-extern M2C_UNK lbl_80466118[];
-extern M2C_UNK lbl_80466138[];
-extern M2C_UNK lbl_80466150[];
-extern M2C_UNK lbl_80466170[];
-extern M2C_UNK bm_o_door_seabed01_resource_descriptor[];
+extern s32 lbl_80466118[];
+extern s32 lbl_80466138[];
+extern s32 lbl_80466150[];
+extern s32 lbl_80466170[];
+extern s32 bm_o_door_seabed01_resource_descriptor[];
 extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
 extern u32 lbl_805D6608;
@@ -24,9 +20,9 @@ extern "C" {
 
 void clamp_light_index__19TODoorFourLightBaseFPv(void *arg0);
 void free_chr_select_slots__6TLobbyFv(void);
-M2C_UNK TLobby__sub_8001FE7C(M2C_UNK, M2C_UNK);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_8001FE7C(s32, s32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 door_labo_bml_resource;
 extern u32 lbl_805D6604;
@@ -77,13 +73,13 @@ void TLanguage__sub_802A0204(void) {
 }
 
 void clamp_light_index__19TODoorFourLightBaseFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x88) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x88) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x88) > 4) {
-        M2C_FIELD(arg0, s32 *, 0x88) = 4;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) > 4) {
+        *(s32 *)((s8 *)arg0 + 0x88) = 4;
     }
-    M2C_FIELD(arg0, s32 *, 0xF8) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    *(s32 *)((s8 *)arg0 + 0xF8) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
 }
 
 }

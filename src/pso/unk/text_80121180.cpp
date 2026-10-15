@@ -1,20 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80121198_lbl_804C43CC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80121198_lbl_804C43D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80121180_lbl_804C43C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -34,11 +31,11 @@ typedef char RecoveredGlobal_80121198_lbl_804C43D8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80121180_lbl_804C43C0_size[sizeof(RecoveredGlobal_80121180_lbl_804C43C0) == 0xC ? 1 : -1];
 f32 get_attack_damage_scale(s16 *arg0) {
-    return M2C_FIELD(((u8 *)(&attack_damage_scale_table.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0);
+    return *(f32 *)((s8 *)((u8 *)(&attack_damage_scale_table.value) + (*(s16 *)((s8 *)arg0 + 0) * 4)) + 0);
 }
 
 f32 get_attack_accuracy_scale(s16 *arg0) {
-    return M2C_FIELD(((u8 *)(&attack_type_accuracy_scales.value) + (M2C_FIELD(arg0, s16 *, 0) * 4)), f32 *, 0) * M2C_FIELD(((u8 *)(&attack_combo_accuracy_multipliers.value) + (get_validated_attack_stage() * 4)), f32 *, 0);
+    return *(f32 *)((s8 *)((u8 *)(&attack_type_accuracy_scales.value) + (*(s16 *)((s8 *)arg0 + 0) * 4)) + 0) * *(f32 *)((s8 *)((u8 *)(&attack_combo_accuracy_multipliers.value) + (get_validated_attack_stage() * 4)) + 0);
 }
 
 }

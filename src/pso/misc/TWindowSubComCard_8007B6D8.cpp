@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct O_8007B6F4 { u8 pad[0x8c]; u8 flags; };
 
@@ -43,8 +41,8 @@ int get_keyboard_mode__17TWindowSubComCardFv(void) {  return com_card_keyboard_m
 
 void *init_guild_card__17TWindowSubComCardFPv(void *arg0) {
     init_guild_card_tag__17TWindowSubComCardFi((void *)((char *)arg0 + 4));
-    M2C_FIELD(arg0, u8 *, 0x0) = 6;
-    M2C_FIELD(arg0, u8 *, 0x1) = 37;
+    *(u8 *)((s8 *)arg0 + 0x0) = 6;
+    *(u8 *)((s8 *)arg0 + 0x1) = 37;
     return arg0;
 }
 

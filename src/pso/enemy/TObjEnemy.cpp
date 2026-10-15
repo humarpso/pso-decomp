@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/enemy/TObjEnemy.h"
 extern "C" {
 void* construct_actor_base__10TObjPlayerFPvPv(TObjEnemy*,void*);
-extern M2C_UNK __vt__9TObjEnemy[];
+extern s32 __vt__9TObjEnemy[];
 extern void* TObjEnemy_class_name;
 extern const f32 lbl_805DA8E0;
 }
@@ -20,24 +16,24 @@ int apply_player_54a00__9TObjEnemyFPv(void* p);
 void clear_shadow_flag__10TObjPlayerFPv(void* p);
 void set_shadow_flag__10TObjPlayerFPv(void* p);
 int unregister_object_by_id(void*);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK copy_header__6TLobbyFPvPv(s32);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK mask_sub_flags__9TObjEnemyFPvi(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 copy_header__6TLobbyFPvPv(s32);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
+s32 mask_sub_flags__9TObjEnemyFPvi(void *, s32);
 
-extern M2C_UNK __vt__9TObjEnemy[];
+extern s32 __vt__9TObjEnemy[];
 
 void *__dt__9TObjEnemyFv(void *arg0, s16 arg1) {
     u16 temp_r0;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TObjEnemy;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TObjEnemy;
         apply_player_54a00__9TObjEnemyFPv((void*)(arg0));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
-            temp_r0 = M2C_FIELD(arg0, u16 *, 0x1C);
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
+            temp_r0 = *(u16 *)((s8 *)arg0 + 0x1C);
             if ((temp_r0 >= 0x1000U) && (temp_r0 < 0x4000U)) {
                 mask_sub_flags__9TObjEnemyFPvi(arg0, -3);
-                M2C_FIELD(arg0, u32 *, 0x80) = 0U;
+                *(u32 *)((s8 *)arg0 + 0x80) = 0U;
             }
         }
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);

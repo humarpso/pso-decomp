@@ -1,13 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8013DC38_lbl_804A7140 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8013DC38_lbl_804A7140 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8013DC38_lbl_804A7140_size[sizeof(RecoveredGlobal_8013DC38_lbl_804A7140) == 0x10 ? 1 : -1];
 
-typedef s32 M2C_UNK;
 struct Base_8013DCCC { u8 pad[0x18]; };
 
 struct Obj_8013DCCC : Base_8013DCCC {
@@ -22,7 +17,7 @@ struct Cur_8013DAB0 { u8 pad[0x5C]; Elem_8013DAB0 arr[4]; };
 struct Ent_8013D91C { u16 id; s16 idx; u8 pad[8]; };
 
 struct RecoveredGlobal_8013D91C_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -41,36 +36,36 @@ extern s32 lock_on_cursor_model;
 extern s32 TLockOnCursor__target_cursor_model;
 extern s32 main_cursor_model;
 void load_target_cursor_models(void);
-M2C_UNK __dt__7TObjectFv(void *, int);
+s32 __dt__7TObjectFv(void *, int);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
-M2C_UNK __dt__13TLockOnCursorFis(void *, int);
-M2C_UNK destroy__13TLockOnCursorFis(void *, int);
-M2C_UNK destroy__13TLockOnCursorFPvs(void *, int);
-M2C_UNK destroy__11TMainCursorFPvs(void *, int);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dt__13TLockOnCursorFis(void *, int);
+s32 destroy__13TLockOnCursorFis(void *, int);
+s32 destroy__13TLockOnCursorFPvs(void *, int);
+s32 destroy__11TMainCursorFPvs(void *, int);
+s32 __dl__7TObjectFPv(void *);
 void __destroy_arr(void *, void *, int, int);
-extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
-extern M2C_UNK __vt__13TLockOnCursor[];
+extern s32 __dt_deleting__13TLockOnCursorFis[];
+extern s32 __vt__13TLockOnCursor[];
 u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1);
 void clear_id__10TObjPlayerFPv(void *);
 s32 init_lockon__11TMainCursorFPv(s32, s32, s32);
 s32 init_vtable__11TMainCursorFPv(s32, s32, s32);
 s32 init__11TMainCursorFPv(s32, s32, s32);
-M2C_UNK reset_state__11TMainCursorFPv(s32);
-M2C_UNK destroy_lock_on__11TMainCursorFPvi(s32, s32);
-M2C_UNK set_target__11TMainCursorFPvi(s32, s32);
-M2C_UNK reset_nearest_target_record(s32);
-M2C_UNK set_sub_cursor_value__11TMainCursorFPvi(s32, s32);
+s32 reset_state__11TMainCursorFPv(s32);
+s32 destroy_lock_on__11TMainCursorFPvi(s32, s32);
+s32 set_target__11TMainCursorFPvi(s32, s32);
+s32 reset_nearest_target_record(s32);
+s32 set_sub_cursor_value__11TMainCursorFPvi(s32, s32);
 s32 get_target_id__11TMainCursorFPv(s32);
 Obj_8013DCCC *release_target__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field__13TLockOnCursorFPv(void *);
 Obj_8013DCCC *cleanup_field_3c__13TLockOnCursorFPv(void *);
-M2C_UNK TLockOnCursor__sub_8013EC1C(s32);
-M2C_UNK reset_state__13TLockOnCursorFPv(s32);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 TLockOnCursor__sub_8013EC1C(s32);
+s32 reset_state__13TLockOnCursorFPv(s32);
+s32 __nw__7TObjectFUl(s32);
 extern s32 tl_loc_start;
 extern s32 tl_loc_end;
 extern s32 tl_window;
@@ -79,8 +74,8 @@ s32 is_split_screen();
 s32 get_split_screen_view_index__11TCameraCtrlFUs(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
 u16 get_type_id__10TObjPlayerFPv(int);
-Ent_8013D91C *TObjPlayer__sub_80116620(s32, M2C_UNK);
-M2C_UNK renderSecondaryCursor__13TLockOnCursorFPUcll(void *, int, int, int);
+Ent_8013D91C *TObjPlayer__sub_80116620(s32, s32);
+s32 renderSecondaryCursor__13TLockOnCursorFPUcll(void *, int, int, int);
 s32 get_selected_entry__11TMainCursorFPv(s32);
 u8 get_active__11TMainCursorFPv(int);
 u8 TMainCursor__sub_8013E900(int);
@@ -102,18 +97,18 @@ struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2);
 s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1);
 void run_task__13TLockOnCursorFv(s32 arg0);
-M2C_UNK TLockOnCursor__sub_8013EB80(s32);
-M2C_UNK TLockOnCursor__sub_8013EB8C(s32);
+s32 TLockOnCursor__sub_8013EB80(s32);
+s32 TLockOnCursor__sub_8013EB8C(s32);
 void TLockOnCursor__sub_8013EEC0(void *, void *);
 s32 is_channel_active__11TMainCursorFPv(s32);
 void TMainCursor__sub_8013F1F0(void *);
 void __construct_array(void *, void *, void *, int, int);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK __dl__FPv(s32);
+s32 __dl__FPv(s32);
 void cleanup__13TLockOnCursorFPv(void *);
 void clear_id__10TObjPlayerFPv(void *);
 void fn_8013F0A0(void *);
-M2C_UNK free_if_owned__13TLockOnCursorFis(s32, s32);
+s32 free_if_owned__13TLockOnCursorFis(s32, s32);
 void init_cursor__13TLockOnCursorFPv(void *);
 void init_forward__10TObjPlayerFPv(void *);
 void init_forward__13TLockOnCursorFPv(void *);
@@ -132,7 +127,7 @@ void render__13TLockOnCursorFv(s32 arg0) {
     s32 e;
     u8 *o;
     if (is_split_screen() != 0) {
-        if (get_camera_no__11TCameraCtrlFv() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((M2C_UNK)get_target_id__11TMainCursorFPv((s32)((void *)arg0))))) {
+        if (get_camera_no__11TCameraCtrlFv() != get_split_screen_view_index__11TCameraCtrlFUs((void *)((s32)get_target_id__11TMainCursorFPv((s32)((void *)arg0))))) {
             return;
         }
     } else if (get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) {
@@ -233,7 +228,7 @@ void load_target_cursor_models(void) {
 u8 *__dt__13TLockOnCursorFv(u8 *arg0, s16 arg1) {
     Obj_8013DCCC *p;
     if (arg0 != NULL) {
-        *(M2C_UNK **)(arg0 + 0x18) = __vt__13TLockOnCursor;
+        *(s32 **)(arg0 + 0x18) = __vt__13TLockOnCursor;
         p = cleanup_field_3c__13TLockOnCursorFPv(arg0);
         if (p != NULL) {
             delete p;
@@ -270,15 +265,15 @@ s32 dt__13TLockOnCursorFis(s32 arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__13TLockOnCursor[];
-extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
-extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
+extern s32 __vt__13TLockOnCursor[];
+extern s32 TLockOnCursor__sub_8013EFB8[];
+extern s32 __dt_deleting__13TLockOnCursorFis[];
 extern void *lock_on_cursor_class_name;
 
 void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     struct VOff_8013DE3C_arg0_8013D91C *self = (struct VOff_8013DE3C_arg0_8013D91C *)arg0;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TLockOnCursor;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLockOnCursor;
     init_forward__10TObjPlayerFPv(self->f_1C);
     fn_8013F0A0((void *)((char *)arg0 + 36));
     reset_fields__13TLockOnCursorFPv((void *)((char *)arg0 + 60));
@@ -288,7 +283,7 @@ void *TLockOnCursor__ct(void *arg0, void *arg1, void *arg2) {
     init_forward__13TLockOnCursorFPv((void *)((char *)arg0 + 1288));
     init_cursor__13TLockOnCursorFPv((void *)((char *)arg0 + 1296));
     init_vtable__13TLockOnCursorFPv((void *)((char *)arg0 + 1312));
-    M2C_FIELD(arg0, void **, 0x0) = lock_on_cursor_class_name;
+    *(void **)((s8 *)arg0 + 0x0) = lock_on_cursor_class_name;
     TLockOnCursor__sub_8013EEC0(arg0, arg2);
     clear_id__10TObjPlayerFPv(self->f_1C);
     return arg0;

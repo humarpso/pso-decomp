@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void bswap_pair__14TPlyDispConfigFPv(void* p);
 void bswap__12TPlyCharDataFv(s32 arg0);
-M2C_UNK bswap__12player_statsFv(s32);
-M2C_UNK bswap__15disp_data_part2Fv(s32);
-M2C_UNK bswap__17TPlyInventoryItemFv(s32);
+s32 bswap__12player_statsFv(s32);
+s32 bswap__15disp_data_part2Fv(s32);
+s32 bswap__17TPlyInventoryItemFv(s32);
 int bswap__18TPlyDispConfigSmthFv(void*);
 
 void bswap__12TPlyCharDataFv(s32 arg0) {

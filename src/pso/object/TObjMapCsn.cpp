@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80194988___vt__10TObjMapCsn { M2C_UNK value; u8 remaining[0x38]; };
+struct RecoveredGlobal_80194988___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 typedef char RecoveredGlobal_80194988___vt__10TObjMapCsn_size[sizeof(RecoveredGlobal_80194988___vt__10TObjMapCsn) == 0x3C ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -15,10 +11,10 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct RecoveredGlobal_801949FC___vt__10TObjMapCsn { M2C_UNK value; u8 remaining[0x38]; };
+struct RecoveredGlobal_801949FC___vt__10TObjMapCsn { s32 value; u8 remaining[0x38]; };
 
 struct Vec_801946D0 { f32 x, y, z; };
 
@@ -58,17 +54,17 @@ s32 construct_collider_proxy__10TObjPlayerFPv(void *);
 void update_state__10TObjMapCsnFPv(void *arg0);
 extern RecoveredGlobal_80194988___vt__10TObjMapCsn __vt__10TObjMapCsn;
 extern s32 TObjMapCsn__class_name;
-u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK translate_matrix_vec3(int, void *);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrix();
+s32 matrix_mult_vec(int, void *, void *);
+s32 translate_matrix_vec3(int, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
 extern s8 lbl_804B8448[];
 extern Vec_801946D0 lbl_804B8460[];
-extern M2C_UNK identity_matrix[];
+extern s32 identity_matrix[];
 s32 build_box_triangles__10TObjMapCsnFPv(void *self);
 }
 
@@ -77,28 +73,28 @@ extern "C" {
 s32 create__10TObjMapCsnFi(s32 arg0);
 void render__10TObjMapCsnFv(void);
 void update_state__10TObjMapCsnFPv(void *arg0);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 s32 get_map_count__10TObjMapCsnFv();
 
 void render__10TObjMapCsnFv(void) {  }
 
-extern M2C_UNK map_csn_collision_flag_table[];
+extern s32 map_csn_collision_flag_table[];
 
 void update_state__10TObjMapCsnFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 == 0) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x88) == 0) {
-            M2C_FIELD(arg0, s32 *, 0x88) = 1;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x88) == 0) {
+            *(s32 *)((s8 *)arg0 + 0x88) = 1;
         }
     } else {
         if ((u32) temp_r0 > 5U) {
-            M2C_FIELD(arg0, s32 *, 0x84) = 1;
+            *(s32 *)((s8 *)arg0 + 0x84) = 1;
         }
-        M2C_FIELD(arg0, s32 *, 0x88) = (s32) map_csn_collision_flag_table[M2C_FIELD(arg0, s32 *, 0x84)];
+        *(s32 *)((s8 *)arg0 + 0x88) = (s32) map_csn_collision_flag_table[*(s32 *)((s8 *)arg0 + 0x84)];
     }
-    M2C_FIELD(arg0, s32 *, 0x88) = (s32) (M2C_FIELD(arg0, s32 *, 0x88) | 0x40000000);
+    *(s32 *)((s8 *)arg0 + 0x88) = (s32) (*(s32 *)((s8 *)arg0 + 0x88) | 0x40000000);
 }
 
 s32 build_box_triangles__10TObjMapCsnFPv(void *self) {
@@ -180,13 +176,13 @@ s32 create__10TObjMapCsnFi(s32 arg0) {
 
     var_r31 = __nw__7TObjectFUl(0x254);
     if (var_r31 != 0) {
-        var_r31 = ((s32)TObjMapCsn__ct((u8 *)(var_r31), (M2C_UNK)(get_map_count__10TObjMapCsnFv()), (s32)(arg0)));
+        var_r31 = ((s32)TObjMapCsn__ct((u8 *)(var_r31), (s32)(get_map_count__10TObjMapCsnFv()), (s32)(arg0)));
     }
     return var_r31;
 }
 u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TObjMapCsn.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TObjMapCsn.value;
         if (((u32)get_map_count__10TObjMapCsnFv()) != 0U) {
             fn_80140DFC((int) (((u32)get_map_count__10TObjMapCsnFv())), (void *) (arg0));
         }
@@ -197,26 +193,26 @@ u8 *__dt__10TObjMapCsnFv(u8 *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TObjMapCsn__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjMapCsn__ct(u8 *arg0, s32 arg1, s32 arg2) {
     f32 temp_f0;
     f32 temp_f1;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMapCsn__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801949FC___vt__10TObjMapCsn *)&__vt__10TObjMapCsn).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMapCsn__class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     update_state__10TObjMapCsnFPv((void *) (arg0));
     build_box_triangles__10TObjMapCsnFPv((void *)((void *) (arg0)));
-    M2C_FIELD(arg0, s32 *, 0xC4) = 8;
-    M2C_FIELD(arg0, u8 **, 0xC8) = (unsigned char *) ((void *) (arg0 + 0x1F4));
-    M2C_FIELD(arg0, s32 *, 0xCC) = 8;
-    M2C_FIELD(arg0, u8 **, 0xD0) = (unsigned char *) ((void *) (arg0 + 0xD4));
-    M2C_FIELD(arg0, u8 **, 0xAC) = (unsigned char *) ((void *) (arg0 + 0xC4));
+    *(s32 *)((s8 *)arg0 + 0xC4) = 8;
+    *(u8 **)((s8 *)arg0 + 0xC8) = (unsigned char *) ((void *) (arg0 + 0x1F4));
+    *(s32 *)((s8 *)arg0 + 0xCC) = 8;
+    *(u8 **)((s8 *)arg0 + 0xD0) = (unsigned char *) ((void *) (arg0 + 0xD4));
+    *(u8 **)((s8 *)arg0 + 0xAC) = (unsigned char *) ((void *) (arg0 + 0xC4));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB0), (void *) (arg0 + 0x38));
-    temp_f1 = (0.5f) * M2C_FIELD(arg0, f32 *, 0x68);
-    temp_f0 = (0.5f) * M2C_FIELD(arg0, f32 *, 0x70);
-    M2C_FIELD(arg0, f32 *, 0xBC) = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
-    M2C_FIELD(arg0, s32 *, 0xC0) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
+    temp_f1 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x68);
+    temp_f0 = (0.5f) * *(f32 *)((s8 *)arg0 + 0x70);
+    *(f32 *)((s8 *)arg0 + 0xBC) = (f32) ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
+    *(s32 *)((s8 *)arg0 + 0xC0) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
     if (((u32)get_map_count__10TObjMapCsnFv()) != 0U) {
         fn_80140EA8((int) (((u32)get_map_count__10TObjMapCsnFv())), (void *) (arg0));
     }

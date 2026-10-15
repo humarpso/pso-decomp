@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8015BE34 { char pad[0x18]; };
 struct VObj_8015BE34 : Base_8015BE34 {
     virtual void m0();
@@ -94,15 +91,15 @@ void *TOContainerAncientItemNone__ct(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__26TOContainerAncientItemRareFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void TOContainerAncientItemNone__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015BE34 *)arg0)->m77();
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
@@ -116,11 +113,11 @@ void *create__26TOContainerAncientItemNoneFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__26TOContainerAncientItemNone[];
+extern s32 __vt__26TOContainerAncientItemNone[];
 
 void *__dt__26TOContainerAncientItemNoneFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TOContainerAncientItemNone;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TOContainerAncientItemNone;
         __dt__26TOContainerAncientItemRareFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

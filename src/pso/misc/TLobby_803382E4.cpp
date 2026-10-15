@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct G_80338534 { u8 p0[0x2C]; u8 a[0x40]; u8 b[0x60]; u8 c[0x40]; };
 
@@ -18,12 +14,12 @@ struct B_80338608 { u8 pad[0xC]; u32 col; };
 extern "C" {
 s32 get_instance__15TAdPlayerLoadGCFv();
 void TLobby__sub_803384D4(void);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(int);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(int);
 s32 alloc__22TQuestVmDownLoadServerFPv(int);
-M2C_UNK prs_decompress_buffer(int, int);
-M2C_UNK set_stream_state__6TLobbyFi(void *, int);
-M2C_UNK load_gvm_texture_archive(int, void *);
-extern M2C_UNK lbl_80477BC4[];
+s32 prs_decompress_buffer(int, int);
+s32 set_stream_state__6TLobbyFi(void *, int);
+s32 load_gvm_texture_archive(int, void *);
+extern s32 lbl_80477BC4[];
 extern s32 lobby_request_flags;
 void load_now_loading_texture__6TLobbyFv(void);
 void TCameraCtrl__sub_80068EF0(void);
@@ -71,7 +67,7 @@ void TWindowSubStatusDisp__sub_803386F0(void);
 void handle_flag2_request__6TLobbyFv(void);
 void load_info_icon(void);
 int load_gvm_texture_file(void*);
-M2C_UNK TLobby__sub_803DA16C(M2C_UNK *);
+s32 TLobby__sub_803DA16C(s32 *);
 int free_if_valid__10TObjPlayerFi(void*);
 
 void *lbl_804EF1B8[9] = {
@@ -130,7 +126,7 @@ void *lbl_804EF3E0[8] = {
 };
 
 #define lbl_804EF1B8 (*(G_80338534 *)lbl_804EF1B8)
-#define lbl_804EF1DC ((M2C_UNK *)lbl_804EF1DC)
+#define lbl_804EF1DC ((s32 *)lbl_804EF1DC)
 #define title_pulse_color_table ((B_80338608 *)title_pulse_color_table)
 #define lobby_pulse_color_table ((A_80338608 *)lobby_pulse_color_table)
 

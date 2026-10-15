@@ -1,31 +1,27 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80131C5C_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 struct RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_801328F8_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_80132274_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
@@ -61,8 +57,8 @@ struct K_8013276C;
 extern "C" {
 void render__16TKeyBoardControlFv(void);
 void render__16TKeyBoardControlFv(void);
-M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
-s32 poll_keyboard_port(s32, M2C_UNK *);
+s32 TKeyBoardControl__sub_803F0E90(s32, s32);
+s32 poll_keyboard_port(s32, s32 *);
 void disable_disconnected_ports__16TKeyBoardControlFv(void);
 bool TKeyBoardControl__sub_801321B4(s32);
 s32 check_input_ready__16TKeyBoardControlFi(s32 arg0);
@@ -72,18 +68,18 @@ u8 get_key_state_2__16TKeyBoardControlFPv(void* p);
 u8 get_key_state__16TKeyBoardControlFPv(void* p);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
-M2C_UNK init_pad_states__16TKeyBoardControlFv();
-M2C_UNK fn_803F1864(M2C_UNK *);
+s32 init_pad_states__16TKeyBoardControlFv();
+s32 fn_803F1864(s32 *);
 void reset_input__16TKeyBoardControlFi(s32 arg0);
-M2C_UNK TKeyBoardControl__sub_803F0E90(s32, M2C_UNK);
-s32 poll_keyboard_port(s32, M2C_UNK *);
-void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
+s32 TKeyBoardControl__sub_803F0E90(s32, s32);
+s32 poll_keyboard_port(s32, s32 *);
+void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 int is_key_held__16TKeyBoardControlFPv(void* p);
 s32 TWindowShortListCtrl__check_controller_button(void *, int, int);
-M2C_UNK request_close__19TWindowSubTradeMainFPv(void *);
-M2C_UNK window_request_show(void *);
+s32 request_close__19TWindowSubTradeMainFPv(void *);
+s32 window_request_show(void *);
 s32 is_player_input_active(int);
-M2C_UNK TKeyBoardControl__sub_8025EC04(int);
+s32 TKeyBoardControl__sub_8025EC04(int);
 extern RecoveredGlobal_80131C5C_lbl_8050E208 controller_input_state;
 void run_task__16TKeyBoardControlFv(u8 *arg0);
 extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
@@ -103,7 +99,7 @@ u8 TKeyBoardControl__sub_8013239C(K_8013239C *arg0, u8 arg1);
 s32 TKeyBoardControl__sub_801323C8(K_801323C8 *arg0, u8 arg1);
 void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
 s8 TKeyBoardControl__sub_803F1548(s32);
-s32 poll_keyboard_port(s32, M2C_UNK *);
+s32 poll_keyboard_port(s32, s32 *);
 s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1);
 void tick_key_repeat_timer__16TKeyBoardControlFPvUc(Kb_801324F8 *arg0, u8 arg1);
 void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0);
@@ -116,7 +112,7 @@ extern RecoveredGlobal_801320CC_TKeyBoardControl__data_80506270 TKeyBoardControl
 void push_key_to_buffer__16TKeyBoardControlFPvUc(Kb_801324F8 *self, u8 arg1);
 void reset_keys__16TKeyBoardControlFPv(void *arg0);
 void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0);
-void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1);
+void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1);
 void reset_state__16TKeyBoardControlFi(s32 arg0);
 }
 
@@ -143,7 +139,7 @@ int get_keyboard_field_6c__15TWindowMakeTeamFPv(void* p);
 int is_keyboard_active__17TWindowSubComCardFPv(void* p);
 int update_keyboard__17TWindowSubComCardFPv(void* p);
 
-extern M2C_UNK __vt__16TKeyBoardControl[];
+extern s32 __vt__16TKeyBoardControl[];
 
 void render__16TKeyBoardControlFv(void) {  }
 
@@ -151,30 +147,30 @@ typedef char RecoveredGlobal_80131C5C_lbl_8050E208_size[sizeof(RecoveredGlobal_8
 void run_task__16TKeyBoardControlFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r5;
-    temp_r3 = is_player_input_active((int) (M2C_FIELD(arg0, s16 *, 0x1E)));
-    if (M2C_FIELD(arg0, u16 *, 0x1C) & 1) {
+    temp_r3 = is_player_input_active((int) (*(s16 *)((s8 *)arg0 + 0x1E)));
+    if (*(u16 *)((s8 *)arg0 + 0x1C) & 1) {
         temp_r5 = temp_r3 * 0x50;
         if (TWindowShortListCtrl__check_controller_button((void *) ((u8 *)&controller_input_state.value + temp_r5 + 0x20), (int) (0x200), (int) (temp_r5)) != 0) {
-            M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) & 0xFFFE);
-            TKeyBoardControl__sub_8025EC04((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-                window_request_show(M2C_FIELD(arg0, void **, 0x28));
+            *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) & 0xFFFE);
+            TKeyBoardControl__sub_8025EC04((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
+                window_request_show(*(void **)((s8 *)arg0 + 0x28));
             }
         }
-    } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (M2C_FIELD(arg0, s32 *, 0x24))))) == 0) {
-        M2C_FIELD(arg0, u16 *, 0x1C) = (u16) (M2C_FIELD(arg0, u16 *, 0x1C) | 1);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-            request_close__19TWindowSubTradeMainFPv(M2C_FIELD(arg0, void **, 0x28));
+    } else if (((s32)is_key_held__16TKeyBoardControlFPv((void*)((int) (*(s32 *)((s8 *)arg0 + 0x24))))) == 0) {
+        *(u16 *)((s8 *)arg0 + 0x1C) = (u16) (*(u16 *)((s8 *)arg0 + 0x1C) | 1);
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != 0U) {
+            request_close__19TWindowSubTradeMainFPv(*(void **)((s8 *)arg0 + 0x28));
         }
     }
 }
 
 void *__dt__16TKeyBoardControlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TKeyBoardControl;
-        if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x28)); }
-        if (M2C_FIELD(arg0, void **, 0x24) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x24)); }
-        if (M2C_FIELD(arg0, void **, 0x20) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x20)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TKeyBoardControl;
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x28)); }
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x24)); }
+        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x20)); }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -201,7 +197,7 @@ s32 append_char__16TKeyBoardControlFPvc(Kb_80131FC8 *arg0, s8 arg1) {
     if (arg0->f3 >= 0x7C) {
         return 1;
     }
-    r = poll_keyboard_port((s32)(arg1), (M2C_UNK *)((s32 *)&arg0->buf[arg0->f3]));
+    r = poll_keyboard_port((s32)(arg1), (s32 *)((s32 *)&arg0->buf[arg0->f3]));
     if (r == -1) {
         return 0;
     }
@@ -232,7 +228,7 @@ void append_next_char__16TKeyBoardControlFPv(Obj_8013206C *arg0) {
 void append_next_char_global__16TKeyBoardControlFv(void) { append_next_char__16TKeyBoardControlFPv((Obj_8013206C *)((void *)((void *) (&TKeyBoardControl__global_key_state.value)))); }
 
 void disable_disconnected_ports__16TKeyBoardControlFv(void) {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
     s32 var_r31;
     var_r31 = 0;
@@ -331,9 +327,9 @@ void reset_inactive_keys__16TKeyBoardControlFi(s32 arg0) {
     var_r29 = 0;
     var_r28 = (unsigned char *) (arg0 + 0xA0);
     do {
-        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)((void *) (arg0))), (u8)((int)((int) (M2C_FIELD(var_r28, u8 *, 0))))) == 0) {
-            M2C_FIELD(var_r28, u8 *, 0) = 0U;
-            M2C_FIELD(var_r28, s8 *, 1) = 0x23;
+        if (TKeyBoardControl__sub_801323C8((K_801323C8 *)((void *)((void *) (arg0))), (u8)((int)((int) (*(u8 *)((s8 *)var_r28 + 0))))) == 0) {
+            *(u8 *)((s8 *)var_r28 + 0) = 0U;
+            *(s8 *)((s8 *)var_r28 + 1) = 0x23;
         }
         var_r29 += 1;
         var_r28 += 2;
@@ -417,10 +413,10 @@ void clear_key_state__16TKeyBoardControlFPv(K_8013276C *arg0) {
     }
 }
 
-void TKeyBoardControl__sub_801327DC(M2C_UNK arg0, u8 arg1) {
-    M2C_UNK sp8;
-    if (poll_keyboard_port((s32)((void *) (arg1)), (M2C_UNK *)((void *) (&sp8))) == 0) {
-        TKeyBoardControl__sub_803F0E90((s32)((void *) (arg1)), (M2C_UNK)((int) (0)));
+void TKeyBoardControl__sub_801327DC(s32 arg0, u8 arg1) {
+    s32 sp8;
+    if (poll_keyboard_port((s32)((void *) (arg1)), (s32 *)((void *) (&sp8))) == 0) {
+        TKeyBoardControl__sub_803F0E90((s32)((void *) (arg1)), (s32)((int) (0)));
     }
 }
 
@@ -433,7 +429,7 @@ void reset_state__16TKeyBoardControlFi(s32 arg0) {
     clear_key_state__16TKeyBoardControlFPv((K_8013276C *)arg0);
     reset_keys__16TKeyBoardControlFPv((void *)arg0);
     for (i = 0; i < 4; i++) {
-        TKeyBoardControl__sub_801327DC((M2C_UNK)arg0, i);
+        TKeyBoardControl__sub_801327DC((s32)arg0, i);
     }
 }
 #pragma pop
@@ -441,7 +437,7 @@ void reset_state__16TKeyBoardControlFi(s32 arg0) {
 void reset_input__16TKeyBoardControlFi(s32 arg0) {
     init_pad_states__16TKeyBoardControlFv();
     reset_state__16TKeyBoardControlFi((s32)(arg0));
-    fn_803F1864(((M2C_UNK *)append_next_char_global__16TKeyBoardControlFv));
+    fn_803F1864(((s32 *)append_next_char_global__16TKeyBoardControlFv));
 }
 typedef char RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801328C4_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void reset_global_keys_a__16TKeyBoardControlFv(void) {

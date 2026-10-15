@@ -1,11 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK copy_header__6TLobbyFPvPv(void *, void *);
+s32 copy_header__6TLobbyFPvPv(void *, void *);
 extern s32 TLobby__data_805D6144;
 s32 exchange_object_state__6TLobbyFPvis(u8 *arg0, s32 arg1, s16 arg2);
 }
@@ -46,7 +42,7 @@ void bswap_dragon_boss_fields__10TObjPlayerFPv(void* p) { read_be16_field2__10TO
 void bswap_stats__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); bswap_32__FPUl((char*)p + 0x8); }
 s32 exchange_object_state__6TLobbyFPvis(u8 *arg0, s32 arg1, s16 arg2) {
     s16 temp_r31;
-    temp_r31 = M2C_FIELD(arg0, s16 *, 0x2C);
+    temp_r31 = *(s16 *)((s8 *)arg0 + 0x2C);
     if ((temp_r31 < 0) || (temp_r31 > 0xB4F)) {
         return 0;
     }

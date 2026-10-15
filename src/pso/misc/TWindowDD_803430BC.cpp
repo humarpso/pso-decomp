@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct TWindowDD_803431C0 {
     u8 pad0[0x20];
@@ -21,7 +17,6 @@ struct TWindowDD_803431C0 {
     s16 fC6;
 };
 
-typedef s32 M2C_UNK;
 struct TWindowDD_8034330C {
     u8 pad0[0x20];
     s32 depth;
@@ -159,9 +154,9 @@ struct WordSelectWindowState {
 struct WindowPosition { f32 x, y; };
 
 extern "C" {
-M2C_UNK free_child__9TWindowDDFPv(int);
-M2C_UNK apply_input__9TWindowDDFPvPv(int, int);
-M2C_UNK update__9TWindowDDFPvi(int, int, int);
+s32 free_child__9TWindowDDFPv(int);
+s32 apply_input__9TWindowDDFPvPv(int, int);
+s32 update__9TWindowDDFPvi(int, int, int);
 void TWindowDD__sub_803434F4(u8 *arg0);
 s32 TWindowDD__sub_80342428(void *);
 s32 handle_input__9TWindowDDFi(void *);
@@ -235,17 +230,17 @@ s32 get_word_select_context__9TWindowDDFPv(u8 *arg0);
 extern u8 *TWindowDD__ws_data_table;
 s16 TWindowDD__sub_80346434(u8 *arg0, u32 arg1, s32 arg2, s32 arg3);
 void set_pos_and_data__9TWindowDDFPvf(void *, f32);
-M2C_UNK build_player_word_lists__9TWindowDDFv();
-M2C_UNK TWindowDD__sub_80347A4C(void *, int);
-u8 *TWindowDD__sub_80347AD4(void *, M2C_UNK, s32);
+s32 build_player_word_lists__9TWindowDDFv();
+s32 TWindowDD__sub_80347A4C(void *, int);
+u8 *TWindowDD__sub_80347AD4(void *, s32, s32);
 void setup_entry__9TWindowDDFPvi(void *, s32);
-M2C_UNK TWindowDD__sub_80347E04(void *, int);
+s32 TWindowDD__sub_80347E04(void *, int);
 s32 *get_entry__9TWindowDDFii(void *, s32);
 void TWindowDD__sub_80347F48(void *);
 void init_entry_field_64__9TWindowDDFii(void *, int);
 void TWindowDD__sub_80347FA0(void *, int);
 s32 dispatch_state__9TWindowDDFv(void *, int, int, int);
-M2C_UNK reset_index__9TWindowDDFPv(void *);
+s32 reset_index__9TWindowDDFPv(void *);
 extern const s32 TWindowDD__data_805DFB50;
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 TWindowDD__data_805DFB74;
@@ -256,29 +251,29 @@ extern const f32 TWindowDD__data_805DFBFC;
 extern const f32 lbl_805DFC0C;
 extern const f32 TWindowDD__data_805DFC10;
 void TWindowDD__sub_803435A0(u8 *arg0);
-M2C_UNK format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
-M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
-M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
-M2C_UNK append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
-M2C_UNK maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
-M2C_UNK append_char__9TWindowDDFciPv(s32, char *, s32 *);
-M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
+s32 format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
+s32 TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
+s32 TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
+s32 append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
+s32 maybe_scroll__9TWindowDDFPvPv(char *, s32 *);
+s32 append_char__9TWindowDDFciPv(s32, char *, s32 *);
+s32 TWindowDD__sub_8034886C(s32, char *, s32 *);
 s32 format_entry_text__9TWindowDDFPvPv(DD_803461CC *arg0, char *arg1);
 List_803467CC *get_element_ptr__9TWindowDDFi(s16);
 List_803467CC *get_entry__9TWindowDDFi(s32, s16);
 extern s32 TWindowDD__window_mode;
 extern u32 TWindowDD__word_select_lists;
 void build_item_list__9TWindowDDFPv(u8 *arg0);
-M2C_UNK format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
-M2C_UNK TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
-M2C_UNK TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
-M2C_UNK append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
-M2C_UNK append_char__9TWindowDDFciPv(s32, char *, s32 *);
-M2C_UNK TWindowDD__sub_8034886C(s32, char *, s32 *);
-M2C_UNK TWindowDD__sub_80347758(DD_803461CC *, DD_803461CC *);
-M2C_UNK TWindowDD__sub_803474CC(DD_803461CC *, s32, char *, char *, s32 *);
-M2C_UNK append_string__9TWindowDDFiiPv(char *, char *, s32 *);
-M2C_UNK show_message_by_count__9TWindowDDFii(char *, s32 *);
+s32 format_type6_message__9TWindowDDFPvPvPv(DD_803461CC *, char *, s32 *);
+s32 TWindowDD__sub_8034740C(DD_803461CC *, char *, s32 *);
+s32 TWindowDD__sub_80347474(DD_803461CC *, s32, char *, s32 *);
+s32 append_prompt_newline__9TWindowDDFPvPv(char *, s32 *);
+s32 append_char__9TWindowDDFciPv(s32, char *, s32 *);
+s32 TWindowDD__sub_8034886C(s32, char *, s32 *);
+s32 TWindowDD__sub_80347758(DD_803461CC *, DD_803461CC *);
+s32 TWindowDD__sub_803474CC(DD_803461CC *, s32, char *, char *, s32 *);
+s32 append_string__9TWindowDDFiiPv(char *, char *, s32 *);
+s32 show_message_by_count__9TWindowDDFii(char *, s32 *);
 s32 get_player_battle_flag_state__9TWindowDDFUs(u16);
 s32 clamp_range_2C9_552__9TWindowDDFs(s16);
 s32 clamp_range_5FA_682__9TWindowDDFs(s16);
@@ -288,32 +283,32 @@ extern Pair_80344980 *TWindowDD__data_805D6E40;
 extern Pair_80344980 *TWindowDD__data_805D6E44;
 extern u8 *TWindowDD__data_805D6E48;
 s32 format_message_text__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
-M2C_UNK TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
+s32 TWindowDD__sub_8034694C(DD_803461CC *, s32, char *, char *, char *, s32 *);
 s32 format_german_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 format_english_message__9TWindowDDFPvPvUs(DD_803461CC *arg0, char *arg1, u16 arg2);
 s32 apply_both_choices__9TWindowDDFii(void *, int);
 s32 TWindowDD_check_input_mask(void *, int);
-M2C_UNK set_clamped_page__9TWindowDDFPvi(int, int);
+s32 set_clamped_page__9TWindowDDFPvi(int, int);
 s32 TWindowDD__sub_80340820(int);
-M2C_UNK handle_input__9TWindowDDFPv(int);
-M2C_UNK TWindowDD__sub_80340910(int);
-M2C_UNK set_clamped_selection__9TWindowDDFPvi(int, int);
-M2C_UNK set_value_f32__9TWindowDDFPvi(int, int);
-M2C_UNK TWindowDD__sub_80341AE0(int);
-M2C_UNK TWindowDD__sub_80341AF8(int);
+s32 handle_input__9TWindowDDFPv(int);
+s32 TWindowDD__sub_80340910(int);
+s32 set_clamped_selection__9TWindowDDFPvi(int, int);
+s32 set_value_f32__9TWindowDDFPvi(int, int);
+s32 TWindowDD__sub_80341AE0(int);
+s32 TWindowDD__sub_80341AF8(int);
 s32 TWindowDD__sub_8034217C(int);
 s32 get_cursor_index__9TWindowDDFPv(int);
 void pop_menu_level__9TWindowDDFPv(TWindowDD_803431C0 *arg0);
 void TWindowDD__sub_803434F4(u8 *arg0);
 void run_state__9TWindowDDFPv(u8 *arg0);
 void TWindowDD__sub_80347CC8(void *, void *);
-M2C_UNK spawn_window__9TWindowDDFv();
-M2C_UNK play_se__9TWindowDDFv();
-M2C_UNK play_sound__9TWindowDDFv();
+s32 spawn_window__9TWindowDDFv();
+s32 play_se__9TWindowDDFv();
+s32 play_sound__9TWindowDDFv();
 s32 TWindowDD__sub_803482B0(void *);
 s32 test_input_flag_4__9TWindowDDFPv(void *);
-M2C_UNK set_state__9TWindowDDFPv(void *);
-M2C_UNK TWindowDD__sub_803484C4(void *);
+s32 set_state__9TWindowDDFPv(void *);
+s32 TWindowDD__sub_803484C4(void *);
 void run_task__9TWindowDDFv(u8 *arg0);
 void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1);
 void __ct__7TObjectFP7TObject(void *);
@@ -324,7 +319,7 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 is_boss_area(void);
 s32 check_all_ready__9TWindowDDFi(s32);
 s32 is_room_free_of_active_enemies(s32, s32);
-M2C_UNK build_player_word_lists__9TWindowDDFv();
+s32 build_player_word_lists__9TWindowDDFv();
 void init_item_slots__9TWindowDDFPv(void *);
 s32 TWindowDD__sub_80340F70(void);
 s32 TWindowDD__sub_80346DB8(s32 arg0);
@@ -339,7 +334,7 @@ void update_position__9TWindowDDFPvi(u8 *arg0, s32 arg1);
 s32 create__9TWindowDDFv(void);
 extern char lbl_8047863C[];
 extern char lbl_80478644[];
-extern M2C_UNK __vt__9TWindowDD[];
+extern s32 __vt__9TWindowDD[];
 extern s32 word_select_type_name_pointer;
 extern s32 local_client_id;
 extern u32 TWindowDD__work_buffer;
@@ -369,7 +364,7 @@ Obj_80343C64 *TWindowDD__ct(Obj_80343C64 *self, void *parent, void *arg2);
 void* __nw__7TObjectFUl(u32 size);
 void set_field_1c__6TLobbyFPvf(NumberWindow* window, f32 order);
 void set_flag60_bit10__14TWindowSubItemFPv(NumberWindow* window);
-M2C_UNK TWindowDD__sub_80341AE0(int);
+s32 TWindowDD__sub_80341AE0(int);
 extern s32 local_client_id;
 extern const f32 TWindowDD__data_805DFB6C;
 extern const f32 lbl_805DFB70, lbl_805DFC28, lbl_805DFCB0, lbl_805DFCB4;
@@ -382,24 +377,24 @@ void *__dt__9TWindowDDFv(void *arg0, s16 arg1);
 void free_buffers__9TWindowDDFv(void);
 s32 update_close_flag__9TWindowDDFPv(void *arg0);
 void free_nodes_with_id__6TLobbyFUi(void*);
-M2C_UNK get_current_child_index__9TWindowDDFPv();
+s32 get_current_child_index__9TWindowDDFPv();
 void close_all_windows__9TWindowDDFPv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 s32 classify_id__9TWindowDDFs();
-M2C_UNK clear_window_dd_nodes();
+s32 clear_window_dd_nodes();
 void free__11TOBoss4RockFUi(void*);
 
 s32 update_close_flag__9TWindowDDFPv(void *arg0) {
     get_current_child_index__9TWindowDDFPv();
     if (classify_id__9TWindowDDFs() != 7) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = 1;
+        *(s32 *)((s8 *)arg0 + 0xB8) = 1;
         return 1;
     }
     return 0;
 }
 
-extern M2C_UNK __vt__9TWindowDD[];
+extern s32 __vt__9TWindowDD[];
 
 typedef char NumberWindowOffset[offsetof(WordSelectWindowState, numberWindow) == 0x84 ? 1 : -1];
 typedef char ActivePageOffset[offsetof(WordSelectWindowState, activePage) == 0x20 ? 1 : -1];
@@ -463,16 +458,16 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
     w = init_last_child__9TWindowDDFPv(arg0);
     if (w != NULL) {
         if (*entry & 1) {
-            M2C_FIELD(w, f32 *, 0x38) = lbl_805DFB7C;
+            *(f32 *)((s8 *)w + 0x38) = lbl_805DFB7C;
             if (arg0->objs[3] != NULL) {
-                M2C_FIELD(arg0->objs[3], f32 *, 0x30) = lbl_805DFC0C;
-                M2C_FIELD(arg0->objs[3], s32 *, 0x50) = TWindowDD__data_805DFB50;
+                *(f32 *)((s8 *)arg0->objs[3] + 0x30) = lbl_805DFC0C;
+                *(s32 *)((s8 *)arg0->objs[3] + 0x50) = TWindowDD__data_805DFB50;
             }
         } else {
-            M2C_FIELD(w, f32 *, 0x38) = TWindowDD__data_805DFB74;
+            *(f32 *)((s8 *)w + 0x38) = TWindowDD__data_805DFB74;
             if (arg0->objs[3] != NULL) {
-                M2C_FIELD(arg0->objs[3], f32 *, 0x30) = TWindowDD__data_805DFBFC;
-                M2C_FIELD(arg0->objs[3], s32 *, 0x50) = TWindowDD__data_805DFB50;
+                *(f32 *)((s8 *)arg0->objs[3] + 0x30) = TWindowDD__data_805DFBFC;
+                *(s32 *)((s8 *)arg0->objs[3] + 0x50) = TWindowDD__data_805DFB50;
             }
         }
     }
@@ -483,11 +478,11 @@ void apply_entry_layout__9TWindowDDFPv(TWindowDD_8034330C *arg0) {
             TWindowDD__sub_80347FA0(arg0, 1);
         } else if (*entry & 1) {
             set_pos_and_data__9TWindowDDFPvf(child, TWindowDD__data_805DFC10);
-            M2C_FIELD(child, f32 *, 0x38) = lbl_805DFB88;
+            *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
             TWindowDD__sub_80347F48(arg0);
         } else {
             set_pos_and_data__9TWindowDDFPvf(child, lbl_805DFB80);
-            M2C_FIELD(child, f32 *, 0x38) = lbl_805DFB88;
+            *(f32 *)((s8 *)child + 0x38) = lbl_805DFB88;
             init_entry_field_64__9TWindowDDFii(arg0, 1);
         }
         if (*prev & 2) {
@@ -520,29 +515,29 @@ void TWindowDD__sub_803434F4(u8 *arg0) {
     u8 *var_r4;
     u8 *var_r5;
     var_r31 = (u8 *)(arg0);
-    var_r3 = (u8 *)(var_r31 + (M2C_FIELD(arg0, s32 *, 0x20) * 4));
-    var_r3 = (u8 *)(M2C_FIELD(var_r3, u8 **, 0x24));
+    var_r3 = (u8 *)(var_r31 + (*(s32 *)((s8 *)arg0 + 0x20) * 4));
+    var_r3 = (u8 *)(*(u8 **)((s8 *)var_r3 + 0x24));
     free_child__9TWindowDDFPv((int) (var_r3));
     var_r3 = (u8 *)(var_r31);
-    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
-    var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0x24));
+    var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
+    var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0x24));
     apply_input__9TWindowDDFPvPv((int) (var_r3), (int) (var_r4));
     var_r3 = (u8 *)(var_r31);
-    var_r5 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB0));
-    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
-    M2C_FIELD(var_r4, u8 **, 0x44) = var_r5;
-    var_r4 = (u8 *)((void *) M2C_FIELD(var_r31, s32 *, 0x20));
-    M2C_FIELD(var_r31, s32 *, 0x20) = (s32) (var_r4 + 1);
-    var_r4 = (u8 *)(var_r31 + (M2C_FIELD(var_r31, s32 *, 0x20) * 4));
-    var_r4 = (u8 *)(M2C_FIELD(var_r4, u8 **, 0x24));
+    var_r5 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB0));
+    var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
+    *(u8 **)((s8 *)var_r4 + 0x44) = var_r5;
+    var_r4 = (u8 *)((void *) *(s32 *)((s8 *)var_r31 + 0x20));
+    *(s32 *)((s8 *)var_r31 + 0x20) = (s32) (var_r4 + 1);
+    var_r4 = (u8 *)(var_r31 + (*(s32 *)((s8 *)var_r31 + 0x20) * 4));
+    var_r4 = (u8 *)(*(u8 **)((s8 *)var_r4 + 0x24));
     update__9TWindowDDFPvi((int) (var_r3), (int) (var_r4), (int) (var_r5));
-    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0xB4));
-    M2C_FIELD(var_r31, u8 **, 0xB0) = var_r3;
-    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x8C));
-    M2C_FIELD(var_r31, u8 **, 0x88) = var_r3;
-    var_r3 = (u8 *)(M2C_FIELD(var_r31, u8 **, 0x90));
-    M2C_FIELD(var_r31, u8 **, 0x8C) = var_r3;
-    M2C_FIELD(var_r31, u8 **, 0x90) = (unsigned char *) ((void *)-1);
+    var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0xB4));
+    *(u8 **)((s8 *)var_r31 + 0xB0) = var_r3;
+    var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x8C));
+    *(u8 **)((s8 *)var_r31 + 0x88) = var_r3;
+    var_r3 = (u8 *)(*(u8 **)((s8 *)var_r31 + 0x90));
+    *(u8 **)((s8 *)var_r31 + 0x8C) = var_r3;
+    *(u8 **)((s8 *)var_r31 + 0x90) = (unsigned char *) ((void *)-1);
 }
 
 void TWindowDD__sub_803435A0(u8 *arg0) {
@@ -556,61 +551,61 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     u8 *temp_r3_2;
     u8 *temp_r3_3;
     u8 *temp_r3_4;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
     if ((temp_r0 == 0x14) || (temp_r0 == 0xC)) {
         build_player_word_lists__9TWindowDDFv();
     }
-    M2C_FIELD(arg0, s32 *, 0xB8) = 0;
-    if (M2C_FIELD(arg0, s32 *, 0xB4) == 1 || M2C_FIELD(arg0, s32 *, 0xB4) == 2 || M2C_FIELD(arg0, s32 *, 0xB4) == 8 || M2C_FIELD(arg0, s32 *, 0xB4) == 0xF || M2C_FIELD(arg0, s32 *, 0xB4) == 0x11) {
+    *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+    if (*(s32 *)((s8 *)arg0 + 0xB4) == 1 || *(s32 *)((s8 *)arg0 + 0xB4) == 2 || *(s32 *)((s8 *)arg0 + 0xB4) == 8 || *(s32 *)((s8 *)arg0 + 0xB4) == 0xF || *(s32 *)((s8 *)arg0 + 0xB4) == 0x11) {
         reset_index__9TWindowDDFPv((void *) (arg0 + 0xC4));
     }
-    temp_r29 = get_entry__9TWindowDDFii(arg0, M2C_FIELD(arg0, s32 *, 0xB0));
-    temp_r31 = get_entry__9TWindowDDFii(arg0, M2C_FIELD(arg0, s32 *, 0xB4));
-    temp_r3 = arg0 + M2C_FIELD(arg0, s32 *, 0x20) * 4;
-    temp_r3 = M2C_FIELD(temp_r3, u8 **, 0x24);
+    temp_r29 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB0));
+    temp_r31 = get_entry__9TWindowDDFii(arg0, *(s32 *)((s8 *)arg0 + 0xB4));
+    temp_r3 = arg0 + *(s32 *)((s8 *)arg0 + 0x20) * 4;
+    temp_r3 = *(u8 **)((s8 *)temp_r3 + 0x24);
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, f32 *, 0x30) = (f32) lbl_805DFB90;
-        M2C_FIELD(temp_r3, f32 *, 0x38) = (f32) TWindowDD__data_805DFB74;
-        M2C_FIELD(temp_r3, s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
+        *(f32 *)((s8 *)temp_r3 + 0x30) = (f32) lbl_805DFB90;
+        *(f32 *)((s8 *)temp_r3 + 0x38) = (f32) TWindowDD__data_805DFB74;
+        *(s32 *)((s8 *)temp_r3 + 0x50) = (s32) TWindowDD__data_805DFB50;
         if (*temp_r29 & 4) {
-            temp_r4 = M2C_FIELD(arg0, s32 *, 0xBC);
-            M2C_FIELD(arg0, s32 *, 0xBC) = (s32) (temp_r4 + 1);
+            temp_r4 = *(s32 *)((s8 *)arg0 + 0xBC);
+            *(s32 *)((s8 *)arg0 + 0xBC) = (s32) (temp_r4 + 1);
             TWindowDD__sub_80347E04((void *) (arg0), (int) (temp_r4));
         }
     }
-    temp_r3_2 = TWindowDD__sub_80347AD4(arg0, 1, M2C_FIELD(arg0, s32 *, 0x8C));
+    temp_r3_2 = TWindowDD__sub_80347AD4(arg0, 1, *(s32 *)((s8 *)arg0 + 0x8C));
     if (temp_r3_2 != NULL) {
         set_pos_and_data__9TWindowDDFPvf(temp_r3_2, TWindowDD__data_805DFB6C);
-        if (M2C_FIELD(temp_r31, s32 *, 0) & 1) {
-            M2C_FIELD(temp_r3_2, f32 *, 0x38) = (f32) lbl_805DFB7C;
-            temp_r3_3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x80));
+        if (*(s32 *)((s8 *)temp_r31 + 0) & 1) {
+            *(f32 *)((s8 *)temp_r3_2 + 0x38) = (f32) lbl_805DFB7C;
+            temp_r3_3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x80));
             if (temp_r3_3 != NULL) {
-                M2C_FIELD(temp_r3_3, f32 *, 0x30) = (f32) lbl_805DFC0C;
-                M2C_FIELD(M2C_FIELD(arg0, void **, 0x80), s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
+                *(f32 *)((s8 *)temp_r3_3 + 0x30) = (f32) lbl_805DFC0C;
+                *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x80)) + 0x50) = (s32) TWindowDD__data_805DFB50;
             }
         } else {
-            M2C_FIELD(temp_r3_2, f32 *, 0x38) = (f32) TWindowDD__data_805DFB74;
-            temp_r3_4 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x80));
+            *(f32 *)((s8 *)temp_r3_2 + 0x38) = (f32) TWindowDD__data_805DFB74;
+            temp_r3_4 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x80));
             if (temp_r3_4 != NULL) {
-                M2C_FIELD(temp_r3_4, f32 *, 0x30) = (f32) TWindowDD__data_805DFBFC;
-                M2C_FIELD(M2C_FIELD(arg0, void **, 0x80), s32 *, 0x50) = (s32) TWindowDD__data_805DFB50;
+                *(f32 *)((s8 *)temp_r3_4 + 0x30) = (f32) TWindowDD__data_805DFBFC;
+                *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x80)) + 0x50) = (s32) TWindowDD__data_805DFB50;
             }
         }
-        if (M2C_FIELD(temp_r31, s32 *, 0) & 2) {
+        if (*(s32 *)((s8 *)temp_r31 + 0) & 2) {
             TWindowDD__sub_80347A4C((void *) (arg0), (int) (temp_r3_2));
         }
     }
-    temp_r3_5 = M2C_FIELD(temp_r31, s32 *, 0);
+    temp_r3_5 = *(s32 *)((s8 *)temp_r31 + 0);
     if (!(temp_r3_5 & 8)) {
         if (temp_r3_5 & 1) {
-            M2C_FIELD(arg0, s32 *, 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xB4)), (int) (M2C_FIELD(arg0, s32 *, 0x8C)), (int) (0));
-            if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, M2C_FIELD(arg0, s32 *, 0x90))) != NULL) {
+            *(s32 *)((s8 *)arg0 + 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xB4)), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0));
+            if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
                 set_pos_and_data__9TWindowDDFPvf(temp_r3, TWindowDD__data_805DFC10);
             }
             TWindowDD__sub_80347F48((void *) (arg0));
         } else {
-            M2C_FIELD(arg0, s32 *, 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xB4)), (int) (M2C_FIELD(arg0, s32 *, 0x8C)), (int) (0));
-            if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, M2C_FIELD(arg0, s32 *, 0x90))) != NULL) {
+            *(s32 *)((s8 *)arg0 + 0x90) = dispatch_state__9TWindowDDFv((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xB4)), (int) (*(s32 *)((s8 *)arg0 + 0x8C)), (int) (0));
+            if ((temp_r3 = TWindowDD__sub_80347AD4(arg0, 2, *(s32 *)((s8 *)arg0 + 0x90))) != NULL) {
                 set_pos_and_data__9TWindowDDFPvf(temp_r3, lbl_805DFB80);
             }
             init_entry_field_64__9TWindowDDFii((void *) (arg0), (int) (1));
@@ -618,18 +613,18 @@ void TWindowDD__sub_803435A0(u8 *arg0) {
     } else {
         TWindowDD__sub_80347FA0((void *) (arg0), (int) (1));
     }
-    if ((s16) M2C_FIELD(temp_r31, s16 *, 4) == -1) {
+    if ((s16) *(s16 *)((s8 *)temp_r31 + 4) == -1) {
         TWindowDD__sub_80347FA0((void *) (arg0), (int) (2));
     } else {
-        setup_entry__9TWindowDDFPvi((void *) (arg0), M2C_FIELD(temp_r31, s16 *, 4));
+        setup_entry__9TWindowDDFPvi((void *) (arg0), *(s16 *)((s8 *)temp_r31 + 4));
         init_entry_field_64__9TWindowDDFii((void *) (arg0), (int) (2));
     }
-    M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+    *(s32 *)((s8 *)arg0 + 0xAC) = 1;
 }
 
 void run_state__9TWindowDDFPv(u8 *arg0) {
     u32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0xB0);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0xB0);
     switch (temp_r0) {
     case 0:
         handle_confirm_input__9TWindowDDFPv((void *) (arg0));
@@ -796,7 +791,7 @@ void copy_chat_entry__9TWindowDDFPvPv(R_80343BC0 *arg0, R_80343BC0 *arg1) {
 
 void *__dt__9TWindowDDFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TWindowDD;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TWindowDD;
         close_all_windows__9TWindowDDFPv(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

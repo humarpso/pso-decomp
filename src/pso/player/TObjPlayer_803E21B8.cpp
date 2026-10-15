@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 typedef struct TexObj_803E224C { u32 dummy[8]; } TexObj_803E224C;
 
 typedef struct TexHdr_803E224C {
@@ -47,19 +42,19 @@ typedef union WGPipe_803E2810 {
 } WGPipe_803E2810;
 
 extern "C" {
-M2C_UNK GXClearVtxDesc();
-M2C_UNK Dolphin_GXSetVtxDesc(int, int);
-M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
+s32 GXClearVtxDesc();
+s32 Dolphin_GXSetVtxDesc(int, int);
+s32 GXSetVtxAttrFmt(int, int, int, int, int);
 void setup_vertex_format__10TObjPlayerFv(void);
-M2C_UNK GXClearVtxDesc();
-M2C_UNK Dolphin_GXSetVtxDesc(int, int);
-M2C_UNK GXSetVtxAttrFmt(int, int, int, int, int);
+s32 GXClearVtxDesc();
+s32 Dolphin_GXSetVtxDesc(int, int);
+s32 GXSetVtxAttrFmt(int, int, int, int, int);
 void setup_vtx_desc__10TObjPlayerFv(void);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevColorIn(int, int, int, int, int);
-M2C_UNK GXSetTevColorOp(int, int, int, int, int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK GXSetNumTevStages(void *);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevColorIn(int, int, int, int, int);
+s32 GXSetTevColorOp(int, int, int, int, int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 GXSetNumTevStages(void *);
 void set_tev_stage_mode(s32 arg0);
 s32 apply_cached_blend_mode(s32 arg0);
 s32 TObjPlayer__sub_803E24E0(void);
@@ -68,11 +63,11 @@ s32 apply_blend_mode_1__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
 s32 set_num_tex_gens_zero__10TObjPlayerFv(void);
 s32 GXSetNumTexGens(s32 arg0);
-M2C_UNK GXSetTexCoordGen2(int, int, int, int, int, int);
+s32 GXSetTexCoordGen2(int, int, int, int, int, int);
 void setup_tex_gen__10TObjPlayerFv(void);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK GXSetNumTevStages(void *);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 GXSetNumTevStages(void *);
 void set_tev_passclr__10TObjPlayerFv(void);
 void Dolphin_GXInitTexObj(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8);
 void GXInitTexObjCI(TexObj_803E224C *, void *, u16, u16, s32, s32, s32, u8, u32);
@@ -81,7 +76,7 @@ extern TexObj_803E224C context_texture_obj;
 extern Ctx_803E224C *current_render_context;
 void load_context_texture_obj(void);
 void GXBegin(int, int, u16);
-M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
+s32 load_screen_space_matrix__10TObjPlayerFv();
 void setup_opaque_color_draw(void);
 void TObjPlayer__sub_803E21DC(void);
 void TObjPlayer__sub_803E2248(void);
@@ -89,9 +84,9 @@ extern const f32 lbl_805E1070;
 void draw_projected_line_strip__10TObjPlayerFPvii(Vtx_803E26A4 *v, s32 n, s32 mode);
 void GXSetNumChans(u8);
 void GXSetChanCtrl(int, int, int, int, int, int, int);
-M2C_UNK setup_color_channels__10TObjPlayerFi(int arg0);
+s32 setup_color_channels__10TObjPlayerFi(int arg0);
 void GXBegin(int, int, u16);
-M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
+s32 load_screen_space_matrix__10TObjPlayerFv();
 void setup_render__10TObjPlayerFv(void);
 void setup_blended_textured_draw(void);
 void TObjPlayer__sub_803E2248(void);
@@ -192,7 +187,7 @@ void setup_vtx_desc__10TObjPlayerFv(void) {
 #pragma push
 #pragma scheduling off
 
-M2C_UNK setup_color_channels__10TObjPlayerFi(int arg0) {
+s32 setup_color_channels__10TObjPlayerFi(int arg0) {
     GXSetNumChans(arg0);
     GXSetChanCtrl(4, 0, 0, 1, 0, 0, 2);
     if (arg0 == 2) {

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct LazerFenceExtraBase_801925F8 { char pad[0x18]; };
 struct LazerFenceExtraVObj_801925F8 : LazerFenceExtraBase_801925F8 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -33,9 +30,9 @@ void draw_ginja_object(void *);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
-M2C_UNK draw_lazer_fence_extra_model(void *);
+s32 draw_lazer_fence_extra_model(void *);
 void set_global_param__8TObjFishFi(void *);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 set_indexed_flags(void *, s32, s32);
 
 extern void *lazer_fence_norm_texture_list;
 
@@ -43,8 +40,8 @@ void render_lazer_fence_model(void *arg0) {
     set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
-    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
+    rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
+    draw_ginja_object(*(void **)((s8 *)arg0 + 0xBC));
     pop_matrix();
 }
 
@@ -54,8 +51,8 @@ extern const f32 lbl_805DBE60;
 void render__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
 
-    if ((((LazerFenceExtraVObj_801925F8*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD8) != 0)) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
+    if ((((LazerFenceExtraVObj_801925F8*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD8) != 0)) {
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
         switch (temp_r0) {
         case 0:
             draw_lazer_fence_extra_model(arg0);
@@ -83,19 +80,15 @@ void update_wait_switch__19TObjLazerFenceExtraFPv(TObjLazerFenceExtra_801926D0 *
 }
 
 void reset_by_door__19TObjLazerFenceExtraFPv(void *arg0) {
-    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
+    if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)arg0 + 0xB0)) == 0) {
         set_indexed_flags(arg0, 0, 1);
-        M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     }
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Node_80192A3C { u32 flags; void *model; u8 pad8[0x24]; Node_80192A3C *child; Node_80192A3C *sibling; };
 
@@ -109,7 +102,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct VBase_80192874 { char pad[0x18]; };
@@ -133,7 +126,7 @@ void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void init_models__8TObjFishFPv(void *);
 extern Ent_80192874 laser_fence_collision_body_parts[];
-extern M2C_UNK __vt__19TObjLazerFenceExtra[];
+extern s32 __vt__19TObjLazerFenceExtra[];
 extern s32 lazer_fence_extra_class_name;
 extern const f32 lbl_805DBE58;
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2);
@@ -144,31 +137,31 @@ extern "C" {
 void *TObjLazerFenceExtra__create(void *arg0);
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1);
 void run_task__19TObjLazerFenceExtraFv(void *arg0);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
 
 void run_task__19TObjLazerFenceExtraFv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
     switch (temp_r0) {
     case 0:
-        ((M2C_UNK (*)())update_wait_switch__19TObjLazerFenceExtraFPv)();
+        ((s32 (*)())update_wait_switch__19TObjLazerFenceExtraFPv)();
         return;
     case 1:
-        ((M2C_UNK (*)())reset_by_door__19TObjLazerFenceExtraFPv)();
+        ((s32 (*)())reset_by_door__19TObjLazerFenceExtraFPv)();
         return;
     }
 }
 
-extern M2C_UNK __vt__19TObjLazerFenceExtra[];
+extern s32 __vt__19TObjLazerFenceExtra[];
 
 void *__dt__19TObjLazerFenceExtraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjLazerFenceExtra;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjLazerFenceExtra;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
@@ -185,34 +178,34 @@ extern void *tl_05;
 void *TObjLazerFenceExtra__ct(void *arg0, void *arg1, void *arg2) {
     s32 i;
     construct_collider_proxy__10TObjPlayerFPv(arg0, arg1);
-    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__19TObjLazerFenceExtra;
-    M2C_FIELD(self, s32 *, 0) = lazer_fence_extra_class_name;
+    *(s32 **)((s8 *)self + 0x18) = __vt__19TObjLazerFenceExtra;
+    *(s32 *)((s8 *)self + 0) = lazer_fence_extra_class_name;
     ((VObj_80192874 *)self)->m5(arg2);
-    M2C_FIELD(self, s32 *, 0xB4) = 0;
-    M2C_FIELD(self, f32 *, 0xB8) = lbl_805DBE58;
-    M2C_FIELD(self, s32 *, 0xAC) = (s32)M2C_FIELD(self, f32 *, 0x68);
-    if (M2C_FIELD(self, s32 *, 0xAC) < 0) {
-        M2C_FIELD(self, s32 *, 0xAC) = 0;
+    *(s32 *)((s8 *)self + 0xB4) = 0;
+    *(f32 *)((s8 *)self + 0xB8) = lbl_805DBE58;
+    *(s32 *)((s8 *)self + 0xAC) = (s32)*(f32 *)((s8 *)self + 0x68);
+    if (*(s32 *)((s8 *)self + 0xAC) < 0) {
+        *(s32 *)((s8 *)self + 0xAC) = 0;
     }
-    if (M2C_FIELD(self, s32 *, 0xAC) > 3) {
-        M2C_FIELD(self, s32 *, 0xAC) = 3;
+    if (*(s32 *)((s8 *)self + 0xAC) > 3) {
+        *(s32 *)((s8 *)self + 0xAC) = 3;
     }
-    M2C_FIELD(self, s16 *, 0xB0) = M2C_FIELD(self, s32 *, 0x84);
-    if (M2C_FIELD(self, s32 *, 0x8C) < 0 || M2C_FIELD(self, s32 *, 0x8C) > 1) {
-        M2C_FIELD(self, s32 *, 0xD8) = 0;
-        M2C_FIELD(self, s32 *, 0x8C) = 0;
+    *(s16 *)((s8 *)self + 0xB0) = *(s32 *)((s8 *)self + 0x84);
+    if (*(s32 *)((s8 *)self + 0x8C) < 0 || *(s32 *)((s8 *)self + 0x8C) > 1) {
+        *(s32 *)((s8 *)self + 0xD8) = 0;
+        *(s32 *)((s8 *)self + 0x8C) = 0;
     } else {
-        M2C_FIELD(self, s32 *, 0xD8) = 1;
+        *(s32 *)((s8 *)self + 0xD8) = 1;
     }
     init_models__8TObjFishFPv(self);
-    init_collision_body_parts(self, &laser_fence_collision_body_parts[M2C_FIELD(self, s32 *, 0x8C) % 2], 3);
-    M2C_FIELD(self, u32 *, 0x30) |= 0x40000000;
-    M2C_FIELD(M2C_FIELD(self, u8 **, 0xA4), f32 *, 0x10) = M2C_FIELD(self, f32 *, 0x6C);
-    M2C_FIELD(M2C_FIELD(self, u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x70);
+    init_collision_body_parts(self, &laser_fence_collision_body_parts[*(s32 *)((s8 *)self + 0x8C) % 2], 3);
+    *(u32 *)((s8 *)self + 0x30) |= 0x40000000;
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0x10) = *(f32 *)((s8 *)self + 0x6C);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)self + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x70);
     reset_photon_effect__10TObjPlayerFPv(self);
     refresh_collision_body_centers(self);
-    if (M2C_FIELD(self, s32 *, 0xD8) == 0) {
-        for (i = 1; i < M2C_FIELD(self, s32 *, 0xA8); i++) {
+    if (*(s32 *)((s8 *)self + 0xD8) == 0) {
+        for (i = 1; i < *(s32 *)((s8 *)self + 0xA8); i++) {
             clear_player_status_flag__10TObjPlayerFPviUi(self, i, 1);
         }
     }
@@ -291,10 +284,7 @@ void draw_animated_beam__18TObjLazerFenceNormFPv(Obj_80192B5C *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct LazerFenceNormBase_80192C00 { char pad[0x18]; };
 struct LazerFenceNormVObj_80192C00 : LazerFenceNormBase_80192C00 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -334,7 +324,7 @@ void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
 void set_global_param__8TObjFishFi(void *);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 set_indexed_flags(void *, s32, s32);
 
 extern void *lazer_fence_norm_texture_list;
 
@@ -342,8 +332,8 @@ void draw_model__18TObjLazerFenceNormFPv(void *arg0) {
     set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
-    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    draw_ginja_object(M2C_FIELD(arg0, void **, 0xBC));
+    rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
+    draw_ginja_object(*(void **)((s8 *)arg0 + 0xBC));
     pop_matrix();
 }
 
@@ -354,7 +344,7 @@ void render__18TObjLazerFenceNormFv(void *arg0) {
     s32 temp_r0;
 
     if (((LazerFenceNormVObj_80192C00*)arg0)->m8(lbl_805DBE5C, lbl_805DBE60) != 0) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4);
         switch (temp_r0) {
         case 0:
             draw_animated_beam__18TObjLazerFenceNormFPv((Obj_80192B5C *)arg0);
@@ -378,9 +368,9 @@ void update_closed__18TObjLazerFenceNormFPv(TObjLazerFenceNorm_80192CCC *self) {
 }
 
 void reset_by_door__18TObjLazerFenceNormFPv(void *arg0) {
-    if (is_current_floor_switch_set((u16) M2C_FIELD(arg0, s16 *, 0xB0)) == 0) {
+    if (is_current_floor_switch_set((u16) *(s16 *)((s8 *)arg0 + 0xB0)) == 0) {
         set_indexed_flags(arg0, 0, 1);
-        M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
     }
 }
 

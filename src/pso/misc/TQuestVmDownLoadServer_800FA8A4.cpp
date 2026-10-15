@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_800FA95C_lbl_8049C700 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_800FA95C_lbl_80515F48 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -18,22 +14,22 @@ extern "C" {
 void *__nw__7TObjectFUl(int);
 extern u32 fog_ctrl_instance;
 void create_instance__8TFogCtrlFv(void);
-M2C_UNK request_fog__8TFogCtrlFPvii(u32, s32, s32);
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+s32 request_fog__8TFogCtrlFPvii(u32, s32, s32);
+extern s32 TFogCtrl__fog_instance_table[];
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1);
-M2C_UNK select_fog__8TFogCtrlFPvii(u32, s32, s32);
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+s32 select_fog__8TFogCtrlFPvii(u32, s32, s32);
+extern s32 TFogCtrl__fog_instance_table[];
 s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1);
-M2C_UNK restore_fog__8TFogCtrlFPvi(M2C_UNK, s32);
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+s32 restore_fog__8TFogCtrlFPvi(s32, s32);
+extern s32 TFogCtrl__fog_instance_table[];
 s32 update_all__8TFogCtrlFi(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_8049C700[];
+extern s32 lbl_8049C700[];
 extern RecoveredGlobal_800FA95C_lbl_80515F48 lbl_80515F48;
 extern s32 lbl_805D2B1C;
 u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0);
 s32 TFogCtrl__sub_800FAC84(void *p);
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+extern s32 TFogCtrl__fog_instance_table[];
 s32 update_first_active_fog__8TFogCtrlFv(void);
 }
 
@@ -47,18 +43,18 @@ int update__22TQuestVmDownLoadServerFPv(void* p);
 int parse_serial_value__22TAdEnterSerialAccessGCFv(void*);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 queue_destruction__7TObjectFv(void*);
 int update_all__8TFogCtrlFv(void*);
 
 int get_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return parse_serial_value__22TAdEnterSerialAccessGCFv(p); }
 int poll_serial_access__22TQuestVmDownLoadServerFPv(void* p) { return parse_serial_value__22TAdEnterSerialAccessGCFv(p); }
 int update__22TQuestVmDownLoadServerFPv(void* p) { return update_all__8TFogCtrlFv(p); }
 
-extern M2C_UNK lbl_8049C700[];
+extern s32 lbl_8049C700[];
 
 void *TQuestVmDownLoadServer__sub_800FA904(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049C700;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049C700;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -73,8 +69,8 @@ typedef char RecoveredGlobal_800FA95C_lbl_8049C700_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800FA95C_lbl_80515F48_size[sizeof(RecoveredGlobal_800FA95C_lbl_80515F48) == 0x28 ? 1 : -1];
 u8 *init_object__22TQuestVmDownLoadServerFPv(u8 *arg0) {
     __ct__7TObjectFP7TObject(arg0, &lbl_80515F48.value);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2B1C;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800FA95C_lbl_8049C700 *)&lbl_8049C700).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2B1C;
     return arg0;
 }
 
@@ -94,7 +90,7 @@ void create_instance__8TFogCtrlFv(void) {
 }
 s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TFogCtrl__fog_instance_table;
+    s32 *var_r30 = TFogCtrl__fog_instance_table;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -108,7 +104,7 @@ s32 update_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
 }
 s32 apply_all__8TFogCtrlFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TFogCtrl__fog_instance_table;
+    s32 *var_r30 = TFogCtrl__fog_instance_table;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -134,7 +130,7 @@ s32 update_first_active_fog__8TFogCtrlFv(void) {
 s32 update_all__8TFogCtrlFi(s32 arg0) {
     s32 var_r29;
     s32 var_r31;
-    M2C_UNK temp_r3;
+    s32 temp_r3;
     var_r29 = 0;
     var_r31 = 0;
     do {

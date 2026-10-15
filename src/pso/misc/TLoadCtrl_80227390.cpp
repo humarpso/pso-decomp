@@ -1,31 +1,27 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F90C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -35,22 +31,20 @@ struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
 };
 
 struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F91C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
-typedef s32 M2C_UNK;
-
 extern "C" {
-M2C_UNK VISetPreRetraceCallback(M2C_UNK *);
+s32 VISetPreRetraceCallback(s32 *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 TLobby__sub_80227A6C;
 void set_pre_retrace_callback__6TLobbyFv(void);
-M2C_UNK stop_audio_stream(int);
+s32 stop_audio_stream(int);
 extern s32 lbl_804CB850[];
 extern f32 music_fade_volumes[];
 extern s32 lbl_805D62E0;
@@ -63,7 +57,7 @@ s32 get_music_base_gain(void);
 void TLobby__sub_80227AA8(s32);
 void set_field_40_and_notify__6TLobbyFPvs(s32, s32);
 s32 TLobby__sub_803C9CB0(s32);
-M2C_UNK stop_audio_stream(int);
+s32 stop_audio_stream(int);
 extern s32 lbl_804CB850[];
 extern f32 music_fade_volumes[];
 extern s32 lbl_805D62B8;
@@ -207,7 +201,7 @@ void update_music_fade(void) {
 }
 
 void set_pre_retrace_callback__6TLobbyFv(void) {
-    VISetPreRetraceCallback((M2C_UNK *)(&TLobby__sub_80227A6C.value));
+    VISetPreRetraceCallback((s32 *)(&TLobby__sub_80227A6C.value));
 }
 void shutdown_buffers__6TLobbyFv(void) {
     s32 i;

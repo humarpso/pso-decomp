@@ -1,15 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_8023C558_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_8023C558_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 

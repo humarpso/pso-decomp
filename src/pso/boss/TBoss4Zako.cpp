@@ -39,16 +39,11 @@ extern "C" const f32 lbl_805D8D10;
 extern "C" {
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V_8005BB5C { f32 x, y, z; };
 
 struct Obj_8005BB5C { u8 pad[0x38]; V_8005BB5C pos; V_8005BB5C prev; u8 pad50[0x37C - 0x50]; s32 f37c; };
 
-typedef s32 M2C_UNK;
 struct V_8005BF68 { f32 x, y, z; };
 
 struct V2_8005BF68 { f32 x, z; };
@@ -123,14 +118,14 @@ extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CE4;
 void vt6__9TBoss4UroFv(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
 void vt2__11TBoss4BishiFv(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
@@ -160,7 +155,7 @@ f32 vector_length(void *);
 
 void normalize_vector(void *);
 extern V2_8005BF68 TBoss4Bishi_spawn_offsets[];
-extern M2C_UNK __vt__11TBoss4Bishi[];
+extern s32 __vt__11TBoss4Bishi[];
 extern s32 lbl_805D27F0;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
@@ -210,7 +205,7 @@ void vec3_add_to(void *, void *);
 s32 TObjControl__ct(s32, s32);
 int distribute_experience(void*);
 
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 
 extern const f32 lbl_805D8CC8;
 extern const f32 lbl_805D8CCC;
@@ -218,16 +213,12 @@ u32 TBoss4Zako_collision_body_parts[11] = {
  0, 0x40f00000, 0, 0x40a00000, 0, 0, 0x807a, 0, 0, 0, 0,
 };
 
-extern M2C_UNK __vt__11TBoss4Bishi[];
+extern s32 __vt__11TBoss4Bishi[];
 
 extern s32 tl_04;
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef s32 M2C_UNK;
+
 struct Vec_8005C6E4 { f32 x, y, z; };
 
 struct Obj_8005C6E4 {
@@ -271,7 +262,7 @@ extern const f32 lbl_805D8D00;
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 TBoss4Zako__ct(s32, s32, s32);
 f32 vector_length(void *);
-extern M2C_UNK __vt__9TBoss4Uro[];
+extern s32 __vt__9TBoss4Uro[];
 extern s32 lbl_805D27EC;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CE0;
@@ -286,7 +277,7 @@ s32 create__9TBoss4UroFi(s32 arg0);
 s32 TObjControl__ct(s32, s32);
 int distribute_experience(void*);
 
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 
 struct Vec_8005C49C { f32 x, y, z; };
 
@@ -326,7 +317,7 @@ extern const f32 lbl_805D8CD0;
 extern const f32 TBoss4Zako__data_805D8CD4;
 extern const f32 lbl_805D8CD8;
 
-extern M2C_UNK __vt__9TBoss4Uro[];
+extern s32 __vt__9TBoss4Uro[];
 
 extern s32 tl_04;
 s32 create__9TBoss4UroFi(s32 arg0);
@@ -358,10 +349,6 @@ void TBoss4Bishi__sub_8005BAC0(void);
 void TBoss4Bishi__sub_8005BABC(void);
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V_8005CBA4 { f32 x, y, z; };
 
@@ -383,7 +370,6 @@ struct Obj_8005CBA4 {
     s32 f3a4;
 };
 
-typedef s32 M2C_UNK;
 struct Vec_8005CD20 { f32 x, y, z; };
 
 struct Obj_8005CD20 {
@@ -402,8 +388,8 @@ struct Obj_8005CD20 {
     s32 f3a4;
 };
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 spawn_particle_effect(void *, int);
 extern const f32 lbl_805D8CB8;
 extern const f32 lbl_805D8CBC;
 extern const f32 lbl_805D8CC0;
@@ -433,10 +419,6 @@ void render__9TBoss4UroFv(void);
 void render__9TBoss4UroFv(void);
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct O_8005D6B0 { u8 pad[0x374]; s32 f374; };
 
@@ -522,28 +504,28 @@ struct VObj_18_fe72f9 : VBase_18_fe72f9 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(void *);
-    virtual M2C_UNK m80();
+    virtual s32 m79(void *);
+    virtual s32 m80();
 };
 
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 
-M2C_UNK add_flags_2e4__10TObjPlayerFPvUi(void *, int);
-f32 *dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
+s32 add_flags_2e4__10TObjPlayerFPvUi(void *, int);
+f32 *dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 register_object__6TLobbyFPv(int);
 s32 dispatch_shared_handler_b__6TLobbyFPv(int);
 s32 register_boss__6TLobbyFPv(int);
-M2C_UNK reset_photon_effect__12TBoss3VoloptFPv(void *);
+s32 reset_photon_effect__12TBoss3VoloptFPv(void *);
 s32 get_instance_count__9TBoss4UroFv();
 
 u32 create_particle_emitter(void *, int);
-M2C_UNK set_flags__11TBoss4Type2FPvUi(u32, int);
-M2C_UNK set_param__12TObjEneLappyFPvi(void *, int);
-M2C_UNK bind_enemy_combat_stats(void *, int, int, int);
-M2C_UNK initialize__9TObjEnemyFPv(s32, s32);
+s32 set_flags__11TBoss4Type2FPvUi(u32, int);
+s32 set_param__12TObjEneLappyFPvi(void *, int);
+s32 bind_enemy_combat_stats(void *, int, int, int);
+s32 initialize__9TObjEnemyFPv(s32, s32);
 s32 init_collision_body_parts(void *, void *, int);
 extern u32 TBoss4Zako_collision_body_parts[];
-extern M2C_UNK __vt__10TBoss4Zako[];
+extern s32 __vt__10TBoss4Zako[];
 extern s32 lbl_805D27E8;
 extern const f32 lbl_805D8CBC;
 extern const f32 TBoss4Zako__data_805D8CD4;
@@ -561,15 +543,15 @@ s32 create__10TBoss4ZakoFi(s32 arg0);
 void update_state3__10TBoss4ZakoFPv(void* p);
 int TBoss8Dragon__sub_8005D700(void);
 s32 TObjControl__ct(s32, s32);
-M2C_UNK free_collision_body_parts(void *);
+s32 free_collision_body_parts(void *);
 
-M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __dt__9TObjEnemyFv(void *, s32);
+s32 __nw__7TObjectFUl(s32);
 int get_flag_bit6__12TBoss8DragonFPv(void* p);
-M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
+s32 request_destroy__11TBoss4Type2FUi(void *);
 void update_state3__10TBoss4ZakoFPv(void* p);
 
-extern M2C_UNK __vt__10TBoss4Zako[];
+extern s32 __vt__10TBoss4Zako[];
 
 extern s32 tl_04;
 #define THIS self
@@ -596,7 +578,7 @@ void __dl__7TObjectFPv(void *);
 extern "C" {
 #pragma push
 void fn_8005D6E4(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x388) = (s32) (M2C_FIELD(arg0, s32 *, 0x388) + 1);
+    *(s32 *)((s8 *)arg0 + 0x388) = (s32) (*(s32 *)((s8 *)arg0 + 0x388) + 1);
 }
 #pragma pop
 }
@@ -604,7 +586,7 @@ void fn_8005D6E4(void *arg0) {
 extern "C" {
 #pragma push
 void TBoss4Uro__sub_8005D6D4(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 1);
+    *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) + 1);
 }
 #pragma pop
 }
@@ -621,7 +603,7 @@ s32 TBoss4Zako__sub_8005D6B0(void *p) {
 extern "C" {
 #pragma push
 s32 TBoss4Uro__sub_8005D698(void *arg0) {
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x374) != 3);
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x374) != 3);
 }
 #pragma pop
 }
@@ -652,53 +634,53 @@ s32 TBoss4Zako__ct(s32 arg0, s32 arg1, s32 arg2) {
     u8 *self;
     self = (u8 *)arg0;
     initialize__9TObjEnemyFPv(arg0, arg1);
-    M2C_FIELD(THIS, M2C_UNK **, 0x18) = __vt__10TBoss4Zako;
-    M2C_FIELD(THIS, s32 *, 0) = lbl_805D27E8;
+    *(s32 **)((s8 *)THIS + 0x18) = __vt__10TBoss4Zako;
+    *(s32 *)((s8 *)THIS + 0) = lbl_805D27E8;
     add_flags_2e4__10TObjPlayerFPvUi(THIS, 8);
-    M2C_FIELD(THIS, s32 *, 0x378) = ((s32 *)arg2)[0];
-    fn_8005D6E4((u8 *)M2C_FIELD(THIS, s32 *, 0x378));
+    *(s32 *)((s8 *)THIS + 0x378) = ((s32 *)arg2)[0];
+    fn_8005D6E4((u8 *)*(s32 *)((s8 *)THIS + 0x378));
     ((VObj_18_fe72f9 *)THIS)->m79((s32 *)arg2 + 1);
     ((VObj_18_fe72f9 *)THIS)->m80();
-    M2C_FIELD(THIS, s32 *, 0x380) = get_instance_count__9TBoss4UroFv();
-    M2C_FIELD(THIS, s32 *, 0x24) = 0;
-    M2C_FIELD(THIS, s32 *, 0x34) = 0;
+    *(s32 *)((s8 *)THIS + 0x380) = get_instance_count__9TBoss4UroFv();
+    *(s32 *)((s8 *)THIS + 0x24) = 0;
+    *(s32 *)((s8 *)THIS + 0x34) = 0;
     VecCopy__FP3VecPC3Vec(THIS + 0x44, VecCopy__FP3VecPC3Vec(THIS + 0x50, VecCopy__FP3VecPC3Vec(THIS + 0x74, THIS + 0x38)));
-    M2C_FIELD(THIS, s32 *, 0x384) = init_collision_body_parts(THIS, TBoss4Zako_collision_body_parts, 1);
+    *(s32 *)((s8 *)THIS + 0x384) = init_collision_body_parts(THIS, TBoss4Zako_collision_body_parts, 1);
     VecCopy__FP3VecPC3Vec(THIS + 0x2FC, THIS + 0x38);
-    M2C_FIELD(THIS, f32 *, 0x310) = lbl_805D8CBC;
-    M2C_FIELD(THIS, f32 *, 0x30C) = lbl_805D8CBC;
-    M2C_FIELD(THIS, f32 *, 0x308) = lbl_805D8CBC;
-    M2C_FIELD(THIS, s32 *, 0x2A8) = 0;
+    *(f32 *)((s8 *)THIS + 0x310) = lbl_805D8CBC;
+    *(f32 *)((s8 *)THIS + 0x30C) = lbl_805D8CBC;
+    *(f32 *)((s8 *)THIS + 0x308) = lbl_805D8CBC;
+    *(s32 *)((s8 *)THIS + 0x2A8) = 0;
     bind_enemy_combat_stats(THIS, register_boss__6TLobbyFPv(0x35), dispatch_shared_handler_b__6TLobbyFPv(0x35), register_object__6TLobbyFPv(0x35));
-    M2C_FIELD(THIS, s16 *, 0x33E) = M2C_FIELD(THIS, s16 *, 0x32C);
+    *(s16 *)((s8 *)THIS + 0x33E) = *(s16 *)((s8 *)THIS + 0x32C);
     reset_photon_effect__12TBoss3VoloptFPv(THIS);
     set_param__12TObjEneLappyFPvi(THIS, 0);
-    M2C_FIELD(THIS, s32 *, 0x388) = 0;
-    if ((M2C_FIELD(THIS, u32 *, 0x3B4) = create_particle_emitter(THIS + 0x38, 0x103)) != 0) {
-        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(THIS, u32 *, 0x3B4), 0x40);
+    *(s32 *)((s8 *)THIS + 0x388) = 0;
+    if ((*(u32 *)((s8 *)THIS + 0x3B4) = create_particle_emitter(THIS + 0x38, 0x103)) != 0) {
+        set_flags__11TBoss4Type2FPvUi(*(u32 *)((s8 *)THIS + 0x3B4), 0x40);
     }
-    M2C_FIELD(THIS, f32 *, 0x398) = lbl_805D8CBC;
-    M2C_FIELD(THIS, f32 *, 0x394) = lbl_805D8CBC;
-    M2C_FIELD(THIS, f32 *, 0x390) = lbl_805D8CBC;
-    M2C_FIELD(THIS, f32 *, 0x38C) = lbl_805D8CBC;
-    M2C_FIELD(THIS, s32 *, 0x3A4) = TBoss4Zako__data_805D8CD4 * (M2C_FIELD(THIS, u16 *, 0x1C) & 3);
-    M2C_FIELD(THIS, s32 *, 0x5C) = 0;
-    M2C_FIELD(THIS, s32 *, 0x60) = M2C_FIELD(THIS, u16 *, 0x1C) << 14;
-    M2C_FIELD(THIS, s32 *, 0x3B8) = 0;
-    M2C_FIELD(THIS, s32 *, 0x3A8) = 0;
-    M2C_FIELD(THIS, s32 *, 0x3AC) = (M2C_FIELD(THIS, u16 *, 0x1C) % 6 + 1) * 450;
-    M2C_FIELD(THIS, f32 *, 0x3B0) = lbl_805D8CBC;
-    M2C_FIELD(THIS, s32 *, 0x3BC) = lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(THIS);
-    M2C_FIELD(THIS, s32 *, 0x3C0) = lbl_805D8D34 * calc_boss4_scale__10TObjPlayerFi(THIS) + lbl_805D8D30;
-    M2C_FIELD(THIS, f32 *, 0x39C) = *dispatch_shared_handler_a__6TLobbyFPv(0x35);
-    if (M2C_FIELD(THIS, f32 *, 0x39C) <= TBoss4Zako_one_third || M2C_FIELD(THIS, f32 *, 0x39C) > lbl_805D8D38) {
-        M2C_FIELD(THIS, f32 *, 0x39C) = lbl_805D8D3C;
+    *(f32 *)((s8 *)THIS + 0x398) = lbl_805D8CBC;
+    *(f32 *)((s8 *)THIS + 0x394) = lbl_805D8CBC;
+    *(f32 *)((s8 *)THIS + 0x390) = lbl_805D8CBC;
+    *(f32 *)((s8 *)THIS + 0x38C) = lbl_805D8CBC;
+    *(s32 *)((s8 *)THIS + 0x3A4) = TBoss4Zako__data_805D8CD4 * (*(u16 *)((s8 *)THIS + 0x1C) & 3);
+    *(s32 *)((s8 *)THIS + 0x5C) = 0;
+    *(s32 *)((s8 *)THIS + 0x60) = *(u16 *)((s8 *)THIS + 0x1C) << 14;
+    *(s32 *)((s8 *)THIS + 0x3B8) = 0;
+    *(s32 *)((s8 *)THIS + 0x3A8) = 0;
+    *(s32 *)((s8 *)THIS + 0x3AC) = (*(u16 *)((s8 *)THIS + 0x1C) % 6 + 1) * 450;
+    *(f32 *)((s8 *)THIS + 0x3B0) = lbl_805D8CBC;
+    *(s32 *)((s8 *)THIS + 0x3BC) = lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(THIS);
+    *(s32 *)((s8 *)THIS + 0x3C0) = lbl_805D8D34 * calc_boss4_scale__10TObjPlayerFi(THIS) + lbl_805D8D30;
+    *(f32 *)((s8 *)THIS + 0x39C) = *dispatch_shared_handler_a__6TLobbyFPv(0x35);
+    if (*(f32 *)((s8 *)THIS + 0x39C) <= TBoss4Zako_one_third || *(f32 *)((s8 *)THIS + 0x39C) > lbl_805D8D38) {
+        *(f32 *)((s8 *)THIS + 0x39C) = lbl_805D8D3C;
     }
-    M2C_FIELD(THIS, f32 *, 0x3A0) = *dispatch_shared_handler_a__6TLobbyFPv(0x39);
-    if (M2C_FIELD(THIS, f32 *, 0x3A0) <= TBoss4Zako_one_third || M2C_FIELD(THIS, f32 *, 0x3A0) > lbl_805D8D40) {
-        M2C_FIELD(THIS, f32 *, 0x3A0) = lbl_805D8D44;
+    *(f32 *)((s8 *)THIS + 0x3A0) = *dispatch_shared_handler_a__6TLobbyFPv(0x39);
+    if (*(f32 *)((s8 *)THIS + 0x3A0) <= TBoss4Zako_one_third || *(f32 *)((s8 *)THIS + 0x3A0) > lbl_805D8D40) {
+        *(f32 *)((s8 *)THIS + 0x3A0) = lbl_805D8D44;
     }
-    M2C_FIELD(THIS, s32 *, 0x374) = 0;
+    *(s32 *)((s8 *)THIS + 0x374) = 0;
     return arg0;
 }
 #pragma pop
@@ -708,12 +690,12 @@ extern "C" {
 #pragma push
 void *__dt__10TBoss4ZakoFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TBoss4Zako;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TBoss4Zako;
         free_collision_body_parts(arg0);
-        M2C_FIELD(arg0, s32 *, 0x384) = 0;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x3B4) != 0U) {
-            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x3B4));
-            M2C_FIELD(arg0, u32 *, 0x3B4) = 0U;
+        *(s32 *)((s8 *)arg0 + 0x384) = 0;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x3B4) != 0U) {
+            request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x3B4));
+            *(u32 *)((s8 *)arg0 + 0x3B4) = 0U;
         }
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -937,9 +919,9 @@ void TBoss4Zako::update_sink_state() {
 extern "C" {
 #pragma push
 void set_state3__10TBoss4ZakoFPv(void *arg0) {
-    TBoss4Uro__sub_8005D6D4(M2C_FIELD(arg0, void **, 0x378));
-    M2C_FIELD(arg0, s32 *, 0x3A8) = 0;
-    M2C_FIELD(arg0, s32 *, 0x374) = 3;
+    TBoss4Uro__sub_8005D6D4(*(void **)((s8 *)arg0 + 0x378));
+    *(s32 *)((s8 *)arg0 + 0x3A8) = 0;
+    *(s32 *)((s8 *)arg0 + 0x374) = 3;
 }
 #pragma pop
 }
@@ -1029,7 +1011,7 @@ extern "C" {
 #pragma push
 void *__dt__9TBoss4UroFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TBoss4Uro;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TBoss4Uro;
         __dt__10TBoss4ZakoFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1146,20 +1128,20 @@ extern "C" {
 void update_target_position__10TBoss4ZakoFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
-    if (!(M2C_FIELD(arg0, s32 *, 0x3B8) & 0x7F)) {
-        if (M2C_FIELD(arg0, s32 *, 0x388) == 0xFFFF) {
-            M2C_FIELD(arg0, u32 *, 0x388) = (u32) find_nearest_visible_player(arg0, 0, lbl_805D8CF4);
+    if (!(*(s32 *)((s8 *)arg0 + 0x3B8) & 0x7F)) {
+        if (*(s32 *)((s8 *)arg0 + 0x388) == 0xFFFF) {
+            *(u32 *)((s8 *)arg0 + 0x388) = (u32) find_nearest_visible_player(arg0, 0, lbl_805D8CF4);
             return;
         }
-        M2C_FIELD(arg0, u32 *, 0x388) = 0xFFFFU;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x378) != 0U) {
+        *(u32 *)((s8 *)arg0 + 0x388) = 0xFFFFU;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x378) != 0U) {
             temp_r3 = get_instance__14TBoss4DarkFalzFv();
             if (temp_r3 != 0) {
                 temp_r31 = (s32) (lbl_805D8CF8 * calc_boss4_scale__10TObjPlayerFi(arg0));
                 VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x3C4), (void *)(get_position_ptr__10TObjPlayerFPv(temp_r3)));
-                M2C_FIELD(arg0, f32 *, 0x3C8) = (f32) lbl_805D8CBC;
-                M2C_FIELD(arg0, f32 *, 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3C4));
-                M2C_FIELD(arg0, f32 *, 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + M2C_FIELD(arg0, f32 *, 0x3CC));
+                *(f32 *)((s8 *)arg0 + 0x3C8) = (f32) lbl_805D8CBC;
+                *(f32 *)((s8 *)arg0 + 0x3C4) = (f32) ((lbl_805D8CFC * sin_table_lookup(temp_r31)) + *(f32 *)((s8 *)arg0 + 0x3C4));
+                *(f32 *)((s8 *)arg0 + 0x3CC) = (f32) ((lbl_805D8CFC * cos_table_lookup(temp_r31)) + *(f32 *)((s8 *)arg0 + 0x3CC));
             }
         }
     }
@@ -1214,13 +1196,13 @@ extern "C" {
 #pragma push
 void vt5__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8CB8);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
     }
-    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
-    if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
+    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x111);
+    if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -1231,14 +1213,14 @@ extern "C" {
 #pragma push
 void vt6__9TBoss4UroFv(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x390);
-    M2C_FIELD(arg0, f32 *, 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x390);
+    *(f32 *)((s8 *)arg0 + 0x390) = (f32) (temp_f1 + lbl_805D8CE4);
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x44)), (void *)((void *) (arg0 + 0x38)));
     vec3_add_to((void *) (arg0 + 0x38), (void *) (arg0 + 0x38C));
-    if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC8) {
-        M2C_FIELD(arg0, f32 *, 0x390) = (f32) lbl_805D8CBC;
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8CC8;
-        M2C_FIELD(arg0, s32 *, 0x374) = 2;
+    if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC8) {
+        *(f32 *)((s8 *)arg0 + 0x390) = (f32) lbl_805D8CBC;
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8CC8;
+        *(s32 *)((s8 *)arg0 + 0x374) = 2;
     }
 }
 #pragma pop
@@ -1307,7 +1289,7 @@ extern "C" {
 #pragma push
 void *__dt_deleting__11TBoss4BishiFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TBoss4Bishi;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss4Bishi;
         __dt__10TBoss4ZakoFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1379,13 +1361,13 @@ void vt0__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f2;
 
     VecCopy__FP3VecPC3Vec((void *)(arg0 + 0x44), (void *)(arg0 + 0x38));
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x3C);
     if (temp_f2 < lbl_805D8CC8) {
         temp_f0 = temp_f2 + lbl_805D8CCC;
-        M2C_FIELD(arg0, f32 *, 0x3C) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x3C) = temp_f0;
         if (temp_f0 > lbl_805D8CC8) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805D8CC8;
-            M2C_FIELD(arg0, s32 *, 0x374) = 2;
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805D8CC8;
+            *(s32 *)((s8 *)arg0 + 0x374) = 2;
         }
     }
 }
@@ -1410,13 +1392,13 @@ extern "C" {
 #pragma push
 void vt2__11TBoss4BishiFv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805D8CB8);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x3C);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805D8CB8);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x3C);
     if ((temp_f1 < lbl_805D8CBC) && (temp_f1 >= lbl_805D8CB8)) {
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0xF3));
     }
-    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (M2C_FIELD(arg0, s32 *, 0x5C) + 0x111);
-    if (M2C_FIELD(arg0, f32 *, 0x3C) < lbl_805D8CC0) {
+    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (*(s32 *)((s8 *)arg0 + 0x5C) + 0x111);
+    if (*(f32 *)((s8 *)arg0 + 0x3C) < lbl_805D8CC0) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -1551,259 +1533,259 @@ void apply_object_set_data();
 void TLobby__sub_801A1FD8();
 void classify_actor_view_detail();
 void update_object_view_visibility();
-M2C_UNK __vt__11TBoss4Bishi[83] = {
+s32 __vt__11TBoss4Bishi[83] = {
     0,
     0,
-    (M2C_UNK)__dt_deleting__11TBoss4BishiFPvs,
-    (M2C_UNK)TBoss4Zako__sub_8005BC4C,
-    (M2C_UNK)render__9TBoss4UroFv,
-    (M2C_UNK)render_actor_shadows_default,
-    (M2C_UNK)TLobby__sub_801A1FD8,
-    (M2C_UNK)apply_object_set_data,
-    (M2C_UNK)reset_actor_action_state,
-    (M2C_UNK)get_actor_body_center,
-    (M2C_UNK)update_object_view_visibility,
-    (M2C_UNK)classify_actor_view_detail,
-    (M2C_UNK)get_enemy_name__14TObjEnePanarmsFPv,
-    (M2C_UNK)TObjPlayer__sub_80019568,
-    (M2C_UNK)add_actor_exp,
-    (M2C_UNK)consume_timer_field__10TObjPlayerFPvi,
-    (M2C_UNK)get_actor_level_index,
-    (M2C_UNK)update_actor_ground_y,
-    (M2C_UNK)TObjPlayer__sub_80018E6C,
-    (M2C_UNK)is_actor_cadence_frame,
-    (M2C_UNK)select_melee_contact_body__10TObjPlayerFv,
-    (M2C_UNK)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (M2C_UNK)receive_physical_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_direct_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_weapon_special_attack__10TObjPlayerFv,
-    (M2C_UNK)apply_knockback_from_attacker,
-    (M2C_UNK)try_start_action__10TObjPlayerFPvii,
-    (M2C_UNK)roll_physical_accuracy__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80011010,
-    (M2C_UNK)TObjPlayer__sub_8000FF3C,
-    (M2C_UNK)is_target_in_attack_range__10TObjPlayerFv,
-    (M2C_UNK)test_flag_256__10TObjPlayerFPv,
-    (M2C_UNK)test_flag30_512__10TObjPlayerFPv,
-    (M2C_UNK)has_flag_0x800__10TObjPlayerFPv,
-    (M2C_UNK)test_flag_1000__10TObjPlayerFPv,
-    (M2C_UNK)update_poison_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_hold_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_flag30_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_movement_status__10TObjPlayerFv,
-    (M2C_UNK)update_shock_clock__10TObjPlayerFPv,
-    (M2C_UNK)update_attack_stat_status,
-    (M2C_UNK)update_defense_stat_status,
-    (M2C_UNK)TObjPlayer__sub_800172CC,
-    (M2C_UNK)apply_poison_status__10TObjPlayerFv,
-    (M2C_UNK)apply_paralysis__10TObjPlayerFv,
-    (M2C_UNK)apply_slow_status__10TObjPlayerFPv,
-    (M2C_UNK)apply_confusion_status__10TObjPlayerFv,
-    (M2C_UNK)apply_movement_ailment__10TObjPlayerFv,
-    (M2C_UNK)apply_shock_status__10TObjPlayerFv,
-    (M2C_UNK)clear_harmful_statuses__10TObjPlayerFv,
-    (M2C_UNK)apply_attack_stat_status__10TObjPlayerFv,
-    (M2C_UNK)apply_defense_stat_status__10TObjPlayerFv,
-    (M2C_UNK)cure_poison_ailment,
-    (M2C_UNK)cure_paralysis__10TObjPlayerFv,
-    (M2C_UNK)clear_all_status_effects,
-    (M2C_UNK)apply_action_hold_status,
-    (M2C_UNK)apply_anti_technique__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80014898,
-    (M2C_UNK)TObjPlayer__sub_80014894,
-    (M2C_UNK)TObjPlayer__sub_80014890,
-    (M2C_UNK)TObjPlayer__sub_8001488C,
-    (M2C_UNK)TObjPlayer__sub_80014888,
-    (M2C_UNK)try_enter_state_3__11TBoss4BishiFPv,
-    (M2C_UNK)reset_pose__10TObjPlayerFPv,
-    (M2C_UNK)TObjPlayer__sub_80014840,
-    (M2C_UNK)TObjPlayer__sub_80014838,
-    (M2C_UNK)TObjPlayer__sub_80014830,
-    (M2C_UNK)get_pos__10TObjPlayerFii,
-    (M2C_UNK)apply_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_jellen_effect,
-    (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_zalure_effect,
-    (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)update_and_send_enemy_hit_state,
-    (M2C_UNK)fn_80010EC8,
-    (M2C_UNK)fn_80010EC4,
-    (M2C_UNK)fn_80010EC0,
-    (M2C_UNK)fn_80010EBC,
-    (M2C_UNK)call_vt78__10TObjPlayerFPv,
-    (M2C_UNK)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (M2C_UNK)apply_set_data__9TObjEnemyFPvPv,
-    (M2C_UNK)clear_lobby_object_state,
+    (s32)__dt_deleting__11TBoss4BishiFPvs,
+    (s32)TBoss4Zako__sub_8005BC4C,
+    (s32)render__9TBoss4UroFv,
+    (s32)render_actor_shadows_default,
+    (s32)TLobby__sub_801A1FD8,
+    (s32)apply_object_set_data,
+    (s32)reset_actor_action_state,
+    (s32)get_actor_body_center,
+    (s32)update_object_view_visibility,
+    (s32)classify_actor_view_detail,
+    (s32)get_enemy_name__14TObjEnePanarmsFPv,
+    (s32)TObjPlayer__sub_80019568,
+    (s32)add_actor_exp,
+    (s32)consume_timer_field__10TObjPlayerFPvi,
+    (s32)get_actor_level_index,
+    (s32)update_actor_ground_y,
+    (s32)TObjPlayer__sub_80018E6C,
+    (s32)is_actor_cadence_frame,
+    (s32)select_melee_contact_body__10TObjPlayerFv,
+    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)apply_knockback_from_attacker,
+    (s32)try_start_action__10TObjPlayerFPvii,
+    (s32)roll_physical_accuracy__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80011010,
+    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)test_flag_256__10TObjPlayerFPv,
+    (s32)test_flag30_512__10TObjPlayerFPv,
+    (s32)has_flag_0x800__10TObjPlayerFPv,
+    (s32)test_flag_1000__10TObjPlayerFPv,
+    (s32)update_poison_status__10TObjPlayerFv,
+    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)update_flag30_timer__10TObjPlayerFPv,
+    (s32)update_movement_status__10TObjPlayerFv,
+    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_attack_stat_status,
+    (s32)update_defense_stat_status,
+    (s32)TObjPlayer__sub_800172CC,
+    (s32)apply_poison_status__10TObjPlayerFv,
+    (s32)apply_paralysis__10TObjPlayerFv,
+    (s32)apply_slow_status__10TObjPlayerFPv,
+    (s32)apply_confusion_status__10TObjPlayerFv,
+    (s32)apply_movement_ailment__10TObjPlayerFv,
+    (s32)apply_shock_status__10TObjPlayerFv,
+    (s32)clear_harmful_statuses__10TObjPlayerFv,
+    (s32)apply_attack_stat_status__10TObjPlayerFv,
+    (s32)apply_defense_stat_status__10TObjPlayerFv,
+    (s32)cure_poison_ailment,
+    (s32)cure_paralysis__10TObjPlayerFv,
+    (s32)clear_all_status_effects,
+    (s32)apply_action_hold_status,
+    (s32)apply_anti_technique__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80014898,
+    (s32)TObjPlayer__sub_80014894,
+    (s32)TObjPlayer__sub_80014890,
+    (s32)TObjPlayer__sub_8001488C,
+    (s32)TObjPlayer__sub_80014888,
+    (s32)try_enter_state_3__11TBoss4BishiFPv,
+    (s32)reset_pose__10TObjPlayerFPv,
+    (s32)TObjPlayer__sub_80014840,
+    (s32)TObjPlayer__sub_80014838,
+    (s32)TObjPlayer__sub_80014830,
+    (s32)get_pos__10TObjPlayerFii,
+    (s32)apply_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_jellen_effect,
+    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_zalure_effect,
+    (s32)TObjPlayer__sub_80010A80,
+    (s32)update_and_send_enemy_hit_state,
+    (s32)fn_80010EC8,
+    (s32)fn_80010EC4,
+    (s32)fn_80010EC0,
+    (s32)fn_80010EBC,
+    (s32)call_vt78__10TObjPlayerFPv,
+    (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
+    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)clear_lobby_object_state,
 };
-M2C_UNK __vt__9TBoss4Uro[83] = {
+s32 __vt__9TBoss4Uro[83] = {
     0,
     0,
-    (M2C_UNK)__dt__9TBoss4UroFv,
-    (M2C_UNK)run_task__9TBoss4UroFv,
-    (M2C_UNK)render__9TBoss4UroFv,
-    (M2C_UNK)render_actor_shadows_default,
-    (M2C_UNK)TLobby__sub_801A1FD8,
-    (M2C_UNK)apply_object_set_data,
-    (M2C_UNK)reset_actor_action_state,
-    (M2C_UNK)get_actor_body_center,
-    (M2C_UNK)update_object_view_visibility,
-    (M2C_UNK)classify_actor_view_detail,
-    (M2C_UNK)get_enemy_name__14TObjEnePanarmsFPv,
-    (M2C_UNK)TObjPlayer__sub_80019568,
-    (M2C_UNK)add_actor_exp,
-    (M2C_UNK)consume_timer_field__10TObjPlayerFPvi,
-    (M2C_UNK)get_actor_level_index,
-    (M2C_UNK)update_actor_ground_y,
-    (M2C_UNK)TObjPlayer__sub_80018E6C,
-    (M2C_UNK)is_actor_cadence_frame,
-    (M2C_UNK)select_melee_contact_body__10TObjPlayerFv,
-    (M2C_UNK)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (M2C_UNK)receive_physical_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_direct_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_weapon_special_attack__10TObjPlayerFv,
-    (M2C_UNK)apply_knockback_from_attacker,
-    (M2C_UNK)try_start_action__10TObjPlayerFPvii,
-    (M2C_UNK)roll_physical_accuracy__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80011010,
-    (M2C_UNK)TObjPlayer__sub_8000FF3C,
-    (M2C_UNK)is_target_in_attack_range__10TObjPlayerFv,
-    (M2C_UNK)test_flag_256__10TObjPlayerFPv,
-    (M2C_UNK)test_flag30_512__10TObjPlayerFPv,
-    (M2C_UNK)has_flag_0x800__10TObjPlayerFPv,
-    (M2C_UNK)test_flag_1000__10TObjPlayerFPv,
-    (M2C_UNK)update_poison_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_hold_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_flag30_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_movement_status__10TObjPlayerFv,
-    (M2C_UNK)update_shock_clock__10TObjPlayerFPv,
-    (M2C_UNK)update_attack_stat_status,
-    (M2C_UNK)update_defense_stat_status,
-    (M2C_UNK)TObjPlayer__sub_800172CC,
-    (M2C_UNK)apply_poison_status__10TObjPlayerFv,
-    (M2C_UNK)apply_paralysis__10TObjPlayerFv,
-    (M2C_UNK)apply_slow_status__10TObjPlayerFPv,
-    (M2C_UNK)apply_confusion_status__10TObjPlayerFv,
-    (M2C_UNK)apply_movement_ailment__10TObjPlayerFv,
-    (M2C_UNK)apply_shock_status__10TObjPlayerFv,
-    (M2C_UNK)clear_harmful_statuses__10TObjPlayerFv,
-    (M2C_UNK)apply_attack_stat_status__10TObjPlayerFv,
-    (M2C_UNK)apply_defense_stat_status__10TObjPlayerFv,
-    (M2C_UNK)cure_poison_ailment,
-    (M2C_UNK)cure_paralysis__10TObjPlayerFv,
-    (M2C_UNK)clear_all_status_effects,
-    (M2C_UNK)apply_action_hold_status,
-    (M2C_UNK)apply_anti_technique__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80014898,
-    (M2C_UNK)TObjPlayer__sub_80014894,
-    (M2C_UNK)TObjPlayer__sub_80014890,
-    (M2C_UNK)TObjPlayer__sub_8001488C,
-    (M2C_UNK)TObjPlayer__sub_80014888,
-    (M2C_UNK)TBoss4Uro__vt61,
-    (M2C_UNK)reset_pose__10TObjPlayerFPv,
-    (M2C_UNK)TObjPlayer__sub_80014840,
-    (M2C_UNK)TObjPlayer__sub_80014838,
-    (M2C_UNK)TObjPlayer__sub_80014830,
-    (M2C_UNK)get_pos__10TObjPlayerFii,
-    (M2C_UNK)apply_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_jellen_effect,
-    (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_zalure_effect,
-    (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)update_and_send_enemy_hit_state,
-    (M2C_UNK)fn_80010EC8,
-    (M2C_UNK)fn_80010EC4,
-    (M2C_UNK)fn_80010EC0,
-    (M2C_UNK)fn_80010EBC,
-    (M2C_UNK)call_vt78__10TObjPlayerFPv,
-    (M2C_UNK)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (M2C_UNK)apply_set_data__9TObjEnemyFPvPv,
-    (M2C_UNK)clear_lobby_object_state,
+    (s32)__dt__9TBoss4UroFv,
+    (s32)run_task__9TBoss4UroFv,
+    (s32)render__9TBoss4UroFv,
+    (s32)render_actor_shadows_default,
+    (s32)TLobby__sub_801A1FD8,
+    (s32)apply_object_set_data,
+    (s32)reset_actor_action_state,
+    (s32)get_actor_body_center,
+    (s32)update_object_view_visibility,
+    (s32)classify_actor_view_detail,
+    (s32)get_enemy_name__14TObjEnePanarmsFPv,
+    (s32)TObjPlayer__sub_80019568,
+    (s32)add_actor_exp,
+    (s32)consume_timer_field__10TObjPlayerFPvi,
+    (s32)get_actor_level_index,
+    (s32)update_actor_ground_y,
+    (s32)TObjPlayer__sub_80018E6C,
+    (s32)is_actor_cadence_frame,
+    (s32)select_melee_contact_body__10TObjPlayerFv,
+    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)apply_knockback_from_attacker,
+    (s32)try_start_action__10TObjPlayerFPvii,
+    (s32)roll_physical_accuracy__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80011010,
+    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)test_flag_256__10TObjPlayerFPv,
+    (s32)test_flag30_512__10TObjPlayerFPv,
+    (s32)has_flag_0x800__10TObjPlayerFPv,
+    (s32)test_flag_1000__10TObjPlayerFPv,
+    (s32)update_poison_status__10TObjPlayerFv,
+    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)update_flag30_timer__10TObjPlayerFPv,
+    (s32)update_movement_status__10TObjPlayerFv,
+    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_attack_stat_status,
+    (s32)update_defense_stat_status,
+    (s32)TObjPlayer__sub_800172CC,
+    (s32)apply_poison_status__10TObjPlayerFv,
+    (s32)apply_paralysis__10TObjPlayerFv,
+    (s32)apply_slow_status__10TObjPlayerFPv,
+    (s32)apply_confusion_status__10TObjPlayerFv,
+    (s32)apply_movement_ailment__10TObjPlayerFv,
+    (s32)apply_shock_status__10TObjPlayerFv,
+    (s32)clear_harmful_statuses__10TObjPlayerFv,
+    (s32)apply_attack_stat_status__10TObjPlayerFv,
+    (s32)apply_defense_stat_status__10TObjPlayerFv,
+    (s32)cure_poison_ailment,
+    (s32)cure_paralysis__10TObjPlayerFv,
+    (s32)clear_all_status_effects,
+    (s32)apply_action_hold_status,
+    (s32)apply_anti_technique__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80014898,
+    (s32)TObjPlayer__sub_80014894,
+    (s32)TObjPlayer__sub_80014890,
+    (s32)TObjPlayer__sub_8001488C,
+    (s32)TObjPlayer__sub_80014888,
+    (s32)TBoss4Uro__vt61,
+    (s32)reset_pose__10TObjPlayerFPv,
+    (s32)TObjPlayer__sub_80014840,
+    (s32)TObjPlayer__sub_80014838,
+    (s32)TObjPlayer__sub_80014830,
+    (s32)get_pos__10TObjPlayerFii,
+    (s32)apply_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_jellen_effect,
+    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_zalure_effect,
+    (s32)TObjPlayer__sub_80010A80,
+    (s32)update_and_send_enemy_hit_state,
+    (s32)fn_80010EC8,
+    (s32)fn_80010EC4,
+    (s32)fn_80010EC0,
+    (s32)fn_80010EBC,
+    (s32)call_vt78__10TObjPlayerFPv,
+    (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
+    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)clear_lobby_object_state,
 };
-M2C_UNK __vt__10TBoss4Zako[83] = {
+s32 __vt__10TBoss4Zako[83] = {
     0,
     0,
-    (M2C_UNK)__dt__10TBoss4ZakoFPvs,
-    (M2C_UNK)run_task__10TBoss4ZakoFv,
-    (M2C_UNK)render__9TBoss4UroFv,
-    (M2C_UNK)render_actor_shadows_default,
-    (M2C_UNK)TLobby__sub_801A1FD8,
-    (M2C_UNK)apply_object_set_data,
-    (M2C_UNK)reset_actor_action_state,
-    (M2C_UNK)get_actor_body_center,
-    (M2C_UNK)update_object_view_visibility,
-    (M2C_UNK)classify_actor_view_detail,
-    (M2C_UNK)get_enemy_name__14TObjEnePanarmsFPv,
-    (M2C_UNK)TObjPlayer__sub_80019568,
-    (M2C_UNK)add_actor_exp,
-    (M2C_UNK)consume_timer_field__10TObjPlayerFPvi,
-    (M2C_UNK)get_actor_level_index,
-    (M2C_UNK)update_actor_ground_y,
-    (M2C_UNK)TObjPlayer__sub_80018E6C,
-    (M2C_UNK)is_actor_cadence_frame,
-    (M2C_UNK)select_melee_contact_body__10TObjPlayerFv,
-    (M2C_UNK)calc_distance_accuracy_penalty__10TObjPlayerFv,
-    (M2C_UNK)receive_physical_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_direct_attack__10TObjPlayerFv,
-    (M2C_UNK)receive_weapon_special_attack__10TObjPlayerFv,
-    (M2C_UNK)apply_knockback_from_attacker,
-    (M2C_UNK)try_start_action__10TObjPlayerFPvii,
-    (M2C_UNK)roll_physical_accuracy__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80011010,
-    (M2C_UNK)TObjPlayer__sub_8000FF3C,
-    (M2C_UNK)is_target_in_attack_range__10TObjPlayerFv,
-    (M2C_UNK)test_flag_256__10TObjPlayerFPv,
-    (M2C_UNK)test_flag30_512__10TObjPlayerFPv,
-    (M2C_UNK)has_flag_0x800__10TObjPlayerFPv,
-    (M2C_UNK)test_flag_1000__10TObjPlayerFPv,
-    (M2C_UNK)update_poison_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_hold_status__10TObjPlayerFv,
-    (M2C_UNK)update_action_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_flag30_timer__10TObjPlayerFPv,
-    (M2C_UNK)update_movement_status__10TObjPlayerFv,
-    (M2C_UNK)update_shock_clock__10TObjPlayerFPv,
-    (M2C_UNK)update_attack_stat_status,
-    (M2C_UNK)update_defense_stat_status,
-    (M2C_UNK)TObjPlayer__sub_800172CC,
-    (M2C_UNK)apply_poison_status__10TObjPlayerFv,
-    (M2C_UNK)apply_paralysis__10TObjPlayerFv,
-    (M2C_UNK)apply_slow_status__10TObjPlayerFPv,
-    (M2C_UNK)apply_confusion_status__10TObjPlayerFv,
-    (M2C_UNK)apply_movement_ailment__10TObjPlayerFv,
-    (M2C_UNK)apply_shock_status__10TObjPlayerFv,
-    (M2C_UNK)clear_harmful_statuses__10TObjPlayerFv,
-    (M2C_UNK)apply_attack_stat_status__10TObjPlayerFv,
-    (M2C_UNK)apply_defense_stat_status__10TObjPlayerFv,
-    (M2C_UNK)cure_poison_ailment,
-    (M2C_UNK)cure_paralysis__10TObjPlayerFv,
-    (M2C_UNK)clear_all_status_effects,
-    (M2C_UNK)apply_action_hold_status,
-    (M2C_UNK)apply_anti_technique__10TObjPlayerFv,
-    (M2C_UNK)TObjPlayer__sub_80014898,
-    (M2C_UNK)TObjPlayer__sub_80014894,
-    (M2C_UNK)TObjPlayer__sub_80014890,
-    (M2C_UNK)TObjPlayer__sub_8001488C,
-    (M2C_UNK)TObjPlayer__sub_80014888,
-    (M2C_UNK)update_state3__10TBoss4ZakoFPv,
-    (M2C_UNK)reset_pose__10TObjPlayerFPv,
-    (M2C_UNK)TObjPlayer__sub_80014840,
-    (M2C_UNK)TObjPlayer__sub_80014838,
-    (M2C_UNK)TObjPlayer__sub_80014830,
-    (M2C_UNK)get_pos__10TObjPlayerFii,
-    (M2C_UNK)apply_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_jellen_effect,
-    (M2C_UNK)trigger_switch_attack__10TObjPlayerFi,
-    (M2C_UNK)enemy_spawn_zalure_effect,
-    (M2C_UNK)TObjPlayer__sub_80010A80,
-    (M2C_UNK)update_and_send_enemy_hit_state,
-    (M2C_UNK)fn_80010EC8,
-    (M2C_UNK)fn_80010EC4,
-    (M2C_UNK)fn_80010EC0,
-    (M2C_UNK)fn_80010EBC,
-    (M2C_UNK)call_vt78__10TObjPlayerFPv,
-    (M2C_UNK)apply_hit_message_flags__10TObjPlayerFPvPv,
-    (M2C_UNK)apply_set_data__9TObjEnemyFPvPv,
-    (M2C_UNK)clear_lobby_object_state,
+    (s32)__dt__10TBoss4ZakoFPvs,
+    (s32)run_task__10TBoss4ZakoFv,
+    (s32)render__9TBoss4UroFv,
+    (s32)render_actor_shadows_default,
+    (s32)TLobby__sub_801A1FD8,
+    (s32)apply_object_set_data,
+    (s32)reset_actor_action_state,
+    (s32)get_actor_body_center,
+    (s32)update_object_view_visibility,
+    (s32)classify_actor_view_detail,
+    (s32)get_enemy_name__14TObjEnePanarmsFPv,
+    (s32)TObjPlayer__sub_80019568,
+    (s32)add_actor_exp,
+    (s32)consume_timer_field__10TObjPlayerFPvi,
+    (s32)get_actor_level_index,
+    (s32)update_actor_ground_y,
+    (s32)TObjPlayer__sub_80018E6C,
+    (s32)is_actor_cadence_frame,
+    (s32)select_melee_contact_body__10TObjPlayerFv,
+    (s32)calc_distance_accuracy_penalty__10TObjPlayerFv,
+    (s32)receive_physical_attack__10TObjPlayerFv,
+    (s32)receive_direct_attack__10TObjPlayerFv,
+    (s32)receive_weapon_special_attack__10TObjPlayerFv,
+    (s32)apply_knockback_from_attacker,
+    (s32)try_start_action__10TObjPlayerFPvii,
+    (s32)roll_physical_accuracy__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80011010,
+    (s32)TObjPlayer__sub_8000FF3C,
+    (s32)is_target_in_attack_range__10TObjPlayerFv,
+    (s32)test_flag_256__10TObjPlayerFPv,
+    (s32)test_flag30_512__10TObjPlayerFPv,
+    (s32)has_flag_0x800__10TObjPlayerFPv,
+    (s32)test_flag_1000__10TObjPlayerFPv,
+    (s32)update_poison_status__10TObjPlayerFv,
+    (s32)update_action_hold_status__10TObjPlayerFv,
+    (s32)update_action_timer__10TObjPlayerFPv,
+    (s32)update_flag30_timer__10TObjPlayerFPv,
+    (s32)update_movement_status__10TObjPlayerFv,
+    (s32)update_shock_clock__10TObjPlayerFPv,
+    (s32)update_attack_stat_status,
+    (s32)update_defense_stat_status,
+    (s32)TObjPlayer__sub_800172CC,
+    (s32)apply_poison_status__10TObjPlayerFv,
+    (s32)apply_paralysis__10TObjPlayerFv,
+    (s32)apply_slow_status__10TObjPlayerFPv,
+    (s32)apply_confusion_status__10TObjPlayerFv,
+    (s32)apply_movement_ailment__10TObjPlayerFv,
+    (s32)apply_shock_status__10TObjPlayerFv,
+    (s32)clear_harmful_statuses__10TObjPlayerFv,
+    (s32)apply_attack_stat_status__10TObjPlayerFv,
+    (s32)apply_defense_stat_status__10TObjPlayerFv,
+    (s32)cure_poison_ailment,
+    (s32)cure_paralysis__10TObjPlayerFv,
+    (s32)clear_all_status_effects,
+    (s32)apply_action_hold_status,
+    (s32)apply_anti_technique__10TObjPlayerFv,
+    (s32)TObjPlayer__sub_80014898,
+    (s32)TObjPlayer__sub_80014894,
+    (s32)TObjPlayer__sub_80014890,
+    (s32)TObjPlayer__sub_8001488C,
+    (s32)TObjPlayer__sub_80014888,
+    (s32)update_state3__10TBoss4ZakoFPv,
+    (s32)reset_pose__10TObjPlayerFPv,
+    (s32)TObjPlayer__sub_80014840,
+    (s32)TObjPlayer__sub_80014838,
+    (s32)TObjPlayer__sub_80014830,
+    (s32)get_pos__10TObjPlayerFii,
+    (s32)apply_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_jellen_effect,
+    (s32)trigger_switch_attack__10TObjPlayerFi,
+    (s32)enemy_spawn_zalure_effect,
+    (s32)TObjPlayer__sub_80010A80,
+    (s32)update_and_send_enemy_hit_state,
+    (s32)fn_80010EC8,
+    (s32)fn_80010EC4,
+    (s32)fn_80010EC0,
+    (s32)fn_80010EBC,
+    (s32)call_vt78__10TObjPlayerFPv,
+    (s32)apply_hit_message_flags__10TObjPlayerFPvPv,
+    (s32)apply_set_data__9TObjEnemyFPvPv,
+    (s32)clear_lobby_object_state,
 };
 }

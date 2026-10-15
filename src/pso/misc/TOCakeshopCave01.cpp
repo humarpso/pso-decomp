@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8015A108_lbl_804AFDF8 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8015A108_lbl_804AFDF8 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8015A108_lbl_804AFDF8_size[sizeof(RecoveredGlobal_8015A108_lbl_804AFDF8) == 0x10 ? 1 : -1];
 
 struct TOCakeshopCave01_80159E24 {
@@ -21,7 +17,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct TOCakeshopCave01_8015A1C0 {
@@ -66,12 +62,12 @@ extern const f32 lbl_805DB35C;
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB364;
 void update_blink_state__16TOCakeshopCave01FPvPv(void *arg0, void *arg1);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK refresh_collision_body_centers(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
-M2C_UNK init_map_object_base(void *, s32);
-extern M2C_UNK lbl_804AFE08[];
-extern M2C_UNK __vt__16TOCakeshopCave01[];
+s32 init_map_object_base(void *, s32);
+extern s32 lbl_804AFE08[];
+extern s32 __vt__16TOCakeshopCave01[];
 extern s32 lbl_805D2EC4;
 extern u32 TOCakeshopCave01__model_resource;
 extern s32 tl_05;
@@ -79,15 +75,15 @@ extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB36C;
 extern const f32 lbl_805DB370;
 void *TOCakeshopCave01__ct(void *arg0_, void *arg1);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_model(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_model(int);
 extern const f32 TOCakeshopCave01__data_805DB360;
 extern const f32 lbl_805DB368;
 void render__16TOCakeshopCave01Fv(u8 *arg0);
@@ -100,11 +96,11 @@ void close_dialog_window__16TOCakeshopCave01Fv(void);
 void *create__16TOCakeshopCave01FPv(void *arg0);
 void run_task__16TOCakeshopCave01Fv(void* p);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
+s32 destroy_key_base__5TOKeyFPvs(void *, s32);
 
 void update_blink_state__16TOCakeshopCave01FPvPv(void *arg0, void *arg1) {
     TOCakeshopCave01_80159E24 *o = (TOCakeshopCave01_80159E24 *)arg0;
@@ -138,12 +134,12 @@ void run_task__16TOCakeshopCave01Fv(void* p) { { int i; for (i = 0; i < 8; i++) 
 void render__16TOCakeshopCave01Fv(u8 *arg0) {
     Model_80159F78 *m;
     s32 i;
-    if (((VObj_18_26a62c *)(arg0))->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        m = M2C_FIELD(arg0, Model_80159F78 **, 0x34);
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        m = *(Model_80159F78 **)((s8 *)arg0 + 0x34);
         post_translate_matrix(m->m8);
         draw_ginja_model(m->m4);
         m = m->child;
@@ -180,7 +176,7 @@ void close_dialog_window__16TOCakeshopCave01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__16TOCakeshopCave01[];
+extern s32 __vt__16TOCakeshopCave01[];
 
 void load_resource_instance__16TOCakeshopCave01Fv(void) {
     s32 temp_r3;
@@ -195,7 +191,7 @@ void load_resource_instance__16TOCakeshopCave01Fv(void) {
 
 void *__dt__16TOCakeshopCave01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOCakeshopCave01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
@@ -209,14 +205,14 @@ void *TOCakeshopCave01__ct(void *arg0_, void *arg1) {
     u8 *arg0 = (u8 *)arg0_;
     s32 i;
     init_map_object_base(arg0, tl_05);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOCakeshopCave01;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2EC4;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOCakeshopCave01;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2EC4;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__model_resource, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(TOCakeshopCave01__model_resource, u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB36C;
-    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB370;
-    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCakeshopCave01__model_resource + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCakeshopCave01__model_resource + 0x42C)) + 0xC);
+    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB36C;
+    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB370;
+    *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     init_collision_body_parts(arg0, lbl_804AFE08, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);

@@ -1,22 +1,18 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x23C];
 };
 
 struct RecoveredGlobal_8007B594_TWindowGetComCard__data_80500158 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x23C];
 };
 
 struct RecoveredGlobal_8007B60C_TWindowGetComCard__data_80500158
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x23C];
 };
 
@@ -27,8 +23,8 @@ void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B54C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
-M2C_UNK *TWindowGetComCard__sub_8007B594(void);
-M2C_UNK TWindowSubComCard__sub_8007B26C(s32);
+s32 *TWindowGetComCard__sub_8007B594(void);
+s32 TWindowSubComCard__sub_8007B26C(s32);
 void TWindowCtrl__sub_8024A08C(void);
 extern RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void TWindowGetComCard__sub_8007B60C(s32 _w0);
@@ -43,8 +39,8 @@ extern "C" {
 void TWindowGetComCard__sub_8007B65C(void* p);
 void TWindowGetComCard__sub_8007B67C(void* p);
 void remove_entry__17TWindowGetComCardFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK move_words__6TLobbyFPvPvi(s32, s32, u32);
-M2C_UNK TWindowSubComCard__sub_8007B26C(s32);
+s32 move_words__6TLobbyFPvPvi(s32, s32, u32);
+s32 TWindowSubComCard__sub_8007B26C(s32);
 
 typedef char RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B54C_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
 void TWindowGetComCard__sub_8007B54C(void) {
@@ -55,7 +51,7 @@ void TWindowGetComCard__sub_8007B54C(void) {
 }
 
 typedef char RecoveredGlobal_8007B594_TWindowGetComCard__data_80500158_size[sizeof(RecoveredGlobal_8007B594_TWindowGetComCard__data_80500158) == 0x240 ? 1 : -1];
-M2C_UNK *TWindowGetComCard__sub_8007B594(void) {
+s32 *TWindowGetComCard__sub_8007B594(void) {
     return &(*(RecoveredGlobal_8007B594_TWindowGetComCard__data_80500158 *)&TWindowGetComCard__received_guild_card_tags).value;
 }
 

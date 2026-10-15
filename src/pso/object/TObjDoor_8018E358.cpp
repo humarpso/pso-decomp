@@ -1,15 +1,10 @@
 #include "types.h"
 #include "pso/object/TObjDoor.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Node_8018E358 { s32 pad0; void *f4; };
 struct Glob_8018E358 { s32 f0; s32 pad4; s32 pad8; Node_8018E358 *a; Node_8018E358 *b; };
 struct Door_8018E358 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x50]; f32 fB4; };
 
-typedef s32 M2C_UNK;
 struct DoorMotionHeader;
 struct Color_8018E40C { f32 a; f32 r; f32 g; f32 b; };
 
@@ -87,20 +82,20 @@ void TObjDoor__sub_8018E8BC(void);
 f32 sin_table_lookup(s32);
 void update_anim__8TObjDoorFPv(void *arg0);
 f32 xyz_distance_squared(void *, void *);
-M2C_UNK project_world_to_screen(int, void *, void *);
+s32 project_world_to_screen(int, void *, void *);
 extern s32 camera_ctrl_instance;
 s32 is_visible__8TObjDoorFiff(s32 arg0, f32 farg0, f32 farg1);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-extern M2C_UNK __vt__8TObjDoor[];
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+extern s32 __vt__8TObjDoor[];
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
 extern void *tl_05;
 void *TObjDoor__create(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 free_if_valid__10TObjPlayerFi(s32);
 extern s32 TObjDoor__resource_param;
 extern u32 door_resource_handle;
 void free_resources__8TObjDoorFv(void);
@@ -140,7 +135,7 @@ extern Glob_8018E358 TObjDoor__model_resource_ptrs[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoor__resource_param;
 extern s32 model_render_flags;
-M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
+s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 s32 load_gvm_texture_file(void *);
@@ -167,7 +162,7 @@ extern DoorMotionHeader* TObjDoor__motion_table[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoor__resource_param;
 extern s32 model_render_flags;
-M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
+s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0);
 void VecCopy__FP3VecPC3Vec(f32*,const f32*);
 void set_active_camera_pose(f32*,f32*);
 void restore_player_cameras();
@@ -179,10 +174,10 @@ void play_persistent_sound(s32,TObjDoor*,f32*,s32,s32);
 u8 is_current_floor_switch_set(u16);
 extern s32 TObjDoor__data_805D5BC8;
 void update_state__8TObjDoorFPv(TObjDoor* door);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK init_collision_body_parts(void *, void *, M2C_UNK);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-extern M2C_UNK __vt__8TObjDoor[];
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 init_collision_body_parts(void *, void *, s32);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+extern s32 __vt__8TObjDoor[];
 extern s32 TObjDoor__name;
 void *TObjDoor__ct(void *arg0, void *arg1, void *arg2);
 void draw_closed_glow__8TObjDoorFPv(TObjDoor* door);
@@ -369,7 +364,7 @@ void draw_closing__8TObjDoorFPv(Door_8018E358 *arg0) {
     pop_matrix();
 }
 
-M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
+s32 draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__resource_param);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -396,14 +391,14 @@ M2C_UNK draw_closed__8TObjDoorFPv(Door_8018E5F4 *arg0) {
 }
 
 void update_timer__8TObjDoorFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC0) < 0x3C) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC0) < 0x3C) {
         draw_closed__8TObjDoorFPv((Door_8018E5F4 *)(arg0));
         return;
     }
     draw_locked__8TObjDoorFPv((Door_8018E74C *)(arg0));
 }
 
-M2C_UNK draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
+s32 draw_locked__8TObjDoorFPv(Door_8018E74C *arg0) {
     set_global_param__8TObjFishFi(TObjDoor__resource_param);
     push_matrix();
     post_translate_matrix(arg0->f38);
@@ -435,9 +430,9 @@ void TObjDoor__sub_8018E890(void) {  }
 #pragma push
 #pragma opt_common_subs off
 void update_opening_glow__8TObjDoorFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) - (0.05f));
-    if (M2C_FIELD(arg0, f32 *, 0xC4) < (0.0f)) {
-        M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) - (0.05f));
+    if (*(f32 *)((s8 *)arg0 + 0xC4) < (0.0f)) {
+        *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (0.0f);
     }
 }
 #pragma pop
@@ -454,8 +449,8 @@ void draw_closed_glow__8TObjDoorFPv(TObjDoor* door) {
 #pragma push
 #pragma fp_contract on
 void update_anim__8TObjDoorFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) (M2C_FIELD(arg0, s32 *, 0xC8) + 0x300);
-    M2C_FIELD(arg0, f32 *, 0xC4) = (0.2f) * sin_table_lookup(M2C_FIELD(arg0, s32 *, 0xC8)) + (0.4f);
+    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) (*(s32 *)((s8 *)arg0 + 0xC8) + 0x300);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (0.2f) * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0xC8)) + (0.4f);
 }
 void update_locked_pulse__8TObjDoorFPv(TObjDoor* door) {
     door->accentFrame+=(2.0f);
@@ -619,7 +614,7 @@ void run_task__8TObjDoorFv(VObj_8018EF70 *self) {
 }
 void *__dt__8TObjDoorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TObjDoor;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TObjDoor;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -14,8 +10,8 @@ u16 find_active_player__12TObjAreaWarpFPv(void *arg0) {
     u32 temp_r31;
     s32 var_r30;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x14) != 0) {
-        temp_r31 = M2C_FIELD(arg0, s32 *, 0x1C) & M2C_FIELD(arg0, s32 *, 0x20);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x14) != 0) {
+        temp_r31 = *(s32 *)((s8 *)arg0 + 0x1C) & *(s32 *)((s8 *)arg0 + 0x20);
         var_r30 = 0;
 loop_2:
         if (!((temp_r31 >> var_r30) & 1) && (get_player_by_client_id(var_r30) != 0U)) {

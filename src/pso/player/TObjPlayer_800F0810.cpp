@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_800F08AC_lbl_80501080 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x4C];
 };
 
 struct RecoveredGlobal_800F08AC_lbl_805010D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -23,25 +19,25 @@ struct Stack_800F09E8 {
     f32 sp18;
     s32 sp1C;
     s32 sp20;
-    M2C_UNK * sp24;
+    s32 * sp24;
 };
 
 struct RecoveredGlobal_800F09E8_lbl_804976B0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 extern "C" {
-M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
+s32 set_chunk_material_override_pair(s32, s32);
 extern s32 model_render_flags;
 void set_alt_model_flag__10TObjPlayerFv(void);
 extern RecoveredGlobal_800F08AC_lbl_80501080 lbl_80501080;
 extern RecoveredGlobal_800F08AC_lbl_805010D0 lbl_805010D0;
-M2C_UNK *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
+s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
 void TObjPlayer__sub_800F083C(void);
-M2C_UNK *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
+s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1);
 void clear_alt_model_flag__10TObjPlayerFv(void);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
 void set_alt_model_flag__10TObjPlayerFv(void);
 void update_lights__10TObjPlayerFv(void);
 void draw_with_alt_model__10TObjPlayerFPvi(void *arg0, s32 arg1);
@@ -69,7 +65,7 @@ void clear_alt_model_flag__10TObjPlayerFv(void);
 void update_lights__10TObjPlayerFv(void);
 int init_directional_light__9TObjLightFv(void*);
 int TObjLight__sub_801337F8(void*);
-M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
+s32 set_chunk_material_override_pair(s32, s32);
 
     extern int current_scene_light;
 void update_lights__10TObjPlayerFv(void) { init_directional_light__9TObjLightFv((void*)(current_scene_light)); TObjLight__sub_801337F8((void*)(current_scene_light)); }
@@ -82,22 +78,22 @@ void clear_alt_model_flag__10TObjPlayerFv(void) {
     model_render_flags &= 0xFFFFF7FF;
     set_chunk_material_override_pair(0xFF00, 0);
 }
-void set_alt_model_flag__10TObjPlayerFv(void) { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((M2C_UNK)((void*)-513), (M2C_UNK)((void*)0)); }
-M2C_UNK *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
-    M2C_FIELD(&lbl_805010D0.value, s32 *, 4) = arg1;
-    M2C_FIELD(&lbl_80501080.value, s32 *, 0x30) = arg0;
+void set_alt_model_flag__10TObjPlayerFv(void) { (*(int *)&model_render_flags) = ((*(int *)&model_render_flags) | 0x800); set_chunk_material_override_pair((s32)((void*)-513), (s32)((void*)0)); }
+s32 *TObjPlayer__sub_800F08AC(s32 arg0, s32 arg1) {
+    *(s32 *)((s8 *)(&lbl_805010D0.value) + 4) = arg1;
+    *(s32 *)((s8 *)(&lbl_80501080.value) + 0x30) = arg0;
     return &lbl_80501080.value;
 }
 void draw_with_alt_model__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     s32 temp_r31;
-    temp_r31 = M2C_FIELD(arg0, s32 *, 0x34);
+    temp_r31 = *(s32 *)((s8 *)arg0 + 0x34);
     set_alt_model_flag__10TObjPlayerFv();
     TObjPlayer__sub_800F083C();
-    M2C_FIELD(arg0, s32 *, 0x34) = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
+    *(s32 *)((s8 *)arg0 + 0x34) = ((s32)TObjPlayer__sub_800F08AC(temp_r31, arg1));
     draw__16TObjEneRe7BeruraFPv(arg0);
     update_lights__10TObjPlayerFv();
     clear_alt_model_flag__10TObjPlayerFv();
-    M2C_FIELD(arg0, s32 *, 0x34) = temp_r31;
+    *(s32 *)((s8 *)arg0 + 0x34) = temp_r31;
 }
 s32 is_split_screen__10TObjPlayerFv(void) {
     return is_split_screen() ? 1 : 0;
@@ -128,7 +124,7 @@ block_2:
         stack.sp18 = lbl_805DA800;
         stack.sp1C = 0;
         stack.sp20 = blob_shadow_texture_list;
-        stack.sp24 = (M2C_UNK *)(&lbl_804976B0.value);
+        stack.sp24 = (s32 *)(&lbl_804976B0.value);
         set_depth_buffer_settings_1__Fv();
         set_cached_blend_factor((int) (0), (int) (8));
         set_cached_blend_factor((int) (1), (int) (6));

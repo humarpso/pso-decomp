@@ -1,24 +1,21 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct SRock_80224544_8022448C;
 
 struct RecoveredGlobal_8022559C_lbl_80513F50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_802259A0_lbl_80513F70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x67C];
 };
 
 struct RecoveredGlobal_802258C8_lbl_80513F70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x67C];
 };
 
@@ -120,7 +117,7 @@ void *TLobby__sub_8022598C(int a0);
 s32 strncpy(void *, void *, int);
 extern s32 lbl_805D6270;
 void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_8022559C_lbl_80513F50 shop_weapon_stock_generated_flags;
 void clear_shop_weapon_flags(void);
 int is_flag_set__6TLobbyFPv(void* p);
@@ -152,12 +149,12 @@ s32 is_split_screen(void);
 s32 create_named_object(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 extern u8 lbl_8044C478[];
-extern M2C_UNK shop_tool_stock_buffers[];
+extern s32 shop_tool_stock_buffers[];
 extern u32 lobby_tool_random_rel;
 extern int shop_tool_stock_level;
 void load_tool_random_rel(void);
-M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
-M2C_UNK free__11TOBoss4RockFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUi(u32);
+s32 free__11TOBoss4RockFUi(u32);
 extern G_80225550 shop_weapon_stock_buffers;
 extern u32 lobby_weapon_random_tables_ptr;
 void free_lobby_resources__6TLobbyFv(void);
@@ -273,9 +270,9 @@ int is_flag_set__6TLobbyFPv(void* p);
 s32 level_to_reward__6TLobbyFi(s32 arg0);
 void set_6264_and_call_2244B0__6TLobbyFii(int a0, int a1);
 void try_close__6TLobbyFPv(void* p);
-M2C_UNK free_nodes_with_id__6TLobbyFUi(u32);
+s32 free_nodes_with_id__6TLobbyFUi(u32);
 void TLobby__sub_80225A08(void*);
-M2C_UNK free__11TOBoss4RockFUi(u32);
+s32 free__11TOBoss4RockFUi(u32);
 
 void play_sound_effect(s32, s32, s32, s32);
 unsigned char lbl_80513F70[0x680];
@@ -305,9 +302,9 @@ void send_simple_mail__6TLobbyFiPv(s32 arg0, void *arg1) {
 
 void TLobby__sub_802258C8(void) {
   s32 var_r31;
-  M2C_UNK *var_r30;
+  s32 *var_r30;
   var_r31 = 0;
-  var_r30 = (M2C_UNK *) (&(*(RecoveredGlobal_802258C8_lbl_80513F70 *)&lbl_80513F70).value);
+  var_r30 = (s32 *) (&(*(RecoveredGlobal_802258C8_lbl_80513F70 *)&lbl_80513F70).value);
   do
   {
     if (((s32)is_flag_set__6TLobbyFPv((void*)(var_r30))) != 0)
@@ -315,7 +312,7 @@ void TLobby__sub_802258C8(void) {
       TLobby__sub_80225C8C((void*)((int) var_r30));
     }
     var_r31 += 1;
-    var_r30 = (M2C_UNK *) (((u8 *) var_r30) + 0xD0);
+    var_r30 = (s32 *) (((u8 *) var_r30) + 0xD0);
   }
   while (var_r31 < 8);
 }
@@ -345,16 +342,16 @@ typedef struct RecoveredGlobal_802259A0_lbl_80513F70 RecoveredGlobal_802259A0_lb
 typedef char RecoveredGlobal_802259A0_lbl_80513F70_size[((sizeof(RecoveredGlobal_802259A0_lbl_80513F70)) == 0x680) ? (1) : (-1)];
 s32 find_free_slot__6TLobbyFv(void) {
   s32 var_r31;
-  M2C_UNK *var_r30;
+  s32 *var_r30;
   var_r31 = 0;
-  var_r30 = (M2C_UNK *) (&(*(RecoveredGlobal_802259A0_lbl_80513F70 *)&lbl_80513F70).value);
+  var_r30 = (s32 *) (&(*(RecoveredGlobal_802259A0_lbl_80513F70 *)&lbl_80513F70).value);
   loop_1:
   if (is_flag_set__6TLobbyFPv((void*)(var_r30)) == 0)
   {
     return var_r31;
   }
   var_r31 += 1;
-  var_r30 = (M2C_UNK *) ((u8 *) ((M2C_UNK *) (((u8 *) var_r30) + 0xD0)));
+  var_r30 = (s32 *) ((u8 *) ((s32 *) (((u8 *) var_r30) + 0xD0)));
   if (var_r31 >= 8)
   {
     remove_entry_at__6TLobbyFi((s32)(0));
@@ -410,15 +407,15 @@ s32 is_name_too_long__6TLobbyFPv(O_80225B90 *o) {
 
 void fill_list_entry__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     s32 temp_r7;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 8);
     temp_r7 = lbl_805D6270;
     lbl_805D6270 = temp_r7 + 1;
-    M2C_FIELD(arg0, s32 *, 4) = temp_r7;
-    M2C_FIELD(arg0, s8 *, 0xCC) = 0xB;
+    *(s32 *)((s8 *)arg0 + 4) = temp_r7;
+    *(s8 *)((s8 *)arg0 + 0xCC) = 0xB;
     strncpy((void *) (arg0 + 8), (void *) (arg1 + 0xC), (int) (0x17));
-    M2C_FIELD(arg0, s8 *, 0x1F) = 0;
+    *(s8 *)((s8 *)arg0 + 0x1F) = 0;
     strncpy((void *) (arg0 + 0x20), (void *) (arg1 + 0x20), (int) (0xAB));
-    M2C_FIELD(arg0, s8 *, 0xCB) = 0;
+    *(s8 *)((s8 *)arg0 + 0xCB) = 0;
 }
 
 void TLobby__sub_80225C44(void* p) { clear_all_entries__6TLobbyFPv((void*)(p)); }

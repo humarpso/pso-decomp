@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_800F5D80 {
@@ -20,8 +16,8 @@ extern "C" {
 
 void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK collect_model_strips_by_texture(void *, s32, s32, s32);
-M2C_UNK count_model_strips_by_texture();
+s32 collect_model_strips_by_texture(void *, s32, s32, s32);
+s32 count_model_strips_by_texture();
 s32 get_target_id__13TWindowLockOnFPv(void* p);
 int initialize_enemy_photon_effect(void* p);
 int reset_photon_effect__12TBoss3VoloptFPv(void*);
@@ -34,14 +30,14 @@ extern s32 plist_texture_matches_filter;
 void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r6;
 
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = 0;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
     plist_texture_matches_filter = 0;
     count_model_strips_by_texture();
-    M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 4) * 8);
-    M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
-    lbl_805D5318 = M2C_FIELD(arg0, s32 *, 8);
-    temp_r6 = M2C_FIELD(arg0, s32 *, 0xC);
+    *(s32 *)((s8 *)arg0 + 8) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 4) * 8);
+    *(s32 *)((s8 *)arg0 + 0xC) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 0) * 4);
+    lbl_805D5318 = *(s32 *)((s8 *)arg0 + 8);
+    temp_r6 = *(s32 *)((s8 *)arg0 + 0xC);
     lbl_805D531C = temp_r6;
     plist_texture_matches_filter = 0;
     collect_model_strips_by_texture(arg0, arg1, arg2, temp_r6);

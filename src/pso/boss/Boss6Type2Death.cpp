@@ -1,8 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK;
 struct O_8033E5A8 {
     u8 pad0[0x18];
     void *vt;
@@ -14,9 +11,6 @@ struct O_8033E5A8 {
     void *f9c;
     void *fa0[4];
 };
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_8033E0F0 { f32 x, y, z; };
 
@@ -49,12 +43,12 @@ struct Pl_8033E0F0 {
 extern "C" {
 void *__nw__7TObjectFUl(int);
 void * create_boss6_type2_death(void *arg0, void *arg1);
-M2C_UNK __dt__7TObjectFv(void *, int);
-M2C_UNK restore_player_cameras();
+s32 __dt__7TObjectFv(void *, int);
+s32 restore_player_cameras();
 void request_destroy__11TBoss4Type2FUi(void *);
 void init_state_1__8TObjFishFPv(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
+s32 __dl__7TObjectFPv(void *);
+s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
 extern void *__vt__23TBoss6Demo21_TYPE2_DEAD[];
 O_8033E5A8 *__dt__23TBoss6Demo21_TYPE2_DEADFv(O_8033E5A8 *arg0, s16 arg1);
 void clear_render_callback__8TObjFishFv(int);
@@ -102,9 +96,9 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void vec3_add_to(void *, void *);
 f32 vector_length(void *);
 void subtract_vector(void *, void *);
-M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, int);
 void set_flags__11TBoss4Type2FPvUi(void *, u32);
 void copy_pos__11TNowLoadingFPvPv(void *, void *);
@@ -113,7 +107,7 @@ s32 get_game_mode__6TLobbyFv();
 Pl_8033E0F0 *get_player_data__10TObjPlayerFi(s32);
 s32 is_locally_controlled__10TObjPlayerFPv(void *);
 s32 is_state_1f__14TBoss6PlotFalzFUi(void *);
-M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
+s32 queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
 void queue_destruction__7TObjectFv(void *);
 void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0);
@@ -168,14 +162,14 @@ extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
 #pragma pool_data off
 extern "C" {
 void draw_model_13__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x50) >= 0x1AC) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x50) >= 0x1AC) {
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix((void *) (arg0 + 0x58));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x44)));
-        set_draw_callback_list__8TObjFishFPv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
-        draw_model_motion((int) (M2C_FIELD(arg0, s32 *, 0x40)), (int) (M2C_FIELD(arg0, s32 *, 0x48)), (f32) (M2C_FIELD(arg0, f32 *, 0x4C)));
-        clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x9C)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x44)));
+        set_draw_callback_list__8TObjFishFPv((int) (*(s32 *)((s8 *)arg0 + 0x9C)));
+        draw_model_motion((int) (*(s32 *)((s8 *)arg0 + 0x40)), (int) (*(s32 *)((s8 *)arg0 + 0x48)), (f32) (*(f32 *)((s8 *)arg0 + 0x4C)));
+        clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x9C)));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
     }
@@ -258,7 +252,7 @@ void draw_fading_model_5__23TBoss6Demo21_TYPE2_DEADFv(void *p) {
 void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x50);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x50);
     if (temp_r0 < 0x101) {
         var_f31 = (1.0f);
     } else if (temp_r0 >= 0x10F) {
@@ -273,10 +267,10 @@ void draw_fading_model_4__23TBoss6Demo21_TYPE2_DEADFv(u8 *arg0) {
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix(arg0 + 0x58);
-        ((int (*)(s32))set_global_param__8TObjFishFi)(M2C_FIELD(arg0, s32 *, 0x20));
-        set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0x70));
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x1C), M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x4C));
-        clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x70));
+        ((int (*)(s32))set_global_param__8TObjFishFi)(*(s32 *)((s8 *)arg0 + 0x20));
+        set_draw_callback_list__8TObjFishFPv(*(s32 *)((s8 *)arg0 + 0x70));
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x4C));
+        clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x70));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         if (var_f31 < (1.0f)) {
@@ -455,9 +449,9 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     Vec_8033E688 v;
     s32 i;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = __vt__23TBoss6Demo21_TYPE2_DEAD;
-    M2C_FIELD(arg0, s32 *, 0) = TBoss6Demo21_TYPE2_DEAD__name;
-    M2C_FIELD(arg0, void **, 0x54) = arg1;
+    *(u8 **)((s8 *)arg0 + 0x18) = __vt__23TBoss6Demo21_TYPE2_DEAD;
+    *(s32 *)((s8 *)arg0 + 0) = TBoss6Demo21_TYPE2_DEAD__name;
+    *(void **)((s8 *)arg0 + 0x54) = arg1;
     VecCopy__FP3VecPC3Vec(arg0 + 0x58, lbl_804780A0);
     VecCopy__FP3VecPC3Vec(&v, arg2);
     subtract_vector(&v, lbl_804780A0);
@@ -469,30 +463,30 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     }
     vec3_add_to(arg0 + 0x58, &v);
     void *count = get_fish_count__8TObjFishFv();
-    M2C_FIELD(arg0, s32 *, 0x1C) = get_bml_model(count, 4);
-    M2C_FIELD(arg0, s32 *, 0x20) = TObjFish__sub_8001EDB0(count, 4);
-    M2C_FIELD(arg0, s32 *, 0x24) = get_bml_motion(count, 7);
-    M2C_FIELD(arg0, s32 *, 0x28) = get_bml_model(count, 5);
-    M2C_FIELD(arg0, s32 *, 0x2C) = TObjFish__sub_8001EDB0(count, 5);
-    M2C_FIELD(arg0, s32 *, 0x30) = get_bml_motion(count, 7);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(count, 8);
-    M2C_FIELD(arg0, s32 *, 0x38) = TObjFish__sub_8001EDB0(count, 8);
-    M2C_FIELD(arg0, s32 *, 0x3C) = get_bml_motion(count, 8);
-    M2C_FIELD(arg0, s32 *, 0x40) = get_bml_model(count, 0xD);
-    M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
-    M2C_FIELD(arg0, s32 *, 0x48) = get_bml_motion(count, 0x3D);
-    M2C_FIELD(arg0, s32 *, 0x70) = TObjFish__sub_800E3124(lbl_804780C4, arg0 + 0x64);
-    M2C_FIELD(arg0, s32 *, 0x80) = TObjFish__sub_800E3124(lbl_804780E4, arg0 + 0x74);
-    M2C_FIELD(arg0, s32 *, 0x9C) = TObjFish__sub_800E3124(lbl_80478104, arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0x1C) = get_bml_model(count, 4);
+    *(s32 *)((s8 *)arg0 + 0x20) = TObjFish__sub_8001EDB0(count, 4);
+    *(s32 *)((s8 *)arg0 + 0x24) = get_bml_motion(count, 7);
+    *(s32 *)((s8 *)arg0 + 0x28) = get_bml_model(count, 5);
+    *(s32 *)((s8 *)arg0 + 0x2C) = TObjFish__sub_8001EDB0(count, 5);
+    *(s32 *)((s8 *)arg0 + 0x30) = get_bml_motion(count, 7);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(count, 8);
+    *(s32 *)((s8 *)arg0 + 0x38) = TObjFish__sub_8001EDB0(count, 8);
+    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_motion(count, 8);
+    *(s32 *)((s8 *)arg0 + 0x40) = get_bml_model(count, 0xD);
+    *(s32 *)((s8 *)arg0 + 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
+    *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(count, 0x3D);
+    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(lbl_804780C4, arg0 + 0x64);
+    *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(lbl_804780E4, arg0 + 0x74);
+    *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(lbl_80478104, arg0 + 0x84);
     activate_camera_mode(5);
     set_scripted_camera_pose(arg0 + 0x58, arg0 + 0x58, lbl_80478134);
     cache_target_and_forward__11TCameraCtrlFii(lbl_80478140, 0x416C);
     for (i = 0; i < 4; i++) {
         ((Fish_8033E688 *)arg0)->arr[i] = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0xB0) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
-    M2C_FIELD(arg0, f32 *, 0x4C) = (0.0f);
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    *(s32 *)((s8 *)arg0 + 0xB0) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 3, 0xF);
+    *(f32 *)((s8 *)arg0 + 0x4C) = (0.0f);
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
     return arg0;
 }
 #undef arg0

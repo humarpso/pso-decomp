@@ -1,10 +1,6 @@
 #include "pso/TEndingAB.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct EndingTextureName {
     const char *name;
@@ -157,7 +153,7 @@ EndingWallTextureSet ending_wall_texture_sets[4] = {
 };
 }
 
-struct RecoveredGlobal_8008CE80___vt__9TEndingAB { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8008CE80___vt__9TEndingAB { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8008CE80___vt__9TEndingAB_size[sizeof(RecoveredGlobal_8008CE80___vt__9TEndingAB) == 0x18 ? 1 : -1];
 
 extern "C" {
@@ -191,21 +187,21 @@ TEndingAB::~TEndingAB() {}
 u8 *__ct__9TEndingABFv(u8 *arg0, u8 *arg1) {
     s32 temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TEndingAB.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) ending_ab_class_name;
-    M2C_FIELD(arg0, s32 *, 0x1C) = -1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TEndingAB.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) ending_ab_class_name;
+    *(s32 *)((s8 *)arg0 + 0x1C) = -1;
     TEndingAB__fade_sequence_state = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0xFF;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
     init_float_table__9TEndingABFPv(arg0);
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xEC) = 0x1E;
+        *(s32 *)((s8 *)arg0 + 0xEC) = 0x1E;
         break;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xEC) = 0x19;
+        *(s32 *)((s8 *)arg0 + 0xEC) = 0x19;
         break;
     }
     return arg0;

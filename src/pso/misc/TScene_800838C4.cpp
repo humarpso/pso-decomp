@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_80083914 {
     f32 sp8;
     u8 pad_C[0x4];
-    M2C_UNK sp10;
+    s32 sp10;
     u8 trailing_storage[0x2C];
 };
 
 struct RecoveredGlobal_80083914_lbl_8048E5D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 extern "C" {
 f32 translate_current_matrix_ps(f32, f32, f32);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
 s32 is_split_screen();
 s32 check_all_players_ready__10TObjPlayerFv();
 s32 set_tex_coord_gen__10TObjPlayerFiiii(int, int, int, int);
@@ -28,8 +24,8 @@ f32 PSMTXConcat(void *, void *, void *);
 s32 C_MTXLightFrustum(void *, f32, f32, f32, f32, f32, f32, f32, f32);
 f32 rotate_matrix_by_node_angles(void *, int);
 s32 pop_matrix();
-M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
-M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
+s32 set_ginja_post_texgen_count(s32);
+s32 set_ginja_post_tev_stage_count(s32);
 f32 rotate_current_matrix_x_ps(int);
 s32 load_current_pos_matrix(int);
 s32 load_current_tex_matrix(int);
@@ -60,8 +56,8 @@ extern "C" {
 
 void apply_single_screen_state__6TSceneFv(void);
 s32 check_all_players_ready__10TObjPlayerFv();
-M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
-M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
+s32 set_ginja_post_texgen_count(s32);
+s32 set_ginja_post_tev_stage_count(s32);
 s32 is_split_screen();
 
 extern s32 model_render_flags;
@@ -84,8 +80,8 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         push_identity_matrix_ps();
         translate_current_matrix_ps(lbl_805D93D0, lbl_805D93D0, lbl_805D9418);
         rotate_current_matrix_x_ps((int) (0x3800));
-        translate_current_matrix_ps(-M2C_FIELD(&shadow_light_position.value, f32 *, 0), -M2C_FIELD(&shadow_light_position.value, f32 *, 4), -M2C_FIELD(&shadow_light_position.value, f32 *, 8));
-        translate_current_matrix_ps(M2C_FIELD(arg0, f32 *, 0), M2C_FIELD(arg0, f32 *, 4), M2C_FIELD(arg0, f32 *, 8));
+        translate_current_matrix_ps(-*(f32 *)((s8 *)(&shadow_light_position.value) + 0), -*(f32 *)((s8 *)(&shadow_light_position.value) + 4), -*(f32 *)((s8 *)(&shadow_light_position.value) + 8));
+        translate_current_matrix_ps(*(f32 *)((s8 *)arg0 + 0), *(f32 *)((s8 *)arg0 + 4), *(f32 *)((s8 *)arg0 + 8));
         rotate_matrix_by_node_angles((void *) (arg1), (int) (1));
         stack.sp8 = lbl_805D93DC;
         C_MTXLightFrustum((void *) (&stack.sp10), (f32) (-lbl_805D941C), (f32) (lbl_805D941C), (f32) (lbl_805D9420), (f32) (-lbl_805D9420), (f32) (lbl_805D9424), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC), (f32) (lbl_805D93DC));
@@ -97,8 +93,8 @@ void render_projected_shadow_receiver(u8 *arg0, s32 arg1) {
         GXSetTevOp((int) (1), (int) (1));
         set_tex_coord_gen__10TObjPlayerFiiii((int) (1), (int) (0), (int) (0), (int) (0x1E));
         model_render_flags |= 0x80000;
-        set_ginja_post_tev_stage_count((M2C_UNK)((int) (1U)));
-        set_ginja_post_texgen_count((M2C_UNK)((int) (1U)));
+        set_ginja_post_tev_stage_count((s32)((int) (1U)));
+        set_ginja_post_texgen_count((s32)((int) (1U)));
     }
 }
 #pragma pop
@@ -111,7 +107,7 @@ f32 calc_camera_fov_degrees(void) {
     s32 temp_r4;
     var_f1 = lbl_805D9428;
     if ((void *) camera_ctrl_instance != NULL) {
-        temp_r4 = M2C_FIELD(camera_ctrl_instance, s32 *, 0x19C);
+        temp_r4 = *(s32 *)((s8 *)camera_ctrl_instance + 0x19C);
         temp_f2 = (f32) temp_r4;
         temp_f2 *= lbl_805D942C;
         temp_r31 = (s32) (temp_f2 * lbl_805D93DC);

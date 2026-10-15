@@ -1,18 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_80355970 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *csnVecterUnder(M2C_UNK *, s32);
+u8 *csnVecterUnder(s32 *, s32);
 s32 __nw__7TObjectFUl(int);
 s32 TBoss5GryphonTornado__ct(int, void *, void *, void *, void *);
 extern const f32 lbl_805D8D48;
@@ -35,7 +32,7 @@ s32 spawn_gryphon_tornado(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    temp_f1 = M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), f32 *, 4);
+    temp_f1 = *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4);
     if (temp_f1 > lbl_805D8D48) {
         return 0;
     }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Slot_801A8868 { u8 pad[0x18]; };
 struct Counts_801A8868 { s32 v[4]; };
@@ -57,8 +53,8 @@ f32 calc_photon_blast_power__10TObjPlayerFPvif(u8 *arg0, s32 arg1, f32 farg0);
 u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1);
 void render__18TPhotonConcentrateFv(void);
-s32 create_particle_emitter(void *, M2C_UNK);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv(s32, s32);
+s32 create_particle_emitter(void *, s32);
+s32 construct_collider_proxy__10TObjPlayerFPv(s32, s32);
 s32 find_entity_by_id(s32, f32);
 u8 *VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
@@ -66,7 +62,7 @@ int begin_effect_render__13TParticleCtrlFv(void);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 int end_effect_render__13TParticleCtrlFv(void);
 void queue_destruction__7TObjectFv(void *);
-extern M2C_UNK __vt__18TPhotonConcentrate[];
+extern s32 __vt__18TPhotonConcentrate[];
 extern s32 lbl_805D34D0;
 
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
@@ -83,11 +79,11 @@ u16 get_section_id__10TObjPlayerFPv(void *);
 extern s32 local_client_id;
 s32 is_photon_blast_presentation_admitted(u32 owner_id, void *records);
 u16 obj_getField1c(void *);
-M2C_UNK TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
+s32 TObjPlayer__sub_801A9E10(void *, int, void *, void *, int, int);
 void set_field_2__10TObjPlayerFPvs(void *, s16);
 void set_type__10TObjPlayerFPvs(void *, s16);
-M2C_UNK TObjPlayer__sub_801AA528(void *, int);
-M2C_UNK init_arrays__10TObjPlayerFi(void *);
+s32 TObjPlayer__sub_801AA528(void *, int);
+s32 init_arrays__10TObjPlayerFi(void *);
 void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(void *);
@@ -98,7 +94,7 @@ void admit_photon_blast_sequence(u8 *players, void *self);
 int get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv(void);
 int get_enemy_count__9TObjEneDDFv(void);
-void apply_photon_blast_action_hold(M2C_UNK arg0, s32 arg1, s32 arg2);
+void apply_photon_blast_action_hold(s32 arg0, s32 arg1, s32 arg2);
 
 void render__18TPhotonConcentrateFv(void) { begin_effect_render__13TParticleCtrlFv(); end_effect_render__13TParticleCtrlFv(); }
 
@@ -226,8 +222,8 @@ void run_task__18TPhotonConcentrateFv(PC_801A7E7C *self) {
 
 void *__dt__18TPhotonConcentrateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TPhotonConcentrate;
-        if (M2C_FIELD(arg0, void **, 0xF8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF8)); M2C_FIELD(arg0, M2C_UNK *, 0xF8) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
+        if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -240,21 +236,21 @@ u8 *TPhotonConcentrate__ct(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3) {
     f32 temp_f1;
 
     construct_collider_proxy__10TObjPlayerFPv((s32)arg0, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TPhotonConcentrate;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D34D0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TPhotonConcentrate;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34D0;
     VecCopy__FP3VecPC3Vec(arg0 + 0xAC, VecCopy__FP3VecPC3Vec(arg0 + 0xB8, arg1));
     VecCopy__FP3VecPC3Vec(arg0 + 0xD0, arg1 + 0xC);
     VecCopy__FP3VecPC3Vec(arg0 + 0xC4, arg1 + 0x18);
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (M2C_FIELD(arg0, f32 *, 0xC4) * M2C_FIELD(arg1, f32 *, 0x28));
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) (M2C_FIELD(arg0, f32 *, 0xC8) * M2C_FIELD(arg1, f32 *, 0x28));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (temp_f1 * M2C_FIELD(arg1, f32 *, 0x28));
-    M2C_FIELD(arg0, f32 *, 0xE4) = (f32) M2C_FIELD(arg1, f32 *, 0x24);
-    M2C_FIELD(arg0, f32 *, 0xE8) = (f32) M2C_FIELD(arg1, f32 *, 0x2C);
-    M2C_FIELD(arg0, s32 *, 0xF0) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0xEC) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
-    M2C_FIELD(arg0, s32 *, 0xFC) = find_entity_by_id(arg3, temp_f1);
-    M2C_FIELD(arg0, s32 *, 0xF8) = create_particle_emitter(arg0 + 0xB8, 0x135);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (*(f32 *)((s8 *)arg0 + 0xC4) * *(f32 *)((s8 *)arg1 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) (*(f32 *)((s8 *)arg0 + 0xC8) * *(f32 *)((s8 *)arg1 + 0x28));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (temp_f1 * *(f32 *)((s8 *)arg1 + 0x28));
+    *(f32 *)((s8 *)arg0 + 0xE4) = (f32) *(f32 *)((s8 *)arg1 + 0x24);
+    *(f32 *)((s8 *)arg0 + 0xE8) = (f32) *(f32 *)((s8 *)arg1 + 0x2C);
+    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0xEC) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    *(s32 *)((s8 *)arg0 + 0xFC) = find_entity_by_id(arg3, temp_f1);
+    *(s32 *)((s8 *)arg0 + 0xF8) = create_particle_emitter(arg0 + 0xB8, 0x135);
     return arg0;
 }
 

@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/items/TItemWeaponRifle.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 TItemWeaponRifle* TItemWeapon__ct(TItemWeaponRifle*,s32,u8*);
 void set_atp__10TObjPlayerFPvs(void*,s16);
@@ -24,7 +21,7 @@ TItemWeaponRifle* TItemWeaponRifle::initialize(s32 parent,u8* item) {
 
 extern "C" {
 
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_rifle_weapon(u8 *arg0);
 }

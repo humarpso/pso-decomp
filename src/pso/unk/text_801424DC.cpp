@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Stack_801424DC {
     f32 sp8;
     f32 spC;
@@ -13,7 +10,7 @@ struct Stack_801424DC {
 extern "C" {
 void set_global_draw_flag_bits(s32, s32);
 void set_chunk_material_override_pair(s32, s32);
-M2C_UNK set_chunk_material_color(void *);
+s32 set_chunk_material_color(void *);
 void fn_801424DC(s32 arg0, f32 farg0, f32 farg1, f32 farg2, f32 farg3);
 }
 

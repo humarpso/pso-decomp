@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_801A1F48 { f32 x, y, z; };
 
@@ -36,14 +32,14 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(void *arg0) {
     if ((get_global_state__14TOKeyMachine01Fv() == 0) || (get_global_state__14TOKeyMachine01Fv() == 0x12)) {
         return 0;
     }
-    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {
+    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if (((u32) (temp_r3 - 1) <= 1U) || (is_global_state_in_table__19TContainerAncient01Fv() != 0) || (temp_r3 == 0xC) || (temp_r3 == 0x20)) {
-            return M2C_FIELD(arg0, s16 *, 0x2E);
+            return *(s16 *)((s8 *)arg0 + 0x2E);
         }
-        return M2C_FIELD(arg0, s16 *, 0x28);
+        return *(s16 *)((s8 *)arg0 + 0x28);
     }
-    return M2C_FIELD(arg0, s16 *, 0x28);
+    return *(s16 *)((s8 *)arg0 + 0x28);
 }
 
 void apply_object_set_data(Dst_801A1F48 *self, Src_801A1F48 *src) {
@@ -62,22 +58,22 @@ void TLobby__sub_801A1FD8(void) {  }
 u16 get_or_assign_actor_id(void *arg0, s32 arg1) {
     s32 temp_r3;
 
-    if (M2C_FIELD(arg0, u16 *, 0x1C) == 0xFFFF) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x30) & 0x70000000;
+    if (*(u16 *)((s8 *)arg0 + 0x1C) == 0xFFFF) {
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x30) & 0x70000000;
         switch (temp_r3) {
         case 0x10000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = fn_801A210C(arg1);
+            *(u16 *)((s8 *)arg0 + 0x1C) = fn_801A210C(arg1);
             break;
         case 0x20000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = TLobby__sub_801A20C8(arg1);
+            *(u16 *)((s8 *)arg0 + 0x1C) = TLobby__sub_801A20C8(arg1);
             break;
         default:
         case 0x40000000:
-            M2C_FIELD(arg0, u16 *, 0x1C) = alloc_actor_ids__6TLobbyFi((s32)(arg1));
+            *(u16 *)((s8 *)arg0 + 0x1C) = alloc_actor_ids__6TLobbyFi((s32)(arg1));
             break;
         }
     }
-    return M2C_FIELD(arg0, u16 *, 0x1C);
+    return *(u16 *)((s8 *)arg0 + 0x1C);
 }
 u16 alloc_actor_ids__6TLobbyFi(s32 arg) {
     u16 n = arg;

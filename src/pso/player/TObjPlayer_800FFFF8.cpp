@@ -1,44 +1,40 @@
 #include "types.h"
 #include "pso/item/TItem.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80100070_lbl_8049E8F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
 struct RecoveredGlobal_80100070_lbl_8049E958 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x134];
 };
 
 struct RecoveredGlobal_80100070_lbl_8050BEC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_80100070_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 extern "C" {
 void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK get_model_ids__9TItemLoadFUcPvPv(int, u32 *, s32 *);
-M2C_UNK func_80141618__Fv();
-M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
+s32 get_model_ids__9TItemLoadFUcPvPv(int, u32 *, s32 *);
+s32 func_80141618__Fv();
+s32 set_depth_buffer_settings_id__FUl(s32);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 notify_fish_if_valid__10TObjPlayerFUi(s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
 s32 draw_ginja_model(void *);
 s32 set_chunk_material_color(int);
 extern RecoveredGlobal_80100070_lbl_8049E8F8 item_box_primary_colors;
@@ -71,32 +67,32 @@ void TItem__sub_801005E0(void);
 int TItem__sub_801005E4(void);
 s32 find_item_by_id();
 s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
-M2C_UNK post_translate_matrix(void *);
+s32 post_translate_matrix(void *);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
-M2C_UNK draw_ginja_object(u32);
+s32 draw_ginja_object(u32);
 s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s8 TObjPlayer__sub_80102C30();
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK func_80141618__Fv();
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 func_80141618__Fv();
 s32 get_id__13TItemProArmorFPv(void *);
 s16 get_packed_value__9TItemDataFPv(s32);
 s32 is_usable__9TItemDataFPv(s32);
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(s32);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_id__FUl(M2C_UNK);
+s32 notify_fish_if_valid__10TObjPlayerFUi(s32);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_id__FUl(s32);
 s32 test_flag_2000000__10TObjPlayerFPv(u32);
 
 void apply_item_flags__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     if (is_usable__9TItemDataFPv(arg1) != 0) {
-        M2C_FIELD(arg0, s32 *, 0xDC) = (s32) (M2C_FIELD(arg0, s32 *, 0xDC) | 0x100);
-        M2C_FIELD(arg0, s16 *, 0xE8) = get_packed_value__9TItemDataFPv(arg1);
+        *(s32 *)((s8 *)arg0 + 0xDC) = (s32) (*(s32 *)((s8 *)arg0 + 0xDC) | 0x100);
+        *(s16 *)((s8 *)arg0 + 0xE8) = get_packed_value__9TItemDataFPv(arg1);
     }
     if (is_wrapped__9TItemDataFPv(arg1) != 0) {
-        M2C_FIELD(arg0, s32 *, 0xDC) = (s32) (M2C_FIELD(arg0, s32 *, 0xDC) | 0x400);
+        *(s32 *)((s8 *)arg0 + 0xDC) = (s32) (*(s32 *)((s8 *)arg0 + 0xDC) | 0x400);
     }
 }
 }
@@ -120,16 +116,16 @@ void TObjPlayer__sub_80100070(u8 *arg0) {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (&saved_model_draw_color.value), (void *) (&model_material_color.value));
         model_render_flags |= 0x10;
-        set_depth_buffer_settings_id__FUl((M2C_UNK)((int) (3)));
+        set_depth_buffer_settings_id__FUl((s32)((int) (3)));
         begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi((s32)((int) (sp8)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((M2C_UNK)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x60))));
-        set_chunk_material_color((int) ((u8 *)&item_box_primary_colors.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
-        draw_ginja_model((void *) (M2C_FIELD(spC, s32 *, 4)));
-        set_chunk_material_color((int) ((u8 *)&item_box_secondary_colors.value + ((s8) M2C_FIELD(arg0, u8 *, 0xEA) * 0x10)));
-        draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(spC, u8 **, 0x2C), s32 *, 4)));
+        rotate_matrix_y((s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x60))));
+        set_chunk_material_color((int) ((u8 *)&item_box_primary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
+        draw_ginja_model((void *) (*(s32 *)((s8 *)spC + 4)));
+        set_chunk_material_color((int) ((u8 *)&item_box_secondary_colors.value + ((s8) *(u8 *)((s8 *)arg0 + 0xEA) * 0x10)));
+        draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)spC + 0x2C)) + 4)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         reset_transform_state__10TObjPlayerFv();
@@ -145,14 +141,14 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
     u32 spC;
     s32 sp8;
 
-    get_model_ids__9TItemLoadFUcPvPv(M2C_FIELD(arg0, u8 *, 0xEF), &spC, &sp8);
+    get_model_ids__9TItemLoadFUcPvPv(*(u8 *)((s8 *)arg0 + 0xEF), &spC, &sp8);
     if (spC != 0U) {
         set_depth_buffer_settings_id__FUl(3);
         begin_effect_render__13TParticleCtrlFv();
         notify_fish_if_valid__10TObjPlayerFUi(sp8);
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_ginja_object(spC);
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
@@ -163,23 +159,23 @@ void draw_item_model__10TObjPlayerFPv(u8 *arg0) {
 
 void TObjPlayer__sub_8010043C(u8 *arg0, u8 arg1) {
     u8 temp_r0;
-    M2C_FIELD(arg0, u8 *, 0xEF) = arg1;
-    temp_r0 = M2C_FIELD(arg0, u8 *, 0xEF);
+    *(u8 *)((s8 *)arg0 + 0xEF) = arg1;
+    temp_r0 = *(u8 *)((s8 *)arg0 + 0xEF);
     if (temp_r0 < 0xBU) {
         if (temp_r0 == 7) {
-            M2C_FIELD(arg0, s8 *, 0xEA) = 5;
+            *(s8 *)((s8 *)arg0 + 0xEA) = 5;
         }
         return;
     }
-    M2C_FIELD(arg0, u8 *, 0xEF) = 2U;
-    M2C_FIELD(arg0, s8 *, 0xEA) = 0;
+    *(u8 *)((s8 *)arg0 + 0xEF) = 2U;
+    *(s8 *)((s8 *)arg0 + 0xEA) = 0;
 }
 
 u16 TObjPlayer__sub_80100474(void* p) { return *(u16*)((char*)p + 0xe8); }
 
 void TObjPlayer__sub_8010047C(u8 *arg0, s16 arg1) {
-    if (M2C_FIELD(arg0, s32 *, 0xDC) & 0x100) {
-        M2C_FIELD(arg0, s16 *, 0xE8) = arg1;
+    if (*(s32 *)((s8 *)arg0 + 0xDC) & 0x100) {
+        *(s16 *)((s8 *)arg0 + 0xE8) = arg1;
     }
 }
 
@@ -194,7 +190,7 @@ s32 query_game_join_id__10TObjPlayerFv(void) {
 }
 void submit_computer_command__10TObjPlayerFPv(void *arg0) {
     s32 a, b, c;
-    scroll_ginja_mesh_uvs(M2C_FIELD(arg0, s32 *, 4), a, b, c, 1);
+    scroll_ginja_mesh_uvs(*(s32 *)((s8 *)arg0 + 4), a, b, c, 1);
     PPCSync();
 }
 

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80148DCC { char pad[0x18]; };
 struct VObj_80148DCC : Base_80148DCC {
     virtual void m0();
@@ -118,10 +115,10 @@ struct VObj_18_3eea3b : VBase_18_3eea3b {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
-    virtual M2C_UNK m82();
-    virtual M2C_UNK m83();
-    virtual M2C_UNK m84();
+    virtual s32 m81();
+    virtual s32 m82();
+    virtual s32 m83();
+    virtual s32 m84();
 };
 
 extern "C" {
@@ -132,8 +129,8 @@ void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, u32);
 void set_indexed_flags(void *, s32, s32);
 s32 get_register__12TQuestThreadFPvi(void *, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-M2C_UNK advance_animation_playback(void *);
-M2C_UNK submit_cursor_candidate(void *, int);
+s32 advance_animation_playback(void *);
+s32 submit_cursor_candidate(void *, int);
 extern u8 *quest_mission_manager;
 extern u8 *quest_area_manager;
 void run_task__11TObjNpcBaseFPv(u8 *arg0);
@@ -143,34 +140,34 @@ extern "C" {
 
 void update_battle_target__10TObjPlayerFPv(void *arg0);
 void draw_model__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_chunk_object(s32);
-M2C_UNK restore_scene_lighting();
-M2C_UNK select_actor_lighting(void *);
-M2C_UNK render_with_position_override__10TObjPlayerFPvPvi(void *, M2C_UNK, M2C_UNK);
-u16 find_nearest_visible_player(void *, M2C_UNK, f32 *, f32);
-M2C_UNK translate_matrix_vec3(M2C_UNK, void *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix_from(M2C_UNK);
-M2C_UNK pop_matrix();
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_chunk_object(s32);
+s32 restore_scene_lighting();
+s32 select_actor_lighting(void *);
+s32 render_with_position_override__10TObjPlayerFPvPvi(void *, s32, s32);
+u16 find_nearest_visible_player(void *, s32, f32 *, f32);
+s32 translate_matrix_vec3(s32, void *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix_from(s32);
+s32 pop_matrix();
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 s32 get_player_by_client_id(u32);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
 
 void update_battle_target__10TObjPlayerFPv(void *arg0) {
     f32 *temp_r5;
 
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3) {
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3) {
         if (((VObj_80148DCC *)arg0)->m17(30) != 0) {
-            temp_r5 = M2C_FIELD(arg0, f32 **, 0x350);
-            M2C_FIELD(arg0, u16 *, 0x338) = find_nearest_visible_player(arg0, 0, temp_r5, *temp_r5);
+            temp_r5 = *(f32 **)((s8 *)arg0 + 0x350);
+            *(u16 *)((s8 *)arg0 + 0x338) = find_nearest_visible_player(arg0, 0, temp_r5, *temp_r5);
             {
-                u32 tmp338 = (u32) M2C_FIELD(arg0, u16 *, 0x338);
+                u32 tmp338 = (u32) *(u16 *)((s8 *)arg0 + 0x338);
                 if (tmp338 != 0xFFFF) {
-                    M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(tmp338);
+                    *(s32 *)((s8 *)arg0 + 0x2A8) = get_player_by_client_id(tmp338);
                 } else {
-                    M2C_FIELD(arg0, s32 *, 0x2A8) = 0;
+                    *(s32 *)((s8 *)arg0 + 0x2A8) = 0;
                 }
             }
         }
@@ -181,16 +178,16 @@ extern s32 model_render_flags;
 
 void draw_model__10TObjPlayerFPv(u8 *arg0) {
     VObj1_80148e54 *self = (VObj1_80148e54 *)arg0;
-    if ((self->m8(M2C_FIELD(arg0, f32 *, 0x398), M2C_FIELD(arg0, f32 *, 0x39C)) != 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x390) == 1)) {
+    if ((self->m8(*(f32 *)((s8 *)arg0 + 0x398), *(f32 *)((s8 *)arg0 + 0x39C)) != 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x390) == 1)) {
         select_actor_lighting(arg0);
         model_render_flags |= 1;
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
         push_matrix_from(0);
         translate_matrix_vec3(0, arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         set_global_flag__10TObjPlayerFv();
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x394) != 0) {
-            draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x394) != 0) {
+            draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         } else {
             draw__16TObjEneRe7BeruraFPv(arg0);
         }

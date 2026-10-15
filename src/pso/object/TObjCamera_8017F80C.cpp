@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8017FC78_lbl_804B5888 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8017FC78_lbl_804B5888 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017FC78_lbl_804B5888_size[sizeof(RecoveredGlobal_8017FC78_lbl_804B5888) == 0x10 ? 1 : -1];
 
 struct Vec_8017F80C { f32 x, y, z; };
@@ -58,7 +54,6 @@ struct Piece_8017FCD0 {
     u8 pad34[4];
 };
 
-typedef s32 M2C_UNK;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -138,12 +133,12 @@ void init_map_object_base(void *);
 void fn_8017F550(void *);
 void *__nw__7TObjectFUl(int);
 extern Copy_8017FA9C lbl_80443AA4;
-extern M2C_UNK __vt__10TObjCamera[];
+extern s32 __vt__10TObjCamera[];
 extern s32 TObjCamera__name;
 extern u32 TObjCamera__bml_resource;
 extern const f32 TObjCamera__data_805DBB58;
 extern const f32 lbl_805DBB70;
-u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -156,7 +151,7 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
-extern M2C_UNK __vt__10TObjCamera[];
+extern s32 __vt__10TObjCamera[];
 
 void render__10TObjCameraFv(Obj_8017F80C *self) {
     s32 i;
@@ -221,7 +216,7 @@ void run_task__10TObjCameraFv(Obj_8017F910 *self) {
 
 void *__dt__10TObjCameraFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjCamera;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCamera;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -232,17 +227,17 @@ void *__dt__10TObjCameraFv(void *arg0, s16 arg1) {
 
 extern void *tl_05;
 
-u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 i;
     void *obj;
     init_map_object_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjCamera;
-    M2C_FIELD(arg0, s32 *, 0) = TObjCamera__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCamera;
+    *(s32 *)((s8 *)arg0 + 0) = TObjCamera__name;
     Copy_8017FA9C c = lbl_80443AA4;
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, f32 *, 0xB0) = TObjCamera__data_805DBB58;
-    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBB70;
-    M2C_FIELD(arg0, f32 *, 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);
+    *(f32 *)((s8 *)arg0 + 0xB0) = TObjCamera__data_805DBB58;
+    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBB70;
+    *(f32 *)((s8 *)arg0 + 0xB4) = *(u32 *)(get_bml_motion(TObjCamera__bml_resource, 0) + 4);
     if (is_split_screen() != 0) {
         for (i = 0; i < 8; i++) {
             ((Cam_8017FA9C *)arg0)->arr[i] = 0;
@@ -256,7 +251,7 @@ u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
             ((Cam_8017FA9C *)arg0)->arr[i] = obj;
         }
     }
-    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     fn_8017F550(arg0);
     return arg0;
 }
@@ -264,7 +259,7 @@ u8 *TObjCamera__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
 void *create__10TObjCameraFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x1AC);
     if (o != NULL) {
-        o = TObjCamera__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TObjCamera__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }

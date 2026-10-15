@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
 struct RecoveredGlobal_8030ABF4_lbl_80541E58 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF04];
 };
 
@@ -89,13 +85,13 @@ extern "C" {
 void *__ct__14TBoss4ZakoDrawFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 
-extern M2C_UNK __vt__14TBoss4ZakoDraw[];
+extern s32 __vt__14TBoss4ZakoDraw[];
 extern void *TBoss4ZakoDraw__class_name;
 
 void *__ct__14TBoss4ZakoDrawFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss4ZakoDraw;
-    M2C_FIELD(arg0, void **, 0x0) = TBoss4ZakoDraw__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss4ZakoDraw;
+    *(void **)((s8 *)arg0 + 0x0) = TBoss4ZakoDraw__class_name;
     return arg0;
 }
 typedef char RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_8030ABF4_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
@@ -130,7 +126,7 @@ void TObjPlayer__sub_8030A9B0() {
     rot = (TBoss4ZakoDraw__rotation_phase << 16) / 16;
     VecCopy__FP3VecPC3Vec(&pos, camera_ctrl_instance + 0x178);
     i = 0;
-    M2C_FIELD(&pos, f32 *, 4) = lbl_805DF13C;
+    *(f32 *)((s8 *)(&pos) + 4) = lbl_805DF13C;
     for (; i < tbl->count; i++, e++) {
         if (e->f0c != 0 || e->y < lbl_805DF140) {
             continue;
@@ -143,7 +139,7 @@ void TObjPlayer__sub_8030A9B0() {
         k = lbl_805DF148 - t * (t * t);
         push_matrix();
         v = *(Raw_8030A9B0 *)e;
-        M2C_FIELD(&v, f32 *, 4) = lbl_805DF13C;
+        *(f32 *)((s8 *)(&v) + 4) = lbl_805DF13C;
         post_translate_matrix(&v);
         rotate_matrix_y(0, e->f10 + rot);
         col.a = lbl_805DF14C;
@@ -181,23 +177,23 @@ void draw_area_chunk_objects__10TObjPlayerFv(void) {
 }
 
 void TCameraCtrl__sub_8030ABF4(void) {
-    M2C_UNK *var_r3;
+    s32 *var_r3;
     u8 *var_r31;
     u8 *var_r4;
-    var_r3 = (M2C_UNK *)(&boss4_zako_draw_buffers.value);
-    var_r3 = (M2C_UNK *)(&boss4_zako_draw_buffers.value);
-    if ((s32) M2C_FIELD(((u8 *)(&boss4_zako_draw_buffers.value) + (TBoss4ZakoDraw__draw_buffer_index * 0x784)), s32 *, 0) != 0) {
-        var_r3 = (M2C_UNK *)(&TCameraCtrl__data_804FF634.value);
-        var_r3 = (M2C_UNK *)(&TCameraCtrl__data_804FF634.value);
+    var_r3 = (s32 *)(&boss4_zako_draw_buffers.value);
+    var_r3 = (s32 *)(&boss4_zako_draw_buffers.value);
+    if ((s32) *(s32 *)((s8 *)((u8 *)(&boss4_zako_draw_buffers.value) + (TBoss4ZakoDraw__draw_buffer_index * 0x784)) + 0) != 0) {
+        var_r3 = (s32 *)(&TCameraCtrl__data_804FF634.value);
+        var_r3 = (s32 *)(&TCameraCtrl__data_804FF634.value);
         var_r31 = (u8 *)(&TCameraCtrl__data_804FF634.value) + 0x30;
         if (is_split_screen() == 0) {
             var_r4 = (u8 *)(var_r31);
-            var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)2));
+            var_r3 = (s32 *)((u8 *)((s32 *)2));
             set_viewport_scissor__11TCameraCtrlFiPv((int) (2), (int) (var_r4));
         }
         var_r4 = (u8 *)((void *)8);
-        var_r3 = (M2C_UNK *)(M2C_FIELD(get_bml_model(get_instance_count__9TBoss4UroFv(), 8), M2C_UNK **, 0x2C));
-        M2C_FIELD(var_r3, s32 *, 0x18) = (s32) (TBoss4ZakoDraw__rotation_phase << 0xC);
+        var_r3 = (s32 *)(*(s32 **)((s8 *)(get_bml_model(get_instance_count__9TBoss4UroFv(), 8)) + 0x2C));
+        *(s32 *)((s8 *)var_r3 + 0x18) = (s32) (TBoss4ZakoDraw__rotation_phase << 0xC);
         draw_area_chunk_objects__10TObjPlayerFv();
         TObjPlayer__sub_8030A9B0();
     }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct S_802C3720 {
     u8 pad0[0x3A4];
@@ -56,7 +52,7 @@ void setup_effect_slots__10TObjPlayerFii(s32 arg0, s32 arg1);
 int init_class_starting_inventory(void*);
 int TObjPlayer__sub_802C456C(void*, void*, void*);
 int init_character_action_config(void*);
-M2C_UNK TObjPlayer__sub_802C46E0(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 TObjPlayer__sub_802C46E0(s32, s32, s32, s32, s32);
 int clear_item_slots__10TObjPlayerFPv(void*);
 int set_action_state__10TObjPlayerFPvUc(void*, void*);
 
@@ -130,7 +126,7 @@ void init_character_stats_for_level(void *cls, Char_802C38B4 *c, s32 level) {
 }
 
 void init_new_character_stats(void *arg0) {
-    init_character_stats_for_level((void *)(M2C_FIELD(arg0, u8 *, 0x3A1)), (Char_802C38B4 *)(arg0), (s32)(0));
+    init_character_stats_for_level((void *)(*(u8 *)((s8 *)arg0 + 0x3A1)), (Char_802C38B4 *)(arg0), (s32)(0));
 }
 
 }

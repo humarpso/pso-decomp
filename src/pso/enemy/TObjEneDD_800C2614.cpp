@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
@@ -132,7 +129,7 @@ struct VObj_18_9e83f9 : VBase_18_9e83f9 {
     virtual void m83();
     virtual void m84();
     virtual void m85();
-    virtual M2C_UNK m86();
+    virtual s32 m86();
     virtual void m87();
     virtual void m88();
     virtual void m89();
@@ -140,18 +137,18 @@ struct VObj_18_9e83f9 : VBase_18_9e83f9 {
     virtual void m91();
     virtual void m92();
     virtual void m93();
-    virtual M2C_UNK m94();
+    virtual s32 m94();
     virtual void m95();
     virtual void m96();
     virtual void m97();
     virtual void m98();
     virtual void m99();
-    virtual M2C_UNK m100();
+    virtual s32 m100();
 };
 
-struct M2CCopy_10 { u8 bytes[0x10]; };
+struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 struct Vec_800C2628 { f32 x, y, z; };
 
@@ -163,14 +160,14 @@ void spawn_particle_effect_with_flags(Vec_800C2628 *, s32, s32);
 s32 check_v2_mode__9TObjEneDDFv();
 void TObjEneDD__sub_800BA5A4(void *, Prm_800C2628 *);
 void clear_attack_receipts(void *);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK noop__9TObjEneDDFv(void *, s32);
-M2C_UNK fn_800C3A60(void *, M2C_UNK);
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 transition_enemy_state(void *, s32);
+s32 noop__9TObjEneDDFv(void *, s32);
+s32 fn_800C3A60(void *, s32);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 advance_animation_playback();
+s32 play_sound_effect(s32, void *, s32, s32);
 extern Prm_800C2628 lbl_8043BA68;
 extern Prm_800C2628 lbl_8043BBA0;
 extern f32 *const lbl_805D5170;
@@ -183,22 +180,22 @@ extern "C" {
 void TObjEneDD__sub_800C2614(void);
 void TObjEneDD__sub_800C2618(void* p);
 void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK fn_800C3A60(void *, M2C_UNK);
-M2C_UNK noop__9TObjEneDDFv(void *, s32);
+s32 advance_animation_playback();
+s32 play_sound_effect(s32, void *, s32, s32);
+s32 transition_enemy_state(void *, s32);
+s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 fn_800C3A60(void *, s32);
+s32 noop__9TObjEneDDFv(void *, s32);
 s32 objInBand__FP7GameObjf(f32);
-M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+s32 play_effect_if_v2__10TObjPlayerFi(s32);
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 void TObjEneDD__sub_800C2614(void) {  }
 void TObjEneDD__sub_800C2618(void* p) { *(u32*)((char*)p + 0x3c4) |= 0x2; }
 
 extern const f32 lbl_805D9FC0;
 
-#define F(T, off) M2C_FIELD(arg0, T *, off)
+#define F(T, off) (*(T *)((s8 *)(arg0) + (off)))
 void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
     s32 step;
     Vec_800C2628 v;
@@ -208,7 +205,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         ((VObj_18_9e83f9 *)(arg0))->m94();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
         F(u32, 0x3C4) &= ~8;
-        set_field_378__9TObjEneDDFPvi((void *)(arg0), (M2C_UNK)(8));
+        set_field_378__9TObjEneDDFPvi((void *)(arg0), (s32)(8));
         if (!(F(u32, 0x3C4) & 4)) {
             F(u32, 0x3C4) |= 4;
             F(s32, 0x410) = 0;
@@ -285,7 +282,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
         }
         ((VObj_18_9e83f9 *)(arg0))->m100();
         ((VObj_18_9e83f9 *)(arg0))->m86();
-        ((M2C_UNK (*)(void *))noop__9TObjEneDDFv)(arg0);
+        ((s32 (*)(void *))noop__9TObjEneDDFv)(arg0);
         break;
     }
 }
@@ -296,17 +293,17 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 6;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 6;
         ((V_A_800c294c_800C2614 *) arg0)->m94();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
+        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         set_field_378__9TObjEneDDFPvi(arg0, 3);
-        M2C_FIELD(arg0, s32 *, 0x410) = 0;
+        *(s32 *)((s8 *)arg0 + 0x410) = 0;
         play_sound_effect(fn_800C3A60(arg0, 0x4003A315), arg0 + 0x38, 0, 0);
         play_effect_if_v2__10TObjPlayerFi(-0x200);
         return;
     case 3:
-        if (objInBand__FP7GameObjf(M2C_FIELD(arg0, f32 *, 0xC4) - lbl_805D9FC0) != 0) {
+        if (objInBand__FP7GameObjf(*(f32 *)((s8 *)arg0 + 0xC4) - lbl_805D9FC0) != 0) {
             transition_enemy_state(arg0, 3);
         }
         ((V_A_800c294c_800C2614 *) arg0)->m100();
@@ -314,12 +311,12 @@ void handle_event__16TObjEneRe2FlowerFPvi(u8 *arg0, s32 arg1) {
         return;
     case 0:
         advance_animation_playback();
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x410);
-        M2C_FIELD(arg0, s32 *, 0x410) = (s32) (temp_r4 + 1);
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x410);
+        *(s32 *)((s8 *)arg0 + 0x410) = (s32) (temp_r4 + 1);
         noop__9TObjEneDDFv(arg0, temp_r4);
         return;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFFD);
+        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFFD);
     case 1:
         return;
     }

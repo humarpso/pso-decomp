@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8036F4DC { u8 pad0[8]; u8 cnt; u8 bits; };
 
@@ -37,7 +32,6 @@ struct Ep3_8036F10C : Base_8036F10C {
     s32 count;
 };
 
-typedef s32 M2C_UNK;
 struct Prs_8036F5B0 {
     u8 *f0;
     u8 *f4;
@@ -82,7 +76,7 @@ u32 TAdScrollWinGC__ct(void *, void *, int, s32);
 void fn_80329BAC(u32);
 extern u8 lbl_8047B8A8[];
 extern u8 lbl_8047B8B0[];
-extern M2C_UNK __vt__11TAdEp3Exist[];
+extern s32 __vt__11TAdEp3Exist[];
 extern s32 lbl_805D4500;
 extern s32 tl_clipout;
 void *TAdEp3Exist__ct(Ep3_8036F354 *o);
@@ -144,7 +138,7 @@ int request_scene_change__11TAdEp3ExistFPv(void* p) { return request_scene_chang
 int TAdEp3Exist__sub_8036F0AC(void* p) { return reset_and_set_mode__21TAdMultiChgGameModeGCFv(p); }
 void close_window__11TAdEp3ExistFPv(void* p) { if (*(unsigned int*)((char*)p + 0x1c) != 0) { close_window__14TAdScrollWinGCFPv(*(void**)((char*)p + 0x1c)); *(int*)((char*)p + 0x1c) = 0; } }
 
-extern M2C_UNK __vt__11TAdEp3Exist[];
+extern s32 __vt__11TAdEp3Exist[];
 
 void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
     o->prev = o->state;
@@ -198,9 +192,9 @@ void run_task__11TAdEp3ExistFv(Ep3_8036F10C *o) {
 
 void *__dt__11TAdEp3ExistFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TAdEp3Exist;
-        if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x20) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x20)); M2C_FIELD(arg0, M2C_UNK *, 0x20) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TAdEp3Exist;
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)((s8 *)arg0 + 0x24) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x20) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20)); *(s32 *)((s8 *)arg0 + 0x20) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -288,16 +282,16 @@ s32 free_if_valid__11TAdEp3ExistFis(s32 arg0, s16 arg1) {
 }
 
 void TAdEp3Exist__sub_8036F574(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xC) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = 0;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s8 *, 8) = 1;
+    *(s32 *)((s8 *)arg0 + 0xC) = 0;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s8 *)((s8 *)arg0 + 8) = 1;
 }
 
 u8 TAdEp3Exist__sub_8036F590(u8 *arg0) {
     u8 *temp_r4;
-    temp_r4 = M2C_FIELD(arg0, u8 **, 0xC);
-    M2C_FIELD(arg0, u8 **, 0xC) = (u8 *) (temp_r4 + 1);
+    temp_r4 = *(u8 **)((s8 *)arg0 + 0xC);
+    *(u8 **)((s8 *)arg0 + 0xC) = (u8 *) (temp_r4 + 1);
     return *temp_r4;
 }
 

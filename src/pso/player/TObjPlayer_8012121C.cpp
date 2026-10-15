@@ -16,11 +16,6 @@ u16 get_uid__10TObjPlayerFPv(void* p) { return *(u16*)((char*)p + 0x0); }
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Obj_80121248 { u8 pad[0x4]; s32 arr[1]; };
 
 extern "C" {

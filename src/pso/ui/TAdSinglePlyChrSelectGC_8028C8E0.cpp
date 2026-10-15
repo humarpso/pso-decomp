@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/misc/TChCrLoadReq.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Cm_8028CB6C { u8 pad[0x3E]; s16 f3e; };
 
@@ -27,7 +23,6 @@ struct Sel_8028CC28 {
     Info_8028CC28 *info;
 };
 
-typedef s32 M2C_UNK;
 struct Sel_8028C9B0 {
     u8 pad0[0x38];
     u8 *f38;
@@ -99,7 +94,7 @@ s32 is_node_tree_valid(u32, s32);
 void *get_result__23TAdSinglePlyChrSelectGCFPv(void *);
 void blend_creation_proportion_shapes(void *);
 void reset_creation_parts__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0);
+s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 u32 create_ch_cr_load_gm_nj_req(void *, Req_8028CD18 *);
 void TLobby__sub_8028D738(s32);
 void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self);
@@ -117,7 +112,7 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0);
 s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 void try_advance_state__12TChCrLoadReqFv(void* p);
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 extern s32 chr_select_slot_state;
 
@@ -125,14 +120,14 @@ s32 try_acquire_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     if (((s32) chr_select_slot_state < 0) || ((s32) chr_select_slot_state > 1)) {
         return 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
         return 0;
     }
     if ((s32) chr_select_slot_state >= 1) {
         return 0;
     }
     chr_select_slot_state += 1;
-    M2C_FIELD(arg0, s32 *, 0x6C) = 1;
+    *(s32 *)((s8 *)arg0 + 0x6C) = 1;
     return 1;
 }
 
@@ -150,12 +145,12 @@ s32 are_all_selections_done__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_8028C998(void *arg0) {
-    return (u32) __cntlzw((u32) (*M2C_FIELD(arg0, s32 **, 0x3C) & 0x7F)) >> 5;
+    return (u32) __cntlzw((u32) (**(s32 **)((s8 *)arg0 + 0x3C) & 0x7F)) >> 5;
 }
 
 extern s32 chr_select_load_slot_count;
 
-M2C_UNK load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
+s32 load_preview_models__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 len;
     s32 tag;
     u32 bufs[6];
@@ -297,8 +292,8 @@ void request_model_loads__23TAdSinglePlyChrSelectGCFPv(Sel_8028CD18 *self) {
 }
 
 void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *) {
-    if (((s32) chr_select_load_slot_count <= 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0)) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+    if (((s32) chr_select_load_slot_count <= 1) && ((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 0)) {
+        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
         if (--chr_select_load_slot_count == 0) {
             return;
         }
@@ -308,13 +303,13 @@ void TAdSinglePlyChrSelectGC__sub_8028CEEC(void *arg0, s32 *) {
 extern s32 chr_select_load_slot_count;
 
 s32 try_claim_load_slot__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 0) || ((s32) chr_select_load_slot_count < 0) || ((s32) chr_select_load_slot_count > 1)) {
         return 0;
     }
     if ((s32) chr_select_load_slot_count >= 1) {
         return 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x8C) = 1;
+    *(s32 *)((s8 *)arg0 + 0x8C) = 1;
     chr_select_load_slot_count += 1;
     return 1;
 }
@@ -346,7 +341,7 @@ void close_and_destroy__12TChCrLoadReqFv(void *arg0) {
 
     if (are_all_selections_done__23TAdSinglePlyChrSelectGCFPv((u8 *)(arg0)) != 0) {
         load_preview_models__23TAdSinglePlyChrSelectGCFPv((void *)(arg0));
-        temp_r4 = M2C_FIELD(arg0, s32 **, 0x3C);
+        temp_r4 = *(s32 **)((s8 *)arg0 + 0x3C);
         *temp_r4 &= 0xFFFFFF7F;
         TAdSinglePlyChrSelectGC__sub_8028CEEC((void *)(arg0), (s32 *)(temp_r4));
         queue_destruction__7TObjectFv(arg0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_be4a70 { char pad[0x18]; };
 
@@ -92,22 +88,22 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
+    virtual s32 m85(s16, s32);
 };
 
 struct RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1CC];
 };
 
 extern "C" {
-M2C_UNK invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
-M2C_UNK setup_move_bounds__16TObjEneMe3StelthFPv(void *);
-M2C_UNK init_common__16TObjEneMe3StelthFPv(void *);
-M2C_UNK TObjEneMe3Stelth__ct();
-extern M2C_UNK __vt__20TObjEneMe3StelthReal[];
+s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+s32 setup_move_bounds__16TObjEneMe3StelthFPv(void *);
+s32 init_common__16TObjEneMe3StelthFPv(void *);
+s32 TObjEneMe3Stelth__ct();
+extern s32 __vt__20TObjEneMe3StelthReal[];
 extern s32 lbl_805D2AFC;
-u8 *TObjEneMe3StelthReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -120,7 +116,7 @@ int TObjEneMe3StelthReal__vt60(void* p);
 int TObjEneMe3StelthReal__vt61(void* p);
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1);
 void *create__20TObjEneMe3StelthRealFPv(void *arg0);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 transition_enemy_state(void *, s32);
 int TObjEneMe3Stelth__vt60(void*);
 int TObjEneMe3Stelth__vt61(void*);
 void __dl__7TObjectFPv(void *);
@@ -134,8 +130,8 @@ extern const f32 lbl_805DA81C;
 
 void TObjEneMe3StelthReal__vt105(void *arg0) {
     EneStelth_800F0CE8 *self = (EneStelth_800F0CE8 *)arg0;
-    M2C_FIELD(arg0, s32 *, 0x3EC) = M2C_FIELD(arg0, s32 *, 0x3EC) + 1;
-    if ((M2C_FIELD(arg0, s32 *, 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {
+    *(s32 *)((s8 *)arg0 + 0x3EC) = *(s32 *)((s8 *)arg0 + 0x3EC) + 1;
+    if ((*(s32 *)((s8 *)arg0 + 0x3EC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DA81C)) {
         transition_enemy_state(self, 9);
         return;
     }
@@ -145,11 +141,11 @@ void TObjEneMe3StelthReal__vt105(void *arg0) {
 int TObjEneMe3StelthReal__vt60(void* p) { return TObjEneMe3Stelth__vt60(p); }
 int TObjEneMe3StelthReal__vt61(void* p) { return TObjEneMe3Stelth__vt61(p); }
 
-extern M2C_UNK __vt__20TObjEneMe3StelthReal[];
+extern s32 __vt__20TObjEneMe3StelthReal[];
 
 void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjEneMe3StelthReal;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjEneMe3StelthReal;
         __dt__16TObjEneMe3StelthFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -161,22 +157,22 @@ void *__dt__20TObjEneMe3StelthRealFv(void *arg0, s16 arg1) {
 extern void *tl_04;
 
 typedef char RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal_size[sizeof(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal) == 0x1D0 ? 1 : -1];
-u8 *TObjEneMe3StelthReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjEneMe3StelthReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEneMe3Stelth__ct();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2AFC;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800F0DF0___vt__20TObjEneMe3StelthReal *)&__vt__20TObjEneMe3StelthReal).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2AFC;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
     setup_move_bounds__16TObjEneMe3StelthFPv((void *) (arg0));
     init_common__16TObjEneMe3StelthFPv((void *) (arg0));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    ((VObj_18_be4a70 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     return arg0;
 }
 
 void *create__20TObjEneMe3StelthRealFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x44C);
     if (o != NULL) {
-        o = TObjEneMe3StelthReal__ct((u8 *)(o), (M2C_UNK)(tl_04), (s32)(arg0));
+        o = TObjEneMe3StelthReal__ct((u8 *)(o), (s32)(tl_04), (s32)(arg0));
     }
     return o;
 }

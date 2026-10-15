@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_8030C0C4 {
@@ -17,14 +13,14 @@ struct Stack_8030C0C4 {
 };
 
 struct RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-extern M2C_UNK __vt__14TWindowMessage[];
+s32 draw_visible_window_entries(void *, void *, int);
+extern s32 __vt__14TWindowMessage[];
 void render__18TWindowPartyStatusFv(s32 arg0);
 s32 TWindowSubComCard__sub_802452DC(int);
 s32 TWindowSubComCard__sub_80245320(void *, void *);
@@ -46,8 +42,8 @@ extern const f32 lbl_805DF200;
 extern const f32 lbl_805DF204;
 void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1);
 s32 get_window_layout_position(int);
-M2C_UNK TWindowSimpleStatus__ct(void *, int, void *, void *);
-extern M2C_UNK __vt__18TWindowPartyStatus[];
+s32 TWindowSimpleStatus__ct(void *, int, void *, void *);
+extern s32 __vt__18TWindowPartyStatus[];
 extern s32 TWindowPartyStatus__name;
 extern s32 local_client_id;
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2);
@@ -58,18 +54,18 @@ extern "C" {
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1);
 void draw__18TWindowPartyStatusFPv(void* p);
 void run_task__18TWindowPartyStatusFv(s32 arg0);
-M2C_UNK update_status_icons__14TWindowComCardFPvPv(void *, int);
+s32 update_status_icons__14TWindowComCardFPvPv(void *, int);
 s32 get_window_layout_position(int);
-M2C_UNK update_window_entry_list(void *, void *);
+s32 update_window_entry_list(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__19TWindowSimpleStatusFv(void *, int);
 int update_hp_entry__20TWindowSubStatusDispFPv(void*);
-M2C_UNK apply_random_shake(void *);
-M2C_UNK update_lockon_window();
-M2C_UNK initialize_subwindow__9TWindowDDFPv(void *);
-M2C_UNK update_fade__17TWindowSubComCardFPv(void *);
+s32 apply_random_shake(void *);
+s32 update_lockon_window();
+s32 initialize_subwindow__9TWindowDDFPv(void *);
+s32 update_fade__17TWindowSubComCardFPv(void *);
 int update_status_entry__20TWindowSubStatusDispFi(void*);
-M2C_UNK update_status_help_item(void *);
+s32 update_status_help_item(void *);
 
 void draw__18TWindowPartyStatusFPv(void* p) { update_hp_entry__20TWindowSubStatusDispFPv(p); update_status_entry__20TWindowSubStatusDispFi(p); }
 
@@ -89,13 +85,13 @@ void draw_background__18TWindowPartyStatusFPvPv(u8 *arg0, u8 *arg1) {
     f32 temp_f2;
     f32 temp_f31;
     f32 temp_f6;
-    temp_f31 = lbl_805DF1EC / M2C_FIELD(arg0, f32 *, 0x54);
+    temp_f31 = lbl_805DF1EC / *(f32 *)((s8 *)arg0 + 0x54);
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (lbl_805D63F0));
-    set_draw_texture_and_color((int) (0xB), (int) (M2C_FIELD(arg1, s32 *, 0x34)));
-    temp_f2 = M2C_FIELD(arg1, f32 *, 0x10);
+    set_draw_texture_and_color((int) (0xB), (int) (*(s32 *)((s8 *)arg1 + 0x34)));
+    temp_f2 = *(f32 *)((s8 *)arg1 + 0x10);
     stack.sp8 = temp_f2;
-    temp_f6 = M2C_FIELD(arg1, f32 *, 0x14);
+    temp_f6 = *(f32 *)((s8 *)arg1 + 0x14);
     stack.spC = temp_f6;
     stack.sp10 = lbl_805DF1F0 + temp_f2;
     stack.sp14 = lbl_805DF1F4 + temp_f6;
@@ -131,11 +127,11 @@ void run_task__18TWindowPartyStatusFv(s32 arg0) {
     apply_random_shake((void *) (arg0));
 }
 
-extern M2C_UNK __vt__18TWindowPartyStatus[];
+extern s32 __vt__18TWindowPartyStatus[];
 
 void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TWindowPartyStatus;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowPartyStatus;
         __dt__19TWindowSimpleStatusFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -146,9 +142,9 @@ void *__dt__18TWindowPartyStatusFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus_size[sizeof(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus) == 0x1C ? 1 : -1];
 u8 *TWindowPartyStatus__ct(u8 *arg0, s16 arg1, s32 arg2) {
     TWindowSimpleStatus__ct((void *) (arg0), (int) (get_window_layout_position((int) (0xAB))), (void *) (local_client_id), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowPartyStatus__name;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8030C2D8___vt__18TWindowPartyStatus *)&__vt__18TWindowPartyStatus).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowPartyStatus__name;
+    *(s16 *)((s8 *)arg0 + 0x20) = arg1;
     return arg0;
 }
 

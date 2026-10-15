@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031F408 { char pad[0x18]; };
 struct VObj_8031F408 : Base_8031F408 {
     virtual void pad0(); virtual void pad1(); virtual void pad2(); virtual void pad3();
@@ -34,9 +31,9 @@ struct VObj_8031F408 : Base_8031F408 {
 extern "C" {
 
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1);
-M2C_UNK advance_animation_playback();
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 advance_animation_playback();
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 
 void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1) {
@@ -44,9 +41,9 @@ void TObjEneRecon__sub_8031F408(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x40C) & 0xFFFFFFFE;
-        M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 3;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
+        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 3;
         ((VObj_8031F408 *)arg0)->m94();
         set_field_378__9TObjEneDDFPvi(arg0, 5);
         break;

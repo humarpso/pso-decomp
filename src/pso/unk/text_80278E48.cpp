@@ -1,12 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-u8 * TWindowSubEquipKind__ct(void *, M2C_UNK, s16);
-u8 *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
+u8 * TWindowSubEquipKind__ct(void *, s32, s16);
+u8 *__nw__7TObjectFUl(s32);
+s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *create_equip_kind_window(s32 arg0, s32 arg1, s16 arg2);
 }
 

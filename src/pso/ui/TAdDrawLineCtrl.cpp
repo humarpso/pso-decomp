@@ -1,14 +1,10 @@
 #include "pso/ui/TAdDrawLineCtrl.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK run_tasks__7TObjectFv(int);
+s32 run_tasks__7TObjectFv(int);
 void run_task__15TAdDrawLineCtrlFv(u8 *arg0);
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0);
 void *__nw__7TObjectFUl(int);
@@ -24,16 +20,16 @@ void __ct__7TObjectFP7TObject(void *);
 void *__nw__7TObjectFUl(int);
 void set_draw_line_param_all_nodes(void *, f32);
 void fn_80019B08(void *, int);
-M2C_UNK restore_saved_depth_alpha_state();
+s32 restore_saved_depth_alpha_state();
 s32 get_main_phase();
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK render_nodes__7TObjectFv(void *);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
+s32 render_nodes__7TObjectFv(void *);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__15TAdDrawLineCtrlFv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_5;
@@ -41,21 +37,21 @@ void render__15TAdDrawLineCtrlFv(void *arg0) {
     } else if ((get_main_phase() != 2) || (get_state_flag__9TMainTaskFv() != 1)) {
 block_5:
         reset_transform_state__10TObjPlayerFv();
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-            render_nodes__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+            render_nodes__7TObjectFv(*(void **)((s8 *)arg0 + 0x20));
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x28) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x28) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
 }
 
-extern M2C_UNK __vt__15TAdDrawLineCtrl[];
+extern s32 __vt__15TAdDrawLineCtrl[];
 extern void *TAdDrawLineCtrl__class_name;
 
 void run_task__15TAdDrawLineCtrlFv(u8 *arg0) {
     u32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r0 != 0U) {
         run_tasks__7TObjectFv((int) (temp_r0));
         return;
@@ -73,15 +69,15 @@ extern "C" {
 void *TAdDrawLineCtrl__ct(void *arg0, void *arg1, void *arg2, f32 farg0) {
     void *o;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TAdDrawLineCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = TAdDrawLineCtrl__class_name;
-    M2C_FIELD(arg0, void **, 0x1C) = arg2;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TAdDrawLineCtrl;
+    *(void **)((s8 *)arg0 + 0x0) = TAdDrawLineCtrl__class_name;
+    *(void **)((s8 *)arg0 + 0x1C) = arg2;
     o = __nw__7TObjectFUl(0x1C);
     if (o != NULL) {
         o = ((void * (*)(void *, int))__ct__7TObjectFP7TObject)(o, 0);
     }
-    M2C_FIELD(arg0, void **, 0x20) = o;
-    M2C_FIELD(arg0, u32 *, 0x28) = 1;
+    *(void **)((s8 *)arg0 + 0x20) = o;
+    *(u32 *)((s8 *)arg0 + 0x28) = 1;
     set_draw_line_param_all_nodes(arg0, farg0);
     fn_80019B08(arg0, -1);
     return arg0;

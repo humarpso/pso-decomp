@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 __nw__7TObjectFUl(int);
@@ -24,26 +20,26 @@ int fn_80268C5C(void*);
 void begin_scroll__17TWindowSubComCardFPvf(void *arg0, f32 farg0) {
     u16 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, u16 *, 0x80);
+    temp_r4 = *(u16 *)((s8 *)arg0 + 0x80);
     if (temp_r4 & 1) {
-        M2C_FIELD(arg0, u16 *, 0x80) = (u16) (temp_r4 & 0xFFFE);
-        M2C_FIELD(arg0, f32 *, 0x3C) = farg0;
-        M2C_FIELD(arg0, s32 *, 0x50) = 3;
+        *(u16 *)((s8 *)arg0 + 0x80) = (u16) (temp_r4 & 0xFFFE);
+        *(f32 *)((s8 *)arg0 + 0x3C) = farg0;
+        *(s32 *)((s8 *)arg0 + 0x50) = 3;
     }
 }
 
 void TWindowSubComCard__sub_80249144(void *arg0) {
     u16 temp_r4;
     void *e;
-    temp_r4 = M2C_FIELD(arg0, u16 *, 0x80);
+    temp_r4 = *(u16 *)((s8 *)arg0 + 0x80);
     if (!(temp_r4 & 1)) {
-        M2C_FIELD(arg0, u16 *, 0x80) = (u16) (temp_r4 | 1);
+        *(u16 *)((s8 *)arg0 + 0x80) = (u16) (temp_r4 | 1);
         e = get_array_entry__20TWindowSubStatusDispFPvi(arg0, get_field_74__17TWindowSubComCardFPv(arg0));
-        M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805DCBB8 + M2C_FIELD(e, f32 *, 0x14);
-        if (M2C_FIELD(arg0, s32 *, 0x2C) & 0x40) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DCBBC);
+        *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805DCBB8 + *(f32 *)((s8 *)e + 0x14);
+        if (*(s32 *)((s8 *)arg0 + 0x2C) & 0x40) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DCBBC);
         }
-        M2C_FIELD(arg0, s32 *, 0x50) = 3;
+        *(s32 *)((s8 *)arg0 + 0x50) = 3;
     }
 }
 

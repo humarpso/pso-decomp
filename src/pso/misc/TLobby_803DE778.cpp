@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK memmove(void *dst, const void *src, u32 n);
+s32 memmove(void *dst, const void *src, u32 n);
 void move_words__6TLobbyFPvPvi(u32 *dst, u32 *src, s32 n);
-M2C_UNK memmove(void *dst, const void *src, u32 n);
+s32 memmove(void *dst, const void *src, u32 n);
 void copy_u16_array__6TLobbyFPvPvi(u16 *dst, u16 *src, s32 n);
 }
 

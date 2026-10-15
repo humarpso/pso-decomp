@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-void draw_icon_selected__10TObjPlayerFi(M2C_UNK arg0);
-M2C_UNK spawn_particle_effect(M2C_UNK *, M2C_UNK);
-M2C_UNK draw_icon__10TObjPlayerFPvii(M2C_UNK, M2C_UNK, M2C_UNK *);
+void draw_icon_selected__10TObjPlayerFi(s32 arg0);
+s32 spawn_particle_effect(s32 *, s32);
+s32 draw_icon__10TObjPlayerFPvii(s32, s32, s32 *);
 
-void draw_icon_selected__10TObjPlayerFi(M2C_UNK arg0) {
-    M2C_UNK sp8[6];
+void draw_icon_selected__10TObjPlayerFi(s32 arg0) {
+    s32 sp8[6];
 
     draw_icon__10TObjPlayerFPvii(arg0, 1, sp8);
     spawn_particle_effect(sp8, 0xC1);

@@ -1,16 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct Stack_8029E7BC
 {
-  M2C_UNK sp8;
+  s32 sp8;
   f32 spC;
   u8 trailing_storage[0x4];
 };
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *csnVecterUnder(M2C_UNK *, s32);
+u8 *csnVecterUnder(s32 *, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern const f32 lbl_805DDD88;
 s32 fn_8029E7BC(s32 arg0, u8 *arg1);

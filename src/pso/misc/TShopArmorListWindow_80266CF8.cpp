@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Win_80266CF8 { u8 p0[0x72]; s16 f72; s16 f74; u8 p76[2]; s16 f78; };
 
@@ -37,14 +33,14 @@ void clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(Win_80266CF8 *w) 
 }
 
 void save_cursor_selection__20TShopArmorListWindowFPv(void *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x78) = (s16) M2C_FIELD(arg0, s16 *, 0x74);
-    M2C_FIELD(arg0, s32 *, 0x7C) = select_cursor_entry__6TLobbyFPv();
+    *(s16 *)((s8 *)arg0 + 0x78) = (s16) *(s16 *)((s8 *)arg0 + 0x74);
+    *(s32 *)((s8 *)arg0 + 0x7C) = select_cursor_entry__6TLobbyFPv();
 }
 void reset_list__20TShopArmorListWindowFPv(u8 *arg0) {
     u32 i;
-    M2C_FIELD(arg0, s16 *, 0x72) = 0;
-    M2C_FIELD(arg0, s16 *, 0x74) = 0;
-    for (i = 0; i < (u32)M2C_FIELD(arg0, s16 *, 0x76); i++) {
+    *(s16 *)((s8 *)arg0 + 0x72) = 0;
+    *(s16 *)((s8 *)arg0 + 0x74) = 0;
+    for (i = 0; i < (u32)*(s16 *)((s8 *)arg0 + 0x76); i++) {
         reset__20TWindowSubStatusDispFPv(get_array_entry__20TWindowSubStatusDispFPvi(arg0, i));
     }
 }

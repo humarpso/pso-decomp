@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801DA7DC { char pad[0x18]; };
 struct VObj_801DA7DC : Base_801DA7DC {
     virtual void m0();
@@ -13,12 +10,11 @@ struct VObj_801DA7DC : Base_801DA7DC {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m_call(void *a1, M2C_UNK a2);
+    virtual s32 m_call(void *a1, s32 a2);
 };
 
 struct Pkt_801DA848 { u8 hdr[4]; u8 body[0xD50]; };
 
-typedef s32 M2C_UNK;
 struct Base_801DA8C4 { char pad[0x18]; };
 
 struct VObj_801DA8C4 : Base_801DA8C4 {
@@ -30,7 +26,7 @@ struct VObj_801DA8C4 : Base_801DA8C4 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m_call(void *a1, M2C_UNK a2);
+    virtual s32 m_call(void *a1, s32 a2);
 };
 
 struct Pkt_801DA8C4 {
@@ -64,7 +60,7 @@ struct VObj_801DAA70 : Base_801DAA70 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m_call(void *a1, M2C_UNK a2);
+    virtual s32 m_call(void *a1, s32 a2);
 };
 
 struct Recv_801DAA70 {
@@ -96,29 +92,29 @@ struct Pkt_801DAA70 {
 };
 
 extern "C" {
-M2C_UNK bswap__13packet_headerFv(void *);
+s32 bswap__13packet_headerFv(void *);
 void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 void bswap_cmd_c5(void *);
 void handle_cmd_C5__9TProtocolFR6packet(u8 *arg0, Pkt_801DA848 *arg1);
-M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
-M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-M2C_UNK bswap_guild_card_meet_user__6TLobbyFPv(void *);
-M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
-M2C_UNK construct__8TPlySmthFPv(void *);
-M2C_UNK strncpy(void *, void *, int);
-M2C_UNK memset(void *, int, int);
+s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
+s32 bswap_guild_card_meet_user__6TLobbyFPv(void *);
+s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
+s32 construct__8TPlySmthFPv(void *);
+s32 strncpy(void *, void *, int);
+s32 memset(void *, int, int);
 s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
-M2C_UNK reset__18PSOV3EncryptionTCPFUl(void *, u32);
-M2C_UNK __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
-M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-M2C_UNK bswap_guild_card_meet_user__6TLobbyFPv(void *);
-M2C_UNK bswap__21TRecvPsoRegistConnectFv(void *);
-M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
-M2C_UNK construct__8TPlySmthFPv(void *);
+s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+s32 reset__18PSOV3EncryptionTCPFUl(void *, u32);
+s32 __as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(void *, void *);
+s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
+s32 bswap_guild_card_meet_user__6TLobbyFPv(void *);
+s32 bswap__21TRecvPsoRegistConnectFv(void *);
+s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
+s32 construct__8TPlySmthFPv(void *);
 s32 strcmp(const char *, const char *);
-M2C_UNK strncpy(void *, void *, int);
-M2C_UNK memset(void *, int, int);
+s32 strncpy(void *, void *, int);
+s32 memset(void *, int, int);
 extern u8 meet_user_settings[];
 extern char *lbl_805D3570;
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
@@ -127,12 +123,12 @@ void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1);
 extern "C" {
 
 void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1);
-M2C_UNK bswap_c6_packet__6TLobbyFPv(void *);
+s32 bswap_c6_packet__6TLobbyFPv(void *);
 
 void send_c6_packet__6TLobbyFPvPv(void *arg0, void *arg1) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1910) != 0) {
-        M2C_FIELD(arg1, u8 *, 0) = 0xC6;
-        M2C_FIELD(arg1, s16 *, 2) = 0x7C;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1910) != 0) {
+        *(u8 *)((s8 *)arg1 + 0) = 0xC6;
+        *(s16 *)((s8 *)arg1 + 2) = 0x7C;
         bswap_c6_packet__6TLobbyFPv(arg1);
         ((VObj_801DA7DC *)arg0)->m_call(arg1, 0x7C);
     }
@@ -177,13 +173,13 @@ s32 send_login_9e_extended__6TLobbyFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
 
 void handle_cmd_9C__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
-    M2C_UNK (*temp_r12)(u8);
-    sp8 = M2C_FIELD(arg1, s32 *, 0);
+    s32 (*temp_r12)(u8);
+    sp8 = *(s32 *)((s8 *)arg1 + 0);
     bswap__13packet_headerFv((void *) (&sp8));
-    M2C_FIELD(arg0, s32 *, 0x190C) = (s32) M2C_FIELD(&sp8, u8 *, 0x1);
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(u8), 0xBC2C);
+    *(s32 *)((s8 *)arg0 + 0x190C) = (s32) *(u8 *)((s8 *)(&sp8) + 0x1);
+    temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC2C);
     if (temp_r12 != NULL) {
-        temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
+        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
     }
 }
 void handle_cmd_02__9TProtocolFR6packet(u8 *arg0, Recv_801DAA70 *arg1) {

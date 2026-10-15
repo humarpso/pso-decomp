@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_551843 { char pad[0x18]; };
 
@@ -24,7 +20,7 @@ struct VObj_18_551843 : VBase_18_551843 {
     virtual u8 * m14();
 };
 
-struct RecoveredGlobal_80196D50___vt__16TObjQuestColBase { M2C_UNK value; u8 remaining[0x44]; };
+struct RecoveredGlobal_80196D50___vt__16TObjQuestColBase { s32 value; u8 remaining[0x44]; };
 typedef char RecoveredGlobal_80196D50___vt__16TObjQuestColBase_size[sizeof(RecoveredGlobal_80196D50___vt__16TObjQuestColBase) == 0x48 ? 1 : -1];
 
 struct VBase_18_26a62c { char pad[0x18]; };
@@ -42,7 +38,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 };
 
 struct RecoveredGlobal_80196C60_lbl_804A7438 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -57,12 +53,12 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80196DB4___vt__16TObjQuestColBase
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x44];
 };
 
@@ -72,7 +68,7 @@ struct RecoveredFields_80196DB4_arg0
   u8 unknown_4[0x2];
   u16 field_6;
   u8 unknown_8[0x10];
-  M2C_UNK *field_18;
+  s32 *field_18;
   u16 field_1C;
   u8 unknown_1E[0x4A];
   f32 field_68;
@@ -89,11 +85,11 @@ extern "C" {
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void run_task__16TObjQuestColBaseFPv(u8 *arg0);
 u8 * destroy_particle_controller__10TObjPlayerFPvs(void *, s16);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBase;
 extern s32 TObjQuestColBase__instance_count;
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1);
-M2C_UNK TObjRoomId__sub_80141CF4(void *, void *, f32);
+s32 TObjRoomId__sub_80141CF4(void *, void *, f32);
 extern RecoveredGlobal_80196C60_lbl_804A7438 lbl_804A7438;
 extern const f32 lbl_805DBEF8;
 extern const f32 lbl_805DBEFC;
@@ -105,7 +101,7 @@ extern RecoveredGlobal_80196D50___vt__16TObjQuestColBase __vt__16TObjQuestColBas
 extern s32 quest_col_base_class_name;
 extern u16 quest_collision_next_id;
 extern s32 TObjQuestColBase__instance_count;
-u8 *TObjQuestColBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -130,24 +126,24 @@ s32 is_within_range__16TObjQuestColBaseFif(s32 arg0, f32 farg0) {
 typedef char RecoveredGlobal_80196C60_lbl_804A7438_size[sizeof(RecoveredGlobal_80196C60_lbl_804A7438) == 0x10 ? 1 : -1];
 void update_room_id_check__16TObjQuestColBaseFPv(u8 *arg0) {
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DBEF8, lbl_805DBEFC) != 0) {
-        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * M2C_FIELD(arg0, f32 *, 0xAC)));
+        TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&lbl_804A7438.value), (f32) (lbl_805DBF00 * *(f32 *)((s8 *)arg0 + 0xAC)));
     }
 }
 
 void TObjQuestColBase__sub_80196CC4(void) {  }
 void run_task__16TObjQuestColBaseFPv(u8 *arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xB8));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xB8));
     if ((temp_r3 != NULL) && (all_parents_unqueued_for_destruction__7TObjectFv(temp_r3) == 0)) {
-        M2C_FIELD(arg0, u8 **, 0xB8) = NULL;
+        *(u8 **)((s8 *)arg0 + 0xB8) = NULL;
     }
-    if (((void *) M2C_FIELD(arg0, u8 **, 0xB8) == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
-        M2C_FIELD(arg0, u8 **, 0xB8) = ((VObj_18_551843 *)(arg0))->m14();
+    if (((void *) *(u8 **)((s8 *)arg0 + 0xB8) == NULL) && (((VObj_18_551843 *)(arg0))->m13() != 0)) {
+        *(u8 **)((s8 *)arg0 + 0xB8) = ((VObj_18_551843 *)(arg0))->m14();
     }
 }
 u8 *__dt__16TObjQuestColBaseFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__16TObjQuestColBase.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__16TObjQuestColBase.value;
         TObjQuestColBase__instance_count -= 1;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -162,7 +158,7 @@ typedef struct VBase_18_1a504b VBase_18_1a504b;
 typedef struct VObj_18_1a504b VObj_18_1a504b;
 typedef char RecoveredGlobal_80196DB4___vt__16TObjQuestColBase_size[((sizeof(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase)) == 0x48) ? (1) : (-1)];
 #define PSO_VCALL_VObj_18_1a504b_m5(_self, _arg0) (((VObj_18_1a504b *)(_self))->m5((_arg0)))
-u8 *TObjQuestColBase__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjQuestColBase__ct(u8 *arg0, s32 arg1, s32 arg2) {
   u16 temp_r6;
   construct_collider_proxy__10TObjPlayerFPv((void *) arg0);
   ((RecoveredFields_80196DB4_arg0 *) arg0)->field_18 = &(*(RecoveredGlobal_80196DB4___vt__16TObjQuestColBase *)&__vt__16TObjQuestColBase).value;

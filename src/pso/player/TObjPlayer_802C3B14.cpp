@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 begin_action_state__10TObjPlayerFPv(u8 *arg0);
 s32 get_ptr_4__10TObjPlayerFPv();
 s32 get_class_starting_inventory(u8);
-M2C_UNK init_technique_levels(s32, s32);
-M2C_UNK setup_effect_slots__10TObjPlayerFii(s32, void *);
-M2C_UNK set_action_state__10TObjPlayerFPvUc(void *, M2C_UNK);
+s32 init_technique_levels(s32, s32);
+s32 setup_effect_slots__10TObjPlayerFii(s32, void *);
+s32 set_action_state__10TObjPlayerFPvUc(void *, s32);
 s32 get_action_data__10TObjPlayerFPv(void *);
-M2C_UNK init_new_character_stats(void *);
-M2C_UNK copy_entries(M2C_UNK, s32, s32);
+s32 init_new_character_stats(void *);
+s32 copy_entries(s32, s32, s32);
 
 extern s32 current_language;
 
@@ -25,14 +21,14 @@ s32 begin_action_state__10TObjPlayerFPv(u8 *arg0) {
     if (arg0 == NULL) {
         return 0;
     }
-    temp_r30 = M2C_FIELD(arg0, u8 *, 0x3A1);
-    M2C_FIELD(arg0, s8 *, 0) = 5;
+    temp_r30 = *(u8 *)((s8 *)arg0 + 0x3A1);
+    *(s8 *)((s8 *)arg0 + 0) = 5;
     copy_entries(5, get_class_starting_inventory(temp_r30), get_ptr_4__10TObjPlayerFPv());
     set_action_state__10TObjPlayerFPvUc(arg0, 1);
     init_new_character_stats(arg0);
-    setup_effect_slots__10TObjPlayerFii(M2C_FIELD(arg0, s32 *, 0x3A4), arg0 + 0x3C0);
-    init_technique_levels(M2C_FIELD(arg0, s32 *, 0x3A4), get_action_data__10TObjPlayerFPv(arg0));
-    M2C_FIELD(arg0, s8 *, 3) = (s8) current_language;
+    setup_effect_slots__10TObjPlayerFii(*(s32 *)((s8 *)arg0 + 0x3A4), arg0 + 0x3C0);
+    init_technique_levels(*(s32 *)((s8 *)arg0 + 0x3A4), get_action_data__10TObjPlayerFPv(arg0));
+    *(s8 *)((s8 *)arg0 + 3) = (s8) current_language;
     return 1;
 }
 
@@ -54,8 +50,8 @@ extern "C" {
 void apply_pending_action__10TObjPlayerFii(s32 arg0, s32 arg1);
 void begin_action_from_char_select__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_801BFFA0(s32);
-M2C_UNK set_current_time__10TObjPlayerFi(s32);
-M2C_UNK TObjPlayer__sub_802C4668(s32, s32);
+s32 set_current_time__10TObjPlayerFi(s32);
+s32 TObjPlayer__sub_802C4668(s32, s32);
 int get_char_index__23TAdSinglePlyChrSelectGCFUi(void*);
 
 void begin_action_from_char_select__10TObjPlayerFv(void) { get_char_index__23TAdSinglePlyChrSelectGCFUi((void*)65535); ((int (*)(void))begin_action_state__10TObjPlayerFPv)(); }

@@ -13,16 +13,11 @@ public:
     u8 entries[16 * sizeof(LobbyListEntry)];
 };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1);
 void bswap_lobby_entry__16TPlyGuildCardTagFPv(void* p);
-M2C_UNK __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
+s32 __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
 int bswap_32__FPUl(void*);
 int bswap__16TPlyGuildCardTagFv(void*);
 
@@ -47,7 +42,7 @@ extern "C" {
 
 void *TPlyGuildCardTag__sub_801E0314(void *arg0, void *arg1) {
     __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag();
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
     return arg0;
 }
 

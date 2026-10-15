@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802D298C_TLobby__data_80540BD0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3DC];
 };
 
 struct RecoveredGlobal_802D299C_TLobby__data_80540BD0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3DC];
 };
 
 struct RecoveredGlobal_802D29AC_TLobby__data_80540BD0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3DC];
 };
 
@@ -27,16 +23,16 @@ u8 *TLobby__sub_802D298C(void);
 extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state;
 u8 *TLobby__sub_802D299C(void);
 extern RecoveredGlobal_802D298C_TLobby__data_80540BD0 TLobby__trade_window_state;
-M2C_UNK *get_trade_window_state(void);
-M2C_UNK try_spend_actor_meseta(s32, s32);
-M2C_UNK send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
+s32 *get_trade_window_state(void);
+s32 try_spend_actor_meseta(s32, s32);
+s32 send_6x29_delete_item__10TObjPlayerFPvii(s32, s32, s32);
 s32 get_player_by_client_id(s32);
 s32 check_player_action_allowed();
-M2C_UNK remove_list_entry_by_id(s32);
+s32 remove_list_entry_by_id(s32);
 s32 fn_801D4270(s32);
-M2C_UNK send_trade_ready__9TProtocolFv(s32);
+s32 send_trade_ready__9TProtocolFv(s32);
 s32 load_character_from_card__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK *get_trade_window_state(void);
+s32 *get_trade_window_state(void);
 extern s32 local_client_id;
 extern s32 TLobby__protocol_instance;
 extern u8 TLobby__trade_proposal_state;
@@ -58,7 +54,7 @@ u8 *TLobby__sub_802D299C(void) {
 }
 
 typedef char RecoveredGlobal_802D29AC_TLobby__data_80540BD0_size[sizeof(RecoveredGlobal_802D29AC_TLobby__data_80540BD0) == 0x3E0 ? 1 : -1];
-M2C_UNK *get_trade_window_state(void) {
+s32 *get_trade_window_state(void) {
     return &(*(RecoveredGlobal_802D29AC_TLobby__data_80540BD0 *)&TLobby__trade_window_state).value;
 }
 

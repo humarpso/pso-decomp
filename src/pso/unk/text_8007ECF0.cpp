@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_8007F3F8 { s32 a; f32 f; };
 
@@ -24,9 +20,9 @@ struct Obj_8007F0E4 {
     s32 f30;
 };
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
+s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str);
 s32 fn_8007F4B8(void *, s32, f32);
 s32 calc_text_width(s8 *);
 void draw_string__14TObjWarpStringFPviff(s8 *, u32, f32, f32);
@@ -51,51 +47,51 @@ void fn_8007ECF0(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0_2;
     s32 temp_r3;
     s32 var_r3;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) ((f32) arg1 / (f32) arg2);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) ((f32) arg1 / (f32) arg2);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x1C);
     if (temp_f1 < lbl_805D9298) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D9298;
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805D9298;
     } else if (temp_f1 > lbl_805D929C) {
-        M2C_FIELD(arg0, f32 *, 0x1C) = (f32) lbl_805D929C;
+        *(f32 *)((s8 *)arg0 + 0x1C) = (f32) lbl_805D929C;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && (fn_8007F4B8(arg0, M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x1C)) != 0)) {
-        temp_r3 = fn_8007F3F8((O_8007F3F8 *)(arg0), M2C_FIELD(arg0, f32 *, 0x1C));
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) && (fn_8007F4B8(arg0, *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x1C)) != 0)) {
+        temp_r3 = fn_8007F3F8((O_8007F3F8 *)(arg0), *(f32 *)((s8 *)arg0 + 0x1C));
         if (temp_r3 >= 0) {
             var_r3 = temp_r3 + (s32) ((lbl_805D92A0 * ((f32) temp_r3 / lbl_805D92A4)) + lbl_805D92A0);
             if (var_r3 > 0x464F) {
                 var_r3 = 0x464F;
             }
-            temp_r0 = M2C_FIELD(arg0, s32 *, 0x28);
+            temp_r0 = *(s32 *)((s8 *)arg0 + 0x28);
             switch (temp_r0) {
             case 0:
                 break;
             case -1:
                 if (var_r3 >= 0x12C) {
-                    M2C_FIELD(arg0, s32 *, 0x28) = 1;
-                    M2C_FIELD(arg0, s32 *, 0x2C) = var_r3;
-                    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg0, s32 *, 0x24);
+                    *(s32 *)((s8 *)arg0 + 0x28) = 1;
+                    *(s32 *)((s8 *)arg0 + 0x2C) = var_r3;
+                    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg0 + 0x24);
                 }
                 break;
             case 1:
-                temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x2C);
+                temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x2C);
                 if (temp_r0_2 > var_r3) {
-                    M2C_FIELD(arg0, s32 *, 0x2C) = var_r3;
+                    *(s32 *)((s8 *)arg0 + 0x2C) = var_r3;
                 } else if ((s32) (var_r3 - temp_r0_2) >= 0x4B) {
-                    M2C_FIELD(arg0, s32 *, 0x2C) = var_r3;
+                    *(s32 *)((s8 *)arg0 + 0x2C) = var_r3;
                 }
-                M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg0, s32 *, 0x24);
+                *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg0 + 0x24);
                 break;
             }
         }
     }
-    if (lbl_805D929C == M2C_FIELD(arg0, f32 *, 0x1C)) {
+    if (lbl_805D929C == *(f32 *)((s8 *)arg0 + 0x1C)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
 extern int fold_flush_0;
 #pragma pop
 
-M2C_UNK draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str) {
+s32 draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv(void *arg0, s32 x0, s32 y0, s8 *str) {
     f32 x;
     f32 y;
     f32 xr;
@@ -120,9 +116,9 @@ void draw_percent_text(void *arg0, f32 farg0, f32 farg1) {
     s8 sp8;
     s32 var_r5;
 
-    if (M2C_FIELD(arg0, s32 *, 0x20) & 2) {
+    if (*(s32 *)((s8 *)arg0 + 0x20) & 2) {
         sp8 = 0;
-        var_r5 = (s32) (lbl_805D92AC * M2C_FIELD(arg0, f32 *, 0x1C));
+        var_r5 = (s32) (lbl_805D92AC * *(f32 *)((s8 *)arg0 + 0x1C));
         if (var_r5 < 0) {
             var_r5 = 0;
         } else if (var_r5 > 0x64) {
@@ -158,7 +154,7 @@ void draw_countdown_timer(Obj_8007F0E4 *self, f32 x, f32 y) {
     } else {
         ((int (*)(char *, const char *, ...))sprintf)(buf, lbl_80438AEC, secs, frac);
     }
-    ((M2C_UNK (*)(void *, s32, s32, char *))draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv)(self, (s32)x, (s32)y, buf);
+    ((s32 (*)(void *, s32, s32, char *))draw_outlined_string_right_aligned__14TObjWarpStringFPviiPv)(self, (s32)x, (s32)y, buf);
     if (self->f30 > 0 && self->f24 - self->f30 > 0x4B && self->f1C > lbl_805D92B0) {
         k = lbl_805D929C;
         r = k / self->f1C;

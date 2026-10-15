@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #include <stddef.h>
 struct Stack_80084C10 {
     s32 sp8;
@@ -13,7 +9,7 @@ struct Stack_80084C10 {
 };
 
 struct RecoveredGlobal_80084C10_lbl_804393AC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
@@ -36,10 +32,10 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct RecoveredGlobal_80084DD4_lbl_8048E640 { M2C_UNK value; u8 remaining[0x30]; };
+struct RecoveredGlobal_80084DD4_lbl_8048E640 { s32 value; u8 remaining[0x30]; };
 
 struct Sprite_80084C64 {
     f32 x;
@@ -72,10 +68,10 @@ extern const f32 lbl_805D9450;
 void TEffStarLight2D_Base__sub_80084C10(s32 arg0);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
 u8 * construct_world_actor_base(void *);
-void * __nw__7TObjectFUl(M2C_UNK, s32);
-extern M2C_UNK lbl_8048E640[];
+void * __nw__7TObjectFUl(s32, s32);
+extern s32 lbl_8048E640[];
 extern void *tl_particle;
-u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2);
 int copy_position__15TEffStarLight2DFPv(void* p);
 void copy_from_subobject__15TEffStarLight2DFPvPv(void *, void *);
 void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self);
@@ -92,14 +88,14 @@ void queue_destruction__7TObjectFv(void *);
 extern void *tl_particle;
 
 void *TEffStarLight2D_Base__create(void *arg0, s32 _w1) {
-    void *o = __nw__7TObjectFUl((M2C_UNK)(0x94), (s32)(_w1));
+    void *o = __nw__7TObjectFUl((s32)(0x94), (s32)(_w1));
     if (o != NULL) {
-        o = TEffStarLight2D_Base__ct((u8 *)(o), (M2C_UNK)(tl_particle), (s32)(arg0));
+        o = TEffStarLight2D_Base__ct((u8 *)(o), (s32)(tl_particle), (s32)(arg0));
     }
     return o;
 }
 
-extern M2C_UNK lbl_8048E640[];
+extern s32 lbl_8048E640[];
 
 typedef char RecoveredGlobal_80084C10_lbl_804393AC_size[sizeof(RecoveredGlobal_80084C10_lbl_804393AC) == 0x14 ? 1 : -1];
 void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
@@ -108,11 +104,11 @@ void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
     typedef char sp10_offset[(offsetof(Stack_80084C10, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80084C10, sp14) == 0xC) ? 1 : -1];
     Stack_80084C10 stack;
-    stack.sp8 = M2C_FIELD(&lbl_804393AC.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804393AC.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804393AC.value, s32 *, 8);
-    stack.sp14 = M2C_FIELD(&lbl_804393AC.value, s32 *, 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 8)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 4)), (int) (M2C_FIELD(&lbl_804393AC.value, s32 *, 0)), (void *) (&lbl_804393AC.value), (f32) (lbl_805D9450));
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804393AC.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 0xC);
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 8)), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 4)), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 0)), (void *) (&lbl_804393AC.value), (f32) (lbl_805D9450));
 }
 
 void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {
@@ -133,8 +129,8 @@ void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {
 
 void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8048E640;
-        if (M2C_FIELD(arg0, void **, 0x90) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x90)); M2C_FIELD(arg0, M2C_UNK *, 0x90) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048E640;
+        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -142,7 +138,7 @@ void *__dt__20TEffStarLight2D_BaseFPvs(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TEffStarLight2D_Base__ct(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char sp8_offset[(offsetof(Stack_80084DD4, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_80084DD4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_80084DD4, sp10) == 0x8) ? 1 : -1];
@@ -155,22 +151,22 @@ u8 *TEffStarLight2D_Base__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
     u8 *temp_r3;
     u8 *var_r0;
     construct_world_actor_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80084DD4_lbl_8048E640 *)&lbl_8048E640).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    stack.sp8 = M2C_FIELD(arg0, f32 *, 0x68);
-    stack.spC = M2C_FIELD(arg0, f32 *, 0x6C);
-    stack.sp10 = (s8) M2C_FIELD(arg0, f32 *, 0x70);
-    stack.sp11 = (s8) M2C_FIELD(arg0, s32 *, 0x84);
-    stack.sp12 = (s8) M2C_FIELD(arg0, s32 *, 0x88);
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x8C);
+    stack.sp8 = *(f32 *)((s8 *)arg0 + 0x68);
+    stack.spC = *(f32 *)((s8 *)arg0 + 0x6C);
+    stack.sp10 = (s8) *(f32 *)((s8 *)arg0 + 0x70);
+    stack.sp11 = (s8) *(s32 *)((s8 *)arg0 + 0x84);
+    stack.sp12 = (s8) *(s32 *)((s8 *)arg0 + 0x88);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x8C);
     stack.sp13 = (s8) temp_r4;
     stack.sp14 = 0;
-    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((M2C_UNK)(0x4C), (s32)(temp_r4))));
+    temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((s32)(0x4C), (s32)(temp_r4))));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
         var_r0 = (u8 *)(__ct__15TEffStarLight2DFv(temp_r3, (s32) (arg0 + 0x38), (s32) &stack.sp8, (*(s32 *)&tl_particle)));
     }
-    M2C_FIELD(arg0, u8 **, 0x90) = var_r0;
+    *(u8 **)((s8 *)arg0 + 0x90) = var_r0;
     return arg0;
 }
 

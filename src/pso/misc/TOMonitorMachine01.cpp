@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef struct Mon_8017205C {
     u8 pad0[0x84];
@@ -48,9 +46,6 @@ struct Mon_80172220 : VObj_80172220 {
     f32 fD0;
 };
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct VBase_18_1a504b { char pad[0x18]; };
 
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -59,7 +54,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct Obj_80172550 {
@@ -114,7 +109,7 @@ int end_effect_render__13TParticleCtrlFv();
 extern const f32 lbl_805DB8F0;
 void render__18TOMonitorMachine01Fv(Mon_80172220 *self);
 u32 load_resource_from_descriptor(void *, int, void *, int, int, int);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 extern u8 monitor_machine01_resource_desc[];
 extern s32 TOMonitorMachine01__scroll_mesh_ptrs[];
 extern void *TOMonitorMachine01__shared_bml_archive;
@@ -123,7 +118,7 @@ void load_resources__18TOMonitorMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 s32 init_map_object_base(void *, s32);
-extern M2C_UNK __vt__18TOMonitorMachine01[];
+extern s32 __vt__18TOMonitorMachine01[];
 extern s32 TOMonitorMachine01__name;
 extern void *TOMonitorMachine01__shared_bml_archive;
 extern s32 tl_05;
@@ -247,7 +242,7 @@ void *create__18TOMonitorMachine01FPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__18TOMonitorMachine01[];
+extern s32 __vt__18TOMonitorMachine01[];
 
 void reset_static_state__18TOMonitorMachine01Fv(void) {
     s32 i;
@@ -269,15 +264,15 @@ void load_resources__18TOMonitorMachine01Fv(void) {
         p = (void *)load_resource_from_descriptor(p, 1, monitor_machine01_resource_desc, 0, 0, 0);
     }
     TOMonitorMachine01__shared_bml_archive = p;
-    temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(p, void **, 0x42C), void **, 8), void **, 0x2C), void **, 0x30), void **, 0x30);
-    TOMonitorMachine01__scroll_mesh_ptrs[1] = M2C_FIELD(temp_r5, s32 *, 4);
-    TOMonitorMachine01__scroll_mesh_ptrs[0] = M2C_FIELD(M2C_FIELD(M2C_FIELD(temp_r5, void **, 0x30), void **, 0x30), s32 *, 4);
+    temp_r5 = *(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)p + 0x42C)) + 8)) + 0x2C)) + 0x30)) + 0x30);
+    TOMonitorMachine01__scroll_mesh_ptrs[1] = *(s32 *)((s8 *)temp_r5 + 4);
+    TOMonitorMachine01__scroll_mesh_ptrs[0] = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)temp_r5 + 0x30)) + 0x30)) + 4);
     TOMonitorMachine01__last_update_tick = 0;
 }
 
 void *__dt__18TOMonitorMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TOMonitorMachine01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOMonitorMachine01;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct SS_802705D8 { u8 pad0[0x18]; void *vt; u8 pad1c[0x64 - 0x1c]; void *w[4]; };
 
@@ -10,9 +6,9 @@ struct SS_80270668 { s32 f0; u8 pad4[0x14]; void *vt; s16 f1c; s16 f1e; s16 f20;
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_background__19TWindowSimpleStatusFv(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-extern M2C_UNK __vt__14TWindowMessage[];
+s32 draw_background__19TWindowSimpleStatusFv(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+extern s32 __vt__14TWindowMessage[];
 void render__19TWindowSimpleStatusFv(s32 arg0);
 void __dl__7TObjectFPv(void *);
 void TWindow__close(void *);
@@ -30,16 +26,16 @@ extern "C" {
 
 void * create__19TWindowSimpleStatusFPvPv(void *arg0, void *arg1);
 void run_task__19TWindowSimpleStatusFv(s32 arg0);
-M2C_UNK update_status_icons__14TWindowComCardFPvPv(s32, s32);
-s32 get_window_layout_position(M2C_UNK);
-M2C_UNK update_window_entry_list(s32, s32);
+s32 update_status_icons__14TWindowComCardFPvPv(s32, s32);
+s32 get_window_layout_position(s32);
+s32 update_window_entry_list(s32, s32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK apply_random_shake(s32);
-M2C_UNK update_hp_tp_level__20TWindowSubStatusDispFPv();
-M2C_UNK update_lockon_window(s32);
-M2C_UNK initialize_subwindow__9TWindowDDFPv(s32);
-M2C_UNK update_fade__17TWindowSubComCardFPv(s32);
-M2C_UNK update_status_help_item(s32);
+s32 apply_random_shake(s32);
+s32 update_hp_tp_level__20TWindowSubStatusDispFPv();
+s32 update_lockon_window(s32);
+s32 initialize_subwindow__9TWindowDDFPv(s32);
+s32 update_fade__17TWindowSubComCardFPv(s32);
+s32 update_status_help_item(s32);
 
 }
 extern "C" {

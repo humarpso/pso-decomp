@@ -10,10 +10,7 @@ extern const char *abeno_fs_obj001_fosuno_model_names[4];
 extern BmlResourceDescriptor TObjDoorKey__resource_descriptor;
 extern const char *abeno_fs_obj001_fosuno_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TObjDoorKeyBase_8018FAEC { char pad[0x18]; };
 struct TObjDoorKeyVObj_8018FAEC : TObjDoorKeyBase_8018FAEC {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -49,7 +46,6 @@ struct VObj_8018FF74_8018FAEC : Base_8018FF74_8018FAEC {
 
 struct Key_8018FD9C { u8 pad0[0x38]; f32 f38[3]; u8 pad44[0x30]; f32 f74; f32 f78; u8 pad7C[0x10]; s32 f8C; };
 
-typedef s32 M2C_UNK;
 struct Node_8018FBB8 { s32 pad0; void *f4; };
 
 struct Key_8018FBB8 { u8 pad0[0x38]; u8 f38[0x28]; s32 f60; u8 pad64[0x28]; s32 f8C; u8 pad90[0x60]; s32 fF0; };
@@ -100,7 +96,7 @@ extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 TObjDoorKey__data_805D5C04;
 extern s32 model_render_flags;
-M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg);
+s32 draw_active_beam__11TObjDoorKeyFPv(void *arg);
 void begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void free_children__12TObjDoorJungFPvPv(void *, int);
@@ -117,18 +113,18 @@ extern s32 TObjDoorKey__ginja_model_table[];
 extern s32 lbl_805D5660;
 extern s32 TObjDoorKey__texture_handle;
 extern s32 model_render_flags;
-M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg);
+s32 draw_inactive_badge__11TObjDoorKeyFPv(void *arg);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_sound_effect(int, void *, int, int);
 void TObjDoorKey__vt16(u8 *arg0);
 s32 spawn_continuous_particle_effect_with_flags(Vec_80190020 *, int, int);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-M2C_UNK init_key__5TOKeyFPv(void *, void *);
+s32 init_key__5TOKeyFPv(void *, void *);
 u8 *TOKey__ct(void *);
 void set_type__14TOKeyAncient01FPv(void *);
 extern u8 TObjDoorKey__collision_body_parts[];
-extern M2C_UNK __vt__11TObjDoorKey[];
+extern s32 __vt__11TObjDoorKey[];
 extern s32 TObjDoorKey__class_name;
 extern s16 door_key_id_counter;
 extern const f32 lbl_805DBE0C;
@@ -149,26 +145,26 @@ void render__11TObjDoorKeyFv(void *arg0);
 void run_task__11TObjDoorKeyFv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 int update_armed_switch__5TOKeyFPv(void*);
-M2C_UNK free_collision_body_parts(void *);
+s32 free_collision_body_parts(void *);
 void *TObjEnvSoundGlobal__ct(void *, void *, void *);
-M2C_UNK unregister_object_by_id(void *);
+s32 unregister_object_by_id(void *);
 int submit_cursor_candidate(void*, int);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__5TOKeyFv(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__5TOKeyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK clear_active_flag__13TParticleCtrlFPv(void *);
-M2C_UNK enable__13TParticleCtrlFPv(void *);
+s32 clear_active_flag__13TParticleCtrlFPv(void *);
+s32 enable__13TParticleCtrlFPv(void *);
 void *fn_8018FA6C();
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 free_if_valid__10TObjPlayerFi(s32);
 int is_not_split_screen__13TRaderMapCoreFv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void TObjDoorKey__sub_8018FAEC(void) {
     void *temp_r3;
 
     temp_r3 = fn_8018FA6C();
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, s32 *, 0xE8) = 1;
+        *(s32 *)((s8 *)temp_r3 + 0xE8) = 1;
     }
 }
 
@@ -179,14 +175,14 @@ void render__11TObjDoorKeyFv(void *arg0) {
     s32 temp_r0;
 
     if (((TObjDoorKeyVObj_8018FAEC*)arg0)->m8(lbl_805DBE00, lbl_805DBE04) == 0) {
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
-            enable__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xF8));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
+            enable__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xF8));
         }
     } else {
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
-            clear_active_flag__13TParticleCtrlFPv(M2C_FIELD(arg0, void **, 0xF8));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
+            clear_active_flag__13TParticleCtrlFPv(*(void **)((s8 *)arg0 + 0xF8));
         }
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
         switch (temp_r0) {
         case 0:
             draw_inactive_badge__11TObjDoorKeyFPv((void *)(arg0));
@@ -198,7 +194,7 @@ void render__11TObjDoorKeyFv(void *arg0) {
     }
 }
 
-M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
+s32 draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     Key_8018FBB8 *arg0 = (Key_8018FBB8 *)arg;
     if (TObjDoorKey__data_805D5C04 != actor_frame_tick) {
         scroll_ginja_mesh_uvs(((Node_8018FBB8 *)TObjDoorKey__ginja_model_table[1])->f4, 0, 0x14, 0xE, 1);
@@ -225,7 +221,7 @@ M2C_UNK draw_active_beam__11TObjDoorKeyFPv(void *arg) {
     pop_matrix();
 }
 
-M2C_UNK draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
+s32 draw_inactive_badge__11TObjDoorKeyFPv(void *arg) {
     Key_8018FCD8 *arg0 = (Key_8018FCD8 *)arg;
     set_global_param__8TObjFishFi(TObjDoorKey__texture_handle);
     push_matrix();
@@ -285,8 +281,8 @@ void TObjDoorKey__vt16(u8 *arg0) {
 }
 
 void TObjDoorKey__vt14(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) + 0x14);
-    M2C_FIELD(arg0, s32 *, 0xF0) = (s32) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x200);
+    *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) + 0x14);
+    *(s32 *)((s8 *)arg0 + 0xF0) = (s32) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x200);
 }
 
 int TObjDoorKey__vt15(void* p) { return submit_cursor_candidate(p, -1); }
@@ -297,16 +293,16 @@ void run_task__11TObjDoorKeyFv(void *arg0) {
     o->m22();
 }
 
-extern M2C_UNK __vt__11TObjDoorKey[];
+extern s32 __vt__11TObjDoorKey[];
 
 void *__dt__11TObjDoorKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjDoorKey;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjDoorKey;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xF8) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF8));
-            M2C_FIELD(arg0, u32 *, 0xF8) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xF8) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8));
+            *(u32 *)((s8 *)arg0 + 0xF8) = 0U;
         }
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
@@ -320,27 +316,27 @@ extern void *tl_05;
 
 void *TObjDoorKey__ct(void *arg0, void *arg1, void *arg2) {
     TOKey__ct(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = ((u8 *)&__vt__11TObjDoorKey);
-    M2C_FIELD(arg0, s32 *, 0) = TObjDoorKey__class_name;
+    *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__11TObjDoorKey);
+    *(s32 *)((s8 *)arg0 + 0) = TObjDoorKey__class_name;
     init_key__5TOKeyFPv(arg0, arg2);
-    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xEC) = 0x14;
-    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
-    M2C_FIELD(arg0, u16 *, 6) = (*(u16 *)&door_key_id_counter)++;
-    if (M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xEC) = 0x14;
+    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
+    *(u16 *)((s8 *)arg0 + 6) = (*(u16 *)&door_key_id_counter)++;
+    if (*(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     }
-    if (M2C_FIELD(arg0, s32 *, 0x8C) > 9) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 9;
+    if (*(s32 *)((s8 *)arg0 + 0x8C) > 9) {
+        *(s32 *)((s8 *)arg0 + 0x8C) = 9;
     }
     init_collision_body_parts(arg0, TObjDoorKey__collision_body_parts, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    Vec_80190020 pos = M2C_FIELD(arg0, Vec_80190020 *, 0x38);
+    Vec_80190020 pos = *(Vec_80190020 *)((s8 *)arg0 + 0x38);
     pos.y += lbl_805DBE0C;
-    M2C_FIELD(arg0, s32 *, 0xF8) = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
+    *(s32 *)((s8 *)arg0 + 0xF8) = spawn_continuous_particle_effect_with_flags(&pos, 0x60, 0x40);
     set_type__14TOKeyAncient01FPv((u8 *)arg0 + 0x98);
     return arg0;
 }

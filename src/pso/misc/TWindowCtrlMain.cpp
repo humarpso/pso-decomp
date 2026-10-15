@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8024D520 { void *obj; u8 pad[0x18]; };
 
@@ -37,9 +33,9 @@ extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
 Obj_8024D520 *TWindowCtrlMain__ct(Obj_8024D520 *arg0);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 __dl__7TObjectFPv(void *);
+s32 release_ptr__15TWindowCtrlMainFPv(void *);
 extern u8 __vt__15TWindowCtrlMain[];
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
@@ -48,9 +44,9 @@ extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
 void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1);
-M2C_UNK free_window__15TWindowCtrlMainFv();
-M2C_UNK release_ptr__15TWindowCtrlMainFPv(void *);
-M2C_UNK free_keyboard_soft__15TWindowCtrlMainFv();
+s32 free_window__15TWindowCtrlMainFv();
+s32 release_ptr__15TWindowCtrlMainFPv(void *);
+s32 free_keyboard_soft__15TWindowCtrlMainFv();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__instance;
 extern void *TWindowCtrlMain__window_task_root;
@@ -58,10 +54,10 @@ extern void *TWindowCtrlMain__screen_controller;
 extern void *TWindowCtrlMain__sub_controller;
 extern void *window_clip_out_instance;
 void free_all_windows__15TWindowCtrlMainFv(void);
-M2C_UNK load_hud_palette_textures();
+s32 load_hud_palette_textures();
 void init_fields__15TWindowCtrlMainFPv(void *);
-M2C_UNK get_or_create_instance__19TWindowKeyBoardSoftFv();
-M2C_UNK TWindowCtrlMain__sub_8024EF30();
+s32 get_or_create_instance__19TWindowKeyBoardSoftFv();
+s32 TWindowCtrlMain__sub_8024EF30();
 extern Ent_8024D520 TWindowCtrlMain__viewport_states[6];
 extern void *TWindowCtrlMain__display_flags;
 extern void *TWindowCtrlMain__instance;
@@ -107,7 +103,7 @@ void *__dt__15TWindowCtrlMainFv(void *arg0, s16 arg1) {
     W_8024D3C0 *root;
     s32 i;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, u8 **, 0x18) = __vt__15TWindowCtrlMain;
+        *(u8 **)((s8 *)arg0 + 0x18) = __vt__15TWindowCtrlMain;
         root = (W_8024D3C0 *)TWindowCtrlMain__window_task_root;
         TWindowCtrlMain__window_task_root = NULL;
         if (window_clip_out_instance != NULL) {
@@ -246,7 +242,7 @@ void TWindowCtrlMain__sub_8024D838(void) { reset_all__15TWindowCtrlMainFPv((void
 void TWindowCtrlMain__sub_8024D85C(void* p) { *(s16*)((char*)p + 0x20) = 60; }
 
 bool TWindowCtrlMain__sub_8024D868(u8 *arg0) {
-    return M2C_FIELD(arg0, s16 *, 0x20) <= 0;
+    return *(s16 *)((s8 *)arg0 + 0x20) <= 0;
 }
 
 void update_child_2c__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x2c); if (m) send_and_handle__6TLobbyFPvii(m); }
@@ -254,7 +250,7 @@ void spawn_palette_slot_light__15TWindowCtrlMainFPv(void* p) { void* m = *(void*
 void update_field28__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) open_submenu__15TWindowSubEquipFii(m); }
 void free_member__15TWindowCtrlMainFPv(void* p) { void* m = *(void**)((char*)p + 0x28); if (m) try_open_battle_menu__15TWindowMainMenuFPvs(m); }
 s32 get_main_menu_message__15TWindowCtrlMainFPv(void *arg0) {
-    void *p = M2C_FIELD(arg0, void **, 0x28);
+    void *p = *(void **)((s8 *)arg0 + 0x28);
     if (p == 0) {
         return 0;
     }

@@ -1,8 +1,4 @@
 #include "pso/item/TItemObject.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "types.h"
 struct Msg_80116004 { u8 hdr[4]; s16 ids[4]; };
@@ -12,18 +8,18 @@ struct Obj_80116004 { u8 pad0[0x38]; f32 pos[3]; };
 struct VBase_80115F28 { char pad[0x18]; };
 
 struct VObj_80115F28 : VBase_80115F28 {
-    virtual M2C_UNK m0(); virtual M2C_UNK m1(); virtual M2C_UNK m2();
-    virtual M2C_UNK m3(); virtual M2C_UNK m4(); virtual M2C_UNK m5();
-    virtual M2C_UNK m6(); virtual M2C_UNK m7(); virtual M2C_UNK m8();
-    virtual M2C_UNK m9(); virtual M2C_UNK m10(); virtual M2C_UNK m11();
-    virtual M2C_UNK m12(); virtual M2C_UNK m13(); virtual M2C_UNK m14();
-    virtual M2C_UNK m15(); virtual M2C_UNK m16(); virtual M2C_UNK m17();
-    virtual M2C_UNK m18(); virtual M2C_UNK m19(); virtual M2C_UNK m20();
-    virtual M2C_UNK m21(); virtual M2C_UNK m22(); virtual M2C_UNK m23();
-    virtual M2C_UNK m24(); virtual M2C_UNK m25(); virtual M2C_UNK m26();
-    virtual M2C_UNK m27(); virtual M2C_UNK m28(); virtual M2C_UNK m29();
-    virtual M2C_UNK m30(); virtual M2C_UNK m31(); virtual M2C_UNK m32();
-    virtual M2C_UNK m33();
+    virtual s32 m0(); virtual s32 m1(); virtual s32 m2();
+    virtual s32 m3(); virtual s32 m4(); virtual s32 m5();
+    virtual s32 m6(); virtual s32 m7(); virtual s32 m8();
+    virtual s32 m9(); virtual s32 m10(); virtual s32 m11();
+    virtual s32 m12(); virtual s32 m13(); virtual s32 m14();
+    virtual s32 m15(); virtual s32 m16(); virtual s32 m17();
+    virtual s32 m18(); virtual s32 m19(); virtual s32 m20();
+    virtual s32 m21(); virtual s32 m22(); virtual s32 m23();
+    virtual s32 m24(); virtual s32 m25(); virtual s32 m26();
+    virtual s32 m27(); virtual s32 m28(); virtual s32 m29();
+    virtual s32 m30(); virtual s32 m31(); virtual s32 m32();
+    virtual s32 m33();
 };
 
 struct Pkt_80115F28 { u8 pad[4]; s16 ids[4]; };
@@ -44,10 +40,10 @@ void send_nearby_player_ids(Obj_80116004 *self, f32 range);
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_slot_count__14TItemProShieldFPv(void *);
 s32 TItemObject__sub_80115DE8(void *item);
-M2C_UNK set_hp_clamped__10TObjPlayerFPvs(void *, s32);
+s32 set_hp_clamped__10TObjPlayerFPvs(void *, s32);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 s32 get_field_2b8__14TItemProShieldFPv(void *);
-M2C_UNK spawn_particle_effect(void *, M2C_UNK);
+s32 spawn_particle_effect(void *, s32);
 void bswap_fields_x4__10TObjPlayerFPv(void *);
 Obj_80116004 *get_player_by_client_id(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
@@ -90,7 +86,7 @@ void TItemObject__vt12(void *arg0);
 u8 *TItemObject__vt7(u8 *arg0);
 void TItem__sub_80115D68(void);
 s32 copy_and_register_item_data__11TItemObjectFPv(void *);
-M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
+s32 refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
@@ -132,7 +128,7 @@ void *__vt__11TItemObject[] = {
 u8 TItemObject__sub_80115D7C(void* p) { return *(u8*)((char*)p + 0x100); }
 
 u8 get_tool_pmt_amount_byte(u8 *arg0) {
-    return (u8) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u16 *, 8);
+    return (u8) *(u16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 8);
 }
 
 void TItemObject__vt12(void *arg0) {
@@ -185,7 +181,7 @@ void handle_6x66_use_star_atomizer(u8 *arg0) {
     s32 var_r28;
     u8 *temp_r3_2;
     bswap_fields_x4__10TObjPlayerFPv(arg0);
-    temp_r3 = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, s16 *, 4));
+    temp_r3 = (u8 *)get_player_by_client_id(*(s16 *)((s8 *)arg0 + 4));
     if (temp_r3 != NULL) {
         var_r28 = 0;
         do {
@@ -250,7 +246,7 @@ void send_star_atomizer_targets(void *arg0) {
 u8 *TItemObject__vt7(u8 *arg0) {
     u32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, u32 *, 0xF0);
+    temp_r4 = *(u32 *)((s8 *)arg0 + 0xF0);
     if (temp_r4 != 0U) {
         return (unsigned char *) (temp_r4 + 0x38);
     }
@@ -328,10 +324,10 @@ struct VObj_18 : VBase_18 {
 };
 
 extern "C" {
-M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, void *);
+s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, void *);
 void TItemObject__vt16(u8 *arg0, u8 *arg1);
 void *TItemObject__ct(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create__11TItemObjectFPv(u8 *arg0);
 }
@@ -357,20 +353,20 @@ s32 TItemObject__vt35(void *arg0, s32 arg1);
 s32 TItemObject__vt36(void *arg0, s32 arg1);
 void TItemObject__vt42(void *arg0);
 void *lookup_item_pmt_record(void *);
-M2C_UNK TItem__ct();
-M2C_UNK consume_item_by_id();
-M2C_UNK TObjPlayer__sub_8010043C(void *, u8);
-M2C_UNK add_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
-M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
+s32 TItem__ct();
+s32 consume_item_by_id();
+s32 TObjPlayer__sub_8010043C(void *, u8);
+s32 add_item_flags__10TObjPlayerFPvUi(void *, s32);
+s32 apply_switch_attack__5TItemFPvi(void *, s32);
 s32 check_flag_400__20TWindowSubStatusDispFv();
-M2C_UNK clear_item_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
+s32 clear_item_flags__10TObjPlayerFPvUi(void *, s32);
 s32 copy_and_register_item_data__11TItemObjectFPv(void *);
-M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 get_item_flags__10TObjPlayerFPv(void *);
 s32 get_item_type_or_default__9TItemListFPv(void *);
-M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
-M2C_UNK set_flag_1024__11TItemObjectFPv(void *);
-M2C_UNK update_pickup_flag__5TItemFi();
+s32 notify_owner__5TItemFPvi(void *, s32);
+s32 set_flag_1024__11TItemObjectFPv(void *);
+s32 update_pickup_flag__5TItemFi();
 
 s32 TItemObject__vt36(void *arg0, s32 arg1) {
     s32 temp_r31;
@@ -400,10 +396,10 @@ void TItemObject__vt29(void *arg0) {
         set_flag_1024__11TItemObjectFPv(arg0);
         return;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
-        M2C_FIELD(arg0, u8 *, 0x101) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
+        *(u8 *)((s8 *)arg0 + 0x101) = 0U;
         o->m42();
-        if ((u8) M2C_FIELD(arg0, u8 *, 0x101) == 0) {
+        if ((u8) *(u8 *)((s8 *)arg0 + 0x101) == 0) {
             apply_switch_attack__5TItemFPvi(arg0, 0x1AF);
             notify_owner__5TItemFPvi(arg0, 0x5B211);
         }
@@ -416,14 +412,14 @@ void TItemObject__vt29(void *arg0) {
 
 void TItemObject__vt42(void *arg0) {
     update_pickup_flag__5TItemFi();
-    M2C_FIELD(arg0, s8 *, 0x101) = 1;
+    *(s8 *)((s8 *)arg0 + 0x101) = 1;
 }
 
 extern s32 lbl_805D2C28;
 
 void TItemObject__vt16(u8 *arg0, u8 *arg1) {
     if (((u8 (*)())get_field_ed__10TObjPlayerFPv)() == 2) {
-        M2C_FIELD(arg1, u8 *, 4) = (u8) M2C_FIELD(arg0, u8 *, 0x100);
+        *(u8 *)((s8 *)arg1 + 4) = (u8) *(u8 *)((s8 *)arg0 + 0x100);
     }
     set_stack_count__24TShopEquipmentListWindowFPvc((void *) (arg1), (void *) (((VObj_18 *)(arg0))->m34()));
 }
@@ -432,17 +428,17 @@ void *TItemObject__ct(void *arg0, void *arg1, void *arg2) {
     s16 temp_r3;
 
     TItem__ct();
-    M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__11TItemObject;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C28;
-    M2C_FIELD(arg0, void **, 0xF8) = lookup_item_pmt_record(arg2);
-    M2C_FIELD(arg0, u8 *, 0x100) = (u8) M2C_FIELD(arg2, u8 *, 4);
+    *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__11TItemObject;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C28;
+    *(void **)((s8 *)arg0 + 0xF8) = lookup_item_pmt_record(arg2);
+    *(u8 *)((s8 *)arg0 + 0x100) = (u8) *(u8 *)((s8 *)arg2 + 4);
     ((TItemObject *)arg0)->store_encoded_value(get_item_type_or_default__9TItemListFPv(arg2));
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 0x10) & 1) {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 0x10) & 1) {
         add_item_flags__10TObjPlayerFPvUi(arg0, 0x10);
     } else {
         clear_item_flags__10TObjPlayerFPvUi(arg0, 0x10);
     }
-    temp_r3 = M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s16 *, 4);
+    temp_r3 = *(s16 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
     if (temp_r3 != 0) {
         TObjPlayer__sub_8010043C(arg0, (u8) (temp_r3 + 4));
     }
@@ -483,7 +479,7 @@ s32 call_dispatch__11TItemObjectFi(s32 arg0) {
 
 void *__dt__11TItemObjectFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 0x18) = __vt__11TItemObject;
+        *(void ***)((s8 *)arg0 + 0x18) = __vt__11TItemObject;
         __dt__5TItemFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

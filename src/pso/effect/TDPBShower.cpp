@@ -1,12 +1,9 @@
 #include "pso/effect/TDPBShower.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8035D7D0___vt__10TDPBShower {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -50,15 +47,15 @@ typedef char RecoveredGlobal_8035D7D0___vt__10TDPBShower_size[sizeof(RecoveredGl
 u8 *TDPBShower__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TDPBShower.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TDPBShower__class_name;
-    M2C_FIELD(arg0, s32 *, 0x28) = 5;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TDPBShower.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TDPBShower__class_name;
+    *(s32 *)((s8 *)arg0 + 0x28) = 5;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg0, f32 *, 0x20) + lbl_805E01C4);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg0 + 0x20) + lbl_805E01C4);
     temp_r3 = (u8 *)(create_particle_emitter((s32) (arg0 + 0x1C), 0x134));
-    M2C_FIELD(arg0, u8 **, 0x2C) = temp_r3;
+    *(u8 **)((s8 *)arg0 + 0x2C) = temp_r3;
     if (temp_r3 != NULL) {
-        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, u8 **, 0x2C), 0x40);
+        set_flags__11TBoss4Type2FPvUi(*(u8 **)((s8 *)arg0 + 0x2C), 0x40);
     }
     return arg0;
 }

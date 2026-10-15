@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -26,7 +22,7 @@ struct VObj_18 : VBase_18 {
     virtual void m17();
     virtual void m18();
     virtual void m19();
-    virtual M2C_UNK m20(s32, void *, f32);
+    virtual s32 m20(s32, void *, f32);
 };
 
 typedef struct EffTail_8002C06C {
@@ -94,7 +90,7 @@ void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void init_instance__16TObjEneDellBiterFPvPvPvPvPv(void *, void *, s32, void *, s32);
 void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 extern u8 boss8_dragon_eff_tail_init_data[];
-extern M2C_UNK __vt__19TBoss8DragonEffTail[];
+extern s32 __vt__19TBoss8DragonEffTail[];
 extern s32 TBoss8DragonEffTail__name;
 extern const f32 lbl_805DEF14;
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2);
@@ -104,7 +100,7 @@ void reset_tail_hp__12TBoss8DragonFi(void *);
 void reload_boss_stats__12TBoss8DragonFPv(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-M2C_UNK vec3_add_to(s32, s32, s32);
+s32 vec3_add_to(s32, s32, s32);
 void matrix_mult_vec(s32, void *, void *);
 void set_matrix_identity(s32);
 void rotate_matrix_y(s32, s32);
@@ -129,14 +125,14 @@ void fn_802FE48C(void);
 void free_statics__19TBoss8DragonEffTailFv(void);
 int get_state__19TBoss8DragonEffTailFPv(void* p);
 void render__19TBoss8DragonEffTailFv(void);
-M2C_UNK vec3_add_to(s32, s32, s32);
+s32 vec3_add_to(s32, s32, s32);
 void delete_buffer__12TBoss8DragonFis(void *, int);
-M2C_UNK TLobby__sub_8001FE7C(s32, M2C_UNK);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_8001FE7C(s32, s32);
+s32 TLobby__sub_803DA16C(void*);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 int fill_value_array(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void fn_802FE48C(void) {  }
 void render__19TBoss8DragonEffTailFv(void) {  }
@@ -187,20 +183,20 @@ void TBoss8DragonEffTail__vt18(s32 arg0, s32 arg1) {
 }
 
 void TBoss8DragonEffTail__vt20(u8 *arg0, u8 *arg1) {
-    ((VObj_18 *)(arg1))->m20(M2C_FIELD(arg0, s32 *, 0xAC), arg0, lbl_805DEF18);
+    ((VObj_18 *)(arg1))->m20(*(s32 *)((s8 *)arg0 + 0xAC), arg0, lbl_805DEF18);
 }
 
 void enable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 1; get_state__19TBoss8DragonEffTailFPv((void*)(p)); }
 void disable__19TBoss8DragonEffTailFPv(void* p) { *(int*)((char*)p + 0xbc) = 0; get_state__19TBoss8DragonEffTailFPv((void*)(p)); }
 int get_state__19TBoss8DragonEffTailFPv(void* p) { return fill_value_array(*(void**)((char*)p + 0xb8)); }
 
-extern M2C_UNK __vt__19TBoss8DragonEffTail[];
+extern s32 __vt__19TBoss8DragonEffTail[];
 
 void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss8DragonEffTail;
-        delete_buffer__12TBoss8DragonFis(M2C_FIELD(arg0, void **, 0xB8), 1);
-        M2C_FIELD(arg0, M2C_UNK *, 0xB8) = 0;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss8DragonEffTail;
+        delete_buffer__12TBoss8DragonFis(*(void **)((s8 *)arg0 + 0xB8), 1);
+        *(s32 *)((s8 *)arg0 + 0xB8) = 0;
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

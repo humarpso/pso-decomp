@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_7128e8 { char pad[0x18]; };
 
 struct VObj_18_7128e8 : VBase_18_7128e8 {
@@ -27,10 +24,10 @@ extern "C" {
 
 void spawn_equip_particle_effect(u8 *arg0, s32 arg1) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
-    M2C_FIELD(arg0, s32 *, 0x20) = spawn_continuous_particle_effect_with_flags(((VObj_18_7128e8 *)(temp_r3))->m7(), arg1, 0x10);
-    if ((u32) M2C_FIELD(arg0, s32 *, 0x20) != 0U) {
-        set_owner_id__13TParticleCtrlFPvUs((void *) M2C_FIELD(arg0, s32 *, 0x20), obj_getField1c(M2C_FIELD(arg0, u8 **, 0x1C)));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
+    *(s32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((VObj_18_7128e8 *)(temp_r3))->m7(), arg1, 0x10);
+    if ((u32) *(s32 *)((s8 *)arg0 + 0x20) != 0U) {
+        set_owner_id__13TParticleCtrlFPvUs((void *) *(s32 *)((s8 *)arg0 + 0x20), obj_getField1c(*(u8 **)((s8 *)arg0 + 0x1C)));
     }
 }
 

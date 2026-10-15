@@ -62,10 +62,7 @@ TItemEffArmorParticle::~TItemEffArmorParticle() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_A_80364364 { char pad[0x18]; };
 struct V_A_80364364 : Base_A_80364364 {
     virtual void f0();
@@ -75,17 +72,17 @@ struct V_A_80364364 : Base_A_80364364 {
     virtual void f4();
     virtual void f5();
     virtual void f6();
-    virtual M2C_UNK m7();
+    virtual s32 m7();
 };
 
 extern "C" {
 
 void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 arg4);
-u32 spawn_continuous_particle_effect_with_flags(M2C_UNK, s32, s32);
-M2C_UNK set_owner_id__13TParticleCtrlFPvUs(u32, u16);
+u32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 void *get_player_by_client_id(u16);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-M2C_UNK disallow_rendering__7TObjectFv(void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 disallow_rendering__7TObjectFv(void *);
 s32 get_item_system_generation();
 
 extern void* __vt__21TItemEffArmorParticle[];
@@ -96,21 +93,21 @@ void *TItemEffArmorParticle__ct(void *arg0, void *arg1, s32 arg2, s32 arg3, s32 
     u32 p;
 
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, void **, 0x18) = (void *) __vt__21TItemEffArmorParticle;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffArmorParticle__class_name;
+    *(void **)((s8 *)arg0 + 0x18) = (void *) __vt__21TItemEffArmorParticle;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffArmorParticle__class_name;
     disallow_rendering__7TObjectFv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s16 *, 0x24) = (s16) arg3;
-    M2C_FIELD(arg0, s32 *, 0x28) = get_item_system_generation();
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s16 *)((s8 *)arg0 + 0x24) = (s16) arg3;
+    *(s32 *)((s8 *)arg0 + 0x28) = get_item_system_generation();
     temp_r3 = get_player_by_client_id((u16) arg3);
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, u32 *, 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
-        p = M2C_FIELD(arg0, u32 *, 0x20);
+        *(u32 *)((s8 *)arg0 + 0x20) = spawn_continuous_particle_effect_with_flags(((V_A_80364364 *) temp_r3)->m7(), arg4, 0x10);
+        p = *(u32 *)((s8 *)arg0 + 0x20);
         if (p != 0U) {
-            set_owner_id__13TParticleCtrlFPvUs(p, M2C_FIELD(arg0, u16 *, 0x24));
+            set_owner_id__13TParticleCtrlFPvUs(p, *(u16 *)((s8 *)arg0 + 0x24));
         }
     } else {
-        M2C_FIELD(arg0, u32 *, 0x20) = 0U;
+        *(u32 *)((s8 *)arg0 + 0x20) = 0U;
     }
     return arg0;
 }

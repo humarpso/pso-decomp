@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/npc/TObjNpcBase.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase18_801482f8 { char pad[0x18]; };
 struct VObj18_801482f8 : VBase18_801482f8 {
     virtual void vpad0();
@@ -280,7 +277,7 @@ struct VObj_18_f3aa6a : VBase_18_f3aa6a {
     virtual void m83();
     virtual void m84();
     virtual void m85();
-    virtual M2C_UNK m86(M2C_UNK);
+    virtual s32 m86(s32);
 };
 
 struct Vec_8014854C { f32 x, y, z; };
@@ -318,25 +315,25 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
 f64 atan2_float(f32, f32);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 check_player_flag1__6TLobbyFPv(void *);
-M2C_UNK update_active_player__11TCameraCtrlFv(void);
-M2C_UNK update_battle_camera__11TCameraCtrlFv(void);
+s32 update_active_player__11TCameraCtrlFv(void);
+s32 update_battle_camera__11TCameraCtrlFv(void);
 u32 create_conversation_camera(int);
-M2C_UNK end_conversation_camera(void);
-M2C_UNK begin_conversation_camera(void);
+s32 end_conversation_camera(void);
+s32 begin_conversation_camera(void);
 s32 angle_difference_abs(s32, s32);
 s32 approach_angle_limited(s32, s32, s32);
-M2C_UNK send_6x3E__10TNpcPlayerFi(void *);
-M2C_UNK init_6x3E_packet__10TNpcPlayerFPv(void *);
+s32 send_6x3E__10TNpcPlayerFi(void *);
+s32 init_6x3E_packet__10TNpcPlayerFPv(void *);
 void update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK send_code_45_1__10TObjPlayerFi(void *);
+s32 send_code_45_1__10TObjPlayerFi(void *);
 u32 get_player_by_client_id();
 void *__ct__12TQuestThreadFv(void *, u32, s32);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 extern const f64 lbl_8043F550[];
 extern s32 local_client_id;
 extern u32 quest_mission_manager;
@@ -360,36 +357,36 @@ extern "C" {
 void TObjPlayer__sub_80148D80(void);
 void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1);
 u32 get_player_by_client_id();
-M2C_UNK play_effect_default__10TObjPlayerFii(u32, s32);
+s32 play_effect_default__10TObjPlayerFii(u32, s32);
 
 extern s32 local_client_id;
 
 void handle_message_event__17TObjNpcFemaleBaseFPvUs(void *arg0, u16 arg1) {
     u32 temp_r3;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x3A8) > 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x3A8) > 0) {
         if ((s32) arg1 == (s32) local_client_id) {
             temp_r3 = get_player_by_client_id();
-            if ((temp_r3 != 0U) && ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 3)) {
-                M2C_FIELD(arg0, s16 *, 0x326) = 3;
-                M2C_FIELD(arg0, s16 *, 0x328) = 0;
-                M2C_FIELD(arg0, u16 *, 0x94) = arg1;
-                M2C_FIELD(arg0, u16 *, 0x338) = arg1;
-                M2C_FIELD(arg0, u32 *, 0x2A8) = temp_r3;
-                if ((s32) M2C_FIELD(arg0, u16 *, 0x338) == (s32) local_client_id) {
+            if ((temp_r3 != 0U) && ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 3)) {
+                *(s16 *)((s8 *)arg0 + 0x326) = 3;
+                *(s16 *)((s8 *)arg0 + 0x328) = 0;
+                *(u16 *)((s8 *)arg0 + 0x94) = arg1;
+                *(u16 *)((s8 *)arg0 + 0x338) = arg1;
+                *(u32 *)((s8 *)arg0 + 0x2A8) = temp_r3;
+                if ((s32) *(u16 *)((s8 *)arg0 + 0x338) == (s32) local_client_id) {
                     play_effect_default__10TObjPlayerFii(temp_r3, -1);
                 }
                 ((VObj18_801482f8 *) arg0)->vf160(1);
-                M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
+                *(s32 *)((s8 *)arg0 + 0x2AC) = 0;
             }
         } else {
-            M2C_FIELD(arg0, u16 *, 0x94) = 0xFFFFU;
-            M2C_FIELD(arg0, u16 *, 0x338) = 0xFFFFU;
+            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFFU;
+            *(u16 *)((s8 *)arg0 + 0x338) = 0xFFFFU;
         }
     }
 }
 
-#define F(T, o) M2C_FIELD(arg0, T *, o)
+#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 
 void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0) {
     if ((fn_8010319C() != 0) && (((u32 (*)(u16))get_player_by_client_id)(*(u16 *)((u8 *)arg0 + 0x94)) != 0)) {
@@ -399,32 +396,32 @@ void debug_draw_talk__17TObjNpcFemaleBaseFPv(void *arg0) {
 
 void apply_set_params__11TObjNpcBaseFv(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x368);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x368);
     if (temp_r0 <= arg1) {
-        M2C_FIELD(arg0, s32 *, 0x368) = arg1;
+        *(s32 *)((s8 *)arg0 + 0x368) = arg1;
     } else if (arg2 <= temp_r0) {
-        M2C_FIELD(arg0, s32 *, 0x368) = arg2;
+        *(s32 *)((s8 *)arg0 + 0x368) = arg2;
     }
-    if (lbl_805DB1B8 <= M2C_FIELD(arg0, f32 *, 0x358)) {
-        M2C_FIELD(arg0, s32 *, 0x38C) = 1;
-        M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) (M2C_FIELD(arg0, f32 *, 0x358) - lbl_805DB1B8);
+    if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x358)) {
+        *(s32 *)((s8 *)arg0 + 0x38C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x3A0) = (s32) (*(f32 *)((s8 *)arg0 + 0x358) - lbl_805DB1B8);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x3A0) = (s32) M2C_FIELD(arg0, f32 *, 0x358);
+        *(s32 *)((s8 *)arg0 + 0x3A0) = (s32) *(f32 *)((s8 *)arg0 + 0x358);
     }
-    if (lbl_805DB1B8 <= M2C_FIELD(arg0, f32 *, 0x35C)) {
-        M2C_FIELD(arg0, s32 *, 0x38C) = 1;
-        M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) (M2C_FIELD(arg0, f32 *, 0x35C) - lbl_805DB1B8);
+    if (lbl_805DB1B8 <= *(f32 *)((s8 *)arg0 + 0x35C)) {
+        *(s32 *)((s8 *)arg0 + 0x38C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x3A4) = (s32) (*(f32 *)((s8 *)arg0 + 0x35C) - lbl_805DB1B8);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x3A4) = (s32) M2C_FIELD(arg0, f32 *, 0x35C);
+        *(s32 *)((s8 *)arg0 + 0x3A4) = (s32) *(f32 *)((s8 *)arg0 + 0x35C);
     }
-    TObjNpcBase__sub_80149360(arg0, (s32) M2C_FIELD(arg0, f32 *, 0x364));
-    TObjNpcBase__sub_80149358(arg0, (s32) M2C_FIELD(arg0, f32 *, 0x360));
-    M2C_FIELD(arg0, s32 *, 0x384) = (s32) M2C_FIELD(arg0, s32 *, 0x60);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x3AC) > 0) {
-        M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805DB1BC;
+    TObjNpcBase__sub_80149360(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x364));
+    TObjNpcBase__sub_80149358(arg0, (s32) *(f32 *)((s8 *)arg0 + 0x360));
+    *(s32 *)((s8 *)arg0 + 0x384) = (s32) *(s32 *)((s8 *)arg0 + 0x60);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x3AC) > 0) {
+        *(f32 *)((s8 *)arg0 + 0x398) = (f32) lbl_805DB1BC;
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0x398) = (f32) lbl_805DB1C0;
+    *(f32 *)((s8 *)arg0 + 0x398) = (f32) lbl_805DB1C0;
 }
 
 void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
@@ -562,7 +559,7 @@ void update_conversation__11TObjNpcBaseFPv(u8 *arg0) {
 }
 
 void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
-    switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0: {
         Vec_801489B8 v;
         s32 angle;
@@ -575,14 +572,14 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
         rotate_matrix_y(0, angle);
         rotate_vector_by_matrix(0, &v, &v);
         pop_matrix();
-        v.x = v.x * M2C_FIELD(arg0, f32 *, 0x354);
-        v.z = v.z * M2C_FIELD(arg0, f32 *, 0x354);
+        v.x = v.x * *(f32 *)((s8 *)arg0 + 0x354);
+        v.z = v.z * *(f32 *)((s8 *)arg0 + 0x354);
         vec3_add_to(&v, arg0 + 0x50);
         if (lbl_805DB1D4 < horizontal_distance_squared(&v, arg0 + 0x38)) {
             Vec_801489B8 d = v;
             select_enemy_destination(arg0, &d, 0);
-            M2C_FIELD(arg0, f32 *, 0x308) = M2C_FIELD(arg0, f32 *, 0x310) = lbl_805DB1C4;
-            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            *(f32 *)((s8 *)arg0 + 0x308) = *(f32 *)((s8 *)arg0 + 0x310) = lbl_805DB1C4;
+            *(s16 *)((s8 *)arg0 + 0x328) = 1;
             ((VObj18_801489B8 *) arg0)->vf160(1);
         }
         break;
@@ -590,17 +587,17 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
     case 1: {
         u8 *o;
         f32 r;
-        enemy_turn_toward_dest(arg0, M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
-        enemy_set_heading_velocity(arg0, M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4));
+        enemy_turn_toward_dest(arg0, *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
+        enemy_set_heading_velocity(arg0, *(s32 *)((s8 *)arg0 + 0x60), *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4));
         move_with_wall_slide(arg0);
         if (objInBand__FP7GameObjf(arg0, lbl_805DB1C8) != 0 || objInBand__FP7GameObjf(arg0, lbl_805DB1D8) != 0) {
             ((VObj18_801489B8 *) arg0)->vf168();
         }
         {
             f32 dist = horizontal_distance_squared(arg0 + 0x29C, arg0 + 0x2FC);
-            r = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), f32 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC);
-            if (dist < r * r || (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), u32 *, 0x18) & 0x380000)) {
-                M2C_FIELD(arg0, s16 *, 0x328) = 3;
+            r = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 4) + *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC);
+            if (dist < r * r || (*(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & 0x380000)) {
+                *(s16 *)((s8 *)arg0 + 0x328) = 3;
                 ((VObj18_801489B8 *) arg0)->vf160(0);
             }
         }
@@ -609,10 +606,10 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
     case 2:
         break;
     case 3:
-        M2C_FIELD(arg0, s32 *, 0x2AC)++;
-        if (lbl_805DB1DC < (f32) M2C_FIELD(arg0, s32 *, 0x2AC)) {
-            M2C_FIELD(arg0, s16 *, 0x328) = 0;
-            M2C_FIELD(arg0, s32 *, 0x2AC) = 0;
+        (*(s32 *)((s8 *)arg0 + 0x2AC))++;
+        if (lbl_805DB1DC < (f32) *(s32 *)((s8 *)arg0 + 0x2AC)) {
+            *(s16 *)((s8 *)arg0 + 0x328) = 0;
+            *(s32 *)((s8 *)arg0 + 0x2AC) = 0;
         }
         break;
     }
@@ -620,23 +617,23 @@ void update_wandering__11TObjNpcBaseFPv(u8 *arg0) {
 }
 
 void update_standing__11TObjNpcBaseFPv(u8 *arg0) {
-    switch (M2C_FIELD(arg0, s16 *, 0x328)) {
+    switch (*(s16 *)((s8 *)arg0 + 0x328)) {
     case 0:
-        if (M2C_FIELD(arg0, s32 *, 0x60) != M2C_FIELD(arg0, s32 *, 0x384)) {
-            M2C_FIELD(arg0, s16 *, 0x328) = 2;
+        if (*(s32 *)((s8 *)arg0 + 0x60) != *(s32 *)((s8 *)arg0 + 0x384)) {
+            *(s16 *)((s8 *)arg0 + 0x328) = 2;
             ((VObj18_801482f8 *) arg0)->vf160(1);
         } else {
-            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            *(s16 *)((s8 *)arg0 + 0x328) = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);
         }
         break;
     case 1:
         break;
     case 2:
-        if (M2C_FIELD(arg0, s32 *, 0x60) != M2C_FIELD(arg0, s32 *, 0x384)) {
-            M2C_FIELD(arg0, s32 *, 0x60) = approach_angle_limited(M2C_FIELD(arg0, s32 *, 0x60), M2C_FIELD(arg0, s32 *, 0x384), M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x350), s32 *, 8));
+        if (*(s32 *)((s8 *)arg0 + 0x60) != *(s32 *)((s8 *)arg0 + 0x384)) {
+            *(s32 *)((s8 *)arg0 + 0x60) = approach_angle_limited(*(s32 *)((s8 *)arg0 + 0x60), *(s32 *)((s8 *)arg0 + 0x384), *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x350)) + 8));
         } else {
-            M2C_FIELD(arg0, s16 *, 0x328) = 1;
+            *(s16 *)((s8 *)arg0 + 0x328) = 1;
             ((VObj18_801482f8 *) arg0)->vf160(0);
         }
         break;
@@ -645,16 +642,16 @@ void update_standing__11TObjNpcBaseFPv(u8 *arg0) {
 
 void activate_idle_mode__11TObjNpcBaseFPv(void *arg0) {
     s16 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 >= 4) || (temp_r0 < 1)) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x368) != 1) {
-            M2C_FIELD(arg0, s16 *, 0x326) = 1;
-            M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x368) != 1) {
+            *(s16 *)((s8 *)arg0 + 0x326) = 1;
+            *(s16 *)((s8 *)arg0 + 0x328) = 0;
             ((VObj18_801482f8 *) arg0)->vf160(0);
             return;
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = 2;
-        M2C_FIELD(arg0, s16 *, 0x328) = 0;
+        *(s16 *)((s8 *)arg0 + 0x326) = 2;
+        *(s16 *)((s8 *)arg0 + 0x328) = 0;
         ((VObj18_801482f8 *) arg0)->vf160(0);
     }
 }

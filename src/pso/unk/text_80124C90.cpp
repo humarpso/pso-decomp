@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Vec_80124C90 { f32 x, y, z; };
 
 struct Hit_80124C90 { u8 pad0[4]; Vec_80124C90 *pos; };
@@ -18,7 +15,7 @@ struct Pl_80124C90 { u8 pad0[0x38]; Vec_80124C90 pos38; u8 pad44[0x60 - 0x44]; s
 struct Me_80124C90 { u8 pad0[0xF0]; Pl_80124C90 *pl; u8 padf4[0x1E4 - 0xF4]; f32 scale; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 Hit_80124C90 *csnVector(void *, void *, int);
 s32 get_field_d8__10TObjPlayerFPv(void *);
@@ -33,10 +30,10 @@ void *get_captured_target_entry(void *, s32);
 s32 get_captured_target_count(void *);
 Tgt_80124C90 *resolve_hittable_target(u16, s16);
 void vec3_add_to(void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
+s32 rotate_matrix_y(int, int);
 void push_matrix_from(void *);
-M2C_UNK transform_point_by_current_matrix(void *, void *);
-M2C_UNK pop_matrix();
+s32 transform_point_by_current_matrix(void *, void *);
+s32 pop_matrix();
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 extern s32 tl_05;

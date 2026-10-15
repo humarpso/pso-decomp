@@ -7,19 +7,15 @@ TItemLockCountCtrl::~TItemLockCountCtrl() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 __ct__7TObjectFP7TObject();
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK memset(s32, M2C_UNK, s32);
+s32 memset(s32, s32, s32);
 
-extern M2C_UNK __vt__18TItemLockCountCtrl[];
+extern s32 __vt__18TItemLockCountCtrl[];
 extern s32 lbl_805D2BF8;
 
 void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
@@ -27,13 +23,13 @@ void *TItemLockCountCtrl__ct(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
 
     __ct__7TObjectFP7TObject();
     temp_r31 = arg2 * 4;
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TItemLockCountCtrl;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2BF8;
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = alloc_buffer__11TOBoss4RockFPv(temp_r31);
-    M2C_FIELD(arg0, s32 *, 0x24) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x28) = arg4;
-    memset(M2C_FIELD(arg0, s32 *, 0x20), 0, temp_r31);
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TItemLockCountCtrl;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2BF8;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x20) = alloc_buffer__11TOBoss4RockFPv(temp_r31);
+    *(s32 *)((s8 *)arg0 + 0x24) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x28) = arg4;
+    memset(*(s32 *)((s8 *)arg0 + 0x20), 0, temp_r31);
     return arg0;
 }
 

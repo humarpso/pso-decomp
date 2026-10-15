@@ -1,27 +1,22 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_801426DC_lbl_8050BFF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_801426DC_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80142734_lbl_8050BFF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80142734_lbl_8058D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -46,11 +41,11 @@ extern s32 model_render_flags;
 void save_state__15TPlyPhotonChairFv(s32 _w0);
 void restore_actor_draw_lighting(void);
 void setup_actor_draw_lighting(void);
-M2C_UNK activate__15TPlyPhotonChairFPv();
+s32 activate__15TPlyPhotonChairFPv();
 extern const f32 lbl_805DB168;
-M2C_UNK activate__15TPlyPhotonChairFPv();
+s32 activate__15TPlyPhotonChairFPv();
 void update_scale_state__15TPlyPhotonChairFPv(u8 *arg0);
-M2C_UNK activate__15TPlyPhotonChairFPv();
+s32 activate__15TPlyPhotonChairFPv();
 extern const f32 lbl_805DB16C;
 void update_bob_motion__15TPlyPhotonChairFPv(u8 *arg0);
 int draw_chunk_object(void);
@@ -150,21 +145,21 @@ void draw_model__15TPlyPhotonChairFPv(void *arg0) {
 void update_scale_state__15TPlyPhotonChairFPv(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x18);
-    var_f31 = M2C_FIELD(arg0, f32 *, 0xC) - M2C_FIELD(arg0, f32 *, 0x14);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
+    var_f31 = *(f32 *)((s8 *)arg0 + 0xC) - *(f32 *)((s8 *)arg0 + 0x14);
     switch (temp_r0) {
     case 0:
         if (var_f31 < lbl_805DB168) {
-            var_f31 += M2C_FIELD(arg0, f32 *, 0x10);
+            var_f31 += *(f32 *)((s8 *)arg0 + 0x10);
         }
-        M2C_FIELD(arg0, f32 *, 0xC) = var_f31;
+        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
         return;
     case 2:
         if (var_f31 <= lbl_805DB168) {
             var_f31 = lbl_805DB168;
             activate__15TPlyPhotonChairFPv();
         }
-        M2C_FIELD(arg0, f32 *, 0xC) = var_f31;
+        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
     case 1:
         return;
     }
@@ -174,23 +169,23 @@ void update_bob_motion__15TPlyPhotonChairFPv(u8 *arg0) {
     f32 temp_f0_2;
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x18);
-    var_f31 = M2C_FIELD(arg0, f32 *, 0xC) + M2C_FIELD(arg0, f32 *, 0x14);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x18);
+    var_f31 = *(f32 *)((s8 *)arg0 + 0xC) + *(f32 *)((s8 *)arg0 + 0x14);
     switch (temp_r0) {
     case 0:
-        temp_f0 = M2C_FIELD(arg0, f32 *, 0x10);
+        temp_f0 = *(f32 *)((s8 *)arg0 + 0x10);
         if (var_f31 >= temp_f0) {
             var_f31 -= temp_f0;
         }
-        M2C_FIELD(arg0, f32 *, 0xC) = var_f31;
+        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
         return;
     case 2:
-        temp_f0_2 = M2C_FIELD(arg0, f32 *, 0x10) - lbl_805DB16C;
+        temp_f0_2 = *(f32 *)((s8 *)arg0 + 0x10) - lbl_805DB16C;
         if (var_f31 >= temp_f0_2) {
             var_f31 = temp_f0_2;
             activate__15TPlyPhotonChairFPv();
         }
-        M2C_FIELD(arg0, f32 *, 0xC) = var_f31;
+        *(f32 *)((s8 *)arg0 + 0xC) = var_f31;
     case 1:
         return;
     }

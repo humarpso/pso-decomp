@@ -1,7 +1,5 @@
 #include "types.h"
 #pragma readonly_strings on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef struct Rec_8004E918 {
     s32 a;
@@ -28,35 +26,32 @@ typedef struct Obj_8004EA2C {
     f32 fc0;
 } Obj_8004EA2C;
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef s32 M2C_UNK;
 extern "C" {
 void TObjPlayer__sub_8004E918(Obj_8004E918 *arg0);
 void fn_8004EA2C(Obj_8004EA2C *arg0);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
-u32 spawn_particle_effect(void *, M2C_UNK);
-u32 create_particle_emitter(void *, M2C_UNK);
-M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, M2C_UNK);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 request_destroy__11TBoss4Type2FUi(void *);
+u32 spawn_particle_effect(void *, s32);
+u32 create_particle_emitter(void *, s32);
+s32 set_flags__11TBoss4Type2FPvUi(void *, s32);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 play_sound_effect(s32, void *, s32, s32);
 void update_timed_effect__11TBoss4Type2FPv(u8 *arg0);
-M2C_UNK sync_player_globals__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80052390(f32);
-M2C_UNK clear_render_callback__8TObjFishFv(s32);
-M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
-M2C_UNK rotate_matrix_y(s32, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK func_803e11e8__FUl(u32);
-M2C_UNK func_803e11f0__Fv();
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390(f32);
+s32 clear_render_callback__8TObjFishFv(s32);
+s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 func_803e11e8__FUl(u32);
+s32 func_803e11f0__Fv();
+s32 draw_model_motion(s32, s32, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 void TObjPlayer__sub_8004ED28(u8 *arg0);
 struct Ent_8004EB78 { s32 a; s32 b; s32 c; };
 struct Obj_8004EB78 {
@@ -178,7 +173,7 @@ void fn_8004EA2C(Obj_8004EA2C *arg0) {
 
 void *__dt__11TObjDFDemo2Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__11TObjDFDemo2;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__11TObjDFDemo2;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

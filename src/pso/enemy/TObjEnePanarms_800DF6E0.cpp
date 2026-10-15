@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct O_800DFB44 { u8 pad[0x378]; s32 state; };
 
@@ -19,7 +15,7 @@ s32 TObjControl__ct(s32, s32);
 s32 TObjEnePanarms__ct(s32, s32, s32);
 int TObjEnePanarms__sub_800DFBC4(void* p);
 int apply_animation_transition(void*, void*);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 int fn_8002AE64(void*);
 int fn_800660B8(void*);
 

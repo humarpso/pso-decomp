@@ -1,18 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct VBase_18_dac7f3
 {
   char pad[0x18];
 };
 
 struct VObj_18_dac7f3 : VBase_18_dac7f3 {
-    virtual M2C_UNK m0(M2C_UNK);
+    virtual s32 m0(s32);
 };
 
 struct RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x320C];
 };
 
@@ -21,8 +20,8 @@ struct E_801BDC98 { u8 b[0x42C]; };
 extern "C" {
 s32 is_locally_controlled__10TObjPlayerFPv();
 u8 *get_player_by_client_id(s32);
-M2C_UNK init_select_txt__10TObjPlayerFPv(int);
-M2C_UNK copy_lobby_header__10TObjPlayerFPvi(int, int);
+s32 init_select_txt__10TObjPlayerFPv(int);
+s32 copy_lobby_header__10TObjPlayerFPvi(int, int);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
 void refresh_player_lobby_headers__10TObjPlayerFv(void);
 extern RecoveredGlobal_801BDCF8_TObjPlayer__data_8050EA70 TObjPlayer__char_data_array;
@@ -57,7 +56,7 @@ void create_active_players__10TObjPlayerFv(void) {
 void refresh_player_lobby_headers__10TObjPlayerFv(void) {
   s32 var_r31;
   u8 *temp_r3;
-  M2C_UNK *var_r29;
+  s32 *var_r29;
   var_r31 = 0;
   var_r29 = &TObjPlayer__char_data_array.value;
   do
@@ -76,7 +75,7 @@ void refresh_player_lobby_headers__10TObjPlayerFv(void) {
       }
     }
     var_r31 += 1;
-    var_r29 = (M2C_UNK *) (((u8 *) var_r29) + 0x42C);
+    var_r29 = (s32 *) (((u8 *) var_r29) + 0x42C);
   }
   while (var_r31 < 0xC);
 }

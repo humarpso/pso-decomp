@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8016A8D0 { char pad[0x18]; };
 struct VObj_8016A8D0 : Base_8016A8D0 {
     virtual void m0();
@@ -42,14 +39,14 @@ struct VObj_18 : VBase_18 {
     virtual void m9();
     virtual void m10();
     virtual void m11();
-    virtual M2C_UNK m12();
+    virtual s32 m12();
     virtual void m13();
-    virtual M2C_UNK m14();
-    virtual M2C_UNK m15();
+    virtual s32 m14();
+    virtual s32 m15();
     virtual void m16();
     virtual void m17();
     virtual void m18();
-    virtual M2C_UNK m19();
+    virtual s32 m19();
 };
 struct VBase_18_d1dc07 { char pad[0x18]; };
 
@@ -76,7 +73,7 @@ struct VObj_18_d1dc07 : VBase_18_d1dc07 {
     virtual void m19();
     virtual void m20();
     virtual void m21();
-    virtual M2C_UNK m22();
+    virtual s32 m22();
 };
 
 struct VBase_8016AA20 { char pad[0x18]; };
@@ -123,7 +120,7 @@ void update_lock_state__5TOKeyFPv(void *arg0);
 int TLobby__send_and_handle_60(void*);
 u8 is_current_floor_switch_set(u16);
 void TOKeyAncient01__vt23(void);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 int bswap_16__FPUs(void*);
 void destroy_key_base__5TOKeyFPvs(void *, int);
@@ -141,13 +138,13 @@ void trigger_activate_sound__5TOKeyFPv(void *arg0) {
 void update_lock_state__5TOKeyFPv(void *arg0) {
     u8 temp_r3;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 2) {
-        temp_r3 = is_current_floor_switch_set((u16) M2C_FIELD(arg0, s32 *, 0xC8));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 2) {
+        temp_r3 = is_current_floor_switch_set((u16) *(s32 *)((s8 *)arg0 + 0xC8));
         if (temp_r3 == 0) {
-            M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+            *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         }
         if (temp_r3 == 1) {
-            M2C_FIELD(arg0, s32 *, 0xD4) = 1;
+            *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         }
     }
 }
@@ -156,22 +153,22 @@ void update_armed_switch__5TOKeyFPv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     ((VObj_18 *)(arg0))->m12();
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
     switch (temp_r0) {
     case 0:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0xE0) != 0) {
-            temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xDC) - 1;
-            M2C_FIELD(arg0, s32 *, 0xDC) = temp_r0_2;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) != 0) {
+            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xDC) - 1;
+            *(s32 *)((s8 *)arg0 + 0xDC) = temp_r0_2;
             if (temp_r0_2 < 0) {
                 ((VObj_18 *)(arg0))->m19();
-                M2C_FIELD(arg0, s32 *, 0xE0) = 0;
+                *(s32 *)((s8 *)arg0 + 0xE0) = 0;
             }
         }
         ((VObj_18 *)(arg0))->m15();
         return;
     case 1:
         ((VObj_18 *)(arg0))->m14();
-        M2C_FIELD(arg0, s32 *, 0xE0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xE0) = 0;
         return;
     }
 }
@@ -193,34 +190,34 @@ void debug_draw_key_id__5TOKeyFPv(VObj_8016AA20 *arg0) {
 
 void reset_and_notify__5TOKeyFPv(u8 *arg0) {
     ((VObj_18_d1dc07 *)(arg0))->m22();
-    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
 }
 
 void init_switch_id__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if ((temp_r0 < 0) || (temp_r0 > 0xFF)) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = -1;
-        M2C_FIELD(arg0, s32 *, 0xD0) = 2;
+        *(s32 *)((s8 *)arg0 + 0xC8) = -1;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 2;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0xC8) = temp_r0;
-    M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC8) = temp_r0;
+    *(s32 *)((s8 *)arg0 + 0xD0) = 0;
 }
 
 void init_key__5TOKeyFPv(u8 *arg0) {
     ((VObj0_8016ab58_8016A8D0*)arg0)->m5();
     init_switch_id__5TOKeyFPv((void *)((void *)(arg0)));
     VecCopy__FP3VecPC3Vec(arg0 + 0x74, arg0 + 0x38);
-    M2C_FIELD(arg0, s32 *, 0x20) = 2;
+    *(s32 *)((s8 *)arg0 + 0x20) = 2;
 }
 
-extern M2C_UNK __vt__5TOKey[];
+extern s32 __vt__5TOKey[];
 
 void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__5TOKey;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__5TOKey;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -229,23 +226,23 @@ void *__dt__5TOKeyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__5TOKey[];
+extern s32 __vt__5TOKey[];
 extern const f32 lbl_805DB6E0;
 extern void *TOKey__class_name;
 
 void *TOKey__ct(void *arg0) {
     init_map_object_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__5TOKey;
-    M2C_FIELD(arg0, void **, 0x0) = TOKey__class_name;
-    M2C_FIELD(arg0, u32 *, 0xC8) = -1;
-    M2C_FIELD(arg0, f32 *, 0xCC) = lbl_805DB6E0;
-    M2C_FIELD(arg0, u32 *, 0xD0) = 2;
-    M2C_FIELD(arg0, u32 *, 0xD4) = 0;
-    M2C_FIELD(arg0, u32 *, 0xE0) = 0;
-    M2C_FIELD(arg0, u32 *, 0xD8) = 28;
-    M2C_FIELD(arg0, u32 *, 0xDC) = 28;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__5TOKey;
+    *(void **)((s8 *)arg0 + 0x0) = TOKey__class_name;
+    *(u32 *)((s8 *)arg0 + 0xC8) = -1;
+    *(f32 *)((s8 *)arg0 + 0xCC) = lbl_805DB6E0;
+    *(u32 *)((s8 *)arg0 + 0xD0) = 2;
+    *(u32 *)((s8 *)arg0 + 0xD4) = 0;
+    *(u32 *)((s8 *)arg0 + 0xE0) = 0;
+    *(u32 *)((s8 *)arg0 + 0xD8) = 28;
+    *(u32 *)((s8 *)arg0 + 0xDC) = 28;
     set_type__14TOKeyAncient01FPv((void *)((void *)((char *)arg0 + 152)));
-    M2C_FIELD(arg0, u32 *, 0xE4) = 0;
+    *(u32 *)((s8 *)arg0 + 0xE4) = 0;
     return arg0;
 }
 

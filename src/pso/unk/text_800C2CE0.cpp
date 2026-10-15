@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -92,7 +89,7 @@ struct VObj_18 : VBase_18 {
     virtual void m83();
     virtual void m84();
     virtual void m85();
-    virtual M2C_UNK m86();
+    virtual s32 m86();
     virtual void m87();
     virtual void m88();
     virtual void m89();
@@ -100,13 +97,13 @@ struct VObj_18 : VBase_18 {
     virtual void m91();
     virtual void m92();
     virtual void m93();
-    virtual M2C_UNK m94();
+    virtual s32 m94();
     virtual void m95();
     virtual void m96();
     virtual void m97();
     virtual void m98();
     virtual void m99();
-    virtual M2C_UNK m100();
+    virtual s32 m100();
 };
 
 struct Pair_800C2E64 { s32 a, b; };
@@ -230,21 +227,21 @@ void TObjEneRe2Flower__sub_800C2E64(Obj_800C2E64 *self, s32 state);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
 void clear_attack_receipts(void *);
-M2C_UNK TBoss8Dragon__sub_800BB7D4(void *, int);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
-M2C_UNK noop__9TObjEneDDFv(void *, s32);
-M2C_UNK fn_800C3A60(void *, M2C_UNK);
-M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_effect_if_v2__10TObjPlayerFi(M2C_UNK);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 TBoss8Dragon__sub_800BB7D4(void *, int);
+s32 transition_enemy_state(void *, s32);
+s32 noop__9TObjEneDDFv(void *, s32);
+s32 fn_800C3A60(void *, s32);
+s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 advance_animation_playback();
+s32 play_effect_if_v2__10TObjPlayerFi(s32);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805D9FD0;
 void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 }
 
 extern "C" {
 
-#define F(T, o) M2C_FIELD(arg0, T *, o)
+#define F(T, o) (*(T *)((s8 *)(arg0) + (o)))
 void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
@@ -273,7 +270,7 @@ void state_damaged__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         advance_animation_playback();
         ((VObj_18 *)(arg0))->m100();
         ((VObj_18 *)(arg0))->m86();
-        ((M2C_UNK (*)(void *))noop__9TObjEneDDFv)(arg0);
+        ((s32 (*)(void *))noop__9TObjEneDDFv)(arg0);
         break;
     case 5:
         F(s32, 0x30) &= ~0x200;

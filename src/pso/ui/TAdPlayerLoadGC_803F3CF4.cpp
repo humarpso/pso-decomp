@@ -1,12 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK;
 
 extern "C" {
-M2C_UNK OSFreeToHeap(int, void *);
+s32 OSFreeToHeap(int, void *);
 s32 get_network_config_mode();
-M2C_UNK get_or_set_network_config_mode(int);
-M2C_UNK get_or_set_network_config_backup_mode(int);
-M2C_UNK set_network_config_card_channel(int);
+s32 get_or_set_network_config_mode(int);
+s32 get_or_set_network_config_backup_mode(int);
+s32 set_network_config_card_channel(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lobby_net_config_buffer;

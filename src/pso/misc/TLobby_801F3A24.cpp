@@ -12,11 +12,6 @@ struct Ent_801F3A80 {
     u8 rest[0x44];
 };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 void swap_object_row_endian(void *arg0);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
@@ -24,7 +19,7 @@ void bswap_enemy_set_row(void*);
 void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
 bool load_quest_encounter_section(s32 arg0);
 s32 handle_msg_type2__6TLobbyFi(s32 arg0);
-M2C_UNK init_buffers__6TLobbyFii(s32, s32);
+s32 init_buffers__6TLobbyFii(s32, s32);
 extern s16 quest_floor_designations[];
 extern s32 TLobby__data_805D5EE0;
 void init_floor_encounter_sections__6TLobbyFv(void);
@@ -121,12 +116,8 @@ void handle_msg_type1_for_idle_slots__6TLobbyFv(void) {
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -134,10 +125,10 @@ struct Sel_801F3E1C { s32 area; s32 terrain; s32 entities; };
 
 struct RecoveredGlobal_801F3DEC_TLobby__data_805127D0;
 extern "C" {
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void clear_quest_floor_designations(void);
 s32 add_player__6TLobbyFiii(s32, s32, s32);
-M2C_UNK bswap_32__FPUl(void *);
+s32 bswap_32__FPUl(void *);
 extern s32 TLobby__data_805D5EE0;
 bool load_quest_encounter_section(s32 arg0);
 extern u8 lbl_80449D08[];
@@ -268,10 +259,10 @@ bool load_quest_encounter_section(s32 arg0) {
     var_r31 = (u8 *)((*(u8 * *)&TLobby__data_805D5EE0));
     if (var_r31 != NULL) {
 loop_1:
-        sp14 = M2C_FIELD(var_r31, s32 *, 0);
-        sp10 = M2C_FIELD(var_r31, s32 *, 4);
-        spC = M2C_FIELD(var_r31, s32 *, 8);
-        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        sp14 = *(s32 *)((s8 *)var_r31 + 0);
+        sp10 = *(s32 *)((s8 *)var_r31 + 4);
+        spC = *(s32 *)((s8 *)var_r31 + 8);
+        sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
         bswap_32__FPUl((void *) (&sp14));
         bswap_32__FPUl((void *) (&sp10));
         bswap_32__FPUl((void *) (&spC));
@@ -292,18 +283,14 @@ block_6:
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 handle_msg_type2__6TLobbyFi(s32 arg0);
 void bswap_enemy_set_rows__6TLobbyFPvUi(u8* arg0, u32 arg1);
 s32 get_player_floor__6TLobbyFi(s32);
-M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
-M2C_UNK init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
+s32 reserve_enemy_set_actor_ids(void *, u32, s32);
+s32 init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
 
 s32 handle_msg_type2__6TLobbyFi(s32 arg0) {
     s32 sp14;
@@ -315,10 +302,10 @@ s32 handle_msg_type2__6TLobbyFi(s32 arg0) {
 
     if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
 loop_1:
-        sp14 = M2C_FIELD(var_r31, s32 *, 0);
-        sp10 = M2C_FIELD(var_r31, s32 *, 4);
-        spC = M2C_FIELD(var_r31, s32 *, 8);
-        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        sp14 = *(s32 *)((s8 *)var_r31 + 0);
+        sp10 = *(s32 *)((s8 *)var_r31 + 4);
+        spC = *(s32 *)((s8 *)var_r31 + 8);
+        sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
         bswap_32__FPUl(&sp14);
         bswap_32__FPUl(&sp10);
         bswap_32__FPUl(&spC);
@@ -343,26 +330,22 @@ block_6:
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 handle_msg_type1__6TLobbyFi(s32 arg0);
 void setup_quest_list__6TLobbyFv(void);
-M2C_UNK advance_enemy_id_counter(u16);
-M2C_UNK advance_object_id_counter(u16);
+s32 advance_enemy_id_counter(u16);
+s32 advance_object_id_counter(u16);
 void convert_quest_object_rows(struct QuestObjRow_801F3AD8 *rows, u32 byte_size);
-M2C_UNK assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
-M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
-M2C_UNK TLobby__sub_8020B308(s32);
-M2C_UNK load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
-M2C_UNK fn_801F43A8();
-M2C_UNK get_data__12TQuestListVMFv();
+s32 assign_object_ids__6TLobbyFPviPv(void *, u32, s32);
+s32 sum_floor_enemy_counts__6TLobbyFv();
+s32 TLobby__sub_8020B308(s32);
+s32 load_object_set_entries__6TLobbyFiPvUi(s32, void *, s32);
+s32 fn_801F43A8();
+s32 get_data__12TQuestListVMFv();
 s32 get_player_floor__6TLobbyFi(s32);
-M2C_UNK get_quest_list_flag__16TQuestListOnlineFv();
+s32 get_quest_list_flag__16TQuestListOnlineFv();
 void open_session__6TLobbyFi(s32 arg0);
 void rebuild_all__6TLobbyFi(int a0);
 void refresh_quest_list__6TLobbyFi(s32 arg0);
@@ -378,10 +361,10 @@ s32 handle_msg_type1__6TLobbyFi(s32 arg0) {
 
     if ((var_r31 = (u8 *)TLobby__data_805D5EE0) != NULL) {
 loop_1:
-        sp14 = M2C_FIELD(var_r31, s32 *, 0);
-        sp10 = M2C_FIELD(var_r31, s32 *, 4);
-        spC = M2C_FIELD(var_r31, s32 *, 8);
-        sp8 = M2C_FIELD(var_r31, s32 *, 0xC);
+        sp14 = *(s32 *)((s8 *)var_r31 + 0);
+        sp10 = *(s32 *)((s8 *)var_r31 + 4);
+        spC = *(s32 *)((s8 *)var_r31 + 8);
+        sp8 = *(s32 *)((s8 *)var_r31 + 0xC);
         bswap_32__FPUl(&sp14);
         bswap_32__FPUl(&sp10);
         bswap_32__FPUl(&spC);
@@ -463,10 +446,6 @@ void update_and_reset__6TLobbyFi(int a0) { TLobby__data_805D5EE0 = a0; populate_
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct A_801F4340 { s16 a; s16 b; };
 
@@ -482,10 +461,10 @@ extern "C" {
 
 void open_session__6TLobbyFi(s32 arg0);
 void populate_quest_floor_sets(void);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 alloc__22TQuestVmDownLoadServerFPv();
 s32 update_lobby_scene__6TSceneFPv();
-M2C_UNK read_disc_file(s32, s32);
+s32 read_disc_file(s32, s32);
 
 extern s32 TLobby__data_805D5EE0;
 extern s16 TLobby__data_805D6134;

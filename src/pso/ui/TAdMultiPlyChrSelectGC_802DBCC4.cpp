@@ -1,12 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct S_802DC294 { u8 pad0[0x5C]; s32 f5C; } S_802DC294;
 
-typedef s32 M2C_UNK;
 struct Info_802DC024 {
     s32 val[4];
     s32 idx[4];
@@ -16,53 +11,53 @@ struct Info_802DC024 {
 struct Sel_802DC118 { u8 pad[0x64]; u32 win; };
 
 extern "C" {
-M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
+s32 set_flag_40__16TAdChrSelASlotGCFPv(int);
 s32 get_localized_text_entry(int, int);
-M2C_UNK set_status_flag_80__12TQuestThreadFPv(int);
-M2C_UNK calc_layout_height__17TWindowSubComCardFPvf(int, f32);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 set_status_flag_80__12TQuestThreadFPv(int);
+s32 calc_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBE4C(long long arg1);
-M2C_UNK set_flag_40__16TAdChrSelASlotGCFPv(int);
+s32 set_flag_40__16TAdChrSelASlotGCFPv(int);
 s32 get_localized_text_entry(int, int);
-M2C_UNK set_status_flag_80__12TQuestThreadFPv(int);
-M2C_UNK calc_layout_height__17TWindowSubComCardFPvf(int, f32);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 set_status_flag_80__12TQuestThreadFPv(int);
+s32 calc_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
 extern const f32 lbl_805DE890;
 s32 TAdMultiPlyChrSelectGC__sub_802DBEC4(unsigned long long arg1);
 s32 get_state_flag__9TMainTaskFv(void);
 void render__22TAdMultiPlyChrSelectGCFv(void *self);
 s32 get_localized_text_entry(int, int);
-M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
-M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 free_member__17TWindowSubComCardFPv(int, int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
-extern M2C_UNK lbl_804728A8[];
+extern s32 lbl_804728A8[];
 extern const f32 lbl_805DE888;
 s32 TAdMultiPlyChrSelectGC__sub_802DBCE8(s32 arg0);
 s32 get_localized_text_entry(int, int);
-M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
-M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 free_member__17TWindowSubComCardFPv(int, int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
-extern M2C_UNK lbl_804728A0[];
+extern s32 lbl_804728A0[];
 extern const f32 lbl_805DE88C;
 s32 TAdMultiPlyChrSelectGC__sub_802DBD64(s32 arg0);
 s32 get_localized_text_entry(int, int);
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(int, int);
-M2C_UNK align_menu_entry_positions(int);
-M2C_UNK update_layout_height__17TWindowSubComCardFPvf(int, f32);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
+s32 set_selected_index__17TWindowSubComCardFPvs(int, int);
+s32 align_menu_entry_positions(int);
+s32 update_layout_height__17TWindowSubComCardFPvf(int, f32);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(int, int, int, int);
 s32 create_window_menu(void *, int, int);
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
-extern M2C_UNK lbl_80472890[];
+extern s32 lbl_80472890[];
 extern const f32 lbl_805DE894;
 s32 create_choice_menu__22TAdMultiPlyChrSelectGCFv(void);
 s32 get_localized_text_entry(int, int);
-M2C_UNK free_member__17TWindowSubComCardFPv(int, int);
-M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
+s32 free_member__17TWindowSubComCardFPv(int, int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, void *, f32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(void *, int, int, int);
 extern u8 lbl_80472898[];
 extern const f32 lbl_805DE88C;
@@ -74,17 +69,17 @@ s32 sprintf(void *, const void *, ...);
 u8 *format_player_number_text__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 TAdMultiPlyChrSelectGC__sub_802DFFE8(s32);
 s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1);
-M2C_UNK copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(void *);
+s32 copy_selected_characters__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 is_multiplayer_character_slot_selected(u32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 TAdMultiPlyChrSelectGC__sub_802C658C(u32);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void);
-M2C_UNK set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, void *);
+s32 set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, void *);
 s32 count_ready__22TAdMultiPlyChrSelectGCFv();
 s32 TAdMultiPlyChrSelectGC__sub_802C6558();
 s32 get_clamped_cursor__22TAdMultiPlyChrSelectGCFv();
 u8 *format_player_number_text__22TAdMultiPlyChrSelectGCFii(s32 arg0, s32 arg1);
-extern M2C_UNK TAdMultiPlyChrSelectGC__data_805DE898;
+extern s32 TAdMultiPlyChrSelectGC__data_805DE898;
 void TAdMultiPlyChrSelectGC__sub_802DC118(u8 *arg0, s32 arg1);
 }
 
@@ -186,13 +181,13 @@ s32 get_state_result__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 var_r4;
 
     var_r4 = -1;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
         var_r4 = 0;
         break;
     case 12:
-        var_r4 = get_instance__22TAdMultiPlyChrSelectGCFv(M2C_FIELD(arg0, s32 *, 0x5C));
+        var_r4 = get_instance__22TAdMultiPlyChrSelectGCFv(*(s32 *)((s8 *)arg0 + 0x5C));
         break;
     case 29:
         var_r4 = 0;
@@ -247,27 +242,27 @@ s32 TAdMultiPlyChrSelectGC__sub_802DC294(S_802DC294 *arg0, s32 arg1) {
 
 int request_scene_change__22TAdMultiPlyChrSelectGCFPv(void* p) { return request_scene_change__21TAdMultiChgGameModeGCFv(p); }
 void TAdMultiPlyChrSelectGC__sub_802DC310(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
-        queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x88));
-        M2C_FIELD(arg0, u32 *, 0x88) = 0U;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
+        queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x88));
+        *(u32 *)((s8 *)arg0 + 0x88) = 0U;
     }
-    if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) < 0x14) {
-        if (get_player_index__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x68)) < 0xE) {
-            M2C_FIELD(arg0, s32 *, 0x58) = 0;
+    if (get_mode__22TAdMultiPlyChrSelectGCFPv(*(s32 *)((s8 *)arg0 + 0x6C)) < 0x14) {
+        if (get_player_index__22TAdMultiPlyChrSelectGCFPv(*(s32 *)((s8 *)arg0 + 0x68)) < 0xE) {
+            *(s32 *)((s8 *)arg0 + 0x58) = 0;
         }
         if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
             clear_entries__18TAdChrMoveEffectGCFPv();
         }
-        M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
+        *(s32 *)((s8 *)arg0 + 0x20) = 0x1D;
         return;
     }
-    if (get_mode__22TAdMultiPlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x6C)) == 0x1D) {
+    if (get_mode__22TAdMultiPlyChrSelectGCFPv(*(s32 *)((s8 *)arg0 + 0x6C)) == 0x1D) {
         if (get_global_state__22TAdMultiPlyChrSelectGCFv() != 0U) {
             clear_entries__18TAdChrMoveEffectGCFPv();
         }
-        M2C_FIELD(arg0, s32 *, 0x20) = 0x1D;
-        set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x68), 1);
-        set_field_1c__22TAdMultiPlyChrSelectGCFPvi(M2C_FIELD(arg0, s32 *, 0x6C), 1);
+        *(s32 *)((s8 *)arg0 + 0x20) = 0x1D;
+        set_cursor_index__22TAdMultiPlyChrSelectGCFPvi(*(s32 *)((s8 *)arg0 + 0x68), 1);
+        set_field_1c__22TAdMultiPlyChrSelectGCFPvi(*(s32 *)((s8 *)arg0 + 0x6C), 1);
     }
 }
 

@@ -1,10 +1,6 @@
 #include "pso/TBoss5GryphonLightningEff.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_80325248 { u8 b[0xC]; };
 
@@ -51,7 +47,7 @@ void randomize_bolt_jitter__12TTecZondeEffFPv(void *);
 void __ct__12TTecZondeEffFv(void *, void *, s32, s32, f32);
 void eval_bezier_curve__12TBoss8DragonFPviiPvf(void *, void *, s32, void *, f32);
 void subtract_vector(void *, void *);
-extern M2C_UNK __vt__25TBoss5GryphonLightningEff[];
+extern s32 __vt__25TBoss5GryphonLightningEff[];
 extern s32 lbl_805D4188;
 Self_8032537C *__ct__25TBoss5GryphonLightningEffFv(Self_8032537C *self, void *parent, void *a, void *b, f32 x0, f32 x1, f32 scale);
 extern L1_80325070 **inazuma_texture_list;
@@ -62,16 +58,16 @@ extern "C" {
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p);
 void render__25TBoss5GryphonLightningEffFv(void *arg0);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK build_lightning_strip(void *, void *, void *, void *, void *);
-M2C_UNK project_lightning_points(void *, void *, void *, void *);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, M2C_UNK);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_1__Fv();
+s32 set_chunk_material_color(void *);
+s32 build_lightning_strip(void *, void *, void *, void *, void *);
+s32 project_lightning_points(void *, void *, void *, void *);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, s32, s32, s32);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 restore_saved_depth_alpha_state();
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_1__Fv();
 
 void TBoss5GryphonLightningEff__sub_80325064(void* p) { *(u8*)((char*)p + 0x260) = 1; }
 
@@ -124,10 +120,10 @@ void render__25TBoss5GryphonLightningEffFv(void *arg0) {
     init_xyz_limits__10TObjPlayerFv();
     project_lightning_points(arg0, sp70, sp3C, sp8);
     build_lightning_strip(arg0, sp10C, sp70, sp3C, sp8);
-    draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
-    if ((u8) M2C_FIELD(arg0, u8 *, 0x260) == 1) {
+    draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, *(s32 *)((s8 *)arg0 + 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
+    if ((u8) *(u8 *)((s8 *)arg0 + 0x260) == 1) {
         build_lightning_strip(arg0, sp10C, sp70, sp8, sp3C);
-        draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, M2C_FIELD(arg0, s32 *, 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
+        draw_transformed_primitive__9TWindowDDFPvPvPvPv(sp10C, *(s32 *)((s8 *)arg0 + 0x38) * 2, calc_segment_uvs__25TBoss5GryphonLightningEffFPvPv((void *)(arg0), (void *)(sp10C)), 1);
     }
     reset_transform_state__10TObjPlayerFv();
     end_effect_render__13TParticleCtrlFv();

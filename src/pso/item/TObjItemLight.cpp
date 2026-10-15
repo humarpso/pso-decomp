@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Light_80191F90 { u8 pad0[0x38]; f32 pos[3]; u8 pad44[0x18]; f32 rot[3]; u8 pad68[0x28]; f32 f90; void *f94; };
 
@@ -34,15 +30,15 @@ struct VObjItemLight_80192060 {
     virtual void m5(s32);
 };
 
-u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1);
-s32 spawn_particle_effect_with_rotation(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK construct_world_actor_base();
+s32 spawn_particle_effect_with_rotation(void *, void *, s32, s32);
+s32 construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void request_destroy__11TBoss4Type2FUi(void *);
 
-extern M2C_UNK __vt__13TObjItemLight[];
+extern s32 __vt__13TObjItemLight[];
 
 void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
     s32 i;
@@ -68,8 +64,8 @@ void run_task__13TObjItemLightFv(Light_80191F90 *arg0) {
 
 void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjItemLight;
-        if (M2C_FIELD(arg0, void **, 0x94) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x94)); M2C_FIELD(arg0, M2C_UNK *, 0x94) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
+        if (*(void **)((s8 *)arg0 + 0x94) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x94)); *(s32 *)((s8 *)arg0 + 0x94) = 0; }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -78,22 +74,22 @@ void *__dt__13TObjItemLightFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__13TObjItemLight[];
+extern s32 __vt__13TObjItemLight[];
 extern s32 TObjItemLight__class_name;
 extern const f32 lbl_805DBE40;
 extern const f32 lbl_805DBE44;
 
-u8 *TObjItemLight__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjItemLight__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjItemLight;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjItemLight__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjItemLight;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjItemLight__class_name;
     ((VObjItemLight_80192060 *)arg0)->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x94) = 0;
-    M2C_FIELD(arg0, f32 *, 0x90) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
-    if (M2C_FIELD(arg0, f32 *, 0x90) < lbl_805DBE40) {
-        M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DBE44;
+    *(s32 *)((s8 *)arg0 + 0x94) = 0;
+    *(f32 *)((s8 *)arg0 + 0x90) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
+    if (*(f32 *)((s8 *)arg0 + 0x90) < lbl_805DBE40) {
+        *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DBE44;
     }
-    M2C_FIELD(arg0, s32 *, 0x94) = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x94) = spawn_particle_effect_with_rotation(arg0 + 0x38, arg0 + 0x5C, 0x1CA, 0x40);
     return arg0;
 }
 

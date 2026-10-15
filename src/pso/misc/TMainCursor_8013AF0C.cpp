@@ -1,6 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK;
 struct Part_8013AF50 { u8 pad[0x124]; };
 
 struct Cur_8013AF50 {
@@ -16,11 +15,11 @@ struct State_8013AF50 {
 };
 
 extern "C" {
-M2C_UNK reset_cursor_parts__11TMainCursorFPv(void *);
-M2C_UNK sort_list__11TMainCursorFii(Cur_8013AF50 *, s32);
-M2C_UNK publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
+s32 reset_cursor_parts__11TMainCursorFPv(void *);
+s32 sort_list__11TMainCursorFii(Cur_8013AF50 *, s32);
+s32 publish_target_list__11TMainCursorFPvi(Cur_8013AF50 *, s32);
 State_8013AF50 *get_state__11TMainCursorFPv(s32);
-M2C_UNK publish_nearest_target__11TMainCursorFPv(void *);
+s32 publish_nearest_target__11TMainCursorFPv(void *);
 s32 TObjPlayer__sub_801C6DAC(s32);
 void refresh_all_lists__11TMainCursorFi(s32 arg0);
 }

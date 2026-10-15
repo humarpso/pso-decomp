@@ -1,18 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 extern "C" {
 s32 read_disc_file(s32, u8 *);
-M2C_UNK TObjPlayer__sub_802A841C();
-M2C_UNK load_indirect_info();
+s32 TObjPlayer__sub_802A841C();
+s32 load_indirect_info();
 u8 *xmalloc__FUl(u32);
-M2C_UNK xfree__FPv(s32);
+s32 xfree__FPv(s32);
 void *memcpy(void *, const void *, u32);
-extern M2C_UNK TEffIndirectCtrl__source_buffers[];
+extern s32 TEffIndirectCtrl__source_buffers[];
 extern s32 lbl_805D3E20;
 void load_indirect_dat(void);
 }
@@ -20,11 +15,11 @@ void load_indirect_dat(void);
 extern "C" {
 
 void free_all__16TEffIndirectCtrlFv(void);
-M2C_UNK free_buffers__16TEffIndirectCtrlFv();
-M2C_UNK TObjPlayer__sub_802A83F4();
-M2C_UNK xfree__FPv(s32);
+s32 free_buffers__16TEffIndirectCtrlFv();
+s32 TObjPlayer__sub_802A83F4();
+s32 xfree__FPv(s32);
 
-extern M2C_UNK TEffIndirectCtrl__source_buffers[];
+extern s32 TEffIndirectCtrl__source_buffers[];
 
 void free_all__16TEffIndirectCtrlFv(void) {
     s32 var_r28;

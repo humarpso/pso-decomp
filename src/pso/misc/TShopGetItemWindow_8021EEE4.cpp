@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
 #define VA virtual void CAT(f,__LINE__)();
@@ -46,12 +43,12 @@ struct ShopPlayerLevel : ShopPlayerHeader {
 };
 
 extern "C" {
-s32 get_task_id__14TFontSmallTaskFPv(M2C_UNK *);
+s32 get_task_id__14TFontSmallTaskFPv(s32 *);
 void *get_player_by_client_id(s32);
-M2C_UNK clear_shop_armor_flags();
-M2C_UNK clear_shop_tool_flags();
-M2C_UNK clear_shop_weapon_flags();
-extern M2C_UNK TLobby__data_805011D8[];
+s32 clear_shop_armor_flags();
+s32 clear_shop_tool_flags();
+s32 clear_shop_weapon_flags();
+extern s32 TLobby__data_805011D8[];
 extern s32 local_client_id;
 extern s32 game_difficulty_selection;
 extern s32 lbl_805D6238;

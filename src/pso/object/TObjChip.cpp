@@ -6,10 +6,7 @@ public:
 };
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801809C4_801809B4 { char pad[0x18]; };
 struct VObj_801809C4_801809B4 : Base_801809C4_801809B4 {
     virtual void m0();
@@ -36,13 +33,13 @@ struct VObj_18 : VBase_18 {
     virtual void m7();
     virtual void m8();
     virtual void m9();
-    virtual M2C_UNK m10();
-    virtual M2C_UNK m11();
+    virtual s32 m10();
+    virtual s32 m11();
 };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct VBase_18_6eb662 { char pad[0x18]; };
 
@@ -56,7 +53,7 @@ struct VObj_18_6eb662 : VBase_18_6eb662 {
 };
 
 struct RecoveredGlobal_80180AA4___vt__8TObjChip {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -71,7 +68,7 @@ struct VObj_18_2a3247 : VBase_18_2a3247 {
 };
 
 struct RecoveredGlobal_80180BD4___vt__8TObjChip {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -95,7 +92,6 @@ struct Vec_8018085C { f32 x, y, z; };
 
 struct Out_8018085C { f32 x, y; };
 
-typedef s32 M2C_UNK;
 struct Vec_801803C0 { f32 x, y, z; };
 
 struct IVec_801803C0 { s32 x, y, z; };
@@ -195,7 +191,7 @@ struct Obj_8017FE58 {
 };
 
 extern "C" {
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFi(int);
 void render__8TObjChipFPv(u8 *arg0);
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
@@ -206,22 +202,22 @@ void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__8TObjChip[];
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
-M2C_UNK scroll_strip_uvs(int, s16, int);
-M2C_UNK get_city_common_model(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object();
-M2C_UNK draw_chunk_object(int, void *);
-extern M2C_UNK city_aircar_model_indices[];
-extern M2C_UNK lbl_80443B40[];
-extern M2C_UNK city_traffic_car_chunk_index_table[];
-extern M2C_UNK air_car_buffer_pair_table[];
+s32 scroll_strip_uvs(int, s16, int);
+s32 get_city_common_model(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object();
+s32 draw_chunk_object(int, void *);
+extern s32 city_aircar_model_indices[];
+extern s32 lbl_80443B40[];
+extern s32 city_traffic_car_chunk_index_table[];
+extern s32 air_car_buffer_pair_table[];
 extern u8 *city_air_car_model_resource;
 extern void **lbl_805D5B24;
 extern void **city_common_texture_list;
@@ -230,21 +226,21 @@ void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
 void project_world_to_screen(int, Vec_8018085C *, Out_8018085C *, Vec_8018085C *);
 extern Vec_8018085C lbl_804FF610;
 s32 TObjChip__vt8(s32 arg0, Vec_8018085C *arg1, f32 farg0, f32 farg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int rand(void);
 s32 spawn_chips__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int rand(void);
 s32 init_chips__8TObjChipFPv(u8 *arg0);
 void tick_chips__8TObjChipFPv(u8 *arg0);
-M2C_UNK rotate_matrix_yxz(int, int, int, int);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_chunk_material_override_pair(int, int);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(int, void *);
+s32 rotate_matrix_yxz(int, int, int, int);
+s32 scale_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_chunk_material_override_pair(int, int);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object(int, void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -267,9 +263,9 @@ int TObjChip__vt6(void* p);
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1);
 void dispatch_vt9__8TObjChipFPv(void *arg0);
 void update__8TObjChipFPv(void *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 #pragma readonly_strings on
 const char *lbl_805D3240 = "TObjChip";
@@ -291,7 +287,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
-                ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+                ((s32 (*)(int))draw_chunk_object)(o->model);
                 pop_matrix();
                 set_chunk_material_color(chunk_material_color_half_alpha_f32);
             }
@@ -304,7 +300,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
                 post_translate_matrix(c);
                 rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
                 scale_matrix(0, o->scale, o->scale, o->scale);
-                ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+                ((s32 (*)(int))draw_chunk_object)(o->model);
                 pop_matrix();
             }
         }
@@ -322,7 +318,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
-            ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+            ((s32 (*)(int))draw_chunk_object)(o->model);
             pop_matrix();
             set_chunk_material_color(chunk_material_color_half_alpha_f32);
         }
@@ -335,7 +331,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
             post_translate_matrix(c);
             rotate_matrix_yxz(0, c->rx, c->ry, c->rz);
             scale_matrix(0, o->scale, o->scale, o->scale);
-            ((M2C_UNK (*)(int))draw_chunk_object)(o->model);
+            ((s32 (*)(int))draw_chunk_object)(o->model);
             pop_matrix();
         }
     }
@@ -344,8 +340,8 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
 extern const u32 lbl_80443AFC[4] = { 0, 0x3F800000, 0x3F800000, 0x3F800000 };
 
 void render__8TObjChipFPv(u8 *arg0) {
-    set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x68)));
-    if (M2C_FIELD(arg0, s32 *, 0x6C) & 0x10) {
+    set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x68)));
+    if (*(s32 *)((s8 *)arg0 + 0x6C) & 0x10) {
         ((VObj_18 *)(arg0))->m10();
         return;
     }
@@ -518,66 +514,66 @@ extern "C" {
 typedef char RecoveredGlobal_80180AA4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180AA4___vt__8TObjChip) == 0x38 ? 1 : -1];
 u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TObjChip;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3240;
     copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (2e+02f);
-    M2C_FIELD(arg0, f32 *, 0x20) = 40.0f;
-    M2C_FIELD(arg0, s32 *, 0x230) = 1;
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
+    *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
+    *(s32 *)((s8 *)arg0 + 0x230) = 1;
     if (((VObj_18_6eb662 *)(arg0))->m5(arg2 + 0x4C, (2e+02f)) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x230) = 0;
+        *(s32 *)((s8 *)arg0 + 0x230) = 0;
     }
     return arg0;
 }
 
 void copy_debris_params__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
-    *(M2CCopy_C *)((s32) arg0 + 0x18) = *(const M2CCopy_C *)((s32) arg1 + 0x18);
-    *(M2CCopy_C *)((s32) arg0 + 0x24) = *(const M2CCopy_C *)((s32) arg1 + 0x24);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(arg1, f32 *, 0x3C);
-    M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(arg1, s32 *, 0x40);
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(arg1, s32 *, 0x44);
-    M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
+    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(ByteBlock_C *)((s32) arg0 + 0xC) = *(const ByteBlock_C *)((s32) arg1 + 0xC);
+    *(ByteBlock_C *)((s32) arg0 + 0x18) = *(const ByteBlock_C *)((s32) arg1 + 0x18);
+    *(ByteBlock_C *)((s32) arg0 + 0x24) = *(const ByteBlock_C *)((s32) arg1 + 0x24);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)arg1 + 0x3C);
+    *(s32 *)((s8 *)arg0 + 0x40) = (s32) *(s32 *)((s8 *)arg1 + 0x40);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32) *(s32 *)((s8 *)arg1 + 0x44);
+    *(s32 *)((s8 *)arg0 + 0x48) = (s32) *(s32 *)((s8 *)arg1 + 0x48);
 }
 
 typedef char RecoveredGlobal_80180BD4___vt__8TObjChip_size[sizeof(RecoveredGlobal_80180BD4___vt__8TObjChip) == 0x38 ? 1 : -1];
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__8TObjChip;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3240;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3240;
     copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (2e+02f);
-    M2C_FIELD(arg0, f32 *, 0x20) = 40.0f;
-    M2C_FIELD(arg0, s32 *, 0x230) = 1;
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
+    *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
+    *(s32 *)((s8 *)arg0 + 0x230) = 1;
     if (((VObj_18_2a3247 *)(arg0))->m4((2e+02f)) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x230) = 0;
+        *(s32 *)((s8 *)arg0 + 0x230) = 0;
     }
     return arg0;
 }
 
 u8 *copy_transform__8TObjChipFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, f32 *, 0) = (f32) M2C_FIELD(arg1, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
+    *(f32 *)((s8 *)arg0 + 0) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
     VecCopy__FP3VecPC3Vec(arg0 + 0xC, arg1 + 0xC);
     VecCopy__FP3VecPC3Vec(arg0 + 0x18, arg1 + 0x18);
     copy_xyz__10TObjPlayerFPvPv(arg0 + 0x24, arg1 + 0x24);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(arg1, f32 *, 0x3C);
-    M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(arg1, s32 *, 0x40);
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(arg1, s32 *, 0x44);
-    M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
-    M2C_FIELD(arg0, s32 *, 0x54) = 0;
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)arg1 + 0x3C);
+    *(s32 *)((s8 *)arg0 + 0x40) = (s32) *(s32 *)((s8 *)arg1 + 0x40);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32) *(s32 *)((s8 *)arg1 + 0x44);
+    *(s32 *)((s8 *)arg0 + 0x48) = (s32) *(s32 *)((s8 *)arg1 + 0x48);
+    *(s32 *)((s8 *)arg0 + 0x54) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
     return arg0;
 }
 

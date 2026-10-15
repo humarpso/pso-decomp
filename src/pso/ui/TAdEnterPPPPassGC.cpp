@@ -1,21 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80339480_lbl_804EF500 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x94];
 };
 
 struct RecoveredGlobal_803392F4_lbl_80477C20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
-typedef s32 M2C_UNK;
 struct TAdEnterPPPPassGC {
     virtual void m0();
     char pad[0x18];
@@ -44,7 +38,7 @@ s32 is_state_active__6TLobbyFv(void);
 s32 TLobby__sub_8014618C(void);
 void set_ppp_password__6TLobbyFi(s32);
 void strncpy(s32, s32, s32);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void fn_8032B318(void *, void *);
 extern u8 password_screen_status_line_position[];
 void set_password__17TAdEnterPPPPassGCFi(s32 arg0);
@@ -73,7 +67,7 @@ int reset_mode_state__21TAdMultiChgGameModeGCFv(void*);
 void create_parts__14TAdEnterBaseGCFPv(void *);
 void reset__14TAdEnterBaseGCFPvi(void *, int);
 void TAdEnterBaseGC__ct(void *);
-extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
+extern s32 __vt__17TAdEnterPPPPassGC[];
 extern s32 TAdEnterPPPPassGC__name;
 extern s32 password_entry_dispatch_state;
 T_8033954C *TAdEnterPPPPassGC__ct(T_8033954C *arg0);
@@ -120,31 +114,31 @@ void close_windows_and_advance__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     s32 temp_r4;
     u8 *temp_r3;
     u8 *temp_r3_2;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x30));
     if (temp_r3 != NULL) {
         TWindow__close(temp_r3);
-        M2C_FIELD(arg0, u8 **, 0x30) = NULL;
+        *(u8 **)((s8 *)arg0 + 0x30) = NULL;
     }
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
     if (temp_r3_2 != NULL) {
         TWindow__close(temp_r3_2);
-        M2C_FIELD(arg0, u8 **, 0x34) = NULL;
+        *(u8 **)((s8 *)arg0 + 0x34) = NULL;
     }
     if ((void *) password_entry_keyboard_control != NULL) {
         queue_destruction__7TObjectFv(password_entry_keyboard_control);
         password_entry_keyboard_control = NULL;
     }
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x24) + 1;
-    M2C_FIELD(arg0, s32 *, 0x24) = temp_r4;
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x24) + 1;
+    *(s32 *)((s8 *)arg0 + 0x24) = temp_r4;
     if ((f32) temp_r4 > lbl_805DF9E8) {
-        password_entry_dispatch_state = M2C_FIELD(arg0, s32 *, 0x20);
+        password_entry_dispatch_state = *(s32 *)((s8 *)arg0 + 0x20);
     }
 }
 
 int forward_chg_game_mode__17TAdEnterPPPPassGCFPv(void* p) { return reset_mode_state__21TAdMultiChgGameModeGCFv(p); }
 int request_transition__17TAdEnterPPPPassGCFPv(void* p) { return request_transition__21TAdMultiChgGameModeGCFv(p); }
 
-extern M2C_UNK __vt__17TAdEnterPPPPassGC[];
+extern s32 __vt__17TAdEnterPPPPassGC[];
 
 typedef char RecoveredGlobal_80339480_lbl_804EF500_size[sizeof(RecoveredGlobal_80339480_lbl_804EF500) == 0x98 ? 1 : -1];
 
@@ -154,70 +148,70 @@ void update_password_input__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     char *buf;
     s32 cur;
     buf = realloc_buffer__17TWindowSubComCardFPv(password_entry_keyboard_control);
-    if ((M2C_FIELD(arg0, s32 *, 0x40) == 0 && TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) ||
-        (M2C_FIELD(arg0, s32 *, 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
+    if ((*(s32 *)((s8 *)arg0 + 0x40) == 0 && TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0) ||
+        (*(s32 *)((s8 *)arg0 + 0x40) == 0 && test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0)) {
         free__11TOBoss4RockFUi(buf);
         set_password__17TAdEnterPPPPassGCFi((s32)&lbl_805DF9EC);
-        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+        *(s32 *)((s8 *)arg0 + 0x20) = 2;
         password_entry_dispatch_state = 4;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C) = M2C_FIELD(arg0, s32 *, 0x38);
+    *(s32 *)((s8 *)arg0 + 0x3C) = *(s32 *)((s8 *)arg0 + 0x38);
     if (password_entry_keyboard_control != NULL) {
         if (update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0) {
             if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank + 0x20, 2) != 0 ||
                 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(controller_input_state + 0x160, 2) != 0) {
                 free_menu_object(password_entry_keyboard_control);
-                M2C_FIELD(arg0, s32 *, 0x38) = 0;
-                if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
-                    set_active__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+                *(s32 *)((s8 *)arg0 + 0x38) = 0;
+                if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
+                    set_active__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
                 }
             } else if (forward_input__22TAdEnterSerialAccessGCFPv(arg0, 3, buf) == 0) {
                 free_menu_object(password_entry_keyboard_control);
                 play_sound_effect(0x53F06, 0, 0, 0);
             } else {
-                M2C_FIELD(arg0, s32 *, 0x38) = 1;
-                if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
-                    set_state_3__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+                *(s32 *)((s8 *)arg0 + 0x38) = 1;
+                if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
+                    set_state_3__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
                 }
             }
         } else {
-            M2C_FIELD(arg0, s32 *, 0x38) = 0;
-            if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
-                set_active__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
+            *(s32 *)((s8 *)arg0 + 0x38) = 0;
+            if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
+                set_active__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
             }
         }
     }
-    if (M2C_FIELD(arg0, s32 *, 0x3C) != (cur = M2C_FIELD(arg0, s32 *, 0x38))) {
+    if (*(s32 *)((s8 *)arg0 + 0x3C) != (cur = *(s32 *)((s8 *)arg0 + 0x38))) {
         if (cur != 0) {
-            if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
-                reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
-                add_item_rect__12TLevelSelectFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x18);
+            if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
+                reset_input_state__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
+                add_item_rect__12TLevelSelectFPvPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x18);
             }
-        } else if (M2C_FIELD(arg0, u32 *, 0x2C) != 0) {
-            reset_input_state__22TAdEnterSerialAccessGCFPv(M2C_FIELD(arg0, s32 *, 0x2C));
-            add_item_rect__12TLevelSelectFPvPv(M2C_FIELD(arg0, s32 *, 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10);
+        } else if (*(u32 *)((s8 *)arg0 + 0x2C) != 0) {
+            reset_input_state__22TAdEnterSerialAccessGCFPv(*(s32 *)((s8 *)arg0 + 0x2C));
+            add_item_rect__12TLevelSelectFPvPv(*(s32 *)((s8 *)arg0 + 0x2C), (u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10);
         }
     }
-    if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(M2C_FIELD(arg0, s32 *, 0x2C)) == 1 &&
+    if (get_selected_slot__23TAdSinglePlyChrSelectGCFPv(*(s32 *)((s8 *)arg0 + 0x2C)) == 1 &&
         update_keyboard__17TWindowSubComCardFPv(password_entry_keyboard_control) != 0) {
         set_password__17TAdEnterPPPPassGCFi((s32)buf);
-        M2C_FIELD(arg0, s32 *, 0x20) = 3;
+        *(s32 *)((s8 *)arg0 + 0x20) = 3;
         password_entry_dispatch_state = 4;
     }
-    M2C_FIELD(arg0, s32 *, 0x40) = strlen(buf);
+    *(s32 *)((s8 *)arg0 + 0x40) = strlen(buf);
     free__11TOBoss4RockFUi(buf);
 }
 
 void open_keyboard_window__17TAdEnterPPPPassGCFPv(u8 *arg0) {
     u32 temp_r3;
-    M2C_FIELD(arg0, s32 *, 0x30) = show_message_window__22TAdEnterSerialAccessGCFPvPv((void *) (arg0), (int) (3));
-    M2C_FIELD(arg0, s32 *, 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x2C);
+    *(s32 *)((s8 *)arg0 + 0x30) = show_message_window__22TAdEnterSerialAccessGCFPvPv((void *) (arg0), (int) (3));
+    *(s32 *)((s8 *)arg0 + 0x34) = create_default_callback__22TAdEnterSerialAccessGCFv((void *) (arg0));
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x2C);
     if (temp_r3 != 0U) {
         reset_input_state__22TAdEnterSerialAccessGCFPv((int) (temp_r3));
-        add_item_rect__12TLevelSelectFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)), (void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
-        set_active__22TAdEnterSerialAccessGCFPv((int) (M2C_FIELD(arg0, u32 *, 0x2C)));
+        add_item_rect__12TLevelSelectFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x2C)), (void *) ((u8 *)&TAdEnterPPPPassGC__selection_positions.value + 0x10));
+        set_active__22TAdEnterSerialAccessGCFPv((int) (*(u32 *)((s8 *)arg0 + 0x2C)));
     }
     (*(s32 *)&password_entry_keyboard_control) = create_keyboard_control__22TAdEnterSerialAccessGCFii((void *) (arg0), (int) (3));
     password_entry_dispatch_state = 1;
@@ -255,7 +249,7 @@ void set_password__17TAdEnterPPPPassGCFi(s32 arg0) {
 
 void *__dt__17TAdEnterPPPPassGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdEnterPPPPassGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdEnterPPPPassGC;
         __dt__14TAdEnterBaseGCFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

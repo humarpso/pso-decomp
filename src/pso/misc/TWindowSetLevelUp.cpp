@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/TWindowSetLevelUp.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -21,7 +17,7 @@ struct Ctx_8026D790 {
 
 struct Quad_8026D790 { f32 x, y, r, b, u, v, ur, vb; };
 
-struct M2CCopy_16 { u8 bytes[0x16]; };
+struct ByteBlock_16 { u8 bytes[0x16]; };
 
 struct VOff_8026DD70_arg0_8026DCE0 { char pad_0[0x24]; char f_24[1]; };
 
@@ -74,7 +70,7 @@ void text_builder_reset(void);
 void __ct__7TObjectFP7TObject(void *);
 void set_window_flags_off__11TWindowCtrlFPvi(s32, s32);
 void apply_context_transform_to_rect(void *, Quad_8026D790 *);
-M2C_UNK copy_position__11TWindowMenuFPvPv();
+s32 copy_position__11TWindowMenuFPvPv();
 void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset);
 void update_stat_messages__17TWindowSetLevelUpFv(LvUp_8026DA44 *self);
 void render__17TWindowSetLevelUpFv(void);
@@ -177,7 +173,7 @@ void draw_window_scrollbar(Scroll_8026D790 *scroll, Ctx_8026D790 *c, f32 *offset
 }
 
 void increment_counter__20TWindowSubStatusDispFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 8) = (s32) (M2C_FIELD(arg0, s32 *, 8) + 1);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) (*(s32 *)((s8 *)arg0 + 8) + 1);
 }
 
 s32 destroy_allocation__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
@@ -189,7 +185,7 @@ s32 destroy_allocation__20TWindowSubStatusDispFis(s32 arg0, s16 arg1) {
 
 void *reset_selection__20TWindowSubStatusDispFPv(void *arg0) {
     copy_position__11TWindowMenuFPvPv();
-    M2C_FIELD(arg0, s32 *, 8) = 0;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
     return arg0;
 }
 
@@ -290,10 +286,10 @@ void render__17TWindowSetLevelUpFv(void) {  }
 #pragma dont_inline off
 void run_task__17TWindowSetLevelUpFv(u8 *arg0) {
     s16 temp_r5;
-    temp_r5 = M2C_FIELD(arg0, s16 *, 0x1E);
-    M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (temp_r5 - 1);
+    temp_r5 = *(s16 *)((s8 *)arg0 + 0x1E);
+    *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (temp_r5 - 1);
     if (temp_r5 <= 0) {
-        ((M2C_UNK (*)(void))update_stat_messages__17TWindowSetLevelUpFv)();
+        ((s32 (*)(void))update_stat_messages__17TWindowSetLevelUpFv)();
     }
 }
 extern int fold_flush_0;
@@ -305,7 +301,7 @@ extern int fold_flush_0;
 #pragma dont_inline off
 void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TWindowSetLevelUp;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -322,13 +318,13 @@ void *__dt__17TWindowSetLevelUpFv(void *arg0, s16 arg1) {
 void *__ct__17TWindowSetLevelUpFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     struct VOff_8026DD70_arg0_8026DCE0 *self = (struct VOff_8026DD70_arg0_8026DCE0 *)arg0;
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TWindowSetLevelUp;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TWindowSetLevelUp;
     reset_sub_status_disp__10TObjPlayerFPv(self->f_24);
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D39C8;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D39C8;
     copy_stat_block__17TWindowSetLevelUpFii((s32)((void *)(self->f_24)), (s32)((void *)(arg2)));
-    M2C_FIELD(arg0, u16 *, 0x1E) = 0;
-    M2C_FIELD(arg0, void **, 0x20) = arg3;
-    M2C_FIELD(arg0, u8 *, 0x1C) = 0;
+    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
+    *(void **)((s8 *)arg0 + 0x20) = arg3;
+    *(u8 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
 extern int fold_flush_1;
@@ -339,9 +335,9 @@ extern int fold_flush_1;
 #pragma auto_inline on
 #pragma dont_inline off
 void copy_stat_block__17TWindowSetLevelUpFii(s32 arg0, s32 arg1) {
-    *(M2CCopy_16 *)(arg0) = *(const M2CCopy_16 *)(arg1);
-    M2C_FIELD(arg0, s16 *, 0x16) = (s16) M2C_FIELD(arg1, s16 *, 0x16);
-    M2C_FIELD(arg0, s16 *, 0x18) = (s16) M2C_FIELD(arg1, s16 *, 0x18);
+    *(ByteBlock_16 *)(arg0) = *(const ByteBlock_16 *)(arg1);
+    *(s16 *)((s8 *)arg0 + 0x16) = (s16) *(s16 *)((s8 *)arg1 + 0x16);
+    *(s16 *)((s8 *)arg0 + 0x18) = (s16) *(s16 *)((s8 *)arg1 + 0x18);
 }
 extern int fold_flush_2;
 #pragma pop

@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #include <stddef.h>
 struct Stack_8028B810 {
     u8 * sp8;
@@ -18,8 +14,8 @@ struct Stack_8028B810 {
 
 extern "C" {
 u8 * create_ch_cr_load_req(void *, void *);
-M2C_UNK copy_player_visual_record(void *, void *);
-M2C_UNK TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
+s32 copy_player_visual_record(void *, void *);
+s32 TCharaMaking__bind_appearance_texture_lists(void *, void *, void *, void *);
 u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3);
 }
 
@@ -38,7 +34,7 @@ u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 ar
     typedef char sp24_offset[(offsetof(Stack_8028B810, sp24) == 0x1C) ? 1 : -1];
     Stack_8028B810 stack;
     copy_player_visual_record((void *) (arg0 + 4), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0x4A8) = 0xFF;
+    *(s32 *)((s8 *)arg0 + 0x4A8) = 0xFF;
     TCharaMaking__bind_appearance_texture_lists((void *) (arg0 + 0x54), (void *) (arg0 + 0x1C0), (void *) (arg0 + 0x32C), (void *) (arg0 + 4));
     stack.sp8 = (u8 *)(arg0 + 4);
     stack.spC = (u8 *)(arg0 + 0x4A8);
@@ -48,7 +44,7 @@ u8 *init_appearance_load_request__10TNpcPlayerFPvPvii(u8 *arg0, u8 *arg1, s32 ar
     stack.sp1C = (u8 *)(arg0 + 0x490);
     stack.sp20 = (u8 *)(arg0 + 0x324);
     stack.sp24 = (u8 *)(arg0 + 0x1B8);
-    M2C_FIELD(arg0, u8 **, 0) = create_ch_cr_load_req(arg1, &stack.sp8);
+    *(u8 **)((s8 *)arg0 + 0) = create_ch_cr_load_req(arg1, &stack.sp8);
     return arg0;
 }
 

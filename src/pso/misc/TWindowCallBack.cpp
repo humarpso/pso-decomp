@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_802ACE84_lbl_804DE360 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_802ACE84___vt__15TWindowCallBack {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -20,7 +16,7 @@ void save_position__17TWindowSubComCardFPv(void *);
 u8 * construct_base__9TWindowDDFPvPvsPv(void *, s32, s16, s32);
 void set_field_60__15TWindowCallBackFPvi(void* p, s32 v);
 extern RecoveredGlobal_802ACE84_lbl_804DE360 window_callback_base_params;
-extern M2C_UNK __vt__15TWindowCallBack[];
+extern s32 __vt__15TWindowCallBack[];
 extern s32 lbl_805D3E58;
 u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 }
@@ -76,11 +72,11 @@ extern "C" {
 
 void run_task__15TWindowCallBackFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_fade__17TWindowSubComCardFPv(p); }
 
-extern M2C_UNK __vt__15TWindowCallBack[];
+extern s32 __vt__15TWindowCallBack[];
 
 void *__dt__15TWindowCallBackFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TWindowCallBack;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TWindowCallBack;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -92,8 +88,8 @@ typedef char RecoveredGlobal_802ACE84_lbl_804DE360_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802ACE84___vt__15TWindowCallBack_size[sizeof(RecoveredGlobal_802ACE84___vt__15TWindowCallBack) == 0x1C ? 1 : -1];
 u8 *TWindowCallBack__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3) {
     construct_base__9TWindowDDFPvPvsPv(arg0, (s32) &window_callback_base_params.value, 4, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E58;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802ACE84___vt__15TWindowCallBack *)&__vt__15TWindowCallBack).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E58;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x38, arg2);
     save_position__17TWindowSubComCardFPv(arg0);
     set_field_60__15TWindowCallBackFPvi((void*)(arg0), (s32)(arg3));

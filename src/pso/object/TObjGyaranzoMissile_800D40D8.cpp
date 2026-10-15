@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <dolphin/mtx.h>
 #include <stddef.h>
@@ -35,12 +31,11 @@ struct VObj_18_e08757 : VBase_18_e08757 {
     virtual void m18();
     virtual void m19();
     virtual void m20();
-    virtual M2C_UNK m21(void *, Hit_800D4200 *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m21(void *, Hit_800D4200 *, s32, s32, s32);
 };
 
 struct Info_800D4200 { u8 pad[0xc]; f32 xc; u8 pad10[8]; s32 flags; };
 
-typedef s32 M2C_UNK;
 struct Info_800D43B4 { u8 pad[0x18]; u32 flags; };
 
 struct Missile_800D43B4 {
@@ -70,31 +65,31 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 lbl_805DA2A0;
 extern const f32 lbl_805DA2A4;
-void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, s32 *arg1, f32 farg0);
 extern s32 gyaranzo_missile_param_table;
 f32 get_gyaranzo_missile_float_parameter(s32 arg0);
 extern s32 gyaranzo_missile_param_table;
 s32 get_gyaranzo_missile_int_parameter(s32 i);
 s32 obj_is_hit_receivable();
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u8 *get_battle_param__10TObjPlayerFi(s32);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 get_gyaranzo_missile_int_parameter(s32 i);
-M2C_UNK remap_area_sound_id(int, int);
+s32 remap_area_sound_id(int, int);
 u8 *find_entity_by_id(u16);
-M2C_UNK init_all_slots__10TObjPlayerFv();
-M2C_UNK check_enemy_body_collisions(void *);
-M2C_UNK check_object_collisions__10TObjPlayerFPv(void *);
-M2C_UNK play_sound_effect(void *, void *, int, int);
+s32 init_all_slots__10TObjPlayerFv();
+s32 check_enemy_body_collisions(void *);
+s32 check_object_collisions__10TObjPlayerFPv(void *);
+s32 play_sound_effect(void *, void *, int, int);
 extern Hit_800D4200 lbl_8043C440[];
 extern const f32 lbl_805DA2A8;
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0);
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, s32 *arg1, f32 farg0);
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0);
-M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK pop_matrix();
+s32 spawn_particle_effect(void *, int);
+s32 rotate_matrix_y(s32, s32);
+s32 pop_matrix();
 void push_matrix_from(void *);
 void rotate_vector_by_matrix(int, void *, void *);
 u32 csnVector(void *, void *, int);
@@ -114,13 +109,13 @@ void TObjGyaranzoMissile__sub_800D40DC(void);
 int TObjGyaranzoMissile__sub_800D40E0(void);
 void TObjGyaranzoMissile__sub_800D40E8(void);
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK rotate_matrix_x(M2C_UNK, s32);
-M2C_UNK draw_chunk_object(s32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 post_translate_matrix(void *);
+s32 rotate_matrix_x(s32, s32);
+s32 draw_chunk_object(s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(s32);
 
 void TObjGyaranzoMissile__sub_800D40D8(void) {  }
 void TObjGyaranzoMissile__sub_800D40DC(void) {  }
@@ -130,14 +125,14 @@ void TObjGyaranzoMissile__sub_800D40E8(void) {  }
 extern s32 model_render_flags;
 
 f32 get_gyaranzo_missile_float_parameter(s32 arg0) {
-    return M2C_FIELD((gyaranzo_missile_param_table + (arg0 * 4)), f32 *, 0);
+    return *(f32 *)((s8 *)(gyaranzo_missile_param_table + (arg0 * 4)) + 0);
 }
 
 s32 get_gyaranzo_missile_int_parameter(s32 i) {
     return (*(D_800D40FC * *)&gyaranzo_missile_param_table)->arr[i];
 }
 
-void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f32 farg0) {
+void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, s32 *arg1, f32 farg0) {
     Vec position;
     f32 temp_f1;
     s32 temp_r31;
@@ -147,32 +142,32 @@ void update_ground_fall__19TObjGyaranzoMissileFPvPvf(u8 *arg0, M2C_UNK *arg1, f3
         VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (&position.x));
     }
     if (temp_r31 == 1) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + lbl_805DA2A0);
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0xB0));
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + lbl_805DA2A0);
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0xB0));
         temp_f1 = position.y + farg0;
         position.y = temp_f1;
-        if (M2C_FIELD(arg0, f32 *, 0x3C) <= temp_f1) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = temp_f1;
-            M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DA2A4;
-            M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x800000);
+        if (*(f32 *)((s8 *)arg0 + 0x3C) <= temp_f1) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = temp_f1;
+            *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DA2A4;
+            *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x800000);
             return;
         }
-        M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF7FFFFF);
+        *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFF7FFFFF);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFF7FFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFF7FFFFF);
 }
 
 void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
     u8 *self;
     s32 i;
     u8 *t;
-    self = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xD8));
-    M2C_FIELD(arg0, Info_800D4200 **, 0xA4)->xc = lbl_805DA2A8;
+    self = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xD8));
+    (*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->xc = lbl_805DA2A8;
     init_all_slots__10TObjPlayerFv();
     check_object_collisions__10TObjPlayerFPv(arg0);
     check_enemy_body_collisions(arg0);
-    if (M2C_FIELD(arg0, Info_800D4200 **, 0xA4)->flags & 0x180000) {
+    if ((*(Info_800D4200 **)((s8 *)arg0 + 0xA4))->flags & 0x180000) {
         for (i = 0; i < 0x10; i++) {
             t = get_battle_param__10TObjPlayerFi(i);
             if (t == NULL) {
@@ -194,13 +189,13 @@ void TObjGyaranzoMissile__sub_800D4200(u8 *arg0) {
 }
 
 void draw__19TObjGyaranzoMissileFPv(u8 *arg0) {
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC8));
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xC8));
     push_matrix();
     post_translate_matrix(arg0 + 0x38);
-    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xBC));
-    rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0xC0));
+    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xBC));
+    rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0xC0));
     model_render_flags &= 0xFFFFFBFF;
-    draw_chunk_object(M2C_FIELD(arg0, s32 *, 0xC4));
+    draw_chunk_object(*(s32 *)((s8 *)arg0 + 0xC4));
     pop_matrix();
 }
 void update_flight__19TObjGyaranzoMissileFPv(Missile_800D43B4 *self) {

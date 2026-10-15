@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80178830 {
     f32 sp8;
@@ -58,9 +54,9 @@ struct Ent_8017873C
 };
 
 extern "C" {
-M2C_UNK newton_sqrtf(f32);
+s32 newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
+s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DBA2C;
 extern const f32 lbl_805DBA30;
 void render__17TOSymbolchatColliFv(u8 *arg0);
@@ -68,7 +64,7 @@ void construct_actor_base__10TObjPlayerFPvPv(void *);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 void init_collision_body_parts(void *, void *, int);
 extern u8 lbl_804B4550[];
-extern M2C_UNK __vt__17TOSymbolchatColli[];
+extern s32 __vt__17TOSymbolchatColli[];
 extern s32 lbl_805D3194;
 Obj_80178AD4 *TOSymbolchatColli__ct(Obj_80178AD4 *arg0, void *arg1, s32 arg2);
 s32 is_locally_controlled__10TObjPlayerFPv();
@@ -101,21 +97,21 @@ void *create__17TOSymbolchatColliFPv(void *arg0);
 void free_rock__17TOSymbolchatColliFv(void);
 s32 get_state__17TOSymbolchatColliFPv(void *arg0);
 u8 is_current_floor_switch_set(u16);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 int free__11TOBoss4RockFUi(void*);
 
 s32 get_state__17TOSymbolchatColliFPv(void *arg0) {
-    if (is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x37C)) == 1) {
+    if (is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x37C)) == 1) {
         return 3;
     }
-    if (is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x37A)) == 1) {
+    if (is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x37A)) == 1) {
         return 2;
     }
-    return (u32) __cntlzw(1 - is_current_floor_switch_set(M2C_FIELD(arg0, u16 *, 0x378))) >> 5;
+    return (u32) __cntlzw(1 - is_current_floor_switch_set(*(u16 *)((s8 *)arg0 + 0x378))) >> 5;
 }
 
 extern void *tl_05;
@@ -175,7 +171,7 @@ void render__17TOSymbolchatColliFv(u8 *arg0) {
         stack.spC = lbl_805DBA30;
         stack.sp10 = lbl_805DBA2C;
         stack.sp14 = lbl_805DBA2C;
-        newton_sqrtf((f32) (M2C_FIELD(arg0, f32 *, 0x334)));
+        newton_sqrtf((f32) (*(f32 *)((s8 *)arg0 + 0x334)));
         TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8));
     }
 }
@@ -212,7 +208,7 @@ void *create__17TOSymbolchatColliFPv(void *arg0) {
     extern int symbol_chat_colli_entries;
 void free_rock__17TOSymbolchatColliFv(void) { free__11TOBoss4RockFUi((void*)(symbol_chat_colli_entries)); symbol_chat_colli_entries = 0; }
 
-extern M2C_UNK __vt__17TOSymbolchatColli[];
+extern s32 __vt__17TOSymbolchatColli[];
 
 void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
     s32 h;
@@ -233,8 +229,8 @@ void load_symbol_chat_data__17TOSymbolchatColliFv(void) {
 
 void *__dt__17TOSymbolchatColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOSymbolchatColli;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSymbolchatColli;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {

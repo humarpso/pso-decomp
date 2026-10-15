@@ -1,6 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct VBase_18_382324
 {
   char pad[0x18];
@@ -56,11 +55,8 @@ struct VObj_18_382324 : VBase_18_382324 {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual M2C_UNK m49(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m49(void *, s32, s32, s32);
 };
-
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_current_floor();
@@ -73,12 +69,12 @@ void TObjPlayer__sub_801303D8(u8 *arg0);
 s32 init_shoot_model__10TObjPlayerFPv(int, void *, void *, void *, f32);
 s32 __nw__7TObjectFUl(int);
 s32 create_shoot_model__10TObjPlayerFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-M2C_UNK send_6x61_activate_mag_effect(void *, int);
-M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
+s32 send_6x61_activate_mag_effect(void *, int);
+s32 spawn_item_timer__13TItemAttackerFiii(void *, void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
-M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
-M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
+s32 for_each_target_in_range__10TObjPlayerFPvf(void *, f32);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
+s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 void TObjPlayer__sub_801307D0(void);
 extern const f32 lbl_805DB000;
 void TObjPlayer__sub_80130490(u8 *arg0);
@@ -124,10 +120,10 @@ void TObjPlayer__sub_801303D8(u8 *arg0) {
 void TObjPlayer__sub_80130490(u8 *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (arg0 + 0x208));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) > 0x1999) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) > 0x1999) {
             send_6x61_activate_mag_effect((void *) (arg0), (int) (0));
             spawn_item_timer__13TItemAttackerFiii((void *) (arg0), (void *) (TObjPlayer__sub_801307D0), (int) (0x1E));
-            M2C_FIELD(arg0, s32 *, 0x204) = 0;
+            *(s32 *)((s8 *)arg0 + 0x204) = 0;
             return;
         }
         for_each_target_in_range__10TObjPlayerFPvf((void *) (arg0), (f32) (lbl_805DB000));

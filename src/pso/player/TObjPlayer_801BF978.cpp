@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801BF9F0_lbl_804C3E50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 extern "C" {
-M2C_UNK __dl__FPv(s32);
+s32 __dl__FPv(s32);
 s32 free_if_valid__14TPlyDispConfigFis(void *, int);
 extern RecoveredGlobal_801BF9F0_lbl_804C3E50 lbl_804C3E50;
 u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1);
@@ -24,9 +20,9 @@ void init_tag__10TObjPlayerFPv(s32 *arg0);
 void reset_counter_field4__10TObjPlayerFPv(void *arg0);
 void set_pos_z__10TObjPlayerFPvf(void* p, f32 v);
 void set_vec3_const__10TObjPlayerFPv(void* a0);
-M2C_UNK __dl__FPv(s32);
-M2C_UNK clear_id__10TObjPlayerFPv();
-M2C_UNK free_if_valid__10TObjPlayerFis(s32, s32);
+s32 __dl__FPv(s32);
+s32 clear_id__10TObjPlayerFPv();
+s32 free_if_valid__10TObjPlayerFis(s32, s32);
 void init__6gc_tagFv(void *);
 
 void init_tag__10TObjPlayerFPv(s32 *arg0) {
@@ -35,7 +31,7 @@ void init_tag__10TObjPlayerFPv(s32 *arg0) {
 }
 
 void reset_counter_field4__10TObjPlayerFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
     clear_id__10TObjPlayerFPv();
 }
 
@@ -48,7 +44,7 @@ void set_pos_z__10TObjPlayerFPvf(void* p, f32 v) { *(f32*)((char*)p + 0x8) = v; 
 typedef char RecoveredGlobal_801BF9F0_lbl_804C3E50_size[sizeof(RecoveredGlobal_801BF9F0_lbl_804C3E50) == 0x10 ? 1 : -1];
 u8 *TObjPlayer__sub_801BF9F0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 8) = &lbl_804C3E50.value;
+        *(s32 **)((s8 *)arg0 + 8) = &lbl_804C3E50.value;
         free_if_valid__14TPlyDispConfigFis((void *) (arg0 + 4), (int) (-1));
         if (arg1 > 0) {
             __dl__FPv((s32)((void *) (arg0)));

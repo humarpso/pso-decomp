@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -11,26 +7,26 @@ s32 get_file_size__6TLobbyFv(void);
 void run_frame__6TLobbyFv(void);
 int read_whole_file__8TGStreamFiPv(void);
 u32 TLoadCtrl__sub_800F9F00();
-M2C_UNK TLobby__sub_800F8AD0();
-M2C_UNK TLobby__sub_800F8F34();
+s32 TLobby__sub_800F8AD0();
+s32 TLobby__sub_800F8F34();
 int get_resource_file_size__6TLobbyFPv(void*);
-M2C_UNK TLobby__sub_803382E4();
+s32 TLobby__sub_803382E4();
 s32 adxf_get_fsize_byte__6TLobbyFPv();
 s32 close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(s32, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK empty_func2__7TObjectFv(s32);
-M2C_UNK empty_func__7TObjectFv(s32);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK fn_801E2C50();
+s32 empty_func2__7TObjectFv(s32);
+s32 empty_func__7TObjectFv(s32);
+s32 restore_saved_depth_alpha_state();
+s32 fn_801E2C50();
 s8 func_801A5E54__Fv();
-M2C_UNK func_803DCDFC__Fv();
+s32 func_803DCDFC__Fv();
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK render_nodes__7TObjectFv(s32);
-M2C_UNK render_tick__Fv();
-M2C_UNK run_tasks__7TObjectFv(s32);
-M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK system_reset();
+s32 render_nodes__7TObjectFv(s32);
+s32 render_tick__Fv();
+s32 run_tasks__7TObjectFv(s32);
+s32 set_depth_buffer_settings_1__Fv();
+s32 system_reset();
 int update_lobby_scene__6TSceneFPv(void* p);
 
 s32 get_file_size__6TLobbyFv(void) {

@@ -1,15 +1,11 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_8031B170_lbl_804E8880
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xCC];
 };
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VB_800E7A98 { u8 pad[0xC]; };
 
 struct VO_800E7A98 : VB_800E7A98 { virtual ~VO_800E7A98(); };
@@ -18,9 +14,9 @@ extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 shinowa_mirage_motion_param_table;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void set_slot_min_clamped_value__23TObjEneMe3ShinowaMirageFif(s32 arg0, f32 farg0);
-M2C_UNK TLobby__sub_8001FE7C(void *, s32);
-M2C_UNK __dt__11TBoss4Type3FPvs(void *, s32);
-M2C_UNK free__11TOBoss4RockFUi(void *);
+s32 TLobby__sub_8001FE7C(void *, s32);
+s32 __dt__11TBoss4Type3FPvs(void *, s32);
+s32 free__11TOBoss4RockFUi(void *);
 extern void *lbl_80500FEC[];
 extern void *TObjEneMe3ShinowaMirage__data_805D5298;
 extern VO_800E7A98 *TObjEneMe3ShinowaMirage__data_805D52A0;

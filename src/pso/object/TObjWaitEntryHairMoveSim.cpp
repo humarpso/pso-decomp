@@ -9,13 +9,9 @@ void run_task__12T_OWEHMS_ExpFv();
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_800FE364_lbl_8049DC78 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
@@ -23,7 +19,7 @@ struct H_800FE32C { u8 pad[0x878]; u8 state; u8 pad879[0x88E - 0x879]; s8 flags;
 
 extern "C" {
 s32 get_move_done_result__24TObjWaitEntryHairMoveSimFPv(H_800FE32C *h);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 create__19TObjEZBoneRotPlayerFPvPvPv(s32, s32, s32);
 void TObjWaitEntryHairMoveSim__sub_800FE3BC(int);
 extern void *hair_bone_rotation_descriptor[];
@@ -93,8 +89,6 @@ extern "C" {
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -140,10 +134,6 @@ public:
 };
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_800FE698 { s8 a; s8 b; s8 c; s8 d; u8 pad[0xC]; };
 
@@ -156,7 +146,6 @@ struct Obj_800FE698 {
     s16 v9C;
 };
 
-typedef s32 M2C_UNK;
 struct EntX_800FE5A0 { s8 a; s8 b; s8 c; s8 d; void *p4; void *p8; s32 pc; };
 
 struct Pl_800FE5A0 {
@@ -194,7 +183,7 @@ extern "C" {
 
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1);
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 extern "C" void render__7TObjectFv();
 extern "C" void render_shadows__7TObjectFv();
@@ -755,21 +744,21 @@ void* __vt__12T_OWEHMS_Exp[6] = {
 }
 void TObjWaitEntryHairMoveSim::run_task() {
     void *arg0 = this;
-    if ((s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), s32 *, 0xCFC) == 0) {
+    if ((s32) *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 0xCFC) == 0) {
         create_hair_effects__24TObjWaitEntryHairMoveSimFPv((void *)(arg0));
         queue_destruction__7TObjectFv(arg0);
     }
 }
 extern "C" {
 
-extern M2C_UNK __vt__24TObjWaitEntryHairMoveSim[];
+extern s32 __vt__24TObjWaitEntryHairMoveSim[];
 extern void *TObjWaitEntryHairMoveSim__name;
 
 void *__ct__24TObjWaitEntryHairMoveSimFv(void *arg0, void *arg1) {
     ((void (*)(void *))__ct__7TObjectFP7TObject)(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__24TObjWaitEntryHairMoveSim;
-    M2C_FIELD(arg0, void **, 0x0) = TObjWaitEntryHairMoveSim__name;
-    M2C_FIELD(arg0, void **, 0x1C) = arg1;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__24TObjWaitEntryHairMoveSim;
+    *(void **)((s8 *)arg0 + 0x0) = TObjWaitEntryHairMoveSim__name;
+    *(void **)((s8 *)arg0 + 0x1C) = arg1;
     return arg0;
 }
 

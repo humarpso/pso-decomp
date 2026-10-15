@@ -66,11 +66,6 @@ void TObjPlayer__sub_8001A4CC(s32 arg0, s8 arg1) {
 #undef P1_805D49E0
 #pragma pop
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 #include <stddef.h>
 struct Stack_8001A8F0 {
     s32 sp8;
@@ -82,12 +77,12 @@ struct Stack_8001A8F0 {
 };
 
 struct RecoveredGlobal_8001A8F0_lbl_8043455C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8001A8F0_lbl_80480938 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -107,7 +102,7 @@ s32 create_ending_player__10TObjPlayerFPv(int);
 s32 get_char_index__23TAdSinglePlyChrSelectGCFUi(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8001A8F0_lbl_8043455C lbl_8043455C;
-extern M2C_UNK lbl_80480938[];
+extern s32 lbl_80480938[];
 extern s32 lbl_805D49E0;
 extern s8 player_light_index;
 u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1);
@@ -117,7 +112,7 @@ void activate_camera_mode(int);
 extern Vec_8001A77C lbl_80434568;
 extern Vec_8001A77C lbl_80434574;
 int TObjPlayer__sub_8001A77C(void *p);
-M2C_UNK publish_light_direction_color(int, void *, void *);
+s32 publish_light_direction_color(int, void *, void *);
 extern Color_8001A6A8 player_light_color_rgba_table[];
 extern Light_8001A6A8 player_light_direction_color_table[];
 extern s8 player_light_index;
@@ -139,7 +134,7 @@ s32 get_flag890_state__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;
     s32 var_r3;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x890);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x890);
     var_r3 = 0;
     if (temp_r4 & 0x20) {
         var_r3 = 0;
@@ -191,11 +186,11 @@ void update_flag890_state__10TObjPlayerFi(s32 arg0) {
 void TObjPlayer__sub_8001A860(void) {  }
 void TObjPlayer__sub_8001A864(void* p) { TObjPlayer__sub_8001A77C((void *)(p)); publish_light_color__10TObjPlayerFPv((void *)(p)); }
 
-extern M2C_UNK lbl_80480938[];
+extern s32 lbl_80480938[];
 
 void *destroy_base__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80480938;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80480938;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -214,11 +209,11 @@ u8 *TObjPlayer__sub_8001A8F0(u8 *arg0, s32 arg1) {
     Stack_8001A8F0 stack;
     s32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001A8F0_lbl_80480938 *)&lbl_80480938).value;
     player_light_index = 0;
-    stack.sp8 = M2C_FIELD(&lbl_8043455C.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043455C.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8043455C.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043455C.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043455C.value) + 8);
     temp_r3 = create_ending_player__10TObjPlayerFPv((int) (get_char_index__23TAdSinglePlyChrSelectGCFUi((int) (0xFFFF))));
     lbl_805D49E0 = temp_r3;
     query_darkfalz_state__10TObjPlayerFPv((int) (temp_r3), (void *) (&stack.sp8));

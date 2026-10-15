@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/items/TItemWeapon.h"
 struct RecoilWeaponView : TItemWeapon {
@@ -37,12 +33,12 @@ typedef char StarLightFollowerExtent[sizeof(StarLightFollowerView) == 0x2C ? 1 :
 
 extern "C" {
 void spawn_item_timer__13TItemAttackerFiii(void *, void (*)(void *), int);
-M2C_UNK launch_rare_weapon_special__10TObjPlayerFv(void *, void *, int, f32);
-M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
+s32 launch_rare_weapon_special__10TObjPlayerFv(void *, void *, int, f32);
+s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 
 void drill_launcher_marker(RecoilWeaponView *arg0);
-M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK draw_ginja_object(void *);
+s32 rotate_matrix_z(s32, s32);
+s32 draw_ginja_object(void *);
 s32 get_player_list__10TObjPlayerFv();
 void drill_launcher_node_callback(void *arg0);
 void drill_launcher_update(void *arg0);
@@ -53,8 +49,8 @@ void TItemWeapon__ct(void *);
 void set_status_flags__10TObjPlayerFPvUi(void *, int);
 s32 drill_launcher_create_shot(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
 
-void* drill_launcher_ct(void* a0, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+void* drill_launcher_ct(void* a0, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_drill_launcher(u8 *arg0);
 void __dl__7TObjectFPv(void *);
@@ -64,22 +60,22 @@ void drill_launcher_return_timer(void *arg0);
 void increment_burst_counter(u8 *arg0);
 s32 get_burst_counter(void* p);
 s32 get_id__13TItemProArmorFPv(void *);
-M2C_UNK roll_technique__11TItemWeaponFv(void *);
-s32 __nw__15TItemHeapObjectFUl(M2C_UNK);
-M2C_UNK init_vtable__13TItemProArmorFPv(s32, u32, s32, M2C_UNK);
+s32 roll_technique__11TItemWeaponFv(void *);
+s32 __nw__15TItemHeapObjectFUl(s32);
+s32 init_vtable__13TItemProArmorFPv(s32, u32, s32, s32);
 void init_armor__10TObjPlayerFPv(void *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK get_mag_scale__10TObjPlayerFPv(void *);
-s32 draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK *);
-M2C_UNK draw_weapon_at_joint(void *, M2C_UNK, void *);
-M2C_UNK warn_if_gauge_low__10TObjPlayerFv(s32);
-M2C_UNK set_model_fade_alpha__10TObjPlayerFf();
-M2C_UNK TObjPlayer__sub_80364198();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 post_translate_matrix(void *);
+s32 get_mag_scale__10TObjPlayerFPv(void *);
+s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32 *);
+s32 draw_weapon_at_joint(void *, s32, void *);
+s32 warn_if_gauge_low__10TObjPlayerFv(s32);
+s32 set_model_fade_alpha__10TObjPlayerFf();
+s32 TObjPlayer__sub_80364198();
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 extern s32 model_render_flags;
 void draw_held_item__10TObjPlayerFPv(void *arg0);
 void play_particle_effect_once__10TObjPlayerFv();
@@ -90,11 +86,11 @@ s32 is_item_area_enabled();
 extern s32 tl_05;
 void update_blink__10TObjPlayerFPv(void *arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 get_tp__10TObjPlayerFPv(void *);
-M2C_UNK create_ex__9TTecMegidFiiii(void *, M2C_UNK *, s32, s32);
+s32 create_ex__9TTecMegidFiiii(void *, s32 *, s32, s32);
 void cast_megid__10TObjPlayerFPv(void *arg0);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
 void *find_item_by_id(s32);
 s32 get_item_system_generation();
@@ -108,9 +104,9 @@ void __dt__7TObjectFv(void *, int);
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1);
 s32 get_flag_40__8TItemMagFPv(s32);
 s8 TObjPlayer__sub_80102C30();
-M2C_UNK copy_position__15TEffStarLight2DFPv(u32, M2C_UNK *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK queue_target_destruction__10TObjCameraFPv(u32);
+s32 copy_position__15TEffStarLight2DFPv(u32, s32 *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 queue_target_destruction__10TObjCameraFPv(u32);
 void update_item_camera_target__10TObjPlayerFPv(void *arg0);
 }
 
@@ -123,14 +119,14 @@ void set_effect_state__10TObjPlayerFPvi(void *, int);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_80124708(u8 *arg0);
 s32 is_owner_alive__10TObjPlayerFPv();
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
-M2C_UNK rotate_matrix_x(int, int);
+s32 notify_fish_if_valid__10TObjPlayerFUi(int);
+s32 rotate_matrix_x(int, int);
 
 void TObjPlayer__sub_8012480C(void);
 void __ct__15TItemShootModelFPvPC3VecPC3Vecf(void *);
-M2C_UNK spawn_slot_emitter__18TItemShootParticleFPvii(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 spawn_slot_emitter__18TItemShootParticleFPvii(s32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(s32, s32, s32, f32);
-typedef u8 *(*Fn_80124694_3)(void *, M2C_UNK, void *);
+typedef u8 *(*Fn_80124694_3)(void *, s32, void *);
 typedef s32 (*Fn_80124810_5)(s32, s32, s32, s32, f32);
 
 extern "C" void render__7TObjectFv();
@@ -142,20 +138,20 @@ void *weapon_star_light_follower_vtable[6] = {
 #define weapon_star_light_follower_vtable ((u8 *)weapon_star_light_follower_vtable)
 
 void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x28) != ((u32)get_item_system_generation())) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x28) != ((u32)get_item_system_generation())) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        temp_r3 = ((s32)find_item_by_id(M2C_FIELD(arg0, s32 *, 0x1C)));
-        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (draw_icon__10TObjPlayerFPvii((void *)(temp_r3), (M2C_UNK)(M2C_FIELD(arg0, s32 *, 0x20)), (M2C_UNK *)(&sp8)) != 0)) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
+        temp_r3 = ((s32)find_item_by_id(*(s32 *)((s8 *)arg0 + 0x1C)));
+        if ((temp_r3 != 0) && (TObjPlayer__sub_80102C30() == 2) && (draw_icon__10TObjPlayerFPvii((void *)(temp_r3), (s32)(*(s32 *)((s8 *)arg0 + 0x20)), (s32 *)(&sp8)) != 0)) {
             if (get_flag_40__8TItemMagFPv((s32)(temp_r3)) == 0) {
-                copy_position__15TEffStarLight2DFPv(M2C_FIELD(arg0, u32 *, 0x24), &sp8);
+                copy_position__15TEffStarLight2DFPv(*(u32 *)((s8 *)arg0 + 0x24), &sp8);
                 return;
             }
-            queue_target_destruction__10TObjCameraFPv(M2C_FIELD(arg0, u32 *, 0x24));
+            queue_target_destruction__10TObjCameraFPv(*(u32 *)((s8 *)arg0 + 0x24));
             return;
         }
     }
@@ -164,7 +160,7 @@ void update_item_camera_target__10TObjPlayerFPv(void *arg0) {
 
 void *TObjPlayer__sub_8012417C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = ((M2C_UNK *)weapon_star_light_follower_vtable);
+        *(s32 **)((s8 *)arg0 + 0x18) = ((s32 *)weapon_star_light_follower_vtable);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -183,7 +179,7 @@ StarLightFollowerView *TObjPlayer__sub_801241D4(StarLightFollowerView *self, voi
     self->f24 = 0;
     self->f28 = get_item_system_generation();
     p = find_item_by_id(self->f1c);
-    if (p != NULL && draw_icon__10TObjPlayerFPvii((void *)(p), (M2C_UNK)(self->f20), (M2C_UNK *)(&v)) != 0) {
+    if (p != NULL && draw_icon__10TObjPlayerFPvii((void *)(p), (s32)(self->f20), (s32 *)(&v)) != 0) {
         StarLightParameters blk = weapon_star_light_parameters[0];
         self->f24 = spawn_star_light_2d(&v, &blk, self);
     }
@@ -201,12 +197,12 @@ void create_icon__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
 }
 
 void cast_megid__10TObjPlayerFPv(void *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     void *temp_r31;
     if (is_mode_two_and_ready__10TObjPlayerFPv((void *)(arg0)) != 0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 5, &sp8) != 0) {
-            temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
-            create_ex__9TTecMegidFiiii(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), get_tp__10TObjPlayerFPv(arg0));
+            temp_r31 = *(void **)((s8 *)arg0 + 0xF0);
+            create_ex__9TTecMegidFiiii(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), get_tp__10TObjPlayerFPv(arg0));
             roll_technique__11TItemWeaponFv(arg0);
         }
     } else {
@@ -216,22 +212,22 @@ void cast_megid__10TObjPlayerFPv(void *arg0) {
 
 void update_blink__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1FC) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) + 0xAAA);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x200) >= 0x2000) {
-            M2C_FIELD(arg0, s32 *, 0x200) = 0x2000;
-            M2C_FIELD(arg0, s32 *, 0x1FC) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1FC) == 1) {
+        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) + 0xAAA);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) >= 0x2000) {
+            *(s32 *)((s8 *)arg0 + 0x200) = 0x2000;
+            *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) - 0xAAA);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x200) <= -0x2000) {
-            M2C_FIELD(arg0, s32 *, 0x200) = -0x2000;
-            M2C_FIELD(arg0, s32 *, 0x1FC) = 1;
+        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) - 0xAAA);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) <= -0x2000) {
+            *(s32 *)((s8 *)arg0 + 0x200) = -0x2000;
+            *(s32 *)((s8 *)arg0 + 0x1FC) = 1;
         }
     }
     temp_r3 = get_current_floor();
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x204) != temp_r3) && ((u32) M2C_FIELD(arg0, u32 *, 0xF4) != 0U)) {
-        M2C_FIELD(arg0, s32 *, 0x204) = temp_r3;
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x204) != temp_r3) && ((u32) *(u32 *)((s8 *)arg0 + 0xF4) != 0U)) {
+        *(s32 *)((s8 *)arg0 + 0x204) = temp_r3;
         if (is_item_area_enabled() != 0) {
             create_icon__10TObjPlayerFiii((s32)((s32)(tl_05)), (s32)((s32)(get_field_d8__10TObjPlayerFPv(arg0))), (s32)((s32)(5)));
         }
@@ -262,16 +258,16 @@ void TObjPlayer__sub_8012443C(MegidWeaponRenderView *arg0) {
 }
 
 void draw_held_item__10TObjPlayerFPv(void *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
     void *temp_r31;
     void *temp_r5;
-    if (((void *) M2C_FIELD(arg0, void **, 0xF4) != NULL) && (get_flag_40__8TItemMagFPv((s32)(arg0)) == 0)) {
-        temp_r5 = M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF4), void **, 0x2C), void **, 0x30);
-        temp_r31 = M2C_FIELD(temp_r5, void **, 0x30);
-        M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x18);
+    if (((void *) *(void **)((s8 *)arg0 + 0xF4) != NULL) && (get_flag_40__8TItemMagFPv((s32)(arg0)) == 0)) {
+        temp_r5 = *(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0xF4)) + 0x2C)) + 0x30);
+        temp_r31 = *(void **)((s8 *)temp_r5 + 0x30);
+        *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x18);
         draw_weapon_at_joint(arg0, 0x30, temp_r5);
-        M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFE7);
+        *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFE7);
         if (draw_icon__10TObjPlayerFPvii(arg0, 5, &sp8) != 0) {
             push_matrix();
             TObjPlayer__sub_80364198();
@@ -279,14 +275,14 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
             get_mag_scale__10TObjPlayerFPv(arg0);
             set_model_fade_alpha__10TObjPlayerFf();
             post_translate_matrix((void *)(&sp8));
-            rotate_matrix_y((int)(0), (int)(M2C_FIELD(M2C_FIELD(arg0, void **, 0xF0), s32 *, 0x60)));
-            M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) | 0x11);
+            rotate_matrix_y((int)(0), (int)(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF0)) + 0x60)));
+            *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) | 0x11);
             draw_ginja_object(temp_r31);
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_object(M2C_FIELD(temp_r31, void **, 0x2C));
+            draw_ginja_object(*(void **)((s8 *)temp_r31 + 0x2C));
             end_effect_render__13TParticleCtrlFv();
-            temp_r3 = M2C_FIELD(temp_r31, s32 *, 0);
-            M2C_FIELD(temp_r31, s32 *, 0) = (s32) (temp_r3 & ~0x11);
+            temp_r3 = *(s32 *)((s8 *)temp_r31 + 0);
+            *(s32 *)((s8 *)temp_r31 + 0) = (s32) (temp_r3 & ~0x11);
             warn_if_gauge_low__10TObjPlayerFv(temp_r3);
             pop_matrix();
             pop_matrix();
@@ -296,11 +292,11 @@ void draw_held_item__10TObjPlayerFPv(void *arg0) {
 
 void init_armor__10TObjPlayerFPv(void *arg0) {
     s32 temp_r3;
-    M2C_FIELD(arg0, s32 *, 0x204) = -1;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x174) != 0U) {
+    *(s32 *)((s8 *)arg0 + 0x204) = -1;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x174) != 0U) {
         temp_r3 = __nw__15TItemHeapObjectFUl(0x2C);
         if (temp_r3 != 0) {
-            init_vtable__13TItemProArmorFPv(temp_r3, M2C_FIELD(arg0, u32 *, 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
+            init_vtable__13TItemProArmorFPv(temp_r3, *(u32 *)((s8 *)arg0 + 0x174), get_id__13TItemProArmorFPv(arg0), 0x5A);
         }
     }
     roll_technique__11TItemWeaponFv(arg0);
@@ -405,13 +401,13 @@ void *recoiling_projectile_weapon_vtable[63] = {
     (void *)&drill_launcher_update, (void *)&TItemWeapon__sub_8011E5CC, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&drill_launcher_node_callback, (void *)&deliver_hit__11TItemWeaponFPviPviif, (void *)0x0,
 };
-#define megid_projectile_weapon_vtable ((M2C_UNK *)megid_projectile_weapon_vtable)
-#define recoil_weapon_shoot_model_vtable ((M2C_UNK *)recoil_weapon_shoot_model_vtable)
-#define recoiling_projectile_weapon_vtable ((M2C_UNK *)recoiling_projectile_weapon_vtable)
+#define megid_projectile_weapon_vtable ((s32 *)megid_projectile_weapon_vtable)
+#define recoil_weapon_shoot_model_vtable ((s32 *)recoil_weapon_shoot_model_vtable)
+#define recoiling_projectile_weapon_vtable ((s32 *)recoiling_projectile_weapon_vtable)
 
 void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = megid_projectile_weapon_vtable;
+        *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -422,13 +418,13 @@ void *item_equip_variant_deleting_dtor_8012463C(void *arg0, s16 arg1) {
 
 void *TObjPlayer__sub_80124694(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = megid_projectile_weapon_vtable;
+    *(s32 **)((s8 *)arg0 + 0x18) = megid_projectile_weapon_vtable;
     set_flags__10TObjPlayerFPvUi((void *)((char *)arg0 + 376), 32);
     set_status_flags__10TObjPlayerFPvUi(arg0, 35);
     set_effect_state__10TObjPlayerFPvi(arg0, 12);
-    M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
-    M2C_FIELD(arg0, u32 *, 0x200) = 0;
-    M2C_FIELD(arg0, u32 *, 0x204) = -1;
+    *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
+    *(u32 *)((s8 *)arg0 + 0x200) = 0;
+    *(u32 *)((s8 *)arg0 + 0x204) = -1;
     return arg0;
 }
 
@@ -452,20 +448,20 @@ void drill_launcher_shot_render(u8 *arg0) {
     u8 *temp_r3_2;
 
     if (is_owner_alive__10TObjPlayerFPv() != 0) {
-        temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x58));
-        if ((temp_r3 != NULL) && ((u32) M2C_FIELD(arg0, u32 *, 0x5C) != 0U)) {
-            temp_r3_2 = (unsigned char *) (M2C_FIELD(temp_r3, void **, 0x2C));
-            temp_r31 = (unsigned char *) (M2C_FIELD(temp_r3_2, void **, 0x30));
-            M2C_FIELD(temp_r31, s32 *, 0) = (s32) (M2C_FIELD(temp_r31, s32 *, 0) & 0xFFFFFFFB);
-            M2C_FIELD(temp_r31, f32 *, 0x20) = (f32) 10.0f;
+        temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x58));
+        if ((temp_r3 != NULL) && ((u32) *(u32 *)((s8 *)arg0 + 0x5C) != 0U)) {
+            temp_r3_2 = (unsigned char *) (*(void **)((s8 *)temp_r3 + 0x2C));
+            temp_r31 = (unsigned char *) (*(void **)((s8 *)temp_r3_2 + 0x30));
+            *(s32 *)((s8 *)temp_r31 + 0) = (s32) (*(s32 *)((s8 *)temp_r31 + 0) & 0xFFFFFFFB);
+            *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 10.0f;
             push_matrix();
-            notify_fish_if_valid__10TObjPlayerFUi((int) (M2C_FIELD(arg0, u32 *, 0x5C)));
+            notify_fish_if_valid__10TObjPlayerFUi((int) (*(u32 *)((s8 *)arg0 + 0x5C)));
             post_translate_matrix((void *) (arg0 + 0x1C));
-            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x2C)));
-            rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x28) - 0x4000));
-            draw_ginja_object((void *) (M2C_FIELD(arg0, void **, 0x58)));
+            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x2C)));
+            rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x28) - 0x4000));
+            draw_ginja_object((void *) (*(void **)((s8 *)arg0 + 0x58)));
             pop_matrix();
-            M2C_FIELD(temp_r31, f32 *, 0x20) = (f32) 1.0f;
+            *(f32 *)((s8 *)temp_r31 + 0x20) = (f32) 1.0f;
         }
     }
 }
@@ -474,7 +470,7 @@ void TObjPlayer__sub_8012480C(void) {  }
 
 void *ct_shoot_model__10TObjPlayerFPv(void *arg0) {
     __ct__15TItemShootModelFPvPC3VecPC3Vecf(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = recoil_weapon_shoot_model_vtable;
+    *(s32 **)((s8 *)arg0 + 0x18) = recoil_weapon_shoot_model_vtable;
     return arg0;
 }
 
@@ -526,13 +522,13 @@ void drill_launcher_node_callback(void *arg0) {
     s32 temp_r3;
     temp_r3 = get_player_list__10TObjPlayerFv();
     if ((temp_r3 > 0) && (temp_r3 < 4)) {
-        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x200));
+        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x200));
         return;
     }
     if (temp_r3 == 4) {
-        if (M2C_FIELD(arg0, u32 *, 0x188) != 0U) {
-            if ((s32) M2C_FIELD(arg0, s32 *, 0x1F8) == 1) {
-                draw_ginja_object((void *)(M2C_FIELD(arg0, u32 *, 0x188)));
+        if (*(u32 *)((s8 *)arg0 + 0x188) != 0U) {
+            if ((s32) *(s32 *)((s8 *)arg0 + 0x1F8) == 1) {
+                draw_ginja_object((void *)(*(u32 *)((s8 *)arg0 + 0x188)));
             }
         }
     }
@@ -541,38 +537,38 @@ void drill_launcher_update(void *arg0) {
     s32 temp_r0;
     void *temp_r4;
     void *temp_r4_2;
-    M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x1FC) + 0x1999);
-    temp_r4 = M2C_FIELD(arg0, void **, 0x188);
+    *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x1FC) + 0x1999);
+    temp_r4 = *(void **)((s8 *)arg0 + 0x188);
     if (temp_r4 != NULL) {
-        temp_r4_2 = M2C_FIELD(temp_r4, void **, 0x2C);
-        M2C_FIELD(temp_r4_2, s32 *, 0) = (s32) (M2C_FIELD(temp_r4_2, s32 *, 0) & 0xFFFFFFFD);
-        M2C_FIELD(temp_r4_2, s32 *, 0x18) = (s32) M2C_FIELD(arg0, s32 *, 0x1FC);
+        temp_r4_2 = *(void **)((s8 *)temp_r4 + 0x2C);
+        *(s32 *)((s8 *)temp_r4_2 + 0) = (s32) (*(s32 *)((s8 *)temp_r4_2 + 0) & 0xFFFFFFFD);
+        *(s32 *)((s8 *)temp_r4_2 + 0x18) = (s32) *(s32 *)((s8 *)arg0 + 0x1FC);
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x204);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x204);
     switch (temp_r0) {
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) + 0xE38);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x200) >= 0) {
-            M2C_FIELD(arg0, s32 *, 0x200) = 0;
-            M2C_FIELD(arg0, s32 *, 0x204) = 0;
+        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) + 0xE38);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) >= 0) {
+            *(s32 *)((s8 *)arg0 + 0x200) = 0;
+            *(s32 *)((s8 *)arg0 + 0x204) = 0;
         }
         return;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0x200) = (s32) (M2C_FIELD(arg0, s32 *, 0x200) - 0xE38);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x200) <= -0x31C7) {
-            M2C_FIELD(arg0, s32 *, 0x200) = -0x31C7;
-            M2C_FIELD(arg0, s32 *, 0x204) = 3;
+        *(s32 *)((s8 *)arg0 + 0x200) = (s32) (*(s32 *)((s8 *)arg0 + 0x200) - 0xE38);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x200) <= -0x31C7) {
+            *(s32 *)((s8 *)arg0 + 0x200) = -0x31C7;
+            *(s32 *)((s8 *)arg0 + 0x204) = 3;
             return;
         }
         break;
     case 3:
-        M2C_FIELD(arg0, s32 *, 0x204) = 1;
+        *(s32 *)((s8 *)arg0 + 0x204) = 1;
         return;
     }
 }
 void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = recoiling_projectile_weapon_vtable;
+        *(s32 **)((s8 *)arg0 + 0x18) = recoiling_projectile_weapon_vtable;
         item_equip_variant_deleting_dtor_80120CF8(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -580,7 +576,7 @@ void *item_equip_variant_deleting_dtor_80124AEC(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-void* drill_launcher_ct(void* a0, M2C_UNK _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; set_status_flags__10TObjPlayerFPvUi((void *)(a0), (int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
+void* drill_launcher_ct(void* a0, s32 _w1, void * _w2) { TItemWeapon__ct((void *)(a0)); *(int*)((char*)a0 + 0x18) = (int)((unsigned char *)recoiling_projectile_weapon_vtable); *(int*)((char*)a0 + 0x1f0) = (int)drill_launcher_create_shot; *(float*)((char*)a0 + 0x1e4) = 9.0f; set_status_flags__10TObjPlayerFPvUi((void *)(a0), (int)((void*)34)); *(int*)((char*)a0 + 0x1f8) = 1; *(int*)((char*)a0 + 0x1fc) = 0; *(int*)((char*)a0 + 0x200) = 0; return a0; }
 u8 *create_drill_launcher(u8 *arg0) {
     u8 *temp_r3;
     u8 *var_r0;
@@ -588,7 +584,7 @@ u8 *create_drill_launcher(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x208));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)drill_launcher_ct((void*)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)drill_launcher_ct((void*)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
@@ -596,7 +592,7 @@ u8 *create_drill_launcher(u8 *arg0) {
 }
 void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = recoil_weapon_shoot_model_vtable;
+        *(s32 **)((s8 *)arg0 + 0x18) = recoil_weapon_shoot_model_vtable;
         __dt__15TItemShootModelFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -606,11 +602,11 @@ void *dt_item_shoot_model__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 }
 void drill_launcher_return_timer(void *arg0) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
     }
 }
 void increment_burst_counter(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) (M2C_FIELD(arg0, s32 *, 0x18) + 1);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) (*(s32 *)((s8 *)arg0 + 0x18) + 1);
 }
 s32 get_burst_counter(void* p) { return *(s32*)((char*)p + 0x18); }
 

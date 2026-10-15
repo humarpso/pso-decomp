@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 int set_target_index__11TMainCursorFPvs(void*, void* a1);
@@ -12,13 +8,10 @@ int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1);
 extern "C" {
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-M2C_UNK init_gc_tag();
-M2C_UNK reset_target__11TMainCursorFi(void *);
+s32 init_gc_tag();
+s32 reset_target__11TMainCursorFi(void *);
 s32 free_if_valid__14TPlyDispConfigFis(s32, s32);
 s32 __dl__FPv(void* a0 = 0);
 s32 init__6gc_tagFv();
@@ -99,18 +92,11 @@ int set_target_index_at_60__11TMainCursorFPvPv(void* p, void* _w1) { return set_
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 s32 reset__11TMainCursorFi(s32 arg0) {

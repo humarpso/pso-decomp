@@ -1,16 +1,12 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80323214_lbl_80476658 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80323278_lbl_80476658 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
@@ -77,10 +73,10 @@ void destroy_part__14TBoss6GravBallFii(s32 arg0, s32 arg1) {
     u32 temp_r3;
     u8 *temp_r31;
     temp_r31 = (u8 *)(arg0 + (arg1 * 4));
-    temp_r3 = M2C_FIELD(temp_r31, u32 *, 0xD4);
+    temp_r3 = *(u32 *)((s8 *)temp_r31 + 0xD4);
     if (temp_r3 != 0U) {
         request_destroy__11TBoss4Type2FUi((int) (temp_r3));
-        M2C_FIELD(temp_r31, u32 *, 0xD4) = 0U;
+        *(u32 *)((s8 *)temp_r31 + 0xD4) = 0U;
     }
 }
 #pragma pop
@@ -91,9 +87,9 @@ void TBoss6GravBall__sub_80323214(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
-    if ((void *) M2C_FIELD(temp_r31, u8 **, 0xD4) == NULL) {
-        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, M2C_FIELD(&TBoss6GravBall__emitter_id_table.value, M2C_UNK *, temp_r5)));
-        temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0xD4));
+    if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
+        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&TBoss6GravBall__emitter_id_table.value) + temp_r5)));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
             set_flags__11TBoss4Type2FPvUi(temp_r3, 0x2040);
         }
@@ -110,9 +106,9 @@ void create_emitter__14TBoss6GravBallFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     temp_r5 = arg1 * 4;
     temp_r31 = (u8 *)(arg0 + temp_r5);
-    if ((void *) M2C_FIELD(temp_r31, u8 **, 0xD4) == NULL) {
-        M2C_FIELD(temp_r31, u8 **, 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, M2C_FIELD(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value, M2C_UNK *, temp_r5)));
-        temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0xD4));
+    if ((void *) *(u8 **)((s8 *)temp_r31 + 0xD4) == NULL) {
+        *(u8 **)((s8 *)temp_r31 + 0xD4) = (unsigned char *) (create_particle_emitter(arg0 + 0xC8, *(s32 *)((s8 *)(&(*(RecoveredGlobal_80323278_lbl_80476658 *)&TBoss6GravBall__emitter_id_table).value) + temp_r5)));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0xD4));
         if (temp_r3 != NULL) {
             set_flags__11TBoss4Type2FPvUi(temp_r3, 0x40);
         }

@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_800F9B84_lbl_8050113C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
@@ -15,12 +12,12 @@ struct Obj_800F9BAC { u8 pad[0x1C]; u32 base; u8 pad20[4]; u32 root; };
 extern "C" {
 void delete_children__7TObjectFv(void *);
 s32 apply_rel_relocations(void *);
-u8 *ct_object__9TItemDropFPv(u8 *, M2C_UNK *);
+u8 *ct_object__9TItemDropFPv(u8 *, s32 *);
 s32 set_stream_and_load_file__6TLobbyFi(s32);
 s32 update_lobby_scene__6TSceneFPv();
-u8 *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
+s32 strncpy(void *, s32, s32);
+s32 memset(void *, s32, s32);
 extern RecoveredGlobal_800F9B84_lbl_8050113C resource_load_task_root;
 void clear_resource_load_tasks(void);
 u32 apply_pointer_relocations(Obj_800F9BAC *self, RelHdr_800F9BAC *hdr);
@@ -36,13 +33,13 @@ s32 create_named_object(s32 arg0) {
     if (temp_r3 > 0) {
         var_r30 = __nw__7TObjectFUl(0x3C);
         if (var_r30 != NULL) {
-            var_r30 = ct_object__9TItemDropFPv(var_r30, (M2C_UNK *)&resource_load_task_root);
+            var_r30 = ct_object__9TItemDropFPv(var_r30, (s32 *)&resource_load_task_root);
         }
         memset(var_r30 + 0x28, 0, 0x11);
         strncpy(var_r30 + 0x28, arg0, 0x10);
-        M2C_FIELD(var_r30, void **, 0) = (void *) (var_r30 + 0x28);
-        M2C_FIELD(var_r30, s32 *, 0x1C) = set_stream_and_load_file__6TLobbyFi(arg0);
-        M2C_FIELD(var_r30, s32 *, 0x20) = temp_r3;
+        *(void **)((s8 *)var_r30 + 0) = (void *) (var_r30 + 0x28);
+        *(s32 *)((s8 *)var_r30 + 0x1C) = set_stream_and_load_file__6TLobbyFi(arg0);
+        *(s32 *)((s8 *)var_r30 + 0x20) = temp_r3;
         return apply_rel_relocations(var_r30);
     }
     return 0;

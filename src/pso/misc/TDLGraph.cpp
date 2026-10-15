@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8007F77C___vt__8TDLGraph {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -23,7 +19,7 @@ void TCameraCtrl__sub_80068EF0(void);
 void fn_8007F27C(TDLGraph_8007F66C *self, void *a, void *b);
 void draw_countdown_timer(TDLGraph_8007F66C *self, f32 x, f32 y);
 void draw_percent_text(void *arg0, f32 farg0, f32 farg1);
-M2C_UNK fn_8007F5A4(TDLGraph_8007F66C *self);
+s32 fn_8007F5A4(TDLGraph_8007F66C *self);
 extern u8 lbl_80438AA4[];
 extern u8 lbl_80438AAC[];
 extern const f32 lbl_805D92CC;
@@ -44,7 +40,7 @@ void run_task__8TDLGraphFv(void);
 void set_graph_param__8TDLGraphFPvi(void* p, s32 v);
 
 void reset__8TDLGraphFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     fn_8007F5A4((TDLGraph_8007F66C *)(arg0));
 }
 
@@ -85,7 +81,7 @@ void update_graph__8TDLGraphFii(s32 arg0, s32 arg1) {
 
 u8 *__dt__8TDLGraphFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TDLGraph.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TDLGraph.value;
         TDLGraph__graph_object = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

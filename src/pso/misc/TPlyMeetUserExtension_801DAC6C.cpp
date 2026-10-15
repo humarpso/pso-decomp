@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Tags_801DAC6C { u32 w[16]; };
 
@@ -47,7 +43,7 @@ struct VObjDAD38 : BaseDAD38 {
 };
 
 extern "C" {
-M2C_UNK bswap__13packet_headerFv(void *);
+s32 bswap__13packet_headerFv(void *);
 void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
 Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC6C *arg0, const Ext_801DAC6C *arg1);
 void reset__18PSOV3EncryptionTCPFUl(void *, u32);
@@ -56,28 +52,28 @@ void fn_801DF280(void *);
 void fn_801DF2BC(void *);
 void __as__8TPlySmthFRC8TPlySmth(void *, void *);
 s32 strcmp(const char *, const char *);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+s32 strncpy(void *, s32, s32);
+s32 memset(void *, s32, s32);
 extern char *port_map_copyright;
 void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1);
 }
 
 extern "C" {
 
-M2C_UNK set_port__7TSocketFUl(void *, s16);
+s32 set_port__7TSocketFUl(void *, s16);
 s32 resolve_domain__7TSocketFPc(void *, s32);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+s32 strncpy(void *, s32, s32);
+s32 memset(void *, s32, s32);
 
 struct BaseDA { char pad[0x18]; };
 struct VObjDA : BaseDA {
-    virtual M2C_UNK m0();
-    virtual M2C_UNK m1();
-    virtual M2C_UNK m2();
-    virtual M2C_UNK m3();
-    virtual M2C_UNK m4();
-    virtual M2C_UNK m5();
-    virtual M2C_UNK m6();
+    virtual s32 m0();
+    virtual s32 m1();
+    virtual s32 m2();
+    virtual s32 m3();
+    virtual s32 m4();
+    virtual s32 m5();
+    virtual s32 m6();
 };
 
 #pragma inline_depth(1)
@@ -93,13 +89,13 @@ Ext_801DAC6C *__as__21TPlyMeetUserExtensionFRC21TPlyMeetUserExtension(Ext_801DAC
 
 void handle_cmd_9A__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
-    M2C_UNK (*temp_r12)(u8);
-    sp8 = M2C_FIELD(arg1, s32 *, 0);
+    s32 (*temp_r12)(u8);
+    sp8 = *(s32 *)((s8 *)arg1 + 0);
     bswap__13packet_headerFv((void *) (&sp8));
-    M2C_FIELD(arg0, s32 *, 0x190C) = (s32) M2C_FIELD(&sp8, u8 *, 0x1);
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(u8), 0xBC28);
+    *(s32 *)((s8 *)arg0 + 0x190C) = (s32) *(u8 *)((s8 *)(&sp8) + 0x1);
+    temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC28);
     if (temp_r12 != NULL) {
-        temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
+        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
     }
 }
 
@@ -112,18 +108,18 @@ void handle_cmd_9B__9TProtocolFR6packet(u8 *arg0, Regist_801DAD38 *arg1) {
         reset__18PSOV3EncryptionTCPFUl(arg0 + 0x884, r.key1);
         *(s32 *)(arg0 + 0x18F4) = 1;
         fn_801DF2BC(&pkt);
-        memset((void *)(&pkt), (M2C_UNK)(0), (M2C_UNK)(0xE0));
+        memset((void *)(&pkt), (s32)(0), (s32)(0xE0));
         pkt.cmd = 0xDB;
         pkt.size = 0xE0;
-        strncpy((void *)(pkt.a), (s32)((s32)(arg0 + 0x3EB8)), (M2C_UNK)(0x10));
-        strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), (M2C_UNK)(0x10));
-        strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), (M2C_UNK)(0x10));
-        strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), (M2C_UNK)(0x10));
+        strncpy((void *)(pkt.a), (s32)((s32)(arg0 + 0x3EB8)), (s32)(0x10));
+        strncpy((void *)(pkt.b), (s32)((s32)(arg0 + 0x3EC9)), (s32)(0x10));
+        strncpy((void *)(pkt.c), (s32)((s32)(arg0 + 0x3F8A)), (s32)(0x10));
+        strncpy((void *)(pkt.d), (s32)((s32)(arg0 + 0x3F9B)), (s32)(0x10));
         __as__8TPlySmthFRC8TPlySmth(pkt.smth, arg0 + 0x18F8);
         pkt.port = *(u16 *)(arg0 + 0x1908);
-        strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), (M2C_UNK)(0x30));
-        strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), (M2C_UNK)(0x30));
-        strncpy((void *)(pkt.g), (s32)((s32)(arg0 + 0x3F3A)), (M2C_UNK)(0x30));
+        strncpy((void *)(pkt.e), (s32)((s32)(arg0 + 0x3EDA)), (s32)(0x30));
+        strncpy((void *)(pkt.f), (s32)((s32)(arg0 + 0x3F0A)), (s32)(0x30));
+        strncpy((void *)(pkt.g), (s32)((s32)(arg0 + 0x3F3A)), (s32)(0x30));
         fn_801DF280(&pkt);
         ((VObjDAD38 *)arg0)->m8(&pkt, 0xE0);
     } else {

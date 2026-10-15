@@ -1,21 +1,20 @@
 #include "types.h"
-typedef s32 M2C_UNK;
 
 extern "C" {
 s32 obj_getField1c(void *);
 s32 check_player_flag1__6TLobbyFPv(void *);
-u16 get_nth_view_player_id__11TCameraCtrlFi(M2C_UNK);
-M2C_UNK send_code_45_1__10TObjPlayerFi(void *);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32);
+s32 send_code_45_1__10TObjPlayerFi(void *);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TLobby__sub_8024AC20(u16);
+s32 TLobby__sub_8024AC20(u16);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void fn_802233F8(void);
 s32 obj_getField1c(void *);
 s32 check_player_flag1__6TLobbyFPv(void *);
-u16 get_nth_view_player_id__11TCameraCtrlFi(M2C_UNK);
-M2C_UNK play_effect_default__10TObjPlayerFii(void *, M2C_UNK);
+u16 get_nth_view_player_id__11TCameraCtrlFi(s32);
+s32 play_effect_default__10TObjPlayerFii(void *, s32);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TObjPlayer__sub_8024ABDC(u16);
+s32 TObjPlayer__sub_8024ABDC(u16);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 void fn_80223480(void);
 }

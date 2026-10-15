@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/animation/ActorAnimationState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Key_80142950
 {
@@ -103,9 +99,9 @@ int set_field_dc__10TObjPlayerFPvi(void*, void*);
 int set_field_d8__10TObjPlayerFPvi(void*);
 f32 get_speed__10TObjPlayerFPv();
 void TObjEnePanarms__sub_800E2DE4(void *, int);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK restore_actor_draw_lighting(s32);
-M2C_UNK setup_actor_draw_lighting();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 restore_actor_draw_lighting(s32);
+s32 setup_actor_draw_lighting();
 s32 is_anim_finished__10TObjPlayerFPv(void *arg0);
 void update_animation_frame__10TObjPlayerFPvi(u8 *arg0, s32 arg1);
 s32 get_anim_entry_value__10TObjPlayerFPvs(Obj_80142BB4 *self, s16 i);
@@ -127,16 +123,16 @@ void advance_animation_playback(Anim_80143504 *a);
 void set_motion_interpolation_flag(void *);
 s32 TBoss1Dragon__sub_80143960(void *, int);
 void * get_anim_entry__10TObjPlayerFPvi(void *, s16);
-M2C_UNK draw_ginja_model_tree__10TObjPlayerFPvPv(s32, void *, f32);
-M2C_UNK draw_ginja_model__10TObjPlayerFPvi(s32, s32, f32);
-M2C_UNK render_model_tree__12TBoss8DragonFPvPv(u32, s32, f32);
+s32 draw_ginja_model_tree__10TObjPlayerFPvPv(s32, void *, f32);
+s32 draw_ginja_model__10TObjPlayerFPvi(s32, s32, f32);
+s32 render_model_tree__12TBoss8DragonFPvPv(u32, s32, f32);
 int get_current_matrix(void*);
-M2C_UNK set_model_node_callback(s32);
-M2C_UNK draw_model_blend_motion(s32, void *, f32);
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
-M2C_UNK set_global_state__16TObjEneRe7BeruraFi(M2C_UNK *);
+s32 set_model_node_callback(s32);
+s32 draw_model_blend_motion(s32, void *, f32);
+s32 draw_model_motion(s32, s32, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
+s32 set_global_state__16TObjEneRe7BeruraFi(s32 *);
 
 extern s32 anim_model_matrix_array;
 extern s32 player_joint_matrix_write_ptr;
@@ -213,8 +209,8 @@ f32 sample_attack_root_motion(Actor_80142950 *a, f32 *x, f32 *z) {
 s32 is_anim_finished__10TObjPlayerFPv(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0xB0);
-    if ((!(temp_r4 & 4) || (temp_r4 & 1)) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == (s16) M2C_FIELD(arg0, s16 *, 0xBA))) {
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0xB0);
+    if ((!(temp_r4 & 4) || (temp_r4 & 1)) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == (s16) *(s16 *)((s8 *)arg0 + 0xBA))) {
         return 1;
     }
     return 0;
@@ -240,36 +236,36 @@ void serialize_node_flags__10TObjPlayerFPv(u8 *arg0) {
     u8 *test_2c;
     u8 *test_30;
 
-    M2C_FIELD(lbl_805D5684, void **, 0) = arg0;
-    M2C_FIELD(lbl_805D5684, s32 *, 4) = 0;
-    if (!(M2C_FIELD(arg0, s32 *, 0) & 1)) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 1);
+    *(void **)((s8 *)lbl_805D5684 + 0) = arg0;
+    *(s32 *)((s8 *)lbl_805D5684 + 4) = 0;
+    if (!(*(s32 *)((s8 *)arg0 + 0) & 1)) {
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 1);
     }
-    if (!(M2C_FIELD(arg0, s32 *, 0) & 2)) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 2);
+    if (!(*(s32 *)((s8 *)arg0 + 0) & 2)) {
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 2);
     }
-    if (!(M2C_FIELD(arg0, s32 *, 0) & 4)) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 4);
+    if (!(*(s32 *)((s8 *)arg0 + 0) & 4)) {
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 4);
     }
-    temp_r4 = (unsigned char *) (M2C_FIELD(arg0, void **, 4));
+    temp_r4 = (unsigned char *) (*(void **)((s8 *)arg0 + 4));
     if (temp_r4 != NULL) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 8);
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 0) != 0U) {
-            M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x10);
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 8);
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 0) != 0U) {
+            *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x10);
         }
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 4) != 0U) {
-            M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x20);
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 4) != 0U) {
+            *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x20);
         }
     }
-    test_2c = (unsigned char *) (M2C_FIELD(arg0, void **, 0x2C));
+    test_2c = (unsigned char *) (*(void **)((s8 *)arg0 + 0x2C));
     if (test_2c != NULL) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x40);
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x40);
         lbl_805D5684 = lbl_805D5684 + 8;
         serialize_node_flags__10TObjPlayerFPv((u8 *)((u8 *)(test_2c)));
     }
-    test_30 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x30));
+    test_30 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x30));
     if (test_30 != NULL) {
-        M2C_FIELD(lbl_805D5684, s32 *, 4) = (s32) (M2C_FIELD(lbl_805D5684, s32 *, 4) | 0x80);
+        *(s32 *)((s8 *)lbl_805D5684 + 4) = (s32) (*(s32 *)((s8 *)lbl_805D5684 + 4) | 0x80);
         lbl_805D5684 = lbl_805D5684 + 8;
         serialize_node_flags__10TObjPlayerFPv((u8 *)((u8 *)(test_30)));
     }
@@ -277,39 +273,39 @@ void serialize_node_flags__10TObjPlayerFPv(u8 *arg0) {
 
 void clear_next_entry__10TObjPlayerFiPv(s32 arg0, u8 *arg1) {
     lbl_805D5684 = arg1;
-    ((M2C_UNK (*)(void))serialize_node_flags__10TObjPlayerFPv)();
+    ((s32 (*)(void))serialize_node_flags__10TObjPlayerFPv)();
     lbl_805D5684 += 8;
-    M2C_FIELD(lbl_805D5684, s32 *, 0) = 0;
+    *(s32 *)((s8 *)lbl_805D5684 + 0) = 0;
 }
 
 s32 draw_model_with_callback__10TObjPlayerFPviif(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    if ((arg1 == 0) || ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U)) {
+    if ((arg1 == 0) || ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U)) {
         return 0;
     }
     set_global_flag__10TObjPlayerFv();
     player_joint_matrix_write_ptr = arg2;
-    set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)save_joint_matrix_callback);
-    render_model_tree__12TBoss8DragonFPvPv(M2C_FIELD(arg0, u32 *, 0x34), arg1, farg0);
+    set_global_state__16TObjEneRe7BeruraFi((s32 *)save_joint_matrix_callback);
+    render_model_tree__12TBoss8DragonFPvPv(*(u32 *)((s8 *)arg0 + 0x34), arg1, farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
     clear_global_state__10TObjPlayerFv();
     return 1;
 }
 
 s32 render_anim_model__10TObjPlayerFPvf(void *arg0, f32 farg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF8) == 0U) || ((u32) M2C_FIELD(arg0, u32 *, 0x34) == 0U)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF8) == 0U) || ((u32) *(u32 *)((s8 *)arg0 + 0x34) == 0U)) {
         return 0;
     }
     set_global_flag__10TObjPlayerFv();
     player_joint_matrix_write_ptr = anim_model_matrix_array;
-    set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)save_joint_matrix_callback);
-    ((M2C_UNK (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPvPv)(M2C_FIELD(arg0, u32 *, 0x34), M2C_FIELD(arg0, u32 *, 0xF8), farg0);
+    set_global_state__16TObjEneRe7BeruraFi((s32 *)save_joint_matrix_callback);
+    ((s32 (*)(u32, u32, f32))render_model_tree__12TBoss8DragonFPvPv)(*(u32 *)((s8 *)arg0 + 0x34), *(u32 *)((s8 *)arg0 + 0xF8), farg0);
     set_global_state__16TObjEneRe7BeruraFi(NULL);
     clear_global_state__10TObjPlayerFv();
     return 1;
 }
 
 f32 get_speed_or_default__10TObjPlayerFPv(void *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
+    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
         return (*(f32 *)&lbl_805DB168);
     }
     return get_speed__10TObjPlayerFPv();
@@ -331,15 +327,15 @@ void save_joint_matrix_callback(void) { get_current_matrix((void*)((*(int *)&pla
 
 void draw_motion_model_saving_joints(u8 *arg0) {
     s32 temp_r3;
-    (*(int *)&player_joint_matrix_write_ptr) = M2C_FIELD(arg0, s32 *, 0xE0);
-    ((M2C_UNK (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *) save_joint_matrix_callback);
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
+    (*(int *)&player_joint_matrix_write_ptr) = *(s32 *)((s8 *)arg0 + 0xE0);
+    ((s32 (*)(void *))set_global_state__16TObjEneRe7BeruraFi)((void *) save_joint_matrix_callback);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
     if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-        ((M2C_UNK (*)(int, void *, f32))draw_model_blend_motion)(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+        ((s32 (*)(int, void *, f32))draw_model_blend_motion)(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
-        ((M2C_UNK (*)(int, int, f32))draw_model_motion)(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+        ((s32 (*)(int, int, f32))draw_model_motion)(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
     }
-    ((M2C_UNK (*)(void *))set_global_state__16TObjEneRe7BeruraFi)(NULL);
+    ((s32 (*)(void *))set_global_state__16TObjEneRe7BeruraFi)(NULL);
     reset_transform_state__10TObjPlayerFv();
 }
 
@@ -347,29 +343,29 @@ void draw_model_with_callback__10TObjPlayerFPv(u8 *arg0) {
     s32 temp_r3;
     u32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0xE0);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0xE0);
     if (temp_r0 != 0U) {
         (*(u32 *)&player_joint_matrix_write_ptr) = temp_r0;
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(save_joint_matrix_callback));
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0xB0);
+        set_global_state__16TObjEneRe7BeruraFi((s32 *)(save_joint_matrix_callback));
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0xB0);
         if ((temp_r3 & 4) && !(temp_r3 & 0x400)) {
-            draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+            draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
         } else {
-            draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+            draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         }
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(NULL));
+        set_global_state__16TObjEneRe7BeruraFi((s32 *)(NULL));
         reset_transform_state__10TObjPlayerFv();
     }
 }
 
 void render_world_model__10TObjPlayerFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
-    if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
+        draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(chunk_model_node_callback));
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
-        set_global_state__16TObjEneRe7BeruraFi((M2C_UNK *)(0));
+        set_global_state__16TObjEneRe7BeruraFi((s32 *)(chunk_model_node_callback));
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        set_global_state__16TObjEneRe7BeruraFi((s32 *)(0));
     }
     reset_transform_state__10TObjPlayerFv();
     clear_global_state__10TObjPlayerFv();
@@ -378,30 +374,30 @@ void render_world_model__10TObjPlayerFPv(u8 *arg0) {
 void draw__16TObjEneRe7BeruraFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     setup_actor_draw_lighting();
-    if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        draw_model_blend_motion(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
+        draw_model_blend_motion(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
-        ((M2C_UNK (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(chunk_model_node_callback);
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
-        ((M2C_UNK (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(0);
+        ((s32 (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(chunk_model_node_callback);
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
+        ((s32 (*)(s32))set_global_state__16TObjEneRe7BeruraFi)(0);
     }
     reset_transform_state__10TObjPlayerFv();
-    restore_actor_draw_lighting(M2C_FIELD(arg0, s32 *, 0));
+    restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
     clear_global_state__10TObjPlayerFv();
 }
 
 void draw_model__12TObjNpcEnemyFPv(u8 *arg0) {
     set_global_flag__10TObjPlayerFv();
     setup_actor_draw_lighting();
-    if (M2C_FIELD(arg0, s32 *, 0xB0) & 4) {
-        draw_ginja_model_tree__10TObjPlayerFPvPv(M2C_FIELD(arg0, s32 *, 0x34), arg0 + 0xE4, M2C_FIELD(arg0, f32 *, 0xC0));
+    if (*(s32 *)((s8 *)arg0 + 0xB0) & 4) {
+        draw_ginja_model_tree__10TObjPlayerFPvPv(*(s32 *)((s8 *)arg0 + 0x34), arg0 + 0xE4, *(f32 *)((s8 *)arg0 + 0xC0));
     } else {
         set_model_node_callback(model_node_callback);
-        draw_ginja_model__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0xF8), M2C_FIELD(arg0, f32 *, 0xC0));
+        draw_ginja_model__10TObjPlayerFPvi(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xF8), *(f32 *)((s8 *)arg0 + 0xC0));
         set_model_node_callback(0);
     }
     reset_transform_state__10TObjPlayerFv();
-    restore_actor_draw_lighting(M2C_FIELD(arg0, s32 *, 0));
+    restore_actor_draw_lighting(*(s32 *)((s8 *)arg0 + 0));
     clear_global_state__10TObjPlayerFv();
 }
 
@@ -474,23 +470,23 @@ void set_animation__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     void *temp_r3;
     f32 conv;
 
-    M2C_FIELD(arg0, s16 *, 0xB8) = arg1;
-    M2C_FIELD(arg0, s16 *, 0xBA) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
-    ((M2C_UNK (*)(void *, s16))update_animation_frame__10TObjPlayerFPvi)(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    temp_r3 = get_anim_entry__10TObjPlayerFPvi(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    M2C_FIELD(arg0, f32 *, 0xC8) = (f32) M2C_FIELD(temp_r3, f32 *, 8);
-    M2C_FIELD(arg0, s16 *, 0xF4) = (s16) M2C_FIELD(temp_r3, s16 *, 0);
-    conv = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), u32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0xC4) = conv;
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB168;
-    M2C_FIELD(arg0, s32 *, 0xB0) = (s32) (M2C_FIELD(arg0, s32 *, 0xB0) & 0xFFFFFFFB);
-    M2C_FIELD(arg0, s32 *, 0xB4) = (s32) M2C_FIELD(temp_r3, s32 *, 0xC);
-    M2C_FIELD(arg0, void **, 0xE4) = (void *) M2C_FIELD(arg0, void **, 0xF8);
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) lbl_805DB168;
-    M2C_FIELD(arg0, void **, 0xE8) = (void *) M2C_FIELD(arg0, void **, 0xF8);
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) lbl_805DB168;
-    M2C_FIELD(arg0, s16 *, 0xBC) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
-    if (M2C_FIELD(arg0, s32 *, 0xB4) & 0x20000000) {
+    *(s16 *)((s8 *)arg0 + 0xB8) = arg1;
+    *(s16 *)((s8 *)arg0 + 0xBA) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
+    ((s32 (*)(void *, s16))update_animation_frame__10TObjPlayerFPvi)(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    temp_r3 = get_anim_entry__10TObjPlayerFPvi(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    *(f32 *)((s8 *)arg0 + 0xC8) = (f32) *(f32 *)((s8 *)temp_r3 + 8);
+    *(s16 *)((s8 *)arg0 + 0xF4) = (s16) *(s16 *)((s8 *)temp_r3 + 0);
+    conv = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 4);
+    *(f32 *)((s8 *)arg0 + 0xC4) = conv;
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB168;
+    *(s32 *)((s8 *)arg0 + 0xB0) = (s32) (*(s32 *)((s8 *)arg0 + 0xB0) & 0xFFFFFFFB);
+    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)temp_r3 + 0xC);
+    *(void **)((s8 *)arg0 + 0xE4) = (void *) *(void **)((s8 *)arg0 + 0xF8);
+    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) lbl_805DB168;
+    *(void **)((s8 *)arg0 + 0xE8) = (void *) *(void **)((s8 *)arg0 + 0xF8);
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) lbl_805DB168;
+    *(s16 *)((s8 *)arg0 + 0xBC) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
+    if (*(s32 *)((s8 *)arg0 + 0xB4) & 0x20000000) {
         set_motion_interpolation_flag(arg0);
     }
 }

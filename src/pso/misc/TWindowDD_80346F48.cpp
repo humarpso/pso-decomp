@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct DD_80346FE4 {
     u8 pad[0x10];
@@ -38,8 +34,8 @@ void reset_selection__9TWindowDDFPv(void* a0) { *(short*)((char*)a0 + 0x1c) = -1
 extern s16 lbl_805D6E24;
 
 void update_selected_id__9TWindowDDFPv(void *arg0) {
-    if (((s16) M2C_FIELD(arg0, s16 *, 2) == 1) && (TWindowDD__sub_80346FC0((s16)(M2C_FIELD(arg0, s16 *, 4))) != 0)) {
-        lbl_805D6E24 = M2C_FIELD(arg0, s16 *, 4);
+    if (((s16) *(s16 *)((s8 *)arg0 + 2) == 1) && (TWindowDD__sub_80346FC0((s16)(*(s16 *)((s8 *)arg0 + 4))) != 0)) {
+        lbl_805D6E24 = *(s16 *)((s8 *)arg0 + 4);
     }
 }
 s32 TWindowDD__sub_80346FC0(s16 arg0) {

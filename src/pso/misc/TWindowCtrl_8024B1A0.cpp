@@ -70,31 +70,23 @@ s8 alloc_nearest_free_slot__11TWindowCtrlFPv(Win_8024B1A0 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void set_field28__11TWindowCtrlFs(s16 arg0) {
     if ((void *) (*(void * *)&TWindowCtrl__active_window) != NULL) {
-        M2C_FIELD((*(void * *)&TWindowCtrl__active_window), s16 *, 0x28) = arg0;
+        *(s16 *)((s8 *)(*(void * *)&TWindowCtrl__active_window) + 0x28) = arg0;
     }
 }
 u16 get_window_id__11TWindowCtrlFv(void) {
     if ((void *) (*(void * *)&TWindowCtrl__active_window) == NULL) {
         return 0xFFFFU;
     }
-    return M2C_FIELD((*(void * *)&TWindowCtrl__active_window), u16 *, 0x28);
+    return *(u16 *)((s8 *)(*(void * *)&TWindowCtrl__active_window) + 0x28);
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ctrl_8024B328 { u8 pad[0x84]; void *win[4]; };
 

@@ -3,28 +3,24 @@
 TAdEndText::~TAdEndText() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8001B3BC_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_8001B3EC_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_8001B3D4_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_8001B404_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
@@ -108,14 +104,14 @@ extern s32 TAdEndText__font_loaded_flag;
 void bind_gvm_texture_list(const char *name, void *data);
 void *create_named_object(const char *name);
 void load_ending_font__10TAdEndTextFv(void);
-M2C_UNK TAdEndText__sub_8001A998(s32, f32, f32, f32);
-M2C_UNK draw_small_font_text(s32, f32, f32, f32);
+s32 TAdEndText__sub_8001A998(s32, f32, f32, f32);
+s32 draw_small_font_text(s32, f32, f32, f32);
 u32 __cvt_fp2unsigned(f32);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 set_global_param__8TObjFishFi(int);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
 extern u32 TAdEndText__loaded_font_texture_list;
 extern u32 TAdEndText__credit_script_lines;
 extern const f32 lbl_805D7E04;
@@ -141,7 +137,7 @@ extern const f32 lbl_805D7E3C;
 void run_task__10TAdEndTextFv(u8 *arg0);
 s32 TKeyBoardControl__sub_8000F828();
 s32 TAdEndText__sub_8001B41C(void);
-M2C_UNK __ct__7TObjectFP7TObject(void *);
+s32 __ct__7TObjectFP7TObject(void *);
 extern u8 __vt__10TAdEndText[];
 extern s32 TAdEndText__class_name;
 extern s32 TAdEndText__font_loaded_flag;
@@ -354,23 +350,23 @@ void load_ending_font__10TAdEndTextFv(void) {
 }
 
 s32 TAdEndText__sub_8001B3BC(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&lbl_804F5800.value) + arg0), u8 *, 0) & 0x10;
+    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5800.value) + arg0) + 0) & 0x10;
 }
 
 typedef char RecoveredGlobal_8001B3EC_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3EC_lbl_804F5800) == 0x100 ? 1 : -1];
 
 typedef char RecoveredGlobal_8001B3D4_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B3D4_lbl_804F5800) == 0x100 ? 1 : -1];
 s32 TAdEndText__sub_8001B3D4(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8001B3D4_lbl_804F5800 *)&lbl_804F5800).value) + arg0), u8 *, 0) & 0x80;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8001B3D4_lbl_804F5800 *)&lbl_804F5800).value) + arg0) + 0) & 0x80;
 }
 
 s32 TAdEndText__sub_8001B3EC(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8001B3EC_lbl_804F5800 *)&lbl_804F5800).value) + arg0), u8 *, 0) & 0xD0;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8001B3EC_lbl_804F5800 *)&lbl_804F5800).value) + arg0) + 0) & 0xD0;
 }
 
 typedef char RecoveredGlobal_8001B404_lbl_804F5800_size[sizeof(RecoveredGlobal_8001B404_lbl_804F5800) == 0x100 ? 1 : -1];
 s32 TAdEndText__sub_8001B404(u8 arg0) {
-    return M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8001B404_lbl_804F5800 *)&lbl_804F5800).value) + arg0), u8 *, 0) & 0x40;
+    return *(u8 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8001B404_lbl_804F5800 *)&lbl_804F5800).value) + arg0) + 0) & 0x40;
 }
 
 s32 TAdEndText__sub_8001B41C(void) {

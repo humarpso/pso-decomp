@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Hit_8031D898 { u16 id; u8 pad[6]; };
 
@@ -30,7 +26,7 @@ struct Recon_8031D994 {
 };
 
 extern "C" {
-M2C_UNK get_field_0c__10TObjPlayerFPv(int);
+s32 get_field_0c__10TObjPlayerFPv(int);
 f32 get_pos_x__10TObjPlayerFPv(int);
 f32 fabs_float(f32);
 f32 cos_table_lookup();
@@ -121,9 +117,9 @@ void select_next_target__12TObjEneReconFPv(Recon_8031D994 *o) {
 
 s32 TObjEneRecon__sub_8031DA90(u8 *arg0) {
     f32 temp_f31;
-    if ((M2C_FIELD(arg0, f32 *, 0x3AC) < (TObjEneRecon__data_805DF3D4 + get_pos_x__10TObjPlayerFPv((int) (TObjEneRecon__attack_params)))) && (fabs_float((f32) (M2C_FIELD(arg0, f32 *, 0x448) - M2C_FIELD(arg0, f32 *, 0x398))) < lbl_805DF3CC)) {
+    if ((*(f32 *)((s8 *)arg0 + 0x3AC) < (TObjEneRecon__data_805DF3D4 + get_pos_x__10TObjPlayerFPv((int) (TObjEneRecon__attack_params)))) && (fabs_float((f32) (*(f32 *)((s8 *)arg0 + 0x448) - *(f32 *)((s8 *)arg0 + 0x398))) < lbl_805DF3CC)) {
         temp_f31 = vec3_dot((void *) (arg0 + 0x44C), (void *) (arg0 + 0x3A0));
-        get_field_0c__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0x318)));
+        get_field_0c__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0x318)));
         if (temp_f31 >= cos_table_lookup()) {
             return 1;
         }

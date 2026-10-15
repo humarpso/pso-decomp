@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void *create_callback__22TAdEnterSerialAccessGCFPvPvPv(void *arg0, void *arg1, void *arg2);
@@ -15,14 +11,14 @@ void TAdEp3Exist__vt4(void);
 extern "C" {
 
 void set_display_copy_filter(int arg0);
-M2C_UNK Dolphin_GXSetCopyFilter(int, void *, void *, void *, void *);
+s32 Dolphin_GXSetCopyFilter(int, void *, void *, void *, void *);
 
 extern s32 display_copy_filter_enabled;
 extern u8 *active_gx_render_mode;
 
 void set_display_copy_filter(int arg0) {
     display_copy_filter_enabled = (s32) arg0;
-    Dolphin_GXSetCopyFilter((int) (M2C_FIELD(active_gx_render_mode, u8 *, 0x19)), (void *) (active_gx_render_mode + 0x1A), (void *) ((u8) arg0), (void *) (active_gx_render_mode + 0x32), (void *) (active_gx_render_mode));
+    Dolphin_GXSetCopyFilter((int) (*(u8 *)((s8 *)active_gx_render_mode + 0x19)), (void *) (active_gx_render_mode + 0x1A), (void *) ((u8) arg0), (void *) (active_gx_render_mode + 0x32), (void *) (active_gx_render_mode));
 }
 
 s32 TObjBoss2Tunnel__sub_8036EF44(void);

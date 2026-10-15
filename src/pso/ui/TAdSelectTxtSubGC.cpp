@@ -1,11 +1,6 @@
 #include "pso/TAdSelectTxtSubGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Src_802A37A0 {
     s32 f0;
@@ -17,7 +12,7 @@ struct Src_802A37A0 {
 struct Txt_802A37A0 {
     s32 f0;
     u8 pad4[0x14];
-    M2C_UNK *vt;
+    s32 *vt;
     s32 f1c;
     s32 f20;
     f32 f24, f28, f2c, f30;
@@ -35,10 +30,10 @@ extern "C" {
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF40;
 void run_task__17TAdSelectTxtSubGCFv(u8 *arg0);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 int TObjNpcHosa__sub_802A39B0(void);
-extern M2C_UNK __vt__17TAdSelectTxtSubGC[];
+extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
 extern s32 lbl_805D6648;
 extern const f32 lbl_805DDF3C;
@@ -74,20 +69,20 @@ void run_task__17TAdSelectTxtSubGCFv(u8 *arg0) {
     f32 temp_f2_3;
     f32 temp_f2_4;
     s32 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r4 < 5) {
-        M2C_FIELD(arg0, s32 *, 0x84) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0x84) = (s32) (temp_r4 + 1);
     }
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) -((lbl_805DDF40 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) - lbl_805DDF3C);
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) -((lbl_805DDF40 * (f32) M2C_FIELD(arg0, s32 *, 0x84)) - lbl_805DDF3C);
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x24) - temp_f2)) + temp_f2);
-    temp_f2_2 = M2C_FIELD(arg0, f32 *, 0x70);
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) ((M2C_FIELD(arg0, f32 *, 0x78) * (M2C_FIELD(arg0, f32 *, 0x28) - temp_f2_2)) + temp_f2_2);
-    temp_f2_3 = M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x74) * (M2C_FIELD(arg0, f32 *, 0x2C) - temp_f2_3)) + temp_f2_3);
-    temp_f2_4 = M2C_FIELD(arg0, f32 *, 0x70);
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) ((M2C_FIELD(arg0, f32 *, 0x78) * (M2C_FIELD(arg0, f32 *, 0x30) - temp_f2_4)) + temp_f2_4);
+    *(f32 *)((s8 *)arg0 + 0x74) = (f32) -((lbl_805DDF40 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) - lbl_805DDF3C);
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) -((lbl_805DDF40 * (f32) *(s32 *)((s8 *)arg0 + 0x84)) - lbl_805DDF3C);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) ((*(f32 *)((s8 *)arg0 + 0x74) * (*(f32 *)((s8 *)arg0 + 0x24) - temp_f2)) + temp_f2);
+    temp_f2_2 = *(f32 *)((s8 *)arg0 + 0x70);
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) ((*(f32 *)((s8 *)arg0 + 0x78) * (*(f32 *)((s8 *)arg0 + 0x28) - temp_f2_2)) + temp_f2_2);
+    temp_f2_3 = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x74) * (*(f32 *)((s8 *)arg0 + 0x2C) - temp_f2_3)) + temp_f2_3);
+    temp_f2_4 = *(f32 *)((s8 *)arg0 + 0x70);
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) ((*(f32 *)((s8 *)arg0 + 0x78) * (*(f32 *)((s8 *)arg0 + 0x30) - temp_f2_4)) + temp_f2_4);
 }
 #pragma pop
 

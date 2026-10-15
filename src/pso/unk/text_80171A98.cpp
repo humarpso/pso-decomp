@@ -1,6 +1,5 @@
 #include "types.h"
-typedef s8 M2C_UNK8;
-typedef s32 M2C_UNK;
+
 struct Base_80171A98 { char pad[0x18]; };
 
 struct VIcon_80171A98 : Base_80171A98 {
@@ -49,7 +48,7 @@ void init_collision_body_parts(void *, void *, s32);
 void update_state__10TOMineTrapFPv(void *);
 void TOMine__ct(void *, void *, void *);
 extern u8 mine_collision_body_parts[];
-extern M2C_UNK __vt__12TOMineIcon03[];
+extern s32 __vt__12TOMineIcon03[];
 extern s32 TOMineIcon03__name;
 extern s32 game_difficulty_selection;
 extern void *lbl_805D5A50;

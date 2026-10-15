@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct FadeBase_8019ADA0 { char pad[0x14]; };
 
 struct Fade_8019ADA0 : FadeBase_8019ADA0 {
@@ -45,16 +40,16 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct M2CCopy_38 { u8 bytes[0x38]; };
+struct ByteBlock_38 { u8 bytes[0x38]; };
 
-struct M2CCopy_3C { u8 bytes[0x3c]; };
+struct ByteBlock_3C { u8 bytes[0x3c]; };
 
 extern "C" {
-M2C_UNK TObjFish__sub_8001EDB0(s32, M2C_UNK);
-s32 get_bml_model(s32, M2C_UNK);
+s32 TObjFish__sub_8001EDB0(s32, s32);
+s32 get_bml_model(s32, s32);
 s32 isFading__15RenderFadeStateCFv(void *);
 void restore__15RenderFadeStateFv(void *);
 void fadeOut__15RenderFadeStateFv(void *);
@@ -73,15 +68,15 @@ extern const f32 lbl_805DBFA8;
 extern const f32 lbl_805DBFAC;
 extern const f32 lbl_805DBFC0;
 void render__11TObjTuitateFv(Obj_8019ADA0 *self);
-M2C_UNK activate_and_dispatch__10TObjPlayerFPv(void *);
-M2C_UNK init_and_activate__10TObjPlayerFPv(void *);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK init_collision_body_parts(void *, void *, int);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
+s32 activate_and_dispatch__10TObjPlayerFPv(void *);
+s32 init_and_activate__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 refresh_collision_body_centers(void *);
+s32 init_collision_body_parts(void *, void *, int);
+s32 construct_collider_proxy__10TObjPlayerFPv();
 s32 create__10TObjMapCsnFi(void *);
-extern M2C_UNK TObjTuitate__collision_parts[];
-extern M2C_UNK __vt__11TObjTuitate[];
+extern s32 TObjTuitate__collision_parts[];
+extern s32 __vt__11TObjTuitate[];
 extern s32 TObjTuitate__class_name;
 extern const f32 lbl_805DBFB4;
 extern const f32 lbl_805DBFAC;
@@ -143,12 +138,12 @@ void render__11TObjTuitateFv(Obj_8019ADA0 *self) {
 
 int run_task__11TObjTuitateFv(void* p) { return update_obstruction_fade((char*)p + 0xac); }
 
-extern M2C_UNK __vt__11TObjTuitate[];
+extern s32 __vt__11TObjTuitate[];
 
 void *__dt__11TObjTuitateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjTuitate;
-        if (M2C_FIELD(arg0, void **, 0xC8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xC8)); M2C_FIELD(arg0, M2C_UNK *, 0xC8) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
+        if (*(void **)((s8 *)arg0 + 0xC8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xC8)); *(s32 *)((s8 *)arg0 + 0xC8) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         TObjPlayer__sub_800D7C58((s8 *)arg0 + 0xAC, -1);
@@ -169,19 +164,19 @@ void *TObjTuitate__ct(void *arg0, void *arg1, void *arg2) {
     CopyStack_8019AF6C copy_storage_8019AF6C;
     s32 temp_r4;
     construct_collider_proxy__10TObjPlayerFPv();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjTuitate;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjTuitate;
     init_and_activate__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTuitate__class_name;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTuitate__class_name;
     ((VObj_18_1a504b *)(arg0))->m5((s32)arg2);
     init_collision_body_parts((void *) (arg0), (void *) (TObjTuitate__collision_parts), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     temp_r4 = (s32)arg2 - 4;
-    *(M2CCopy_3C *)(copy_storage_8019AF6C.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
+    *(ByteBlock_3C *)(copy_storage_8019AF6C.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x24)) = lbl_805DBFB4;
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x28)) = lbl_805DBFAC;
     (*(f32 *)(copy_storage_8019AF6C.bytes + 0x2C)) = lbl_805DBFBC;
-    M2C_FIELD(arg0, s32 *, 0xC8) = create__10TObjMapCsnFi((void *) ((copy_storage_8019AF6C.bytes)));
+    *(s32 *)((s8 *)arg0 + 0xC8) = create__10TObjMapCsnFi((void *) ((copy_storage_8019AF6C.bytes)));
     activate_and_dispatch__10TObjPlayerFPv((void *) ((u8 *)arg0 + 0xAC));
     return arg0;
 }

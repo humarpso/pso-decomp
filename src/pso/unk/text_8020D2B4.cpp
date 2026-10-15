@@ -2,15 +2,11 @@
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_8020D2B4_lbl_8058D490 { M2C_UNK value; u8 remaining[0x2C]; };
+struct RecoveredGlobal_8020D2B4_lbl_8058D490 { s32 value; u8 remaining[0x2C]; };
 typedef char RecoveredGlobal_8020D2B4_lbl_8058D490_size[sizeof(RecoveredGlobal_8020D2B4_lbl_8058D490) == 0x30 ? 1 : -1];
 
 struct RecoveredGlobal_8020D6F0_TLobby__data_80513AD0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -62,11 +58,11 @@ struct Rec_8020D5AC {
 extern "C" {
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
+s32 matrix_mult_vec(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
 extern RecoveredGlobal_8020D2B4_lbl_8058D490 identity_matrix;
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2);
 s32 get_current_floor();
@@ -109,15 +105,15 @@ void update_decoration_spawning__11TSetManagerFPv(void* p);
 
 void apply_room_transform(s32 arg0, u8 *arg1, u8 *arg2) {
     push_matrix_from((u32) &identity_matrix.value);
-    translate_matrix((int) (0), (f32) (M2C_FIELD(arg2, f32 *, 4)), (f32) (M2C_FIELD(arg2, f32 *, 8)), (f32) (M2C_FIELD(arg2, f32 *, 0xC)));
-    rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x18)));
-    rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x10)));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg2, s32 *, 0x14)));
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg2 + 4)), (f32) (*(f32 *)((s8 *)arg2 + 8)), (f32) (*(f32 *)((s8 *)arg2 + 0xC)));
+    rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x18)));
+    rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x10)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg2 + 0x14)));
     matrix_mult_vec((int) (0), (void *) (arg0), (void *) (arg0));
     pop_matrix();
-    M2C_FIELD(arg1, s32 *, 0) = (s32) (M2C_FIELD(arg1, s32 *, 0) + M2C_FIELD(arg2, s32 *, 0x10));
-    M2C_FIELD(arg1, s32 *, 4) = (s32) (M2C_FIELD(arg1, s32 *, 4) + M2C_FIELD(arg2, s32 *, 0x14));
-    M2C_FIELD(arg1, s32 *, 8) = (s32) (M2C_FIELD(arg1, s32 *, 8) + M2C_FIELD(arg2, s32 *, 0x18));
+    *(s32 *)((s8 *)arg1 + 0) = (s32) (*(s32 *)((s8 *)arg1 + 0) + *(s32 *)((s8 *)arg2 + 0x10));
+    *(s32 *)((s8 *)arg1 + 4) = (s32) (*(s32 *)((s8 *)arg1 + 4) + *(s32 *)((s8 *)arg2 + 0x14));
+    *(s32 *)((s8 *)arg1 + 8) = (s32) (*(s32 *)((s8 *)arg1 + 8) + *(s32 *)((s8 *)arg2 + 0x18));
 }
 
 void apply_room_transform_to_enemy_rows(SpawnRecord_8020D36C *rows, s32 count) {
@@ -213,8 +209,8 @@ void spawn_decorations_in_range(void *arg0) {
             obj = call_area_set_factory(arg0, p);
             if (obj != NULL) {
                 p->obj = obj;
-                M2C_FIELD(obj, s16 *, 0x28) = p->sC;
-                M2C_FIELD(obj, void **, 0x80) = p;
+                *(s16 *)((s8 *)obj + 0x28) = p->sC;
+                *(void **)((s8 *)obj + 0x80) = p;
                 p->flags |= 2;
             } else {
                 p->obj = NULL;
@@ -235,25 +231,25 @@ void apply_floor_set_rows__11TSetManagerFPv(u8 *arg0) {
     temp_r3 = get_current_floor();
     TLobby__data_805D60FC = temp_r3;
     temp_r30 = (u8 *)&TLobby__floor_enemy_group_table.value + (temp_r3 * 0x18);
-    if (!(M2C_FIELD(temp_r30, s32 *, 8) & 2)) {
-        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 0))));
-        M2C_FIELD(temp_r30, s32 *, 8) = (s32) (M2C_FIELD(temp_r30, s32 *, 8) | 2);
+    if (!(*(s32 *)((s8 *)temp_r30 + 8) & 2)) {
+        apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D610C)), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 0))));
+        *(s32 *)((s8 *)temp_r30 + 8) = (s32) (*(s32 *)((s8 *)temp_r30 + 8) | 2);
     }
-    if (!(M2C_FIELD(temp_r30, s32 *, 0xC) & 4)) {
-        apply_room_transform_to_enemy_rows((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (M2C_FIELD(temp_r30, s32 *, 4))));
-        M2C_FIELD(temp_r30, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r30, s32 *, 0xC) | 4);
+    if (!(*(s32 *)((s8 *)temp_r30 + 0xC) & 4)) {
+        apply_room_transform_to_enemy_rows((SpawnRecord_8020D36C *)((int) (TLobby__data_805D6114)), (s32)((int) (*(s32 *)((s8 *)temp_r30 + 4))));
+        *(s32 *)((s8 *)temp_r30 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r30 + 0xC) | 4);
     }
-    if (M2C_FIELD(temp_r30, s32 *, 8) & 2) {
-        assign_objects_to_slots__6TLobbyFPvi((int) (TLobby__data_805D610C), (int) (M2C_FIELD(temp_r30, s32 *, 0)));
+    if (*(s32 *)((s8 *)temp_r30 + 8) & 2) {
+        assign_objects_to_slots__6TLobbyFPvi((int) (TLobby__data_805D610C), (int) (*(s32 *)((s8 *)temp_r30 + 0)));
     }
-    if (M2C_FIELD(temp_r30, s32 *, 0xC) & 4) {
-        assign_display_objects__6TLobbyFPvi((int) (TLobby__data_805D6114), (int) (M2C_FIELD(temp_r30, s32 *, 4)));
+    if (*(s32 *)((s8 *)temp_r30 + 0xC) & 4) {
+        assign_display_objects__6TLobbyFPvi((int) (TLobby__data_805D6114), (int) (*(s32 *)((s8 *)temp_r30 + 4)));
     }
     if ((s32) TLobby__data_805D6120 > 0) {
         apply_room_transform_to_object_rows((Rec_8020D3F0 *)((int) (TLobby__data_805D611C)), (s32)((int) (TLobby__data_805D6120)));
         resolve_set_row_factory_indices((void *)((void *) (arg0)), (int)((int) (TLobby__data_805D611C)), (int)((int) (TLobby__data_805D6120)));
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 1;
 }
 #pragma pop
 

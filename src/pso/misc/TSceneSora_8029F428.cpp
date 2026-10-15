@@ -1,119 +1,115 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
-struct RecoveredGlobal_80069094_camera_controller_registry { M2C_UNK value; u8 remaining[0x64]; };
+struct RecoveredGlobal_80069094_camera_controller_registry { s32 value; u8 remaining[0x64]; };
 
 struct RecoveredGlobal_80069024_TCameraCtrl__data_804FF634 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
 struct RecoveredGlobal_80069024_lbl_804FF67C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
 struct RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_800691C8_TCameraCtrl__data_804FF6D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_800691C8_TCameraCtrl__data_804FF700 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xBC];
 };
 
 struct RecoveredGlobal_800691C8_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
 struct RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80069148_TCameraCtrl__data_804FF6D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80069148_TCameraCtrl__data_804FF700 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xBC];
 };
 
 struct RecoveredGlobal_80069C94_camera_controller_registry {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x64];
 };
 
 struct RecoveredGlobal_80069C94_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80069D04_camera_controller_registry {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x64];
 };
 
 struct RecoveredGlobal_80069D04_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80069304_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006961C_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8006961C_TCameraCtrl__data_804FF634 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
 struct RecoveredGlobal_8006961C_lbl_8058CA60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x54];
 };
 
 struct RecoveredGlobal_80069258_TCameraCtrl__data_804FF6D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80069258_TCameraCtrl__data_804FF700 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xBC];
 };
 
 struct RecoveredGlobal_80069258_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
 struct RecoveredGlobal_80069A6C_camera_controller_registry {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x64];
 };
 
@@ -123,7 +119,7 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 };
 
 struct Stack_80069318 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 pad_C[0x4];
     f32 sp10;
     f32 sp14;
@@ -138,10 +134,10 @@ struct Stack_80069318 {
     f32 sp44;
 };
 
-struct RecoveredGlobal_80069318_lbl_804FF5E8 { M2C_UNK value; u8 remaining[0x24]; };
+struct RecoveredGlobal_80069318_lbl_804FF5E8 { s32 value; u8 remaining[0x24]; };
 
 struct Stack_800693F4 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 pad_C[0x4];
     f32 sp10;
     f32 sp14;
@@ -158,13 +154,13 @@ struct Stack_800693F4 {
     f32 sp4C;
 };
 
-struct RecoveredGlobal_800693F4_TCameraCtrl__data_804FF634 { M2C_UNK value; u8 remaining[0x44]; };
+struct RecoveredGlobal_800693F4_TCameraCtrl__data_804FF634 { s32 value; u8 remaining[0x44]; };
 
 extern "C" {
 s32 get_state__10TSceneSoraFPv(void* p);
 extern s32 lbl_805D65F0;
 void set_scene_flag__10TSceneSoraFi(int a0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
 extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 lbl_804DC7B8;
 void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 }
@@ -173,30 +169,30 @@ extern "C" {
 
 void *create_instance__10TSceneSoraFPv(void *arg0);
 void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1);
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-void *__nw__7TObjectFUl(M2C_UNK);
-void *construct_indirect_effect_task(void *, M2C_UNK, M2C_UNK, s32);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_active_scene__6TSceneFi(M2C_UNK);
-M2C_UNK set_id__6TSceneFi(M2C_UNK);
-M2C_UNK set_instance__6TSceneFi(M2C_UNK);
+s32 __ct__7TObjectFP7TObject();
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+void *__nw__7TObjectFUl(s32);
+void *construct_indirect_effect_task(void *, s32, s32, s32);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_active_scene__6TSceneFi(s32);
+s32 set_id__6TSceneFi(s32);
+s32 set_instance__6TSceneFi(s32);
 
-extern M2C_UNK lbl_804DC7C4[];
+extern s32 lbl_804DC7C4[];
 extern s32 lbl_805D65F0;
 extern s16 scene_sora_reflect_active;
 extern s8 scene_sora_recon_active_flag;
 
 void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DC7C4;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DC7C4;
         scene_sora_reflect_active = 0;
         scene_sora_recon_active_flag = 0;
         lbl_805D65F0 = 0;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x20));
-            M2C_FIELD(arg0, u32 *, 0x20) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x20));
+            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
         }
         set_id__6TSceneFi(0);
         set_active_scene__6TSceneFi(0);
@@ -209,7 +205,7 @@ void *destroy__10TSceneSoraFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804DC7C4[];
+extern s32 lbl_804DC7C4[];
 extern s32 tl_05;
 extern void *scene_sora_instance;
 extern s16 scene_sora_reflect_active;
@@ -222,25 +218,25 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
     void *obj;
 
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804DC7C4;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804DC7C4;
     scene_sora_reflect_active = 0;
     scene_sora_recon_active_flag = 0;
     if ((void *) scene_sora_instance != NULL) {
         return arg0;
     }
     scene_sora_instance = arg0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) scene_sora_recon_object;
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) scene_sora_recon_object;
     obj = __nw__7TObjectFUl(0x20);
     if (obj != NULL) {
         obj = construct_indirect_effect_task(obj, 0x28, 1, tl_05);
     }
-    M2C_FIELD(arg0, void **, 0x20) = obj;
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DDD8C;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDD8C;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDD8C;
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805DDD8C;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDD90;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDD8C;
+    *(void **)((s8 *)arg0 + 0x20) = obj;
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DDD8C;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDD8C;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDD8C;
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805DDD8C;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDD90;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDD8C;
     return arg0;
 }
 s32 get_state__10TSceneSoraFPv(void* p) { return *(s32*)((char*)p + 0x20); }

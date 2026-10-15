@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803E5458_lbl_8058DC00 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
@@ -25,22 +21,22 @@ struct Stack_803D6E8C {
 };
 
 struct RecoveredGlobal_803D662C_lbl_8058D4D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_8047E3C8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_804FA500 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_803D77C0_lbl_804FA50C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -50,7 +46,7 @@ struct RecoveredGlobal_803D77C0_lbl_804FA51C {
 };
 
 struct RecoveredGlobal_803D78A8_lbl_8058CAB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x7C];
 };
 
@@ -75,7 +71,6 @@ struct Ctx_803E4E20 {
     void (*draw)(s32 *);
 };
 
-typedef s32 M2C_UNK;
 struct G_803E4F14 {
     s32 f0;
     s32 f4;
@@ -368,12 +363,12 @@ void advance_render_counters__10TObjPlayerFv(void) {
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803E53F8(u8 *arg0, f32 farg0) {
-    M2C_FIELD(lbl_805D7818, s32 *, 0) = (s32) M2C_FIELD(arg0, s32 *, 0);
-    M2C_FIELD(lbl_805D7818, s32 *, 0x18) = (s32) M2C_FIELD(arg0, s32 *, 4);
-    M2C_FIELD(lbl_805D7818, f32 *, 0x14) = farg0;
-    M2C_FIELD(lbl_805D7818, s32 *, 0x1C) = 0;
-    M2C_FIELD(lbl_805D7818, s32 *, 0x20) = (s32) M2C_FIELD(arg0, u16 *, 8);
-    TObjPlayer__sub_803E5378((s32)(M2C_FIELD(arg0, u16 *, 0xA) & 0xFFFFFF3F));
+    *(s32 *)((s8 *)lbl_805D7818 + 0) = (s32) *(s32 *)((s8 *)arg0 + 0);
+    *(s32 *)((s8 *)lbl_805D7818 + 0x18) = (s32) *(s32 *)((s8 *)arg0 + 4);
+    *(f32 *)((s8 *)lbl_805D7818 + 0x14) = farg0;
+    *(s32 *)((s8 *)lbl_805D7818 + 0x1C) = 0;
+    *(s32 *)((s8 *)lbl_805D7818 + 0x20) = (s32) *(u16 *)((s8 *)arg0 + 8);
+    TObjPlayer__sub_803E5378((s32)(*(u16 *)((s8 *)arg0 + 0xA) & 0xFFFFFF3F));
 }
 #pragma pop
 

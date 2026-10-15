@@ -1,12 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8001F8D8 { u8 pad0[4]; s32 f4; s32 f8; s32 fc; u8 pad10[0x418 - 0x10]; s32 f418; u8 pad41c[0x434 - 0x41c]; s32 f434; s32 f438; s32 f43c; };
 
-typedef s32 M2C_UNK;
 struct Ent_8001FB6C { s32 a; s32 data; };
 
 struct Lobby_8001FB6C { u8 pad[0x430]; struct Ent_8001FB6C *entries; };
@@ -133,9 +128,9 @@ struct Ctx_8001F128 {
 };
 
 extern "C" {
-M2C_UNK reset_gstream_globals();
-s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
-s32 xmalloc__FUl(M2C_UNK);
+s32 reset_gstream_globals();
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 xmalloc__FUl(s32);
 extern s8 TLobby__tmp_buf_name[];
 extern s32 lobby_download_buffer;
 extern s32 tmp_buf_in_use_flag;
@@ -143,9 +138,9 @@ extern u32 bml_load_buffer;
 void init_download_buffers__6TLobbyFv(void);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+s32 debug_print__6TLobbyFii(s32 *, ...);
 extern s32 lobby_download_buffer;
-extern M2C_UNK lbl_80434C48[];
+extern s32 lbl_80434C48[];
 void load_bin_motion_callback(void *arg0);
 extern s32 lbl_805D4AD0;
 void reset_battle_state__6TLobbyFPv(void *arg0);
@@ -154,62 +149,62 @@ void tmp_buf_release__6TLobbyFi(const char *s);
 extern char lbl_80434C38[];
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-extern M2C_UNK lbl_80434CC4[];
+s32 debug_print__6TLobbyFii(s32 *, ...);
+extern s32 lbl_80434CC4[];
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 s32 load_sct_file__8TGStreamFii(void *, s32);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
-M2C_UNK load_gvm_texture_archive(s32, s32);
-extern M2C_UNK lbl_80434B04[];
-extern M2C_UNK lbl_80434B24[];
+s32 debug_print__6TLobbyFii(s32 *, ...);
+s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
+s32 load_gvm_texture_archive(s32, s32);
+extern s32 lbl_80434B04[];
+extern s32 lbl_80434B24[];
 extern s32 lobby_download_buffer;
-extern M2C_UNK lbl_805D7F10;
+extern s32 lbl_805D7F10;
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 set_stream_state__6TLobbyFi(s32, s32);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-extern M2C_UNK lbl_80434D10[];
-extern M2C_UNK lbl_80434D30[];
-extern M2C_UNK lbl_80434D54[];
+s32 debug_print__6TLobbyFii(s32 *, ...);
+extern s32 lbl_80434D10[];
+extern s32 lbl_80434D30[];
+extern s32 lbl_80434D54[];
 extern s32 lobby_download_buffer;
 s32 load_bin_motion__6TLobbyFPvii(Lobby_8001FB6C *arg0, s32 arg1, s32 arg2);
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
 s32 set_stream_state__6TLobbyFi(s32, s32);
 s32 get_resource_file_size__6TLobbyFPv(s32);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-extern M2C_UNK lbl_80434D74[];
-extern M2C_UNK lbl_80434D94[];
+s32 debug_print__6TLobbyFii(s32 *, ...);
+extern s32 lbl_80434D74[];
+extern s32 lbl_80434D94[];
 extern s32 lobby_download_buffer;
 s32 load_bin_model__6TLobbyFPvii(Lobby_8001FD98 *arg0, s32 arg1, s32 arg2);
-M2C_UNK TLobby__sub_8001EDD8(void *, s32);
+s32 TLobby__sub_8001EDD8(void *, s32);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1);
 s32 create_file_load_entry__6TLobbyFiiUiiPv(void *, s32, void *, void *, void *);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
+s32 debug_print__6TLobbyFii(s32 *, ...);
+s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0);
-extern M2C_UNK lbl_80434C70[];
-extern M2C_UNK lbl_80434C98[];
+extern s32 lbl_80434C70[];
+extern s32 lbl_80434C98[];
 extern s32 lobby_download_buffer;
-extern M2C_UNK lbl_805D7F10;
+extern s32 lbl_805D7F10;
 void load_bin_model_callback__6TLobbyFPv(Lobby_8001FA1C *self);
-M2C_UNK TLobby__sub_8001EDF4(void *);
+s32 TLobby__sub_8001EDF4(void *);
 void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
 void __dl__FPv(void *);
-M2C_UNK TLobby__sub_800F9FF4(s32);
-M2C_UNK free__11TOBoss4RockFUi(void *);
-M2C_UNK TLobby__sub_803DA16C(void *);
+s32 TLobby__sub_800F9FF4(s32);
+s32 free__11TOBoss4RockFUi(void *);
+s32 TLobby__sub_803DA16C(void *);
 extern char lbl_80434C38[];
 Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del);
-s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 debug_print__6TLobbyFii(s32 *, ...);
 void reset_battle_state__6TLobbyFPv(void *arg0);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
-M2C_UNK load_gvm_texture_archive(s32, s32);
+s32 load_gvm_texture_archive(s32, s32);
 void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 extern s32 lbl_805D4AD0;
 extern u32 bml_load_buffer;
 void pump_frames__6TLobbyFv(void);
@@ -227,44 +222,44 @@ extern u8 *resource_decompress_buffer;
 extern u8 bml_load_state;
 extern s32 disc_read_filename;
 extern s32 lbl_805D2B10;
-extern M2C_UNK lbl_80434B70[];
-extern M2C_UNK lbl_80434DB8[];
-extern M2C_UNK lbl_80434DD4[];
-extern M2C_UNK lbl_80434DF4[];
-extern M2C_UNK lbl_80434E10[];
-extern M2C_UNK lbl_80434E2C[];
+extern s32 lbl_80434B70[];
+extern s32 lbl_80434DB8[];
+extern s32 lbl_80434DD4[];
+extern s32 lbl_80434DF4[];
+extern s32 lbl_80434E10[];
+extern s32 lbl_80434E2C[];
 Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5);
 s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-extern M2C_UNK lbl_80434CE8[];
+s32 debug_print__6TLobbyFii(s32 *, ...);
+extern s32 lbl_80434CE8[];
 s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
 void tmp_buf_release__6TLobbyFi(const char *s);
 u8 *tmp_buf_use_req__6TLobbyFPv(const char *);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
 s32 bind_bml_motion(struct Lobby_8001FB6C *self, s32 idx, void *bytes);
 s32 bind_bml_model(Lobby_8001FBEC *arg0, u32 arg1, s32 arg2, s32 arg3);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
-s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 void prs_decompress_buffer(s32, void *);
 void reset_read_state__6TLobbyFv(void);
 void set_read_params__6TLobbyFiii(void *, s32, void *);
 void debug_printf_nop(void *, ...);
-M2C_UNK debug_print__6TLobbyFii(M2C_UNK *, ...);
-M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
+s32 debug_print__6TLobbyFii(s32 *, ...);
+s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, void *);
 s32 TLobby__sub_803CC4C0(u32);
 s32 TLobby__sub_803CC53C(void);
 void read_checked_align__6TLobbyFiii(u32, s32, void *);
 void close_adxf_handle__6TLobbyFPv(u32);
 u32 adxf_open__6TLobbyFUii(void *, s32);
-M2C_UNK load_gvm_texture_archive(s32, s32);
+s32 load_gvm_texture_archive(s32, s32);
 extern char lbl_80434B44[];
-extern M2C_UNK lbl_80434B50[];
-extern M2C_UNK lbl_80434B70[];
-extern M2C_UNK lbl_80434B90[];
-extern M2C_UNK lbl_80434BB0[];
-extern M2C_UNK lbl_80434BD4[];
-extern M2C_UNK lbl_80434BF8[];
-extern M2C_UNK lbl_80434C18[];
+extern s32 lbl_80434B50[];
+extern s32 lbl_80434B70[];
+extern s32 lbl_80434B90[];
+extern s32 lbl_80434BB0[];
+extern s32 lbl_80434BD4[];
+extern s32 lbl_80434BF8[];
+extern s32 lbl_80434C18[];
 extern u8 bml_load_state;
 extern u32 bml_load_buffer;
 extern u32 lobby_bml_file_handle;
@@ -272,7 +267,7 @@ extern u8 *lbl_805D4AE0;
 extern Rec_8001F128 *bml_header_record_ptr;
 extern s32 bml_load_entry_index;
 extern u8 *lobby_bml_read_buffer;
-extern M2C_UNK lbl_805D7F10;
+extern s32 lbl_805D7F10;
 s32 load_bml_exec__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
 }
 
@@ -282,10 +277,10 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void free_chr_select_data__6TLobbyFv(void);
 void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1);
 void set_flag_and_notify__6TLobbyFPv(void *arg0);
-M2C_UNK TItemDrop__sub_800FE2D8();
-M2C_UNK TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
+s32 TItemDrop__sub_800FE2D8();
+s32 TLobby__sub_801E38A0(s32, s32, s32, s32, u32 *);
 s32 load_nj_chunk_model_resource(s32, s32, s32);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 int xfree__FPv(void*);
 
 void free_if_not_owner__6TLobbyFPvPv(void* p, void* a1) { if (*(unsigned int*)((char*)p + 0x424) == 0) { xfree__FPv((void*)(a1)); } }
@@ -296,13 +291,13 @@ s32 alloc_load_data__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u32 temp_r4;
     u32 temp_r7;
 
-    temp_r7 = M2C_FIELD(arg0, u32 *, 0x424);
+    temp_r7 = *(u32 *)((s8 *)arg0 + 0x424);
     if (temp_r7 != 0U) {
-        temp_r31 = temp_r7 + M2C_FIELD(arg0, s32 *, 0x428);
+        temp_r31 = temp_r7 + *(s32 *)((s8 *)arg0 + 0x428);
         TLobby__sub_801E38A0(arg1, arg2, arg3, temp_r31, &sp8);
         temp_r4 = ((sp8 >> 5U) + 1) << 5;
         sp8 = temp_r4;
-        M2C_FIELD(arg0, s32 *, 0x428) = (s32) (M2C_FIELD(arg0, s32 *, 0x428) + temp_r4);
+        *(s32 *)((s8 *)arg0 + 0x428) = (s32) (*(s32 *)((s8 *)arg0 + 0x428) + temp_r4);
         return temp_r31;
     }
     return load_nj_chunk_model_resource(arg1, arg2, arg3);
@@ -327,12 +322,12 @@ void load_texture_sub__6TLobbyFPvPvi(Lobby_8001F018 *arg0, void *arg1, s32 arg2)
 }
 
 void set_flag_and_notify__6TLobbyFPv(void *arg0) {
-    M2C_UNK (*temp_r12)(s32);
+    s32 (*temp_r12)(s32);
 
-    M2C_FIELD(arg0, s32 *, 0) = (s32) (M2C_FIELD(arg0, s32 *, 0) | 0x400);
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x41C);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)((s8 *)arg0 + 0) | 0x400);
+    temp_r12 = *(s32 (**)(s32))((s8 *)arg0 + 0x41C);
     if (temp_r12 != NULL) {
-        temp_r12(M2C_FIELD(arg0, s32 *, 0x420));
+        temp_r12(*(s32 *)((s8 *)arg0 + 0x420));
     }
 }
 
@@ -579,27 +574,27 @@ void check_bin_model_loaded__6TLobbyFPvPv(Obj_8001F8D8 *self, void * _w1) {
 void increment_ref_and_set_flag__6TLobbyFPv(void *arg0) {
     s32 *temp_r3;
     void *temp_r4;
-    temp_r4 = M2C_FIELD(arg0, void **, 0);
-    M2C_FIELD(temp_r4, s32 *, 0xC) = (s32) (M2C_FIELD(temp_r4, s32 *, 0xC) + 1);
-    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 0)), (void *)(temp_r4));
-    temp_r3 = M2C_FIELD(arg0, s32 **, 4);
+    temp_r4 = *(void **)((s8 *)arg0 + 0);
+    *(s32 *)((s8 *)temp_r4 + 0xC) = (s32) (*(s32 *)((s8 *)temp_r4 + 0xC) + 1);
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 0)), (void *)(temp_r4));
+    temp_r3 = *(s32 **)((s8 *)arg0 + 4);
     *temp_r3 |= 1;
 }
 void load_bin_motion_callback(void *arg0) {
     s32 spC;
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
     void *temp_r4;
-    *M2C_FIELD(arg0, s32 **, 0) = 0;
+    **(s32 **)((s8 *)arg0 + 0) = 0;
     spC = 0;
-    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(M2C_FIELD(arg0, void **, 4)), (s32)(lobby_download_buffer), (s32)(&spC), (s32)(&sp8));
+    temp_r3 = alloc_load_data__6TLobbyFPviii((void *)(*(void **)((s8 *)arg0 + 4)), (s32)(lobby_download_buffer), (s32)(&spC), (s32)(&sp8));
     if (temp_r3 == 0) {
         debug_print__6TLobbyFii(lbl_80434C48);
     }
-    *M2C_FIELD(arg0, s32 **, 0) = temp_r3;
-    temp_r4 = M2C_FIELD(arg0, void **, 4);
-    M2C_FIELD(temp_r4, s32 *, 8) = (s32) (M2C_FIELD(temp_r4, s32 *, 8) + 1);
-    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(M2C_FIELD(arg0, void **, 4)), (void *)(temp_r4));
+    **(s32 **)((s8 *)arg0 + 0) = temp_r3;
+    temp_r4 = *(void **)((s8 *)arg0 + 4);
+    *(s32 *)((s8 *)temp_r4 + 8) = (s32) (*(s32 *)((s8 *)temp_r4 + 8) + 1);
+    check_bin_model_loaded__6TLobbyFPvPv((Obj_8001F8D8 *)(*(void **)((s8 *)arg0 + 4)), (void *)(temp_r4));
 }
 
 struct Obj_8001F8D8;
@@ -761,16 +756,16 @@ Lobby_8001FE7C *TLobby__sub_8001FE7C(Lobby_8001FE7C *self, s16 del) {
 }
 
 void reset_battle_state__6TLobbyFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x42C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x430) = 0;
-    M2C_FIELD(arg0, s32 *, 0x434) = 0;
-    M2C_FIELD(arg0, s32 *, 0x438) = 0;
-    M2C_FIELD(arg0, s32 *, 0x43C) = 0;
-    M2C_FIELD(arg0, s32 *, 0xC) = 0;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x418) = 0;
-    M2C_FIELD(arg0, s32 *, 0x428) = 0;
+    *(s32 *)((s8 *)arg0 + 0x42C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x430) = 0;
+    *(s32 *)((s8 *)arg0 + 0x434) = 0;
+    *(s32 *)((s8 *)arg0 + 0x438) = 0;
+    *(s32 *)((s8 *)arg0 + 0x43C) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC) = 0;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x418) = 0;
+    *(s32 *)((s8 *)arg0 + 0x428) = 0;
     lbl_805D4AD0 = 0;
 }
 Lobby_80020004 *load_resource_from_descriptor(Lobby_80020004 *self, s32 kind, Desc_80020004 *desc, s32 arg3, s32 arg4, s32 arg5) {

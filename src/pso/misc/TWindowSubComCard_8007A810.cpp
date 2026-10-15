@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_card_entry__17TWindowSubComCardFi(s32);
@@ -12,7 +8,7 @@ u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self);
 extern "C" {
 
 void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1);
-M2C_UNK strncpy(void *, s32, M2C_UNK);
+s32 strncpy(void *, s32, s32);
 
 void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
     u8 *temp_r3;
@@ -21,7 +17,7 @@ void set_card_text__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
         temp_r3 = ((u8 * (*)(void *))get_card_entry__17TWindowSubComCardFi)((void *)(arg0));
         if (temp_r3 != NULL) {
             strncpy(temp_r3 + 0x94, arg1, 0x6B);
-            M2C_FIELD(temp_r3, s8 *, 0xFF) = 0;
+            *(s8 *)((s8 *)temp_r3 + 0xFF) = 0;
         }
     }
 }
@@ -36,10 +32,6 @@ u8 *get_card_entry_data__17TWindowSubComCardFPv(void *self) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_state__23TAdSinglePlyChrSelectGCFv(void);
@@ -83,17 +75,13 @@ s32 get_card_entry__17TWindowSubComCardFi(s32 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_68 { u8 bytes[0x68]; };
+struct ByteBlock_68 { u8 bytes[0x68]; };
 
-struct M2CCopy_6C { u8 bytes[0x6C]; };
+struct ByteBlock_6C { u8 bytes[0x6C]; };
 
 extern "C" {
 struct S_8007AA70;
@@ -107,13 +95,13 @@ void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1);
 s32 reinit__17TWindowSubComCardFi(s32);
 
 void swap_cards__17TWindowSubComCardFii(s32 arg0, s32 arg1) {
-    M2C_UNK sp8[64];
-    M2C_UNK *first_ptr;
-    M2C_UNK *second_ptr;
+    s32 sp8[64];
+    s32 *first_ptr;
+    s32 *second_ptr;
 
-    ((M2C_UNK (*)(M2C_UNK *))reinit__17TWindowSubComCardFi)(sp8);
-    first_ptr = ((M2C_UNK * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg0);
-    second_ptr = ((M2C_UNK * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg1);
+    ((s32 (*)(s32 *))reinit__17TWindowSubComCardFi)(sp8);
+    first_ptr = ((s32 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg0);
+    second_ptr = ((s32 * (*)(s32))get_card_entry__17TWindowSubComCardFi)(arg1);
     copy_card__17TWindowSubComCardFiPv((s32)(sp8), (u8 *)(first_ptr));
     copy_card__17TWindowSubComCardFiPv((s32)(first_ptr), (u8 *)(second_ptr));
     copy_card__17TWindowSubComCardFiPv((s32)(second_ptr), (u8 *)(sp8));
@@ -124,11 +112,11 @@ s32 copy_card__17TWindowSubComCardFiPv(s32 arg0, u8 *arg1) {
     ((s32 (*)(s32))forward_return_arg__17TWindowSubComCardFi)(arg0);
     temp_r5 = arg0 + 0x90;
     temp_r4 = (u8 *)(arg1 + 0x90);
-    M2C_FIELD(arg0, u8 *, 0x90) = (u8) M2C_FIELD(arg1, u8 *, 0x90);
-    M2C_FIELD(arg0, u8 *, 0x91) = (u8) M2C_FIELD(arg1, u8 *, 0x91);
-    M2C_FIELD(arg0, u8 *, 0x92) = (u8) M2C_FIELD(arg1, u8 *, 0x92);
-    M2C_FIELD(arg0, u8 *, 0x93) = (u8) M2C_FIELD(arg1, u8 *, 0x93);
-    *(M2CCopy_6C *)(temp_r5 + 4) = *(const M2CCopy_6C *)((s32) temp_r4 + 4);
+    *(u8 *)((s8 *)arg0 + 0x90) = (u8) *(u8 *)((s8 *)arg1 + 0x90);
+    *(u8 *)((s8 *)arg0 + 0x91) = (u8) *(u8 *)((s8 *)arg1 + 0x91);
+    *(u8 *)((s8 *)arg0 + 0x92) = (u8) *(u8 *)((s8 *)arg1 + 0x92);
+    *(u8 *)((s8 *)arg0 + 0x93) = (u8) *(u8 *)((s8 *)arg1 + 0x93);
+    *(ByteBlock_6C *)(temp_r5 + 4) = *(const ByteBlock_6C *)((s32) temp_r4 + 4);
     return arg0;
 }
 
@@ -170,44 +158,32 @@ int copy_struct__17TWindowSubComCardFPvPv(S_8007AA70 *arg0, S_8007AA70 *arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 init__17TWindowSubComCardFi(s32);
 
 s32 reinit__17TWindowSubComCardFi(s32 arg0) {
-    ((M2C_UNK (*)())init__17TWindowSubComCardFi)();
+    ((s32 (*)())init__17TWindowSubComCardFi)();
     return arg0;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 init_guild_card_tag__17TWindowSubComCardFi(s32);
 
 s32 init__17TWindowSubComCardFi(s32 arg0) {
-    ((M2C_UNK (*)())init_guild_card_tag__17TWindowSubComCardFi)();
+    ((s32 (*)())init_guild_card_tag__17TWindowSubComCardFi)();
     return arg0;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Card_8007AB84 { u8 data[0x100]; };
 
@@ -215,7 +191,6 @@ struct Card_8007AC10 { u8 body[0x94]; u8 used; u8 pad[0x100 - 0x95]; };
 
 struct Box_8007AC10 { Card_8007AC10 cards[0xD2]; };
 
-typedef s32 M2C_UNK;
 struct Card_8007AC7C {
     u8 pad[0x100];
 };
@@ -232,7 +207,7 @@ void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *, u8 *, s32);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s8 TWindowSubComCard__sub_8007B6EC(void *);
 s32 TWindowSubComCard__sub_8007B6F4(void *);
-s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, M2C_UNK count);
+s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s32 count);
 }
 
 extern "C" {
@@ -258,11 +233,11 @@ s32 has_inactive_card__17TWindowSubComCardFPvi(Card_8007AB84 *cards, s32 n) {
 }
 
 void init_com_card__17TWindowSubComCardFv(void) {
-    has_inactive_card__17TWindowSubComCardFPvi((Card_8007AB84 *)(((s32 (*)(M2C_UNK))get_card_entry__17TWindowSubComCardFi)((M2C_UNK)(0))), (s32)(0xD2));
+    has_inactive_card__17TWindowSubComCardFPvi((Card_8007AB84 *)(((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0))), (s32)(0xD2));
 }
 
 void remove_card_at__17TWindowSubComCardFi(s32 i) {
-    Box_8007AC10 *box = ((Box_8007AC10 *)((s32 (*)(M2C_UNK))get_card_entry__17TWindowSubComCardFi)((M2C_UNK)(0)));
+    Box_8007AC10 *box = ((Box_8007AC10 *)((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0)));
     if (i < 0xD1) {
         Card_8007AC10 *p = &box->cards[i];
         move_words__6TLobbyFPvPvi((u32 *)p, (u32 *)(p + 1), (0xD1 - i) * sizeof(Card_8007AC10) / 4);
@@ -271,7 +246,7 @@ void remove_card_at__17TWindowSubComCardFi(s32 i) {
     box->cards[0xD1].used = 0;
 }
 
-s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, M2C_UNK count) {
+s32 TWindowSubComCard__sub_8007AC7C(Card_8007AC7C *self, Card_8007AC7C *cards, s32 count) {
     u32 id;
     s32 i;
     id = ((u32 (*)(void *))get_card_id__17TWindowSubComCardFPv)(self);
@@ -300,8 +275,8 @@ s32 send_guild_card__17TWindowSubComCardFi(s32 arg0) {
     if (((s32 (*)())TWindowSubComCard__sub_8007B070)() != 0) {
         return 0;
     }
-    temp = ((s32 (*)(M2C_UNK))get_card_entry__17TWindowSubComCardFi)((M2C_UNK)(0));
-    return TWindowSubComCard__sub_8007AC7C((Card_8007AC7C *)(arg0), (Card_8007AC7C *)(temp), (M2C_UNK)(0xD2));
+    temp = ((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)((s32)(0));
+    return TWindowSubComCard__sub_8007AC7C((Card_8007AC7C *)(arg0), (Card_8007AC7C *)(temp), (s32)(0xD2));
 }
 void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *arg0, u8 *arg1, s32 arg2) {
     s32 i;
@@ -322,13 +297,9 @@ void forward_to_matching_card__17TWindowSubComCardFPvPvi(void *arg0, u8 *arg1, s
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x23C];
 };
 
@@ -336,8 +307,8 @@ extern "C" {
 struct Card_8007B0D0;
 s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *, Card_8007B0D0 *, s32);
 void TWindowSubComCard__sub_8007B1AC(void *, u8 *, s32);
-M2C_UNK bswap_guild_card__17TWindowSubComCardFPv();
-M2C_UNK TWindowSubShortMail__sub_8007B824();
+s32 bswap_guild_card__17TWindowSubComCardFPv();
+s32 TWindowSubShortMail__sub_8007B824();
 extern RecoveredGlobal_8007AE8C_TWindowGetComCard__data_80500158 TWindowGetComCard__received_guild_card_tags;
 void handle_6x06_send_guild_card(s32 arg0);
 }
@@ -345,13 +316,13 @@ void handle_6x06_send_guild_card(s32 arg0);
 extern "C" {
 
 void start_player_data_load__17TWindowSubComCardFi(s32 arg0);
-M2C_UNK load_player_data__23TAdSinglePlyChrSelectGCFv();
+s32 load_player_data__23TAdSinglePlyChrSelectGCFv();
 
 void start_player_data_load__17TWindowSubComCardFi(s32 arg0) {
     u32 temp;
     if (((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)(arg0)) == 0) {
-        temp = (u32) ((s32 (*)(M2C_UNK))get_card_entry__17TWindowSubComCardFi)(0);
-        ((M2C_UNK (*)(s32, s32, M2C_UNK))forward_to_matching_card__17TWindowSubComCardFPvPvi)(arg0, (s32) temp, 0xD2);
+        temp = (u32) ((s32 (*)(s32))get_card_entry__17TWindowSubComCardFi)(0);
+        ((s32 (*)(s32, s32, s32))forward_to_matching_card__17TWindowSubComCardFPvPvi)(arg0, (s32) temp, 0xD2);
         load_player_data__23TAdSinglePlyChrSelectGCFv();
     }
 }
@@ -363,7 +334,7 @@ void handle_6x06_send_guild_card(s32 arg0) {
     if ((((s32 (*)(int))TWindowSubComCard__sub_8007B070)((int)((int) (temp_r31))) == 0) && (((s32 (*)(int))send_guild_card__17TWindowSubComCardFi)((int) (temp_r31)) == 0)) {
         TWindowSubShortMail__sub_8007B824();
         if (((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B0D0)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4)) == 0) {
-            ((M2C_UNK (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4));
+            ((s32 (*)(int, void *, int))TWindowSubComCard__sub_8007B1AC)((int) (temp_r31), (void *) (&TWindowGetComCard__received_guild_card_tags.value), (int) (4));
         }
     }
 }
@@ -371,11 +342,6 @@ void handle_6x06_send_guild_card(s32 arg0) {
 }
 
 #include "types.h"
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Big { u8 b[144]; } Big;
 
@@ -387,7 +353,6 @@ struct Card_8007B010 { u8 body[0x90]; };
 
 struct Card_8007AFB8 { u8 body[0x100]; };
 
-typedef s32 M2C_UNK;
 struct Card_8007B0D0 {
     u8 pad[0x8F];
     s8 level;
@@ -395,9 +360,9 @@ struct Card_8007B0D0 {
 
 extern "C" {
 void set_text__17TWindowSubComCardFPvPv(u8 *arg0, void *arg1);
-M2C_UNK init_card__17TWindowSubComCardFPvPv(M2C_UNK *, s32);
+s32 init_card__17TWindowSubComCardFPvPv(s32 *, s32);
 s32 get_keyboard_mode__17TWindowSubComCardFv();
-M2C_UNK init_guild_card__17TWindowSubComCardFPv(M2C_UNK *);
+s32 init_guild_card__17TWindowSubComCardFPv(s32 *);
 void TWindowSubComCard__sub_8007AF10(s32 arg0);
 s32 is_active__17TWindowSubComCardFPv(void *);
 s32 count_leading_active__17TWindowSubComCardFPvi(Card_8007AF60 *p, s32 n);
@@ -421,11 +386,11 @@ int memset(void*, int, int);
 #pragma fp_contract on
 void TWindowSubComCard__sub_8007AF10(s32 arg0) {
     Big spC;
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp;
     init_guild_card__17TWindowSubComCardFPv(&sp8);
     temp = get_keyboard_mode__17TWindowSubComCardFv();
-    ((M2C_UNK (*)(Big *, s32))copy_struct__17TWindowSubComCardFPvPv)(&spC, temp);
+    ((s32 (*)(Big *, s32))copy_struct__17TWindowSubComCardFPvPv)(&spC, temp);
     init_card__17TWindowSubComCardFPvPv(&sp8, arg0);
 }
 #pragma pop
@@ -462,19 +427,19 @@ s32 TWindowSubComCard__sub_8007B010(Card_8007B010 *p, s32 n) {
 }
 
 u32 TWindowSubComCard__sub_8007B070(u8 *arg0) {
-    if ((s8) M2C_FIELD(arg0, u8 *, 0x87) != 0) {
+    if ((s8) *(u8 *)((s8 *)arg0 + 0x87) != 0) {
         return 1U;
     }
-    if ((s32) M2C_FIELD(arg0, u8 *, 0x8C) != 1) {
+    if ((s32) *(u8 *)((s8 *)arg0 + 0x8C) != 1) {
         return 1U;
     }
-    if ((s8) M2C_FIELD(arg0, u8 *, 0x8D) < 0) {
+    if ((s8) *(u8 *)((s8 *)arg0 + 0x8D) < 0) {
         return 1U;
     }
-    if ((s8) M2C_FIELD(arg0, u8 *, 0x8E) < 0) {
+    if ((s8) *(u8 *)((s8 *)arg0 + 0x8E) < 0) {
         return 1U;
     }
-    return (u32) (s8) M2C_FIELD(arg0, u8 *, 0x8F) >> 0x1FU;
+    return (u32) (s8) *(u8 *)((s8 *)arg0 + 0x8F) >> 0x1FU;
 }
 
 s32 TWindowSubComCard__sub_8007B0D0(Card_8007B0D0 *self, Card_8007B0D0 *cards, s32 count) {
@@ -518,8 +483,8 @@ void TWindowSubComCard__sub_8007B1AC(void *arg0, u8 *arg1, s32 arg2) {
 }
 
 void set_text__17TWindowSubComCardFPvPv(u8 *arg0, void *arg1) {
-    ((M2C_UNK (*)(void *, void *, int))strncpy)((void *) (arg0 + 0x20), arg1, (int) (0x6B));
-    M2C_FIELD(arg0, s8 *, 0x8B) = 0;
+    ((s32 (*)(void *, void *, int))strncpy)((void *) (arg0 + 0x20), arg1, (int) (0x6B));
+    *(s8 *)((s8 *)arg0 + 0x8B) = 0;
 }
 
 void TWindowSubComCard__sub_8007B26C(O_8007B26C *self) {
@@ -532,10 +497,6 @@ int clear(void* p) { return memset(p, 0, 144); }
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 s32 TWindowSubShortMail__sub_8007B834(void *);
 u8 * fn_8007B83C(void *);
@@ -557,13 +518,13 @@ s32 fn_8007B2E0(u8 *arg0, s32 arg1) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    M2C_FIELD(arg0, u8 *, 0x8C) = (u8) (M2C_FIELD(arg0, u8 *, 0x8C) | 3);
-    ((M2C_UNK (*)(void *, int, int))strncpy)((void *) (arg0 + 8), (int) (fn_8007B83C(temp_r3)), (int) (0x17));
-    M2C_FIELD(arg0, s8 *, 0x1F) = 0;
-    M2C_FIELD(arg0, s8 *, 0x8F) = 0xC;
-    M2C_FIELD(arg0, s8 *, 0x8E) = 0xA;
-    M2C_FIELD(arg0, s8 *, 0x8D) = 5;
-    M2C_FIELD(arg0, s32 *, 4) = TWindowSubShortMail__sub_8007B834(temp_r3);
+    *(u8 *)((s8 *)arg0 + 0x8C) = (u8) (*(u8 *)((s8 *)arg0 + 0x8C) | 3);
+    ((s32 (*)(void *, int, int))strncpy)((void *) (arg0 + 8), (int) (fn_8007B83C(temp_r3)), (int) (0x17));
+    *(s8 *)((s8 *)arg0 + 0x1F) = 0;
+    *(s8 *)((s8 *)arg0 + 0x8F) = 0xC;
+    *(s8 *)((s8 *)arg0 + 0x8E) = 0xA;
+    *(s8 *)((s8 *)arg0 + 0x8D) = 5;
+    *(s32 *)((s8 *)arg0 + 4) = TWindowSubShortMail__sub_8007B834(temp_r3);
     return 1;
 }
 

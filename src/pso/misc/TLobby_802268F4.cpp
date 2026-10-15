@@ -1,42 +1,37 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8022727C_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_802272B4_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80227248_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80226CB0_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80226C3C_lbl_80514D00 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x254];
 };
 
 struct RecoveredGlobal_80226CF4_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8022733C_lbl_804CB850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -67,9 +62,9 @@ int set_and_notify__6TLobbyFi(void*);
 int set_and_notify_default__6TLobbyFv(void);
 int set_and_notify__6TLobbyFi(void*);
 int send_neg30__6TLobbyFv(void);
-M2C_UNK stop_audio_stream(s32);
+s32 stop_audio_stream(s32);
 int init_layout_positions__6TLobbyFv(void);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
 void release_bgm_resource__6TLobbyFv(void);
 extern s32 lbl_805D6300;
@@ -79,19 +74,19 @@ extern s32 lbl_805D6300;
 extern s32 music_target_id;
 void set_target_id__6TLobbyFi(s32 arg0);
 void start_audio_stream_file(void *, s32);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 void play_cue_stream_file(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
 s32 TLobby__sub_803C9CB0(int);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 void TLobby__sub_802272B4(void);
-M2C_UNK stop_audio_stream(s32);
-extern M2C_UNK lbl_804CB850[];
+s32 stop_audio_stream(s32);
+extern s32 lbl_804CB850[];
 void stop_cue_stream(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 void set_cue_stream_gain(s32 arg0);
 extern RecoveredGlobal_80226C3C_lbl_80514D00 lbl_80514D00;
 extern u8 *lbl_805D3720;
@@ -99,19 +94,19 @@ extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 u8 *get_current_slot_entry__6TLobbyFv(void);
 s32 set_field_40_and_notify__6TLobbyFPvs(int, int);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 extern s32 lbl_805D6330;
 void set_music_streams_volume(s32 arg0);
 s32 TLobby__sub_803C94DC(int, int);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
 void TLobby__sub_8022733C(void);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u32 get_player_by_client_id(void *);
-M2C_UNK stop_sound_request(int);
+s32 stop_sound_request(int);
 s32 fn_802264B8(int, int);
-M2C_UNK update_music_fade();
+s32 update_music_fade();
 s32 TLobby__sub_8023F880(int);
 extern Ent_802269B4 lbl_805145F0[];
 extern f32 lbl_80514C50[];
@@ -124,7 +119,7 @@ void update_sound_request_slots(void);
 s32 TLobby__sub_803C5D00(void *);
 void append_music_stream_segment(void *, int, int);
 s32 TLobby__sub_803C97B8(void *);
-extern M2C_UNK lbl_804CB850[];
+extern s32 lbl_804CB850[];
 extern s32 lbl_805D62E0;
 extern s32 lbl_805D62E4;
 extern s32 music_fade_slot_index;
@@ -222,8 +217,8 @@ void set_cue_stream_gain(s32 arg0) {
     if (var_r4 <= -0x140) {
         var_r4 = -0x3E7;
     }
-    if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80226CB0_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8) != 0U) {
-        set_field_40_and_notify__6TLobbyFPvs((int) (M2C_FIELD(&(*(RecoveredGlobal_80226CB0_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8)), (int) (var_r4));
+    if ((u32) *(u32 *)((s8 *)(&(*(RecoveredGlobal_80226CB0_lbl_804CB850 *)&lbl_804CB850).value) + 8) != 0U) {
+        set_field_40_and_notify__6TLobbyFPvs((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80226CB0_lbl_804CB850 *)&lbl_804CB850).value) + 8)), (int) (var_r4));
     }
 }
 
@@ -235,14 +230,14 @@ void set_music_streams_volume(s32 arg0) {
         var_r31 = -0x3E7;
     }
     if ((s32) lbl_805D6330 == 0) {
-        set_field_40_and_notify__6TLobbyFPvs((int) (M2C_FIELD(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value, s32 *, 0)), (int) (var_r31));
+        set_field_40_and_notify__6TLobbyFPvs((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value) + 0)), (int) (var_r31));
     }
-    set_field_40_and_notify__6TLobbyFPvs((int) (M2C_FIELD(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value, s32 *, 4)), (int) (var_r31));
+    set_field_40_and_notify__6TLobbyFPvs((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80226CF4_lbl_804CB850 *)&lbl_804CB850).value) + 4)), (int) (var_r31));
 }
 
 void release_bgm_resource__6TLobbyFv(void) {
     if ((s32) lbl_805D6330 != 0) {
-        stop_audio_stream(M2C_FIELD(lbl_804CB850, s32 *, 4));
+        stop_audio_stream(*(s32 *)((s8 *)lbl_804CB850 + 4));
         lbl_805D6330 = 0;
         init_layout_positions__6TLobbyFv();
     }
@@ -334,22 +329,22 @@ typedef char RecoveredGlobal_8022727C_lbl_804CB850_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80227248_lbl_804CB850_size[sizeof(RecoveredGlobal_80227248_lbl_804CB850) == 0xC ? 1 : -1];
 void stop_cue_stream(void) {
-    if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8) != 0U) {
-        stop_audio_stream((s32)((int) (M2C_FIELD(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value, u32 *, 8))));
+    if ((u32) *(u32 *)((s8 *)(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value) + 8) != 0U) {
+        stop_audio_stream((s32)((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80227248_lbl_804CB850 *)&lbl_804CB850).value) + 8))));
     }
 }
 
 void play_cue_stream_file(s32 arg0) {
-    if ((void *) M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8) != NULL) {
-        start_audio_stream_file(M2C_FIELD(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value, u8 **, 8), arg0);
+    if ((void *) *(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8) != NULL) {
+        start_audio_stream_file(*(u8 **)((s8 *)(&(*(RecoveredGlobal_8022727C_lbl_804CB850 *)&lbl_804CB850).value) + 8), arg0);
     }
 }
 typedef char RecoveredGlobal_802272B4_lbl_804CB850_size[sizeof(RecoveredGlobal_802272B4_lbl_804CB850) == 0xC ? 1 : -1];
 void TLobby__sub_802272B4(void) {
     s32 temp_r3;
-    TLobby__sub_803C94DC((int) (M2C_FIELD(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value, M2C_UNK *, (music_fade_slot_index * 4))), (int) (0));
-    TLobby__sub_803C94DC((int) (M2C_FIELD(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value, s32 *, 8)), (int) (0));
-    temp_r3 = TLobby__sub_803C9CB0((int) (M2C_FIELD(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value, M2C_UNK *, (music_fade_slot_index * 4))));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4))), (int) (0));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + 8)), (int) (0));
+    temp_r3 = TLobby__sub_803C9CB0((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_802272B4_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4))));
     if ((temp_r3 == 0) || (temp_r3 == 5)) {
         lbl_805D62E4 = 0;
         return;
@@ -358,8 +353,8 @@ void TLobby__sub_802272B4(void) {
 }
 typedef char RecoveredGlobal_8022733C_lbl_804CB850_size[sizeof(RecoveredGlobal_8022733C_lbl_804CB850) == 0xC ? 1 : -1];
 void TLobby__sub_8022733C(void) {
-    TLobby__sub_803C94DC((int) (M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4)), s32 *, 0)), (int) (1));
-    TLobby__sub_803C94DC((int) (M2C_FIELD(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value, s32 *, 8)), (int) (1));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)((u8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + (music_fade_slot_index * 4)) + 0)), (int) (1));
+    TLobby__sub_803C94DC((int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_8022733C_lbl_804CB850 *)&lbl_804CB850).value) + 8)), (int) (1));
     lbl_805D62E4 = 2;
 }
 

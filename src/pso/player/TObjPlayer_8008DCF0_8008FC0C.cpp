@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -24,28 +20,28 @@ struct VObj_18 : VBase_18 {
     virtual void m14();
     virtual void m15();
     virtual void m16();
-    virtual s32 m17(M2C_UNK);
+    virtual s32 m17(s32);
 };
 
 extern "C" {
 void update_dragon_boss_state__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_8008DD14();
-M2C_UNK update_move_to_target__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_8008E254();
-M2C_UNK TObjPlayer__sub_8008E310();
-M2C_UNK TObjPlayer__sub_8008EC3C();
-M2C_UNK TObjPlayer__sub_8008EDE8();
-M2C_UNK TObjPlayer__sub_8008F1DC();
-M2C_UNK run_death_sequence__10TObjPlayerFPv();
-M2C_UNK TObjPlayer__sub_8008F910();
-M2C_UNK TObjPlayer__sub_8008FAD0();
+s32 TObjPlayer__sub_8008DD14();
+s32 update_move_to_target__10TObjPlayerFPv();
+s32 TObjPlayer__sub_8008E254();
+s32 TObjPlayer__sub_8008E310();
+s32 TObjPlayer__sub_8008EC3C();
+s32 TObjPlayer__sub_8008EDE8();
+s32 TObjPlayer__sub_8008F1DC();
+s32 run_death_sequence__10TObjPlayerFPv();
+s32 TObjPlayer__sub_8008F910();
+s32 TObjPlayer__sub_8008FAD0();
 void TObjPlayer__sub_8008FF50(u8 *arg0);
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
-M2C_UNK clear_attack_flag__18TObjEneBalClawClawFPv(void *);
-M2C_UNK set_attack_distance_flag__10TObjPlayerFPv(void *);
+s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+s32 clear_attack_flag__18TObjEneBalClawClawFPv(void *);
+s32 set_attack_distance_flag__10TObjPlayerFPv(void *);
 s32 get_flag_0x388_b24__10TObjPlayerFPv(void *);
-M2C_UNK find_target_in_range__10TObjPlayerFPvf(void *, f32);
-M2C_UNK TObjEneMe1GiGue__sub_800C73F4(void *);
+s32 find_target_in_range__10TObjPlayerFPvf(void *, f32);
+s32 TObjEneMe1GiGue__sub_800C73F4(void *);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805D9644;
 extern const f32 lbl_805D9670;

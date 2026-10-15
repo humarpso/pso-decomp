@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void fn_8010B7D8(u8 *arg0, s32 arg1);
@@ -30,11 +26,11 @@ int check_flag_32__14TItemEquipBaseFPv(void* p) { return set_flags__10TObjPlayer
 int clear_flag_c_bit5__14TItemEquipBaseFPv(void* p) { return clear_flags__11TAdRicoRingFPvUi((char*)p + 0xc, 32); }
 
 void fn_8010B7D8(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) - arg1);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) (*(s16 *)((s8 *)arg0 + 4) - arg1);
 }
 
 void fn_8010B7E8(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) - arg1);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) - arg1);
 }
 
 }

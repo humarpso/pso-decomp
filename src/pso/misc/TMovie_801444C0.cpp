@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 check_skip_input__6TMovieFPv(void *arg0);
 s32 is_playback_finished__6TMovieFPv(s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-M2C_UNK TKeyBoardControl__sub_8000F91C(M2C_UNK);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 TKeyBoardControl__sub_8000F91C(s32);
 s32 TAdEndText__sub_8001B41C();
 s32 run_disk_error_check__6TLobbyFv();
-M2C_UNK activate_main_menu_scene();
-M2C_UNK fn_801449F0();
+s32 activate_main_menu_scene();
+s32 fn_801449F0();
 s32 check_reset_button__16TKeyBoardControlFv();
-s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, M2C_UNK);
+s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, s32);
 s8 get_opening_movie_purpose();
 s8 func_801A5E54__Fv();
 
@@ -28,7 +24,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
     s8 temp_r3;
 
     if (TAdEndText__sub_8001B41C() != 0) {
-        if ((run_disk_error_check__6TLobbyFv() == 0) || (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) || (func_801A5E54__Fv() != 0)) {
+        if ((run_disk_error_check__6TLobbyFv() == 0) || (is_playback_finished__6TMovieFPv(*(s32 *)((s8 *)arg0 + 0x20)) != 0) || (func_801A5E54__Fv() != 0)) {
             if ((run_disk_error_check__6TLobbyFv() == 0) || (func_801A5E54__Fv() != 0)) {
                 fn_801449F0();
             }
@@ -56,7 +52,7 @@ s32 check_skip_input__6TMovieFPv(void *arg0) {
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_fn_8000F91C;
         if (run_disk_error_check__6TLobbyFv() == 0) goto block_fn_8000F91C;
         if (check_reset_button__16TKeyBoardControlFv() != 0) goto block_fn_8000F91C;
-        if (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
+        if (is_playback_finished__6TMovieFPv(*(s32 *)((s8 *)arg0 + 0x20)) == 0) goto block_return0;
 block_fn_8000F91C:
         TKeyBoardControl__sub_8000F91C(9);
         return 1;
@@ -73,7 +69,7 @@ block_fn_8000F91C:
         if (test_flag_4c__23TAdSinglePlyChrSelectGCFPv(var_r31, 2) != 0) goto block_call_func;
         if (run_disk_error_check__6TLobbyFv() == 0) goto block_call_func;
         if (var_r30 != 0) goto block_call_func;
-        if (is_playback_finished__6TMovieFPv(M2C_FIELD(arg0, s32 *, 0x20)) == 0) goto block_return0;
+        if (is_playback_finished__6TMovieFPv(*(s32 *)((s8 *)arg0 + 0x20)) == 0) goto block_return0;
 block_call_func:
         if ((func_801A5E54__Fv() != 0) || (var_r30 != 0)) {
             activate_main_menu_scene();

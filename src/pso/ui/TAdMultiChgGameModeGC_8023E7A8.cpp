@@ -1,45 +1,41 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V3_8023E834 { s32 x; s32 y; s32 z; };
 
 extern "C" {
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_change_mode_flags__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK get_current_slot_entry__6TLobbyFv();
-s32 strcmp(M2C_UNK, s32);
-M2C_UNK play_area_music(s32);
+s32 get_current_slot_entry__6TLobbyFv();
+s32 strcmp(s32, s32);
+s32 play_area_music(s32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(s32 arg0);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_state_0x1a__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void reset_and_set_mode__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_18__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_17__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void set_mode_0x14__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;
 void request_transition__21TAdMultiChgGameModeGCFv(void);
@@ -56,7 +52,7 @@ void set_default_camera__21TAdMultiChgGameModeGCFv(void);
 extern "C" {
 
 void set_mode_change_state__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;

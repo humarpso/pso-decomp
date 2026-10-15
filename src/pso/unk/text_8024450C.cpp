@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 TObjNewFloorWin__sub_8007410C(void);
 s32 TWindowSubComCard__sub_80244774(void);
-M2C_UNK set_count_ratio_text__20TWindowSubStatusDispFiii(int, int, int);
+s32 set_count_ratio_text__20TWindowSubStatusDispFiii(int, int, int);
 void fn_8024450C(s32 arg0);
 u32 calc_text_width(void *);
 s32 __nw__7TObjectFUl(int);
 s32 TWindowArea__ct();
-M2C_UNK fn_802449E0(int);
+s32 fn_802449E0(int);
 u8 *get_title_entry__11TWindowRoomFv(s32);
-M2C_UNK set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
+s32 set_entry_display_value__20TWindowSubStatusDispFPvi(int, void *);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
 s32 create_area_window(s32 arg0);
@@ -23,7 +19,7 @@ s32 __nw__7TObjectFUl(int);
 void fn_8024450C(s32 arg0);
 s32 TWindowArea__ct();
 void *get_field_20__17TWindowSubComCardFPv(void *);
-M2C_UNK fn_802449E0(int);
+s32 fn_802449E0(int);
 u8 *get_title_entry__11TWindowRoomFv(s32);
 extern const f32 lbl_805DCABC;
 extern const f32 lbl_805DCAC0;
@@ -57,7 +53,7 @@ s32 create_area_window(s32 arg0) {
     set_entry_display_value__20TWindowSubStatusDispFPvi((int) (var_r30), (void *) (arg0));
     fn_802449E0((int) (var_r30));
     temp_r31 = (u8 *)(get_title_entry__11TWindowRoomFv(var_r30));
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((void *) (arg0))) - lbl_805DCABC);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width((void *) (arg0))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop
@@ -74,7 +70,7 @@ s32 create_window_area(void) {
     fn_802449E0(var_r30);
     fn_8024450C(var_r30);
     temp_r31 = get_title_entry__11TWindowRoomFv(var_r30);
-    M2C_FIELD(temp_r31, f32 *, 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
+    *(f32 *)((s8 *)temp_r31 + 8) = (f32) -((lbl_805DCAC0 * (f32) calc_text_width(get_field_20__17TWindowSubComCardFPv(temp_r31))) - lbl_805DCABC);
     return var_r30;
 }
 #pragma pop

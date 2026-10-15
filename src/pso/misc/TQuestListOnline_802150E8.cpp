@@ -1,31 +1,27 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802155B4_TQuestListOnline__data_80513DE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_802155B4_TQuestListOnline__data_80513E24 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_80215ABC_lbl_804CA0B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -64,7 +60,6 @@ struct Obj_80215720 { u8 pad[7]; s8 a; u8 p8; s8 b; u8 pa; s8 c; };
 
 struct Ctr_80215720 { u8 buf[0x68]; };
 
-typedef s32 M2C_UNK;
 struct Pair_802150E8 { s32 a; s32 b; };
 
 struct Slot_802150E8 { char name[0x34]; s32 size; void *buf; };
@@ -75,7 +70,7 @@ struct Pair_80215380 { s32 a; s32 b; };
 
 extern "C" {
 void TQuestListOnline__sub_8013ACF4(s32);
-M2C_UNK memcpy(int, void *, int);
+s32 memcpy(int, void *, int);
 extern u32 TQuestListOnline__quest_list_buffer;
 void copy_quest_list_data__16TQuestListOnlineFi(s32 arg0);
 int alloc__22TQuestVmDownLoadServerFPv(void *);
@@ -161,10 +156,10 @@ void some_empty_func__9TMainTaskFv(void *);
 void run_all_lists__9TMainTaskFv(void *);
 void run_tl_camera_tasks__9TMainTaskFv(void *);
 void render__9TMainTaskFv(void *);
-M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
-M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
+s32 set_field_1c__6TLobbyFPvf(int, f32);
+s32 suppress_slot__11TWindowCtrlFi(s32);
 void complete_reveal__14TWindowMessageFPv(int);
-M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
+s32 send_and_handle__6TLobbyFPvii(int, s32, s32);
 int update_window_mode_from_progress__6TLobbyFiPv(s32, Pair_802150E8 *);
 s32 get_window_layout_position(s32);
 char *strtok(char *, const char *);
@@ -191,14 +186,14 @@ void begin_file_download__16TQuestListOnlineFPv(Ent_802150E8 *arg0);
 s32 get_camera_id__11TCameraCtrlFv();
 void TQuestListOnline__sub_8013ACF4(s32);
 s32 THunterGuildSeqOffline__sub_80212074();
-M2C_UNK set_position_xy(int, f32, f32);
+s32 set_position_xy(int, f32, f32);
 s32 TWindow__close(int);
-M2C_UNK set_field_1c__6TLobbyFPvf(int, f32);
-M2C_UNK suppress_slot__11TWindowCtrlFi(s32);
-M2C_UNK send_and_handle__6TLobbyFPvii(int, s32, s32);
+s32 set_field_1c__6TLobbyFPvf(int, f32);
+s32 suppress_slot__11TWindowCtrlFi(s32);
+s32 send_and_handle__6TLobbyFPvii(int, s32, s32);
 int create_message_window__6TLobbyFiiUis(s32, Pair_80215380 *, s32, s32);
 s32 get_window_layout_position(s32);
-M2C_UNK memcpy(int, void *, int);
+s32 memcpy(int, void *, int);
 extern Pair_80215380 lbl_8044BCB8[];
 extern s32 local_client_id;
 extern s32 TQuestListOnline__selected_quest_info;
@@ -325,13 +320,13 @@ typedef char RecoveredGlobal_802155B4_TQuestListOnline__data_80513E24_size[sizeo
 typedef char RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8_size[sizeof(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8) == 0x3C ? 1 : -1];
 typedef char RecoveredGlobal_80215498_TQuestListOnline__data_80513E24_size[sizeof(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24) == 0x3C ? 1 : -1];
 void release_resources__16TQuestListOnlineFv(void) {
-    if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value, u32 *, 0x38) != 0U) {
-        free__11TOBoss4RockFUi((int) (M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value, u32 *, 0x38)));
-        M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value, u32 *, 0x38) = 0U;
+    if ((u32) *(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value) + 0x38) != 0U) {
+        free__11TOBoss4RockFUi((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value) + 0x38)));
+        *(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513E24 *)&TQuestListOnline__bin_download_state).value) + 0x38) = 0U;
     }
-    if ((u32) M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value, u32 *, 0x38) != 0U) {
-        free__11TOBoss4RockFUi((int) (M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value, u32 *, 0x38)));
-        M2C_FIELD(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value, u32 *, 0x38) = 0U;
+    if ((u32) *(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value) + 0x38) != 0U) {
+        free__11TOBoss4RockFUi((int) (*(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value) + 0x38)));
+        *(u32 *)((s8 *)(&(*(RecoveredGlobal_80215498_TQuestListOnline__data_80513DE8 *)&TQuestListOnline__dat_download_state).value) + 0x38) = 0U;
     }
     if ((u32) (*(u32 *)&TQuestListOnline__selected_quest_info) != 0U) {
         safe_free__23TAdSinglePlyChrSelectGCFUi((int) ((*(u32 *)&TQuestListOnline__selected_quest_info)));
@@ -522,7 +517,7 @@ void adjust_appraisal_special(Obj_8021599C *obj) {
 }
 
 bool is_slot_match__6TLobbyFPv(u8 *arg0) {
-    return M2C_FIELD(arg0, u8 *, 1) == M2C_FIELD(&section_id_favored_grind_table.value, M2C_UNK *, (lbl_805D6238 * 4));
+    return *(u8 *)((s8 *)arg0 + 1) == *(s32 *)((s8 *)(&section_id_favored_grind_table.value) + (lbl_805D6238 * 4));
 }
 
 }

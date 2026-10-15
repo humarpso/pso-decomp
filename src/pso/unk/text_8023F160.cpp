@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8023F160_lbl_804CCE60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_8023F18C_lbl_804CCE60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -17,7 +14,7 @@ extern "C" {
 void call_funcs_reverse__6TLobbyFPvUi(s32, u32);
 extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F160(void);
-M2C_UNK run_load_callback_table(void *, int);
+s32 run_load_callback_table(void *, int);
 extern RecoveredGlobal_8023F160_lbl_804CCE60 lobby_scene_release_callback_table;
 void fn_8023F18C(void);
 }

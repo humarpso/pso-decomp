@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_38 { u8 bytes[0x38]; };
+struct ByteBlock_38 { u8 bytes[0x38]; };
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -17,27 +13,26 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
-struct M2CCopy_3C { u8 bytes[0x3C]; };
+struct ByteBlock_3C { u8 bytes[0x3C]; };
 
 struct RecoveredGlobal_8029C9C8_lbl_804DC3A0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x80];
 };
 
 struct RecoveredGlobal_8029C9C8_lbl_804DC424 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x4C];
 };
 
-typedef s32 M2C_UNK;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -76,19 +71,19 @@ s32 create__10TObjMapCsnFi(void *);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
 extern RecoveredGlobal_8029C9C8_lbl_804DC3A0 rock_jungle_collision_body_parts;
 extern RecoveredGlobal_8029C9C8_lbl_804DC424 rock_jungle_vec3_table;
-extern M2C_UNK __vt__15TORockJungleS01[];
+extern s32 __vt__15TORockJungleS01[];
 extern s32 TORockJungleS01__name;
 extern const f32 lbl_805DDD1C;
 u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1);
 extern u32 TORockJungleS01__texture_resource;
 s32 get_jungle_rock_texture_resource(s32 a);
-void *load_resource_from_descriptor(void *, M2C_UNK, void *, M2C_UNK, M2C_UNK, M2C_UNK);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
+void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 load_gvm_texture_file(void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_jungle_rock_texture_resource(s32 a);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
-M2C_UNK add_entry__11TMotorcycleFsiiff(M2C_UNK, void *, s32, f32, f32);
+s32 add_entry__11TMotorcycleFsiiff(s32, void *, s32, f32, f32);
 extern u8 lbl_804658EC[];
 extern u8 lbl_80465904[];
 extern u8 lbl_8046591C[];
@@ -99,15 +94,15 @@ extern const f32 lbl_805DDD20;
 extern const f32 lbl_805DDD24;
 void load_resources__15TORockJungleS01Fv(void);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
+s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 void *__nw__7TObjectFUl(int);
 s32 get_jungle_rock_texture_resource(s32 a);
 u8 *get_model__15TORockJungleS01Fi(s32 arg0);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrix();
+s32 vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
 extern Offs_8029C7DC lbl_8046581C;
 extern Spawn_8029C7DC lbl_80465828;
 extern u8 identity_matrix[];
@@ -121,16 +116,16 @@ void TORockJungleS01__vt16(s32 arg0);
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1);
 void *create__15TORockJungleS01FPv(void *arg0);
 void free_globals__15TORockJungleS01Fv(void);
-M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_803DA16C(void*);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__18TORockCaveBrakableFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void TORockJungleS01__vt16(s32 arg0) {
     play_sound_effect(0x4BC19, arg0 + 0x38, 0, 0);
@@ -171,12 +166,12 @@ void *create__15TORockJungleS01FPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__15TORockJungleS01[];
+extern s32 __vt__15TORockJungleS01[];
 
 void *__dt__15TORockJungleS01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TORockJungleS01;
-        if (M2C_FIELD(arg0, void **, 0xBC) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xBC)); M2C_FIELD(arg0, M2C_UNK *, 0xBC) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TORockJungleS01;
+        if (*(void **)((s8 *)arg0 + 0xBC) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xBC)); *(s32 *)((s8 *)arg0 + 0xBC) = 0; }
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__18TORockCaveBrakableFv(arg0, 0);
@@ -199,24 +194,24 @@ u8 *TORockJungleS01__ct(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r4;
     TORockCaveBrakable__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TORockJungleS01__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8029C9C8___vt__15TORockJungleS01 *)&__vt__15TORockJungleS01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TORockJungleS01__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, u8 **, 0x34) = get_model__15TORockJungleS01Fi(0);
-    M2C_FIELD(arg0, s32 *, 0x24) = get_jungle_rock_texture_resource((s32)((int) (0)));
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (lbl_805DDD1C + M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14));
+    *(u8 **)((s8 *)arg0 + 0x34) = get_model__15TORockJungleS01Fi(0);
+    *(s32 *)((s8 *)arg0 + 0x24) = get_jungle_rock_texture_resource((s32)((int) (0)));
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (lbl_805DDD1C + *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14));
     init_collision_body_parts((void *) (arg0), (void *) (&rock_jungle_collision_body_parts.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
     }
     temp_r4 = arg1 - 4;
-    *(M2CCopy_3C *)(copy_storage_8029C9C8.bytes) = *(const M2CCopy_3C *)(temp_r4 + 4);
+    *(ByteBlock_3C *)(copy_storage_8029C9C8.bytes) = *(const ByteBlock_3C *)(temp_r4 + 4);
     VecCopy__FP3VecPC3Vec((void *) ((copy_storage_8029C9C8.bytes + 0x24)), (void *) (&rock_jungle_vec3_table.value));
-    M2C_FIELD(arg0, s32 *, 0xBC) = create__10TObjMapCsnFi((void *) ((copy_storage_8029C9C8.bytes)));
+    *(s32 *)((s8 *)arg0 + 0xBC) = create__10TObjMapCsnFi((void *) ((copy_storage_8029C9C8.bytes)));
     return arg0;
 }
 

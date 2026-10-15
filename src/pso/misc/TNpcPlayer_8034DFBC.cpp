@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_8034E440 { char pad[0x18]; };
 
@@ -13,25 +9,25 @@ struct VObj_8034E440 : Base_8034E440 {
 struct VBase_18_dac7f3 { char pad[0x18]; };
 
 struct VObj_18_dac7f3 : VBase_18_dac7f3 {
-    virtual M2C_UNK m0(M2C_UNK);
+    virtual s32 m0(s32);
 };
 
 struct Stack_8034EA80 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u8 pad_E[0x2];
     s16 sp10;
 };
 
 struct Stack_8034EAC4 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u8 pad_E[0x2];
     s16 sp10;
 };
 
 struct Stack_8034EC40 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u16 spE;
     s16 sp10;
@@ -39,7 +35,7 @@ struct Stack_8034EC40 {
 };
 
 struct Stack_8034EB08 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u16 spE;
     s16 sp10;
@@ -72,8 +68,6 @@ struct Player_8034E24C {
     f32 z;
 };
 
-typedef s32 M2C_UNK;
-
 struct Base_8034E814 { u8 pad[0x18]; };
 
 class Obj_8034E814 : public Base_8034E814 {
@@ -94,7 +88,7 @@ struct P_8034E054 { u8 pad[0x38]; f32 x; f32 y; f32 z; };
 struct Pkt_8034E64C { u16 hdr; u16 id; s16 flag; s16 arg; u32 pad; f32 x, y, z; };
 
 struct Stack_8034ECD0 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u16 spE;
     s16 sp10;
@@ -102,7 +96,7 @@ struct Stack_8034ECD0 {
 };
 
 struct Stack_8034ED58 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u16 spE;
     s16 sp10;
@@ -120,32 +114,32 @@ void enable_all_battle_ctrl__10TNpcPlayerFv(void);
 void send_item_pickup_request__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(s32);
 void quest_remove_npc_player(u16 arg0);
-M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
+s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 s32 get_player_by_client_id(s32);
-M2C_UNK send_6x21_inter_level_warp(s32, s32);
+s32 send_6x21_inter_level_warp(s32, s32);
 u16 get_action_flags__10TNpcPlayerFPv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState3_324();
 void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2);
 void send_npc_control_6x69__10TNpcPlayerFs(s16 arg0);
 void send_npc_stop_6x69__10TNpcPlayerFs(s16 arg0);
-M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
-M2C_UNK notify_field1c__10TObjPlayerFi();
+s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
+s32 notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 void send_npc_control_create__10TNpcPlayerFsUssPvi(s16 arg0, u16 arg1, s16 arg2, u8 *arg3, s32 arg4);
 void send_6x24_teleport_player(u16, s32, s32);
-M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
+s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, s32 arg3);
 extern int lbl_805D6EA0;
 void TNpcPlayer__sub_8034EDB8(void);
-M2C_UNK reset_lobby_model__10TObjPlayerFPv(void *);
+s32 reset_lobby_model__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(s32);
 void reset_player_lobby_model__10TNpcPlayerFUs(u16 arg0);
 s32 get_player_by_client_id(s32);
 s32 set_type__10TObjPlayerFPvi(s32, s32);
 void update_player_field__10TNpcPlayerFUsi(u16 arg0, s32 arg1);
 s32 get_player_by_client_id(s32);
-M2C_UNK end_camera_pan__10TObjPlayerFPv();
+s32 end_camera_pan__10TObjPlayerFPv();
 void end_camera_pan_for_client__10TNpcPlayerFUs(u16 arg0);
 s32 get_player_by_client_id(s32);
 s32 init_photon_blast__10TObjPlayerFPvi(u32, s16);
@@ -171,7 +165,7 @@ extern E_8034E02C npc_partner_dialogue_state[];
 extern int lbl_805D6EA0;
 void show_partner_chatter_for_key(s16 key);
 void send_6x24_teleport_player(u16, s32, s32);
-M2C_UNK set_arrival_override_coords(s32, s32, f32, f32, f32);
+s32 set_arrival_override_coords(s32, s32, f32, f32, f32);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
 void create_companion__10TNpcPlayerFUsUsiPvi(u16 leader, u16 slot, s32 appearance, f32 *p, s32 heading);
@@ -213,7 +207,7 @@ s32 obj_isState3_324();
 void TNpcPlayer__ct(void *, u16, u16, s16, s32, s32);
 void construct_partner__10TNpcPlayerFPviisPv(void *, u16, u16, s16, s32);
 s32 load_npc_player_template(s16);
-M2C_UNK notify_field1c__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 Obj_8034E814 *create_player_object(u16, s32, s32);
 void *__nw__7TObjectFUl(u32);
@@ -247,7 +241,7 @@ void init_6x3E_packet__10TNpcPlayerFPv(void *);
 u16 get_action_flags__10TNpcPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
 void send_6x3e_to_all_players__10TNpcPlayerFPvs(void *pos, s16 arg);
-M2C_UNK notify_field1c__10TObjPlayerFi();
+s32 notify_field1c__10TObjPlayerFi();
 s32 get_player_by_client_id(s32);
 void send_state_60__10TNpcPlayerFPv(void* p);
 void build_6x69_npc_control(void* p);
@@ -261,8 +255,8 @@ extern "C" {
 
 void send_code_45_to_player__10TNpcPlayerFi(int arg0);
 void play_effect__10TNpcPlayerFi(int arg0);
-M2C_UNK play_effect_default__10TObjPlayerFii(s32, M2C_UNK);
-M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
+s32 play_effect_default__10TObjPlayerFii(s32, s32);
+s32 send_code_45_1__10TObjPlayerFi(s32);
 
 s32 obj_isState2_324();
 
@@ -429,7 +423,7 @@ void quest_remove_npc_player(u16 arg0) {
 }
 
 void notify_partner_room_cleared(s32 arg0) {
-    s8 *win = (s8 *)((M2C_UNK *)&npc_partner_dialogue_state) + 0x3CC;
+    s8 *win = (s8 *)((s32 *)&npc_partner_dialogue_state) + 0x3CC;
     s32 i;
     s32 p;
     i = 0;
@@ -483,7 +477,7 @@ void apply_to_players__10TNpcPlayerFiPvi(s32 arg0, void *arg1, s32 arg2) {
     do {
         temp_r3 = get_player_by_client_id(var_r31);
         if ((temp_r3 != 0) && (obj_isState3_324() != 0) && ((u16) get_action_flags__10TNpcPlayerFPv(temp_r3) != 0xFFFF)) {
-            set_arrival_override_coords(obj_getField1c(temp_r3), arg2, M2C_FIELD(arg1, f32 *, 0), M2C_FIELD(arg1, f32 *, 4), M2C_FIELD(arg1, f32 *, 8));
+            set_arrival_override_coords(obj_getField1c(temp_r3), arg2, *(f32 *)((s8 *)arg1 + 0), *(f32 *)((s8 *)arg1 + 4), *(f32 *)((s8 *)arg1 + 8));
             send_6x21_inter_level_warp(temp_r3, arg0);
         }
         var_r31 += 1;
@@ -616,7 +610,7 @@ loop_1:
         }
     }
     stack.spE = arg1;
-    set_arrival_override_coords((s32)((void *) (arg1)), (s32)((void *) (arg4)), (f32) (M2C_FIELD(arg3, f32 *, 0)), (f32) (M2C_FIELD(arg3, f32 *, 4)), (f32) (M2C_FIELD(arg3, f32 *, 8)));
+    set_arrival_override_coords((s32)((void *) (arg1)), (s32)((void *) (arg4)), (f32) (*(f32 *)((s8 *)arg3 + 0)), (f32) (*(f32 *)((s8 *)arg3 + 4)), (f32) (*(f32 *)((s8 *)arg3 + 8)));
     send_state_60__10TNpcPlayerFPv((void*)((void *) (&stack.sp8)));
 }
 
@@ -641,7 +635,7 @@ void create_default_companion__10TNpcPlayerFssPvi(s16 arg0, s16 arg1, u8 *arg2, 
     stack.sp10 = 0;
     stack.sp12 = arg1;
     stack.spE = 1;
-    set_arrival_override_coords((s32)(1U), (s32)(arg3), M2C_FIELD(arg2, f32 *, 0), M2C_FIELD(arg2, f32 *, 4), M2C_FIELD(arg2, f32 *, 8));
+    set_arrival_override_coords((s32)(1U), (s32)(arg3), *(f32 *)((s8 *)arg2 + 0), *(f32 *)((s8 *)arg2 + 4), *(f32 *)((s8 *)arg2 + 8));
     send_state_60__10TNpcPlayerFPv((void*)(&stack.sp8));
     send_6x24_teleport_player(stack.spE, (s32) arg2, arg3);
 }

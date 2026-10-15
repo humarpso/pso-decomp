@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Range_8033CDF8 { s32 lo; s32 hi; s32 idx; };
 
 struct Vec_8033CDF8 { f32 x, y, z; };
@@ -11,15 +7,15 @@ struct Vec_8033CDF8 { f32 x, y, z; };
 struct Fish_8033CDF8 { u8 pad[0x4C]; Vec_8033CDF8 vecs[3]; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void request_destroy__11TBoss4Type2FUi(void *);
-M2C_UNK spawn_particle_effect_with_flags(void *, int, int);
+s32 spawn_particle_effect_with_flags(void *, int, int);
 void *create_particle_emitter(void *, int);
-M2C_UNK set_flags__11TBoss4Type2FPvUi(void *, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK play_persistent_sound(int, void *, int, int, int);
-M2C_UNK play_sound_effect(int, int, int, int);
-M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
+s32 set_flags__11TBoss4Type2FPvUi(void *, int);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 play_persistent_sound(int, void *, int, int, int);
+s32 play_sound_effect(int, int, int, int);
+s32 queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern Range_8033CDF8 lbl_80477ED8[];
 void TObjFish__sub_8033CDF8(u8 *arg0);
@@ -56,7 +52,7 @@ void request_destroy__11TBoss4Type2FUi(void *);
 void render_fade_model__8TObjFishFPv(u8 *arg0) {
     f32 var_f31;
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x44);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x44);
     if (temp_r0 < 0xBF) {
         var_f31 = lbl_805DFA58;
     } else if (temp_r0 >= 0xCC) {
@@ -71,12 +67,12 @@ void render_fade_model__8TObjFishFPv(u8 *arg0) {
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         ((f32 (*)(void *))post_translate_matrix)(arg0 + 0x1C);
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x2C));
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x30), M2C_FIELD(arg0, f32 *, 0x40));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x38));
-        set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, u8 **, 0x88));
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0x34), M2C_FIELD(arg0, s32 *, 0x3C), M2C_FIELD(arg0, f32 *, 0x40));
-        ((int (*)(void *))clear_render_callback__8TObjFishFv)(M2C_FIELD(arg0, u8 **, 0x88));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x2C));
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x30), *(f32 *)((s8 *)arg0 + 0x40));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x38));
+        set_draw_callback_list__8TObjFishFPv(*(u8 **)((s8 *)arg0 + 0x88));
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0x3C), *(f32 *)((s8 *)arg0 + 0x40));
+        ((int (*)(void *))clear_render_callback__8TObjFishFv)(*(u8 **)((s8 *)arg0 + 0x88));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         if (var_f31 < lbl_805DFA58) {
@@ -87,7 +83,7 @@ void render_fade_model__8TObjFishFPv(u8 *arg0) {
 
 void TObjFish__sub_8033CDD8(void* p) { render_fade_model__8TObjFishFPv((u8 *)(p)); }
 
-extern M2C_UNK lbl_804EF9EC[];
+extern s32 lbl_804EF9EC[];
 
 #define F(T, o) (*(T *)(arg0 + (o)))
 void TObjFish__sub_8033CDF8(u8 *arg0) {
@@ -177,10 +173,10 @@ void TObjFish__sub_8033CDF8(u8 *arg0) {
 
 void *destroy__8TObjFishFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EF9EC;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EF9EC;
         restore_player_cameras();
-        if (M2C_FIELD(arg0, void **, 0x88) != NULL) { init_state_1__8TObjFishFPv(M2C_FIELD(arg0, void **, 0x88)); M2C_FIELD(arg0, M2C_UNK *, 0x88) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x8C) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x8C)); M2C_FIELD(arg0, M2C_UNK *, 0x8C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x88) != NULL) { init_state_1__8TObjFishFPv(*(void **)((s8 *)arg0 + 0x88)); *(s32 *)((s8 *)arg0 + 0x88) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x8C) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x8C)); *(s32 *)((s8 *)arg0 + 0x8C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

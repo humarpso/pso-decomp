@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8015BF38 { char pad[0x18]; };
 #define M0(x) virtual void m##x();
 struct VObj_8015BF38 : Base_8015BF38 {
@@ -21,18 +18,18 @@ extern "C" {
 
 void *TOContainerAncientItemNone__ct(void *arg0);
 void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2);
-M2C_UNK request_box_item_drop(void *, void *, M2C_UNK);
+s32 request_box_item_drop(void *, void *, s32);
 void TOContainerAncientItemRare__ct(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
 
-extern M2C_UNK __vt__26TOContainerAncientItemNone[];
+extern s32 __vt__26TOContainerAncientItemNone[];
 extern void *lbl_805D2F04;
 
 void *TOContainerAncientItemNone__ct(void *arg0) {
     TOContainerAncientItemRare__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__26TOContainerAncientItemNone;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2F04;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__26TOContainerAncientItemNone;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2F04;
     return arg0;
 }
 
@@ -42,7 +39,7 @@ void TOContainerAncientItemRare__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
             ((VObj_8015BF38*)arg0)->m77();
             request_box_item_drop(arg0, arg0 + 0x38, 1);
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }

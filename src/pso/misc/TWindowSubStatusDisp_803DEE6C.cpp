@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma scheduling off
 
@@ -12,9 +8,9 @@ union Pipe_803DEECC { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 union Pipe_803DF00C { u8 u8v; u16 u16v; u32 u32v; s32 s32v; f32 f32v; };
 
 extern "C" {
-M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
-M2C_UNK setup_render__10TObjPlayerFv();
-M2C_UNK setup_blended_textured_draw();
+s32 load_screen_space_matrix__10TObjPlayerFv();
+s32 setup_render__10TObjPlayerFv();
+s32 setup_blended_textured_draw();
 void begin_screen_draw(s32 arg0);
 s32 load_list_texture(void *, int, int, int);
 extern s32 constant_material_color;
@@ -36,7 +32,7 @@ void DVDConvertEntrynumToPath(f32 *q);
 extern "C" {
 
 void get_player__20TWindowSubStatusDispFv(void);
-M2C_UNK TObjPlayer__sub_803E2248();
+s32 TObjPlayer__sub_803E2248();
 
 void begin_screen_draw(s32 arg0) {
     load_screen_space_matrix__10TObjPlayerFv();

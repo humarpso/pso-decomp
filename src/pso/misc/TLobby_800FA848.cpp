@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -18,16 +14,16 @@ void link_into_list__6TLobbyFPv(void *arg0) {
         async_file_read_current_request = arg0;
     }
     if ((void *) lobby_stack_entry_list_tail != NULL) {
-        M2C_FIELD(lobby_stack_entry_list_tail, void **, 0x38) = arg0;
+        *(void **)((s8 *)lobby_stack_entry_list_tail + 0x38) = arg0;
     }
     lobby_stack_entry_list_tail = arg0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     lobby_list_entry_count += 1;
-    M2C_FIELD(arg0, s32 *, 4) = lobby_list_next_id++;
+    *(s32 *)((s8 *)arg0 + 4) = lobby_list_next_id++;
 }
 
 }

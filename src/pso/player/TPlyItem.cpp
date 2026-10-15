@@ -1,7 +1,7 @@
 #include "pso/TPlyItem.h"
 
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct VBase_801D5004 { char pad[0x18]; };
 
 struct VObj_801D5004 : VBase_801D5004 {
@@ -106,7 +106,7 @@ struct Item_801D51A0 {
 extern "C" {
 u8 get_field_ed__10TObjPlayerFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
-M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
+s32 reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
 extern u8 *item_reduce_target_player;
@@ -114,7 +114,7 @@ extern u8 item_reduce_owner_match_field_ec;
 extern u8 reduce_owner_match_id;
 void reduce_owner_matched_items__6TLobbyFPv(void *arg0);
 u8 get_field_ec__12TOSwitchItemFPv(void *);
-M2C_UNK reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
+s32 reduce_item_amount__6TLobbyFPviii(s32, void *, void *, s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 is_item_valid__9TItemListFi(void *);
 extern u8 *item_reduce_target_player;
@@ -137,8 +137,6 @@ TPlyItem::~TPlyItem() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -146,16 +144,16 @@ void *TPlyItem__ct(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
 void init_items__9TItemListFPv(void *);
 
-extern M2C_UNK __vt__8TPlyItem[];
+extern s32 __vt__8TPlyItem[];
 extern void *lbl_805D356C;
 
 void *TPlyItem__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TPlyItem;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TPlyItem;
     init_items__9TItemListFPv((void *)((char *)arg0 + 32));
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D356C;
-    M2C_FIELD(arg0, u16 *, 0x1C) = 0;
-    M2C_FIELD(arg0, u16 *, 0x1E) = 0;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D356C;
+    *(u16 *)((s8 *)arg0 + 0x1C) = 0;
+    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     return arg0;
 }
 void reduce_owner_matched_items__6TLobbyFPv(void *arg0) {

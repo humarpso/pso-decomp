@@ -1,35 +1,31 @@
 #include "pso/TBoss3VoloptCtrl.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80040D70_lbl_8043636C { M2C_UNK value; u8 remaining[0x9]; };
+struct RecoveredGlobal_80040D70_lbl_8043636C { s32 value; u8 remaining[0x9]; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u8 *get_player_by_client_id(s32);
-M2C_UNK init_music_sequencer(int);
+s32 init_music_sequencer(int);
 extern s32 local_client_id;
 extern const f32 lbl_805D86F8;
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0);
 s32 get_main_phase(void);
-M2C_UNK get_current_floor();
+s32 get_current_floor();
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
 s32 restore_player_cameras(void);
 s32 activate_camera_mode(s32);
 s32 get_story_flag(s32);
-M2C_UNK unhide_room_set_objects(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 unhide_room_set_objects(s32, s32, s32);
 s32 is_not_split_screen__13TRaderMapCoreFv(void);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK TBoss3Volopt__sub_8003EA2C(int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TBoss3Volopt__sub_8003EA2C(int);
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
-M2C_UNK TObjPlayer__sub_801BA42C();
-M2C_UNK freeze_all_players__10TObjPlayerFv();
-M2C_UNK play_area_music(void *);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+s32 TObjPlayer__sub_801BA42C();
+s32 freeze_all_players__10TObjPlayerFv();
+s32 play_area_music(void *);
+u8 *__nw__7TObjectFUl(s32);
 extern RecoveredGlobal_80040D70_lbl_8043636C lbl_8043636C;
 extern s32 volopt_resources_loaded;
 }
@@ -40,21 +36,21 @@ void *TBoss3VoloptCtrl__ct(void *arg0);
 void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1);
 void dispatch_state__16TBoss3VoloptCtrlFi(s32 arg0);
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0);
-M2C_UNK TLobby__sub_8020C07C(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK unhide_room_set_objects(M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK get_current_floor();
+s32 TLobby__sub_8020C07C(s32, s32, s32, s32, s32);
+s32 unhide_room_set_objects(s32, s32, s32);
+s32 get_current_floor();
 void __ct__7TObjectFP7TObject(void *, void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void disallow_rendering__7TObjectFv(void *);
 
-extern M2C_UNK lbl_80483B88[];
+extern s32 lbl_80483B88[];
 
 extern void *tl_02;
-extern M2C_UNK lbl_80483B88[];
+extern s32 lbl_80483B88[];
 
 extern void *tl_02;
-extern M2C_UNK __vt__16TBoss3VoloptCtrl[];
+extern s32 __vt__16TBoss3VoloptCtrl[];
 extern void *lbl_805D2730;
 
 }
@@ -63,7 +59,7 @@ extern "C" {
 void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(get_player_by_client_id(local_client_id));
-    if ((temp_r3 != NULL) && (M2C_FIELD(temp_r3, f32 *, 0x40) >= lbl_805D86F8)) {
+    if ((temp_r3 != NULL) && (*(f32 *)((s8 *)temp_r3 + 0x40) >= lbl_805D86F8)) {
         init_music_sequencer((int) (3));
         queue_destruction__7TObjectFv((void *) (arg0));
     }
@@ -73,7 +69,7 @@ void TBoss3VoloptCtrl__sub_80040B80(s32 arg0) {
 extern "C" {
 void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483B88;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80483B88;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -86,7 +82,7 @@ void *deleting_destructor__16TBoss3VoloptCtrlFPvs(void *arg0, s16 arg1) {
 extern "C" {
 void *init_object__16TBoss3VoloptCtrlFPv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_02);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80483B88;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80483B88;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
 }
@@ -136,16 +132,16 @@ void TBoss3VoloptCtrl::run_task() {
                 play_area_music((void *) (&lbl_8043636C.value));
                 if (get_main_phase() != 0xF) {
                     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-                        unhide_room_set_objects((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));
+                        unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
                     } else if (get_story_flag(0x2F) != 0) {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (4)));
                     } else {
                         dispatch_state__16TBoss3VoloptCtrlFi((s32)((int) (3)));
                     }
                 } else {
-                    unhide_room_set_objects((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(1));
+                    unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(1));
                 }
-                unhide_room_set_objects((M2C_UNK)(((s32)get_current_floor())), (M2C_UNK)(0), (M2C_UNK)(3));
+                unhide_room_set_objects((s32)(((s32)get_current_floor())), (s32)(0), (s32)(3));
                 temp_r3 = (u8 *)(__nw__7TObjectFUl(0x1C));
                 if (temp_r3 != NULL) {
                     init_object__16TBoss3VoloptCtrlFPv(temp_r3);
@@ -172,10 +168,10 @@ TBoss3VoloptCtrl::~TBoss3VoloptCtrl() {}
 extern "C" {
 void *TBoss3VoloptCtrl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, tl_02);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TBoss3VoloptCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2730;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 3;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TBoss3VoloptCtrl;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2730;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 3;
     return arg0;
 }
 }

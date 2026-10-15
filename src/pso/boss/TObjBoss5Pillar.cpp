@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -28,7 +24,7 @@ struct Pillar_8028B488 {
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK __vt__15TObjBoss5Pillar[];
+extern s32 __vt__15TObjBoss5Pillar[];
 extern s32 lbl_805D3B40;
 extern u8 *lbl_805D4DD8;
 extern const f32 lbl_805DD918;
@@ -44,17 +40,17 @@ extern "C" {
 
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1);
 void render__15TObjBoss5PillarFPv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK TObjBoss5PillarDemo__sub_8028ADB0(int);
-M2C_UNK draw_ginja_model_with_motion(int, int, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 post_translate_matrix(void *);
+s32 TObjBoss5PillarDemo__sub_8028ADB0(int);
+s32 draw_ginja_model_with_motion(int, int, f32);
+s32 push_matrix();
+s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK fn_8028ADDC(int);
+s32 fn_8028ADDC(int);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFi(void *);
 
 extern s32 boss5_common_texture_list;
 
@@ -63,17 +59,17 @@ void render__15TObjBoss5PillarFPv(u8 *arg0) {
         push_matrix();
         set_global_param__8TObjFishFi((void *) (boss5_common_texture_list));
         post_translate_matrix((void *) (arg0 + 0x2C));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 3) {
-            fn_8028ADDC((int) (M2C_FIELD(arg0, s32 *, 0x48)));
-            draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x38)), (int) (M2C_FIELD(arg0, s32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x20)));
-            TObjBoss5PillarDemo__sub_8028ADB0((int) (M2C_FIELD(arg0, s32 *, 0x48)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 3) {
+            fn_8028ADDC((int) (*(s32 *)((s8 *)arg0 + 0x48)));
+            draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x38)), (int) (*(s32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
+            TObjBoss5PillarDemo__sub_8028ADB0((int) (*(s32 *)((s8 *)arg0 + 0x48)));
         }
-        draw_ginja_model_with_motion((int) (M2C_FIELD(arg0, s32 *, 0x3C)), (int) (M2C_FIELD(arg0, s32 *, 0x44)), (f32) (M2C_FIELD(arg0, f32 *, 0x20)));
+        draw_ginja_model_with_motion((int) (*(s32 *)((s8 *)arg0 + 0x3C)), (int) (*(s32 *)((s8 *)arg0 + 0x44)), (f32) (*(f32 *)((s8 *)arg0 + 0x20)));
         pop_matrix();
     }
 }
 
-extern M2C_UNK __vt__15TObjBoss5Pillar[];
+extern s32 __vt__15TObjBoss5Pillar[];
 
 void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0) {
     u32 last;
@@ -110,8 +106,8 @@ void update_collapse_state__15TObjBoss5PillarFPv(Pillar_8028B488 *arg0) {
 
 void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjBoss5Pillar;
-        if (M2C_FIELD(arg0, void **, 0x48) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x48)); M2C_FIELD(arg0, M2C_UNK *, 0x48) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjBoss5Pillar;
+        if (*(void **)((s8 *)arg0 + 0x48) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x48)); *(s32 *)((s8 *)arg0 + 0x48) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -122,18 +118,18 @@ void *__dt__15TObjBoss5PillarFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar_size[sizeof(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar) == 0x18 ? 1 : -1];
 u8 *TObjBoss5Pillar__ct(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3B40;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8028B60C___vt__15TObjBoss5Pillar *)&__vt__15TObjBoss5Pillar).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3B40;
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg2);
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) lbl_805DD918;
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DD91C;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x42C), s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x40) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x430), s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x44) = (s32) M2C_FIELD(M2C_FIELD(lbl_805D4DD8, u8 **, 0x430), s32 *, 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) lbl_805DD918;
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DD91C;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x18);
+    *(s32 *)((s8 *)arg0 + 0x40) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x44) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4DD8 + 0x430)) + 0x1C);
     return arg0;
 }
 

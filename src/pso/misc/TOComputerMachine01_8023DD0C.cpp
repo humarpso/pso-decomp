@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8023DD0C { u8 type; u8 pad[3]; u32 f4; };
 
@@ -147,41 +143,41 @@ void TObjPlayer__sub_8023DEE0(s16 *p, s16 a, s16 b, u16 id) {
 void TObjPlayer__sub_8023E034(void **arg0) {
     s16 temp_r0;
     u8 *temp_r5;
-    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0));
-    temp_r0 = M2C_FIELD(temp_r5, s16 *, 0);
+    temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0));
+    temp_r0 = *(s16 *)((s8 *)temp_r5 + 0);
     if ((s32) (u8) temp_r0 == 0xFF) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 0) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 1) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 2) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 3) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 5) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 4) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 2;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 2;
         return;
     }
     if ((s16) (u8) temp_r0 == 8) {
-        M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + 4;
+        *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + 4;
         return;
     }
-    M2C_FIELD(arg0, u8 **, 0) = (u8 *)(temp_r5) + ((M2C_FIELD(temp_r5, s16 *, 2) + 2) * 2);
+    *(u8 **)((s8 *)arg0 + 0) = (u8 *)(temp_r5) + ((*(s16 *)((s8 *)temp_r5 + 2) + 2) * 2);
 }
 #pragma push
 #pragma fp_contract on

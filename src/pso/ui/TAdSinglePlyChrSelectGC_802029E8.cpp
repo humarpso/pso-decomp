@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80202A40_lbl_8051381C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xE4];
 };
 
@@ -106,9 +102,9 @@ extern "C" {
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0);
 int fn_8020325C(void *arg0);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
-M2C_UNK __destroy_arr(s32, M2C_UNK *, M2C_UNK, M2C_UNK);
+s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
-extern M2C_UNK lbl_805D5FB0;
+extern s32 lbl_805D5FB0;
 extern int card_character_save_buffer;
 extern s32 selected_character_data;
 extern s32 *active_character_save_record;
@@ -186,12 +182,12 @@ void init_chr_select_static__23TAdSinglePlyChrSelectGCFv(void) {
 }
 
 s32 TAdSinglePlyChrSelectGC__sub_80202A68(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x194AC);
+    return *(s32 *)((s8 *)arg0 + 0x194AC);
 }
 
 s32 destroy_chardata_array__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1) {
     if (arg0 != 0) {
-        __destroy_arr(arg0 + 4, (M2C_UNK *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
+        __destroy_arr(arg0 + 4, (s32 *)free_chardata__23TAdSinglePlyChrSelectGCFis, 0x39b4, 7);
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -376,16 +372,16 @@ void* init_guild_card_tag__23TAdSinglePlyChrSelectGCFPv(void* p) { init_guild_ca
 void TAdSinglePlyChrSelectGC__sub_80203210(void* p) { *(u32*)((char*)p + 0x4) &= 0xfffffff7; }
 
 void clear_inventory_slot__23TAdSinglePlyChrSelectGCFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 0) = 0;
-    M2C_FIELD(arg0, s8 *, 1) = -1;
-    M2C_FIELD(arg0, s32 *, 4) = 0;
+    *(s8 *)((s8 *)arg0 + 0) = 0;
+    *(s8 *)((s8 *)arg0 + 1) = -1;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
     init__9TItemDataFv(arg0 + 8);
 }
 
 int fn_8020325C(void *arg0) {
     int var_r4;
     var_r4 = 0;
-    if (((u8) M2C_FIELD(arg0, u8 *, 0x0) == 1) && ((u8) M2C_FIELD(arg0, u8 *, 0x1) == 3)) {
+    if (((u8) *(u8 *)((s8 *)arg0 + 0x0) == 1) && ((u8) *(u8 *)((s8 *)arg0 + 0x1) == 3)) {
         var_r4 = 1;
     }
     return (u8)var_r4;

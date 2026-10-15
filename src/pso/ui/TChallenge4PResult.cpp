@@ -3,17 +3,13 @@
 #include "types.h"
 extern "C" { s32 TChallenge4PResult__slot_entries[4]; }
 #include "pso/ui/TChallenge4PItemSelect.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_8034B694 { u8 b[0x14]; };
 struct Q_8034B694 { s32 v; };
 struct W_8034B694 { u8 pad0[0x34]; E_8034B694 e[1]; u8 pad48[0x70 - 0x48]; Q_8034B694 f[1]; };
 
 struct RecoveredGlobal_8034BA68_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -26,10 +22,10 @@ struct Stack_8034B720 {
 #include "pso/player/TObjPlayer.h"
 extern "C" {
 s32 get_localized_text_entry(s32, s32);
-M2C_UNK TLobby__sub_802924B4(void *, int);
+s32 TLobby__sub_802924B4(void *, int);
 void TChallenge4PResult__sub_8034B8BC(u8 *arg0);
 s32 get_localized_text_entry(s32, s32);
-M2C_UNK TLobby__sub_802924B4(void *, int);
+s32 TLobby__sub_802924B4(void *, int);
 void TChallenge4PResult__sub_8034B918(u8 *arg0);
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 s32 is_active__11TBoss4Type2Fv();
@@ -38,12 +34,12 @@ void TChallenge4PResult__sub_8034BA2C(u8 *arg0);
 int queue_destruction__18TChallenge4PResultFPv(void* p);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 u32 get_player_by_client_id(int);
 extern u8 controller_input_state[];
 void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0);
-extern M2C_UNK TChallenge4PResult__slot_entries[];
+extern s32 TChallenge4PResult__slot_entries[];
 void clear_slot_entries__18TChallenge4PResultFv(void);
 s32 TLobby__sub_80292270(int, int);
 void init_timer__18TChallenge4PResultFPv(void *arg0);
@@ -55,13 +51,13 @@ void TChallenge4PResult__sub_8034B918(u8 *arg0);
 
 void handle_result_code__18TChallenge4PResultFPv(u8 *arg0);
 s32 get_instance__11TCameraCtrlFv();
-M2C_UNK set_position_xy(int, f32, f32);
+s32 set_position_xy(int, f32, f32);
 void set_message__18TWindowMessagePageFPvPvi(void *, void *, s32);
 u8 *create__18TWindowMessagePageFiiii(s32, s32, s32, s32);
-M2C_UNK get_window_layout_position(int, int, void *);
-extern M2C_UNK lbl_80478BCC[];
+s32 get_window_layout_position(int, int, void *);
+extern s32 lbl_80478BCC[];
 extern const f32 lbl_805DFDA4;
-extern M2C_UNK TChallenge4PResult__slot_entries[];
+extern s32 TChallenge4PResult__slot_entries[];
 u32 get_player_by_client_id(int);
 s32 check_player_flag1__6TLobbyFPv(TObjPlayer *);
 void play_effect_default__10TObjPlayerFii(TObjPlayer *, s32);
@@ -97,27 +93,27 @@ int queue_destruction__18TChallenge4PResultFPv(void* p);
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1);
 void update_input__18TChallenge4PResultFPv(void *arg0);
 s32 get_localized_text_entry(s32, s32);
-M2C_UNK __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
+s32 __ct__18TChallenge4PResultFP7TObjectUsl(void *, s32, int, s32);
 void set_entry_item__18TChallenge4PResultFPvPvi(W_8034B694 *arg0, void *arg1, s32 arg2);
 void copy_item_data__6TLobbyFPvPv(void *, void *);
 s32 is_message_window_ready(u32);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK, s32);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32, s32);
 int TWindow__close(void*);
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 s32 get_map_id__13TRaderMapCoreFPv();
 int queue_destruction__7TObjectFv(void*);
 
 void resume_challenge_result_processing(void *arg0) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
     }
 }
 
-extern M2C_UNK TChallenge4PResult__slot_entries[];
+extern s32 TChallenge4PResult__slot_entries[];
 
 void update_entries__18TChallenge4PResultFii(s32 arg0, s32 arg1) {
     s32 var_r29 = 0;
-    M2C_UNK *var_r30 = TChallenge4PResult__slot_entries;
+    s32 *var_r30 = TChallenge4PResult__slot_entries;
     s32 var_r31 = 0;
     do {
         u32 v = (u32)var_r30[var_r31];
@@ -201,9 +197,9 @@ void TChallenge4PResult::show_message(s32 text_handle) {
     typedef char spC_offset[(offsetof(Stack_8034B720, spC) == 0x4) ? 1 : -1];
     Stack_8034B720 stack;
     if (message_window == NULL) {
-        stack.sp8 = M2C_FIELD(lbl_80478BCC, s32 *, 0);
-        stack.spC = M2C_FIELD(lbl_80478BCC, s32 *, 4);
-        message_window = (TWindowMessagePage *)create__18TWindowMessagePageFiiii(get_window_layout_position((int) (0x40), (int) (M2C_FIELD(lbl_80478BCC, s32 *, 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
+        stack.sp8 = *(s32 *)((s8 *)lbl_80478BCC + 0);
+        stack.spC = *(s32 *)((s8 *)lbl_80478BCC + 4);
+        message_window = (TWindowMessagePage *)create__18TWindowMessagePageFiiii(get_window_layout_position((int) (0x40), (int) (*(s32 *)((s8 *)lbl_80478BCC + 0)), (void *) (lbl_80478BCC)), (s32)(&stack.sp8), 1, slot_index);
     }
     if (message_window != NULL) {
         set_message__18TWindowMessagePageFPvPvi((void *)message_window, (void *)text_handle, 0x81);
@@ -217,33 +213,33 @@ extern "C" {
 
 void init_timer__18TChallenge4PResultFPv(void *arg0) {
     ((TChallenge4PResult *)((void *)(arg0)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 5))));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0x5A;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 5;
 }
 void init_result_state__18TChallenge4PResultFPv(void *arg0) {
     ((TChallenge4PResult *)((void *)(arg0)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 4))));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0x5A;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 5;
 }
 void init__18TChallenge4PResultFPv(void *arg0) {
     ((TChallenge4PResult *)((void *)(arg0)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 3))));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0x5A;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 5;
 }
 void TChallenge4PResult__sub_8034B8B0(void* p) { *(s32*)((char*)p + 0x1c) = 3; }
 
 void TChallenge4PResult__sub_8034B8BC(u8 *arg0) {
     ((TChallenge4PResult *)((void *)((void *) (arg0))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (1))))));
-    TLobby__sub_802924B4((void *) (arg0 + 0x34), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+    TLobby__sub_802924B4((void *) (arg0 + 0x34), (int) (*(u16 *)((s8 *)arg0 + 0x24)));
+    *(s32 *)((s8 *)arg0 + 0x20) = 0x5A;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 5;
 }
 
 void TChallenge4PResult__sub_8034B918(u8 *arg0) {
     ((TChallenge4PResult *)((void *)((void *) (arg0))))->show_message((s32)((s32)((int) (get_localized_text_entry((int) (0x2B), (int) (2))))));
-    TLobby__sub_802924B4((void *) (arg0 + 0x48), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
-    M2C_FIELD(arg0, s32 *, 0x20) = 0x5A;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 5;
+    TLobby__sub_802924B4((void *) (arg0 + 0x48), (int) (*(u16 *)((s8 *)arg0 + 0x24)));
+    *(s32 *)((s8 *)arg0 + 0x20) = 0x5A;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 5;
 }
 
 }
@@ -265,10 +261,10 @@ extern "C" {
 
 void TChallenge4PResult__sub_8034BA2C(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20) - 1;
-    M2C_FIELD(arg0, s32 *, 0x20) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20) - 1;
+    *(s32 *)((s8 *)arg0 + 0x20) = temp_r0;
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
     }
 }
 
@@ -281,7 +277,7 @@ void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0) {
     s32 temp_r5;
     if (get_player_by_client_id((int) (arg0->slot_index)) != 0U) {
         temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
-        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), (M2C_UNK)((int) (4)), (s32)((int) (temp_r5))) != 0) {
+        if (TWindowShortListCtrl__check_controller_button((void *)((void *) ((u8 *)&(*(RecoveredGlobal_8034BA68_lbl_8050E208 *)&controller_input_state).value + temp_r5 + 0x20)), (s32)((int) (4)), (s32)((int) (temp_r5))) != 0) {
             arg0->state_1c = 3;
         }
     } else {
@@ -291,7 +287,7 @@ void update_wait_input__18TChallenge4PResultFPv(TChallenge4PResult *arg0) {
 
 void handle_result_code__18TChallenge4PResultFPv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = TLobby__sub_80292270((int) (M2C_FIELD(arg0, s32 *, 0x28)), (int) (M2C_FIELD(arg0, u16 *, 0x24)));
+    temp_r3 = TLobby__sub_80292270((int) (*(s32 *)((s8 *)arg0 + 0x28)), (int) (*(u16 *)((s8 *)arg0 + 0x24)));
     switch (temp_r3) {
     case 2:
         ((TChallenge4PResult *)arg0)->handle_third_reward();
@@ -316,7 +312,7 @@ void handle_result_code__18TChallenge4PResultFPv(u8 *arg0) {
         return;
     case -10:
     default:
-        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         return;
     }
 }
@@ -326,23 +322,23 @@ void update_input__18TChallenge4PResultFPv(void *arg0) {
     s32 temp_r5;
     u32 p;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) == 0U) {
         ((TChallenge4PResult *)((void *)(arg0)))->show_message((s32)((s32)(get_localized_text_entry(0x2B, 6))));
     }
-    p = M2C_FIELD(arg0, u32 *, 0x2C);
+    p = *(u32 *)((s8 *)arg0 + 0x2C);
     if ((p != 0U) && (is_message_window_ready(p) != 0)) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x20);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x20);
         if (temp_r3 > 0) {
-            M2C_FIELD(arg0, s32 *, 0x20) = (s32) (temp_r3 - 1);
+            *(s32 *)((s8 *)arg0 + 0x20) = (s32) (temp_r3 - 1);
             return;
         }
-        if (get_player_by_client_id((u16)(M2C_FIELD(arg0, u16 *, 0x24))) != 0U) {
+        if (get_player_by_client_id((u16)(*(u16 *)((s8 *)arg0 + 0x24))) != 0U) {
             temp_r5 = get_map_id__13TRaderMapCoreFPv() * 0x50;
             if (TWindowShortListCtrl__check_controller_button(controller_input_state + temp_r5 + 0x20, 4, temp_r5) != 0) {
-                M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+                *(s32 *)((s8 *)arg0 + 0x1C) = 1;
             }
         } else {
-            M2C_FIELD(arg0, s32 *, 0x1C) = 3;
+            *(s32 *)((s8 *)arg0 + 0x1C) = 3;
         }
     }
 }

@@ -1,10 +1,7 @@
 #include "types.h"
 #include "pso/misc/CharacterAppearance.h"
 #include "pso/system/ChunkMaterialState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TextureList
 {
   void *entries;
@@ -65,11 +62,11 @@ s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 s32 TCharaMaking__sub_8028E3A0(f32 *arg0);
 extern s32 player_class_trait_table[];
 extern struct ClassAppearance class_appearance_table[19];
-M2C_UNK validate_player_visual_record(void *arg0);
+s32 validate_player_visual_record(void *arg0);
 }
 
 struct RecoveredGlobal_8028DE78_lbl_804D9164 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x410];
 };
 
@@ -80,8 +77,8 @@ struct P_8028DCCC { f32 a; f32 b; };
 extern "C" {
 extern RecoveredGlobal_8028DE78_lbl_804D9164 class_appearance_preset_table;
 u8 *get_class_appearance_preset(s32 arg0);
-M2C_UNK set_shadow_material_state();
-M2C_UNK draw_chunk_object(void *);
+s32 set_shadow_material_state();
+s32 draw_chunk_object(void *);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -99,11 +96,11 @@ extern "C" {
 
 void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0);
 s32 query_state__12TCharaMakingFv(void);
-void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1);
+void setup_from_data__12TCharaMakingFii(s32 arg0, s32 arg1);
 void update_body_parts__12TCharaMakingFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803DA16C(void *);
+s32 TLobby__sub_803DA16C(void *);
 s32 TObjCMMainMenu__sub_8028EBCC(void*);
-M2C_UNK create__12TChCrLoadReqFPv(void *);
+s32 create__12TChCrLoadReqFPv(void *);
 
 extern u32 creation_main_menu_obj;
 
@@ -181,7 +178,7 @@ void TCharaMaking__draw_colored_hair(f32 farg0, s32 arg0, CharacterAppearanceFie
 }
 #pragma pop
 
-void setup_from_data__12TCharaMakingFii(M2C_UNK arg0, M2C_UNK arg1) {
+void setup_from_data__12TCharaMakingFii(s32 arg0, s32 arg1) {
     TCharaMaking__draw_colored_hair(1.0f, arg0, (CharacterAppearanceFields *)arg1, 0);
 }
 
@@ -196,30 +193,30 @@ u8 *get_class_appearance_preset(s32 arg0) {
 }
 
 void free_loaded_buffers__12TCharaMakingFPv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x8B8) != 0) {
-        if (!(M2C_FIELD(arg0, s32 *, 0xCFC) & 1)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x8B8) != 0) {
+        if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 1)) {
             TLobby__sub_803DA16C(arg0 + 0xA1C);
         }
-        M2C_FIELD(arg0, s32 *, 0x8B8) = 0;
+        *(s32 *)((s8 *)arg0 + 0x8B8) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xA24) != 0) {
-        if (!(M2C_FIELD(arg0, s32 *, 0xCFC) & 2)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xA24) != 0) {
+        if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 2)) {
             TLobby__sub_803DA16C(arg0 + 0xB88);
         }
-        M2C_FIELD(arg0, s32 *, 0xA24) = 0;
+        *(s32 *)((s8 *)arg0 + 0xA24) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB90) != 0) {
-        if (!(M2C_FIELD(arg0, s32 *, 0xCFC) & 4)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xB90) != 0) {
+        if (!(*(s32 *)((s8 *)arg0 + 0xCFC) & 4)) {
             TLobby__sub_803DA16C(arg0 + 0xCF4);
         }
-        M2C_FIELD(arg0, s32 *, 0xB90) = 0;
+        *(s32 *)((s8 *)arg0 + 0xB90) = 0;
     }
 }
 
 void update_body_parts__12TCharaMakingFPv(u8 *arg0) {
     validate_player_visual_record((void *)(arg0 + 0x85C));
-    M2C_FIELD(arg0, f32 *, 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
-    ((M2C_UNK (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
+    *(f32 *)((s8 *)arg0 + 0xD48) = calc_character_height((void *)(arg0 + 0x85C));
+    ((s32 (*)(void *, void *, void *, void *))TCharaMaking__bind_appearance_texture_lists)(arg0 + 0x8B8, arg0 + 0xA24, arg0 + 0xB90, arg0 + 0x85C);
     create__12TChCrLoadReqFPv(arg0);
 }
 
@@ -232,7 +229,7 @@ void enable_making__12TCharaMakingFv(void);
 int restore_default_scene(void);
 int set_scene_override(void*);
 
-M2C_UNK validate_player_visual_record(void *arg0) {
+s32 validate_player_visual_record(void *arg0) {
     s32 bad;
     s32 ok;
     s32 flags;

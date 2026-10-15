@@ -1,10 +1,7 @@
 #include "pso/ui/TAdChrSelSlotGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct S802C7498_802C70AC { u8 pad[0x118]; s32 arr[1]; };
 
 struct O_802C754C { u8 pad[0x110]; s32 v[1]; };
@@ -40,7 +37,7 @@ struct S_802C7560 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_14 { s32 v[5]; };
+struct ByteBlock_14 { s32 v[5]; };
 
 struct E_802C7758 { f32 x; f32 y; f32 z; f32 w; u8 pad[0x10]; };
 
@@ -126,13 +123,13 @@ f32 calc_result_offset__6TLobbyFv();
 f32 calc_phase_offset__6TLobbyFv();
 extern const f32 lbl_805DE5B4, lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 void update_character_select_transition(CharacterSelectTransitionState* self);
-M2C_UNK __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
+s32 __ct__7TObjectFP7TObject(CharacterSelectTransitionState*, TObject* parent);
 f32 calc_phase_offset__6TLobbyFv();
 void* __nw__7TObjectFUl(u32 size);
 StatusWindow* TWindowSubStatusDisp__ct(void* storage, s32 client);
 CallbackTask* update_display__20TWindowSubSymbolChatFi(void (*callback)());
 void update_transition_anim_if_active__22TAdMultiPlyChrSelectGCFv();
-extern M2C_UNK lbl_804E0B28[];
+extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 extern const f32 lbl_805DE5B8, lbl_805DE5BC, lbl_805DE5C0;
 CharacterSelectTransitionState* construct_character_select_transition(CharacterSelectTransitionState* self, TObject* parent, s32 client);
@@ -147,18 +144,18 @@ void *destroy_character_select_transition(void *arg0, s16 arg1);
 void render__15TAdChrSelSlotGCFv(void *arg0);
 void reset_all_slots__15TAdChrSelSlotGCFPv(void* p);
 void TLobby__sub_803DA16C(void*);
-M2C_UNK TWindow__close(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
-M2C_UNK restore_saved_depth_alpha_state();
+s32 TWindow__close(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 set_cached_blend_factor(s32, s32);
+s32 restore_saved_depth_alpha_state();
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
+s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void TAdChrSelSlotGC__sub_802C70AC(void) {  }
 
-extern M2C_UNK lbl_804E0B28[];
+extern s32 lbl_804E0B28[];
 extern s32 lbl_805D67E8;
 
 #pragma push
@@ -195,14 +192,14 @@ void update_character_select_transition(CharacterSelectTransitionState* self) {
 
 void *destroy_character_select_transition(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E0B28;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x4C) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x4C));
-            M2C_FIELD(arg0, u32 *, 0x4C) = 0U;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E0B28;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x4C) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x4C));
+            *(u32 *)((s8 *)arg0 + 0x4C) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x48) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x48));
-            M2C_FIELD(arg0, u32 *, 0x48) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x48) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x48));
+            *(u32 *)((s8 *)arg0 + 0x48) = 0U;
         }
         lbl_805D67E8 = 0;
         __dt__7TObjectFv(arg0, 0);
@@ -251,7 +248,7 @@ void draw_slot_icons__15TAdChrSelSlotGCFPv(TAdChrSelSlotGC_802C7314 *self) {
 }
 
 void render__15TAdChrSelSlotGCFv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 1) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x124) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -265,7 +262,7 @@ block_5:
         draw_slot_icons__15TAdChrSelSlotGCFPv((TAdChrSelSlotGC_802C7314 *)(arg0));
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x124) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x124) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -376,8 +373,8 @@ void TLobby__sub_802C78EC(void) {
 }
 void TLobby__sub_802C7920(void) {
     update_menu_cursor__6TLobbyFv();
-    M2CCopy_14 a = *(const M2CCopy_14 *)lbl_80471D3C;
-    M2CCopy_14 b = *(const M2CCopy_14 *)lbl_80471D50;
+    ByteBlock_14 a = *(const ByteBlock_14 *)lbl_80471D3C;
+    ByteBlock_14 b = *(const ByteBlock_14 *)lbl_80471D50;
     s32 r4 = b.v[current_language];
     lbl_805D67F0 = r4;
     TLobby__sub_8023E4B4(a.v[current_language], r4);

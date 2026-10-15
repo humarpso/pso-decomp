@@ -30,10 +30,7 @@ void set_flag_and_update__10TObjPlayerFPvi(void* a0, int a1) { item_reduce_targe
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801D4D48 { char pad[0x18]; };
 struct VObj_801D4D48 : Base_801D4D48 {
 #define V8(b) virtual void b##0(); virtual void b##1(); virtual void b##2(); virtual void b##3(); virtual void b##4(); virtual void b##5(); virtual void b##6(); virtual void b##7();
@@ -47,7 +44,7 @@ extern "C" {
 s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1);
 s32 lookup_item_def__9TItemDataFPv(s32);
 void set_mode_and_refresh_object__10TObjPlayerFPvi(void* a0, int a1);
-M2C_UNK count_items_recursive__10TObjPlayerFPv(s32);
+s32 count_items_recursive__10TObjPlayerFPv(s32);
 void *get_owner_if_alive__10TObjPlayerFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
 
@@ -68,7 +65,7 @@ s32 count_items_by_id__10TObjPlayerFPvi(void *arg0, s32 arg1) {
     }
     inventory_search_item_data = arg1;
     inventory_walk_visit_count = 0;
-    count_items_recursive__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x1C4));
+    count_items_recursive__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x1C4));
     return inventory_walk_visit_count;
 }
 

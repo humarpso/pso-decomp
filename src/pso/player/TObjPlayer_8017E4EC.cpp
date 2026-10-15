@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_8017E550 { f32 x, y, z; };
 
@@ -36,9 +32,9 @@ extern "C" {
 void set_camera_mode__10TObjPlayerFi(s32 arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 s32 get_quest_bgm_issued_flag();
-M2C_UNK play_area_music(s32);
+s32 play_area_music(s32);
 
-extern M2C_UNK area_music_filename_table[];
+extern s32 area_music_filename_table[];
 extern s32 bgm_zone_category;
 
 void set_camera_mode__10TObjPlayerFi(s32 arg0) {

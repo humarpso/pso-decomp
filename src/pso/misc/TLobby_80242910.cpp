@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Anim_80242B30 {
     s16 state;
@@ -79,19 +75,19 @@ void accumulate_rumble_strength__23TAdSinglePlyChrSelectGCFPvi(s16 *arg0, s32 ar
         var_r30 = (u8 *)(get_pad_rumble_effect_slots());
         var_r29 = 0;
         do {
-            if ((is_active__12TBoss3VoloptFPv((int) (var_r30)) != 0) && ((temp_r3_2 = M2C_FIELD(var_r30, u8 *, 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) M2C_FIELD(var_r30, s16 *, 2)))) {
+            if ((is_active__12TBoss3VoloptFPv((int) (var_r30)) != 0) && ((temp_r3_2 = *(u8 *)((s8 *)var_r30 + 0), (((temp_r3_2 & 0x10) == 0) == 0)) || (arg1 == (s16) *(s16 *)((s8 *)var_r30 + 2)))) {
                 if (temp_r3_2 & 2) {
-                    stack.sp8 = M2C_FIELD(var_r30, f32 *, 4) - M2C_FIELD(temp_r3, f32 *, 0x38);
-                    stack.spC = M2C_FIELD(var_r30, f32 *, 8) - M2C_FIELD(temp_r3, f32 *, 0x3C);
-                    temp_f1 = M2C_FIELD(var_r30, f32 *, 0xC);
-                    stack.sp10 = temp_f1 - M2C_FIELD(temp_r3, f32 *, 0x40);
-                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) M2C_FIELD(var_r30, s16 *, 0x10));
+                    stack.sp8 = *(f32 *)((s8 *)var_r30 + 4) - *(f32 *)((s8 *)temp_r3 + 0x38);
+                    stack.spC = *(f32 *)((s8 *)var_r30 + 8) - *(f32 *)((s8 *)temp_r3 + 0x3C);
+                    temp_f1 = *(f32 *)((s8 *)var_r30 + 0xC);
+                    stack.sp10 = temp_f1 - *(f32 *)((s8 *)temp_r3 + 0x40);
+                    var_r3 = (s16) -((lbl_805DCA00 * update_scale__15TObjBoss2TunnelFPv((void *) (&stack.sp8), (f32) (temp_f1))) - (f32) *(s16 *)((s8 *)var_r30 + 0x10));
                     if (var_r3 < 0xA) {
                         var_r3 = 0xA;
                     }
                     *arg0 += var_r3;
                 } else {
-                    *arg0 += M2C_FIELD(var_r30, s16 *, 0x10);
+                    *arg0 += *(s16 *)((s8 *)var_r30 + 0x10);
                 }
             }
             var_r29 += 1;

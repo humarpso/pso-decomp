@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_8024A228 {
@@ -12,7 +8,7 @@ struct Stack_8024A228 {
 };
 
 struct RecoveredGlobal_8024A228_lbl_804CEA88 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -23,7 +19,7 @@ struct Stack_8024A1CC {
 };
 
 struct RecoveredGlobal_8024A1CC_lbl_804CEA94 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -77,7 +73,7 @@ void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
 s32 TWindowCtrl__sub_8024A314(void);
 extern void *TWindowCtrl__active_window;
 void TLobby__sub_8024AAA0(s32 arg0, s32 arg1);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 void close_timer_window__11TWindowCtrlFv(void);
 s32 set_time__12TWindowTimerFPvUi(int, void *);
 extern void *TWindowCtrl__active_window;
@@ -94,7 +90,7 @@ extern void *TWindowCtrl__active_window;
 bool is_submit_cooldown_clear__11TWindowCtrlFv(void);
 u8 *find_entity_by_id(u16);
 extern const f32 lbl_805DCBE0;
-f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
+f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(s32 arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2);
 void rearm_balloon__15TWindowFukidasiFv(void *, s32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *, void *);
@@ -108,7 +104,7 @@ extern s32 local_client_id;
 s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
 void *__nw__7TObjectFUl(u32);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 s32 find_farthest_balloon_slot__11TWindowCtrlFPvUs(Ctrl_8024A714 *ctrl, u16 speaker);
 s32 count_balloon_slots__11TWindowCtrlFPv(Obj_8024A7CC *self);
 u16 get_flags__11TWindowCtrlFPv(void *);
@@ -142,13 +138,13 @@ void open_status_112__11TWindowCtrlFv(void);
 void set_field22__11TWindowCtrlFv(void);
 void update_focused__11TWindowCtrlFv(void);
 s32 TWindowCtrl__sub_8024C5C4(u32);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 u32 create__12TWindowTimerFv();
 u32 create_alt__12TWindowTimerFv();
 u32 create_area_window();
 u32 create_window_area();
-M2C_UNK get_message_10__20TWindowSubStatusDispFPv(M2C_UNK);
-M2C_UNK update__11TWindowChatFPv(u32);
+s32 get_message_10__20TWindowSubStatusDispFPv(s32);
+s32 update__11TWindowChatFPv(u32);
 
 extern void *TWindowCtrl__active_window;
 
@@ -158,7 +154,7 @@ bool TWindowCtrl__sub_8024A1A8(void) {
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) == NULL) {
         return 0;
     }
-    return M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), s32 *, 0x3C) != 0;
+    return *(s32 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C) != 0;
 }
 
 void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0) {
@@ -166,15 +162,15 @@ void call_window_method_with_default_vec__11TWindowCtrlFi(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024A1CC, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A1CC, sp10) == 0x8) ? 1 : -1];
     Stack_8024A1CC stack;
-    stack.sp8 = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&window_ctrl_default_call_args.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_default_call_args.value) + 8);
     call_window_method__11TWindowCtrlFPvi((void *) (arg0), (void *) (&stack.sp8));
 }
 
 void set_field22__11TWindowCtrlFv(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {
-        M2C_FIELD(TWindowCtrl__active_window, s16 *, 0x22) = 0x2D;
+        *(s16 *)((s8 *)TWindowCtrl__active_window + 0x22) = 0x2D;
     }
 }
 
@@ -186,9 +182,9 @@ void TWindowCtrl__sub_8024A228(s32 arg0) {
     typedef char spC_offset[(offsetof(Stack_8024A228, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8024A228, sp10) == 0x8) ? 1 : -1];
     Stack_8024A228 stack;
-    stack.sp8 = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&window_ctrl_main_callback_desc.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&window_ctrl_main_callback_desc.value) + 8);
     TWindowCtrl__sub_8024B098((void *) (arg0), (void *) (&stack.sp8));
 }
 
@@ -196,12 +192,12 @@ bool is_submit_cooldown_clear__11TWindowCtrlFv(void) {
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) == NULL) {
         return 0;
     }
-    return M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), s16 *, 0x22) <= 0;
+    return *(s16 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x22) <= 0;
 }
 
 void update_focused__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38) != 0U)) {
-        update__11TWindowChatFPv(M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38));
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x38) != 0U)) {
+        update__11TWindowChatFPv(*(u32 *)((s8 *)TWindowCtrl__active_window + 0x38));
     }
 }
 
@@ -211,10 +207,10 @@ s32 get_active_sub__11TWindowCtrlFv(void) {
     if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    if ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38) == 0U) {
+    if ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x38) == 0U) {
         return 0;
     }
-    return TWindowCtrl__sub_8024C5C4(M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38));
+    return TWindowCtrl__sub_8024C5C4(*(u32 *)((s8 *)TWindowCtrl__active_window + 0x38));
 }
 
 extern void *TWindowCtrl__active_window;
@@ -223,50 +219,50 @@ s32 TWindowCtrl__sub_8024A314(void) {
     if ((void *) TWindowCtrl__active_window == NULL) {
         return 0;
     }
-    if ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38) == 0U) {
+    if ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x38) == 0U) {
         return 0;
     }
-    return TWindowCtrl__sub_8024701C(M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x38));
+    return TWindowCtrl__sub_8024701C(*(u32 *)((s8 *)TWindowCtrl__active_window + 0x38));
 }
 
 void open_status_111__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) == 0U)) {
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) == 0U)) {
         get_message_10__20TWindowSubStatusDispFPv(0x111);
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) = create_area_window();
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) = create_area_window();
     }
 }
 
 extern void *TWindowCtrl__active_window;
 
 void open_status_112__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) == 0U)) {
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) == 0U)) {
         get_message_10__20TWindowSubStatusDispFPv(0x112);
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) = create_area_window();
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) = create_area_window();
     }
 }
 
 extern void *TWindowCtrl__active_window;
 
 void close_active_window__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) != 0U)) {
-        TWindow__close(M2C_FIELD(TWindowCtrl__active_window, void **, 0x34));
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) = 0U;
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) != 0U)) {
+        TWindow__close(*(void **)((s8 *)TWindowCtrl__active_window + 0x34));
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) = 0U;
     }
 }
 
 extern void *TWindowCtrl__active_window;
 
 void ensure_initialized__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) == 0U)) {
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x34) = create_window_area();
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) == 0U)) {
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x34) = create_window_area();
     }
 }
 
 extern void *TWindowCtrl__active_window;
 
 void create_timer__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) == 0U)) {
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) = create__12TWindowTimerFv();
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) == 0U)) {
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) = create__12TWindowTimerFv();
     }
 }
 
@@ -275,7 +271,7 @@ extern void *TWindowCtrl__active_window;
 void set_timer_window_time__11TWindowCtrlFi(s32 arg0) {
     u32 temp_r3;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
-        temp_r3 = M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u32 *, 0x30);
+        temp_r3 = *(u32 *)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x30);
         if (temp_r3 != 0U) {
             set_time__12TWindowTimerFPvUi((int) (temp_r3), (void *) (arg0));
         }
@@ -283,15 +279,15 @@ void set_timer_window_time__11TWindowCtrlFi(s32 arg0) {
 }
 
 void close_timer_window__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) != 0U)) {
-        TWindow__close(M2C_FIELD(TWindowCtrl__active_window, void **, 0x30));
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) = 0U;
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) != 0U)) {
+        TWindow__close(*(void **)((s8 *)TWindowCtrl__active_window + 0x30));
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) = 0U;
     }
 }
 
 void create_alt_timer__11TWindowCtrlFv(void) {
-    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) == 0U)) {
-        M2C_FIELD(TWindowCtrl__active_window, u32 *, 0x30) = create_alt__12TWindowTimerFv();
+    if (((void *) TWindowCtrl__active_window != NULL) && ((u32) *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) == 0U)) {
+        *(u32 *)((s8 *)TWindowCtrl__active_window + 0x30) = create_alt__12TWindowTimerFv();
     }
 }
 
@@ -345,7 +341,7 @@ void get_speaker_balloon_anchor__11TWindowCtrlFPviPvPv(Ctrl_8024A928 *arg0, s32 
 }
 #pragma pop
 
-f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(M2C_UNK arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
+f32 get_entity_distance_or_default__11TWindowCtrlFiPvUs(s32 arg0, RecoveredFields_8024A688_arg1 *arg1, u16 arg2) {
   f32 temp_f2;
   f32 temp_f3;
   f32 temp_f4;

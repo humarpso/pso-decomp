@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK enemy_clear_target(void *);
+s32 enemy_clear_target(void *);
 s32 is_valid_target__9TObjEneDDFPv(s32);
 s32 enemy_check_target_valid(void *arg0);
-M2C_UNK enemy_clear_target(void *);
+s32 enemy_clear_target(void *);
 s32 is_alive__9TObjEneDDFPv(s32);
 u32 find_entity_by_id(u32);
 s32 enemy_has_live_target(void *arg0);
@@ -19,7 +15,7 @@ extern "C" {
 #pragma push
 #pragma fp_contract on
 s32 enemy_has_live_target(void *arg0) {
-    u32 id = M2C_FIELD(arg0, u16 *, 0x38C);
+    u32 id = *(u16 *)((s8 *)arg0 + 0x38C);
     if (id == 0xFFFF) {
         return 0;
     }
@@ -27,12 +23,12 @@ s32 enemy_has_live_target(void *arg0) {
         enemy_clear_target(arg0);
         return 0;
     }
-    return is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390));
+    return is_alive__9TObjEneDDFPv(*(s32 *)((s8 *)arg0 + 0x390));
 }
 #pragma pop
 
 s32 enemy_check_target_valid(void *arg0) {
-    u16 id = M2C_FIELD(arg0, u16 *, 0x38C);
+    u16 id = *(u16 *)((s8 *)arg0 + 0x38C);
     if (id == 0xFFFF) {
         return 0;
     }
@@ -40,7 +36,7 @@ s32 enemy_check_target_valid(void *arg0) {
         enemy_clear_target(arg0);
         return 0;
     }
-    return is_valid_target__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x390));
+    return is_valid_target__9TObjEneDDFPv(*(s32 *)((s8 *)arg0 + 0x390));
 }
 
 }

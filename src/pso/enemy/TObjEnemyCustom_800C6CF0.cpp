@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Plr_800C6E34 {
     u8 pad0[0x2A8];
@@ -93,7 +89,7 @@ void subtract_vector(void *, void *);
 void push_matrix_from(void *);
 void pop_matrices(int);
 extern const f64 lbl_8043BCC8;
-extern M2C_UNK identity_matrix[];
+extern s32 identity_matrix[];
 extern const f32 lbl_805DA070;
 extern const f32 lbl_805DA074;
 extern const f32 lbl_805DA078;
@@ -104,14 +100,14 @@ void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec
 extern "C" {
 
 void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0);
-M2C_UNK call_vt78__10TObjPlayerFPv();
+s32 call_vt78__10TObjPlayerFPv();
 
 void call_player_preserving_field__15TObjEnemyCustomFPv(void *arg0) {
     s16 temp_r31;
 
-    temp_r31 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r31 = *(s16 *)((s8 *)arg0 + 0x326);
     call_vt78__10TObjPlayerFPv();
-    M2C_FIELD(arg0, s16 *, 0x326) = temp_r31;
+    *(s16 *)((s8 *)arg0 + 0x326) = temp_r31;
 }
 
 u16 pick_random_nearby_player__10TObjPlayerFPvf(u8 *arg0, f32 radius) {
@@ -238,10 +234,6 @@ BOOL select_nearest_target__10TObjPlayerFPvf(Obj_800C6FFC *arg0, f32 radius) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -301,10 +293,10 @@ struct VObj_18 : VBase_18 {
     virtual void m53();
     virtual void m54();
     virtual void m55();
-    virtual M2C_UNK m56();
+    virtual s32 m56();
 };
 extern "C" {
-M2C_UNK update_if_active__15TObjEneMe1GiGueFPv(void *, int);
+s32 update_if_active__15TObjEneMe1GiGueFPv(void *, int);
 f32 xz_distance_squared(void *, void *);
 extern const f32 lbl_805DA080;
 void TObjEneMe1GiGue__sub_800C73F4(u8 *arg0);
@@ -319,9 +311,9 @@ u8 find_target_in_range__10TObjPlayerFPvf(void *arg0, f32 farg0) {
     if (obj_testFlags30(arg0, 0x10) != 0) {
         return ((u8 (*)(void *, f32))select_nearest_target__10TObjPlayerFPvf)(arg0, farg0);
     }
-    M2C_FIELD(arg0, u16 *, 0x338) = ((u16 (*)(void *, M2C_UNK, f32))find_nearest_visible_player)(arg0, 0, farg0);
-    M2C_FIELD(arg0, s32 *, 0x2A8) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x338));
-    return (u8) (M2C_FIELD(arg0, s32 *, 0x2A8) != 0);
+    *(u16 *)((s8 *)arg0 + 0x338) = ((u16 (*)(void *, s32, f32))find_nearest_visible_player)(arg0, 0, farg0);
+    *(s32 *)((s8 *)arg0 + 0x2A8) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x338));
+    return (u8) (*(s32 *)((s8 *)arg0 + 0x2A8) != 0);
 }
 
 void move_along_ground_avoiding_walls__10TObjPlayerFPviff(Pl_800C7168 *self, Vec_800C7168 arg1, f32 farg0, f32 farg1) {

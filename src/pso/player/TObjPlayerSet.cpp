@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -13,27 +8,27 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80195720___vt__13TObjPlayerSet {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 extern "C" {
 u8 * __ct__12TQuestThreadFv(void *, s32, s32);
-M2C_UNK destroy_board__17TQuestThreadBoardFv();
+s32 destroy_board__17TQuestThreadBoardFv();
 void *__nw__7TObjectFUl(int);
-M2C_UNK set_parent__7TObjectFP7TObject(int, int);
+s32 set_parent__7TObjectFP7TObject(int, int);
 extern s32 tl_00;
 u8 *TObjQuestCol2__vt14(u8 *arg0);
 void disallow_rendering__7TObjectFv(void *);
 u8 * construct_world_actor_base(void *);
-extern M2C_UNK __vt__13TObjPlayerSet[];
+extern s32 __vt__13TObjPlayerSet[];
 extern s32 TObjPlayer__player_set_class_name;
 extern const f32 lbl_805DBEF0;
-u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -56,16 +51,16 @@ extern void *tl_06;
 void *create__13TObjPlayerSetFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x90);
     if (o != NULL) {
-        o = TObjPlayerSet__ct((u8 *)(o), (M2C_UNK)(tl_06), (s32)(arg0));
+        o = TObjPlayerSet__ct((u8 *)(o), (s32)(tl_06), (s32)(arg0));
     }
     return o;
 }
 
-extern M2C_UNK __vt__13TObjPlayerSet[];
+extern s32 __vt__13TObjPlayerSet[];
 
 void *__dt__13TObjPlayerSetFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjPlayerSet;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjPlayerSet;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -79,16 +74,16 @@ extern void *quest_collision_task_root;
 #pragma push
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_80195720___vt__13TObjPlayerSet_size[sizeof(RecoveredGlobal_80195720___vt__13TObjPlayerSet) == 0x38 ? 1 : -1];
-u8 *TObjPlayerSet__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjPlayerSet__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjPlayer__player_set_class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80195720___vt__13TObjPlayerSet *)&__vt__13TObjPlayerSet).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjPlayer__player_set_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    if (M2C_FIELD(arg0, f32 *, 0x68) < lbl_805DBEF0) {
-        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DBEF0;
+    if (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DBEF0) {
+        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DBEF0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x84) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x84) = 0;
     }
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
@@ -108,11 +103,11 @@ u8 *TObjQuestCol2__vt14(u8 *arg0) {
     u8 *var_r31;
     destroy_board__17TQuestThreadBoardFv();
     var_r31 = (u8 *)(NULL);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xBC) != 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xBC) != 0U) {
         temp_r3 = (u8 *)(((u8 *)__nw__7TObjectFUl((int)(0x194))));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) M2C_FIELD(arg0, u32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xB0)));
+            var_r0 = (u8 *)(__ct__12TQuestThreadFv(temp_r3, (s32) *(u32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xB0)));
         }
         var_r31 = (u8 *)(var_r0);
         if (var_r0 != NULL) {

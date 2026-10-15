@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80127F40_lbl_804A0588 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 extern "C" {
-M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
-M2C_UNK draw_weapon_at_joint(void *, int);
+s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
+s32 draw_weapon_at_joint(void *, int);
 void update_dual_weapon_trails__10TObjPlayerFPv(u8 *arg0);
-u8 * init_vtable_804A3738__10TObjPlayerFPv(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * init_vtable_804A3738__10TObjPlayerFPv(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *yamigarasu_create(u8 *arg0);
 u8 * TItemTimerEvent__ct(void *, s16, s32);
@@ -41,8 +37,8 @@ u8 *yamigarasu_create(u8 *arg0) {
 typedef char RecoveredGlobal_80127F40_lbl_804A0588_size[sizeof(RecoveredGlobal_80127F40_lbl_804A0588) == 0x20 ? 1 : -1];
 u8 *confusion_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A0588.value;
-    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A0588.value;
+    *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     return arg0;
 }
 
@@ -51,10 +47,10 @@ void update_dual_weapon_trails__10TObjPlayerFPv(u8 *arg0) {
     draw_weapon_at_joint((void *) (arg0), (int) (0x31));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (0));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (1));
-    temp_r31 = M2C_FIELD(arg0, s32 *, 0xF4);
-    M2C_FIELD(arg0, s32 *, 0xF4) = (s32) M2C_FIELD(arg0, s32 *, 0x188);
+    temp_r31 = *(s32 *)((s8 *)arg0 + 0xF4);
+    *(s32 *)((s8 *)arg0 + 0xF4) = (s32) *(s32 *)((s8 *)arg0 + 0x188);
     draw_weapon_at_joint((void *) (arg0), (int) (0x24));
-    M2C_FIELD(arg0, s32 *, 0xF4) = temp_r31;
+    *(s32 *)((s8 *)arg0 + 0xF4) = temp_r31;
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (2));
     update_trail_slot__11TItemWeaponFPvi((void *) (arg0), (int) (3));
 }

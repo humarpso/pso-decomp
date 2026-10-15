@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-M2C_UNK GXLoadPosMtxImm(int, int);
+s32 GXLoadPosMtxImm(int, int);
 extern s32 current_matrix;
 void load_camera_view_matrix(void);
 
@@ -12,8 +9,8 @@ typedef f32 Mtx_803E20B0[3][4];
 typedef struct Cam_803E20B0 { u8 pad0[0x4C]; f32 f4C; u8 pad50[4]; f32 f54; } Cam_803E20B0;
 typedef struct Vp_803E20B0 { u8 pad0[4]; u16 w; u16 h; } Vp_803E20B0;
 
-M2C_UNK PSMTXIdentity(Mtx_803E20B0);
-M2C_UNK GXSetCurrentMtx(u32);
+s32 PSMTXIdentity(Mtx_803E20B0);
+s32 GXSetCurrentMtx(u32);
 extern Cam_803E20B0 scene_projection_state;
 extern Vp_803E20B0 *active_gx_render_mode;
 }

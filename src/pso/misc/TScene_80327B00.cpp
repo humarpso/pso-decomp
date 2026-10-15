@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct Pt_80327B40 { s16 x, y; };
 
 struct Mesh_80327B40 { u16 pad0; u16 n; u8 pad4[4]; Pt_80327B40 *pts; };
@@ -23,16 +18,16 @@ extern "C" {
 void *destroy_buffers__6TSceneFPvs(void *arg0, s16 arg1);
 void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2);
 void offset_position__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2);
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK visit_matching_models(void *, s32, s32);
-M2C_UNK visit_model_tree_recursive();
-M2C_UNK free__11TOBoss4RockFUi(void *);
+s32 visit_matching_models(void *, s32, s32);
+s32 visit_model_tree_recursive();
+s32 free__11TOBoss4RockFUi(void *);
 
 void offset_position__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s16 *, 0x10) = (s16) (M2C_FIELD(arg0, s16 *, 0x10) + arg1);
-    M2C_FIELD(arg0, s16 *, 0x12) = (s16) (M2C_FIELD(arg0, s16 *, 0x12) + arg2);
-    apply_uv_offset__6TSceneFPvss((void *)(arg0), (s16)(M2C_FIELD(arg0, s16 *, 0x10)), (s16)(M2C_FIELD(arg0, s16 *, 0x12)));
+    *(s16 *)((s8 *)arg0 + 0x10) = (s16) (*(s16 *)((s8 *)arg0 + 0x10) + arg1);
+    *(s16 *)((s8 *)arg0 + 0x12) = (s16) (*(s16 *)((s8 *)arg0 + 0x12) + arg2);
+    apply_uv_offset__6TSceneFPvss((void *)(arg0), (s16)(*(s16 *)((s8 *)arg0 + 0x10)), (s16)(*(s16 *)((s8 *)arg0 + 0x12)));
 }
 
 void apply_uv_offset__6TSceneFPvss(void *arg0, s16 arg1, s16 arg2) {
@@ -57,13 +52,13 @@ void apply_uv_offset__6TSceneFPvss(void *arg0, s16 arg1, s16 arg2) {
 
 void *destroy_buffers__6TSceneFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xC) != 0U) {
-            free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0xC));
-            M2C_FIELD(arg0, u32 *, 0xC) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xC) != 0U) {
+            free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0xC));
+            *(u32 *)((s8 *)arg0 + 0xC) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 8) != 0U) {
-            free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 8));
-            M2C_FIELD(arg0, u32 *, 8) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 8) != 0U) {
+            free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 8));
+            *(u32 *)((s8 *)arg0 + 8) = 0U;
         }
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -78,21 +73,21 @@ extern s32 scroll_uv_coordinate_write_cursor;
 void *init_buffers__6TSceneFPvii(void *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
 
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = 0;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)((s8 *)arg0 + 0) = 0;
     visit_model_tree_recursive();
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xC) = 0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 4);
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC) = 0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 4);
     if (temp_r0 > 0) {
-        M2C_FIELD(arg0, s32 *, 8) = alloc_buffer__11TOBoss4RockFPv(temp_r0 * 8);
-        M2C_FIELD(arg0, s32 *, 0xC) = alloc_buffer__11TOBoss4RockFPv(M2C_FIELD(arg0, s32 *, 0) * 4);
-        scroll_uv_entry_write_cursor = M2C_FIELD(arg0, s32 *, 8);
-        scroll_uv_coordinate_write_cursor = M2C_FIELD(arg0, s32 *, 0xC);
+        *(s32 *)((s8 *)arg0 + 8) = alloc_buffer__11TOBoss4RockFPv(temp_r0 * 8);
+        *(s32 *)((s8 *)arg0 + 0xC) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 0) * 4);
+        scroll_uv_entry_write_cursor = *(s32 *)((s8 *)arg0 + 8);
+        scroll_uv_coordinate_write_cursor = *(s32 *)((s8 *)arg0 + 0xC);
         visit_matching_models(arg0, arg1, arg2);
     }
-    M2C_FIELD(arg0, s16 *, 0x10) = 0;
-    M2C_FIELD(arg0, s16 *, 0x12) = 0;
+    *(s16 *)((s8 *)arg0 + 0x10) = 0;
+    *(s16 *)((s8 *)arg0 + 0x12) = 0;
     return arg0;
 }
 

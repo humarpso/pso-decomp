@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_1a504b { char pad[0x18]; };
 
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -11,16 +8,16 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_8017D39C_lbl_804B5418 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x130];
 };
 
 struct RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -41,15 +38,15 @@ typedef char RecoveredGlobal_8017D39C___vt__24TOWreckAncientBrakable05_size[size
 u8 *TOWreckAncientBrakable05__ct(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     TOWreckAncientBrakable__ct((void *) (arg0), (int) (3));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__24TOWreckAncientBrakable05.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOWreckAncientBrakable05__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__24TOWreckAncientBrakable05.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncientBrakable05__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
     init_collision_body_parts((void *) (arg0), (void *) ((u8 *)&TOWreckAncient__collision_body_templates.value + 0x84), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
     }
     return arg0;
 }

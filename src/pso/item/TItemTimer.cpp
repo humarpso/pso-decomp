@@ -19,10 +19,7 @@ void TItemTimer::run_task() {
 TItemTimer::~TItemTimer() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase18_8011d87c_8011D414 { char pad[0x18]; };
 struct VObj18_8011d87c_8011D414 : VBase18_8011d87c_8011D414 {
     virtual void vpad0();
@@ -150,34 +147,34 @@ void reset_fields__10TItemTimerFPv(void* p);
 void set_owner_flag_800__10TItemTimerFPv(void *arg0);
 void freeze_curse_deliver(void *arg0);
 void update_owner_state__10TItemTimerFPv(void *arg0);
-M2C_UNK add_actor_hp(s32, M2C_UNK);
-s32 spawn_particle_effect_with_flags(s32, s32, M2C_UNK);
-M2C_UNK add_actor_tp(s32, M2C_UNK);
-M2C_UNK subtract_actor_tp(s32, M2C_UNK);
-M2C_UNK set_owner_id__13TParticleCtrlFPvUs(s32, s32);
+s32 add_actor_hp(s32, s32);
+s32 spawn_particle_effect_with_flags(s32, s32, s32);
+s32 add_actor_tp(s32, s32);
+s32 subtract_actor_tp(s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(s32, s32);
 s32 is_item_area_enabled();
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK get_field_3e0__12TBoss3VoloptFPv(void *);
+s32 __ct__7TObjectFP7TObject();
+s32 disallow_rendering__7TObjectFv(void *);
+s32 get_field_3e0__12TBoss3VoloptFPv(void *);
 s32 is_flag_20000_set__10TObjPlayerFv(s32);
 s32 obj_getField1c(s32);
 s32 obj_isState2_324(void *);
 s32 obj_isState3_324(s32);
-s32 obj_testFlags30(void *, M2C_UNK);
+s32 obj_testFlags30(void *, s32);
 s32 rand();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 
-extern M2C_UNK __vt__10TItemTimer[];
+extern s32 __vt__10TItemTimer[];
 extern s32 lbl_805D2C88;
 
 u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TItemTimer;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TItemTimer;
     reset_fields__10TItemTimerFPv((void*)((void *) (arg0 + 0x20)));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C88;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (arg3 - 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) < 1) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C88;
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (arg3 - 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) < 1) {
+        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
     }
     TItemTimer__sub_8011D598((u8 *)((void *)((void *) (arg0 + 0x20))), (s32)((void *)((void *) (arg1))), (s32)((void *)((void *) (arg2))));
     disallow_rendering__7TObjectFv((void *) (arg0));
@@ -185,17 +182,17 @@ u8 *TItemTimer__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void invoke_callback__10TItemTimerFPv(void *arg0) {
-    M2C_UNK (*temp_r12)(s32);
+    s32 (*temp_r12)(s32);
 
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 4);
+    temp_r12 = *(s32 (**)(s32))((s8 *)arg0 + 4);
     if (temp_r12 != NULL) {
-        temp_r12(M2C_FIELD(arg0, s32 *, 0));
+        temp_r12(*(s32 *)((s8 *)arg0 + 0));
     }
 }
 
 void TItemTimer__sub_8011D598(u8 *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0) = arg1;
-    M2C_FIELD(arg0, s32 *, 4) = arg2;
+    *(s32 *)((s8 *)arg0 + 0) = arg1;
+    *(s32 *)((s8 *)arg0 + 4) = arg2;
 }
 
 void reset_fields__10TItemTimerFPv(void* p) { *(s32*)((char*)p + 0x0) = 0; *(s32*)((char*)p + 0x4) = 0; }
@@ -241,12 +238,12 @@ void slow_curse_deliver(Timer_8011D5B4 *arg0) {
 void TItemTimer__sub_8011D7DC(void *arg0) {
     s32 temp_r3;
 
-    if ((test_flag_2000000__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x28)) == 0)) {
-        get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(M2C_FIELD(arg0, s32 *, 0x28))));
-        if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
-            temp_r3 = spawn_particle_effect_with_flags(M2C_FIELD(arg0, s32 *, 0x28) + 0x2FC, M2C_FIELD(arg0, s32 *, 0x2C), 0x10);
+    if ((test_flag_2000000__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (is_flag_20000_set__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x28)) == 0)) {
+        get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))));
+        if ((is_item_area_enabled() == 1) && (obj_testFlags30((void *)(*(s32 *)((s8 *)arg0 + 0x28)), (s32)(0x800)) == 0)) {
+            temp_r3 = spawn_particle_effect_with_flags(*(s32 *)((s8 *)arg0 + 0x28) + 0x2FC, *(s32 *)((s8 *)arg0 + 0x2C), 0x10);
             if (temp_r3 != 0) {
-                set_owner_id__13TParticleCtrlFPvUs(temp_r3, obj_getField1c(M2C_FIELD(arg0, s32 *, 0x28)));
+                set_owner_id__13TParticleCtrlFPvUs(temp_r3, obj_getField1c(*(s32 *)((s8 *)arg0 + 0x28)));
             }
         }
     }
@@ -257,12 +254,12 @@ extern const f32 lbl_805DAC78;
 
 void freeze_curse_deliver(void *arg0) {
 
-    if (obj_isState2_324(M2C_FIELD(arg0, void **, 0x28)) == 0) {
-        if (((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf84() == 0) {
-            get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(M2C_FIELD(arg0, void **, 0x28))));
-            if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < M2C_FIELD(arg0, f32 *, 0x2C))) {
-                ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vfC0(0);
-                ((VObj18_8011d87c_8011D414 *) M2C_FIELD(arg0, void **, 0x28))->vf128(0);
+    if (obj_isState2_324(*(void **)((s8 *)arg0 + 0x28)) == 0) {
+        if (((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf84() == 0) {
+            get_field_3e0__12TBoss3VoloptFPv((void *)((void *)(*(void **)((s8 *)arg0 + 0x28))));
+            if ((is_item_area_enabled() == 1) && ((lbl_805DAC78 * (f32) rand()) < *(f32 *)((s8 *)arg0 + 0x2C))) {
+                ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vfC0(0);
+                ((VObj18_8011d87c_8011D414 *) *(void **)((s8 *)arg0 + 0x28))->vf128(0);
             }
         }
     }
@@ -273,28 +270,28 @@ extern f32 lbl_805DAC80;
 void add_owner_pb_gauge_point(void *arg0) {
     struct VObj_8011D94C_8011D414 *o;
 
-    if (obj_testFlags30((void *)((void *)(M2C_FIELD(arg0, void **, 0x28))), (M2C_UNK)((M2C_UNK)(0x800))) == 0) {
-        o = (struct VObj_8011D94C_8011D414 *)M2C_FIELD(arg0, void **, 0x28);
+    if (obj_testFlags30((void *)((void *)(*(void **)((s8 *)arg0 + 0x28))), (s32)((s32)(0x800))) == 0) {
+        o = (struct VObj_8011D94C_8011D414 *)*(void **)((s8 *)arg0 + 0x28);
         o->m73(lbl_805DAC80);
     }
 }
 
 void apply_to_player__10TItemTimerFPv(void *arg0) {
-    if (obj_testFlags30((void *)((void *)(M2C_FIELD(arg0, s32 *, 0x28))), (M2C_UNK)((M2C_UNK)(0x800))) == 0) {
-        add_actor_tp(M2C_FIELD(arg0, s32 *, 0x28), 1);
+    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))), (s32)((s32)(0x800))) == 0) {
+        add_actor_tp(*(s32 *)((s8 *)arg0 + 0x28), 1);
     }
 }
 
 void set_owner_flag_800__10TItemTimerFPv(void *arg0) {
-    if (obj_testFlags30((void *)((void *)(M2C_FIELD(arg0, s32 *, 0x28))), (M2C_UNK)((M2C_UNK)(0x800))) == 0) {
-        add_actor_hp(M2C_FIELD(arg0, s32 *, 0x28), 1);
+    if (obj_testFlags30((void *)((void *)(*(s32 *)((s8 *)arg0 + 0x28))), (s32)((s32)(0x800))) == 0) {
+        add_actor_hp(*(s32 *)((s8 *)arg0 + 0x28), 1);
     }
 }
 
 void update_owner_state__10TItemTimerFPv(void *arg0) {
-    get_field_3e0__12TBoss3VoloptFPv((void *)(M2C_FIELD(arg0, s32 *, 0x28)));
-    if ((is_item_area_enabled() == 1) && (obj_isState3_324(M2C_FIELD(arg0, s32 *, 0x28)) == 0) && (obj_testFlags30((void *)(M2C_FIELD(arg0, s32 *, 0x28)), (M2C_UNK)(0x800)) == 0)) {
-        subtract_actor_tp(M2C_FIELD(arg0, s32 *, 0x28), 1);
+    get_field_3e0__12TBoss3VoloptFPv((void *)(*(s32 *)((s8 *)arg0 + 0x28)));
+    if ((is_item_area_enabled() == 1) && (obj_isState3_324(*(s32 *)((s8 *)arg0 + 0x28)) == 0) && (obj_testFlags30((void *)(*(s32 *)((s8 *)arg0 + 0x28)), (s32)(0x800)) == 0)) {
+        subtract_actor_tp(*(s32 *)((s8 *)arg0 + 0x28), 1);
     }
 }
 

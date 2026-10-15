@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pt_80250A24 { f32 x, y; };
 
@@ -117,7 +113,7 @@ struct Cam_80251380 {
 
 struct RecoveredGlobal_80251BA0_lbl_804CF080
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x20];
 };
 
@@ -218,7 +214,7 @@ f32 get_fov__11TCameraCtrlFv();
 f32 get_view_scale__11TCameraCtrlFv();
 s32 get_screen_width__11TCameraCtrlFv();
 s32 get_screen_height__11TCameraCtrlFv();
-M2C_UNK play_symbol_sound__20TWindowSubSymbolChatFi(s32);
+s32 play_symbol_sound__20TWindowSubSymbolChatFi(s32);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 Ent_802511E4 * find_entity_by_id(u16);
 f32 get_card_window_scale__20TWindowSubStatusDispFi(s16);
@@ -231,13 +227,13 @@ u32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, int);
 View_80252764 * get_draw_context__11TWindowBaseFPv(void *);
 s32 get_field_20__17TWindowSubComCardFPv();
 s32 save_position__17TWindowSubComCardFPv(void *);
-M2C_UNK set_field_1c__6TLobbyFPvf(f32);
+s32 set_field_1c__6TLobbyFPvf(f32);
 s32 TWindowSubAreaMapDisp__sub_80246948(void *);
 s32 is_bit10_set__15TWindowFukidasiFPv(void *);
 s32 refresh_status_display__9TWindowDDFv(int);
 void TWindowSubSymbolChat__sub_802483F0(void *, f32 *);
-M2C_UNK set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
-M2C_UNK init_layout_entries__20TWindowSubSymbolChatFii(void *, s16);
+s32 set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(void *, u32 *);
+s32 init_layout_entries__20TWindowSubSymbolChatFii(void *, s16);
 s32 draw_resolved_window__15TWindowFukidasiFiiii(Fuki_80250F70 *, f32 *, f32 *, s32);
 void hide__15TWindowFukidasiFPv(void *);
 f32 * get_message_by_type__11TWindowCtrlFci(u8, int);
@@ -280,7 +276,7 @@ void run_task__15TWindowFukidasiFPv(u8 *arg0);
 s32 set_flag2c_bit100__15TWindowFukidasiFPv(void *);
 void clear_flag2c_bit200__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void set_flag2c_bit200__15TWindowFukidasiFPv(Fuki_802504C0 *);
-M2C_UNK clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
+s32 clear_flag2c_bit100__15TWindowFukidasiFPv(void *);
 s32 TWindowFukidasi__sub_80252C38(void *);
 void clear_visible_flag__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void set_flag__15TWindowFukidasiFPv(Fuki_802504C0 *);
@@ -288,18 +284,18 @@ void TWindowFukidasi__sub_80252C68(Fuki_802504C0 *);
 s32 is_flag_set__15TWindowFukidasiFPv(Fuki_802504C0 *);
 void clear_flag_20__15TWindowFukidasiFPv();
 int is_active__15TWindowFukidasiFPv(void *);
-M2C_UNK clear_flag__15TWindowFukidasiFPv(void *);
+s32 clear_flag__15TWindowFukidasiFPv(void *);
 s32 is_balloon_visible(void *);
 s32 fn_80252CBC(void);
 void draw_visible_window_entries(void *, void *, View_80252764 *);
 void update_window_entry_list(void *, void *);
-M2C_UNK destroy_all_items__20TWindowSubStatusDispFPv(void *);
-M2C_UNK init_window_layout_entries(void *, void *, int);
+s32 destroy_all_items__20TWindowSubStatusDispFPv(void *);
+s32 init_window_layout_entries(void *, void *, int);
 s32 reset_float_field__15TWindowHelpItemFPv();
 s32 measure_message_text_width(int, f32);
 s32 set_text_entry_string(int, void *, int);
 s32 strcmp(s32, s32);
-M2C_UNK strncpy(s32, s32, s32);
+s32 strncpy(s32, s32, s32);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vec3_dot(void *, void *);
@@ -330,7 +326,7 @@ extern const f32 TWindowFukidasi__data_805DCD1C;
 extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 TWindowFukidasi__data_805DCD4C;
-extern M2C_UNK TWindowFukidasi__balloon_color_table[];
+extern s32 TWindowFukidasi__balloon_color_table[];
 extern Vec_80251380 lbl_8044ED58;
 extern RecoveredGlobal_80251BA0_lbl_804CF080 window_fukidasi_layout_entries;
 extern u8 identity_matrix[];
@@ -420,17 +416,17 @@ void rearm_balloon__15TWindowFukidasiFv(u8 *arg0, s32 arg1) {
     u32 n;
 
     if (((s32 (*)(void))TWindowSubAreaMapDisp__sub_80246948)() != 0) {
-        M2C_FIELD(arg0, s8 *, 0x70) = 5;
+        *(s8 *)((s8 *)arg0 + 0x70) = 5;
     }
-    ((M2C_UNK (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)((void *) (arg0), (void *) (arg1));
-    temp_r0 = M2C_FIELD(arg0, u8 *, 0x72);
+    ((s32 (*)(void *, void *))init_flags__15TWindowFukidasiFPvi)((void *) (arg0), (void *) (arg1));
+    temp_r0 = *(u8 *)((s8 *)arg0 + 0x72);
     switch ((s32) temp_r0) {
     case 0:
         n = ((u32 (*)(void *, u32))strnlen__19TWindowKeyBoardSoftFPvUi)(((void * (*)(void *))get_field_20__17TWindowSubComCardFPv)(((void * (*)(void *, int))get_array_entry__20TWindowSubStatusDispFPvi)(arg0, 0)), 0x100);
-        M2C_FIELD(arg0, s16 *, 0x74) = (s16) ((lbl_805DCCF0 * (f32) n) + lbl_805DCCEC);
+        *(s16 *)((s8 *)arg0 + 0x74) = (s16) ((lbl_805DCCF0 * (f32) n) + lbl_805DCCEC);
         break;
     case 1:
-        M2C_FIELD(arg0, s16 *, 0x74) = 0x5A;
+        *(s16 *)((s8 *)arg0 + 0x74) = 0x5A;
         break;
     case 2:
         break;
@@ -440,7 +436,7 @@ extern int fold_flush_0;
 #pragma pop
 
 s32 check_card_match_enabled__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
-    if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 0) {
+    if ((u8) *(u8 *)((s8 *)arg0 + 0x72) != 0) {
         return 0;
     }
     get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
@@ -483,18 +479,18 @@ void sync_display_pos__15TWindowFukidasiFPv(void* p) { *(f32*)((char*)p + 0x60) 
 s32 approach__15TWindowFukidasiFPvf(void *arg0, f32 farg0) {
     f32 temp_f31;
 
-    temp_f31 = lbl_805DCD00 * (farg0 - M2C_FIELD(arg0, f32 *, 0x80));
+    temp_f31 = lbl_805DCD00 * (farg0 - *(f32 *)((s8 *)arg0 + 0x80));
     if (fabs_float(temp_f31) < lbl_805DCD04) {
-        M2C_FIELD(arg0, f32 *, 0x80) = farg0;
+        *(f32 *)((s8 *)arg0 + 0x80) = farg0;
         return 1;
     }
-    M2C_FIELD(arg0, f32 *, 0x80) = (f32) (M2C_FIELD(arg0, f32 *, 0x80) + temp_f31);
+    *(f32 *)((s8 *)arg0 + 0x80) = (f32) (*(f32 *)((s8 *)arg0 + 0x80) + temp_f31);
     return 0;
 }
 
 void TWindowFukidasi__sub_802504A8(void *arg0) {
-    if (!(M2C_FIELD(arg0, u8 *, 0x71) & 0x10)) {
-        M2C_FIELD(arg0, s8 *, 0x70) = 7;
+    if (!(*(u8 *)((s8 *)arg0 + 0x71) & 0x10)) {
+        *(s8 *)((s8 *)arg0 + 0x70) = 7;
     }
 }
 
@@ -910,9 +906,9 @@ extern int fold_flush_5;
 #pragma pop
 
 void set_color__15TWindowFukidasiFPvUs(void *arg0, u16 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x84) = 0xFFF8F8F8;
+    *(s32 *)((s8 *)arg0 + 0x84) = 0xFFF8F8F8;
     if (((u32)arg1 < 0xCU) && (get_player_by_client_id((u32)arg1) != 0U) && (obj_isState3_324() == 0)) {
-        M2C_FIELD(arg0, s32 *, 0x84) = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
+        *(s32 *)((s8 *)arg0 + 0x84) = (s32) TWindowFukidasi__balloon_color_table[(u16)arg1];
     }
 }
 
@@ -926,24 +922,24 @@ s32 clamp_position__15TWindowFukidasiFPvPvf(void *arg0, void *arg1, f32 farg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    temp_f1 = TWindowFukidasi__data_805DCCFC + get_position_z__15TWindowCtrlMainFv(M2C_FIELD(arg0, s16 *, 0x20));
-    if (M2C_FIELD(arg1, f32 *, 0) < temp_f1) {
-        M2C_FIELD(arg1, f32 *, 0) = temp_f1;
+    temp_f1 = TWindowFukidasi__data_805DCCFC + get_position_z__15TWindowCtrlMainFv(*(s16 *)((s8 *)arg0 + 0x20));
+    if (*(f32 *)((s8 *)arg1 + 0) < temp_f1) {
+        *(f32 *)((s8 *)arg1 + 0) = temp_f1;
         var_r31 = 1;
     }
-    temp_f1_2 = (get_ctrl_field14__15TWindowCtrlMainFv(M2C_FIELD(arg0, s16 *, 0x20)) - TWindowFukidasi__data_805DCCFC) - (M2C_FIELD(arg0, f32 *, 0x48) * farg0);
-    if (M2C_FIELD(arg1, f32 *, 0) > temp_f1_2) {
-        M2C_FIELD(arg1, f32 *, 0) = temp_f1_2;
+    temp_f1_2 = (get_ctrl_field14__15TWindowCtrlMainFv(*(s16 *)((s8 *)arg0 + 0x20)) - TWindowFukidasi__data_805DCCFC) - (*(f32 *)((s8 *)arg0 + 0x48) * farg0);
+    if (*(f32 *)((s8 *)arg1 + 0) > temp_f1_2) {
+        *(f32 *)((s8 *)arg1 + 0) = temp_f1_2;
         var_r31 = 1;
     }
-    temp_f1_3 = lbl_805DCD44 + get_field10__15TWindowCtrlMainFv(M2C_FIELD(arg0, s16 *, 0x20));
-    if (M2C_FIELD(arg1, f32 *, 4) < temp_f1_3) {
-        M2C_FIELD(arg1, f32 *, 4) = temp_f1_3;
+    temp_f1_3 = lbl_805DCD44 + get_field10__15TWindowCtrlMainFv(*(s16 *)((s8 *)arg0 + 0x20));
+    if (*(f32 *)((s8 *)arg1 + 4) < temp_f1_3) {
+        *(f32 *)((s8 *)arg1 + 4) = temp_f1_3;
         var_r31 = 1;
     }
-    temp_f1_4 = (get_field_18__15TWindowCtrlMainFv(M2C_FIELD(arg0, s16 *, 0x20)) - lbl_805DCD44) - (M2C_FIELD(arg0, f32 *, 0x4C) * farg0);
-    if (M2C_FIELD(arg1, f32 *, 4) > temp_f1_4) {
-        M2C_FIELD(arg1, f32 *, 4) = temp_f1_4;
+    temp_f1_4 = (get_field_18__15TWindowCtrlMainFv(*(s16 *)((s8 *)arg0 + 0x20)) - lbl_805DCD44) - (*(f32 *)((s8 *)arg0 + 0x4C) * farg0);
+    if (*(f32 *)((s8 *)arg1 + 4) > temp_f1_4) {
+        *(f32 *)((s8 *)arg1 + 4) = temp_f1_4;
         var_r31 = 1;
     }
     return var_r31;
@@ -956,30 +952,30 @@ void open__15TWindowFukidasiFPvPvi(u8 *arg0, u32 *arg1, s32 arg2) {
     u8 temp_r0;
 
     var_r31 = 0;
-    ((M2C_UNK (*)(void *, s32))init_flags__15TWindowFukidasiFPvi)(arg0, arg2);
-    if ((u8) M2C_FIELD(arg0, u8 *, 0x72) != 1) {
-        M2C_FIELD(arg0, u8 *, 0x72) = 1U;
+    ((s32 (*)(void *, s32))init_flags__15TWindowFukidasiFPvi)(arg0, arg2);
+    if ((u8) *(u8 *)((s8 *)arg0 + 0x72) != 1) {
+        *(u8 *)((s8 *)arg0 + 0x72) = 1U;
         destroy_all_items__20TWindowSubStatusDispFPv(arg0 + 0x24);
-        init_layout_entries__20TWindowSubSymbolChatFii(arg0 + 0x24, M2C_FIELD(arg0, s16 *, 0x20));
-        if ((u8) M2C_FIELD(arg0, u8 *, 0x70) != 0) {
+        init_layout_entries__20TWindowSubSymbolChatFii(arg0 + 0x24, *(s16 *)((s8 *)arg0 + 0x20));
+        if ((u8) *(u8 *)((s8 *)arg0 + 0x70) != 0) {
             var_r31 = 1;
         }
     } else {
-        temp_r0 = M2C_FIELD(arg0, u8 *, 0x70);
+        temp_r0 = *(u8 *)((s8 *)arg0 + 0x70);
         if ((temp_r0 != 0) && (temp_r0 != 4)) {
             var_r31 = 1;
         }
     }
     if (var_r31 != 0) {
-        M2C_FIELD(arg0, u8 *, 0x70) = 5U;
+        *(u8 *)((s8 *)arg0 + 0x70) = 5U;
         clear_flag__15TWindowFukidasiFPv(arg0);
-        if (get_card_window_scale__20TWindowSubStatusDispFi(M2C_FIELD(arg0, s16 *, 0x20)) > TWindowFukidasi__data_805DCD30) {
-            M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+        if (get_card_window_scale__20TWindowSubStatusDispFi(*(s16 *)((s8 *)arg0 + 0x20)) > TWindowFukidasi__data_805DCD30) {
+            *(s32 *)((s8 *)arg0 + 0x5C) = 0;
         }
     }
     set_symbol_chat_parts__20TWindowSubSymbolChatFiPv(arg0 + 0x24, arg1);
     play_symbol_sound__20TWindowSubSymbolChatFi(((u32) *arg1 >> 5U) & 0xF);
-    M2C_FIELD(arg0, s16 *, 0x74) = 0x5A;
+    *(s16 *)((s8 *)arg0 + 0x74) = 0x5A;
 }
 
 #pragma push
@@ -1038,49 +1034,49 @@ extern int fold_flush_7;
 #pragma pop
 
 void init_flags__15TWindowFukidasiFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) TWindowFukidasi__data_805DCD30;
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) TWindowFukidasi__data_805DCD30;
     set_field_1c__6TLobbyFPvf(lbl_805DCD58);
     if (TWindowSubAreaMapDisp__sub_80246948(arg0) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 1);
+        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 1);
     }
-    M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) & ~0x50);
+    *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) & ~0x50);
     if (arg1 & 2) {
-        M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) | 8);
+        *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) | 8);
     } else {
-        M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) & 0xFFFFFFF7);
+        *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) & 0xFFFFFFF7);
     }
     if (arg1 & 0x20) {
-        M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) | 2);
-        ((M2C_UNK (*)(void *))set_flag__15TWindowFukidasiFPv)(arg0);
-        ((M2C_UNK (*)(void *))set_flag2c_bit200__15TWindowFukidasiFPv)(arg0);
-        M2C_FIELD(arg0, s8 *, 0x73) = 4;
+        *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) | 2);
+        ((s32 (*)(void *))set_flag__15TWindowFukidasiFPv)(arg0);
+        ((s32 (*)(void *))set_flag2c_bit200__15TWindowFukidasiFPv)(arg0);
+        *(s8 *)((s8 *)arg0 + 0x73) = 4;
         return;
     }
-    M2C_FIELD(arg0, u8 *, 0x71) = (u8) (M2C_FIELD(arg0, u8 *, 0x71) & 0xFFFFFFFD);
+    *(u8 *)((s8 *)arg0 + 0x71) = (u8) (*(u8 *)((s8 *)arg0 + 0x71) & 0xFFFFFFFD);
 }
 
 void TWindowFukidasi__ct(void *arg0, s16 arg1, s32 arg2, s16 arg3, f32 farg0) {
     s32 temp_r3;
 
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3900;
-    M2C_FIELD(arg0, s8 *, 0x70) = 0;
-    M2C_FIELD(arg0, s8 *, 0x71) = 0;
-    M2C_FIELD(arg0, s8 *, 0x72) = 2;
-    M2C_FIELD(arg0, s8 *, 0x73) = -1;
-    M2C_FIELD(arg0, s16 *, 0x76) = arg1;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg3;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3900;
+    *(s8 *)((s8 *)arg0 + 0x70) = 0;
+    *(s8 *)((s8 *)arg0 + 0x71) = 0;
+    *(s8 *)((s8 *)arg0 + 0x72) = 2;
+    *(s8 *)((s8 *)arg0 + 0x73) = -1;
+    *(s16 *)((s8 *)arg0 + 0x76) = arg1;
+    *(s16 *)((s8 *)arg0 + 0x20) = arg3;
     if (arg2 != 0) {
-        temp_r3 = ((s32 (*)(s32, M2C_UNK))strnlen__19TWindowKeyBoardSoftFPvUi)(arg2, 0x18);
-        M2C_FIELD(arg0, s32 *, 0x78) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
-        strncpy(M2C_FIELD(arg0, s32 *, 0x78), arg2, temp_r3 + 1);
+        temp_r3 = ((s32 (*)(s32, s32))strnlen__19TWindowKeyBoardSoftFPvUi)(arg2, 0x18);
+        *(s32 *)((s8 *)arg0 + 0x78) = alloc_buffer__11TOBoss4RockFPv(temp_r3 + 1);
+        strncpy(*(s32 *)((s8 *)arg0 + 0x78), arg2, temp_r3 + 1);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x78) = 0;
+        *(s32 *)((s8 *)arg0 + 0x78) = 0;
     }
-    ((M2C_UNK (*)(void *, s16))set_color__15TWindowFukidasiFPvUs)(arg0, arg1);
-    M2C_FIELD(arg0, f32 *, 0x80) = (f32) TWindowFukidasi__data_805DCD30;
-    M2C_FIELD(arg0, f32 *, 0x7C) = farg0;
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) TWindowFukidasi__data_805DCD30;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
+    ((s32 (*)(void *, s16))set_color__15TWindowFukidasiFPvUs)(arg0, arg1);
+    *(f32 *)((s8 *)arg0 + 0x80) = (f32) TWindowFukidasi__data_805DCD30;
+    *(f32 *)((s8 *)arg0 + 0x7C) = farg0;
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) TWindowFukidasi__data_805DCD30;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) TWindowFukidasi__data_805DCD30;
     clear_flag__15TWindowFukidasiFPv(arg0);
     clear_flag2c_bit100__15TWindowFukidasiFPv(arg0);
 }

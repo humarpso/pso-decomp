@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2);
@@ -14,7 +10,7 @@ extern "C" {
 s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2);
 u8 clamp_char_at__10TObjPlayerFPvi(s8 *arg0, s32 arg1);
 s32 init_partial__10TObjPlayerFi(s32 arg0);
-M2C_UNK clear_trap_counts();
+s32 clear_trap_counts();
 
 s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
     s32 temp_r4;
@@ -91,9 +87,9 @@ s8 calc_class_stat_boost_index__10TObjPlayerFici(s32 arg0, s8 arg1, s32 arg2) {
 }
 
 s32 consume_trap_count__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD((arg0 + arg2), s8 *, 0) = M2C_FIELD((arg0 + arg2), u8 *, 0) - arg1;
-    if ((s8) M2C_FIELD((arg0 + arg2), u8 *, 0) < 0) {
-        M2C_FIELD((arg0 + arg2), s8 *, 0) = 0;
+    *(s8 *)((s8 *)(arg0 + arg2) + 0) = *(u8 *)((s8 *)(arg0 + arg2) + 0) - arg1;
+    if ((s8) *(u8 *)((s8 *)(arg0 + arg2) + 0) < 0) {
+        *(s8 *)((s8 *)(arg0 + arg2) + 0) = 0;
         return 0;
     }
     return 1;
@@ -113,7 +109,7 @@ void TObjPlayer__sub_801C5780(s32 arg0, s8 arg1, s32 arg2) {
     if ((var_r4 < 0) || (var_r4 > 0x14)) {
         var_r4 = 0x14;
     }
-    M2C_FIELD((arg0 + arg2), s8 *, 0) = var_r4;
+    *(s8 *)((s8 *)(arg0 + arg2) + 0) = var_r4;
 }
 
 s32 init_partial__10TObjPlayerFi(s32 arg0) {

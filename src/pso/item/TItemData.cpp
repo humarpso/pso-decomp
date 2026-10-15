@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Parm_8010C1E0;
 struct Item_8010C498;
 struct Item_8010C52C;
@@ -87,7 +84,7 @@ s32 is_flag_set__6TLobbyFv();
 u8 *get_quest_id__12TQuestListVMFPv(void *);
 s16 calc_stat_bonus_sum__10TObjPlayerFUs(u16);
 s16 calc_equip_bonus__10TObjPlayerFUs(u16);
-M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
+s32 copy_to_item_data__5TItemFPvPv(void *, void *);
 s32 is_item_usable__9TItemDataFiPv(void *, void *);
 s32 check_equip_requirements(void *, void *, int);
 s32 check_class_equip_permission(void *, int);
@@ -134,7 +131,7 @@ s32 is_usable__9TItemDataFPv(void *arg0);
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0);
 void serialize_mag__9TItemDataFPvPv(Item_8010D510 *item, const Mag_8010D510 *mag);
 void init__9TItemDataFv(TItemData_8010E344 *self);
-M2C_UNK memset(s8 *, M2C_UNK, M2C_UNK);
+s32 memset(s8 *, s32, s32);
 void decode_packed_name_chars__9TItemDataFPvPv(u8 *self, s8 *out);
 s32 bswap_16__FPUs(s16 *);
 }
@@ -173,7 +170,7 @@ extern "C" {
 void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1);
 s32 get_type_nibble__9TItemDataFPv(u8 *arg0);
 s32 get_internet_beat__6TLobbyFv(void);
-extern M2C_UNK lbl_8043E348;
+extern s32 lbl_8043E348;
 extern const f32 lbl_805DAB6C;
 void add_stat_ptr__9TItemDataFPvi(s16 *arg0, s32 arg1);
 void add_bonus__9TItemDataFPvs(void *arg0, s16 arg1);
@@ -234,10 +231,10 @@ s32 TItemData__sub_8010B808(void* p) { return *(s32*)((char*)p + 0x31c); }
 s32 TItemData__sub_8010B810(void* p) { return *(s32*)((char*)p + 0x318); }
 
 void add_accuracy__9TItemDataFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s16 *, 4) = (s16) (M2C_FIELD(arg0, s16 *, 4) + arg1);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) (*(s16 *)((s8 *)arg0 + 4) + arg1);
 }
 void add_stat__9TItemDataFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) + arg1);
 }
 void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
     *arg0 += arg1;
@@ -245,16 +242,16 @@ void add_s16__9TItemDataFPvi(s16 *arg0, s32 arg1) {
 
 void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1) {
     u8 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+    temp_r0 = *(u8 *)((s8 *)arg0 + 0);
     switch ((s32) temp_r0) {
     case 0:
-        M2C_FIELD(arg0, u8 *, 5) = (u8) (M2C_FIELD(arg0, u8 *, 5) | (arg1 & 0xF));
+        *(u8 *)((s8 *)arg0 + 5) = (u8) (*(u8 *)((s8 *)arg0 + 5) | (arg1 & 0xF));
         return;
     case 1:
-        M2C_FIELD(arg0, u8 *, 4) = (u8) (M2C_FIELD(arg0, u8 *, 4) | (arg1 & 0xF));
+        *(u8 *)((s8 *)arg0 + 4) = (u8) (*(u8 *)((s8 *)arg0 + 4) | (arg1 & 0xF));
         return;
     case 3:
-        M2C_FIELD(arg0, u8 *, 3) = (u8) (M2C_FIELD(arg0, u8 *, 3) | (arg1 & 0xF));
+        *(u8 *)((s8 *)arg0 + 3) = (u8) (*(u8 *)((s8 *)arg0 + 3) | (arg1 & 0xF));
         return;
     case 2:
         return;
@@ -263,14 +260,14 @@ void set_present_color__9TItemDataFPvi(u8 *arg0, s32 arg1) {
 
 s32 get_type_nibble__9TItemDataFPv(u8 *arg0) {
     u8 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+    temp_r0 = *(u8 *)((s8 *)arg0 + 0);
     switch ((s32) temp_r0) {
     case 0:
-        return M2C_FIELD(arg0, u8 *, 5) & 0xF;
+        return *(u8 *)((s8 *)arg0 + 5) & 0xF;
     case 1:
-        return M2C_FIELD(arg0, u8 *, 4) & 0xF;
+        return *(u8 *)((s8 *)arg0 + 4) & 0xF;
     case 3:
-        return M2C_FIELD(arg0, u8 *, 3) & 0xF;
+        return *(u8 *)((s8 *)arg0 + 3) & 0xF;
     default:
     case 2:
         return 0;
@@ -546,19 +543,19 @@ u8 is_wrapped__9TItemDataFPv(Item_8010C52C *it) {
 }
 
 f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
-    M2C_UNK *var_r4;
+    s32 *var_r4;
     f32 var_f1;
     s32 temp_r3;
     s32 temp_r3_2;
     s32 var_r3;
     var_f1 = lbl_805DAB6C;
-    if ((s32) M2C_FIELD(arg0, u8 *, 1) != 0x94) {
+    if ((s32) *(u8 *)((s8 *)arg0 + 1) != 0x94) {
         return var_f1;
     }
     temp_r3 = get_internet_beat__6TLobbyFv();
     var_r3 = temp_r3 >> 2;
     var_r3 = temp_r3 / 4;
-    var_r4 = (M2C_UNK *)(&lbl_8043E348);
+    var_r4 = (s32 *)(&lbl_8043E348);
     temp_r3_2 = var_r3;
     var_r3 ^= 0x80000000;
     var_f1 = (f32) temp_r3_2;
@@ -566,14 +563,14 @@ f32 calc_clock_bonus__9TItemDataFPv(u8 *arg0) {
 }
 
 void set_packed_value__9TItemDataFPvUs(void *arg0, u16 arg1) {
-    M2C_FIELD(arg0, u8 *, 0xA) = (u8) (arg1 >> 8U);
-    M2C_FIELD(arg0, u8 *, 0xB) = arg1;
-    M2C_FIELD(arg0, u8 *, 0xA) = (u8) (M2C_FIELD(arg0, u8 *, 0xA) | 0x80);
+    *(u8 *)((s8 *)arg0 + 0xA) = (u8) (arg1 >> 8U);
+    *(u8 *)((s8 *)arg0 + 0xB) = arg1;
+    *(u8 *)((s8 *)arg0 + 0xA) = (u8) (*(u8 *)((s8 *)arg0 + 0xA) | 0x80);
 }
 
 u16 get_packed_value__9TItemDataFPv(void *arg0) {
     if (is_usable__9TItemDataFPv() != 0) {
-        return (u16) (((M2C_FIELD(arg0, u8 *, 0xA) << 8) & 0x7F00) | M2C_FIELD(arg0, u8 *, 0xB));
+        return (u16) (((*(u8 *)((s8 *)arg0 + 0xA) << 8) & 0x7F00) | *(u8 *)((s8 *)arg0 + 0xB));
     }
     return 0U;
 }
@@ -588,13 +585,10 @@ u16 get_packed_value__9TItemDataFPv(void *arg0) {
 #undef is_usable__9TItemDataFPv
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define is_custom_name_srank__9TItemDataFPv ((s32 (*)())is_custom_name_srank__9TItemDataFPv)
-#define serialize_mag__9TItemDataFPvPv ((M2C_UNK (*)(void *, M2C_UNK *))serialize_mag__9TItemDataFPvPv)
-#define init__9TItemDataFv ((M2C_UNK (*)())init__9TItemDataFv)
+#define serialize_mag__9TItemDataFPvPv ((s32 (*)(void *, s32 *))serialize_mag__9TItemDataFPvPv)
+#define init__9TItemDataFv ((s32 (*)())init__9TItemDataFv)
 
 struct Tbl_8010C8B4 { s32 w[19]; };
 
@@ -610,16 +604,16 @@ int TItemData__sub_8010C738(void);
 void TItemData__sub_8010C740(void);
 void bswap__9TItemDataFv(s32 arg0);
 void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1);
-M2C_UNK bswap_32__FPUl(s32);
-M2C_UNK initialize_mag_data__9TItemDataFPv(M2C_UNK *);
-M2C_UNK set_stack_count__24TShopEquipmentListWindowFPvc(void *, M2C_UNK);
+s32 bswap_32__FPUl(s32);
+s32 initialize_mag_data__9TItemDataFPv(s32 *);
+s32 set_stack_count__24TShopEquipmentListWindowFPvc(void *, s32);
 
 s32 is_usable__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
 
     if (is_custom_name_srank__9TItemDataFPv() == 0) {
-        temp_r0 = M2C_FIELD(arg0, u8 *, 0);
-        if ((temp_r0 != 2) && (temp_r0 != 4) && (M2C_FIELD(arg0, u8 *, 0xA) & 0x80)) {
+        temp_r0 = *(u8 *)((s8 *)arg0 + 0);
+        if ((temp_r0 != 2) && (temp_r0 != 4) && (*(u8 *)((s8 *)arg0 + 0xA) & 0x80)) {
             return 1;
         }
     }
@@ -635,44 +629,44 @@ int TItemData__sub_8010C738(void) { return 0; }
 void TItemData__sub_8010C740(void) {  }
 
 void unpack_from_item__9TItemDataFPvPv(void *arg0, void *arg1) {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 temp_r0;
     u8 temp_r0_2;
 
     if (arg1 != NULL) {
         init__9TItemDataFv();
-        M2C_FIELD(arg0, u8 *, 0) = (u8) (((u32) M2C_FIELD(arg1, u32 *, 0x30) >> 0x18U) & 0xF);
-        M2C_FIELD(arg0, u8 *, 1) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x30) >> 0x10U);
-        temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+        *(u8 *)((s8 *)arg0 + 0) = (u8) (((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x18U) & 0xF);
+        *(u8 *)((s8 *)arg0 + 1) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 0x10U);
+        temp_r0 = *(u8 *)((s8 *)arg0 + 0);
         if ((temp_r0 == 0) || (temp_r0 == 1)) {
-            M2C_FIELD(arg0, u8 *, 1) = (u8) (M2C_FIELD(arg0, u8 *, 1) + 1);
+            *(u8 *)((s8 *)arg0 + 1) = (u8) (*(u8 *)((s8 *)arg0 + 1) + 1);
         }
-        M2C_FIELD(arg0, u8 *, 2) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x30) >> 8U);
-        temp_r0_2 = M2C_FIELD(arg0, u8 *, 0);
+        *(u8 *)((s8 *)arg0 + 2) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x30) >> 8U);
+        temp_r0_2 = *(u8 *)((s8 *)arg0 + 0);
         switch ((s32) temp_r0_2) {
         case 0:
-            M2C_FIELD(arg0, u8 *, 6) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 8U);
-            M2C_FIELD(arg0, s8 *, 7) = (s8) M2C_FIELD(arg1, u32 *, 0x34);
-            M2C_FIELD(arg0, s8 *, 8) = (s8) ((u32) M2C_FIELD(arg1, u32 *, 0x38) >> 0x18U);
-            M2C_FIELD(arg0, u8 *, 9) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x38) >> 0x10U);
-            M2C_FIELD(arg0, u8 *, 0xA) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x38) >> 8U);
-            M2C_FIELD(arg0, s8 *, 0xB) = (s8) M2C_FIELD(arg1, u32 *, 0x38);
-            M2C_FIELD(arg0, s8 *, 3) = (s8) ((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 0x18U);
-            M2C_FIELD(arg0, u8 *, 4) = (u8) M2C_FIELD(arg1, u32 *, 0x30);
+            *(u8 *)((s8 *)arg0 + 6) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 8U);
+            *(s8 *)((s8 *)arg0 + 7) = (s8) *(u32 *)((s8 *)arg1 + 0x34);
+            *(s8 *)((s8 *)arg0 + 8) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x18U);
+            *(u8 *)((s8 *)arg0 + 9) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 0x10U);
+            *(u8 *)((s8 *)arg0 + 0xA) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x38) >> 8U);
+            *(s8 *)((s8 *)arg0 + 0xB) = (s8) *(u32 *)((s8 *)arg1 + 0x38);
+            *(s8 *)((s8 *)arg0 + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
+            *(u8 *)((s8 *)arg0 + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             return;
         case 3:
-            if ((u8) M2C_FIELD(arg0, u8 *, 1) == 2) {
-                M2C_FIELD(arg0, u8 *, 4) = (u8) M2C_FIELD(arg1, u32 *, 0x30);
+            if ((u8) *(u8 *)((s8 *)arg0 + 1) == 2) {
+                *(u8 *)((s8 *)arg0 + 4) = (u8) *(u32 *)((s8 *)arg1 + 0x30);
             }
             set_stack_count__24TShopEquipmentListWindowFPvc(arg0, 1);
             return;
         case 4:
-            M2C_FIELD(arg0, s32 *, 0x10) = (s32) (((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 0x10U) * 0xA);
+            *(s32 *)((s8 *)arg0 + 0x10) = (s32) (((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U) * 0xA);
             return;
         case 1:
-            M2C_FIELD(arg0, s8 *, 5) = (s8) M2C_FIELD(arg1, u32 *, 0x30);
-            M2C_FIELD(arg0, s8 *, 3) = (s8) ((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 0x18U);
-            M2C_FIELD(arg0, u8 *, 4) = (u8) ((u32) M2C_FIELD(arg1, u32 *, 0x34) >> 0x10U);
+            *(s8 *)((s8 *)arg0 + 5) = (s8) *(u32 *)((s8 *)arg1 + 0x30);
+            *(s8 *)((s8 *)arg0 + 3) = (s8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x18U);
+            *(u8 *)((s8 *)arg0 + 4) = (u8) ((u32) *(u32 *)((s8 *)arg1 + 0x34) >> 0x10U);
             return;
         case 2:
             initialize_mag_data__9TItemDataFPv(&sp8);
@@ -702,22 +696,19 @@ s32 get_item_icon_index(const u8 *q) {
 
 #include "types.h"
 #include "pso/item/TItemData.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define lookup_item_pmt_record ((void * (*)())lookup_item_pmt_record)
 #define lookup_item_def__9TItemDataFPv ((s32 (*)())lookup_item_def__9TItemDataFPv)
-#define init__9TItemDataFv ((M2C_UNK (*)())init__9TItemDataFv)
+#define init__9TItemDataFv ((s32 (*)())init__9TItemDataFv)
 
 extern "C" {
-M2C_UNK strncpy(s8 *, u32, M2C_UNK);
+s32 strncpy(s8 *, u32, s32);
 void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2);
-s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
+s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
 s8 char_to_letter_index__9TItemDataFPvc(void *self, s8 c);
 s8 char_to_letter_index__9TItemDataFPvc(void *self, s8 c);
 void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in);
-s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1);
+s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1);
 }
 
 extern "C" {
@@ -763,9 +754,9 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
     s8 sp8[10];
     init__9TItemDataFv();
     if ((arg1 != 0U) && (((arg2 >= 0x70U) && (arg2 <= 0x88U)) || ((arg2 >= 0xA5U) && (arg2 <= 0xA9U)))) {
-        M2C_FIELD(arg0, s8 *, 0) = 0;
-        M2C_FIELD(arg0, u8 *, 1) = arg2;
-        M2C_FIELD(arg0, s8 *, 2) = 0;
+        *(s8 *)((s8 *)arg0 + 0) = 0;
+        *(u8 *)((s8 *)arg0 + 1) = arg2;
+        *(s8 *)((s8 *)arg0 + 2) = 0;
         memset(sp8, 0, 0xA);
         sp8[0] = 0x41;
         strncpy(&sp8[1], arg1, 8);
@@ -773,7 +764,7 @@ void TItemData__sub_8010CA08(void *arg0, u32 arg1, u8 arg2) {
     }
 }
 
-s32 TItemData__sub_8010CAB0(M2C_UNK arg0, s8 arg1) {
+s32 TItemData__sub_8010CAB0(s32 arg0, s8 arg1) {
     return (arg1 != 0) ? (s8) (arg1 + 0x40) : 0;
 }
 
@@ -831,8 +822,8 @@ void pack_three_colors__9TItemDataFPvPv(u8 *self, u8 *in) {
 
 s32 is_custom_name_srank__9TItemDataFPv(u8 *arg0) {
     u8 temp_r0;
-    if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
-        temp_r0 = M2C_FIELD(arg0, u8 *, 1);
+    if ((u8) *(u8 *)((s8 *)arg0 + 0) == 0) {
+        temp_r0 = *(u8 *)((s8 *)arg0 + 1);
         if ((temp_r0 >= 0x70U) && (temp_r0 <= 0x88U)) {
             return 1;
         }
@@ -850,7 +841,7 @@ u8 get_entry_field16__9TItemDataFv(void) {
 
     temp_r3 = lookup_item_pmt_record();
     if (temp_r3 != NULL) {
-        return M2C_FIELD(temp_r3, u8 *, 0x16);
+        return *(u8 *)((s8 *)temp_r3 + 0x16);
     }
     return 0U;
 }
@@ -861,7 +852,7 @@ extern "C" {
 
 s32 get_item_use_result__9TItemDataFPv(u8 *arg0) {
     if (lookup_item_def__9TItemDataFPv() != 0) {
-        if (((u8) M2C_FIELD(arg0, u8 *, 0) == 3) && ((u8) M2C_FIELD(arg0, u8 *, 1) == 0x10)) {
+        if (((u8) *(u8 *)((s8 *)arg0 + 0) == 3) && ((u8) *(u8 *)((s8 *)arg0 + 1) == 0x10)) {
             return 0x63;
         }
         return 0xA;
@@ -877,16 +868,13 @@ s32 get_item_use_result__9TItemDataFPv(u8 *arg0) {
 #undef init__9TItemDataFv
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-#define calc_clock_bonus__9TItemDataFPv ((M2C_UNK (*)(void *, s32))calc_clock_bonus__9TItemDataFPv)
-#define add_armor_stat_contribution__9TItemDataFPviiPv ((M2C_UNK (*)(void *, s32, s32, s32, s32, s32))add_armor_stat_contribution__9TItemDataFPviiPv)
+
+#define calc_clock_bonus__9TItemDataFPv ((s32 (*)(void *, s32))calc_clock_bonus__9TItemDataFPv)
+#define add_armor_stat_contribution__9TItemDataFPviiPv ((s32 (*)(void *, s32, s32, s32, s32, s32))add_armor_stat_contribution__9TItemDataFPviiPv)
 #define is_wrapped__9TItemDataFPv ((s32 (*)())is_wrapped__9TItemDataFPv)
-#define add_shield_stat_contribution__9TItemDataFPviiPv ((M2C_UNK (*)(void *, s32, s32, s32, s32, s32))add_shield_stat_contribution__9TItemDataFPviiPv)
-#define apply_unit_stat_bonus__9TItemDataFPviiPvPvPv ((M2C_UNK (*)(void *, s32, s32, s32, s32, s32))apply_unit_stat_bonus__9TItemDataFPviiPvPvPv)
-#define apply_bonuses ((M2C_UNK (*)(void *, s32, s32, s32, s32, s32))apply_bonuses)
+#define add_shield_stat_contribution__9TItemDataFPviiPv ((s32 (*)(void *, s32, s32, s32, s32, s32))add_shield_stat_contribution__9TItemDataFPviiPv)
+#define apply_unit_stat_bonus__9TItemDataFPviiPvPvPv ((s32 (*)(void *, s32, s32, s32, s32, s32))apply_unit_stat_bonus__9TItemDataFPviiPvPvPv)
+#define apply_bonuses ((s32 (*)(void *, s32, s32, s32, s32, s32))apply_bonuses)
 #define get_packed_value__9TItemDataFPv ((u16 (*)(void *))get_packed_value__9TItemDataFPv)
 #define is_custom_name_srank__9TItemDataFPv ((s32 (*)(void *))is_custom_name_srank__9TItemDataFPv)
 #define memset ((void * (*)(void *, int, int))memset)
@@ -1008,8 +996,8 @@ s32 calc_buy_price__9TItemDataFPv(void *arg0);
 int calc_display_grade__9TItemDataFPv(void *arg0);
 s32 check_item_flags__9TItemDataFPv(void *arg0);
 s16 get_technique_level__9TItemDataFPv(void *arg0);
-M2C_UNK apply_custom_shield_bonus__9TItemDataFv(void *, s32, s32, s32, s32, s32);
-M2C_UNK add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
+s32 apply_custom_shield_bonus__9TItemDataFv(void *, s32, s32, s32, s32, s32);
+s32 add_mag_stat_bonuses__9TItemDataFv(void *, s32, s32, s32, s32, s32);
 void TItemData__sub_8010CCB0(void);
 void normalize__9TItemDataFv(void);
 s32 get_item_description_text(s32);
@@ -1021,54 +1009,54 @@ int register_drop__9TItemDataFPv(void* p);
 int register_item_drop__10TObjPlayerFPv(void*);
 
 void lookup_item_def__9TItemDataFPv(void *arg0) {
-    is_item_stackable(M2C_FIELD(arg0, u8 *, 0), M2C_FIELD(arg0, u8 *, 1));
+    is_item_stackable(*(u8 *)((s8 *)arg0 + 0), *(u8 *)((s8 *)arg0 + 1));
 }
 s16 get_field6_bswap__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
-    sp8 = M2C_FIELD(arg0, s16 *, 6);
+    sp8 = *(s16 *)((s8 *)arg0 + 6);
     bswap_16__FPUs((void*)(&sp8));
     return sp8;
 }
 
 void set_unit_modifier__9TItemDataFPvs(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 6) = arg1;
+    *(s16 *)((s8 *)arg0 + 6) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 6)));
 }
 
 s16 get_bswap16_field8__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
-    sp8 = M2C_FIELD(arg0, s16 *, 8);
+    sp8 = *(s16 *)((s8 *)arg0 + 8);
     bswap_16__FPUs((void*)(&sp8));
     return sp8;
 }
 
 void set_bswapped_field_8__9TItemDataFPvs(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 8) = arg1;
+    *(s16 *)((s8 *)arg0 + 8) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 8)));
 }
 
 s16 getS16_06__9TItemDataFPv(void *arg0) {
     s16 sp8;
 
-    sp8 = M2C_FIELD(arg0, s16 *, 6);
+    sp8 = *(s16 *)((s8 *)arg0 + 6);
     bswap_16__FPUs((void*)(&sp8));
     return sp8;
 }
 
 void set_dfp_bonus__9TItemDataFPvs(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 6) = arg1;
+    *(s16 *)((s8 *)arg0 + 6) = arg1;
     bswap_16__FPUs((void*)((void *) (arg0 + 6)));
 }
 
 s16 get_technique_level__9TItemDataFPv(void *arg0) {
     void *temp_r3;
 
-    if (((u8) M2C_FIELD(arg0, u8 *, 0) == 3) && ((u8) M2C_FIELD(arg0, u8 *, 1) == 2)) {
-        temp_r3 = calc_technique_parameters(M2C_FIELD(arg0, u8 *, 4), M2C_FIELD(arg0, u8 *, 2), 0xFFFF);
+    if (((u8) *(u8 *)((s8 *)arg0 + 0) == 3) && ((u8) *(u8 *)((s8 *)arg0 + 1) == 2)) {
+        temp_r3 = calc_technique_parameters(*(u8 *)((s8 *)arg0 + 4), *(u8 *)((s8 *)arg0 + 2), 0xFFFF);
         if (temp_r3 != NULL) {
-            return M2C_FIELD(temp_r3, s16 *, 0x14);
+            return *(s16 *)((s8 *)temp_r3 + 0x14);
         }
     }
     return 0;
@@ -1613,13 +1601,13 @@ void apply_equip_effects__9TItemDataFPviiiii(void *arg0, s32 arg1, s32 arg2, s32
     if ((arg1 != 0) || (arg1 = get_player_by_client_id(local_client_id), ((arg1 == 0) == 0))) {
         get_set_bonus_multiplier__9TItemDataFPvi((void *)(arg0), (s32)(arg1));
         calc_clock_bonus__9TItemDataFPv(arg0, arg1);
-        temp_r0 = M2C_FIELD(arg0, u8 *, 0);
+        temp_r0 = *(u8 *)((s8 *)arg0 + 0);
         switch ((s32) temp_r0) {
         case 0:
             add_weapon_stat_bonuses__9TItemDataFv((u8 *)(arg0), (s32)(arg1), (s16 *)(arg2), (s32)(arg3), (s16 *)(arg4), (s32)(arg5));
             break;
         case 1:
-            temp_r0_2 = M2C_FIELD(arg0, u8 *, 1);
+            temp_r0_2 = *(u8 *)((s8 *)arg0 + 1);
             switch ((s32) temp_r0_2) {
             case 1:
                 add_armor_stat_contribution__9TItemDataFPviiPv(arg0, arg1, arg2, arg3, arg4, arg5);
@@ -1825,11 +1813,11 @@ void init__9TItemDataFv(TItemData_8010E344 *self) {
 s32 calc_buy_price__9TItemDataFPv(void *arg0) {
     u8 temp_r0;
 
-    if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
-        temp_r0 = M2C_FIELD(arg0, u8 *, 4);
+    if ((u8) *(u8 *)((s8 *)arg0 + 0) == 0) {
+        temp_r0 = *(u8 *)((s8 *)arg0 + 4);
         if ((temp_r0 != 0) && (temp_r0 < 0x29U) && (((s32 (*)(void))is_rare_item__9TItemDataFPv)() == 0)) {
             if (check_item_flags__9TItemDataFPv((void *)(arg0)) == 1) {
-                return get_item_description_text(M2C_FIELD(arg0, u8 *, 4) + 0x1CB);
+                return get_item_description_text(*(u8 *)((s8 *)arg0 + 4) + 0x1CB);
             }
             return get_item_description_text(0x1F4);
         }
@@ -2037,19 +2025,19 @@ int calc_display_grade__9TItemDataFPv(void *arg0) {
     int var_r31;
 
     var_r31 = get_base_rarity__9TItemDataFPv((u8 *)(arg0));
-    switch ((s32) (u8) M2C_FIELD(arg0, u8 *, 0)) {
+    switch ((s32) (u8) *(u8 *)((s8 *)arg0 + 0)) {
     case 0:
         if ((u8) var_r31 < 9U) {
-            temp_b = M2C_FIELD(arg0, u8 *, 4);
+            temp_b = *(u8 *)((s8 *)arg0 + 4);
             if (!(temp_b & 0x80)) {
                 var_r31 += get_unit_attribute_index__10TObjPlayerFUc(temp_b);
             }
-        } else if (M2C_FIELD(arg0, u8 *, 4) & 0x80) {
+        } else if (*(u8 *)((s8 *)arg0 + 4) & 0x80) {
             var_r31 = 0;
         }
         break;
     case 1:
-        if ((u8) M2C_FIELD(arg0, u8 *, 1) == 3) {
+        if ((u8) *(u8 *)((s8 *)arg0 + 1) == 3) {
             temp_r3 = get_field6_bswap__9TItemDataFPv((void *)(arg0));
             if (temp_r3 < 0) {
                 var_r31 -= 1;
@@ -2091,13 +2079,13 @@ s32 get_base_rarity__9TItemDataFPv(u8 *item) {
 }
 
 void TItemData__clear_unidentified_flag(void *arg0) {
-    if ((u8) M2C_FIELD(arg0, u8 *, 0) == 0) {
-        M2C_FIELD(arg0, u8 *, 4) = (u8) (M2C_FIELD(arg0, u8 *, 4) & 0x7F);
+    if ((u8) *(u8 *)((s8 *)arg0 + 0) == 0) {
+        *(u8 *)((s8 *)arg0 + 4) = (u8) (*(u8 *)((s8 *)arg0 + 4) & 0x7F);
     }
 }
 
 s32 check_item_flags__9TItemDataFPv(void *arg0) {
-    if (((u8) M2C_FIELD(arg0, u8 *, 0) == 0) && (M2C_FIELD(arg0, u8 *, 4) & 0x80)) {
+    if (((u8) *(u8 *)((s8 *)arg0 + 0) == 0) && (*(u8 *)((s8 *)arg0 + 4) & 0x80)) {
         return is_wrapped__9TItemDataFPv() != 0 ? 1 : 0;
     }
     return 1;

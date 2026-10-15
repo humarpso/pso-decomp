@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void init_download_state__6TLobbyFv(void);
-M2C_UNK init_download_buffers__6TLobbyFv();
-s32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
-s32 __ct__5THeapFUli(M2C_UNK, M2C_UNK, M2C_UNK);
-s32 __nw__5THeapFUl(M2C_UNK);
+s32 init_download_buffers__6TLobbyFv();
+s32 alloc__22TQuestVmDownLoadServerFPv(s32);
+s32 __ct__5THeapFUli(s32, s32, s32);
+s32 __nw__5THeapFUl(s32);
 
 extern s32 async_file_read_current_request;
 extern s32 lobby_stack_entry_list_tail;

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -23,11 +20,11 @@ struct VObj_18 : VBase_18 {
     virtual s16 m14();
 };
 
-struct RecoveredGlobal_8012BCD4_lbl_804A4F60 { M2C_UNK value; u8 remaining[0xF4]; };
+struct RecoveredGlobal_8012BCD4_lbl_804A4F60 { s32 value; u8 remaining[0xF4]; };
 typedef char RecoveredGlobal_8012BCD4_lbl_804A4F60_size[sizeof(RecoveredGlobal_8012BCD4_lbl_804A4F60) == 0xF8 ? 1 : -1];
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_psycho_wand(s32 arg0);
 s32 construct_target_cursor_records__10TObjPlayerFi(s32);
@@ -42,17 +39,17 @@ extern "C" {
 
 u8 *psycho_wand_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &psycho_wand_weapon_vtable.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &psycho_wand_weapon_vtable.value;
     construct_target_cursor_records__10TObjPlayerFi((s32) (arg0 + 0x208));
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
-    M2C_FIELD(arg0, s32 *, 0x278) = 0;
-    M2C_FIELD(arg0, f32 *, 0x274) = (f32) lbl_805DAEC8;
-    M2C_FIELD(arg0, s16 *, 0x1F8) = -1;
-    M2C_FIELD(arg0, f32 *, 0x204) = (f32) lbl_805DAEC8;
-    M2C_FIELD(arg0, f32 *, 0x200) = (f32) lbl_805DAEC8;
-    M2C_FIELD(arg0, f32 *, 0x1FC) = (f32) lbl_805DAEC8;
-    M2C_FIELD(arg0, s32 *, 0x264) = 0;
-    M2C_FIELD(arg0, s32 *, 0x208) = 0;
+    *(s32 *)((s8 *)arg0 + 0x278) = 0;
+    *(f32 *)((s8 *)arg0 + 0x274) = (f32) lbl_805DAEC8;
+    *(s16 *)((s8 *)arg0 + 0x1F8) = -1;
+    *(f32 *)((s8 *)arg0 + 0x204) = (f32) lbl_805DAEC8;
+    *(f32 *)((s8 *)arg0 + 0x200) = (f32) lbl_805DAEC8;
+    *(f32 *)((s8 *)arg0 + 0x1FC) = (f32) lbl_805DAEC8;
+    *(s32 *)((s8 *)arg0 + 0x264) = 0;
+    *(s32 *)((s8 *)arg0 + 0x208) = 0;
     return arg0;
 }
 
@@ -70,14 +67,7 @@ u8 *create_psycho_wand(s32 arg0) {
     return NULL;
 }
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 }

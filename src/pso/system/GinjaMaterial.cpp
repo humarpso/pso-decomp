@@ -1,14 +1,10 @@
 #include "pso/system/GinjaMaterialState.h"
 #include "pso/system/GinjaModel.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma scheduling off
 #pragma scheduling off
-typedef M2C_UNK (*RecoveredCallback_d26337a2813d)();
+typedef s32 (*RecoveredCallback_d26337a2813d)();
 
 typedef GinjaMaterialCache S_803DB560;
 
@@ -27,8 +23,6 @@ struct GinjaTevCache { u8 reserved[0x75]; u8 stageOffset; };
 struct G_803DBC1C { u8 pad[0x7C]; u32 f7c; u32 f80; u32 f84; u32 f88; };
 
 struct Arr_803DC3BC { u8 idx; u8 stride; u8 pad[6]; void *base; u32 pad2; };
-
-typedef s32 M2C_UNK;
 
 struct C_803DB9A0 { u8 r, g, b, a; };
 
@@ -58,8 +52,8 @@ typedef struct GinjaCounts_803DB734 {
 
 extern "C" {
 void draw_ginja_model(s32 arg0);
-M2C_UNK Dolphin_GXSetVtxDesc(int, void *);
-M2C_UNK GXClearVtxDesc();
+s32 Dolphin_GXSetVtxDesc(int, void *);
+s32 GXClearVtxDesc();
 s32 get_ginja_vertex_descriptor_type(u32 arg0, s32 arg1);
 void set_ginja_indexed_vtx_desc(s32 arg0);
 void GXSetZMode(u8, s32, s32);
@@ -133,7 +127,7 @@ void GXLoadNrmMtxImm(void *, void *);
 void GXLoadTexMtxImm(void *, int, int);
 extern s32 current_matrix;
 extern s32 model_render_flags;
-M2C_UNK load_ginja_model_matrices(int arg0);
+s32 load_ginja_model_matrices(int arg0);
 void GXSetChanMatColor(s32, C_803DB9A0);
 void convert_color_f32_to_u8(const F_803DB9A0 *, C_803DB9A0 *);
 void convert_color_u8_to_f32(const C_803DB9A0 *, F_803DB9A0 *);
@@ -545,14 +539,14 @@ void end_ginja_model_draw(void) {
         GXSetZCompLoc(1);
         GXSetZMode(1U, 1, 1);
         ginja_set_alpha_compare((s32)(0));
-        if (((M2C_UNK (*)()) ginja_draw_end_callback) != NULL) {
+        if (((s32 (*)()) ginja_draw_end_callback) != NULL) {
             ginja_draw_end_callback();
         }
     }
 }
 #pragma pop
 
-M2C_UNK load_ginja_model_matrices(int arg0) {
+s32 load_ginja_model_matrices(int arg0) {
     f32 s[3][4];
     f32 t[3][4];
     f32 m[3][4];

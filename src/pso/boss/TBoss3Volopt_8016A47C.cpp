@@ -1,7 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct Base_8016A604 { char pad[0x18]; };
 struct VObj_8016A604 : Base_8016A604 {
     virtual void m0();
@@ -28,15 +26,13 @@ struct VObj_8016A604 : Base_8016A604 {
     virtual void m21();
 };
 
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 void play_activate_sound__5TOKeyFPv(u8 *arg0);
 u32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern s32 enable_v2_features;
 void TBoss3Volopt__sub_8016A47C(s32 arg0);
 }
@@ -118,7 +114,7 @@ void play_activate_sound__5TOKeyFPv(u8 *arg0) {
     switch (temp_r3) {
     case 1:
     case 2:
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
         switch (temp_r0) {
         case 0:
             play_sound_effect((int) (0x4C60A), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -131,7 +127,7 @@ void play_activate_sound__5TOKeyFPv(u8 *arg0) {
     case 3:
     case 4:
     case 5:
-        temp_r0_2 = M2C_FIELD(arg0, s32 *, 0xD0);
+        temp_r0_2 = *(s32 *)((s8 *)arg0 + 0xD0);
         switch (temp_r0_2) {
         case 0:
             play_sound_effect((int) (0x44609), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -143,7 +139,7 @@ void play_activate_sound__5TOKeyFPv(u8 *arg0) {
         break;
     case 6:
     case 7:
-        temp_r0_3 = M2C_FIELD(arg0, s32 *, 0xD0);
+        temp_r0_3 = *(s32 *)((s8 *)arg0 + 0xD0);
         switch (temp_r0_3) {
         case 0:
             play_sound_effect((int) (0x4004C603), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -156,7 +152,7 @@ void play_activate_sound__5TOKeyFPv(u8 *arg0) {
     case 8:
     case 9:
     case 10:
-        temp_r0_4 = M2C_FIELD(arg0, s32 *, 0xD0);
+        temp_r0_4 = *(s32 *)((s8 *)arg0 + 0xD0);
         switch (temp_r0_4) {
         case 0:
             play_sound_effect((int) (0x4004C60A), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));
@@ -169,7 +165,7 @@ void play_activate_sound__5TOKeyFPv(u8 *arg0) {
     case 16:
     case 17:
         if ((s32) enable_v2_features == 1) {
-            temp_r0_5 = M2C_FIELD(arg0, s32 *, 0xD0);
+            temp_r0_5 = *(s32 *)((s8 *)arg0 + 0xD0);
             switch (temp_r0_5) {
             case 0:
                 play_sound_effect((int) (0x4004C601), (void *) ((u8 *)(arg0) + 0x38), (int) (0), (int) (0));

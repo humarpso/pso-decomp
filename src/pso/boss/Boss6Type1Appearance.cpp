@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8033CB4C
 {
@@ -15,7 +11,7 @@ struct Fish_8033CB4C
 {
   s32 x0;
   u8 pad4[0x18 - 4];
-  const M2C_UNK *vt;
+  const s32 *vt;
   Ent_8033CB4C tbl[2];
   f32 x34;
   s32 x38;
@@ -27,14 +23,14 @@ struct Fish_8033CB4C
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 request_destroy__11TBoss4Type2FUi(void *);
 u32 create_particle_emitter(int, int);
-M2C_UNK set_flags__11TBoss4Type2FPvUi(int, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(int, int);
-M2C_UNK play_sound_effect(int, int, int, int);
-M2C_UNK queue_event_1D__12TBoss3VoloptFss(int, int);
-M2C_UNK scroll_strips_uv__14TBoss6PlotFalzFPvii(void *, int, int);
+s32 set_flags__11TBoss4Type2FPvUi(int, int);
+s32 copy_pos__11TNowLoadingFPvPv(int, int);
+s32 play_sound_effect(int, int, int, int);
+s32 queue_event_1D__12TBoss3VoloptFss(int, int);
+s32 scroll_strips_uv__14TBoss6PlotFalzFPvii(void *, int, int);
 s32 get_phase__8TObjFishFPv(int);
 extern const f32 lbl_805DFA48;
 extern const f32 lbl_805DFA4C;
@@ -49,14 +45,14 @@ s32 TObjFish__sub_800E3124(void *, void *);
 int __ct__7TObjectFP7TObject(void *, void *);
 int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 s32 get_fish_count__8TObjFishFv();
-extern M2C_UNK lbl_80477DEC[];
-extern M2C_UNK lbl_80477DF8[];
-extern M2C_UNK boss6_type1_appear_model_node_descriptors[];
-extern M2C_UNK lbl_80477E30[];
-extern M2C_UNK lbl_80477E3C[];
+extern s32 lbl_80477DEC[];
+extern s32 lbl_80477DF8[];
+extern s32 boss6_type1_appear_model_node_descriptors[];
+extern s32 lbl_80477E30[];
+extern s32 lbl_80477E3C[];
 extern s32 lbl_804DF614[];
 extern s32 boss6_type1_appear_motion_indices[];
-extern const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[];
+extern const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 struct AppearanceClassTag { const char *value; u32 padding; };
 __declspec(section ".sdata") extern AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name;
 struct AppearanceZero { f32 value; u32 padding; };
@@ -70,43 +66,43 @@ u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1);
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p);
 void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0);
 void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0);
-M2C_UNK free_buffer_pairs__14TBoss6PlotFalzFPv(void *);
-M2C_UNK refresh_players_equipment__14TBoss6PlotFalzFPv();
-M2C_UNK restore_player_cameras();
-M2C_UNK post_translate_matrix(M2C_UNK *);
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, int);
+s32 free_buffer_pairs__14TBoss6PlotFalzFPv(void *);
+s32 refresh_players_equipment__14TBoss6PlotFalzFPv();
+s32 restore_player_cameras();
+s32 post_translate_matrix(s32 *);
+s32 draw_model_motion(s32, s32, f32);
+s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK clear_global_state__10TObjPlayerFv();
-M2C_UNK clear_render_callback__8TObjFishFv(s32);
-M2C_UNK init_state_1__8TObjFishFPv(void *);
-M2C_UNK request_destroy__11TBoss4Type2FUi(void *);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 clear_global_state__10TObjPlayerFv();
+s32 clear_render_callback__8TObjFishFv(s32);
+s32 init_state_1__8TObjFishFPv(void *);
+s32 request_destroy__11TBoss4Type2FUi(void *);
+s32 set_global_flag__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
 
-extern M2C_UNK lbl_80477DEC[];
+extern s32 lbl_80477DEC[];
 
 void TBoss6Demo10_TYPE1_APPEAR__draw_models(void *arg0) {
     push_matrix();
     set_global_flag__10TObjPlayerFv();
     post_translate_matrix(lbl_80477DEC);
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x20));
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0x1C), M2C_FIELD(arg0, s32 *, 0x24), M2C_FIELD(arg0, f32 *, 0x34));
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x2C));
-    set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0x60));
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0x28), M2C_FIELD(arg0, s32 *, 0x30), M2C_FIELD(arg0, f32 *, 0x34));
-    clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x60));
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x20));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x1C), *(s32 *)((s8 *)arg0 + 0x24), *(f32 *)((s8 *)arg0 + 0x34));
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x2C));
+    set_draw_callback_list__8TObjFishFPv(*(s32 *)((s8 *)arg0 + 0x60));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0x28), *(s32 *)((s8 *)arg0 + 0x30), *(f32 *)((s8 *)arg0 + 0x34));
+    clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x60));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
 }
 
 void render__25TBoss6Demo10_TYPE1_APPEARFv(void* p) { TBoss6Demo10_TYPE1_APPEAR__draw_models((void *)((void *)(p))); }
 
-extern const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[];
+extern const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -116,16 +112,16 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
     s32 temp_r0_2;
     s32 temp_r0_3;
     u8 *temp_r30;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x34) + lbl_805DFA48;
-    M2C_FIELD(arg0, f32 *, 0x34) = temp_f1;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x34) + lbl_805DFA48;
+    *(f32 *)((s8 *)arg0 + 0x34) = temp_f1;
     if (temp_f1 > lbl_805DFA4C) {
-        M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DFA4C;
+        *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DFA4C;
     }
     scroll_strips_uv__14TBoss6PlotFalzFPvii((void *) (arg0 + 0x40), (int) (8), (int) (0));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == 0x78) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == 0x78) {
         play_sound_effect((int) (0x4003A105), (int) (0), (int) (0), (int) (0));
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x38);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x38);
     switch (temp_r0) {
     case 0x1B8:
     case 0xFA:
@@ -135,7 +131,7 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         play_sound_effect((int) (0x40031222), (int) (0), (int) (0), (int) (0));
         break;
     }
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x38);
+    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x38);
     switch (temp_r0_2) {
     case 0x14:
     case 0xC6:
@@ -145,42 +141,42 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
         queue_event_1D__12TBoss3VoloptFss((int) (0xC0), (int) (0xF));
         break;
     }
-    temp_r0_3 = M2C_FIELD(arg0, s32 *, 0x38);
+    temp_r0_3 = *(s32 *)((s8 *)arg0 + 0x38);
     temp_r30 = arg0 + 0x54;
     switch (temp_r0_3) {
     case 0x1:
-        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
+        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            set_flags__11TBoss4Type2FPvUi((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
         }
         break;
     case 0x1AC:
     case 0x8E:
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
-            M2C_FIELD(arg0, u32 *, 0x64) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x64));
+            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x211));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
+        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x211));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            set_flags__11TBoss4Type2FPvUi((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
         }
         break;
     case 0x11D:
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
-            M2C_FIELD(arg0, u32 *, 0x64) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x64));
+            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
-        M2C_FIELD(arg0, u32 *, 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            set_flags__11TBoss4Type2FPvUi((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (0x40));
+        *(u32 *)((s8 *)arg0 + 0x64) = create_particle_emitter((int) (temp_r30), (int) (0x210));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            set_flags__11TBoss4Type2FPvUi((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (0x40));
         }
         break;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-        copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x64)), (int) (temp_r30));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+        copy_pos__11TNowLoadingFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x64)), (int) (temp_r30));
     }
-    M2C_FIELD(arg0, s32 *, 0x38) = (s32) (M2C_FIELD(arg0, s32 *, 0x38) + 1);
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x38) >= 0x1F4) || (get_phase__8TObjFishFPv((int) (M2C_FIELD(arg0, s32 *, 0x3C))) != 1)) {
+    *(s32 *)((s8 *)arg0 + 0x38) = (s32) (*(s32 *)((s8 *)arg0 + 0x38) + 1);
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) >= 0x1F4) || (get_phase__8TObjFishFPv((int) (*(s32 *)((s8 *)arg0 + 0x3C))) != 1)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -188,17 +184,17 @@ void run_task__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0) {
 
 u8 *__dt__25TBoss6Demo10_TYPE1_APPEARFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK*)&__vt__25TBoss6Demo10_TYPE1_APPEAR;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32*)&__vt__25TBoss6Demo10_TYPE1_APPEAR;
         restore_player_cameras();
         refresh_players_equipment__14TBoss6PlotFalzFPv();
         free_buffer_pairs__14TBoss6PlotFalzFPv(arg0 + 0x40);
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x60) != 0U) {
-            init_state_1__8TObjFishFPv(M2C_FIELD(arg0, void **, 0x60));
-            M2C_FIELD(arg0, u32 *, 0x60) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x60) != 0U) {
+            init_state_1__8TObjFishFPv(*(void **)((s8 *)arg0 + 0x60));
+            *(u32 *)((s8 *)arg0 + 0x60) = 0U;
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x64) != 0U) {
-            request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x64));
-            M2C_FIELD(arg0, u32 *, 0x64) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x64) != 0U) {
+            request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x64));
+            *(u32 *)((s8 *)arg0 + 0x64) = 0U;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -254,17 +250,17 @@ void *TBoss6Demo10_TYPE1_APPEAR__create(void *arg0) {
 extern "C" {
 extern const char TBoss6Demo10_TYPE1_APPEAR__class_name[];
 __declspec(section ".rodata") const char TBoss6Demo10_TYPE1_APPEAR__class_name[] ATTRIBUTE_ALIGN(4) = "TBoss6Demo10_TYPE1_APPEAR";
-__declspec(section ".rodata") M2C_UNK lbl_80477DEC[] = {0x00000000, 0x41C80000, 0x42960000};
-__declspec(section ".rodata") M2C_UNK lbl_80477DF8[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000};
-__declspec(section ".rodata") M2C_UNK boss6_type1_appear_model_node_descriptors[] = {0x00000003, 0x00000001, 0x00000000, 0x00000006, 0x00000001, 0x00000000};
-__declspec(section ".rodata") M2C_UNK lbl_80477E30[] = {0x00000000, 0x00000000, 0x00000000};
-__declspec(section ".rodata") M2C_UNK lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};
+__declspec(section ".rodata") s32 lbl_80477DEC[] = {0x00000000, 0x41C80000, 0x42960000};
+__declspec(section ".rodata") s32 lbl_80477DF8[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000};
+__declspec(section ".rodata") s32 boss6_type1_appear_model_node_descriptors[] = {0x00000003, 0x00000001, 0x00000000, 0x00000006, 0x00000001, 0x00000000};
+__declspec(section ".rodata") s32 lbl_80477E30[] = {0x00000000, 0x00000000, 0x00000000};
+__declspec(section ".rodata") s32 lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};
 s32 boss6_type1_appear_motion_indices[] = {35, 36};
 void render_shadows__7TObjectFv();
-__declspec(section ".data") const M2C_UNK __vt__25TBoss6Demo10_TYPE1_APPEAR[] = {
-    0, 0, (M2C_UNK)__dt__25TBoss6Demo10_TYPE1_APPEARFv,
-    (M2C_UNK)run_task__25TBoss6Demo10_TYPE1_APPEARFv,
-    (M2C_UNK)render__25TBoss6Demo10_TYPE1_APPEARFv, (M2C_UNK)render_shadows__7TObjectFv
+__declspec(section ".data") const s32 __vt__25TBoss6Demo10_TYPE1_APPEAR[] = {
+    0, 0, (s32)__dt__25TBoss6Demo10_TYPE1_APPEARFv,
+    (s32)run_task__25TBoss6Demo10_TYPE1_APPEARFv,
+    (s32)render__25TBoss6Demo10_TYPE1_APPEARFv, (s32)render_shadows__7TObjectFv
 };
 __declspec(section ".sdata") AppearanceClassTag TBoss6Demo10_TYPE1_APPEAR__name = {TBoss6Demo10_TYPE1_APPEAR__class_name, 0};
 __declspec(section ".sdata2") const f32 lbl_805DFA48 = 0.7f;

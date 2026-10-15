@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct Pl_80117F14 { u8 pad0[0x38]; f32 pos[3]; };
 
@@ -20,19 +18,19 @@ void *construct_timer_event__10TObjPlayerFPv(void *arg0);
 void *init_item_timer_event__10TObjPlayerFPv(void *arg0);
 void TItemTimerEvent__ct(void *);
 
-extern M2C_UNK lbl_804A0628[];
+extern s32 lbl_804A0628[];
 
 void *construct_timer_event__10TObjPlayerFPv(void *arg0) {
     TItemTimerEvent__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0628;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0628;
     return arg0;
 }
 
-extern M2C_UNK lbl_804A0648[];
+extern s32 lbl_804A0648[];
 
 void *init_item_timer_event__10TObjPlayerFPv(void *arg0) {
     TItemTimerEvent__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A0648;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A0648;
     return arg0;
 }
 s32 count_nearby_players_with_shield__10TObjPlayerFUsPv(u16 idx, u8 *item) {

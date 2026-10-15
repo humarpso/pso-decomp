@@ -14,10 +14,6 @@ extern const char *boss06_rock_dat_model_names[8];
 extern BmlResourceDescriptor boss6_rock_resource_descriptor;
 extern const char *boss06_rock_dat_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 create__10TBoss6RockFPv(s32);
@@ -44,8 +40,8 @@ extern "C" {
 void TBoss6Rock__sub_80354A44(void);
 void free_data__10TBoss6RockFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
     extern int TBoss6Rock__data_805D6EF8;
 void TBoss6Rock__sub_80354A44(void) { TBoss6Rock__data_805D6EF8 = 0; }

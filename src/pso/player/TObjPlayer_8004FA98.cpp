@@ -1,23 +1,18 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 extern "C" {
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
-M2C_UNK TObjPlayer__sub_80052390(f32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK clear_global_state__10TObjPlayerFv();
-M2C_UNK clear_render_callback__8TObjFishFv(s32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK sync_player_globals__10TObjPlayerFv();
+s32 post_translate_matrix(void *);
+s32 draw_model_motion(s32, s32, f32);
+s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 TObjPlayer__sub_80052390(f32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 clear_global_state__10TObjPlayerFv();
+s32 clear_render_callback__8TObjFishFv(s32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 sync_player_globals__10TObjPlayerFv();
 int draw_fading_motion__10TObjPlayerFPv(void *p);
 }
 
@@ -25,30 +20,30 @@ extern "C" {
 
 void release_subobjects__10TObjPlayerFPv(u8 *arg0);
 void update_both__10TObjPlayerFPv(void* p);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_model_motion(s32, s32, f32);
-M2C_UNK set_draw_callback_list__8TObjFishFPv(s32);
-M2C_UNK TObjPlayer__sub_80052390(f32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK clear_global_state__10TObjPlayerFv();
-M2C_UNK clear_render_callback__8TObjFishFv(s32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK sync_player_globals__10TObjPlayerFv();
+s32 post_translate_matrix(void *);
+s32 draw_model_motion(s32, s32, f32);
+s32 set_draw_callback_list__8TObjFishFPv(s32);
+s32 TObjPlayer__sub_80052390(f32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 clear_global_state__10TObjPlayerFv();
+s32 clear_render_callback__8TObjFishFv(s32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
+s32 sync_player_globals__10TObjPlayerFv();
 
 void release_subobjects__10TObjPlayerFPv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xE4) >= 0xB4) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xE4) >= 0xB4) {
         TObjPlayer__sub_80052390(0.99f);
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix(arg0 + 0xD4);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xCC));
-        set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0x108));
-        draw_model_motion(M2C_FIELD(arg0, s32 *, 0xC8), M2C_FIELD(arg0, s32 *, 0xD0), M2C_FIELD(arg0, f32 *, 0xE8));
-        clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0x108));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xE0));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xCC));
+        set_draw_callback_list__8TObjFishFPv(*(s32 *)((s8 *)arg0 + 0x108));
+        draw_model_motion(*(s32 *)((s8 *)arg0 + 0xC8), *(s32 *)((s8 *)arg0 + 0xD0), *(f32 *)((s8 *)arg0 + 0xE8));
+        clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0x108));
         clear_global_state__10TObjPlayerFv();
         pop_matrix();
         sync_player_globals__10TObjPlayerFv();
@@ -61,7 +56,7 @@ int draw_fading_motion__10TObjPlayerFPv(void *p) {
     f32 frac;
     s32 t;
     alpha = 1.0f;
-    t = M2C_FIELD(arg0, s32 *, 0xE4);
+    t = *(s32 *)((s8 *)arg0 + 0xE4);
     if (t >= 0xF0) {
         return;
     }
@@ -74,16 +69,16 @@ int draw_fading_motion__10TObjPlayerFPv(void *p) {
     push_matrix();
     set_global_flag__10TObjPlayerFv();
     post_translate_matrix(arg0 + 0xD4);
-    rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0xE0));
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xA8));
-    set_draw_callback_list__8TObjFishFPv(M2C_FIELD(arg0, s32 *, 0xEC));
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xA4), M2C_FIELD(arg0, s32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xE8));
-    clear_render_callback__8TObjFishFv(M2C_FIELD(arg0, s32 *, 0xEC));
-    frac = (s32)M2C_FIELD(arg0, f32 *, 0xE8) % 30;
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB4));
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xB0), M2C_FIELD(arg0, s32 *, 0xB8), frac);
-    set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xC0));
-    draw_model_motion(M2C_FIELD(arg0, s32 *, 0xBC), M2C_FIELD(arg0, s32 *, 0xC4), frac);
+    rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xE0));
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xA8));
+    set_draw_callback_list__8TObjFishFPv(*(s32 *)((s8 *)arg0 + 0xEC));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0xA4), *(s32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xE8));
+    clear_render_callback__8TObjFishFv(*(s32 *)((s8 *)arg0 + 0xEC));
+    frac = (s32)*(f32 *)((s8 *)arg0 + 0xE8) % 30;
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xB4));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0xB0), *(s32 *)((s8 *)arg0 + 0xB8), frac);
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xC0));
+    draw_model_motion(*(s32 *)((s8 *)arg0 + 0xBC), *(s32 *)((s8 *)arg0 + 0xC4), frac);
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
     if (alpha < 1.0f) {
@@ -131,17 +126,17 @@ void darkfalz_death_update(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
     update_particle_emitters__11TBoss4Type2FPv(arg0);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xE4) == 0x8C) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xE4) == 0x8C) {
         play_cue_stream_file((s32) "dfdeath.adx");
         queue_event_1D__12TBoss3VoloptFss(0xC0, 0xF);
     }
-    { f32 k = 0.5f; temp_f1 = M2C_FIELD(arg0, f32 *, 0xE8) + k; }
-    M2C_FIELD(arg0, f32 *, 0xE8) = temp_f1;
+    { f32 k = 0.5f; temp_f1 = *(f32 *)((s8 *)arg0 + 0xE8) + k; }
+    *(f32 *)((s8 *)arg0 + 0xE8) = temp_f1;
     if (temp_f1 > 149.0f) {
-        M2C_FIELD(arg0, f32 *, 0xE8) = (f32) 149.0f;
+        *(f32 *)((s8 *)arg0 + 0xE8) = (f32) 149.0f;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xE4) + 1;
-    M2C_FIELD(arg0, s32 *, 0xE4) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xE4) + 1;
+    *(s32 *)((s8 *)arg0 + 0xE4) = temp_r0;
     if (temp_r0 >= 0x12C) {
         queue_destruction__7TObjectFv(arg0);
     }

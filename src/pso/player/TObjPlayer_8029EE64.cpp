@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct Vec_8029EFFC { f32 x, y, z; };
 
 struct Cam_8029EFFC { Vec_8029EFFC pos; Vec_8029EFFC scale; };
@@ -32,20 +27,20 @@ struct Sora_8029EFFC {
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK calc_projection_screen_offset(void *, void *);
+s32 calc_projection_screen_offset(void *, void *);
 f64 calc_camera_fov_degrees();
-M2C_UNK fn_8029F5B0(int, int, int, int);
-M2C_UNK PSMTXConcat(void *, void *, void *);
-M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
-M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
-M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
-M2C_UNK load_current_pos_matrix(int);
-M2C_UNK load_current_tex_matrix(int);
+s32 fn_8029F5B0(int, int, int, int);
+s32 PSMTXConcat(void *, void *, void *);
+s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_effect_state__10TObjPlayerFi(s32);
+s32 set_ginja_post_texgen_count(s32);
+s32 set_ginja_post_tev_stage_count(s32);
+s32 load_current_pos_matrix(int);
+s32 load_current_tex_matrix(int);
 extern const f64 lbl_80465E18;
 extern u32 camera_ctrl_instance;
 extern u32 lbl_805D65F0;
@@ -79,8 +74,8 @@ void copy_efb_to_texture__10TObjPlayerFPv(s32);
 f32 vec_squared_length(Vec_8029EFFC *);
 void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 push_matrix();
+s32 pop_matrix();
 extern Vec_8029EFFC lbl_80465E08;
 extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
@@ -100,9 +95,9 @@ extern "C" {
 
 void TSceneSora__sub_8029F3E4(void);
 void clear_state_if_flag80__10TObjPlayerFi(s32 arg0);
-M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
-M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
-M2C_UNK set_global_effect_state__10TObjPlayerFi(M2C_UNK);
+s32 set_ginja_post_texgen_count(s32);
+s32 set_ginja_post_tev_stage_count(s32);
+s32 set_global_effect_state__10TObjPlayerFi(s32);
 
 extern s32 model_render_flags;
 
@@ -138,9 +133,9 @@ void setup_projection_texture__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
             GXSetTevOp((int) (1), (int) (2));
             fn_8029F5B0((int) (1), (int) (0), (int) (0), (int) (0x24));
             model_render_flags |= 0x80000;
-            set_ginja_post_tev_stage_count((M2C_UNK)((int) (1)));
-            set_ginja_post_texgen_count((M2C_UNK)((int) (1)));
-            set_global_effect_state__10TObjPlayerFi((M2C_UNK)((int) (1)));
+            set_ginja_post_tev_stage_count((s32)((int) (1)));
+            set_ginja_post_texgen_count((s32)((int) (1)));
+            set_global_effect_state__10TObjPlayerFi((s32)((int) (1)));
         }
     }
 }

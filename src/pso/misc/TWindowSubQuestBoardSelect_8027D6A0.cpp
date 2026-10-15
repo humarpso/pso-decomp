@@ -1,25 +1,20 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8027D888_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
-typedef s32 M2C_UNK;
 struct Ent_8027D6A0 { u8 pad0[0x20]; u8 f20[0x30]; };
 
 struct Win_8027D6A0 { u8 pad0[0x61]; s8 f61; };
 
 extern "C" {
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(int, int);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+s32 TWindowSubQuestBoardSelect__sub_8027D444(void *, int);
+s32 forward_render__20TWindowSubStatusDispFPv(int, int);
 void render__26TWindowSubQuestBoardSelectFv(u8 *arg0);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -82,7 +77,7 @@ void render__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
     s32 temp_r3;
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
-    forward_render__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x64)), (int) (temp_r3));
+    forward_render__20TWindowSubStatusDispFPv((int) (*(s32 *)((s8 *)arg0 + 0x64)), (int) (temp_r3));
     TWindowSubQuestBoardSelect__sub_8027D444((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
 }
@@ -101,9 +96,9 @@ void run_task__26TWindowSubQuestBoardSelectFv(u8 *arg0) {
         }
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD6B4) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x186A0;
-        update_subwindow__20TWindowSubStatusDispFPv((int) (M2C_FIELD(arg0, s32 *, 0x64)));
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD6B4) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x186A0;
+        update_subwindow__20TWindowSubStatusDispFPv((int) (*(s32 *)((s8 *)arg0 + 0x64)));
     }
     update_fade__17TWindowSubComCardFPv((void *) (arg0));
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));

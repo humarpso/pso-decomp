@@ -5,75 +5,71 @@ struct RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8
   u8 remaining[0x34];
 };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 struct RecoveredGlobal_80358BF8_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358C80_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358B70_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358AE8_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358E18_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358D90_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358D08_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_803590C0_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358EA0_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80359038_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80358F28_TObjNpcNgcBase__data_805439A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
-
-typedef s32 M2C_UNK;
 
 struct Rec_803592B8 {
     s32 idx;
@@ -165,7 +161,7 @@ s32 TObjNpcNgcBase__ct(int, int, void *, int);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 extern s32 tl_04;
 s32 TObjNpcNgcBase__sub_80359148(s32 arg0);
-M2C_UNK TLobby__sub_8001FE7C(void *, M2C_UNK);
+s32 TLobby__sub_8001FE7C(void *, s32);
 extern RecoveredGlobal_803591D0_TObjNpcNgcBase__data_805439A8 TObjNpcNgcBase__data_805439A8;
 void free_shared_resources__14TObjNpcNgcBaseFv(void);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);

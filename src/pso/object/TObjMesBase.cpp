@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TObjBase80194_80194C98 { char pad[0x18]; };
 struct TObjMesBase80194_80194C98 : TObjBase80194_80194C98 {
     virtual void v0(s32);
@@ -68,7 +65,7 @@ void TObjMesBase__vt12(void);
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1);
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0);
 void dispatch_state__11TObjMesBaseFPv(void *arg0);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
+s32 construct_collider_proxy__10TObjPlayerFPv();
 void __dl__7TObjectFPv(void *);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *obj);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
@@ -118,10 +115,10 @@ void TObjMesBase::start_message() {
     }
 }
 void clear_ref_if_destroyed__11TObjMesBaseFPv(void *arg0) {
-    void *p = M2C_FIELD(arg0, void **, 0xAC);
+    void *p = *(void **)((s8 *)arg0 + 0xAC);
     if ((p != 0) && (all_parents_unqueued_for_destruction__7TObjectFv(p) == 0)) {
-        M2C_FIELD(arg0, u32 *, 0xAC) = 0U;
-        M2C_FIELD(arg0, s32 *, 0xB0) = 0;
+        *(u32 *)((s8 *)arg0 + 0xAC) = 0U;
+        *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     }
 }
 void TObjMesBase__vt12(void) {  }
@@ -129,7 +126,7 @@ void TObjMesBase__vt12(void) {  }
 void dispatch_state__11TObjMesBaseFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB0);
     switch (temp_r0) {
     case 0:
         ((VObj_80194CE8_80194C98 *)arg0)->m12();
@@ -140,11 +137,11 @@ void dispatch_state__11TObjMesBaseFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK __vt__11TObjMesBase[];
+extern s32 __vt__11TObjMesBase[];
 
 void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -153,24 +150,24 @@ void *__dt__11TObjMesBaseFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__11TObjMesBase[];
+extern s32 __vt__11TObjMesBase[];
 extern s32 TObjMesBase__class_name;
 
 void *TObjMesBase__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjMesBase;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjMesBase__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjMesBase;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjMesBase__class_name;
     ((TObjMesBase80194_80194C98 *)arg0)->ct(arg2);
-    M2C_FIELD(arg0, s32 *, 0xB4) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) < 0) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xB8) < 0) {
+        *(s32 *)((s8 *)arg0 + 0xB8) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB8) > 1) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = 1;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xB8) > 1) {
+        *(s32 *)((s8 *)arg0 + 0xB8) = 1;
     }
-    M2C_FIELD(arg0, s32 *, 0xAC) = 0;
-    M2C_FIELD(arg0, s32 *, 0xB0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xAC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xB0) = 0;
     return arg0;
 }
 

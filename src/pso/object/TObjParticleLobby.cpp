@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18_1a504b { char pad[0x18]; };
 
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -12,21 +8,20 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80369ADC___vt__17TObjParticleLobby {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct Self_803696A0 { u8 pad0[0xC8]; s32 state; f32 t; s32 target; void *ctrl; };
 
-typedef s32 M2C_UNK;
 extern "C" {
 s32 create_particle_emitter(void *, int);
 s32 init_map_object_base(void *, void *);
-extern M2C_UNK __vt__17TObjParticleLobby[];
+extern s32 __vt__17TObjParticleLobby[];
 extern s32 lbl_805D44B8;
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 get_filtered_event_theme__6TLobbyFv();
@@ -123,94 +118,94 @@ void setup_emitter__17TObjParticleLobbyFPv(void *arg0) {
     s32 v;
     f32 f;
     flags = 0;
-    switch (M2C_FIELD(arg0, u32 *, 0x84)) {
+    switch (*(u32 *)((s8 *)arg0 + 0x84)) {
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
         break;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 5;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 5;
         break;
     case 3:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 7;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 7;
         break;
     case 4:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 3;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 3;
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 9;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 9;
         break;
     case 6:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 8;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 8;
         break;
     case 7:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 4;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 4;
         break;
     case 8:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 0xA;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 0xA;
         break;
     case 9:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 0xB;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 0xB;
         break;
     default:
-        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
         break;
     }
-    if (M2C_FIELD(arg0, s32 *, 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(arg0)) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 3;
+    if (*(s32 *)((s8 *)arg0 + 0xD0) == ((s32 (*)(void *))get_event_theme_index__17TObjParticleLobbyFv)(arg0)) {
+        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     }
-    v = (s32)M2C_FIELD(arg0, f32 *, 0x68);
+    v = (s32)*(f32 *)((s8 *)arg0 + 0x68);
     if (v < 0) {
         v = 0;
     }
     if (v >= 0x240) {
         v = 0x23F;
     }
-    if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
-        set_param_ptr__11TBoss4Type2FPvi(M2C_FIELD(arg0, void **, 0xD4), v);
+    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
+        set_param_ptr__11TBoss4Type2FPvi(*(void **)((s8 *)arg0 + 0xD4), v);
     }
-    f = M2C_FIELD(arg0, f32 *, 0x70);
+    f = *(f32 *)((s8 *)arg0 + 0x70);
     if (f < 0.0f) {
         t = 0x2;
-        if (M2C_FIELD(arg0, s32 *, 0x88) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
             t = 0x42;
         }
         flags = t;
-        if (M2C_FIELD(arg0, s32 *, 0x8C) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 2) {
         t = 0x8;
-        if (M2C_FIELD(arg0, s32 *, 0x88) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
             t = 0x48;
         }
         flags = t;
-        if (M2C_FIELD(arg0, s32 *, 0x8C) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else if ((s32)f == 3) {
         t = 0x4;
-        if (M2C_FIELD(arg0, s32 *, 0x88) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
             t = 0x44;
         }
         flags = t;
-        if (M2C_FIELD(arg0, s32 *, 0x8C) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
             flags = t | 0x2000;
         }
     } else {
-        if (M2C_FIELD(arg0, s32 *, 0x88) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x88) == 1) {
             flags = 0x40;
         }
-        if (M2C_FIELD(arg0, s32 *, 0x8C) == 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x8C) == 1) {
             flags |= 0x2000;
         }
     }
-    if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
-        set_flags__11TBoss4Type2FPvUi(M2C_FIELD(arg0, void **, 0xD4), flags);
+    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
+        set_flags__11TBoss4Type2FPvUi(*(void **)((s8 *)arg0 + 0xD4), flags);
     }
-    if (M2C_FIELD(arg0, void **, 0xD4) != NULL) {
-        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0xD4), (u8 *)arg0 + 0x38);
+    if (*(void **)((s8 *)arg0 + 0xD4) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0xD4), (u8 *)arg0 + 0x38);
     }
 }
 
@@ -225,12 +220,12 @@ void *create__17TObjParticleLobbyFPv(void *arg0) {
 void TObjParticleLobby__sub_80369A60(void) {  }
 void TObjParticleLobby__sub_80369A64(void) {  }
 
-extern M2C_UNK __vt__17TObjParticleLobby[];
+extern s32 __vt__17TObjParticleLobby[];
 
 void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjParticleLobby;
-        if (M2C_FIELD(arg0, void **, 0xD4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xD4)); M2C_FIELD(arg0, M2C_UNK *, 0xD4) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjParticleLobby;
+        if (*(void **)((s8 *)arg0 + 0xD4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xD4)); *(s32 *)((s8 *)arg0 + 0xD4) = 0; }
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -241,12 +236,12 @@ void *__dt__17TObjParticleLobbyFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80369ADC___vt__17TObjParticleLobby_size[sizeof(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby) == 0x38 ? 1 : -1];
 u8 *TObjParticleLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D44B8;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80369ADC___vt__17TObjParticleLobby *)&__vt__17TObjParticleLobby).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D44B8;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
+    *(s32 *)((s8 *)arg0 + 0xD4) = create_particle_emitter((void *) (arg0 + 0x38), (int) (1));
     setup_emitter__17TObjParticleLobbyFPv((void *)((void *) (arg0)));
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (1.0f);
     return arg0;
 }
 

@@ -1,20 +1,17 @@
 #include "pso/TChCrEffCtrlPl.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase803398CC_803398cc_80339658 { char pad[0x18]; };
 struct VObj803398CC_803398cc_80339658 : VBase803398CC_803398cc_80339658 {
-    virtual M2C_UNK m0();
-    virtual M2C_UNK m1();
-    virtual M2C_UNK m2();
-    virtual M2C_UNK m3();
-    virtual M2C_UNK m4();
-    virtual M2C_UNK m5();
-    virtual M2C_UNK m6();
-    virtual M2C_UNK m7();
+    virtual s32 m0();
+    virtual s32 m1();
+    virtual s32 m2();
+    virtual s32 m3();
+    virtual s32 m4();
+    virtual s32 m5();
+    virtual s32 m6();
+    virtual s32 m7();
 };
 
 struct O_80339808 { s32 f0; u8 pad[0x14]; void *vt; s32 f1c; s32 f20; u8 v[8]; f32 f2c; u8 pad2[4]; s32 f34; };
@@ -24,9 +21,9 @@ struct Vec2_803396C8 { f32 x, y; };
 struct O_803396C8 { u8 pad[0x24]; f32 x; f32 y; f32 f2c; f32 f30; s32 f34; };
 
 extern "C" {
-M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK draw_ui_sprite(int, void *, f32, f32);
+s32 set_depth_buffer_settings_1__Fv();
+s32 restore_saved_depth_alpha_state();
+s32 draw_ui_sprite(int, void *, f32, f32);
 void render__14TChCrEffCtrlPlFv(u8 *arg0);
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void __ct__7TObjectFP7TObject(void *);
@@ -51,12 +48,12 @@ u32 create_message_window__22TWindowSubTradeMessageFPCc();
 void render__14TChCrEffCtrlPlFv(u8 *arg0) {
     f32 var_f2;
     set_depth_buffer_settings_1__Fv();
-    var_f2 = (2.5f) * M2C_FIELD(arg0, f32 *, 0x2C);
+    var_f2 = (2.5f) * *(f32 *)((s8 *)arg0 + 0x2C);
     if (var_f2 > (1.0f)) {
         var_f2 = (1.0f);
     }
-    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x1C)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (var_f2));
-    draw_ui_sprite((int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
+    draw_ui_sprite((int) (*(s32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (var_f2));
+    draw_ui_sprite((int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x24), (f32) ((-1.8125f)), (f32) (*(f32 *)((s8 *)arg0 + 0x30)));
     restore_saved_depth_alpha_state();
 }
 #pragma pop

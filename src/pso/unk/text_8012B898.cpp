@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Owner_8012B9B4 { u8 pad[0x38]; f32 pos[3]; u8 pad44[0x60 - 0x44]; s32 f60; };
 
@@ -23,12 +19,12 @@ extern "C" {
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(int);
 s32 reset_key_machine_state__10TObjPlayerFv();
-M2C_UNK create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
-M2C_UNK create__8TTecFoieFPvPvPvPv(int, void *, int, int);
-M2C_UNK create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
+s32 create_ex__9TTecBartaFPvPvPvPv(int, void *, int, int);
+s32 create__8TTecFoieFPvPvPvPv(int, void *, int, int);
+s32 create_tec_zonde__10TObjPlayerFPvPvPvPv(int, void *, void *, int);
 void psycho_wand_cast_technique(u8 *arg0, s32 arg1);
-u8 * init_vtable_and_clear_field1f8__10TObjPlayerFPv(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * init_vtable_and_clear_field1f8__10TObjPlayerFPv(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_vtable_clear_field1f8__10TObjPlayerFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);

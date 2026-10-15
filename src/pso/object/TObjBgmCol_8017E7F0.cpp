@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TObjBase8017E8_8017E7F0 { char pad[0x18]; };
 struct TObjBgmCol8017E8_8017E7F0 : TObjBase8017E8_8017E7F0 {
     virtual void v0(s32);
@@ -17,15 +14,15 @@ extern "C" {
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2);
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1);
-M2C_UNK construct_world_actor_base();
+s32 construct_world_actor_base();
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern M2C_UNK __vt__10TObjBgmCol[];
+extern s32 __vt__10TObjBgmCol[];
 
 void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjBgmCol;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -34,19 +31,19 @@ void *__dt__10TObjBgmColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__10TObjBgmCol[];
+extern s32 __vt__10TObjBgmCol[];
 extern s32 TObjBgmCol__name;
 
 void *TObjBgmCol__ct(void *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjBgmCol;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBgmCol__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjBgmCol;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBgmCol__name;
     ((TObjBgmCol8017E8_8017E7F0 *)arg0)->ct(arg2);
-    M2C_FIELD(arg0, s32 *, 0x90) = 1;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, s32 *, 0x9C) = (s32) (M2C_FIELD(arg0, s32 *, 0x84) % 6);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x9C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x90) = 1;
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
+    *(s32 *)((s8 *)arg0 + 0x9C) = (s32) (*(s32 *)((s8 *)arg0 + 0x84) % 6);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x9C) = 0;
     }
     return arg0;
 }

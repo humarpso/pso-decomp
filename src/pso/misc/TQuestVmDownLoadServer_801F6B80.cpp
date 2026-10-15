@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -13,7 +9,7 @@ extern void *TQuestVmDownLoadServer__instance;
 
 void clear_field2A0__22TQuestVmDownLoadServerFv(void) {
     if ((void *) TQuestVmDownLoadServer__instance != NULL) {
-        M2C_FIELD(TQuestVmDownLoadServer__instance, s32 *, 0x2A0) = 0;
+        *(s32 *)((s8 *)TQuestVmDownLoadServer__instance + 0x2A0) = 0;
     }
 }
 
@@ -21,7 +17,7 @@ extern void *TQuestVmDownLoadServer__instance;
 
 void TQuestVmDownLoadServer__sub_801F6B98(void) {
     if ((void *) TQuestVmDownLoadServer__instance != NULL) {
-        M2C_FIELD(TQuestVmDownLoadServer__instance, s32 *, 0x2A0) = 0;
+        *(s32 *)((s8 *)TQuestVmDownLoadServer__instance + 0x2A0) = 0;
     }
 }
 

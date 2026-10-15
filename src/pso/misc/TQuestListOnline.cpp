@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/misc/TQuestListOnline.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_80217EC4 {
@@ -11,10 +7,9 @@ struct Stack_80217EC4 {
     s32 spC;
 };
 
-struct RecoveredGlobal_80217EC4_lbl_8044BEDC { M2C_UNK value; u8 remaining[0x8]; };
+struct RecoveredGlobal_80217EC4_lbl_8044BEDC { s32 value; u8 remaining[0x8]; };
 typedef char RecoveredGlobal_80217EC4_lbl_8044BEDC_size[sizeof(RecoveredGlobal_80217EC4_lbl_8044BEDC) == 0xC ? 1 : -1];
 
-typedef s32 M2C_UNK;
 struct VBase_18_80217F88 { char pad[0x18]; };
 
 struct VObj_18_80217F88 : VBase_18_80217F88 {
@@ -86,8 +81,8 @@ extern const f32 lbl_805DC6A8;
 s32 obj_getField1c(int);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 get_guild_text(int);
-M2C_UNK reset_list__20TShopArmorListWindowFPv(u32);
-M2C_UNK calc_list_content_extent(u32);
+s32 reset_list__20TShopArmorListWindowFPv(u32);
+s32 calc_list_content_extent(u32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void *, int);
 s32 get_window_layout_position(int);
@@ -96,16 +91,16 @@ u32 create_item_list_window(s32, int, u16);
 extern Stack_80217EC4 lbl_8044BED4[];
 extern u8 *TQuestListOnline__quest_list_buffer;
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 is_visible__17TWindowSubComCardFPv(void *);
 s32 get_status_flag__17TWindowSubComCardFPv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
-M2C_UNK send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
-M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
+s32 clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 s32 check_party_gathered__22THunterGuildSeqOfflineFv();
 
-M2C_UNK clear_flag_and_release__17TWindowSubComCardFPv(void *);
-M2C_UNK TWindow__close(void *);
+s32 clear_flag_and_release__17TWindowSubComCardFPv(void *);
+s32 TWindow__close(void *);
 s32 get_selected_menu_value(void *);
 extern void *TLobby__protocol_instance;
 extern u8 lbl_805DC6A0;
@@ -115,14 +110,14 @@ int set_field_20__12TQuestListVMFPvi(void*, int);
 s32 set_position_xy(int, f32, f32);
 s32 send_and_handle__6TLobbyFPvii(int, void *, int);
 s32 get_window_layout_position(int);
-M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
+s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *, void *);
 s32 get_status_flag__6TLobbyFPv(u32);
 s32 get_flag_bit2__6TLobbyFPv(u32);
-M2C_UNK send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
-M2C_UNK send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
+s32 send_info__9TProtocolFR16TPlyGuildCardTag(void *, void *);
+s32 send_action__9TProtocolFR13GameListEntryUcPcPc(void *, void *, int, void *, void *);
 s32 get_unlocked_tier__16TQuestListOnlineFv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 u32 create_yes_no_window(int, int, int, int);
 s32 select_cursor_entry__6TLobbyFPv(u32);
 extern void *TLobby__protocol_instance;
@@ -145,13 +140,13 @@ int set_field_20__12TQuestListVMFPvi(void*, int);
 extern "C" {
 
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 tmp_buf_use_req__6TLobbyFPv(s32 *);
+s32 queue_destruction__7TObjectFv(void *);
 int set_field_20__12TQuestListVMFPvi(void*, int);
 
 }
 void TQuestListOnline::invoke_callback_30_and_queue_destruction() {
-    M2C_UNK (*temp_r12)();
+    s32 (*temp_r12)();
 
     temp_r12 = callback30;
     if (temp_r12 != NULL) {
@@ -161,79 +156,79 @@ void TQuestListOnline::invoke_callback_30_and_queue_destruction() {
 }
 extern "C" {
 
-extern M2C_UNK lbl_8044BEB0[];
+extern s32 lbl_8044BEB0[];
 extern s32 TQuestListOnline__decompression_cursor;
 
 }
 void TQuestListOnline::handle_quest_confirm() {
     s32 v;
     s32 n;
-    if (M2C_FIELD(this, void **, 0x44) != NULL && is_visible__17TWindowSubComCardFPv(M2C_FIELD(this, void **, 0x44)) != 0) {
-        v = get_selected_menu_value(M2C_FIELD(this, void **, 0x44));
+    if (*(void **)((s8 *)this + 0x44) != NULL && is_visible__17TWindowSubComCardFPv(*(void **)((s8 *)this + 0x44)) != 0) {
+        v = get_selected_menu_value(*(void **)((s8 *)this + 0x44));
         if (v == 0) {
             if (check_party_gathered__22THunterGuildSeqOfflineFv() == 1) {
-                if (M2C_FIELD(this, VObj_18_802178E4 **, 0x6C) != NULL) {
-                    M2C_FIELD(this, VObj_18_802178E4 **, 0x6C)->m7(0x14, 1);
+                if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
+                    (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x14, 1);
                 }
                 send_action__9TProtocolFR13GameListEntryUcPcPc(TLobby__protocol_instance, selected_entry, 0, &lbl_805DC6A0, &lbl_805DC6A0);
-                queue_destruction__7TObjectFv(M2C_FIELD(this, void **, 0x44));
-                M2C_FIELD(this, void **, 0x44) = NULL;
-                if (M2C_FIELD(this, void **, 0x40) != NULL) {
-                    queue_destruction__7TObjectFv(M2C_FIELD(this, void **, 0x40));
-                    M2C_FIELD(this, void **, 0x40) = NULL;
+                queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x44));
+                *(void **)((s8 *)this + 0x44) = NULL;
+                if (*(void **)((s8 *)this + 0x40) != NULL) {
+                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x40));
+                    *(void **)((s8 *)this + 0x40) = NULL;
                 }
-                if (M2C_FIELD(this, void **, 0x3C) != NULL) {
-                    queue_destruction__7TObjectFv(M2C_FIELD(this, void **, 0x3C));
-                    M2C_FIELD(this, void **, 0x3C) = NULL;
+                if (*(void **)((s8 *)this + 0x3C) != NULL) {
+                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x3C));
+                    *(void **)((s8 *)this + 0x3C) = NULL;
                 }
-                if (M2C_FIELD(this, void **, 0x38) != NULL) {
-                    queue_destruction__7TObjectFv(M2C_FIELD(this, void **, 0x38));
-                    M2C_FIELD(this, void **, 0x38) = NULL;
+                if (*(void **)((s8 *)this + 0x38) != NULL) {
+                    queue_destruction__7TObjectFv(*(void **)((s8 *)this + 0x38));
+                    *(void **)((s8 *)this + 0x38) = NULL;
                 }
                 set_field_20__12TQuestListVMFPvi((void*)(this), (int)(0xC));
                 return;
             }
-            if (M2C_FIELD(this, VObj_18_802178E4 **, 0x6C) != NULL) {
-                M2C_FIELD(this, VObj_18_802178E4 **, 0x6C)->m7(0x10, 1);
+            if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
+                (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x10, 1);
             }
-            clear_flag_and_release__17TWindowSubComCardFPv(M2C_FIELD(this, void **, 0x44));
+            clear_flag_and_release__17TWindowSubComCardFPv(*(void **)((s8 *)this + 0x44));
             return;
         }
         if (v == 1) {
-            TWindow__close(M2C_FIELD(this, void **, 0x44));
-            M2C_FIELD(this, void **, 0x44) = NULL;
-            if (M2C_FIELD(this, void **, 0x40) != NULL) {
-                TWindow__close(M2C_FIELD(this, void **, 0x40));
-                M2C_FIELD(this, void **, 0x40) = NULL;
+            TWindow__close(*(void **)((s8 *)this + 0x44));
+            *(void **)((s8 *)this + 0x44) = NULL;
+            if (*(void **)((s8 *)this + 0x40) != NULL) {
+                TWindow__close(*(void **)((s8 *)this + 0x40));
+                *(void **)((s8 *)this + 0x40) = NULL;
             }
-            if (M2C_FIELD(this, void **, 0x38) != NULL) {
-                clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(this, void **, 0x38));
+            if (*(void **)((s8 *)this + 0x38) != NULL) {
+                clear_selected_and_update_entry__14TWindowSubItemFPv(*(void **)((s8 *)this + 0x38));
             }
             n = selection_stage;
             selection_stage = n - 1;
             close_windows();
-            if (M2C_FIELD(this, VObj_18_802178E4 **, 0x6C) != NULL) {
-                M2C_FIELD(this, VObj_18_802178E4 **, 0x6C)->m7(0x19, 1);
+            if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
+                (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x19, 1);
             }
             set_field_20__12TQuestListVMFPvi((void*)(this), (int)(1));
             return;
         }
     }
-    if (M2C_FIELD(this, void **, 0x44) != NULL && get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(this, void **, 0x44)) != 0) {
-        TWindow__close(M2C_FIELD(this, void **, 0x44));
-        M2C_FIELD(this, void **, 0x44) = NULL;
-        if (M2C_FIELD(this, void **, 0x40) != NULL) {
-            TWindow__close(M2C_FIELD(this, void **, 0x40));
-            M2C_FIELD(this, void **, 0x40) = NULL;
+    if (*(void **)((s8 *)this + 0x44) != NULL && get_status_flag__17TWindowSubComCardFPv(*(void **)((s8 *)this + 0x44)) != 0) {
+        TWindow__close(*(void **)((s8 *)this + 0x44));
+        *(void **)((s8 *)this + 0x44) = NULL;
+        if (*(void **)((s8 *)this + 0x40) != NULL) {
+            TWindow__close(*(void **)((s8 *)this + 0x40));
+            *(void **)((s8 *)this + 0x40) = NULL;
         }
-        if (M2C_FIELD(this, void **, 0x38) != NULL) {
-            clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(this, void **, 0x38));
+        if (*(void **)((s8 *)this + 0x38) != NULL) {
+            clear_selected_and_update_entry__14TWindowSubItemFPv(*(void **)((s8 *)this + 0x38));
         }
         n = selection_stage;
         selection_stage = n - 1;
         close_windows();
-        if (M2C_FIELD(this, VObj_18_802178E4 **, 0x6C) != NULL) {
-            M2C_FIELD(this, VObj_18_802178E4 **, 0x6C)->m7(0x19, 1);
+        if (*(VObj_18_802178E4 **)((s8 *)this + 0x6C) != NULL) {
+            (*(VObj_18_802178E4 **)((s8 *)this + 0x6C))->m7(0x19, 1);
         }
         set_field_20__12TQuestListVMFPvi((void*)(this), (int)(1));
     }
@@ -342,8 +337,8 @@ void TQuestListOnline::show_info_window() {
     Stack_80217EC4 stack;
     u16 temp_r31;
     if ((u32) info_window == 0U) {
-        stack.sp8 = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 0);
-        stack.spC = M2C_FIELD(&lbl_8044BEDC.value, s32 *, 4);
+        stack.sp8 = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 0);
+        stack.spC = *(s32 *)((s8 *)(&lbl_8044BEDC.value) + 4);
         temp_r31 = obj_getField1c((int) (window_owner));
         info_window = create_message_window__6TLobbyFiiUis((int) (get_window_layout_position((int) (0x2E))), (void *) (&stack.sp8), (int) (1), (int) ((s32) temp_r31));
         set_field_1c__6TLobbyFPvf((int) (info_window), (f32) (lbl_805DC6A4));
@@ -364,7 +359,7 @@ void TQuestListOnline::build_list_window() {
     s32 off;
     s32 i;
     u8 *e;
-    if (((VObj_18_80217F88 *)M2C_FIELD(this, void **, 0x6C))->m8() != 0) {
+    if (((VObj_18_80217F88 *)*(void **)((s8 *)this + 0x6C))->m8() != 0) {
         if (list_window == 0U) {
             id = obj_getField1c(window_owner);
             list_window = create_item_list_window(get_guild_text(0), 0x40, id);

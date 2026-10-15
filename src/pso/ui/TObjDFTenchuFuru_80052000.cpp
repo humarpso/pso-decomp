@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Vec_80052090 {
     f32 x, y, z;
@@ -34,14 +30,14 @@ void run_task__14TObjDFUsoTowerFv(Obj_80052090 *arg0);
 extern "C" {
 
 void render__14TObjDFUsoTowerFv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK sync_player_globals__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80052390();
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK set_color_blend_mode(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(s32);
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390();
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(s32);
+s32 set_color_blend_mode(s32, s32, s32, s32);
 
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
@@ -49,7 +45,7 @@ extern const f32 lbl_805D8A34;
 void render__14TObjDFUsoTowerFv(u8 *arg0) {
     f32 temp_f1;
 
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x94);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x94);
     if (lbl_805D8A30 != temp_f1) {
         if (temp_f1 < lbl_805D8A34) {
             TObjPlayer__sub_80052390();
@@ -57,10 +53,10 @@ void render__14TObjDFUsoTowerFv(u8 *arg0) {
         }
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
-        if (M2C_FIELD(arg0, f32 *, 0x94) < lbl_805D8A34) {
+        if (*(f32 *)((s8 *)arg0 + 0x94) < lbl_805D8A34) {
             sync_player_globals__10TObjPlayerFv();
         }
     }

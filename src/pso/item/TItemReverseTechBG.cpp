@@ -1,10 +1,6 @@
 #include "pso/TItemReverseTechBG.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct TItemReverseTechBG_80119658 {
     u8 pad0[0x1C];
@@ -31,17 +27,17 @@ void render__18TItemReverseTechBGFv(void *arg0);
 void draw_textured_quad_at_depth(void *, f32);
 void begin_screen_draw(int);
 void set_draw_texture_and_color(void *, void *);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 __ct__7TObjectFP7TObject();
 void get_player__20TWindowSubStatusDispFv(void);
 void notify_fish_if_valid__10TObjPlayerFUi(void *);
 void reset_transform_state__10TObjPlayerFv(void *);
 
 void render__18TItemReverseTechBGFv(void *arg0) {
     reset_transform_state__10TObjPlayerFv(arg0);
-    notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, void **, 0x2C));
+    notify_fish_if_valid__10TObjPlayerFUi(*(void **)((s8 *)arg0 + 0x2C));
     begin_screen_draw(1);
-    set_draw_texture_and_color(M2C_FIELD(arg0, void **, 0x30), M2C_FIELD(arg0, void **, 0x34));
-    draw_textured_quad_at_depth((void *)((char *)arg0 + 56), M2C_FIELD(arg0, f32 *, 0x58));
+    set_draw_texture_and_color(*(void **)((s8 *)arg0 + 0x30), *(void **)((s8 *)arg0 + 0x34));
+    draw_textured_quad_at_depth((void *)((char *)arg0 + 56), *(f32 *)((s8 *)arg0 + 0x58));
     get_player__20TWindowSubStatusDispFv();
 }
 
@@ -98,32 +94,32 @@ void *__ct__18TItemReverseTechBGFv(void *arg0, void *arg1, void *arg3) {
     s32 temp_r3;
 
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, void **, 0x18) = __vt__18TItemReverseTechBG;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C54;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg3, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg3, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg3, s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg3, s32 *, 0xC);
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0x20);
+    *(void **)((s8 *)arg0 + 0x18) = __vt__18TItemReverseTechBG;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C54;
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg3 + 0);
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg3 + 4);
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg3 + 8);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg3 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0x20);
     if (temp_r3 != 0) {
-        M2C_FIELD(arg0, s32 *, 0x28) = (s32) (0xFF / temp_r3);
-        if ((u32) M2C_FIELD(arg0, s32 *, 0x28) == 0U) {
-            M2C_FIELD(arg0, s32 *, 0x28) = 1;
+        *(s32 *)((s8 *)arg0 + 0x28) = (s32) (0xFF / temp_r3);
+        if ((u32) *(s32 *)((s8 *)arg0 + 0x28) == 0U) {
+            *(s32 *)((s8 *)arg0 + 0x28) = 1;
         }
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = -1;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg3, f32 *, 0x10);
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) M2C_FIELD(arg3, f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg3, f32 *, 0x10) + M2C_FIELD(arg3, f32 *, 0x18));
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg3, f32 *, 0x14) + M2C_FIELD(arg3, f32 *, 0x1C));
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DAC08;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805DAC08;
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) M2C_FIELD(arg3, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x54) = (f32) M2C_FIELD(arg3, f32 *, 0x24);
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) M2C_FIELD(arg3, f32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x60) = 0;
-    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = -1;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg3 + 0x10);
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) *(f32 *)((s8 *)arg3 + 0x14);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg3 + 0x10) + *(f32 *)((s8 *)arg3 + 0x18));
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)arg3 + 0x14) + *(f32 *)((s8 *)arg3 + 0x1C));
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DAC08;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805DAC08;
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) *(f32 *)((s8 *)arg3 + 0x20);
+    *(f32 *)((s8 *)arg0 + 0x54) = (f32) *(f32 *)((s8 *)arg3 + 0x24);
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) *(f32 *)((s8 *)arg3 + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    *(s32 *)((s8 *)arg0 + 0x5C) = 0;
     return arg0;
 }
 

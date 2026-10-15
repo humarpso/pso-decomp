@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -39,7 +35,7 @@ void bswap_shrink__10TObjPlayerFPv(void* p) { read_be16_field2__10TObjPlayerFPv(
 
 void *TObjPlayer__sub_801C7360(void *arg0, void *arg1) {
     TFontSmallLobby__sub_801C0228((void*)(arg0));
-    M2C_FIELD(arg0, f32 *, 0x4) = M2C_FIELD(arg1, f32 *, 0x4);
+    *(f32 *)((s8 *)arg0 + 0x4) = *(f32 *)((s8 *)arg1 + 0x4);
     return arg0;
 }
 

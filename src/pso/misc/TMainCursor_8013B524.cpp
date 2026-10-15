@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -11,20 +7,20 @@ struct VOff_8013B524_arg0_8013B524 { char pad_0[0x4C]; char f_4C[1]; };
 void render__11TMainCursorFPv(u8 *arg0);
 void update_chair__11TMainCursorFPv(void *arg0);
 void TMainCursor__sub_8013E2DC(void);
-M2C_UNK rotate_matrix_z(M2C_UNK, M2C_UNK);
+s32 rotate_matrix_z(s32, s32);
 void draw_chunk_object(void);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK offset_point_toward_camera(void *, M2C_UNK *, f32);
+s32 rotate_matrix_y(s32, s32);
+s32 translate_matrix(s32, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 offset_point_toward_camera(void *, s32 *, f32);
 void play_sound__15TPlyPhotonChairFPv(void *);
-M2C_UNK translate_matrix_vec3(M2C_UNK, M2C_UNK *);
+s32 translate_matrix_vec3(s32, s32 *);
 void update_parts2__15TPlyPhotonChairFPv(void *);
 void update_parts__15TPlyPhotonChairFPv(void *);
-M2C_UNK update_photon_chair__11TMainCursorFi(void *);
+s32 update_photon_chair__11TMainCursorFi(void *);
 
 void update_chair__11TMainCursorFPv(void *arg0) {
     struct VOff_8013B524_arg0_8013B524 *self = (struct VOff_8013B524_arg0_8013B524 *)arg0;
@@ -39,15 +35,15 @@ extern u8 *camera_ctrl_instance;
 extern const f32 TMainCursor__data_805DB0C0;
 
 void render__11TMainCursorFPv(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 temp_f31;
 
     begin_effect_render__13TParticleCtrlFv();
-    temp_f31 = M2C_FIELD(arg0, f32 *, 0x30);
+    temp_f31 = *(f32 *)((s8 *)arg0 + 0x30);
     push_matrix();
-    offset_point_toward_camera(arg0 + 0x40, &sp8, M2C_FIELD(arg0, f32 *, 0x2C));
+    offset_point_toward_camera(arg0 + 0x40, &sp8, *(f32 *)((s8 *)arg0 + 0x2C));
     translate_matrix_vec3(0, &sp8);
-    rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194));
+    rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194));
     push_matrix();
     rotate_matrix_z(0, 0x2AAA);
     translate_matrix(0, TMainCursor__data_805DB0C0, temp_f31, TMainCursor__data_805DB0C0);

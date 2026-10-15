@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -16,7 +11,7 @@ struct VObj_18 : VBase_18 {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(s8 *, M2C_UNK);
+    virtual s32 m8(s8 *, s32);
 };
 
 struct Cfg_801DA054 { u32 w[8]; };
@@ -24,11 +19,11 @@ struct Cfg_801DA054 { u32 w[8]; };
 struct Pkt_801DA054 { u8 cmd; u8 flag; u16 size; struct Cfg_801DA054 cfg; };
 
 extern "C" {
-M2C_UNK bswap__13packet_headerFv(void *);
+s32 bswap__13packet_headerFv(void *);
 void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1);
-M2C_UNK bswap_packet_header__9TProtocolFPv(void *);
-M2C_UNK __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
-M2C_UNK memset(void *, int, int);
+s32 bswap_packet_header__9TProtocolFPv(void *);
+s32 __as__16TPlyClientConfigFRC16TPlyClientConfig(void *, void *);
+s32 memset(void *, int, int);
 void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0);
 }
 
@@ -49,12 +44,12 @@ void handle_cmd_9F__9TProtocolFR6packet(u8 *arg0) {
 
 void handle_cmd_DA__9TProtocolFR6packet(u8 *arg0, s32 *arg1) {
     s32 sp8;
-    M2C_UNK (*temp_r12)(u8);
-    sp8 = M2C_FIELD(arg1, s32 *, 0);
+    s32 (*temp_r12)(u8);
+    sp8 = *(s32 *)((s8 *)arg1 + 0);
     bswap__13packet_headerFv((void *) (&sp8));
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(u8), 0xBC90);
+    temp_r12 = *(s32 (**)(u8))((s8 *)arg0 + 0xBC90);
     if (temp_r12 != NULL) {
-        temp_r12(M2C_FIELD(&sp8, u8 *, 0x1));
+        temp_r12(*(u8 *)((s8 *)(&sp8) + 0x1));
     }
 }
 

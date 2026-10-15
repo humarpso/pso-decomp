@@ -2,17 +2,13 @@
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80207E88_lbl_804C8FC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x11C];
 };
 
 struct RecoveredGlobal_80207E88_lbl_804C9270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x11C];
 };
 
@@ -64,9 +60,9 @@ s32 get_floor_scene_table(s32 arg0) {
         return 0;
     }
     if (is_online_ready__6TLobbyFv() != 0) {
-        return M2C_FIELD(((u8 *)(&floor_scene_table.value) + (arg0 * 8)), s32 *, 0);
+        return *(s32 *)((s8 *)((u8 *)(&floor_scene_table.value) + (arg0 * 8)) + 0);
     }
-    return M2C_FIELD(((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)), s32 *, 0);
+    return *(s32 *)((s8 *)((u8 *)(&lbl_804C8FC0.value) + (arg0 * 8)) + 0);
 }
 
 }
@@ -80,9 +76,6 @@ int reset_story_select__6TLobbyFPv(void* p) { return ((int (*)(void*))reset_stor
 int TLobby__sub_80207F10(void* p) { return ((int (*)(void*))reset_story_select__6TLobbyFv)(p); }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct R_80207F30 { s16 a; s16 b; u16 c; };
 
@@ -107,8 +100,8 @@ typedef FloorLifecycleEntry E_80208020;
 s32 is_area_transfer_pending();
 void run_floor_cleanup_callbacks__6TLobbyFi(s32 arg0);
 s32 run_floor_initialize_callbacks(s32 arg0);
-M2C_UNK bswap_16__FPUs(u16 *, s32);
-M2C_UNK bswap_32__FPUl(s32 *, s32);
+s32 bswap_16__FPUs(u16 *, s32);
+s32 bswap_32__FPUl(s32 *, s32);
 int reset_story_select__6TLobbyFPv(void* p);
 
 int TLobby__sub_80207F30(R_80207F30 *arg0) {
@@ -206,11 +199,6 @@ void bswap_object_row_fields(void *arg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 s32 get_drop_item_mode__6TLobbyFv(void);
@@ -249,10 +237,6 @@ s32 get_drop_item_mode__6TLobbyFv(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -291,10 +275,6 @@ void update_drop_item__6TLobbyFv(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -321,10 +301,6 @@ void TLobby__sub_802083C0(void) {
 #undef lbl_805D6070
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_802084B0 { u8 hdr[2]; u16 a; s32 b; s32 c; s32 d; };
 
@@ -365,7 +341,7 @@ extern "C" {
 void load_item_data__6TLobbyFv(void);
 void relink_objects__6TLobbyFv(void);
 s32 *load_relocatable_file(s32, u32);
-u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 get_drop_item_mode__6TLobbyFv();
 int link_matching_objects__6TLobbyFss(void);
 s32 update_lobby_scene__6TSceneFPv(s32);
@@ -445,10 +421,6 @@ void send_6x05_wave_set_switch(s16 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -470,7 +442,7 @@ void TLobby__sub_80208648(void) {  }
 
 typedef struct {
     s32 x0;
-    M2C_UNK (*fn)(M2C_UNK);
+    s32 (*fn)(s32);
 } Ent_8020864C;
 
 s32 read_be_u32(void);
@@ -478,12 +450,12 @@ extern Ent_8020864C wave_event_action_table[];
 
 void dispatch_wave_event_action(s32 arg0) {
     Ent_8020864C *temp_r3;
-    M2C_UNK (*temp_r31)(M2C_UNK);
+    s32 (*temp_r31)(s32);
 
     temp_r3 = wave_event_action_table;
     temp_r3 += (u8)arg0;
     temp_r31 = temp_r3->fn;
-    temp_r31(((M2C_UNK (*)(void *))read_be_u32)(temp_r3));
+    temp_r31(((s32 (*)(void *))read_be_u32)(temp_r3));
 }
 
 u16 read_stream_u16(void);
@@ -496,8 +468,6 @@ void dispatch_opcode_two_u16__6TLobbyFUc(u8 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -505,16 +475,16 @@ void dispatch_stream_command__6TLobbyFUc(u8 arg0);
 
 typedef struct Ent_ {
     s32 a;
-    M2C_UNK (*fn)(M2C_UNK);
+    s32 (*fn)(s32);
 } Ent;
 #define wave_event_action_table (*(Ent (*)[1])&wave_event_action_table)
 void dispatch_stream_command__6TLobbyFUc(u8 arg0) {
-    M2C_UNK (*temp_r31)(M2C_UNK);
+    s32 (*temp_r31)(s32);
     Ent *temp_r3;
     temp_r3 = wave_event_action_table;
     temp_r3 += arg0;
     temp_r31 = temp_r3->fn;
-    temp_r31(((M2C_UNK (*)(void *))read_stream_u16)(temp_r3));
+    temp_r31(((s32 (*)(void *))read_stream_u16)(temp_r3));
 }
 
 }
@@ -522,10 +492,6 @@ void dispatch_stream_command__6TLobbyFUc(u8 arg0) {
 #undef wave_event_action_table
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -537,7 +503,7 @@ void invoke_command__6TLobbyFi(s32 arg0) {
     u8 *temp_r3 = wave_event_action_table;
     temp_r3 += ((u8)arg0) * 8;
 
-    M2C_FIELD(temp_r3, M2C_UNK (**)(void *), 4)(temp_r3);
+    (*(s32 (**)(void *))((s8 *)temp_r3 + 4))(temp_r3);
 }
 
 }
@@ -545,15 +511,11 @@ void invoke_command__6TLobbyFi(s32 arg0) {
 #undef wave_event_action_table
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK bswap_32__FPUl(s32 *, s32);
-M2C_UNK memcpy(s32 *, s32, M2C_UNK);
+s32 bswap_32__FPUl(s32 *, s32);
+s32 memcpy(s32 *, s32, s32);
 extern s32 wave_event_stream_base;
 extern s32 wave_event_stream_cursor;
 
@@ -571,14 +533,10 @@ s32 read_be_u32(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK bswap_16__FPUs(u16 *, s32);
+s32 bswap_16__FPUs(u16 *, s32);
 
 extern s32 wave_event_stream_base;
 extern s32 wave_event_stream_cursor;
@@ -587,10 +545,10 @@ u16 read_stream_u16(void) {
     u16 sp8;
     s32 temp_r4;
 
-    ((M2C_UNK (*)(u16 *, s32, M2C_UNK))memcpy)(&sp8, wave_event_stream_base + wave_event_stream_cursor, 2);
+    ((s32 (*)(u16 *, s32, s32))memcpy)(&sp8, wave_event_stream_base + wave_event_stream_cursor, 2);
     temp_r4 = wave_event_stream_cursor;
     wave_event_stream_cursor = temp_r4 + 2;
-    ((M2C_UNK (*)(u16 *, s32))bswap_16__FPUs)(&sp8, temp_r4);
+    ((s32 (*)(u16 *, s32))bswap_16__FPUs)(&sp8, temp_r4);
     return sp8;
 }
 
@@ -631,13 +589,9 @@ s32 run_wave_event_actions(void) {
 #undef wave_event_stop_requested
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80208D28_lbl_805139F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
@@ -647,7 +601,6 @@ struct Rec_80208B7C { s32 id; s16 f4; u8 pad[0xE]; };
 
 struct Grp_80208B7C { u8 pad[8]; s32 count; s32 pad3; Rec_80208B7C recs[1]; };
 
-typedef s32 M2C_UNK;
 struct Rec_80208904 { s32 id; s16 f4; s16 f6; s16 f8; s16 fa; s32 fc; s32 f10; };
 
 struct Grp_80208904 { s32 a; s32 b; s32 count; s32 pad; Rec_80208904 recs[1]; };
@@ -703,9 +656,9 @@ void TLobby__sub_80208884(void* a0);
 void spawn_destroy_event__6TLobbyFPv(void *arg0);
 void create_empty_floor_event(void);
 int get_destroy_event_obj__6TLobbyFv(void);
-M2C_UNK show_partner_chatter_for_key(s16);
-M2C_UNK __ct__14TSetEvtDestroyFP7TObjectP21SetDestroyEventRecord(void *, s32, void *);
-void *__nw__7TObjectFUl(M2C_UNK);
+s32 show_partner_chatter_for_key(s16);
+s32 __ct__14TSetEvtDestroyFP7TObjectP21SetDestroyEventRecord(void *, s32, void *);
+void *__nw__7TObjectFUl(s32);
 
 #define wave_event_stream_base (*(int *)&wave_event_stream_base)
 #define wave_event_stream_cursor (*(int *)&wave_event_stream_cursor)
@@ -720,7 +673,7 @@ void spawn_destroy_event__6TLobbyFPv(void *arg0) {
     void *obj;
 
     if (((s32 (*)(void))get_destroy_event_obj__6TLobbyFv)() != -1) {
-        show_partner_chatter_for_key(M2C_FIELD(arg0, s16 *, 8));
+        show_partner_chatter_for_key(*(s16 *)((s8 *)arg0 + 8));
     }
     obj = __nw__7TObjectFUl(0x34);
     if (obj != NULL) {
@@ -906,12 +859,12 @@ u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1) {
         return NULL;
     }
     temp_r30 = arg0 * 4;
-    if ((u32) M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, temp_r30) != 0U) {
+    if ((u32) *(s32 *)((s8 *)(&lobby_slot_ptr_table.value) + temp_r30) != 0U) {
         return NULL;
     }
     temp_r3 = (u8 *)(heap_alloc__5THeapFUl(area_event_set_heap, arg1));
     if (temp_r3 != NULL) {
-        M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, temp_r30) = (long) (temp_r3);
+        *(s32 *)((s8 *)(&lobby_slot_ptr_table.value) + temp_r30) = (long) (temp_r3);
         return temp_r3;
     }
     return NULL;
@@ -924,10 +877,6 @@ u8 *alloc_heap_slot__6TLobbyFii(s32 arg0, s32 arg1) {
 
 #include "types.h"
 #pragma fp_contract on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_80208E8C { u8 pad[4]; void *data; u8 pad2[4]; };
 
@@ -941,7 +890,7 @@ extern "C" {
 #define TLobby__data_805D6068 (*(Area_80208E8C * *)&TLobby__data_805D6068)
 extern u8 lbl_8044BAC8[];
 #define area_event_set_heap (*(s32 *)&area_event_set_heap)
-#define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
+#define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 void replace_file_extension__6TLobbyFPvPvPv(Buf_80208E8C *, void *, void *);
 
 #define HA2 ((s32 (*)(s32, s32))heap_alloc__5THeapFUl)
@@ -949,7 +898,7 @@ void read_disc_file(Buf_80208E8C *, void *);
 
 s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities);
 void heap_free__5THeapFPv(void *, void *);
-#define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
+#define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 #define area_event_set_heap (*(s32 *)&area_event_set_heap)
 void free_team_buffers__6TLobbyFv(void);
 }
@@ -958,9 +907,9 @@ extern "C" {
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
-M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
+s32 move_data__6TLobbyFv(s32, s32, s32);
 
-#define lobby_slot_ptr_table (*(M2C_UNK (*)[1])&lobby_slot_ptr_table)
+#define lobby_slot_ptr_table (*(s32 (*)[1])&lobby_slot_ptr_table)
 #define area_event_set_heap (*(s32 *)&area_event_set_heap)
 
 s32 add_player__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
@@ -1026,14 +975,10 @@ s32 load_area_event_set(s32 floor, s32 area, s32 terrain, s32 entities) {
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Stack_80208F7C {
     s32 sp8;
-    M2C_UNK spC;
-    M2C_UNK sp10;
+    s32 spC;
+    s32 sp10;
 };
 
 extern "C" {
@@ -1056,7 +1001,7 @@ loop_1:
         if (is_area_transfer_pending() != 0) {
             return 0;
         }
-        ((M2C_UNK (*)(int, int, int, int))load_area_event_set)((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
+        ((s32 (*)(int, int, int, int))load_area_event_set)((int) (var_r31), (int) (stack.sp8), (int) (stack.spC), (int) (stack.sp10));
         goto block_6;
     }
 block_6:
@@ -1071,14 +1016,9 @@ block_6:
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 u8 * __ct__5THeapFUli(void *, s32, s32);
-u8 *__nw__5THeapFUl(M2C_UNK);
+u8 *__nw__5THeapFUl(s32);
 #define area_event_set_heap (*(int *)&area_event_set_heap)
 void create_heap_8000__6TLobbyFv(void);
 void close_gsl_archive();

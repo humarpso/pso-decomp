@@ -1,13 +1,9 @@
 #include "pso/TObjBoss7Dust.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802F119C___vt__13TObjBoss7Dust {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -37,7 +33,7 @@ int load_boss7_common_resources(void);
 int boss7_dust_draw_at(void*, void*);
 int fn_802F1454(void);
 int fn_802F19C0(void);
-M2C_UNK queue_destruction__7TObjectFv();
+s32 queue_destruction__7TObjectFv();
 
 void fn_802F105C(void) { TObjBoss7DustCtrl__sub_802F1450(); TObjBoss2Tunnel__sub_802F2C4C(); fn_802F0E24(); }
 void fn_802F1084(void) { TObjBoss2Tunnel__sub_802F2C50(); fn_802F19C0(); create__17TObjBoss7DustCtrlFv(); }
@@ -47,9 +43,9 @@ void render__13TObjBoss7DustFv(void* p) { boss7_dust_draw_at((char*)p + 0x24, *(
 extern const f32 lbl_805DEC68;
 
 void run_task__13TObjBoss7DustFv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - lbl_805DEC68);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) >= 0x5A) {
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - lbl_805DEC68);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) >= 0x5A) {
         queue_destruction__7TObjectFv();
     }
 }
@@ -57,11 +53,11 @@ typedef char RecoveredGlobal_802F119C___vt__13TObjBoss7Dust_size[sizeof(Recovere
 TObjBoss7Dust::~TObjBoss7Dust() {}
 u8 *__ct__13TObjBoss7DustFv(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TObjBoss7Dust.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FE4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TObjBoss7Dust.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FE4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = TObjBoss7DustCtrl__sub_802F125C();
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = TObjBoss7DustCtrl__sub_802F125C();
     return arg0;
 }
 

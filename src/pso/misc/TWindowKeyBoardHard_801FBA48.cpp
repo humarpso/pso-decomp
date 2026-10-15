@@ -1,12 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-typedef s32 M2C_UNK;
-
 extern "C" {
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -35,7 +28,7 @@ void *construct_chardata_array__23TAdSinglePlyChrSelectGCFPv(void *);
 extern u8 chr_select_rng_state[];
 extern s32 chr_select_serial_seeds[];
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 void *alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 find_card_file__15TAdPlayerLoadGCFiPv(s32, char *);
 void TAdSinglePlyChrSelectGC__sub_801FBC3C(void *arg0);
@@ -80,7 +73,7 @@ void draw_ginja_box_tree(u8 *arg0) {
     u8 *var_r30;
     var_r30 = (u8 *)(arg0);
     do {
-        temp_r31 = M2C_FIELD(var_r30, s32 *, 0);
+        temp_r31 = *(s32 *)((s8 *)var_r30 + 0);
         push_matrix();
         if (!(temp_r31 & 1)) {
             post_translate_matrix((void *) (var_r30 + 8));
@@ -97,16 +90,16 @@ void draw_ginja_box_tree(u8 *arg0) {
             begin_effect_render__13TParticleCtrlFv();
         }
         if (!(temp_r31 & 8)) {
-            draw_ginja_model((int) (M2C_FIELD(var_r30, s32 *, 4)));
+            draw_ginja_model((int) (*(s32 *)((s8 *)var_r30 + 4)));
         }
         if (!(temp_r31 & 0x10)) {
-            temp_r3 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x2C));
+            temp_r3 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x2C));
             if (temp_r3 != NULL) {
                 draw_ginja_box_tree(temp_r3);
             }
         }
         pop_matrix();
-        var_r30 = (u8 *)(M2C_FIELD(var_r30, u8 **, 0x30));
+        var_r30 = (u8 *)(*(u8 **)((s8 *)var_r30 + 0x30));
     } while (var_r30 != NULL);
 }
 

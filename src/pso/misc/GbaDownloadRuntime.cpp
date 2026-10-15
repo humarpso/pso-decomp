@@ -1,8 +1,4 @@
 #include "pso/network/GbaJoybootState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void TLobby__sub_8032CB6C(void);
@@ -14,21 +10,21 @@ void free_buffer__6TLobbyFv(void);
 void init_graph__6TLobbyFv(void);
 u32 create__8TDLGraphFv();
 int queue_destruction__7TObjectFv(void*);
-M2C_UNK set_graph_param__8TDLGraphFPvi(M2C_UNK, M2C_UNK);
+s32 set_graph_param__8TDLGraphFPvi(s32, s32);
 void xfree__FPv(void*);
 void alloc_buffer__6TLobbyFv(void);
-s32 xmalloc__FUl(M2C_UNK);
+s32 xmalloc__FUl(s32);
 int TLobby__sub_8032C91C(void* p);
 u8 get_selected_slot__6TLobbyFv(void);
 void send_data__6TLobbyFi(s32 arg0);
 void update_alloc_size__6TLobbyFv(void);
-M2C_UNK load_from_aram_sync__16TAdWarningBaseGCFi(void*);
+s32 load_from_aram_sync__16TAdWarningBaseGCFi(void*);
 u32 TAdWarningBaseGC__sub_8032D020();
-M2C_UNK update_graph__8TDLGraphFii(s32, M2C_UNK);
-M2C_UNK read_disc_file(s32, u32);
+s32 update_graph__8TDLGraphFii(s32, s32);
+s32 read_disc_file(s32, u32);
 s32 TLobby__sub_801F34F8();
 int GBAInit(void*);
-s32 GBAGetProcessStatus(M2C_UNK, u8 *);
+s32 GBAGetProcessStatus(s32, u8 *);
 u32 get_alloc_size__16TAdWarningBaseGCFv();
 u32 update_lobby_scene__6TSceneFPv();
 
@@ -41,7 +37,7 @@ void destroy_singleton__6TLobbyFv(void) {
         queue_destruction__7TObjectFv((void*)gba_download_graph);
         gba_download_graph = 0U;
     }
-    M2C_FIELD(TLobby__data_805434A8, s8 *, 7) = 0;
+    *(s8 *)((s8 *)TLobby__data_805434A8 + 7) = 0;
 }
 
 void init_graph__6TLobbyFv(void) {
@@ -71,7 +67,7 @@ void alloc_buffer__6TLobbyFv(void) {
     gba_download_data_size = 0;
 }
 
-void gba_joyboot_transfer_callback(M2C_UNK arg0, s32 arg1) {
+void gba_joyboot_transfer_callback(s32 arg0, s32 arg1) {
     switch (arg1) {
     case 0:
         TLobby__data_805D6CCC = 4;
@@ -147,10 +143,6 @@ u8 get_selected_slot__6TLobbyFv(void) {
 
 #include "pso/network/GbaJoybootState.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct DateStamp_8032C9A8 { s32 days; s32 mins; s32 ticks; };
 
 struct Rec_8032C9A8 { u32 a; u32 b; u32 c; };

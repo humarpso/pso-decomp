@@ -39,10 +39,6 @@ struct Obj_8010567C {
 
 struct Player_80105348 { u8 pad[0x890]; s32 traits; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Rec_80105538 { s32 a; u16 b; u16 b2; s32 c; };
 
 struct Pkt_80105538 {

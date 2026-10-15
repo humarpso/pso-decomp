@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void start_shield_action__10TObjPlayerFPv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 u8 get_slot_count__14TItemProShieldFPv();
-M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
+s32 drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
-M2C_UNK launch_rare_weapon_special__10TObjPlayerFv(void *, M2C_UNK, M2C_UNK, f32);
-M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
+s32 launch_rare_weapon_special__10TObjPlayerFv(void *, s32, s32, f32);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 
 extern f32 lbl_805DADB0;
 extern f32 lbl_805DADB4;
@@ -22,7 +18,7 @@ void start_shield_action__10TObjPlayerFPv(void *arg0) {
         if (is_mode_two_and_ready__10TObjPlayerFPv(arg0) != 0) {
             drain_owner_hp_fraction__10TObjPlayerFPvf(arg0, lbl_805DADB0);
             launch_rare_weapon_special__10TObjPlayerFv(arg0, 0, 1, lbl_805DADB4);
-            play_sound_effect(0x4001A341, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0);
+            play_sound_effect(0x4001A341, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0);
             return;
         }
         update_active_game_effect__10TObjPlayerFPv(arg0);

@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1);
 
 s32 get_main_phase();
-M2C_UNK send_6x75_quest_flag__6TLobbyFsss(int, M2C_UNK, s32);
-M2C_UNK set_story_flag_in_bank(s32, u16);
+s32 send_6x75_quest_flag__6TLobbyFsss(int, s32, s32);
+s32 set_story_flag_in_bank(s32, u16);
 
 void dispatch_by_phase__15TOKeyJungleMainFiUs(s32 arg0, u16 arg1) {
     if (get_main_phase() == 0xF) {

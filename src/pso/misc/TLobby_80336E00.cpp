@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
     extern int lobby_global_flags;
@@ -20,12 +15,12 @@ void TLobby__sub_80336E44(void);
 void *construct__6TLobbyFPvPv(void *arg0, void *arg1);
 void __ct__7TObjectFP7TObject(void *);
 
-extern M2C_UNK lbl_804EEF80[];
+extern s32 lbl_804EEF80[];
 
 void *construct__6TLobbyFPvPv(void *arg0, void *arg1) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF80;
-    M2C_FIELD(arg0, void **, 0x1C) = arg1;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EEF80;
+    *(void **)((s8 *)arg0 + 0x1C) = arg1;
     return arg0;
 }
 

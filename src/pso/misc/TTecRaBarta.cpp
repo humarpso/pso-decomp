@@ -1,9 +1,5 @@
 #include "types.h"
 #pragma readonly_strings on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -11,7 +7,7 @@ struct VObj_18 : VBase_18 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4();
+    virtual s32 m4();
 };
 
 #include <stddef.h>
@@ -22,7 +18,7 @@ struct Stack_80237194 {
 };
 
 struct RecoveredGlobal_80237194_lbl_8044D8EC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -153,7 +149,7 @@ struct RaBarta_802377FC {
 extern "C" {
 void TTecPlayerInfluence__sub_80237258(void* p);
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 #define queue_destruction__7TObjectFv ((void (*)(void *))queue_destruction__7TObjectFv)
 void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 s32 approach_vector_in_place(void *, void *, f32);
@@ -171,7 +167,7 @@ void init_collision_body_parts(void *, f32 *, s32);
 void *construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 void *__nw__7TObjectFUl(u32);
 int get_level_tier__10TObjPlayerFi(s32);
-extern M2C_UNK __vt__19TTecPlayerInfluence[];
+extern s32 __vt__19TTecPlayerInfluence[];
 extern s32 lbl_805D37F0;
 extern const f32 lbl_805DC8A4;
 extern const f32 lbl_805DC8A8;
@@ -206,11 +202,11 @@ extern "C" {
 void TTecPlayerInfluence__vt5(void);
 void TTecRaBarta__vt7(void *arg0);
 void *__dt__19TTecPlayerInfluenceFv(void *arg0, s16 arg1);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 void free_collision_body_parts(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TEffectFv(void *, int);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 typedef char RecoveredGlobal_80237194_lbl_8044D8EC_size[sizeof(RecoveredGlobal_80237194_lbl_8044D8EC) == 0xC ? 1 : -1];
 void render__19TTecPlayerInfluenceFv(u8 *arg0);
@@ -219,7 +215,7 @@ void tick_lifetime__19TTecPlayerInfluenceFPv(u8 *arg0);
 
 void TTecPlayerInfluence__sub_80237258(void* p);
 
-extern M2C_UNK __vt__19TTecPlayerInfluence[];
+extern s32 __vt__19TTecPlayerInfluence[];
 
 void run_task__19TTecPlayerInfluenceFv(void *arg0);
 
@@ -308,36 +304,36 @@ void TTecRaBarta__vt7(void *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x7A);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x7A);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
+        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, 0x100, 0);
         }
         return;
     case 1:
-        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
+        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
         return;
     case 2:
     case 3:
-        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
+        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x180, 0);
         }
         break;
     case 4:
-        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
+        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x250, 0);
         }
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0xEC) = play_sound_effect(0x4002A706, M2C_FIELD(arg0, s32 *, 0x1C) + 0x2FC, 0, 0);
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0xEC);
+        *(s32 *)((s8 *)arg0 + 0xEC) = play_sound_effect(0x4002A706, *(s32 *)((s8 *)arg0 + 0x1C) + 0x2FC, 0, 0);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0xEC);
         if (temp_r3 >= 0) {
             update_technique_slot__10TTecRaFoieFi(temp_r3, -0x100, 0);
         }
@@ -389,14 +385,9 @@ void TTecRaBarta__vt4(Obj_80237900 *self, VObj_80237900 *target) {
 #define TTecRaBarta_class_name ((u32)TTecRaBarta_class_name)
 #define __nw__7TObjectFUl ((void * (*)(int))__nw__7TObjectFUl)
 #define rabarta_band_emitter_table ((struct Profile_80237A94 *)rabarta_band_emitter_table)
-#define __dl__7TObjectFPv ((M2C_UNK (*)(void *))__dl__7TObjectFPv)
+#define __dl__7TObjectFPv ((s32 (*)(void *))__dl__7TObjectFPv)
 #define spawn_particle_effect ((void * (*)(Vec_80237FB8 *, int))spawn_particle_effect)
 #define calc_parameters__11TTecRaBartaFv ((void (*)(void *))calc_parameters__11TTecRaBartaFv)
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_80237DAC { f32 x, y, z; };
 #define VecCopy__FP3VecPC3Vec ((void (*)(Vec_80237DAC *, const Vec_80237DAC *))VecCopy__FP3VecPC3Vec)
@@ -483,9 +474,9 @@ struct Self_80237BD8 {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
-M2C_UNK apply_technique_to_area_targets(void *, int);
+s32 apply_technique_to_area_targets(void *, int);
 void run_task__11TTecRaBartaFv(u8 *arg0);
 
 void set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
@@ -496,7 +487,7 @@ void spawn_rafoie_explosion_bursts(Obj_80237DAC *self);
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
-extern M2C_UNK __vt__11TTecRaBarta[];
+extern s32 __vt__11TTecRaBarta[];
 void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level);
 s32 is_split_screen();
 void *get_bml_model(void *, int);
@@ -520,14 +511,14 @@ struct Self_80237A94 {
     void **objs;
 };
 
-M2C_UNK free__11TOBoss4RockFUi(void *);
-M2C_UNK stop_sound_request(void *);
-M2C_UNK destroy_technique_base__9TTecLukerFPvs(void *, int);
+s32 free__11TOBoss4RockFUi(void *);
+s32 stop_sound_request(void *);
+s32 destroy_technique_base__9TTecLukerFPvs(void *, int);
 
 u16 obj_getField1c(void *);
 void construct_area_technique_base(void *, void *, void *, void *, void *);
 
-extern M2C_UNK __vt__11TTecRaBarta[];
+extern s32 __vt__11TTecRaBarta[];
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level);
 }
 
@@ -537,8 +528,8 @@ void TTecRaFoie__vt7(u8 *arg0);
 void create__11TTecRaBartaFPvPvPv(void *arg0, void *arg1, void *arg2);
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__11TTecRaBartaFv(void);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 void create__11TTecRaBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
@@ -582,19 +573,19 @@ void render__11TTecRaBartaFv(void) {  }
 
 void run_task__11TTecRaBartaFv(u8 *arg0) {
     s32 temp_r4;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xE8) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xE8) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id((int) (M2C_FIELD(arg0, u16 *, 0xB4)));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id((int) (*(u16 *)((s8 *)arg0 + 0xB4)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     }
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x68);
-    M2C_FIELD(arg0, s32 *, 0x68) = (s32) (temp_r4 + 1);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x68);
+    *(s32 *)((s8 *)arg0 + 0x68) = (s32) (temp_r4 + 1);
     apply_technique_to_area_targets((void *) (arg0), (int) (temp_r4));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x68) > (s16) M2C_FIELD(arg0, s16 *, 0xA8)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x68) > (s16) *(s16 *)((s8 *)arg0 + 0xA8)) {
         queue_destruction__7TObjectFv((void *) (arg0));
     }
 }
@@ -602,7 +593,7 @@ void run_task__11TTecRaBartaFv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 struct Vec_80237DAC;
-typedef s32 M2C_UNK;
+
 #define self ((Self_80237BD8 *)self_)
 void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *level) {
     s32 i;
@@ -633,21 +624,21 @@ void *TTecRaBarta__ct(void *self_, void *source, void *origin, void *pos, void *
 void *construct_area__11TTecRaBartaFPvPvPvPv(void *self, void *source, void *origin, void *level) {
     s32 i;
     construct_area_technique_base(self, source, origin, origin, level);
-    M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__11TTecRaBarta;
-    M2C_FIELD(self, u32 *, 0) = TTecRaBarta_class_name;
-    M2C_FIELD(self, s32 *, 0xF0) = 0;
+    *(s32 **)((s8 *)self + 0x18) = __vt__11TTecRaBarta;
+    *(u32 *)((s8 *)self + 0) = TTecRaBarta_class_name;
+    *(s32 *)((s8 *)self + 0xF0) = 0;
     calc_parameters__11TTecRaBartaFv(self);
-    if (M2C_FIELD(self, u8 **, 0xE8) != NULL) {
-        M2C_FIELD(M2C_FIELD(M2C_FIELD(self, u8 **, 0xE8), u8 **, 0xA4), f32 *, 0xC) = M2C_FIELD(self, f32 *, 0x90);
+    if (*(u8 **)((s8 *)self + 0xE8) != NULL) {
+        *(f32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 **)((s8 *)self + 0xE8)) + 0xA4)) + 0xC) = *(f32 *)((s8 *)self + 0x90);
     }
     for (i = 0; i < 32; i++) {
         ((Ids_80237CCC *) self)->ids[i] = 0xFFFF;
     }
-    M2C_FIELD(self, s32 *, 0x138) = 0;
+    *(s32 *)((s8 *)self + 0x138) = 0;
     ((VObj_18_80237CCC *) self)->m6(0);
     ((VObj_18_80237CCC *) self)->m7();
-    if (M2C_FIELD(self, void **, 0x1C) != NULL) {
-        M2C_FIELD(self, u16 *, 0xB4) = obj_getField1c(M2C_FIELD(self, void **, 0x1C));
+    if (*(void **)((s8 *)self + 0x1C) != NULL) {
+        *(u16 *)((s8 *)self + 0xB4) = obj_getField1c(*(void **)((s8 *)self + 0x1C));
     }
     return self;
 }

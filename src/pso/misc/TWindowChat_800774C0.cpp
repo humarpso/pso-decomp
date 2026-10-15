@@ -4,7 +4,6 @@ struct Ent_800774E4 { s8 id; u8 a, b, c; };
 
 struct Obj_800774E4 { u32 f0; u8 f4; u8 pad5[0x17]; s32 f1c; u16 h[4]; Ent_800774E4 e[12]; };
 
-typedef s32 M2C_UNK;
 struct Obj_800774E4;
 struct Ent_80077544 { u8 b[0x58]; };
 
@@ -12,14 +11,14 @@ struct Win_80077544 { u8 pad[0x15A0]; struct Ent_80077544 e[12]; };
 
 extern "C" {
 void clear_entries__20TWindowSubSymbolChatFPv(Obj_800774E4 *self);
-M2C_UNK set_entry_name__20TWindowSubSymbolChatFPvPv(s32, s32);
+s32 set_entry_name__20TWindowSubSymbolChatFPvPv(s32, s32);
 int get_symbol_chat_preset(s32);
 void clear_entries__20TWindowSubSymbolChatFPv(Obj_800774E4 *self);
-M2C_UNK bswap_entry__20TWindowSubSymbolChatFPv(void *);
+s32 bswap_entry__20TWindowSubSymbolChatFPv(void *);
 s32 get_message_10__20TWindowSubStatusDispFPv(s32);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(s32);
 s32 set_stream_and_load_file__6TLobbyFi(char *);
-M2C_UNK move_data__6TLobbyFv(void *, s32, M2C_UNK);
+s32 move_data__6TLobbyFv(void *, s32, s32);
 extern char symbol_chat_default_data_filename[];
 void load_symbol_chat_data__20TWindowSubSymbolChatFPv(struct Win_80077544 *w);
 }

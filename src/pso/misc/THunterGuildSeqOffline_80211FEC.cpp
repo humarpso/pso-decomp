@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Seq_80212304 {
     u8 pad0[0x1C];
@@ -14,7 +9,7 @@ struct Seq_80212304 {
 extern "C" {
 f32 xz_distance_squared(void *, void *);
 s32 get_player_by_client_id(int);
-M2C_UNK advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
+s32 advance_matching_entries__22THunterGuildSeqOfflineFPvii(int, int, int);
 extern s32 TLobby__designated_client_id;
 extern f32 THunterGuildSeqOffline__data_805DC648;
 void update_member_proximity__22THunterGuildSeqOfflineFPv(u8 *arg0);
@@ -139,7 +134,7 @@ void update_member_proximity__22THunterGuildSeqOfflineFPv(u8 *arg0) {
     s32 temp_r31;
     s32 temp_r3;
     s32 var_r30;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         temp_r31 = get_player_by_client_id((int) (TLobby__designated_client_id));
         var_r30 = 0;
         do {
@@ -147,15 +142,15 @@ void update_member_proximity__22THunterGuildSeqOfflineFPv(u8 *arg0) {
                 temp_r3 = get_player_by_client_id((int) (var_r30));
                 if (temp_r3 != 0) {
                     if (xz_distance_squared((void *) (temp_r31 + 0x38), (void *) (temp_r3 + 0x38)) <= THunterGuildSeqOffline__data_805DC648) {
-                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (int) (1), (int) (var_r30));
                     } else {
-                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
+                        advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (int) (0), (int) (var_r30));
                     }
                 } else {
-                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (0), (int) (var_r30));
+                    advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (int) (0), (int) (var_r30));
                 }
             } else {
-                advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (int) (1), (int) (var_r30));
+                advance_matching_entries__22THunterGuildSeqOfflineFPvii((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (int) (1), (int) (var_r30));
             }
             var_r30 += 1;
         } while (var_r30 < 4);

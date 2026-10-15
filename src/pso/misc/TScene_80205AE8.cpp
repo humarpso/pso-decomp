@@ -1,15 +1,12 @@
 #include "types.h"
 #include "pso/misc/TScene.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-
 struct Cyc_80205D24 { u16 id; u16 reserved; s16 texture; s16 index; s32 timer; };
 
 struct Uv_80205DE4 { u16 id; };
 
 #include "pso/misc/TSceneMaterial.h"
-typedef s32 M2C_UNK;
+
 struct Node_80205AEC { u32 flags; void *obj; u32 tex; u16 id; u8 b; u8 c; };
 
 struct Info_80205AEC { u8 a0; u8 a1; u8 tex; u8 b; u8 c; };
@@ -17,8 +14,8 @@ struct Info_80205AEC { u8 a0; u8 a1; u8 tex; u8 b; u8 c; };
 struct Def_80206058 { u16 id, texture; f32 u, v, du, dv; };
 
 extern "C" {
-u8 *construct_pvr_wave__6TSceneFPvPvPvii(void *, M2C_UNK, s32, s32, s32);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *construct_pvr_wave__6TSceneFPvPvPvii(void *, s32, s32, s32, s32);
+u8 *__nw__7TObjectFUl(s32);
 extern void **TScene__texture_wave_resource;
 void create_texture_wave_tasks__6TSceneFi(s32 arg0);
 extern void* TScene__texture_animation_buffer;
@@ -31,7 +28,7 @@ extern void* TScene__texture_animation_buffer;
 s32 load_texture_sequence_frame(void *task, Cyc_80205D24 *c);
 s32 find_uv_animation__6TSceneFPvPv(void *task, Uv_80205DE4 *uv);
 void initialize_fmt1_materials__6TSceneFPv(void *task);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
 extern SceneMaterialRoot* TScene__data_805D5FCC;
 Info_80205AEC *find_material_entry_by_id__6TSceneFPvUs(void *, u16);
 void *fn_802A8210(void *, u8, void *);

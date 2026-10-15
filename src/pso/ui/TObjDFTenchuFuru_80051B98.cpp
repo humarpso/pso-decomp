@@ -1,24 +1,20 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
-M2C_UNK TObjDFTenchuFuru__sub_80051A7C();
-M2C_UNK register_callback__16TObjDFTenchuFuruFv();
-M2C_UNK sync_player_globals__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80052390(f32);
+s32 TObjDFTenchuFuru__sub_80051A7C();
+s32 register_callback__16TObjDFTenchuFuruFv();
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390(f32);
 u8 *get_player_by_client_id(s32);
-M2C_UNK TCharaMaking__draw_colored_hair(int, void *, int, f32);
-M2C_UNK clear_flag_bit0__12TCharaMakingFv();
-M2C_UNK enable_making__12TCharaMakingFv();
-M2C_UNK push_matrix_from(void *);
+s32 TCharaMaking__draw_colored_hair(int, void *, int, f32);
+s32 clear_flag_bit0__12TCharaMakingFv();
+s32 enable_making__12TCharaMakingFv();
+s32 push_matrix_from(void *);
 int pop_matrix(void);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK draw_chunk_object(int);
-M2C_UNK draw_model_motion(int, void *, f32);
-extern M2C_UNK df_captured_matrix_pair[];
+s32 set_global_param__8TObjFishFi(void *);
+s32 draw_chunk_object(int);
+s32 draw_model_motion(int, void *, f32);
+extern s32 df_captured_matrix_pair[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 farg0, f32 farg1);
@@ -50,16 +46,16 @@ void draw_player_model_by_client__10TObjPlayerFUsiff(u16 arg0, s32 arg1, f32 far
         return;
     }
     p = get_player_by_client_id(arg0);
-    if (p == NULL || M2C_FIELD(p, s32 *, 0xCFC) != 0) {
+    if (p == NULL || *(s32 *)((s8 *)p + 0xCFC) != 0) {
         return;
     }
     c = p + 0xA1C;
-    a = M2C_FIELD(p, u32 *, 0x8B0);
+    a = *(u32 *)((s8 *)p + 0x8B0);
     e = p + 0xB88;
-    b = M2C_FIELD(p, u32 *, 0x8AC);
-    d = M2C_FIELD(p, u32 *, 0x8B4);
+    b = *(u32 *)((s8 *)p + 0x8AC);
+    d = *(u32 *)((s8 *)p + 0x8B4);
     g = p + 0xCF4;
-    f = M2C_FIELD(p, s32 *, 0x34);
+    f = *(s32 *)((s8 *)p + 0x34);
     if (farg1 < lbl_805D8A34) {
         TObjPlayer__sub_80052390(farg1);
     }

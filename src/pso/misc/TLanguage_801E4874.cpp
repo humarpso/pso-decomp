@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Hdr_801E4874 {
     u8 magic[4];
@@ -49,13 +45,13 @@ struct VObj_801E4B68_801E4874 : Base_801E4B68_801E4874 {
 void update_texture_wave_image(void *arg0);
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1);
 void read_into_buffer__9TLanguageFii(s32 arg0, s32 arg1);
-M2C_UNK bswap_16__FPUs(void *);
-M2C_UNK bswap_32__FPUl(void *);
-M2C_UNK distort_texture_wave_image(void *);
+s32 bswap_16__FPUs(void *);
+s32 bswap_32__FPUl(void *);
+s32 distort_texture_wave_image(void *);
 s32 get_camera_no__11TCameraCtrlFv();
 s32 is_split_screen();
-M2C_UNK move_data__6TLobbyFv(s32, s32, s32);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 move_data__6TLobbyFv(s32, s32, s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 extern s32 TLanguage__read_cursor;
 
@@ -127,13 +123,13 @@ u8 *load_gvm_texture_file(s32 arg0) {
 u16 read_file_header__9TLanguageFiPv(s32 arg0, u8 *arg1) {
     TLanguage__read_cursor = arg0;
     read_into_buffer__9TLanguageFii((s32)((s32)(arg1)), (s32)((s32)(4)));
-    M2C_FIELD(arg1, s32 *, 4) = read_u32_le__9TLanguageFv();
-    M2C_FIELD(arg1, u16 *, 8) = read_u16_le__9TLanguageFv();
-    M2C_FIELD(arg1, u16 *, 0xA) = read_u16_le__9TLanguageFv();
+    *(s32 *)((s8 *)arg1 + 4) = read_u32_le__9TLanguageFv();
+    *(u16 *)((s8 *)arg1 + 8) = read_u16_le__9TLanguageFv();
+    *(u16 *)((s8 *)arg1 + 0xA) = read_u16_le__9TLanguageFv();
     bswap_32__FPUl(arg1 + 4);
     bswap_16__FPUs(arg1 + 8);
     bswap_16__FPUs(arg1 + 0xA);
-    return M2C_FIELD(arg1, u16 *, 0xA);
+    return *(u16 *)((s8 *)arg1 + 0xA);
 }
 
 extern s32 TLanguage__read_cursor;
@@ -159,7 +155,7 @@ s32 read_u16_le__9TLanguageFv(void) {
 
 void update_texture_wave_image(void *arg0) {
     if ((is_split_screen() == 0) || (get_camera_no__11TCameraCtrlFv() == 0)) {
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x3C));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x3C));
         ((VObj_801E4B68_801E4874 *)arg0)->m0();
         distort_texture_wave_image(arg0);
     }

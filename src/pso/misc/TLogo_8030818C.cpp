@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -11,10 +7,10 @@ void TAdYesNoBaseGC__vt5(void);
 s32 check_progressive_ready__5TLogoFv(void);
 u32 OSGetProgressiveMode();
 u32 find_item_by_id(void);
-M2C_UNK disable_progressive_mode__13TAdVIConfigGCFv();
+s32 disable_progressive_mode__13TAdVIConfigGCFv();
 s32 spawn_fire_explosion_at(u32 a0 = 0, s32 a1 = 0);
 u32 VIGetDTVStatus();
-s32 is_on_current_screen__11TCameraCtrlFPv(void *, M2C_UNK);
+s32 is_on_current_screen__11TCameraCtrlFPv(void *, s32);
 void set_field_2c__13TAdVIConfigGCFPvi(void* p, s32 v);
 
 extern s8 controller_physical_port_bank[];

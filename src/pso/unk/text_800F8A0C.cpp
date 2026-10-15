@@ -1,22 +1,19 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_800F8A0C_lbl_80501178 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 extern "C" {
 extern RecoveredGlobal_800F8A0C_lbl_80501178 player_name_copy_buffer;
-M2C_UNK *get_player_name_copy_buffer(void);
+s32 *get_player_name_copy_buffer(void);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_800F8A0C_lbl_80501178_size[sizeof(RecoveredGlobal_800F8A0C_lbl_80501178) == 0x10 ? 1 : -1];
-M2C_UNK *get_player_name_copy_buffer(void) {
+s32 *get_player_name_copy_buffer(void) {
     return &player_name_copy_buffer.value;
 }
 

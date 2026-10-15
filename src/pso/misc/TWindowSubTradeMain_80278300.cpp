@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 typedef struct { f32 x, y; } V2_8027831C;
@@ -47,9 +43,9 @@ extern "C" {
 void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1);
 
 void set_trade_state__19TWindowSubTradeMainFPvs(void *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 0x88) = arg1;
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x88) == 3) {
-        M2C_FIELD(arg0, s16 *, 0x8A) = 0x3C;
+    *(s16 *)((s8 *)arg0 + 0x88) = arg1;
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x88) == 3) {
+        *(s16 *)((s8 *)arg0 + 0x8A) = 0x3C;
     }
 }
 

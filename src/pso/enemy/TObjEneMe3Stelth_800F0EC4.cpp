@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -93,20 +90,20 @@ struct VObj_18 : VBase_18 {
     virtual void m84();
     virtual void m85();
     virtual void m86();
-    virtual M2C_UNK m87();
+    virtual s32 m87();
     virtual void m88();
     virtual void m89();
     virtual void m90();
     virtual void m91();
     virtual void m92();
     virtual void m93();
-    virtual M2C_UNK m94();
+    virtual s32 m94();
     virtual void m95();
     virtual void m96();
     virtual void m97();
     virtual void m98();
     virtual void m99();
-    virtual M2C_UNK m100();
+    virtual s32 m100();
 };
 
 struct VBase14_800F1440 { char pad[0x14]; };
@@ -218,7 +215,7 @@ struct VObj_18_444bc5 : VBase_18_444bc5 {
     virtual void m91();
     virtual void m92();
     virtual void m93();
-    virtual M2C_UNK m94();
+    virtual s32 m94();
 };
 
 struct Vec_800F1098 { f32 x, y, z; };
@@ -333,44 +330,44 @@ struct Ent_800F0F84 { u8 pad0[0x18]; u32 f18; };
 extern "C" {
 s32 is_split_screen();
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void *, void *);
+s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 transition_enemy_state(void *, int);
+s32 copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback(void *);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 advance_animation_playback(void *);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern const Quad_800F1440 lbl_8043D450;
 extern const f32 lbl_805DA828;
 extern const f32 lbl_805DA82C;
 void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
 s32 move_with_wall_slide(void *);
 s32 enemy_set_heading_velocity(void *, s32, f32);
-M2C_UNK select_enemy_destination(void *, Vec_800F1098 *, int);
-M2C_UNK copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
+s32 select_enemy_destination(void *, Vec_800F1098 *, int);
+s32 copy_position_if_valid__10TObjPlayerFii(void *, Vec_800F1098 *);
 s32 update_angle__10TObjPlayerFPviPv(void *, s32, void *);
 s32 enemy_turn_toward_dest(void *, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
-M2C_UNK enemy_copy_target_destination(void *);
+s32 enemy_copy_target_destination(void *);
 s32 clamp_frame_index__9TObjEneDDFi(s32);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK render_anim_model__10TObjPlayerFPvf(void *, f32);
+s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 transition_enemy_state(void *, int);
+s32 update_prev_position__10TObjPlayerFPv(void *);
+s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback(void *);
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK create__10TTecGiFoieFPvPvPv(void *, void *, s32);
-M2C_UNK create__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
+s32 advance_animation_playback(void *);
+s32 update_collisions__10TObjPlayerFPv(void *);
+s32 create__10TTecGiFoieFPvPvPv(void *, void *, s32);
+s32 create__10TTecRaFoieFPvPvPvPv(void *, void *, void *, s32);
 s32 matrix_mult_vec(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
+s32 rotate_matrix_y(int, int);
 void subtract_vector(void *, void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 push_matrix_from(void *);
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 extern IVec_800F1098 lbl_8043D680;
 extern Tbl_800F1098 *TObjEneMe3Stelth__behavior_params_by_variant[];
 extern u8 identity_matrix[];
@@ -382,13 +379,13 @@ void TObjEneMe3Stelth__sub_800F1098(u8 *arg0, s32 arg1);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 receive_direct_attack__10TObjPlayerFv(void *, void *, void *, void *, s32, s32);
 u16 obj_getField1c(void *);
-M2C_UNK transition_enemy_state(void *, int);
+s32 transition_enemy_state(void *, int);
 void handle_direct_attack__16TObjEneMe3StelthFPvPviPv(Obj_800F0EC4 *arg0, void *arg1, Pair_800F0EC4 arg2, void *arg3);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-M2C_UNK fn_8002B630(void *, void *);
+s32 fn_8002B630(void *, void *);
 u32 get_valid_target_player__10TNpcPlayerFv(int);
-M2C_UNK init_all_slots__10TObjPlayerFv();
+s32 init_all_slots__10TObjPlayerFv();
 extern u8 TObjEneMe3Stelth__collision_body_template[];
 s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1);
 }
@@ -422,12 +419,12 @@ s32 TObjEneMe3Stelth__sub_800F0F84(u8 *arg0, Vec_800F0F84 *arg1) {
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
     init_all_slots__10TObjPlayerFv();
     ((VObj_18_800F0F84 *)arg0)->m87();
-    if ((ent->f18 & 0x80000) && get_valid_target_player__10TNpcPlayerFv(obj_getField1c((void *)(M2C_FIELD(arg0, s32 *, 0x390)))) == 0) {
+    if ((ent->f18 & 0x80000) && get_valid_target_player__10TNpcPlayerFv(obj_getField1c((void *)(*(s32 *)((s8 *)arg0 + 0x390)))) == 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
         init_all_slots__10TObjPlayerFv();
         return 1;
     }
-    if ((ent->f18 & 0x100000) && get_valid_target_player__10TNpcPlayerFv(M2C_FIELD(arg0, u16 *, 0x1C)) == 0) {
+    if ((ent->f18 & 0x100000) && get_valid_target_player__10TNpcPlayerFv(*(u16 *)((s8 *)arg0 + 0x1C)) == 0) {
         VecCopy__FP3VecPC3Vec(arg0 + 0x38, &sp);
         init_all_slots__10TObjPlayerFv();
         return 1;

@@ -3,8 +3,6 @@ struct E_8035959C { s32 a; s32 b; f32 c; };
 
 struct O_8035959C { u8 pad[0x1c]; s32 idx; E_8035959C e[2]; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 typedef struct Ent_803594EC
 {
   s32 active;
@@ -30,9 +28,9 @@ typedef struct Quad_803594EC
 
 extern "C" {
 void run_task__10TBoss4FadeFv(O_8035959C *self);
-M2C_UNK set_depth_buffer_settings_1__Fv(void);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
+s32 set_depth_buffer_settings_1__Fv(void);
+s32 restore_saved_depth_alpha_state();
+s32 draw_strip_swap_color__15TWindowCtrlMainFPviif(void *, int, int, f32);
 extern u8 TBoss4Fade__fullscreen_vertices[];
 extern const f32 lbl_805E0098;
 extern const f32 lbl_805E009C;

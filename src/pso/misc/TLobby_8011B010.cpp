@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 int reset_item_id_counters__6TLobbyFv(void);
@@ -31,8 +27,8 @@ void copy_short_fields__6TLobbyFPvPv(void *arg0, void *arg1);
 extern "C" {
 
 s32 free_rock_objects__6TLobbyFis(s32 arg0, s16 arg1);
-M2C_UNK __dl__FPv(s32);
-M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 __dl__FPv(s32);
+s32 free__11TOBoss4RockFUi(s32);
 
 extern s32 item_sync_counter_table;
 extern s32 item_id_counter_table;
@@ -54,18 +50,18 @@ void send_item_packet__6TLobbyFPv(void* p) { bswap_item_packet__6TLobbyFPv((void
 void bswap_item_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_item__6TLobbyFPv((char*)p + 0x4); }
 void *init_header_packet__6TLobbyFPv(void *arg0) {
     init_header__6TLobbyFPv((void *)(arg0));
-    M2C_FIELD(arg0, s8 *, 0) = 0x5F;
-    M2C_FIELD(arg0, s8 *, 0x28) = 2;
-    M2C_FIELD(arg0, s8 *, 0x29) = 0;
-    M2C_FIELD(arg0, s8 *, 0x2A) = 0;
-    M2C_FIELD(arg0, s8 *, 0x2B) = 0;
-    M2C_FIELD(arg0, s8 *, 1) = 0xB;
+    *(s8 *)((s8 *)arg0 + 0) = 0x5F;
+    *(s8 *)((s8 *)arg0 + 0x28) = 2;
+    *(s8 *)((s8 *)arg0 + 0x29) = 0;
+    *(s8 *)((s8 *)arg0 + 0x2A) = 0;
+    *(s8 *)((s8 *)arg0 + 0x2B) = 0;
+    *(s8 *)((s8 *)arg0 + 1) = 0xB;
     return arg0;
 }
 void *init_header__6TLobbyFPv(void *arg0) {
     drop_stacked_item_passthrough__6TLobbyFi((void *)((char *)arg0 + 4));
-    M2C_FIELD(arg0, u8 *, 0x0) = 95;
-    M2C_FIELD(arg0, u8 *, 0x1) = 10;
+    *(u8 *)((s8 *)arg0 + 0x0) = 95;
+    *(u8 *)((s8 *)arg0 + 0x1) = 10;
     return arg0;
 }
 void bswap_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x8); bswap_32__FPUl((char*)p + 0x4); }
@@ -77,8 +73,8 @@ s32 apply_table_entry__6TLobbyFs(s16 arg0, void * _w1) {
     return 1;
 }
 void copy_short_fields__6TLobbyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, u16 *, 2) = (u16) M2C_FIELD(arg1, u16 *, 2);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(u16 *)((s8 *)arg0 + 2) = (u16) *(u16 *)((s8 *)arg1 + 2);
 }
 
 }

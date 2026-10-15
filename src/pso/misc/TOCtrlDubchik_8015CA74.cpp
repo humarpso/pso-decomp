@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_65b835 { char pad[0x18]; };
 
@@ -84,10 +80,10 @@ struct VObj_18_65b835 : VBase_18_65b835 {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77(s32 *);
+    virtual s32 m77(s32 *);
 };
 
-struct RecoveredGlobal_8015D314_lbl_804B0A10 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8015D314_lbl_804B0A10 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8015D314_lbl_804B0A10_size[sizeof(RecoveredGlobal_8015D314_lbl_804B0A10) == 0x10 ? 1 : -1];
 
 struct VBase_18_aa4667 { char pad[0x18]; };
@@ -172,16 +168,16 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_8015D3CC_lbl_804B0A20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -236,8 +232,8 @@ struct Obj_8015D518 {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK send_6x0A_enemy_state(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 send_6x0A_enemy_state(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 s32 set_flag8__6TLobbyFPv(void *);
 void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0);
@@ -246,7 +242,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015D314_lbl_804B0A10 bm_fs_obj_zombie_con_resource_descriptor;
 extern u32 TOCtrlDubchik__shared_resource;
 void load_shared_resource__13TOCtrlDubchikFv(void);
-M2C_UNK apply_actor_gravity(void *, void *, f32);
+s32 apply_actor_gravity(void *, void *, f32);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 void set_indexed_flags(void *, s32, s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
@@ -266,14 +262,14 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern RecoveredGlobal_8015D3CC_lbl_804B0A20 TOCtrlDubchik__collision_body;
-extern M2C_UNK __vt__13TOCtrlDubchik[];
+extern s32 __vt__13TOCtrlDubchik[];
 extern s32 lbl_805D2F1C;
 extern u32 TOCtrlDubchik__shared_resource;
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 lbl_805DB3BC;
 extern const f32 lbl_805DB3C8;
-u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
-M2C_UNK apply_actor_gravity(void *, void *, f32);
+u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2);
+s32 apply_actor_gravity(void *, void *, f32);
 f32 sin_table_lookup(s32);
 extern const f32 TOCtrlDubchik__data_805DB3AC;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
@@ -287,7 +283,7 @@ void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0);
 extern const f32 TOCtrlDubchik__data_805DB3A8;
 extern const f32 TOCtrlDubchik__data_805DB3B0;
 void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0);
-M2C_UNK apply_actor_gravity(void *, void *, f32);
+s32 apply_actor_gravity(void *, void *, f32);
 u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_testFlags30(void *, s32);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
@@ -336,12 +332,12 @@ void *create__13TOCtrlDubchikFPv(void *arg0);
 void destroy_instance__13TOCtrlDubchikFv(void);
 void update_spin__13TOCtrlDubchikFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK apply_actor_gravity(void *, void *, f32);
+s32 free_collision_body_parts(void *);
+s32 apply_actor_gravity(void *, void *, f32);
 s32 select_melee_contact_body__10TObjPlayerFv();
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__9TObjEnemyFv(void *, M2C_UNK);
+s32 unregister_object_by_id(s32 *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__9TObjEnemyFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 extern const f64 TOCtrlDubchik__data_80440990;
@@ -384,10 +380,10 @@ void complete_and_destroy__13TOCtrlDubchikFPv(u8 *arg0) {
 #pragma push
 #pragma opt_common_subs off
 void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) - TOCtrlDubchik__data_805DB3B0);
-    if (M2C_FIELD(arg0, f32 *, 0x384) < TOCtrlDubchik__data_805DB3A8) {
-        M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
-        M2C_FIELD(arg0, s16 *, 0x326) = 0;
+    *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) - TOCtrlDubchik__data_805DB3B0);
+    if (*(f32 *)((s8 *)arg0 + 0x384) < TOCtrlDubchik__data_805DB3A8) {
+        *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+        *(s16 *)((s8 *)arg0 + 0x326) = 0;
         set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
     }
 }
@@ -397,10 +393,10 @@ void decay_timer_and_clear_flag__13TOCtrlDubchikFPv(u8 *arg0) {
 #pragma opt_common_subs off
 #pragma opt_propagation off
 void decay_timer_and_finish__13TOCtrlDubchikFPv(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x388) = (f32) (M2C_FIELD(arg0, f32 *, 0x388) - TOCtrlDubchik__data_805DB3B0);
-    if (M2C_FIELD(arg0, f32 *, 0x388) < TOCtrlDubchik__data_805DB3A8) {
-        M2C_FIELD(arg0, f32 *, 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
-        M2C_FIELD(arg0, s16 *, 0x326) = 5;
+    *(f32 *)((s8 *)arg0 + 0x388) = (f32) (*(f32 *)((s8 *)arg0 + 0x388) - TOCtrlDubchik__data_805DB3B0);
+    if (*(f32 *)((s8 *)arg0 + 0x388) < TOCtrlDubchik__data_805DB3A8) {
+        *(f32 *)((s8 *)arg0 + 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
+        *(s16 *)((s8 *)arg0 + 0x326) = 5;
     }
 }
 #pragma pop
@@ -409,12 +405,12 @@ void update_spin__13TOCtrlDubchikFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x380);
     temp_f1 = (f32) temp_r4;
-    M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x380)));
-    apply_actor_gravity(arg0, arg0 + 0x390, M2C_FIELD(arg0, f32 *, 0x37C));
-    M2C_FIELD(arg0, s32 *, 0x38C) = (s32) (M2C_FIELD(arg0, s32 *, 0x38C) + 0x147);
+    *(s32 *)((s8 *)arg0 + 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
+    *(f32 *)((s8 *)arg0 + 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x380)));
+    apply_actor_gravity(arg0, arg0 + 0x390, *(f32 *)((s8 *)arg0 + 0x37C));
+    *(s32 *)((s8 *)arg0 + 0x38C) = (s32) (*(s32 *)((s8 *)arg0 + 0x38C) + 0x147);
 }
 
 extern void *tl_05;
@@ -448,15 +444,15 @@ void TOCtrlDubchik__sub_8015CCF4(u8 *arg0) {
 void update_bobbing__13TOCtrlDubchikFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x380);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x380);
     temp_f1 = (f32) temp_r4;
-    M2C_FIELD(arg0, s32 *, 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (M2C_FIELD(arg0, s32 *, 0x380)))));
-    apply_actor_gravity((void *) (arg0), (void *) (arg0 + 0x390), (f32) (M2C_FIELD(arg0, f32 *, 0x37C)));
-    M2C_FIELD(arg0, f32 *, 0x384) = (f32) (M2C_FIELD(arg0, f32 *, 0x384) + TOCtrlDubchik__data_805DB3B0);
-    if (TOCtrlDubchik__data_805DB3AC < M2C_FIELD(arg0, f32 *, 0x384)) {
-        M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3AC;
-        M2C_FIELD(arg0, s16 *, 0x326) = 2;
+    *(s32 *)((s8 *)arg0 + 0x380) = (s32) (temp_f1 + TOCtrlDubchik__data_805DB3B4);
+    *(f32 *)((s8 *)arg0 + 0x37C) = (f32) (TOCtrlDubchik__data_805DB3B8 + sin_table_lookup((s32)((int) (*(s32 *)((s8 *)arg0 + 0x380)))));
+    apply_actor_gravity((void *) (arg0), (void *) (arg0 + 0x390), (f32) (*(f32 *)((s8 *)arg0 + 0x37C)));
+    *(f32 *)((s8 *)arg0 + 0x384) = (f32) (*(f32 *)((s8 *)arg0 + 0x384) + TOCtrlDubchik__data_805DB3B0);
+    if (TOCtrlDubchik__data_805DB3AC < *(f32 *)((s8 *)arg0 + 0x384)) {
+        *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3AC;
+        *(s16 *)((s8 *)arg0 + 0x326) = 2;
     }
 }
 #pragma pop
@@ -520,7 +516,7 @@ void run_task__13TOCtrlDubchikFv(u8 *arg0) {
 void *create__13TOCtrlDubchikFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x3A0);
     if (o != NULL) {
-        o = TOCtrlDubchik__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TOCtrlDubchik__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -534,7 +530,7 @@ void destroy_instance__13TOCtrlDubchikFv(void) {
     }
 }
 
-extern M2C_UNK __vt__13TOCtrlDubchik[];
+extern s32 __vt__13TOCtrlDubchik[];
 
 void load_shared_resource__13TOCtrlDubchikFv(void) {
     s32 temp_r3;
@@ -549,8 +545,8 @@ void load_shared_resource__13TOCtrlDubchikFv(void) {
 
 void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TOCtrlDubchik;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TOCtrlDubchik;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
@@ -562,35 +558,35 @@ void *__dt__13TOCtrlDubchikFv(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8015D3CC_lbl_804B0A20_size[sizeof(RecoveredGlobal_8015D3CC_lbl_804B0A20) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik_size[sizeof(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik) == 0x14C ? 1 : -1];
-u8 *TOCtrlDubchik__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOCtrlDubchik__ct(u8 *arg0, s32 arg1, s32 arg2) {
     initialize__9TObjEnemyFPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F1C;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015D3CC___vt__13TOCtrlDubchik *)&__vt__13TOCtrlDubchik).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F1C;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__shared_resource), u8 **, 0x42C), void **, 8));
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOCtrlDubchik__shared_resource), u8 **, 0x42C), s32 *, 0xC);
+    *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 8));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOCtrlDubchik__shared_resource) + 0x42C)) + 0xC);
     init_collision_body_parts((void *) (arg0), (void *) (&TOCtrlDubchik__collision_body.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     set_indexed_flags((void *)((void *) (arg0)), (s32)((int) (0)), (s32)((int) (0x08000000)));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, s16 *, 0x32C) = 0x12C;
-    M2C_FIELD(arg0, s16 *, 0x2B8) = 0x12C;
-    M2C_FIELD(arg0, f32 *, 0x374) = (f32) lbl_805DB3C8;
-    M2C_FIELD(arg0, f32 *, 0x378) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0x37C) = (f32) lbl_805DB3BC;
-    M2C_FIELD(arg0, s32 *, 0x380) = 0;
-    M2C_FIELD(arg0, f32 *, 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
-    M2C_FIELD(arg0, f32 *, 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
-    M2C_FIELD(arg0, s32 *, 0x38C) = 0;
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(s16 *)((s8 *)arg0 + 0x32C) = 0x12C;
+    *(s16 *)((s8 *)arg0 + 0x2B8) = 0x12C;
+    *(f32 *)((s8 *)arg0 + 0x374) = (f32) lbl_805DB3C8;
+    *(f32 *)((s8 *)arg0 + 0x378) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0x37C) = (f32) lbl_805DB3BC;
+    *(s32 *)((s8 *)arg0 + 0x380) = 0;
+    *(f32 *)((s8 *)arg0 + 0x384) = (f32) TOCtrlDubchik__data_805DB3A8;
+    *(f32 *)((s8 *)arg0 + 0x388) = (f32) TOCtrlDubchik__data_805DB3A8;
+    *(s32 *)((s8 *)arg0 + 0x38C) = 0;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x390), (void *) (arg0 + 0x50));
-    M2C_FIELD(arg0, s32 *, 0x39C) = 1;
+    *(s32 *)((s8 *)arg0 + 0x39C) = 1;
     return arg0;
 }
 
 s32 TOCtrlDubchik__vt18(void *arg0) {
-    if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+    if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
         return select_melee_contact_body__10TObjPlayerFv();
     }
     return 0;
@@ -604,14 +600,14 @@ f32 TOCtrlDubchik__vt21(Obj_8015D518 *arg0, s32 arg1, Pair_8015D518 arg2, void *
 }
 
 s32 TOCtrlDubchik__vt24(u8 *arg0, s32 arg1, s32 arg2) {
-    if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+    if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
         return try_start_action__10TObjPlayerFPvii((void *) (arg0), (void *) (arg1), (void *) (arg2));
     }
     return 0;
 }
 
 s32 TOCtrlDubchik__vt25(u8 *arg0, s32 arg1, s32 arg2, f32 farg0) {
-    if (M2C_FIELD(arg0, s16 *, 0x326) != 0) {
+    if (*(s16 *)((s8 *)arg0 + 0x326) != 0) {
         return roll_physical_accuracy__10TObjPlayerFv((void *) (arg0), (void *) (arg1), (void *) (arg2), (f32) (farg0));
     }
     return 0;

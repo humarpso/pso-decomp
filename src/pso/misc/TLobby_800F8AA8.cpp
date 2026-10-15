@@ -747,11 +747,6 @@ void reset_keyboard_state__6TLobbyFv(void) { area_transfer_pending_flag = 0; res
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 bool is_area_transfer_pending(void);
 }
@@ -783,10 +778,6 @@ void clear_callback_and_reset_keyboard__6TLobbyFv(void) { set_keyboard_mode__6TL
 }
 
 #undef area_transfer_pending_flag
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_main_phase();
@@ -804,7 +795,7 @@ extern "C" {
 
 void TLobby__sub_800F8BD8(void);
 void invoke_callback__6TLobbyFv(void);
-#define main_phase_deferred_callback (*(M2C_UNK (**)())&main_phase_deferred_callback)
+#define main_phase_deferred_callback (*(s32 (**)())&main_phase_deferred_callback)
 int TKeyBoardControl__sub_8000F92C(void);
 void clear_callback_and_reset_keyboard__6TLobbyFv(void);
 int reset__16TKeyBoardControlFv(void);
@@ -839,7 +830,7 @@ void apply_phase_keyboard_mode(void) {
 void TLobby__sub_800F8BD8(void) { reset__16TKeyBoardControlFv(); TKeyBoardControl__sub_8000F92C(); }
 
 void invoke_callback__6TLobbyFv(void) {
-    if (((M2C_UNK (*)()) main_phase_deferred_callback) != NULL) {
+    if (((s32 (*)()) main_phase_deferred_callback) != NULL) {
         main_phase_deferred_callback();
     }
 }
@@ -854,15 +845,11 @@ void set_keyboard_mode__6TLobbyFi(int a0) { main_phase_deferred_callback = a0; }
 }
 
 #undef main_phase_deferred_callback
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void flush_checked_reads__6TLobbyFv();
-M2C_UNK read_checked_align__6TLobbyFiii(s32, s32, u32);
+s32 read_checked_align__6TLobbyFiii(s32, s32, u32);
 extern s32 *pending_file_read_handle_ref;
 extern s32 pending_file_read_sector_count;
 extern u32 pending_file_read_destination;
@@ -1021,10 +1008,6 @@ void TLobby__sub_800F8F34(void) { lbl_805D5358 = 1; }
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -1047,19 +1030,15 @@ void reset_state_byte__6TLobbyFv(void) {
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void wait_ready_loop__6TLobbyFv(void);
 s32 run_disk_error_check__6TLobbyFv();
-M2C_UNK TLobby__sub_801384E4();
-M2C_UNK set_state__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 TLobby__sub_801384E4();
+s32 set_state__15TAdPlayerLoadGCFi(s32);
 s32 get_main_phase();
-M2C_UNK render_tick__Fv();
+s32 render_tick__Fv();
 
 #define lbl_805D5359 (*(s8 *)&lbl_805D5359)
 

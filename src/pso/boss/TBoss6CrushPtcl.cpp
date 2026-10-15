@@ -1,14 +1,13 @@
 #include "pso/TBoss6CrushPtcl.h"
 
 #include "types.h"
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct Vec_80359EF0 { s32 x, y, z; };
 
 extern "C" {
 s32 create_particle_emitter(void *, int);
 void *__ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK __vt__15TBoss6CrushPtcl[];
+extern s32 __vt__15TBoss6CrushPtcl[];
 extern s32 TBoss6CrushPtcl__name;
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2);
 }
@@ -36,8 +35,6 @@ void TBoss6CrushPtcl::run_task() {
 TBoss6CrushPtcl::~TBoss6CrushPtcl() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -48,12 +45,12 @@ extern void *tl_02;
 
 u8 *TBoss6CrushPtcl__ct(u8 *arg0, void *arg1, Vec_80359EF0 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss6CrushPtcl;
-    M2C_FIELD(arg0, s32 *, 0) = TBoss6CrushPtcl__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss6CrushPtcl;
+    *(s32 *)((s8 *)arg0 + 0) = TBoss6CrushPtcl__name;
     Vec_80359EF0 v = *arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = create_particle_emitter(&v, 0x203);
-    M2C_FIELD(arg0, s32 *, 0x24) = create_particle_emitter(&v, 0x204);
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = create_particle_emitter(&v, 0x203);
+    *(s32 *)((s8 *)arg0 + 0x24) = create_particle_emitter(&v, 0x204);
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
 

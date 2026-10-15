@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_965ca6 { char pad[0x18]; };
 
 struct VObj_18_965ca6 : VBase_18_965ca6 {
@@ -101,20 +98,20 @@ struct VObj_18_965ca6 : VBase_18_965ca6 {
     virtual void m92();
     virtual void m93();
     virtual void m94();
-    virtual M2C_UNK m95();
+    virtual s32 m95();
 };
 
 struct Stack_8031FB6C {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
 };
 
 struct Obj_8031FACC { u8 pad[0x3F4]; s32 f3F4; s32 f3F8; u8 pad2[0x410 - 0x3FC]; s32 f410; s32 f414; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-u8 *csnVectorUnder(M2C_UNK *, void *, M2C_UNK);
-M2C_UNK set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+u8 *csnVectorUnder(s32 *, void *, s32);
+s32 set_part_local_pos__9TObjEneDDFPvPvi(void *, void *, int);
 extern const f32 lbl_805DF450;
 extern const f32 lbl_805DF460;
 void TObjEneRecon__sub_8031FB6C(u8 *arg0);
@@ -144,13 +141,13 @@ void TObjEneRecon__sub_8031FB6C(u8 *arg0) {
     Stack_8031FB6C stack;
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (arg0 + 0x2FC));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x3DC) == 1) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x3DC) == 1) {
         stack.spC -= lbl_805DF450;
     } else {
         stack.spC += lbl_805DF450;
     }
     temp_r3 = (u8 *)(csnVectorUnder(&stack.sp8, arg0 + 0x120, 0x15));
-    if ((temp_r3 == NULL) || (M2C_FIELD(arg0, f32 *, 0x300) >= (lbl_805DF460 + M2C_FIELD(M2C_FIELD(temp_r3, u8 **, 4), f32 *, 4)))) {
+    if ((temp_r3 == NULL) || (*(f32 *)((s8 *)arg0 + 0x300) >= (lbl_805DF460 + *(f32 *)((s8 *)(*(u8 **)((s8 *)temp_r3 + 4)) + 4)))) {
         ((VObj_18_965ca6 *)(arg0))->m95();
     }
     set_part_local_pos__9TObjEneDDFPvPvi((void *) (arg0), (void *) (arg0 + 0x2FC), (int) (0));

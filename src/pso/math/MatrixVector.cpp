@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_803D8D1C { f32 x, y, z; };
 
@@ -11,7 +7,7 @@ f32 vec_squared_length(u8 *arg0);
 f32 matrix_identity(void *);
 extern u8 *current_matrix;
 void set_matrix_identity(u8 *arg0);
-M2C_UNK PSMTXMultVecSR(int);
+s32 PSMTXMultVecSR(int);
 extern u8 *current_matrix;
 void rotate_vector_by_matrix(u32 arg0);
 extern u8 *current_matrix;
@@ -30,11 +26,11 @@ extern "C" {
 
 void scale_matrix_vec3(u8 *arg0, u8 *arg1);
 void translate_matrix_vec3(u8 *arg0, u8 *arg1);
-M2C_UNK scale_matrix(f32, f32, f32);
-M2C_UNK translate_matrix(f32, f32, f32);
+s32 scale_matrix(f32, f32, f32);
+s32 translate_matrix(f32, f32, f32);
 
 void scale_matrix_vec3(u8 *arg0, u8 *arg1) {
-    scale_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
+    scale_matrix((f32) (*(f32 *)((s8 *)arg1 + 0)), (f32) (*(f32 *)((s8 *)arg1 + 4)), (f32) (*(f32 *)((s8 *)arg1 + 8)));
 }
 
 #pragma push
@@ -55,7 +51,7 @@ void rotate_matrix_about_axis(u8 *arg0, s32 arg1, s32 arg2) {
 #pragma pop
 
 void translate_matrix_vec3(u8 *arg0, u8 *arg1) {
-    translate_matrix((f32) (M2C_FIELD(arg1, f32 *, 0)), (f32) (M2C_FIELD(arg1, f32 *, 4)), (f32) (M2C_FIELD(arg1, f32 *, 8)));
+    translate_matrix((f32) (*(f32 *)((s8 *)arg1 + 0)), (f32) (*(f32 *)((s8 *)arg1 + 4)), (f32) (*(f32 *)((s8 *)arg1 + 8)));
 }
 
 #pragma push
@@ -76,9 +72,9 @@ f32 vec_squared_length(u8 *arg0) {
     f32 temp_f0;
     f32 temp_f1;
     f32 temp_f2;
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 4);
-    temp_f2 = M2C_FIELD(arg0, f32 *, 8);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 4);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 8);
     return (temp_f2 * temp_f2) + ((temp_f1 * temp_f1) + (temp_f0 * temp_f0));
 }
 #pragma pop

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct S_803DA218 { s32 a; u32 c; s32 b; };
 
@@ -12,7 +8,6 @@ struct Rec_803DA688 { u32 a; u32 b; u32 c; Sub_803DA688 *d; u32 e; u32 f; };
 
 struct E_803DA55C { u8 pad[0xC]; u32 *p; u8 pad2[8]; };
 
-typedef s32 M2C_UNK;
 struct Slot_803DA5A8 { u32 id; u8 pad[0x24]; };
 
 struct Err_803DA5A8 { s32 a; s32 b; s32 code; };
@@ -48,10 +43,10 @@ extern "C" {
 void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 
 void set_render_rect__10TObjPlayerFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    M2C_FIELD(arg0, s32 *, 0) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x10) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x14) = arg4;
-    M2C_FIELD(arg0, s32 *, 4) = arg2;
+    *(s32 *)((s8 *)arg0 + 0) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x10) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x14) = arg4;
+    *(s32 *)((s8 *)arg0 + 4) = arg2;
 }
 
 #pragma push
@@ -177,25 +172,25 @@ s32 find_record_index__10TObjPlayerFUiUi(u32 arg0, u32 arg1) {
 
 void release_empty_ref_entry__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r4;
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xC));
-    if ((s32) M2C_FIELD(temp_r4, s32 *, 0x24) <= 0) {
-        M2C_FIELD(temp_r4, s32 *, 0) = -1;
-        M2C_FIELD(temp_r4, s32 *, 4) = 0;
-        M2C_FIELD(temp_r4, s32 *, 8) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0xC) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0x10) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0x14) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0x18) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0x1C) = 0;
-        M2C_FIELD(temp_r4, s32 *, 0x20) = 0;
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xC));
+    if ((s32) *(s32 *)((s8 *)temp_r4 + 0x24) <= 0) {
+        *(s32 *)((s8 *)temp_r4 + 0) = -1;
+        *(s32 *)((s8 *)temp_r4 + 4) = 0;
+        *(s32 *)((s8 *)temp_r4 + 8) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0xC) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0x10) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0x14) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0x18) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0x1C) = 0;
+        *(s32 *)((s8 *)temp_r4 + 0x20) = 0;
         player_ref_entry_active_count -= 1;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x10) <= 0) {
-        M2C_FIELD(arg0, s32 *, 8) = -1;
-        M2C_FIELD(arg0, s32 *, 0) = 0;
-        M2C_FIELD(arg0, s32 *, 4) = 0;
-        M2C_FIELD(arg0, u8 **, 0xC) = NULL;
-        M2C_FIELD(arg0, s32 *, 0x14) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x10) <= 0) {
+        *(s32 *)((s8 *)arg0 + 8) = -1;
+        *(s32 *)((s8 *)arg0 + 0) = 0;
+        *(s32 *)((s8 *)arg0 + 4) = 0;
+        *(u8 **)((s8 *)arg0 + 0xC) = NULL;
+        *(s32 *)((s8 *)arg0 + 0x14) = 0;
     }
 }
 

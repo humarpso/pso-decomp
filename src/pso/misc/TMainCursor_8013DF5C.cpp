@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8013E020 { u16 a; u16 b; s32 c; };
 
@@ -43,7 +38,7 @@ int matches_type_and_enabled__11TMainCursorFiUcUc(s32 arg0, u8 arg1, u8 arg2) {
 }
 
 void TMainCursor__sub_8013DFC4(u8 *arg0) {
-    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) & 0xFFFFFFFE);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) & 0xFFFFFFFE);
 }
 
 s32 get_state__11TMainCursorFPv(void* p) { return *(s32*)((char*)p + 0x4); }
@@ -63,11 +58,11 @@ void fn_8013E020(Obj_8013E020 *self) {
 
 u16 TMainCursor__sub_8013E03C(void* p) { return *(u16*)((char*)p + 0x0); }
 
-extern M2C_UNK lbl_804A7260[];
+extern s32 lbl_804A7260[];
 
 void *destroy_cursor__11TMainCursorFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A7260;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A7260;
         destroy__13TForceOperateFis((s32)((s8 *)arg0 + 0x1C), (s16)(-1));
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

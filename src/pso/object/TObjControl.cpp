@@ -1,10 +1,6 @@
 #include "types.h"
 #include "pso/TObjControl.h"
 #include "pso/enemy/TObjEnemy.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ply_800F7118 {
     u8 pad0[0x28];
@@ -66,7 +62,7 @@ struct EnemyControlDispatch : EnemyControlDispatchBase {
     virtual void m23();
     virtual void m24();
     virtual void m25();
-    virtual M2C_UNK m26();
+    virtual s32 m26();
     virtual s32 m27();
     virtual s32 m28();
     virtual s32 m29();
@@ -76,11 +72,11 @@ struct EnemyControlDispatch : EnemyControlDispatchBase {
     virtual void m33();
     virtual s32 m34();
     virtual void m35();
-    virtual M2C_UNK m36();
+    virtual s32 m36();
     virtual s32 m37();
     virtual s32 m38();
-    virtual M2C_UNK m39();
-    virtual M2C_UNK m40();
+    virtual s32 m39();
+    virtual s32 m40();
     virtual s32 m41();
     virtual void m42();
     virtual void m43();
@@ -96,12 +92,12 @@ struct EnemyControlDispatch : EnemyControlDispatchBase {
     virtual void m53();
     virtual void m54();
     virtual void m55();
-    virtual M2C_UNK m56();
-    virtual M2C_UNK m57();
-    virtual M2C_UNK m58();
-    virtual M2C_UNK m59();
-    virtual M2C_UNK m60();
-    virtual M2C_UNK m61();
+    virtual s32 m56();
+    virtual s32 m57();
+    virtual s32 m58();
+    virtual s32 m59();
+    virtual s32 m60();
+    virtual s32 m61();
 };
 
 struct Msg_800F641C { u8 code; u8 size; u16 id; s32 arg; };
@@ -420,8 +416,8 @@ struct Plr_800F6BF0 : VBase_800F6BF0 {
     virtual void m12(s32);
 };
 
-s32 add_capped_counter_999__10TObjPlayerFPvi(void *, M2C_UNK);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 add_capped_counter_999__10TObjPlayerFPvi(void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void add_to_field_2ce__10TObjPlayerFPvi(void *, int);
 s16 get_atp__10TObjPlayerFPv(void *);
 void add_to_field_2ca__10TObjPlayerFPvi(void *, int);
@@ -441,11 +437,11 @@ void obj_setFlags30(void *, s32);
 s32 is_split_screen();
 s32 get_current_floor();
 s32 get_field_3e4__10TObjPlayerFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
 void copy_header__6TLobbyFPvPv(void *, void *);
-M2C_UNK set_flag_3__7TObjectFv(int);
+s32 set_flag_3__7TObjectFv(int);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 void subtractive_rng_seed(void *, s32);
@@ -455,7 +451,7 @@ void * TObjControl__ct(void *arg0);
 void handle_6x9C_set_enemy_low_game_flags_ultimate(Msg_800F62E0 *arg0);
 void send_6x9C_enemy_low_game_flags(Obj_800F641C *self, s32 arg);
 void handle_6x0A_update_enemy_state(Msg_800F6464 *arg0);
-M2C_UNK send_6x0A_enemy_state(void *, void *);
+s32 send_6x0A_enemy_state(void *, void *);
 s32 update_and_send_enemy_hit_state(u8 *self, s32 kind);
 void apply_hit_message_flags__10TObjPlayerFPvPv(VObj_800F673C *arg0, Msg_800F673C *arg1);
 void call_vt78__10TObjPlayerFPv(void *arg0);
@@ -469,7 +465,7 @@ void link_chain_nodes__10TObjPlayerFPvPvPv(void *arg0, Node_800F6E2C *arg1, Node
 void unlink_enemy_group_relations(u8 *arg0);
 s32 is_action_available__10TObjPlayerFv(TObjEnemy* _w0);
 void apply_by_index__9TObjEnemyFs(s16, void *);
-M2C_UNK clear_flag_3__7TObjectFv(int);
+s32 clear_flag_3__7TObjectFv(int);
 void bswap_field__6TLobbyFPv(void *);
 void broadcast_state__6TLobbyFPv(void* p);
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0);
@@ -477,20 +473,20 @@ void bswap_enemy_state__6TLobbyFPv(void *);
 s32 get_attack_credit_slot_count(void *);
 f32 TLobby__sub_800F7A6C();
 f32 TLobby__sub_800F7A7C();
-M2C_UNK create_font_small_task(void *, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK *, s32, u16);
+s32 create_font_small_task(void *, s32, s32, s32, s32 *, s32, u16);
 int send_6x60_standard_drop_item_request(void*);
-M2C_UNK fn_801B0480(void *, void *, M2C_UNK);
-M2C_UNK draw_player_status(void *, void *, M2C_UNK *);
-M2C_UNK submit_cursor_candidate(int, int);
+s32 fn_801B0480(void *, void *, s32);
+s32 draw_player_status(void *, void *, s32 *);
+s32 submit_cursor_candidate(int, int);
 Plr_800F6BF0 * get_player_by_client_id(u16);
 u8 get_rule_field_0__6TLobbyFPv(void *);
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 minimap_render_dot(void *, int, int, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *);
 s32 is_challenge_mode_active();
 
 extern Hdr_800F6464 *TLobby__data_805D6144;
-extern M2C_UNK __vt__11TObjControl[];
+extern s32 __vt__11TObjControl[];
 extern u8 lobby_rule_settings[];
 extern void *lbl_805D2B04;
 extern s32 area_random_seed;
@@ -498,10 +494,10 @@ extern s32 game_difficulty_selection;
 extern const f32 lbl_805DA8C0;
 extern const f32 lbl_805DA8C4;
 extern const f32 lbl_805DA8C8;
-extern M2C_UNK lbl_805DA8CC;
-extern M2C_UNK lbl_805DA8D0;
+extern s32 lbl_805DA8CC;
+extern s32 lbl_805DA8D0;
 extern const f32 lbl_805DA8D4;
-extern M2C_UNK lbl_805DA8D8;
+extern s32 lbl_805DA8D8;
 extern const f32 lbl_805DA8DC;
 
 }
@@ -542,8 +538,8 @@ void TObjControl::run_task() {
             ((EnemyControlDispatch *)(enemy))->m59();
             return;
         }
-        if (!(M2C_FIELD(enemy, s32 *, 0x30) & 0x600000)) {
-            if ((void *) M2C_FIELD(enemy, u8 **, 0x314) != NULL) {
+        if (!(*(s32 *)((s8 *)enemy + 0x30) & 0x600000)) {
+            if ((void *) *(u8 **)((s8 *)enemy + 0x314) != NULL) {
                 m_decision_mode = 0;
             } else {
                 m_decision_mode = 2;
@@ -551,12 +547,12 @@ void TObjControl::run_task() {
             mode = m_decision_mode;
             switch (mode) {
             case 0:
-                control_record = (u8 *)(M2C_FIELD(enemy, u8 **, 0x314));
-                if (M2C_FIELD(control_record, s32 *, 8) & 4) {
+                control_record = (u8 *)(*(u8 **)((s8 *)enemy + 0x314));
+                if (*(s32 *)((s8 *)control_record + 8) & 4) {
                     ((EnemyControlDispatch *)(enemy))->m58();
                     return;
                 }
-                if (M2C_FIELD(control_record, f32 *, 0x24) > lbl_805DA8C0) {
+                if (*(f32 *)((s8 *)control_record + 0x24) > lbl_805DA8C0) {
                     ((EnemyControlDispatch *)(enemy))->m57();
                     return;
                 }
@@ -590,10 +586,10 @@ TObjControl::~TObjControl() {}
 extern "C" {
 void *TObjControl__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TObjControl;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2B04;
-    M2C_FIELD(arg0, u16 *, 0x1C) = 2;
-    M2C_FIELD(arg0, u16 *, 0x1E) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TObjControl;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2B04;
+    *(u16 *)((s8 *)arg0 + 0x1C) = 2;
+    *(u16 *)((s8 *)arg0 + 0x1E) = 0;
     return arg0;
 }
 
@@ -822,8 +818,8 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
         ((s32 (*)(void *, int))obj_testFlags30)(p, 0x800) != 0 || get_field_3e4__10TObjPlayerFPv(p) != get_current_floor()) {
         return;
     }
-    val = M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x1C);
-    if ((u16)arg1 == M2C_FIELD(arg0, u16 *, 0x2D4)) {
+    val = *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2B0)) + 0x1C);
+    if ((u16)arg1 == *(u16 *)((s8 *)arg0 + 0x2D4)) {
         if (get_rule_field_0__6TLobbyFPv(lobby_rule_settings) == 1) {
             fn_801B0480(p, arg0, 1);
             draw_player_status(p, p, &lbl_805DA8CC);
@@ -849,9 +845,9 @@ void award_enemy_experience(u8 *arg0, s32 arg1) {
 void update_prev_position__10TObjPlayerFPv(u8 *arg0) {
     u8 *temp_r3;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x2B0));
+    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x2B0));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x300) = (f32) ((lbl_805DA8DC * M2C_FIELD(temp_r3, f32 *, 0x10)) + M2C_FIELD(arg0, f32 *, 0x300));
+        *(f32 *)((s8 *)arg0 + 0x300) = (f32) ((lbl_805DA8DC * *(f32 *)((s8 *)temp_r3 + 0x10)) + *(f32 *)((s8 *)arg0 + 0x300));
     }
 }
 extern int fold_flush_0;
@@ -908,112 +904,112 @@ void unlink_enemy_group_relations(u8 *arg0) {
     u8 *var_r6;
     u8 *var_r6_2;
     u8 *var_r6_3;
-    temp_r5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x340));
+    temp_r5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x340));
     if (temp_r5 != NULL) {
-        temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x348));
+        temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x348));
         if (temp_r4 != NULL) {
-            temp_r5_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+            temp_r5_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
             if (temp_r5_2 != NULL) {
-                temp_r0 = (u8 *)(M2C_FIELD(temp_r4, u8 **, 0x34C));
+                temp_r0 = (u8 *)(*(u8 **)((s8 *)temp_r4 + 0x34C));
                 if (temp_r0 != NULL) {
                     var_r6 = (u8 *)(temp_r0);
-while (M2C_FIELD(var_r6, u8 **, 0x348) != NULL) {
-    var_r6 = M2C_FIELD(var_r6, u8 **, 0x348);
+while (*(u8 **)((s8 *)var_r6 + 0x348) != NULL) {
+    var_r6 = *(u8 **)((s8 *)var_r6 + 0x348);
 }
-                    M2C_FIELD(var_r6, u8 **, 0x348) = temp_r5_2;
-                    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = NULL;
-                    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x344) = var_r6;
+                    *(u8 **)((s8 *)var_r6 + 0x348) = temp_r5_2;
+                    *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = NULL;
+                    *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x344) = var_r6;
                 } else {
-                    M2C_FIELD(temp_r4, u8 **, 0x34C) = temp_r5_2;
-                    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x348);
+                    *(u8 **)((s8 *)temp_r4 + 0x34C) = temp_r5_2;
+                    *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x348);
                 }
             }
-            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x340), void **, 0x34C) = (void *) M2C_FIELD(arg0, u8 **, 0x348);
-            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x348), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x340);
-            M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x348), void **, 0x344) = NULL;
+            *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x340)) + 0x34C) = (void *) *(u8 **)((s8 *)arg0 + 0x348);
+            *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x348)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x340);
+            *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x348)) + 0x344) = NULL;
         } else {
-            temp_r0_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+            temp_r0_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
             if (temp_r0_3 != NULL) {
-                M2C_FIELD(temp_r5, u8 **, 0x34C) = temp_r0_3;
-                M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x340);
+                *(u8 **)((s8 *)temp_r5 + 0x34C) = temp_r0_3;
+                *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x340);
             } else {
-                M2C_FIELD(temp_r5, u8 **, 0x34C) = NULL;
+                *(u8 **)((s8 *)temp_r5 + 0x34C) = NULL;
             }
         }
     } else {
-        temp_r5_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x344));
+        temp_r5_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x344));
         if (temp_r5_3 != NULL) {
-            temp_r4_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x348));
+            temp_r4_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x348));
             if (temp_r4_2 != NULL) {
-                temp_r5_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+                temp_r5_4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
                 if (temp_r5_4 != NULL) {
-                    temp_r0_4 = (u8 *)(M2C_FIELD(temp_r4_2, u8 **, 0x34C));
+                    temp_r0_4 = (u8 *)(*(u8 **)((s8 *)temp_r4_2 + 0x34C));
                     if (temp_r0_4 != NULL) {
                         var_r6_2 = (u8 *)(temp_r0_4);
-while (M2C_FIELD(var_r6_2, u8 **, 0x348) != NULL) {
-    var_r6_2 = M2C_FIELD(var_r6_2, u8 **, 0x348);
+while (*(u8 **)((s8 *)var_r6_2 + 0x348) != NULL) {
+    var_r6_2 = *(u8 **)((s8 *)var_r6_2 + 0x348);
 }
-                        M2C_FIELD(var_r6_2, u8 **, 0x348) = temp_r5_4;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = NULL;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x344) = var_r6_2;
+                        *(u8 **)((s8 *)var_r6_2 + 0x348) = temp_r5_4;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = NULL;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x344) = var_r6_2;
                     } else {
-                        M2C_FIELD(temp_r4_2, u8 **, 0x34C) = temp_r5_4;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x348);
+                        *(u8 **)((s8 *)temp_r4_2 + 0x34C) = temp_r5_4;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x348);
                     }
                 }
-                M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x344), void **, 0x348) = (void *) M2C_FIELD(arg0, u8 **, 0x348);
-                M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x348), void **, 0x344) = (void *) M2C_FIELD(arg0, u8 **, 0x344);
+                *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x344)) + 0x348) = (void *) *(u8 **)((s8 *)arg0 + 0x348);
+                *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x348)) + 0x344) = (void *) *(u8 **)((s8 *)arg0 + 0x344);
             } else {
-                temp_r4_3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+                temp_r4_3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
                 if (temp_r4_3 != NULL) {
-                    temp_r0_6 = (u8 *)(M2C_FIELD(temp_r5_3, u8 **, 0x34C));
+                    temp_r0_6 = (u8 *)(*(u8 **)((s8 *)temp_r5_3 + 0x34C));
                     if (temp_r0_6 != NULL) {
                         var_r5 = (u8 *)(temp_r0_6);
-while (M2C_FIELD(var_r5, u8 **, 0x348) != NULL) {
-    var_r5 = M2C_FIELD(var_r5, u8 **, 0x348);
+while (*(u8 **)((s8 *)var_r5 + 0x348) != NULL) {
+    var_r5 = *(u8 **)((s8 *)var_r5 + 0x348);
 }
-                        M2C_FIELD(var_r5, u8 **, 0x348) = temp_r4_3;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = NULL;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x344) = var_r5;
+                        *(u8 **)((s8 *)var_r5 + 0x348) = temp_r4_3;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = NULL;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x344) = var_r5;
                     } else {
-                        M2C_FIELD(temp_r5_3, u8 **, 0x34C) = temp_r4_3;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x344);
+                        *(u8 **)((s8 *)temp_r5_3 + 0x34C) = temp_r4_3;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x344);
                     }
                 }
-                M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x344), void **, 0x348) = NULL;
+                *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x344)) + 0x348) = NULL;
             }
         } else {
-            temp_r4_4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x348));
+            temp_r4_4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x348));
             if (temp_r4_4 != NULL) {
-                temp_r5_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+                temp_r5_5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
                 if (temp_r5_5 != NULL) {
-                    temp_r0_8 = (u8 *)(M2C_FIELD(temp_r4_4, u8 **, 0x34C));
+                    temp_r0_8 = (u8 *)(*(u8 **)((s8 *)temp_r4_4 + 0x34C));
                     if (temp_r0_8 != NULL) {
                         var_r6_3 = (u8 *)(temp_r0_8);
-while (M2C_FIELD(var_r6_3, u8 **, 0x348) != NULL) {
-    var_r6_3 = M2C_FIELD(var_r6_3, u8 **, 0x348);
+while (*(u8 **)((s8 *)var_r6_3 + 0x348) != NULL) {
+    var_r6_3 = *(u8 **)((s8 *)var_r6_3 + 0x348);
 }
-                        M2C_FIELD(var_r6_3, u8 **, 0x348) = temp_r5_5;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = NULL;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x344) = var_r6_3;
+                        *(u8 **)((s8 *)var_r6_3 + 0x348) = temp_r5_5;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = NULL;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x344) = var_r6_3;
                     } else {
-                        M2C_FIELD(temp_r4_4, u8 **, 0x34C) = temp_r5_5;
-                        M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34C), void **, 0x340) = (void *) M2C_FIELD(arg0, u8 **, 0x348);
+                        *(u8 **)((s8 *)temp_r4_4 + 0x34C) = temp_r5_5;
+                        *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34C)) + 0x340) = (void *) *(u8 **)((s8 *)arg0 + 0x348);
                     }
                 }
-                M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x348), void **, 0x344) = NULL;
+                *(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x348)) + 0x344) = NULL;
             } else {
-                temp_r4_5 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34C));
+                temp_r4_5 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34C));
                 if (temp_r4_5 != NULL) {
-                    M2C_FIELD(temp_r4_5, u8 **, 0x340) = NULL;
+                    *(u8 **)((s8 *)temp_r4_5 + 0x340) = NULL;
                 }
             }
         }
     }
-    M2C_FIELD(arg0, u8 **, 0x340) = NULL;
-    M2C_FIELD(arg0, u8 **, 0x344) = NULL;
-    M2C_FIELD(arg0, u8 **, 0x348) = NULL;
-    M2C_FIELD(arg0, u8 **, 0x34C) = NULL;
+    *(u8 **)((s8 *)arg0 + 0x340) = NULL;
+    *(u8 **)((s8 *)arg0 + 0x344) = NULL;
+    *(u8 **)((s8 *)arg0 + 0x348) = NULL;
+    *(u8 **)((s8 *)arg0 + 0x34C) = NULL;
 }
 
 }
@@ -1157,60 +1153,60 @@ s32 bind_enemy_combat_stats(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     u8 *temp_r6;
 
     if (arg1 != NULL) {
-        M2C_FIELD(arg0, u8 **, 0x2B0) = arg1;
-        temp_r6 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2B0));
-        M2C_FIELD(arg0, s16 *, 0x2B8) = (s16) (M2C_FIELD(temp_r6, s16 *, 6) + M2C_FIELD(temp_r6, s32 *, 0x18));
-        M2C_FIELD(arg0, s16 *, 0x32C) = (s16) M2C_FIELD(arg0, s16 *, 0x2B8);
+        *(u8 **)((s8 *)arg0 + 0x2B0) = arg1;
+        temp_r6 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2B0));
+        *(s16 *)((s8 *)arg0 + 0x2B8) = (s16) (*(s16 *)((s8 *)temp_r6 + 6) + *(s32 *)((s8 *)temp_r6 + 0x18));
+        *(s16 *)((s8 *)arg0 + 0x32C) = (s16) *(s16 *)((s8 *)arg0 + 0x2B8);
         if (obj_testFlag_2E4(arg0, 4U) != 0) {
-            M2C_FIELD(arg0, s16 *, 0x2BA) = 0;
-            M2C_FIELD(arg0, s16 *, 0x32E) = 0;
+            *(s16 *)((s8 *)arg0 + 0x2BA) = 0;
+            *(s16 *)((s8 *)arg0 + 0x32E) = 0;
         } else {
-            temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2B0));
-            M2C_FIELD(arg0, s16 *, 0x2BA) = (s16) (M2C_FIELD(temp_r4, s16 *, 2) + M2C_FIELD(temp_r4, s32 *, 0x18));
-            M2C_FIELD(arg0, s16 *, 0x32E) = (s16) M2C_FIELD(arg0, s16 *, 0x2BA);
+            temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2B0));
+            *(s16 *)((s8 *)arg0 + 0x2BA) = (s16) (*(s16 *)((s8 *)temp_r4 + 2) + *(s32 *)((s8 *)temp_r4 + 0x18));
+            *(s16 *)((s8 *)arg0 + 0x32E) = (s16) *(s16 *)((s8 *)arg0 + 0x2BA);
         }
         goto block_6;
     }
-    if ((void *) M2C_FIELD(arg0, u8 **, 0x2B0) == NULL) {
+    if ((void *) *(u8 **)((s8 *)arg0 + 0x2B0) == NULL) {
         return 0;
     }
 block_6:
     if (arg2 != NULL) {
-        M2C_FIELD(arg0, u8 **, 0x318) = arg2;
+        *(u8 **)((s8 *)arg0 + 0x318) = arg2;
         goto block_10;
     }
-    if ((void *) M2C_FIELD(arg0, u8 **, 0x318) == NULL) {
+    if ((void *) *(u8 **)((s8 *)arg0 + 0x318) == NULL) {
         return 0;
     }
 block_10:
     if (arg3 != NULL) {
-        M2C_FIELD(arg0, u8 **, 0x31C) = arg3;
+        *(u8 **)((s8 *)arg0 + 0x31C) = arg3;
         goto block_14;
     }
-    if ((void *) M2C_FIELD(arg0, u8 **, 0x31C) == NULL) {
+    if ((void *) *(u8 **)((s8 *)arg0 + 0x31C) == NULL) {
         return 0;
     }
 block_14:
-    temp_r0 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 0x2C8) = temp_r0;
-    M2C_FIELD(arg0, s16 *, 0x2C0) = temp_r0;
-    temp_r30 = get_attack_params_atp_max(M2C_FIELD(arg0, u8 **, 0x318));
-    temp_r0_2 = temp_r30 - get_attack_params_atp_min(M2C_FIELD(arg0, u8 **, 0x318));
-    M2C_FIELD(arg0, s16 *, 0x2CA) = temp_r0_2;
-    M2C_FIELD(arg0, s16 *, 0x2C2) = temp_r0_2;
-    temp_r0_3 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), s16 *, 4) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 0x2CC) = temp_r0_3;
-    M2C_FIELD(arg0, s16 *, 0x2C4) = temp_r0_3;
-    temp_r0_4 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), s16 *, 8) + M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s32 *, 0x1C);
-    M2C_FIELD(arg0, s16 *, 0x2CE) = temp_r0_4;
-    M2C_FIELD(arg0, s16 *, 0x2C6) = temp_r0_4;
-    M2C_FIELD(arg0, s16 *, 0x2D0) = (s16) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), s16 *, 0xA) + TObjPlayer__sub_800194E8(M2C_FIELD(arg0, u8 **, 0x318)));
-    M2C_FIELD(arg0, s16 *, 0x2D2) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x2B0), s16 *, 0xC);
-    M2C_FIELD(arg0, s16 *, 0x2F2) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 0x2F4) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 6);
-    M2C_FIELD(arg0, s16 *, 0x2F6) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 0x2F8) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 0xA);
-    M2C_FIELD(arg0, s16 *, 0x2FA) = (s16) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x31C), s16 *, 8);
+    temp_r0 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0);
+    *(s16 *)((s8 *)arg0 + 0x2C8) = temp_r0;
+    *(s16 *)((s8 *)arg0 + 0x2C0) = temp_r0;
+    temp_r30 = get_attack_params_atp_max(*(u8 **)((s8 *)arg0 + 0x318));
+    temp_r0_2 = temp_r30 - get_attack_params_atp_min(*(u8 **)((s8 *)arg0 + 0x318));
+    *(s16 *)((s8 *)arg0 + 0x2CA) = temp_r0_2;
+    *(s16 *)((s8 *)arg0 + 0x2C2) = temp_r0_2;
+    temp_r0_3 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 4) + *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0);
+    *(s16 *)((s8 *)arg0 + 0x2CC) = temp_r0_3;
+    *(s16 *)((s8 *)arg0 + 0x2C4) = temp_r0_3;
+    temp_r0_4 = *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 8) + *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0x1C);
+    *(s16 *)((s8 *)arg0 + 0x2CE) = temp_r0_4;
+    *(s16 *)((s8 *)arg0 + 0x2C6) = temp_r0_4;
+    *(s16 *)((s8 *)arg0 + 0x2D0) = (s16) (*(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0xA) + TObjPlayer__sub_800194E8(*(u8 **)((s8 *)arg0 + 0x318)));
+    *(s16 *)((s8 *)arg0 + 0x2D2) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x2B0)) + 0xC);
+    *(s16 *)((s8 *)arg0 + 0x2F2) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 2);
+    *(s16 *)((s8 *)arg0 + 0x2F4) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 6);
+    *(s16 *)((s8 *)arg0 + 0x2F6) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 4);
+    *(s16 *)((s8 *)arg0 + 0x2F8) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 0xA);
+    *(s16 *)((s8 *)arg0 + 0x2FA) = (s16) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x31C)) + 8);
     add_to_field_2c8__10TObjPlayerFPvi(arg0, (s32)((f32)get_field_2c0__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
     add_to_field_2ca__10TObjPlayerFPvi(arg0, (s32)((f32)get_field_2c2__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 2)));
     add_to_field_2ce__10TObjPlayerFPvi(arg0, (s32)((f32)get_atp__10TObjPlayerFPv(arg0) * TObjPlayer__sub_800192C4((s32)arg0, 3)));

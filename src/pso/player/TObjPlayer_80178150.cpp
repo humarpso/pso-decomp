@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_801781D8 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     u16 spE;
     s8 sp10;
     u8 pad_11[0x3];
-    M2C_UNK sp14;
+    s32 sp14;
     s16 sp18;
     u16 sp1A;
     s8 sp1C;
@@ -39,7 +35,7 @@ u8 is_state_ec1_ed3__10TObjPlayerFPv(void *arg0) {
     int var_r4;
 
     var_r4 = 0;
-    if (((u8) M2C_FIELD(arg0, u8 *, 0xEC) == 1) && ((u8) M2C_FIELD(arg0, u8 *, 0xED) == 3)) {
+    if (((u8) *(u8 *)((s8 *)arg0 + 0xEC) == 1) && ((u8) *(u8 *)((s8 *)arg0 + 0xED) == 3)) {
         var_r4 = 1;
     }
     return (u8)var_r4;
@@ -69,14 +65,14 @@ void send_switch_states__12TOChatSensorFPv(u8 *arg0) {
     Stack_801781D8 stack;
     u16 *var_r30;
     s32 var_r29;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x98) == 0U) {
-        if ((u16) M2C_FIELD(arg0, u16 *, 0xA8) < 0x100U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x98) == 0U) {
+        if ((u16) *(u16 *)((s8 *)arg0 + 0xA8) < 0x100U) {
             init_packet_type__12TOChatSensorFPv((void *) (&stack.sp14));
-            stack.sp18 = (s16) M2C_FIELD(arg0, s32 *, 0xB4);
-            stack.sp1A = M2C_FIELD(arg0, u16 *, 0xA8);
+            stack.sp18 = (s16) *(s32 *)((s8 *)arg0 + 0xB4);
+            stack.sp1A = *(u16 *)((s8 *)arg0 + 0xA8);
             stack.sp1C = 0;
             send_state__12TOChatSensorFPv((void *) (&stack.sp14));
-            clear_floor_switch_flag((int) (M2C_FIELD(arg0, u16 *, 0xA8)), (int) ((s16) M2C_FIELD(arg0, s32 *, 0xB4)));
+            clear_floor_switch_flag((int) (*(u16 *)((s8 *)arg0 + 0xA8)), (int) ((s16) *(s32 *)((s8 *)arg0 + 0xB4)));
         }
     } else {
         var_r30 = (u16 *)((u8 *)(arg0 + 0xAA));
@@ -84,7 +80,7 @@ void send_switch_states__12TOChatSensorFPv(u8 *arg0) {
         do {
             if ((u16) *var_r30 < 0x100U) {
                 init_packet_type__12TOChatSensorFPv((void *) (&stack.sp8));
-                stack.spC = (s16) M2C_FIELD(arg0, s32 *, 0xB4);
+                stack.spC = (s16) *(s32 *)((s8 *)arg0 + 0xB4);
                 stack.spE = *var_r30;
                 stack.sp10 = 1;
                 send_state__12TOChatSensorFPv((void *) (&stack.sp8));

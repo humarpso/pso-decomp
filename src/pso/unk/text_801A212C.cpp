@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_801A2340 {
     f32 sp8;
@@ -13,7 +10,7 @@ struct Stack_801A2340 {
 };
 
 struct RecoveredGlobal_801A2340_lbl_804FF610 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -51,51 +48,51 @@ typedef char RecoveredGlobal_801A2340_lbl_804FF610_size[sizeof(RecoveredGlobal_8
 s16 classify_actor_view_detail(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
     Stack_801A2340 stack;
     f32 z;
-    if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
+    if (*(u16 *)((s8 *)arg0 + 4) & 0x400) {
         if (is_in_shadow_range(farg2, (void *) (arg0 + 0x38)) != 0) {
-            M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+            *(s16 *)((s8 *)arg0 + 0x1E) = 1;
             return 1;
         }
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (get_state_flag__9TMainTaskFv() == 1) {
-        return M2C_FIELD(arg0, s16 *, 0x1E);
+        return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
     z = stack.sp18;
     if (z > lbl_805DC098) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (z < -farg1) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
-        stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) + M2C_FIELD(arg0, f32 *, 0x38);
-        stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) + M2C_FIELD(arg0, f32 *, 0x3C);
-        stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) + M2C_FIELD(arg0, f32 *, 0x40);
+        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) + *(f32 *)((s8 *)arg0 + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) + *(f32 *)((s8 *)arg0 + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) + *(f32 *)((s8 *)arg0 + 0x40);
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
-            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
             return 0;
         }
     } else {
-        stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg2) - M2C_FIELD(arg0, f32 *, 0x38));
-        stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg2) - M2C_FIELD(arg0, f32 *, 0x3C));
-        stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg2) - M2C_FIELD(arg0, f32 *, 0x40));
+        stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg2) - *(f32 *)((s8 *)arg0 + 0x38));
+        stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg2) - *(f32 *)((s8 *)arg0 + 0x3C));
+        stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg2) - *(f32 *)((s8 *)arg0 + 0x40));
         project_world_to_screen(0, (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 > lbl_805DC09C) {
-            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
             return 0;
         }
     }
     if (z < -farg0) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 2;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 2;
         return 2;
     }
-    M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+    *(s16 *)((s8 *)arg0 + 0x1E) = 1;
     return 1;
 }
 #pragma pop
@@ -106,47 +103,47 @@ s16 update_object_view_visibility(u8 *arg0, f32 farg0, f32 farg1) {
     typedef char sp14_offset[(offsetof(Stack_801A2340, sp14) == 0xC) ? 1 : -1];
     typedef char sp18_offset[(offsetof(Stack_801A2340, sp18) == 0x10) ? 1 : -1];
     Stack_801A2340 stack;
-    if (M2C_FIELD(arg0, u16 *, 4) & 0x400) {
+    if (*(u16 *)((s8 *)arg0 + 4) & 0x400) {
         if (is_in_shadow_range((f32) (farg1), (void *) (arg0 + 0x38)) != 0) {
-            M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+            *(s16 *)((s8 *)arg0 + 0x1E) = 1;
             return 1;
         }
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (get_state_flag__9TMainTaskFv() == 1) {
-        return M2C_FIELD(arg0, s16 *, 0x1E);
+        return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     transform_point_by_current_matrix((void *) (arg0 + 0x38), (void *) (&stack.sp10));
     if (stack.sp18 > lbl_805DC098) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (stack.sp18 < -farg0) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
     if (stack.sp10 < lbl_805DC098) {
-        stack.sp10 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) + M2C_FIELD(arg0, f32 *, 0x38);
-        stack.sp14 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) + M2C_FIELD(arg0, f32 *, 0x3C);
-        stack.sp18 = (M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) + M2C_FIELD(arg0, f32 *, 0x40);
+        stack.sp10 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) + *(f32 *)((s8 *)arg0 + 0x38);
+        stack.sp14 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) + *(f32 *)((s8 *)arg0 + 0x3C);
+        stack.sp18 = (*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) + *(f32 *)((s8 *)arg0 + 0x40);
         project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
         if (stack.sp8 < lbl_805DC098) {
-            M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+            *(s16 *)((s8 *)arg0 + 0x1E) = 0;
             return 0;
         }
         goto block_15;
     }
-    stack.sp10 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 0) * farg1) - M2C_FIELD(arg0, f32 *, 0x38));
-    stack.sp14 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 4) * farg1) - M2C_FIELD(arg0, f32 *, 0x3C));
-    stack.sp18 = -((M2C_FIELD(&lbl_804FF610.value, f32 *, 8) * farg1) - M2C_FIELD(arg0, f32 *, 0x40));
+    stack.sp10 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 0) * farg1) - *(f32 *)((s8 *)arg0 + 0x38));
+    stack.sp14 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 4) * farg1) - *(f32 *)((s8 *)arg0 + 0x3C));
+    stack.sp18 = -((*(f32 *)((s8 *)(&lbl_804FF610.value) + 8) * farg1) - *(f32 *)((s8 *)arg0 + 0x40));
     project_world_to_screen((int) (0), (void *) (&stack.sp10), (void *) (&stack.sp8));
     if (stack.sp8 > lbl_805DC09C) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1E) = 0;
         return 0;
     }
 block_15:
-    M2C_FIELD(arg0, s16 *, 0x1E) = 1;
+    *(s16 *)((s8 *)arg0 + 0x1E) = 1;
     return 1;
 }
 #pragma pop

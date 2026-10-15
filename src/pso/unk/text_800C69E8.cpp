@@ -4,23 +4,19 @@ struct P_800C6A18 { u8 pad[0x30]; u32 flags; };
 
 struct O_800C6A18 { u8 pad[0x2a8]; P_800C6A18 *p; u8 pad2[0x8c]; u16 f338; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Vec_800C6A48 { f32 x, y, z; };
 
 extern "C" {
 void release_destroyed_target__10TObjPlayerFPv(O_800C6A18 *self);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 void *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrix();
+s32 vec3_add_to(void *, void *);
+s32 matrix_mult_vec(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
 extern Vec_800C6A48 lbl_8043BCAC;
 extern Vec_800C6A48 lbl_8043BCB8;
 extern const f64 lbl_8043BCC8[];
@@ -93,7 +89,7 @@ void pick_open_direction__10TObjPlayerFPvPvff(u8 *self, f32 *dir, f32 a, f32 b) 
                 pop_matrix();
                 return;
             }
-            d = horizontal_distance__10TObjPlayerFPvPv(self + 0x38, M2C_FIELD(p, s32 *, 4)) - b;
+            d = horizontal_distance__10TObjPlayerFPvPv(self + 0x38, *(s32 *)((s8 *)p + 4)) - b;
             if (best < d) {
                 best = d;
                 bestAng = ang;

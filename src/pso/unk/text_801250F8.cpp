@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801250F8_lbl_804A2260 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_80125154__10TObjPlayerFPv(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
@@ -25,10 +21,10 @@ extern "C" {
 typedef char RecoveredGlobal_801250F8_lbl_804A2260_size[sizeof(RecoveredGlobal_801250F8_lbl_804A2260) == 0xF8 ? 1 : -1];
 u8 *TObjPlayer__sub_801250F8(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A2260.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2260.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x100022);
-    M2C_FIELD(arg0, f32 *, 0x1E4) = (f32) lbl_805DAD40;
-    M2C_FIELD(arg0, s32 *, 0x1F8) = 0;
+    *(f32 *)((s8 *)arg0 + 0x1E4) = (f32) lbl_805DAD40;
+    *(s32 *)((s8 *)arg0 + 0x1F8) = 0;
     return arg0;
 }
 

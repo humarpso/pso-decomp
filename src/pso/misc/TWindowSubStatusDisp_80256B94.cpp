@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80256BDC_lbl_804CF918 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -35,7 +31,7 @@ struct Pos_80256E0C { f32 x; f32 y; };
 struct Quad_80256E0C { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
 extern "C" {
-extern M2C_UNK lbl_804CF918[];
+extern s32 lbl_804CF918[];
 void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1);
 void calc_bar_width__20TWindowSubStatusDispFPv(struct Bar_80256C00 *bar);
 f32 fabs_float(f32);
@@ -52,13 +48,13 @@ extern "C" {
 void TWindowSubStatusDisp__sub_80256BF8(void);
 void TWindowSubStatusDisp__sub_80256BFC(void);
 void *destroy__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 
-extern M2C_UNK lbl_804CF918[];
+extern s32 lbl_804CF918[];
 
 void *destroy__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 4) = lbl_804CF918;
+        *(s32 **)((s8 *)arg0 + 4) = lbl_804CF918;
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -68,9 +64,9 @@ void *destroy__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_80256BDC_lbl_804CF918_size[sizeof(RecoveredGlobal_80256BDC_lbl_804CF918) == 0x18 ? 1 : -1];
 void TWindowSubStatusDisp__sub_80256BDC(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_80256BDC_lbl_804CF918 *)&lbl_804CF918).value;
-    M2C_FIELD(arg0, s16 *, 0) = 0;
-    M2C_FIELD(arg0, s16 *, 2) = arg1;
+    *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_80256BDC_lbl_804CF918 *)&lbl_804CF918).value;
+    *(s16 *)((s8 *)arg0 + 0) = 0;
+    *(s16 *)((s8 *)arg0 + 2) = arg1;
 }
 
 void TWindowSubStatusDisp__sub_80256BF8(void) {  }
@@ -168,14 +164,14 @@ void step_gauge_bar_width(Gauge_802571B4 *g) {
 extern "C" {
 
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1);
-M2C_UNK __dl__FPv(void *);
-#define destroy__20TWindowSubStatusDispFPvs ((M2C_UNK (*)(void *, s16))destroy__20TWindowSubStatusDispFPvs)
+s32 __dl__FPv(void *);
+#define destroy__20TWindowSubStatusDispFPvs ((s32 (*)(void *, s16))destroy__20TWindowSubStatusDispFPvs)
 
-extern M2C_UNK lbl_804CF930[];
+extern s32 lbl_804CF930[];
 
 void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 4) = lbl_804CF930;
+        *(s32 **)((s8 *)arg0 + 4) = lbl_804CF930;
         destroy__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -188,7 +184,6 @@ void *TWindowSubStatusDisp__sub_80257298(void *arg0, s16 arg1) {
 
 #undef destroy__20TWindowSubStatusDispFPvs
 
-typedef s32 M2C_UNK;
 struct Gauge_80257784 {
     u16 flags;
     u8 pad2[0x8 - 0x2];
@@ -219,13 +214,13 @@ struct Parent_80257784 {
 struct Pos_80257784 { f32 x, y; };
 
 extern "C" {
-M2C_UNK TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
-#define draw_status_gauge_bar ((M2C_UNK (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar)
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK begin_screen_draw(s32, f32, f32, f32);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK set_draw_texture_and_color(s32, s32);
-M2C_UNK set_constant_material_color(s32);
+s32 TWindowSubStatusDisp__sub_80256C40(void *, void *, void *, f32);
+#define draw_status_gauge_bar ((s32 (*)(void *, void *, void *, f32, f32))draw_status_gauge_bar)
+s32 set_global_param__8TObjFishFi(s32);
+s32 begin_screen_draw(s32, f32, f32, f32);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 set_draw_texture_and_color(s32, s32);
+s32 set_constant_material_color(s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DCED8;
 extern const f32 lbl_805DCEDC;
@@ -255,7 +250,7 @@ struct Fade_802575C0 {
 };
 
 struct RecoveredGlobal_80257B4C_lbl_804CF948 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -315,17 +310,17 @@ struct Bar_8025799C {
     s16 timer;
 };
 
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 void * alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void free__11TOBoss4RockFUi(void *);
 void ** alloc_buffer__11TOBoss4RockFPv(u32);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(u32, s32, s32, s32);
-#define destroy__20TWindowSubStatusDispFPvs ((M2C_UNK (*)(M2C_UNK, M2C_UNK *))destroy__20TWindowSubStatusDispFPvs)
+#define destroy__20TWindowSubStatusDispFPvs ((s32 (*)(s32, s32 *))destroy__20TWindowSubStatusDispFPvs)
 #define TWindowSubStatusDisp__sub_80256BDC ((int (*)(void*, int))TWindowSubStatusDisp__sub_80256BDC)
 #define calc_bar_width__20TWindowSubStatusDispFPv ((s32 (*)())calc_bar_width__20TWindowSubStatusDispFPv)
 #define step_gauge_bar_width ((void (*)(void *))step_gauge_bar_width)
-#define TWindowSubStatusDisp__sub_80257298 ((M2C_UNK (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
+#define TWindowSubStatusDisp__sub_80257298 ((s32 (*)(void *, s16))TWindowSubStatusDisp__sub_80257298)
 void* init_from__20TWindowSubStatusDispFPvPvi(void* a0, void* a1, int a2);
 u32 update_text_color_transition(void);
 void start_text_color_transition(Fade_802575C0 *arg0, u32 rgb, f32 time);
@@ -353,8 +348,8 @@ void * init_fields__17TWindowSubComCardFPvii(void *, void *, s32);
 void * init_state__20TWindowSubStatusDispFPvii(void *, void *, s32);
 
 #define lbl_804CF930 (*(unsigned char (*)[1])&lbl_804CF930)
-extern M2C_UNK lbl_804CF948[];
-extern M2C_UNK lbl_804CF998[];
+extern s32 lbl_804CF948[];
+extern s32 lbl_804CF998[];
 extern const float lbl_805DCE58;
 extern const f32 lbl_805DCED8;
 extern const f32 lbl_805DCEF0;

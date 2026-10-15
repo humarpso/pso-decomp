@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 
 struct VObj_18 : VBase_18 {
@@ -24,17 +21,17 @@ struct VObj_18 : VBase_18 {
 };
 
 struct RecoveredGlobal_80126334_lbl_804A2960 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
 struct RecoveredGlobal_80126414_lbl_804A05E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *frozen_shooter_create(s32 arg0);
 u8 get_slot_count__14TItemProShieldFPv(void *);
@@ -52,16 +49,16 @@ extern "C" {
 typedef char RecoveredGlobal_80126334_lbl_804A2960_size[sizeof(RecoveredGlobal_80126334_lbl_804A2960) == 0xF8 ? 1 : -1];
 u8 *frozen_shooter_ct(u8 *arg0, u8 *arg1, s32 _w2) {
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A2960.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A2960.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x22);
     if (get_slot_count__14TItemProShieldFPv(arg0) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 0xA;
-        M2C_FIELD(arg0, s32 *, 0x200) = 0x1F5;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 0xA;
+        *(s32 *)((s8 *)arg0 + 0x200) = 0x1F5;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x1F8) = 1;
-        M2C_FIELD(arg0, s32 *, 0x200) = 0x95;
+        *(s32 *)((s8 *)arg0 + 0x1F8) = 1;
+        *(s32 *)((s8 *)arg0 + 0x200) = 0x95;
     }
-    M2C_FIELD(arg0, s32 *, 0x1FC) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1FC) = 0;
     return arg0;
 }
 
@@ -81,20 +78,13 @@ u8 *frozen_shooter_create(s32 arg0) {
 typedef char RecoveredGlobal_80126414_lbl_804A05E8_size[sizeof(RecoveredGlobal_80126414_lbl_804A05E8) == 0x20 ? 1 : -1];
 u8 *freeze_curse_timer_ct(u8 *arg0, s16 arg1, s32 arg2, f32 farg0) {
     TItemTimerEvent__ct(arg0, arg1, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A05E8.value;
-    M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A05E8.value;
+    *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
     return arg0;
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 }

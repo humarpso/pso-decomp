@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
     virtual void m0();
@@ -232,7 +228,7 @@ struct VObj_18_807e53 : VBase_18_807e53 {
     virtual void m96();
     virtual void m97();
     virtual void m98();
-    virtual M2C_UNK m99(M2C_UNK *);
+    virtual s32 m99(s32 *);
 };
 
 struct Vec_800BAF1C { f32 x, y, z; };
@@ -260,11 +256,11 @@ struct Ene_800BB000 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TObjEneDD__vt99(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *TObjEneDD__vt98(u8 *arg0, u8 *arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1);
 void calc_shot_position__9TObjEneDDFPvPvfff(void *, void *, f32, f32, f32);
@@ -281,7 +277,7 @@ int has_move_failures__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 f32 newton_sqrtf(f32);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 void calc_wall_clamped_destination(void *arg0, void *arg1, f32 dx, f32 dz, f32 dist);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
 f32 clamp_velocity__15TObjBoss2TunnelFPv(void *);
 s32 enemy_probe_wall_ahead(u8 *arg0, f32 farg0, f32 farg1, f32 farg2);
 extern const f32 TObjEneDD__data_805D9E8C;
@@ -300,44 +296,44 @@ void set_active__9TObjEneDDFPv(void* p);
 int has_move_failures__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     u8 var_r5;
     var_r5 = 0;
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x380) >= arg1) || ((s32) M2C_FIELD(arg0, s32 *, 0x384) >= arg1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x380) >= arg1) || ((s32) *(s32 *)((s8 *)arg0 + 0x384) >= arg1)) {
         var_r5 = 1;
     }
     return var_r5;
 }
 
 void move_to_wall_clamped_destination__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void move_with_wall_slide_commit__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void move_with_wall_stop__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_shot_position__9TObjEneDDFPvPvfff(arg0, &sp8, farg0, farg1, farg2);
     ((VObj_18_807e53 *)(arg0))->m99(&sp8);
 }
 
 void move_clamped_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_wall_clamped_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
 void move_with_wall_slide_on_ground__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_wall_slide_destination((void *)(arg0), (void *)(&sp8), farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
 
 void move_to_shot_position__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32 farg2) {
-    M2C_UNK sp8;
+    s32 sp8;
     calc_shot_position__9TObjEneDDFPvPvfff(arg0, &sp8, farg0, farg1, farg2);
     try_move_actor_xz_on_ground((u8 *)(arg0), (u8 *)(&sp8));
 }
@@ -345,48 +341,48 @@ void move_to_shot_position__9TObjEneDDFPvfff(u8 *arg0, f32 farg0, f32 farg1, f32
 u8 *TObjEneDD__vt99(u8 *arg0) {
     f32 temp_f31;
     u8 *temp_r3;
-    temp_f31 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
     temp_r3 = (unsigned char *) (((VObj_18 *)(arg0))->m15());
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x48) = temp_f31;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-    M2C_FIELD(arg0, s32 *, 0x384) = 0;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x48) = temp_f31;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+    *(s32 *)((s8 *)arg0 + 0x384) = 0;
     return temp_r3;
 }
 u8 *TObjEneDD__vt98(u8 *arg0, u8 *arg1) {
     f32 temp_f31;
     u8 *temp_r3;
-    temp_f31 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
     temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(arg0))->m101());
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
     }
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x48) = temp_f31;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x384) = 0;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x48) = temp_f31;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 0x384) = 0;
     return temp_r3;
 }
 u8 *try_move_actor_xz_on_ground(u8 *arg0, u8 *arg1) {
     f32 temp_f31;
     u8 *temp_r3;
-    temp_f31 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f31 = *(f32 *)((s8 *)arg0 + 0x3C);
     temp_r3 = (unsigned char *) (((VObj_18_3f4583 *)(arg0))->m101());
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
-        M2C_FIELD(arg0, f32 *, 0x48) = temp_f31;
-        M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x40);
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) M2C_FIELD(arg1, f32 *, 0);
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(arg1, f32 *, 8);
-        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (M2C_FIELD(temp_r3, s32 *, 4) + 0xC));
-        M2C_FIELD(arg0, s32 *, 0x384) = 0;
+        *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+        *(f32 *)((s8 *)arg0 + 0x48) = temp_f31;
+        *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x40);
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) *(f32 *)((s8 *)arg1 + 0);
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)arg1 + 8);
+        VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x248), (int) (*(s32 *)((s8 *)temp_r3 + 4) + 0xC));
+        *(s32 *)((s8 *)arg0 + 0x384) = 0;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x384) = (s32) (M2C_FIELD(arg0, s32 *, 0x384) + 1);
+        *(s32 *)((s8 *)arg0 + 0x384) = (s32) (*(s32 *)((s8 *)arg0 + 0x384) + 1);
     }
     return temp_r3;
 }

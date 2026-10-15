@@ -1,40 +1,36 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_80246948 { u8 pad[0x2c]; u32 f2c; };
 
 extern "C" {
 u32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
-M2C_UNK clear_visible_flag__20TWindowSubStatusDispFPv(int);
-M2C_UNK set_flag0_bit2__15TWindowHelpItemFPv(int);
+s32 clear_visible_flag__20TWindowSubStatusDispFPv(int);
+s32 set_flag0_bit2__15TWindowHelpItemFPv(int);
 s32 is_trade_active();
 s32 is_active__19TWindowSubShortMailFv();
 s32 is_com_card_active();
 s32 is_guild_card_receive_active();
 void update_entry_visibility__20TWindowSubStatusDispFi(s32 arg0);
 u8 TWindowSubAreaMapDisp__sub_80246948(Obj_80246948 *self);
-M2C_UNK tmp_buf_release__6TLobbyFi(void *);
+s32 tmp_buf_release__6TLobbyFi(void *);
 s32 tmp_buf_use_req__6TLobbyFPv(void *);
-M2C_UNK draw_string__9TLanguageFPvPvi(void *, void *, int);
-M2C_UNK TLobby__sub_8023E554(void *, void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_entry_index__9TLanguageFii(int, int);
-extern M2C_UNK lbl_8044E658[];
-extern M2C_UNK lbl_8044E688[];
-extern M2C_UNK hud_palette_texture_filename[];
-extern M2C_UNK lbl_8044E6B0[];
-extern M2C_UNK lbl_8044E6C4[];
-extern M2C_UNK lbl_8044E6D8[];
-extern M2C_UNK lbl_8044E6F0[];
-extern M2C_UNK lbl_8044E708[];
-extern M2C_UNK lbl_8044E720[];
-extern M2C_UNK lbl_8044E734[];
-extern M2C_UNK lbl_8044E748[];
-extern M2C_UNK lbl_8044E758[];
-extern M2C_UNK lbl_804D2F3C[];
+s32 draw_string__9TLanguageFPvPvi(void *, void *, int);
+s32 TLobby__sub_8023E554(void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 set_entry_index__9TLanguageFii(int, int);
+extern s32 lbl_8044E658[];
+extern s32 lbl_8044E688[];
+extern s32 hud_palette_texture_filename[];
+extern s32 lbl_8044E6B0[];
+extern s32 lbl_8044E6C4[];
+extern s32 lbl_8044E6D8[];
+extern s32 lbl_8044E6F0[];
+extern s32 lbl_8044E708[];
+extern s32 lbl_8044E720[];
+extern s32 lbl_8044E734[];
+extern s32 lbl_8044E748[];
+extern s32 lbl_8044E758[];
+extern s32 lbl_804D2F3C[];
 extern u32 lbl_805D63F0;
 extern s16 window_ui_theme_index;
 void load_hud_palette_textures(void);

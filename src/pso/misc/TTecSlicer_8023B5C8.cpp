@@ -1,13 +1,9 @@
 #include "types.h"
 #include "pso/misc/TTecSlicer.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8023B770_lbl_8044DC20
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x44];
 };
 
@@ -85,7 +81,7 @@ struct VObj_18_ed5691 : VBase_18_ed5691 {
     virtual void m56();
     virtual void m57();
     virtual void m58();
-    virtual M2C_UNK m59(s32, s32, s16, s32, f32);
+    virtual s32 m59(s32, s32, s16, s32, f32);
 };
 
 struct VBase_18_8023B900 { char pad[0x18]; };
@@ -102,7 +98,6 @@ struct VObj_18_8023B900 : VBase_18_8023B900 {
     virtual s32 m8(f32, f32);
 };
 
-typedef s32 M2C_UNK;
 struct Init_8023BBB4 {
     u16 f0;
     u8 pad2[2];
@@ -156,42 +151,42 @@ struct Slicer_8023BBB4 {
 };
 
 extern "C" {
-M2C_UNK subtract_vector(s32, s32);
-M2C_UNK normalize_vector(s32);
+s32 subtract_vector(s32, s32);
+s32 normalize_vector(s32);
 f32 horizontal_distance_squared(s32, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 s32 get_next_captured_target(s32, s32, s32, s32, s32);
-M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
+s32 set_flags__10TObjPlayerFPvUi(s32, s32);
 extern f32 lbl_805DC958;
 void update__10TTecSlicerFi(s32 arg0);
 void update__10TTecSlicerFi(s32 arg0);
-s32 test_flags_any(void *, M2C_UNK);
+s32 test_flags_any(void *, s32);
 u32 get_player_by_client_id(u16);
-M2C_UNK __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
-u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK allow_rendering__7TObjectFv(void *);
-M2C_UNK copy_position__15TEffStarLight2DFPv(void *, void *);
+s32 __ct__14TSlicerHistoryFv(void *, void *, s32, void *, s32);
+u32 __nw__7TObjectFUl(s32);
+s32 allow_rendering__7TObjectFv(void *);
+s32 copy_position__15TEffStarLight2DFPv(void *, void *);
 void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32);
 u32 query_game_join_id__10TObjPlayerFv(s32);
-M2C_UNK queue_destruction__7TObjectFv(s32);
+s32 queue_destruction__7TObjectFv(s32);
 void run_task__10TTecSlicerFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 void dt__10TTecSlicerFis(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(s32);
-extern M2C_UNK __vt__10TTecSlicer[];
+s32 queue_destruction__7TObjectFv(s32);
+extern s32 __vt__10TTecSlicer[];
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void advance_position__10TTecSlicerFPv(u8 *arg0);
 int has_valid_handle__10TObjPlayerFPv(void *);
 s16 get_remain_count__10TTecSlicerFPv(void *);
 s32 push_matrix(void);
 s32 pop_matrix(void);
 extern RecoveredGlobal_8023B770_lbl_8044DC20 TTecSlicer__launch_angle_table;
-void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
-M2C_UNK spawn_item_timer__13TItemAttackerFiii(int, void *, int);
+void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2);
+s32 spawn_item_timer__13TItemAttackerFiii(int, void *, int);
 u32 get_player_by_client_id(u16);
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 void destroy_if_set__10TTecSlicerFUi(u32);
 
 extern const f32 lbl_805DC954;
@@ -200,28 +195,28 @@ f32 horizontal_distance_squared(s32, s32);
 s32 resolve_hittable_target(int, int);
 void deliver_target_hit__10TTecSlicerFPv(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(s32);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK rotate_matrix_x(M2C_UNK, s32);
+s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
+s32 rotate_matrix_y(s32, s32);
+s32 rotate_matrix_z(s32, s32);
+s32 rotate_matrix_x(s32, s32);
 s32 push_matrix(void);
 s32 pop_matrix(void);
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(u32);
-M2C_UNK set_chunk_material_color(void *);
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(u32);
+s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805DC95C;
 extern const f32 lbl_805DC960;
 void render__10TTecSlicerFv(u8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
 void disallow_rendering__7TObjectFv(void *);
-M2C_UNK set_flags__10TObjPlayerFPvUi(s32, M2C_UNK);
+s32 set_flags__10TObjPlayerFPvUi(s32, s32);
 void init_forward__10TObjPlayerFPv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 find_item_by_id(s32);
@@ -237,12 +232,12 @@ void construct_world_actor_base(void *, s32);
 void fn_8023B590(void *, s32, s32);
 void reset_fields_1e__10TTecSlicerFPv(void* p);
 void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused, Vec_8023B72C *a, Vec_8023B72C *b);
-void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2);
+void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 vector_length(void *);
-M2C_UNK normalize_vector(s32);
-extern M2C_UNK __vt__10TTecSlicer[];
+s32 normalize_vector(s32);
+extern s32 __vt__10TTecSlicer[];
 extern s32 lbl_805D3828;
 extern s32 tl_05;
 extern const f32 lbl_805DC950;
@@ -253,8 +248,8 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4);
 extern "C" {
 
 void reset_fields_1e__10TTecSlicerFPv(void* p);
-u32 csnVector(s32, s32, M2C_UNK);
-M2C_UNK queue_destruction__7TObjectFv(s32);
+u32 csnVector(s32, s32, s32);
+s32 queue_destruction__7TObjectFv(s32);
 
 void reset_fields_1e__10TTecSlicerFPv(void* p) { *(u8*)((char*)p + 0x1e) = 0; *(u8*)((char*)p + 0x1f) = 0; }
 
@@ -263,14 +258,14 @@ void deliver_target_hit__10TTecSlicerFPv(u8 *arg0) {
     f32 range;
     s32 temp_r3;
     u8 *temp_r3_2;
-    if (M2C_FIELD(arg0, u16 *, 0xC4) != 0xFFFF) {
+    if (*(u16 *)((s8 *)arg0 + 0xC4) != 0xFFFF) {
         dist = horizontal_distance_squared((s32) (arg0 + 0x9C), (s32) (arg0 + 0x38));
-        range = M2C_FIELD(arg0, f32 *, 0xB8) + M2C_FIELD(arg0, f32 *, 0xBC);
+        range = *(f32 *)((s8 *)arg0 + 0xB8) + *(f32 *)((s8 *)arg0 + 0xBC);
         if (dist < range * range) {
-            temp_r3 = resolve_hittable_target(M2C_FIELD(arg0, u16 *, 0xC4), M2C_FIELD(arg0, s8 *, 0xC6));
+            temp_r3 = resolve_hittable_target(*(u16 *)((s8 *)arg0 + 0xC4), *(s8 *)((s8 *)arg0 + 0xC6));
             if (temp_r3 != 0) {
-                temp_r3_2 = M2C_FIELD(arg0, u8 **, 0x108);
-                ((VObj_18_ed5691 *)(temp_r3_2))->m59(M2C_FIELD(arg0, s32 *, 0x10C), temp_r3, M2C_FIELD(arg0, s16 *, 0x11C), M2C_FIELD(arg0, s8 *, 0xC6), M2C_FIELD(arg0, f32 *, 0x120));
+                temp_r3_2 = *(u8 **)((s8 *)arg0 + 0x108);
+                ((VObj_18_ed5691 *)(temp_r3_2))->m59(*(s32 *)((s8 *)arg0 + 0x10C), temp_r3, *(s16 *)((s8 *)arg0 + 0x11C), *(s8 *)((s8 *)arg0 + 0xC6), *(f32 *)((s8 *)arg0 + 0x120));
             }
         }
     }
@@ -286,9 +281,9 @@ void destroy_on_collision__10TTecSlicerFi(s32 arg0, s32 _w1) {
 #pragma fp_contract on
 void advance_position__10TTecSlicerFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec((s32)(arg0 + 0x44), (s32)(arg0 + 0x38));
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((M2C_FIELD(arg0, f32 *, 0x90) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x38));
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x94) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x3C));
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) ((M2C_FIELD(arg0, f32 *, 0x98) * M2C_FIELD(arg0, f32 *, 0xB4)) + M2C_FIELD(arg0, f32 *, 0x40));
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x90) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x38));
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x94) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x3C));
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) ((*(f32 *)((s8 *)arg0 + 0x98) * *(f32 *)((s8 *)arg0 + 0xB4)) + *(f32 *)((s8 *)arg0 + 0x40));
 }
 #pragma pop
 
@@ -309,25 +304,25 @@ void set_launch_midpoint__10TTecSlicerFPvPvPvPv(Obj_8023B72C *self, void *unused
     self->mid.z = t;
 }
 
-void init_launch_angles__10TTecSlicerFPvPvi(M2C_UNK *arg0, M2C_UNK *arg1, s32 arg2) {
-  M2C_UNK *var_r29;
-  M2C_UNK *var_r30;
-  M2C_UNK *var_r3;
+void init_launch_angles__10TTecSlicerFPvPvi(s32 *arg0, s32 *arg1, s32 arg2) {
+  s32 *var_r29;
+  s32 *var_r30;
+  s32 *var_r3;
   s32 temp_r0;
   s32 var_r31;
   var_r29 = arg0;
-  var_r30 = (M2C_UNK *) arg1;
+  var_r30 = (s32 *) arg1;
   var_r31 = arg2;
   push_matrix();
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_60 = var_r31;
-  var_r3 = (M2C_UNK *) var_r29;
+  var_r3 = (s32 *) var_r29;
   ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_5C = -0x4000;
   var_r31 = (s32) get_remain_count__10TTecSlicerFPv(var_r3);
-  var_r3 = (M2C_UNK *) var_r30;
+  var_r3 = (s32 *) var_r30;
   temp_r0 = has_valid_handle__10TObjPlayerFPv(var_r3) * 3;
-  var_r3 = (M2C_UNK *) (&TTecSlicer__launch_angle_table.value);
-  var_r3 = (M2C_UNK *) (&TTecSlicer__launch_angle_table.value);
-  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((M2C_UNK *) (((s8 *) (&TTecSlicer__launch_angle_table.value)) + ((var_r31 + temp_r0) * 4))));
+  var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
+  var_r3 = (s32 *) (&TTecSlicer__launch_angle_table.value);
+  ((RecoveredFields_8023B770_var_r29 *) var_r29)->field_64 = (s32) (*((s32 *) (((s8 *) (&TTecSlicer__launch_angle_table.value)) + ((var_r31 + temp_r0) * 4))));
   pop_matrix();
 }
 
@@ -352,11 +347,11 @@ s32 TTecSlicer::create(u16 *arg0) {
     u8 *temp_r3;
     var_r31 = 0;
     if (arg0 != NULL) {
-        temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0))));
+        temp_r3 = (u8 *)(((u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0))));
         if (temp_r3 != NULL) {
-            var_r0 = ((s32)__nw__7TObjectFUl((M2C_UNK)((int) (0x140))));
+            var_r0 = ((s32)__nw__7TObjectFUl((s32)((int) (0x140))));
             if (var_r0 != 0) {
-                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)temp_r3), (void *)((void *) ((u8 *)(temp_r3) + 0x38)), (int)((int) (M2C_FIELD(temp_r3, s32 *, 0x60))));
+                var_r0 = TTecSlicer__ct((void *)((void *)var_r0), (void *)((void *)arg0), (void *)((void *)temp_r3), (void *)((void *) ((u8 *)(temp_r3) + 0x38)), (int)((int) (*(s32 *)((s8 *)temp_r3 + 0x60))));
             }
             var_r31 = var_r0;
             spawn_item_timer__13TItemAttackerFiii((int) (var_r0), (void *) (&destroy_if_set__10TTecSlicerFUi), (int) (0x5A));
@@ -370,24 +365,24 @@ extern "C" {
 void render__10TTecSlicerFv(u8 *arg0) {
     if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 ||
         ((VObj_18_8023B900 *)arg0)->m8(lbl_805DC95C, lbl_805DC960) == 0 ||
-        query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x118)) == 0U) {
+        query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x118)) == 0U) {
         return;
     }
     lbl_805D5660 = model_render_flags;
-    if (M2C_FIELD(arg0, s32 *, 0x13C) != 0) {
+    if (*(s32 *)((s8 *)arg0 + 0x13C) != 0) {
         model_render_flags |= 0x10;
         set_chunk_material_color(arg0 + 0x128);
     }
-    if (M2C_FIELD(arg0, u32 *, 0x24) != 0U && M2C_FIELD(arg0, u32 *, 0x110) != 0U) {
-        notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x24));
+    if (*(u32 *)((s8 *)arg0 + 0x24) != 0U && *(u32 *)((s8 *)arg0 + 0x110) != 0U) {
+        notify_fish_if_valid__10TObjPlayerFUi(*(u32 *)((s8 *)arg0 + 0x24));
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x64));
-        rotate_matrix_x(0, M2C_FIELD(arg0, s32 *, 0x5C));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
+        rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
         scale_current_matrix(arg0 + 0x68);
-        draw_ginja_object(M2C_FIELD(arg0, u32 *, 0x110));
+        draw_ginja_object(*(u32 *)((s8 *)arg0 + 0x110));
         set_chunk_material_color(chunk_material_color_half_alpha_f32);
         end_effect_render__13TParticleCtrlFv();
     }
@@ -399,43 +394,43 @@ void run_task__10TTecSlicerFv(u8 *arg0) {
     s32 temp_r4;
     u8 *var_r31;
     void *new_obj;
-    M2C_FIELD(arg0, u32 *, 0x10C) = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x114));
-    M2C_FIELD(arg0, u32 *, 0x108) = query_game_join_id__10TObjPlayerFv(M2C_FIELD(arg0, s32 *, 0x118));
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x108) == 0U) || ((u32) M2C_FIELD(arg0, u32 *, 0x10C) == 0U)) {
+    *(u32 *)((s8 *)arg0 + 0x10C) = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x114));
+    *(u32 *)((s8 *)arg0 + 0x108) = query_game_join_id__10TObjPlayerFv(*(s32 *)((s8 *)arg0 + 0x118));
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x108) == 0U) || ((u32) *(u32 *)((s8 *)arg0 + 0x10C) == 0U)) {
         queue_destruction__7TObjectFv((s32)((void *)(arg0)));
         return;
     }
     allow_rendering__7TObjectFv(arg0);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x13C) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x13C) != 0) {
         var_r31 = arg0 + 0x128;
     } else {
         var_r31 = NULL;
     }
     new_obj = (void *)__nw__7TObjectFUl(0x60);
     if (new_obj != 0U) {
-        __ct__14TSlicerHistoryFv(new_obj, arg0, M2C_FIELD(arg0, s32 *, 0x24), var_r31, M2C_FIELD(arg0, s32 *, 0x118));
+        __ct__14TSlicerHistoryFv(new_obj, arg0, *(s32 *)((s8 *)arg0 + 0x24), var_r31, *(s32 *)((s8 *)arg0 + 0x118));
     }
     if (test_flags_any(arg0 + 0xC0, 1) == 0) {
         update__10TTecSlicerFi((s32)(arg0));
     }
     advance_position__10TTecSlicerFPv((u8 *)(arg0));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x124) != 0U) {
-        copy_position__15TEffStarLight2DFPv(M2C_FIELD(arg0, void **, 0x124), arg0 + 0x38);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x124) != 0U) {
+        copy_position__15TEffStarLight2DFPv(*(void **)((s8 *)arg0 + 0x124), arg0 + 0x38);
     }
     if (test_flags_any(arg0 + 0xC0, 2) != 0) {
         queue_destruction__7TObjectFv((s32)((void *)(arg0)));
         return;
     }
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x5C);
-    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (temp_r4 + M2C_FIELD(arg0, s32 *, 0x138));
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x5C);
+    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (temp_r4 + *(s32 *)((s8 *)arg0 + 0x138));
     destroy_on_collision__10TTecSlicerFi((s32)(arg0), (s32)(temp_r4));
-    M2C_FIELD(arg0, u32 *, 0x108) = 0U;
-    M2C_FIELD(arg0, u32 *, 0x10C) = 0U;
+    *(u32 *)((s8 *)arg0 + 0x108) = 0U;
+    *(u32 *)((s8 *)arg0 + 0x10C) = 0U;
 }
 void *__dt__10TTecSlicerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TTecSlicer;
-        if (M2C_FIELD(arg0, void **, 0x124) != NULL) { queue_destruction__7TObjectFv((s32)((void *)(M2C_FIELD(arg0, void **, 0x124)))); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecSlicer;
+        if (*(void **)((s8 *)arg0 + 0x124) != NULL) { queue_destruction__7TObjectFv((s32)((void *)(*(void **)((s8 *)arg0 + 0x124)))); }
         dt__10TTecSlicerFis((s8 *)arg0 + 0xE8, -1);
         dt__10TTecSlicerFis((s8 *)arg0 + 0xC8, -1);
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
@@ -481,7 +476,7 @@ s32 TTecSlicer__ct(void *arg0, void *arg1, void *arg2, void *arg3, int arg4) {
     }
     self->f10c = (s32)arg2;
     self->f108 = find_item_by_id(self->f118);
-    init_launch_angles__10TTecSlicerFPvPvi((M2C_UNK *)self, (M2C_UNK *)self->f10c, init->f28);
+    init_launch_angles__10TTecSlicerFPvPvi((s32 *)self, (s32 *)self->f10c, init->f28);
     set_launch_midpoint__10TTecSlicerFPvPvPvPv((Obj_8023B72C *)self, (void *)self->f10c, &init->a, &init->b);
     self->fb8 = *get_weapon_range_record(self->f108, 0);
     self->fb4 = lbl_805DC964;

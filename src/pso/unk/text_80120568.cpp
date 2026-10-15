@@ -139,8 +139,6 @@ struct Pl_80120568 : Pl_80120568B {
     Ctl_80120568 *ctl;
 };
 
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct VBase_8012065C { u8 pad[0x18]; };
 
 struct Player_8012065C : VBase_8012065C {
@@ -174,17 +172,17 @@ void TItemWeapon__sub_80120568(Pl_80120568 *arg0);
 s32 obj_getField1c(s32);
 s32 test_flags_any(void *, s32);
 s32 get_flag_40__8TItemMagFPv(void *);
-M2C_UNK spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
+s32 spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK create__13TItemEffEquipFPvPvPvPvPv(void *, s32, s32, s32, s32);
+s32 create__13TItemEffEquipFPvPvPvPvPv(void *, s32, s32, s32, s32);
 s32 obj_isState7_324(s32);
 s32 get_item_flags__10TObjPlayerFPv(void *);
-M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, u32);
+s32 set_status_flags__10TObjPlayerFPvUi(void *, u32);
 void clear_equip_flags__10TObjPlayerFPvUi(void *, u32);
 void set_action_provider_variant__10TObjPlayerFPvs(void *, s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, s32, s32);
-M2C_UNK play_sound_effect(s32, s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 play_sound_effect(s32, s32, s32, s32);
 void set_flag_8_if_check_passes__10TObjPlayerFPv();
 extern void *tl_05;
 void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0);
@@ -213,21 +211,21 @@ void bind_attribute_entries__11TItemWeaponFPv(Self_801205F4 *self) {
 void apply_equip__11TItemWeaponFPv(Player_8012065C *arg0) {
     if (test_flags_any((u8 *)arg0 + 0x178, 1) != 0) {
         if (!(get_item_flags__10TObjPlayerFPv(arg0) & 0x20) && reset_key_machine_state__10TObjPlayerFv() != 0) {
-            set_action_provider_variant__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), arg0->v41());
+            set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), arg0->v41());
         }
         clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x100);
-        if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(M2C_FIELD(arg0, s32 *, 0xF0)) != 0) {
+        if (get_flag_40__8TItemMagFPv(arg0) != 0 || obj_isState7_324(*(s32 *)((s8 *)arg0 + 0xF0)) != 0) {
             set_status_flags__10TObjPlayerFPvUi(arg0, 8);
         } else {
             spawn_item_timer__13TItemAttackerFiii(arg0, (void *)&set_flag_8_if_check_passes__10TObjPlayerFPv, 0x14);
-            create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(M2C_FIELD(arg0, s32 *, 0xF0)), 0x30, 0x9D, 0x9E);
+            create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0)), 0x30, 0x9D, 0x9E);
             if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x200) != 0U) {
-                create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(M2C_FIELD(arg0, s32 *, 0xF0)), 0x23, 0x9D, 0x9E);
+                create__13TItemEffEquipFPvPvPvPvPv(tl_05, obj_getField1c(*(s32 *)((s8 *)arg0 + 0xF0)), 0x23, 0x9D, 0x9E);
             }
-            update_technique_slot__10TTecRaFoieFi(play_sound_effect(0x4000B20A, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0), 0x300, 0);
+            update_technique_slot__10TTecRaFoieFi(play_sound_effect(0x4000B20A, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0), 0x300, 0);
         }
     } else {
-        set_action_provider_variant__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), 0);
+        set_action_provider_variant__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), 0);
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x100);
         set_status_flags__10TObjPlayerFPvUi(arg0, 8);
     }

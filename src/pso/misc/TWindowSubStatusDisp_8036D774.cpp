@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Desc_8036D774 { f32 *pos; u32 *col; s32 a; s32 n; };
 
@@ -30,40 +26,40 @@ struct Stack_8036D994 {
 };
 
 extern "C" {
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
 void draw_bottom_bar__20TWindowSubStatusDispFv(void);
-M2C_UNK TCameraCtrl__sub_80068EF0();
-M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 TCameraCtrl__sub_80068EF0();
+s32 restore_full_screen_view__11TCameraCtrlFv();
+s32 set_depth_buffer_settings_2__Fv();
+s32 restore_saved_depth_alpha_state();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 void draw_bottom_bar__20TWindowSubStatusDispFv(void);
 extern s32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
 void draw_split_screen_hud__20TWindowSubStatusDispFv(void);
 void draw_strip_swap_color__15TWindowCtrlMainFPviif(Desc_8036D774 *, int, int, f32);
 void draw_split_screen_dividers__20TWindowSubStatusDispFv(void);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
 void draw_tiled_background__20TWindowSubStatusDispFv(void);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(int, int);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, int);
 extern s32 TBGMulti__textures;
 extern s32 split_screen_hud_animation_frame;
 void TWindowSubStatusDisp__sub_8036D994(void);

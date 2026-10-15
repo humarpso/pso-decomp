@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot { M2C_UNK value; u8 remaining[0x1C]; };
+struct RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot_size[sizeof(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot) == 0x20 ? 1 : -1];
 
 struct B_80357058 { u8 hdr[4]; u8 d[0x40]; u8 tail[8+1]; };
@@ -33,11 +29,11 @@ struct V4_8035740C { f32 x, y, z; s32 w; };
 struct O_8035740C { u8 pad0[0xC4]; V4_8035740C v[10]; };
 
 extern "C" {
-u8 * construct_attack_collision(void *, M2C_UNK, void *);
+u8 * construct_attack_collision(void *, s32, void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 f32 normalize_vector(void *);
-extern M2C_UNK __vt__20TItemEffOrgaFlowShot[];
+extern s32 __vt__20TItemEffOrgaFlowShot[];
 extern s32 TItemEffOrgaFlowShot__name;
 extern const f32 lbl_805E0038;
 extern const f32 lbl_805E003C;
@@ -59,12 +55,12 @@ void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b);
 int read_be16_field2_forward(void* p);
 extern int olga_flow_subordinate_actions_enabled;
 void handle_6xAD_olga_flow_subordinate_boss_actions(Pkt_803570E4 *pkt);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
-M2C_UNK approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
+s32 queue_destruction__7TObjectFv(void *);
+s32 disallow_rendering__7TObjectFv(void *);
+s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(void *, int);
+s32 approach_value__20TItemEffOrgaFlowShotFPvff(void *, f32, f32);
 s32 has_game_join_id();
-M2C_UNK check_hits__14TItemAttackColFPv(void *);
+s32 check_hits__14TItemAttackColFPv(void *);
 void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0);
 void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0);
 extern const f32 lbl_805E0030;
@@ -84,19 +80,19 @@ void create__20TItemEffOrgaFlowShotFPvPv(void *arg0, void *arg1);
 int read_be16_field2_forward(void* p);
 void render__20TItemEffOrgaFlowShotFv(s32 arg0);
 int TLobby__send_and_handle_60(void*);
-M2C_UNK draw_untextured_trail_strip(s32, M2C_UNK);
-M2C_UNK TObjPlayer__sub_803DF768(M2C_UNK);
+s32 draw_untextured_trail_strip(s32, s32);
+s32 TObjPlayer__sub_803DF768(s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
 void destroy_attack_collision__14TItemAttackColFPvs(void *, int);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 restore_saved_depth_alpha_state();
+s32 init_xyz_limits__10TObjPlayerFv();
 int read_be16_field2__10TObjPlayerFPv(void*);
-M2C_UNK reset_player_transform();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_1__Fv();
+s32 reset_player_transform();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_1__Fv();
 
 void send_6xAD_olga_flow_subordinate_boss_actions(u8 *arg0) {
     B_80357058 b;
@@ -220,12 +216,12 @@ void update_segments__20TItemEffOrgaFlowShotFPv(void *arg0) {
 #pragma fp_contract on
 void update_position_from_velocity__20TItemEffOrgaFlowShotFPv(u8 *arg0) {
     f32 temp_f2;
-    temp_f2 = lbl_805E0028 * M2C_FIELD(arg0, f32 *, 0x190);
-    M2C_FIELD(arg0, f32 *, 0x40) = temp_f2;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) (lbl_805E002C + M2C_FIELD(arg0, f32 *, 0x194));
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((M2C_FIELD(arg0, f32 *, 0x17C) * temp_f2) + M2C_FIELD(arg0, f32 *, 0x114));
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg0, f32 *, 0x118);
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) ((M2C_FIELD(arg0, f32 *, 0x184) * temp_f2) + M2C_FIELD(arg0, f32 *, 0x11C));
+    temp_f2 = lbl_805E0028 * *(f32 *)((s8 *)arg0 + 0x190);
+    *(f32 *)((s8 *)arg0 + 0x40) = temp_f2;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (lbl_805E002C + *(f32 *)((s8 *)arg0 + 0x194));
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((*(f32 *)((s8 *)arg0 + 0x17C) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x114));
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)arg0 + 0x118);
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) ((*(f32 *)((s8 *)arg0 + 0x184) * temp_f2) + *(f32 *)((s8 *)arg0 + 0x11C));
 }
 #pragma pop
 
@@ -243,7 +239,7 @@ void render__20TItemEffOrgaFlowShotFv(s32 arg0) {
     end_effect_render__13TParticleCtrlFv();
 }
 
-extern M2C_UNK __vt__20TItemEffOrgaFlowShot[];
+extern s32 __vt__20TItemEffOrgaFlowShot[];
 
 void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
     s32 temp_r3;
@@ -254,16 +250,16 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
         queue_destruction__7TObjectFv((void *) (arg0));
         disallow_rendering__7TObjectFv((void *) (arg0));
     }
-    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x190), (f32) (lbl_805E0030), (f32) (M2C_FIELD(arg0, f32 *, 0x18C)));
-    if (M2C_FIELD(arg0, f32 *, 0x190) == M2C_FIELD(arg0, f32 *, 0x18C)) {
-        approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x194), (f32) (lbl_805E0034), (f32) (M2C_FIELD(arg0, f32 *, 0x198)));
+    approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x190), (f32) (lbl_805E0030), (f32) (*(f32 *)((s8 *)arg0 + 0x18C)));
+    if (*(f32 *)((s8 *)arg0 + 0x190) == *(f32 *)((s8 *)arg0 + 0x18C)) {
+        approach_value__20TItemEffOrgaFlowShotFPvff((void *) (arg0 + 0x194), (f32) (lbl_805E0034), (f32) (*(f32 *)((s8 *)arg0 + 0x198)));
     }
     for (var_r30 = 0; var_r30 != 10; var_r30++) {
         decrement_packed_timer__15TObjBoss2TunnelFPvi(&((O_8035740C *)arg0)->v[var_r30].w, 2);
     }
-    if (M2C_FIELD(arg0, f32 *, 0x194) == M2C_FIELD(arg0, f32 *, 0x198)) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x19C);
-        M2C_FIELD(arg0, s32 *, 0x19C) = (s32) (temp_r3 - 1);
+    if (*(f32 *)((s8 *)arg0 + 0x194) == *(f32 *)((s8 *)arg0 + 0x198)) {
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x19C);
+        *(s32 *)((s8 *)arg0 + 0x19C) = (s32) (temp_r3 - 1);
         if (temp_r3 == 0) {
             queue_destruction__7TObjectFv((void *) (arg0));
         }
@@ -274,7 +270,7 @@ void run_task__20TItemEffOrgaFlowShotFv(u8 *arg0) {
 
 void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TItemEffOrgaFlowShot;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TItemEffOrgaFlowShot;
         destroy_attack_collision__14TItemAttackColFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -285,42 +281,42 @@ void *__dt__20TItemEffOrgaFlowShotFv(void *arg0, s16 arg1) {
 
 u8 *TItemEffOrgaFlowShot__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     construct_attack_collision(arg0, arg1, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffOrgaFlowShot__name;
-    M2C_FIELD(arg0, s32 *, 0xC0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x48) = 1;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805E0038;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg2, s32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x188) = (s32) M2C_FIELD(arg2, s32 *, 0x28);
-    M2C_FIELD(arg0, f32 *, 0x190) = (f32) lbl_805E003C;
-    M2C_FIELD(arg0, f32 *, 0x18C) = (f32) lbl_805E0040;
-    M2C_FIELD(arg0, f32 *, 0x194) = (f32) lbl_805E003C;
-    M2C_FIELD(arg0, s32 *, 0x19C) = 0x14;
-    M2C_FIELD(arg0, f32 *, 0x17C) = sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x188));
-    M2C_FIELD(arg0, f32 *, 0x180) = (f32) lbl_805E003C;
-    M2C_FIELD(arg0, f32 *, 0x184) = cos_table_lookup(M2C_FIELD(arg0, s32 *, 0x188));
-    M2C_FIELD(arg0, f32 *, 0x164) = (f32) (M2C_FIELD(arg2, f32 *, 0x2C) - M2C_FIELD(arg2, f32 *, 0x38));
-    M2C_FIELD(arg0, f32 *, 0x168) = (f32) (M2C_FIELD(arg2, f32 *, 0x30) - M2C_FIELD(arg2, f32 *, 0x3C));
-    M2C_FIELD(arg0, f32 *, 0x16C) = (f32) (M2C_FIELD(arg2, f32 *, 0x34) - M2C_FIELD(arg2, f32 *, 0x40));
-    M2C_FIELD(arg0, f32 *, 0x198) = (f32) (lbl_805E0044 * normalize_vector(arg0 + 0x164));
-    M2C_FIELD(arg0, f32 *, 0x170) = (f32) (M2C_FIELD(arg2, f32 *, 0x5C) - M2C_FIELD(arg2, f32 *, 0x50));
-    M2C_FIELD(arg0, f32 *, 0x174) = (f32) (M2C_FIELD(arg2, f32 *, 0x60) - M2C_FIELD(arg2, f32 *, 0x54));
-    M2C_FIELD(arg0, f32 *, 0x178) = (f32) (M2C_FIELD(arg2, f32 *, 0x64) - M2C_FIELD(arg2, f32 *, 0x58));
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80357548___vt__20TItemEffOrgaFlowShot *)&__vt__20TItemEffOrgaFlowShot).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffOrgaFlowShot__name;
+    *(s32 *)((s8 *)arg0 + 0xC0) = 0;
+    *(s32 *)((s8 *)arg0 + 0x48) = 1;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805E0038;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg2 + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x188) = (s32) *(s32 *)((s8 *)arg2 + 0x28);
+    *(f32 *)((s8 *)arg0 + 0x190) = (f32) lbl_805E003C;
+    *(f32 *)((s8 *)arg0 + 0x18C) = (f32) lbl_805E0040;
+    *(f32 *)((s8 *)arg0 + 0x194) = (f32) lbl_805E003C;
+    *(s32 *)((s8 *)arg0 + 0x19C) = 0x14;
+    *(f32 *)((s8 *)arg0 + 0x17C) = sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x188));
+    *(f32 *)((s8 *)arg0 + 0x180) = (f32) lbl_805E003C;
+    *(f32 *)((s8 *)arg0 + 0x184) = cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x188));
+    *(f32 *)((s8 *)arg0 + 0x164) = (f32) (*(f32 *)((s8 *)arg2 + 0x2C) - *(f32 *)((s8 *)arg2 + 0x38));
+    *(f32 *)((s8 *)arg0 + 0x168) = (f32) (*(f32 *)((s8 *)arg2 + 0x30) - *(f32 *)((s8 *)arg2 + 0x3C));
+    *(f32 *)((s8 *)arg0 + 0x16C) = (f32) (*(f32 *)((s8 *)arg2 + 0x34) - *(f32 *)((s8 *)arg2 + 0x40));
+    *(f32 *)((s8 *)arg0 + 0x198) = (f32) (lbl_805E0044 * normalize_vector(arg0 + 0x164));
+    *(f32 *)((s8 *)arg0 + 0x170) = (f32) (*(f32 *)((s8 *)arg2 + 0x5C) - *(f32 *)((s8 *)arg2 + 0x50));
+    *(f32 *)((s8 *)arg0 + 0x174) = (f32) (*(f32 *)((s8 *)arg2 + 0x60) - *(f32 *)((s8 *)arg2 + 0x54));
+    *(f32 *)((s8 *)arg0 + 0x178) = (f32) (*(f32 *)((s8 *)arg2 + 0x64) - *(f32 *)((s8 *)arg2 + 0x58));
     normalize_vector(arg0 + 0x170);
-    M2C_FIELD(arg0, f32 *, 0xF4) = (f32) M2C_FIELD(arg2, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) M2C_FIELD(arg2, f32 *, 0x3C);
-    M2C_FIELD(arg0, f32 *, 0xFC) = (f32) M2C_FIELD(arg2, f32 *, 0x40);
-    M2C_FIELD(arg0, s32 *, 0x100) = 0x6040FF40;
-    M2C_FIELD(arg0, f32 *, 0x114) = (f32) M2C_FIELD(arg2, f32 *, 0x44);
-    M2C_FIELD(arg0, f32 *, 0x118) = (f32) M2C_FIELD(arg2, f32 *, 0x48);
-    M2C_FIELD(arg0, f32 *, 0x11C) = (f32) M2C_FIELD(arg2, f32 *, 0x4C);
-    M2C_FIELD(arg0, s32 *, 0x120) = 0x408840;
-    M2C_FIELD(arg0, f32 *, 0x134) = (f32) M2C_FIELD(arg2, f32 *, 0x50);
-    M2C_FIELD(arg0, f32 *, 0x138) = (f32) M2C_FIELD(arg2, f32 *, 0x54);
-    M2C_FIELD(arg0, f32 *, 0x13C) = (f32) M2C_FIELD(arg2, f32 *, 0x58);
-    M2C_FIELD(arg0, s32 *, 0x140) = 0x6040FF40;
-    M2C_FIELD(arg0, s32 *, 0xE0) = 0x408840;
-    M2C_FIELD(arg0, s32 *, 0x160) = 0x408840;
+    *(f32 *)((s8 *)arg0 + 0xF4) = (f32) *(f32 *)((s8 *)arg2 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) *(f32 *)((s8 *)arg2 + 0x3C);
+    *(f32 *)((s8 *)arg0 + 0xFC) = (f32) *(f32 *)((s8 *)arg2 + 0x40);
+    *(s32 *)((s8 *)arg0 + 0x100) = 0x6040FF40;
+    *(f32 *)((s8 *)arg0 + 0x114) = (f32) *(f32 *)((s8 *)arg2 + 0x44);
+    *(f32 *)((s8 *)arg0 + 0x118) = (f32) *(f32 *)((s8 *)arg2 + 0x48);
+    *(f32 *)((s8 *)arg0 + 0x11C) = (f32) *(f32 *)((s8 *)arg2 + 0x4C);
+    *(s32 *)((s8 *)arg0 + 0x120) = 0x408840;
+    *(f32 *)((s8 *)arg0 + 0x134) = (f32) *(f32 *)((s8 *)arg2 + 0x50);
+    *(f32 *)((s8 *)arg0 + 0x138) = (f32) *(f32 *)((s8 *)arg2 + 0x54);
+    *(f32 *)((s8 *)arg0 + 0x13C) = (f32) *(f32 *)((s8 *)arg2 + 0x58);
+    *(s32 *)((s8 *)arg0 + 0x140) = 0x6040FF40;
+    *(s32 *)((s8 *)arg0 + 0xE0) = 0x408840;
+    *(s32 *)((s8 *)arg0 + 0x160) = 0x408840;
     update_segments__20TItemEffOrgaFlowShotFPv((void *)((void *)(arg0)));
     update_position_from_velocity__20TItemEffOrgaFlowShotFPv((u8 *)(arg0));
     return arg0;

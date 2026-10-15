@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct AreaAttackHistory {
     void** entries;
@@ -15,9 +11,9 @@ extern "C" {
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 __dl__FPv(u32 *);
 u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1);
-extern M2C_UNK __vt__13TLockOnCursor[];
-extern M2C_UNK TLockOnCursor__sub_8013EFB8[];
-extern M2C_UNK __dt_deleting__13TLockOnCursorFis[];
+extern s32 __vt__13TLockOnCursor[];
+extern s32 TLockOnCursor__sub_8013EFB8[];
+extern s32 __dt_deleting__13TLockOnCursorFis[];
 extern void *lock_on_cursor_class_name;
 s32 delete_buffer__12TBoss8DragonFis(s32 arg0, s16 arg1);
 s32 fn_800BC758(u8 *arg0);
@@ -43,7 +39,7 @@ struct VOff_8013DE3C_arg0_8013D91C { char pad_0[0x1C]; char f_1C[1]; };
 
 s32 attack_target_history_add(s32 arg0, s32 arg1) {
     if ((fn_800BC758((u8 *)(arg0)) != 0) && (((s32)attack_target_history_contains((void*)((void *)((void *) (arg0))), (void*)((void *)((void *) (arg1))))) == 0)) {
-        ((M2C_UNK)push_attack_target_entry((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
+        ((s32)push_attack_target_entry((u8 *)((void *)((void *) (arg0))), (s32)((void *)((void *) (arg1)))));
         return 1;
     }
     return 0;
@@ -66,13 +62,13 @@ u8 *TBoss8Dragon__sub_800BC5EC(u8 *arg0, s32 arg1) {
 
 void *init_buffer__12TBoss8DragonFPvii(void *arg0, s32 arg1, s32 arg2) {
     if (arg1 > 0) {
-        M2C_FIELD(arg0, s32 *, 0) = alloc_buffer__11TOBoss4RockFPv(arg1 * 4);
+        *(s32 *)((s8 *)arg0 + 0) = alloc_buffer__11TOBoss4RockFPv(arg1 * 4);
     } else {
-        M2C_FIELD(arg0, s32 *, 0) = 0;
+        *(s32 *)((s8 *)arg0 + 0) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 4) = arg2;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xC) = arg1;
+    *(s32 *)((s8 *)arg0 + 4) = arg2;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC) = arg1;
     fill_value_array(arg0);
     return arg0;
 }
@@ -92,11 +88,11 @@ u32 *free_buffer__12TBoss8DragonFPvs(u32 *arg0, s16 arg1) {
 s32 push_attack_target_entry(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     s32 temp_r6;
-    temp_r6 = M2C_FIELD(arg0, s32 *, 8);
-    if (temp_r6 < (s32) M2C_FIELD(arg0, s32 *, 0xC)) {
-        M2C_FIELD(M2C_FIELD(arg0, s32 *, 0), M2C_UNK *, (temp_r6 * 4)) = arg1;
-        temp_r4 = M2C_FIELD(arg0, s32 *, 8);
-        M2C_FIELD(arg0, s32 *, 8) = (s32) (temp_r4 + 1);
+    temp_r6 = *(s32 *)((s8 *)arg0 + 8);
+    if (temp_r6 < (s32) *(s32 *)((s8 *)arg0 + 0xC)) {
+        *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0)) + (temp_r6 * 4)) = arg1;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 8);
+        *(s32 *)((s8 *)arg0 + 8) = (s32) (temp_r4 + 1);
         return temp_r4;
     }
     return -1;
@@ -111,7 +107,7 @@ int attack_target_history_contains(void* object, void* target) {
 }
 
 s32 fn_800BC758(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 8) < M2C_FIELD(arg0, s32 *, 0xC);
+    return *(s32 *)((s8 *)arg0 + 8) < *(s32 *)((s8 *)arg0 + 0xC);
 }
 
 }

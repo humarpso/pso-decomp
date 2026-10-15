@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80236290 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 trailing_storage[0x8];
 };
 
 struct RecoveredGlobal_80236290_lbl_80516150 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x84];
 };
 
@@ -105,7 +101,7 @@ u32 find_actor_body_contact(void *, int, f32);
 s32 get_player_by_client_id(int);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 extern const f32 lbl_805DC89C;
-M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
+s32 *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_query_results;
 void resetTechniqueContactQuery();
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
@@ -229,7 +225,7 @@ s32 find_support_technique_contact(void *self, int target, void *_w2, void *_w3)
     return (s32)&technique_contact_query_results;
 }
 
-M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
+s32 *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2, s32 _w3) {
     Stack_80236290 stack;
     s32 temp_r0;
     s32 temp_r3;
@@ -244,8 +240,8 @@ M2C_UNK *gather_player_contacts__10TObjPlayerFiUiii(s32 arg0, u32 arg1, s32 _w2,
     var_r29 = 0;
 loop_3:
     temp_r3 = get_player_by_client_id((int) (var_r29));
-    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (M2C_FIELD(((u8 *)&technique_contact_query_results.value + (M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) * 4)), u32 *, 0x40) = temp_r3_2, M2C_FIELD(&technique_contact_query_results.value, M2C_UNK *, (M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) * 4)) = temp_r3, temp_r0 = M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) + 1, M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
-        M2C_FIELD(&technique_contact_query_results.value, s32 *, 0x80) = 0xF;
+    if ((temp_r3 != 0) && (temp_r3_2 = find_actor_body_contact((void *) (arg1), (int) (temp_r3), (f32) (lbl_805DC89C)), ((temp_r3_2 == 0U) == 0)) && (*(u32 *)((s8 *)((u8 *)&technique_contact_query_results.value + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) + 0x40) = temp_r3_2, *(s32 *)((s8 *)(&technique_contact_query_results.value) + (*(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) * 4)) = temp_r3, temp_r0 = *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) + 1, *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = temp_r0, ((temp_r0 < 0x10) == 0))) {
+        *(s32 *)((s8 *)(&technique_contact_query_results.value) + 0x80) = 0xF;
     } else {
         var_r29 += 1;
         if (var_r29 < 4) {
@@ -350,19 +346,19 @@ s32 collect_body_contacts__10TObjPlayerFPviPvPv(void *self, int target, void *_w
 }
 
 void find_area_contact__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    find_area_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
+    find_area_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void collect_body_contacts_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    collect_body_contacts__10TObjPlayerFPviPvPv((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
+    collect_body_contacts__10TObjPlayerFPviPvPv((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xE8))), (void *)((void *) (arg0 + 0xBC)), (void *)((void *) (arg1)));
 }
 
 void find_support_technique_contact_for_target__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
+    find_support_technique_contact((void *)((void *) (arg0)), (int)((int) (*(s32 *)((s8 *)arg0 + 0xdc))), (void *)((void *) (arg0 + 0xb0)), (void *)((void *) (arg1)));
 }
 
 void gather_contacts_for_self__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
-    gather_player_contacts__10TObjPlayerFiUiii((s32)((void *) (arg0)), (u32)((int) (M2C_FIELD(arg0, s32 *, 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
+    gather_player_contacts__10TObjPlayerFiUiii((s32)((void *) (arg0)), (u32)((int) (*(s32 *)((s8 *)arg0 + 0xdc))), (s32)((void *) (arg0 + 0xb0)), (s32)((void *) (arg1)));
 }
 
 u8 *query_technique_enemy_contacts(void *self, s32 arg) {

@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_802A1324_lbl_804DCB64 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -13,8 +10,8 @@ void __ct__7TObjectFP7TObject(void *,void *);
 u8 *TMovie__ct(void *,void *,const s8 *,void (*)(s32),s32,s32,s32);
 void set_movie_finished_flag(s32);
 extern const s8 *opening_movie_path_table[10];
-M2C_UNK update_menu_cursor__6TLobbyFv();
-u8 *__nw__7TObjectFUl(M2C_UNK);
+s32 update_menu_cursor__6TLobbyFv();
+u8 *__nw__7TObjectFUl(s32);
 s32 get_mode_data__19TAdSelectGameModeGCFv();
 s32 get_data__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_802A1324_lbl_804DCB64 lbl_804DCB64;
@@ -33,7 +30,7 @@ u8 *create_opening_movie_sequence(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     __ct__7TObjectFP7TObject(arg0, tl_01);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804DCB64.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804DCB64.value;
     update_menu_cursor__6TLobbyFv();
     if ((get_data__23TAdSinglePlyChrSelectGCFv() == 1) && (get_mode_data__19TAdSelectGameModeGCFv() == 1)) {
         set_movie_finished_flag(0);

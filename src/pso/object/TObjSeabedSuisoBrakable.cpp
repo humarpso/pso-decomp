@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u8 is_valid_player_motion_variant(u32 arg0);
@@ -19,8 +15,8 @@ int get_table0_entry__23TObjSeabedSuisoBrakableFi(int a0);
 int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0);
 void TLobby__sub_8001FE7C(void*, int);
 void TLobby__sub_802A7318(void* p);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TLobby__sub_803DA16C(void*);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 struct Tbl_802A6F98 { s32 w[5]; };
 struct Brk_802A6F98 { s32 a[5]; s32 b[3]; s32 *c[3]; };
@@ -34,10 +30,10 @@ s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 find_entry_by_name__12TObjDoorJungFPvPv(u32, s32);
 extern Tbl_802A6F98 seabed_suiso_texture_name_table;
 extern Tbl_802A6F98 lbl_80466C80;
-extern M2C_UNK lbl_80466CE0[];
-extern M2C_UNK lbl_80466CF8[];
-extern M2C_UNK bm_obj_seabed_suiso_resource_descriptor[];
-extern M2C_UNK bm_obj_seabed_suiso_2_resource_descriptor[];
+extern s32 lbl_80466CE0[];
+extern s32 lbl_80466CF8[];
+extern s32 bm_obj_seabed_suiso_resource_descriptor[];
+extern s32 bm_obj_seabed_suiso_2_resource_descriptor[];
 
 int TObjSeabedSuisoBrakable__break_model_entries[5];
 int TObjSeabedSuisoBrakable__model12_render_nodes[3];
@@ -133,7 +129,7 @@ void TObjSeabedSuisoBrakable__vt17(void) {  }
 int match_coordinate_pair(u8 *arg0, s32 arg1, s32 arg2) {
     u8 var_r6;
     var_r6 = 0;
-    if ((arg1 == (s32) M2C_FIELD(arg0, s32 *, 0)) && (arg2 == (s32) M2C_FIELD(arg0, s32 *, 4))) {
+    if ((arg1 == (s32) *(s32 *)((s8 *)arg0 + 0)) && (arg2 == (s32) *(s32 *)((s8 *)arg0 + 4))) {
         var_r6 = 1;
     }
     return var_r6;

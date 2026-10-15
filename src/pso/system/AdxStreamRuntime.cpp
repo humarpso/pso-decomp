@@ -5,10 +5,6 @@
 #include "pso/system/LscStream.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Strm_803C8678;
 struct StrmVt_803C8678 {
@@ -85,36 +81,35 @@ struct PointerRecords_803C8610_var_r31 { u8 bytes[0x40]; };
 extern "C" {
 s32 cv_fs_get_stat__6TLobbyFPv(u32);
 s32 cv_fs_req_rd__6TLobbyFPvii(u32, s32, s32);
-M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
+s32 TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
 extern s32 tlobby_stream_read_retry_limit;
 extern s32 lbl_805D7558;
-M2C_UNK TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
-M2C_UNK memset(void *, int, int);
+s32 TLobby__sub_803D3130(void *, s32, Pair_803C8678 *, Pair_803C8678 *);
+s32 memset(void *, int, int);
 s32 TLobby__sub_803C9104(Obj_803C9104 *arg0, s32 arg1, s32 arg2);
 s32 cv_fs_tell__6TLobbyFPv(int);
 s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0);
-M2C_UNK TLobby__sub_803C5ED4(int);
+s32 TLobby__sub_803C5ED4(int);
 void TLobby__sub_803C5E78(void);
 void update_stream_read__6TLobbyFPv(S_803C8678 *s);
 void update_active_stream_reads(void);
 }
 
 struct RecoveredGlobal_803C90B0_lbl_80575140 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x9FC];
 };
 
 struct RecoveredGlobal_803C6830_lbl_80573AC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x167C];
 };
 
 struct RecoveredGlobal_803C6800_lbl_80573AC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x167C];
 };
 
-typedef s32 M2C_UNK;
 typedef struct S_803C6138 {
     u8 pad0[0x80];
     u8 *f80;
@@ -232,18 +227,18 @@ void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
 void cvfs_stop_tr__6TLobbyFPv(void *);
 void cv_fs_close__6TLobbyFPv(void *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void TLobby__sub_803C8B38(u8 *arg0);
 short TLobby__sub_803C8B2C(u8 *arg0);
-M2C_UNK notify_error__6TLobbyFPv(void *);
-void forward_notify_error__6TLobbyFii(M2C_UNK arg0, s32 arg1);
-M2C_UNK memset(void *, int, int);
+s32 notify_error__6TLobbyFPv(void *);
+void forward_notify_error__6TLobbyFii(s32 arg0, s32 arg1);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
 s32 clear_buffer_a00__6TLobbyFv(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 void clear_buffer_1680__6TLobbyFv(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
 void clear_net_buffer_1680__6TLobbyFv(void);
 void release_ref__6TLobbyFv(void);
@@ -259,13 +254,13 @@ s32 TLobby__sub_803C85AC(u8 *arg0, s32 *arg1);
 s32 check_packet_header_8001__6TLobbyFPviPv(u16 *p, s32 size, s32 *out);
 void release_ref__6TLobbyFv(void);
 void init_once__6TLobbyFv(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void TLobby__sub_803C6138(S_803C6138 *arg0);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 TLobby__sub_803CEA14(void);
-M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
+s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C634[];
@@ -275,7 +270,7 @@ extern s32 lbl_805D7550;
 Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 TLobby__sub_803CEA14(void);
-M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
+s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 s32 TLobby__sub_803CE568(void);
@@ -285,7 +280,7 @@ extern s32 lbl_805D4670;
 extern s32 lbl_805D466C;
 Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
-M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
+s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C600[];
@@ -294,7 +289,7 @@ extern s32 lbl_805D4668;
 extern s32 lbl_805D7550;
 Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
-M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
+s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C660[];
@@ -347,15 +342,15 @@ s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
 s32 set_scroll_offset__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void set_scroll_position__6TLobbyFPvi(u8 *arg0, s32 arg1);
 void si_get_type_async__6TLobbyFv(void);
-M2C_UNK ARAlloc();
-M2C_UNK SIGetTypeAsync();
+s32 ARAlloc();
+s32 SIGetTypeAsync();
 void TLobby__sub_803C9608(void);
 s32 TLobby__sub_803CB844();
 void TLobby__sub_803CBA38(void);
-M2C_UNK TLobby__sub_803CE240();
-M2C_UNK cv_fs_seek__6TLobbyFPvii(int, int, int);
+s32 TLobby__sub_803CE240();
+s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
 s32 cv_fs_tell__6TLobbyFPv(int);
-M2C_UNK set_global_805D7520__6TLobbyFi();
+s32 set_global_805D7520__6TLobbyFi();
 
 extern "C" {
 extern RecoveredGlobal_803C6830_lbl_80573AC0 adx_encoder_context_pool;
@@ -387,7 +382,7 @@ s32 process_connection_state__6TLobbyFv(void) {
     return 0;
 }
 
-void forward_notify_error__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
+void forward_notify_error__6TLobbyFii(s32 arg0, s32 arg1) {
     notify_error__6TLobbyFPv((void *) (arg1));
 }
 
@@ -429,7 +424,7 @@ void TLobby__sub_803C5B50(Obj_803C5B50 *arg0, s32 arg1, s32 arg2, s32 arg3) {
 }
 
 void TLobby__sub_803C5D00(u8 *arg0) {
-    lsc_get_queued_stream_count((LscStream*) (M2C_FIELD(arg0, s32 *, 0x94)));
+    lsc_get_queued_stream_count((LscStream*) (*(s32 *)((s8 *)arg0 + 0x94)));
 }
 
 extern s32 lbl_805D7548;
@@ -445,7 +440,7 @@ void TLobby__sub_803C5D24(u8 *arg0) {
     start_stream_playback__6TLobbyFPvi((struct Stream_803CA0C8 *)arg0, ((Fields_arg0*)arg0)->field_10);
     temp_r3 = (void **)(((Fields_arg0*)arg0)->field_14);
     temp_r4 = (u8 *)(*temp_r3);
-    M2C_FIELD(temp_r4, M2C_UNK (**)(void **, void *), 0x14)(temp_r3, temp_r4);
+    (*(s32 (**)(void **, void *))((s8 *)temp_r4 + 0x14))(temp_r3, temp_r4);
     ((Fields_arg0*)arg0)->field_2 = 4;
     lsc_set_min_buffer_bytes((LscStream*)temp_r31, ((Fields_arg0*)arg0)->field_3E << 0xB);
     lsc_start((LscStream*)temp_r31);
@@ -485,7 +480,7 @@ void TLobby__sub_803C5E78(void) {
     var_r31 = (u8 *)(((u8 *)&adx_encoder_context_pool));
     var_r30 = 0;
     do {
-        if ((s32) M2C_FIELD(((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30]), u8 *, 0) == 1) {
+        if ((s32) *(u8 *)((s8 *)((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30]) + 0) == 1) {
             TLobby__sub_803C5ED4((int) (((u8 *)&((PointerRecords_803C5E78_var_r31 *)var_r31)[var_r30])));
         }
         var_r30 += 1;
@@ -513,23 +508,23 @@ loop_2:
 }
 
 void TLobby__sub_803C60F0(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    M2C_FIELD(arg0, s32 *, 0x58) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x5C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x3C) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x60) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x48) = 0x11C;
+    *(s32 *)((s8 *)arg0 + 0x58) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x5C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x3C) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x60) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x48) = 0x11C;
 }
 
 void TLobby__sub_803C610C(u8 *arg0) {
-    M2C_FIELD(arg0, s8 *, 3) = 1;
+    *(s8 *)((s8 *)arg0 + 3) = 1;
 }
 
 void TLobby__sub_803C6118(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s8 *, 3) = 0;
-    M2C_FIELD(arg0, s8 *, 1) = 1;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s8 *)((s8 *)arg0 + 3) = 0;
+    *(s8 *)((s8 *)arg0 + 1) = 1;
 }
 
 typedef char RecoveredGlobal_803C6830_lbl_80573AC0_size[sizeof(RecoveredGlobal_803C6830_lbl_80573AC0) == 0x1680 ? 1 : -1];
@@ -846,44 +841,44 @@ s32 adx_write_encoded_blocks(Obj_803C7C10 *arg0) {
 #pragma pop
 
 void set_field_10_and_notify__6TLobbyFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x10) = arg1;
-    cv_fs_seek__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10)), (int) (0));
-    cv_fs_tell__6TLobbyFPv((int)((int) (M2C_FIELD(arg0, s32 *, 8))));
+    *(s32 *)((s8 *)arg0 + 0x10) = arg1;
+    cv_fs_seek__6TLobbyFPvii((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10)), (int) (0));
+    cv_fs_tell__6TLobbyFPv((int)((int) (*(s32 *)((s8 *)arg0 + 8))));
 }
 
 void TLobby__sub_803C8514(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) (arg1 << 0xB);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) (arg1 << 0xB);
 }
 
 void set_buffer__6TLobbyFPvPv(u8 *arg0, void **arg1) {
     s32 temp_r3;
     u8 *temp_r5;
 
-    M2C_FIELD(arg0, void ***, 4) = arg1;
+    *(void ***)((s8 *)arg0 + 4) = arg1;
     temp_r5 = (unsigned char *) (*arg1);
-    temp_r3 = M2C_FIELD(temp_r5, s32 (**)(void **, M2C_UNK, void *), 0x24)(arg1, 0, temp_r5);
-    M2C_FIELD(arg0, s32 *, 0x18) = temp_r3;
-    M2C_FIELD(arg0, s32 *, 0x1C) = temp_r3;
+    temp_r3 = (*(s32 (**)(void **, s32, void *))((s8 *)temp_r5 + 0x24))(arg1, 0, temp_r5);
+    *(s32 *)((s8 *)arg0 + 0x18) = temp_r3;
+    *(s32 *)((s8 *)arg0 + 0x1C) = temp_r3;
 }
 
 s32 get_field_14__6TLobbyFPv(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x14);
+    return *(s32 *)((s8 *)arg0 + 0x14);
 }
 
 s32 TLobby__sub_803C8578(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x2C) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x2C) = arg1;
     return 1;
 }
 
 s32 set_range__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x18) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x18) = arg2;
     return 1;
 }
 
 s32 TLobby__sub_803C8594(u8 *arg0, s32 *arg1, s32 *arg2) {
-    *arg1 = M2C_FIELD(arg0, s32 *, 0x1C);
-    *arg2 = M2C_FIELD(arg0, s32 *, 0x18);
+    *arg1 = *(s32 *)((s8 *)arg0 + 0x1C);
+    *arg2 = *(s32 *)((s8 *)arg0 + 0x18);
     return 1;
 }
 
@@ -913,13 +908,13 @@ inline s32 pos_803C8678(S_803C8678 *s) {
 
 typedef char PointerRecords_803C8610_var_r31_size[sizeof(PointerRecords_803C8610_var_r31)==0x40?1:-1];
 void update_active_stream_reads(void) {
-    M2C_UNK *var_r31;
+    s32 *var_r31;
     s32 var_r30;
-    var_r31 = (M2C_UNK *)(((M2C_UNK *)&adx_stream_read_requests));
+    var_r31 = (s32 *)(((s32 *)&adx_stream_read_requests));
     var_r30 = 0;
     do {
-        if (((s32) M2C_FIELD(((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]), u8 *, 0) == 1) && ((s32) M2C_FIELD(((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]), u8 *, 1) == 2)) {
-            update_stream_read__6TLobbyFPv((S_803C8678 *)((int) (((M2C_UNK *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]))));
+        if (((s32) *(u8 *)((s8 *)((s32 *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]) + 0) == 1) && ((s32) *(u8 *)((s8 *)((s32 *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]) + 1) == 2)) {
+            update_stream_read__6TLobbyFPv((S_803C8678 *)((int) (((s32 *)&((PointerRecords_803C8610_var_r31 *)var_r31)[var_r30]))));
         }
         var_r30 += 1;
     } while (var_r30 < 0x28);
@@ -1004,25 +999,25 @@ void update_stream_read__6TLobbyFPv(S_803C8678 *s) {
 
 void set_scroll_position__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     if (arg1 >= 0) {
-        M2C_FIELD(arg0, s32 *, 0x30) = arg1;
+        *(s32 *)((s8 *)arg0 + 0x30) = arg1;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) ((s32) (M2C_FIELD(arg0, s32 *, 0x14) + 0x7FF) / 2048);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) ((s32) (*(s32 *)((s8 *)arg0 + 0x14) + 0x7FF) / 2048);
 }
 
 void set_coords__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x38) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x3C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x38) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x3C) = arg2;
 }
 
 void TLobby__sub_803C89C4(u8 *arg0) {
     u8 *temp_r3;
-    M2C_FIELD(arg0, s8 *, 1) = 1;
+    *(s8 *)((s8 *)arg0 + 1) = 1;
     init_once__6TLobbyFv();
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
     if (temp_r3 != NULL) {
         cvfs_stop_tr__6TLobbyFPv(temp_r3);
-        M2C_FIELD(arg0, s8 *, 2) = 0;
+        *(s8 *)((s8 *)arg0 + 2) = 0;
     }
     release_ref__6TLobbyFv();
 }
@@ -1053,16 +1048,16 @@ s32 init_stream_position__6TLobbyFPv(S_803C8A14 *arg0) {
 
 s32 get_file_offset_relative__6TLobbyFPv(u8 *arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
     if (temp_r3 != NULL) {
-        return cv_fs_tell__6TLobbyFPv((int)(temp_r3)) - M2C_FIELD(arg0, s32 *, 0x10);
+        return cv_fs_tell__6TLobbyFPv((int)(temp_r3)) - *(s32 *)((s8 *)arg0 + 0x10);
     }
     return 0;
 }
 
 s32 set_scroll_offset__6TLobbyFPvi(u8 *arg0, s32 arg1) {
-    cv_fs_seek__6TLobbyFPvii((int) (M2C_FIELD(arg0, s32 *, 8)), (int) (M2C_FIELD(arg0, s32 *, 0x10) + arg1), (int) (0));
-    return cv_fs_tell__6TLobbyFPv((int)((int) (M2C_FIELD(arg0, s32 *, 8)))) - M2C_FIELD(arg0, s32 *, 0x10);
+    cv_fs_seek__6TLobbyFPvii((int) (*(s32 *)((s8 *)arg0 + 8)), (int) (*(s32 *)((s8 *)arg0 + 0x10) + arg1), (int) (0));
+    return cv_fs_tell__6TLobbyFPv((int)((int) (*(s32 *)((s8 *)arg0 + 8)))) - *(s32 *)((s8 *)arg0 + 0x10);
 }
 
 short TLobby__sub_803C8B2C(u8 *arg0) {
@@ -1077,15 +1072,15 @@ void TLobby__sub_803C8B38(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, s8 *, 1) = 1;
+        *(s8 *)((s8 *)arg0 + 1) = 1;
         init_once__6TLobbyFv();
-        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
         if (temp_r3 != NULL) {
             cvfs_stop_tr__6TLobbyFPv(temp_r3);
-            M2C_FIELD(arg0, s8 *, 2) = 0;
+            *(s8 *)((s8 *)arg0 + 2) = 0;
         }
         release_ref__6TLobbyFv();
-        temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
+        temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
         if (temp_r3_2 != NULL) {
             cv_fs_close__6TLobbyFPv(temp_r3_2);
         }
@@ -1348,11 +1343,6 @@ s32 adx_get_data_start_offset(u16 *arg0, s32 arg1, s32 *arg2) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct VObj0 { virtual void m0(); virtual void m1(); };
 
 struct VBase { char pad[0]; };
@@ -1370,7 +1360,7 @@ struct Ch_803CB5C4 {
     s16 c1;
 };
 struct RecoveredGlobal_800F8A78_lbl_80501178 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -1419,7 +1409,6 @@ struct Stream_803CA824 {
 
 struct Obj_803C96E0 { u8 pad[0x42]; s16 vals[1]; };
 
-typedef s32 M2C_UNK;
 struct S_803C96F0 { u8 pad0[3]; s8 count; u8 pad4[8]; void *p; u8 pad10[0x32]; s16 vals[1]; };
 
 typedef struct Ent_803C9608 {
@@ -1578,15 +1567,15 @@ extern const u32 lbl_805E0D58[1];
 s32 dispatch_field4_event__6TLobbyFPv(int);
 s32 send_with_offset4_alt__6TLobbyFPv(int);
 s32 notify_client__6TLobbyFPv(int);
-M2C_UNK set_field_44__6TLobbyFPvi(int, int);
-M2C_UNK set_field_40__6TLobbyFPvi(int, int);
-M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
-M2C_UNK set_count__6TLobbyFPvi(int, int);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 set_field_44__6TLobbyFPvi(int, int);
+s32 set_field_40__6TLobbyFPvi(int, int);
+s32 set_field_3c__6TLobbyFPvi(int, int);
+s32 set_count__6TLobbyFPvi(int, int);
+s32 notify_error__6TLobbyFPv(void *);
 extern char adxt_trap_entry_data_shortage_error[];
 void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
-M2C_UNK VIWaitForRetrace();
-M2C_UNK run_callbacks_group2__6TLobbyFv();
+s32 VIWaitForRetrace();
+s32 run_callbacks_group2__6TLobbyFv();
 
 extern Cb_803CBA58 lbl_805D4680;
 extern s32 lbl_805D7540;
@@ -1611,24 +1600,24 @@ extern const u32 lbl_805E0D64[1];
 #define lbl_805E0D64 (*(const f32 *)lbl_805E0D64)
 
 extern "C" {
-M2C_UNK reset_flag__6TLobbyFPv(int);
-M2C_UNK TLobby__sub_803CC030(int, int);
-M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+s32 reset_flag__6TLobbyFPv(int);
+s32 TLobby__sub_803CC030(int, int);
+s32 dispatch_packet__6TLobbyFv(int, int);
 void TLobby__sub_803C9DB4(u8 *arg0);
-M2C_UNK reset_flag__6TLobbyFPv(int);
-M2C_UNK TLobby__sub_803CC030(int, int);
-M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+s32 reset_flag__6TLobbyFPv(int);
+s32 TLobby__sub_803CC030(int, int);
+s32 dispatch_packet__6TLobbyFv(int, int);
 void stop_audio_stream(u8 *arg0);
-M2C_UNK calc_adx_predictor_coeffs(void *, void *, void *, void *);
+s32 calc_adx_predictor_coeffs(void *, void *, void *, void *);
 void calc_adx_coeffs_at_offset__6TLobbyFiPvi(s32 arg0, void *arg1, s32 arg2);
 s8 TLobby__sub_803C9CB0(u8 *arg0);
-M2C_UNK notify_error__6TLobbyFPv(void *);
-void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
-M2C_UNK memset(void *, int, int);
+s32 notify_error__6TLobbyFPv(void *);
+void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
+s32 memset(void *, int, int);
 extern Ch_803CB5C4 adx_decoder_channel_pool[16];
 void clear_buffer_340__6TLobbyFv(void);
 s32 send_with_offset4_alt__6TLobbyFPv(int);
-M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
+s32 set_field_3c__6TLobbyFPvi(int, int);
 void TLobby__sub_803CB194(u8 *arg0);
 extern s32 lbl_805D7590;
 s32 TLobby__sub_803CB844(void);
@@ -1648,17 +1637,17 @@ extern s32 lbl_805D75C4;
 void wait_for_lock_release__6TLobbyFv(void);
 extern const char *const volatile lbl_805E0D78;
 void TLobby__sub_803CB81C(void);
-M2C_UNK TLobby__sub_803CBF50(void *);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 TLobby__sub_803CBF50(void *);
+s32 notify_error__6TLobbyFPv(void *);
 extern u8 adx_out_pan_parameter_error[];
 void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2);
-M2C_UNK GXFlush();
-M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
-M2C_UNK run_sequence__6TLobbyFv();
+s32 GXFlush();
+s32 TLobby__sub_803CA8B4(Ent_803C9608 *);
+s32 run_sequence__6TLobbyFv();
 extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7564;
 void TLobby__sub_803C9608(void);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 notify_error__6TLobbyFPv(void *);
 void stop_audio_stream(u8 *arg0);
 struct SjMemoryBuffer;
 SjMemoryBuffer* sj_memory_buffer_create(void *, int);
@@ -1668,7 +1657,7 @@ void TLobby__sub_803CE544(void *, int);
 void cvFsSetDefDev__6TLobbyFPv(const char *);
 void TLobby__sub_803CFAA8(const char *, void *, int);
 void set_dvd_synchronous_read_mode(int, int, int, int);
-void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1);
+void TLobby__sub_803CB7F8(s32 arg0, s32 arg1);
 void* initialize_dvd_file_driver(void);
 void TLobby__sub_803D43B8(void);
 extern const char lbl_805E0D70[4];
@@ -1687,50 +1676,50 @@ extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
 void start_stream_playback__6TLobbyFPvi(Stream_803CA0C8 *self, s32 arg1);
-M2C_UNK set_message_and_notify__6TLobbyFPv(char *);
+s32 set_message_and_notify__6TLobbyFPv(char *);
 extern char adxm_idle_border_internal_error[];
 extern Cfg_803CBA58 lbl_804F9D80;
 
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75BC;
 void adxm_goto_mwidle_border__6TLobbyFv(void);
-M2C_UNK GXFlush();
-M2C_UNK TLobby__sub_803C97F4(void *, void *, void *);
-M2C_UNK TLobby__sub_803CA8B4(Ent_803C9608 *);
+s32 GXFlush();
+s32 TLobby__sub_803C97F4(void *, void *, void *);
+s32 TLobby__sub_803CA8B4(Ent_803C9608 *);
 s32 TLobby__sub_803CBF10(int);
-M2C_UNK run_sequence__6TLobbyFv();
+s32 run_sequence__6TLobbyFv();
 extern Ent_803C9608 adx_stream_player_pool[16];
 extern s32 lbl_805D7540;
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7564;
 extern s32 lbl_805D7570;
 s32 TLobby__sub_803C9358(u8 *arg0);
-M2C_UNK TLobby__sub_803C97F4(void *, void *, void *);
-M2C_UNK TLobby__sub_803CC030(int, int);
+s32 TLobby__sub_803C97F4(void *, void *, void *);
+s32 TLobby__sub_803CC030(int, int);
 extern s32 lbl_805D7540;
 extern s32 lbl_805D7560;
 extern s32 lbl_805D7570;
 void TLobby__sub_803C94DC(u8 *arg0, s32 arg1);
-M2C_UNK reset_flag__6TLobbyFPv(int);
-M2C_UNK TLobby__sub_803CC030(int, int);
-M2C_UNK dispatch_packet__6TLobbyFv(int, int);
+s32 reset_flag__6TLobbyFPv(int);
+s32 TLobby__sub_803CC030(int, int);
+s32 dispatch_packet__6TLobbyFv(int, int);
 extern s32 lbl_805D7540;
 void set_param_and_notify__6TLobbyFPvi(void *, int);
 void TLobby__sub_803C0758(void *);
 void TLobby__sub_803C9E38(Obj_803C9E38 *arg0, VObj_803C9E38 *arg1);
-M2C_UNK reset_flag__6TLobbyFPv(int);
-M2C_UNK TLobby__sub_803CC030(int, int);
-M2C_UNK dispatch_packet__6TLobbyFv(int, int);
-M2C_UNK memset(void *, int, int);
-M2C_UNK reset_entry__6TLobbyFPv(void *);
-M2C_UNK clear_entry__6TLobbyFi(void *);
-M2C_UNK unregister_si_polling__6TLobbyFPv(void *);
+s32 reset_flag__6TLobbyFPv(int);
+s32 TLobby__sub_803CC030(int, int);
+s32 dispatch_packet__6TLobbyFv(int, int);
+s32 memset(void *, int, int);
+s32 reset_entry__6TLobbyFPv(void *);
+s32 clear_entry__6TLobbyFi(void *);
+s32 unregister_si_polling__6TLobbyFPv(void *);
 extern RecoveredCallback_2be3cacebb2e lbl_805D7574;
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *TLobby__sub_803C0848(void *, s32, void *);
 void TLobby__sub_803CA194(Obj_803CA194 *arg0);
 void *run_step_5210__6TLobbyFv(void *, s32);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern Ent_803C9608 adx_stream_player_pool[16];
 Ch_803CA3C4 *adx_create_stream_player(s32 n, s32 base, s32 size);
 }
@@ -1763,22 +1752,22 @@ void set_rate_mode__6TLobbyFi(s32 arg0);
 s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void update_receive_check__6TLobbyFPv(u8 *arg0);
 u32 decode_adx_mono_blocks(int, int, int, void *, int, int);
-M2C_UNK run_callbacks_group2__6TLobbyFv();
-M2C_UNK set_callback_params__6TLobbyFii();
+s32 run_callbacks_group2__6TLobbyFv();
+s32 set_callback_params__6TLobbyFii();
 u32 dispatch_receive_update__6TLobbyFv(int, int, int, void *, int, void *, int, int);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 s32 notify_field_4__6TLobbyFPv(int);
 s32 send_packet_by_id__6TLobbyFPv(int);
 s32 send_with_offset4__6TLobbyFPv(int);
-M2C_UNK set_params__6TLobbyFii();
-M2C_UNK trigger_sub_task__6TLobbyFv(int);
+s32 set_params__6TLobbyFii();
+s32 trigger_sub_task__6TLobbyFv(int);
 
 void set_field98__6TLobbyFPvc(u8 *arg0, s8 arg1) {
-    M2C_FIELD(arg0, s8 *, 0x98) = arg1;
+    *(s8 *)((s8 *)arg0 + 0x98) = arg1;
 }
 
 void TLobby__sub_803C9350(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x88) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x88) = arg1;
 }
 
 #pragma dont_inline off
@@ -1806,17 +1795,17 @@ s32 TLobby__sub_803C9358(u8 *arg0) {
     s32 save;
     s32 spC;
     s32 sp8;
-    if (M2C_FIELD(arg0, s8 *, 0x72) == 0) {
+    if (*(s8 *)((s8 *)arg0 + 0x72) == 0) {
         return 0;
     }
-    ret = TLobby__sub_803CBF10(M2C_FIELD(arg0, s32 *, 0xC));
+    ret = TLobby__sub_803CBF10(*(s32 *)((s8 *)arg0 + 0xC));
     inl_803C9608();
     save = lbl_805D7560;
     lbl_805D7560 = 0;
     TLobby__sub_803C97F4(arg0, &spC, &sp8);
     lbl_805D7560 = save;
-    M2C_FIELD(arg0, s32 *, 0x9C) = (s32)((f32)lbl_805D7570 * ((f32)spC / (f32)sp8));
-    M2C_FIELD(arg0, s32 *, 0xA0) = lbl_805D7540;
+    *(s32 *)((s8 *)arg0 + 0x9C) = (s32)((f32)lbl_805D7570 * ((f32)spC / (f32)sp8));
+    *(s32 *)((s8 *)arg0 + 0xA0) = lbl_805D7540;
     return ret;
 }
 
@@ -1833,29 +1822,29 @@ void TLobby__sub_803C94DC(u8 *arg0, s32 arg1) {
     s32 sp8;
     s32 st;
     s32 save;
-    st = M2C_FIELD(arg0, s8 *, 1);
-    if (arg1 != M2C_FIELD(arg0, s8 *, 0x72)) {
+    st = *(s8 *)((s8 *)arg0 + 1);
+    if (arg1 != *(s8 *)((s8 *)arg0 + 0x72)) {
         init_once__6TLobbyFv();
-        M2C_FIELD(arg0, s8 *, 0x72) = arg1;
+        *(s8 *)((s8 *)arg0 + 0x72) = arg1;
         if (st == 3 || st == 4) {
             if (arg1 == 1) {
-                TLobby__sub_803CC030(M2C_FIELD(arg0, s32 *, 0xC), 0);
+                TLobby__sub_803CC030(*(s32 *)((s8 *)arg0 + 0xC), 0);
             } else {
-                TLobby__sub_803CC030(M2C_FIELD(arg0, s32 *, 0xC), 1);
-                M2C_FIELD(arg0, s32 *, 0xA0) = lbl_805D7540;
+                TLobby__sub_803CC030(*(s32 *)((s8 *)arg0 + 0xC), 1);
+                *(s32 *)((s8 *)arg0 + 0xA0) = lbl_805D7540;
             }
             save = lbl_805D7560;
             lbl_805D7560 = 0;
             TLobby__sub_803C97F4(arg0, &spC, &sp8);
             lbl_805D7560 = save;
-            M2C_FIELD(arg0, s32 *, 0x9C) = (s32)((f32)lbl_805D7570 * ((f32)spC / (f32)sp8));
+            *(s32 *)((s8 *)arg0 + 0x9C) = (s32)((f32)lbl_805D7570 * ((f32)spC / (f32)sp8));
         }
         release_ref__6TLobbyFv();
     }
 }
 
 s16 get_field_60__6TLobbyFPv(u8 *arg0) {
-    return M2C_FIELD(arg0, s16 *, 0x60);
+    return *(s16 *)((s8 *)arg0 + 0x60);
 }
 
 void TLobby__sub_803C9608(void) {
@@ -1878,20 +1867,20 @@ void TLobby__sub_803C9608(void) {
 }
 
 void set_field_6d__6TLobbyFPvc(u8 *arg0, s8 arg1) {
-    M2C_FIELD(arg0, s8 *, 0x6D) = arg1;
+    *(s8 *)((s8 *)arg0 + 0x6D) = arg1;
 }
 
 void TLobby__sub_803C96A8(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s32 *, 0x38) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x38) = arg1;
 }
 
 s16 TLobby__sub_803C96B0(u8 *arg0) {
-    return M2C_FIELD(arg0, s16 *, 0x40);
+    return *(s16 *)((s8 *)arg0 + 0x40);
 }
 
 void set_field_40_and_notify__6TLobbyFPvs(u8 *arg0, s16 arg1) {
-    M2C_FIELD(arg0, s16 *, 0x40) = arg1;
-    trigger_sub_task__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0xC)));
+    *(s16 *)((s8 *)arg0 + 0x40) = arg1;
+    trigger_sub_task__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)));
 }
 
 s16 TLobby__sub_803C96E0(Obj_803C96E0 *self, s32 i) {
@@ -1908,22 +1897,22 @@ void adxt_set_out_pan__6TLobbyFPvis(S_803C96F0 *arg0, s32 arg1, s16 arg2) {
 }
 
 s32 TLobby__sub_803C9740(u8 *arg0) {
-    if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return send_with_offset4__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
+    if ((s8) *(u8 *)((s8 *)arg0 + 1) >= 2) {
+        return send_with_offset4__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
     }
     return 0;
 }
 
 s32 apply_if_v2__6TLobbyFPv(u8 *arg0) {
-    if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return notify_field_4__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
+    if ((s8) *(u8 *)((s8 *)arg0 + 1) >= 2) {
+        return notify_field_4__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
     }
     return 0;
 }
 
 s32 TLobby__sub_803C97B8(u8 *arg0) {
-    if ((s8) M2C_FIELD(arg0, u8 *, 1) >= 2) {
-        return send_packet_by_id__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
+    if ((s8) *(u8 *)((s8 *)arg0 + 1) >= 2) {
+        return send_packet_by_id__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
     }
     return 0;
 }
@@ -1961,38 +1950,38 @@ void stop_audio_stream(u8 *arg0) {
     u8 *temp_r4;
     u8 *temp_r4_2;
     u8 *temp_r4_3;
-    if (M2C_FIELD(arg0, void **, 8) != NULL) {
-        TLobby__sub_803C89C4((u8 *)(M2C_FIELD(arg0, void **, 8)));
-        TLobby__sub_803C8B38((u8 *)((int) (M2C_FIELD(arg0, u32 *, 8))));
-        temp_r3 = M2C_FIELD(arg0, void ***, 0x14);
+    if (*(void **)((s8 *)arg0 + 8) != NULL) {
+        TLobby__sub_803C89C4((u8 *)(*(void **)((s8 *)arg0 + 8)));
+        TLobby__sub_803C8B38((u8 *)((int) (*(u32 *)((s8 *)arg0 + 8))));
+        temp_r3 = *(void ***)((s8 *)arg0 + 0x14);
         if (temp_r3 != NULL) {
             temp_r4 = (u8 *)(*temp_r3);
-            M2C_FIELD(temp_r4, M2C_UNK (**)(void *, void *), 0x14)(temp_r3, temp_r4);
+            (*(s32 (**)(void *, void *))((s8 *)temp_r4 + 0x14))(temp_r3, temp_r4);
         }
-        M2C_FIELD(arg0, u32 *, 8) = 0U;
+        *(u32 *)((s8 *)arg0 + 8) = 0U;
     }
     init_once__6TLobbyFv();
-    if ((s32) M2C_FIELD(arg0, u8 *, 2) == 4) {
-        lsc_stop((LscStream*) (M2C_FIELD(arg0, s32 *, 0x94)));
-        temp_r3_2 = M2C_FIELD(arg0, void ***, 0x14);
+    if ((s32) *(u8 *)((s8 *)arg0 + 2) == 4) {
+        lsc_stop((LscStream*) (*(s32 *)((s8 *)arg0 + 0x94)));
+        temp_r3_2 = *(void ***)((s8 *)arg0 + 0x14);
         if (temp_r3_2 != NULL) {
             temp_r4_2 = (u8 *)(*temp_r3_2);
-            M2C_FIELD(temp_r4_2, M2C_UNK (**)(void *, void *), 0x14)(temp_r3_2, temp_r4_2);
+            (*(s32 (**)(void *, void *))((s8 *)temp_r4_2 + 0x14))(temp_r3_2, temp_r4_2);
         }
     }
     init_once__6TLobbyFv();
-    dispatch_packet__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
-    TLobby__sub_803CC030((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
-    reset_flag__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
-    if ((s32) M2C_FIELD(arg0, u8 *, 2) == 2) {
-        temp_r3_3 = M2C_FIELD(arg0, void ***, 0x14);
+    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    reset_flag__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    if ((s32) *(u8 *)((s8 *)arg0 + 2) == 2) {
+        temp_r3_3 = *(void ***)((s8 *)arg0 + 0x14);
         if (temp_r3_3 != NULL) {
             temp_r4_3 = (u8 *)(*temp_r3_3);
-            M2C_FIELD(temp_r4_3, M2C_UNK (**)(void *, void *), 0xC)(temp_r3_3, temp_r4_3);
+            (*(s32 (**)(void *, void *))((s8 *)temp_r4_3 + 0xC))(temp_r3_3, temp_r4_3);
         }
     }
-    M2C_FIELD(arg0, void ***, 0x14) = NULL;
-    M2C_FIELD(arg0, s8 *, 1) = 0;
+    *(void ***)((s8 *)arg0 + 0x14) = NULL;
+    *(s8 *)((s8 *)arg0 + 1) = 0;
     release_ref__6TLobbyFv();
     release_ref__6TLobbyFv();
 }
@@ -2003,18 +1992,18 @@ void TLobby__sub_803C9DB4(u8 *arg0) {
     void **temp_r3;
     u8 *temp_r4;
     init_once__6TLobbyFv();
-    dispatch_packet__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
-    TLobby__sub_803CC030((int) (M2C_FIELD(arg0, s32 *, 0xC)), (int) (0));
-    reset_flag__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
-    if ((s32) M2C_FIELD(arg0, u8 *, 2) == 2) {
-        temp_r3 = M2C_FIELD(arg0, void ***, 0x14);
+    dispatch_packet__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    TLobby__sub_803CC030((int) (*(s32 *)((s8 *)arg0 + 0xC)), (int) (0));
+    reset_flag__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    if ((s32) *(u8 *)((s8 *)arg0 + 2) == 2) {
+        temp_r3 = *(void ***)((s8 *)arg0 + 0x14);
         if (temp_r3 != NULL) {
             temp_r4 = (unsigned char *) (*temp_r3);
-            M2C_FIELD(temp_r4, M2C_UNK (**)(void *), 0xC)(temp_r3);
+            (*(s32 (**)(void *))((s8 *)temp_r4 + 0xC))(temp_r3);
         }
     }
-    M2C_FIELD(arg0, void ***, 0x14) = NULL;
-    M2C_FIELD(arg0, s8 *, 1) = 0;
+    *(void ***)((s8 *)arg0 + 0x14) = NULL;
+    *(s8 *)((s8 *)arg0 + 1) = 0;
     release_ref__6TLobbyFv();
 }
 
@@ -2347,16 +2336,16 @@ s32 TLobby__sub_803BFEE8(int);
 s32 notify_field_4_alt__6TLobbyFPv(int);
 s32 send_packet_by_id_2__6TLobbyFPv(int);
 s32 TLobby__sub_803BFFC0(int);
-M2C_UNK TLobby__sub_803BFFFC(int, void *, void *);
-M2C_UNK set_network_result__6TLobbyFPvi(int, int);
+s32 TLobby__sub_803BFFFC(int, void *, void *);
+s32 set_network_result__6TLobbyFPvi(int, int);
 s32 TLobby__sub_803C07E8(int);
-M2C_UNK set_packet_flags__6TLobbyFPvi(void *, int);
+s32 set_packet_flags__6TLobbyFPvi(void *, int);
 void format_number_pair__6TLobbyFiiPvi(s32, s32, char *, s32);
-M2C_UNK run_step_4430__6TLobbyFv(int, int);
-M2C_UNK TLobby__sub_803CBF0C(int, int);
-M2C_UNK TLobby__sub_803CBF30(int, int);
-M2C_UNK TLobby__sub_803CBF90(int, int);
-M2C_UNK TLobby__sub_803CBFB0(int, int);
+s32 run_step_4430__6TLobbyFv(int, int);
+s32 TLobby__sub_803CBF0C(int, int);
+s32 TLobby__sub_803CBF30(int, int);
+s32 TLobby__sub_803CBF90(int, int);
+s32 TLobby__sub_803CBFB0(int, int);
 struct Conn_803CAEB4;
 void TLobby__sub_803CAEB4(Conn_803CAEB4 *arg0);
 extern char adx_decoder_channel_count_error[];
@@ -2367,8 +2356,8 @@ extern char adx_decoder_channel_count_error[];
 #pragma dont_inline on
 void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
 #define arg0 ((u8 *)self)
-    M2C_UNK TLobby__sub_803CBF50(s32, s32, s32);
-    M2C_UNK trigger_sub_task__6TLobbyFv(int, int);
+    s32 TLobby__sub_803CBF50(s32, s32, s32);
+    s32 trigger_sub_task__6TLobbyFv(int, int);
     s32 t = self->f4;
     s32 k;
     s32 n1;
@@ -2468,8 +2457,6 @@ void TLobby__sub_803CAB38(Strm_803CAB38 *self) {
 #pragma dont_inline on
 #pragma push
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
 
 extern "C" {
 
@@ -2508,14 +2495,14 @@ struct Conn_803CAEB4
   s32 fA4;
 };
 s32 send_packet_by_id__6TLobbyFPv(int);
-M2C_UNK set_field_44__6TLobbyFPvi(int, int);
-M2C_UNK set_field_40__6TLobbyFPvi(int, int);
-M2C_UNK set_field_3c__6TLobbyFPvi(int, int);
+s32 set_field_44__6TLobbyFPvi(int, int);
+s32 set_field_40__6TLobbyFPvi(int, int);
+s32 set_field_3c__6TLobbyFPvi(int, int);
 s32 TLobby__sub_803C0010(int);
-M2C_UNK process_audio_stream_input(int);
-M2C_UNK reset_flag__6TLobbyFPv(int);
+s32 process_audio_stream_input(int);
+s32 reset_flag__6TLobbyFPv(int);
 void TLobby__sub_803C0758(void *);
-M2C_UNK set_network_result__6TLobbyFPvi(int, int);
+s32 set_network_result__6TLobbyFPvi(int, int);
 s32 TLobby__sub_803C07E8(int);
 s32 parse_packet_header_len__6TLobbyFPviPv(u8 *, s32, s16 *);
 s32 find_terminator_index__6TLobbyFPviPv(u8 *, s32, s16 *);
@@ -2601,11 +2588,11 @@ void TLobby__sub_803CAEB4(Conn_803CAEB4 *o) {
 void TLobby__sub_803CB194(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r31;
-    temp_r31 = (u8 *)(M2C_FIELD(arg0, u8 **, 8));
-    temp_r3 = send_with_offset4_alt__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 4)));
-    if ((s8) M2C_FIELD(arg0, u8 *, 0x6C) == 0) {
-        set_field_3c__6TLobbyFPvi((int) (M2C_FIELD(arg0, s32 *, 4)), (int) (-1));
-        set_scroll_position__6TLobbyFPvi((u8 *)((void *) (M2C_FIELD(arg0, u8 **, 8))), (int) (0x7FFFFFFF));
+    temp_r31 = (u8 *)(*(u8 **)((s8 *)arg0 + 8));
+    temp_r3 = send_with_offset4_alt__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 4)));
+    if ((s8) *(u8 *)((s8 *)arg0 + 0x6C) == 0) {
+        set_field_3c__6TLobbyFPvi((int) (*(s32 *)((s8 *)arg0 + 4)), (int) (-1));
+        set_scroll_position__6TLobbyFPvi((u8 *)((void *) (*(u8 **)((s8 *)arg0 + 8))), (int) (0x7FFFFFFF));
         return;
     }
     set_scroll_offset__6TLobbyFPvi(temp_r31, temp_r3 / 2048);
@@ -2649,72 +2636,72 @@ void update_receive_check__6TLobbyFPv(u8 *arg0) {
     u32 temp_r0;
     u32 temp_r3;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 1) {
-        M2C_FIELD(arg0, s32 *, 0xC) = 2;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 1) {
+        *(s32 *)((s8 *)arg0 + 0xC) = 2;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 2) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x14) == 1) {
-            M2C_FIELD(arg0, u32 *, 0x10) = decode_adx_mono_blocks((int) (M2C_FIELD(arg0, s32 *, 0x18)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x28), (int) (M2C_FIELD(arg0, s16 *, 0x30)), (int) (M2C_FIELD(arg0, s16 *, 0x32)));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 2) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x14) == 1) {
+            *(u32 *)((s8 *)arg0 + 0x10) = decode_adx_mono_blocks((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x28), (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
         } else {
-            M2C_FIELD(arg0, u32 *, 0x10) = dispatch_receive_update__6TLobbyFv((int) (M2C_FIELD(arg0, s32 *, 0x18)), (int) (M2C_FIELD(arg0, s32 *, 0x1C)), (int) (M2C_FIELD(arg0, s32 *, 0x20)), (void *) (arg0 + 0x28), (int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg0 + 0x2C), (int) (M2C_FIELD(arg0, s16 *, 0x30)), (int) (M2C_FIELD(arg0, s16 *, 0x32)));
-            temp_r0 = M2C_FIELD(arg0, u32 *, 0x10);
+            *(u32 *)((s8 *)arg0 + 0x10) = dispatch_receive_update__6TLobbyFv((int) (*(s32 *)((s8 *)arg0 + 0x18)), (int) (*(s32 *)((s8 *)arg0 + 0x1C)), (int) (*(s32 *)((s8 *)arg0 + 0x20)), (void *) (arg0 + 0x28), (int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) (arg0 + 0x2C), (int) (*(s16 *)((s8 *)arg0 + 0x30)), (int) (*(s16 *)((s8 *)arg0 + 0x32)));
+            temp_r0 = *(u32 *)((s8 *)arg0 + 0x10);
             temp_r3 = temp_r0 >> 0x1FU;
             if ((s32) (((temp_r0 & 1) ^ temp_r3) - temp_r3) == 1) {
                 lbl_805D7588 = 1;
             }
         }
-        M2C_FIELD(arg0, s32 *, 0xC) = 3;
+        *(s32 *)((s8 *)arg0 + 0xC) = 3;
     }
 }
 
 s32 get_size__6TLobbyFPv(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x10);
+    return *(s32 *)((s8 *)arg0 + 0x10);
 }
 
 void reset_field_0C__6TLobbyFPv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 3) {
-        M2C_FIELD(arg0, s32 *, 0xC) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 3) {
+        *(s32 *)((s8 *)arg0 + 0xC) = 0;
     }
 }
 
 void reset_client_state__6TLobbyFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC) = 0;
     memset((void *) (arg0 + 0x28), (int) (0), (int) (8));
 }
 
 void TLobby__sub_803CB4A4(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x10) = 0;
-        M2C_FIELD(arg0, s32 *, 0xC) = 1;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 0) {
+        *(s32 *)((s8 *)arg0 + 0x10) = 0;
+        *(s32 *)((s8 *)arg0 + 0xC) = 1;
     }
 }
 
 s32 post_request__6TLobbyFPviiii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x14) = 2;
-        M2C_FIELD(arg0, s32 *, 0x18) = arg1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-        M2C_FIELD(arg0, s32 *, 0x20) = arg3;
-        M2C_FIELD(arg0, s32 *, 0x24) = arg4;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 0) {
+        *(s32 *)((s8 *)arg0 + 0x14) = 2;
+        *(s32 *)((s8 *)arg0 + 0x18) = arg1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+        *(s32 *)((s8 *)arg0 + 0x20) = arg3;
+        *(s32 *)((s8 *)arg0 + 0x24) = arg4;
         return 1;
     }
     return 0;
 }
 
 s32 try_post_command__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x14) = 1;
-        M2C_FIELD(arg0, s32 *, 0x18) = arg1;
-        M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-        M2C_FIELD(arg0, s32 *, 0x20) = arg3;
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC) == 0) {
+        *(s32 *)((s8 *)arg0 + 0x14) = 1;
+        *(s32 *)((s8 *)arg0 + 0x18) = arg1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+        *(s32 *)((s8 *)arg0 + 0x20) = arg3;
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
         return 1;
     }
     return 0;
 }
 
 s32 get_client_count__6TLobbyFPv(u8 *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0xC);
+    return *(s32 *)((s8 *)arg0 + 0xC);
 }
 
 void clear_record_data__6TLobbyFPv(s32 *arg0) {
@@ -2725,10 +2712,10 @@ void clear_record_data__6TLobbyFPv(s32 *arg0) {
 }
 
 void TLobby__sub_803CB570(u8 *arg0, u8 *arg1, s16 *arg2) {
-    M2C_FIELD(arg0, s16 *, 0x28) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 0x2A) = (s16) *arg2;
-    M2C_FIELD(arg0, s16 *, 0x2C) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 0x2C) = (s16) M2C_FIELD(arg1, s16 *, 2);
+    *(s16 *)((s8 *)arg0 + 0x28) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 0x2A) = (s16) *arg2;
+    *(s16 *)((s8 *)arg0 + 0x2C) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s16 *)((s8 *)arg0 + 0x2C) = (s16) *(s16 *)((s8 *)arg1 + 2);
 }
 
 #pragma push
@@ -2779,7 +2766,7 @@ void TLobby__sub_803CB74C(s32 *arg0) {
     }
 }
 
-void TLobby__sub_803CB7F8(M2C_UNK arg0, s32 arg1) {
+void TLobby__sub_803CB7F8(s32 arg0, s32 arg1) {
     notify_error__6TLobbyFPv((void *) (arg1));
 }
 

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8036B2E8 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
 struct Obj_8036B340 { u8 pad0[0x1C]; u32 base; s32 t[4]; };
@@ -17,13 +13,13 @@ struct Mgr_8036B424 {
 };
 
 extern "C" {
-M2C_UNK copy_symbol_chat_entry__6TLobbyFPvPv(s32, s32);
-M2C_UNK TLobby__sub_8036B1AC(s32);
+s32 copy_symbol_chat_entry__6TLobbyFPvPv(s32, s32);
+s32 TLobby__sub_8036B1AC(s32);
 void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-extern M2C_UNK lbl_804F3640[];
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 free__11TOBoss4RockFUi(s32);
+extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1);
 void *__nw__7TObjectFUl(int);
@@ -34,8 +30,8 @@ void TLobby__sub_8036B510(void);
 void queue_destruction__7TObjectFv(void *);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK TLobby__sub_8036B1AC(s32);
-extern M2C_UNK lbl_804F3640[];
+s32 TLobby__sub_8036B1AC(s32);
+extern s32 lbl_804F3640[];
 extern u32 slot_entity_dispatcher_instance;
 Mgr_8036B424 *TLobby__sub_8036B424(Mgr_8036B424 *arg0, void * _w1);
 }
@@ -44,7 +40,7 @@ extern "C" {
 
 void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
-M2C_UNK TLobby__sub_8036B1AC(s32);
+s32 TLobby__sub_8036B1AC(s32);
 void start_entry_timer__6TLobbyFPvUsi(Obj_8036B2E8 *arg0, u16 arg1, s32 arg2);
 void TLobby__sub_8036B340(Obj_8036B340 *arg0);
 
@@ -67,7 +63,7 @@ void dispatch_by_index__6TLobbyFUsi(u16 arg0, s32 arg1) {
 }
 void send_slot_entity__6TLobbyFPvUsi(void *arg0, u16 arg1, s32 arg2) {
     u32 temp_r6;
-    temp_r6 = M2C_FIELD(arg0, u32 *, 0x1C);
+    temp_r6 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r6 != 0U) {
         copy_symbol_chat_entry__6TLobbyFPvPv(arg2, temp_r6 + (arg1 * 0x3C));
         return;
@@ -95,8 +91,8 @@ void TLobby__sub_8036B340(Obj_8036B340 *arg0) {
 }
 void *destroy_boss4_rock__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F3640;
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x1C));
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F3640;
+        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x1C));
         (*(s32 *)&slot_entity_dispatcher_instance) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

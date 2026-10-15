@@ -1,13 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_8031B170_lbl_804E8880
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xCC];
 };
 
-typedef s32 M2C_UNK;
 struct Base_8031B198 { u8 pad[0xC]; };
 
 struct Obj_8031B198 : Base_8031B198 {
@@ -20,8 +18,8 @@ extern "C" {
 extern RecoveredGlobal_8031B170_lbl_804E8880 lbl_804E8880;
 extern const f32 lbl_805DF38C;
 void set_entry_value_clamped__18TObjEneMe3SinowZoaFif(s32 arg0, f32 farg0);
-M2C_UNK TLobby__sub_8001FE7C(u32, M2C_UNK);
-M2C_UNK free__11TOBoss4RockFUi(u32);
+s32 TLobby__sub_8001FE7C(u32, s32);
+s32 free__11TOBoss4RockFUi(u32);
 extern G_8031B198 lbl_80542FDC;
 extern u32 TObjEneMe3SinowZoa__data_805D6AD8;
 extern Obj_8031B198 *TObjEneMe3SinowZoa__data_805D6AE0;

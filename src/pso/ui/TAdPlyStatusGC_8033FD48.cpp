@@ -1,12 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8033FDB0_lbl_80478430
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x8];
 };
 
@@ -28,7 +24,7 @@ extern "C" {
 u32 get_instance__14TAdPlyStatusGCFii(s32 arg0, s32 arg1);
 int get_player_index__14TAdPlyStatusGCFv(void);
 u32 TAdPlyStatusGC__ct(u32, s32, s32);
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 
 extern u32 ply_status_gc_instance;
 

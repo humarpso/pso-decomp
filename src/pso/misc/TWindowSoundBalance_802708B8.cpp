@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void handle_cancel__19TWindowSoundBalanceFPv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 is_active__17TWindowOptionCtrlFPv();
 
 void handle_cancel__19TWindowSoundBalanceFPv(void *arg0) {
     if (is_active__17TWindowOptionCtrlFPv() == 0) {
         play_sound_effect(0x52F16, 0, 0, 0);
-        M2C_FIELD(arg0, u8 *, 0x60) = (u8) (M2C_FIELD(arg0, u8 *, 0x60) | 2);
+        *(u8 *)((s8 *)arg0 + 0x60) = (u8) (*(u8 *)((s8 *)arg0 + 0x60) | 2);
     }
 }
 

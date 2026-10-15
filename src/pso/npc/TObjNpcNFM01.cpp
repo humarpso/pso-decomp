@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_aa4667 { char pad[0x18]; };
 
@@ -86,11 +82,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_8014CBA8___vt__12TObjNpcNFM01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x174];
 };
 
@@ -98,11 +94,11 @@ extern "C" {
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
-extern M2C_UNK __vt__12TObjNpcNFM01[];
+extern s32 __vt__12TObjNpcNFM01[];
 extern s32 TObjNpcNFM01__name;
 extern s32 *TObjNpcNFM01__model_object;
 extern s32 TObjNpcNFM01__texture_handle;
-u8 *TObjNpcNFM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjNpcNFM01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *create_named_object(const char *name);
 void *load_gvm_texture_file(const char *name);
 extern u32 TObjNpcNFW00__named_object_resource;
@@ -124,13 +120,13 @@ void *TObjNpcNFW00__ct(void *, void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
-extern M2C_UNK __vt__12TObjNpcNFM01[];
+extern s32 __vt__12TObjNpcNFM01[];
 
 void *__dt__12TObjNpcNFM01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjNpcNFM01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjNpcNFM01;
         destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -142,14 +138,14 @@ void *__dt__12TObjNpcNFM01Fv(void *arg0, s16 arg1) {
 extern void *tl_04;
 
 typedef char RecoveredGlobal_8014CBA8___vt__12TObjNpcNFM01_size[sizeof(RecoveredGlobal_8014CBA8___vt__12TObjNpcNFM01) == 0x178 ? 1 : -1];
-u8 *TObjNpcNFM01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjNpcNFM01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8014CBA8___vt__12TObjNpcNFM01 *)&__vt__12TObjNpcNFM01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcNFM01__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8014CBA8___vt__12TObjNpcNFM01 *)&__vt__12TObjNpcNFM01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcNFM01__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) *TObjNpcNFM01__model_object;
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) TObjNpcNFM01__texture_handle;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *TObjNpcNFM01__model_object;
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) TObjNpcNFM01__texture_handle;
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }

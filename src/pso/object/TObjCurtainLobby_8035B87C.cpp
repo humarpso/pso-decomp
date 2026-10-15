@@ -8,12 +8,8 @@ extern const char *bm_obj_lobby_curtain_model_names[2];
 extern BmlResourceDescriptor lobby_curtain_resource_descriptor;
 extern const char *bm_obj_lobby_curtain_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8035BACC_lbl_804F1D98 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8035BACC_lbl_804F1D98 { s32 value; u8 remaining[0xC]; };
 struct TObjBase8035BB_8035BB24 { char pad[0x18]; };
 struct TObjCurtainLobby8035BB_8035BB24 : TObjBase8035BB_8035BB24 {
     virtual void v0(s32);
@@ -42,15 +38,15 @@ extern "C" {
 
 void TObjCurtainLobby__sub_8035B8B4(void);
 void render__16TObjCurtainLobbyFv(u8 *arg0);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 post_translate_matrix(void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 draw_ginja_object(int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 set_global_param__8TObjFishFi(int);
 void close_dialog_window__16TObjCurtainLobbyFv(void);
 void *create__16TObjCurtainLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
@@ -65,8 +61,8 @@ void load_resources__16TObjCurtainLobbyFv(void);
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
-M2C_UNK init_map_object_base();
-extern M2C_UNK __vt__16TObjCurtainLobby[];
+s32 init_map_object_base();
+extern s32 __vt__16TObjCurtainLobby[];
 extern s32 TObjCurtainLobby__class_name;
 
 #pragma push
@@ -90,17 +86,17 @@ void TObjCurtainLobby__sub_8035B8B4(void) {  }
 void render__16TObjCurtainLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, u32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
-            temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
+            temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -165,7 +161,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
 }
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCurtainLobby;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -175,17 +171,17 @@ void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
 }
 void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     init_map_object_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjCurtainLobby;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjCurtainLobby__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjCurtainLobby;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjCurtainLobby__class_name;
     ((TObjCurtainLobby8035BB_8035BB24 *)arg0)->ct(arg2);
     if (((s32 (*)(void *))get_lobby_theme_clamped__16TObjCurtainLobbyFv)(arg0) == 0xC) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 3;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((void *)TObjCurtainLobby__model_resource, void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F5C;
+    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) lbl_805D6F5C;
     return arg0;
 }
 

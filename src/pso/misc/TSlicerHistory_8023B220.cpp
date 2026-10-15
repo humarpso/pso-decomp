@@ -1,27 +1,24 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 extern const f32 lbl_805DC950;
 extern const f32 lbl_805DC94C;
 void run_task__14TSlicerHistoryFv(u8 *arg0);
 u32 query_game_join_id__10TObjPlayerFv(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(u32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK set_chunk_material_color(void *);
+s32 notify_fish_if_valid__10TObjPlayerFUi(u32);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(int);
+s32 set_chunk_material_color(void *);
 typedef struct { f32 r, g, b, a; } Col_8023B220;
 extern Col_8023B220 chunk_material_color_half_alpha_f32;
 extern s32 lbl_805D5660;
@@ -34,29 +31,29 @@ void render__14TSlicerHistoryFv(u8 *arg0);
 extern "C" {
 
 void render__14TSlicerHistoryFv(u8 *arg0) {
-    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (M2C_FIELD(arg0, s32 *, 0x58))) == 0U) {
+    if (all_parents_unqueued_for_destruction__7TObjectFv() == 0 || query_game_join_id__10TObjPlayerFv((int) (*(s32 *)((s8 *)arg0 + 0x58))) == 0U) {
         return;
     }
     {
         lbl_805D5660 = model_render_flags;
-        Col_8023B220 col = M2C_FIELD(arg0, Col_8023B220 *, 0x3C);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x5C) != 0) {
+        Col_8023B220 col = *(Col_8023B220 *)((s8 *)arg0 + 0x3C);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x5C) != 0) {
             model_render_flags |= 0x10;
         } else {
             model_render_flags |= 0x20;
             col.r -= lbl_805DC948;
         }
-        if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && ((u32) M2C_FIELD(arg0, u32 *, 0x34) != 0U)) {
-            notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, u32 *, 0x38));
+        if (((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) && ((u32) *(u32 *)((s8 *)arg0 + 0x34) != 0U)) {
+            notify_fish_if_valid__10TObjPlayerFUi(*(u32 *)((s8 *)arg0 + 0x38));
             begin_effect_render__13TParticleCtrlFv();
             push_matrix();
             post_translate_matrix((void *) ((u8 *)(arg0) + 0x28));
-            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x20)));
-            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
+            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x20)));
+            rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
             scale_current_matrix((void *) ((u8 *)(arg0) + 0x4C));
             set_chunk_material_color((void *) (&col));
-            draw_ginja_object((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+            draw_ginja_object((int) (*(u32 *)((s8 *)arg0 + 0x34)));
             set_chunk_material_color((void *) (&chunk_material_color_half_alpha_f32));
             end_effect_render__13TParticleCtrlFv();
         }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -20,9 +16,9 @@ int is_key_active__16TKeyBoardControlFPv(void*);
 s32 realloc_buffer__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r3;
 
-    measure_text_overflow__19TWindowKeyBoardSoftFPv(M2C_FIELD(arg0, s32 *, 0x20));
+    measure_text_overflow__19TWindowKeyBoardSoftFPv(*(s32 *)((s8 *)arg0 + 0x20));
     temp_r3 = alloc_buffer__11TOBoss4RockFPv();
-    export_keyboard_text(M2C_FIELD(arg0, s32 *, 0x20), temp_r3);
+    export_keyboard_text(*(s32 *)((s8 *)arg0 + 0x20), temp_r3);
     return temp_r3;
 }
 

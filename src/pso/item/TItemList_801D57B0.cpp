@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Arr_801D5868 { s32 n; s32 e[1]; };
 struct Ent_801D598C { u8 d[0x10]; };
@@ -48,14 +43,14 @@ void __ct__7TObjectFP7TObject(void *);
 int copy_item_data__6TLobbyFPvPv(void*);
 void disallow_rendering__7TObjectFv(void *);
 
-extern M2C_UNK __vt__9TItemList[];
+extern s32 __vt__9TItemList[];
 extern void *TItemList__name;
 
 void *__ct__9TItemListFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TItemList;
-    M2C_FIELD(arg0, void **, 0x0) = TItemList__name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TItemList;
+    *(void **)((s8 *)arg0 + 0x0) = TItemList__name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
 }
@@ -88,7 +83,7 @@ u8 get_item_count__9TItemListFPv(void* p) { return *(u8*)((char*)p + 0x1c); }
 u16 TItemList__sub_801D58DC(void* p) { return *(u16*)((char*)p + 0x20); }
 
 void run_item_count_update__9TItemListFPv(u8 *arg0) {
-    ((M2C_UNK)((int)TItemList__sub_801D5854((Obj_801D5854 *)((int)((int) (M2C_FIELD(arg0, s32 *, 0x54)))), (s32)((int)((int) (((s8)get_item_count__9TItemListFPv(arg0))))))));
+    ((s32)((int)TItemList__sub_801D5854((Obj_801D5854 *)((int)((int) (*(s32 *)((s8 *)arg0 + 0x54)))), (s32)((int)((int) (((s8)get_item_count__9TItemListFPv(arg0))))))));
 }
 
 void TItemList__sub_801D591C(u8 *arg0) {

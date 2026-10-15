@@ -1,20 +1,16 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
-struct M2CCopy_8 { u8 bytes[0x8]; };
+struct ByteBlock_8 { u8 bytes[0x8]; };
 
-struct M2CCopy_20 { u8 bytes[0x20]; };
+struct ByteBlock_20 { u8 bytes[0x20]; };
 
 struct Row_800FAFE0 { u8 pad[0x40]; s32 identity; };
 
@@ -39,12 +35,12 @@ struct TFogCtrl_800FAE1C {
 typedef char RecoveredGlobal_800FAD08_TFogCtrl__data_80501188_size[sizeof(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_800FB8A0___vt__8TFogCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -122,7 +118,7 @@ struct Stack_800FBD74 {
     f32 sp24;
 };
 
-struct RecoveredGlobal_800FBB68_lbl_8049C670 { M2C_UNK value; u8 remaining[0x8C]; };
+struct RecoveredGlobal_800FBB68_lbl_8049C670 { s32 value; u8 remaining[0x8C]; };
 
 typedef char RecoveredGlobal_800FBB68_lbl_8049C670_size[sizeof(RecoveredGlobal_800FBB68_lbl_8049C670) == 0x90 ? 1 : -1];
 
@@ -199,10 +195,10 @@ struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
+s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 get_nth_view_player_id__11TCameraCtrlFi(int);
 void read_disc_file(void *, void *);
-M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
+s32 destroy_instance__22TQuestVmDownLoadServerFv();
 void create_instance__8TFogCtrlFv(void);
 s32 update_all__8TFogCtrlFii(int, int);
 s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -243,12 +239,12 @@ void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-M2C_UNK free__11TOBoss4RockFUi(void*);
+s32 free__11TOBoss4RockFUi(void*);
 FogParam_800FBC5C * alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK create__22TObjFogCollisionPoisonFv();
-M2C_UNK TObjFogCollisionPoison__sub_801533BC();
+s32 create__22TObjFogCollisionPoisonFv();
+s32 TObjFogCollisionPoison__sub_801533BC();
 void clear_state_array__22TObjFogCollisionPoisonFv(void);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 void __dl__7TObjectFPv(s32);
@@ -268,7 +264,7 @@ void set_scene_fog_distances(f32, f32);
 void set_scene_fog_type(s32);
 void reset_scene_fog(void);
 
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+extern s32 TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
@@ -280,7 +276,7 @@ extern u32 fog_entry_array;
 extern s32 fog_update_flags;
 extern E_800FC220 *small_font_metrics_table_ptr;
 extern s32 actor_frame_tick;
-extern M2C_UNK *tl_02;
+extern s32 *tl_02;
 
 #pragma push
 #pragma inline_depth(1)

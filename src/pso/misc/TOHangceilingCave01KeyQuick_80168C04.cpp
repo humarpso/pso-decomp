@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,16 +8,16 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80168C6C_lbl_804B2174 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80168C6C_lbl_804B2578 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x144];
 };
 
@@ -34,11 +30,11 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 reset_state(void *);
 extern RecoveredGlobal_80168C6C_lbl_804B2174 lbl_804B2174;
-extern M2C_UNK lbl_804B2578[];
+extern s32 lbl_804B2578[];
 extern s32 TOHangceilingCave01__model_archive;
 extern s32 turiten_singo_key_model_index;
 extern s32 hanging_ceiling_motion_index;
-u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -48,17 +44,17 @@ f32 TOHangceilingCave01KeyQuick__sub_80168D28(void);
 void TOHangceilingCave01KeyQuick__sub_80168D30(void);
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1);
 void set_scale__27TOHangceilingCave01KeyQuickFPvf(void* p, f32 v);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_motion_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_motion_object__10TObjPlayerFPvs(void *, s32);
 
-extern M2C_UNK lbl_804B2578[];
+extern s32 lbl_804B2578[];
 
 void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B2578;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B2578;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -70,19 +66,19 @@ void *destroy_hanging_object__27TOHangceilingCave01KeyQuickFPvs(void *arg0, s16 
 
 typedef char RecoveredGlobal_80168C6C_lbl_804B2174_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2174) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80168C6C_lbl_804B2578_size[sizeof(RecoveredGlobal_80168C6C_lbl_804B2578) == 0x148 ? 1 : -1];
-u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *init_base__27TOHangceilingCave01KeyQuickFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r4;
     construct_actor_base__10TObjPlayerFPvPv((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80168C6C_lbl_804B2578 *)&lbl_804B2578).value;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
-    M2C_FIELD(arg0, s32 *, 0xF8) = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) (TOHangceilingCave01__model_archive), (void *) (turiten_singo_key_model_index));
+    *(s32 *)((s8 *)arg0 + 0xF8) = get_bml_motion((void *) (TOHangceilingCave01__model_archive), (void *) (hanging_ceiling_motion_index));
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804B2174.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     reset_state((void *) (arg0));
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-    M2C_FIELD(temp_r4, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r4, s32 *, 0x18) | 0x1080);
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    *(s32 *)((s8 *)temp_r4 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r4 + 0x18) | 0x1080);
     return arg0;
 }
 

@@ -1,12 +1,8 @@
 #include "types.h"
 #pragma readonly_strings on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8025A95C_lbl_804CFA10 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -35,8 +31,8 @@ extern s32 lbl_805D63F0;
 void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx);
 void TWindowHelpItem__sub_8025A900(void);
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
+s32 __dl__FPv(void *);
+s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
 
 extern const UV_8025A650 lbl_8044F028[4] = {
     { 0.0f, 239.0f }, { 17.0f, 239.0f }, { 34.0f, 239.0f }, { 51.0f, 239.0f },
@@ -52,7 +48,7 @@ void *lbl_804CFA10[6] = {
 
 f32 get_item_star_row_width(u8 *arg0) {
     s32 var_r0;
-    var_r0 = M2C_FIELD(arg0, s32 *, 0x10);
+    var_r0 = *(s32 *)((s8 *)arg0 + 0x10);
     if (var_r0 < 0xA) {
         var_r0 = 0xA;
     }
@@ -127,7 +123,7 @@ void TWindowHelpItem__sub_8025A900(void) {  }
 
 void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 4) = lbl_804CFA10;
+        *(void ***)((s8 *)arg0 + 4) = lbl_804CFA10;
         destroy__20TWindowSubStatusDispFPvs((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -139,9 +135,9 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8025A95C_lbl_804CFA10_size[sizeof(RecoveredGlobal_8025A95C_lbl_804CFA10) == 0x18 ? 1 : -1];
 u8 *TWindowHelpItem__sub_8025A95C(u8 *arg0, s32 arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *) (arg0), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
+    *(s32 **)((s8 *)arg0 + 4) = &(*(RecoveredGlobal_8025A95C_lbl_804CFA10 *)&lbl_804CFA10).value;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
-    M2C_FIELD(arg0, s32 *, 0x10) = 0;
+    *(s32 *)((s8 *)arg0 + 0x10) = 0;
     return arg0;
 }
 

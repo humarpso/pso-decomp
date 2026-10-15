@@ -2,10 +2,6 @@
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #include <stddef.h>
 struct Stack_8029AA74 {
     f32 sp8;
@@ -13,7 +9,7 @@ struct Stack_8029AA74 {
 };
 
 struct RecoveredGlobal_8029AA74_lbl_804652A4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -43,17 +39,17 @@ void refresh_label__11TChCrEffTagFPv(u8 *arg0) {
     Stack_8029AA74 stack;
     s32 temp_r0;
     u32 temp_r3;
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x28);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x28);
     if (temp_r3 != 0U) {
         TChCrEffTagStr__sub_8029AED0((int) (temp_r3));
-        M2C_FIELD(arg0, u32 *, 0x28) = 0U;
+        *(u32 *)((s8 *)arg0 + 0x28) = 0U;
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TChCrEffTag__selected_heading;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) TChCrEffTag__selected_heading;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     if (temp_r0 >= 0) {
         stack.sp8 = lbl_805DDC90;
         stack.spC = lbl_805DDC94;
-        M2C_FIELD(arg0, u32 *, 0x28) = create_str__11TChCrEffTagFPvPvPv((void *) (arg0), (int) (M2C_FIELD(&lbl_804652A4.value, M2C_UNK *, (temp_r0 * 4))), (void *) (&stack.sp8));
+        *(u32 *)((s8 *)arg0 + 0x28) = create_str__11TChCrEffTagFPvPvPv((void *) (arg0), (int) (*(s32 *)((s8 *)(&lbl_804652A4.value) + (temp_r0 * 4))), (void *) (&stack.sp8));
     }
 }
 

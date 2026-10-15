@@ -1,17 +1,12 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8016D1A8_lbl_80441D84 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8C];
 };
 
 struct RecoveredGlobal_8016D2A4_lbl_80441D84 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8C];
 };
 
@@ -61,13 +56,13 @@ s32 get_current_floor();
 extern s32 local_client_id;
 void send_switch_changed__14TOKeyMachine01FPvi(Self_8016D148 *self, s32 flags);
 void reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK init_collision_body_parts(void *, void *, s32);
-M2C_UNK init_switch_id__5TOKeyFPv(void *);
+s32 refresh_collision_body_centers(void *);
+s32 init_collision_body_parts(void *, void *, s32);
+s32 init_switch_id__5TOKeyFPv(void *);
 void *TOKey__ct(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern void *__vt__14TOKeyGenericSw[];
-extern M2C_UNK lbl_804B2D30[];
+extern s32 lbl_804B2D30[];
 extern void *TOKeyGenericSw__shared_resource_ptrs[];
 extern s32 TOKeyGenericSw__name;
 extern u32 *TOKeyGenericSw__texture_lists;
@@ -85,30 +80,30 @@ void TOKeyMachine01__vt23(void);
 
 void *TOKeyGenericSw__ct(void *arg0, void *parent, void *source) {
     TOKey__ct(arg0, parent);
-    M2C_FIELD(arg0, void **, 0x18) = __vt__14TOKeyGenericSw;
-    M2C_FIELD(arg0, s32 *, 0) = TOKeyGenericSw__name;
+    *(void **)((s8 *)arg0 + 0x18) = __vt__14TOKeyGenericSw;
+    *(s32 *)((s8 *)arg0 + 0) = TOKeyGenericSw__name;
     ((VObj_8016CF5C *)arg0)->m5(source);
     init_switch_id__5TOKeyFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1], void **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, void **, 0xBC) = M2C_FIELD(M2C_FIELD(TOKeyGenericSw__shared_resource_ptrs[1], void **, 0x430), void **, 4);
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xBC), u32 *, 4) - lbl_805DB768;
-    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DB76C;
-    M2C_FIELD(arg0, u32 *, 0x24) = TOKeyGenericSw__texture_lists[1];
+    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x42C)) + 8);
+    *(void **)((s8 *)arg0 + 0xBC) = *(void **)((s8 *)(*(void **)((s8 *)TOKeyGenericSw__shared_resource_ptrs[1] + 0x430)) + 4);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB768;
+    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DB76C;
+    *(u32 *)((s8 *)arg0 + 0x24) = TOKeyGenericSw__texture_lists[1];
     init_collision_body_parts(arg0, lbl_804B2D30, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DB770;
-    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DB774;
-    if ((M2C_FIELD(arg0, s32 *, 0xD0) != 2) && (M2C_FIELD(arg0, f32 *, 0x68) < lbl_805DB778)) {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DB770;
+    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DB774;
+    if ((*(s32 *)((s8 *)arg0 + 0xD0) != 2) && (*(f32 *)((s8 *)arg0 + 0x68) < lbl_805DB778)) {
+        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
     }
-    M2C_FIELD(arg0, u8 *, 0xE8) = get_global_state__14TOKeyMachine01Fv();
-    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    *(u8 *)((s8 *)arg0 + 0xE8) = get_global_state__14TOKeyMachine01Fv();
+    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xF8) = 0;
     return arg0;
 }
 
@@ -118,7 +113,7 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
     s32 var_r31;
     s32 var_r3;
     var_r31 = 0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
     switch (temp_r0) {
     case 0:
         if (is_split_screen() == 1) {
@@ -126,7 +121,7 @@ s32 TOKeyMachine01__vt13(u8 *arg0) {
         } else {
             var_r3 = is_local_player_in_range__5TOKeyFPv((void *) (arg0));
         }
-        if (((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1) || (var_r3 == 1)) {
+        if (((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1) || (var_r3 == 1)) {
             var_r31 = 1;
         }
         break;
@@ -155,17 +150,17 @@ void TOKeyMachine01__vt17(s32 arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
-        temp_r3 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
-        temp_r3_2 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_2 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
-        temp_r3_3 = M2C_FIELD(&key_machine01_state_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_3 = *(s32 *)((s8 *)(&key_machine01_state_table.value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
             play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }
@@ -178,17 +173,17 @@ void TOKeyMachine01__vt16(s32 arg0) {
     s32 temp_r3_2;
     s32 temp_r3_3;
     if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 0x10) || (get_global_state__14TOKeyMachine01Fv() == 0x11))) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3 >= 0) {
             play_sound_effect(temp_r3, arg0 + 0x38, 0, 0);
         }
     } else if (((s32) enable_v2_features == 1) && ((get_global_state__14TOKeyMachine01Fv() == 1) || (get_global_state__14TOKeyMachine01Fv() == 2))) {
-        temp_r3_2 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_2 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_2 >= 0) {
             play_sound_effect(temp_r3_2, arg0 + 0x38, 0, 0);
         }
     } else {
-        temp_r3_3 = M2C_FIELD(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4));
+        temp_r3_3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_8016D2A4_lbl_80441D84 *)&key_machine01_state_table).value) + (get_global_state__14TOKeyMachine01Fv() * 4));
         if (temp_r3_3 >= 0) {
             play_sound_effect(temp_r3_3, arg0 + 0x38, 0, 0);
         }
@@ -197,20 +192,20 @@ void TOKeyMachine01__vt16(s32 arg0) {
 
 void TOKeyMachine01__vt15(u8 *arg0) {
     f32 temp_f1;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xF8) == 1) {
-        M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) + lbl_805DB780);
-        if (lbl_805DB784 <= M2C_FIELD(arg0, f32 *, 0xEC)) {
-            M2C_FIELD(arg0, s32 *, 0xF8) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) == 1) {
+        *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + lbl_805DB780);
+        if (lbl_805DB784 <= *(f32 *)((s8 *)arg0 + 0xEC)) {
+            *(s32 *)((s8 *)arg0 + 0xF8) = 0;
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) - lbl_805DB780);
-        if (M2C_FIELD(arg0, f32 *, 0xEC) <= lbl_805DB788) {
-            M2C_FIELD(arg0, s32 *, 0xF8) = 1;
+        *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) - lbl_805DB780);
+        if (*(f32 *)((s8 *)arg0 + 0xEC) <= lbl_805DB788) {
+            *(s32 *)((s8 *)arg0 + 0xF8) = 1;
         }
     }
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x6C);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x6C);
     if (temp_f1 < lbl_805DB788) {
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (temp_f1 - lbl_805DB78C);
+        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (temp_f1 - lbl_805DB78C);
     }
 }
 void TOKeyMachine01__vt14(Obj_8016D428 *self) {

@@ -1,6 +1,5 @@
 #include "types.h"
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct EqBase_802C3D38 { u8 pad[0x18]; };
 
 struct Eq_802C3D38 : EqBase_802C3D38 {
@@ -18,9 +17,6 @@ struct O_802C4698 { u8 pad[6]; E_802C4698 e[1]; };
 
 struct O_802C4688 { u8 pad[0x408]; u8 buf[1]; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Eq_802C3D38;
 struct E_802C4698;
 struct O_802C4698;
@@ -109,8 +105,8 @@ u8 get_field_374_state__10TObjPlayerFPv(void *);
 u8 get_field_374__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
 s32 get_ptr_4__10TObjPlayerFPv(s8 *);
-M2C_UNK reset(s32);
-M2C_UNK export_inventory_entry__10TObjPlayerFiPv(Item_802C3F74 *, s32);
+s32 reset(s32);
+s32 export_inventory_entry__10TObjPlayerFiPv(Item_802C3F74 *, s32);
 s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
@@ -153,7 +149,7 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 j;
     s32 k;
     set_flag_80000__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg1, s8 *, 0) = query_state_if_present__10TObjPlayerFPv(arg0, get_ptr_4__10TObjPlayerFPv((s8 *)arg1));
+    *(s8 *)((s8 *)arg1 + 0) = query_state_if_present__10TObjPlayerFPv(arg0, get_ptr_4__10TObjPlayerFPv((s8 *)arg1));
     hp = obj_getS16_32C(arg0);
     facing = obj_getS16_32E(arg0);
     for (i = 0; i != 0xD; i++) {
@@ -162,8 +158,8 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
             eq->on(1);
         }
     }
-    M2C_FIELD(arg1, s8 *, 1) = get_hp_material_points__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg1, s8 *, 2) = get_tp_materials_clamped__10TObjPlayerFPv(arg0);
+    *(s8 *)((s8 *)arg1 + 1) = get_hp_material_points__10TObjPlayerFPv(arg0);
+    *(s8 *)((s8 *)arg1 + 2) = get_tp_materials_clamped__10TObjPlayerFPv(arg0);
     set_flag_e7__10TObjPlayerFPvUc(arg1, get_field_374__10TObjPlayerFPv(arg0));
     set_flag_103__10TObjPlayerFPvUc(arg1, get_field_374_state__10TObjPlayerFPv(arg0));
     set_action_flags__10TObjPlayerFPvUc(arg1, get_inventory_state__10TObjPlayerFPv(arg0));
@@ -186,7 +182,7 @@ void export_character_data__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     }
     set_hp_clamped__10TObjPlayerFPvs(arg0, hp);
     set_facing__10TObjPlayerFPvs(arg0, facing);
-    M2C_FIELD(arg1, s8 *, 3) = TObjPlayer__sub_801AFD8C(arg0);
+    *(s8 *)((s8 *)arg1 + 3) = TObjPlayer__sub_801AFD8C(arg0);
     apply_pending_action__10TObjPlayerFii(arg0, arg1);
     copy_mag_level_to_record__10TObjPlayerFPvPv(arg0, arg1);
     copy_byte_339_to_record__10TObjPlayerFPvPv(arg0, arg1);

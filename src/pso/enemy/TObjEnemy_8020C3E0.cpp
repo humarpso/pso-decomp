@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rec_8020C458 { u8 p0[2]; s16 flags; u8 p1[0x44]; };
 
@@ -32,9 +28,9 @@ extern "C" {
 s32 mask_sub_flags__9TObjEnemyFPvi(void *arg0, s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = M2C_FIELD(arg0, void **, 0x80);
+    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
     if (temp_r5 != NULL) {
-        M2C_FIELD(temp_r5, s16 *, 2) = (s16) (M2C_FIELD(temp_r5, s16 *, 2) & arg1);
+        *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;
     }
     return 0;
@@ -43,9 +39,9 @@ s32 mask_sub_flags__9TObjEnemyFPvi(void *arg0, s32 arg1) {
 s32 set_event_source_flag(void *arg0, s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = M2C_FIELD(arg0, void **, 0x80);
+    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
     if (temp_r5 != NULL) {
-        M2C_FIELD(temp_r5, s16 *, 2) = (s16) (M2C_FIELD(temp_r5, s16 *, 2) | arg1);
+        *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) | arg1);
         return 1;
     }
     return 0;
@@ -54,9 +50,9 @@ s32 set_event_source_flag(void *arg0, s32 arg1) {
 s32 mask_object_set_row_flags(void *arg0, s32 arg1) {
     void *temp_r5;
 
-    temp_r5 = M2C_FIELD(arg0, void **, 0x80);
+    temp_r5 = *(void **)((s8 *)arg0 + 0x80);
     if (temp_r5 != NULL) {
-        M2C_FIELD(temp_r5, s16 *, 2) = (s16) (M2C_FIELD(temp_r5, s16 *, 2) & arg1);
+        *(s16 *)((s8 *)temp_r5 + 2) = (s16) (*(s16 *)((s8 *)temp_r5 + 2) & arg1);
         return 1;
     }
     return 0;

@@ -1,19 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 struct Item_8033EC40 { u8 b[0x24]; };
 
 struct O_8033EC40 { u8 pad[0x1C]; Item_8033EC40 *items; s32 n; };
 
-typedef s32 M2C_UNK;
 struct Item_8033EB4C {
     u8 a[0xC];
     u8 b[0xC];
@@ -28,20 +23,20 @@ struct O_8033EB4C { u8 pad[0x1C]; Item_8033EB4C *items; s32 n; };
 
 extern "C" {
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK calc_projection_screen_offset(void *, void *);
+s32 calc_projection_screen_offset(void *, void *);
 f64 calc_camera_fov_degrees();
-M2C_UNK set_tex_coord_gen2(int, int, int, int);
-M2C_UNK PSMTXConcat(void *, void *, void *);
-M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 set_tex_coord_gen2(int, int, int, int);
+s32 PSMTXConcat(void *, void *, void *);
+s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 push_matrix();
+s32 pop_matrix();
 int set_global_effect_state__10TObjPlayerFi(void*);
 int set_ginja_post_texgen_count(void*);
 int set_ginja_post_tev_stage_count(void*);
-M2C_UNK load_current_pos_matrix(int);
-M2C_UNK load_current_tex_matrix(int);
+s32 load_current_pos_matrix(int);
+s32 load_current_tex_matrix(int);
 extern const f64 lbl_804783B0;
 extern u32 camera_ctrl_instance;
 extern s32 current_matrix;
@@ -53,21 +48,21 @@ void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1);
 void queue_destruction__7TObjectFv(void *);
 void TLobby__sub_8033EE38(void *);
 void clear_item_list__6TLobbyFPv(O_8033EC40 *arg0);
-M2C_UNK set_depth_buffer_settings_id__FUl(int);
-M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK set_tev_direct__13TParticleCtrlFi(int);
-M2C_UNK play_indirect_effect_recipe(int, int, int);
-M2C_UNK get_object__13TParticleCtrlFPv(int);
+s32 set_depth_buffer_settings_id__FUl(int);
+s32 set_depth_buffer_settings_1__Fv();
+s32 set_tev_direct__13TParticleCtrlFi(int);
+s32 play_indirect_effect_recipe(int, int, int);
+s32 get_object__13TParticleCtrlFPv(int);
 void init_particle_effect__10TObjPlayerFv(void);
 void reset_effects__10TObjPlayerFv(void);
 void setup_projection_tex_matrix__10TObjPlayerFv(void);
-M2C_UNK rotate_matrix_by_node_angles(void *, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
+s32 rotate_matrix_by_node_angles(void *, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK set_material_alpha_compare_reference(int);
+s32 draw_ginja_object(int);
+s32 set_material_alpha_compare_reference(int);
 void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self);
 }
 
@@ -119,19 +114,19 @@ void setup_projection_tex_matrix__10TObjPlayerFv(void) {
 void free_indexed_entry__10TObjPlayerFPv(void *arg0, s32 _w1) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x20);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x20);
     if (temp_r0 < 0x10) {
-        copy_node_record__10TObjPlayerFii((s32)(M2C_FIELD(arg0, s32 *, 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
+        copy_node_record__10TObjPlayerFii((s32)(*(s32 *)((s8 *)arg0 + 0x1C) + (temp_r0 * 0x24)), (s32)(_w1));
     }
 }
 void copy_node_record__10TObjPlayerFii(s32 arg0, s32 arg1) {
-    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
-    *(M2CCopy_C *)(arg0 + 0xC) = *(const M2CCopy_C *)(arg1 + 0xC);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
-    M2C_FIELD(arg0, u16 *, 0x20) = (u16) M2C_FIELD(arg1, u16 *, 0x20);
-    M2C_FIELD(arg0, u8 *, 0x22) = (u8) M2C_FIELD(arg1, u8 *, 0x22);
-    M2C_FIELD(arg0, u8 *, 0x23) = (u8) M2C_FIELD(arg1, u8 *, 0x23);
+    *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
+    *(ByteBlock_C *)(arg0 + 0xC) = *(const ByteBlock_C *)(arg1 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
+    *(u16 *)((s8 *)arg0 + 0x20) = (u16) *(u16 *)((s8 *)arg1 + 0x20);
+    *(u8 *)((s8 *)arg0 + 0x22) = (u8) *(u8 *)((s8 *)arg1 + 0x22);
+    *(u8 *)((s8 *)arg0 + 0x23) = (u8) *(u8 *)((s8 *)arg1 + 0x23);
 }
 
 void draw_ginja_item_list__10TObjPlayerFPv(O_8033EB4C *self) {

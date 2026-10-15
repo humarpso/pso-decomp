@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/misc/TScene.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/misc/TSceneMaterial.h"
 
@@ -30,7 +26,7 @@ struct W_8020430C { s32 a, b, c; };
 struct Cam_8020430C { u8 pad[0x178]; W_8020430C pos; };
 
 struct Obj_802040D4;
-typedef s32 M2C_UNK;
+
 struct Obj_80204B78 { u8 pad0[4]; f32 x; f32 y; f32 z; u8 pad10[0xC]; f32 radius; u8 pad20[0x10]; u32 flags; };
 
 typedef void (*RecoveredCallback_2be3cacebb2e)(void);
@@ -699,7 +695,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                 } else {
                     notify_scene__12TObjEneReconFi(-1);
                 }
-                set_global_param__8TObjFishFi((void *)M2C_FIELD(TScene__data_805D5FCC, s32 *, 0x14));
+                set_global_param__8TObjFishFi((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
                 set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                 draw_ginja_object(node);
                 update_particle_if_active__12TObjEneReconFv();
@@ -714,7 +710,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                     l.a.x = node->ang.x + arg1->angles[0];
                     l.a.y = node->ang.y + arg1->angles[1];
                     l.a.z = node->ang.z + arg1->angles[2];
-                    l.param = (void *)M2C_FIELD(TScene__data_805D5FCC, s32 *, 0x14);
+                    l.param = (void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14);
                     l.node = node;
                     l.scene = TScene__data_805D5FCC->flags;
                     l.id = m->fF;
@@ -725,7 +721,7 @@ void render_static_map_section__6TSceneFv(void *arg0, SceneMaterialSection *arg1
                 if (m != NULL) {
                     if (m->tex != NULL) {
                         draw_field_1c__6TSceneFPviii(tex = m->tex, m->f8, m->fE, 0);
-                        set_global_param__8TObjFishFi((void *)M2C_FIELD(TScene__data_805D5FCC, s32 *, 0x14));
+                        set_global_param__8TObjFishFi((void *)*(s32 *)((s8 *)TScene__data_805D5FCC + 0x14));
                         set_material_alpha_compare_reference(TScene__data_805D5FCC->flags);
                         draw_ginja_object(node);
                         set_indirect_tev__6TSceneFii((u32)tex, 0);

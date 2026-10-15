@@ -2,10 +2,6 @@
 
 #include "types.h"
 #pragma fp_contract on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -20,7 +16,7 @@ s32 __cvt_fp2unsigned(f32);
 s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
-void set_draw_texture_and_color(M2C_UNK, s32);
+void set_draw_texture_and_color(s32, s32);
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805D932C;
 void render__17TDuelEffectStringFv(u8 *arg0);
@@ -61,8 +57,6 @@ void calc_digit_transform__17TDuelEffectNumberFiPvPvi(s32 arg0, f32 *arg1, f32 *
 #include "pso/TDuelEffectString.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -71,7 +65,7 @@ void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3
 void __ct__7TObjectFP7TObject(void *);
 f64 pow();
 
-extern M2C_UNK __vt__17TDuelEffectString[];
+extern s32 __vt__17TDuelEffectString[];
 extern void *TDuelEffectString__class_name;
 
 #pragma push
@@ -82,13 +76,13 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
     f32 sp8;
     s32 temp_r0;
     s32 temp_r31;
-    calc_digit_transform__17TDuelEffectNumberFiPvPvi((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(M2C_FIELD(arg0, s32 *, 0x28)));
+    calc_digit_transform__17TDuelEffectNumberFiPvPvi((s32)((s32) arg0), (f32 *)(&spC), (f32 *)(&sp8), (s32)(*(s32 *)((s8 *)arg0 + 0x28)));
     temp_r31 = __cvt_fp2unsigned(lbl_805D932C * sp8) | 0xFF0000 | 0xFFFF;
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);
     set_global_param__8TObjFishFi(lbl_805D63F0);
     set_draw_texture_and_color(6, temp_r31);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x24);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x24);
     switch (temp_r0) {
     case 0:
         render_number_default__17TDuelEffectNumberFPvf(arg0, spC);
@@ -103,8 +97,8 @@ void render__17TDuelEffectStringFv(u8 *arg0) {
 #pragma pop
 
 void run_task__17TDuelEffectStringFv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + 1);
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x28) >= lbl_805D9330) {
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + 1);
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x28) >= lbl_805D9330) {
         queue_destruction__7TObjectFv(arg0);
     }
 }
@@ -112,12 +106,12 @@ void run_task__17TDuelEffectStringFv(u8 *arg0) {
 TDuelEffectString::~TDuelEffectString() {}
 void *__ct__17TDuelEffectStringFv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TDuelEffectString;
-    M2C_FIELD(arg0, void **, 0x0) = TDuelEffectString__class_name;
-    M2C_FIELD(arg0, f32 *, 0x1C) = M2C_FIELD(arg2, f32 *, 0x0);
-    M2C_FIELD(arg0, f32 *, 0x20) = M2C_FIELD(arg2, f32 *, 0x4);
-    M2C_FIELD(arg0, void **, 0x24) = arg3;
-    M2C_FIELD(arg0, u32 *, 0x28) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TDuelEffectString;
+    *(void **)((s8 *)arg0 + 0x0) = TDuelEffectString__class_name;
+    *(f32 *)((s8 *)arg0 + 0x1C) = *(f32 *)((s8 *)arg2 + 0x0);
+    *(f32 *)((s8 *)arg0 + 0x20) = *(f32 *)((s8 *)arg2 + 0x4);
+    *(void **)((s8 *)arg0 + 0x24) = arg3;
+    *(u32 *)((s8 *)arg0 + 0x28) = 0;
     return arg0;
 }
 

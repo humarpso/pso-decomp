@@ -18,11 +18,6 @@ extern const char *bm_ene_epsilon_model_names[8];
 extern const char *bm_ene_epsilon_motion_names[5];
 extern BmlResourceDescriptor TObjEneEpsilonGuard__resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_803626A8 {
@@ -32,17 +27,17 @@ struct Stack_803626A8 {
 };
 
 struct RecoveredGlobal_803626A8_lbl_80479FBC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_803626A8_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80362B48___vt__14TObjEneEpsilon {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1A0];
 };
 
@@ -133,7 +128,6 @@ struct S_80362C80
   s32 v;
 };
 
-typedef s32 M2C_UNK;
 struct Leaf_803627DC { u8 pad[4]; s32 v; };
 
 struct Node_803627DC {
@@ -157,14 +151,14 @@ public:
 };
 
 extern "C" {
-M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
+s32 set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E0258;
 void s_rank_knuckle_unequip(u8 *arg0);
-M2C_UNK set_evp__12TItemProUnitFPvf(int, f32);
+s32 set_evp__12TItemProUnitFPvf(int, f32);
 extern const f32 lbl_805E025C;
 void s_rank_knuckle_equip(u8 *arg0);
-void * init_s_rank_knuckle(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+void * init_s_rank_knuckle(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_s_rank_knuckle(u8 *arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
@@ -178,10 +172,10 @@ extern RecoveredGlobal_803626A8_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2);
 u8 * __dt__9TObjEneDDFv(void *, s16);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __destroy_arr(void *, void *, int, int);
-extern M2C_UNK TObjPlayer__sub_800D7C58[];
-extern M2C_UNK __vt__14TObjEneEpsilon[];
+s32 __dl__7TObjectFPv(void *);
+s32 __destroy_arr(void *, void *, int, int);
+extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 __vt__14TObjEneEpsilon[];
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 void get_weapon_color__11TItemWeaponFPv(void *, void *);
@@ -202,7 +196,7 @@ Node_803627DC *get_bml_model(void *, int);
 u8 *load_resource_from_descriptor(void *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u8 *init_from_model__11TBreakUpMdlFPvi(void *, void *);
-M2C_UNK TObjPlayer__sub_800F0928(void *);
+s32 TObjPlayer__sub_800F0928(void *);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Quad_803627DC lbl_80479FAC;
 extern f32 lbl_80543A18[3];
@@ -241,9 +235,9 @@ void init_object__9TObjEneDDFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1);
 
-extern M2C_UNK __vt__14TObjEneEpsilon[];
-extern M2C_UNK TObjPlayer__sub_800D7C58[];
-extern M2C_UNK init_and_activate__10TObjPlayerFPv[];
+extern s32 __vt__14TObjEneEpsilon[];
+extern s32 TObjPlayer__sub_800D7C58[];
+extern s32 init_and_activate__10TObjPlayerFPv[];
 extern void *TObjEneEpsilon__class_name;
 
 typedef char RecoveredGlobal_803626A8_lbl_80479FBC_size[sizeof(RecoveredGlobal_803626A8_lbl_80479FBC) == 0xC ? 1 : -1];
@@ -253,13 +247,13 @@ void TObjPlayer__sub_803626A8(u8 *arg0, s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_803626A8, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_803626A8, sp10) == 0x8) ? 1 : -1];
     Stack_803626A8 stack;
-    stack.sp8 = M2C_FIELD(&lbl_80479FBC.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_80479FBC.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_80479FBC.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FBC.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
@@ -330,7 +324,7 @@ void load_assets__19TObjEneEpsilonGuardFv(void) {
 
 u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80362B48___vt__14TObjEneEpsilon *)&__vt__14TObjEneEpsilon).value;
         __destroy_arr((void *) (arg0 + 0x3C0), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
         __dt__9TObjEneDDFv(arg0, 0);
         if (arg1 > 0) {
@@ -342,21 +336,21 @@ u8 *TObjEneEpsilon__vt0(u8 *arg0, s16 arg1) {
 
 void *TObjEneEpsilon__ct(void *arg0) {
     init_object__9TObjEneDDFPv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjEneEpsilon;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjEneEpsilon;
     __construct_array((void *)((char *)arg0 + 960), init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 28, 4);
-    M2C_FIELD(arg0, void **, 0x0) = TObjEneEpsilon__class_name;
+    *(void **)((s8 *)arg0 + 0x0) = TObjEneEpsilon__class_name;
     check_state_flag_4__9TObjEneDDFPv(arg0);
     return arg0;
 }
 
-extern M2C_UNK lbl_804F26E0[];
+extern s32 lbl_804F26E0[];
 
 void s_rank_knuckle_unequip(u8 *arg0) {
-    set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E0258));
+    set_evp__12TItemProUnitFPvf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805E0258));
 }
 
 void s_rank_knuckle_equip(u8 *arg0) {
-    set_evp__12TItemProUnitFPvf((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (f32) (lbl_805E025C));
+    set_evp__12TItemProUnitFPvf((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (f32) (lbl_805E025C));
 }
 
 typedef struct S_80362C80 S_80362C80;
@@ -370,9 +364,9 @@ void s_rank_knuckle_marker(T_80362C80 *arg0) {
   spawn_particle_effect(sp8, 0x1D0);
 }
 
-void *init_s_rank_knuckle(void *arg0, M2C_UNK _w1, void * _w2) {
+void *init_s_rank_knuckle(void *arg0, s32 _w1, void * _w2) {
     construct_srank_weapon(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F26E0;
     return arg0;
 }
 u8 *create_s_rank_knuckle(u8 *arg0) {
@@ -382,18 +376,18 @@ u8 *create_s_rank_knuckle(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x1FC));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)init_s_rank_knuckle((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-extern M2C_UNK lbl_804F26E0[];
+extern s32 lbl_804F26E0[];
 
 void *item_equip_variant_deleting_dtor_80362D90(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F26E0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F26E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

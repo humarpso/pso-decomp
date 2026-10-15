@@ -1,41 +1,38 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Ids_80145A94 { s32 v[2]; };
 
 struct Buf_80145A94 { s32 hdr; s8 name[0xA0]; s8 x[0x270 - 0xA4]; };
 
 extern "C" {
 s32 TLobby__sub_8014618C();
-M2C_UNK render_tick__Fv();
-M2C_UNK get_global_63e0__6TLobbyFv();
-M2C_UNK load_player_data__6TLobbyFv();
+s32 render_tick__Fv();
+s32 get_global_63e0__6TLobbyFv();
+s32 load_player_data__6TLobbyFv();
 void *xmalloc__FUl(u32);
-M2C_UNK xfree__FPv(void *);
-M2C_UNK TAdPlayerLoadGC__sub_803F2F1C();
-M2C_UNK TAdPlayerLoadGC__sub_803F31BC();
-M2C_UNK TAdPlayerLoadGC__sub_803F31D8();
-M2C_UNK TLobby__sub_803F3BF8(int, s32, u32);
-M2C_UNK TAdPlayerLoadGC__sub_803F3CF4();
-M2C_UNK TLobby__sub_803F3D60();
+s32 xfree__FPv(void *);
+s32 TAdPlayerLoadGC__sub_803F2F1C();
+s32 TAdPlayerLoadGC__sub_803F31BC();
+s32 TAdPlayerLoadGC__sub_803F31D8();
+s32 TLobby__sub_803F3BF8(int, s32, u32);
+s32 TAdPlayerLoadGC__sub_803F3CF4();
+s32 TLobby__sub_803F3D60();
 s32 request_network_info_load(s32, void *);
 s32 take_network_info_request_result(s32 *, s32 *);
 s32 request_network_info_exists(s32);
 s32 take_network_info_exists_result(s32 *, s32 *);
 u32 get_network_info_file_size();
-M2C_UNK copy_current_entry_name__6TLobbyFPvi(void *, int);
-M2C_UNK TLobby__sub_803F53A0(int, void *, int);
-M2C_UNK TLobby__sub_8042EE4C(u32 *);
-M2C_UNK memset(void *, int, int);
+s32 copy_current_entry_name__6TLobbyFPvi(void *, int);
+s32 TLobby__sub_803F53A0(int, void *, int);
+s32 TLobby__sub_8042EE4C(u32 *);
+s32 memset(void *, int, int);
 extern s32 lbl_8043F3E8[];
 extern s16 lbl_805D4EBE;
 extern s32 lbl_805D56C8;
 extern u16 lbl_805D56CC;
 extern u16 lbl_805D56CE;
 s32 TLobby__sub_80145A94(void);
-M2C_UNK TLobby__sub_8042EE4C(u32 *);
+s32 TLobby__sub_8042EE4C(u32 *);
 s32 TLobby__sub_80145DB4(s32 arg0);
 }
 

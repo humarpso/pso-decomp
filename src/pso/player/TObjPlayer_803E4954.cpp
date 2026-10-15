@@ -1,10 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-typedef s32 M2C_UNK;
 
 typedef void (*RecoveredCallback_1268626c296b)(void *);
 struct Node_803E49FC {
@@ -16,8 +10,8 @@ struct Node_803E49FC {
 };
 
 extern "C" {
-M2C_UNK setup_model_draw_state__10TObjPlayerFPv();
-M2C_UNK end_chunk_draw__10TObjPlayerFv();
+s32 setup_model_draw_state__10TObjPlayerFPv();
+s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 struct A_803E4BDC { u8 pad[0xC]; s32 fc; };
 struct B_803E4BDC { u8 pad[0x28]; s32 f28; };
@@ -27,15 +21,15 @@ extern s32 motion_angle_sampler_table[];
 extern A_803E4BDC *model_draw_context;
 extern B_803E4BDC *current_motion_context;
 void draw_model_motion(void *arg0, void *arg1, f32 farg0);
-M2C_UNK setup_model_draw_state__10TObjPlayerFPv();
-M2C_UNK end_chunk_draw__10TObjPlayerFv();
+s32 setup_model_draw_state__10TObjPlayerFPv();
+s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK bind_motion_blend_channels(void *);
-M2C_UNK select_motion_context(int);
+s32 bind_motion_blend_channels(void *);
+s32 select_motion_context(int);
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0);
-M2C_UNK setup_model_draw_state__10TObjPlayerFPv();
-M2C_UNK end_chunk_draw__10TObjPlayerFv();
+s32 setup_model_draw_state__10TObjPlayerFPv();
+s32 end_chunk_draw__10TObjPlayerFv();
 void draw_chunk_vertices_cached__10TObjPlayerFPv();
 void draw_motion_bound__10TObjPlayerFiiPvfi(void *, void *, void *, f32, void (*)(void));
 void TObjEneSlimeOne__sub_803E4B54(void *arg0, void *arg1, void *arg2, f32 farg0);
@@ -78,11 +72,11 @@ void draw_blend_motion_tree__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2) {
     bind_motion_blend_channels((void *) (arg1));
     if ((s32) motion_packed_rotation_mode != 0) {
         select_motion_context((int) (1));
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(motion_angle_sampler_table, s32 *, 0xC);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
         select_motion_context((int) (0));
-        M2C_FIELD(current_motion_context, s32 *, 0x28) = (s32) M2C_FIELD(motion_angle_sampler_table, s32 *, 0xC);
+        *(s32 *)((s8 *)current_motion_context + 0x28) = (s32) *(s32 *)((s8 *)motion_angle_sampler_table + 0xC);
     }
-    M2C_FIELD(model_draw_context, s32 *, 0xC) = arg2;
+    *(s32 *)((s8 *)model_draw_context + 0xC) = arg2;
     draw_object_tree_recursive((void *)((void *) (arg0)));
 }
 
@@ -109,13 +103,13 @@ s32 draw_object_tree_recursive(void *arg) {
 
 void draw_model_blend_motion(void *arg0, void *arg1, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
-    ((M2C_UNK (*)(void *, void *, f32, void (*)()))draw_blend_motion_tree__10TObjPlayerFiii)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
+    ((s32 (*)(void *, void *, f32, void (*)()))draw_blend_motion_tree__10TObjPlayerFiii)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
     end_chunk_draw__10TObjPlayerFv();
 }
 
 void draw_model_motion(void *arg0, void *arg1, f32 farg0) {
     setup_model_draw_state__10TObjPlayerFPv();
-    ((M2C_UNK (*)(void *, void *, f32, void (*)()))draw_motion_tree__10TObjPlayerFPvPvi)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
+    ((s32 (*)(void *, void *, f32, void (*)()))draw_motion_tree__10TObjPlayerFPvPvi)(arg0, arg1, farg0, draw_chunk_vertices_cached__10TObjPlayerFPv);
     end_chunk_draw__10TObjPlayerFv();
 }
 

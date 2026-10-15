@@ -1,23 +1,19 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8011A350_main_task {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
 struct RecoveredGlobal_8011A3D8_lbl_804A03A8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_8011A3D8_main_task
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x30];
 };
 
@@ -32,24 +28,24 @@ struct Vec_8011A43C { f32 x, y, z; };
 struct Ent_8011A43C { void (*fn)(); s32 arg; };
 
 extern "C" {
-M2C_UNK TKeyBoardControl__sub_8000F92C();
-M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
+s32 TKeyBoardControl__sub_8000F92C();
+s32 TKeyBoardControl__sub_8000F9CC(int);
 s32 is_ready__22TQuestVmDownLoadServerFv();
-M2C_UNK process_async_file_reads();
+s32 process_async_file_reads();
 s8 func_801A5E54__Fv();
-M2C_UNK update_input_frame__16TKeyBoardControlFv();
-M2C_UNK controller_stuff__Fv();
-M2C_UNK render_tick__Fv();
-M2C_UNK update_sound_request_slots();
-M2C_UNK render_screen_overlay__9TMainTaskFv(void *);
-M2C_UNK some_empty_func__9TMainTaskFv(void *);
-M2C_UNK render__9TMainTaskFv(void *);
-M2C_UNK run_task__9TMainTaskFv(void *);
-M2C_UNK noop__23TAdSinglePlyChrSelectGCFv();
+s32 update_input_frame__16TKeyBoardControlFv();
+s32 controller_stuff__Fv();
+s32 render_tick__Fv();
+s32 update_sound_request_slots();
+s32 render_screen_overlay__9TMainTaskFv(void *);
+s32 some_empty_func__9TMainTaskFv(void *);
+s32 render__9TMainTaskFv(void *);
+s32 run_task__9TMainTaskFv(void *);
+s32 noop__23TAdSinglePlyChrSelectGCFv();
 extern RecoveredGlobal_8011A350_main_task main_task;
 void run_frame__16TItemReverseTechFv(void);
-M2C_UNK render_tick__Fv();
-M2C_UNK delete_all_task_children__9TMainTaskFv(void *);
+s32 render_tick__Fv();
+s32 delete_all_task_children__9TMainTaskFv(void *);
 extern RecoveredGlobal_8011A3D8_lbl_804A03A8 TItemReverseTech__cleanup_callback_table;
 extern RecoveredGlobal_8011A350_main_task main_task;
 void run_cleanup_callbacks__16TItemReverseTechFv(void);
@@ -76,9 +72,9 @@ void create__16TItemReverseTechFv(void);
 void init_map_lights(void *);
 void reset_controller_input_state();
 void set_copy_clear_color_argb(s32, s32, s32);
-M2C_UNK render_tick__Fv();
+s32 render_tick__Fv();
 void create_quad_sprites__13TParticleCtrlFv();
-void * __nw__7TObjectFUl(M2C_UNK);
+void * __nw__7TObjectFUl(s32);
 void set_screen_size(f32, f32);
 extern const Vec_8011A43C lbl_8043E68C[];
 extern const Vec_8011A43C lbl_8043E698[];
@@ -98,9 +94,9 @@ int TItemReverseTech__sub_8011A580(void);
 void TItemReverseTech__sub_8011A5A4(void);
 void create__16TItemReverseTechFv(void);
 void free__16TItemReverseTechFv(void);
-M2C_UNK TItemReverseTech__ct(void *, s32);
+s32 TItemReverseTech__ct(void *, s32);
 int __dl__FPv(void*);
-void * __nw__7TObjectFUl(M2C_UNK);
+void * __nw__7TObjectFUl(s32);
 int free__11TOBoss4RockFUi(void*);
 int free_texture_if_valid(void*);
 int set_global_flags__6TLobbyFi(void*);
@@ -157,20 +153,20 @@ void load_textures__16TItemReverseTechFv(void) {
 #pragma pop
 
 void run_frame__16TItemReverseTechFv(void) {
-    M2C_UNK *var_r3;
+    s32 *var_r3;
     controller_stuff__Fv();
     update_input_frame__16TKeyBoardControlFv();
-    var_r3 = (M2C_UNK *)(&main_task.value);
-    var_r3 = (M2C_UNK *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
     some_empty_func__9TMainTaskFv((void *) (&main_task.value));
-    var_r3 = (M2C_UNK *)(&main_task.value);
-    var_r3 = (M2C_UNK *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
     run_task__9TMainTaskFv((void *) (&main_task.value));
-    var_r3 = (M2C_UNK *)(&main_task.value);
-    var_r3 = (M2C_UNK *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
     render__9TMainTaskFv((void *) (&main_task.value));
-    var_r3 = (M2C_UNK *)(&main_task.value);
-    var_r3 = (M2C_UNK *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
+    var_r3 = (s32 *)(&main_task.value);
     render_screen_overlay__9TMainTaskFv((void *) (&main_task.value));
     process_async_file_reads();
     update_sound_request_slots();
@@ -179,7 +175,7 @@ void run_frame__16TItemReverseTechFv(void) {
         TKeyBoardControl__sub_8000F92C();
     }
     if (is_ready__22TQuestVmDownLoadServerFv() != 0) {
-        var_r3 = (M2C_UNK *)((u8 *)(NULL));
+        var_r3 = (s32 *)((u8 *)(NULL));
         TKeyBoardControl__sub_8000F9CC((int) (0));
     }
     render_tick__Fv();
@@ -190,7 +186,7 @@ typedef struct RecoveredGlobal_8011A3D8_main_task RecoveredGlobal_8011A3D8_main_
 typedef char RecoveredGlobal_8011A3D8_lbl_804A03A8_size[((sizeof(RecoveredGlobal_8011A3D8_lbl_804A03A8)) == 0x38) ? (1) : (-1)];
 typedef char RecoveredGlobal_8011A3D8_main_task_size[((sizeof(RecoveredGlobal_8011A3D8_main_task)) == 0x34) ? (1) : (-1)];
 void run_cleanup_callbacks__16TItemReverseTechFv(void) {
-  M2C_UNK (*temp_r12)();
+  s32 (*temp_r12)();
   u8 *var_r31;
   s32 var_r30;
   delete_all_task_children__9TMainTaskFv((void *) (&(*(RecoveredGlobal_8011A3D8_main_task *)&main_task).value));
@@ -198,7 +194,7 @@ void run_cleanup_callbacks__16TItemReverseTechFv(void) {
   var_r31 = ((u8 *) (&TItemReverseTech__cleanup_callback_table.value)) + 0x30;
   do
   {
-    temp_r12 = *((M2C_UNK (**)()) (((s8 *) var_r31) + 4));
+    temp_r12 = *((s32 (**)()) (((s8 *) var_r31) + 4));
     var_r31 -= 8;
     if (temp_r12 != 0)
     {
@@ -210,7 +206,6 @@ void run_cleanup_callbacks__16TItemReverseTechFv(void) {
   render_tick__Fv();
 }
 
-typedef s32 M2C_UNK;
 void init_scene__16TItemReverseTechFv(void) {
     Ent_8011A43C *e;
     u32 i;
@@ -229,7 +224,7 @@ void init_scene__16TItemReverseTechFv(void) {
         }
     }
     init_map_lights(default_scene_light_config);
-    cam = __nw__7TObjectFUl((M2C_UNK)(0x1D4));
+    cam = __nw__7TObjectFUl((s32)(0x1D4));
     if (cam != NULL) {
         TCameraCtrl__ct(cam, tl_camera);
     }

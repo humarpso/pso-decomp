@@ -1,10 +1,6 @@
 #include "pso/network/NetworkTransport.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_804249F0 {
     u8 f0;
@@ -33,27 +29,27 @@ struct Arg_804249F0 {
 };
 
 struct RecoveredGlobal_80428374_lbl_805D0A40 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
 struct RecoveredGlobal_8042839C_lbl_805D0A40 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_1C { u8 bytes[0x1c]; };
+struct ByteBlock_1C { u8 bytes[0x1c]; };
 
 struct RecoveredGlobal_8042E768_lbl_805D1D20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
 struct RecoveredGlobal_80427D0C_lbl_805CFC20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xE1C];
 };
 
@@ -63,11 +59,9 @@ struct RecoveredGlobal_80428360_lbl_805CFC20 {
 };
 
 struct RecoveredGlobal_8042DD70_lbl_805D1D20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
-
-typedef s32 M2C_UNK;
 
 struct Rec_80426110 { u16 a; u16 b; };
 
@@ -120,10 +114,10 @@ typedef struct Ent_80427C6C {
 } Ent_80427C6C;
 
 extern "C" {
-M2C_UNK OSInitMessageQueue(void *, void *, int);
-M2C_UNK NetResumeThread(void *);
+s32 OSInitMessageQueue(void *, void *, int);
+s32 NetResumeThread(void *);
 s16 TLobby__sub_803F9B94(void *, void *);
-M2C_UNK NetMemset(void *, int, int);
+s32 NetMemset(void *, int, int);
 void NetRegisterTimer(int, int, void (*)(void));
 s32 TLobby__sub_8042AAA0(void *);
 extern u8 lbl_805CF240[0xA0];
@@ -144,15 +138,15 @@ void clear_message_entry_wrapper__6TLobbyFi(s32 arg0);
 s32 str_length__6TLobbyFi(void *);
 s32 NetMemcpy(void *, void *, int);
 s32 write_name_field__6TLobbyFPvPv(s32 *arg0, u8 *arg1);
-M2C_UNK TLobby__sub_803F77E0(void *);
+s32 TLobby__sub_803F77E0(void *);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 void reset_boot_state__6TLobbyFv(void);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 void TLobby__sub_803F95E4(u32);
 extern u32 lbl_805D7C00;
 void cancel_alarm_b__6TLobbyFv(void);
-M2C_UNK OSWakeupThread(void *);
-extern M2C_UNK network_thread_queue;
+s32 OSWakeupThread(void *);
+extern s32 network_thread_queue;
 void wake_network_thread__6TLobbyFv(void);
 s32 EXIDeselect(s32);
 s32 EXIImm(s32, void *, s32, u32, u32);
@@ -165,20 +159,20 @@ extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
 void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK memcpy(void *, void *, int);
-extern M2C_UNK exi_mac_address;
+s32 memcpy(void *, void *, int);
+extern s32 exi_mac_address;
 void copy_mac_address__6TLobbyFi(s32 arg0);
-M2C_UNK OSDisableInterrupts();
-M2C_UNK OSRestoreInterrupts(s32);
-M2C_UNK OSSleepThread(void *);
+s32 OSDisableInterrupts();
+s32 OSRestoreInterrupts(s32);
+s32 OSSleepThread(void *);
 extern u32 lbl_805D7C4C;
 extern s32 exi_receive_callback;
 void TLobby__sub_8042B58C(u32 arg0, s32 arg1);
 extern s32 lbl_805D7C44;
 extern s32 lbl_805D7C48;
 void TLobby__sub_8042BA48(s32 arg0, s32 arg1);
-M2C_UNK OSWakeupThread(void *);
-extern M2C_UNK lbl_805D7CA0;
+s32 OSWakeupThread(void *);
+extern s32 lbl_805D7CA0;
 void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void);
 s32 EXILock(s32, u32, u32);
 void TAdSinglePlyChrSelectGC__sub_8042DE20(void);
@@ -188,7 +182,7 @@ s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
 void TAdSinglePlyChrSelectGC__sub_8042D6A4(void *);
-extern M2C_UNK lbl_805D4918;
+extern s32 lbl_805D4918;
 extern s32 lbl_805D7C98;
 s32 send_modem_hangup__23TAdSinglePlyChrSelectGCFi(s32 arg0);
 extern s16 network_link_status_cache;
@@ -212,8 +206,8 @@ void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
 extern s32 lbl_805D7C98;
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK memcpy(void *, void *, int);
-extern M2C_UNK exi_mac_address;
+s32 memcpy(void *, void *, int);
+extern s32 exi_mac_address;
 void copy_6_byte_config__6TLobbyFPv(void *dst);
 void dispatch_received_ethernet_frame(void *q, void *a, void *b);
 extern u8 lobby_net_channel_table[];
@@ -345,10 +339,10 @@ s32 NetMemcpy(void *, void *, int);
 s32 enable_network_multicast_address(void *);
 extern u8 lobby_net_channel_table[];
 s32 add_multicast_address__6TLobbyFsPv(s16 arg0, void *arg1);
-M2C_UNK get_time_ms__6TLobbyFPv(void *);
-M2C_UNK unlock_mutex__10TUdpSocketFi(void *);
-M2C_UNK lock_mutex__6TLobbyFi(void *);
-M2C_UNK TLobby__sub_803F97E8(int);
+s32 get_time_ms__6TLobbyFPv(void *);
+s32 unlock_mutex__10TUdpSocketFi(void *);
+s32 lock_mutex__6TLobbyFi(void *);
+s32 TLobby__sub_803F97E8(int);
 extern void *lbl_805C18A0[];
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 extern s16 lbl_805D7A86;
@@ -364,7 +358,7 @@ extern s32 lbl_805D7C7C;
 extern s32 lbl_805D7C80;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
-M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
+s32 exi_start_send_dma__6TLobbyFii(int, int);
 
 void release_entry_by_id__6TLobbyFUi(u32 arg0);
 
@@ -385,11 +379,11 @@ s32 EXISelect(s32, u32, s32);
 s32 EXISync(s32);
 s32 EXILock(s32, u32, u32);
 s32 EXIUnlock(s32);
-M2C_UNK OSDisableInterrupts();
-M2C_UNK OSRestoreInterrupts(s32);
-M2C_UNK OSSleepThread(void *);
+s32 OSDisableInterrupts();
+s32 OSRestoreInterrupts(s32);
+s32 OSSleepThread(void *);
 void wake_network_thread__6TLobbyFv(void);
-extern M2C_UNK network_thread_queue;
+extern s32 network_thread_queue;
 u8 exi_read_status_byte__6TLobbyFv(void);
 }
 
@@ -535,7 +529,7 @@ void start_exi_dma_write__6TLobbyFiPv(s32 chan, void *ctx);
 
 void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 
-M2C_UNK exi_start_send_dma__6TLobbyFii(int, int);
+s32 exi_start_send_dma__6TLobbyFii(int, int);
 
 void copy_6_byte_config__6TLobbyFPv(void *dst);
 
@@ -557,17 +551,17 @@ void wake_load_thread__23TAdSinglePlyChrSelectGCFv(void) {
 #pragma opt_common_subs off
 typedef char RecoveredGlobal_8042DD70_lbl_805D1D20_size[sizeof(RecoveredGlobal_8042DD70_lbl_805D1D20) == 0x1C ? 1 : -1];
 s32 TAdSinglePlyChrSelectGC__sub_8042DD70(s32 arg0, s32 arg1, s32 arg2) {
-    if ((s32) M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB0) != 0) {
+    if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xB0) != 0) {
         return -4;
     }
     if ((s32) lbl_805D7C98 != 3) {
         return -7;
     }
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB0) = 1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB4) = arg0;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xBC) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xB8) = arg1;
-    M2C_FIELD(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value, s32 *, 0xD8) = arg2;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xB0) = 1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xB4) = arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xBC) = arg1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xB8) = arg1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8042DD70_lbl_805D1D20 *)&modem_connection_info).value) + 0xD8) = arg2;
     TAdSinglePlyChrSelectGC__sub_8042DDE4((int)((int) (0)), (int)((int) (0)));
     return 1;
 }
@@ -625,7 +619,7 @@ s32 send_at_compression_cmd__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
 
 s32 copy_default_and_get_state__23TAdSinglePlyChrSelectGCFUi(u32 arg0) {
     if (arg0 != 0U) {
-        *(M2CCopy_1C *)(arg0) = *(const M2CCopy_1C *)(&modem_connection_info.value);
+        *(ByteBlock_1C *)(arg0) = *(const ByteBlock_1C *)(&modem_connection_info.value);
     }
     return lbl_805D7C98;
 }

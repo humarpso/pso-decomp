@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_800724F0 {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 spC;
 };
 
 #include "pso/protocol/subcmd_6x.h"
 
 struct Stack_80072448 {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 spC;
     s32 sp10;
     u8 trailing_storage[0x8];
 };
 
 struct Stack_80072308 {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 spC;
     s32 sp10;
     u8 trailing_storage[0x8];
@@ -32,7 +28,6 @@ struct Pkt_80072494 { u32 hdr; s32 idx; };
 
 struct Stack_800722AC { s32 sp8; s32 spC; s32 sp10; s32 sp14; };
 
-typedef s32 M2C_UNK;
 struct Rec_80072230 { s32 flag; u8 data[0x100]; };
 
 struct Chal_80072230 {
@@ -48,9 +43,9 @@ struct Pkt_80072230 { u32 hdr; s32 idx; s32 val; };
 struct Pkt7C_80072230 { u32 hdr; u16 id; u8 pad6[2]; u8 recs[0x100]; };
 
 extern "C" {
-M2C_UNK send_challenge_packet__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_800728FC(void *);
-void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1);
+s32 send_challenge_packet__6TLobbyFPv(void *);
+s32 TLobby__sub_800728FC(void *);
+void send_challenge_with_value__6TLobbyFii(s32 arg0, s32 arg1);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 send_6x7C_packet__6TLobbyFi(void *);
 s32 init_pkt_cmd_7C__6TLobbyFPv(void *);
@@ -82,37 +77,37 @@ s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
 void send_challenge_records__6TLobbyFUi(u32);
 s32 get_character_save_record(int);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 extern void *challenge_task;
 extern s32 local_client_id;
 void TLobby__sub_80072618(void);
 s32 TLobby__sub_800703D0(void *, void *);
 s32 is_flag_set__6TLobbyFv();
 void send_challenge_records__6TLobbyFUi(u32 _w0);
-M2C_UNK bswap_6x7C_packet__6TLobbyFi(void *);
-extern M2C_UNK challenge_mode_state[];
+s32 bswap_6x7C_packet__6TLobbyFi(void *);
+extern s32 challenge_mode_state[];
 extern void *challenge_task;
 extern s32 local_client_id;
 void handle_6x7C_set_challenge_records(Pkt7C_80072230 *pkt);
 s32 is_flag_set__6TLobbyFv();
-M2C_UNK bswap_challenge_dead_flag__6TLobbyFPv(void *);
+s32 bswap_challenge_dead_flag__6TLobbyFPv(void *);
 void *get_player_by_client_id(s32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt);
 s32 check_challenge_time_range__6TLobbyFi(s32);
 s32 get_valid_slot__6TLobbyFi(s32);
 s32 mix_seed_checked__6TLobbyFi(void *);
 s32 is_flag_set__6TLobbyFv();
-M2C_UNK byteswap_challenge_time_packet__6TLobbyFPv(void *);
-extern M2C_UNK challenge_mode_state[];
+s32 byteswap_challenge_time_packet__6TLobbyFPv(void *);
+extern s32 challenge_mode_state[];
 void handle_6x95_set_challenge_time(Pkt_80072230 *pkt);
 }
 
 extern "C" {
 
 s32 is_flag_set__6TLobbyFv();
-M2C_UNK TLobby__sub_800727A0(void *);
-extern M2C_UNK challenge_mode_state[];
+s32 TLobby__sub_800727A0(void *);
+extern s32 challenge_mode_state[];
 
 void handle_6x9D_set_challenge_dead_flag(Pkt_80072230 *pkt) {
     s32 idx;
@@ -160,11 +155,11 @@ void handle_6x97_select_challenge_mode_failure_option(void *arg0) {
 
     if (is_flag_set__6TLobbyFv() != 0) {
         TLobby__sub_800727A0(arg0);
-        var_r0 = M2C_FIELD(arg0, s32 *, 8);
+        var_r0 = *(s32 *)((s8 *)arg0 + 8);
         if ((var_r0 < 0) || (var_r0 > 1)) {
             var_r0 = 0;
         }
-        M2C_FIELD(&challenge_mode_state, s32 *, 0x24) = var_r0;
+        *(s32 *)((s8 *)(&challenge_mode_state) + 0x24) = var_r0;
     }
 }
 
@@ -210,7 +205,7 @@ void handle_6x8A_show_challenge_time_records_window(Pkt_80072494 *pkt) {
     set_challenge_record_page__6TLobbyFPvi(challenge_task, pkt->idx);
 }
 
-void send_challenge_with_value__6TLobbyFii(M2C_UNK arg0, s32 arg1) {
+void send_challenge_with_value__6TLobbyFii(s32 arg0, s32 arg1) {
     typedef char sp8_offset[(offsetof(Stack_800724F0, sp8) == 0x0) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_800724F0, spC) == 0x4) ? 1 : -1];
     Stack_800724F0 stack;

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -103,10 +99,6 @@ int get_field_374__10TObjPlayerFPv(void* p) { return TObjPlayer__sub_801BED90((c
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Item_801BE890 { u8 b[0x1C]; };
 
@@ -207,10 +199,6 @@ Inv_801BE890 *init_inventory_list__10TObjPlayerFPv(Inv_801BE890 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -296,10 +284,6 @@ void set_input_mode__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x3d8
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_801BE8F4 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -394,10 +378,6 @@ u8 TObjPlayer__sub_801BE8F4(O_801BE8F4 *self, s32 i, u32 mask) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -490,7 +470,7 @@ s32 clamp_index_to_max__10TObjPlayerFi(s32 arg0) {
     return var_r31;
 }
 void clamp_nested_index__10TObjPlayerFPv(void *arg0) {
-    clamp_index_to_max__10TObjPlayerFi(M2C_FIELD(M2C_FIELD(arg0, void **, 0x2B0), s32 *, 0x18));
+    clamp_index_to_max__10TObjPlayerFi(*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2B0)) + 0x18));
 }
 void TObjPlayer__sub_801BE9A8(s32 arg0) {
     TObjPlayer__sub_8011E204((void*)(arg0), 0x20000);
@@ -508,10 +488,6 @@ void set_flag_02000000__10TObjPlayerFPv(void *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void set_position_history_entry__10TObjPlayerFiiff(s32 arg0, s32 arg1, f32 farg0, f32 farg1);
@@ -598,17 +574,13 @@ int TObjPlayer__sub_801BEDB8(void*);
 void set_position_history_entry__10TObjPlayerFiiff(s32 arg0, s32 arg1, f32 farg0, f32 farg1) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(arg0 + (arg1 * 8));
-    M2C_FIELD(temp_r3, f32 *, 0x6B0) = farg0;
-    M2C_FIELD(temp_r3, f32 *, 0x6B4) = farg1;
+    *(f32 *)((s8 *)temp_r3 + 0x6B0) = farg0;
+    *(f32 *)((s8 *)temp_r3 + 0x6B4) = farg1;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 

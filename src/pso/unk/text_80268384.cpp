@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_2ead46 { char pad[0x18]; };
 
 struct VObj_18_2ead46 : VBase_18_2ead46 {
@@ -10,21 +7,21 @@ struct VObj_18_2ead46 : VBase_18_2ead46 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(s32, s16);
+    virtual s32 m4(s32, s16);
 };
 
 struct RecoveredGlobal_80268384_lbl_804D0618 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_802683F4_lbl_804D0604 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_802683F4_lbl_804D0618 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -43,7 +40,7 @@ extern "C" {
 typedef char RecoveredGlobal_80268384_lbl_804D0618_size[sizeof(RecoveredGlobal_80268384_lbl_804D0618) == 0x20 ? 1 : -1];
 u8 *fn_80268384(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     construct_with_parent__15TWindowAdditionFPvPv((void *) (arg0), (void *) (arg4), (void *) (arg3), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804D0618.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804D0618.value;
     ((VObj_18_2ead46 *)(arg0))->m4(arg2, (s16) arg3);
     return arg0;
 }
@@ -51,7 +48,7 @@ typedef char RecoveredGlobal_802683F4_lbl_804D0604_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_802683F4_lbl_804D0618_size[sizeof(RecoveredGlobal_802683F4_lbl_804D0618) == 0x20 ? 1 : -1];
 u8 *fn_802683F4(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_with_parent__15TWindowAdditionFPvPv((void *) (arg0), (void *) (&lbl_804D0604.value), (void *) (arg3), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802683F4_lbl_804D0618 *)&lbl_804D0618).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802683F4_lbl_804D0618 *)&lbl_804D0618).value;
     ((VObj_18_2ead46 *)(arg0))->m4(arg2, (s16) arg3);
     return arg0;
 }

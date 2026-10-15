@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_801D4AEC { char pad[0x18]; };
 #define CAT2(a,b) a##b
 #define CAT(a,b) CAT2(a,b)
@@ -55,13 +52,13 @@ void set_globals_and_update__6TLobbyFPvii(void* a0, int a1, int a2);
 s32 use_item__6TLobbyFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 int reduce_owner_matched_items__6TLobbyFPv(void*);
 int reduce_child_item_amounts__6TLobbyFPv(void*);
-M2C_UNK try_spend_actor_meseta(s32, s32);
+s32 try_spend_actor_meseta(s32, s32);
 s32 is_item_equipped(void *);
 int TObjPlayer__sub_801D52A8(void*);
 void *get_owner_if_alive__10TObjPlayerFPv(s32);
-M2C_UNK queue_destruction__7TObjectFv(s32);
+s32 queue_destruction__7TObjectFv(s32);
 s32 start_inventory_update__10TObjPlayerFPvi(s32, s32);
-M2C_UNK unequip_item__10TObjPlayerFiPv(s32, void *);
+s32 unequip_item__10TObjPlayerFiPv(s32, void *);
 
 void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     s16 temp_r4;
@@ -76,8 +73,8 @@ void reduce_item_amount__6TLobbyFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3)
         if (is_item_equipped(temp_r3) != 0) {
             unequip_item__10TObjPlayerFiPv(arg1, temp_r3);
         }
-        temp_r4 = M2C_FIELD(arg0, s16 *, 0x1C);
-        M2C_FIELD(arg0, s16 *, 0x1C) = (s16) (temp_r4 - 1);
+        temp_r4 = *(s16 *)((s8 *)arg0 + 0x1C);
+        *(s16 *)((s8 *)arg0 + 0x1C) = (s16) (temp_r4 - 1);
         temp_r3->m27(temp_r4);
         queue_destruction__7TObjectFv(arg2);
     }

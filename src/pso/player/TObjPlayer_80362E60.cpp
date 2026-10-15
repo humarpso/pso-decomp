@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_f1aa6a { char pad[0x18]; };
 
@@ -70,7 +66,7 @@ struct VObj_18_f1aa6a : VBase_18_f1aa6a {
     virtual void m60();
     virtual void m61();
     virtual void m62();
-    virtual M2C_UNK m63(M2C_UNK, M2C_UNK *);
+    virtual s32 m63(s32, s32 *);
 };
 
 #include <stddef.h>
@@ -81,20 +77,20 @@ struct Stack_80362FB4 {
 };
 
 struct RecoveredGlobal_80362FB4_lbl_80479FC8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 extern "C" {
 int test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK draw_weapon_model(void *);
+s32 draw_weapon_model(void *);
 void draw_weapon_model_if_not_hidden__10TObjPlayerFPv(u8 *arg0);
 s16 get_validated_attack_stage(void *);
-M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
+s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
 void TObjPlayer__sub_80362EF8(u8 *arg0);
-void * enter_state_804F27E0__10TObjPlayerFPv(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+void * enter_state_804F27E0__10TObjPlayerFPv(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *TObjPlayer__sub_803630F0(u8 *arg0);
 s32 check_boss2tunnel_field_f4__10TObjPlayerFPv(void *);
@@ -114,7 +110,7 @@ void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position);
 void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0);
 s32 get_attack_stage__11TItemWeaponFPv();
 void construct_srank_weapon(void *);
-M2C_UNK create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, M2C_UNK, M2C_UNK);
+s32 create_item_eff_cane__10TObjPlayerFiUiii(s32, s32, s32, s32);
 void free_obj_heap__10TObjPlayerFPv(void *);
 void item_equip_variant_deleting_dtor_8012A82C(void *, int);
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1);
@@ -122,10 +118,10 @@ void set_status_flags__10TObjPlayerFPvUi(void *, int);
 
 void set_pause_flag_from_state__10TObjPlayerFPv(void *arg0) {
     if (get_attack_stage__11TItemWeaponFPv() == 2) {
-        M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x1FC) | 1);
+        *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x1FC) | 1);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x1FC) = (s32) (M2C_FIELD(arg0, s32 *, 0x1FC) & 0xFFFFFFFE);
+    *(s32 *)((s8 *)arg0 + 0x1FC) = (s32) (*(s32 *)((s8 *)arg0 + 0x1FC) & 0xFFFFFFFE);
 }
 
 extern s32 tl_05;
@@ -136,19 +132,19 @@ void create_cane_if_ready__10TObjPlayerFi(s32 arg0, void *position) {
     }
 }
 
-extern M2C_UNK lbl_804F27E0[];
+extern s32 lbl_804F27E0[];
 
 void TObjPlayer__sub_80362EF8(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     ((VObj_18_f1aa6a *)(temp_r3))->m63(0x30, &sp8);
-    if (get_validated_attack_stage(M2C_FIELD(arg0, u8 **, 0xF0) + 0x7CC) == 2) {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0x1555));
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (-0x1555));
+    if (get_validated_attack_stage(*(u8 **)((s8 *)arg0 + 0xF0) + 0x7CC) == 2) {
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0x1555));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (-0x1555));
     } else {
-        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF4)), (int) (0));
+        fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF4)), (int) (0));
     }
     create_cane_if_ready__10TObjPlayerFi((s32)((void *) (arg0)), (void *)((void *) (&sp8)));
 }
@@ -160,12 +156,12 @@ void TObjPlayer__sub_80362FB4(u8 *arg0) {
     typedef char sp10_offset[(offsetof(Stack_80362FB4, sp10) == 0x8) ? 1 : -1];
     Stack_80362FB4 stack;
     if (get_player_list__10TObjPlayerFv() == 0) {
-        stack.sp8 = M2C_FIELD(&lbl_80479FC8.value, s32 *, 0);
-        stack.spC = M2C_FIELD(&lbl_80479FC8.value, s32 *, 4);
-        stack.sp10 = M2C_FIELD(&lbl_80479FC8.value, s32 *, 8);
+        stack.sp8 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 0);
+        stack.spC = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 4);
+        stack.sp10 = *(s32 *)((s8 *)(&lbl_80479FC8.value) + 8);
         post_translate_matrix((void *) (&stack.sp8));
         rotate_matrix_x((int) (0), (int) (0x18E3));
-        if (M2C_FIELD(arg0, s32 *, 0x1FC) & 1) {
+        if (*(s32 *)((s8 *)arg0 + 0x1FC) & 1) {
             push_matrix();
             rotate_matrix_x((int) (0), (int) (0x2AAA));
             check_boss2tunnel_field_f4__10TObjPlayerFPv((void *) (arg0));
@@ -184,11 +180,11 @@ void draw_weapon_model_if_not_hidden__10TObjPlayerFPv(u8 *arg0) {
     }
 }
 
-void *enter_state_804F27E0__10TObjPlayerFPv(void *arg0, M2C_UNK _w1, void * _w2) {
+void *enter_state_804F27E0__10TObjPlayerFPv(void *arg0, s32 _w1, void * _w2) {
     construct_srank_weapon(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F27E0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F27E0;
     set_status_flags__10TObjPlayerFPvUi(arg0, 3);
-    M2C_FIELD(arg0, u32 *, 0x1FC) = 0;
+    *(u32 *)((s8 *)arg0 + 0x1FC) = 0;
     return arg0;
 }
 u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
@@ -198,18 +194,18 @@ u8 *TObjPlayer__sub_803630F0(u8 *arg0) {
         temp_r3 = (u8 *)(alloc_from_obj_heap__10TObjPlayerFPv(0x200));
         var_r0 = (u8 *)(temp_r3);
         if (var_r0 != NULL) {
-            var_r0 = (u8 *)(((u8 *)enter_state_804F27E0__10TObjPlayerFPv((void *)(temp_r3), (M2C_UNK)(tl_05), (void *)(arg0))));
+            var_r0 = (u8 *)(((u8 *)enter_state_804F27E0__10TObjPlayerFPv((void *)(temp_r3), (s32)(tl_05), (void *)(arg0))));
         }
         return var_r0;
     }
     return NULL;
 }
 
-extern M2C_UNK lbl_804F27E0[];
+extern s32 lbl_804F27E0[];
 
 void *item_equip_variant_deleting_dtor_80363148(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F27E0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F27E0;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);

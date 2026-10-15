@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -25,12 +21,12 @@ struct VObj_18 : VBase_18 {
 };
 
 struct RecoveredGlobal_80123CA8_lbl_8043E878 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
 struct RecoveredGlobal_80123CA8_lbl_8043E8D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
@@ -39,13 +35,13 @@ s32 add_actor_tp(void *, s32);
 s16 obj_getS16_32E(void *);
 extern const f32 lbl_805DAD20;
 void sorcerers_cane_update(u8 *arg0);
-u8 * init_state__10TObjPlayerFPv(void *, M2C_UNK, s32);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * init_state__10TObjPlayerFPv(void *, s32, s32);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state__10TObjPlayerFi(s32 arg0);
 s32 get_player_list__10TObjPlayerFv(void);
-M2C_UNK play_particle_effect_once__10TObjPlayerFv();
-M2C_UNK scale_current_matrix(void *, int);
+s32 play_particle_effect_once__10TObjPlayerFv();
+s32 scale_current_matrix(void *, int);
 extern RecoveredGlobal_80123CA8_lbl_8043E878 lbl_8043E878;
 extern RecoveredGlobal_80123CA8_lbl_8043E8D8 lbl_8043E8D8;
 void sorcerers_cane_node_callback(u8 *arg0);
@@ -67,11 +63,8 @@ u8 *create_state__10TObjPlayerFi(s32 arg0) {
     return NULL;
 }
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef char RecoveredGlobal_80123CA8_lbl_8043E878_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E878) == 0x60 ? 1 : -1];
 typedef char RecoveredGlobal_80123CA8_lbl_8043E8D8_size[sizeof(RecoveredGlobal_80123CA8_lbl_8043E8D8) == 0x60 ? 1 : -1];
@@ -83,12 +76,12 @@ void sorcerers_cane_node_callback(u8 *arg0) {
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x1F8);
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x1F8);
         scale_current_matrix((void *) ((u8 *)&lbl_8043E878.value + (temp_r4 * 0xC)), (int) (temp_r4));
         return;
     case 4:
         play_particle_effect_once__10TObjPlayerFv();
-        temp_r4_2 = M2C_FIELD(arg0, s32 *, 0x1F8);
+        temp_r4_2 = *(s32 *)((s8 *)arg0 + 0x1F8);
         scale_current_matrix((void *) ((u8 *)&lbl_8043E8D8.value + (temp_r4_2 * 0xC)), (int) (temp_r4_2));
         return;
     case 7:
@@ -102,31 +95,31 @@ void sorcerers_cane_update(u8 *arg0) {
     s16 temp_r3_3;
     s32 temp_r3;
     s32 temp_r3_2;
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x1FE) == 1) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x1F8);
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x1FE) == 1) {
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x1F8);
         if (temp_r3 == 7) {
-            M2C_FIELD(arg0, s16 *, 0x1FE) = 0;
+            *(s16 *)((s8 *)arg0 + 0x1FE) = 0;
         } else {
-            M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (temp_r3 + 1);
+            *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3 + 1);
         }
     }
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x1FE) == 2) {
-        temp_r3_2 = M2C_FIELD(arg0, s32 *, 0x1F8);
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x1FE) == 2) {
+        temp_r3_2 = *(s32 *)((s8 *)arg0 + 0x1F8);
         if (temp_r3_2 == 0) {
-            M2C_FIELD(arg0, s16 *, 0x1FE) = 3;
+            *(s16 *)((s8 *)arg0 + 0x1FE) = 3;
         } else {
-            M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (temp_r3_2 - 1);
+            *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (temp_r3_2 - 1);
         }
     }
-    temp_r3_3 = obj_getS16_32E(M2C_FIELD(arg0, u8 **, 0xF0));
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1FC) - temp_r3_3;
+    temp_r3_3 = obj_getS16_32E(*(u8 **)((s8 *)arg0 + 0xF0));
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1FC) - temp_r3_3;
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s16 *, 0x1FC) = temp_r3_3;
+        *(s16 *)((s8 *)arg0 + 0x1FC) = temp_r3_3;
         return;
     }
     if (temp_r0 > 0) {
-        add_actor_tp(M2C_FIELD(arg0, u8 **, 0xF0), (s32) (lbl_805DAD20 * (f32) temp_r0));
-        M2C_FIELD(arg0, s16 *, 0x1FC) = obj_getS16_32E(M2C_FIELD(arg0, u8 **, 0xF0));
+        add_actor_tp(*(u8 **)((s8 *)arg0 + 0xF0), (s32) (lbl_805DAD20 * (f32) temp_r0));
+        *(s16 *)((s8 *)arg0 + 0x1FC) = obj_getS16_32E(*(u8 **)((s8 *)arg0 + 0xF0));
     }
 }
 

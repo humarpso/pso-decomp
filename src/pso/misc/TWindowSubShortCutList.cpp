@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8027E558 { s32 f0; u8 pad[0x14]; void *vt; u8 pad2[0x88 - 0x1C]; void *list; };
 
@@ -18,7 +14,7 @@ void set_cursor_index__20TWindowSubStatusDispFPvs(void *, s16);
 void ensure_status_display__20TWindowSubStatusDispFPvi(void *, void *);
 void fn_802683F4(void *, void *, s32, s16);
 void *init__21TWindowSubComCardListFPviii(void *, s8, s32, s32);
-extern M2C_UNK __vt__22TWindowSubShortCutList[];
+extern s32 __vt__22TWindowSubShortCutList[];
 extern s32 TWindowSubShortCutList__class_name;
 extern s32 local_client_id;
 void *TWindowSubShortCutList__ct(void *arg0, void *arg1, void *arg2);
@@ -26,13 +22,13 @@ s32 get_shared_text_buffer();
 s32 fn_80076BC4(s32 *);
 s32 *get_chat_shortcut(s32);
 s32 get_symbol_chat_data__20TWindowSubSymbolChatFPv();
-M2C_UNK open_symbol_chat__11TWindowChatFPv(s32 *);
+s32 open_symbol_chat__11TWindowChatFPv(s32 *);
 s8 get_type__20TWindowSubStatusDispFPv(s32);
-M2C_UNK clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
-M2C_UNK save_cursor_selection__20TShopArmorListWindowFPv();
-M2C_UNK reset_list__20TShopArmorListWindowFPv(void *);
+s32 clamp_selection_to_valid_entry__20TShopArmorListWindowFPv(void *);
+s32 save_cursor_selection__20TShopArmorListWindowFPv();
+s32 reset_list__20TShopArmorListWindowFPv(void *);
 void draw_entry__22TWindowSubShortCutListFPviUcii(void *, s32, u8, s32, s32);
-M2C_UNK update_state__9TWindowDDFv(s32 *, s32, u16);
+s32 update_state__9TWindowDDFv(s32 *, s32, u16);
 extern s32 local_client_id;
 void refresh_entries__22TWindowSubShortCutListFPv(void *arg0);
 }
@@ -43,16 +39,16 @@ void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1);
 void render__22TWindowSubShortCutListFv(u8 *arg0);
 void run_task__22TWindowSubShortCutListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
-M2C_UNK draw_window_frame(void *, s32);
+s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
-M2C_UNK draw_visible_window_entries(void *, void *, s32);
-M2C_UNK update_item_list_window();
-M2C_UNK draw_list_page_indicator(s32, s32);
+s32 draw_visible_window_entries(void *, void *, s32);
+s32 update_item_list_window();
+s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void delete_if_allocated(void *, int);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
-M2C_UNK draw_selected_list_entry(void *, s32);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
+s32 draw_selected_list_entry(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 get_status_flag__6TLobbyFPv(void *);
 
 void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
@@ -62,7 +58,7 @@ void refresh_entries__22TWindowSubShortCutListFPv(void *arg0) {
     s32 var_r29;
     save_cursor_selection__20TShopArmorListWindowFPv();
     reset_list__20TShopArmorListWindowFPv(arg0);
-    var_r29 = get_type__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88));
+    var_r29 = get_type__20TWindowSubStatusDispFPv(*(s32 *)((s8 *)arg0 + 0x88));
     var_r30 = 0;
     var_r29 *= 4;
     do {
@@ -110,27 +106,27 @@ void render__22TWindowSubShortCutListFv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
+        forward_render__20TWindowSubStatusDispFPv(*(u32 *)((s8 *)arg0 + 0x80), temp_r3);
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
-        draw_list_page_indicator(M2C_FIELD(arg0, u32 *, 0x88), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
+        draw_list_page_indicator(*(u32 *)((s8 *)arg0 + 0x88), temp_r3);
     }
 }
 
 void run_task__22TWindowSubShortCutListFv(void *arg0) {
     update_item_list_window();
-    if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x88)) != 0)) {
+    if ((get_status_flag__6TLobbyFPv(arg0) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x88)) != 0)) {
         refresh_entries__22TWindowSubShortCutListFPv((void *)(arg0));
     }
 }
 
-extern M2C_UNK __vt__22TWindowSubShortCutList[];
+extern s32 __vt__22TWindowSubShortCutList[];
 
 void *__dt__22TWindowSubShortCutListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TWindowSubShortCutList;
-        delete_if_allocated(M2C_FIELD(arg0, void **, 0x88), 1);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TWindowSubShortCutList;
+        delete_if_allocated(*(void **)((s8 *)arg0 + 0x88), 1);
         destroy_item_list_resources__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

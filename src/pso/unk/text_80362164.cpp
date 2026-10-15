@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
     virtual void m0();
@@ -88,10 +85,10 @@ struct VObj_18 : VBase_18 {
     virtual void m80();
     virtual s32 m81();
     virtual void m82();
-    virtual M2C_UNK m83();
+    virtual s32 m83();
     virtual void m84();
     virtual void m85();
-    virtual M2C_UNK m86();
+    virtual s32 m86();
     virtual void m87();
     virtual void m88();
     virtual void m89();
@@ -103,20 +100,20 @@ struct VObj_18 : VBase_18 {
     virtual void m95();
     virtual void m96();
     virtual void m97();
-    virtual M2C_UNK m98();
+    virtual s32 m98();
     virtual void m99();
     virtual void m100();
     virtual void m101();
     virtual void m102();
-    virtual M2C_UNK m103();
+    virtual s32 m103();
 };
 extern "C" {
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK update_guard_flag__19TObjEneEpsilonGuardFPv(void *);
-M2C_UNK update_position__19TObjEneEpsilonGuardFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 transition_enemy_state(void *, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
+s32 update_guard_flag__19TObjEneEpsilonGuardFPv(void *);
+s32 update_position__19TObjEneEpsilonGuardFPv(void *);
 void fn_80362164(u8 *arg0);
 }
 
@@ -130,10 +127,10 @@ void fn_80362164(u8 *arg0) {
     if (((VObj_18 *)(arg0))->m81() != 4) {
         update_guard_flag__19TObjEneEpsilonGuardFPv((void *) (arg0));
         ((VObj_18 *)(arg0))->m83();
-    } else if ((s16) M2C_FIELD(arg0, s16 *, 0x326) == 1) {
+    } else if ((s16) *(s16 *)((s8 *)arg0 + 0x326) == 1) {
         transition_enemy_state((void *) (arg0), (int) (0));
     }
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 9) {
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 9) {
         play_persistent_sound((int) (0x4003AD43), (void *) (arg0), (void *) (arg0 + 0x38), (int) (0), (int) (0));
     }
     ((VObj_18 *)(arg0))->m86();

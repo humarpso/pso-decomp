@@ -658,7 +658,7 @@ s32 dataRemoveMacro(u16 mid) {
 #pragma pop
 
 s32 maccmp(u8 *arg0, u8 *arg1) {
-    return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
+    return *(u16 *)((s8 *)arg0 + 4) - *(u16 *)((s8 *)arg1 + 4);
 }
 
 extern s32 lbl_805D73DC;
@@ -734,7 +734,7 @@ s32 dataGetSample(s16 sid, Sample_803AE4D4 *newsmp) {
 #pragma pop
 
 s32 curvecmp(u8 *arg0, u8 *arg1) {
-    return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
+    return *(u16 *)((s8 *)arg0 + 4) - *(u16 *)((s8 *)arg1 + 4);
 }
 
 s32 dataGetCurve(s16 arg0) {
@@ -754,7 +754,7 @@ s32 dataGetKeymap(s16 arg0) {
 }
 
 s32 layercmp(u8 *arg0, u8 *arg1) {
-    return M2C_FIELD(arg0, u16 *, 4) - M2C_FIELD(arg1, u16 *, 4);
+    return *(u16 *)((s8 *)arg0 + 4) - *(u16 *)((s8 *)arg1 + 4);
 }
 
 #pragma push

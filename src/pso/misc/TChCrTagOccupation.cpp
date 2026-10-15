@@ -10,10 +10,6 @@ int render__17TChCrTagOccHeaderFv(void* p) { return fn_802A2A00(p); }
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Hdr_802A2C30 {
     u8 pad[0x20];
@@ -30,11 +26,11 @@ s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0);
 extern "C" {
 
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0);
-M2C_UNK update_fade__8TChCrTagFPv();
+s32 update_fade__8TChCrTagFPv();
 
 void run_task__17TChCrTagOccHeaderFv(u8 *arg0) {
     update_fade__8TChCrTagFPv();
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) + 1);
+    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) + 1);
 }
 s32 TChCrTagOccHeader__vt4(Hdr_802A2C30 *arg0) {
     switch (get_selected_index__15TChCrCharSelectFv()) {
@@ -57,7 +53,7 @@ void *__dt__8TChCrTagFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__dt__17TChCrTagOccHeaderFv(void *self, s16 m) {
     if (self != NULL) {
-        M2C_FIELD(self, void ***, 0x18) = __vt__17TChCrTagOccHeader;
+        *(void ***)((s8 *)self + 0x18) = __vt__17TChCrTagOccHeader;
         __dt__8TChCrTagFv(self, 0);
         if (m > 0) {
             __dl__7TObjectFPv(self);
@@ -84,8 +80,6 @@ void *__vt__17TChCrTagOccHeader[] = {
 #define get_selected_char__15TChCrCharSelectFv (*(s32 (*)(void *))&get_selected_char__15TChCrCharSelectFv)
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -98,20 +92,18 @@ extern void *chcr_tag_occ_header_class_name;
 
 void *__ct__17TChCrTagOccHeaderFv(void *arg0) {
     ((void (*)(void *))__ct__8TChCrTagFv)(arg0);
-    M2C_FIELD(arg0, void ***, 0x18) = __vt__17TChCrTagOccHeader;
-    M2C_FIELD(arg0, void **, 0x0) = chcr_tag_occ_header_class_name;
-    M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DDECC;
-    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDED0;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDECC;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DDED0;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__17TChCrTagOccHeader;
+    *(void **)((s8 *)arg0 + 0x0) = chcr_tag_occ_header_class_name;
+    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DDECC;
+    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDED0;
+    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDECC;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDED0;
     return arg0;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -141,13 +133,9 @@ void create_all_ch_cr_tag_headers(void) { { int i; for (i = 0; i < 15; i++) { ((
 #include "pso/TChCrTagOccupation.h"
 #include "pso/TMath.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_802A300C___vt__18TChCrTagOccupation {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -252,7 +240,7 @@ int TChCrTagOccupation__vt4(Obj_802A2F78 *self) {
 extern "C" {
 void *__dt__18TChCrTagOccupationFv(void *self, s16 m) {
     if (self != NULL) {
-        M2C_FIELD(self, void ***, 0x18) = __vt__18TChCrTagOccupation;
+        *(void ***)((s8 *)self + 0x18) = __vt__18TChCrTagOccupation;
         __dt__8TChCrTagFv(self, 0);
         if (m > 0) {
             __dl__7TObjectFPv(self);
@@ -272,14 +260,14 @@ typedef char RecoveredGlobal_802A300C___vt__18TChCrTagOccupation_size[sizeof(Rec
 
 u8 *__ct__18TChCrTagOccupationFv(u8 *arg0, s32 arg1, s32 _w2) {
     __ct__8TChCrTagFv(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__18TChCrTagOccupation;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) chcr_tag_occupation_class_name;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDF00;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDF04;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDF08;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDF0C;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) ((lbl_805DDF14 * (f32) M2C_FIELD(arg0, s32 *, 0x20)) + lbl_805DDF10);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DDEF0;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__18TChCrTagOccupation;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) chcr_tag_occupation_class_name;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDF00;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDF04;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDF08;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDF0C;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) ((lbl_805DDF14 * (f32) *(s32 *)((s8 *)arg0 + 0x20)) + lbl_805DDF10);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DDEF0;
     return arg0;
 }
 #pragma pop

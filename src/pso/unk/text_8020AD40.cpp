@@ -1,18 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Stack_8020AF0C {
     s32 sp8;
-    M2C_UNK spC;
-    M2C_UNK sp10;
+    s32 spC;
+    s32 sp10;
 };
 
 struct Stack_8020AFA4 {
     s32 sp8;
-    M2C_UNK spC;
-    M2C_UNK sp10;
+    s32 spC;
+    s32 sp10;
 };
 
 struct Item_8020AD40 { s32 id; u8 pad[8]; };
@@ -25,18 +22,18 @@ struct Rec_8020AD40 { u8 pad0[2]; s16 f2; u8 pad4[0x40]; };
 
 extern "C" {
 s32 is_area_transfer_pending();
-M2C_UNK advance_enemy_id_counter(int);
+s32 advance_enemy_id_counter(int);
 s32 get_floor_map_selection(int, void *);
-M2C_UNK load_area_enemy_set(int, int, int, int);
-M2C_UNK sum_floor_enemy_counts__6TLobbyFv();
+s32 load_area_enemy_set(int, int, int, int);
+s32 sum_floor_enemy_counts__6TLobbyFv();
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__data_805D614C;
 s32 load_all_floor_enemy_sets__6TLobbyFv(void);
 s32 is_area_transfer_pending();
-M2C_UNK advance_object_id_counter(int);
+s32 advance_object_id_counter(int);
 s32 get_floor_map_selection(int, void *);
-M2C_UNK TLobby__sub_8020B308();
+s32 TLobby__sub_8020B308();
 extern s32 map_set_object_id_counter;
 extern s32 map_object_id_counter;
 extern s32 TLobby__data_805D6148;

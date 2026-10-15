@@ -1,10 +1,6 @@
 #include "pso/TEffClitical.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80082688 {
     f32 sp8;
@@ -27,12 +23,12 @@ struct Stack_800823E0 {
 };
 
 struct RecoveredGlobal_800823E0_lbl_80438EB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_800823E0_lbl_80438EC8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -51,22 +47,22 @@ extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
 void run_task__12TEffCliticalFv(u8 *arg0);
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK copy_slot_to_anim_frame(void *);
-M2C_UNK fn_800829E0(void *);
-M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK begin_effect_render__13TParticleCtrlFv(int);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(int);
-extern M2C_UNK lbl_8048E2E0[];
-extern M2C_UNK technique_ringwave_texture_list[];
+s32 copy_slot_to_anim_frame(void *);
+s32 fn_800829E0(void *);
+s32 set_depth_buffer_settings_1__Fv();
+s32 restore_saved_depth_alpha_state();
+s32 begin_effect_render__13TParticleCtrlFv(int);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object(int);
+extern s32 lbl_8048E2E0[];
+extern s32 technique_ringwave_texture_list[];
 extern u8 *camera_ctrl_instance;
 extern s32 *lbl_805D4ED8;
 extern s32 lbl_805D5660;
@@ -83,7 +79,7 @@ void __ct__7TEffectFv(void *);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern M2C_UNK __vt__12TEffClitical[];
+extern s32 __vt__12TEffClitical[];
 extern void *TEffClitical__class_name;
 extern const f32 lbl_805D93B0;
 
@@ -94,10 +90,10 @@ typedef char RecoveredGlobal_800823E0_lbl_80438EB8_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_800823E0_lbl_80438EC8_size[sizeof(RecoveredGlobal_800823E0_lbl_80438EC8) == 0x10 ? 1 : -1];
 
 void render__12TEffCliticalFv(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 temp_r3;
     set_depth_buffer_settings_1__Fv();
-    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (technique_ringwave_texture_list)), (s32)((int) (0)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x70) + 1)));
+    init_texture_copy_rect((void *)((void *) (&sp8)), (s32)((void *) (lbl_8048E2E0)), (s32)((void *) (technique_ringwave_texture_list)), (s32)((int) (0)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x70) + 1)));
     temp_r3 = model_render_flags;
     lbl_805D5660 = temp_r3;
     model_render_flags = temp_r3 | 0x10;
@@ -107,9 +103,9 @@ void render__12TEffCliticalFv(u8 *arg0) {
     push_matrix();
     set_global_param__8TObjFishFi((void *) (lbl_8048E2E0));
     post_translate_matrix((void *) ((u8 *)(arg0) + 0x20));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x194)));
-    scale_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x3C)), (f32) (M2C_FIELD(arg0, f32 *, 0x40)), (f32) (M2C_FIELD(arg0, f32 *, 0x44)));
-    draw_chunk_object((int) (M2C_FIELD(lbl_805D4ED8, s32 *, 0)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
+    scale_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x3C)), (f32) (*(f32 *)((s8 *)arg0 + 0x40)), (f32) (*(f32 *)((s8 *)arg0 + 0x44)));
+    draw_chunk_object((int) (*(s32 *)((s8 *)lbl_805D4ED8 + 0)));
     pop_matrix();
     copy_slot_to_anim_frame((void *) (&sp8));
     model_render_flags = lbl_805D5660;
@@ -131,14 +127,14 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
     Stack_800823E0 stack;
     s32 temp_r0;
     s32 var_r30;
-    stack.sp20 = M2C_FIELD(&lbl_80438EB8.value, s32 *, 0);
-    stack.sp24 = M2C_FIELD(&lbl_80438EB8.value, s32 *, 4);
-    stack.sp28 = M2C_FIELD(&lbl_80438EB8.value, s32 *, 8);
-    stack.sp2C = M2C_FIELD(&lbl_80438EB8.value, s32 *, 0xC);
-    stack.sp14 = M2C_FIELD(&lbl_80438EC8.value, s32 *, 0);
-    stack.sp18 = M2C_FIELD(&lbl_80438EC8.value, s32 *, 4);
-    stack.sp1C = M2C_FIELD(&lbl_80438EC8.value, s32 *, 8);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x74);
+    stack.sp20 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 0);
+    stack.sp24 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 4);
+    stack.sp28 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 8);
+    stack.sp2C = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 0xC);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 0);
+    stack.sp18 = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 4);
+    stack.sp1C = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x74);
     switch (temp_r0) {
     case 1:
         break;
@@ -153,9 +149,9 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
                 spawn_particle_effect((void *) (arg0 + 0x20), (int) (0xB));
                 break;
             case 2:
-                stack.sp8 = M2C_FIELD(arg0, f32 *, 0x20);
-                stack.spC = M2C_FIELD(arg0, f32 *, 0x24) - lbl_805D93A8;
-                stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28);
+                stack.sp8 = *(f32 *)((s8 *)arg0 + 0x20);
+                stack.spC = *(f32 *)((s8 *)arg0 + 0x24) - lbl_805D93A8;
+                stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28);
                 spawn_particle_effect((void *) (&stack.sp8), (int) (0xC));
                 break;
             case 3:
@@ -164,7 +160,7 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
             }
             var_r30 += 1;
         } while (var_r30 < 4);
-        M2C_FIELD(arg0, s32 *, 0x74) = 1;
+        *(s32 *)((s8 *)arg0 + 0x74) = 1;
         break;
     }
     if (approach_alpha_clamped((void *) (arg0 + 0x2C), (void *) (&stack.sp20), (f32) (TEffClitical__alpha_approach_step)) != 0) {
@@ -172,9 +168,9 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
         return;
     }
     approach_vector_in_place((void *) (arg0 + 0x3C), (void *) (&stack.sp14), (f32) (lbl_805D93AC));
-    M2C_FIELD(arg0, s32 *, 0x70) = (s32) (M2C_FIELD(arg0, s32 *, 0x70) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x70) >= 7) {
-        M2C_FIELD(arg0, s32 *, 0x70) = 0;
+    *(s32 *)((s8 *)arg0 + 0x70) = (s32) (*(s32 *)((s8 *)arg0 + 0x70) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x70) >= 7) {
+        *(s32 *)((s8 *)arg0 + 0x70) = 0;
     }
 }
 #pragma pop
@@ -182,18 +178,18 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
 TEffClitical::~TEffClitical() {}
 void *__ct__12TEffCliticalFv(void *arg0, void *arg1) {
     __ct__7TEffectFv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TEffClitical;
-    M2C_FIELD(arg0, void **, 0x0) = TEffClitical__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TEffClitical;
+    *(void **)((s8 *)arg0 + 0x0) = TEffClitical__class_name;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 32), arg1);
-    M2C_FIELD(arg0, u32 *, 0x70) = 0;
-    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x3C) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x40) = lbl_805D93B0;
-    M2C_FIELD(arg0, f32 *, 0x44) = lbl_805D93B0;
-    M2C_FIELD(arg0, u32 *, 0x74) = 0;
+    *(u32 *)((s8 *)arg0 + 0x70) = 0;
+    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x40) = lbl_805D93B0;
+    *(f32 *)((s8 *)arg0 + 0x44) = lbl_805D93B0;
+    *(u32 *)((s8 *)arg0 + 0x74) = 0;
     return arg0;
 }
 
@@ -206,17 +202,17 @@ void create__12TEffCliticalFPv(void *arg0) {
 }
 
 void init_texture_copy_rect(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    M2C_FIELD(arg0, s32 *, 0) = arg2;
-    M2C_FIELD(arg0, s32 *, 4) = arg1;
-    M2C_FIELD(arg0, s32 *, 8) = arg4;
-    M2C_FIELD(arg0, s32 *, 0xC) = arg3;
+    *(s32 *)((s8 *)arg0 + 0) = arg2;
+    *(s32 *)((s8 *)arg0 + 4) = arg1;
+    *(s32 *)((s8 *)arg0 + 8) = arg4;
+    *(s32 *)((s8 *)arg0 + 0xC) = arg3;
 }
 void approach_position_if_far(u8 *arg0, u8 *arg1, f32 farg0) {
     Stack_80082688 stack;
     f32 temp_f1;
-    stack.sp8 = M2C_FIELD(arg0, f32 *, 0) - M2C_FIELD(arg1, f32 *, 0);
-    stack.spC = M2C_FIELD(arg0, f32 *, 4) - M2C_FIELD(arg1, f32 *, 4);
-    stack.sp10 = M2C_FIELD(arg0, f32 *, 8) - M2C_FIELD(arg1, f32 *, 8);
+    stack.sp8 = *(f32 *)((s8 *)arg0 + 0) - *(f32 *)((s8 *)arg1 + 0);
+    stack.spC = *(f32 *)((s8 *)arg0 + 4) - *(f32 *)((s8 *)arg1 + 4);
+    stack.sp10 = *(f32 *)((s8 *)arg0 + 8) - *(f32 *)((s8 *)arg1 + 8);
     temp_f1 = vector_length(&stack.sp8);
     if (temp_f1 > farg0) {
         approach_vector_fixed_distance(arg0, arg1, arg0, temp_f1 * farg0);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Vec_8005063C {
     f32 x, y, z;
@@ -70,14 +66,14 @@ void steer_homing_direction(Obj_8005063C *arg0) {
 
 void fn_8005076C(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x370) - M2C_FIELD(arg0, f32 *, 0x300);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x370) - *(f32 *)((s8 *)arg0 + 0x300);
     if (temp_f1 > lbl_805D8A30) {
-        M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) + lbl_805D8A58);
+        *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (*(f32 *)((s8 *)arg0 + 0x34C) + lbl_805D8A58);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x34C) = (f32) (M2C_FIELD(arg0, f32 *, 0x34C) - lbl_805D8A58);
+        *(f32 *)((s8 *)arg0 + 0x34C) = (f32) (*(f32 *)((s8 *)arg0 + 0x34C) - lbl_805D8A58);
     }
     if (fabs_float(temp_f1) < lbl_805D8A5C) {
-        M2C_FIELD(arg0, s32 *, 0x368) = 1;
+        *(s32 *)((s8 *)arg0 + 0x368) = 1;
     }
 }
 

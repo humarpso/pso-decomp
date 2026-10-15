@@ -1,22 +1,18 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void cleanup__13TBoss5GryphonFv(void);
 void *create__13TBoss5GryphonFPv(void *arg0);
-M2C_UNK TBoss5GryphonSnarl__sub_80066E84();
+s32 TBoss5GryphonSnarl__sub_80066E84();
 void *TBoss5Gryphon__ct(void *, void *, void *);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
-M2C_UNK TBoss8Dragon__sub_80066A4C();
-M2C_UNK free_char_select_singleton__6TLobbyFv();
-M2C_UNK TBoss8Dragon__sub_80355A1C();
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 TBoss8Dragon__sub_80066A4C();
+s32 free_char_select_singleton__6TLobbyFv();
+s32 TBoss8Dragon__sub_80355A1C();
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern u32 boss5_gryphon_body_bml_resource;
 extern u32 boss5_gryphon_bml_resource;

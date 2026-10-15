@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma scheduling off
-typedef s32 M2C_UNK;
+
 struct Particle_803E2A1C {
     f32 x, y, z;
     f32 u, v;
@@ -13,19 +9,19 @@ struct Particle_803E2A1C {
 };
 
 extern "C" {
-M2C_UNK load_camera_view_matrix();
-M2C_UNK setup_render__10TObjPlayerFv();
-M2C_UNK setup_blended_textured_draw();
-M2C_UNK load_context_texture_obj();
+s32 load_camera_view_matrix();
+s32 setup_render__10TObjPlayerFv();
+s32 setup_blended_textured_draw();
+s32 load_context_texture_obj();
 void setup_particle_draw__13TParticleCtrlFi(s32 arg0);
-M2C_UNK GXBegin(int, int, u16);
+s32 GXBegin(int, int, u16);
 void TParticleCtrl__sub_803E2A1C(Particle_803E2A1C *p, s32 n);
 }
 
 extern "C" {
 
 void reset_particles__13TParticleCtrlFv(void);
-M2C_UNK TObjPlayer__sub_803E2248();
+s32 TObjPlayer__sub_803E2248();
 
 void reset_particles__13TParticleCtrlFv(void) {
     TObjPlayer__sub_803E2248();

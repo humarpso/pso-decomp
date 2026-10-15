@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void init__11TOVS2Wall01Fi(s32 arg0);
 f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1);
-M2C_UNK play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK save_and_send_state__11TOVS2Wall01FPvUs(void *, M2C_UNK);
-M2C_UNK spawn_debris__11TOVS2Wall01FPvi(s32, s32);
-M2C_UNK spawn_particle_effect(void *, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 save_and_send_state__11TOVS2Wall01FPvUs(void *, s32);
+s32 spawn_debris__11TOVS2Wall01FPvi(s32, s32);
+s32 spawn_particle_effect(void *, s32);
 s32 is_locally_controlled__10TObjPlayerFPv(u32);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(s32, M2C_UNK, M2C_UNK);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
 u16 obj_getField1c(u32);
 
 void init__11TOVS2Wall01Fi(s32 arg0) {
@@ -25,8 +21,8 @@ void init__11TOVS2Wall01Fi(s32 arg0) {
         spawn_debris__11TOVS2Wall01FPvi(arg0, var_r31);
         var_r31 += 1;
     } while (var_r31 <= 0xF);
-    spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x45));
-    spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x46));
+    spawn_particle_effect((void *)(arg0 + 0x38), (s32)(0x45));
+    spawn_particle_effect((void *)(arg0 + 0x38), (s32)(0x46));
     play_sound_effect(0x4004BC05, arg0 + 0x38, 0, 0);
 }
 
@@ -41,15 +37,15 @@ f32 take_hit__11TOVS2Wall01FPvUi(u8 *arg0, u32 arg1) {
         var_r31 = arg1;
     }
     if ((var_r31 != 0U) && (is_locally_controlled__10TObjPlayerFPv(var_r31) == 1)) {
-        M2C_FIELD(arg0, s32 *, 0x33C) = (s32) (M2C_FIELD(arg0, s32 *, 0x33C) - 1);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x33C) <= 0) {
-            M2C_FIELD(arg0, s32 *, 0x33C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x33C) = (s32) (*(s32 *)((s8 *)arg0 + 0x33C) - 1);
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x33C) <= 0) {
+            *(s32 *)((s8 *)arg0 + 0x33C) = 0;
             save_and_send_state__11TOVS2Wall01FPvUs(arg0, 1);
         } else {
             save_and_send_state__11TOVS2Wall01FPvUs(arg0, 0);
         }
-        spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(0x1D0));
-        spawn_particle_effect((void *)(arg0 + 0x38), (M2C_UNK)(1));
+        spawn_particle_effect((void *)(arg0 + 0x38), (s32)(0x1D0));
+        spawn_particle_effect((void *)(arg0 + 0x38), (s32)(1));
     }
     return lbl_805DBAA8;
 }

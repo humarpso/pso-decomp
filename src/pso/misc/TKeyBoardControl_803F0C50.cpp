@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803F1548_lbl_805A2720 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x19C];
 };
 
 struct RecoveredGlobal_803F0CF4_lbl_805A2720 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x19C];
 };
 
@@ -92,7 +88,6 @@ struct Kbd_803F1210 {
     u8 cur[4];
 };
 
-typedef s32 M2C_UNK;
 struct Kbd_803F1210;
 struct Kb_803F132C {
     u8 type;
@@ -492,7 +487,7 @@ void update_key_events__16TKeyBoardControlFi(s32 chan) {
 #pragma pop
 
 u8 TKeyBoardControl__sub_803F1548(s32 arg0) {
-    return M2C_FIELD(((u8 *)&keyboard_pad_state_table.value + (arg0 * 0x68)), u8 *, 1);
+    return *(u8 *)((s8 *)((u8 *)&keyboard_pad_state_table.value + (arg0 * 0x68)) + 1);
 }
 
 void enable_keyboard_polling__16TKeyBoardControlFi(s32 arg0) {

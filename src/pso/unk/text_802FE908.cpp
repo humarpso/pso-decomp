@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 is_split_screen();
 s32 get_current_floor();
 s32 is_room_enemy_set_cleared(s32, s32);
-void *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32);
-M2C_UNK create__15TObjLiveMonitorFPv(s32);
-M2C_UNK TObjLiveCameraCtrl__ct(void *, s32);
-M2C_UNK __ct__17TObjBoss8DemoRoomFv(void *, s32);
+void *__nw__7TObjectFUl(s32);
+s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32);
+s32 create__15TObjLiveMonitorFPv(s32);
+s32 TObjLiveCameraCtrl__ct(void *, s32);
+s32 __ct__17TObjBoss8DemoRoomFv(void *, s32);
 extern void *tl_05;
 void create_boss8_demo_objects(void);
 }
 
 extern "C" {
 
-void *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
+void *__nw__7TObjectFUl(s32);
+s32 TObjBoss8PillerCtrl__ct(void *, f32, void *, s32, s32);
 extern void *tl_05;
 
 void create_boss8_piller_ctrl(s32 arg0, s32 arg1, f32 farg0) {

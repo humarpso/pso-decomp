@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8021E068_8021E010 { char pad[0x18]; };
 struct VObj_8021E068_8021E010 : Base_8021E068_8021E010 {
     virtual void m0();
@@ -14,7 +11,7 @@ struct VObj_8021E068_8021E010 : Base_8021E068_8021E010 {
 };
 
 struct RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -29,12 +26,12 @@ struct Stack_8021DC30 {
 };
 
 struct RecoveredGlobal_8021DC30_lbl_8044C140 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8021DC30_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -50,7 +47,6 @@ struct Ent_8021DDB8 {
     s32 (*f10)(u16);
 };
 
-typedef s32 M2C_UNK;
 extern "C" {
 s32 TShopGenerator__sub_80222DAC(s32);
 extern RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0 TShopGenerator__slot_active_table;
@@ -112,13 +108,13 @@ extern "C" {
 void *TShopGenerator__create(void *arg0);
 void *TShopGenerator__ct(void *arg0, s32 arg1);
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1);
-M2C_UNK construct_world_actor_base(void *, s32);
+s32 construct_world_actor_base(void *, s32);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK __vt__14TShopGenerator[];
+extern s32 __vt__14TShopGenerator[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -137,16 +133,16 @@ bool is_player_in_service_range__14TShopGeneratorFPvPvf(u8 *arg0, u8 *arg1, f32 
     if (xyz_distance_squared((void *) (arg1 + 0x38), (void *) (arg0 + 0x38)) > (farg0 * farg0)) {
         return 0;
     }
-    stack.sp8 = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&shop_service_facing_vec.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&shop_service_facing_vec.value) + 8);
     push_matrix_from((void *) (&identity_matrix.value));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg1, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg1 + 0x60)));
     rotate_vector_by_matrix((int) (0), (void *) (&stack.sp8), (void *) (&stack.sp8));
     pop_matrix();
-    stack.sp14 = M2C_FIELD(arg0, f32 *, 0x38) - M2C_FIELD(arg1, f32 *, 0x38);
-    stack.sp18 = M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg1, f32 *, 0x3C);
-    stack.sp1C = M2C_FIELD(arg0, f32 *, 0x40) - M2C_FIELD(arg1, f32 *, 0x40);
+    stack.sp14 = *(f32 *)((s8 *)arg0 + 0x38) - *(f32 *)((s8 *)arg1 + 0x38);
+    stack.sp18 = *(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg1 + 0x3C);
+    stack.sp1C = *(f32 *)((s8 *)arg0 + 0x40) - *(f32 *)((s8 *)arg1 + 0x40);
     normalize_vector((void *) (&stack.sp14));
     return (vec3_dot((void *) (&stack.sp8), (void *) (&stack.sp14)) > lbl_805DC6E8) == 0;
 }
@@ -156,7 +152,7 @@ s32 is_no_service_active__14TShopGeneratorFPvi(void *self, s32 player) {
     s32 i;
     s32 (*fn)(u16);
     for (i = 0; i < 7; i++) {
-        fn = M2C_FIELD(&TShopGenerator__service_dispatch_table.e[i], s32 (**)(u16), 0x10);
+        fn = *(s32 (**)(u16))((s8 *)(&TShopGenerator__service_dispatch_table.e[i]) + 0x10);
         if (fn(TShopGenerator__sub_80222DAC(obj_getField1c(player))) == 1) {
             return 0;
         }
@@ -169,9 +165,9 @@ void run_task__14TShopGeneratorFv(u8 *self) {
     s32 i;
     s32 p;
     s32 (*fn)(u16);
-    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[M2C_FIELD(self, s32 *, 0x84)];
-    if (M2C_FIELD(self, s32 *, 0x94) > 0) {
-        M2C_FIELD(self, s32 *, 0x94)--;
+    e = (Ent_8021DDB8 *)&TShopGenerator__service_dispatch_table.e[*(s32 *)((s8 *)self + 0x84)];
+    if (*(s32 *)((s8 *)self + 0x94) > 0) {
+        (*(s32 *)((s8 *)self + 0x94))--;
         return;
     }
     if (lbl_805D55C0 != 0) {
@@ -217,7 +213,7 @@ void run_task__14TShopGeneratorFv(u8 *self) {
 
 void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TShopGenerator;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -226,7 +222,7 @@ void *__dt__14TShopGeneratorFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__14TShopGenerator[];
+extern s32 __vt__14TShopGenerator[];
 extern s32 TShopGenerator__class_name;
 extern s32 tl_05;
 
@@ -234,12 +230,12 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
     s32 temp_r0;
 
     construct_world_actor_base(arg0, tl_05);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TShopGenerator;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopGenerator__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TShopGenerator;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopGenerator__class_name;
     ((VObj_8021E068_8021E010 *)arg0)->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x90) = 0;
-    M2C_FIELD(arg0, s32 *, 0x94) = 5;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    *(s32 *)((s8 *)arg0 + 0x90) = 0;
+    *(s32 *)((s8 *)arg0 + 0x94) = 5;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
         queue_destruction__7TObjectFv(arg0);
         return arg0;
@@ -253,7 +249,7 @@ void *TShopGenerator__ct(void *arg0, s32 arg1) {
 
 typedef char RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0_size[sizeof(RecoveredGlobal_8021E110_TShopGenerator__data_80513ED0) == 0x10 ? 1 : -1];
 u8 is_slot_active__14TShopGeneratorFi(s32 arg0) {
-    return (u8) (M2C_FIELD(&TShopGenerator__slot_active_table.value, M2C_UNK *, ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
+    return (u8) (*(s32 *)((s8 *)(&TShopGenerator__slot_active_table.value) + ((TShopGenerator__sub_80222DAC(arg0) * 4) & 0x3FFFC)) == 1);
 }
 
 void clear_slot_active__14TShopGeneratorFi(s32 arg0) {
@@ -296,7 +292,7 @@ void run_fn_table_forward__14TShopGeneratorFv(void) {
     n = 7;
     p = &TShopGenerator__service_dispatch_table.e[0];
     do {
-        M2C_FIELD(p, void (**)(void), 4)();
+        (*(void (**)(void))((s8 *)p + 4))();
         p++;
     } while (--n > 0);
     TMedicalCenterMes__sub_80216260();

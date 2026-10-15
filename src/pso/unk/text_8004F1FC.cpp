@@ -1,19 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-M2C_UNK clear_render_callback__8TObjFishFv(int);
-M2C_UNK set_draw_callback_list__8TObjFishFPv(int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_model_motion(int, int, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 clear_render_callback__8TObjFishFv(int);
+s32 set_draw_callback_list__8TObjFishFPv(int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_model_motion(int, int, f32);
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 void fn_8004F1FC(u8 *arg0);
 }
 
@@ -23,22 +20,22 @@ void fn_8004F1FC(u8 *arg0) {
     s32 var_r31;
     u8 *temp_r30;
     s32 var_r29;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xF8) >= 0x44) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xF8) >= 0x44) {
         push_matrix();
         set_global_flag__10TObjPlayerFv();
         post_translate_matrix((void *) (arg0 + 0xE8));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xF4)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xF4)));
         var_r29 = 0;
         var_r31 = 0;
         do {
             temp_r30 = arg0 + var_r31;
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(temp_r30, s32 *, 0xC8)));
+            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)temp_r30 + 0xC8)));
             if (var_r29 == 0) {
-                set_draw_callback_list__8TObjFishFPv((int) (M2C_FIELD(arg0, s32 *, 0x100)));
+                set_draw_callback_list__8TObjFishFPv((int) (*(s32 *)((s8 *)arg0 + 0x100)));
             }
-            draw_model_motion((int) (M2C_FIELD(temp_r30, s32 *, 0xC4)), (int) (M2C_FIELD(temp_r30, s32 *, 0xCC)), (f32) (M2C_FIELD(arg0, f32 *, 0xFC)));
+            draw_model_motion((int) (*(s32 *)((s8 *)temp_r30 + 0xC4)), (int) (*(s32 *)((s8 *)temp_r30 + 0xCC)), (f32) (*(f32 *)((s8 *)arg0 + 0xFC)));
             if (var_r29 == 0) {
-                clear_render_callback__8TObjFishFv((int) (M2C_FIELD(arg0, s32 *, 0x100)));
+                clear_render_callback__8TObjFishFv((int) (*(s32 *)((s8 *)arg0 + 0x100)));
             }
             var_r29 += 1;
             var_r31 += 0xC;

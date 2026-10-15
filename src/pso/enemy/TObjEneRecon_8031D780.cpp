@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031D780 { char pad[0x18]; };
 struct VObj_8031D780 : Base_8031D780 {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -38,10 +35,10 @@ void spawn_trap_a__12TObjEneReconFi(s32 arg0);
 void spawn_trap_b__12TObjEneReconFi(s32 arg0);
 u16 TObjEneRecon__sub_8031D878(void *arg0);
 void TObjEneRecon__vt102(void *arg0, f32 farg0);
-M2C_UNK play_persistent_sound(s32, s32, s32, M2C_UNK, M2C_UNK);
-M2C_UNK spawn_part__14TObjEneEpsilonFi(void *, f32);
-M2C_UNK select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
-M2C_UNK remap_area_sound_id__14TObjEneRecoboxFUi(M2C_UNK);
+s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 spawn_part__14TObjEneEpsilonFi(void *, f32);
+s32 select_and_apply_target__14TObjEneEpsilonFPvf(void *, f32);
+s32 remap_area_sound_id__14TObjEneRecoboxFUi(s32);
 
 void TObjEneRecon__vt102(void *arg0, f32 farg0) {
     if (((VObj_8031D780 *)arg0)->m97() != 0) {
@@ -52,16 +49,16 @@ void TObjEneRecon__vt102(void *arg0, f32 farg0) {
 }
 
 void spawn_trap_a__12TObjEneReconFi(s32 arg0) {
-    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003AD07)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
 void spawn_trap_b__12TObjEneReconFi(s32 arg0) {
-    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (M2C_UNK)(0), (M2C_UNK)(0));
+    play_persistent_sound((s32)(remap_area_sound_id__14TObjEneRecoboxFUi(0x4003B206)), (s32)(arg0), (s32)(arg0 + 0x38), (s32)(0), (s32)(0));
 }
 
 u16 TObjEneRecon__sub_8031D878(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x474) != 0) {
-        return M2C_FIELD(arg0, u16 *, 0x38C);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x474) != 0) {
+        return *(u16 *)((s8 *)arg0 + 0x38C);
     }
     return 0xFFFFU;
 }

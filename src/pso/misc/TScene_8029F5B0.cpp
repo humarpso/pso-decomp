@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct { u8 r, g, b, a; } GXColor_8029F5F8;
 extern "C" {
 extern f32 TScene__visibility_radius_margin;
 void TScene__sub_8029F5E4(f32 farg0);
-M2C_UNK GXPixModeSync();
-M2C_UNK GXSetTexCopySrc(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK GXSetTexCopyDst(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK GXSetCopyClear(GXColor_8029F5F8, M2C_UNK);
-M2C_UNK GXCopyTex(s32, M2C_UNK);
-M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 GXPixModeSync();
+s32 GXSetTexCopySrc(s32, s32, s32, s32);
+s32 GXSetTexCopyDst(s32, s32, s32, s32);
+s32 GXSetCopyClear(GXColor_8029F5F8, s32);
+s32 GXCopyTex(s32, s32);
+s32 GXSetZMode(s32, s32, s32);
 extern GXColor_8029F5F8 lbl_805E1220;
 void copy_efb_to_texture__10TObjPlayerFPv(void *arg0);
 }
@@ -22,10 +18,10 @@ extern "C" {
 
 void TScene__sub_8029F5D8(void);
 void TScene__sub_8029F5EC(void);
-void fn_8029F5B0(M2C_UNK a0, M2C_UNK a1, M2C_UNK a2, M2C_UNK a3);
-M2C_UNK GXSetTexCoordGen2(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3);
+s32 GXSetTexCoordGen2(s32, s32, s32, s32, s32, s32);
 
-void fn_8029F5B0(M2C_UNK a0, M2C_UNK a1, M2C_UNK a2, M2C_UNK a3) {
+void fn_8029F5B0(s32 a0, s32 a1, s32 a2, s32 a3) {
     GXSetTexCoordGen2(a0, a1, a2, a3, 0, 0x7D);
 }
 
@@ -45,7 +41,7 @@ void copy_efb_to_texture__10TObjPlayerFPv(void *arg0) {
     GXSetCopyClear(clr, 0xFFFFFF);
     GXSetTexCopySrc(0, 0, 0x280, 0x1E0);
     GXSetTexCopyDst(0x280, 0x1E0, 4, 0);
-    GXCopyTex(M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x1C), void **, 8), void **, 0xC), s32 *, 0x20), 1);
+    GXCopyTex(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x1C)) + 8)) + 0xC)) + 0x20), 1);
     GXPixModeSync();
 }
 

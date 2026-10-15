@@ -1,33 +1,29 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-u8 * TWindowMessageLog__ct(void *, M2C_UNK, s32);
-u8 *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TLobby__sub_80269DA4(void *, int);
+u8 * TWindowMessageLog__ct(void *, s32, s32);
+u8 *__nw__7TObjectFUl(s32);
+s32 TLobby__sub_80269DA4(void *, int);
 u8 *create_message_log_window(s32 arg0, s32 arg1, s32 arg2);
 s32 get_shared_text_buffer();
-M2C_UNK append_text_space();
-M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK text_builder_reset();
-M2C_UNK *get_active_photon_object__17TWindowMessageLogFv(u16);
-M2C_UNK append_line__17TWindowMessageLogFPvi(u32, s32);
-M2C_UNK cache_last_chat_line(M2C_UNK *);
-M2C_UNK chat_log_add_line();
+s32 append_text_space();
+s32 text_builder_append(s32 *);
+s32 text_builder_reset();
+s32 *get_active_photon_object__17TWindowMessageLogFv(u16);
+s32 append_line__17TWindowMessageLogFPvi(u32, s32);
+s32 cache_last_chat_line(s32 *);
+s32 chat_log_add_line();
 u32 get_field44__11TWindowCtrlFv();
 extern s32 local_client_id;
-extern M2C_UNK lbl_805DD250;
-void post_chat_log_message(u16 arg0, M2C_UNK *arg1);
+extern s32 lbl_805DD250;
+void post_chat_log_message(u16 arg0, s32 *arg1);
 }
 
 extern "C" {
 
-void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
+void post_chat_log_message(u16 arg0, s32 *arg1) {
     s32 temp_r30;
-    M2C_UNK *temp_r31;
+    s32 *temp_r31;
     if ((s32) arg0 == (s32) local_client_id) {
         cache_last_chat_line(arg1);
     }
@@ -40,7 +36,7 @@ void post_chat_log_message(u16 arg0, M2C_UNK *arg1) {
         append_text_space();
     }
     text_builder_append(arg1);
-    arg1 = (M2C_UNK *) get_shared_text_buffer();
+    arg1 = (s32 *) get_shared_text_buffer();
     chat_log_add_line();
     {
         u32 tmp_ad = get_field44__11TWindowCtrlFv();

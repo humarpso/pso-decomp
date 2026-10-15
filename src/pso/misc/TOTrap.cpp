@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_A_80178BC0 { char pad[0x18]; };
 struct V_A_80178BC0 : Base_A_80178BC0 {
     virtual void m0();   virtual void m1();   virtual void m2();   virtual void m3();
@@ -92,16 +89,16 @@ struct VObj_18 : VBase_18 {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77();
-    virtual M2C_UNK m78();
-    virtual M2C_UNK m79();
-    virtual M2C_UNK m80();
+    virtual s32 m77();
+    virtual s32 m78();
+    virtual s32 m79();
+    virtual s32 m80();
     virtual s32 m81();
-    virtual M2C_UNK m82();
+    virtual s32 m82();
     virtual void m83();
     virtual void m84();
     virtual void m85();
-    virtual M2C_UNK m86();
+    virtual s32 m86();
 };
 
 struct VBase_18_f90cfc { char pad[0x18]; };
@@ -184,10 +181,9 @@ struct VObj_18_f90cfc : VBase_18_f90cfc {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77();
+    virtual s32 m77();
 };
 
-typedef s32 M2C_UNK;
 struct Obj_80178CF8 {
     u8 pad[0x38];
     f32 pos[3];
@@ -214,11 +210,11 @@ s32 obj_getField1c(u32);
 s32 check_player_flag1__6TLobbyFPv(s32);
 s32 send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
-M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
+s32 send_code_45_1__10TObjPlayerFi(s32);
 s32 get_player_by_client_id(u32);
 extern const f32 TOTrap__data_805DBA3C;
 f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+s32 submit_cursor_candidate(void *, s32);
 void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
 extern u32 lbl_80442CD0[];
 extern s32 game_difficulty_selection;
@@ -228,13 +224,13 @@ s32 get_stat_by_key_state__10TObjPlayerFPv(void *);
 s32 get_player_by_client_id(u32);
 s32 is_any_player_matching_stat__6TOTrapFPv(void *arg0);
 u16 find_nearest_visible_player(void *, int, f32);
-M2C_UNK calc_attach_pos__10TObjPlayerFPv();
+s32 calc_attach_pos__10TObjPlayerFPv();
 s32 is_locally_controlled__10TObjPlayerFPv(int);
 f32 horizontal_distance_squared(void *, void *);
 void send_6x2C_impose_hold(void *, void *, s32, int, f32);
 s32 get_player_by_client_id(u32);
 void TOTrap__vt79(Obj_80178CF8 *self);
-M2C_UNK calc_attach_pos__10TObjPlayerFPv();
+s32 calc_attach_pos__10TObjPlayerFPv();
 u16 find_nearest_visible_player(void *, int, f32);
 f32 horizontal_distance_squared(void *, void *);
 s32 get_player_by_client_id(u32);
@@ -263,16 +259,16 @@ void TOTrap__sub_80178BC0(void);
 void TOTrap__vt80(void *arg0);
 void play_sounds__6TOTrapFi(s32 arg0);
 void trigger__6TOTrapFPvPvi(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK spawn_particle_effect(s32, M2C_UNK);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+s32 spawn_particle_effect(s32, s32);
+s32 refresh_collision_body_centers(void *);
+s32 submit_cursor_candidate(void *, s32);
 s32 get_player_by_client_id(u32);
-M2C_UNK calc_attach_pos__10TObjPlayerFPv();
+s32 calc_attach_pos__10TObjPlayerFPv();
 s32 check_player_flag1__6TLobbyFPv(s32);
 s32 obj_getField1c(u32);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK send_code_45_1__10TObjPlayerFi(s32);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 send_code_45_1__10TObjPlayerFi(s32);
+s32 set_flag8__6TLobbyFPv(void *);
 
 f32 scale_by_table_value__6TOTrapFf(f32 farg0) {
     u32 v[4];
@@ -306,10 +302,10 @@ void TOTrap__vt80(void *arg0) {
 
     calc_attach_pos__10TObjPlayerFPv();
     refresh_collision_body_centers(arg0);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 0) {
         u32 p;
-        ((V_A_80178BC0 *)arg0)->m20(M2C_FIELD(arg0, u32 *, 0x2A8), TOTrap__data_805DBA38);
-        p = M2C_FIELD(arg0, u32 *, 0x2A8);
+        ((V_A_80178BC0 *)arg0)->m20(*(u32 *)((s8 *)arg0 + 0x2A8), TOTrap__data_805DBA38);
+        p = *(u32 *)((s8 *)arg0 + 0x2A8);
         if (p != 0U) {
             u32 v = (u16) obj_getField1c(p);
             if (v < 0x1000U) {
@@ -347,7 +343,7 @@ void TOTrap__vt79(Obj_80178CF8 *self) {
 }
 
 void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0) {
-    submit_cursor_candidate((void *)((void *) (arg0)), (M2C_UNK)((int) (-1)));
+    submit_cursor_candidate((void *)((void *) (arg0)), (s32)((int) (-1)));
     ((VObj_18_f90cfc *)(arg0))->m77();
 }
 
@@ -418,11 +414,11 @@ void update_trap_state__6TOTrapFPv(u8 *arg0) {
     }
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
         ((VObj_18 *)(arg0))->m82();
-        temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         switch (temp_r0) {
         case 0:
             if (((VObj_18 *)(arg0))->m81() != 0) {
-                M2C_FIELD(arg0, s16 *, 0x326) = 1;
+                *(s16 *)((s8 *)arg0 + 0x326) = 1;
             }
             ((VObj_18 *)(arg0))->m77();
             return;

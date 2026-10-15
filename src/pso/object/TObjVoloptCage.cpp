@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -66,14 +62,13 @@ struct VObj_18 : VBase_18 {
     virtual void m57();
     virtual void m58();
     virtual void m59();
-    virtual M2C_UNK m60();
-    virtual M2C_UNK m61();
+    virtual s32 m60();
+    virtual s32 m61();
 };
 
-struct RecoveredGlobal_8004938C___vt__14TObjVoloptCage { M2C_UNK value; u8 remaining[0x14C]; };
+struct RecoveredGlobal_8004938C___vt__14TObjVoloptCage { s32 value; u8 remaining[0x14C]; };
 typedef char RecoveredGlobal_8004938C___vt__14TObjVoloptCage_size[sizeof(RecoveredGlobal_8004938C___vt__14TObjVoloptCage) == 0x150 ? 1 : -1];
 
-typedef s32 M2C_UNK;
 typedef struct Obj_80049430 {
     s32 f0;
     u8 pad4[0x18 - 0x4];
@@ -101,22 +96,22 @@ typedef struct Obj_80049430 {
 } Obj_80049430;
 
 extern "C" {
-M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 void update_state__14TObjVoloptCageFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK TObjVoloptCage__sub_800C76F0(void *);
-M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK submit_cursor_candidate(void *, int);
+s32 TObjVoloptCage__sub_800C76F0(void *);
+s32 update_prev_position__10TObjPlayerFPv(void *);
+s32 submit_cursor_candidate(void *, int);
 void run_task__14TObjVoloptCageFv(u8 *arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK clear_volopt_cage_flag();
+s32 clear_volopt_cage_flag();
 void obj_clear_flag30_20000(void *arg0);
 s32 check_player_flag1__6TLobbyFPv(int);
-M2C_UNK __dt__15TObjEnemyCustomFv(void *, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK send_code_45_1__10TObjPlayerFi(int);
+s32 __dt__15TObjEnemyCustomFv(void *, int);
+s32 free_collision_body_parts(void *);
+s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(int);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_8004938C___vt__14TObjVoloptCage __vt__14TObjVoloptCage;
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1);
 void recalc_combat_stats__10TObjPlayerFv(void *, s32, int, int, f32, f32);
@@ -144,17 +139,17 @@ void TLobby__sub_80049568(void);
 void obj_clear_flag30_20000(void *arg0);
 void obj_set_flag_20000(void *arg0);
 void update_state__14TObjVoloptCageFPv(void *arg0);
-M2C_UNK update_breakup__14TObjVoloptCageFPv();
-M2C_UNK update_collision_state__14TObjVoloptCageFPv();
-M2C_UNK TObjVoloptCage__sub_80049000();
-M2C_UNK obj_clearFlags30(void *, M2C_UNK);
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK update_capture__14TObjVoloptCageFPv();
+s32 update_breakup__14TObjVoloptCageFPv();
+s32 update_collision_state__14TObjVoloptCageFPv();
+s32 TObjVoloptCage__sub_80049000();
+s32 obj_clearFlags30(void *, s32);
+s32 obj_setFlags30(void *, s32);
+s32 update_capture__14TObjVoloptCageFPv();
 
 void update_state__14TObjVoloptCageFPv(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     case 7:
         TObjVoloptCage__sub_80049000();
@@ -178,20 +173,20 @@ void run_task__14TObjVoloptCageFv(u8 *arg0) {
         TObjVoloptCage__sub_800C76F0((void *) (arg0));
         return;
     }
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != 7) {
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != 7) {
         if (((VObj_18 *)(arg0))->m31() != 0) {
             ((VObj_18 *)(arg0))->m61();
         } else if (((VObj_18 *)(arg0))->m30() != 0) {
             ((VObj_18 *)(arg0))->m60();
         }
     }
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x326) != (s32) M2C_FIELD(arg0, s32 *, 0x374)) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x37C) != -1) {
-            M2C_FIELD(arg0, s32 *, 0x37C) = -1;
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x326) != (s32) *(s32 *)((s8 *)arg0 + 0x374)) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x37C) != -1) {
+            *(s32 *)((s8 *)arg0 + 0x37C) = -1;
             update_state__14TObjVoloptCageFPv((void *) (arg0));
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = (s16) M2C_FIELD(arg0, s32 *, 0x374);
-        M2C_FIELD(arg0, s32 *, 0x37C) = 0;
+        *(s16 *)((s8 *)arg0 + 0x326) = (s16) *(s32 *)((s8 *)arg0 + 0x374);
+        *(s32 *)((s8 *)arg0 + 0x37C) = 0;
     }
     update_state__14TObjVoloptCageFPv((void *) (arg0));
     update_prev_position__10TObjPlayerFPv((void *) (arg0));
@@ -202,8 +197,8 @@ void run_task__14TObjVoloptCageFv(u8 *arg0) {
 u8 *__dt__14TObjVoloptCageFv(u8 *arg0, s16 arg1) {
     s32 temp_r3;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TObjVoloptCage.value;
-        temp_r3 = get_player_by_client_id((int) (M2C_FIELD(arg0, u16 *, 0x338)));
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TObjVoloptCage.value;
+        temp_r3 = get_player_by_client_id((int) (*(u16 *)((s8 *)arg0 + 0x338)));
         if ((temp_r3 != 0) && (is_locally_controlled__10TObjPlayerFPv() != 0)) {
             if (check_player_flag1__6TLobbyFPv((int) (temp_r3)) != 0) {
                 send_code_45_1__10TObjPlayerFi((int) (temp_r3));

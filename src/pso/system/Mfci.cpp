@@ -1,15 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef M2C_UNK (*RecoveredCallback_4873a87e26d6)(s32, M2C_UNK *, M2C_UNK);
+
+typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 struct RecoveredGlobal_803CFEA0_lbl_8047DAE4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
-
-typedef s32 M2C_UNK;
 
 #include "pso/system/Mfci.h"
 
@@ -20,14 +15,14 @@ extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
 s32 mfci_get_position(MfciFileEntry *arg0);
 void TLobby__sub_803D3988(void);
 void TLobby__sub_803D39C0(void);
-M2C_UNK memset(void *, int, int);
-extern M2C_UNK lbl_8047E0C8[];
+s32 memset(void *, int, int);
+extern s32 lbl_8047E0C8[];
 extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
 extern s32 mfci_error_callback_context;
 void mfci_close(MfciFileEntry *arg0);
 void TLobby__sub_803D3988(void);
 void TLobby__sub_803D39C0(void);
-extern M2C_UNK lbl_8047E18C[];
+extern s32 lbl_8047E18C[];
 extern RecoveredCallback_4873a87e26d6 mfci_error_callback;
 extern s32 mfci_error_callback_context;
 s32 mfci_seek(MfciFileEntry *arg0, s32 arg1, s32 arg2);
@@ -57,7 +52,7 @@ extern "C" {
 typedef char RecoveredGlobal_803CFEA0_lbl_8047DAE4_size[sizeof(RecoveredGlobal_803CFEA0_lbl_8047DAE4) == 0x18 ? 1 : -1];
 s32 mfci_get_position(MfciFileEntry *arg0) {
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) mfci_error_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) mfci_error_callback) != NULL) {
             mfci_error_callback(mfci_error_callback_context, &lbl_8047E170.value, 0);
         }
         return 0;
@@ -156,20 +151,20 @@ MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode) {
     MfciFileEntry *f;
     if (name == 0) {
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)(base + 0x218), 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x218), 0);
         }
         return 0;
     }
     if (mode != 0) {
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)(base + 0x23C), 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x23C), 0);
         }
         return 0;
     }
     f = find_free_803D4058();
     if (f == 0) {
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)(base + 0x260), 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)(base + 0x260), 0);
         }
         return 0;
     }
@@ -178,13 +173,13 @@ MfciFileEntry *mfci_open(const char *name, s32 arg1, s32 mode) {
     if (strlen(f->name) != 17) {
         sprintf(mfci_error_message_buffer, base + 0xBC, f->name);
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)mfci_error_message_buffer, 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
         }
     }
     if (f->name[8] != '.') {
         sprintf(mfci_error_message_buffer, base + 0xFC, f->name);
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)mfci_error_message_buffer, 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
         }
     }
     {
@@ -207,13 +202,13 @@ u32 mfci_parse_file_size(char *s) {
     if (strlen(s) != 17) {
         sprintf(mfci_error_message_buffer, lbl_8047E04C, s);
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)mfci_error_message_buffer, 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
         }
     }
     if (s[8] != '.') {
         sprintf(mfci_error_message_buffer, lbl_8047E08C, s);
         if (mfci_error_callback != 0) {
-            mfci_error_callback(mfci_error_callback_context, (M2C_UNK *)mfci_error_message_buffer, 0);
+            mfci_error_callback(mfci_error_callback_context, (s32 *)mfci_error_message_buffer, 0);
         }
     }
     parse_803D4290(s, 0, &lo);

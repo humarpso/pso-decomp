@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct O_800D72A4 { u8 pad[0x18]; f32 f18; };
 
 extern "C" {
@@ -39,48 +34,48 @@ s32 TObjEneMe3SinowZoa__sub_800D72A4(O_800D72A4 *self) {
 }
 
 s32 TObjEneMe3SinowZoa__sub_800D72D0(u8 *arg0) {
-    return M2C_FIELD(arg0, f32 *, 0x18) > (*(const f32 *)&lbl_805DA348);
+    return *(f32 *)((s8 *)arg0 + 0x18) > (*(const f32 *)&lbl_805DA348);
 }
 
 void apply_player_damage_8448__18TObjEneMe3SinowZoaFv(void) { set_flags_and_apply_damage_color__10TObjPlayerFv(); set_chunk_blend(8448); }
 
 s32 advance_timer__18TObjEneMe3SinowZoaFPvf(u8 *arg0, f32 farg0) {
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) (M2C_FIELD(arg0, f32 *, 0x18) + M2C_FIELD(arg0, f32 *, 0x10));
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) + *(f32 *)((s8 *)arg0 + 0x10));
     TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
-    return M2C_FIELD(arg0, f32 *, 0x18) >= farg0;
+    return *(f32 *)((s8 *)arg0 + 0x18) >= farg0;
 }
 
 s32 advance_progress_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x18);
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x10));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x10));
     TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
-    return M2C_FIELD(arg0, f32 *, 0x18) >= lbl_805DA34C;
+    return *(f32 *)((s8 *)arg0 + 0x18) >= lbl_805DA34C;
 }
 
 s32 update_timer_check_done__18TObjEneMe3SinowZoaFPv(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x18);
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) (temp_f1 - M2C_FIELD(arg0, f32 *, 0x10));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x18);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (temp_f1 - *(f32 *)((s8 *)arg0 + 0x10));
     TObjEneMe3SinowZoa__sub_800D741C((u8 *)(arg0));
-    return M2C_FIELD(arg0, f32 *, 0x18) <= (*(const f32 *)&lbl_805DA348);
+    return *(f32 *)((s8 *)arg0 + 0x18) <= (*(const f32 *)&lbl_805DA348);
 }
 
 void TObjEneMe3SinowZoa__sub_800D741C(u8 *arg0) {
     f32 temp_f2;
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x18);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x18);
     if (temp_f2 <= (*(const f32 *)&lbl_805DA348)) {
-        M2C_FIELD(arg0, f32 *, 0) = (f32) (*(const f32 *)&lbl_805DA350);
+        *(f32 *)((s8 *)arg0 + 0) = (f32) (*(const f32 *)&lbl_805DA350);
         return;
     }
     if (temp_f2 < lbl_805DA34C) {
-        M2C_FIELD(arg0, f32 *, 0) = (f32) (temp_f2 - lbl_805DA354);
-        if ((*(const f32 *)&lbl_805DA348) == M2C_FIELD(arg0, f32 *, 0)) {
-            M2C_FIELD(arg0, f32 *, 0) = (f32) lbl_805DA358;
+        *(f32 *)((s8 *)arg0 + 0) = (f32) (temp_f2 - lbl_805DA354);
+        if ((*(const f32 *)&lbl_805DA348) == *(f32 *)((s8 *)arg0 + 0)) {
+            *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805DA358;
         }
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0) = (f32) lbl_805DA354;
+    *(f32 *)((s8 *)arg0 + 0) = (f32) lbl_805DA354;
 }
 
 void copy_position_vector__18TObjEneMe3SinowZoaFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x18) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x0) = *(f32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); *(f32*)((char*)p + 0xc) = *(f32*)((char*)q + 0xc); }
@@ -107,10 +102,6 @@ void set_field_10__18TObjEneMe3SinowZoaFPvf(void* p, f32 v) { *(f32*)((char*)p +
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct B_800D758C { f32 f0; f32 f4; f32 f8; f32 fc; f32 f10; };
 
@@ -148,7 +139,7 @@ extern const f64 lbl_8043C6F8;
 extern const f32 lbl_805DA34C;
 
 void set_speed_scale__18TObjEneMe3SinowZoaFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) (lbl_805DA34C / (f32) arg1);
 }
 
 #pragma push
@@ -175,22 +166,18 @@ void TObjEneMe3SinowZoa__sub_800D758C(V_800D758C *self) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1);
-M2C_UNK TObjPlayer__sub_800D96D0(void *, s16);
-M2C_UNK __dl__FPv(void *);
+s32 TObjPlayer__sub_800D96D0(void *, s16);
+s32 __dl__FPv(void *);
 
-extern M2C_UNK lbl_80494938[];
+extern s32 lbl_80494938[];
 
 void *__dt__18TObjEneMe3SinowZoaFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_80494938;
+        *(s32 **)((s8 *)arg0 + 0x14) = lbl_80494938;
         TObjPlayer__sub_800D96D0(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);

@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/protocol/NetworkRuntime.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Self_803FD85C;
 struct Tbl_803FD85C {
@@ -26,27 +22,27 @@ struct St_8040098C { s8 f0; u8 f1; u8 f2; u8 pad3[0x69]; u8 f6C[0x9C]; s32 f108;
 struct Self_8040098C { u8 pad[0xC]; St_8040098C *st; u8 pad10[0x20]; Info_8040098C *info; };
 
 struct RecoveredGlobal_803F8AA0_lbl_805BA5C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30A8];
 };
 
 struct RecoveredGlobal_803F8A0C_lbl_805B9534 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1088];
 };
 
 struct RecoveredGlobal_8041552C_lbl_805C1BE0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_803FB110_lbl_805BFF68 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xCC];
 };
 
 struct RecoveredGlobal_804050DC_lbl_805C18A0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -63,132 +59,132 @@ struct RecoveredGlobal_803FD520_lbl_805C0310 {
 };
 
 struct RecoveredGlobal_803F895C_lbl_805AEEB0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x49C4];
 };
 
 struct RecoveredGlobal_803F89A4_lbl_805B52D4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x17C];
 };
 
 struct RecoveredGlobal_803F89A4_lbl_805B5454 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x64];
 };
 
 struct RecoveredGlobal_803F89DC_lbl_805B54BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3FFC];
 };
 
 struct RecoveredGlobal_803F89DC_lbl_805B94BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74];
 };
 
 struct RecoveredGlobal_803F8A28_lbl_805AEEB0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x49C4];
 };
 
 struct RecoveredGlobal_803F94A0_lbl_805BF770 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74C];
 };
 
 struct RecoveredGlobal_803FC178_lbl_805C02D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3C];
 };
 
 struct RecoveredGlobal_803FC1A0_lbl_805C02D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3C];
 };
 
 struct RecoveredGlobal_80401A68_lbl_805C04A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80401A90_lbl_805C04A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80402B60_lbl_805C0620 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_80402B88_lbl_805C0620 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_80403D28_lbl_805C0638 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x9C];
 };
 
 struct RecoveredGlobal_804050EC_lbl_805C18A0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80405114_lbl_805C18A0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8040EF00_lbl_805C1B60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8040FE40_lbl_805C1B60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8040FE9C_lbl_805C1B60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8041123C_lbl_805C1BB8 {
-    union { M2C_UNK value; struct { s16 a; s16 b; } ab; };
+    union { s32 value; struct { s16 a; s16 b; } ab; };
     s16 c;
     u8 remaining[0x22];
 };
 
 struct RecoveredGlobal_804112B8_lbl_805C1BB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80411ECC_lbl_805C1BB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8041471C_lbl_805C1BB8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 #include <stddef.h>
 struct Stack_80416008 {
-    M2C_UNK sp10;
+    s32 sp10;
     u8 pad_14[0xC];
-    M2C_UNK sp20;
+    s32 sp20;
     u8 trailing_storage[0x14];
 };
 
 struct H_8041A130 { s16 used; u16 type; void (*fn)(s32, s16, s16, s16); };
 struct RecoveredGlobal_80419A00_lbl_805C1C50 {
-    M2C_UNK value;
+    s32 value;
     s32 queue;
     u8 pad8[0xC];
     H_8041A130 h[3];
@@ -197,23 +193,23 @@ struct RecoveredGlobal_80419A00_lbl_805C1C50 {
 
 struct E_805C1D48 { u8 pad[4]; u16 f4; s16 f6; u8 pad2[0x53C]; };
 struct RecoveredGlobal_8041E178_lbl_805C1D48 {
-    union { M2C_UNK value; E_805C1D48 *p; };
+    union { s32 value; E_805C1D48 *p; };
     s16 n;
     u8 remaining[0xA2];
 };
 
 struct RecoveredGlobal_803AA0C0_lbl_80556E88 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803F8930_lbl_805B4F84 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34C];
 };
 
 struct RecoveredGlobal_803F8B7C_lbl_805BD66C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xA00];
 };
 
@@ -232,12 +228,12 @@ struct RecoveredGlobal_8040DD68_lbl_805C1B38 {
 };
 
 struct RecoveredGlobal_8040ED28_lbl_805C1B60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8040ED70_lbl_805C1B60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -256,12 +252,12 @@ struct RecoveredGlobal_80415650_lbl_805C1BF8 {
 };
 
 struct RecoveredGlobal_80419A34_lbl_805C1C50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
 struct RecoveredGlobal_80419A7C_lbl_805C1C50 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
@@ -272,7 +268,7 @@ struct RecoveredGlobal_80409A3C_lbl_805C1C50 {
 
 struct RecoveredGlobal_803F88E4_lbl_805AEEB0
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x49C4];
 };
 
@@ -490,7 +486,7 @@ typedef struct B_803FADA0 { u8 *buf; u16 len; } B_803FADA0;
 typedef struct A_803FADA0 { u8 pad0[4]; u32 a; u32 b; } A_803FADA0;
 
 extern "C" {
-s32 clear_flag_bit4__6TLobbyFiPv(M2C_UNK arg0, u8 *arg1);
+s32 clear_flag_bit4__6TLobbyFiPv(s32 arg0, u8 *arg1);
 extern RecoveredGlobal_803F8AA0_lbl_805BA5C0 lbl_805BA5C0;
 void TLobby__sub_803F8AA0(u8 *arg0);
 extern RecoveredGlobal_803F8A0C_lbl_805B9534 lbl_805B9534;
@@ -521,32 +517,32 @@ s32 OSGetTick();
 void NetStoreTick(s32 *arg0);
 extern RecoveredGlobal_803F94A0_lbl_805BF770 network_message_queue_slot_table;
 void clear_slot_for_handle__6TLobbyFUi(u32 arg0);
-M2C_UNK OSUnlockMutex();
-M2C_UNK OSLockMutex();
+s32 OSUnlockMutex();
+s32 OSLockMutex();
 s32 OSGetCurrentThread();
 void NetStoreCurrentThread(s32 *arg0);
-M2C_UNK OSYieldThread();
+s32 OSYieldThread();
 void NetYieldThread(void);
-M2C_UNK OSResumeThread();
+s32 OSResumeThread();
 void resume_thread__6TLobbyFv(void);
 s32 OSGetCurrentThread();
-M2C_UNK OSSuspendThread();
+s32 OSSuspendThread();
 void NetSuspendCurrentThread(void);
-M2C_UNK OSCancelThread(void *);
+s32 OSCancelThread(void *);
 s32 OSIsThreadTerminated();
 void cancel_thread_if_running__6TLobbyFi(s32 arg0);
-M2C_UNK OSResumeThread();
+s32 OSResumeThread();
 void NetResumeThread(void);
 void TAdSinglePlyChrSelectGC__sub_8039DC70(s32, s32);
 s32 TQuestVmDownLoadServer__sub_8039DABC(s32, s32, s32);
 s32 TLobby__sub_8039DAFC(void *, void *);
 void TAdSinglePlyChrSelectGC__sub_8039DCE0(s32, s32);
 void strlen(s32);
-M2C_UNK memmove();
+s32 memmove();
 void memmove_wrapper__6TLobbyFv(void);
-M2C_UNK memcmp();
-M2C_UNK memset();
-M2C_UNK memcpy();
+s32 memcmp();
+s32 memset();
+s32 memcpy();
 s32 is_timed_out__6TLobbyFv();
 s32 check_connection_status__6TLobbyFPv(u8 *arg0);
 s32 NetMemcmp(void *, void *, int);
@@ -561,10 +557,10 @@ void reset_boot_state__6TLobbyFv(void);
 s32 TLobby__sub_803FAFDC(void);
 s32 TLobby__sub_803FB358(void *);
 void TLobby__sub_803FB184(u8 *arg0);
-M2C_UNK TLobby__sub_803F76F0(void *);
+s32 TLobby__sub_803F76F0(void *);
 extern RecoveredGlobal_803FC178_lbl_805C02D0 lbl_805C02D0;
 void init_net_state_a__6TLobbyFv(void);
-M2C_UNK init_net_buffer_table__6TLobbyFPv(void *);
+s32 init_net_buffer_table__6TLobbyFPv(void *);
 extern RecoveredGlobal_803FC178_lbl_805C02D0 lbl_805C02D0;
 s32 init_net_state_b__6TLobbyFv(void);
 void TLobby__sub_803FE820(s32 arg0);
@@ -576,17 +572,17 @@ void TLobby__sub_803FF468(s32 arg0);
 void TLobby__sub_803FD85C(void *);
 void reset_connection_slot__6TLobbyFPv(u8 *arg0);
 void queue_command_81__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803F79BC(void *);
+s32 TLobby__sub_803F79BC(void *);
 extern RecoveredGlobal_80401A68_lbl_805C04A8 lbl_805C04A8;
 void init_net_state_c__6TLobbyFv(void);
-M2C_UNK init_net_buffer_desc__6TLobbyFPv(void *);
+s32 init_net_buffer_desc__6TLobbyFPv(void *);
 extern RecoveredGlobal_80401A68_lbl_805C04A8 lbl_805C04A8;
 s32 init_net_subsystem_block__6TLobbyFv(void);
 void init_md5_state__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_803F778C(void *);
+s32 TLobby__sub_803F778C(void *);
 extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
 void init_net_block_620__6TLobbyFv(void);
-M2C_UNK init_net_block_620_params__6TLobbyFPv(void *);
+s32 init_net_block_620_params__6TLobbyFPv(void *);
 extern RecoveredGlobal_80402B60_lbl_805C0620 lbl_805C0620;
 s32 init_net_block_620_secondary__6TLobbyFv(void);
 void reset_connection_state__6TLobbyFPv(u8 *arg0);
@@ -595,11 +591,11 @@ s32 TLobby__sub_804036FC(u8 *arg0);
 s32 TLobby__sub_80403DA8(void *, void *, void *, void *, void *, void *, void *);
 s32 TLobby__sub_804062A0(s16);
 extern RecoveredGlobal_80403D28_lbl_805C0638 lbl_805C0638;
-s32 TLobby__sub_80403D28(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
-M2C_UNK TLobby__sub_803F79AC(void *);
+s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
+s32 TLobby__sub_803F79AC(void *);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 void init_net_block_18A0__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803F79B0(void *);
+s32 TLobby__sub_803F79B0(void *);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 s32 run_net_init_step__6TLobbyFv(void);
 extern s32 lobby_timer_list_head;
@@ -666,7 +662,7 @@ void NetMemset(void * _w0, int _w1, int _w2);
 void release_entry__10TUdpSocketFPv(void *);
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_80413D78();
-M2C_UNK NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
+s32 NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
 s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
 s32 NetIPv6SendUnspecifiedSourceNeighborSolicitation(s32 arg0, s32 arg1);
 void NetMemset(void * _w0, int _w1, int _w2);
@@ -701,7 +697,7 @@ s32 TLobby__sub_8040FE40(s16 arg0);
 extern RecoveredGlobal_803F8930_lbl_805B4F84 lbl_805B4F84;
 void TLobby__sub_803F8930(u8 *arg0);
 extern RecoveredGlobal_803F8B7C_lbl_805BD66C lobby_net_recv_desc;
-extern M2C_UNK lbl_805D7A58;
+extern s32 lbl_805D7A58;
 void init_net_recv_desc__6TLobbyFPv(u8 *arg0);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 s32 TLobby__sub_803FE658(u8 *arg0);
@@ -731,14 +727,14 @@ s32 NetIPv6Shutdown(void);
 void TLobby__sub_803F89D8(void *);
 extern RecoveredGlobal_80415650_lbl_805C1BF8 network_buffer_pool_state;
 s32 reset_net_value__6TLobbyFv(void);
-M2C_UNK TLobby__sub_803F8E9C();
+s32 TLobby__sub_803F8E9C();
 void NetMemset(void * _w0, int _w1, int _w2);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 void TLobby__sub_80419A34(void);
 void clear_slot_for_handle__6TLobbyFUi(u32 arg0);
 void unlock_mutex__10TUdpSocketFi(int);
 void lock_mutex__6TLobbyFi(int);
-M2C_UNK TLobby__sub_803F95E4(int);
+s32 TLobby__sub_803F95E4(int);
 void cancel_thread_if_running__6TLobbyFi(s32 arg0);
 extern RecoveredGlobal_80419A00_lbl_805C1C50 network_dispatch_state;
 s32 TLobby__sub_80419A7C(void);
@@ -780,10 +776,10 @@ Ent_80408718 *find_free_peer_entry__6TLobbyFv(void);
 s32 TLobby__sub_80405304(void *arg0);
 u16 TLobby__sub_80406BD8(void *, s16);
 u16 calc_ip_checksum__6TLobbyFPvs(void *, s16);
-M2C_UNK update_connection_state__6TLobbyFi(int);
+s32 update_connection_state__6TLobbyFi(int);
 s32 TLobby__sub_803FE658(u8 *arg0);
-extern M2C_UNK lbl_8047FEB8[];
-extern M2C_UNK lbl_8047FEC8[];
+extern s32 lbl_8047FEB8[];
+extern s32 lbl_8047FEC8[];
 void handle_request_timeout__6TLobbyFPv(u8 *arg0);
 extern u16 lbl_805D7A60;
 extern Ent_803F8D84 *lbl_805D7A64;
@@ -829,7 +825,7 @@ void unlock_mutex__10TUdpSocketFi(int _w0);
 void lock_mutex__6TLobbyFi(int _w0);
 void TLobby__sub_803F97E8(int);
 s32 is_timed_out__6TLobbyFv(void);
-M2C_UNK update_connection_state__6TLobbyFi(int);
+s32 update_connection_state__6TLobbyFi(int);
 void process_expired_timers__6TLobbyFv(void);
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 s32 wait_for_connection__6TLobbyFPv(Conn_804004DC *c);
@@ -901,17 +897,17 @@ extern u8 lcp_read_value_buffer[4];
 extern u8 lobby_read_byte_buffer[1];
 s16 parse_lcp_option__6TLobbyFiPvPvPvs(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4);
 void dispatch_received_packet__6TLobbyFPvi(u8 *arg0, s32 arg1);
-M2C_UNK TLobby__sub_803FDBF8(void *, Strm_80405A74 *);
+s32 TLobby__sub_803FDBF8(void *, Strm_80405A74 *);
 s32 TLobby__sub_803FE6CC(void *, int, int, void *);
 void TLobby__sub_8040098C(Self_8040098C *self);
 u8 *alloc_from_buffer__6TLobbyFPvs(struct RecoveredFields_80401B8C_arg0 *arg0, s16 arg1);
 s16 TLobby__sub_80401BCC(void *, void *, int);
 u16 read_network_u16_be(u8 *p);
 u8 *write_network_u16_be(u8 *p, u16 v);
-M2C_UNK PADRead(void *, Strm_80405A74 *);
+s32 PADRead(void *, Strm_80405A74 *);
 s16 TLobby__sub_80403F4C(void *, Strm_80405A74 **);
 s16 TLobby__sub_804040E0(void *, Strm_80405A74 **);
-M2C_UNK TLobby__sub_804060B8(u8 *, u16, int);
+s32 TLobby__sub_804060B8(u8 *, u16, int);
 extern u8 lbl_805C0038[];
 extern s16 lbl_805D7A7A;
 extern s16 lbl_805D7A7C;
@@ -1120,7 +1116,7 @@ void NetMemcpy(void * _w0, void * _w1, int _w2);
 
 s32 check_connection_status__6TLobbyFPv(u8 *arg0);
 
-s32 clear_flag_bit4__6TLobbyFiPv(M2C_UNK arg0, u8 *arg1);
+s32 clear_flag_bit4__6TLobbyFiPv(s32 arg0, u8 *arg1);
 
 s32 NetIPv6CPSetInterfaceIdentifier(u8 *arg0, s32 arg1);
 
@@ -1176,15 +1172,15 @@ s32 set_active_flag__6TLobbyFPv(u8 *arg0);
 s32 mark_sub_ready__6TLobbyFPv(Obj_803FC480 *self);
 
 s16 TLobby__sub_803FC820(void *, void *, int);
-M2C_UNK TLobby__sub_803FCC10(void *, void *, int);
-M2C_UNK update_connection_state__6TLobbyFi(int);
+s32 TLobby__sub_803FCC10(void *, void *, int);
+s32 update_connection_state__6TLobbyFi(int);
 s32 TLobby__sub_803FE8BC(u8 *, void *);
 typedef struct Hdr_803FC4B4 { u8 type; u8 flag; s16 len; } Hdr_803FC4B4;
 struct O_80400ACC;
 void TLobby__sub_80400ACC(O_80400ACC *);
 struct Outer_80401CAC;
 void TLobby__sub_80401CAC(Outer_80401CAC *, u16);
-M2C_UNK TLobby__sub_80405304(void *);
+s32 TLobby__sub_80405304(void *);
 extern s16 lbl_805D7A80;
 extern s32 lbl_805D7A90;
 
@@ -1347,7 +1343,7 @@ void save_timer_state__6TLobbyFPv(u8 *arg0);
 #define rd16_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 2) != 2 ? -1 : read_network_u16_be(lcp_read_value_buffer))
 #define rd32_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lcp_read_value_buffer, 4) != 4 ? 0 : TLobby__sub_80402AFC(lcp_read_value_buffer))
 #define rd8_804012E0(src) (TLobby__sub_80401BCC((void *)(src), lobby_read_byte_buffer, 1) != 1 ? -1 : (s16)lobby_read_byte_buffer[0])
-#define F(t, o) M2C_FIELD(arg2, t *, o)
+#define F(t, o) (*(t *)((s8 *)(arg2) + (o)))
 s16 parse_lcp_option__6TLobbyFiPvPvPvs(s32 arg0, u8 *arg1, u8 *arg2, u8 *arg3, s16 arg4);
 
 s32 configure_mode_by_type__6TLobbyFPvs(Cfg_804019A8 *c, s16 type);
@@ -1487,13 +1483,13 @@ s32 TLobby__sub_80403B04(u8 *arg0, u8 *arg1, s32 arg2);
 
 s32 TLobby__sub_80403BA8(u8 *arg0, u8 *arg1, s32 arg2);
 
-M2C_UNK TLobby__sub_803F808C();
+s32 TLobby__sub_803F808C();
 s16 TLobby__sub_80400744(int, void *);
 extern s32 lbl_805D7A90;
 
 s32 TLobby__sub_80403C60(u8 *arg0);
 
-s32 TLobby__sub_80403D28(M2C_UNK arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
+s32 TLobby__sub_80403D28(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, s32 arg6, s32 arg7);
 
 typedef struct A_80403F4C {
     u8 pad0[0x16];
@@ -1634,7 +1630,7 @@ typedef struct Timer_804051CC {
 void get_time_ms__6TLobbyFPv(s32 *out);
 void unlock_mutex__10TUdpSocketFi(int);
 void lock_mutex__6TLobbyFi(int);
-M2C_UNK TLobby__sub_80405700();
+s32 TLobby__sub_80405700();
 extern RecoveredGlobal_804050DC_lbl_805C18A0 lbl_805C18A0;
 extern s32 lobby_timer_list_head;
 
@@ -1662,7 +1658,7 @@ inline s32 valid_80405A74(Strm_80405A74 **s);
 inline s32 avail_80405A74(Strm_80405A74 **s);
 inline s32 get_80405A74(Strm_80405A74 **s);
 #define FWD_80405A74()                                                       \
-    M2C_FIELD(G, s16 *, 0x13A)++;                                            \
+    (*(s16 *)((s8 *)(G) + 0x13A))++;                                            \
     t = (Strm_80405A74 *)alloc_from_buffer__6TLobbyFPvs((RecoveredFields_80401B8C_arg0 *)arg0, 4); \
     p = t->p;                                                                \
     *p++ = 0xFF;                                                             \
@@ -1670,7 +1666,7 @@ inline s32 get_80405A74(Strm_80405A74 **s);
     write_network_u16_be(p, code);                                           \
     u = t;                                                                   \
     if (u == NULL) {                                                         \
-        M2C_FIELD(G, s16 *, 0x142)++;                                        \
+        (*(s16 *)((s8 *)(G) + 0x142))++;                                        \
         return;                                                              \
     }                                                                        \
     if (TLobby__sub_80401BCC(&u, &lobby_ppp_read_buf, 2) == 2) {                   \
@@ -1866,8 +1862,8 @@ struct Glob_80408C24 {
 struct Hdr_80408C24 { u8 dst[6]; u8 src[6]; u16 type; };
 
 s16 TLobby__sub_804098B4(void *);
-M2C_UNK TLobby__sub_80409908(void *, void *);
-M2C_UNK clear_message_entry__6TLobbyFi(void *);
+s32 TLobby__sub_80409908(void *, void *);
+s32 clear_message_entry__6TLobbyFi(void *);
 u8 *TLobby__sub_8042558C(s32);
 struct Tbl_80408F2C;
 extern Tbl_80408F2C lbl_805C1AD8;
@@ -2424,7 +2420,7 @@ void NetIPv6ShutdownNeighborDiscovery(void);
 
 struct Arg2_80415B38 { u8 *addr; u8 *val; };
 typedef struct Ent_80418670 { u8 pad0[3]; u8 f3; u8 pad4[2]; s16 f6; u8 pad8[0xC]; u8 f14[0x10]; } Ent_80418670;
-M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_80411604(int, int, void *);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
 void NetRegisterTimer(int, int, void (*)(void));
 void NetIPv6TickNeighborDiscovery(void);
@@ -2437,7 +2433,7 @@ s32 NetIPv6SendUnspecifiedSourceNeighborSolicitation(s32 arg0, s32 arg1);
 
 u8 *alloc_free_entry__6TLobbyFv();
 s16 TLobby__sub_804145D4(void *, void *);
-M2C_UNK init_ipv6_all_routers_multicast_address(void *, int);
+s32 init_ipv6_all_routers_multicast_address(void *, int);
 s32 NetIPv6EmitRouterSolicitation(int, void *, void *);
 
 s32 NetIPv6SendRouterSolicitation(s32 arg0);
@@ -2472,7 +2468,7 @@ typedef struct Glob_804162A4 {
     s16 delay;
 } Glob_804162A4;
 typedef struct Arg_804162A4 { u8 *p; s32 v; } Arg_804162A4;
-M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_80411604(int, int, void *);
 s32 NetIPv6SendMulticastNeighborProbe(u8 *arg0);
 s32 NetIPv6SendUnicastNeighborProbe(u8 *arg0);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
@@ -2520,7 +2516,7 @@ struct Item_80416994 { s16 port; u8 pad2[2]; u8 val[8]; };
 struct Pkt_80416994 { u8 pad0[4]; s32 n; s32 port; Item_80416994 items[1]; };
 struct Arg_80416994 { u8 *p; s32 v; };
 
-M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_80411604(int, int, void *);
 s32 NetMemcmp(void *, void *, int);
 u8 *alloc_free_entry__6TLobbyFv();
 void set_value_and_enable__6TLobbyFPvi(u8 *arg0, s32 arg1);
@@ -2560,10 +2556,10 @@ typedef struct Arg_80417D1C { u8 *p; s32 v; } Arg_80417D1C;
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 void release_entry__10TUdpSocketFPv(void *e_);
 u8 *alloc_free_entry__6TLobbyFv();
-M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_80411604(int, int, void *);
 s16 TLobby__sub_804137FC(void *, int);
 s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
-M2C_UNK NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
+s32 NetIPv6MakeSolicitedNodeMulticastAddress(void *, void *);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
 
 s32 NetIPv6SendMulticastNeighborProbe(u8 *arg0);
@@ -2572,7 +2568,7 @@ typedef struct Arg_80417E60 { u8 *p; s32 v; } Arg_80417E60;
 void NetMemcpy(void * _w0, void * _w1, int _w2);
 void release_entry__10TUdpSocketFPv(void *e_);
 u8 *alloc_free_entry__6TLobbyFv();
-M2C_UNK TLobby__sub_80411604(int, int, void *);
+s32 TLobby__sub_80411604(int, int, void *);
 s16 TLobby__sub_804137FC(void *, int);
 s32 NetIPv6EmitNeighborSolicitation(int, void *, void *, void *, int);
 Ent_80418670 *NetIPv6SelectDefaultRouter(void *arg0);
@@ -2708,7 +2704,7 @@ typedef char RecoveredGlobal_8041E178_lbl_805C1D48_size[sizeof(RecoveredGlobal_8
 s32 mark_connection_closed__6TLobbyFs(s16 arg0);
 
 void clear_position__6TLobbyFPv(u8 *arg0);
-M2C_UNK TLobby__sub_8041A9AC(int);
+s32 TLobby__sub_8041A9AC(int);
 extern RecoveredGlobal_8041E178_lbl_805C1D48 tcp_protocol_state;
 
 #pragma push

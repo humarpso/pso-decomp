@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct F_80080798 { u16 *buffer; u32 cursor; };
 struct F_80080F68 { u16 *buffer; u32 cursor; };
@@ -241,7 +237,7 @@ void delete_chars__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u16 *var_r6;
     u16 temp_r0;
 
-    var_r6 = (unsigned short *) (M2C_FIELD(arg0, s32 *, 0) + (arg1 * 2));
+    var_r6 = (unsigned short *) (*(s32 *)((s8 *)arg0 + 0) + (arg1 * 2));
     if ((s32) *var_r6 != 0) {
         var_r4 = var_r6 + arg2;
         do {
@@ -250,7 +246,7 @@ void delete_chars__19TWindowKeyBoardSoftFPvii(u8 *arg0, s32 arg1, s32 arg2) {
             temp_r0 = *var_r4;
             var_r4 += 1;
         } while ((s32) temp_r0 != 0);
-        M2C_FIELD(arg0, s32 *, 0x10) = (s32) (M2C_FIELD(arg0, s32 *, 0x10) - arg2);
+        *(s32 *)((s8 *)arg0 + 0x10) = (s32) (*(s32 *)((s8 *)arg0 + 0x10) - arg2);
     }
 }
 
@@ -259,7 +255,7 @@ void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     u16 *var_r5;
     u16 temp_r0;
 
-    var_r5 = (unsigned short *) (M2C_FIELD(arg0, s32 *, 0) + (M2C_FIELD(arg0, s32 *, 4) * 2));
+    var_r5 = (unsigned short *) (*(s32 *)((s8 *)arg0 + 0) + (*(s32 *)((s8 *)arg0 + 4) * 2));
     if ((s32) *var_r5 != 0) {
         var_r4 = var_r5 + 1;
         do {
@@ -268,7 +264,7 @@ void delete_char__19TWindowKeyBoardSoftFPv(u8 *arg0) {
             temp_r0 = *var_r4;
             var_r4 += 1;
         } while ((s32) temp_r0 != 0);
-        M2C_FIELD(arg0, s32 *, 0x10) = (s32) (M2C_FIELD(arg0, s32 *, 0x10) - 1);
+        *(s32 *)((s8 *)arg0 + 0x10) = (s32) (*(s32 *)((s8 *)arg0 + 0x10) - 1);
     }
 }
 
@@ -401,9 +397,9 @@ s32 TWindowKeyBoardSoft__sub_80080F68(F_80080F68 *arg0, u16 arg1) {
 void reset_state__19TWindowKeyBoardSoftFPv(void *arg0) {
     s16 *temp_r3;
 
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x10) = 0;
-    temp_r3 = M2C_FIELD(arg0, s16 **, 0);
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x10) = 0;
+    temp_r3 = *(s16 **)((s8 *)arg0 + 0);
     if (temp_r3 != NULL) {
         *temp_r3 = 0;
     }

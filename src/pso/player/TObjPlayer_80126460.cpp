@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0);
 void baranz_launcher_node_callback(void* p);
-M2C_UNK spawn_slot_emitter__18TItemShootParticleFPvii(u32, M2C_UNK, M2C_UNK);
+s32 spawn_slot_emitter__18TItemShootParticleFPvii(u32, s32, s32);
 u32 spawn_shoot_particle__10TObjPlayerFUiiif(void *, s32, s32, f32);
 u32 create_shoot_model__10TObjPlayerFUiiif();
 int get_player_list__10TObjPlayerFv(void*);
 int rotate_matrix_y(void*, void*);
-M2C_UNK set_parent__7TObjectFP7TObject(u32, u32);
+s32 set_parent__7TObjectFP7TObject(u32, u32);
 
 u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     u32 temp_r31;
@@ -23,10 +19,10 @@ u32 baranz_launcher_create_shot(void *arg0, s32 arg1, s32 arg2, f32 farg0) {
     temp_r31 = create_shoot_model__10TObjPlayerFUiiif();
     temp_r30 = spawn_shoot_particle__10TObjPlayerFUiiif(arg0, arg1, arg2, farg0);
     if ((temp_r31 != 0U) && (temp_r30 != 0U)) {
-        temp_r4 = M2C_FIELD(arg0, void **, 0x188);
+        temp_r4 = *(void **)((s8 *)arg0 + 0x188);
         if (temp_r4 != NULL) {
-            M2C_FIELD(temp_r4, s32 *, 0) = (s32) (M2C_FIELD(temp_r4, s32 *, 0) & 0xFFFFFFFD);
-            M2C_FIELD(temp_r4, s32 *, 0x14) = 0x4000;
+            *(s32 *)((s8 *)temp_r4 + 0) = (s32) (*(s32 *)((s8 *)temp_r4 + 0) & 0xFFFFFFFD);
+            *(s32 *)((s8 *)temp_r4 + 0x14) = 0x4000;
         }
         spawn_slot_emitter__18TItemShootParticleFPvii(temp_r30, 0x1BB, 0);
         set_parent__7TObjectFP7TObject(temp_r30, temp_r31);

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80215BF8_80215BA0 { char pad[0x18]; };
 struct VObj_80215BF8_80215BA0 : Base_80215BF8_80215BA0 {
     virtual void m0();
@@ -50,7 +47,7 @@ struct VObj_18_4a2792 : VBase_18_4a2792 {
     virtual void m3();
     virtual void m4();
     virtual void m5();
-    virtual M2C_UNK m6(M2C_UNK, M2C_UNK);
+    virtual s32 m6(s32, s32);
 };
 
 struct Stack_80215DA0
@@ -60,12 +57,12 @@ struct Stack_80215DA0
 };
 
 struct RecoveredGlobal_80215EF8___vt__17TJudgmentSequence {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
 struct RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -99,12 +96,12 @@ s32 get_window_layout_position(int, f32);
 extern const f32 lbl_805DC680;
 extern const f32 lbl_805DC684;
 void setup_counter_camera__17TJudgmentSequenceFPv(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK close_message_window__13TShopSequenceFPv(void *);
-M2C_UNK __dt__13TShopSequenceFv(void *, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 close_message_window__13TShopSequenceFPv(void *);
+s32 __dt__13TShopSequenceFv(void *, int);
 s32 TShopWindowBase__sub_8022397C(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TWindow__close(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 TWindow__close(void *);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
 extern s32 lbl_805D61D0;
@@ -132,8 +129,8 @@ void handle_close_input__17TJudgmentSequenceFPv(void *arg0);
 void handle_confirm__17TJudgmentSequenceFPv(void *arg0);
 s32 TShopWindowBase__sub_802239EC(void *);
 s32 TShopWindowBase__sub_80223A48(void *);
-M2C_UNK close_window__13TShopSequenceFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 close_window__13TShopSequenceFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 int restore_player_state__13TShopSequenceFPv(void*);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 
@@ -204,7 +201,7 @@ typedef char RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80_size[size
 
 struct Seq_80215CB8;
 void TJudgmentSequence__vt9(void *arg0) {
-    switch (M2C_FIELD(arg0, s32 *, 0x20)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x20)) {
     case 0:
         ((VtObj80215E74*)arg0)->m10();
         break;
@@ -227,18 +224,18 @@ void TJudgmentSequence__vt9(void *arg0) {
 
 u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x30));
-            M2C_FIELD(arg0, u32 *, 0x30) = 0U;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TJudgmentSequence.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x30));
+            *(u32 *)((s8 *)arg0 + 0x30) = 0U;
         }
         close_message_window__13TShopSequenceFPv((void *) (arg0));
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x2C) != 0U) {
-            TWindow__close(M2C_FIELD(arg0, void **, 0x2C));
-            M2C_FIELD(arg0, u32 *, 0x2C) = 0U;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x2C) != 0U) {
+            TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
+            *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
         lbl_805D61D0 = 0;
-        M2C_FIELD(&TJudgmentSequence__slot_flags.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
+        *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -252,21 +249,21 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
 extern "C" {
 s32 TShopSequence__ct(void *);
 extern s32 TJudgmentSequence__class_name;
-u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2);
 void TJudgmentSequence__sub_80216030(void);
 void TJudgmentSequence__sub_80216058(void);
 void TShopWindowBase__sub_80216080(void);
 
-u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TShopSequence__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TJudgmentSequence__class_name;
-    M2C_FIELD(arg0, s32 *, 0x24) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TJudgmentSequence.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TJudgmentSequence__class_name;
+    *(s32 *)((s8 *)arg0 + 0x24) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
     lbl_805D61D0 = (s32) arg0;
     set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0));
-    M2C_FIELD(&TJudgmentSequence__slot_flags.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;
 }
 

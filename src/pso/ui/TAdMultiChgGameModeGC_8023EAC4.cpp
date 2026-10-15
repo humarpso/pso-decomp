@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 extern "C" {
 void *__nw__7TObjectFUl(u32);
 void apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(void *);
@@ -56,7 +51,7 @@ void set_mode_state_0d__21TAdMultiChgGameModeGCFv(void);
 void set_mode_state_0e__21TAdMultiChgGameModeGCFv(void);
 void set_state_0x9__21TAdMultiChgGameModeGCFv(void);
 void set_state_0xc__21TAdMultiChgGameModeGCFv(void);
-M2C_UNK sync_mode_state__21TAdMultiChgGameModeGCFv();
+s32 sync_mode_state__21TAdMultiChgGameModeGCFv();
 
 extern s32 multi_chg_game_mode_state;
 extern s32 lbl_805D63C8;

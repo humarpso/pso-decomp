@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u16 to_be_uint16_t__FUs(u16);
@@ -22,8 +18,8 @@ void set_fresh_card_flag(void *arg0);
 void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2);
 void *get_character_save_record();
-M2C_UNK memcpy(s32, void *, u16);
-M2C_UNK memset(s32, M2C_UNK, M2C_UNK);
+s32 memcpy(s32, void *, u16);
+s32 memset(s32, s32, s32);
 u16 to_be_uint16_t__FUs(u16);
 
 s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
@@ -33,7 +29,7 @@ s32 test_card_flag__19TWindowKeyBoardHardFii(s32 arg1, s32 arg2) {
     if (temp_r3 == NULL) {
         return 0;
     }
-    return (M2C_FIELD(temp_r3, s32 *, 0x10) & arg2) ? 1 : 0;
+    return (*(s32 *)((s8 *)temp_r3 + 0x10) & arg2) ? 1 : 0;
 }
 
 void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -41,14 +37,14 @@ void set_card_window_flags__19TWindowKeyBoardHardFPvii(void *arg0, s32 arg1, s32
 
     temp_r3 = get_character_save_record();
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, s32 *, 0x10) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x10) & arg2);
-        M2C_FIELD(temp_r3, s32 *, 0x10) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x10) | arg1);
+        *(s32 *)((s8 *)temp_r3 + 0x10) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x10) & arg2);
+        *(s32 *)((s8 *)temp_r3 + 0x10) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x10) | arg1);
     }
 }
 
 void set_fresh_card_flag(void *arg0) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x10) = 0x40058;
+        *(s32 *)((s8 *)arg0 + 0x10) = 0x40058;
     }
 }
 
@@ -75,7 +71,7 @@ void drain_deferred_packets__6TLobbyFv(void) {
 void copy_packet__FP6packet(void *arg0) {
     s32 len;
 
-    len = (u16) to_be_uint16_t__FUs(M2C_FIELD(arg0, u16 *, 2));
+    len = (u16) to_be_uint16_t__FUs(*(u16 *)((s8 *)arg0 + 2));
     if (deferred_packet_buffer_used + len <= 0x10000) {
         memcpy(deferred_packet_buffer + deferred_packet_buffer_used, arg0, len);
         deferred_packet_buffer_used += len;
@@ -106,15 +102,10 @@ void TLobby__sub_801A5478(void) { free__11TOBoss4RockFUi((void*)(deferred_packet
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
-s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 memset(s32, s32, s32);
 extern s32 deferred_packet_buffer;
 extern s32 deferred_packet_buffer_used;
 extern s32 lbl_805D5D00;
@@ -130,10 +121,6 @@ void alloc_work_buffer(void) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_801a54e8_801A529C { char pad[0x18]; };
 struct VObj_801a54e8_801A529C : VBase_801a54e8_801A529C {
     virtual void m0();
@@ -161,13 +148,13 @@ void clear_send_buffer__7TPacketFPv(void* p);
 void TLobby__sub_801A54E8(u8 *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x8B8);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x8B8);
     if (temp_r4 > 0) {
         if (temp_r4 & 3) {
-            M2C_FIELD(arg0, s32 *, 0x8B8) = (s32) (temp_r4 + 3);
-            M2C_FIELD(arg0, s32 *, 0x8B8) = (s32) (M2C_FIELD(arg0, s32 *, 0x8B8) & 0xFFFFFFFC);
+            *(s32 *)((s8 *)arg0 + 0x8B8) = (s32) (temp_r4 + 3);
+            *(s32 *)((s8 *)arg0 + 0x8B8) = (s32) (*(s32 *)((s8 *)arg0 + 0x8B8) & 0xFFFFFFFC);
         }
-        ((VObj_801a54e8_801A529C *) arg0)->m8(arg0 + 0x8BC, M2C_FIELD(arg0, s32 *, 0x8B8));
+        ((VObj_801a54e8_801A529C *) arg0)->m8(arg0 + 0x8BC, *(s32 *)((s8 *)arg0 + 0x8B8));
     }
 }
 void append_command_to_batch_buffer(S_801A5544 *arg0, u8 *arg1) {

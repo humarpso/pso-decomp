@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -13,12 +9,12 @@ s16 get_section_clamped__10TObjPlayerFPv(void *arg0);
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0);
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2);
 void update_all_units__10TObjPlayerFii(s32 arg0, s32 arg1);
-M2C_UNK set_technique_level_entry(s32, s16, s32);
-M2C_UNK get_cast_technique_level(s32, s16);
+s32 set_technique_level_entry(s32, s16, s32);
+s32 get_cast_technique_level(s32, s16);
 s32 is_invalid_slot__10TObjPlayerFUc();
 s32 is_valid_technique_id__10TObjPlayerFs(s16);
 s32 is_valid_technique_slot__10TObjPlayerFUc(u8);
-M2C_UNK set_technique_id__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 set_technique_id__10TObjPlayerFPvs(void *, s32);
 u8 get_item_count_max__10TObjPlayerFv();
 s32 check_technique_level__10TObjPlayerFiiUc(void *, int, u8);
 u8 get_effective_technique_level__10TObjPlayerFPvs(void *, int);
@@ -30,18 +26,18 @@ void level_up_all_techniques__10TObjPlayerFPvi(void *p, s32 add);
 s16 get_section_clamped__10TObjPlayerFPv(void *arg0) {
     s16 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s16 *, 6);
+    temp_r4 = *(s16 *)((s8 *)arg0 + 6);
     if ((temp_r4 < 0) || (temp_r4 > 0xA)) {
-        M2C_FIELD(arg0, s16 *, 6) = 0;
+        *(s16 *)((s8 *)arg0 + 6) = 0;
     }
-    return M2C_FIELD(arg0, s16 *, 6);
+    return *(s16 *)((s8 *)arg0 + 6);
 }
 
 s16 get_or_init_field_4__10TObjPlayerFPv(void *arg0) {
-    if (is_valid_technique_id__10TObjPlayerFs(M2C_FIELD(arg0, s16 *, 4)) == 0) {
+    if (is_valid_technique_id__10TObjPlayerFs(*(s16 *)((s8 *)arg0 + 4)) == 0) {
         set_technique_id__10TObjPlayerFPvs(arg0, 0);
     }
-    return M2C_FIELD(arg0, s16 *, 4);
+    return *(s16 *)((s8 *)arg0 + 4);
 }
 
 void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
@@ -57,7 +53,7 @@ void split_capped_value__10TObjPlayerFUcPvPv(u8 arg0, u8 *arg1, s8 *arg2) {
 u8 get_valid_technique__10TObjPlayerFPv(void *arg0) {
     u8 var_r31;
 
-    var_r31 = M2C_FIELD(arg0, u8 *, 1);
+    var_r31 = *(u8 *)((s8 *)arg0 + 1);
     if (is_valid_technique_slot__10TObjPlayerFUc(var_r31) == 0) {
         var_r31 = 0;
     }

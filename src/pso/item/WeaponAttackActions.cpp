@@ -1,10 +1,6 @@
 #include "pso/items/TItemWeapon.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct { f32 x, y, z; } Vec_8011EB84;
 struct Atk_8011EB84 {
@@ -65,7 +61,7 @@ struct Params_8011EAB8 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 * get_weapon_range_record(void *, s16);
 void restore_action_type__11TItemWeaponFPv(u8 *arg0);
 void remap_extra_attack_type(u8 *arg0);
@@ -81,12 +77,12 @@ s32 get_captured_target_count(void *);
 u8 *find_entity_by_id(s32);
 void create__14TItemAttackColFPvPv(s32, void *);
 void TObjPlayer__sub_802E449C(void *);
-M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK transform_point_by_current_matrix(void *, void *);
-M2C_UNK pop_matrix();
-extern M2C_UNK identity_matrix[];
+s32 rotate_matrix_y(int, void *);
+s32 subtract_vector(void *, void *);
+s32 push_matrix_from(void *);
+s32 transform_point_by_current_matrix(void *, void *);
+s32 pop_matrix();
+extern s32 identity_matrix[];
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *owner, s32 angle);
@@ -97,7 +93,7 @@ extern A16_8011E3E8 lbl_8043E844[];
 extern s32 tl_07;
 extern const f32 lbl_805DAC88;
 void spawn_light_task__10TObjPlayerFPv(Obj_8011E3E8 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 is_locally_controlled__10TObjPlayerFPv(s32);
 void restore_action_type__11TItemWeaponFPv(u8 *arg0);
 void remap_extra_attack_type(u8 *arg0);
@@ -164,35 +160,35 @@ struct VObj_8011E384 : Base_8011E384 {
 };
 
 struct Stack_8011E56C {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
 };
 
 struct VBase18c_8011e6e8 { char pad[0x18]; };
 
 struct VObj18c_8011e6e8 : VBase18c_8011e6e8 {
-    virtual M2C_UNK m0();  virtual M2C_UNK m1();  virtual M2C_UNK m2();
-    virtual M2C_UNK m3();  virtual M2C_UNK m4();  virtual M2C_UNK m5();
-    virtual M2C_UNK m6();  virtual M2C_UNK m7();  virtual M2C_UNK m8();
-    virtual M2C_UNK m9();  virtual M2C_UNK m10(); virtual M2C_UNK m11();
-    virtual M2C_UNK m12(); virtual M2C_UNK m13(); virtual M2C_UNK m14();
-    virtual M2C_UNK m15(); virtual M2C_UNK m16(); virtual M2C_UNK m17();
-    virtual M2C_UNK m18(); virtual M2C_UNK m19(); virtual M2C_UNK m20();
-    virtual M2C_UNK m21(); virtual M2C_UNK m22(); virtual M2C_UNK m23();
-    virtual M2C_UNK m24(); virtual M2C_UNK m25(); virtual M2C_UNK m26();
-    virtual M2C_UNK m27(); virtual M2C_UNK m28(); virtual M2C_UNK m29();
-    virtual M2C_UNK m30(); virtual M2C_UNK m31(); virtual M2C_UNK m32();
-    virtual M2C_UNK m33(); virtual M2C_UNK m34(); virtual M2C_UNK m35();
-    virtual M2C_UNK m36(); virtual M2C_UNK m37(); virtual M2C_UNK m38();
-    virtual M2C_UNK m39(); virtual M2C_UNK m40(); virtual M2C_UNK m41();
-    virtual M2C_UNK m42(); virtual M2C_UNK m43(); virtual M2C_UNK m44();
-    virtual M2C_UNK m45(); virtual M2C_UNK m46(); virtual M2C_UNK m47();
-    virtual M2C_UNK m48(); virtual M2C_UNK m49(); virtual M2C_UNK m50();
-    virtual M2C_UNK m51(); virtual M2C_UNK m52(); virtual M2C_UNK m53();
-    virtual M2C_UNK m54(); virtual M2C_UNK m55(); virtual M2C_UNK m56();
-    virtual M2C_UNK m57(); virtual M2C_UNK m58(); virtual M2C_UNK m59();
-    virtual M2C_UNK m60(); virtual M2C_UNK m61(); virtual M2C_UNK m62();
-    virtual M2C_UNK m63(M2C_UNK, void *);
+    virtual s32 m0();  virtual s32 m1();  virtual s32 m2();
+    virtual s32 m3();  virtual s32 m4();  virtual s32 m5();
+    virtual s32 m6();  virtual s32 m7();  virtual s32 m8();
+    virtual s32 m9();  virtual s32 m10(); virtual s32 m11();
+    virtual s32 m12(); virtual s32 m13(); virtual s32 m14();
+    virtual s32 m15(); virtual s32 m16(); virtual s32 m17();
+    virtual s32 m18(); virtual s32 m19(); virtual s32 m20();
+    virtual s32 m21(); virtual s32 m22(); virtual s32 m23();
+    virtual s32 m24(); virtual s32 m25(); virtual s32 m26();
+    virtual s32 m27(); virtual s32 m28(); virtual s32 m29();
+    virtual s32 m30(); virtual s32 m31(); virtual s32 m32();
+    virtual s32 m33(); virtual s32 m34(); virtual s32 m35();
+    virtual s32 m36(); virtual s32 m37(); virtual s32 m38();
+    virtual s32 m39(); virtual s32 m40(); virtual s32 m41();
+    virtual s32 m42(); virtual s32 m43(); virtual s32 m44();
+    virtual s32 m45(); virtual s32 m46(); virtual s32 m47();
+    virtual s32 m48(); virtual s32 m49(); virtual s32 m50();
+    virtual s32 m51(); virtual s32 m52(); virtual s32 m53();
+    virtual s32 m54(); virtual s32 m55(); virtual s32 m56();
+    virtual s32 m57(); virtual s32 m58(); virtual s32 m59();
+    virtual s32 m60(); virtual s32 m61(); virtual s32 m62();
+    virtual s32 m63(s32, void *);
 };
 
 struct Base_8011E828 { char pad[0x18]; };
@@ -361,27 +357,27 @@ struct Self_8011EDFC {
 };
 
 int memcpy(void*, void*, void*);
-M2C_UNK TObjectV8047c128_subtract_hp(u32, s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-s32 obj_testFlags30(void *, M2C_UNK);
+s32 TObjectV8047c128_subtract_hp(u32, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 obj_testFlags30(void *, s32);
 s16 obj_getField1c(void *);
 s32 get_mode__11TCameraCtrlFPv(void *);
 s16 get_field_2b8__14TItemProShieldFPv(u32);
-u8 * csnVector(void *, void *, M2C_UNK);
+u8 * csnVector(void *, void *, s32);
 s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 get_field_d8__10TObjPlayerFPv(void *);
 s32 fn_80100CC8(Pl_8011E87C *);
 s32 is_flag_400__10TObjPlayerFPv(void *);
 s32 item_model_is_shown(void *);
 void send_6x61_activate_mag_effect(void *, s32);
-M2C_UNK copy_to_item_data__5TItemFPvPv(s32, M2C_UNK *);
+s32 copy_to_item_data__5TItemFPvPv(s32, s32 *);
 s8 TObjPlayer__sub_80102C30(void *);
-M2C_UNK spawn_item_attacker(int, void *, int, void *);
+s32 spawn_item_attacker(int, void *, int, void *);
 s32 test_flags_1b8__10TObjPlayerFPvUi(void *, s32);
-M2C_UNK spawn_land_hit_effect(int, void *, void *, void *, int);
-M2C_UNK init__9TItemDataFv(M2C_UNK *);
-M2C_UNK check_item_flags__9TItemDataFPv(M2C_UNK *);
-M2C_UNK get_weapon_special_type_amount(s32, s16 *, s16 *);
+s32 spawn_land_hit_effect(int, void *, void *, void *, int);
+s32 init__9TItemDataFv(s32 *);
+s32 check_item_flags__9TItemDataFPv(s32 *);
+s32 get_weapon_special_type_amount(s32, s16 *, s16 *);
 f32 * get_weapon_range_record(void *, s16);
 void set_weapon_category_flags(u8 *arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0);
@@ -413,17 +409,17 @@ s32 is_active_in_game__10TObjPlayerFPv(void *);
 V4_8011EA10 get_weapon_color__11TItemWeaponFPv(void *);
 void draw_icon__10TObjPlayerFPvii(void *, s32, Vec_8011E87C *);
 void set_status_flags__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK clear_equip_flags__10TObjPlayerFPvUi(void *, int);
-M2C_UNK set_flag_8__10TObjPlayerFPv(int);
-M2C_UNK set_model_param__10TObjPlayerFPvs(void *, s16);
-M2C_UNK set_model_id__10TObjPlayerFPvs(void *, s16);
+s32 clear_equip_flags__10TObjPlayerFPvUi(void *, int);
+s32 set_flag_8__10TObjPlayerFPv(int);
+s32 set_model_param__10TObjPlayerFPvs(void *, s16);
+s32 set_model_id__10TObjPlayerFPvs(void *, s16);
 s16 is_status_subsystem_ready__10TObjPlayerFPv(s32);
 void * get_extended_state__10TObjPlayerFPv(void *);
 void query_extended_state__10TObjPlayerFPv(void *);
-M2C_UNK set_action_type__10TObjPlayerFPvs(int, int);
+s32 set_action_type__10TObjPlayerFPvs(int, int);
 f32 get_attack_accuracy_scale(s32);
 s32 is_flag_b0_4__10TObjPlayerFPv(void *);
-M2C_UNK TObjPlayer__sub_80121228(void *, M2C_UNK);
+s32 TObjPlayer__sub_80121228(void *, s32);
 s16 get_captured_target_collider_index(void *);
 u16 get_uid__10TObjPlayerFPv(void *);
 void * get_captured_target_entry(void *, s32);
@@ -434,19 +430,19 @@ s16 get_stat_by_key_state__10TObjPlayerFPv(s32);
 s16 TObjPlayer__sub_801D2F4C(int);
 void push_trail_interpolated__17TItemEffectWeaponFv(void *, Vec_8011E87C *, Vec_8011E87C *);
 void * __ct__17TItemEffectWeaponFv(void *, u32, u32);
-void * __nw__15TItemHeapObjectFUl(M2C_UNK);
+void * __nw__15TItemHeapObjectFUl(s32);
 u32 __cvt_fp2unsigned(f32);
 s32 rand(void);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK subtract_vector(void *, void *);
+s32 vec3_add_to(void *, void *);
+s32 rotate_matrix_y(int, void *);
+s32 subtract_vector(void *, void *);
 f32 normalize_vector(void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK transform_point_by_current_matrix(void *, void *);
-M2C_UNK pop_matrix();
+s32 push_matrix_from(void *);
+s32 transform_point_by_current_matrix(void *, void *);
+s32 pop_matrix();
 f32 xyz_distance(void *, void *);
 
-extern M2C_UNK identity_matrix[];
+extern s32 identity_matrix[];
 extern const f32 lbl_805DAC8C;
 extern const f32 lbl_805DAC90;
 extern const f32 lbl_805DAC98;
@@ -463,13 +459,13 @@ void set_weapon_category_flags(u8 *arg0) {
 }
 
 void drain_owner_hp_fraction__10TObjPlayerFPvf(void *arg0, f32 farg0) {
-    if (M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
-        TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, u32 *, 0xF0), (s32) (farg0 * (f32) get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, u32 *, 0xF0))));
+    if (*(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
+        TObjectV8047c128_subtract_hp(*(u32 *)((s8 *)arg0 + 0xF0), (s32) (farg0 * (f32) get_field_2b8__14TItemProShieldFPv(*(u32 *)((s8 *)arg0 + 0xF0))));
     }
 }
 
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *arg0) {
-    if ((is_status_subsystem_ready__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0)) == 2) &&
+    if ((is_status_subsystem_ready__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0)) == 2) &&
         (((VObj_8011E384 *)arg0)->m35() == 1)) {
         return 1;
     }
@@ -487,27 +483,27 @@ void spawn_light_task__10TObjPlayerFPv(Obj_8011E3E8 *arg0) {
 
 void restore_action_type__11TItemWeaponFPv(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x04000000) != 0U) {
-        set_action_type__10TObjPlayerFPvs((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (int) (2));
+        set_action_type__10TObjPlayerFPvs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (2));
         clear_equip_flags__10TObjPlayerFPvUi((void *) (arg0), (int) (0x04000000));
     }
 }
 
 void remap_extra_attack_type(u8 *arg0) {
-    if ((test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x20) != 0U) && (TObjPlayer__sub_801D2F4C((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC)) == 2)) {
+    if ((test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x20) != 0U) && (TObjPlayer__sub_801D2F4C((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC)) == 2)) {
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x100000) != 0U) {
-            set_action_type__10TObjPlayerFPvs((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (int) (0));
+            set_action_type__10TObjPlayerFPvs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (0));
         } else {
-            set_action_type__10TObjPlayerFPvs((int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), (int) (1));
+            set_action_type__10TObjPlayerFPvs((int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), (int) (1));
         }
-        ((M2C_UNK (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)((void *) (arg0), (int) (0x04000000));
+        ((s32 (*)(void *, int))set_status_flags__10TObjPlayerFPvUi)((void *) (arg0), (int) (0x04000000));
     }
 }
 
 void TObjPlayer__sub_8011E56C(u8 *arg0, u8 *arg1) {
     Stack_8011E56C stack;
-    ((M2C_UNK (*)(void *, int))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x2FC));
-    stack.spC = M2C_FIELD(arg1, f32 *, 4);
-    ((M2C_UNK (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
+    ((s32 (*)(void *, int))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8), (int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x2FC));
+    stack.spC = *(f32 *)((s8 *)arg1 + 4);
+    ((s32 (*)(void *, void *, int))csnVector)((void *) (&stack.sp8), (void *) (arg1), (int) (0x8100));
 }
 
 void TItemWeapon__sub_8011E5C0(void) {  }
@@ -558,7 +554,7 @@ void set_flag_8_if_check_passes__10TObjPlayerFPv(u8 *arg0) {
 u8 *get_motion_ptr__11TItemWeaponFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xF0));
+    temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xF0));
     if (temp_r3 != NULL) {
         ((VObj18c_8011e6e8 *) temp_r3)->m63(0x30, arg0 + 0x1AC);
     }
@@ -566,9 +562,9 @@ u8 *get_motion_ptr__11TItemWeaponFPv(u8 *arg0) {
 }
 
 void call_callback_1ec__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2) {
-    M2C_UNK (*temp_r12)(s32, void *, s32, s32);
+    s32 (*temp_r12)(s32, void *, s32, s32);
 
-    temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32, void *, s32, s32), 0x1EC);
+    temp_r12 = *(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1EC);
     if (temp_r12 != NULL) {
         temp_r12(tl_05, arg0, arg1, arg2);
     }
@@ -579,15 +575,15 @@ void apply_model_params__10TObjPlayerFPv(void *arg0) {
     s16 sp8;
     void *temp_r3;
 
-    get_weapon_special_type_amount(M2C_FIELD(arg0, u8 *, 0x1D2) & 0x3F, &spA, &sp8);
-    set_model_id__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), spA);
-    set_model_param__10TObjPlayerFPvs(M2C_FIELD(arg0, void **, 0xF0), sp8);
-    temp_r3 = M2C_FIELD(arg0, void **, 0xF0);
+    get_weapon_special_type_amount(*(u8 *)((s8 *)arg0 + 0x1D2) & 0x3F, &spA, &sp8);
+    set_model_id__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), spA);
+    set_model_param__10TObjPlayerFPvs(*(void **)((s8 *)arg0 + 0xF0), sp8);
+    temp_r3 = *(void **)((s8 *)arg0 + 0xF0);
     ((VObj_8011E77C *)temp_r3)->m71();
 }
 
 void copy_item_to_data__11TItemWeaponFi(s32 arg0) {
-    M2C_UNK sp8[5];
+    s32 sp8[5];
 
     init__9TItemDataFv(sp8);
     copy_to_item_data__5TItemFPvPv(arg0, sp8);
@@ -596,7 +592,7 @@ void copy_item_to_data__11TItemWeaponFi(s32 arg0) {
 
 void update_model_flags__11TItemWeaponFPv(struct VObj_8011E828 *o) {
     if (o->m33() == 0) {
-        M2C_FIELD(o, u8 *, 0x1D2) = M2C_FIELD(o, u8 *, 0x1D2) & 0x7F;
+        *(u8 *)((s8 *)o + 0x1D2) = *(u8 *)((s8 *)o + 0x1D2) & 0x7F;
     }
     apply_model_params__10TObjPlayerFPv((void *)(o));
 }
@@ -674,25 +670,25 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
     u8 *hit;
     s32 off;
     if (((s32 (*)())is_active_in_game__10TObjPlayerFPv)() != 0) {
-        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)(M2C_FIELD(arg0, void **, 0xF0)));
+        scale = ((f32 *(*)(void *, s32))get_weapon_range_record)(arg0, ((s32 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)(*(void **)((s8 *)arg0 + 0xF0)));
         TObjPlayer__sub_802E449C(&atk);
         fill_status_info__10TObjPlayerFPvPv(arg0, &atk);
         VecCopy__FP3VecPC3Vec(&atk, origin);
-        atk.angle = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) + angle;
+        atk.angle = *(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60) + angle;
         atk.f3C = *scale;
-        atk.f38 = M2C_FIELD(arg0, f32 *, 0x1E4);
+        atk.f38 = *(f32 *)((s8 *)arg0 + 0x1E4);
         atk.owner = owner;
-        atk.id = M2C_FIELD(arg0, s32 *, 0x24);
+        atk.id = *(s32 *)((s8 *)arg0 + 0x24);
         ((Wpn_8011EB84 *)arg0)->m57(&atk);
         remap_extra_attack_type(arg0);
         hit = ((u8 *(*)(void *, void *))TObjPlayer__sub_8011E56C)(arg0, origin);
         if (hit != NULL) {
-            VecCopy__FP3VecPC3Vec(&atk, M2C_FIELD(hit, void **, 4));
+            VecCopy__FP3VecPC3Vec(&atk, *(void **)((s8 *)hit + 4));
             atk.flags |= 0x800;
-        } else if ((state = (s32)get_extended_state__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0xF0))) != 0 && get_captured_target_count((void *)state) > 0) {
+        } else if ((state = (s32)get_extended_state__10TObjPlayerFPv(*(void **)((s8 *)arg0 + 0xF0))) != 0 && get_captured_target_count((void *)state) > 0) {
             if ((item = (s32)get_captured_target_entry((void *)state, 0)) != 0) {
-                if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFPv)(item))) != NULL && M2C_FIELD(ph, u8 **, 0xA4) != NULL) {
-                    VecCopy__FP3VecPC3Vec(&v, &M2C_FIELD(ph, Skel_8011EB84 **, 0xA4)->n[get_captured_target_collider_index((void *)item)]);
+                if ((ph = ((u8 *(*)(s32))find_entity_by_id)(((s32 (*)(s32))get_uid__10TObjPlayerFPv)(item))) != NULL && *(u8 **)((s8 *)ph + 0xA4) != NULL) {
+                    VecCopy__FP3VecPC3Vec(&v, &(*(Skel_8011EB84 **)((s8 *)ph + 0xA4))->n[get_captured_target_collider_index((void *)item)]);
                     subtract_vector(&v, origin);
                     push_matrix_from(((s32 *)&identity_matrix));
                     ((void (*)(s32, s32))rotate_matrix_y)(0, angle);
@@ -711,14 +707,14 @@ void fire_shot_at_target__11TItemWeaponFv(u8 *arg0, Vec_8011EB84 *origin, void *
 }
 
 void fill_status_info__10TObjPlayerFPvPv(void *arg0, void *arg1) {
-    ((M2C_UNK (*)(void))remap_extra_attack_type)();
-    M2C_FIELD(arg1, s16 *, 0x14) = ((s16 (*)(s32))obj_getField1c)(M2C_FIELD(arg0, s32 *, 0xF0));
-    M2C_FIELD(arg1, s16 *, 0x16) = get_stat_by_key_state__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
-    M2C_FIELD(arg1, s32 *, 0x18) = get_field_d8__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg1, f32 *, 0x1C) = get_attack_accuracy_scale(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC);
-    M2C_FIELD(arg1, s32 *, 0x24) = (s32) is_status_subsystem_ready__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0));
-    M2C_FIELD(arg1, f32 *, 0x20) = ((f32 (*)(s32))query_extended_state__10TObjPlayerFPv)(M2C_FIELD(arg0, s32 *, 0xF0));
-    ((M2C_UNK (*)(void *))restore_action_type__11TItemWeaponFPv)(arg0);
+    ((s32 (*)(void))remap_extra_attack_type)();
+    *(s16 *)((s8 *)arg1 + 0x14) = ((s16 (*)(s32))obj_getField1c)(*(s32 *)((s8 *)arg0 + 0xF0));
+    *(s16 *)((s8 *)arg1 + 0x16) = get_stat_by_key_state__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0));
+    *(s32 *)((s8 *)arg1 + 0x18) = get_field_d8__10TObjPlayerFPv(arg0);
+    *(f32 *)((s8 *)arg1 + 0x1C) = get_attack_accuracy_scale(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC);
+    *(s32 *)((s8 *)arg1 + 0x24) = (s32) is_status_subsystem_ready__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0));
+    *(f32 *)((s8 *)arg1 + 0x20) = ((f32 (*)(s32))query_extended_state__10TObjPlayerFPv)(*(s32 *)((s8 *)arg0 + 0xF0));
+    ((s32 (*)(void *))restore_action_type__11TItemWeaponFPv)(arg0);
 }
 
 void launch_rare_weapon_special__10TObjPlayerFv(Self_8011EDFC *self, void *origin, s32 enable, f32 scale) {
@@ -817,7 +813,7 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
     u8 *var_r29;
     var_r31 = 0;
     if (is_active_in_game__10TObjPlayerFPv((void *)(arg0)) != 0) {
-        temp_r3 = (u8 *)get_extended_state__10TObjPlayerFPv((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+        temp_r3 = (u8 *)get_extended_state__10TObjPlayerFPv((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
         if (temp_r3 != 0) {
             var_r23 = 0;
             var_r29 = (u8 *)(NULL);
@@ -826,10 +822,10 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
                 temp_r22 = (u8 *)get_captured_target_entry(temp_r3,arg2);
                 var_r29 = (u8 *)(((Obj_8011F474 *(*)(s32, s16))resolve_hittable_target)(((s32 (*)(void *))get_uid__10TObjPlayerFPv)(temp_r22),get_captured_target_collider_index(temp_r22)));
                 if (var_r29 != NULL) {
-                    temp_r22_2 = (u8 *)&M2C_FIELD(var_r29, Rec_8011F108 **, 0xA4)[get_captured_target_collider_index(temp_r22)];
+                    temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22)];
                     VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) &((Rec_8011F108 *)temp_r22_2)->pos);
                     subtract_vector((void *) (&endpoint.x), (void *) (arg1));
-                    temp_f3 = normalize_vector((void *) (&endpoint.x)) - M2C_FIELD(temp_r22_2, f32 *, 0xC);
+                    temp_f3 = normalize_vector((void *) (&endpoint.x)) - *(f32 *)((s8 *)temp_r22_2 + 0xC);
                     endpoint.x *= temp_f3;
                     endpoint.y *= temp_f3;
                     endpoint.z *= temp_f3;
@@ -840,50 +836,50 @@ s32 launch_shot__11TItemWeaponFPvPviii(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s
             if (var_r23 == 0) {
                 ShotVector fallback;
                 push_matrix_from((void *) (identity_matrix));
-                temp_r3_2 = (f32 *)(get_weapon_range_record(arg0, ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)((void *) (M2C_FIELD(arg0, u8 **, 0xF0)))));
+                temp_r3_2 = (f32 *)(get_weapon_range_record(arg0, ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)))));
                 fallback.y = lbl_805DAC98;
                 fallback.x = lbl_805DAC98;
-                fallback.z = M2C_FIELD(temp_r3_2, f32 *, 0);
-                rotate_matrix_y((int) (0), (void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s32 *, 0x60) + arg3));
+                fallback.z = *(f32 *)((s8 *)temp_r3_2 + 0);
+                rotate_matrix_y((int) (0), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x60) + arg3));
                 transform_point_by_current_matrix((void *) (&fallback.x), (void *) (&endpoint.x));
                 pop_matrix();
                 vec3_add_to((void *) (&endpoint.x), (void *) (arg1));
             }
-            temp_r7 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+            temp_r7 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
             ShotVector rayOrigin = *(ShotVector *)(temp_r7 + 0x2FC);
-            rayOrigin.y = M2C_FIELD(arg1, f32 *, 4);
+            rayOrigin.y = *(f32 *)((s8 *)arg1 + 4);
             temp_r3_3 = (u8 *)(csnVector(&rayOrigin.x, &endpoint.x, 0x8100));
             if (temp_r3_3 == NULL) {
                 if (var_r29 != NULL) {
                     temp_r22_3 = (u8 *)get_captured_target_entry(temp_r3,arg2);
-                    temp_r22_2 = (u8 *)&M2C_FIELD(var_r29, Rec_8011F108 **, 0xA4)[get_captured_target_collider_index(temp_r22_3)];
-                    var_f31 = xyz_distance((void *) (arg1), (void *) &((Rec_8011F108 *)temp_r22_2)->pos) / M2C_FIELD(arg0, f32 *, 0x1E4);
+                    temp_r22_2 = (u8 *)&(*(Rec_8011F108 **)((s8 *)var_r29 + 0xA4))[get_captured_target_collider_index(temp_r22_3)];
+                    var_f31 = xyz_distance((void *) (arg1), (void *) &((Rec_8011F108 *)temp_r22_2)->pos) / *(f32 *)((s8 *)arg0 + 0x1E4);
                     if (arg4 != 0) {
                         ((void (*)(void *))remap_extra_attack_type)((void *) (arg0));
                         hit.reserved = 0;
-                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
-                        hit.source = obj_getField1c((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+                        hit.kind = (s32) ((s16 (*)(void *))is_status_subsystem_ready__10TObjPlayerFPv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
+                        hit.source = obj_getField1c((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
                         hit.target = obj_getField1c((void *) (var_r29));
                         hit.weapon = get_field_d8__10TObjPlayerFPv((void *) (arg0));
                         hit.collider = get_captured_target_collider_index(temp_r22_3);
-                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFPv)((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+                        hit.damage = ((f32 (*)(void *))query_extended_state__10TObjPlayerFPv)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
                         spawn_item_attacker((int) (tl_05), (void *) (arg1), (int) ((s32) var_f31), (void *) (&hit.reserved));
                         var_r31 = 1;
                         ((void (*)(void *))restore_action_type__11TItemWeaponFPv)((void *) (arg0));
                     }
                 } else {
-                    var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / M2C_FIELD(arg0, f32 *, 0x1E4);
+                    var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / *(f32 *)((s8 *)arg0 + 0x1E4);
                 }
             } else {
-                VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) (M2C_FIELD(temp_r3_3, u8 **, 4)));
-                var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / M2C_FIELD(arg0, f32 *, 0x1E4);
-                if ((M2C_FIELD(M2C_FIELD(temp_r3_3, u8 **, 4), s32 *, 0x18) & 0x100) && ((u32) M2C_FIELD(arg0, u32 *, 0x1EC) != 0U)) {
+                VecCopy__FP3VecPC3Vec((void *) (&endpoint.x), (void *) (*(u8 **)((s8 *)temp_r3_3 + 4)));
+                var_f31 = xyz_distance((void *) (arg1), (void *) (&endpoint.x)) / *(f32 *)((s8 *)arg0 + 0x1E4);
+                if ((*(s32 *)((s8 *)(*(u8 **)((s8 *)temp_r3_3 + 4)) + 0x18) & 0x100) && ((u32) *(u32 *)((s8 *)arg0 + 0x1EC) != 0U)) {
                     spawn_land_hit_effect((int) (tl_05), (void *) (arg0), (void *) (arg1), (void *) (&endpoint.x), (int) ((s32) var_f31));
                 }
             }
             spawn_light_task__10TObjPlayerFPv((Obj_8011E3E8 *)((void *) (arg0)));
-            if ((((M2C_UNK (*)(void *, void *, f32 *, f32)) M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)) != NULL) && (item_model_is_shown((void *) (arg0)) == 1)) {
-                M2C_FIELD(arg0, M2C_UNK (**)(void *, void *, f32 *, f32), 0x1F0)(arg0, arg1, &endpoint.x, var_f31);
+            if ((((s32 (*)(void *, void *, f32 *, f32)) *(s32 (**)(void *, void *, f32 *, f32))((s8 *)arg0 + 0x1F0)) != NULL) && (item_model_is_shown((void *) (arg0)) == 1)) {
+                (*(s32 (**)(void *, void *, f32 *, f32))((s8 *)arg0 + 0x1F0))(arg0, arg1, &endpoint.x, var_f31);
             }
         }
     }

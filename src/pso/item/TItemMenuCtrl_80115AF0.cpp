@@ -1,15 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void add_angle_clamped__10TObjPlayerFPvii(s32 *arg0, s32 arg1, s32 arg2);
 void advance_angle_wrap(s32 *arg0, s32 arg1);
 s32 is_split_screen(void);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
 u8 *spawn_star_light_2d(s32 arg0, s32 arg1, s32 arg2);
 }
 

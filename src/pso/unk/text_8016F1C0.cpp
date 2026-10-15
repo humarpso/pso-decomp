@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8016F1C0___vt__10TOMineDisp {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -18,11 +14,11 @@ struct VO_8016F320 : VB_8016F320 {
 };
 
 extern "C" {
-M2C_UNK construct_world_actor_base();
+s32 construct_world_actor_base();
 extern RecoveredGlobal_8016F1C0___vt__10TOMineDisp __vt__10TOMineDisp;
 extern s32 TOMineDisp__name;
 extern const f32 lbl_805DB85C;
-u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2);
+u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2);
 void *get_shared_text_buffer(void);
 s32 get_trap_type__10TOMineTrapFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv(void);
@@ -40,24 +36,24 @@ extern "C" {
 void TOMineTrap__vt81(s32 arg0);
 u32 TOMineTrapDisp__ct(u32, s32, u16, s32);
 s32 get_trap_type__10TOMineTrapFPv(s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(s32, s32);
-u32 __nw__7TObjectFUl(M2C_UNK);
+s32 VecCopy__FP3VecPC3Vec(s32, s32);
+u32 __nw__7TObjectFUl(s32);
 s32 is_split_screen();
 
 extern s32 local_client_id;
 
 typedef char RecoveredGlobal_8016F1C0___vt__10TOMineDisp_size[sizeof(RecoveredGlobal_8016F1C0___vt__10TOMineDisp) == 0x34 ? 1 : -1];
-u8 *TOMineDisp__ct(u8 *arg0, M2C_UNK arg1, s16 arg2) {
+u8 *TOMineDisp__ct(u8 *arg0, s32 arg1, s16 arg2) {
     construct_world_actor_base();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__10TOMineDisp.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOMineDisp__name;
-    M2C_FIELD(arg0, s16 *, 0xA8) = arg2;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DB85C;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DB85C;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) lbl_805DB85C;
-    M2C_FIELD(arg0, f32 *, 0xA0) = (f32) lbl_805DB85C;
-    M2C_FIELD(arg0, s32 *, 0xA4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x90) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__10TOMineDisp.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOMineDisp__name;
+    *(s16 *)((s8 *)arg0 + 0xA8) = arg2;
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DB85C;
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) lbl_805DB85C;
+    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) lbl_805DB85C;
+    *(f32 *)((s8 *)arg0 + 0xA0) = (f32) lbl_805DB85C;
+    *(s32 *)((s8 *)arg0 + 0xA4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x90) = 0;
     return arg0;
 }
 
@@ -110,10 +106,6 @@ s32 show_owner_message__10TOMineTrapFiUi(s32 arg0, u32 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Pkt_8016F558 { u8 code, words; u16 object, sub, idx; };
 

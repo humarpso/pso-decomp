@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_8029EA4C { f32 x, y, z; };
 
@@ -18,15 +14,15 @@ struct Stack_8029E960 {
 
 extern "C" {
 void restore_render_scissor(s32 arg0);
-M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 GXSetScissor(s32, s32, s32, s32);
 void project_world_to_screen(s32, void *, void *);
 extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD94;
-s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
-s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1);
-M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
-M2C_UNK push_matrix();
+s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
+s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1);
+s32 reflect_matrix_in_plane(s32, s32 *);
+s32 push_matrix();
 extern u16 scene_sora_reflect_active;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD90;
@@ -38,20 +34,20 @@ extern "C" {
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1);
 void restore_render_scissor(s32 arg0);
 void update_particle_if_active__12TObjEneReconFv(void);
-M2C_UNK GXSetScissor(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK reflect_matrix_in_plane(M2C_UNK, M2C_UNK *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 GXSetScissor(s32, s32, s32, s32);
+s32 reflect_matrix_in_plane(s32, s32 *);
+s32 push_matrix();
+s32 pop_matrix();
 u32 get_player_by_client_id(u32);
-s32 fn_8029E7BC(s32, M2C_UNK *);
+s32 fn_8029E7BC(s32, s32 *);
 u32 get_state__10TSceneSoraFPv(void*);
 s32 is_state_active__14TOKeyMachine01Fv();
-M2C_UNK reset_ind_tev_stages__13TParticleCtrlFv();
+s32 reset_ind_tev_stages__13TParticleCtrlFv();
 
 extern u16 scene_sora_reflect_active;
 
 s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
-    M2C_UNK sp8[8];
+    s32 sp8[8];
     s32 var_r3;
     u32 temp_r3;
 
@@ -69,7 +65,7 @@ s32 render_player_marker__12TObjEneReconFUsi(u16 arg0, s32 arg1) {
         return 0;
     }
     if (arg1 != 0) {
-        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), (M2C_UNK)(1));
+        var_r3 = TObjEneRecon__sub_8029EA4C((void *)(sp8), (s32)(1));
     } else {
         var_r3 = 1;
     }
@@ -97,16 +93,16 @@ s32 push_reflect_matrix__12TObjEneReconFPv(u8 *arg0) {
     if (arg0 == NULL) {
         return 0;
     }
-    stack.sp8 = M2C_FIELD(arg0, f32 *, 0);
-    stack.spC = M2C_FIELD(arg0, f32 *, 4);
-    stack.sp10 = M2C_FIELD(arg0, f32 *, 8);
+    stack.sp8 = *(f32 *)((s8 *)arg0 + 0);
+    stack.spC = *(f32 *)((s8 *)arg0 + 4);
+    stack.sp10 = *(f32 *)((s8 *)arg0 + 8);
     stack.sp14 = lbl_805DDD8C;
     stack.sp18 = lbl_805DDD90;
     stack.sp1C = stack.sp14;
     temp_r3 = TObjEneRecon__sub_8029EA4C(arg0, 1);
     if (temp_r3 != 0) {
         push_matrix();
-        reflect_matrix_in_plane(0, (M2C_UNK *)&stack.sp8);
+        reflect_matrix_in_plane(0, (s32 *)&stack.sp8);
     }
     return temp_r3;
 }
@@ -122,7 +118,7 @@ void restore_render_scissor(s32 arg0) {
 
 extern u32 scene_sora_instance;
 
-s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
+s32 TObjEneRecon__sub_8029EA4C(void *arg0, s32 _w1) {
     Vec_8029EA4C v;
     if (scene_sora_reflect_active == 0) {
         return 1;
@@ -130,7 +126,7 @@ s32 TObjEneRecon__sub_8029EA4C(void *arg0, M2C_UNK _w1) {
     restore_render_scissor(1);
     project_world_to_screen(0, arg0, &v);
     if (v.y >= lbl_805DDD8C && v.y <= lbl_805DDD94) {
-        GXSetScissor((M2C_UNK)(0), (M2C_UNK)((u32)v.y), (M2C_UNK)(0x280), (M2C_UNK)((u32)(lbl_805DDD94 - v.y)));
+        GXSetScissor((s32)(0), (s32)((u32)v.y), (s32)(0x280), (s32)((u32)(lbl_805DDD94 - v.y)));
         return 1;
     }
     return 0;
@@ -145,15 +141,11 @@ void update_particle_if_active__12TObjEneReconFv(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void notify_scene__12TObjEneReconFi(s32 arg0);
-M2C_UNK play_particle__13TParticleCtrlFPvis(u32, M2C_UNK, s32);
+s32 play_particle__13TParticleCtrlFPvis(u32, s32, s32);
 
 extern u32 scene_sora_instance;
 
@@ -170,20 +162,16 @@ void notify_scene__12TObjEneReconFi(s32 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void alloc_if_valid_state__12TObjEneReconFv(void);
 void destroy_instance__12TObjEneReconFv(void);
 void __dl__FPv(void*);
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-M2C_UNK init_render_target__10TObjPlayerFPv();
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 init_render_target__10TObjPlayerFPv();
 s32 is_state_active__14TOKeyMachine01Fv();
-M2C_UNK reset_lobby_subobject__10TObjPlayerFPv(void*);
+s32 reset_lobby_subobject__10TObjPlayerFPv(void*);
 
 extern u32 scene_sora_instance;
 extern u32 scene_sora_recon_object;

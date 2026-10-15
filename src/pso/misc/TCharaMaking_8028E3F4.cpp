@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8028E6B4 { s32 id; u8 pad[4]; void *name; u8 pad2[4]; };
 
@@ -45,18 +41,18 @@ s32 is_end__12TCharaMakingFv(void) {
 s32 get_display_index__12TCharaMakingFPv(void *arg0) {
     s8 temp;
 
-    if (!(M2C_FIELD(arg0, s8 *, 0x32) & 0xA)) {
-        return M2C_FIELD(arg0, s8 *, 0x31);
+    if (!(*(s8 *)((s8 *)arg0 + 0x32) & 0xA)) {
+        return *(s8 *)((s8 *)arg0 + 0x31);
     }
-    if ((M2C_FIELD(arg0, s8 *, 0x33) <= 0) ||
-        ((temp = M2C_FIELD(arg0, s8 *, 0x1C)) < 0) ||
+    if ((*(s8 *)((s8 *)arg0 + 0x33) <= 0) ||
+        ((temp = *(s8 *)((s8 *)arg0 + 0x1C)) < 0) ||
         (temp >= 7)) {
-        return M2C_FIELD(arg0, s8 *, 0x31);
+        return *(s8 *)((s8 *)arg0 + 0x31);
     }
     if (is_end__12TCharaMakingFv() != 0) {
-        return 0x12 - M2C_FIELD(arg0, s8 *, 0x1C);
+        return 0x12 - *(s8 *)((s8 *)arg0 + 0x1C);
     }
-    return M2C_FIELD(arg0, s8 *, 0x31);
+    return *(s8 *)((s8 *)arg0 + 0x31);
 }
 
 struct TextureOutput;

@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Stack_800EBE74 {
     f32 sp8;
     f32 spC;
@@ -16,7 +11,7 @@ extern "C" {
 extern const f32 lbl_805DA6B4;
 void TObjPlayer__sub_800EBE48(f32 farg0);
 void set_chunk_material_override_pair(s32, s32);
-M2C_UNK set_chunk_material_color(void *);
+s32 set_chunk_material_color(void *);
 extern int lbl_805D5660;
 extern int lbl_805D5664;
 extern int lbl_805D5668;
@@ -61,9 +56,9 @@ void push_material_color_override__10TObjPlayerFffff(f32 farg0, f32 farg1, f32 f
 }
 int find_nearest_enemy_with_flag__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
     u16 temp_r3;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x02000000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x02000000);
     temp_r3 = find_nearest_hittable_enemy__10TObjPlayerFiPvf((void *) (arg0), (int) (0), (f32) (farg0));
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFDFFFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFDFFFFFF);
     return temp_r3;
 }
 

@@ -1,14 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 calc_buy_price__9TItemDataFPv(void *);
 u32 format_item_description(void *);
 void text_builder_append(s32);
 void text_builder_reset(void);
-extern M2C_UNK lbl_805DCDE0;
+extern s32 lbl_805DCDE0;
 void format_description_with_price__15TWindowHelpItemFPv(u8 *arg0);
 }
 
@@ -16,9 +13,9 @@ extern "C" {
 
 void format_description_with_price__15TWindowHelpItemFPv(u8 *arg0) {
     text_builder_reset();
-    text_builder_append(format_item_description(M2C_FIELD(arg0, u8 **, 0x68)));
+    text_builder_append(format_item_description(*(u8 **)((s8 *)arg0 + 0x68)));
     text_builder_append((s32) &lbl_805DCDE0);
-    text_builder_append(calc_buy_price__9TItemDataFPv(M2C_FIELD(arg0, u8 **, 0x68)));
+    text_builder_append(calc_buy_price__9TItemDataFPv(*(u8 **)((s8 *)arg0 + 0x68)));
 }
 
 }

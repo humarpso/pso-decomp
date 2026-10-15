@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_8015AF10
 {
@@ -28,7 +24,7 @@ s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
 void run_task__12TOChatSensorFv(u8 *arg0);
 f32 newton_sqrtf(f32);
 s32 check_demo_mode__10TObjPlayerFv(void);
-M2C_UNK TObjRoomId__sub_80141CF4(void *, void *);
+s32 TObjRoomId__sub_80141CF4(void *, void *);
 extern const f32 lbl_805DB388;
 extern const f32 lbl_805DB38C;
 void render__12TOChatSensorFv(u8 *arg0);
@@ -61,11 +57,11 @@ void check_player_proximity__12TOChatSensorFPv(u8 *arg0) {
 
     temp_r3 = get_player_by_client_id((void *) (local_client_id));
     if (temp_r3 != 0U) {
-        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < M2C_FIELD(arg0, f32 *, 0x9C)) {
-            M2C_FIELD(arg0, s32 *, 0xA0) = 1;
+        if (horizontal_distance_squared((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38)) < *(f32 *)((s8 *)arg0 + 0x9C)) {
+            *(s32 *)((s8 *)arg0 + 0xA0) = 1;
             return;
         }
-        M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     }
 }
 
@@ -125,30 +121,30 @@ void init_params__12TOChatSensorFPv(void *arg0) {
     f32 temp_f0;
     s32 temp_r5;
 
-    M2C_FIELD(arg0, u32 *, 0x90) = (u32) M2C_FIELD(arg0, u32 *, 0x5C);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) >= 2U) {
-        M2C_FIELD(arg0, u32 *, 0x90) = 0U;
+    *(u32 *)((s8 *)arg0 + 0x90) = (u32) *(u32 *)((s8 *)arg0 + 0x5C);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) >= 2U) {
+        *(u32 *)((s8 *)arg0 + 0x90) = 0U;
     }
-    M2C_FIELD(arg0, u32 *, 0x98) = (u32) M2C_FIELD(arg0, u32 *, 0x60);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x98) >= 2U) {
-        M2C_FIELD(arg0, u32 *, 0x90) = 0U;
+    *(u32 *)((s8 *)arg0 + 0x98) = (u32) *(u32 *)((s8 *)arg0 + 0x60);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x98) >= 2U) {
+        *(u32 *)((s8 *)arg0 + 0x90) = 0U;
     }
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) (temp_f0 * temp_f0);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) == 0U) {
-        M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
+    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) (temp_f0 * temp_f0);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) == 0U) {
+        *(s32 *)((s8 *)arg0 + 0x94) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
     } else {
-        M2C_FIELD(arg0, u16 *, 0x94) = (u16) M2C_FIELD(arg0, s32 *, 0x84);
-        if ((u16) M2C_FIELD(arg0, u16 *, 0x94) > 0x100U) {
-            M2C_FIELD(arg0, u16 *, 0x94) = 0xFFFF;
+        *(u16 *)((s8 *)arg0 + 0x94) = (u16) *(s32 *)((s8 *)arg0 + 0x84);
+        if ((u16) *(u16 *)((s8 *)arg0 + 0x94) > 0x100U) {
+            *(u16 *)((s8 *)arg0 + 0x94) = 0xFFFF;
         }
     }
-    M2C_FIELD(arg0, s32 *, 0xCC) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
-    temp_r5 = M2C_FIELD(arg0, s32 *, 0xCC);
+    *(s32 *)((s8 *)arg0 + 0xCC) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    temp_r5 = *(s32 *)((s8 *)arg0 + 0xCC);
     if ((temp_r5 != 0) && ((temp_r5 < 0) || ((s32) *chat_sensor_table <= temp_r5))) {
-        M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
 }
 
 typedef struct Stack_8015AF10 Stack_8015AF10;
@@ -166,26 +162,26 @@ void render__12TOChatSensorFv(u8 *arg0) {
 
 void run_task__12TOChatSensorFv(u8 *arg0) {
     s32 temp_r0;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) == 0U) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) == 0U) {
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
         switch (temp_r0) {
         case 0:
             check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
             return;
         case 1:
-            if (((u32) M2C_FIELD(arg0, u32 *, 0xC4) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(M2C_FIELD(arg0, u32 *, 0xC4)) == 0)) {
-                M2C_FIELD(arg0, u32 *, 0xC4) = 0U;
-                M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+            if (((u32) *(u32 *)((s8 *)arg0 + 0xC4) != 0U) && (all_parents_unqueued_for_destruction__7TObjectFv(*(u32 *)((s8 *)arg0 + 0xC4)) == 0)) {
+                *(u32 *)((s8 *)arg0 + 0xC4) = 0U;
+                *(s32 *)((s8 *)arg0 + 0xC8) = 0;
                 return;
             }
             break;
         }
     } else {
-        if (is_current_floor_switch_set((int) (M2C_FIELD(arg0, u16 *, 0x94))) == 0) {
+        if (is_current_floor_switch_set((int) (*(u16 *)((s8 *)arg0 + 0x94))) == 0) {
             check_player_proximity__12TOChatSensorFPv((u8 *)((void *) (arg0)));
             return;
         }
-        M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     }
 }
 

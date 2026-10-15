@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_80195CF0 { u8 pad0[6]; u16 f6; u8 pad8[4]; Obj_80195CF0 *next; u8 pad10[4]; Obj_80195CF0 *child; };
 
@@ -34,9 +30,9 @@ void delete_by_param__13TQuestColCtrlFi(s32 arg0);
 extern "C" {
 
 void init__13TQuestColCtrlFv(void);
-M2C_UNK TQuestColCtrl__ct(M2C_UNK, s32);
-u32 __ct__7TObjectFP7TObject(M2C_UNK, M2C_UNK);
-u32 __nw__7TObjectFUl(M2C_UNK);
+s32 TQuestColCtrl__ct(s32, s32);
+u32 __ct__7TObjectFP7TObject(s32, s32);
+u32 __nw__7TObjectFUl(s32);
 
 extern u32 quest_collision_task_root;
 extern s32 tl_05;

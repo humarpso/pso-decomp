@@ -1,23 +1,17 @@
 #include "pso/TEneEffHamon.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_800A4204_lbl_80490A18 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_800A38A4___vt__12TEneEffHamon {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
-typedef s32 M2C_UNK;
 typedef struct Hamon_800A36A8 {
     u8 pad0[0x1C];
     u8 mtx1C[0x34 - 0x1C];
@@ -68,15 +62,15 @@ struct Obj_800A3D1C {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv();
+s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D99E0;
 void run_task__12TEneEffHamonFv(u8 *arg0);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_80490A18[];
+extern s32 lbl_80490A18[];
 extern s32 lbl_805D29E0;
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_800A38A4___vt__12TEneEffHamon __vt__12TEneEffHamon;
 extern s32 TEneEffHamon__name;
@@ -85,15 +79,15 @@ extern const f32 lbl_805D99E8;
 extern const f32 lbl_805D99EC;
 extern s32 tl_06;
 u8 *__ct__12TEneEffHamonFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, f32 farg0);
-M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK set_chunk_material_override_pair(u32, u32);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(s32);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 set_chunk_material_override_pair(u32, u32);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object(s32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
@@ -116,9 +110,9 @@ extern const f32 lbl_805D9A08;
 void TObjPlayer__sub_800A4064(Obj_800A4064 *self);
 f32 newton_sqrtf(f32);
 void init_xyz_limits__10TObjPlayerFv(void);
-M2C_UNK draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, int, s32, int);
+s32 draw_transformed_primitive__9TWindowDDFPvPvPvPv(void *, int, s32, int);
 s32 matrix_mult_vec(int, void *, void *);
-M2C_UNK set_chunk_material_color(void *);
+s32 set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern Cam_800A3D1C lbl_8058D4F8;
 extern s32 TObjPlayer__effect_count;
@@ -159,9 +153,9 @@ struct Obj_800A39A8 {
 
 f32 fabs_float(f32);
 f32 rand_signed_unit();
-M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *);
+s32 update_scale__15TObjBoss2TunnelFPv(void *);
 f32 vector_length(void *);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 extern const f32 lbl_805D99F4;
 #pragma push
 #pragma fp_contract on
@@ -432,7 +426,7 @@ void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
 
 void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80490A18;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80490A18;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -443,17 +437,17 @@ void *TObjPlayer__sub_800A41AC(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_800A4204_lbl_80490A18_size[sizeof(RecoveredGlobal_800A4204_lbl_80490A18) == 0x18 ? 1 : -1];
 u8 *TObjPlayer__sub_800A4204(u8 *arg0, u8 *arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&lbl_80490A18).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D29E0;
-    M2C_FIELD(arg0, s32 *, 0x338) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x33C) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x330) = 0;
-    M2C_FIELD(arg0, s32 *, 0x334) = 0;
-    M2C_FIELD(arg0, s32 *, 0x344) = arg4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800A4204_lbl_80490A18 *)&lbl_80490A18).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D29E0;
+    *(s32 *)((s8 *)arg0 + 0x338) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x33C) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x330) = 0;
+    *(s32 *)((s8 *)arg0 + 0x334) = 0;
+    *(s32 *)((s8 *)arg0 + 0x344) = arg4;
     build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)arg0);
-    M2C_FIELD(arg0, s32 *, 0x328) = 0;
-    M2C_FIELD(arg0, s32 *, 0x32C) = 0xFF000000;
-    M2C_FIELD(arg0, s32 *, 0x340) = 0;
+    *(s32 *)((s8 *)arg0 + 0x328) = 0;
+    *(s32 *)((s8 *)arg0 + 0x32C) = 0xFF000000;
+    *(s32 *)((s8 *)arg0 + 0x340) = 0;
     return arg0;
 }
 

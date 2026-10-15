@@ -1,10 +1,6 @@
 #include "pso/misc/TOSignCave03.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_26a62c { char pad[0x18]; };
 
@@ -20,7 +16,7 @@ struct VObj_18_26a62c : VBase_18_26a62c {
     virtual s32 m8(f32, f32);
 };
 
-struct RecoveredGlobal_80176F50_lbl_804B43A0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80176F50_lbl_804B43A0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80176F50_lbl_804B43A0_size[sizeof(RecoveredGlobal_80176F50_lbl_804B43A0) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -31,11 +27,11 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80176FF8___vt__12TOSignCave03 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -55,7 +51,7 @@ extern RecoveredGlobal_80176F50_lbl_804B43A0 bm_fs_obj_dokanban03_resource_descr
 extern u32 TOSignCave03__shared_resource;
 void load_shared_resource__12TOSignCave03Fv(void);
 s32 init_map_object_base(void *, void *);
-extern M2C_UNK __vt__12TOSignCave03[];
+extern s32 __vt__12TOSignCave03[];
 extern s32 lbl_805D316C;
 extern u32 TOSignCave03__shared_resource;
 extern const f32 lbl_805DB9E0;
@@ -184,7 +180,7 @@ void close_dialog_window__12TOSignCave03Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__12TOSignCave03[];
+extern s32 __vt__12TOSignCave03[];
 
 void load_shared_resource__12TOSignCave03Fv(void) {
     s32 temp_r3;
@@ -199,7 +195,7 @@ void load_shared_resource__12TOSignCave03Fv(void) {
 
 void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOSignCave03;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOSignCave03;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -210,13 +206,13 @@ void *__dt__12TOSignCave03Fv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_80176FF8___vt__12TOSignCave03_size[sizeof(RecoveredGlobal_80176FF8___vt__12TOSignCave03) == 0x38 ? 1 : -1];
 u8 *TOSignCave03__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D316C;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80176FF8___vt__12TOSignCave03 *)&__vt__12TOSignCave03).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D316C;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__shared_resource), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TOSignCave03__shared_resource), u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB9E0;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB9E4;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOSignCave03__shared_resource) + 0x42C)) + 0xC);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB9E0;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB9E4;
     return arg0;
 }
 

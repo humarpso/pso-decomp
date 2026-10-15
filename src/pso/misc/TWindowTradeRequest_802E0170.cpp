@@ -1,11 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_802E0224___vt__19TWindowTradeRequest {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -25,26 +21,26 @@ struct VObj_18_f23ffb : VBase_18_f23ffb {
     virtual void m7();
     virtual void m8();
     virtual void m9();
-    virtual M2C_UNK m10();
+    virtual s32 m10();
 };
 
 struct RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x14];
 };
 
 struct Obj_802E0174 { u8 pad[0x1C]; s32 state; void *card; };
 
 extern "C" {
-M2C_UNK __dt__7TObjectFv(void *, int);
-M2C_UNK init_parts__10TObjPlayerFPv();
+s32 __dt__7TObjectFv(void *, int);
+s32 init_parts__10TObjPlayerFPv();
 u32 get_player_by_client_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK fn_8024AADC(void *, int);
-M2C_UNK TLobby__sub_8024AC20(void *);
-M2C_UNK TWindowReturnCity__sub_8024ACA8(void *);
-M2C_UNK close__17TWindowSubComCardFPv(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 fn_8024AADC(void *, int);
+s32 TLobby__sub_8024AC20(void *);
+s32 TWindowReturnCity__sub_8024ACA8(void *);
+s32 close__17TWindowSubComCardFPv(void *);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 local_client_id;
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1);
@@ -53,15 +49,15 @@ u32 get_player_by_client_id(void *);
 u8 *get_window_layout_position(s32);
 s32 create__19TWindowMessageYesNoFPvPvPvPv(s32, s32, s32, s32);
 char get_trade_mode__6TLobbyFv(void);
-M2C_UNK get_message_10__20TWindowSubStatusDispFPv(int);
-M2C_UNK reset_equip_slots__10TObjPlayerFPv();
-M2C_UNK text_builder_append();
-M2C_UNK text_builder_reset();
-M2C_UNK __ct__7TObjectFP7TObject();
-M2C_UNK TObjPlayer__sub_8024ABDC(void *);
-M2C_UNK fn_8024AC64(void *);
-M2C_UNK notify_warp_flag70__19TWindowSubShortMailFPv(int);
-M2C_UNK forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
+s32 get_message_10__20TWindowSubStatusDispFPv(int);
+s32 reset_equip_slots__10TObjPlayerFPv();
+s32 text_builder_append();
+s32 text_builder_reset();
+s32 __ct__7TObjectFP7TObject();
+s32 TObjPlayer__sub_8024ABDC(void *);
+s32 fn_8024AC64(void *);
+s32 notify_warp_flag70__19TWindowSubShortMailFPv(int);
+s32 forward_slot_selection__16TAdChrSelASlotGCFPvPvPv(int, int, int, f32);
 extern RecoveredGlobal_802E0224___vt__19TWindowTradeRequest __vt__19TWindowTradeRequest;
 extern s32 lbl_805D3F70;
 extern s32 local_client_id;
@@ -118,17 +114,17 @@ void run_task__19TWindowTradeRequestFv(Obj_802E0174 *arg0) {
 
 u8 *__dt__19TWindowTradeRequestFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__19TWindowTradeRequest.value;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-            close__17TWindowSubComCardFPv(M2C_FIELD(arg0, void **, 0x20));
-            M2C_FIELD(arg0, u32 *, 0x20) = 0U;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__19TWindowTradeRequest.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+            close__17TWindowSubComCardFPv(*(void **)((s8 *)arg0 + 0x20));
+            *(u32 *)((s8 *)arg0 + 0x20) = 0U;
         }
         TWindowReturnCity__sub_8024ACA8((void *) (local_client_id));
         TLobby__sub_8024AC20((void *) (local_client_id));
         if (get_player_by_client_id((void *) (local_client_id)) != 0U) {
             init_parts__10TObjPlayerFPv();
         }
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 2U) {
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 2U) {
             fn_8024AADC((void *) (local_client_id), (int) (0x1D));
         }
         __dt__7TObjectFv((void *) (arg0), (int) (0));
@@ -149,7 +145,7 @@ u8 *TWindowTradeRequest__ct(u8 *arg0) {
   s8 *new_var2;
   u8 *temp_r31_2;
   __ct__7TObjectFP7TObject();
-  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
+  *((s32 **) (((s8 *) arg0) + 0x18)) = &(*(RecoveredGlobal_802E02D4___vt__19TWindowTradeRequest *)&__vt__19TWindowTradeRequest).value;
   *((s32 *) (((s8 *) arg0) + 0)) = (s32) lbl_805D3F70;
   temp_r31 = ((s32)get_player_by_client_id((void *)((u32) get_trade_mode__6TLobbyFv())));
   text_builder_reset();

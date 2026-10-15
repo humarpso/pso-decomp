@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_80113EDC { u8 pad[0x44]; u8 arr[1]; };
 
@@ -80,11 +76,11 @@ int get_status_flag__8TItemMagFPv(void* p) { return *(u32*)((char*)p + 0x18c) & 
 void TItemMag__sub_80113E3C(void* p) { *(s8*)((char*)p + 0x0) = -32; }
 
 void copy_record__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
-    M2C_FIELD(arg0, u8 *, 1) = (u8) M2C_FIELD(arg1, u8 *, 1);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
+    *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
+    *(u8 *)((s8 *)arg0 + 1) = (u8) *(u8 *)((s8 *)arg1 + 1);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
 }
 
 u8 TItemMag__sub_80113E74(void* p) { return *(u8*)((char*)p + 0xe); }
@@ -96,7 +92,7 @@ s32 get_sub_value__8TItemMagFi(s32 arg0) {
 }
 
 u8 obj_isState7_324(u8 *arg0) {
-    return (u8) (M2C_FIELD(arg0, s16 *, 0x324) == 7);
+    return (u8) (*(s16 *)((s8 *)arg0 + 0x324) == 7);
 }
 
 void TItemMag__sub_80113EDC(Obj_80113EDC *self, s16 i, u8 v) {
@@ -108,7 +104,7 @@ f32 TItemMag__sub_80113EEC(void* p) { return *(f32*)((char*)p + 0x3c); }
 extern f32 TItemMag__data_805DABA4;
 
 void init_feed_timer__8TItemMagFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TItemMag__data_805DABA4;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TItemMag__data_805DABA4;
 }
 
 s32 get_mag_id__8TItemMagFPv(void* p) { return *(s32*)((char*)p + 0x0); }
@@ -148,12 +144,12 @@ void add_photon_blast__8TItemMagFPvUc(MagData_80113F64 *data, u8 blast) {
 }
 
 void add_clamped_stat__8TItemMagFPvi(void *arg0, s32 arg1) {
-    M2C_FIELD(arg0, s16 *, 2) = (s16) (M2C_FIELD(arg0, s16 *, 2) + arg1);
-    if (M2C_FIELD(arg0, s16 *, 2) < 0) {
-        M2C_FIELD(arg0, s16 *, 2) = 0;
+    *(s16 *)((s8 *)arg0 + 2) = (s16) (*(s16 *)((s8 *)arg0 + 2) + arg1);
+    if (*(s16 *)((s8 *)arg0 + 2) < 0) {
+        *(s16 *)((s8 *)arg0 + 2) = 0;
     }
-    if (M2C_FIELD(arg0, s16 *, 2) > 0x78) {
-        M2C_FIELD(arg0, s16 *, 2) = 0x78;
+    if (*(s16 *)((s8 *)arg0 + 2) > 0x78) {
+        *(s16 *)((s8 *)arg0 + 2) = 0x78;
     }
 }
 
@@ -179,7 +175,7 @@ void mag_feed_add_mind(u8 *arg0, s16 arg1) {
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
         temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
-            M2C_FIELD(arg0, s16 *, 0xA) = M2C_FIELD(arg0, s16 *, 0xA) + var_r30;
+            *(s16 *)((s8 *)arg0 + 0xA) = *(s16 *)((s8 *)arg0 + 0xA) + var_r30;
             return;
         }
         if (temp_r3 == 0xC8) {
@@ -187,7 +183,7 @@ void mag_feed_add_mind(u8 *arg0, s16 arg1) {
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            M2C_FIELD(arg0, s16 *, 0xA) = M2C_FIELD(arg0, s16 *, 0xA) + var_r30;
+            *(s16 *)((s8 *)arg0 + 0xA) = *(s16 *)((s8 *)arg0 + 0xA) + var_r30;
         }
     }
 }
@@ -206,7 +202,7 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
         temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
-            M2C_FIELD(arg0, s16 *, 8) = M2C_FIELD(arg0, s16 *, 8) + var_r30;
+            *(s16 *)((s8 *)arg0 + 8) = *(s16 *)((s8 *)arg0 + 8) + var_r30;
             return;
         }
         if (temp_r3 == 0xC8) {
@@ -214,7 +210,7 @@ void TItemMag__sub_80114198(u8 *arg0, s16 arg1) {
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            M2C_FIELD(arg0, s16 *, 8) = M2C_FIELD(arg0, s16 *, 8) + var_r30;
+            *(s16 *)((s8 *)arg0 + 8) = *(s16 *)((s8 *)arg0 + 8) + var_r30;
         }
     }
 }
@@ -232,7 +228,7 @@ void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
         temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
-            M2C_FIELD(arg0, s16 *, 6) = M2C_FIELD(arg0, s16 *, 6) + var_r30;
+            *(s16 *)((s8 *)arg0 + 6) = *(s16 *)((s8 *)arg0 + 6) + var_r30;
             return;
         }
         if (temp_r3 == 0xC8) {
@@ -240,7 +236,7 @@ void add_stat_level_capped__8TItemMagFPvs(u8 *arg0, s16 arg1) {
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            M2C_FIELD(arg0, s16 *, 6) = M2C_FIELD(arg0, s16 *, 6) + var_r30;
+            *(s16 *)((s8 *)arg0 + 6) = *(s16 *)((s8 *)arg0 + 6) + var_r30;
         }
     }
 }
@@ -259,7 +255,7 @@ void mag_feed_add_def(u8 *arg0, s16 arg1) {
     if ((var_r30 > 0) || ((var_r30 < 0) && (-var_r30 < temp_r31))) {
         temp_r3 = get_mag_total_level((void *) (arg0));
         if (temp_r3 < 0xC8) {
-            M2C_FIELD(arg0, s16 *, 4) = M2C_FIELD(arg0, s16 *, 4) + var_r30;
+            *(s16 *)((s8 *)arg0 + 4) = *(s16 *)((s8 *)arg0 + 4) + var_r30;
             return;
         }
         if (temp_r3 == 0xC8) {
@@ -267,7 +263,7 @@ void mag_feed_add_def(u8 *arg0, s16 arg1) {
             if (temp_r3_2 < var_r30) {
                 var_r30 = temp_r3_2;
             }
-            M2C_FIELD(arg0, s16 *, 4) = M2C_FIELD(arg0, s16 *, 4) + var_r30;
+            *(s16 *)((s8 *)arg0 + 4) = *(s16 *)((s8 *)arg0 + 4) + var_r30;
         }
     }
 }

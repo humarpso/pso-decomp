@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8028D738_lbl_80518850 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_8028D738_lbl_80518860 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -32,7 +28,7 @@ void free_chr_select_singleton__6TLobbyFv(void);
 void free_single_player_chr_select__6TLobbyFv(void);
 int start_load_default__6TLobbyFPv(void* p);
 int alloc_load_buffer__6TLobbyFii(void*, int);
-u32 alloc__22TQuestVmDownLoadServerFPv(M2C_UNK);
+u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void*);
 
 int start_load_default__6TLobbyFPv(void* p) { return alloc_load_buffer__6TLobbyFii(p, 0); }
@@ -52,12 +48,12 @@ s32 TLobby__sub_8028D738(s32 arg0) {
     TLobby__sub_8028D7D0((s32)(arg0));
     if (arg0 < 4) {
         temp_r3_2 = chr_select_load_buffer_base + (arg0 * 0xA000);
-        M2C_FIELD(&lbl_80518850.value, M2C_UNK *, (arg0 * 4)) = temp_r3_2;
+        *(s32 *)((s8 *)(&lbl_80518850.value) + (arg0 * 4)) = temp_r3_2;
         return temp_r3_2;
     }
     temp_r4 = arg0 - 4;
     temp_r3 = (*(s32 *)&chr_select_load_buffer) + (temp_r4 * 0xA000);
-    M2C_FIELD(&chr_select_load_buffer_table.value, M2C_UNK *, (temp_r4 * 4)) = temp_r3;
+    *(s32 *)((s8 *)(&chr_select_load_buffer_table.value) + (temp_r4 * 4)) = temp_r3;
     return temp_r3;
 }
 

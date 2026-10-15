@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8022B6FC_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_8022B6FC_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -178,15 +174,15 @@ void create__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3)
 void create_ex__9TTecBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 void render__9TTecBartaFv(void);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0xC6);
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A604, (int) (arg0 + 0x20), 0, 0);
@@ -389,19 +385,19 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
-    M2C_FIELD(arg0, void **, 0x18) = ((u8 *)&__vt__9TTecBarta);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3798;
+    *(void **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__9TTecBarta);
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3798;
     init_parameters__9TTecBartaFPv((u8 *)(arg0));
     for (i = 0; i < 0x20; i++) {
         ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;
     }
-    M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    M2C_FIELD(arg0, s32 *, 0x114) = 0x40003;
-    M2C_FIELD(arg0, f32 *, 0x24) = M2C_FIELD(arg0, f32 *, 0x24) + lbl_805DC7A8;
+    *(s32 *)((s8 *)arg0 + 0x174) = 0;
+    *(s32 *)((s8 *)arg0 + 0x114) = 0x40003;
+    *(f32 *)((s8 *)arg0 + 0x24) = *(f32 *)((s8 *)arg0 + 0x24) + lbl_805DC7A8;
     create_particle_emitters__9TTecBartaFPv((void *)(arg0));
     update_technique_by_state__9TTecBartaFPv((u8 *)(arg0));
-    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
-        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
+        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

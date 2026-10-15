@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -18,9 +14,9 @@ void refresh_inventory_slot__10TObjPlayerFPv(void *arg0) {
     void *temp_r3;
 
     refresh_owner_stats__5TItemFPv();
-    temp_r3 = M2C_FIELD(arg0, void **, 0xF4);
+    temp_r3 = *(void **)((s8 *)arg0 + 0xF4);
     if (temp_r3 != NULL) {
-        submit_computer_command__10TObjPlayerFPv(M2C_FIELD(temp_r3, s32 *, 0x2C), 2, 0, 1);
+        submit_computer_command__10TObjPlayerFPv(*(s32 *)((s8 *)temp_r3 + 0x2C), 2, 0, 1);
     }
 }
 

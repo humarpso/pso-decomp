@@ -2,11 +2,6 @@
 #include "pso/protocol/subcmd_6x.h"
 #include <stddef.h>
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct In_8010440C { u8 pad0; u8 idx; };
 
 struct In_80104438 { u8 pad0; u8 idx; };
@@ -16,34 +11,34 @@ struct Ent_80103F68 { u8 pad[0x24]; };
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_40 { u8 bytes[0x40]; };
+struct ByteBlock_40 { u8 bytes[0x40]; };
 
-struct M2CCopy_44 { u8 bytes[0x44]; };
+struct ByteBlock_44 { u8 bytes[0x44]; };
 
 struct Tbl_801044B8 { s32 v[17]; };
 
 extern "C" {
-M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
-M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 clear_id__10TObjPlayerFPv(s32 *);
+s32 free__11TOBoss4RockFUi(s32);
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
 extern int floor_item_free_id_count;
 extern s32 floor_item_next_sort_keys;
-extern M2C_UNK lbl_805D5430;
+extern s32 lbl_805D5430;
 void free_boss_rocks__6TLobbyFv(void);
-s32 __construct_new_array(M2C_UNK, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 alloc_buffer__11TOBoss4RockFPv(M2C_UNK);
-M2C_UNK clear_id__10TObjPlayerFPv(M2C_UNK *);
-extern M2C_UNK drop_stacked_item_passthrough__6TLobbyFi[];
+s32 __construct_new_array(s32, s32 *, s32, s32, s32);
+s32 alloc_buffer__11TOBoss4RockFPv(s32);
+s32 clear_id__10TObjPlayerFPv(s32 *);
+extern s32 drop_stacked_item_passthrough__6TLobbyFi[];
 extern u32 TLobby__floor_item_entry_pool;
 extern s32 floor_item_row_table;
 extern s32 floor_item_counts_by_floor;
 extern s32 floor_item_free_id_stack;
 extern int floor_item_free_id_count;
 extern s32 floor_item_next_sort_keys;
-extern M2C_UNK lbl_805D5430;
+extern s32 lbl_805D5430;
 void alloc_objects__6TLobbyFv(void);
     extern int lbl_805D5868;
 int get_lobby_flag__6TLobbyFv(void);
@@ -54,15 +49,15 @@ void bswap_player_packet__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 void update_and_send__6TLobbyFPv(void* p);
 void TLobby__sub_801041BC(void *arg0);
-M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
-extern M2C_UNK lbl_805D5430;
+s32 set_flags__10TObjPlayerFPvUi(s32 *, s32);
+extern s32 lbl_805D5430;
 void TLobby__sub_801041D8(void);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int bswap__9TItemDataFv(void*);
 void bswap_item__6TLobbyFPv(void* p);
-M2C_UNK init_forward__10TObjPlayerFPv(M2C_UNK *);
-extern M2C_UNK lbl_805D5430;
+s32 init_forward__10TObjPlayerFPv(s32 *);
+extern s32 lbl_805D5430;
 void TLobby__sub_80104350(void);
     extern int* item_sync_counter_table;
 void set_boss_buf_entry__6TLobbyFii(int a0, int a1);
@@ -70,7 +65,7 @@ extern int* item_sync_counter_table;
 int get_sync_counter__6TLobbyFi(int a0);
 s32 get_item_icon_index();
 s32 get_item_data__6TLobbyFUi(u32 arg0);
-M2C_UNK format_item_name__9TItemDataFv(u32, s32);
+s32 format_item_name__9TItemDataFv(u32, s32);
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
     extern int lbl_805D5448;
 void mark_selected__6TLobbyFv(void);
@@ -84,16 +79,16 @@ u32 get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
 void mark_selected__6TLobbyFv(void);
 void handle_select_confirm__6TLobbyFv(void);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK send_6x25_equip_item(s32, s32, M2C_UNK);
+s32 send_6x25_equip_item(s32, s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFPv(s32);
-M2C_UNK request_inventory_item__10TObjPlayerFP9TItemData(s32, void *);
+s32 request_inventory_item__10TObjPlayerFP9TItemData(s32, void *);
 s32 obj_isState3_324(s32);
 extern s32 local_client_id;
 extern s32 TLobby__designated_client_id;
 void forward_to_player__6TLobbyFiPv(int arg0, void *arg1);
 s32 is_locally_controlled__10TObjPlayerFPv();
-M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
+s32 send_6x26_unequip_item__10TObjPlayerFPvPv(s32, s32);
 s32 get_player_by_client_id(u16);
 s32 is_script_controlled__10TObjPlayerFPv(s32);
 u32 activate_d04_slot__10TObjPlayerFPv(s32);
@@ -189,9 +184,9 @@ int get_lobby_flag__6TLobbyFv(void) {  return lbl_805D5868; }
 void bswap_player_packet__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_32__FPUl((char*)p + 0x4); bswap_32__FPUl((char*)p + 0x8); }
 void update_and_send__6TLobbyFPv(void* p) { bswap_player_packet__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 void TLobby__sub_801041BC(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s8 *, 0) = 0x63;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s8 *)((s8 *)arg0 + 0) = 0x63;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 void TLobby__sub_801041D8(void) {
     set_flags__10TObjPlayerFPvUi(&lbl_805D5430, 1);
@@ -305,7 +300,7 @@ void forward_to_player__6TLobbyFiPv(int arg0, void *arg1) {
         temp_r3 = get_player_by_client_id(arg0);
         if ((temp_r3 != 0) && ((is_locally_controlled__10TObjPlayerFPv() == 1) || ((obj_isState3_324(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)) || ((is_script_controlled__10TObjPlayerFPv(temp_r3) == 1) && ((s32) local_client_id == (s32) TLobby__designated_client_id)))) {
             request_inventory_item__10TObjPlayerFP9TItemData(temp_r3, arg1);
-            send_6x25_equip_item(temp_r3, M2C_FIELD(arg1, s32 *, 0xC), 0);
+            send_6x25_equip_item(temp_r3, *(s32 *)((s8 *)arg1 + 0xC), 0);
         }
     }
 }

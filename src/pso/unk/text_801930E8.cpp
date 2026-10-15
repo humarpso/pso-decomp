@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct LazerFence4Base_801930E8 { char pad[0x18]; };
 struct LazerFence4VObj_801930E8 : LazerFence4Base_801930E8 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -19,16 +16,16 @@ struct Node_80193188 { u32 flags; void *model; u8 pad8[0x24]; Node_80193188 *chi
 struct Fence_80193188 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x2C]; Node_80193188 *fBC; Node_80193188 *fC0; s32 fC4; void *fC8[12]; };
 
 extern "C" {
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK free_children__12TObjDoorJungFPvPv(s32, u16);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 free_children__12TObjDoorJungFPvPv(s32, u16);
 void rotate_matrix_y(int, void *);
 void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void *);
-M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
+s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *lazer_fence_norm_texture_list;
 void draw_model__15TObjLazerFence4FPv(u8 *arg0);
 void clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
@@ -57,17 +54,17 @@ f32 xz_distance_squared(void *, s32);
 s16 update_object_view_visibility(void *, f32, f32);
 s32 get_state_flag__9TMainTaskFv();
 void set_global_param__8TObjFishFi(void *);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 set_indexed_flags(void *, s32, s32);
 
 extern s32 camera_ctrl_instance;
 
 s16 TObjLazerFence4__vt8(u8 *arg0, f32 farg0, f32 farg1) {
     if (get_state_flag__9TMainTaskFv() == 1) {
-        return M2C_FIELD(arg0, s16 *, 0x1E);
+        return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     if (xz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) < (farg1 * farg1)) {
-        M2C_FIELD(arg0, s16 *, 0x1E) = 1;
-        return M2C_FIELD(arg0, s16 *, 0x1E);
+        *(s16 *)((s8 *)arg0 + 0x1E) = 1;
+        return *(s16 *)((s8 *)arg0 + 0x1E);
     }
     return update_object_view_visibility(arg0, farg0, farg1);
 }
@@ -104,8 +101,8 @@ void draw__15TObjLazerFence4FPv(void *arg0) {
     set_global_param__8TObjFishFi(lazer_fence_norm_texture_list);
     push_matrix();
     post_translate_matrix((void *)((char *)arg0 + 56));
-    rotate_matrix_y(0, M2C_FIELD(arg0, void **, 0x60));
-    draw_ginja_object(M2C_FIELD(arg0, void **, 0xC0));
+    rotate_matrix_y(0, *(void **)((s8 *)arg0 + 0x60));
+    draw_ginja_object(*(void **)((s8 *)arg0 + 0xC0));
     pop_matrix();
 }
 
@@ -137,9 +134,9 @@ void draw_model__15TObjLazerFence4FPv(u8 *arg0) {
 }
 
 void reset_if_door_closed__15TObjLazerFence4FPv(void *arg0) {
-    if (is_current_floor_switch_set((u16)(M2C_FIELD(arg0, u16 *, 0xBA))) == 0) {
+    if (is_current_floor_switch_set((u16)(*(u16 *)((s8 *)arg0 + 0xBA))) == 0) {
         set_indexed_flags(arg0, 0, 1);
-        M2C_FIELD(arg0, s32 *, 0xAC) = 0;
+        *(s32 *)((s8 *)arg0 + 0xAC) = 0;
     }
 }
 
@@ -161,7 +158,7 @@ void render__15TObjLazerFence4Fv(void *arg0) {
     s32 temp_r0;
 
     if (((LazerFence4VObj_801930E8*)arg0)->m8(lbl_805DBE70, lbl_805DBE74) != 0) {
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
         switch (temp_r0) {
         case 0:
             draw_model__15TObjLazerFence4FPv((u8 *)(arg0));

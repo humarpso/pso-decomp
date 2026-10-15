@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Vec_801AE1F8 { f32 x, y, z; };
 
 struct VBase_801AE1F8 { char pad[0x18]; };
@@ -24,24 +21,24 @@ struct VObj_801AE1F8 : VBase_801AE1F8 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, s32);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
 u8 *find_entity_by_id(u16);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK init_collision_body_parts(void *, void *, int);
-M2C_UNK begin_photon_summon_camera(void *, int);
-M2C_UNK spawn_photon_blast_opening_effects(int, int);
-M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
+s32 refresh_collision_body_centers(void *);
+s32 init_collision_body_parts(void *, void *, int);
+s32 begin_photon_summon_camera(void *, int);
+s32 spawn_photon_blast_opening_effects(int, int);
+s32 spawn_photon_blast_attachment_effects(void *, s32);
 u8 *photon_base_ct(void *);
-M2C_UNK TPhotonMagicSquare__ct(void *, void *, int, void *, int, f32);
+s32 TPhotonMagicSquare__ct(void *, void *, int, void *, int, f32);
 void TObjPlayer__sub_801ADC7C(void *, u8);
 u8 *TPhotonRainbow__ct(void *, void *, void *, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_cue_stream_file(void *);
+s32 play_cue_stream_file(void *);
 void *__nw__7TObjectFUl(u32);
 extern u8 lbl_80446EE0[];
 extern u8 lbl_80446EEC[];
@@ -96,33 +93,33 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
     s32 state;
     void *mem;
     photon_base_ct(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)lbl_804C3ACC;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3518;
-    M2C_FIELD(arg0, s32 *, 0x138) = 3;
+    *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804C3ACC;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3518;
+    *(s32 *)((s8 *)arg0 + 0x138) = 3;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
-    M2C_FIELD(arg0, u16 *, 0x17C) = M2C_FIELD(arg1, u16 *, 0xC);
+    *(u16 *)((s8 *)arg0 + 0x17C) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (void *)lbl_804C3A58, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg0, u8 **, 0x190) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x17C));
-    temp_r3 = M2C_FIELD(arg0, u8 **, 0x190);
+    *(u8 **)((s8 *)arg0 + 0x190) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x17C));
+    temp_r3 = *(u8 **)((s8 *)arg0 + 0x190);
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(temp_r3, s32 *, 0x60);
+        *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)temp_r3 + 0x60);
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x38);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x3C);
+    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x38);
+    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x3C);
     set_field_d8__10TObjPlayerFPvi(arg0, (s32)lbl_804C3A38);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(photon_blast_shared_resource, s32 *, 0x430));
-    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    M2C_FIELD(arg0, s16 *, 0x198) = 1;
-    M2C_FIELD(arg0, s32 *, 0x19C) = M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x1A0) = M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x134) = 4;
+    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    *(s16 *)((s8 *)arg0 + 0x198) = 1;
+    *(s32 *)((s8 *)arg0 + 0x19C) = *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x1A0) = *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x134) = 4;
     ((VObj_801AE1F8 *) arg0)->m12();
-    M2C_FIELD(arg0, s32 *, 0x1A8) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
     state = get_global_state__14TOKeyMachine01Fv();
     switch (state) {
     case 11:
@@ -141,20 +138,20 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
         }
         break;
     }
-    M2C_FIELD(arg0, s32 *, 0x194) = 0;
-    TObjPlayer__sub_801ADC7C(arg0, M2C_FIELD(arg1, u8 *, 0x1C));
-    if (M2C_FIELD(arg0, s32 *, 0x1A0) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x154) |= 1;
+    *(s32 *)((s8 *)arg0 + 0x194) = 0;
+    TObjPlayer__sub_801ADC7C(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    if (*(s32 *)((s8 *)arg0 + 0x1A0) == 1) {
+        *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }
-    M2C_FIELD(arg0, f32 *, 0x150) = M2C_FIELD(arg1, f32 *, 0x20);
-    if (M2C_FIELD(arg0, s32 *, 0x19C) == 0) {
+    *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
+    if (*(s32 *)((s8 *)arg0 + 0x19C) == 0) {
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
         begin_photon_summon_camera(arg0, 4);
-        M2C_FIELD(arg0, s32 *, 0x19C) = 1;
-        M2C_FIELD(arg0, s16 *, 0x198) = 0;
-        M2C_FIELD(arg0, s32 *, 0x1A4) = 1;
+        *(s32 *)((s8 *)arg0 + 0x19C) = 1;
+        *(s16 *)((s8 *)arg0 + 0x198) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1A4) = 1;
         {
-        Vec_801AE1F8 pos = M2C_FIELD(arg0, Vec_801AE1F8 *, 0x38);
+        Vec_801AE1F8 pos = *(Vec_801AE1F8 *)((s8 *)arg0 + 0x38);
         pos.y += lbl_805DC258;
         mem = __nw__7TObjectFUl(0xD0);
         if (mem != NULL) {
@@ -164,7 +161,7 @@ u8 *TPhotonPilla__ct(u8 *arg0, u8 *arg1) {
         spawn_photon_blast_attachment_effects(arg0, 3);
         play_cue_stream_file(lbl_80446EE0);
     } else {
-        spawn_photon_blast_opening_effects(3, M2C_FIELD(arg0, u16 *, 0x17C));
+        spawn_photon_blast_opening_effects(3, *(u16 *)((s8 *)arg0 + 0x17C));
         play_cue_stream_file(lbl_80446EEC);
     }
     return arg0;

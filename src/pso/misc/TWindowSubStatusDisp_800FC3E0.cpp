@@ -1,17 +1,12 @@
 #include "pso/TFontSmallHelp.h"
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 int set_global_param__8TObjFishFi(void*);
     extern int localized_alphabet_list;
 void begin_render__20TWindowSubStatusDispFv(s32 _w0);
 u32 calc_small_font_text_width(void *);
-M2C_UNK strncpy(void *, void *, M2C_UNK);
+s32 strncpy(void *, void *, s32);
 extern const f32 lbl_805DA9C0;
 }
 

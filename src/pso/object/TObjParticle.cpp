@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct P_8019527C { u8 pad[0x90]; u32 f90; };
 
@@ -19,7 +15,7 @@ struct Src_80195400 {
 struct Part_80195400 {
     s32 f0;
     u8 pad4[0x14];
-    M2C_UNK *vt;
+    s32 *vt;
     u8 pad1c[0x38 - 0x1C];
     Vec_80195400 pos;
     u8 pad44[0x5C - 0x44];
@@ -33,21 +29,21 @@ struct Part_80195400 {
 
 extern "C" {
 s32 is_split_screen(void);
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
 extern s32 tl_05;
 u8 *TObjParticle__create(u8 *arg0);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(void *);
 void render__12TObjParticleFv(P_8019527C *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK disallow_rendering__7TObjectFv(void *);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 disallow_rendering__7TObjectFv(void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 spawn_particle_effect_with_rotation(void *, void *, s32, u16);
 s32 spawn_continuous_particle_with_direction(void *, void *, s32);
-M2C_UNK construct_world_actor_base(void *, void *);
-extern M2C_UNK __vt__12TObjParticle[];
+s32 construct_world_actor_base(void *, void *);
+extern s32 __vt__12TObjParticle[];
 extern s32 obj_particle_class_name;
 extern const f32 lbl_805DBEEC;
-Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 *arg2);
+Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2);
 }
 
 extern "C" {
@@ -55,8 +51,8 @@ extern "C" {
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1);
 void run_task__12TObjParticleFv(u8 *arg0);
 void __dl__7TObjectFPv(void *);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
-M2C_UNK copy_vec3__11TBoss4Type2FPvPv(u32, void *);
+s32 copy_pos__11TNowLoadingFPvPv(u32, void *);
+s32 copy_vec3__11TBoss4Type2FPvPv(u32, void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 f32 xyz_distance_squared(void *, s32);
 void mask_object_set_row_flags(void *, int);
@@ -79,30 +75,30 @@ void render__12TObjParticleFv(P_8019527C *arg0) {
 void run_task__12TObjParticleFv(u8 *arg0) {
     f32 var_f31;
 
-    if (((get_global_state__14TOKeyMachine01Fv() == 0xE) || ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) && ((s32) M2C_FIELD(arg0, s32 *, 0x8C) != 1)) {
+    if (((get_global_state__14TOKeyMachine01Fv() == 0xE) || ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 1)) && ((s32) *(s32 *)((s8 *)arg0 + 0x8C) != 1)) {
         var_f31 = lbl_805DBEE0;
     } else {
         var_f31 = lbl_805DBEE4;
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x8C) == 1) && ((s32) M2C_FIELD(arg0, s32 *, 0x84) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x8C) == 1) && ((s32) *(s32 *)((s8 *)arg0 + 0x84) == 1)) {
         var_f31 = lbl_805DBEE8;
     }
     if (xyz_distance_squared(arg0 + 0x38, camera_ctrl_instance + 0x178) > var_f31) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x90) != 0U) {
-        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, u32 *, 0x90), arg0 + 0x38);
-        copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, u32 *, 0x90), arg0 + 0x5C);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x90) != 0U) {
+        copy_pos__11TNowLoadingFPvPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x38);
+        copy_vec3__11TBoss4Type2FPvPv(*(u32 *)((s8 *)arg0 + 0x90), arg0 + 0x5C);
     }
 }
 
-extern M2C_UNK __vt__12TObjParticle[];
+extern s32 __vt__12TObjParticle[];
 
 void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjParticle;
-        if (M2C_FIELD(arg0, void **, 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(M2C_FIELD(arg0, void **, 0x90))); M2C_FIELD(arg0, M2C_UNK *, 0x90) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjParticle;
+        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv((void *)(*(void **)((s8 *)arg0 + 0x90))); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
         mask_object_set_row_flags(arg0, -3);
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -112,7 +108,7 @@ void *__dt__12TObjParticleFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, M2C_UNK arg1, Src_80195400 *arg2) {
+Part_80195400 *TObjParticle__ct(Part_80195400 *arg0, s32 arg1, Src_80195400 *arg2) {
     u32 i;
     s32 entry;
     u16 flags;
@@ -188,7 +184,7 @@ u8 *TObjParticle__create(u8 *arg0) {
     temp_r3 = (u8 *)(__nw__7TObjectFUl(0x98));
     var_r0 = (u8 *)(temp_r3);
     if (var_r0 != NULL) {
-        var_r0 = (u8 *)(TObjParticle__ct((Part_80195400 *)(temp_r3), (M2C_UNK)(tl_05), (Src_80195400 *)(arg0)));
+        var_r0 = (u8 *)(TObjParticle__ct((Part_80195400 *)(temp_r3), (s32)(tl_05), (Src_80195400 *)(arg0)));
     }
     return var_r0;
 }

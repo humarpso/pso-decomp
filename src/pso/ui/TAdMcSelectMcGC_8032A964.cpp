@@ -10,11 +10,6 @@ TAdMcSelectMcGC::~TAdMcSelectMcGC() {}
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Ent_8032A9BC { f32 a, b, c, d; u8 pad[0x10]; };
 
 struct Obj_8032A9BC {
@@ -25,7 +20,7 @@ struct Obj_8032A9BC {
 struct Alt_8032A9BC { u8 pad[0x120]; s32 f120, f124, f128, f12C, f130; };
 
 extern "C" {
-s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectMcGC__texture_list_ptr;
 void release_selected_entry__15TAdMcSelectMcGCFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -73,7 +68,7 @@ void release_selected_entry__15TAdMcSelectMcGCFv(void) {
     u8 *temp_r4;
     if ((void **) (*(void ** *)&TAdMcSelectMcGC__texture_list_ptr) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectMcGC__texture_list_ptr));
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 8) != 0U) {
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
             TLobby__sub_803DA16C((*(void ** *)&TAdMcSelectMcGC__texture_list_ptr), (s32) temp_r4);
         }
     }

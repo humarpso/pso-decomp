@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_80103748 { char pad[0x18]; };
 struct VObj_80103748 : Base_80103748 {
@@ -135,7 +131,7 @@ s32 write_sync_item_state__6TLobbyFPv(void *arg0);
 extern "C" {
 
 void *find_item_by_id(s32);
-M2C_UNK bswap_player_packet__6TLobbyFPv();
+s32 bswap_player_packet__6TLobbyFPv();
 
 void TLobby__sub_801036CC(void) {
     s32 i;
@@ -153,8 +149,8 @@ void handle_6x63_destroy_floor_item(void *arg0) {
     struct VObj_80103748 *o;
 
     bswap_player_packet__6TLobbyFPv();
-    remove_item_condition__6TLobbyFii((s32)(M2C_FIELD(arg0, s32 *, 8)), (s32)(M2C_FIELD(arg0, s32 *, 4)));
-    o = (struct VObj_80103748 *)find_item_by_id(M2C_FIELD(arg0, s32 *, 4));
+    remove_item_condition__6TLobbyFii((s32)(*(s32 *)((s8 *)arg0 + 8)), (s32)(*(s32 *)((s8 *)arg0 + 4)));
+    o = (struct VObj_80103748 *)find_item_by_id(*(s32 *)((s8 *)arg0 + 4));
     if (o != NULL) {
         o->m27();
     }
@@ -184,7 +180,7 @@ void evict_lowest_key_floor_item(s32 n) {
 }
 
 s32 is_stat_over_limit__6TLobbyFi(s32 arg0) {
-    if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) M2C_FIELD(floor_item_counts_by_floor, M2C_UNK *, (arg0 * 4)) < 0x32)) {
+    if ((arg0 >= 0) && (arg0 < 0x12) && ((s32) *(s32 *)((s8 *)floor_item_counts_by_floor + (arg0 * 4)) < 0x32)) {
         return 0;
     }
     return 1;
@@ -269,7 +265,7 @@ u16 pop_free_id__6TLobbyFv(void) {
     if ((s32) floor_item_free_id_count != 0) {
         temp_r0 = floor_item_free_id_count - 1;
         floor_item_free_id_count = temp_r0;
-        return M2C_FIELD((floor_item_free_id_stack + (temp_r0 * 2)), u16 *, 0);
+        return *(u16 *)((s8 *)(floor_item_free_id_stack + (temp_r0 * 2)) + 0);
     }
     return 0xFFFFU;
 }
@@ -285,7 +281,7 @@ s32 TLobby__sub_80103B04(u16 arg0) {
 }
 
 s32 is_entry_valid__6TLobbyFi(s32 arg0) {
-    if (((s32) M2C_FIELD(floor_item_counts_by_floor, M2C_UNK *, (arg0 * 4)) < 0xC0) && (arg0 < 0x12)) {
+    if (((s32) *(s32 *)((s8 *)floor_item_counts_by_floor + (arg0 * 4)) < 0xC0) && (arg0 < 0x12)) {
         return 1;
     }
     return 0;

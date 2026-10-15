@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8027DA14_lbl_804D19A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -22,10 +19,10 @@ u8 * get_window_layout_position(s32);
 s32 construct_type1_heading__20TWindowSubStatusDispFPvii(s32, s32, s32);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
 u32 calc_text_width();
-M2C_UNK construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
-M2C_UNK set_text_entry_string(int, int, int);
-M2C_UNK update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
-M2C_UNK select_next__26TWindowSubQuestBoardSelectFPv(void *);
+s32 construct_base__9TWindowDDFPvPvsPv(void *, void *, int, int);
+s32 set_text_entry_string(int, int, int);
+s32 update_slot_display_flags__26TWindowSubQuestBoardSelectFPv(void *, f32, f32);
+s32 select_next__26TWindowSubQuestBoardSelectFPv(void *);
 extern RecoveredGlobal_8027DA14_lbl_804D19A8 TWindowSubQuestBoardSelect__window_parameters;
 extern RecoveredGlobal_8027DA14___vt__26TWindowSubQuestBoardSelect __vt__26TWindowSubQuestBoardSelect;
 extern s32 TWindowSubQuestBoardSelect__class_name;
@@ -45,20 +42,20 @@ u8 *TWindowSubQuestBoardSelect__ct(u8 *arg0) {
     s32 temp_r30;
     s32 var_r30;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubQuestBoardSelect__window_parameters.value), (int) (4), (int) (get_window_layout_position(0x70)));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubQuestBoardSelect__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__26TWindowSubQuestBoardSelect.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubQuestBoardSelect__class_name;
     var_r30 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x24);
     if (var_r30 != 0) {
-        var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFPv((int) (0x2B)), (s32) M2C_FIELD(arg0, s16 *, 0x20));
+        var_r30 = construct_type1_heading__20TWindowSubStatusDispFPvii(var_r30, get_message_10__20TWindowSubStatusDispFPv((int) (0x2B)), (s32) *(s16 *)((s8 *)arg0 + 0x20));
     }
-    M2C_FIELD(arg0, s32 *, 0x64) = var_r30;
-    M2C_FIELD(arg0, s8 *, 0x60) = 0;
+    *(s32 *)((s8 *)arg0 + 0x64) = var_r30;
+    *(s8 *)((s8 *)arg0 + 0x60) = 0;
     temp_r30 = get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
     set_text_entry_string((int) (temp_r30), (int) (get_quest_name__12TQuestThreadFv()), (int) (0));
     get_field_20__17TWindowSubComCardFPv((void *) temp_r30);
     temp_f2 = (f32) calc_text_width();
-    M2C_FIELD(temp_r30, f32 *, 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);
-    M2C_FIELD(arg0, s8 *, 0x61) = -1;
+    *(f32 *)((s8 *)temp_r30 + 8) = (f32) -((lbl_805DD6BC * temp_f2) - lbl_805DD6B8);
+    *(s8 *)((s8 *)arg0 + 0x61) = -1;
     update_slot_display_flags__26TWindowSubQuestBoardSelectFPv((void *) (arg0), (f32) (lbl_805DD6BC), (f32) (temp_f2));
     select_next__26TWindowSubQuestBoardSelectFPv((void *) (arg0));
     return arg0;

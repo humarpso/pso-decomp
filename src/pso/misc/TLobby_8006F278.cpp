@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8006F5B0_lbl_8048C9D8 { s32 value; u8 remaining[0x744]; };
 typedef char RecoveredGlobal_8006F5B0_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8006F5B0_lbl_8048C9D8) == 0x748 ? 1 : -1];
 
@@ -28,7 +25,7 @@ s32 calc_challenge_time_limit__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() == 0) {
         return 0x12C;
     }
-    var_r3 = get_valid_slot__6TLobbyFi(M2C_FIELD(&challenge_mode_state, s32 *, 0x10));
+    var_r3 = get_valid_slot__6TLobbyFi(*(s32 *)((s8 *)(&challenge_mode_state) + 0x10));
     if ((var_r3 < 0x3C) || (var_r3 > 0xE10)) {
         var_r3 = 0x12C;
     }
@@ -46,17 +43,11 @@ void advance_state_if_flag_set__6TLobbyFv(void) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8006F848_lbl_804FF800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
-typedef s32 M2C_UNK;
 struct Entry_8006F48C {
     char key[12];
     char name[12];
@@ -105,7 +96,7 @@ s32 mix_seed_checked__6TLobbyFi(s32);
 u32 get_character_save_record(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F5B0(s32 arg0);
-M2C_UNK strncpy(void *, void *, int);
+s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
 void set_name_string__6TLobbyFi(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
@@ -116,7 +107,7 @@ s32 resolve_player_slot__20TWindowSubStatusDispFi(int);
 s16 TLobby__sub_80071640(int);
 u32 get_character_save_record(int);
 s32 strncmp(void *, void *, int);
-M2C_UNK strncpy(void *, void *, int);
+s32 strncpy(void *, void *, int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 void TLobby__sub_8006F48C(void);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
@@ -231,7 +222,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     temp_r3_2 = TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r29 + 0x21C4), (int) (-1));
     var_r28 = 0;
     temp_r30 = challenge_mode_state.value * 4;
-    temp_r3_3 = M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30);
+    temp_r3_3 = *(s32 *)((s8 *)temp_r3_2 + temp_r30);
     if (temp_r3_3 == 0) {
         if (resolve_player_slot__20TWindowSubStatusDispFi((int) (-1)) == 0) {
             TLobby__sub_8006F48C();
@@ -241,7 +232,7 @@ s32 TLobby__sub_8006F5B0(s32 arg0) {
     }
     temp_r3_4 = get_valid_slot__6TLobbyFi((int)((int) (temp_r3_3)));
     if (is_id_out_of_range__6TLobbyFi((s32)((int) (temp_r3_4))) != 0) {
-        M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = 0;
+        *(s32 *)((s8 *)temp_r3_2 + temp_r30) = 0;
         return 0;
     }
     if (arg0 < temp_r3_4) {
@@ -251,13 +242,13 @@ block_12:
     if (var_r28 == 0) {
         return 0;
     }
-    M2C_FIELD(temp_r3_2, M2C_UNK *, temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *) (arg0));
+    *(s32 *)((s8 *)temp_r3_2 + temp_r30) = ((s32 (*)(void *))mix_seed_checked__6TLobbyFi)((void *) (arg0));
     return 1;
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void set_name_string__6TLobbyFi(s32 arg0) {
     strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
-    M2C_FIELD(&lbl_804FF800.value, s8 *, 0x1F) = 0;
+    *(s8 *)((s8 *)(&lbl_804FF800.value) + 0x1F) = 0;
 }
 
 void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {
@@ -350,11 +341,6 @@ s32 get_slot_clamped__6TLobbyFv(void) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 s32 decode_slot__6TLobbyFUi(u32 arg0);
@@ -373,11 +359,6 @@ s32 decode_slot__6TLobbyFUi(u32 arg0) {
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 is_flag_set__6TLobbyFv();
@@ -425,7 +406,7 @@ loop_1:
 }
 void mark_solo_win_closing__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
-        M2C_FIELD(&challenge_mode_state.value, s32 *, 0x30) = 1;
+        *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x30) = 1;
     }
 }
 

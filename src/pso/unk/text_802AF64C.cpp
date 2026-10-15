@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Vec_802AF64C { f32 x, y, z; };
 
 struct Obj_802AF64C { u8 pad[0x38]; Vec_802AF64C pos; u8 pad2[0x90 - 0x44]; void *x90; };
@@ -10,14 +7,14 @@ struct Obj_802AF64C { u8 pad[0x38]; Vec_802AF64C pos; u8 pad2[0x90 - 0x44]; void
 struct Cam_802AF64C { u8 pad[0x178]; Vec_802AF64C v178; u8 pad2[0x190 - 0x184]; s32 a, b, c; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK rotate_matrix_zyx(s32, s32, s32, s32);
-M2C_UNK rotate_vector_by_matrix(s32, void *, void *);
-M2C_UNK normalize_vector(void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrix();
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 vec3_add_to(void *, void *);
+s32 rotate_matrix_zyx(s32, s32, s32, s32);
+s32 rotate_vector_by_matrix(s32, void *, void *);
+s32 normalize_vector(void *);
+s32 push_matrix_from(void *);
+s32 pop_matrix();
 extern Vec_802AF64C lbl_804707E8;
 extern u8 identity_matrix[];
 extern Cam_802AF64C *camera_ctrl_instance;

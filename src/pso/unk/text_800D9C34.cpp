@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_fe09eb { char pad[0x18]; };
 
@@ -70,11 +66,11 @@ struct VObj_18_fe09eb : VBase_18_fe09eb {
     virtual void m60();
     virtual void m61();
     virtual void m62();
-    virtual M2C_UNK m63(M2C_UNK, void *);
+    virtual s32 m63(s32, void *);
 };
 
 struct RecoveredGlobal_800D9E8C_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -117,9 +113,9 @@ void TObjPlayer__sub_800D9E08(s32 arg0);
 s32 render_anim_model__10TObjPlayerFPvf(void *, f32);
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 translate_matrix(int, f32, f32, f32);
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 identity_matrix;
 void render_model_transformed__10TObjPlayerFPv(u8 *arg0);
 extern s32 lbl_805D586C;
@@ -130,9 +126,9 @@ s32 TObjPlayer__sub_800D9F4C(Obj_800D9F4C *self);
 f64 atan2_float(f32, f32);
 Hit_800D9C7C *csnVector(void *, void *, s32);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, s32);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK matrix_mult_vec(int, Vec_800D9C7C *, void *);
-M2C_UNK rotate_matrix_y(int, int);
+s32 vec3_add_to(void *, void *);
+s32 matrix_mult_vec(int, Vec_800D9C7C *, void *);
+s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 extern Vec_800D9C7C lbl_8043C8E4;
@@ -155,7 +151,7 @@ extern "C" {
 
 s32 TObjPlayer__sub_800D9C34(s32 arg0);
 s32 update_action_hold_status__10TObjPlayerFv();
-M2C_UNK fn_800D9BBC(s32);
+s32 fn_800D9BBC(s32);
 
 s32 TObjPlayer__sub_800D9C34(s32 arg0) {
     if (update_action_hold_status__10TObjPlayerFv() != 0) {
@@ -226,11 +222,11 @@ typedef char RecoveredGlobal_800D9E8C_lbl_8058D490_size[sizeof(RecoveredGlobal_8
 void render_model_transformed__10TObjPlayerFPv(u8 *arg0) {
     f32 temp_f1;
     push_matrix_from((u32) &identity_matrix.value);
-    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x38)), (f32) (M2C_FIELD(arg0, f32 *, 0x404) + (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0x3E4))), (f32) (M2C_FIELD(arg0, f32 *, 0x40)));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x68);
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x38)), (f32) (*(f32 *)((s8 *)arg0 + 0x404) + (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0x3E4))), (f32) (*(f32 *)((s8 *)arg0 + 0x40)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x68);
     scale_matrix((int) (0), (f32) (temp_f1), (f32) (temp_f1), (f32) (temp_f1));
-    render_anim_model__10TObjPlayerFPvf(arg0, M2C_FIELD(arg0, f32 *, 0xC0));
+    render_anim_model__10TObjPlayerFPvf(arg0, *(f32 *)((s8 *)arg0 + 0xC0));
     pop_matrix();
     ((VObj_18_fe09eb *)(arg0))->m63(0x55, (u8 *)(arg0) + 0x39C);
     ((VObj_18_fe09eb *)(arg0))->m63(0x54, (u8 *)(arg0) + 0x3A8);

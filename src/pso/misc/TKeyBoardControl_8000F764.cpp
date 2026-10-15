@@ -1,31 +1,27 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F90C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -35,12 +31,12 @@ struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
 };
 
 struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F91C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -73,13 +69,13 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 s32 flush_input__16TKeyBoardControlFv(void);
-M2C_UNK reset_state_byte__6TLobbyFv();
-M2C_UNK disable_disconnected_ports__16TKeyBoardControlFv(void *);
-M2C_UNK update_pad_rumble();
-M2C_UNK read_pads__16TKeyBoardControlFv();
+s32 reset_state_byte__6TLobbyFv();
+s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
+s32 update_pad_rumble();
+s32 read_pads__16TKeyBoardControlFv();
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
 void TKeyBoardControl__sub_8000F764(void);
-M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
+s32 run_tasks__7TObjectFv(s32 *);
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 lbl_80515F48;
 void TKeyBoardControl__sub_8000F7FC(void);
 extern RecoveredGlobal_8000F9E4_lbl_804FE120 main_phase_state;
@@ -118,73 +114,73 @@ extern const f32 lbl_805D7D0C;
 extern const f32 lbl_805D7D10;
 extern GXColor_8000FA00 lbl_805E1200;
 void init_gx_lighting_defaults(void);
-M2C_UNK DVDInit();
+s32 DVDInit();
 u32 OSGetArenaHi();
 u32 OSGetArenaLo();
-M2C_UNK OSInit();
-M2C_UNK OSSetArenaLo(u32);
+s32 OSInit();
+s32 OSSetArenaLo(u32);
 void TKeyBoardControl__sub_8000F9E4(void);
 void init_gx_lighting_defaults(void);
-M2C_UNK TLobby__sub_8007EB70();
-M2C_UNK init_disc_error_messages();
-M2C_UNK load_critical_effect_resources();
-M2C_UNK init_particle_buffer__13TParticleCtrlFv();
-M2C_UNK load_ha_u032_kage();
-M2C_UNK init_download_state__6TLobbyFv();
-M2C_UNK TObjTailsTailsMove__sub_800FFE10();
-M2C_UNK reset_input__16TKeyBoardControlFi(void *);
-M2C_UNK TObjPlayer__sub_801416AC();
-M2C_UNK load_menu_font();
-M2C_UNK init_keyboard_buffer__6TLobbyFv();
-M2C_UNK init_account_entries__6TLobbyFv();
-M2C_UNK init_pad_state__16TKeyBoardControlFv();
-M2C_UNK load_ply_level_tbl();
-M2C_UNK load_banner_files__15TAdPlayerLoadGCFv();
-M2C_UNK init_particle_sprite_atlas();
-M2C_UNK init_char_select_globals__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK reset_story_select__6TLobbyFv();
-M2C_UNK TLobby__sub_8020E3C0();
-M2C_UNK TLobby__sub_80226BA4();
-M2C_UNK TLobby__sub_8022780C();
-M2C_UNK wait_for_sound_init__6TLobbyFv();
-M2C_UNK init_main_task__9TMainTaskFv(void *);
-M2C_UNK init_buffers();
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802431D0();
-M2C_UNK load_player_data__6TLobbyFv();
-M2C_UNK alloc_buffer__16TKeyBoardControlFv();
-M2C_UNK load_ask_dictionary__6TLobbyFv();
-M2C_UNK TCharaMaking__sub_8028E6B4();
-M2C_UNK TCharaMaking__sub_8028E790();
-M2C_UNK fn_802A1020();
-M2C_UNK alloc_buffer__15TWindowSnapShotFv();
-M2C_UNK TLobby__sub_8032C91C();
-M2C_UNK init_heap__16TAdWarningBaseGCFv();
-M2C_UNK handle_flag2_request__6TLobbyFv();
-M2C_UNK load_now_loading_texture__6TLobbyFv();
-M2C_UNK load_info_icon();
-M2C_UNK enable_and_trigger__15TObjBoss2TunnelFv();
+s32 TLobby__sub_8007EB70();
+s32 init_disc_error_messages();
+s32 load_critical_effect_resources();
+s32 init_particle_buffer__13TParticleCtrlFv();
+s32 load_ha_u032_kage();
+s32 init_download_state__6TLobbyFv();
+s32 TObjTailsTailsMove__sub_800FFE10();
+s32 reset_input__16TKeyBoardControlFi(void *);
+s32 TObjPlayer__sub_801416AC();
+s32 load_menu_font();
+s32 init_keyboard_buffer__6TLobbyFv();
+s32 init_account_entries__6TLobbyFv();
+s32 init_pad_state__16TKeyBoardControlFv();
+s32 load_ply_level_tbl();
+s32 load_banner_files__15TAdPlayerLoadGCFv();
+s32 init_particle_sprite_atlas();
+s32 init_char_select_globals__23TAdSinglePlyChrSelectGCFv();
+s32 reset_story_select__6TLobbyFv();
+s32 TLobby__sub_8020E3C0();
+s32 TLobby__sub_80226BA4();
+s32 TLobby__sub_8022780C();
+s32 wait_for_sound_init__6TLobbyFv();
+s32 init_main_task__9TMainTaskFv(void *);
+s32 init_buffers();
+s32 TAdSinglePlyChrSelectGC__sub_802431D0();
+s32 load_player_data__6TLobbyFv();
+s32 alloc_buffer__16TKeyBoardControlFv();
+s32 load_ask_dictionary__6TLobbyFv();
+s32 TCharaMaking__sub_8028E6B4();
+s32 TCharaMaking__sub_8028E790();
+s32 fn_802A1020();
+s32 alloc_buffer__15TWindowSnapShotFv();
+s32 TLobby__sub_8032C91C();
+s32 init_heap__16TAdWarningBaseGCFv();
+s32 handle_flag2_request__6TLobbyFv();
+s32 load_now_loading_texture__6TLobbyFv();
+s32 load_info_icon();
+s32 enable_and_trigger__15TObjBoss2TunnelFv();
 u32 OSInitAlloc(u32, u32, int);
-M2C_UNK VIInit();
-M2C_UNK PADInit();
-M2C_UNK PADSetSpec(int);
-M2C_UNK GXSetPixelFmt(int, int);
-M2C_UNK fn_803D8030(s32, int, int);
-M2C_UNK fn_803D8064(int);
-M2C_UNK set_global_count__12TObjNpcEnemyFi(int);
-M2C_UNK set_matrix_identity(int);
-M2C_UNK fn_803DA754(s32, int, s32, int);
-M2C_UNK init_video_and_gx(void *);
-M2C_UNK update_camera__16TKeyBoardControlFv();
+s32 VIInit();
+s32 PADInit();
+s32 PADSetSpec(int);
+s32 GXSetPixelFmt(int, int);
+s32 fn_803D8030(s32, int, int);
+s32 fn_803D8064(int);
+s32 set_global_count__12TObjNpcEnemyFi(int);
+s32 set_matrix_identity(int);
+s32 fn_803DA754(s32, int, s32, int);
+s32 init_video_and_gx(void *);
+s32 update_camera__16TKeyBoardControlFv();
 u32 fn_803DD3DC(int, void *);
-M2C_UNK set_key_state__16TKeyBoardControlFi(void (*)(void));
-M2C_UNK fn_803DE804(u32, u32);
+s32 set_key_state__16TKeyBoardControlFi(void (*)(void));
+s32 fn_803DE804(u32, u32);
 s32 xmalloc__FUl(u32);
-M2C_UNK init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
-M2C_UNK init_matrix_stack__10TObjPlayerFii(s32, int);
-M2C_UNK init_light_globals(int, int);
-M2C_UNK set_some_id__FUl(int);
-M2C_UNK TObjPlayer__sub_803E492C(void *, int);
-M2C_UNK set_global_7778__10TObjPlayerFi(void *);
+s32 init_pad_slots_and_read__16TKeyBoardControlFv(int, int, int);
+s32 init_matrix_stack__10TObjPlayerFii(s32, int);
+s32 init_light_globals(int, int);
+s32 set_some_id__FUl(int);
+s32 TObjPlayer__sub_803E492C(void *, int);
+s32 set_global_7778__10TObjPlayerFi(void *);
 void TKeyBoardControl__sub_8000F764(void);
 extern u8 GXNtsc480IntDf[];
 extern RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
@@ -215,13 +211,13 @@ int TAdWarningBaseGC__sub_8032D188(void);
 int clear_split_screen_fog__8TFogCtrlFv(void*);
 int TLobby__sub_80147978(void);
 int TLobby__sub_8020E3BC(void);
-M2C_UNK update_music_sequencer();
+s32 update_music_sequencer();
 int shutdown_buffers__6TLobbyFv(void);
-M2C_UNK update_global_sound_frame();
+s32 update_global_sound_frame();
 int TLobby__sub_8022809C(void);
 int TLobby__sub_802433A8(void);
 int TObjBoss2Tunnel__sub_8036EF4C(void);
-M2C_UNK TObjPlayer__sub_80083FB0();
+s32 TObjPlayer__sub_80083FB0();
 int init_default_config__10TObjPlayerFv(void);
 int TObjPlayer__sub_801D92A4(void);
 int TObjTailsTailsMove__sub_800FFE0C(void);
@@ -236,10 +232,10 @@ int VIFlush(void);
 int VISetBlack(void*);
 int free_resources__23TAdSinglePlyChrSelectGCFv(void);
 int free_system__13TParticleCtrlFv(void);
-M2C_UNK run_tasks__7TObjectFv(M2C_UNK *);
+s32 run_tasks__7TObjectFv(s32 *);
 int xfree__FPv(void*);
 
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -264,7 +260,7 @@ int get_fog_ctrl__16TKeyBoardControlFPv(void* p) { return clear_split_screen_fog
 
 typedef char RecoveredGlobal_8000F7FC_lbl_80515F48_size[sizeof(RecoveredGlobal_8000F7FC_lbl_80515F48) == 0x28 ? 1 : -1];
 void TKeyBoardControl__sub_8000F7FC(void) {
-    run_tasks__7TObjectFv((M2C_UNK *)(&lbl_80515F48.value));
+    run_tasks__7TObjectFv((s32 *)(&lbl_80515F48.value));
 }
 
 void update__16TKeyBoardControlFv(void) {  }
@@ -286,7 +282,7 @@ typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8000F8EC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8EC_lbl_804FE120) == 0x18 ? 1 : -1];
 s32 TKeyBoardControl__sub_8000F8EC(void) {
-    return M2C_FIELD(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&main_phase_state).value, s32 *, 0x14);
+    return *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F8EC_lbl_804FE120 *)&main_phase_state).value) + 0x14);
 }
 
 s32 get_main_phase(void) {
@@ -294,12 +290,12 @@ s32 get_main_phase(void) {
 }
 
 void TKeyBoardControl__sub_8000F90C(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F90C_lbl_804FE120 *)&main_phase_state).value, s32 *, 0xC) = arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F90C_lbl_804FE120 *)&main_phase_state).value) + 0xC) = arg0;
 }
 
 typedef char RecoveredGlobal_8000F91C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F91C_lbl_804FE120) == 0x18 ? 1 : -1];
 void TKeyBoardControl__sub_8000F91C(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&main_phase_state).value, s32 *, 8) = arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F91C_lbl_804FE120 *)&main_phase_state).value) + 8) = arg0;
 }
 
 s32 TKeyBoardControl__sub_8000F92C(void) {
@@ -354,15 +350,15 @@ s32 request_queued_main_phase(void) {
 }
 
 void TKeyBoardControl__sub_8000F9CC(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value, s32 *, 4) = arg0;
-    M2C_FIELD(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value, s32 *, 0x10) = 1;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value) + 4) = arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8000F9CC_lbl_804FE120 *)&main_phase_state).value) + 0x10) = 1;
 }
 
 void TKeyBoardControl__sub_8000F9E4(void) {
-    M2C_FIELD(&main_phase_state.value, s32 *, 0) = 1;
-    M2C_FIELD(&main_phase_state.value, s32 *, 8) = 1;
-    M2C_FIELD(&main_phase_state.value, s32 *, 0xC) = 1;
-    M2C_FIELD(&main_phase_state.value, s32 *, 0x14) = 1;
+    *(s32 *)((s8 *)(&main_phase_state.value) + 0) = 1;
+    *(s32 *)((s8 *)(&main_phase_state.value) + 8) = 1;
+    *(s32 *)((s8 *)(&main_phase_state.value) + 0xC) = 1;
+    *(s32 *)((s8 *)(&main_phase_state.value) + 0x14) = 1;
 }
 void init_gx_lighting_defaults(void) {
     GXColor_8000FA00 c0 = lbl_805D7D00;

@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK __dl__FPv(void *);
-M2C_UNK free_texture_if_valid(void *);
+s32 __dl__FPv(void *);
+s32 free_texture_if_valid(void *);
 s32 is_unloaded__12TChCrLoadAfsFPv();
 
 struct SubBase { char pad[0x18]; };
@@ -17,30 +13,30 @@ u8 *free_chcr_resources(u8 *arg0, s16 arg1) {
     SubObj *temp_r3;
 
     if (arg0 != NULL) {
-        if (((void *) M2C_FIELD(arg0, void **, 0) != NULL) && (is_unloaded__12TChCrLoadAfsFPv() == 0)) {
-            temp_r3 = (SubObj *) (M2C_FIELD(arg0, void **, 0));
+        if (((void *) *(void **)((s8 *)arg0 + 0) != NULL) && (is_unloaded__12TChCrLoadAfsFPv() == 0)) {
+            temp_r3 = (SubObj *) (*(void **)((s8 *)arg0 + 0));
             if (temp_r3 != NULL) {
                 temp_r3->m0(1);
             }
-            M2C_FIELD(arg0, void **, 0) = NULL;
+            *(void **)((s8 *)arg0 + 0) = NULL;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x54) != 0) {
-            if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 1)) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x54) != 0) {
+            if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 1)) {
                 free_texture_if_valid((void *) (arg0 + 0x1B8));
             }
-            M2C_FIELD(arg0, s32 *, 0x54) = 0;
+            *(s32 *)((s8 *)arg0 + 0x54) = 0;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x1C0) != 0) {
-            if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 2)) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x1C0) != 0) {
+            if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 2)) {
                 free_texture_if_valid((void *) (arg0 + 0x324));
             }
-            M2C_FIELD(arg0, s32 *, 0x1C0) = 0;
+            *(s32 *)((s8 *)arg0 + 0x1C0) = 0;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x32C) != 0) {
-            if (!(M2C_FIELD(arg0, s32 *, 0x4A8) & 4)) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x32C) != 0) {
+            if (!(*(s32 *)((s8 *)arg0 + 0x4A8) & 4)) {
                 free_texture_if_valid((void *) (arg0 + 0x490));
             }
-            M2C_FIELD(arg0, s32 *, 0x32C) = 0;
+            *(s32 *)((s8 *)arg0 + 0x32C) = 0;
         }
         if (arg1 > 0) {
             __dl__FPv((void *) (arg0));

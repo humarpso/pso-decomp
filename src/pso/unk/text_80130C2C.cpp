@@ -1,7 +1,6 @@
 #include "types.h"
 typedef struct Obj_80130CD8 { u8 pad[0x200]; f32 f200; s32 f204; } Obj_80130CD8;
 
-typedef s32 M2C_UNK;
 struct Vec_80130C2C { f32 x, y, z; };
 
 struct Ang_80130C2C { s32 x, y, z; };
@@ -20,9 +19,9 @@ extern const f32 lbl_805DB024;
 extern const f32 lbl_805DB028;
 extern const f32 lbl_805DB02C;
 void yasminkov_3000r_update_recoil(Obj_80130CD8 *arg0);
-M2C_UNK spawn_particle_effect(void *, M2C_UNK);
-M2C_UNK draw_icon__10TObjPlayerFPvii(void *, M2C_UNK, void *);
-M2C_UNK launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, void *, M2C_UNK, struct Vec_80130C2C *, struct Ang_80130C2C *);
+s32 spawn_particle_effect(void *, s32);
+s32 draw_icon__10TObjPlayerFPvii(void *, s32, void *);
+s32 launch_weapon_casing__10TObjPlayerFiUiiUiUi(s32, void *, s32, struct Vec_80130C2C *, struct Ang_80130C2C *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern s32 tl_05;

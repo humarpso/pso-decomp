@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8036A648_lbl_804F351C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC0];
 };
 
 struct RecoveredGlobal_8036A67C_lbl_804F3458 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC0];
 };
 
@@ -40,7 +37,7 @@ s32 fn_8036A648(s32 arg0) {
     if (arg0 >= 0x31) {
         return 0;
     }
-    return M2C_FIELD(&bgm_adx_filename_table.value, M2C_UNK *, (arg0 * 4));
+    return *(s32 *)((s8 *)(&bgm_adx_filename_table.value) + (arg0 * 4));
 }
 typedef char RecoveredGlobal_8036A67C_lbl_804F3458_size[sizeof(RecoveredGlobal_8036A67C_lbl_804F3458) == 0xC4 ? 1 : -1];
 s32 get_option_table_entry(s32 arg0) {
@@ -50,7 +47,7 @@ s32 get_option_table_entry(s32 arg0) {
     if (arg0 >= 0x31) {
         return 0;
     }
-    return M2C_FIELD(&option_name_table.value, M2C_UNK *, (arg0 * 4));
+    return *(s32 *)((s8 *)(&option_name_table.value) + (arg0 * 4));
 }
 
 }

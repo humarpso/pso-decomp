@@ -1,25 +1,21 @@
 #include "types.h"
 #include "pso/misc/CharacterAppearance.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK render__16TObjDFTenchuFuruFPv(u32);
-M2C_UNK sync_player_globals__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80052390(f32);
+s32 render__16TObjDFTenchuFuruFPv(u32);
+s32 sync_player_globals__10TObjPlayerFv();
+s32 TObjPlayer__sub_80052390(f32);
 u8 *get_player_by_client_id(s32);
-M2C_UNK clear_flag_bit0__12TCharaMakingFv();
-M2C_UNK enable_making__12TCharaMakingFv();
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(M2C_UNK *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_chunk_object(u32);
-extern M2C_UNK lbl_804FF228[];
-extern M2C_UNK lbl_804FF234[];
+s32 clear_flag_bit0__12TCharaMakingFv();
+s32 enable_making__12TCharaMakingFv();
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(s32 *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_chunk_object(u32);
+extern s32 lbl_804FF228[];
+extern s32 lbl_804FF234[];
 extern const f32 lbl_805D8A30;
 extern const f32 lbl_805D8A34;
 
@@ -79,15 +75,15 @@ void draw_player_model_by_id__10TObjPlayerFif(s32 arg0, f32 farg0) {
         return;
     }
     p = get_player_by_client_id((u16)arg0);
-    if (p == NULL || M2C_FIELD(p, s32 *, 0xCFC) != 0) {
+    if (p == NULL || *(s32 *)((s8 *)p + 0xCFC) != 0) {
         return;
     }
-    m34 = M2C_FIELD(p, u32 *, 0x34);
+    m34 = *(u32 *)((s8 *)p + 0x34);
     a1c = (s32)(p + 0xA1C);
-    m8b0 = M2C_FIELD(p, u32 *, 0x8B0);
+    m8b0 = *(u32 *)((s8 *)p + 0x8B0);
     b88 = (s32)(p + 0xB88);
-    m8ac = M2C_FIELD(p, u32 *, 0x8AC);
-    m8b4 = M2C_FIELD(p, u32 *, 0x8B4);
+    m8ac = *(u32 *)((s8 *)p + 0x8AC);
+    m8b4 = *(u32 *)((s8 *)p + 0x8B4);
     cf4 = (s32)(p + 0xCF4);
     render__16TObjDFTenchuFuruFPv(m34);
     if (farg0 < lbl_805D8A34) {

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_8622c5 { char pad[0x18]; };
 
 struct VObj_18_8622c5 : VBase_18_8622c5 {
@@ -55,18 +52,18 @@ struct VObj_18_8622c5 : VBase_18_8622c5 {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, s32, M2C_UNK);
+    virtual s32 m49(s32 *, s32, s32, s32);
 };
 
 struct RecoveredGlobal_80129878_lbl_804A4438 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 extern "C" {
-M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK draw_icon__10TObjPlayerFPvii(void *, int, void *);
-M2C_UNK TObjPlayer__sub_80128A70();
+s32 spawn_particle_effect(void *, int);
+s32 draw_icon__10TObjPlayerFPvii(void *, int, void *);
+s32 TObjPlayer__sub_80128A70();
 extern RecoveredGlobal_80129878_lbl_804A4438 lbl_804A4438;
 void s_rank_shot_marker(u8 *arg0);
 }
@@ -75,19 +72,19 @@ extern "C" {
 
 typedef char RecoveredGlobal_80129878_lbl_804A4438_size[sizeof(RecoveredGlobal_80129878_lbl_804A4438) == 0x14 ? 1 : -1];
 void s_rank_shot_marker(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     TObjPlayer__sub_80128A70();
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (7), (void *) (&sp8));
     spawn_particle_effect((void *) (&sp8), (int) (9));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, M2C_FIELD(&lbl_804A4438.value, s32 *, 0), 1);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 0, *(s32 *)((s8 *)(&lbl_804A4438.value) + 0), 1);
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (3), (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, M2C_FIELD(&lbl_804A4438.value, s32 *, 4), 1);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 1, *(s32 *)((s8 *)(&lbl_804A4438.value) + 4), 1);
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (5), (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, M2C_FIELD(&lbl_804A4438.value, s32 *, 8), 1);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 2, *(s32 *)((s8 *)(&lbl_804A4438.value) + 8), 1);
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (2), (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, M2C_FIELD(&lbl_804A4438.value, s32 *, 0xC), 1);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 3, *(s32 *)((s8 *)(&lbl_804A4438.value) + 0xC), 1);
     draw_icon__10TObjPlayerFPvii((void *) (arg0), (int) (6), (void *) (&sp8));
-    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, M2C_FIELD(&lbl_804A4438.value, s32 *, 0x10), 1);
+    ((VObj_18_8622c5 *)(arg0))->m49(&sp8, 4, *(s32 *)((s8 *)(&lbl_804A4438.value) + 0x10), 1);
 }
 
 }

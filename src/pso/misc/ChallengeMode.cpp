@@ -13,13 +13,9 @@ s32 challenge_task;
 s32 challenge_task_created;
 s32 TLobby__data_805D4E30;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80070358_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
@@ -31,7 +27,6 @@ struct G_80070024 { u8 pad[0x48]; s32 x48; };
 
 struct O_80070600 { u8 pad[0x1c]; s32 x1c; };
 
-typedef s32 M2C_UNK;
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -62,23 +57,23 @@ struct Info_800703D0 {
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_8 { u32 w[2]; };
+struct ByteBlock_8 { u32 w[2]; };
 
-struct M2CCopy_1C4 { u32 a; struct { u32 w[0x70]; } b; };
+struct ByteBlock_1C4 { u32 a; struct { u32 w[0x70]; } b; };
 
-struct M2CCopy_10 { u8 bytes[0x10]; };
+struct ByteBlock_10 { u8 bytes[0x10]; };
 
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
-struct M2CCopy_18 { u8 bytes[0x18]; };
+struct ByteBlock_18 { u8 bytes[0x18]; };
 
-struct M2CCopy_50 { u8 bytes[0x50]; };
+struct ByteBlock_50 { u8 bytes[0x50]; };
 
-struct M2CCopy_54 { u8 bytes[0x54]; };
+struct ByteBlock_54 { u8 bytes[0x54]; };
 
-struct M2CCopy_1C0 { u8 bytes[0x1c0]; };
+struct ByteBlock_1C0 { u8 bytes[0x1c0]; };
 
-struct M2CCopy_410 { u8 bytes[0x410]; };
+struct ByteBlock_410 { u8 bytes[0x410]; };
 
 struct E_80070254 { u8 pad[0x104]; };
 
@@ -109,13 +104,13 @@ s32 destroy_on_phase_change__6TLobbyFPv(void *self);
 s32 get_current_floor(void);
 void create_time_window__6TLobbyFv(void *);
 void create_obj_tag_challenge(s32);
-M2C_UNK create_ch_time_win(s32);
+s32 create_ch_time_win(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern s32 tl_07;
 void TLobby__sub_80070170(void *arg0);
 Info_800703D0 *TLobby__sub_800703D0(Info_800703D0 *dst, Info_800703D0 *src);
 void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1);
-M2C_UNK send_6x7c_reset__6TLobbyFv(void *);
+s32 send_6x7c_reset__6TLobbyFv(void *);
 u32 get_player_by_client_id(s32);
 extern void *challenge_mode_state[];
 extern s32 local_client_id;
@@ -128,17 +123,17 @@ void TLobby__sub_80070550(void);
 
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0);
 s32 is_quest_active();
-M2C_UNK update_card_save_info__6TLobbyFv(void *);
-M2C_UNK spawn_player_tombstones__6TLobbyFv();
+s32 update_card_save_info__6TLobbyFv(void *);
+s32 spawn_player_tombstones__6TLobbyFv();
 void update_quest_challenge_state__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_800722AC(s32);
-M2C_UNK TLobby__sub_80072618();
+s32 TLobby__sub_800722AC(s32);
+s32 TLobby__sub_80072618();
 s32 TLobby__sub_800739BC(void *);
-M2C_UNK create_new_floor_windows__6TLobbyFi(s32);
+s32 create_new_floor_windows__6TLobbyFi(s32);
 s32 TLobby__sub_8026A328();
 u32 get_player_by_client_id(s32);
 s32 check_player_state_flag_2__6TLobbyFPv();
-M2C_UNK create_ch_time_win(s32);
+s32 create_ch_time_win(s32);
 
 s32 init__23TAdSinglePlyChrSelectGCFv();
 
@@ -402,13 +397,13 @@ void *challenge_mode_state[420] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-#define challenge_mode_state (*(M2C_UNK (*)[466])challenge_mode_state)
+#define challenge_mode_state (*(s32 (*)[466])challenge_mode_state)
 
 void create_time_window__6TLobbyFv(void * _w0) {
     spawn_player_tombstones__6TLobbyFv();
     create_ch_time_win(tl_07);
     create_new_floor_windows__6TLobbyFi(tl_07);
-    if ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x30) == 0) {
+    if ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x30) == 0) {
         TObjSoloPlayWin::create((TObject*)tl_07);
     }
 }
@@ -417,16 +412,16 @@ extern s32 local_client_id;
 
 void update_battle_cleanup_flag__6TLobbyFPv(void *arg0) {
     if (get_player_by_client_id(local_client_id) == 0U) {
-        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+        *(s32 *)((s8 *)arg0 + 0x28) = 0;
         return;
     }
     if (check_player_state_flag_2__6TLobbyFPv() != 0) {
-        if (((s32) M2C_FIELD(arg0, s32 *, 0x28) != 0) && ((s32) M2C_FIELD(&challenge_mode_state, s32 *, 0x34) == 0)) {
+        if (((s32) *(s32 *)((s8 *)arg0 + 0x28) != 0) && ((s32) *(s32 *)((s8 *)(&challenge_mode_state) + 0x34) == 0)) {
             update_card_save_info__6TLobbyFv(arg0);
             TLobby__sub_800722AC(local_client_id);
             TLobby__sub_80072618();
         }
-        M2C_FIELD(arg0, s32 *, 0x28) = 0;
+        *(s32 *)((s8 *)arg0 + 0x28) = 0;
     }
 }
 
@@ -442,7 +437,7 @@ void set_challenge_record_page__6TLobbyFPvi(void *self, s32 v) {
     }
 }
 
-M2C_UNK send_challenge_with_value__6TLobbyFii(void *, s32);
+s32 send_challenge_with_value__6TLobbyFii(void *, s32);
 s32 get_selected_quest_id__6TLobbyFPv();
 s32 get_list_state__16TQuestListOnlineFv();
 extern s32 TLobby__designated_client_id;
@@ -557,7 +552,7 @@ void TLobby__sub_80070358(void) {
     clear_four_slots__6TLobbyFv();
     temp_r31 = (s32 *)((u8 *)(((u8 *)(&(*(RecoveredGlobal_80070358_lbl_8048C9D8 *)&challenge_mode_state).value) + (local_client_id * 0x104))) + 0x270);
     if (get_character_save_record(0xFFFFU) != 0U) {
-        M2C_FIELD(temp_r31, s32 *, 0) = 1;
+        *(s32 *)((s8 *)temp_r31 + 0) = 1;
         TLobby__sub_800703D0((Info_800703D0 *)((void *)((void *) ((u8 *)(temp_r31) + 4))), (Info_800703D0 *)((void *)((void *) (get_character_save_record(0xFFFFU) + 0x21C4))));
     }
 }
@@ -592,11 +587,11 @@ void TChallenge::wait_for_quest() {
     if (((s32)destroy_on_phase_change__6TLobbyFPv((void *)((void*)((void*)(arg0))))) == 0) {
         update_quest_challenge_state__6TLobbyFPv((void *) (arg0));
         if (is_quest_active() != 0) {
-            ((M2C_UNK)init__23TAdSinglePlyChrSelectGCFv());
-            ((M2C_UNK)TLobby__sub_800739BC((void *) (arg0)));
-            ((M2C_UNK)TLobby__sub_8026A328());
+            ((s32)init__23TAdSinglePlyChrSelectGCFv());
+            ((s32)TLobby__sub_800739BC((void *) (arg0)));
+            ((s32)TLobby__sub_8026A328());
             TObjWarnChime::create((TObject*)arg0);
-            M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         }
     }
 }
@@ -677,34 +672,34 @@ Obj_80070774 *TLobby__sub_80070774(Obj_80070774 *arg0, s16 arg1) {
 void copy_challenge_settings__6TLobbyFPvPv(u8 *arg0, u8 *arg1) {
     u8 *temp_r6;
     u8 *temp_r8;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0xC) = (s32) M2C_FIELD(arg1, s32 *, 0xC);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg1, s32 *, 0x24);
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x34);
-    *(M2CCopy_10 *)((s32) arg0 + 0x38) = *(const M2CCopy_10 *)((s32) arg1 + 0x38);
-    M2C_FIELD(arg0, s32 *, 0x48) = (s32) M2C_FIELD(arg1, s32 *, 0x48);
-    M2C_FIELD(arg0, s32 *, 0x4C) = (s32) M2C_FIELD(arg1, s32 *, 0x4C);
-    *(M2CCopy_8 *)((s32) arg0 + 0x50) = *(const M2CCopy_8 *)((s32) arg1 + 0x50);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x20);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg1 + 0x24);
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x2C);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x34);
+    *(ByteBlock_10 *)((s32) arg0 + 0x38) = *(const ByteBlock_10 *)((s32) arg1 + 0x38);
+    *(s32 *)((s8 *)arg0 + 0x48) = (s32) *(s32 *)((s8 *)arg1 + 0x48);
+    *(s32 *)((s8 *)arg0 + 0x4C) = (s32) *(s32 *)((s8 *)arg1 + 0x4C);
+    *(ByteBlock_8 *)((s32) arg0 + 0x50) = *(const ByteBlock_8 *)((s32) arg1 + 0x50);
     {
-        const M2CCopy_1C4 *src = (const M2CCopy_1C4 *)(arg1 + 0x58);
-        M2CCopy_1C4 *dst = (M2CCopy_1C4 *)(arg0 + 0x58);
+        const ByteBlock_1C4 *src = (const ByteBlock_1C4 *)(arg1 + 0x58);
+        ByteBlock_1C4 *dst = (ByteBlock_1C4 *)(arg0 + 0x58);
         *dst = *src;
     }
     temp_r8 = (u8 *)(arg0 + 0x218);
     temp_r6 = (u8 *)(arg1 + 0x218);
-    *(M2CCopy_54 *)((s32) temp_r8 + 4) = *(const M2CCopy_54 *)((s32) temp_r6 + 4);
-    *(M2CCopy_410 *)((s32) (arg0 + 0x26C) + 4) = *(const M2CCopy_410 *)((s32) (arg1 + 0x26C) + 4);
-    *(M2CCopy_10 *)((s32) arg0 + 0x680) = *(const M2CCopy_10 *)((s32) arg1 + 0x680);
+    *(ByteBlock_54 *)((s32) temp_r8 + 4) = *(const ByteBlock_54 *)((s32) temp_r6 + 4);
+    *(ByteBlock_410 *)((s32) (arg0 + 0x26C) + 4) = *(const ByteBlock_410 *)((s32) (arg1 + 0x26C) + 4);
+    *(ByteBlock_10 *)((s32) arg0 + 0x680) = *(const ByteBlock_10 *)((s32) arg1 + 0x680);
 }
 
 struct Obj_80070944 { s32 f0; u8 pad4[0x14]; void *vt; s32 f1C, f20, f24, f28, f2C; };

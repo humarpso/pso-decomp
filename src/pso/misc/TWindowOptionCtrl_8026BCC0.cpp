@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct Opt_8026BCC0 {
     u8 pad0[0x1C];
     s8 state;
@@ -33,7 +33,7 @@ void *create_select_menu_window__17TWindowOptionCtrlFv(void *);
 s32 get_flag_bit2__6TLobbyFPv(void *);
 s32 update_selected_item__17TWindowOptionCtrlFPv(void *);
 s32 handle_input__17TWindowOptionCtrlFPvi(void *arg0, s32 arg1);
-M2C_UNK TWindowOptionCtrl__sub_802273B4(int);
+s32 TWindowOptionCtrl__sub_802273B4(int);
 void *create_list_window__17TWindowOptionCtrlFv(void *);
 void clear_flag70_bit4__17TWindowOptionCtrlFPv(void *);
 void stop_audio_streams__6TLobbyFv(void);
@@ -57,7 +57,7 @@ void *__nw__7TObjectFUl(u32);
 void *ct__17TWindowOptionCtrlFPv(void *arg0);
 s32 get_field_24__17TWindowOptionCtrlFPv(void *);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK TKeyBoardControl__sub_8000F9CC(int);
+s32 TKeyBoardControl__sub_8000F9CC(int);
 void *create_sub_menu_window__17TWindowOptionCtrlFv(void *);
 void *create_option_menu__17TWindowOptionCtrlFv(void *);
 void set_field_value__17TWindowOptionCtrlFis(s32 arg0, s16 arg1);
@@ -65,7 +65,7 @@ s32 open_yes_no_window__17TWindowOptionCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 get_card_data__17TWindowSubComCardFPv(void *);
 s32 is_child_visible__17TWindowSubComCardFPv(void *);
 s32 get_slot_or_neg1__17TWindowSubComCardFPv(void *);
-s32 get_option_entry__17TWindowOptionCtrlFi(M2C_UNK);
+s32 get_option_entry__17TWindowOptionCtrlFi(s32);
 s32 create_serial_info_window__17TWindowOptionCtrlFPvi(void *, int);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);

@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Vec_8034BE5C { f32 x, y, z; };
 
 struct Cam_8034BE5C {
@@ -20,7 +16,7 @@ struct Pad_8034BE5C { u8 pad0[0x34]; s16 tilt; u8 pad36[4]; s16 speed; };
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *);
-extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
+extern s32 __vt__17TAdFloorLoadCamGC[];
 extern void *lbl_805D4340;
 void set_default_camera__21TAdMultiChgGameModeGCFv(void *);
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2);
@@ -53,7 +49,7 @@ void fn_8034BE38(void* p) { *(u32*)((char*)p + 0x334) &= 0xbfffffff; }
 void fn_8034BE48(void* p) { *(u32*)((char*)p + 0x334) |= 0x40000000; }
 void render__17TAdFloorLoadCamGCFv(void) {  }
 
-extern M2C_UNK __vt__17TAdFloorLoadCamGC[];
+extern s32 __vt__17TAdFloorLoadCamGC[];
 
 extern "C" {
 extern const f32 lbl_805DFDA8 = 182.04445f;
@@ -126,7 +122,7 @@ void run_task__17TAdFloorLoadCamGCFv(Cam_8034BE5C *s) {
 
 void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TAdFloorLoadCamGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TAdFloorLoadCamGC;
         TCameraCtrl__sub_800687C8();
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -138,7 +134,7 @@ void *__dt__17TAdFloorLoadCamGCFv(void *arg0, s16 arg1) {
 void *TAdFloorLoadCamGC__ct(void *arg0, void *arg1, void *arg2) {
   void *new_var;
   __ct__7TObjectFP7TObject(arg0);
-  *((M2C_UNK **) (((s8 *) arg0) + 0x18)) = __vt__17TAdFloorLoadCamGC;
+  *((s32 **) (((s8 *) arg0) + 0x18)) = __vt__17TAdFloorLoadCamGC;
   new_var = lbl_805D4340;
   *((void **) (((s8 *) arg0) + 0x0)) = new_var;
   *((u32 *) (((s8 *) arg0) + 0x20)) = 0;

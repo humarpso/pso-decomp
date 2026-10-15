@@ -1,10 +1,6 @@
 #include "pso/ui/TAdLoadQuestCellGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 get_state_flag__9TMainTaskFv();
@@ -28,7 +24,7 @@ s32 fn_80349844();
 void render_state__18TAdLoadQuestCellGCFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
         fn_80349844();
@@ -63,15 +59,15 @@ TAdLoadQuestCellGC::~TAdLoadQuestCellGC() {
 
 extern "C" {
 
-extern M2C_UNK __vt__18TAdLoadQuestCellGC[];
+extern s32 __vt__18TAdLoadQuestCellGC[];
 extern void *lbl_805D42F8;
 
 void *TAdLoadQuestCellGC__ct(void *arg0, void *arg1, void *arg2) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdLoadQuestCellGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D42F8;
-    M2C_FIELD(arg0, void **, 0x1C) = arg2;
-    M2C_FIELD(arg0, u32 *, 0x20) = -1;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdLoadQuestCellGC;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D42F8;
+    *(void **)((s8 *)arg0 + 0x1C) = arg2;
+    *(u32 *)((s8 *)arg0 + 0x20) = -1;
     return arg0;
 }
 s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
@@ -79,15 +75,15 @@ s32 get_or_create_cell__14TAdLoadQuestGCFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x24));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = ((s32)TAdLoadQuestCellGC__ct((void *)((int) (temp_r3)), (void *)((void *) (arg0)), (void *)((void *) (arg1))));
         }
-        M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30) = var_r0;
+        *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30) = var_r0;
     }
-    return M2C_FIELD((s32 *)ad_load_quest_cell_table, M2C_UNK *, temp_r30);
+    return *(s32 *)((s8 *)((s32 *)ad_load_quest_cell_table) + temp_r30);
 }
 
 }

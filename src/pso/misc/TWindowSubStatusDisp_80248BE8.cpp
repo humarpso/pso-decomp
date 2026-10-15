@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80248CF4_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 extern "C" {
-u8 * fn_80249004(void *, M2C_UNK, s32);
-u8 *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK TShopJudgmentItemWindow__sub_80267F9C(void *, int);
+u8 * fn_80249004(void *, s32, s32);
+u8 *__nw__7TObjectFUl(s32);
+s32 TShopJudgmentItemWindow__sub_80267F9C(void *, int);
 u8 *TWindowSubStatusDisp__sub_80248BE8(s32 arg0, s32 arg1, s32 arg2);
 s32 get_status_flag__6TLobbyFPv(void *);
 s32 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *, int);
@@ -42,14 +38,14 @@ extern "C" {
 void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1);
 void refresh_with_default_list__20TWindowSubStatusDispFii(s32 a, s32 b);
 void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0);
-M2C_UNK draw_window_frame(void *, s32);
+s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
-M2C_UNK draw_visible_window_entries(void *, void *, s32);
-M2C_UNK draw_window_scrollbar(s32, s32, void *);
+s32 draw_visible_window_entries(void *, void *, s32);
+s32 draw_window_scrollbar(s32, s32, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_item_list_resources__20TWindowSubStatusDispFPvs(void *, int);
-M2C_UNK draw_selected_list_entry(void *, s32);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
+s32 draw_selected_list_entry(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
 
 extern s32 local_client_id;
 
@@ -76,15 +72,15 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
     draw_window_frame(arg0, temp_r3);
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     draw_selected_list_entry(arg0, temp_r3);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x80) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u32 *, 0x80), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x80) != 0U) {
+        forward_render__20TWindowSubStatusDispFPv(*(u32 *)((s8 *)arg0 + 0x80), temp_r3);
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x84) != 0U) {
-        draw_window_scrollbar(M2C_FIELD(arg0, u32 *, 0x84), temp_r3, arg0 + 0x68);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x84) != 0U) {
+        draw_window_scrollbar(*(u32 *)((s8 *)arg0 + 0x84), temp_r3, arg0 + 0x68);
     }
 }
 
-extern M2C_UNK lbl_804CE7E8[];
+extern s32 lbl_804CE7E8[];
 
 typedef char RecoveredGlobal_80248CF4_lbl_8050E208_size[sizeof(RecoveredGlobal_80248CF4_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
@@ -94,9 +90,9 @@ void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
     u8 *temp_r29;
     u8 *temp_r29_2;
     u8 *temp_r29_3;
-    temp_r31 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
+    temp_r31 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
     if ((get_flag__20TWindowSubStatusDispFPv((void *) (arg0)) == 0) && (get_status_flag__6TLobbyFPv((void *) (arg0)) == 0) && (fn_80244994((void *) (arg0)) != 0)) {
-        if (M2C_FIELD(arg0, u16 *, 0x70) & 0x10) {
+        if (*(u16 *)((s8 *)arg0 + 0x70) & 0x10) {
             temp_r29 = (u8 *)&controller_input_state.value + (temp_r31 * 0x50) + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (apply_choice__20TWindowChoiceSettingFiiii((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (0x10), (int) (6), (int) (1)) != 0)) {
                 move_cursor__20TWindowSubStatusDispFPv((void *) (arg0));
@@ -122,12 +118,12 @@ void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
         }
     }
     center_list_selection((void *) (arg0));
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCBA8) {
-        temp_r3 = M2C_FIELD(arg0, u32 *, 0x80);
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCBA8) {
+        temp_r3 = *(u32 *)((s8 *)arg0 + 0x80);
         if (temp_r3 != 0U) {
             update_subwindow__20TWindowSubStatusDispFPv((int) (temp_r3));
         }
-        temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x84);
+        temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x84);
         if (temp_r3_2 != 0U) {
             increment_counter__20TWindowSubStatusDispFPv((int) (temp_r3_2));
         }
@@ -139,7 +135,7 @@ void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
 
 void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804CE7E8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE7E8;
         destroy_item_list_resources__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803DEB74_lbl_8058D8E0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xCC];
 };
 
@@ -50,10 +46,10 @@ extern "C" {
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 u8 *TKeyBoardControl__sub_803DEB74(u32 arg0);
 s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
-M2C_UNK Dolphin_PADRead(void *, void *);
-extern M2C_UNK keyboard_pad_status_buffer[];
+s32 Dolphin_PADRead(void *, void *);
+extern s32 keyboard_pad_status_buffer[];
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
-extern M2C_UNK TKeyBoardControl__pad_status_buffer[];
+extern s32 TKeyBoardControl__pad_status_buffer[];
 void init_pad_slots_and_read__16TKeyBoardControlFv(void);
 extern Ent_803DEBC8 pad_button_map_table[];
 extern u32 lbl_805D46E0;
@@ -81,13 +77,13 @@ void move_data__6TLobbyFv(u32, void *, s32);
 void init_matrix_stack__10TObjPlayerFii(s32 arg0, s32 arg1);
 extern RecoveredGlobal_803DEB74_lbl_8058D8E0 keyboard_control_pad_slots;
 s16 scale_axis_value__16TKeyBoardControlFs(s16 x);
-M2C_UNK Dolphin_PADRead(void *, void *);
-extern M2C_UNK keyboard_pad_status_buffer[];
+s32 Dolphin_PADRead(void *, void *);
+extern s32 keyboard_pad_status_buffer[];
 extern Pad_803DEA18 TKeyBoardControl_prev_pad_state[4];
 s32 map_pad_buttons__16TKeyBoardControlFUs(u16 arg0);
 void clamp_axes__16TKeyBoardControlFPv(u8 *arg0);
 void *memmove(void *, const void *, u32);
-M2C_UNK PADReset(u32);
+s32 PADReset(u32);
 void read_pads__16TKeyBoardControlFv(void);
 }
 
@@ -101,10 +97,10 @@ void set_some_id__FUl(s32 arg0);
 typedef char RecoveredGlobal_803DEB74_lbl_8058D8E0_size[sizeof(RecoveredGlobal_803DEB74_lbl_8058D8E0) == 0xD0 ? 1 : -1];
 
 void init_pad_slots_and_read__16TKeyBoardControlFv(void) {
-    M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), M2C_UNK **, 0x30) = TKeyBoardControl__pad_status_buffer;
-    M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), u8 **, 0x64) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x78));
-    M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), u8 **, 0x98) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0xF0));
-    M2C_FIELD(((M2C_UNK *)&keyboard_control_pad_slots), u8 **, 0xCC) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x168));
+    *(s32 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x30) = TKeyBoardControl__pad_status_buffer;
+    *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x64) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x78));
+    *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0x98) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0xF0));
+    *(u8 **)((s8 *)((s32 *)&keyboard_control_pad_slots) + 0xCC) = (unsigned char *) ((void *) ((u8 *)TKeyBoardControl__pad_status_buffer + 0x168));
     Dolphin_PADRead((void *) (keyboard_pad_status_buffer), (void *) (TKeyBoardControl__pad_status_buffer));
 }
 
@@ -124,7 +120,7 @@ void read_pads__16TKeyBoardControlFv(void) {
   u16 released;
   u16 prev;
   memmove(TKeyBoardControl_prev_pad_state, keyboard_pad_status_buffer, 0x30);
-  ((M2C_UNK (*)(void *)) Dolphin_PADRead)(keyboard_pad_status_buffer);
+  ((s32 (*)(void *)) Dolphin_PADRead)(keyboard_pad_status_buffer);
   for (i = 0; i < 4; i++)
   {
     pad = &((Pad_803DEA18 *) keyboard_pad_status_buffer)[i];
@@ -215,19 +211,19 @@ void clamp_axes__16TKeyBoardControlFPv(u8 *arg0) {
     u8 temp_r0;
     u8 temp_r0_2;
 
-    temp_r0 = M2C_FIELD(arg0, u8 *, 2);
+    temp_r0 = *(u8 *)((s8 *)arg0 + 2);
     if ((s8) temp_r0 > 0x59) {
-        M2C_FIELD(arg0, s8 *, 2) = 0x59;
+        *(s8 *)((s8 *)arg0 + 2) = 0x59;
     } else if ((s8) temp_r0 < -0x59) {
-        M2C_FIELD(arg0, s8 *, 2) = -0x59;
+        *(s8 *)((s8 *)arg0 + 2) = -0x59;
     }
-    temp_r0_2 = M2C_FIELD(arg0, u8 *, 3);
+    temp_r0_2 = *(u8 *)((s8 *)arg0 + 3);
     if ((s8) temp_r0_2 > 0x59) {
-        M2C_FIELD(arg0, s8 *, 3) = 0x59;
+        *(s8 *)((s8 *)arg0 + 3) = 0x59;
         return;
     }
     if ((s8) temp_r0_2 < -0x59) {
-        M2C_FIELD(arg0, s8 *, 3) = -0x59;
+        *(s8 *)((s8 *)arg0 + 3) = -0x59;
     }
 }
 

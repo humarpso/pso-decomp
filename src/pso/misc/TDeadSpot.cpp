@@ -11,10 +11,7 @@ public:
 #endif
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_800D7E10_800D7D74 { char pad[0x18]; };
 struct VObj_800D7E10_800D7D74 : Base_800D7E10_800D7D74 {
     virtual void m0();
@@ -32,7 +29,7 @@ struct Stack_800D7E94
 };
 
 struct RecoveredGlobal_800D7F60_lbl_804949F4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -59,7 +56,6 @@ struct E_800D8228 { V3_800D8228 v; u8 pad[8]; u32 col; };
 
 struct Obj_800D8228 { u8 pad0[0x18]; void *vt; E_800D8228 e[4]; V3_800D8228 base; V3_800D8228 dir[4]; u8 padb8[8]; f32 sc; f32 t; f32 c8; };
 
-typedef s32 M2C_UNK;
 struct Vec_800D8314 { f32 x, y, z; };
 
 struct Vtx_800D8314 { Vec_800D8314 pos; f32 u; f32 v; s32 color; };
@@ -91,7 +87,7 @@ extern const f32 lbl_805DA380;
 void TDeadSpot__sub_800D7E94(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_804949F4[];
+extern s32 lbl_804949F4[];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0);
 s32 calc_random_scaled__10TObjPlayerFv();
 s32 adjust_to_ground__15TObjBoss2TunnelFiPv(void *, void *);
@@ -108,7 +104,7 @@ extern const f32 lbl_805DA390;
 extern const f32 lbl_805DA394;
 extern const f32 lbl_805DA398;
 void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0);
-extern M2C_UNK lbl_80494A10[];
+extern s32 lbl_80494A10[];
 extern const f32 TDeadSpot__data_805DA38C;
 Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1, Vec_800D8314 * _w2, void * _w3, s32 _w4, s32 _w5, f32 _w6);
 extern const f32 TDeadSpot__data_805DA388;
@@ -116,19 +112,19 @@ extern const f32 TDeadSpot__data_805DA38C;
 void run_task__9TDeadSpotFv(Obj_800D8228 *arg0);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void __ct__7TObjectFP7TObject(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 f32 lerp__9TDeadSpotFff(f32, f32);
 s32 calc_random_scaled__10TObjPlayerFv();
 Ground_800D8314 *csnVecterUnder(void *, s32);
-M2C_UNK direction_to_rotation_yx(void *, s32 *, s32 *);
+s32 direction_to_rotation_yx(void *, s32 *, s32 *);
 s32 rand();
-M2C_UNK set_matrix_identity(int);
-M2C_UNK fn_803D8DE0(int, void *, void *, int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 set_matrix_identity(int);
+s32 fn_803D8DE0(int, void *, void *, int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 extern void *__vt__9TDeadSpot[];
 extern s32 lbl_805D2A98;
 extern const f32 TDeadSpot__data_805DA388;
@@ -153,20 +149,20 @@ void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4);
 void render__9TDeadSpotFv(u8 *arg0);
 void update_lifetime__9TDeadSpotFPv(void *arg0);
 f32 horizontal_distance_squared(void *, s32);
-M2C_UNK set_texture_num(s32);
+s32 set_texture_num(s32);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void __dt__9TDeadSpotFv(void *, int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(u32);
-M2C_UNK setup_alpha_test_render_state(M2C_UNK);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK draw_particle_strip(void *, M2C_UNK, M2C_UNK);
+s32 setup_alpha_test_render_state(s32);
+s32 restore_saved_depth_alpha_state();
+s32 draw_particle_strip(void *, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 queue_destruction__7TObjectFv(void *);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_global_param__8TObjFishFi(s32);
 
-extern M2C_UNK lbl_804949D8[];
+extern s32 lbl_804949D8[];
 
 #pragma push
 #pragma opt_common_subs off
@@ -178,19 +174,19 @@ void place_particle_on_ground__9TDeadSpotFPv(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r3;
     temp_r3 = calc_random_scaled__10TObjPlayerFv();
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x28) * sin_table_lookup((int) (temp_r3));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x28) * sin_table_lookup((int) (temp_r3));
     stack.spC = lbl_805DA380;
     stack.sp8 = temp_f1;
-    stack.sp10 = M2C_FIELD(arg0, f32 *, 0x28) * cos_table_lookup((int) (temp_r3));
+    stack.sp10 = *(f32 *)((s8 *)arg0 + 0x28) * cos_table_lookup((int) (temp_r3));
     vec3_add_to((void *) (&stack.sp8), (void *) (arg0 + 0x1C));
     adjust_to_ground__15TObjBoss2TunnelFiPv((void *) (&stack.sp8), (void *) (&stack.sp8));
-    copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, s32 *, 0x34)), (void *) (&stack.sp8));
+    copy_pos__11TNowLoadingFPvPv((int) (*(s32 *)((s8 *)arg0 + 0x34)), (void *) (&stack.sp8));
 }
 #pragma pop
 
 void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
         TDeadSpot__sub_800D7F08((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -199,29 +195,29 @@ void *TDeadSpot__sub_800D7D74(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804949D8[];
+extern s32 lbl_804949D8[];
 
 void *init__9TDeadSpotFPv(void *arg0, u8 * _w1, u8 * _w2, s32 _w3, f32 _w4) {
     construct_fire_base__9TDeadSpotFPvPvPvif((u8 *)(arg0), (u8 *)(_w1), (u8 *)(_w2), (s32)(_w3), _w4);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949D8;
-    M2C_FIELD(arg0, u32 *, 0x30) = 8;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949D8;
+    *(u32 *)((s8 *)arg0 + 0x30) = 8;
     return arg0;
 }
 
 void update_lifetime__9TDeadSpotFPv(void *arg0) {
-    u32 tmp34 = M2C_FIELD(arg0, u32 *, 0x34);
+    u32 tmp34 = *(u32 *)((s8 *)arg0 + 0x34);
     if ((tmp34 == 0U) || (all_parents_unqueued_for_destruction__7TObjectFv(tmp34) == 0)) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x2C) >= (s32) M2C_FIELD(arg0, s32 *, 0x30)) {
-        M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x2C) >= (s32) *(s32 *)((s8 *)arg0 + 0x30)) {
+        *(s32 *)((s8 *)arg0 + 0x2C) = 0;
         ((VObj_800D7E10_800D7D74 *)arg0)->m4();
     }
 }
 
-extern M2C_UNK lbl_804949F4[];
+extern s32 lbl_804949F4[];
 
 typedef struct Stack_800D7E94 Stack_800D7E94;
 void TDeadSpot__sub_800D7E94(u8 *arg0) {
@@ -239,7 +235,7 @@ void TDeadSpot__sub_800D7E94(u8 *arg0) {
 
 void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804949F4;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804949F4;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -248,19 +244,19 @@ void *TDeadSpot__sub_800D7F08(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_80494A10[];
+extern s32 lbl_80494A10[];
 
 #pragma push
 #pragma fp_contract on
 typedef char RecoveredGlobal_800D7F60_lbl_804949F4_size[sizeof(RecoveredGlobal_800D7F60_lbl_804949F4) == 0x1C ? 1 : -1];
 u8 *construct_fire_base__9TDeadSpotFPvPvPvif(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3, f32 farg0) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_800D7F60_lbl_804949F4 *)&lbl_804949F4).value;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg2);
-    M2C_FIELD(arg0, f32 *, 0x28) = farg0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 2;
-    M2C_FIELD(arg0, s32 *, 0x34) = arg3;
+    *(f32 *)((s8 *)arg0 + 0x28) = farg0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 2;
+    *(s32 *)((s8 *)arg0 + 0x34) = arg3;
     return arg0;
 }
 #pragma pop
@@ -291,7 +287,7 @@ void update_fade_in_alpha__9TDeadSpotFPv(Obj_800D7FD4 *arg0) {
 
 void *TDeadSpot__sub_800D808C(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494A10;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494A10;
         __dt__9TDeadSpotFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -332,12 +328,12 @@ Obj_800D80E4 *init_corner_vertices__9TDeadSpotFPv(Obj_800D80E4 *arg0, void * _w1
 #pragma pop
 
 void render__9TDeadSpotFv(u8 *arg0) {
-    if ((get_state_flag__9TMainTaskFv() != 1) && (M2C_FIELD(arg0, f32 *, 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
+    if ((get_state_flag__9TMainTaskFv() != 1) && (*(f32 *)((s8 *)arg0 + 0xC4) > TDeadSpot__data_805DA38C) && (horizontal_distance_squared(arg0 + 0x7C, camera_ctrl_instance + 0x178) < lbl_805DA39C)) {
         lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
         setup_alpha_test_render_state(0x8F);
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0xB8));
-        set_texture_num(M2C_FIELD(arg0, s32 *, 0xBC));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0xB8));
+        set_texture_num(*(s32 *)((s8 *)arg0 + 0xBC));
         draw_particle_strip(arg0 + 0x1C, 4, 1);
         restore_saved_depth_alpha_state();
         model_render_flags = lbl_805D5660;

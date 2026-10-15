@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Info_80315B10 { s32 a, b, c, d; };
 struct Rec_80315B10 { u8 pad0[8]; s32 f8; s32 fC; u8 pad10[8]; s32 f18; s32 f1C; };
@@ -28,7 +24,7 @@ void free_shared_data__15TObjEneDelDepthFv(void);
 void TLobby__sub_8001FE7C(void*, int);
 s32 TObjControl__ct(s32, s32);
 s32 TObjEneDelDepth__ct(s32, s32, s32);
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 __nw__7TObjectFUl(s32);
 
 extern "C" void TObjEneDelDepth__sub_80313740();
 extern "C" void TObjEneDelDepth__sub_803138F8();

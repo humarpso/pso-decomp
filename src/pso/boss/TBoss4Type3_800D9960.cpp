@@ -1,11 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_800D9960_lbl_80500FA4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -35,9 +31,9 @@ Vec_800D9ABC *alloc_buffer__11TOBoss4RockFPv(int);
 extern const f32 lbl_805DA3EC;
 extern const f32 lbl_805DA3F0;
 Trail_800D9ABC *init_trail_buffer__11TBoss4Type3FPvifff(Trail_800D9ABC *arg0, s32 segs, f32 start, f32 end, f32 step);
-void transform_motion_node_points(void *, s32, M2C_UNK);
+void transform_motion_node_points(void *, s32, s32);
 void bind_motion_context(s32, f32);
-void set_matrix_identity(M2C_UNK);
+void set_matrix_identity(s32);
 void push_matrix(Vec_800D9994 *);
 void pop_matrix();
 void set_global_flag__10TObjPlayerFv();
@@ -60,8 +56,8 @@ int __dl__FPv(s32 *);
 
 typedef char RecoveredGlobal_800D9960_lbl_80500FA4_size[sizeof(RecoveredGlobal_800D9960_lbl_80500FA4) == 0xC ? 1 : -1];
 void draw_trail_with_colors(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
-    M2C_FIELD(&lbl_80500FA4.value, s32 *, 0) = arg3;
-    M2C_FIELD(&lbl_80500FA4.value, s32 *, 4) = arg4;
+    *(s32 *)((s8 *)(&lbl_80500FA4.value) + 0) = arg3;
+    *(s32 *)((s8 *)(&lbl_80500FA4.value) + 4) = arg4;
     draw_motion_trail__11TBoss4Type3FPviiii((Arg_800D9994 *)(arg0), (s32)(arg1), (s32)(arg2), (s32)((s32) &lbl_80500FA4.value), (s32)(0));
 }
 

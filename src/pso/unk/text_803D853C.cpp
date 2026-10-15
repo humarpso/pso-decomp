@@ -4,10 +4,6 @@
 #undef PSO_SDK_COMPACT_MATH
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "stdarg.h"
 extern "C" {
@@ -17,7 +13,7 @@ void mult_vec_array__10TObjPlayerFUii(u32 arg0, s32 arg1);
 s32 PSMTXInverse(int, int);
 extern s32 current_matrix;
 void invert_matrix_in_place__10TObjPlayerFUi(u32 arg0);
-M2C_UNK PSMTXMultVec(int);
+s32 PSMTXMultVec(int);
 extern s32 current_matrix;
 void matrix_mult_vec(u32 arg0);
 void rotate_matrix_z(void *, s32);

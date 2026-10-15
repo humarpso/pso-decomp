@@ -8,10 +8,7 @@ typedef char palette_scale_offset[offsetof(TWindowActionPalette, scale) == 0x70 
 typedef char palette_size[sizeof(TWindowActionPalette) == 0x78 ? 1 : -1];
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TWindowActionPalette;
 
 typedef struct Pal_80244108 {
@@ -214,7 +211,7 @@ void draw_frame__20TWindowActionPaletteFv(void *self, int arg1) {
     f32 scale;
     f32 depth;
     scale = TWindowSubComCard__sub_80244784(self);
-    depth = lbl_805DCA48 / M2C_FIELD(self, f32 *, 0x54);
+    depth = lbl_805DCA48 / *(f32 *)((s8 *)self + 0x54);
     begin_screen_draw(1);
     set_global_param__8TObjFishFi((void *)lbl_805D63F0);
     set_draw_texture_and_color(2, ctx->tex);
@@ -281,25 +278,25 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     u16 target;
     u8 cnt;
     u8 *help;
-    player = get_player_by_client_id(M2C_FIELD(arg0, s16 *, 0x20));
+    player = get_player_by_client_id(*(s16 *)((s8 *)arg0 + 0x20));
     if (player == 0 || (effect = refresh_effect__10TObjPlayerFi(player)) == 0) {
         return;
     }
-    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    slot = is_player_input_active(M2C_FIELD(arg0, s16 *, 0x20));
-    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + slot * 0x50 + 0x20, fn_8002AE08(M2C_FIELD(arg0, s16 *, 0x20))) != 0) {
-        M2C_FIELD(arg0, u8 *, 0x6C) = 3;
+    slot = is_player_input_active(*(s16 *)((s8 *)arg0 + 0x20));
+    if (is_on_current_screen__11TCameraCtrlFPv(controller_input_state + slot * 0x50 + 0x20, fn_8002AE08(*(s16 *)((s8 *)arg0 + 0x20))) != 0) {
+        *(u8 *)((s8 *)arg0 + 0x6C) = 3;
     }
     help = (u8 *)get_array_entry__20TWindowSubStatusDispFPvi(SELF, 0);
-    set_help_text__15TWindowHelpItemFii(help, M2C_FIELD(arg0, s16 *, 0x20));
-    cnt = M2C_FIELD(arg0, u8 *, 0x6C);
+    set_help_text__15TWindowHelpItemFii(help, *(s16 *)((s8 *)arg0 + 0x20));
+    cnt = *(u8 *)((s8 *)arg0 + 0x6C);
     if ((s8)cnt > 0) {
-        M2C_FIELD(arg0, u8 *, 0x6C) = cnt - 1;
-        M2C_FIELD(help, s32 *, 0x2C) = -1;
+        *(u8 *)((s8 *)arg0 + 0x6C) = cnt - 1;
+        *(s32 *)((s8 *)help + 0x2C) = -1;
     } else {
-        M2C_FIELD(help, s32 *, 0x2C) = 0xFF666666;
+        *(s32 *)((s8 *)help + 0x2C) = 0xFF666666;
     }
     v = select_action_palette_and_apply__10TObjPlayerFiiii(player, 0, 0, 0);
     if (v == 0) {
@@ -308,7 +305,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     } else {
         update_slot_sprites__20TWindowActionPaletteFv(arg0, 0, 7, v);
     }
-    if (TObjPlayer__sub_80354D5C((u16)M2C_FIELD(arg0, s16 *, 0x20)) != 0 && handle_input_forward__20TWindowActionPaletteFPv((void *)(player + 0x500)) != 0) {
+    if (TObjPlayer__sub_80354D5C((u16)*(s16 *)((s8 *)arg0 + 0x20)) != 0 && handle_input_forward__20TWindowActionPaletteFPv((void *)(player + 0x500)) != 0) {
         update_slot_icon__20TWindowActionPaletteFPviii((void *)(arg0), (int)(1), (int)(7), (int)(7));
     } else {
         v = get_entry_by_index__20TWindowActionPaletteFPvi(effect, 2);
@@ -317,7 +314,7 @@ void run_task__20TWindowActionPaletteFv(u8 *arg0) {
     v = get_entry_by_index__20TWindowActionPaletteFPvi(effect, 3);
     update_slot_sprites__20TWindowActionPaletteFv(arg0, 2, get_slot_type_for_index__20TWindowActionPaletteFPvi(effect, 3), v);
     target = get_current_target_id__10TObjPlayerFv();
-    if (target == 0xFFFF || target == M2C_FIELD(arg0, s16 *, 0x20) || get_sub_value__8TItemMagFi(player) <= 0) {
+    if (target == 0xFFFF || target == *(s16 *)((s8 *)arg0 + 0x20) || get_sub_value__8TItemMagFi(player) <= 0) {
         if (handle_input_forward__20TWindowActionPaletteFPv((void *)(player + 0x500)) != 0) {
             if (is_split_screen() != 0) {
                 set_bank_panel_art__20TWindowActionPaletteFPvi(SELF, 3);

@@ -1,14 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Load_8010F838 { u8 pad[0x14]; void *vtbl; u8 pad18[0xC]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
 
 struct Load_8010F61C { u8 pad[0x24]; s32 id; s32 f28; s32 f2c[4]; s32 f3c; };
 
-typedef s32 M2C_UNK;
 struct Ent_8010F68C { void *vt; u8 pad[8]; };
 
 struct List_8010F68C { Ent_8010F68C *ents; u32 count; };
@@ -26,15 +21,15 @@ extern void *item_model_chunk_loader;
 extern s32 item_load_model_buffer;
 void TItemLoad__sub_8010F5A0(void);
 void init__9TItemLoadFPv(void *, void *, int, int);
-extern M2C_UNK lbl_8049F40C[];
+extern s32 lbl_8049F40C[];
 s32 construct_with_vtable__9TItemLoadFiPvii(int arg0, void *a1, int a2, int a3);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
 void start_load_with_id__9TItemLoadFPvii(Load_8010F61C *self, s32 id, s32 arg2);
-M2C_UNK decompress_buffer__9TItemLoadFUi();
-M2C_UNK tmp_buf_release__6TLobbyFi(s32);
+s32 decompress_buffer__9TItemLoadFUi();
+s32 tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(s32);
-M2C_UNK reset_state__9TItemLoadFPv(void *);
+s32 reset_state__9TItemLoadFPv(void *);
 void *TLobby__sub_801E38A0(s32, u32 *, s32 *, s32, s32 *);
 extern u8 lbl_80506208[];
 extern s32 item_load_tmp_buffer;
@@ -53,17 +48,17 @@ void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2);
 void *dt__9TItemLoadFPvs(void *arg0, s16 arg1);
 void free_all_models__9TItemLoadFv(void);
 void reload_item__9TItemLoadFPv(void *arg0);
-M2C_UNK TItemLoad__sub_8010FCB4(void *, M2C_UNK);
-M2C_UNK decompress_buffer__9TItemLoadFUi();
-M2C_UNK tmp_buf_release__6TLobbyFi(s32);
+s32 TItemLoad__sub_8010FCB4(void *, s32);
+s32 decompress_buffer__9TItemLoadFUi();
+s32 tmp_buf_release__6TLobbyFi(s32);
 s32 TLobby__sub_8001EEF4();
 s32 tmp_buf_use_req__6TLobbyFPv(s32);
-M2C_UNK load_gvm_texture_archive(s32, s32);
-M2C_UNK __dl__FPv(void *);
+s32 load_gvm_texture_archive(s32, s32);
+s32 __dl__FPv(void *);
 s32 begin_load__9TItemLoadFPvi(void *, s32);
-M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 free__11TOBoss4RockFUi(s32);
 void init__9TItemLoadFPv(void *, void *, int, int);
-M2C_UNK reset_state__9TItemLoadFPv(void *);
+s32 reset_state__9TItemLoadFPv(void *);
 
 extern void *item_texture_archive_loader;
 extern void *item_model_chunk_loader;
@@ -82,7 +77,7 @@ void free_all_models__9TItemLoadFv(void) {
     item_load_model_buffer = 0;
 }
 
-extern M2C_UNK lbl_8049F40C[];
+extern s32 lbl_8049F40C[];
 
 void TItemLoad__sub_8010F5A0(void) {
     s32 temp_r3;
@@ -163,7 +158,7 @@ void parse_nj_chunks__9TItemLoadFPv(Load_8010F68C *self) {
 
 void *dt__9TItemLoadFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_8049F40C;
+        *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F40C;
         TItemLoad__sub_8010FCB4(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -188,7 +183,7 @@ s32 construct_with_vtable__9TItemLoadFiPvii(int arg0, void *a1, int a2, int a3) 
 
 void begin_load_if_pending__9TItemLoadFPvii(void *arg0, s32 arg1, s32 arg2) {
     if ((arg1 != 0) && (begin_load__9TItemLoadFPvi(arg0, arg2) == 1)) {
-        M2C_FIELD(arg0, s32 *, 0x24) = arg1;
+        *(s32 *)((s8 *)arg0 + 0x24) = arg1;
     }
 }
 
@@ -200,18 +195,18 @@ void reload_item__9TItemLoadFPv(void *arg0) {
     if (TLobby__sub_8001EEF4() == 1) {
         temp_r31 = tmp_buf_use_req__6TLobbyFPv(item_load_tmp_buffer);
         decompress_buffer__9TItemLoadFUi();
-        load_gvm_texture_archive(temp_r31, M2C_FIELD(arg0, s32 *, 0x24));
+        load_gvm_texture_archive(temp_r31, *(s32 *)((s8 *)arg0 + 0x24));
         tmp_buf_release__6TLobbyFi(item_load_tmp_buffer);
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
         reset_state__9TItemLoadFPv(arg0);
     }
 }
 
-extern M2C_UNK lbl_8049F41C[];
+extern s32 lbl_8049F41C[];
 
 void *TItemLoad__sub_8010F950(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_8049F41C;
+        *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F41C;
         TItemLoad__sub_8010FCB4(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -220,12 +215,12 @@ void *TItemLoad__sub_8010F950(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049F41C[];
+extern s32 lbl_8049F41C[];
 
 void *construct__9TItemLoadFPv(void *arg0, void * _w1, int _w2, int _w3) {
     init__9TItemLoadFPv(arg0, _w1, _w2, _w3);
-    M2C_FIELD(arg0, M2C_UNK **, 0x14) = lbl_8049F41C;
-    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    *(s32 **)((s8 *)arg0 + 0x14) = lbl_8049F41C;
+    *(u32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;
 }
 

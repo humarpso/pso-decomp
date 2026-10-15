@@ -1,22 +1,18 @@
 #include "types.h"
 #include "pso/ui/TWindowInputNumber.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80256A60_lbl_804CF8EC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_80256A60___vt__18TWindowInputNumber {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_80256B0C_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -44,7 +40,7 @@ void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 void construct_base__9TWindowDDFPvPvsPv(void *, void *, s16, void *);
 void refresh_digit_entries__18TWindowInputNumberFPv(u8 *arg0);
 extern RecoveredGlobal_80256A60_lbl_804CF8EC lbl_804CF8EC;
-extern M2C_UNK __vt__18TWindowInputNumber[];
+extern s32 __vt__18TWindowInputNumber[];
 extern s32 TWindowInputNumber__name;
 extern const f32 lbl_805DCE2C;
 u8 test_flag_4c__23TAdSinglePlyChrSelectGCFPv(void *);
@@ -68,17 +64,17 @@ void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1);
 void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1);
 void render__18TWindowInputNumberFv(u8 *arg0);
-M2C_UNK draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
+s32 draw_arrows__18TWindowInputNumberFv(void *, int, int, int);
 s32 setup_window_draw_context(void *, void *);
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);
 void __dl__7TObjectFPv(void *);
-u32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-s32 apply_choice__20TWindowChoiceSettingFiiii(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+u32 alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 apply_choice__20TWindowChoiceSettingFiiii(void *, s32, s32, s32);
 void destroy_status_display__20TWindowSubStatusDispFis(void *, int);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(void *, int);
+s32 forward_render__20TWindowSubStatusDispFPv(void *, int);
 s32 get_array_entry__20TWindowSubStatusDispFPvi(void *, int);
 s32 is_confirmed__18TWindowInputNumberFPv(void *);
 s32 TWindowShortListCtrl__check_controller_button(int, int);
@@ -102,15 +98,15 @@ extern const f32 lbl_805DCE18;
 void create__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
     u32 var_r0;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x70) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x70) == 0U) {
         var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x24);
         if (var_r0 != 0U) {
             u32 saved = var_r0;
-            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(saved, arg1, M2C_FIELD(arg0, s16 *, 0x20));
+            var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii(saved, arg1, *(s16 *)((s8 *)arg0 + 0x20));
         }
-        M2C_FIELD(arg0, u32 *, 0x70) = var_r0;
-        M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x40);
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + lbl_805DCE18);
+        *(u32 *)((s8 *)arg0 + 0x70) = var_r0;
+        *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x40);
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + lbl_805DCE18);
     }
 }
 
@@ -177,9 +173,9 @@ void render__18TWindowInputNumberFv(u8 *arg0) {
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
     temp_r31 = is_confirmed__18TWindowInputNumberFPv((void *) (arg0));
-    draw_arrows__18TWindowInputNumberFv((void *) (arg0), (int) (temp_r3), (int) (get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) M2C_FIELD(arg0, s8 *, 0x63))), (int) (temp_r31));
+    draw_arrows__18TWindowInputNumberFv((void *) (arg0), (int) (temp_r3), (int) (get_array_entry__20TWindowSubStatusDispFPvi((void *) (arg0), (int) *(s8 *)((s8 *)arg0 + 0x63))), (int) (temp_r31));
     {
-        void *temp_ptr = (void *) M2C_FIELD(arg0, u32 *, 0x70);
+        void *temp_ptr = (void *) *(u32 *)((s8 *)arg0 + 0x70);
         if (temp_ptr != NULL) {
             forward_render__20TWindowSubStatusDispFPv(temp_ptr, (int) (temp_r3));
         }
@@ -193,12 +189,12 @@ void run_task__18TWindowInputNumberFv(u8 *arg0) {
     u8 *temp_r29_2;
     u8 *temp_r29_3;
 
-    temp_r30 = is_player_input_active((int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
-    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    temp_r30 = is_player_input_active((int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
+    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    if ((is_confirmed__18TWindowInputNumberFPv((void *) (arg0)) == 0) && !(M2C_FIELD(arg0, u16 *, 0x60) & 0x40) && (fn_80244994((void *) (arg0)) != 0)) {
-        if (M2C_FIELD(arg0, u16 *, 0x60) & 0x10) {
+    if ((is_confirmed__18TWindowInputNumberFPv((void *) (arg0)) == 0) && !(*(u16 *)((s8 *)arg0 + 0x60) & 0x40) && (fn_80244994((void *) (arg0)) != 0)) {
+        if (*(u16 *)((s8 *)arg0 + 0x60) & 0x10) {
             temp_r29 = (u8 *)controller_input_state + (temp_r30 * 0x50) + 0x20;
             if ((apply_choice__20TWindowChoiceSettingFiiii((void *) (temp_r29), (int) (0x10), (int) (6), (int) (1)) != 0) || (is_locked__18TWindowInputNumberFPvi((void *) (arg0), (int) (0x10)) != 0)) {
                 update_value__18TWindowInputNumberFPv((void *) (arg0));
@@ -235,8 +231,8 @@ void run_task__18TWindowInputNumberFv(u8 *arg0) {
             mark_confirmed__18TWindowInputNumberFPv((void *) (arg0));
         }
     }
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x70);
-    if ((temp_r3 != 0U) && ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DCE54)) {
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x70);
+    if ((temp_r3 != 0U) && ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DCE54)) {
         update_subwindow__20TWindowSubStatusDispFPv((int) (temp_r3));
     }
     initialize_subwindow__9TWindowDDFPv((void *) (arg0));
@@ -244,12 +240,12 @@ void run_task__18TWindowInputNumberFv(u8 *arg0) {
     update_window_entry_list((void *) (arg0), (void *) (arg0 + 0x24));
 }
 
-extern M2C_UNK __vt__18TWindowInputNumber[];
+extern s32 __vt__18TWindowInputNumber[];
 
 void *__dt__18TWindowInputNumberFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TWindowInputNumber;
-        if (M2C_FIELD(arg0, void **, 0x70) != NULL) { destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, void **, 0x70), 1); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TWindowInputNumber;
+        if (*(void **)((s8 *)arg0 + 0x70) != NULL) { destroy_status_display__20TWindowSubStatusDispFis(*(void **)((s8 *)arg0 + 0x70), 1); }
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -287,14 +283,14 @@ extern "C" {
 
 typedef char RecoveredGlobal_80256B0C_lbl_8050E208_size[sizeof(RecoveredGlobal_80256B0C_lbl_8050E208) == 0x1B0 ? 1 : -1];
 u8 test_input_flag__18TWindowInputNumberFPv(u8 *arg0) {
-    if (M2C_FIELD(arg0, u16 *, 0x60) & 0x20) {
+    if (*(u16 *)((s8 *)arg0 + 0x60) & 0x20) {
         return 0U;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((u8 *)&(*(RecoveredGlobal_80256B0C_lbl_8050E208 *)&controller_input_state).value + 0x160);
 }
 
 s32 is_locked__18TWindowInputNumberFPvi(void *arg0, s32 arg1) {
-    if (M2C_FIELD(arg0, u16 *, 0x60) & 0x20) {
+    if (*(u16 *)((s8 *)arg0 + 0x60) & 0x20) {
         return 0;
     }
     return apply_choice__20TWindowChoiceSettingFiiii(controller_input_state + 0x160, arg1, 6, 1);

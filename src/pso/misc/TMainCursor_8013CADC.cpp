@@ -1,16 +1,11 @@
 #include "types.h"
 #include "pso/misc/TLockOnCursor.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8013D7E0_lbl_804A7164 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x5C];
 };
 
-typedef s32 M2C_UNK;
 struct TLockOnCursor;
 struct Item_8013D4A0 { u16 id; s16 idx; f32 size; };
 
@@ -43,24 +38,24 @@ struct Weapon_8013CDE4 { f32 f0; f32 f4; s32 f8; s32 fc; s32 f10; };
 
 extern "C" {
 s32 check_visible__11TMainCursorFPv(void *, int, void *, void *);
-M2C_UNK get_cursor_state__11TMainCursorFv();
+s32 get_cursor_state__11TMainCursorFv();
 u16 get_target_id__11TMainCursorFPv(void *);
 s32 is_inactive__13TLockOnCursorFPv(TLockOnCursor*);
-M2C_UNK TLockOnCursor__sub_8013EB34();
-M2C_UNK play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
-M2C_UNK update_parts__15TPlyPhotonChairFPv(void *);
-M2C_UNK update_parts2__15TPlyPhotonChairFPv(void *);
+s32 TLockOnCursor__sub_8013EB34();
+s32 play_sound_with_arg__15TPlyPhotonChairFPvPv(void *, void *);
+s32 update_parts__15TPlyPhotonChairFPv(void *);
+s32 update_parts2__15TPlyPhotonChairFPv(void *);
 u32 get_player_by_client_id(void *);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK offset_point_toward_camera(void *, void *, f32);
-M2C_UNK translate_matrix_vec3(int, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK draw_chunk_object();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 offset_point_toward_camera(void *, void *, f32);
+s32 translate_matrix_vec3(int, void *);
+s32 rotate_matrix_y(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(void *);
+s32 draw_chunk_object();
 extern u8 shared_effect_texture_list[];
 extern RecoveredGlobal_8013D7E0_lbl_804A7164 target_cursor_color_table;
 extern u8 *camera_ctrl_instance;
@@ -99,7 +94,7 @@ s32 TLockOnCursor__sub_8013EB2C(void *);
 void set_cursor_id__11TMainCursorFPvs(void *, u16);
 void set_field2__11TMainCursorFPvs(void *, s16);
 void set_size__11TMainCursorFPvf(void *, f32);
-s32 get_record_at__11TMainCursorFPvi(s32, M2C_UNK);
+s32 get_record_at__11TMainCursorFPvi(s32, s32);
 s32 TMainCursor__sub_8013F168(s32);
 u8 fn_8013F264(void *);
 s32 test_button__11TMainCursorFPviUs(void *, s16, u16);
@@ -113,21 +108,21 @@ s32 obj_isState3_324(void *);
 s32 obj_getField1c(void *);
 void *get_item_field_6__10TObjPlayerFPv(void *);
 s32 get_type__10TObjPlayerFPv(s32);
-M2C_UNK fn_80044330(void *);
+s32 fn_80044330(void *);
 Weapon_8013CDE4 *get_weapon_range_record(void *, s32);
 s32 check_type_and_enabled__11TMainCursorFPvPvPv(Cursor_8013CDE4 *, u8, u8);
 void set_cursor_color__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK reset_slot__11TMainCursorFPv(void *);
-M2C_UNK set_type__11TMainCursorFPvi(Cursor_8013CDE4 *, s32);
-M2C_UNK set_color__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_color_mode__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_field_0c__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
+s32 reset_slot__11TMainCursorFPv(void *);
+s32 set_type__11TMainCursorFPvi(Cursor_8013CDE4 *, s32);
+s32 set_color__11TMainCursorFPvi(s32, s32);
+s32 set_color_mode__11TMainCursorFPvi(s32, s32);
+s32 set_field_0c__11TMainCursorFPvi(s32, s32);
+s32 set_flags__11TMainCursorFPvi(s32, s32);
+s32 TMainCursor__sub_8013E9A0(Cursor_8013CDE4 *);
 void TMainCursor__sub_8013E9C0(void *, s32);
-M2C_UNK TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
+s32 TMainCursor__sub_8013E9E0(Cursor_8013CDE4 *, u8);
 Tech_8013CDE4 *get_photon_blast_entry__10TObjPlayerFi(s16);
 s32 get_cast_technique_level(void *, s32);
 Tech_8013CDE4 *calc_technique_parameters(s16, u8, s32);
@@ -147,19 +142,19 @@ void set_cursor_pos__11TMainCursorFiUsi(s32 arg0, u16 arg1, s32 arg2);
 void set_display_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void setup_flags__11TMainCursorFiii(s32 arg0, s32 arg1, s32 arg2);
 void sort_list__11TMainCursorFii(s32 arg0, s32 arg1);
-M2C_UNK TMainCursor__sub_8013E970(s32, u16, s32, s32);
-s32 get_record_at__11TMainCursorFPvi(s32, M2C_UNK);
+s32 TMainCursor__sub_8013E970(s32, u16, s32, s32);
+s32 get_record_at__11TMainCursorFPvi(s32, s32);
 s32 TMainCursor__sub_8013F168(s32);
 s32 TObjPlayer__sub_801B066C(s32);
 u16 get_id__11TMainCursorFPv(s32);
 s32 get_selected_entry__11TMainCursorFPv(s32, s32);
 s32 get_type__10TObjPlayerFPv(s32);
 s32 is_technique_ready__8TTecCtrlFv();
-M2C_UNK quick_sort__11TMainCursorFiiii(s32, s32, M2C_UNK, s32);
-M2C_UNK set_color__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_color_mode__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_field_0c__11TMainCursorFPvi(s32, M2C_UNK);
-M2C_UNK set_flags__11TMainCursorFPvi(s32, M2C_UNK);
+s32 quick_sort__11TMainCursorFiiii(s32, s32, s32, s32);
+s32 set_color__11TMainCursorFPvi(s32, s32);
+s32 set_color_mode__11TMainCursorFPvi(s32, s32);
+s32 set_field_0c__11TMainCursorFPvi(s32, s32);
+s32 set_flags__11TMainCursorFPvi(s32, s32);
 
 void set_cursor_pos__11TMainCursorFiUsi(s32 arg0, u16 arg1, s32 arg2) {
     u32 eq = (u32) __cntlzw((u32) ((u16) get_id__11TMainCursorFPv(arg0 + 0x4F8) - (u16) arg1)) >> 5;
@@ -428,7 +423,7 @@ void publish_target_list__11TMainCursorFPvi(Self_8013D4A0 *arg0, s32 arg1) {
     void *list;
     sub = &arg0->subs[arg1];
     count = 0;
-    item = (Item_8013D4A0 *)((s32 (*)(void *, M2C_UNK))get_record_at__11TMainCursorFPvi)(sub->x40, 0);
+    item = (Item_8013D4A0 *)((s32 (*)(void *, s32))get_record_at__11TMainCursorFPvi)(sub->x40, 0);
     n = ((s32 (*)(void *))TMainCursor__sub_8013F168)(sub->x40);
     for (i = 0; i < n; i++, item++) {
         if (item->id == 0xFFFF) {
@@ -522,11 +517,11 @@ void TLockOnCursor::renderSecondaryCursor(u8 *arg1, s32 arg2, s32 arg3) {
             temp_r3_2 = check_visible__11TMainCursorFPv((void *) (temp_r3 + 0x500), (int) (temp_r3), (void *) (arg2), (void *) (arg3));
             if (temp_r3_2 != -1) {
                 set_global_param__8TObjFishFi((void *) (&shared_effect_texture_list));
-                temp_f31 = M2C_FIELD(arg1, f32 *, 0xC);
+                temp_f31 = *(f32 *)((s8 *)arg1 + 0xC);
                 push_matrix();
                 offset_point_toward_camera((void *) (arg1 + 0x1C), (void *) (&sp8), (f32) (temp_f31));
                 translate_matrix_vec3((int) (0), (void *) (&sp8));
-                rotate_matrix_y((int) (0), (int) (M2C_FIELD(camera_ctrl_instance, s32 *, 0x194)));
+                rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x194)));
                 begin_effect_render__13TParticleCtrlFv();
                 push_matrix();
                 translate_matrix((int) (0), (f32) (TMainCursor__data_805DB0C0), (f32) (temp_f31), (f32) (TMainCursor__data_805DB0C0));

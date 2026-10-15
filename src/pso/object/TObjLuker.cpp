@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Win_801A0DB4 { u8 pad[4]; u16 flags; };
 
@@ -124,23 +119,23 @@ extern Pad_801A0F34 controller_input_state[];
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 is_split_screen(void);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 spawn_particle_effect(void *, int);
 void update_floor_name_windows__9TObjLukerFPv(Obj_801A0CE8 *self);
 void close_windows__9TObjLukerFPv(Obj_801A0DB4 *self);
 void open_destination_windows__9TObjLukerFPv(Obj_801A0E38 *self);
 s32 are_players_gathered_near(void *arg0, s32 *arg1, f32 range);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-M2C_UNK play_effect_default__10TObjPlayerFii(void *, int);
+s32 play_effect_default__10TObjPlayerFii(void *, int);
 s32 check_flag_100__10TObjPlayerFPv(void *);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
 s32 play_sound_effect(s32, u32, s16, s32);
 void *__nw__7TObjectFUl(int);
 s32 TTecLuker__sub_8023401C(void *);
 void *create_telepipe_visual(void *, void *, int, int);
-M2C_UNK offset_point_toward_camera(void *, void *, f32);
-M2C_UNK init_all_slots__11TWindowCtrlFv();
-M2C_UNK init_all_slots2__11TWindowCtrlFv();
+s32 offset_point_toward_camera(void *, void *, f32);
+s32 init_all_slots__11TWindowCtrlFv();
+s32 init_all_slots2__11TWindowCtrlFv();
 extern Pad_801A0F34 controller_input_state[];
 extern s32 local_client_id;
 extern s32 tl_07;
@@ -157,19 +152,19 @@ Ctrl_801A0E38 *get_player_by_client_id(u16 id);
 extern s32 local_client_id;
 s32 is_player_in_range__9TObjLukerFv(s32 arg0, f32 farg0);
 s32 get_main_phase();
-M2C_UNK mark_area_change_pending();
+s32 mark_area_change_pending();
 s32 obj_isState3_324(int);
 s32 is_split_screen(void);
 s32 get_dest_area__17TObjAreaWarpQuestFPv(void *);
-M2C_UNK set_state__9TTecLukerFPvi(void *, int);
-M2C_UNK set__10TObjRoomIdFPvs(int, volatile short);
+s32 set_state__9TTecLukerFPvi(void *, int);
+s32 set__10TObjRoomIdFPvs(int, volatile short);
 Ctrl_801A0E38 *get_player_by_client_id(u16 id);
-M2C_UNK send_6x21_inter_level_warp(int, void *);
+s32 send_6x21_inter_level_warp(int, void *);
 s32 get_floor_map_terrain(int);
-M2C_UNK set_area__6TLobbyFPvi(void *, int, int);
-M2C_UNK init_fields__9TTecLukerFPvs(void *, int);
-M2C_UNK send_telepipe_packet__9TTecLukerFPv(void *);
-extern M2C_UNK lbl_80515BA0[];
+s32 set_area__6TLobbyFPvi(void *, int, int);
+s32 init_fields__9TTecLukerFPvs(void *, int);
+s32 send_telepipe_packet__9TTecLukerFPv(void *);
+extern s32 lbl_80515BA0[];
 extern s32 local_client_id;
 extern s32 lbl_805D55C0;
 void transfer_to_town__9TObjLukerFv(u8 *arg0_);
@@ -194,13 +189,13 @@ void show_part__9TObjLukerFii(s32 arg0, s32 arg1) {
     u8 *temp_r31;
     u8 *temp_r3;
     temp_r31 = (u8 *)(arg0 + ((arg1 * 4) & 0x3FFFC));
-    temp_r3 = (u8 *)(M2C_FIELD(temp_r31, u8 **, 0x90));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)temp_r31 + 0x90));
     if (temp_r3 != NULL) {
-        if (M2C_FIELD(temp_r3, u16 *, 4) & 4) {
+        if (*(u16 *)((s8 *)temp_r3 + 4) & 4) {
             play_sound_effect(0x53703, 0U, 0, 0);
         }
-        clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(temp_r31, u8 **, 0x90));
-        allow_rendering__7TObjectFv(M2C_FIELD(temp_r31, u8 **, 0x90));
+        clear_flag4_bit4__22TQuestVmDownLoadServerFPv(*(u8 **)((s8 *)temp_r31 + 0x90));
+        allow_rendering__7TObjectFv(*(u8 **)((s8 *)temp_r31 + 0x90));
     }
 }
 #pragma pop
@@ -447,33 +442,33 @@ void run_task__9TObjLukerFv(u8 *arg0) {
     u8 *p;
     void *o;
     s32 flag;
-    p = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xA8));
+    p = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xA8));
     if (p != NULL) {
         update_floor_name_windows__9TObjLukerFPv((Obj_801A0CE8 *) arg0);
         open_destination_windows__9TObjLukerFPv((Obj_801A0E38 *) arg0);
     }
     if (p == NULL) {
-        if (M2C_FIELD(arg0, void **, 0xA4) != NULL) {
-            queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xA4));
-            M2C_FIELD(arg0, void **, 0xA4) = NULL;
+        if (*(void **)((s8 *)arg0 + 0xA4) != NULL) {
+            queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xA4));
+            *(void **)((s8 *)arg0 + 0xA4) = NULL;
         }
-        M2C_FIELD(arg0, s32 *, 0xB4) = 1;
+        *(s32 *)((s8 *)arg0 + 0xB4) = 1;
         close_windows__9TObjLukerFPv((Obj_801A0DB4 *) arg0);
         return;
     }
-    if (M2C_FIELD(arg0, u16 *, 0xA8) != 0xFFFF && p != NULL) {
+    if (*(u16 *)((s8 *)arg0 + 0xA8) != 0xFFFF && p != NULL) {
         if (TTecLuker__sub_8023401C(p + 0x830) != 0) {
-            M2C_FIELD(arg0, s16 *, 0xAE) = 1;
-            if (M2C_FIELD(arg0, s32 *, 0xB4) != 0 && M2C_FIELD(arg0, void **, 0xA4) == NULL) {
+            *(s16 *)((s8 *)arg0 + 0xAE) = 1;
+            if (*(s32 *)((s8 *)arg0 + 0xB4) != 0 && *(void **)((s8 *)arg0 + 0xA4) == NULL) {
                 o = __nw__7TObjectFUl(0x44);
                 if (o != NULL) {
-                    o = create_telepipe_visual(o, arg0 + 0x38, M2C_FIELD(arg0, u16 *, 0xA8), tl_07);
+                    o = create_telepipe_visual(o, arg0 + 0x38, *(u16 *)((s8 *)arg0 + 0xA8), tl_07);
                 }
-                M2C_FIELD(arg0, void **, 0xA4) = o;
-                M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+                *(void **)((s8 *)arg0 + 0xA4) = o;
+                *(s32 *)((s8 *)arg0 + 0xB4) = 0;
             }
             play_persistent_sound(0x4002B219, arg0, arg0 + 0x38, 0, 0);
-            switch (M2C_FIELD(arg0, s16 *, 0xB0)) {
+            switch (*(s16 *)((s8 *)arg0 + 0xB0)) {
             case 0:
                 sp8 = 0;
                 if (is_player_in_range__9TObjLukerFv((s32)((s32) arg0), lbl_805DC080) != 0) {
@@ -481,7 +476,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                     if (is_split_screen() != 0) {
                         if (are_players_gathered_near(arg0 + 0x38, &sp8, lbl_805DC080) != 0) {
                             flag = 1;
-                            M2C_FIELD(arg0, u16 *, 0xAA) = M2C_FIELD(arg0, u16 *, 0xA8);
+                            *(u16 *)((s8 *)arg0 + 0xAA) = *(u16 *)((s8 *)arg0 + 0xA8);
                         }
                     } else {
                         p = PBC_801A1418(local_client_id);
@@ -491,7 +486,7 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                         }
                     }
                     if (flag != 0) {
-                        M2C_FIELD(arg0, s16 *, 0xB0) = 1;
+                        *(s16 *)((s8 *)arg0 + 0xB0) = 1;
                         offset_point_toward_camera(arg0 + 0x38, spC, lbl_805DC080);
                         spawn_particle_effect(spC, 0xB3);
                         p = PBC_801A1418(local_client_id);
@@ -500,13 +495,13 @@ void run_task__9TObjLukerFv(u8 *arg0) {
                             play_sound_effect(0x40022D1A, (u32) (arg0 + 0x38), 0, 0);
                         }
                         init_all_slots__11TWindowCtrlFv();
-                        M2C_FIELD(arg0, s32 *, 0xB8) = 1;
+                        *(s32 *)((s8 *)arg0 + 0xB8) = 1;
                     }
                 }
                 break;
             case 1:
-                if (M2C_FIELD(arg0, s16 *, 0xAC)++ > 10) {
-                    M2C_FIELD(arg0, s16 *, 0xB0) = 2;
+                if ((*(s16 *)((s8 *)arg0 + 0xAC))++ > 10) {
+                    *(s16 *)((s8 *)arg0 + 0xB0) = 2;
                 }
                 break;
             case 2:
@@ -516,17 +511,17 @@ void run_task__9TObjLukerFv(u8 *arg0) {
             }
         } else {
             close_windows__9TObjLukerFPv((Obj_801A0DB4 *) arg0);
-            M2C_FIELD(arg0, s16 *, 0xB0) = M2C_FIELD(arg0, s16 *, 0xAE) = 0;
-            if (M2C_FIELD(arg0, s32 *, 0xB8) != 0) {
-                M2C_FIELD(arg0, s32 *, 0xB8) = 0;
+            *(s16 *)((s8 *)arg0 + 0xB0) = *(s16 *)((s8 *)arg0 + 0xAE) = 0;
+            if (*(s32 *)((s8 *)arg0 + 0xB8) != 0) {
+                *(s32 *)((s8 *)arg0 + 0xB8) = 0;
                 init_all_slots2__11TWindowCtrlFv();
             }
-            M2C_FIELD(arg0, s16 *, 0xAC) = 0;
-            if (M2C_FIELD(arg0, void **, 0xA4) != NULL) {
-                queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xA4));
-                M2C_FIELD(arg0, void **, 0xA4) = NULL;
+            *(s16 *)((s8 *)arg0 + 0xAC) = 0;
+            if (*(void **)((s8 *)arg0 + 0xA4) != NULL) {
+                queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xA4));
+                *(void **)((s8 *)arg0 + 0xA4) = NULL;
             }
-            M2C_FIELD(arg0, s32 *, 0xB4) = 1;
+            *(s32 *)((s8 *)arg0 + 0xB4) = 1;
         }
     }
 }

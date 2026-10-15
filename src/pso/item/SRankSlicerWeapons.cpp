@@ -70,8 +70,6 @@ void launch_s_rank_j_cutter(Self_801293FC *self) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -81,7 +79,7 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 
 void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 0x18) = s_rank_j_cutter_weapon_vtable;
+        *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -93,8 +91,6 @@ void *destroy_s_rank_j_cutter_weapon(void *arg0, s16 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -104,7 +100,7 @@ void construct_srank_weapon(void *);
 
 void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
-    M2C_FIELD(arg0, void ***, 0x18) = s_rank_j_cutter_weapon_vtable;
+    *(void ***)((s8 *)arg0 + 0x18) = s_rank_j_cutter_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }
@@ -112,13 +108,10 @@ void *construct_s_rank_j_cutter_weapon(void *arg0, s32 task_root, void *owner) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-void *construct_s_rank_j_cutter_weapon(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+void *construct_s_rank_j_cutter_weapon(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_s_rank_j_cutter_weapon(u8 *arg0);
 }
@@ -142,10 +135,6 @@ u8 *create_s_rank_j_cutter_weapon(u8 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -155,9 +144,9 @@ extern const f32 lbl_805DAE28;
 
 void enlarge_s_rank_j_cutter_blade(void *arg0) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x68) = (f32) lbl_805DAE28;
-        M2C_FIELD(arg0, f32 *, 0x6C) = (f32) lbl_805DAE28;
-        M2C_FIELD(arg0, f32 *, 0x70) = (f32) lbl_805DAE28;
+        *(f32 *)((s8 *)arg0 + 0x68) = (f32) lbl_805DAE28;
+        *(f32 *)((s8 *)arg0 + 0x6C) = (f32) lbl_805DAE28;
+        *(f32 *)((s8 *)arg0 + 0x70) = (f32) lbl_805DAE28;
     }
 }
 
@@ -267,8 +256,6 @@ void launch_s_rank_slicer(Self_80129648 *self) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -278,7 +265,7 @@ void construct_srank_weapon(void *);
 
 void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
     construct_srank_weapon(arg0);
-    M2C_FIELD(arg0, void ***, 0x18) = s_rank_slicer_weapon_vtable;
+    *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
     set_status_flags__10TObjPlayerFPvUi(arg0, 2);
     return arg0;
 }
@@ -286,13 +273,10 @@ void *construct_s_rank_slicer_weapon(void *arg0, s32 task_root, void *owner) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
-void *construct_s_rank_slicer_weapon(void *, M2C_UNK, void *);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+void *construct_s_rank_slicer_weapon(void *, s32, void *);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_s_rank_slicer_weapon(u8 *arg0);
 }
@@ -316,8 +300,6 @@ u8 *create_s_rank_slicer_weapon(u8 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -327,7 +309,7 @@ void free_obj_heap__10TObjPlayerFPv(void *);
 
 void *destroy_s_rank_slicer_weapon(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 0x18) = s_rank_slicer_weapon_vtable;
+        *(void ***)((s8 *)arg0 + 0x18) = s_rank_slicer_weapon_vtable;
         item_equip_variant_deleting_dtor_8012A82C(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -434,8 +416,8 @@ void *s_rank_slicer_weapon_vtable[64] = {
     (void *)&TItemWeapon__sub_8011E5D0, (void *)&start_srank_regen_timer__10TObjPlayerFPv, (void *)&TItemWeapon__sub_8011E5C8, (void *)&TItemWeapon__sub_8011E5C4,
     (void *)&TItemWeapon__sub_8011E5C0, (void *)&receive_srank_hit, (void *)&srank_marker_noop, (void *)0x0,
 };
-#define s_rank_j_cutter_weapon_vtable ((M2C_UNK *)s_rank_j_cutter_weapon_vtable)
-#define s_rank_slicer_weapon_vtable ((M2C_UNK *)s_rank_slicer_weapon_vtable)
+#define s_rank_j_cutter_weapon_vtable ((s32 *)s_rank_j_cutter_weapon_vtable)
+#define s_rank_slicer_weapon_vtable ((s32 *)s_rank_slicer_weapon_vtable)
 }
 
 extern "C" {

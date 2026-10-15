@@ -1,24 +1,21 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80141A30_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80141A30_lbl_8050C028 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 extern "C" {
-M2C_UNK copy_config__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK GXSetAlphaCompare(int, int, int, int, int);
-M2C_UNK GXSetZMode(int, int, int);
-M2C_UNK GXSetZCompLoc(int);
-M2C_UNK set_material_alpha_compare_reference(int);
+s32 copy_config__10TObjPlayerFPvPv(void *, void *);
+s32 GXSetAlphaCompare(int, int, int, int, int);
+s32 GXSetZMode(int, int, int);
+s32 GXSetZCompLoc(int);
+s32 set_material_alpha_compare_reference(int);
 extern RecoveredGlobal_80141A30_lbl_8050C000 depth_buffer_settings;
 extern RecoveredGlobal_80141A30_lbl_8050C028 saved_depth_alpha_scene_state;
 void restore_saved_depth_alpha_state(void);
@@ -31,10 +28,10 @@ typedef char RecoveredGlobal_80141A30_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80141A30_lbl_8050C028_size[sizeof(RecoveredGlobal_80141A30_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_saved_depth_alpha_state(void) {
     copy_config__10TObjPlayerFPvPv((void *) (&depth_buffer_settings.value), (void *) (&saved_depth_alpha_scene_state.value));
-    GXSetAlphaCompare((int) (M2C_FIELD(&depth_buffer_settings.value, s32 *, 0)), (int) (0), (int) (0), (int) (7), (int) (0));
-    GXSetZCompLoc((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 4)));
-    GXSetZMode((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 5)), (int) (M2C_FIELD(&depth_buffer_settings.value, s32 *, 8)), (int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xC)));
-    set_material_alpha_compare_reference((int) (M2C_FIELD(&depth_buffer_settings.value, u8 *, 0xD)));
+    GXSetAlphaCompare((int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 0)), (int) (0), (int) (0), (int) (7), (int) (0));
+    GXSetZCompLoc((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 4)));
+    GXSetZMode((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 5)), (int) (*(s32 *)((s8 *)(&depth_buffer_settings.value) + 8)), (int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xC)));
+    set_material_alpha_compare_reference((int) (*(u8 *)((s8 *)(&depth_buffer_settings.value) + 0xD)));
 }
 #pragma fp_contract on
 u32 calc_pulse_flash_color(u8 r, u8 g, u8 b, s32 frame, s32 period, s32 start, s32 peak, s32 end) {

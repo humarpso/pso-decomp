@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_800E4554 { u8 pad0[0x1C]; u16 f1C; u8 pad1E[0xE]; s16 f2C; u8 pad2E[0x42C - 0x2E]; u16 slots[8]; };
 
@@ -108,7 +103,7 @@ struct Obj_800E46D4 : Base_800E46D4 {
 
 extern "C" {
 void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p);
-M2C_UNK TObjEneMe3Shinowa__sub_800E7250();
+s32 TObjEneMe3Shinowa__sub_800E7250();
 void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(u8 *arg0);
 void transition_enemy_state(void *, s16);
 void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(u8 *arg0);
@@ -122,7 +117,7 @@ void invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
 void fn_800E762C(void *);
 void init_enemy__23TObjEneMe3ShinowaMirageFPv(void *);
 extern s32 TObjEneMe3ShinowaReal_class_name;
-extern M2C_UNK __vt__21TObjEneMe3ShinowaReal[];
+extern s32 __vt__21TObjEneMe3ShinowaReal[];
 Obj_800E46D4 *TObjEneMe3ShinowaReal__ct(Obj_800E46D4 *arg0, void *arg1, void *arg2);
 }
 
@@ -146,8 +141,8 @@ void spawn_mirages__21TObjEneMe3ShinowaRealFPv(void* p) { { int i; for (i = 0; i
 void TObjEneMe3ShinowaReal__vt109(void* p) { try_spawn_mirages__21TObjEneMe3ShinowaRealFPv((u8 *)((void*)(p))); }
 
 void TObjEneMe3ShinowaReal__vt105(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3D8) = (s32) (M2C_FIELD(arg0, s32 *, 0x3D8) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x3D8) >= 2) {
+    *(s32 *)((s8 *)arg0 + 0x3D8) = (s32) (*(s32 *)((s8 *)arg0 + 0x3D8) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x3D8) >= 2) {
         try_spawn_mirages__21TObjEneMe3ShinowaRealFPv((u8 *)(arg0));
         transition_enemy_state(arg0, 7);
         return;
@@ -173,7 +168,7 @@ s32 get_or_create_mirage__21TObjEneMe3ShinowaRealFPvi(Obj_800E4554 *arg0, s32 ar
 u16 TObjEneMe3ShinowaReal__sub_800E45CC(void* p) { return *(u16*)((char*)p + 0x38c); }
 
 void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(u8 *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0x3C4) & 0x10) {
+    if (*(s32 *)((s8 *)arg0 + 0x3C4) & 0x10) {
         TObjEneMe3Shinowa__sub_800E7250();
         spawn_mirages__21TObjEneMe3ShinowaRealFPv((void*)((void *) (arg0)));
     }
@@ -182,11 +177,11 @@ void try_spawn_mirages__21TObjEneMe3ShinowaRealFPv(u8 *arg0) {
 void TObjEneMe3ShinowaReal__vt60(void* p) { try_spawn_mirages__21TObjEneMe3ShinowaRealFPv((u8 *)((void*)(p))); TObjEneMe3Shinowa__vt60(p); }
 void TObjEneMe3ShinowaReal__vt61(void* p) { try_spawn_mirages__21TObjEneMe3ShinowaRealFPv((u8 *)((void*)(p))); TObjEneMe3Shinowa__vt61(p); }
 
-extern M2C_UNK __vt__21TObjEneMe3ShinowaReal[];
+extern s32 __vt__21TObjEneMe3ShinowaReal[];
 
 void *__dt__21TObjEneMe3ShinowaRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TObjEneMe3ShinowaReal;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjEneMe3ShinowaReal;
         __dt__17TObjEneMe3ShinowaFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

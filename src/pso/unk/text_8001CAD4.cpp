@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_8001CAD4 {
     s32 sp8;
@@ -11,17 +8,17 @@ struct Stack_8001CAD4 {
 };
 
 struct RecoveredGlobal_8001CAD4_lbl_804349FC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8001CAD4_lbl_804FF5E8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8001CAD4_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -61,14 +58,14 @@ void update_camera_facing_offset(u8 *arg0) {
     typedef char spC_offset[(offsetof(Stack_8001CAD4, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8001CAD4, sp10) == 0x8) ? 1 : -1];
     Stack_8001CAD4 stack;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2C), (void *) (arg0 + 0x20));
-        stack.sp8 = M2C_FIELD(&lbl_804349FC.value, s32 *, 0);
-        stack.spC = M2C_FIELD(&lbl_804349FC.value, s32 *, 4);
-        stack.sp10 = M2C_FIELD(&lbl_804349FC.value, s32 *, 8);
-        M2C_FIELD(arg0, f32 *, 0x50) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0xC);
-        M2C_FIELD(arg0, f32 *, 0x54) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x10);
-        M2C_FIELD(arg0, f32 *, 0x58) = (f32) -M2C_FIELD(&lbl_804FF5E8.value, f32 *, 0x14);
+        stack.sp8 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 0);
+        stack.spC = *(s32 *)((s8 *)(&lbl_804349FC.value) + 4);
+        stack.sp10 = *(s32 *)((s8 *)(&lbl_804349FC.value) + 8);
+        *(f32 *)((s8 *)arg0 + 0x50) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0xC);
+        *(f32 *)((s8 *)arg0 + 0x54) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x10);
+        *(f32 *)((s8 *)arg0 + 0x58) = (f32) -*(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0x14);
         direction_to_rotation_xy((void *) (arg0 + 0x50), (void *) (&stack.sp8), (void *) (&stack.spC));
         push_matrix_from((void *) (&identity_matrix.value));
         rotate_matrix_y((int) (0), (int) (stack.spC));
@@ -76,7 +73,7 @@ void update_camera_facing_offset(u8 *arg0) {
         rotate_vector_by_matrix((int) (0), (void *) (arg0 + 0x20), (void *) (arg0 + 0x2C));
         pop_matrices((int) (1));
         vec3_add_to((void *) (arg0 + 0x2C), (void *) (arg0 + 0x44));
-        copy_pos__11TNowLoadingFPvPv((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (void *) (arg0 + 0x2C));
+        copy_pos__11TNowLoadingFPvPv((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (void *) (arg0 + 0x2C));
     }
 }
 #pragma push

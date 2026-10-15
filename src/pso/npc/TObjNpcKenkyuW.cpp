@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_802A3C30_lbl_804DCE48 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_802A3C30_lbl_804DCE48 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802A3C30_lbl_804DCE48_size[sizeof(RecoveredGlobal_802A3C30_lbl_804DCE48) == 0x10 ? 1 : -1];
 
 struct VBase_18_aa4667 { char pad[0x18]; };
@@ -89,22 +85,22 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x174];
 };
 
 #include "pso/technique/TechniqueContact.h"
 struct Stack_80236290 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 trailing_storage[0x8];
 };
 
 struct RecoveredGlobal_80236290_lbl_80516150 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x84];
 };
 
@@ -165,12 +161,12 @@ s32 get_bml_model(int, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
-extern M2C_UNK __vt__14TObjNpcKenkyuW[];
+extern s32 __vt__14TObjNpcKenkyuW[];
 extern s32 TObjNpcKenkyuW__name;
 extern u32 TObjNpcKenkyuW__model_resource;
-u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
-bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1);
+bool is_hit_receivable_target__10TObjPlayerFiUi(s32 arg0, u32 arg1);
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
 void clear_technique_contacts__10TObjPlayerFv();
 extern RecoveredGlobal_80236290_lbl_80516150 technique_contact_list;
@@ -233,7 +229,7 @@ void destroy_instance__14TObjNpcKenkyuWFv(void) {
     }
 }
 
-extern M2C_UNK __vt__14TObjNpcKenkyuW[];
+extern s32 __vt__14TObjNpcKenkyuW[];
 
 void load_resource_instance__14TObjNpcKenkyuWFv(void) {
     s32 temp_r3;
@@ -248,7 +244,7 @@ void load_resource_instance__14TObjNpcKenkyuWFv(void) {
 
 void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TObjNpcKenkyuW;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TObjNpcKenkyuW;
         destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -257,14 +253,14 @@ void *__dt__14TObjNpcKenkyuWFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW_size[sizeof(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW) == 0x178 ? 1 : -1];
-u8 *TObjNpcKenkyuW__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjNpcKenkyuW__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcKenkyuW__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802A3CD8___vt__14TObjNpcKenkyuW *)&__vt__14TObjNpcKenkyuW).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcKenkyuW__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcKenkyuW__model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -278,7 +274,7 @@ void clear_technique_contacts__10TObjPlayerFv() {
     (*(TechniqueContactList *)&technique_contact_list).count=0;
 }
 
-bool is_hit_receivable_target__10TObjPlayerFiUi(M2C_UNK arg0, u32 arg1) {
+bool is_hit_receivable_target__10TObjPlayerFiUi(s32 arg0, u32 arg1) {
     if (arg1 == 0U) {
         return 0;
     }

@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801F6548_lbl_80512790 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -22,19 +18,19 @@ struct MCFmt_801F68FC {
 struct Pair_801F68FC { s32 a; s32 b; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready();
 extern s8 controller_input_state[];
 void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready();
 extern s8 controller_input_state[];
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
 extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
-M2C_UNK *TQuestThread__sub_801F6548(void);
-s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
+s32 *TQuestThread__sub_801F6548(void);
+s32 get_localized_text_entry(s32, s32);
 void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 init_shop_judgment_window();
 s32 set_text__18TWindowMessagePageFiii(s32, void *, s32);
@@ -52,35 +48,35 @@ void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2);
 s32 probe_and_check_card__15TAdPlayerLoadGCFi(s32);
 s32 TAdPlayerLoadGC__sub_801E1B50(s32);
 s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
-s32 TAdPlayerLoadGC__sub_801E24F8(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
+s32 TAdPlayerLoadGC__sub_801E24F8(s32, s32, s32, s32, s32);
+s32 get_localized_text_entry(s32, s32);
 s32 get_selected_menu_value(u32);
 int TWindow__close(void*);
 s32 check_memcard_status__15TAdPlayerLoadGCFi(s32);
 s32 get_status_flag__17TWindowSubComCardFPv(u32);
 s32 is_visible__17TWindowSubComCardFPv(u32);
-M2C_UNK send_and_handle__6TLobbyFPvii(s32, s32, s32);
+s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
-M2C_UNK *TQuestThread__sub_801F6548(void) {
+s32 *TQuestThread__sub_801F6548(void) {
     return &lbl_80512790.value;
 }
 
 void close_window__17TMCFormatSequenceFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x34))); *(int*)((char*)p + 0x34) = 0; } }
 
 void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2) {
-    u32 v = M2C_FIELD(arg0, u32 *, 0x34);
+    u32 v = *(u32 *)((s8 *)arg0 + 0x34);
     if (v != 0U) {
         send_and_handle__6TLobbyFPvii(v, arg1, arg2 | 0x81);
     }
 }
 
 void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0) {
-    M2C_UNK (*temp_r12)(void *);
+    s32 (*temp_r12)(void *);
     void *self = arg0;
-    arg0 = M2C_FIELD(arg0, void **, 0x34);
+    arg0 = *(void **)((s8 *)arg0 + 0x34);
     if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
-        temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x20);
+        temp_r12 = *(s32 (**)(void *))((s8 *)self + 0x20);
         if (temp_r12 != NULL) {
             temp_r12(self);
             queue_destruction__7TObjectFv(self);
@@ -89,11 +85,11 @@ void wait_confirm_and_finish__17TMCFormatSequenceFPv(void *arg0) {
 }
 
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
-    M2C_UNK (*temp_r12)(void *);
+    s32 (*temp_r12)(void *);
     void *self = arg0;
-    arg0 = M2C_FIELD(arg0, void **, 0x34);
+    arg0 = *(void **)((s8 *)arg0 + 0x34);
     if (arg0 == NULL || ((is_message_window_ready() != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0))) {
-        temp_r12 = M2C_FIELD(self, M2C_UNK (**)(void *), 0x1C);
+        temp_r12 = *(s32 (**)(void *))((s8 *)self + 0x1C);
         if (temp_r12 != NULL) {
             temp_r12(self);
             queue_destruction__7TObjectFv(self);
@@ -102,56 +98,56 @@ void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0) {
 }
 
 void check_memcard_load_result__17TMCFormatSequenceFPv(void *arg0) {
-    if (probe_card_slot__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(*(s32 *)((s8 *)arg0 + 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        M2C_FIELD(arg0, s32 *, 0x24) = 3;
+        *(s32 *)((s8 *)arg0 + 0x24) = 3;
         return;
     }
-    if (TAdPlayerLoadGC__sub_801E1B50(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (TAdPlayerLoadGC__sub_801E1B50(*(s32 *)((s8 *)arg0 + 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6B)), (s32)(0));
-        M2C_FIELD(arg0, s32 *, 0x24) = 4;
+        *(s32 *)((s8 *)arg0 + 0x24) = 4;
     }
 }
 
 void process_format_result__17TMCFormatSequenceFPv(void *arg0) {
     s32 temp_r3;
 
-    if (probe_card_slot__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_card_slot__15TAdPlayerLoadGCFi(*(s32 *)((s8 *)arg0 + 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        M2C_FIELD(arg0, s32 *, 0x24) = 3;
+        *(s32 *)((s8 *)arg0 + 0x24) = 3;
         return;
     }
-    if (probe_and_check_card__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) == 0) {
+    if (probe_and_check_card__15TAdPlayerLoadGCFi(*(s32 *)((s8 *)arg0 + 0x28)) == 0) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        M2C_FIELD(arg0, s32 *, 0x24) = 3;
+        *(s32 *)((s8 *)arg0 + 0x24) = 3;
         return;
     }
-    if ((u32) (check_memcard_status__15TAdPlayerLoadGCFi(M2C_FIELD(arg0, s32 *, 0x28)) + 0x10000) != 0xFF03U) {
+    if ((u32) (check_memcard_status__15TAdPlayerLoadGCFi(*(s32 *)((s8 *)arg0 + 0x28)) + 0x10000) != 0xFF03U) {
         show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-        M2C_FIELD(arg0, s32 *, 0x24) = 3;
+        *(s32 *)((s8 *)arg0 + 0x24) = 3;
         return;
     }
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && (is_visible__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0)) {
-        temp_r3 = get_selected_menu_value(M2C_FIELD(arg0, u32 *, 0x38));
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) && (is_visible__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x38)) != 0)) {
+        temp_r3 = get_selected_menu_value(*(u32 *)((s8 *)arg0 + 0x38));
         if (temp_r3 == 0) {
-            if (TAdPlayerLoadGC__sub_801E24F8(M2C_FIELD(arg0, s32 *, 0x28), 0, 0, 0, 0) == 0) {
-                M2C_FIELD(arg0, s32 *, 0x24) = 2;
+            if (TAdPlayerLoadGC__sub_801E24F8(*(s32 *)((s8 *)arg0 + 0x28), 0, 0, 0, 0) == 0) {
+                *(s32 *)((s8 *)arg0 + 0x24) = 2;
             } else {
                 show_message__17TMCFormatSequenceFPvii((void *)(arg0), (s32)(get_localized_text_entry(0xB, 0x6C)), (s32)(0));
-                M2C_FIELD(arg0, s32 *, 0x24) = 3;
+                *(s32 *)((s8 *)arg0 + 0x24) = 3;
             }
         }
         if (temp_r3 == 1) {
             close_window__17TMCFormatSequenceFPv((void*)(arg0));
-            M2C_FIELD(arg0, s32 *, 0x24) = 4;
+            *(s32 *)((s8 *)arg0 + 0x24) = 4;
         }
-        TWindow__close((void*)(M2C_FIELD(arg0, u32 *, 0x38)));
-        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+        TWindow__close((void*)(*(u32 *)((s8 *)arg0 + 0x38)));
+        *(u32 *)((s8 *)arg0 + 0x38) = 0U;
     }
-    if (((u32) M2C_FIELD(arg0, u32 *, 0x38) != 0U) && (get_status_flag__17TWindowSubComCardFPv(M2C_FIELD(arg0, u32 *, 0x38)) != 0)) {
-        M2C_FIELD(arg0, s32 *, 0x24) = 4;
-        TWindow__close((void*)(M2C_FIELD(arg0, u32 *, 0x38)));
-        M2C_FIELD(arg0, u32 *, 0x38) = 0U;
+    if (((u32) *(u32 *)((s8 *)arg0 + 0x38) != 0U) && (get_status_flag__17TWindowSubComCardFPv(*(u32 *)((s8 *)arg0 + 0x38)) != 0)) {
+        *(s32 *)((s8 *)arg0 + 0x24) = 4;
+        TWindow__close((void*)(*(u32 *)((s8 *)arg0 + 0x38)));
+        *(u32 *)((s8 *)arg0 + 0x38) = 0U;
         close_window__17TMCFormatSequenceFPv((void*)(arg0));
     }
 }
@@ -159,7 +155,7 @@ void open_windows__17TMCFormatSequenceFPv(MCFmt_801F68FC *self) {
     if (self->f34 == 0) {
         Pair_801F68FC t = lbl_8044A684[0];
         self->f34 = set_text__18TWindowMessagePageFiii(get_window_layout_position(0x2F), &t, 1);
-        show_message__17TMCFormatSequenceFPvii(self, get_localized_text_entry((M2C_UNK)(self->f2C), (M2C_UNK)(self->f30)), 0);
+        show_message__17TMCFormatSequenceFPvii(self, get_localized_text_entry((s32)(self->f2C), (s32)(self->f30)), 0);
     }
     if (self->f38 == 0) {
         get_window_layout_position(0x2B);

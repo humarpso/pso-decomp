@@ -28,16 +28,11 @@ extern const f32 lbl_805E0104;
 extern const f32 lbl_805E0108;
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl_size[sizeof(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_8035AE54_lbl_804F1C88 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -54,7 +49,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void update_position__15TBoss7LaserPtclFPv(void *);
-extern M2C_UNK __vt__15TBoss7LaserPtcl[];
+extern s32 __vt__15TBoss7LaserPtcl[];
 extern s32 TBoss7LaserPtcl__class_name;
 extern const f32 lbl_805E010C;
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3);
@@ -62,7 +57,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create_timed_particle_emitter(void *, int, int, int);
 s32 spawn_particle_effect(void *, int);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_804F1C88[];
+extern s32 lbl_804F1C88[];
 extern const f32 lbl_805E0118;
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
@@ -137,11 +132,11 @@ void TBoss7LaserPtcl::run_task() {
 
 extern "C" {
 
-extern M2C_UNK __vt__15TBoss7LaserPtcl[];
+extern s32 __vt__15TBoss7LaserPtcl[];
 
 void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TBoss7LaserPtcl;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TBoss7LaserPtcl;
         destroy_particles__15TBoss7LaserPtclFi(arg0);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -153,22 +148,22 @@ void *__dt__15TBoss7LaserPtclFv(void *arg0, s16 arg1) {
 
 u8 *TBoss7LaserPtcl__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl *)&__vt__15TBoss7LaserPtcl).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss7LaserPtcl__class_name;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805E010C;
-    M2C_FIELD(arg0, s32 *, 0x54) = 0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035ACBC___vt__15TBoss7LaserPtcl *)&__vt__15TBoss7LaserPtcl).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7LaserPtcl__class_name;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805E010C;
+    *(s32 *)((s8 *)arg0 + 0x54) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x2C, arg3);
     update_position__15TBoss7LaserPtclFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x44) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x204, 0x40);
-    M2C_FIELD(arg0, s32 *, 0x48) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x205, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x44) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x204, 0x40);
+    *(s32 *)((s8 *)arg0 + 0x48) = spawn_continuous_particle_effect_with_flags((s32) arg2, 0x205, 0x40);
     return arg0;
 }
 
 void TBoss7LaserPtcl__sub_8035AD64(void) {  }
 
-extern M2C_UNK lbl_804F1C88[];
+extern s32 lbl_804F1C88[];
 
 void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0) {
     s32 i;
@@ -188,7 +183,7 @@ void TBoss7LaserPtcl__sub_8035AD68(u8 *arg0) {
 
 void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1C88;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1C88;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -200,20 +195,20 @@ void *TBoss7LaserPtcl__sub_8035ADFC(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8035AE54_lbl_804F1C88_size[sizeof(RecoveredGlobal_8035AE54_lbl_804F1C88) == 0x18 ? 1 : -1];
 u8 *TBoss7LaserPtcl__sub_8035AE54(u8 *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0x11F07;
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x54) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805E0118;
-    M2C_FIELD(arg0, u8 **, 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
-    M2C_FIELD(arg0, s32 *, 0x20) = 1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035AE54_lbl_804F1C88 *)&lbl_804F1C88).value;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805E0118;
+    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0x11F07;
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x54) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) lbl_805E0118;
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805E0118;
+    *(u8 **)((s8 *)arg0 + 0x1C) = (unsigned char *) ((void *) (arg0 + 0x34));
+    *(s32 *)((s8 *)arg0 + 0x20) = 1;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x24), (void *) (arg2));
     spawn_particle_effect((void *) (arg0 + 0x24), (int) (0x211));
     create_timed_particle_emitter((void *) (arg0 + 0x24), (int) (0x213), (int) (0), (int) (0x1E));

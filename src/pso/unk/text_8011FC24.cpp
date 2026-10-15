@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/items/TItemWeapon.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_4841bb { char pad[0x18]; };
 
 struct VObj_18_4841bb : VBase_18_4841bb {
@@ -60,7 +57,7 @@ struct VObj_18_4841bb : VBase_18_4841bb {
     virtual void m50();
     virtual void m51();
     virtual void m52();
-    virtual M2C_UNK m53();
+    virtual s32 m53();
 };
 
 struct VBase_18_8011FE04 { char pad[0x18]; };
@@ -119,7 +116,7 @@ struct VObj_18_8011FE04 : VBase_18_8011FE04 {
     virtual void m50();
     virtual void m51();
     virtual void m52();
-    virtual M2C_UNK m53();
+    virtual s32 m53();
 };
 
 struct Trails_8011FE04 { u8 pad[0x18C]; void *trails[4]; };
@@ -143,19 +140,19 @@ extern const f32 lbl_805DAC9C;
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void update_weapon_trails__11TItemWeaponFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK update_trail_slot__11TItemWeaponFPvi(void *, int);
-M2C_UNK draw_weapon_model(void *);
-M2C_UNK draw_weapon_at_joint(void *, int);
+s32 update_trail_slot__11TItemWeaponFPvi(void *, int);
+s32 draw_weapon_model(void *);
+s32 draw_weapon_at_joint(void *, int);
 void update_trails__11TItemWeaponFPv(u8 *arg0);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
-M2C_UNK draw_weapon_model(void *);
-M2C_UNK draw_weapon_at_joint(void *, int);
+s32 draw_weapon_model(void *);
+s32 draw_weapon_at_joint(void *, int);
 void draw_equipped_weapon__11TItemWeaponFPv(u8 *arg0);
-M2C_UNK get_field_d8__10TObjPlayerFPv(void *);
+s32 get_field_d8__10TObjPlayerFPv(void *);
 u32 test_flags_1b8__10TObjPlayerFPvUi(void *, u32);
 void update_trails__11TItemWeaponFPv(u8 *arg0);
 void render_trail__17TItemEffectWeaponFv(void *);
-void push_id_to_list__10TObjPlayerFi(M2C_UNK);
+void push_id_to_list__10TObjPlayerFi(s32);
 void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0);
 }
 
@@ -177,13 +174,13 @@ void update_trails__11TItemWeaponFPv(u8 *arg0) {
 }
 
 void update_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         update_trails__11TItemWeaponFPv((u8 *)((void *) (arg0)));
     }
 }
 void draw_equipped_weapon__11TItemWeaponFPv(u8 *arg0) {
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x1000U) == 0U)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x1000U) == 0U)) {
         ((VObj_18_4841bb *)(arg0))->m53();
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x400U) != 0U) {
             draw_weapon_at_joint((void *) (arg0), (int) (0x30));
@@ -197,7 +194,7 @@ void draw_equipped_weapon__11TItemWeaponFPv(u8 *arg0) {
 }
 void draw_weapon_trails__11TItemWeaponFPv(u8 *arg0) {
     s32 count;
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0xCU) == 0xCU) && (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x80U) == 0U)) {
         if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x800U) != 0U) {
             push_id_to_list__10TObjPlayerFi(get_field_d8__10TObjPlayerFPv(arg0));
             return;

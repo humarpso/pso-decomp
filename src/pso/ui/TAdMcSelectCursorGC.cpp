@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8032A574 { f32 a, b, c, d; u8 pad[0x10]; };
 
@@ -26,7 +22,7 @@ struct Self_8032A2A4 {
 
 extern "C" {
 void __ct__7TObjectFP7TObject(void *);
-extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
+extern s32 __vt__19TAdMcSelectCursorGC[];
 extern s32 lbl_805D41D0;
 extern const f32 lbl_805DF740;
 extern const f32 lbl_805DF744;
@@ -51,18 +47,18 @@ extern "C" {
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1);
 void render__19TAdMcSelectCursorGCFv(void *arg0);
 void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0);
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK set_draw_texture_and_color(int, int);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 begin_screen_draw(int);
+s32 set_draw_texture_and_color(int, int);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 restore_saved_depth_alpha_state();
+s32 get_player__20TWindowSubStatusDispFv();
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_2__Fv();
+s32 set_global_param__8TObjFishFi(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectCursorGC__texture_entry;
@@ -71,13 +67,13 @@ extern const f32 lbl_805DF728;
 void render_cursor__19TAdMcSelectCursorGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (TAdMcSelectCursorGC__texture_entry));
-    set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x128) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x128) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x28), (f32) (lbl_805DF728));
     get_player__20TWindowSubStatusDispFv();
 }
 
 void render__19TAdMcSelectCursorGCFv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x13C) == 1) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x13C) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -89,13 +85,13 @@ block_5:
         init_xyz_limits__10TObjPlayerFv();
         render_cursor__19TAdMcSelectCursorGCFPv((u8 *)(arg0));
         reset_transform_state__10TObjPlayerFv();
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x13C) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x13C) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
 }
 
-extern M2C_UNK __vt__19TAdMcSelectCursorGC[];
+extern s32 __vt__19TAdMcSelectCursorGC[];
 extern u32 TAdMcSelectCursorGC__instance;
 
 #pragma fp_contract on
@@ -150,7 +146,7 @@ void run_task__19TAdMcSelectCursorGCFv(Self_8032A2A4 *self) {
 
 void *__dt__19TAdMcSelectCursorGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TAdMcSelectCursorGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TAdMcSelectCursorGC;
         if ((u32) TAdMcSelectCursorGC__instance != 0U) {
             TAdMcSelectCursorGC__instance = 0U;
         }

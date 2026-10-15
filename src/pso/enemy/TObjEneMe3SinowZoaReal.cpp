@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_be4a70 { char pad[0x18]; };
 
@@ -92,22 +88,22 @@ struct VObj_18_be4a70 : VBase_18_be4a70 {
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
+    virtual s32 m85(s16, s32);
 };
 
 struct SinowZoaRealVTableStorage {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1CC];
 };
 
 extern "C" {
-M2C_UNK invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
-M2C_UNK setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *);
-M2C_UNK init_enemy__18TObjEneMe3SinowZoaFPv(void *);
+s32 invoke_initialization_hook__9TObjEneDDFPv(void *, void *);
+s32 setup_move_bounds__18TObjEneMe3SinowZoaFPv(void *);
+s32 init_enemy__18TObjEneMe3SinowZoaFPv(void *);
 void *TObjEneMe3SinowZoa__ct(void *, void *, void *);
-extern M2C_UNK __vt__22TObjEneMe3SinowZoaReal[];
+extern s32 __vt__22TObjEneMe3SinowZoaReal[];
 extern s32 TObjEneMe3SinowZoaReal__name;
-u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -118,7 +114,7 @@ int TObjEneMe3SinowZoaReal__vt60(void* p);
 int TObjEneMe3SinowZoaReal__vt61(void* p);
 void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1);
 void *create_instance__22TObjEneMe3SinowZoaRealFPv(void *arg0);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 transition_enemy_state(void *, s32);
 int TObjEneMe3SinowZoa__vt60(void*);
 int TObjEneMe3SinowZoa__vt61(void*);
 void __dl__7TObjectFPv(void *);
@@ -134,8 +130,8 @@ struct Ene_80316898;
 
 void TObjEneMe3SinowZoaReal__vt105(void *arg0) {
     struct Ene_80316898 *self = (struct Ene_80316898 *) arg0;
-    M2C_FIELD(arg0, s32 *, 0x3FC) = M2C_FIELD(arg0, s32 *, 0x3FC) + 1;
-    if ((M2C_FIELD(arg0, s32 *, 0x3FC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DF304)) {
+    *(s32 *)((s8 *)arg0 + 0x3FC) = *(s32 *)((s8 *)arg0 + 0x3FC) + 1;
+    if ((*(s32 *)((s8 *)arg0 + 0x3FC) >= 2) || (calc_boss4_scale__10TObjPlayerFi() < lbl_805DF304)) {
         transition_enemy_state(self, 9);
         return;
     }
@@ -145,11 +141,11 @@ void TObjEneMe3SinowZoaReal__vt105(void *arg0) {
 int TObjEneMe3SinowZoaReal__vt60(void* p) { return TObjEneMe3SinowZoa__vt60(p); }
 int TObjEneMe3SinowZoaReal__vt61(void* p) { return TObjEneMe3SinowZoa__vt61(p); }
 
-extern M2C_UNK __vt__22TObjEneMe3SinowZoaReal[];
+extern s32 __vt__22TObjEneMe3SinowZoaReal[];
 
 void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjEneMe3SinowZoaReal;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEneMe3SinowZoaReal;
         __dt__18TObjEneMe3SinowZoaFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -161,22 +157,22 @@ void *__dt__22TObjEneMe3SinowZoaRealFv(void *arg0, s16 arg1) {
 extern void *tl_04;
 
 typedef char SinowZoaRealVTableStorage_size[sizeof(SinowZoaRealVTableStorage) == 0x1D0 ? 1 : -1];
-u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjEneMe3SinowZoaReal__ct(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEneMe3SinowZoa__ct(arg0, (void *) arg1, (void *) arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(SinowZoaRealVTableStorage *)&__vt__22TObjEneMe3SinowZoaReal).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjEneMe3SinowZoaReal__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(SinowZoaRealVTableStorage *)&__vt__22TObjEneMe3SinowZoaReal).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjEneMe3SinowZoaReal__name;
     invoke_initialization_hook__9TObjEneDDFPv((void *) (arg0), (void *) (arg2));
     setup_move_bounds__18TObjEneMe3SinowZoaFPv((void *) (arg0));
     init_enemy__18TObjEneMe3SinowZoaFPv((void *) (arg0));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    ((VObj_18_be4a70 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 4);
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    ((VObj_18_be4a70 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 4);
     return arg0;
 }
 
 void *create_instance__22TObjEneMe3SinowZoaRealFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x45C);
     if (o != NULL) {
-        o = TObjEneMe3SinowZoaReal__ct((u8 *)(o), (M2C_UNK)(tl_04), (s32)(arg0));
+        o = TObjEneMe3SinowZoaReal__ct((u8 *)(o), (s32)(tl_04), (s32)(arg0));
     }
     return o;
 }

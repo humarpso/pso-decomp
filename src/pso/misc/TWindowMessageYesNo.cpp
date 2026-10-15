@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void render__19TWindowMessageYesNoFv(void);
@@ -45,7 +41,7 @@ void render__19TWindowMessageYesNoFv(void) {  }
 
 void run_task__19TWindowMessageYesNoFv(void* p) { if (is_child_visible__17TWindowSubComCardFPv(p) != 0) { confirm_selection__11TWindowMenuFPv(*(void**)((char*)p + 0x28)); } }
 
-extern M2C_UNK __vt__19TWindowMessageYesNo[];
+extern s32 __vt__19TWindowMessageYesNo[];
 
 void * create__19TWindowMessageYesNoFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     void *o;
@@ -58,9 +54,9 @@ void * create__19TWindowMessageYesNoFPvPvPvPv(void *arg0, void *arg1, void *arg2
 
 void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMessageYesNo;
-        if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x2C)); M2C_FIELD(arg0, M2C_UNK *, 0x2C) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x28) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x28)); M2C_FIELD(arg0, M2C_UNK *, 0x28) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMessageYesNo;
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x2C)); *(s32 *)((s8 *)arg0 + 0x2C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x28)); *(s32 *)((s8 *)arg0 + 0x28) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -69,18 +65,18 @@ void *__dt__19TWindowMessageYesNoFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__19TWindowMessageYesNo[];
+extern s32 __vt__19TWindowMessageYesNo[];
 extern void *TWindowMessageYesNo__name;
 
 void *TWindowMessageYesNo__ct(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TWindowMessageYesNo;
-    M2C_FIELD(arg0, void **, 0x0) = TWindowMessageYesNo__name;
-    M2C_FIELD(arg0, void **, 0x24) = arg2;
-    M2C_FIELD(arg0, u32 *, 0x28) = 0;
-    M2C_FIELD(arg0, u32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, void **, 0x20) = arg3;
-    M2C_FIELD(arg0, void **, 0x1C) = arg4;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TWindowMessageYesNo;
+    *(void **)((s8 *)arg0 + 0x0) = TWindowMessageYesNo__name;
+    *(void **)((s8 *)arg0 + 0x24) = arg2;
+    *(u32 *)((s8 *)arg0 + 0x28) = 0;
+    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(void **)((s8 *)arg0 + 0x20) = arg3;
+    *(void **)((s8 *)arg0 + 0x1C) = arg4;
     return arg0;
 }
 

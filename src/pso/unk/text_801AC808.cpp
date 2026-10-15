@@ -1,5 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK;
 
 #define NEW_801AC808(n) (((u8 *(*)(int))__nw__7TObjectFUl)(n))
 #define F_801AC808(o, t, off) (*(t *)((u8 *)(o) + (off)))
@@ -26,26 +25,26 @@ struct Res_801AC808 { u8 pad[0x18]; s32 f18; s32 f1C; };
 struct Game_801AC808 { u8 pad[0x42C]; Res_801AC808 *res; s32 f430; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, int);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-M2C_UNK begin_photon_summon_camera(void *, int);
+s32 begin_photon_summon_camera(void *, int);
 void spawn_photon_blast_opening_effects(s32, u16);
-M2C_UNK spawn_photon_blast_attachment_effects(void *, int);
+s32 spawn_photon_blast_attachment_effects(void *, int);
 void photon_base_ct(void *);
 void TObjPlayer__sub_801AC444(void *, u8);
 void construct_photon_magic_square_normal(void *, void *, s32, void *, s32);
 void TPhotonRainbow__ct(void *, void *, void *, s32);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_cue_stream_file(void *);
-u8 *__nw__7TObjectFUl(M2C_UNK, f32);
+u8 *__nw__7TObjectFUl(s32, f32);
 extern u8 lbl_80446DF8[];
 extern u8 lbl_80446E04[];
 extern u8 lbl_804C3778[];
-extern M2C_UNK __vt__13TPhotonLeilla[];
+extern s32 __vt__13TPhotonLeilla[];
 extern s32 lbl_805D34F8;
 extern Game_801AC808 *photon_blast_shared_resource;
 extern const f32 lbl_805DC1C4;

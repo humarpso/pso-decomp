@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Stack_801415BC {
     f32 sp8;
     f32 spC;
@@ -14,7 +10,7 @@ struct Stack_801415BC {
 struct Cfg_80141604 { u32 a; u8 b; u8 c; u8 pad6[2]; u32 d; u8 e; u8 f; u8 pad_e[2]; u32 g; };
 
 extern "C" {
-M2C_UNK set_chunk_material_color(void *, f32);
+s32 set_chunk_material_color(void *, f32);
 extern s32 model_render_flags;
 extern const f32 lbl_805DB150;
 extern const f32 lbl_805DB154;
@@ -70,47 +66,43 @@ void init_default_config__10TObjPlayerFv(void) {
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_80141860_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80141730_lbl_8050C028 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_80141788_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80141788_lbl_8050C028 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_801417B8_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_801417B8_lbl_8050C028 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_801417E8_lbl_8050C028 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8014175C_lbl_8050C000 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -170,7 +162,7 @@ typedef char RecoveredGlobal_80141860_lbl_8050C000_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80141730_lbl_8050C028_size[sizeof(RecoveredGlobal_80141730_lbl_8050C028) == 0x18 ? 1 : -1];
 void func_80141618__Fv(void) {
-    set_ginja_draw_list_mask((int) (M2C_FIELD(&saved_depth_alpha_scene_state.value, s32 *, 0x10)));
+    set_ginja_draw_list_mask((int) (*(s32 *)((s8 *)(&saved_depth_alpha_scene_state.value) + 0x10)));
 }
 
 typedef char RecoveredGlobal_80141788_lbl_8050C000_size[sizeof(RecoveredGlobal_80141788_lbl_8050C000) == 0x28 ? 1 : -1];
@@ -178,7 +170,7 @@ typedef char RecoveredGlobal_80141788_lbl_8050C028_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_8014175C_lbl_8050C000_size[sizeof(RecoveredGlobal_8014175C_lbl_8050C000) == 0x28 ? 1 : -1];
 void set_depth_buffer_settings_id__FUl(s32 arg0) {
-    M2C_FIELD(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&depth_buffer_settings).value, s32 *, 0x10) = arg0;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8014175C_lbl_8050C000 *)&depth_buffer_settings).value) + 0x10) = arg0;
     set_ginja_draw_list_mask((int)((void *) (arg0)));
 }
 
@@ -195,7 +187,7 @@ void save_depth_buffer_settings__Fv(void) {
 typedef char RecoveredGlobal_801417E8_lbl_8050C028_size[sizeof(RecoveredGlobal_801417E8_lbl_8050C028) == 0x18 ? 1 : -1];
 void restore_default_scene(void) {
     model_render_flags &= 0xFFFFFFFE;
-    set_material_alpha_compare_reference((s32)((int) ((s32) M2C_FIELD(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value, u8 *, 0xD))));
+    set_material_alpha_compare_reference((s32)((int) ((s32) *(u8 *)((s8 *)(&(*(RecoveredGlobal_801417E8_lbl_8050C028 *)&saved_depth_alpha_scene_state).value) + 0xD))));
 }
 
 void set_scene_override(u8 scene) {
@@ -205,11 +197,11 @@ void set_scene_override(u8 scene) {
 }
 
 void set_depth_buffer_settings_2__Fv(void) {
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 4) = 0;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 5) = 1;
-    M2C_FIELD(&depth_buffer_settings.value, s32 *, 8) = 7;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xC) = 0;
-    M2C_FIELD(&depth_buffer_settings.value, s8 *, 0xD) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 4) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 5) = 1;
+    *(s32 *)((s8 *)(&depth_buffer_settings.value) + 8) = 7;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 0xC) = 0;
+    *(s8 *)((s8 *)(&depth_buffer_settings.value) + 0xD) = 0;
     GXSetZCompLoc(0);
     GXSetZMode(1U, 7, 0);
     set_material_alpha_compare_reference(0);

@@ -23,10 +23,7 @@ extern const char *fe_obj_lazer2_2_model_names[9];
 extern const char *fe_obj_lazer2_2_motion_names[5];
 extern BmlResourceDescriptor lazer_fence_norm_episode2_resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 void *load_resource_from_descriptor(void *, int, BmlResourceDescriptor *, int, int, int);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);

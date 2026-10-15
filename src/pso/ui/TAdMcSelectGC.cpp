@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Self_80329EC8 {
     s32 f0;
@@ -44,7 +40,7 @@ void *__ct__15TAdMcSelectMcGCFv(void *, void *, s32);
 void fn_8033F314(void *, s32);
 extern u8 lbl_804770F8[];
 extern u8 lbl_80477100[];
-extern M2C_UNK __vt__13TAdMcSelectGC[];
+extern s32 __vt__13TAdMcSelectGC[];
 extern s32 lbl_805D41C8;
 extern const f32 lbl_805DF718;
 extern const f32 lbl_805DF71C;
@@ -60,8 +56,8 @@ void select_if_mc_present__13TAdMcSelectGCFv(void);
 void update_state__13TAdMcSelectGCFv(void);
 int TAdMcSelectGC__sub_8032A140();
 int TAdMcSelectGC__sub_8032A15C();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
 u32 get_mc_count__13TAdMcSelectGCFv();
 
 void render__13TAdMcSelectGCFv(void *self) {
@@ -95,22 +91,22 @@ void select_if_mc_present__13TAdMcSelectGCFv(void) {
 void run_task__13TAdMcSelectGCFv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         return;
     case 1:
         return;
     }
 }
 
-extern M2C_UNK __vt__13TAdMcSelectGC[];
+extern s32 __vt__13TAdMcSelectGC[];
 extern u32 TAdMcSelectGC__instance;
 
 void *__dt__13TAdMcSelectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdMcSelectGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdMcSelectGC;
         if ((u32) TAdMcSelectGC__instance != 0U) {
             TAdMcSelectGC__instance = 0U;
         }

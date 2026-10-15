@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base1_80166568 { char pad[0x18]; };
 struct VObj1_80166568 : Base1_80166568 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -20,7 +17,7 @@ struct V_A_801668cc_80166568 : Base_A_801668cc_80166568 {
     virtual void m14();
 };
 
-struct RecoveredGlobal_80166614_lbl_804B1AA0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80166614_lbl_804B1AA0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80166614_lbl_804B1AA0_size[sizeof(RecoveredGlobal_80166614_lbl_804B1AA0) == 0x10 ? 1 : -1];
 
 struct O_80166664 { u8 pad[0x18]; void *vt; u8 pad1c[0x9C - 0x1C]; s32 a[2]; s32 b[2]; };
@@ -33,7 +30,7 @@ struct VObj_80166778 : VBase_80166778 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
     virtual void m4(); virtual void m5(); virtual void m6(); virtual void m7();
     virtual void m8(); virtual void m9(); virtual void m10(); virtual void m11();
-    virtual M2C_UNK m12();
+    virtual s32 m12();
 };
 
 struct VBase_80166814 { char pad[0x18]; };
@@ -52,7 +49,7 @@ struct VObj_80166814 : VBase_80166814 {
     virtual void m10();
     virtual void m11();
     virtual void m12();
-    virtual M2C_UNK m13();
+    virtual s32 m13();
 };
 
 extern "C" {
@@ -76,12 +73,12 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0);
 s32 is_any_player_within_radius_xz(f32);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB600;
-M2C_UNK check_trigger__18TOExplosiveMachineFPv(void *arg0);
+s32 check_trigger__18TOExplosiveMachineFPv(void *arg0);
 s32 is_any_player_within_radius_xz(f32);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
 u8 is_current_floor_switch_set(u16);
 extern const f32 lbl_805DB604;
-M2C_UNK update_trigger__18TOExplosiveMachineFPv(void *arg0);
+s32 update_trigger__18TOExplosiveMachineFPv(void *arg0);
 }
 
 extern "C" {
@@ -90,22 +87,22 @@ void destroy_static_lobby__18TOExplosiveMachineFv(void);
 void explode__18TOExplosiveMachineFPv(u8 *arg0);
 void update__18TOExplosiveMachineFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 void explode__18TOExplosiveMachineFPv(u8 *arg0) {
     VObj1_80166568 *self = (VObj1_80166568 *)arg0;
-    if (self->m8(M2C_FIELD(arg0, f32 *, 0x90), M2C_FIELD(arg0, f32 *, 0x94)) != 0) {
+    if (self->m8(*(f32 *)((s8 *)arg0 + 0x90), *(f32 *)((s8 *)arg0 + 0x94)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
 }
@@ -163,8 +160,8 @@ O_801666E8 *TOExplosiveMachine__ct(O_801666E8 *arg0) {
     return arg0;
 }
 
-M2C_UNK check_trigger__18TOExplosiveMachineFPv(void *arg0) {
-    switch (M2C_FIELD(arg0, s32 *, 0xC8)) {
+s32 check_trigger__18TOExplosiveMachineFPv(void *arg0) {
+    switch (*(s32 *)((s8 *)arg0 + 0xC8)) {
     case 0:
         break;
     case 1:
@@ -173,16 +170,16 @@ M2C_UNK check_trigger__18TOExplosiveMachineFPv(void *arg0) {
         }
         break;
     case 2:
-        if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xCC)) == 1) {
+        if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xCC)) == 1) {
             ((VObj_80166778 *)arg0)->m12();
         }
         break;
     }
 }
 
-M2C_UNK update_trigger__18TOExplosiveMachineFPv(void *arg0) {
+s32 update_trigger__18TOExplosiveMachineFPv(void *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
     switch (temp_r0) {
     case 0:
         break;
@@ -192,7 +189,7 @@ M2C_UNK update_trigger__18TOExplosiveMachineFPv(void *arg0) {
         }
         break;
     case 2:
-        if (is_current_floor_switch_set(M2C_FIELD(arg0, s32 *, 0xCC)) != 1) {
+        if (is_current_floor_switch_set(*(s32 *)((s8 *)arg0 + 0xCC)) != 1) {
             ((VObj_80166814 *)(arg0))->m13();
         }
         break;
@@ -209,7 +206,7 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
         ((V_A_801668cc_80166568 *)arg0)->m14();
         return;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xAC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xAC);
     switch (temp_r0) {
     case 0:
         check_trigger__18TOExplosiveMachineFPv((void *)(arg0));
@@ -218,11 +215,11 @@ void update__18TOExplosiveMachineFPv(void *arg0) {
         update_trigger__18TOExplosiveMachineFPv((void *)(arg0));
         break;
     }
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + lbl_805DB608);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xB4);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0xB0);
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + lbl_805DB608);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0xB4);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0xB0);
     if (temp_f1 < temp_f0) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (temp_f0 - temp_f1);
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (temp_f0 - temp_f1);
     }
 }
 

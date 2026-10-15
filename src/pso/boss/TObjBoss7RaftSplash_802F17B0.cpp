@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_802F17B0 { char pad[0x18]; };
 struct VObj_802F17B0 : Base_802F17B0 {
     virtual void m0();
@@ -12,9 +9,9 @@ struct VObj_802F17B0 : Base_802F17B0 {
 extern "C" {
 
 void create_splash_particle__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2);
-void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-void *__nw__7TObjectFUl(M2C_UNK);
-M2C_UNK fn_802F190C(void *, s32);
+void *initialize_with_flags__13TParticleCtrlFPvPviiiiiUs(void *, s32, s32, s32, s32, s32, s32, s32);
+void *__nw__7TObjectFUl(s32);
+s32 fn_802F190C(void *, s32);
 s32 get_particle_by_index__13TParticleCtrlFi(s32);
 
 void create_splash_particle__8TObjFishFiii(s32 arg0, s32 arg1, s32 arg2) {

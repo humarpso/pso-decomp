@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031F4A8 { char pad[0x18]; };
 struct VObj_8031F4A8 : Base_8031F4A8 {
     virtual void m0();
@@ -133,11 +130,11 @@ extern "C" {
 
 void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
 void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1);
-M2C_UNK advance_animation_playback();
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
-M2C_UNK transition_enemy_state(void *, M2C_UNK);
+s32 advance_animation_playback();
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
+s32 transition_enemy_state(void *, s32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv();
-M2C_UNK update_child_spawn__12TObjEneReconFPv(void *);
+s32 update_child_spawn__12TObjEneReconFPv(void *);
 s32 is_out_of_range__12TObjEneReconFPv();
 
 void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
@@ -145,9 +142,9 @@ void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x40C) & 0xFFFFFFFE;
-        M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
+        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 2;
         ((VObj_8031F4A8 *)arg0)->m94();
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         return;
@@ -167,15 +164,15 @@ void handle_action_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
 void update_state__12TObjEneReconFPvi(void *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s32 *, 0x40C) = M2C_FIELD(arg0, s32 *, 0x40C) & 0xFFFFFFFE;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        *(s32 *)((s8 *)arg0 + 0x40C) = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         ((VObj_8031F550 *)arg0)->m94();
         set_field_378__9TObjEneDDFPvi(arg0, 3);
         return;
     case 3:
         if (get_flag_b4__21TObjEneMe3ShinowaRealFPv() != 0) {
-            M2C_FIELD(arg0, s32 *, 0x4D8) = 0;
-            M2C_FIELD(arg0, s32 *, 0x4DC) = 0x1E;
+            *(s32 *)((s8 *)arg0 + 0x4D8) = 0;
+            *(s32 *)((s8 *)arg0 + 0x4DC) = 0x1E;
             transition_enemy_state(arg0, 4);
         }
     case 5:

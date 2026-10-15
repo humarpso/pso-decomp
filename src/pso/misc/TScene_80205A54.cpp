@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -12,7 +8,7 @@ extern void *TScene__data_805D5FCC;
 
 void set_field4__6TSceneFv(void) {
     if ((void *) TScene__data_805D5FCC != NULL) {
-        M2C_FIELD(TScene__data_805D5FCC, s32 *, 4) = 0x8F;
+        *(s32 *)((s8 *)TScene__data_805D5FCC + 4) = 0x8F;
     }
 }
 

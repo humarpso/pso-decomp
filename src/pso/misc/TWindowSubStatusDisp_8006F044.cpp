@@ -18,19 +18,15 @@ s32 calc_entry_offset__20TWindowSubStatusDispFv(void) {
 
 #include "types.h"
 #pragma fp_contract on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8006F23C_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_8006F1EC_lbl_8048C9D8
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x744];
 };
 
@@ -62,7 +58,7 @@ extern "C" {
 
 s32 get_layout_id__20TWindowSubStatusDispFv(void);
 
-extern M2C_UNK lbl_8043859C[];
+extern s32 lbl_8043859C[];
 
 typedef s32 (*SlotQueryNoArgs_8006F094)(void);
 
@@ -123,7 +119,7 @@ s32 get_flagged_table_entry__6TLobbyFi(s32 arg0) {
 
 s32 get_flag_value_if_set__6TLobbyFv(void) {
     if (is_flag_set__6TLobbyFv() != 0) {
-        return M2C_FIELD(&challenge_mode_state.value, s32 *, 0x34);
+        return *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x34);
     }
     return 0;
 }

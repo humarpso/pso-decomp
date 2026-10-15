@@ -1,8 +1,6 @@
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct S_803491F8 { u32 w[8]; };
 
@@ -55,10 +53,10 @@ void fn_80348E34(u8 *arg0) {
     u8 *e;
     s32 i;
     u8 *src;
-    if (M2C_FIELD(arg0, s32 *, 0x20) != 0) {
+    if (*(s32 *)((s8 *)arg0 + 0x20) != 0) {
         for (i = 0; i < 16; i++) {
             e = arg0 + i * 0x38;
-            if (M2C_FIELD(e, u32 *, 0x54) & 1) {
+            if (*(u32 *)((s8 *)e + 0x54) & 1) {
                 desc.pos = pos;
                 desc.col = col;
                 desc.a = 0;
@@ -66,19 +64,19 @@ void fn_80348E34(u8 *arg0) {
                 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(pos, e + 0x44);
                 src = e + 0x4C;
                 copy4__18TAdChrMoveEffectGCFPvPv(desc.col, src);
-                desc.col[3] = M2C_FIELD(e, u8 *, 0x50);
-                desc.pos[2] = M2C_FIELD(e, f32 *, 0x44);
-                desc.pos[3] = M2C_FIELD(e, f32 *, 0x48) + M2C_FIELD(e, f32 *, 0x40);
+                desc.col[3] = *(u8 *)((s8 *)e + 0x50);
+                desc.pos[2] = *(f32 *)((s8 *)e + 0x44);
+                desc.pos[3] = *(f32 *)((s8 *)e + 0x48) + *(f32 *)((s8 *)e + 0x40);
                 copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 4, src);
-                desc.col[7] = M2C_FIELD(e, u8 *, 0x50);
-                desc.pos[4] = M2C_FIELD(e, f32 *, 0x44) + M2C_FIELD(e, f32 *, 0x3C);
-                desc.pos[5] = M2C_FIELD(e, f32 *, 0x48) + M2C_FIELD(e, f32 *, 0x40);
+                desc.col[7] = *(u8 *)((s8 *)e + 0x50);
+                desc.pos[4] = *(f32 *)((s8 *)e + 0x44) + *(f32 *)((s8 *)e + 0x3C);
+                desc.pos[5] = *(f32 *)((s8 *)e + 0x48) + *(f32 *)((s8 *)e + 0x40);
                 copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 8, src);
-                desc.col[11] = M2C_FIELD(e, u8 *, 0x50);
-                desc.pos[6] = M2C_FIELD(e, f32 *, 0x44) + M2C_FIELD(e, f32 *, 0x3C);
-                desc.pos[7] = M2C_FIELD(e, f32 *, 0x48);
+                desc.col[11] = *(u8 *)((s8 *)e + 0x50);
+                desc.pos[6] = *(f32 *)((s8 *)e + 0x44) + *(f32 *)((s8 *)e + 0x3C);
+                desc.pos[7] = *(f32 *)((s8 *)e + 0x48);
                 copy4__18TAdChrMoveEffectGCFPvPv(desc.col + 12, src);
-                desc.col[15] = M2C_FIELD(e, u8 *, 0x50);
+                desc.col[15] = *(u8 *)((s8 *)e + 0x50);
                 draw_tri_fan_2d__14TObjCMHairMenuFPviif(&desc, 4, 7, lbl_805DFCEC * (f32)i + lbl_805DFCE8);
             }
         }
@@ -93,10 +91,6 @@ void fn_80348E34(u8 *arg0) {
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_803490AC { u32 flags; u8 pad[0x34]; };
 
@@ -135,15 +129,15 @@ void *TAdChrMoveEffectGC__ct(void *arg0);
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1);
 void render__18TAdChrMoveEffectGCFv(void* p);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
 int set_cached_blend_factor(void*, void*);
 
 int get_state_flag__9TMainTaskFv(void*);
 
 void render__18TAdChrMoveEffectGCFv(void* p) { if (get_state_flag__9TMainTaskFv(p) != 1) { set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)10); ((int (*)(void*))fn_80348E34)(p); set_cached_blend_factor((void*)0, (void*)8); set_cached_blend_factor((void*)1, (void*)6); } }
 
-extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
+extern s32 __vt__18TAdChrMoveEffectGC[];
 extern u32 lbl_805D6E78;
 
 void reset_effect_entries__18TAdChrMoveEffectGCFPv(void *arg0) {
@@ -258,7 +252,7 @@ void run_task__18TAdChrMoveEffectGCFv(O_8034923C *self) {
 
 void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdChrMoveEffectGC;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdChrMoveEffectGC;
         if ((u32) lbl_805D6E78 != 0U) {
             lbl_805D6E78 = 0U;
         }
@@ -270,14 +264,14 @@ void *__dt__18TAdChrMoveEffectGCFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__18TAdChrMoveEffectGC[];
+extern s32 __vt__18TAdChrMoveEffectGC[];
 extern void *lbl_805D42F0;
 
 void *TAdChrMoveEffectGC__ct(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TAdChrMoveEffectGC;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D42F0;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TAdChrMoveEffectGC;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D42F0;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
     return arg0;
 }
 

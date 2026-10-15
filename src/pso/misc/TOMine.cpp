@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base18_80170f64_80170EEC { char pad[0x18]; };
 struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -27,7 +24,7 @@ struct VObj_80170f64_80170EEC : Base18_80170f64_80170EEC {
     virtual void m76(); virtual void m77();
 };
 
-struct RecoveredGlobal_801711D0_lbl_804B2F2C { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_801711D0_lbl_804B2F2C { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_801711D0_lbl_804B2F2C_size[sizeof(RecoveredGlobal_801711D0_lbl_804B2F2C) == 0x10 ? 1 : -1];
 
 struct RecoveredFields_80170F0C_arg0
@@ -83,7 +80,7 @@ extern const f32 lbl_805DB858;
 void render__6TOMineFPv(VObj_801710E4 *arg0);
 void construct_actor_base__10TObjPlayerFPvPv(void *);
 void obj_setFlags30(void *, u32);
-extern M2C_UNK __vt__6TOMine[];
+extern s32 __vt__6TOMine[];
 extern s32 TOMine__name;
 extern const f32 lbl_805DB85C;
 Obj_80171278 *TOMine__ct(Obj_80171278 *arg0);
@@ -98,15 +95,15 @@ void free_sub_objects__6TOMineFPv(void* p);
 int get_player_state__6TOMineFPv(void* p);
 void run_task__6TOMineFPv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK follow_target__10TOMineTrapFPv(void *);
-M2C_UNK TOMineTrap__sub_80170BEC(void *);
-M2C_UNK TOMineTrap__sub_80170CD4(void *);
-M2C_UNK update_float_height__10TOMineTrapFPv(void *);
-M2C_UNK detonate__10TOMineTrapFPv(void *);
+s32 follow_target__10TOMineTrapFPv(void *);
+s32 TOMineTrap__sub_80170BEC(void *);
+s32 TOMineTrap__sub_80170CD4(void *);
+s32 update_float_height__10TOMineTrapFPv(void *);
+s32 detonate__10TOMineTrapFPv(void *);
 int draw_ginja_object(void*);
-M2C_UNK submit_cursor_candidate(void *, int);
+s32 submit_cursor_candidate(void *, int);
 int submit_target_to_player_cursor(void*);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 s32 check_demo_mode__10TObjPlayerFv();
 void destroy_motion_object__10TObjPlayerFPvs(void *, int);
@@ -137,21 +134,21 @@ void run_task__6TOMineFPv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() != 1) {
         ((VObj_80170f64_80170EEC *) arg0)->m77();
         update_float_height__10TOMineTrapFPv((void *) (arg0));
-        temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+        temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
         switch (temp_r0) {
         case 2:
         case 0:
             find_target_player__6TOMineFPv((u8 *)((void *)((void *) (arg0))));
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x334));
-            VecCopy__FP3VecPC3Vec((void *) (M2C_FIELD(arg0, s32 *, 0xA4) + 0x1C), (void *) (arg0 + 0x334));
+            VecCopy__FP3VecPC3Vec((void *) (*(s32 *)((s8 *)arg0 + 0xA4) + 0x1C), (void *) (arg0 + 0x334));
             return;
         case 3:
-            temp_r3 = M2C_FIELD(arg0, s32 *, 0x8C);
-            M2C_FIELD(arg0, s32 *, 0x8C) = (s32) (temp_r3 - 1);
+            temp_r3 = *(s32 *)((s8 *)arg0 + 0x8C);
+            *(s32 *)((s8 *)arg0 + 0x8C) = (s32) (temp_r3 - 1);
             if (temp_r3 < 0) {
-                M2C_FIELD(arg0, s16 *, 0x326) = 4;
+                *(s16 *)((s8 *)arg0 + 0x326) = 4;
             }
-            temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x344);
+            temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x344);
             switch (temp_r0_2) {
             default:
                 TOMineTrap__sub_80170CD4((void *) (arg0));
@@ -180,10 +177,10 @@ extern u32 lbl_805D5A50;
 
 void render__6TOMineFPv(VObj_801710E4 *arg0) {
     s32 t;
-    if (M2C_FIELD(arg0, s16 *, 0x326) == 3 && arg0->m8(lbl_805DB854, lbl_805DB858) != 0) {
+    if (*(s16 *)((s8 *)arg0 + 0x326) == 3 && arg0->m8(lbl_805DB854, lbl_805DB858) != 0) {
         push_matrix();
         post_translate_matrix((u8 *) arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x370));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x370));
         free_parts__6TOMineFPv((void*)(arg0));
         begin_effect_render__13TParticleCtrlFv();
         t = model_render_flags;
@@ -205,7 +202,7 @@ void free_instance__6TOMineFv(void) {
     }
 }
 
-extern M2C_UNK __vt__6TOMine[];
+extern s32 __vt__6TOMine[];
 
 void load_static_resource__6TOMineFv(void) {
     s32 temp_r3;
@@ -220,7 +217,7 @@ void load_static_resource__6TOMineFv(void) {
 
 void *__dt__6TOMineFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__6TOMine;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__6TOMine;
         destroy_motion_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

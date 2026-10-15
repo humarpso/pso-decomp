@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_80154098 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
 
@@ -63,10 +59,6 @@ void TMainCursor__sub_801540FC(E_801540FC *arr, s32 n) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -81,10 +73,6 @@ void update_cursor_pair__11TMainCursorFPv(void* p) { TMainCursor__sub_801540FC((
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -97,7 +85,7 @@ s32 test_button__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
-        temp_r5 = M2C_FIELD(arg0, s32 *, 0x9C);
+        temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
         return test_flags_any(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
     return 0;
@@ -106,7 +94,7 @@ void set_flag_bit__11TMainCursorFPviUs(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
-        temp_r5 = M2C_FIELD(arg0, s32 *, 0x9C);
+        temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
         clear_flags__11TAdRicoRingFPvUi(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
@@ -114,7 +102,7 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
     s32 temp_r5;
 
     if (((s32 (*)(void))TMainCursor__sub_80154288)() != 0) {
-        temp_r5 = M2C_FIELD(arg0, s32 *, 0x9C);
+        temp_r5 = *(s32 *)((s8 *)arg0 + 0x9C);
         set_flags__10TObjPlayerFPvUi(temp_r5 + (arg1 * 4), 1 << arg2, temp_r5);
     }
 }
@@ -122,10 +110,6 @@ void TMainCursor__sub_80154230(void *arg0, s32 arg1, u16 arg2) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 }
@@ -138,13 +122,13 @@ void TMainCursor__sub_80154090(void);
 void TMainCursor__sub_80154094(void);
 
 s32 TMainCursor__sub_80154288(u8 *arg0, s32 arg1, u16 arg2) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x9C) == 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x9C) == 0U) {
         return 0;
     }
     if (arg2 >= 0xCU) {
         return 0;
     }
-    return arg1 < M2C_FIELD(arg0, s32 *, 0xA8);
+    return arg1 < *(s32 *)((s8 *)arg0 + 0xA8);
 }
 
 }

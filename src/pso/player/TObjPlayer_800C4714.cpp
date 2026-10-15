@@ -1,10 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
 extern "C" { __declspec(section ".sdata2") extern const f32 lbl_805DA000[1] = { 30.0f }; }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_90ef41 { char pad[0x18]; };
 
@@ -99,13 +95,13 @@ struct VObj_18_90ef41 : VBase_18_90ef41 {
     virtual void m87();
     virtual void m88();
     virtual void m89();
-    virtual M2C_UNK m90();
+    virtual s32 m90();
     virtual void m91();
-    virtual M2C_UNK m92();
+    virtual s32 m92();
     virtual void m93();
     virtual void m94();
     virtual void m95();
-    virtual M2C_UNK m96();
+    virtual s32 m96();
 };
 
 struct CBase_800c63cc { char pad[0x18]; };
@@ -202,16 +198,16 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
-    virtual M2C_UNK m82();
-    virtual M2C_UNK m83();
-    virtual M2C_UNK m84();
-    virtual M2C_UNK m85();
-    virtual M2C_UNK m86();
-    virtual M2C_UNK m87();
-    virtual M2C_UNK m88();
-    virtual M2C_UNK m89();
-    virtual M2C_UNK m90();
+    virtual s32 m81();
+    virtual s32 m82();
+    virtual s32 m83();
+    virtual s32 m84();
+    virtual s32 m85();
+    virtual s32 m86();
+    virtual s32 m87();
+    virtual s32 m88();
+    virtual s32 m89();
+    virtual s32 m90();
     virtual void m91();
     virtual void m92();
     virtual void m93();
@@ -220,10 +216,9 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m96();
     virtual void m97();
     virtual void m98();
-    virtual M2C_UNK m99();
+    virtual s32 m99();
 };
 
-typedef s32 M2C_UNK;
 typedef struct Vec_800C4A5C {
     f32 x, y, z;
 } Vec_800C4A5C;
@@ -405,7 +400,7 @@ struct VObj_18 : VBase_18 {
     virtual void m14();
     virtual void m15();
     virtual void m16();
-    virtual s32 m17(M2C_UNK);
+    virtual s32 m17(s32);
 };
 
 struct VBase_800C53DC { char pad[0x18]; };
@@ -687,7 +682,7 @@ struct VObj_18_965ca6 : VBase_18_965ca6 {
     virtual void m92();
     virtual void m93();
     virtual void m94();
-    virtual M2C_UNK m95();
+    virtual s32 m95();
 };
 struct Vec_800C5164 { f32 x, y, z; };
 struct VBase_18_f9c8ca { char pad[0x18]; };
@@ -792,7 +787,7 @@ struct VObj_18_f9c8ca : VBase_18_f9c8ca {
     virtual void m97();
     virtual void m98();
     virtual void m99();
-    virtual M2C_UNK m100();
+    virtual s32 m100();
 };
 
 struct VBase_18_189925 { char pad[0x18]; };
@@ -891,7 +886,7 @@ struct VObj_18_189925 : VBase_18_189925 {
     virtual void m90();
     virtual void m91();
     virtual void m92();
-    virtual M2C_UNK m93();
+    virtual s32 m93();
 };
 
 struct Vec_800C5B10 { f32 x, y, z; };
@@ -949,36 +944,36 @@ struct Obj_800C5164 {
 };
 s32 check_path_obstructed(void *, void *);
 f32 get_collision_body_radius(void *, s32);
-M2C_UNK pop_matrix();
-M2C_UNK enemy_wander_home(void *, int, f32, f32, f32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 pop_matrix();
+s32 enemy_wander_home(void *, int, f32, f32, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f64 atan2_float(f32, f32);
-M2C_UNK link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
-M2C_UNK link_into_group_chain__10TObjPlayerFPv(void *);
+s32 link_chain_nodes__10TObjPlayerFPvPvPv(void *, void *, void *);
+s32 link_into_group_chain__10TObjPlayerFPv(void *);
 s32 is_action_available__10TObjPlayerFv(void *);
 f32 horizontal_distance_squared(void *, void *);
 s32 approach_angle_limited(int, int, int);
-M2C_UNK refresh_collision_body_centers(void *);
+s32 refresh_collision_body_centers(void *);
 s32 project_actor_to_ground(void *, void *, int);
-M2C_UNK minimap_render_dot(void *, int, int, int);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrices(int);
+s32 minimap_render_dot(void *, int, int, int);
+s32 vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 subtract_vector(void *, void *);
+s32 push_matrix_from(void *);
+s32 pop_matrices(int);
 extern const f64 lbl_8043BC88;
 extern Vec_800C5164 lbl_8050BEE0;
 extern Vec_800C5164 lbl_8050BF00;
 extern u8 identity_matrix[];
 
-M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK move_with_wall_slide(void *);
+s32 apply_actor_gravity(void *, int, f32);
+s32 move_with_wall_slide(void *);
 s32 obj_testFlags30(void *, int);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback();
+s32 advance_animation_playback();
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA038;
 extern const f32 lbl_805DA03C;
@@ -996,15 +991,15 @@ void enter_state7__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_800C53B4(void);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_flag_0x100__10TObjPlayerFPv(void* p);
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
-M2C_UNK set_indexed_flags(void *, M2C_UNK, M2C_UNK);
+s32 obj_setFlags30(void *, s32);
+s32 set_indexed_flags(void *, s32, s32);
 void tick_freeze_state__10TObjPlayerFPv(void *arg0);
 void __dl__7TObjectFPv(void *);
 void __dt__9TObjEnemyFv(void *, int);
-extern M2C_UNK lbl_80493450[];
+extern s32 lbl_80493450[];
 void *TObjPlayer__sub_800C68FC(void *arg0, s16 arg1);
 int initialize__9TObjEnemyFPv(void);
-extern M2C_UNK lbl_80493450[];
+extern s32 lbl_80493450[];
 extern const f32 lbl_805DA034;
     extern const float lbl_805DA058;
     extern const float lbl_805DA05C;
@@ -1015,10 +1010,10 @@ s32 update_movement_status__10TObjPlayerFv(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 s32 tick_freeze_and_reset_appearance(u8 *arg0);
-M2C_UNK copy_position__20TBoss3VoloptHiraisinFi(void *);
+s32 copy_position__20TBoss3VoloptHiraisinFi(void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK update_prev_position__10TObjPlayerFPv(void *);
-M2C_UNK submit_cursor_candidate(void *, int);
+s32 update_prev_position__10TObjPlayerFPv(void *);
+s32 submit_cursor_candidate(void *, int);
 extern const f32 lbl_805DA048;
 void run_task__12TObjEneBeastFPv(u8 *arg0);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
@@ -1029,37 +1024,37 @@ extern void *lbl_805D5188;
 void TLobby__sub_803DA16C(void *);
 void free__11TOBoss4RockFUi(void *);
 void TObjPlayer__sub_800C4D44(void);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u16 obj_getField1c(void *);
-u8 *construct_collision_body(u8 *arg0, M2C_UNK arg1, u32 arg2);
+u8 *construct_collision_body(u8 *arg0, s32 arg1, u32 arg2);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void*);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
 void TObjPlayer__sub_800C4B78(Obj_800C4B78 *o);
 f32 calc_boss4_scale__10TObjPlayerFi(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
+s32 obj_setFlags30(void *, s32);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 extern const f32 lbl_805DA03C;
 void beast_start_attack(Obj_800C55E0 *o);
-M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK enemy_move_toward(void *, s32, void *, int, f32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 apply_actor_gravity(void *, int, f32);
+s32 enemy_move_toward(void *, s32, void *, int, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
 void TObjPlayer__sub_800C4E08(u8 *arg0);
 f32 horizontal_distance_squared(void *, void *);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback();
+s32 advance_animation_playback();
 s32 test_elt_flag__10TObjPlayerFPvii(void *, int, int);
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 update_collisions__10TObjPlayerFPv(void *);
+s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA044;
 extern const f32 lbl_805DA054;
@@ -1067,50 +1062,50 @@ void beast_update_approach(u8 *arg0);
 s32 obj_testFlags30(void *, int);
 u16 obj_getField1c(void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
-M2C_UNK obj_setFlags30(void *, M2C_UNK);
+s32 obj_setFlags30(void *, s32);
 f32 horizontal_distance_squared(void *, void *);
 extern const f32 lbl_805DA028;
 extern const f32 lbl_805DA02C;
 extern const f32 lbl_805DA030;
-M2C_UNK update_target_near_flag(void *arg0);
-M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK enemy_turn_toward_dest(void *, s32);
+s32 update_target_near_flag(void *arg0);
+s32 apply_actor_gravity(void *, int, f32);
+s32 enemy_turn_toward_dest(void *, s32);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 get_current_floor(void);
 s32 get_field_3e4__10TObjPlayerFPv(void *);
 Tgt_800C53DC *get_enemy_entity(u16);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback();
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
+s32 advance_animation_playback();
+s32 update_collisions__10TObjPlayerFPv(void *);
 Tgt_800C53DC *get_player_by_client_id(u16);
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 minimap_render_dot(void *, int, int, int);
 extern const f32 lbl_805DA034;
 extern const f32 lbl_805DA048;
 extern const f32 lbl_805DA04C;
 extern const f32 lbl_805DA050;
 void beast_update_attack(Self_800C53DC *arg0);
 f32 enemy_backstep_from_point(void *, void *, f32);
-M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
+s32 update_angle__10TObjPlayerFPviPv(void *, void *, void *);
 s32 obj_clearFlags30(void * a0, s32 a1);
-M2C_UNK advance_animation_playback();
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK minimap_render_dot(void *, int, int, int);
+s32 advance_animation_playback();
+s32 update_collisions__10TObjPlayerFPv(void *);
+s32 minimap_render_dot(void *, int, int, int);
 void beast_update_group_chase(Self_800C57F0 *arg0);
 s32 obj_testFlags30(void *, int);
 s32 obj_clearFlags30(void * a0, s32 a1);
 int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 void beast_enter_approach(u8 *arg0);
-M2C_UNK apply_actor_gravity(void *, int, f32);
-M2C_UNK update_angle__10TObjPlayerFPviPv(void *, void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 apply_actor_gravity(void *, int, f32);
+s32 update_angle__10TObjPlayerFPviPv(void *, void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 get_field_0c__10TObjPlayerFPv(s32);
 f64 atan2_float(f32, f32);
 s32 angle_difference_abs(s32, s32);
 s32 objInBand__FP7GameObjf(void *, f32);
-M2C_UNK advance_animation_playback();
-M2C_UNK update_collisions__10TObjPlayerFPv(void *);
-M2C_UNK minimap_render_dot(void *, int, int, int);
-M2C_UNK subtract_vector(void *, void *);
+s32 advance_animation_playback();
+s32 update_collisions__10TObjPlayerFPv(void *);
+s32 minimap_render_dot(void *, int, int, int);
+s32 subtract_vector(void *, void *);
 extern const f64 lbl_8043BC88;
 extern const f32 lbl_805DA030;
 extern const f32 lbl_805DA034;
@@ -1124,9 +1119,9 @@ void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *dt_with_child_destroy__10TObjPlayerFPvs(void *arg0, s16 arg1);
 void *init_target_ref__10TObjPlayerFPvii(void *arg0, s32 arg1, s32 arg2);
 void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0);
-s32 spawn_continuous_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
-M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, M2C_UNK, M2C_UNK);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+s32 draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, s32, s32);
+s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
@@ -1195,16 +1190,16 @@ struct Obj_800C4754 : VBase_800C4754 {
 
 extern "C" {
 
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 int queue_destruction__7TObjectFv(void *);
 Hit_800C4754 *csnVecterUnder(void *, int);
 u32 csnVector(void *, void *, int);
 void *spawn_particle_effect_with_rotation(void *, void *, int, int);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
-M2C_UNK enable__13TParticleCtrlFPv(void *);
-M2C_UNK TObjEneDD__sub_800C2618(void *);
+s32 enable__13TParticleCtrlFPv(void *);
+s32 TObjEneDD__sub_800C2618(void *);
 void *find_entity_by_id(int);
-M2C_UNK vec3_add_to(void *, void *);
+s32 vec3_add_to(void *, void *);
 
 }
 extern "C" {
@@ -1245,11 +1240,11 @@ void *lbl_804933D8[24] = {
 };
 }
 #define lbl_8043BC10 ((const Vec_800C4A5C *)lbl_8043BC10)
-#define lbl_804933D8 ((M2C_UNK *)lbl_804933D8)
+#define lbl_804933D8 ((s32 *)lbl_804933D8)
 extern "C" {
 
 void update_equip_effect_if_active__10TObjPlayerFPv(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x100) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x100) != 0) {
         draw_oriented_shadow__9TObjEneDDFiiiUi(arg0 + 0x38, arg0 + 0xD8, 0, 0);
     }
 }
@@ -1329,8 +1324,8 @@ extern "C" {
 
 void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804933D8;
-        if (M2C_FIELD(arg0, void **, 0xFC) != NULL) { queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0xFC))); M2C_FIELD(arg0, M2C_UNK *, 0xFC) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804933D8;
+        if (*(void **)((s8 *)arg0 + 0xFC) != NULL) { queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0xFC))); *(s32 *)((s8 *)arg0 + 0xFC) = 0; }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -1342,7 +1337,7 @@ void *destroy_and_free__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 Obj_800C4A5C *TObjPlayer__sub_800C4A5C(Obj_800C4A5C *o, void *owner, Vec_800C4A5C *start, s32 angle) {
     f32 s;
     f32 c;
-    construct_collision_body((u8 *)o, (M2C_UNK)owner, (u32)owner);
+    construct_collision_body((u8 *)o, (s32)owner, (u32)owner);
     o->vptr = lbl_804933D8;
     o->f0 = lbl_805D2A50;
     o->coll->radius = lbl_8043BC10[0].z;

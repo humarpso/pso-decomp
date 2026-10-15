@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -8,11 +6,11 @@ void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__16TObjFogCollisionFv(void *, int);
 
-extern M2C_UNK __vt__22TObjFogCollisionSwitch[];
+extern s32 __vt__22TObjFogCollisionSwitch[];
 
 void *__dt__22TObjFogCollisionSwitchFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionSwitch;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionSwitch;
         __dt__16TObjFogCollisionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -28,20 +26,17 @@ extern "C" {
 void *TObjFogCollisionSwitch__ct(void *arg0);
 void TObjFogCollision__ct(void *);
 
-extern M2C_UNK __vt__22TObjFogCollisionSwitch[];
+extern s32 __vt__22TObjFogCollisionSwitch[];
 extern void *lbl_805D2E7C;
 
 void *TObjFogCollisionSwitch__ct(void *arg0) {
     TObjFogCollision__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjFogCollisionSwitch;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2E7C;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjFogCollisionSwitch;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2E7C;
     return arg0;
 }
 
 }
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -57,8 +52,8 @@ struct VObj_18 : VBase_18 {
     virtual void m9();
     virtual void m10();
     virtual void m11();
-    virtual M2C_UNK m12();
-    virtual M2C_UNK m13();
+    virtual s32 m12();
+    virtual s32 m13();
 };
 
 struct VBase_18_26a62c { char pad[0x18]; };
@@ -84,18 +79,18 @@ int TObjFogCollision__sub_80153F68(void *);
 int TObjFogCollision__sub_80153F70(void);
 void dispatch_collision_virtuals__16TObjFogCollisionFPv(u8 *arg0);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_chunk_material_override_pair(int, int);
+s32 scale_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(s32);
+s32 draw_chunk_object(s32);
 extern Color_80153B64 lbl_8044002C;
 extern Color_80153B64 lbl_8044003C;
 extern Color_80153B64 lbl_8044004C;
-extern M2C_UNK saved_model_draw_color[];
-extern M2C_UNK model_material_color[];
+extern s32 saved_model_draw_color[];
+extern s32 model_material_color[];
 extern s32 lbl_805D28BC;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -113,7 +108,7 @@ extern char lbl_804400D4[];
 extern char lbl_804400E0[];
 extern char lbl_805DB268;
 void TObjFogCollision__vt12(O_80153D98 *arg0);
-M2C_UNK record_fog_collision_hit(s32, s32, u8);
+s32 record_fog_collision_hit(s32, s32, u8);
 s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1);
 int TObjFogCollision__sub_80153F68(void * _w0);
 int TObjFogCollision__sub_80153F70(void);
@@ -144,7 +139,7 @@ extern const f32 lbl_805DB26C;
 
 void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
     f32 s;
-    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, M2C_FIELD(arg0, f32 *, 0x68)) != 0) {
+    if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, *(f32 *)((s8 *)arg0 + 0x68)) != 0) {
         Color_80153B64 c0 = lbl_8044002C;
         Color_80153B64 c3 = lbl_8044003C;
         Color_80153B64 cd = lbl_8044004C;
@@ -154,7 +149,7 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x810;
         set_chunk_material_override_pair(0xFF00, 0x800);
-        switch (M2C_FIELD(arg0, s32 *, 0x90)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x90)) {
         case 0:
             set_chunk_material_color(&c0);
             break;
@@ -169,7 +164,7 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
             break;
         }
         push_matrix();
-        s = lbl_805DB264 * M2C_FIELD(arg0, f32 *, 0x68);
+        s = lbl_805DB264 * *(f32 *)((s8 *)arg0 + 0x68);
         post_translate_matrix(arg0 + 0x38);
         scale_matrix(0, s, lbl_805DB258, s);
         draw_chunk_object(lbl_805D28BC);
@@ -205,7 +200,7 @@ void run_task__16TObjFogCollisionFv(void *arg0) {
     if (TObjFogCollision__sub_80153F70() == 0 && TObjFogCollision__sub_80153F68(arg0) == 0) {
         for (i = 0; i != 4; i++) {
             if (check_collision__16TObjFogCollisionFPvUs((u8 *)arg0, i) != 0) {
-                record_fog_collision_hit(i, M2C_FIELD(arg0, s32 *, 0x84), M2C_FIELD(arg0, s32 *, 0x88) == 0);
+                record_fog_collision_hit(i, *(s32 *)((s8 *)arg0 + 0x84), *(s32 *)((s8 *)arg0 + 0x88) == 0);
             }
         }
     }
@@ -219,14 +214,14 @@ s32 check_collision__16TObjFogCollisionFPvUs(u8 *arg0, u16 arg1) {
 
     temp_r3 = get_player_by_client_id((u16)arg1);
     if (temp_r3 != 0) {
-        temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
+        temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
         temp_f31 = temp_f0 * temp_f0;
         temp_f1 = horizontal_distance_squared(arg0 + 0x38, temp_r3 + 0x38);
         if (temp_f31 > temp_f1) {
             return 1;
         }
         if ((lbl_805DB26C + temp_f31) < temp_f1) {
-            M2C_FIELD(arg0, s32 *, 0x94) = 0x3C;
+            *(s32 *)((s8 *)arg0 + 0x94) = 0x3C;
         }
         goto block_5;
     }
@@ -236,13 +231,13 @@ block_5:
 
 void TObjFogCollision__vt11(u8 *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x84) = 0;
+        *(s32 *)((s8 *)arg0 + 0x84) = 0;
         return;
     }
     if (temp_r0 >= 0x80) {
-        M2C_FIELD(arg0, s32 *, 0x84) = 0x7F;
+        *(s32 *)((s8 *)arg0 + 0x84) = 0x7F;
     }
 }
 

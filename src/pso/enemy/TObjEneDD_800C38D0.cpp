@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
@@ -157,23 +154,23 @@ extern "C" {
 void dispatch_action__9TObjEneDDFPvi(void *arg0, s32 arg1);
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1);
 void noop__9TObjEneDDFv(void);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_area_se_with_particle__12TBoss3VoloptFi(void *);
-M2C_UNK play_area_sound_effect__12TBoss3VoloptFi(void *);
-M2C_UNK transition_enemy_state(void *, s32);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK clear_child_flags__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK enemy_clear_target(void *);
+s32 advance_animation_playback();
+s32 play_area_se_with_particle__12TBoss3VoloptFi(void *);
+s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
+s32 transition_enemy_state(void *, s32);
+s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
+s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
+s32 enemy_clear_target(void *);
 s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 1;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 1;
         ((V_En_800c38d0 *) arg0)->m93();
         clear_child_flags__16TObjEneRe2FlowerFPv(arg0);
-        M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) | 8);
+        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) | 8);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3F4);
@@ -195,7 +192,7 @@ void handle_state__9TObjEneDDFPvi(u8 *arg0, s32 arg1) {
         ((V_En_800c38d0 *) arg0)->m86();
         return;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x3C4) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C4) & 0xFFFFFFF7);
+        *(s32 *)((s8 *)arg0 + 0x3C4) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C4) & 0xFFFFFFF7);
         break;
     }
 }

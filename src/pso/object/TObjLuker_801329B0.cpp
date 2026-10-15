@@ -1,12 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_801329B0_lbl_8043EA58 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8C];
 };
 
@@ -33,7 +28,7 @@ void get_floor_destination_name(u32 arg0) {
     if ((var_r3 == 0xB) && ((s32) game_difficulty_selection >= 3)) {
         var_r3 = 0xE;
     }
-    get_localized_text_entry(9, M2C_FIELD(&floor_destination_text_id_table.value, M2C_UNK *, (var_r3 * 4)));
+    get_localized_text_entry(9, *(s32 *)((s8 *)(&floor_destination_text_id_table.value) + (var_r3 * 4)));
 }
 
 int get_stat_table_entry__9TObjLukerFi(int a0) {  return luker_stat_entry_ptr_table[a0]; }
@@ -47,9 +42,9 @@ s32 enemy_name_for_rt_index(s32 arg0) {
         var_r3 = 0;
     }
     if ((s32) game_difficulty_selection >= 3) {
-        return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 0xC), M2C_UNK *, (var_r3 * 4));
+        return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 0xC)) + (var_r3 * 4));
     }
-    return M2C_FIELD(M2C_FIELD(text_language_group_table, s32 *, 8), M2C_UNK *, (var_r3 * 4));
+    return *(s32 *)((s8 *)(*(s32 *)((s8 *)text_language_group_table + 8)) + (var_r3 * 4));
 }
 
 }

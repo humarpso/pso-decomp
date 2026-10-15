@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 find_target_enemy__12TBoss8DragonFv(void);
 s32 is_any_part_alive__12TBoss8DragonFv(void);
 void update_all_parts__12TBoss8DragonFv(void);
-M2C_UNK get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
+s32 get_part_count_plus__12TBoss8DragonFPvi(u32, s32);
 u32 get_enemy_entity();
-M2C_UNK set_state_22__12TBoss8DragonFPv();
+s32 set_state_22__12TBoss8DragonFPv();
 
 extern u32 boss8_dragon_leader_part;
 

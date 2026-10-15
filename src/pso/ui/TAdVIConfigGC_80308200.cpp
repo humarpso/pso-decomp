@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Elem_80125628 { u8 pad[0x1c]; u8 f1c[0x2c - 0x1c]; };
 
 struct Obj_80125628 { u8 pad[0xa4]; Elem_80125628 *elems; };

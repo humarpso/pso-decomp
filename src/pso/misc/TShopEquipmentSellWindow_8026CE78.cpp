@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8026CE78 { char pad[0x18]; };
 struct VObj_8026CE78 : Base_8026CE78 {
     virtual void m0();
@@ -366,23 +363,23 @@ struct VObj_8026CE78 : Base_8026CE78 {
 extern "C" {
 
 void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2);
-void *get_array_entry__20TWindowSubStatusDispFPvi(M2C_UNK, M2C_UNK);
+void *get_array_entry__20TWindowSubStatusDispFPvi(s32, s32);
 
 void set_entry_count__24TShopEquipmentSellWindowFPvPv(void *arg1, void *arg2) {
     s32 temp_r3;
     void *temp_r31;
 
-    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((M2C_UNK)arg1, 1);
+    temp_r31 = get_array_entry__20TWindowSubStatusDispFPvi((s32)arg1, 1);
     if (arg2 == NULL) {
-        M2C_FIELD(temp_r31, s32 *, 0x20) = 0;
+        *(s32 *)((s8 *)temp_r31 + 0x20) = 0;
         return;
     }
     temp_r3 = ((VObj_8026CE78 *)arg2)->m34();
     if (temp_r3 <= 0) {
-        M2C_FIELD(temp_r31, s32 *, 0x20) = 1;
+        *(s32 *)((s8 *)temp_r31 + 0x20) = 1;
         return;
     }
-    M2C_FIELD(temp_r31, s32 *, 0x20) = temp_r3;
+    *(s32 *)((s8 *)temp_r31 + 0x20) = temp_r3;
 }
 
 }

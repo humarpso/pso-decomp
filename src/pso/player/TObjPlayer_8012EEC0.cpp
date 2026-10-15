@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -22,11 +18,11 @@ void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();
-        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x1F8));
         return;
     case 2:
         play_particle_effect_once__10TObjPlayerFv();
-        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, -*(s32 *)((s8 *)arg0 + 0x1F8));
         return;
     case 3:
         play_particle_effect_once__10TObjPlayerFv();
@@ -35,12 +31,12 @@ void update_boss2tunnel_move__10TObjPlayerFPv(void *arg0) {
 }
 int TObjPlayer__sub_8012EF40(void* p) { return advance_angle_wrap((char*)p + 0x1f8, 3276); }
 
-extern M2C_UNK lbl_804A6108[];
+extern s32 lbl_804A6108[];
 
 void *init_effect_state__10TObjPlayerFPv(void *arg0) {
     TItemWeapon__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A6108;
-    M2C_FIELD(arg0, u32 *, 0x1F8) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A6108;
+    *(u32 *)((s8 *)arg0 + 0x1F8) = 0;
     return arg0;
 }
 

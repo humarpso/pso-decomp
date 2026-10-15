@@ -1,9 +1,6 @@
 #include "types.h"
 #pragma readonly_strings on
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_80238388 {
     s32 sp8;
@@ -16,19 +13,19 @@ struct Stack_80238388 {
 };
 
 struct RecoveredGlobal_80238388_lbl_8044DAF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80230D9C_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80230D9C_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -187,32 +184,32 @@ void *__dt__10TTecRaFoieFPvs(void *arg0, s16 arg1);
 }
 
 struct Stack_802384E0 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802384E0_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802384E0_lbl_804CCB28_size[sizeof(RecoveredGlobal_802384E0_lbl_804CCB28) == 0x18 ? 1 : -1];
 
 struct Stack_802385EC {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802385EC_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_802385EC_lbl_804CCB28_size[sizeof(RecoveredGlobal_802385EC_lbl_804CCB28) == 0x18 ? 1 : -1];
 
 struct RecoveredGlobal_80238D10_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80238D10_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -353,7 +350,7 @@ struct VObj_18_9c98dd : VBase_18_9c98dd {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u32 find_entity_by_id(int);
 s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(int);
@@ -373,7 +370,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
-u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
+u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
@@ -384,7 +381,7 @@ extern const f32 TTecRaFoie__data_805DC8CC;
 extern const f32 lbl_805DC8E4;
 extern const f32 lbl_805DC8E8;
 extern const f32 lbl_805DC8EC;
-u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
+u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 s32 calc_technique_parameters(int, int, int);
 s32 is_technique_ready__8TTecCtrlFv();
 s32 copy_params__8TTecAntiFPvPv(void *, int);
@@ -393,7 +390,7 @@ void TTecRaFoie__vt4(u8 *self, u8 *target);
 u16 obj_getField1c(void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
 void copy_technique_target_list(void *, void *);
-extern M2C_UNK __vt__10TTecRaFoie[];
+extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
 u8 *construct_targeted__10TTecRaFoieFPvPvPvPvi(u8 *self, void *source, void *origin, void *targets, int level);
 s32 create_particle_emitter(void *, int);
@@ -403,7 +400,7 @@ u16 obj_getField1c(void *);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
 void fn_80044330(void *);
 void construct_area_technique_base(void *, void *, void *, void *, int);
-extern M2C_UNK __vt__10TTecRaFoie[];
+extern s32 __vt__10TTecRaFoie[];
 extern u32 TTecRaFoie_class_name;
 Obj_80238AE8 *TTecRaFoie__ct(Obj_80238AE8 *arg0, void * _w1, void * _w2, void * _w3, int _w4);
 void TTecRaZonde__vt4(u8 *arg0, u8 *arg1);
@@ -419,9 +416,9 @@ void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_base__9TTecLukerFPvs(void *, int);
 
-u8 *create_rafoie_explosion(u8 *arg0, M2C_UNK *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
+u8 *create_rafoie_explosion(u8 *arg0, s32 *arg1, s16 arg2, s16 arg3, s32 arg4, f32 farg0);
 
-u8 *create_fire_explosion_effect(u8 *arg0, M2C_UNK *arg1, s16 arg2, s32 arg3, f32 farg0);
+u8 *create_fire_explosion_effect(u8 *arg0, s32 *arg1, s16 arg2, s32 arg3, f32 farg0);
 
 void TTecRaFoie__vt4(u8 *self, u8 *target);
 
@@ -435,7 +432,7 @@ void create__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg
 
 void create_ex__10TTecRaFoieFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
 
-extern M2C_UNK __vt__10TTecRaFoie[];
+extern s32 __vt__10TTecRaFoie[];
 
 void *__dt__10TTecRaFoieFv(void *arg0, s16 arg1);
 typedef struct RecoveredFields_80238D10_arg0 RecoveredFields_80238D10_arg0;
@@ -477,8 +474,8 @@ void calc_damage__11TTecRaZondeFPv(u8 *arg0) {
 void TTecRaZonde__vt4(u8 *arg0, u8 *arg1) {
     Elec_80238E14 d;
     d.type = 3;
-    d.val = M2C_FIELD(arg0, f32 *, 0x88);
-    ((VObj_18_9c98dd *)(arg1))->m21(M2C_FIELD(arg0, s32 *, 0x1C), d, 0, 8, -1);
+    d.val = *(f32 *)((s8 *)arg0 + 0x88);
+    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)((s8 *)arg0 + 0x1C), d, 0, 8, -1);
 }
 
 }

@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_14 { u8 bytes[0x14]; };
+struct ByteBlock_14 { u8 bytes[0x14]; };
 
 struct RecoveredGlobal_80224404_lbl_80513F20 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_802243D4_lbl_80513F10 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -51,7 +47,7 @@ struct Ctr_80224190 { u8 buf[0x74]; };
 extern "C" {
 extern RecoveredGlobal_80224404_lbl_80513F20 shop_tool_stock_buffers;
 void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_802243D4_lbl_80513F10 shop_tool_flags;
 void clear_shop_tool_flags(void);
 extern RecoveredGlobal_80224404_lbl_80513F20 shop_tool_stock_buffers;
@@ -370,7 +366,7 @@ void clear_shop_tool_flags(void) {
 }
 
 void copy_shop_item_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
-    *(M2CCopy_14 *)(arg0) = *(const M2CCopy_14 *)(M2C_FIELD(&shop_tool_stock_buffers.value, M2C_UNK *, (arg2 * 4)) + (arg1 * 0x14));
+    *(ByteBlock_14 *)(arg0) = *(const ByteBlock_14 *)(*(s32 *)((s8 *)(&shop_tool_stock_buffers.value) + (arg2 * 4)) + (arg1 * 0x14));
 }
 void mark_shop_tool_sold_out(s32 a, s32 b) {
     E_8022444C *arr = ((E_8022444C * *)&shop_tool_stock_buffers)[b];

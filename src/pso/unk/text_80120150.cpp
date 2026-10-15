@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct WeaponCallbackBase { u8 padding[0x18]; };
 
@@ -138,16 +134,16 @@ void apply_weapon_node_material() {
 #pragma opt_common_subs off
 void advance_weapon_photon_phase(u8 *arg0) {
     if (test_flags_1b8__10TObjPlayerFPvUi(arg0, 0x02000000U) == 0U) {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C8) + lbl_805DACA0);
+        *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C8) + lbl_805DACA0);
     } else {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C8) - lbl_805DACA0);
+        *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C8) - lbl_805DACA0);
     }
-    if (lbl_805DAC9C <= M2C_FIELD(arg0, f32 *, 0x1C8)) {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) lbl_805DAC9C;
+    if (lbl_805DAC9C <= *(f32 *)((s8 *)arg0 + 0x1C8)) {
+        *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC9C;
         set_status_flags__10TObjPlayerFPvUi(arg0, 0x02000000U);
     }
-    if (M2C_FIELD(arg0, f32 *, 0x1C8) <= lbl_805DAC98) {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) lbl_805DAC98;
+    if (*(f32 *)((s8 *)arg0 + 0x1C8) <= lbl_805DAC98) {
+        *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DAC98;
         clear_equip_flags__10TObjPlayerFPvUi(arg0, 0x02000000U);
     }
 }
@@ -159,15 +155,15 @@ WeaponArgb get_weapon_color__11TItemWeaponFPv(void *weapon) {
     WeaponArgb first, second;
     WeaponColorDescriptor_80120304 *descriptor;
     f32 override_alpha;
-    if (M2C_FIELD(weapon, s16 *, 0x1E8) != -1) {
-        descriptor = get_photon_color_record(M2C_FIELD(weapon, s16 *, 0x1E8));
+    if (*(s16 *)((s8 *)weapon + 0x1E8) != -1) {
+        descriptor = get_photon_color_record(*(s16 *)((s8 *)weapon + 0x1E8));
         if (descriptor->mode == 1) {
             copy_vec4__13TRaderMapCoreFPvPv(&first, &descriptor->first);
             copy_vec4__13TRaderMapCoreFPvPv(&second, &descriptor->second);
-            first.alpha = M2C_FIELD(weapon, f32 *, 0x1C8) * (second.alpha - first.alpha) + first.alpha;
-            first.red = M2C_FIELD(weapon, f32 *, 0x1C8) * (second.red - first.red) + first.red;
-            first.green = M2C_FIELD(weapon, f32 *, 0x1C8) * (second.green - first.green) + first.green;
-            first.blue = M2C_FIELD(weapon, f32 *, 0x1C8) * (second.blue - first.blue) + first.blue;
+            first.alpha = *(f32 *)((s8 *)weapon + 0x1C8) * (second.alpha - first.alpha) + first.alpha;
+            first.red = *(f32 *)((s8 *)weapon + 0x1C8) * (second.red - first.red) + first.red;
+            first.green = *(f32 *)((s8 *)weapon + 0x1C8) * (second.green - first.green) + first.green;
+            first.blue = *(f32 *)((s8 *)weapon + 0x1C8) * (second.blue - first.blue) + first.blue;
             override_alpha = get_mag_scale__10TObjPlayerFPv(weapon);
             if (lbl_805DAC9C != override_alpha) {
                 first.alpha = override_alpha;

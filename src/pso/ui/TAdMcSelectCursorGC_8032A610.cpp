@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+s32 TLobby__sub_803DA16C(void *, s32);
 extern int TAdMcSelectCursorGC__texture_entry;
 void release_cursor_entry__19TAdMcSelectCursorGCFv(void);
 }
@@ -18,7 +14,7 @@ u32 get_instance__19TAdMcSelectCursorGCFi(s32 arg0);
 void init_resource__19TAdMcSelectCursorGCFv(void);
 u32 TAdMcSelectCursorGC__ct(u32, s32);
 int TLobby__sub_8023E4B4(void*, void*);
-u32 __nw__7TObjectFUl(M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
 
 extern u32 TAdMcSelectCursorGC__instance;
 
@@ -43,7 +39,7 @@ void release_cursor_entry__19TAdMcSelectCursorGCFv(void) {
     u8 *temp_r4;
     if ((void **) (*(void ** *)&TAdMcSelectCursorGC__texture_entry) != NULL) {
         temp_r4 = (u8 *)(*(*(void ** *)&TAdMcSelectCursorGC__texture_entry));
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 8) != 0U) {
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
             TLobby__sub_803DA16C((*(void ** *)&TAdMcSelectCursorGC__texture_entry), (s32) temp_r4);
         }
     }

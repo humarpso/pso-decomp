@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/enemy/TObjEnemy.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_90ef41 { char pad[0x18]; };
 
 struct VObj_18_90ef41 : VBase_18_90ef41 {
@@ -97,13 +94,13 @@ struct VObj_18_90ef41 : VBase_18_90ef41 {
     virtual void m87();
     virtual void m88();
     virtual void m89();
-    virtual M2C_UNK m90();
+    virtual s32 m90();
     virtual void m91();
-    virtual M2C_UNK m92();
+    virtual s32 m92();
     virtual void m93();
     virtual void m94();
     virtual void m95();
-    virtual M2C_UNK m96();
+    virtual s32 m96();
 };
 
 struct CBase_800c63cc { char pad[0x18]; };
@@ -200,16 +197,16 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
-    virtual M2C_UNK m82();
-    virtual M2C_UNK m83();
-    virtual M2C_UNK m84();
-    virtual M2C_UNK m85();
-    virtual M2C_UNK m86();
-    virtual M2C_UNK m87();
-    virtual M2C_UNK m88();
-    virtual M2C_UNK m89();
-    virtual M2C_UNK m90();
+    virtual s32 m81();
+    virtual s32 m82();
+    virtual s32 m83();
+    virtual s32 m84();
+    virtual s32 m85();
+    virtual s32 m86();
+    virtual s32 m87();
+    virtual s32 m88();
+    virtual s32 m89();
+    virtual s32 m90();
     virtual void m91();
     virtual void m92();
     virtual void m93();
@@ -218,7 +215,7 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m96();
     virtual void m97();
     virtual void m98();
-    virtual M2C_UNK m99();
+    virtual s32 m99();
 };
 
 extern "C" {

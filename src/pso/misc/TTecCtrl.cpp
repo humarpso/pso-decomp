@@ -3,10 +3,6 @@
 TTecCtrl::~TTecCtrl() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8022F068_lbl_804CC934 {
     u8 * value;
@@ -17,7 +13,7 @@ extern "C" {
 u8 * TLobby__sub_8001FE7C(void *, s16);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 void clear_zonde_beam_vertex_pointer(void);
-s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+s32 TLobby__sub_803DA16C(void *, s32);
 extern RecoveredGlobal_8022F068_lbl_804CC934 technique_ringwave_texture_list;
 extern u8 *technique_effect_bml;
 extern void **lbl_805D63B0;
@@ -43,7 +39,7 @@ void* get_technique_base_params(int a0);
 void *__ct__8TTecCtrlFv(void *arg0);
 void render__8TTecCtrlFv(void);
 void run_task__8TTecCtrlFv(void);
-M2C_UNK reset_telepipe_visit_counts();
+s32 reset_telepipe_visit_counts();
 void __ct__7TObjectFP7TObject(void *);
 
 void render__8TTecCtrlFv(void) {  }
@@ -66,26 +62,26 @@ void run_task__8TTecCtrlFv(void) {
     reset_telepipe_visit_counts();
 }
 
-extern M2C_UNK __vt__8TTecCtrl[];
+extern s32 __vt__8TTecCtrl[];
 extern void *TTecCtrl__name;
 
 void *__ct__8TTecCtrlFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TTecCtrl;
-    M2C_FIELD(arg0, void **, 0x0) = TTecCtrl__name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TTecCtrl;
+    *(void **)((s8 *)arg0 + 0x0) = TTecCtrl__name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
 typedef char RecoveredGlobal_8022F068_lbl_804CC934_size[sizeof(RecoveredGlobal_8022F068_lbl_804CC934) == 0xC ? 1 : -1];
 void TLobby__sub_8022F068(void) {
     u8 *temp_r4;
     clear_zonde_beam_vertex_pointer();
-    if ((u32) M2C_FIELD(technique_ringwave_texture_list.value, u32 *, 8) != 0U) {
+    if ((u32) *(u32 *)((s8 *)technique_ringwave_texture_list.value + 8) != 0U) {
         TLobby__sub_803DA16C(&technique_ringwave_texture_list.value, (s32) technique_ringwave_texture_list.value);
     }
     if ((void **) lbl_805D63B0 != NULL) {
         temp_r4 = (u8 *)(*lbl_805D63B0);
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 8) != 0U) {
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 8) != 0U) {
             TLobby__sub_803DA16C(lbl_805D63B0, (s32) temp_r4);
         }
         safe_free__23TAdSinglePlyChrSelectGCFUi((u32) lbl_805D63B0);

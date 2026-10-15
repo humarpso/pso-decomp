@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Ent_800D76E8 {
     f32 ax, ay, az;
@@ -26,14 +22,14 @@ extern "C" {
 
 void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2);
 void flush_dropped_meseta__10TObjPlayerFPv(u8 *arg0);
-M2C_UNK draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, M2C_UNK);
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
+s32 draw_trail_strip__10TObjPlayerFPvPvi(void *, s32, s32);
+s32 init_xyz_limits__10TObjPlayerFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void flush_dropped_meseta__10TObjPlayerFPv(u8 *arg0) {
-    if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0x1C) > 1)) {
+    if ((toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0x1C) > 1)) {
         init_xyz_limits__10TObjPlayerFv();
-        draw_trail_strip__10TObjPlayerFPvPvi(arg0 + 0x20, M2C_FIELD(arg0, s32 *, 0x1C) * 2, 1);
+        draw_trail_strip__10TObjPlayerFPvPvi(arg0 + 0x20, *(s32 *)((s8 *)arg0 + 0x1C) * 2, 1);
     }
 }
 
@@ -80,8 +76,8 @@ void TObjPlayer__sub_800D76E8(Trail_800D76E8 *arg0) {
 }
 
 void TObjPlayer__sub_800D7818(void *arg0, s32 arg1, s32 arg2) {
-    M2C_FIELD(arg0, s32 *, 0x120) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x124) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x120) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x124) = arg2;
 }
 
 }

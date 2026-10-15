@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80177330_lbl_804B43F0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80177330_lbl_804B43F0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80177330_lbl_804B43F0_size[sizeof(RecoveredGlobal_80177330_lbl_804B43F0) == 0x10 ? 1 : -1];
 
 struct VBase_801773D8 { u8 pad[0x18]; };
@@ -77,7 +73,7 @@ extern RecoveredGlobal_80177330_lbl_804B43F0 bm_fe_obj_tank_hikari_resource_desc
 extern u32 TOSparkMachine01__static_resource;
 void load_static_resource__16TOSparkMachine01Fv(void);
 void construct_world_actor_base(void *, s32);
-extern M2C_UNK __vt__16TOSparkMachine01[];
+extern s32 __vt__16TOSparkMachine01[];
 extern s32 lbl_805D3174;
 extern u32 TOSparkMachine01__static_resource;
 extern s32 tl_05;
@@ -133,7 +129,7 @@ void update_spark_toggle__16TOSparkMachine01FPvi(void *arg0, s32 i) {
 
 void run_task__16TOSparkMachine01Fv(u8 *arg0) {
     s32 var_r31;
-    if (TOSparkMachine01__data_805DB9EC < M2C_FIELD(arg0, f32 *, 0x6C)) {
+    if (TOSparkMachine01__data_805DB9EC < *(f32 *)((s8 *)arg0 + 0x6C)) {
         var_r31 = 0;
         do {
             update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(var_r31));
@@ -141,9 +137,9 @@ void run_task__16TOSparkMachine01Fv(u8 *arg0) {
         } while (var_r31 < 4);
         return;
     }
-    M2C_FIELD(arg0, s8 *, 0xA3) = 0;
-    M2C_FIELD(arg0, s8 *, 0xA2) = 0;
-    M2C_FIELD(arg0, s8 *, 0xA0) = 0;
+    *(s8 *)((s8 *)arg0 + 0xA3) = 0;
+    *(s8 *)((s8 *)arg0 + 0xA2) = 0;
+    *(s8 *)((s8 *)arg0 + 0xA0) = 0;
     update_spark_toggle__16TOSparkMachine01FPvi((void *)(arg0), (s32)(1));
 }
 
@@ -192,7 +188,7 @@ void destroy_static_instance__16TOSparkMachine01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__16TOSparkMachine01[];
+extern s32 __vt__16TOSparkMachine01[];
 
 void load_static_resource__16TOSparkMachine01Fv(void) {
     s32 temp_r3;
@@ -207,7 +203,7 @@ void load_static_resource__16TOSparkMachine01Fv(void) {
 
 void *__dt__16TOSparkMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TOSparkMachine01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TOSparkMachine01;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct E3_8020AB50 { s32 a; s32 name; s32 c; };
 
 struct E2_8020AB50 { E3_8020AB50 *recs; s32 count; };
@@ -9,10 +9,10 @@ struct E1_8020AB50 { E2_8020AB50 *recs; s32 count; };
 extern "C" {
 s32 read_disc_file(void *, void *);
 void debug_print__6TLobbyFii(const char *, ...);
-M2C_UNK replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
-M2C_UNK bswap_enemy_set_row(void *);
-M2C_UNK reserve_enemy_set_actor_ids(void *, u32, s32);
-M2C_UNK init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
+s32 replace_file_extension__6TLobbyFPvPvPv(void *, s32, void *);
+s32 bswap_enemy_set_row(void *);
+s32 reserve_enemy_set_actor_ids(void *, u32, s32);
+s32 init_floor_enemy_count__6TLobbyFiPvUi(s32, void *, s32);
 s32 get_game_play_mode();
 extern char lbl_8044BBA8[];
 extern char lbl_8044BBB8[];

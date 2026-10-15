@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void update_render_flags__13TObjTombstoneFPv(u8 *arg0);
-M2C_UNK PPCSync();
-M2C_UNK scroll_ginja_mesh_uvs(void *, int, int, int, int);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 PPCSync();
+s32 scroll_ginja_mesh_uvs(void *, int, int, int, int);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 
 extern u32 TObjTombstone__shared_resource_object;
 extern s32 lbl_805D4E4C;
@@ -25,24 +21,24 @@ void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
 
     if ((u32) TObjTombstone__shared_resource_object != 0U) {
         if ((s32) lbl_805D4E4C == 0) {
-            scroll_ginja_mesh_uvs((void *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30), s32 *, 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
+            scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
             lbl_805D4E4C = 1;
             PPCSync();
         }
-        temp_r3 = (unsigned char *) (M2C_FIELD(M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, void **, 0x34), void **, 0x2C), void **, 0x30), void **, 0x30));
-        temp_r4 = M2C_FIELD(temp_r3, s32 **, 0x30);
-        if (M2C_FIELD(arg0, s32 *, 0x230) & 0x10) {
-            M2C_FIELD(temp_r3, s32 *, 0) = (s32) (M2C_FIELD(temp_r3, s32 *, 0) & 0xFFFFFFF7);
+        temp_r3 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 0x30));
+        temp_r4 = *(s32 **)((s8 *)temp_r3 + 0x30);
+        if (*(s32 *)((s8 *)arg0 + 0x230) & 0x10) {
+            *(s32 *)((s8 *)temp_r3 + 0) = (s32) (*(s32 *)((s8 *)temp_r3 + 0) & 0xFFFFFFF7);
             *temp_r4 |= 8;
         } else {
-            M2C_FIELD(temp_r3, s32 *, 0) = (s32) (M2C_FIELD(temp_r3, s32 *, 0) | 8);
+            *(s32 *)((s8 *)temp_r3 + 0) = (s32) (*(s32 *)((s8 *)temp_r3 + 0) | 8);
             *temp_r4 &= 0xFFFFFFF7;
         }
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-        draw_ginja_object((void *) (M2C_FIELD(arg0, void **, 0x34)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+        draw_ginja_object((void *) (*(void **)((s8 *)arg0 + 0x34)));
         pop_matrix();
     }
 }

@@ -8,13 +8,8 @@
 #include "pso/TSocket.h"
 #include "pso/TTcpSocket.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_80078378_lbl_8048D3B8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x3C];
 };
 
@@ -34,7 +29,6 @@ struct R_800781B8 { s16 a; s32 b; };
 
 struct C_800781B8 { s32 len; s8 a; s8 b; s8 c; u8 pad[8]; };
 
-typedef s32 M2C_UNK;
 struct Sock_800782B8 { char pad[0x1c]; s32 f1c; u16 port_a; u16 port_b; u8 pad24[4]; s16 fd; };
 
 struct Q_800782B8 { s32 len; s32 v; u8 pad[0xc]; };
@@ -77,8 +71,8 @@ struct VObj_80078064 : Base_80078064 {
 
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1);
 void reset_buffer(u8 *arg0);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TSocketFv(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TSocketFv(void *, s32);
 
 void run_task__7TObjectFv();
 void render__7TObjectFv();
@@ -105,7 +99,7 @@ void *__vt__10TUdpSocket[11] = {
 void *__dt__10TUdpSocketFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
         struct VObj_80078064 *o = (struct VObj_80078064 *)arg0;
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__10TUdpSocket;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__10TUdpSocket;
         o->m5();
         __dt__7TSocketFv(arg0, 0);
         if (arg1 > 0) {
@@ -117,7 +111,7 @@ void *__dt__10TUdpSocketFv(void *arg0, s16 arg1) {
 
 void reset_buffer(u8 *arg0) {
     memset(arg0 + 0x74, 0, 0x800);
-    M2C_FIELD(arg0, s8 *, 0x2B) = 1;
+    *(s8 *)((s8 *)arg0 + 0x2B) = 1;
 }
 typedef char RecoveredGlobal_80078378_lbl_8048D3B8_size[sizeof(RecoveredGlobal_80078378_lbl_8048D3B8) == 0x40 ? 1 : -1];
 
@@ -192,26 +186,26 @@ s16 open_socket__10TUdpSocketFPv(Sock_800782B8 *arg0) {
     if (arg0->fd < 0) {
         return -1;
     }
-    (&udp_socket_slots.value)[arg0->fd - 0x400] = (M2C_UNK)arg0;
+    (&udp_socket_slots.value)[arg0->fd - 0x400] = (s32)arg0;
     return arg0->fd;
 }
 
 s32 handle_socket_event__10TUdpSocketFsPv(s16 arg0, u8 *arg1) {
-    M2C_UNK (*temp_r12)(void *);
+    s32 (*temp_r12)(void *);
     u8 *temp_r5;
-    temp_r5 = (u8 *)(M2C_FIELD(&udp_socket_slots.value, M2C_UNK *, ((M2C_FIELD(arg1, s16 *, 0) - 0x400) * 4)));
+    temp_r5 = (u8 *)(*(s32 *)((s8 *)(&udp_socket_slots.value) + ((*(s16 *)((s8 *)arg1 + 0) - 0x400) * 4)));
     if (temp_r5 == NULL) {
         return 1;
     }
     if (arg0 == 0) {
-        M2C_FIELD(arg1, s32 *, 4) = (s32) (temp_r5 + 0x74);
+        *(s32 *)((s8 *)arg1 + 4) = (s32) (temp_r5 + 0x74);
         ((void (*)(void *, void *))copy_udp_socket_event_record)(temp_r5 + 0x884, arg1);
-        M2C_FIELD(arg1, s16 *, 2) = 0x800;
+        *(s16 *)((s8 *)arg1 + 2) = 0x800;
     } else {
-        M2C_FIELD(temp_r5, s8 *, 0x2B) = 0;
-        M2C_FIELD(temp_r5, s16 *, 0x2E) = 0;
-        M2C_FIELD(temp_r5, s16 *, 0x2C) = (s16) M2C_FIELD(arg1, s16 *, 2);
-        temp_r12 = M2C_FIELD(temp_r5, M2C_UNK (**)(void *), 0x880);
+        *(s8 *)((s8 *)temp_r5 + 0x2B) = 0;
+        *(s16 *)((s8 *)temp_r5 + 0x2E) = 0;
+        *(s16 *)((s8 *)temp_r5 + 0x2C) = (s16) *(s16 *)((s8 *)arg1 + 2);
+        temp_r12 = *(s32 (**)(void *))((s8 *)temp_r5 + 0x880);
         if (temp_r12 != NULL) {
             temp_r12(temp_r5);
         }

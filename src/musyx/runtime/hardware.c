@@ -299,10 +299,10 @@ void hwOff(s32 arg0) {
 void hwSetAUXProcessingCallbacks(u8 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     u8 *temp_r3;
     temp_r3 = (u8 *)&lbl_805663D8 + (arg0 * 0xBC);
-    M2C_FIELD(temp_r3, s32 *, 0xAC) = arg1;
-    M2C_FIELD(temp_r3, s32 *, 0xB4) = arg2;
-    M2C_FIELD(temp_r3, s32 *, 0xB0) = arg3;
-    M2C_FIELD(temp_r3, s32 *, 0xB8) = arg4;
+    *(s32 *)((s8 *)temp_r3 + 0xAC) = arg1;
+    *(s32 *)((s8 *)temp_r3 + 0xB4) = arg2;
+    *(s32 *)((s8 *)temp_r3 + 0xB0) = arg3;
+    *(s32 *)((s8 *)temp_r3 + 0xB8) = arg4;
 }
 #pragma pop
 
@@ -445,10 +445,10 @@ void hwDisableHRTF(void) {
 s32 hwGetVirtualSampleID(s32 arg0) {
     u8 *temp_r3;
     temp_r3 = (unsigned char *) (lbl_805D748C + (arg0 * 0xF4));
-    if ((u8) M2C_FIELD(temp_r3, u8 *, 0xEC) == 0) {
+    if ((u8) *(u8 *)((s8 *)temp_r3 + 0xEC) == 0) {
         return -1;
     }
-    return M2C_FIELD(temp_r3, s32 *, 0xE8);
+    return *(s32 *)((s8 *)temp_r3 + 0xE8);
 }
 
 bool hwVoiceInStartup(s32 i) {

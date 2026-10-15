@@ -1,16 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 extern "C" {
-s32 TObjFish__sub_8001EDB0(u32, M2C_UNK);
-s32 get_bml_model(u32, M2C_UNK);
-M2C_UNK rotate_matrix_zyx(M2C_UNK, s32, s32, s32);
-M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_chunk_object(s32);
+s32 TObjFish__sub_8001EDB0(u32, s32);
+s32 get_bml_model(u32, s32);
+s32 rotate_matrix_zyx(s32, s32, s32, s32);
+s32 scale_matrix(s32, f32, f32, f32);
+s32 translate_matrix(s32, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_chunk_object(s32);
 extern u32 TObjEneRecon__recobox_static_instance;
 extern const f32 lbl_805DF3B8;
 void render_shadows__12TObjEneReconFv(void *arg0);

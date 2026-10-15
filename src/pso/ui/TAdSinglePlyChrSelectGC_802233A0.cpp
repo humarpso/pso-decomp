@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(M2C_UNK *arg0, M2C_UNK *arg1);
-M2C_UNK copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_802115C0(void *);
+void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(s32 *arg0, s32 *arg1);
+s32 copy_item_data__23TAdSinglePlyChrSelectGCFPvPv(void *, void *);
+s32 TAdSinglePlyChrSelectGC__sub_802115C0(void *);
 
-void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(M2C_UNK *arg0, M2C_UNK *arg1) {
+void swap_item_data__23TAdSinglePlyChrSelectGCFPvPv(s32 *arg0, s32 *arg1) {
     struct { u8 _pad[0x20]; } sp8;
 
     TAdSinglePlyChrSelectGC__sub_802115C0(&sp8);

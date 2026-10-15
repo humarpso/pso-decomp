@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct T_80308328 { u8 pad0[0x40]; u32 flags; u8 pad44[0xC]; s32 f50; u8 pad54[0x1C]; void *f70; void *f74; s32 f78; s32 f7c; };
 
 extern "C" {
 s32 draw_icon__10TObjPlayerFPvii(void *, s32, s32);
-M2C_UNK fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
+s32 fire_shot_at_target__11TItemWeaponFv(void *, void *, int, int);
 void fire_nug2000_from_joint__10TObjPlayerFPv(u8 *arg0);
 void spawn_nug2000_hit_explosion();
 s32 apply_config_if_valid__13TAdVIConfigGCFii(s32, s32);
@@ -27,9 +23,9 @@ void config_nug2000_attack_collider__10TObjPlayerFPvPv(void *self, T_80308328 *p
 }
 
 void fire_nug2000_from_joint__10TObjPlayerFPv(u8 *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     draw_icon__10TObjPlayerFPvii(arg0, 1, (s32) &sp8);
-    fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (M2C_FIELD(arg0, s32 *, 0x188)), (int) (0));
+    fire_shot_at_target__11TItemWeaponFv((void *) (arg0), (void *) (&sp8), (int) (*(s32 *)((s8 *)arg0 + 0x188)), (int) (0));
 }
 
 }

@@ -157,7 +157,7 @@ void *__vt__16TObjOnlineEnding[13] = {
 };
 #define lbl_804E3A38 ((f32 *)lbl_804E3A38)
 #define online_ending_quad_vertices ((V2_802E4C70 *)online_ending_quad_vertices)
-#define __vt__16TObjOnlineEnding ((const M2C_UNK *)__vt__16TObjOnlineEnding)
+#define __vt__16TObjOnlineEnding ((const s32 *)__vt__16TObjOnlineEnding)
 
 int get_instance__16TObjOnlineEndingFv(void) {  return player_unique_pair_entry_count; }
 
@@ -167,11 +167,6 @@ void* get_attack_entry__16TObjOnlineEndingFi(int a0) {  return (char*)lbl_8050DA
 void close_window__16TObjOnlineEndingFPv(void* p) { if (*(unsigned int*)((char*)p + 0x154) != 0) { TWindow__close(*(void**)((char*)p + 0x154)); *(int*)((char*)p + 0x154) = 0; } }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Vec_802E4E44 { f32 x, y, z; };
 
@@ -195,7 +190,6 @@ struct Cam_802E4E44 {
     u8 pad34[0x8];
 };
 
-typedef s32 M2C_UNK;
 struct V2_802E4C70 { f32 x, y; };
 
 struct Ent_802E4C70 { s32 active; u16 id; u8 name[0x12]; void *f18; s32 f1C; f32 f20; s32 f24; };
@@ -214,25 +208,25 @@ struct Obj_802E4C70 {
 
 extern "C" {
 u32 get_player_by_client_id(u16);
-M2C_UNK activate_camera_mode(s32);
-M2C_UNK set_active_camera_pose_from_params(Cam_802E4E44 *);
+s32 activate_camera_mode(s32);
+s32 set_active_camera_pose_from_params(Cam_802E4E44 *);
 void VecCopy__FP3VecPC3Vec(Vec_802E4E44 *, const Vec_802E4E44 *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 extern Vec_802E4E44 lbl_80472B9C;
 extern Vec_802E4E44 lbl_80472BA8;
 void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0);
-M2C_UNK draw_player_model_by_client__10TObjPlayerFUsiff(int, int, f32, f32);
+s32 draw_player_model_by_client__10TObjPlayerFUsiff(int, int, f32, f32);
 u32 calc_text_width(void *);
-M2C_UNK render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_model_motion(int, int, f32);
+s32 render_status_line__15TAdSubPlyItemGCFPvi(void *, int, f32, f32, f32);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_model_motion(int, int, f32);
 extern const f32 online_ending_scene_scale;
 extern f32 online_ending_quad_y_offset;
 extern f32 online_ending_scene_z_offset;
@@ -251,15 +245,15 @@ extern "C" {
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0);
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1);
-M2C_UNK restore_player_cameras();
+s32 restore_player_cameras();
 s32 get_online_result_value__6TLobbyFv();
 s32 TLobby__sub_80070ACC();
 s32 TWindowChallengeResult__ct(s32, s32, s32, s32);
 s32 TWindowSubStatusDisp__sub_800718D0();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle__13TParticleCtrlFPvs(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle__13TParticleCtrlFPvs(void *, s32);
 s32 get_card_window_value__16TObjOnlineEndingFv();
-s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
+s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 s32 is_flag_set__6TLobbyFv();
 
 void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
@@ -268,7 +262,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
     s32 temp_r30;
     s32 var_r29;
 
-    M2C_FIELD(arg0, s32 *, 0x154) = 0;
+    *(s32 *)((s8 *)arg0 + 0x154) = 0;
     if (is_flag_set__6TLobbyFv() != 0) {
         temp_r30 = get_layout_id__20TWindowSubStatusDispFv(-1) - 1;
         {
@@ -280,7 +274,7 @@ void create_result_window__16TObjOnlineEndingFPv(void *arg0) {
                 temp_r31 = TWindowSubStatusDisp__sub_800718D0();
                 var_r29 = TWindowChallengeResult__ct(var_r29, TLobby__sub_80070ACC(), temp_r31, temp_r30_2);
             }
-            M2C_FIELD(arg0, s32 *, 0x154) = var_r29;
+            *(s32 *)((s8 *)arg0 + 0x154) = var_r29;
         }
         }
     }
@@ -365,7 +359,7 @@ void update__16TObjOnlineEndingFPv(Obj_802E4E44 *arg0) {
 
 void *destroy__16TObjOnlineEndingFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, const M2C_UNK **, 0x18) = __vt__16TObjOnlineEnding;
+        *(const s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjOnlineEnding;
         close_window__16TObjOnlineEndingFPv(arg0);
         restore_player_cameras();
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
@@ -396,7 +390,7 @@ struct Obj_802E4FFC {
     f32 f150;
 };
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_motion(s32, s32);
 s32 TObjFish__sub_8001EDB0(s32, s32);
 s32 get_bml_model(s32, s32);

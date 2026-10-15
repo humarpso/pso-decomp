@@ -29,24 +29,20 @@ void *__dt__13TItemEffEquipFv(Equip_Self *self, s16 arg1) {
 }
 }
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1);
 void notify_hit__13TItemEffFlameFPv(u8 *arg0);
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0);
-M2C_UNK set_item_count__6TLobbyFPvs(void *, M2C_UNK);
-M2C_UNK TLobby__sub_80103B04();
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 set_item_count__6TLobbyFPvs(void *, s32);
+s32 TLobby__sub_80103B04();
+s32 unregister_object_by_id(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
 u8 *get_player_by_client_id(u16);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK clear_obj_links(void *);
-M2C_UNK obj_getField1c(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 clear_obj_links(void *);
+s32 obj_getField1c(void *);
 struct Obj_80108C90 {
     u8 pad0[0x18];
     void *vt;
@@ -65,25 +61,21 @@ void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 extern u8 lbl_8043E1A0[];
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void create__13TItemEffEquipFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 void play_effect__13TItemEffFlameFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 void *TItemEffEquip__ct(void *, void *, void *, void *, void *, void *);
-M2C_UNK spawn_particle_effect(s32, M2C_UNK);
+s32 spawn_particle_effect(s32, s32);
 void *__nw__7TObjectFUl(int);
 struct Equip_80108A20 { s32 x0; u8 pad4[0x18 - 4]; void *vt; void *src; s32 x20; void *x24; };
 void spawn_item_timer__13TItemAttackerFiii(void *, void *, s32);
-M2C_UNK spawn_equip_particle_effect(void *, void *);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK retire_equipment_effect[];
-extern M2C_UNK TItemEffEquip__sub_801088F8[];
+s32 spawn_equip_particle_effect(void *, void *);
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern s32 retire_equipment_effect[];
+extern s32 TItemEffEquip__sub_801088F8[];
 extern s32 TItemEffEquip__class_name;
 Obj_80108C90 *TItemEffFlame__sub_80108C90(Obj_80108C90 *self, void *parent, s16 a, s32 b);
 
@@ -191,9 +183,9 @@ struct VObj80108B5C_80108b5c : VBase0x18_80108b5c {
 u8 *notify_hit_and_get_pos__13TItemEffFlameFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xAC));
+    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (temp_r3 != NULL) {
-        ((VObj80108B5C_80108b5c *)temp_r3)->m63(M2C_FIELD(arg0, s32 *, 0xB0), arg0 + 0x38);
+        ((VObj80108B5C_80108b5c *)temp_r3)->m63(*(s32 *)((s8 *)arg0 + 0xB0), arg0 + 0x38);
     }
     return arg0 + 0x38;
 }
@@ -269,9 +261,9 @@ struct VObj80108BB0_80108bb0 : VBase0x18_2_80108bb0 {
 void notify_hit__13TItemEffFlameFPv(u8 *arg0) {
     u8 *temp_r3;
 
-    temp_r3 = get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0xAC));
+    temp_r3 = get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0xAC));
     if (temp_r3 != NULL) {
-        ((VObj80108BB0_80108bb0 *)temp_r3)->m63(M2C_FIELD(arg0, s32 *, 0xB0), arg0 + 0x38);
+        ((VObj80108BB0_80108bb0 *)temp_r3)->m63(*(s32 *)((s8 *)arg0 + 0xB0), arg0 + 0x38);
     }
 }
 
@@ -279,8 +271,8 @@ extern void *lbl_8049F038[];
 
 void *destroy__13TItemEffFlameFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)lbl_8049F038;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0xA4) != 0U) {
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)lbl_8049F038;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0xA4) != 0U) {
             unregister_object_by_id(arg0);
             clear_obj_links(arg0);
             obj_getField1c(arg0);

@@ -1,28 +1,22 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x54];
 };
 
 struct RecoveredGlobal_8029951C_lbl_8046518C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x54];
 };
 
 struct Ent_80299488 { s32 a; s32 b; s32 c; };
 
-typedef s32 M2C_UNK;
 struct Ent_802995A0 {
     s32 a;
     f32 depth;
@@ -44,7 +38,7 @@ struct Icon_802997DC { s32 state; f32 a; f32 b; };
 struct Grp_802997DC { s32 n; s32 ids[4]; };
 
 extern "C" {
-s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
+s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 void TObjCMIcon__sub_802994B0(s32 arg0);
 void TObjCMIcon__sub_8029957C(void* p, void* q);
@@ -57,7 +51,7 @@ void reset_icon_flags__10TObjCMIconFv(void);
 void reset_icon_flags__10TObjCMIconFv(void);
 void TObjCMIcon__sub_802994B0(s32 arg0);
 void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1);
-s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
+s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
 void set_depth_buffer_settings_1__Fv(void);
@@ -68,9 +62,9 @@ void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
 extern f32 lbl_804DBE6C[];
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
-void render__10TObjCMIconFv(M2C_UNK self);
+void render__10TObjCMIconFv(s32 self);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
-s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1);
+s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1);
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 extern RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0 TObjCMIcon__icon_entries;
 extern f32 TObjCMIcon__horizontal_scroll_offset;
@@ -79,7 +73,7 @@ extern const f32 lbl_805DDC48;
 extern const f32 lbl_805DDC4C;
 extern const f32 lbl_805DDC50;
 extern const f32 lbl_805DDC54;
-void run_task__10TObjCMIconFv(M2C_UNK arg0);
+void run_task__10TObjCMIconFv(s32 arg0);
 }
 
 extern "C" {
@@ -98,7 +92,7 @@ void reset_icon_flags__10TObjCMIconFv(void) {
 }
 
 void TObjCMIcon__sub_802994B0(s32 arg0) {
-    M2C_FIELD(((u8 *)(&TObjCMIcon__icon_entries.value) + (arg0 * 0xC)), s32 *, 0) = 0;
+    *(s32 *)((s8 *)((u8 *)(&TObjCMIcon__icon_entries.value) + (arg0 * 0xC)) + 0) = 0;
 }
 
 typedef char RecoveredGlobal_8029951C_lbl_8046518C_size[sizeof(RecoveredGlobal_8029951C_lbl_8046518C) == 0xC ? 1 : -1];
@@ -113,24 +107,24 @@ void TObjCMIcon__sub_802994C8(s32 arg0, s32 *arg1) {
 }
 
 void init_icon_table__10TObjCMIconFv(void) {
-    M2C_UNK *var_r30;
+    s32 *var_r30;
     s32 var_r29;
     var_r29 = 0;
-    var_r30 = (M2C_UNK *)(&(*(RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 *)&TObjCMIcon__icon_entries).value);
+    var_r30 = (s32 *)(&(*(RecoveredGlobal_8029951C_TObjCMIcon__data_805409E0 *)&TObjCMIcon__icon_entries).value);
     do {
         TObjCMIcon__sub_8029957C((void*)((int) (var_r30)), (void*)((void *) (&lbl_8046518C.value)));
         var_r29 += 1;
-        var_r30 = (M2C_UNK *)((u8 *)((M2C_UNK *)((u8 *)(var_r30) + 0xC)));
+        var_r30 = (s32 *)((u8 *)((s32 *)((u8 *)(var_r30) + 0xC)));
     } while (var_r29 < 7);
     TObjCMIcon__horizontal_scroll_offset = 0.0f;
 }
 
 void TObjCMIcon__sub_8029957C(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((char*)q + 0x0); *(f32*)((char*)p + 0x4) = *(f32*)((char*)q + 0x4); *(f32*)((char*)p + 0x8) = *(f32*)((char*)q + 0x8); }
-s32 TObjCMIcon__sub_80299598(M2C_UNK arg0, s32 arg1) {
+s32 TObjCMIcon__sub_80299598(s32 arg0, s32 arg1) {
     return arg1;
 }
 struct RecoveredGlobal_802994B0_TObjCMIcon__data_805409E0;
-void render__10TObjCMIconFv(M2C_UNK self) {
+void render__10TObjCMIconFv(s32 self) {
     s32 idx[7];
     f32 keys[7];
     V2_802995A0 pos;
@@ -184,7 +178,7 @@ void render__10TObjCMIconFv(M2C_UNK self) {
 }
 #pragma push
 #pragma fp_contract on
-void run_task__10TObjCMIconFv(M2C_UNK arg0) {
+void run_task__10TObjCMIconFv(s32 arg0) {
     Icon_802997DC *p;
     Grp_802997DC *g;
     s32 i;

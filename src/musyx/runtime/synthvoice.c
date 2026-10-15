@@ -129,8 +129,8 @@ void vidRemoveVoiceReferences(Prog_803B25CC *p) {
 }
 
 s32 vidMakeRoot(u8 *arg0) {
-    M2C_FIELD(arg0, void **, 0xFC) = (void *) M2C_FIELD(arg0, void **, 0xF8);
-    return M2C_FIELD(M2C_FIELD(arg0, void **, 0xF8), s32 *, 8);
+    *(void **)((s8 *)arg0 + 0xFC) = (void *) *(void **)((s8 *)arg0 + 0xF8);
+    return *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xF8)) + 8);
 }
 
 #define vidCurrentId (*(u32 *)&lbl_805D7438)

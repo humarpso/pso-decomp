@@ -1,11 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_80322994___vt__13TBoss6Kakusan { s32 value; u8 remaining[0x14]; };
 
 struct V3_80322644 { f32 x; f32 y; f32 z; };
 
@@ -59,7 +54,7 @@ struct VObj_80322438 : Base_80322438 {
 };
 
 extern "C" {
-u8 *__nw__7TObjectFUl(M2C_UNK);
+u8 *__nw__7TObjectFUl(s32);
 u8 *create_kakusan__11TBoss6Type1FiPvPvsf(s32 arg0, u8 *arg1, u8 *arg2, s16 arg3, f32 farg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(s32);
@@ -67,7 +62,7 @@ u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 f32 vector_length(void *);
-extern M2C_UNK __vt__13TBoss6Kakusan[];
+extern s32 __vt__13TBoss6Kakusan[];
 extern s32 TBoss6Kakusan__name;
 extern const f32 TBoss6Kakusan__data_805DF518;
 extern const f32 TBoss6Kakusan__data_805DF51C;
@@ -214,7 +209,7 @@ s32 is_out_of_range__13TBoss6KakusanFPv(Obj_80322644 *arg0) {
 
 void render__13TBoss6KakusanFv(void) {  }
 
-extern M2C_UNK __vt__13TBoss6Kakusan[];
+extern s32 __vt__13TBoss6Kakusan[];
 
 void run_task__13TBoss6KakusanFv(u8 *arg0) {
     Vec_803226C0 v;
@@ -234,19 +229,19 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         boss6_kakusan_homing_end_frame = 0x25;
         TBoss6Kakusan__homing_end_frame_initialized = 1;
     }
-    if (M2C_FIELD(arg0, s32 *, 0x2C) >= TBoss6Kakusan__homing_start_frame && M2C_FIELD(arg0, s32 *, 0x2C) <= boss6_kakusan_homing_end_frame) {
+    if (*(s32 *)((s8 *)arg0 + 0x2C) >= TBoss6Kakusan__homing_start_frame && *(s32 *)((s8 *)arg0 + 0x2C) <= boss6_kakusan_homing_end_frame) {
         speed = vector_length(arg0 + 0x3C);
         if (!(speed <= TBoss6Kakusan__data_805DF51C)) {
-            pl = (u8 *)get_player_by_client_id(M2C_FIELD(arg0, u16 *, 0x20));
+            pl = (u8 *)get_player_by_client_id(*(u16 *)((s8 *)arg0 + 0x20));
             if (is_active__14TBoss6PlotFalzFPv() != 0) {
                 VecCopy__FP3VecPC3Vec(&v, pl + 0x38);
                 v.y += lbl_805DF538;
                 subtract_vector(&v, arg0 + 0x30);
                 if (!(vector_length(&v) <= TBoss6Kakusan__data_805DF51C)) {
                     normalize_vector(&v);
-                    v.x *= M2C_FIELD(arg0, f32 *, 0x28);
-                    v.y *= M2C_FIELD(arg0, f32 *, 0x28);
-                    v.z *= M2C_FIELD(arg0, f32 *, 0x28);
+                    v.x *= *(f32 *)((s8 *)arg0 + 0x28);
+                    v.y *= *(f32 *)((s8 *)arg0 + 0x28);
+                    v.z *= *(f32 *)((s8 *)arg0 + 0x28);
                     VecCopy__FP3VecPC3Vec(&w, arg0 + 0x3C);
                     normalize_vector(&w);
                     vec3_add_to(&v, &w);
@@ -262,26 +257,26 @@ void run_task__13TBoss6KakusanFv(u8 *arg0) {
         }
     }
     vec3_add_to(arg0 + 0x30, arg0 + 0x3C);
-    if (M2C_FIELD(arg0, void **, 0x54) != NULL) {
-        copy_pos__11TNowLoadingFPvPv(M2C_FIELD(arg0, void **, 0x54), arg0 + 0x30);
+    if (*(void **)((s8 *)arg0 + 0x54) != NULL) {
+        copy_pos__11TNowLoadingFPvPv(*(void **)((s8 *)arg0 + 0x54), arg0 + 0x30);
         VecCopy__FP3VecPC3Vec(&a, arg0 + 0x30);
         subtract_vector(&a, arg0 + 0x48);
         direction_to_rotation_xz(&a, &b.x, &b.z);
         *(s32 *)&b.y = 0;
-        copy_vec3__11TBoss4Type2FPvPv(M2C_FIELD(arg0, void **, 0x54), &b);
+        copy_vec3__11TBoss4Type2FPvPv(*(void **)((s8 *)arg0 + 0x54), &b);
     }
     if (is_out_of_range__13TBoss6KakusanFPv((Obj_80322644 *)arg0) != 0 || ((int (*)(void *))TBoss6Kakusan__sub_8032263C)(arg0) != 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
     check_beam_player_hits__13TBoss6KakusanFPv((u8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x2C) += 1;
+    *(s32 *)((s8 *)arg0 + 0x2C) += 1;
 }
 
 void *__dt__13TBoss6KakusanFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TBoss6Kakusan;
-        if (M2C_FIELD(arg0, void **, 0x54) != NULL) { request_destroy__11TBoss4Type2FUi(M2C_FIELD(arg0, void **, 0x54)); M2C_FIELD(arg0, M2C_UNK *, 0x54) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TBoss6Kakusan;
+        if (*(void **)((s8 *)arg0 + 0x54) != NULL) { request_destroy__11TBoss4Type2FUi(*(void **)((s8 *)arg0 + 0x54)); *(s32 *)((s8 *)arg0 + 0x54) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -296,34 +291,34 @@ u8 *TBoss6Kakusan__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4, f32 farg
     f32 temp_f2;
     u32 temp_r3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80322994___vt__13TBoss6Kakusan *)&__vt__13TBoss6Kakusan).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6Kakusan__name;
-    M2C_FIELD(arg0, s16 *, 0x20) = arg4;
-    M2C_FIELD(arg0, f32 *, 0x24) = farg0;
-    if (M2C_FIELD(arg0, f32 *, 0x24) <= TBoss6Kakusan__data_805DF518) {
-        M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805DF53C;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80322994___vt__13TBoss6Kakusan *)&__vt__13TBoss6Kakusan).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Kakusan__name;
+    *(s16 *)((s8 *)arg0 + 0x20) = arg4;
+    *(f32 *)((s8 *)arg0 + 0x24) = farg0;
+    if (*(f32 *)((s8 *)arg0 + 0x24) <= TBoss6Kakusan__data_805DF518) {
+        *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805DF53C;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x3C), (void *) (arg3));
     if (vector_length((void *) (arg0 + 0x3C)) <= TBoss6Kakusan__data_805DF51C) {
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DF53C;
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DF53C;
     }
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x30), (void *) (arg2));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x48), (void *) (arg0 + 0x30));
-    temp_f2 = M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x2B), f32 *, 4);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) temp_f2;
+    temp_f2 = *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2B)) + 4);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) temp_f2;
     if (TBoss6Kakusan__data_805DF518 == temp_f2) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = 0x14;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 0x14;
     }
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(dispatch_shared_handler_a__6TLobbyFPv(0x2F), f32 *, 0x10);
-    if (M2C_FIELD(arg0, f32 *, 0x28) < TBoss6Kakusan__data_805DF518) {
-        M2C_FIELD(arg0, f32 *, 0x28) = (f32) TBoss6Kakusan__data_805DF518;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)(dispatch_shared_handler_a__6TLobbyFPv(0x2F)) + 0x10);
+    if (*(f32 *)((s8 *)arg0 + 0x28) < TBoss6Kakusan__data_805DF518) {
+        *(f32 *)((s8 *)arg0 + 0x28) = (f32) TBoss6Kakusan__data_805DF518;
     }
-    M2C_FIELD(arg0, u32 *, 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x54);
+    *(u32 *)((s8 *)arg0 + 0x54) = create_particle_emitter((void *) (arg0 + 0x30), (int) (0x214));
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x54);
     if (temp_r3 != 0U) {
         set_flags__11TBoss4Type2FPvUi((int) (temp_r3), (int) (0x40));
     }
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     return arg0;
 }
 #pragma pop

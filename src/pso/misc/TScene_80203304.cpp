@@ -1,15 +1,10 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Tbl_8020335C { s32 v[8]; };
 
 extern "C" {
-M2C_UNK *resolve_indirect_object_record(M2C_UNK arg0, u8 *arg1);
-M2C_UNK *resolve_indirect_node_record(M2C_UNK arg0, u8 *arg1);
+s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1);
+s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 extern struct Tbl_8020335C group_selection_area_id_table;
 s32 is_global_state_in_table__19TContainerAncient01Fv(void);
@@ -19,18 +14,18 @@ extern "C" {
 
     extern int TScene__render_callback;
 
-M2C_UNK *resolve_indirect_object_record(M2C_UNK arg0, u8 *arg1) {
-    if (M2C_FIELD(arg1, s32 *, 0x1C) & 0x200) {
-        return (long *) (*M2C_FIELD(arg1, M2C_UNK **, 0));
+s32 *resolve_indirect_object_record(s32 arg0, u8 *arg1) {
+    if (*(s32 *)((s8 *)arg1 + 0x1C) & 0x200) {
+        return (long *) (**(s32 **)((s8 *)arg1 + 0));
     }
-    return M2C_FIELD(arg1, M2C_UNK **, 0);
+    return *(s32 **)((s8 *)arg1 + 0);
 }
 
-M2C_UNK *resolve_indirect_node_record(M2C_UNK arg0, u8 *arg1) {
-    if (M2C_FIELD(arg1, s32 *, 0xC) & 0x200) {
-        return (long *) (*M2C_FIELD(arg1, M2C_UNK **, 0));
+s32 *resolve_indirect_node_record(s32 arg0, u8 *arg1) {
+    if (*(s32 *)((s8 *)arg1 + 0xC) & 0x200) {
+        return (long *) (**(s32 **)((s8 *)arg1 + 0));
     }
-    return M2C_FIELD(arg1, M2C_UNK **, 0);
+    return *(s32 **)((s8 *)arg1 + 0);
 }
 
 void set_instance__6TSceneFi(int a0) { TScene__render_callback = a0; }

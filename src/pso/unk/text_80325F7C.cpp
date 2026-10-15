@@ -7,10 +7,6 @@ struct Ctl_80325F7C { u8 pad[0x38]; Vec_80325F7C pos; };
 
 struct Stk_80325F7C { Vec_80325F7C dir; Vec_80325F7C hit; Vec_80325F7C wing; Vec_80325F7C pos; Ray_80325F7C ray; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 typedef struct Vec_80326074 { f32 x; f32 y; f32 z; } Vec_80326074;
 
 typedef struct Seg_80326074 { Vec_80326074 pos; f32 pad; } Seg_80326074;

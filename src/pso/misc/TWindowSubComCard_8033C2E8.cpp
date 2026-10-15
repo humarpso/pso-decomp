@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, int);
@@ -28,15 +24,15 @@ int update_card_display__17TWindowSubComCardFPvPvPvPvPv(void*, int, int, int, in
 void update_display_state__17TWindowSubComCardFPv(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x28);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x28);
     if (!(temp_r4 & 2)) {
         if (temp_r4 & 1) {
-            if ((u32) M2C_FIELD(arg0, u32 *, 0x30) == 0U) {
+            if ((u32) *(u32 *)((s8 *)arg0 + 0x30) == 0U) {
                 update_card_display__17TWindowSubComCardFPvPvPvPvPv((void*)(arg0), 0, -1, -1, -1);
             }
         } else {
             if (temp_r4 & 4) {
-                if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
+                if ((s32) *(s32 *)((s8 *)arg0 + 0x40) != 0) {
                     set_state__17TWindowSubComCardFPvi((void *)(arg0), 3);
                     return;
                 }
@@ -44,7 +40,7 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
                 return;
             }
             if (temp_r4 & 8) {
-                if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
+                if ((s32) *(s32 *)((s8 *)arg0 + 0x40) != 0) {
                     set_state__17TWindowSubComCardFPvi((void *)(arg0), 3);
                     return;
                 }
@@ -52,7 +48,7 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
                 return;
             }
             if (temp_r4 & 0x10) {
-                if ((s32) M2C_FIELD(arg0, s32 *, 0x40) != 0) {
+                if ((s32) *(s32 *)((s8 *)arg0 + 0x40) != 0) {
                     set_state__17TWindowSubComCardFPvi((void *)(arg0), 3);
                     return;
                 }
@@ -68,7 +64,7 @@ void update_display_state__17TWindowSubComCardFPv(void *arg0) {
 
 void close_and_update_display__17TWindowSubComCardFPv(u8 *arg0) {
     close_windows__17TWindowSubComCardFPv((void*)arg0);
-    if (M2C_FIELD(arg0, s32 *, 0x28) & 1) {
+    if (*(s32 *)((s8 *)arg0 + 0x28) & 1) {
         update_card_display__17TWindowSubComCardFPvPvPvPvPv((void*)((void *) (arg0)), (int)((int) (0)), (int)((int) (-1)), (int)((int) (-1)), (int)((int) (-1)));
     }
 }

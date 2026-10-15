@@ -115,11 +115,6 @@ void store_sorted_record__11TMainCursorFPvPvPv(void* p, void* a1, void* a2) { ((
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Rec_8013E870 { u8 pad[0x124]; };
 
 struct Obj_8013E870 { u8 pad[0x5c]; Rec_8013E870 recs[1]; };
@@ -131,9 +126,9 @@ void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i);
 extern "C" {
 
 void copy_target_record__11TMainCursorFPvPv(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, u16 *, 0) = (u16) M2C_FIELD(arg1, u16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, f32 *, 4) = (f32) M2C_FIELD(arg1, f32 *, 4);
+    *(u16 *)((s8 *)arg0 + 0) = (u16) *(u16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(f32 *)((s8 *)arg0 + 4) = (f32) *(f32 *)((s8 *)arg1 + 4);
 }
 void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i) {
     TMainCursor__sub_8013E8A0((void*)(&self->recs[i]));
@@ -142,10 +137,6 @@ void init_slot__11TMainCursorFPvi(Obj_8013E870 *self, s32 i) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -162,9 +153,9 @@ u16 get_target_id__11TMainCursorFPv(void* p) { return *(u16*)((char*)p + 0x20); 
 int is_cursor_clear__11TMainCursorFPv(void* p) { return (test_flags_any((char*)p + 0x1c, 1)) == 0; }
 
 void TMainCursor__sub_8013E970(u8 *arg0, s16 arg1, s16 arg2, s16 arg3) {
-    M2C_FIELD(arg0, s16 *, 0) = arg1;
-    M2C_FIELD(arg0, s16 *, 2) = arg2;
-    M2C_FIELD(arg0, s16 *, 4) = arg3;
+    *(s16 *)((s8 *)arg0 + 0) = arg1;
+    *(s16 *)((s8 *)arg0 + 2) = arg2;
+    *(s16 *)((s8 *)arg0 + 4) = arg3;
 }
 
 void set_color_mode__11TMainCursorFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x10) = v; }

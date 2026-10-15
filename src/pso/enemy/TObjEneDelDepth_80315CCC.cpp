@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_80315D60 {
     f32 sp8;
@@ -14,9 +10,9 @@ struct Stack_80315D60 {
 extern "C" {
 extern const f32 TObjEneDelDepth__data_805DF258;
 void setup_draw_material_default__15TObjEneDelDepthFf(f32 farg0);
-M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK set_chunk_blend(M2C_UNK);
+s32 set_chunk_material_override_pair(s32, s32);
+s32 set_chunk_material_color(void *);
+s32 set_chunk_blend(s32);
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -31,8 +27,8 @@ extern "C" {
 
 int get_data__15TObjEneDelDepthFv(void);
 void reset_globals__15TObjEneDelDepthFv(void);
-M2C_UNK set_chunk_blend(M2C_UNK);
-M2C_UNK set_chunk_material_override_pair(M2C_UNK, M2C_UNK);
+s32 set_chunk_blend(s32);
+s32 set_chunk_material_override_pair(s32, s32);
 
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -63,8 +59,8 @@ void setup_draw_material__15TObjEneDelDepthFffff(f32 farg0, f32 farg1, f32 farg2
     lbl_805D5664 = chunk_polygon_flags_and_mask;
     lbl_805D5668 = chunk_polygon_flags_or_mask;
     model_render_flags |= 0x8820;
-    set_chunk_material_override_pair((M2C_UNK)(0xFF00), (M2C_UNK)(0x800));
-    set_chunk_blend((M2C_UNK)((int) (0x2100)));
+    set_chunk_material_override_pair((s32)(0xFF00), (s32)(0x800));
+    set_chunk_blend((s32)((int) (0x2100)));
     stack.spC = farg1;
     stack.sp10 = farg2;
     stack.sp8 = lbl_805DF2E0 + farg0;

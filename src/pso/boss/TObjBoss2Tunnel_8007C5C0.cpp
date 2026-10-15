@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_8007CBC4 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 pad_C[0x54];
-    M2C_UNK sp60;
+    s32 sp60;
 };
 
 struct Stack_8007CAE8 {
@@ -19,7 +15,6 @@ struct Stack_8007CAE8 {
 
 struct Load_8007CB50 { u8 pad[0x58]; s32 *data; u32 size; };
 
-typedef s32 M2C_UNK;
 struct Card_8007CCD0 {
     char file[0x12];
     char title[0x22];
@@ -51,39 +46,39 @@ struct VObj_8007C8AC : VBase_8007C8AC {
 };
 
 extern "C" {
-M2C_UNK DCFlushRange(int, int);
+s32 DCFlushRange(int, int);
 s32 TObjPlayer__sub_800845F8();
 s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdPlayerLoadGC__sub_801E1B50(int);
-M2C_UNK memcpy(int, void *, int);
+s32 memcpy(int, void *, int);
 extern s32 lbl_805D49B4;
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 s32 load_snapshot__15TObjBoss2TunnelFv(void);
-M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
-M2C_UNK draw_textured_screen_quad__10TObjPlayerFUiPvPvi(int, void *, void *, int, f32);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 draw_textured_screen_quad__10TObjPlayerFUiPvPvi(int, void *, void *, int, f32);
 extern const f32 lbl_805D9224;
 extern const f32 lbl_805D9228;
 extern const f32 lbl_805D922C;
 extern const f32 lbl_805D9230;
 void TObjBoss2Tunnel__sub_8007CAE8(u32 arg0);
-extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+extern s32 TObjBoss2Tunnel__data_80438A08[];
 void poll_load_status__15TAdPlayerLoadGCFi(s32 a, void *b);
 void poll_pso_screen_load__15TObjBoss2TunnelFv(void);
 s32 TAdPlayerLoadGC__sub_801E1538(void *, int);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 bool verify_snapshot_checksum__15TObjBoss2TunnelFv(void);
-s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
+s32 memcard_check_snapshot(s32, s32);
 void TAdPlayerLoadGC__sub_801E14E4(void *);
 void TAdPlayerLoadGC__sub_801E14E8(void *, s32);
 void build_save_file_image__15TAdPlayerLoadGCFPvPv(s32, void *, void *);
 s32 TAdSinglePlyChrSelectGC__sub_80201204(s32 *, s32);
 s32 load_player__23TAdSinglePlyChrSelectGCFiiii(s32, void *, s32, s32);
 char *strcpy(char *, const char *);
-M2C_UNK memcpy(int, void *, int);
+s32 memcpy(int, void *, int);
 void *memset(void *, int, u32);
-extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+extern s32 TObjBoss2Tunnel__data_80438A08[];
 extern char lbl_80438A28[];
 extern u8 lbl_80438A4C[];
 extern char lbl_804C8974[];
@@ -161,9 +156,9 @@ void show_message_and_wait__15TObjBoss2TunnelFi(s32 arg0);
 
 extern "C" {
 
-s32 memcard_check_snapshot(M2C_UNK, M2C_UNK);
-s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(M2C_UNK, M2C_UNK *, s32);
-extern M2C_UNK TObjBoss2Tunnel__data_80438A08[];
+s32 memcard_check_snapshot(s32, s32);
+s32 load_player_slot__23TAdSinglePlyChrSelectGCFPvii(s32, s32 *, s32);
+extern s32 TObjBoss2Tunnel__data_80438A08[];
 extern s16 TObjBoss2Tunnel__snapshot_state;
 extern s32 TObjBoss2Tunnel__snapshot_buffer;
 

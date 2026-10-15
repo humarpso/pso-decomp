@@ -2,18 +2,13 @@
 
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_800F7A6C_lbl_804DB1F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6AC];
 };
 
 struct RecoveredGlobal_800F7A7C_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
@@ -48,9 +43,9 @@ void bswap_field__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bs
 void broadcast_state__6TLobbyFPv(void* p) { bswap_field__6TLobbyFPv((void*)(p)); TLobby__send_and_handle_60(p); }
 
 void init_6x9C_enemy_low_game_flags_packet(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = 0;
-    M2C_FIELD(arg0, u8 *, 0) = 0x9C;
-    M2C_FIELD(arg0, s8 *, 1) = 2;
+    *(s32 *)((s8 *)arg0 + 4) = 0;
+    *(u8 *)((s8 *)arg0 + 0) = 0x9C;
+    *(s8 *)((s8 *)arg0 + 1) = 2;
 }
 
 void bswap_enemy_state__6TLobbyFPv(void* p) { read_be16_field2__10TObjPlayerFPv(p); bswap_16__FPUs((char*)p + 0x4); bswap_16__FPUs((char*)p + 0x6); }
@@ -60,12 +55,12 @@ int get_attack_credit_slot_count(void) { return 4; }
 
 typedef char RecoveredGlobal_800F7A6C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_800F7A6C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 f32 TLobby__sub_800F7A6C(void) {
-    return M2C_FIELD(&lbl_804DB1F0.value, f32 *, 4);
+    return *(f32 *)((s8 *)(&lbl_804DB1F0.value) + 4);
 }
 
 typedef char RecoveredGlobal_800F7A7C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800F7A7C_lbl_8048C9D8) == 0x748 ? 1 : -1];
 f32 TLobby__sub_800F7A7C(void) {
-    return M2C_FIELD(&challenge_mode_state.value, f32 *, 4);
+    return *(f32 *)((s8 *)(&challenge_mode_state.value) + 4);
 }
 
 void unload_floor_resources(s32 arg0) {

@@ -1,26 +1,21 @@
 #include "pso/TAdRayGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct E_8029BCB4 { u8 b[0x14]; };
 
 struct T_8029BCB4 { u8 b[0x20]; };
 
 extern "C" {
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(void *, void *);
 extern T_8029BCB4 TAdRayGC_ray_quad_table[];
 extern s32 TAdRayGC__ray_texture_list;
 extern const f32 lbl_805DDD10;
-void draw_ray_quads__8TAdRayGCFiPvPvi(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3);
+void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3);
 }
 
 extern "C" {
@@ -29,11 +24,11 @@ void *__ct__8TAdRayGCFv(void *arg0);
 void render__8TAdRayGCFv(void *arg0);
 void run_task__8TAdRayGCFv(void *arg0);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
+s32 set_cached_blend_factor(s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK queue_destruction__7TObjectFv();
+s32 queue_destruction__7TObjectFv();
 
-void draw_ray_quads__8TAdRayGCFiPvPvi(M2C_UNK arg0, u8 *arg1, void *arg2, s32 arg3) {
+void draw_ray_quads__8TAdRayGCFiPvPvi(s32 arg0, u8 *arg1, void *arg2, s32 arg3) {
     u32 i;
     E_8029BCB4 *p;
     switch (arg3) {
@@ -66,17 +61,17 @@ void render__8TAdRayGCFv(void *arg0) {
     if (get_state_flag__9TMainTaskFv() != 1) {
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
         switch (temp_r0) {
         case 0:
-            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
+            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20)), (void *)(-1), (s32)(0));
             break;
         case 1:
-            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20)), (void *)(-1), (s32)(0));
-            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
+            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20)), (void *)(-1), (s32)(0));
+            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         case 2:
-            draw_ray_quads__8TAdRayGCFiPvPvi((M2C_UNK)(arg0), (u8 *)(M2C_FIELD(arg0, s32 *, 0x20) - 0xD), (void *)(-1), (s32)(1));
+            draw_ray_quads__8TAdRayGCFiPvPvi((s32)(arg0), (u8 *)(*(s32 *)((s8 *)arg0 + 0x20) - 0xD), (void *)(-1), (s32)(1));
             break;
         }
         set_cached_blend_factor(0, 8);
@@ -87,39 +82,39 @@ void render__8TAdRayGCFv(void *arg0) {
 void run_task__8TAdRayGCFv(void *arg0) {
     s32 temp_r0;
 
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) > 0xC) {
-            M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0xC) {
+            *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         }
         break;
     case 1:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) > 0x12) {
-            M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0x12) {
+            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
             return;
         }
         break;
     case 2:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x20) > 0x1F) {
-            M2C_FIELD(arg0, s32 *, 0x20) = 0x20;
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x20) > 0x1F) {
+            *(s32 *)((s8 *)arg0 + 0x20) = 0x20;
             queue_destruction__7TObjectFv();
         }
         break;
     }
 }
 
-extern M2C_UNK __vt__8TAdRayGC[];
+extern s32 __vt__8TAdRayGC[];
 extern void *TAdRayGC__name;
 
 TAdRayGC::~TAdRayGC() {}
 void *__ct__8TAdRayGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TAdRayGC;
-    M2C_FIELD(arg0, void **, 0x0) = TAdRayGC__name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x20) = -1;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TAdRayGC;
+    *(void **)((s8 *)arg0 + 0x0) = TAdRayGC__name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x20) = -1;
     return arg0;
 }
 

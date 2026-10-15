@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_8014952C { char pad[0x18]; };
 
 struct VObj_8014952C : VBase_8014952C {
@@ -85,13 +82,13 @@ struct VObj_8014952C : VBase_8014952C {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
     virtual void m80();
     virtual void m81();
     virtual void m82();
     virtual void m83();
     virtual void m84();
-    virtual M2C_UNK m85(M2C_UNK, M2C_UNK);
+    virtual s32 m85(s32, s32);
 };
 
 struct Tbl_8014952C { u8 anim[0x20]; u8 anim2[0x58]; u8 vt[4]; };

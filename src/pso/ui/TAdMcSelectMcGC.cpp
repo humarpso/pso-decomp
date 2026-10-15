@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rect_8032A7C8 { f32 x, y, x2, y2; u8 pad[0x10]; };
 
@@ -31,16 +27,16 @@ extern "C" {
 
 void draw_status_window__15TAdMcSelectMcGCFPv(u8 *arg0);
 void render__15TAdMcSelectMcGCFv(void *arg0);
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK set_draw_texture_and_color(int, int);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 begin_screen_draw(int);
+s32 set_draw_texture_and_color(int, int);
+s32 restore_saved_depth_alpha_state();
+s32 get_player__20TWindowSubStatusDispFv();
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_2__Fv();
+s32 set_global_param__8TObjFishFi(void *);
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 extern s32 TAdMcSelectMcGC__texture_list_ptr;
@@ -49,13 +45,13 @@ extern const f32 lbl_805DF748;
 void draw_status_window__15TAdMcSelectMcGCFPv(u8 *arg0) {
     begin_screen_draw((int) (1));
     set_global_param__8TObjFishFi((void *) (TAdMcSelectMcGC__texture_list_ptr));
-    set_draw_texture_and_color((int) (0), (int) ((M2C_FIELD(arg0, s32 *, 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
+    set_draw_texture_and_color((int) (0), (int) ((*(s32 *)((s8 *)arg0 + 0x120) << 0x18) | 0xFF0000 | 0xFFFF));
     draw_textured_quad_at_depth((void *) (arg0 + 0x20), (f32) (lbl_805DF748));
     get_player__20TWindowSubStatusDispFv();
 }
 
 void render__15TAdMcSelectMcGCFv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 1) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 1) {
         if (get_state_flag__9TMainTaskFv() == 1) {
             return;
         }
@@ -67,7 +63,7 @@ block_5:
         init_xyz_limits__10TObjPlayerFv();
         draw_status_window__15TAdMcSelectMcGCFPv((u8 *)(arg0));
         reset_transform_state__10TObjPlayerFv();
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) == 0) {
             restore_saved_depth_alpha_state();
         }
     }

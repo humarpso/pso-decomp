@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_4a4f5b { char pad[0x18]; };
 
@@ -12,7 +8,7 @@ struct VObj_18_4a4f5b : VBase_18_4a4f5b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
     virtual void m6();
     virtual void m7();
     virtual void m8();
@@ -24,16 +20,16 @@ struct VObj_18_4a4f5b : VBase_18_4a4f5b {
     virtual void m14();
     virtual void m15();
     virtual void m16();
-    virtual M2C_UNK m17();
+    virtual s32 m17();
 };
 
 struct RecoveredGlobal_801611CC_lbl_804B1248 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_801611CC___vt__15TODoorAncient09 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x50];
 };
 
@@ -58,9 +54,9 @@ struct Door_801615C4 {
 
 extern "C" {
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1);
-M2C_UNK set_indexed_flags(void *, int, int);
+s32 set_indexed_flags(void *, int, int);
 s32 is_any_player_within_radius_xz(f32);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, void *, s32, s32);
 extern const f32 lbl_805DB494;
 extern const f32 lbl_805DB498;
 extern const f32 lbl_805DB49C;
@@ -77,7 +73,7 @@ extern u8 *door_ancient09_bml_resource;
 extern s32 *TODoorAncient09__texture_lists;
 extern const f32 lbl_805DB480;
 extern const f32 lbl_805DB484;
-u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2);
 void copy_short_fields__6TLobbyFPvPv(void *, void *);
 s32 access_object_saved_state(u8 *arg0, s32 arg1, s16 arg2);
 void init__17TOBarrierEnergy01FPv(void *);
@@ -92,40 +88,40 @@ extern "C" {
 void TODoorCave01__vt15(u8 *arg0);
 s32 TODoorCave01__vt17(void *arg0);
 void TODoorCave01__vt18(void);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, void *, s32, s32);
 s32 is_any_player_within_radius_xz(f32);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(void *, M2C_UNK, M2C_UNK);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, s32, s32);
 s32 get_main_phase();
 s32 is_not_split_screen__13TRaderMapCoreFv();
 
 typedef char RecoveredGlobal_801611CC_lbl_804B1248_size[sizeof(RecoveredGlobal_801611CC_lbl_804B1248) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_801611CC___vt__15TODoorAncient09_size[sizeof(RecoveredGlobal_801611CC___vt__15TODoorAncient09) == 0x54 ? 1 : -1];
-u8 *TODoorAncient09__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TODoorAncient09__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     init_door_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TODoorAncient09.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F58;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TODoorAncient09.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F58;
     ((VObj_18_4a4f5b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) *TODoorAncient09__texture_lists;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(door_ancient09_bml_resource, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD(door_ancient09_bml_resource, u8 **, 0x430), void **, 4));
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - lbl_805DB484);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (M2C_FIELD(arg0, f32 *, 0xB4) / lbl_805DB480);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *TODoorAncient09__texture_lists;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)door_ancient09_bml_resource + 0x42C)) + 8);
+    *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)door_ancient09_bml_resource + 0x430)) + 4));
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DB484);
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (*(f32 *)((s8 *)arg0 + 0xB4) / lbl_805DB480);
     init_collision_body_parts((void *) (arg0), (void *) (&TODoorAncient09__collision_body_template.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x84);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x84) = 0;
+        *(s32 *)((s8 *)arg0 + 0x84) = 0;
     } else if (temp_r0 > 0xFE) {
-        M2C_FIELD(arg0, s32 *, 0x84) = 0xFE;
+        *(s32 *)((s8 *)arg0 + 0x84) = 0xFE;
     }
     ((VObj_18_4a4f5b *)(arg0))->m17();
-    M2C_FIELD(arg0, s16 *, 0xD4) = (s16) (M2C_FIELD(arg0, s32 *, 0x84) + 1);
-    M2C_FIELD(arg0, s32 *, 0xD8) = 0;
-    M2C_FIELD(arg0, s32 *, 0xDC) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE0) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
+    *(s16 *)((s8 *)arg0 + 0xD4) = (s16) (*(s32 *)((s8 *)arg0 + 0x84) + 1);
+    *(s32 *)((s8 *)arg0 + 0xD8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xDC) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
     return arg0;
 }
 
@@ -152,55 +148,55 @@ void send_state__12TODoorCave01FPvPv(Self_80161320 *self, State_80161320 *src) {
 
 void TODoorCave01__vt4(u8 *arg0, s16 *arg1) {
     if ((s16) *arg1 == 1) {
-        M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0xF0000 | 1);
+        *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0xF0000 | 1);
     }
 }
 
 s32 TODoorCave01__vt17(void *arg0) {
     s32 temp_r0;
 
-    M2C_FIELD(arg0, s32 *, 0xC8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xC8);
+    *(s32 *)((s8 *)arg0 + 0xC8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xC8);
     if (temp_r0 > 0x100) {
-        M2C_FIELD(arg0, s32 *, 0xCC) = 0;
+        *(s32 *)((s8 *)arg0 + 0xCC) = 0;
     } else if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0xCC) = 1;
-    } else if ((s32) M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
+        *(s32 *)((s8 *)arg0 + 0xCC) = 1;
+    } else if ((s32) *(s32 *)((s8 *)arg0 + 0x8C) < 0) {
         if ((get_main_phase() == 0xF) || (is_not_split_screen__13TRaderMapCoreFv() == 1)) {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 3;
+            *(s32 *)((s8 *)arg0 + 0xCC) = 3;
         } else {
-            M2C_FIELD(arg0, s32 *, 0xCC) = 2;
+            *(s32 *)((s8 *)arg0 + 0xCC) = 2;
         }
     } else {
-        M2C_FIELD(arg0, s32 *, 0xCC) = 2;
+        *(s32 *)((s8 *)arg0 + 0xCC) = 2;
     }
-    return M2C_FIELD(arg0, s32 *, 0xC8);
+    return *(s32 *)((s8 *)arg0 + 0xC8);
 }
 
 extern const f32 lbl_805DB490;
 
 void TODoorCave01__vt15(u8 *arg0) {
-    if (((u8) ((u32) __cntlzw(M2C_FIELD(arg0, s32 *, 0xD0) & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
-        M2C_FIELD(arg0, s32 *, 0xAC) = 3;
+    if (((u8) ((u32) __cntlzw(*(s32 *)((s8 *)arg0 + 0xD0) & 1) >> 5) == 1) || (is_any_player_within_radius_xz(lbl_805DB490) != 1)) {
+        *(s32 *)((s8 *)arg0 + 0xAC) = 3;
         clear_player_status_flag__10TObjPlayerFPviUi(arg0, 0, 8);
         play_sound_effect(0x42807, arg0 + 0x38, 0, 0);
     }
 }
 void TODoorCave01__vt13(u8 *arg0) {
-    if ((M2C_FIELD(arg0, s32 *, 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
-        M2C_FIELD(arg0, s32 *, 0xAC) = 1;
+    if ((*(s32 *)((s8 *)arg0 + 0xD0) & 1) && (is_any_player_within_radius_xz((f32) (lbl_805DB494)) == 1)) {
+        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
         set_indexed_flags((void *) (arg0), (int) (0), (int) (8));
-        play_sound_effect((M2C_UNK)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (M2C_UNK)((int) (0)), (M2C_UNK)((int) (0)));
+        play_sound_effect((s32)((int) (0x42807)), (void *)((void *) (arg0 + 0x38)), (s32)((int) (0)), (s32)((int) (0)));
     }
-    if (M2C_FIELD(arg0, s32 *, 0xD0) & 0x100000) {
-        M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (M2C_FIELD(arg0, f32 *, 0xE0) + lbl_805DB498);
-        if (lbl_805DB49C <= M2C_FIELD(arg0, f32 *, 0xE0)) {
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) & 0xFFEFFFFF);
+    if (*(s32 *)((s8 *)arg0 + 0xD0) & 0x100000) {
+        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) + lbl_805DB498);
+        if (lbl_805DB49C <= *(f32 *)((s8 *)arg0 + 0xE0)) {
+            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) & 0xFFEFFFFF);
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (M2C_FIELD(arg0, f32 *, 0xE0) - lbl_805DB498);
-        if (M2C_FIELD(arg0, f32 *, 0xE0) <= lbl_805DB4A0) {
-            M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (M2C_FIELD(arg0, s32 *, 0xD0) | 0x100000);
+        *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (*(f32 *)((s8 *)arg0 + 0xE0) - lbl_805DB498);
+        if (*(f32 *)((s8 *)arg0 + 0xE0) <= lbl_805DB4A0) {
+            *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (*(s32 *)((s8 *)arg0 + 0xD0) | 0x100000);
         }
     }
 }

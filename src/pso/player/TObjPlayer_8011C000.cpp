@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Tbl_8011C914 { u8 pad[0x2c]; u8 *p; };
 
@@ -73,16 +69,16 @@ typedef struct PmtRow_8011C234 { s32 count; PmtEnt_8011C234 *ents; } PmtRow_8011
 typedef struct Pmt_8011C234 { u8 pad[0xC]; PmtRow_8011C234 *rows; } Pmt_8011C234;
 
 extern "C" {
-M2C_UNK select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
-M2C_UNK normalize_drop_area(s32 *);
+s32 select_enemy_drop__9TItemDropFPviiPv(u32, s32, s32, s32);
+s32 normalize_drop_area(s32 *);
 extern void *item_mgr;
 void drop_item_from_slot__10TObjPlayerFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK select_box_item__9TItemDropFiiPv(u32, s32, s32);
-M2C_UNK normalize_drop_area(s32 *);
+s32 select_box_item__9TItemDropFiiPv(u32, s32, s32);
+s32 normalize_drop_area(s32 *);
 extern void *item_mgr;
 void drop_item__10TObjPlayerFii(s32 arg0, s32 arg1);
-M2C_UNK generate_drop_item__9TItemDropFPviPv(u32, s32, s32);
-M2C_UNK normalize_drop_area(s32 *);
+s32 generate_drop_item__9TItemDropFPviPv(u32, s32, s32);
+s32 normalize_drop_area(s32 *);
 extern void *item_mgr;
 void drop_meseta_from_slot__10TObjPlayerFii(s32 arg0, s32 arg1);
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0);
@@ -147,16 +143,16 @@ typedef struct Thing__8011c1e8_8011C000 { u8 a; u8 b; } Thing;
 s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0);
 s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0);
 void register_item_drop__10TObjPlayerFPv(void *arg0);
-M2C_UNK set_drop_index__9TItemDropFPvPv(void *, void *);
+s32 set_drop_index__9TItemDropFPvPv(void *, void *);
 
 extern void *item_pmt_tbl;
 
 s32 get_item_pmt_entry__10TObjPlayerFUc(u8 arg0) {
     void *temp_r5;
 
-    temp_r5 = M2C_FIELD(item_pmt_tbl, void **, 0x50);
-    if ((s32) M2C_FIELD(temp_r5, s32 *, 0) > (s32) arg0) {
-        return M2C_FIELD(temp_r5, s32 *, 4) + ((arg0 * 8) & 0x7F8);
+    temp_r5 = *(void **)((s8 *)item_pmt_tbl + 0x50);
+    if ((s32) *(s32 *)((s8 *)temp_r5 + 0) > (s32) arg0) {
+        return *(s32 *)((s8 *)temp_r5 + 4) + ((arg0 * 8) & 0x7F8);
     }
     return 0;
 }
@@ -181,7 +177,7 @@ s32 get_shield_pmt_entry__10TObjPlayerFUc(u8 arg0) {
     if (arg0 == 0) {
         return 0;
     }
-    return M2C_FIELD(item_pmt_tbl, s32 *, 0x4C) + (arg0 * 0x18);
+    return *(s32 *)((s8 *)item_pmt_tbl + 0x4C) + (arg0 * 0x18);
 }
 
 extern void *item_mgr;
@@ -317,9 +313,9 @@ s32 get_item_stat_boost_record(s32 arg0, s32 arg1, s32 arg2) {
         break;
     }
     if (idx > 0) {
-        return M2C_FIELD(item_pmt_tbl, s32 *, 0x38) + (idx * 6);
+        return *(s32 *)((s8 *)item_pmt_tbl + 0x38) + (idx * 6);
     }
-    return M2C_FIELD(item_pmt_tbl, s32 *, 0x38);
+    return *(s32 *)((s8 *)item_pmt_tbl + 0x38);
 }
 
 s32 get_unit_attribute_index__10TObjPlayerFUc(u8 arg0) {
@@ -401,7 +397,7 @@ s32 get_item_star_count(s32 id) {
 
 s32 get_mag_feed_result(s32 arg0, s32 arg1) {
     if ((arg0 >= 0) && (arg0 < 8)) {
-        return M2C_FIELD(M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x28), M2C_UNK *, (arg0 * 4)) + (arg1 * 8);
+        return *(s32 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&item_pmt_tbl) + 0x28)) + (arg0 * 4)) + (arg1 * 8);
     }
     return 0;
 }
@@ -452,7 +448,7 @@ f32 get_item_price_coefficient(u8 arg0, u8 arg1) {
 
 u8 get_weapon_class_motion_type(u8 arg0) {
     if (arg0 < 0xAAU) {
-        return M2C_FIELD((M2C_FIELD((*(u8 * *)&item_pmt_tbl), s32 *, 0x14) + arg0), u8 *, 0);
+        return *(u8 *)((s8 *)(*(s32 *)((s8 *)(*(u8 * *)&item_pmt_tbl) + 0x14) + arg0) + 0);
     }
     return 0U;
 }

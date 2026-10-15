@@ -1,10 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 void TMainCursor__sub_8013F114(void* p);
-extern M2C_UNK TMainCursor__sub_8013E2B0[];
+extern s32 TMainCursor__sub_8013E2B0[];
 void __construct_array(void *, void *, int, int, int);
 void TMainCursor__sub_8013F10C(void* p, s32 v);
 void TMainCursor__sub_8013F104(void* p, s32 v);
@@ -49,12 +47,12 @@ void set_cursor_id__11TMainCursorFPvs(void* p, s16 v);
 void set_field2__11TMainCursorFPvs(void* p, s16 v);
 void set_size__11TMainCursorFPvf(void* p, f32 v);
 
-extern M2C_UNK lbl_804A7248[];
+extern s32 lbl_804A7248[];
 
 void *init_vtable__13TLockOnCursorFPv(void *arg0) {
     init_gc_tag((void*)(arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x8) = lbl_804A7248;
-    M2C_FIELD(arg0, u32 *, 0x4) = 0;
+    *(s32 **)((s8 *)arg0 + 0x8) = lbl_804A7248;
+    *(u32 *)((s8 *)arg0 + 0x4) = 0;
     return arg0;
 }
 

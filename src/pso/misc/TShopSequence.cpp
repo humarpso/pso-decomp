@@ -1,13 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VObj_802235A0_8022356C {
     virtual void m0(int);
 };
 
-struct RecoveredGlobal_802238D8___vt__13TShopSequence { M2C_UNK value; u8 remaining[0x34]; };
+struct RecoveredGlobal_802238D8___vt__13TShopSequence { s32 value; u8 remaining[0x34]; };
 typedef char RecoveredGlobal_802238D8___vt__13TShopSequence_size[sizeof(RecoveredGlobal_802238D8___vt__13TShopSequence) == 0x38 ? 1 : -1];
 struct Del_80223850 {
     virtual ~Del_80223850();
@@ -24,8 +21,8 @@ u8 * __ct__15TShopWindowBaseFv(void *);
 extern RecoveredGlobal_802238D8___vt__13TShopSequence __vt__13TShopSequence;
 extern s32 TShopSequence__class_name;
 u8 *TShopSequence__ct(u8 *arg0);
-M2C_UNK __dt__15TShopWindowBaseFv(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dt__15TShopWindowBaseFv(void *, s32);
+s32 __dl__7TObjectFPv(void *);
 }
 
 extern "C" {
@@ -46,7 +43,7 @@ u32 get_player_by_client_id(s32);
 s32 suppress_slot__11TWindowCtrlFi(u16);
 s32 unsuppress_slot__11TWindowCtrlFi(u16);
 s32 clear_lobby_flag__10TObjPlayerFPv(u32);
-M2C_UNK close__24TMessageWindowControllerFv(void *);
+s32 close__24TMessageWindowControllerFv(void *);
 int display_message__24TMessageWindowControllerFPCcl(void*);
 int format_guild_message__24TMessageWindowControllerFll(void*);
 s32 get_game_mode__23TAdSinglePlyChrSelectGCFv();
@@ -59,7 +56,7 @@ int send_message__24TMessageWindowControllerFll(void*);
 int format_shop_message__24TMessageWindowControllerFll(void*);
 
 s32 update_download_server__13TShopSequenceFPv(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0x28);
+    void *temp_r3 = *(void **)((s8 *)arg0 + 0x28);
     if (temp_r3 != NULL) {
         return is_ready__24TMessageWindowControllerFv(temp_r3);
     }
@@ -69,24 +66,24 @@ s32 update_download_server__13TShopSequenceFPv(void *arg0) {
 void close_message_window__13TShopSequenceFPv(void *arg0) {
     VObj_802235A0_8022356C *temp_r3;
 
-    if (M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28) != NULL) {
-        close__24TMessageWindowControllerFv(M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28));
-        temp_r3 = M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28);
+    if (*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28) != NULL) {
+        close__24TMessageWindowControllerFv(*(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28));
+        temp_r3 = *(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28);
         if (temp_r3 != NULL) {
             temp_r3->m0(1);
         }
-        M2C_FIELD(arg0, VObj_802235A0_8022356C **, 0x28) = NULL;
+        *(VObj_802235A0_8022356C **)((s8 *)arg0 + 0x28) = NULL;
     }
 }
 
 u32 create_message_window__13TShopSequenceFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r0;
     u8 *temp_r3;
-    temp_r0 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x28));
+    temp_r0 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x28));
     if (temp_r0 != NULL) {
-        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x24));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x24));
         if (temp_r3 != NULL) {
-            return create_message_window__24TMessageWindowControllerFlll(M2C_FIELD(arg0, u8 **, 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
+            return create_message_window__24TMessageWindowControllerFlll(*(u8 **)((s8 *)arg0 + 0x28), arg1, arg2, (s32) ((u16)obj_getField1c((u32)(temp_r3))));
         }
         return create_window__24TMessageWindowControllerFll(temp_r0, arg1, arg2);
     }
@@ -105,8 +102,8 @@ void close_if_single_screen__13TShopSequenceFv(void) {
 void close_window__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        unsuppress_slot__11TWindowCtrlFi(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
+        unsuppress_slot__11TWindowCtrlFi(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
@@ -116,14 +113,14 @@ void close_window__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        clear_lobby_flag__10TObjPlayerFPv(M2C_FIELD(arg0, u32 *, 0x24));
+        clear_lobby_flag__10TObjPlayerFPv(*(u32 *)((s8 *)arg0 + 0x24));
     }
 }
 void restore_player_state__13TShopSequenceFPv(void *arg0) {
     s32 var_r31;
 
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        init_effect_5f0__10TObjPlayerFPv(M2C_FIELD(arg0, void **, 0x24));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
+        init_effect_5f0__10TObjPlayerFPv(*(void **)((s8 *)arg0 + 0x24));
         if (is_not_split_screen__13TRaderMapCoreFv() != 1) {
             var_r31 = 0;
             do {
@@ -133,15 +130,15 @@ void restore_player_state__13TShopSequenceFPv(void *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         }
-        suppress_slot__11TWindowCtrlFi(obj_getField1c(M2C_FIELD(arg0, u32 *, 0x24)));
+        suppress_slot__11TWindowCtrlFi(obj_getField1c(*(u32 *)((s8 *)arg0 + 0x24)));
     }
 }
 void *__dt__13TShopSequenceFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TShopSequence.value;
-        if (M2C_FIELD(arg0, Del_80223850 **, 0x28) != NULL) {
-            delete M2C_FIELD(arg0, Del_80223850 **, 0x28);
-            M2C_FIELD(arg0, Del_80223850 **, 0x28) = NULL;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TShopSequence.value;
+        if (*(Del_80223850 **)((s8 *)arg0 + 0x28) != NULL) {
+            delete *(Del_80223850 **)((s8 *)arg0 + 0x28);
+            *(Del_80223850 **)((s8 *)arg0 + 0x28) = NULL;
         }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -154,14 +151,14 @@ u8 *TShopSequence__ct(u8 *arg0) {
     s32 temp_r3;
     s32 var_r0;
     __ct__15TShopWindowBaseFv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TShopSequence.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TShopSequence__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TShopSequence.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TShopSequence__class_name;
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x210);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
         var_r0 = (long) (__ct__24TMessageWindowControllerFv((void *) temp_r3));
     }
-    M2C_FIELD(arg0, s32 *, 0x28) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x28) = var_r0;
     return arg0;
 }
 

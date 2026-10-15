@@ -8,10 +8,7 @@ public:
 };
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_8002B250 {
     f32 sp8;
@@ -19,7 +16,7 @@ struct Stack_8002B250 {
     f32 sp10;
 };
 
-struct RecoveredGlobal_8002B250___vt__17TBoss1DragonColli { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8002B250___vt__17TBoss1DragonColli { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8002B250___vt__17TBoss1DragonColli_size[sizeof(RecoveredGlobal_8002B250___vt__17TBoss1DragonColli) == 0x18 ? 1 : -1];
 
 struct E_8002B3F4 { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
@@ -30,7 +27,6 @@ struct E_8002B42C { u8 pad[0x18]; u32 flags; u8 pad2[0x2c - 0x1c]; };
 
 struct O_8002B42C { u8 pad[0xa4]; E_8002B42C *elems; s32 count; };
 
-typedef s32 M2C_UNK;
 struct O_8002B3F4;
 struct E_8002B4CC { f32 x, y, z, w; u8 pad10[8]; u32 flags; u8 pad1c[0x2c - 0x1c]; };
 
@@ -63,12 +59,12 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self);
 void fn_8002B630(u8 *arg0, u8 *arg1);
 E_8002B4CC *alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK register_entity_by_id(void *);
+s32 register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv(void *, void *);
+s32 construct_collider_proxy__10TObjPlayerFPv(void *, void *);
 s16 alloc_actor_ids__6TLobbyFi(int);
 extern u8 TBoss1DragonColli_sphere_chain_desc[];
-extern M2C_UNK __vt__19TBoss1DragonColli_C[];
+extern s32 __vt__19TBoss1DragonColli_C[];
 extern s32 TBoss1DragonColli_C__name;
 extern const f32 lbl_805D8108;
 extern const f32 lbl_805D8120;
@@ -89,16 +85,12 @@ TBoss1DragonColli::~TBoss1DragonColli() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "types.h"
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 extern "C" {
 void fn_8002B630(u8 *arg0, u8 *arg1);
@@ -114,15 +106,15 @@ void TBoss1DragonDemo__sub_8002B68C(void);
 void TBoss1DragonDemo__sub_8002B690(void);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int set_matrix_identity(void*);
 int rotate_matrix_y(void*, void*);
 int push_matrix(void*);
 int pop_matrix(void);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
 void render__16TBoss1DragonDemoFv(void);
 
 u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
@@ -137,8 +129,8 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     s32 var_r0_2;
     s32 var_r0_3;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__17TBoss1DragonColli;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss1DragonColli__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__17TBoss1DragonColli;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss1DragonColli__name;
     stack.sp8 = lbl_805D8108;
     stack.spC = lbl_805D8108;
     stack.sp10 = lbl_805D8108;
@@ -147,7 +139,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     if (var_r0 != 0) {
         var_r0 = TBoss1DragonColli_C__ct((int)((int) (temp_r3)), (void *)((void *) (arg0)), (int)((int) (1)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D810C));
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = var_r0;
     stack.sp8 = lbl_805D8110;
     stack.spC = lbl_805D8108;
     stack.sp10 = lbl_805D8114;
@@ -156,7 +148,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     if (var_r0_2 != 0) {
         var_r0_2 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_2)), (void *)((void *) (arg0)), (int)((int) (3)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
-    M2C_FIELD(arg0, s32 *, 0x20) = var_r0_2;
+    *(s32 *)((s8 *)arg0 + 0x20) = var_r0_2;
     stack.sp8 = lbl_805D8110;
     stack.spC = lbl_805D8108;
     stack.sp10 = lbl_805D811C;
@@ -165,7 +157,7 @@ u8 *TBoss1DragonColli__ct(u8 *arg0, s32 arg1) {
     if (var_r0_3 != 0) {
         var_r0_3 = TBoss1DragonColli_C__ct((int)((int) (temp_r3_3)), (void *)((void *) (arg0)), (int)((int) (5)), (void *)((void *) (&stack.sp8)), (f32) (lbl_805D8118));
     }
-    M2C_FIELD(arg0, s32 *, 0x24) = var_r0_3;
+    *(s32 *)((s8 *)arg0 + 0x24) = var_r0_3;
     return arg0;
 }
 
@@ -182,7 +174,7 @@ void clear_segment_flags__17TBoss1DragonColliFPv(O_8002B3F4 *self) {
     }
 }
 
-extern M2C_UNK __vt__19TBoss1DragonColli_C[];
+extern s32 __vt__19TBoss1DragonColli_C[];
 
 void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
     s32 i;
@@ -193,7 +185,7 @@ void set_elem_flags__17TBoss1DragonColliFPv(O_8002B42C *self) {
 
 void *__dt__19TBoss1DragonColli_CFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TBoss1DragonColli_C;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TBoss1DragonColli_C;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
@@ -240,13 +232,13 @@ s32 TBoss1DragonColli_C__ct(int arg0, void *arg1, int arg2, void *arg3, f32 scal
 #undef self
 
 void fn_8002B630(u8 *arg0, u8 *arg1) {
-    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
-    *(M2CCopy_C *)((s32) arg0 + 0x1C) = *(const M2CCopy_C *)((s32) arg1 + 0x1C);
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg1, f32 *, 0x28);
+    *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
+    *(ByteBlock_C *)((s32) arg0 + 0x1C) = *(const ByteBlock_C *)((s32) arg1 + 0x1C);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)arg1 + 0x28);
 }
 
 void __dt__17TBoss1DragonColliFv();
@@ -273,21 +265,21 @@ void *__vt__17TBoss1DragonColli[] = {
     (void *)render__7TObjectFv,
     (void *)render_shadows__7TObjectFv,
 };
-M2C_UNK __vt__19TBoss1DragonColli_C[] = {
+s32 __vt__19TBoss1DragonColli_C[] = {
     0,
     0,
-    (M2C_UNK)__dt__19TBoss1DragonColli_CFv,
-    (M2C_UNK)run_task__7TObjectFv,
-    (M2C_UNK)TBoss1DragonColli__sub_8002B358,
-    (M2C_UNK)render_shadows__7TObjectFv,
-    (M2C_UNK)TLobby__sub_801A1FD8,
-    (M2C_UNK)apply_object_set_data,
-    (M2C_UNK)release_member_90__10TObjPlayerFPv,
-    (M2C_UNK)TParticleCtrl__sub_801A2124,
-    (M2C_UNK)update_object_view_visibility,
-    (M2C_UNK)classify_actor_view_detail,
-    (M2C_UNK)TObjRoomId__sub_801A1E2C,
-    (M2C_UNK)TObjPlayer__sub_80019568,
+    (s32)__dt__19TBoss1DragonColli_CFv,
+    (s32)run_task__7TObjectFv,
+    (s32)TBoss1DragonColli__sub_8002B358,
+    (s32)render_shadows__7TObjectFv,
+    (s32)TLobby__sub_801A1FD8,
+    (s32)apply_object_set_data,
+    (s32)release_member_90__10TObjPlayerFPv,
+    (s32)TParticleCtrl__sub_801A2124,
+    (s32)update_object_view_visibility,
+    (s32)classify_actor_view_detail,
+    (s32)TObjRoomId__sub_801A1E2C,
+    (s32)TObjPlayer__sub_80019568,
     0,
 };
 }

@@ -1,14 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct Desc_80290D1C { void *verts; u32 *colors; int start; int count; };
 
 extern "C" {
-M2C_UNK draw_line_list(void *, int, int);
+s32 draw_line_list(void *, int, int);
 void draw_tri_fan_3d__10TObjPlayerFPviUi(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
-extern M2C_UNK lbl_80464CB0[];
+extern s32 lbl_80464CB0[];
 extern u32 lbl_804DA97C[4];
-extern M2C_UNK lbl_804DA98C[];
+extern s32 lbl_804DA98C[];
 extern const f32 lbl_805DD958;
 extern const f32 lbl_805DD95C;
 void draw_creation_ruler_lines(f32 farg0);

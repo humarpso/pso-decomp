@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Win_802758C8 {
     u8 pad0[0x20];
@@ -17,8 +13,6 @@ struct Ev_802758C8 {
     u16 kind;
     u16 id;
 };
-
-typedef s32 M2C_UNK;
 
 class VObj_80275A8C {
 public:
@@ -56,18 +50,18 @@ void toggle_help_window_on_button(s32, s32);
 void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 extern s32 current_language;
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
-s32 get_card_entry__17TWindowSubComCardFi(M2C_UNK);
+s32 get_card_entry__17TWindowSubComCardFi(s32);
 s32 count_active_cards__17TWindowSubComCardFv(void);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
-M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+s32 set_flag70_bit10__16TObjCityMainWarpFPv(void *);
+s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
+s32 set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 void TWindowMenu__ct(void *, s32, s32, void *);
-M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
+s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
-M2C_UNK TWindowSubComCardList__sub_80275360(void *);
+s32 TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
-extern M2C_UNK __vt__21TWindowSubComCardList[];
+extern s32 __vt__21TWindowSubComCardList[];
 extern s32 TWindowSubComCardList__class_name;
 extern s32 local_client_id;
 extern const f32 lbl_805DD540;
@@ -76,15 +70,15 @@ extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1);
 s32 count_leading_active__17TWindowSubComCardFPvi(s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(u32);
-M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(void *);
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
-M2C_UNK set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
+s32 set_flag70_bit10__16TObjCityMainWarpFPv(void *);
+s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
+s32 set_scroll_target__17TWindowSubComCardFPvff(void *, f32, f32);
 void TWindowMenu__ct(void *, s32, s32, void *);
-M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
+s32 set_flag70_bit100__17TWindowOptionCtrlFPv(void *);
 void *init__21TWindowSubComCardListFPviii(void *, s32, s8, s32);
-M2C_UNK TWindowSubComCardList__sub_80275360(void *);
+s32 TWindowSubComCardList__sub_80275360(void *);
 f32 round_away_from_zero__20TWindowSubStatusDispFf(f32);
-extern M2C_UNK __vt__21TWindowSubComCardList[];
+extern s32 __vt__21TWindowSubComCardList[];
 extern s32 TWindowSubComCardList__class_name;
 extern s32 local_client_id;
 extern const f32 lbl_805DD540;
@@ -92,17 +86,17 @@ extern const f32 lbl_805DD544;
 extern const f32 lbl_805DD548;
 u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3, s8 arg4);
 void *__nw__7TObjectFUl(u32);
-M2C_UNK TWindow__close(void *);
-M2C_UNK set_field_1c__6TLobbyFPvf(void *);
-M2C_UNK TWindowSubEquip__sub_80263AF8(void *, M2C_UNK);
+s32 TWindow__close(void *);
+s32 set_field_1c__6TLobbyFPvf(void *);
+s32 TWindowSubEquip__sub_80263AF8(void *, s32);
 void update_customize_help_text(Win_802758C8 *self, Ev_802758C8 *ev);
 s32 is_active__22TWindowSubCustomSelectFPv(void *);
 s32 fn_80275D90(void *);
 s32 is_selected__21TWindowSubCustomEquipFPv(s32);
 s32 TWindowSubCustomEquip__sub_80275DA8(s32);
-M2C_UNK clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(s32);
-M2C_UNK get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
-M2C_UNK toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
+s32 clear_flag_and_set_entry_state__21TWindowSubCustomEquipFPv(s32);
+s32 get_cursor_pos__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
+s32 toggle_action_binding__21TWindowSubCustomEquipFPvPv(s32, Ev_802758C8 *);
 Ev_802758C8 *calc_equip_index__21TWindowSubCustomEquipFPv(void *);
 void *TWindowSubCustomSelect__ct(void *, s32);
 void update_customize_state__21TWindowSubCustomEquipFPv(Self_80275A8C *self);
@@ -115,20 +109,20 @@ void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1);
 void render__21TWindowSubComCardListFv(u8 *arg0);
 void run_task__21TWindowSubComCardListFv(void *arg0);
 s32 handle_list_page_flip_input(s32);
-M2C_UNK TWindowSubComCardList__sub_80275360(void *);
-M2C_UNK draw_window_frame(void *, s32);
+s32 TWindowSubComCardList__sub_80275360(void *);
+s32 draw_window_frame(void *, s32);
 s32 get_draw_context__11TWindowBaseFPv();
-M2C_UNK draw_visible_window_entries(void *, void *, s32);
-M2C_UNK draw_list_page_indicator(s32, s32);
+s32 draw_visible_window_entries(void *, void *, s32);
+s32 draw_list_page_indicator(s32, s32);
 void __dl__7TObjectFPv(void *);
 void __dt__11TWindowMenuFv(void *, int);
 void delete_if_allocated(void *, int);
-M2C_UNK draw_card_list_selection(void *, s32);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
+s32 draw_card_list_selection(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-M2C_UNK render_selected_entry__17TWindowSubComCardFPvi(void *, s32);
-M2C_UNK run_task__11TWindowMenuFv();
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, M2C_UNK);
+s32 render_selected_entry__17TWindowSubComCardFPvi(void *, s32);
+s32 run_task__11TWindowMenuFv();
+s32 set_selected_index__17TWindowSubComCardFPvs(void *, s32);
 
 void render__21TWindowSubComCardListFv(u8 *arg0) {
     s32 temp_r3;
@@ -138,28 +132,28 @@ void render__21TWindowSubComCardListFv(u8 *arg0) {
     draw_visible_window_entries(arg0, arg0 + 0x24, temp_r3);
     render_selected_entry__17TWindowSubComCardFPvi(arg0, temp_r3);
     draw_card_list_selection(arg0, temp_r3);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x88) != 0U) {
-        forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x88), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x88) != 0U) {
+        forward_render__20TWindowSubStatusDispFPv(*(s32 *)((s8 *)arg0 + 0x88), temp_r3);
     }
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x8C) != 0U) {
-        draw_list_page_indicator(M2C_FIELD(arg0, s32 *, 0x8C), temp_r3);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x8C) != 0U) {
+        draw_list_page_indicator(*(s32 *)((s8 *)arg0 + 0x8C), temp_r3);
     }
 }
 
 void run_task__21TWindowSubComCardListFv(void *arg0) {
     run_task__11TWindowMenuFv();
-    if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (handle_list_page_flip_input(M2C_FIELD(arg0, s32 *, 0x8C)) != 0)) {
+    if ((is_visible__17TWindowSubComCardFPv(arg0) == 0) && (handle_list_page_flip_input(*(s32 *)((s8 *)arg0 + 0x8C)) != 0)) {
         set_selected_index__17TWindowSubComCardFPvs(arg0, 0);
         TWindowSubComCardList__sub_80275360(arg0);
     }
 }
 
-extern M2C_UNK __vt__21TWindowSubComCardList[];
+extern s32 __vt__21TWindowSubComCardList[];
 
 void *__dt__21TWindowSubComCardListFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TWindowSubComCardList;
-        delete_if_allocated(M2C_FIELD(arg0, void **, 0x8C), 1);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TWindowSubComCardList;
+        delete_if_allocated(*(void **)((s8 *)arg0 + 0x8C), 1);
         __dt__11TWindowMenuFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -172,7 +166,7 @@ u8 *TWindowSubComCardList__ct(u8 *arg0, void *arg1) {
     void *list;
     s32 n;
     TWindowMenu__ct(arg0, 7, 4, arg1);
-    *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
+    *(s32 **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_active_cards__17TWindowSubComCardFv() / lbl_805DD540);
     if (n <= 0) {
@@ -199,7 +193,7 @@ u8 *TWindowSubComCardList__sub_802757AC(u8 *arg0, void *arg1, s32 arg2, s32 arg3
     void *list;
     s32 n;
     TWindowMenu__ct(arg0, 7, 4, arg1);
-    *(M2C_UNK **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
+    *(s32 **)(arg0 + 0x18) = __vt__21TWindowSubComCardList;
     *(s32 *)(arg0 + 0) = TWindowSubComCardList__class_name;
     n = round_away_from_zero__20TWindowSubStatusDispFf((f32)count_leading_active__17TWindowSubComCardFPvi(arg2, arg3) / lbl_805DD540);
     if (n <= 0) {

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -11,7 +7,7 @@ s32 check_height_ready__13TObjTombstoneFPv(void *arg0);
 u32 get_player_by_client_id(s32);
 s32 TWindowCtrlMain__sub_8024CE58();
 
-s32 obj_testFlags30(u32, M2C_UNK);
+s32 obj_testFlags30(u32, s32);
 
 s32 check_all_players_active__13TObjTombstoneFv(void) {
     s32 var_r31;
@@ -39,7 +35,7 @@ s32 check_height_ready__13TObjTombstoneFPv(void *arg0) {
     if (check_all_players_active__13TObjTombstoneFv() == 0) {
         return 0;
     }
-    return (u32)__cntlzw(M2C_FIELD(arg0, f32 *, 0xB0) > lbl_805D91A4) >> 5;
+    return (u32)__cntlzw(*(f32 *)((s8 *)arg0 + 0xB0) > lbl_805D91A4) >> 5;
 }
 
 }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Lobby_801D6498 {
     u8 pad[0x14];
@@ -26,17 +22,17 @@ typedef struct Obj_801D650C {
 } Obj_801D650C;
 
 extern "C" {
-M2C_UNK send_6x39_photon_blast_ready();
+s32 send_6x39_photon_blast_ready();
 extern const f32 lbl_805DC3DC;
 void add_photon_blast_charge(u8 *arg0, f32 farg0);
-M2C_UNK send_6x39_photon_blast_ready();
+s32 send_6x39_photon_blast_ready();
 int update_ready__15TFontSmallLobbyFPv(void*);
 int TFontSmallLobby__sub_801D677C(void *);
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E4;
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0);
 int update_field_40__15TFontSmallLobbyFPv(void *);
-M2C_UNK send_6x3A_clear_photon_blast_ready_flag();
+s32 send_6x3A_clear_photon_blast_ready_flag();
 extern const f32 lbl_805DC3DC;
 extern const f32 lbl_805DC3E0;
 extern const f32 lbl_805DC3E4;
@@ -63,7 +59,7 @@ void update_if_ready__15TFontSmallLobbyFPv(void* p);
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0);
 u32 get_player_by_client_id(int);
 u16 get_type__15TFontSmallLobbyFPv(void* p);
-M2C_UNK send_field_state__10TObjPlayerFPv();
+s32 send_field_state__10TObjPlayerFPv();
 
 s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
   const f32 *new_var;
@@ -97,16 +93,16 @@ s32 subtract_photon_blast_charge(u8 *arg0, f32 farg0) {
 
 void add_photon_blast_chain_charge(u8 *arg0, f32 farg0) {
     f32 temp_f0;
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0x3C);
     if (temp_f0 < lbl_805DC3DC) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
-        if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (temp_f0 + farg0);
+        if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805DC3DC) {
             send_6x39_photon_blast_ready();
         }
     } else if (temp_f0 < lbl_805DC3E4) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
-        if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3E4) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DC3E4;
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (temp_f0 + farg0);
+        if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805DC3E4) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DC3E4;
             update_ready__15TFontSmallLobbyFPv((void*)(arg0));
             TFontSmallLobby__sub_801D677C((void *) (arg0));
         }
@@ -115,11 +111,11 @@ void add_photon_blast_chain_charge(u8 *arg0, f32 farg0) {
 
 void add_photon_blast_charge(u8 *arg0, f32 farg0) {
     f32 temp_f0;
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x3C);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0x3C);
     if (temp_f0 < lbl_805DC3DC) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (temp_f0 + farg0);
-        if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC) {
-            M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DC3DC;
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (temp_f0 + farg0);
+        if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805DC3DC) {
+            *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DC3DC;
             send_6x39_photon_blast_ready();
         }
     }
@@ -168,11 +164,6 @@ void reset_state__15TFontSmallLobbyFPv(Obj_801D650C *arg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Pkt_801D698C { u8 cmd; u8 size; u8 pad[2]; u16 a; u16 b; };
 
 struct Obj_801D6A18 { s32 a[4]; s32 x10; s32 x14; };
@@ -192,10 +183,10 @@ s32 accumulate_damage_stats(u8 *arg0, s32 arg1, s32 arg2);
 int is_valid_index__15TFontSmallLobbyFs(s16 arg0);
 void TFontSmallLobby__sub_801D698C(Pkt_801D698C *p);
 void clear_player_sub_object_slots(Obj_801D6A18 *p);
-M2C_UNK init_forward__10TObjPlayerFPv(void *);
+s32 init_forward__10TObjPlayerFPv(void *);
 void* init_reset_fields__15TFontSmallLobbyFPv(void* p);
-M2C_UNK __construct_array(void *, void *, int, int, int);
-extern M2C_UNK fn_80152EF8[];
+s32 __construct_array(void *, void *, int, int, int);
+extern s32 fn_80152EF8[];
 s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0);
 }
 
@@ -248,7 +239,7 @@ s32 construct_pb_controller__15TFontSmallLobbyFi(s32 arg0) {
     __construct_array((void *) (arg0 + 0x14), (void *) (fn_80152EF8), (int) (0), (int) (4), (int) (0xA));
     init_forward__10TObjPlayerFPv((void *) (arg0 + 0x40));
     init_reset_fields__15TFontSmallLobbyFPv((void*)((void *) (arg0 + 0x4C)));
-    ((M2C_UNK (*)(void *))reset_state__15TFontSmallLobbyFPv)((void *) (arg0));
+    ((s32 (*)(void *))reset_state__15TFontSmallLobbyFPv)((void *) (arg0));
     return arg0;
 }
 
@@ -278,7 +269,7 @@ int TFontSmallLobby__sub_801D677C(void* p) { return set_flags__10TObjPlayerFPvUi
 u16 get_type__15TFontSmallLobbyFPv(void* p) { return *(u16*)((char*)p + 0x0); }
 
 s32 TFontSmallLobby__sub_801D67AC(u8 *arg0) {
-    return M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805DC3DC;
+    return *(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805DC3DC;
 }
 
 void TFontSmallLobby__sub_801D67C8(void* p) { *(s16*)((char*)p + 0x2) = 6; }

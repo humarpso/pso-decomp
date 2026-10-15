@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802A9234_TEffIndirectCtrl__data_80540AF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -64,7 +60,7 @@ u8 *get_indirect_recipe(u8);
 void set_render_rect__10TObjPlayerFPviiii(void *, int, int, int, int);
 void set_texture_name(void *, void *, void *, s32);
 void load_texture_list(void *);
-extern M2C_UNK __vt__16TEffIndirectCtrl[];
+extern s32 __vt__16TEffIndirectCtrl[];
 extern s32 TEffIndirectCtrl__name;
 extern const f32 lbl_805DE024;
 Ctrl_802A8B58 *TEffIndirectCtrl__ct(Ctrl_802A8B58 *self, s32 kind, void *parent);
@@ -84,22 +80,22 @@ void TLobby__sub_803DA16C(void *);
 void __dl__7TObjectFPv(void *);
 void __dl__FPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK memcpy(s32, s32, M2C_UNK);
+s32 memcpy(s32, s32, s32);
 
 void render__16TEffIndirectCtrlFv(void) {  }
 
 void copy_and_flush_texture__16TEffIndirectCtrlFPvi(void *arg0, s32 arg1) {
-    memcpy(M2C_FIELD(arg0, s32 *, 0x1C), arg1, 0x1000);
-    DCFlushRange((s32)(M2C_FIELD(arg0, s32 *, 0x1C)), (s32)(0x1000));
+    memcpy(*(s32 *)((s8 *)arg0 + 0x1C), arg1, 0x1000);
+    DCFlushRange((s32)(*(s32 *)((s8 *)arg0 + 0x1C)), (s32)(0x1000));
 }
 
-extern M2C_UNK __vt__16TEffIndirectCtrl[];
+extern s32 __vt__16TEffIndirectCtrl[];
 
 void *__dt__16TEffIndirectCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TEffIndirectCtrl;
-        if (M2C_FIELD(arg0, void **, 0x2C) != NULL) { TLobby__sub_803DA16C(M2C_FIELD(arg0, void **, 0x2C)); __dl__FPv(M2C_FIELD(arg0, void **, 0x2C)); }
-        if (M2C_FIELD(arg0, void **, 0x28) != NULL) { __dl__FPv(M2C_FIELD(arg0, void **, 0x28)); }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TEffIndirectCtrl;
+        if (*(void **)((s8 *)arg0 + 0x2C) != NULL) { TLobby__sub_803DA16C(*(void **)((s8 *)arg0 + 0x2C)); __dl__FPv(*(void **)((s8 *)arg0 + 0x2C)); }
+        if (*(void **)((s8 *)arg0 + 0x28) != NULL) { __dl__FPv(*(void **)((s8 *)arg0 + 0x28)); }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -335,7 +331,7 @@ s32 get_indirect_source_pixels(u8 arg0) {
     if (var_r3 >= 8U) {
         var_r3 = 0;
     }
-    return M2C_FIELD(&TEffIndirectCtrl__source_buffers.value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)) + 0x20;
+    return *(s32 *)((s8 *)(&TEffIndirectCtrl__source_buffers.value) + ((var_r3 * 4) & 0x3FC)) + 0x20;
 }
 typedef char RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0_size[sizeof(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0) == 0x20 ? 1 : -1];
 s32 get_indirect_source_id(u8 arg0) {
@@ -344,7 +340,7 @@ s32 get_indirect_source_id(u8 arg0) {
     if (var_r3 >= 8U) {
         var_r3 = 0;
     }
-    return M2C_FIELD(M2C_FIELD(&(*(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 *)&TEffIndirectCtrl__source_buffers).value, M2C_UNK *, ((var_r3 * 4) & 0x3FC)), s32 *, 8);
+    return *(s32 *)((s8 *)(*(s32 *)((s8 *)(&(*(RecoveredGlobal_802A925C_TEffIndirectCtrl__data_80540AF0 *)&TEffIndirectCtrl__source_buffers).value) + ((var_r3 * 4) & 0x3FC))) + 8);
 }
 
 }

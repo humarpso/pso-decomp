@@ -8,12 +8,8 @@ extern const char *bm_obj_lobby_stendglass_motion_names[];
 extern const char *bm_obj_lobby_stendglass_model_names[2];
 extern BmlResourceDescriptor TObjStendGlassLobby__resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80359944_lbl_804F1A30 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_80359944_lbl_804F1A30 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_80359944_lbl_804F1A30_size[sizeof(RecoveredGlobal_80359944_lbl_804F1A30) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -24,11 +20,11 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -43,11 +39,11 @@ extern s32 lbl_805D6F2C;
 void load_resources__19TObjStendGlassLobbyFv(void);
 s32 init_map_object_base(void *);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
-extern M2C_UNK __vt__19TObjStendGlassLobby[];
+extern s32 __vt__19TObjStendGlassLobby[];
 extern s32 TObjStendGlassLobby__name;
 extern u32 TObjStendGlassLobby__static_model_resource;
 extern s32 lbl_805D6F2C;
-u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 get_filtered_event_theme__6TLobbyFv();
 void TObjStendGlassLobby__sub_803596C0(void);
@@ -64,35 +60,35 @@ void render__19TObjStendGlassLobbyFv(u8 *arg0);
 void update_state__19TObjStendGlassLobbyFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 get_filtered_event_theme__6TLobbyFv();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 post_translate_matrix(void *);
+s32 scale_matrix(int, f32, f32, f32);
+s32 draw_ginja_object(int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
 void destroy_key_base__5TOKeyFPvs(void *, int);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 end_effect_render__13TParticleCtrlFv();
+s32 set_global_param__8TObjFishFi(int);
 
 void TObjStendGlassLobby__sub_803596C0(void) {  }
 
 void render__19TObjStendGlassLobbyFv(u8 *arg0) {
     f32 temp_f1;
 
-    if (((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 0) && ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 0) && ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U)) {
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, u32 *, 0x24)));
+        set_global_param__8TObjFishFi((int) (*(u32 *)((s8 *)arg0 + 0x24)));
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 3) {
-            temp_f1 = M2C_FIELD(arg0, f32 *, 0xCC);
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 3) {
+            temp_f1 = *(f32 *)((s8 *)arg0 + 0xCC);
             scale_matrix((int) (0), (f32) (temp_f1), (f32) (1.0f), (f32) (temp_f1));
         }
-        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x34)));
+        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x34)));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
     }
@@ -138,16 +134,16 @@ void run_task__19TObjStendGlassLobbyFv(Obj_80359758 *self) {
 }
 
 void update_state__19TObjStendGlassLobbyFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x84) < 1) {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x84) < 1) {
+        *(s32 *)((s8 *)arg0 + 0xD0) = 0;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) == get_filtered_event_theme__6TLobbyFv()) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 3;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) == get_filtered_event_theme__6TLobbyFv()) {
+        *(s32 *)((s8 *)arg0 + 0xC8) = 3;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC8) = 0;
 }
 
 extern void *tl_05;
@@ -155,7 +151,7 @@ extern void *tl_05;
 void *create__19TObjStendGlassLobbyFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xD4);
     if (o != NULL) {
-        o = TObjStendGlassLobby__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TObjStendGlassLobby__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -169,7 +165,7 @@ void free_static_model__19TObjStendGlassLobbyFv(void) {
     }
 }
 
-extern M2C_UNK __vt__19TObjStendGlassLobby[];
+extern s32 __vt__19TObjStendGlassLobby[];
 
 void load_resources__19TObjStendGlassLobbyFv(void) {
     s32 temp_r3;
@@ -185,7 +181,7 @@ void load_resources__19TObjStendGlassLobbyFv(void) {
 
 void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__19TObjStendGlassLobby;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__19TObjStendGlassLobby;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -194,15 +190,15 @@ void *__dt__19TObjStendGlassLobbyFv(void *arg0, s16 arg1) {
     return arg0;
 }
 typedef char RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby_size[sizeof(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby) == 0x38 ? 1 : -1];
-u8 *TObjStendGlassLobby__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjStendGlassLobby__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby *)&__vt__19TObjStendGlassLobby).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjStendGlassLobby__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_803599F4___vt__19TObjStendGlassLobby *)&__vt__19TObjStendGlassLobby).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjStendGlassLobby__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     update_state__19TObjStendGlassLobbyFPv((void *) (arg0));
-    M2C_FIELD(arg0, f32 *, 0xCC) = 1.0f;
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD((*(u8 * *)&TObjStendGlassLobby__static_model_resource), u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D6F2C;
+    *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TObjStendGlassLobby__static_model_resource) + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) lbl_805D6F2C;
     return arg0;
 }
 

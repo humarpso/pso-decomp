@@ -1,9 +1,6 @@
 #include "pso/protocol/protocol_types.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 
 typedef char DropRecordSize[(sizeof(FloorItem) == 0x24) ? 1 : -1];
@@ -46,14 +43,14 @@ extern "C" {
 void handle_6x5D_drop_stacked_item(u8 *arg0) {
     FloorItem drop;
     bswap_6x5D__6TLobbyFPv((void *) (arg0));
-    if (get_player_floor__6TLobbyFi((int) ((s32) M2C_FIELD(arg0, s16 *, 4))) != 0xF) {
+    if (get_player_floor__6TLobbyFi((int) ((s32) *(s16 *)((s8 *)arg0 + 4))) != 0xF) {
         drop_stacked_item_passthrough__6TLobbyFi((void *) (&drop.floor));
-        drop.floor = (s8) M2C_FIELD(arg0, s16 *, 4);
-        drop.pos.x = M2C_FIELD(arg0, f32 *, 8);
-        drop.pos.z = M2C_FIELD(arg0, f32 *, 0xC);
-        drop.room_id = M2C_FIELD(arg0, s16 *, 6);
+        drop.floor = (s8) *(s16 *)((s8 *)arg0 + 4);
+        drop.pos.x = *(f32 *)((s8 *)arg0 + 8);
+        drop.pos.z = *(f32 *)((s8 *)arg0 + 0xC);
+        drop.room_id = *(s16 *)((s8 *)arg0 + 6);
         copy_item_data__6TLobbyFPvPv((void *) (&drop.item), (void *) (arg0 + 0x10));
-        if ((u32) (M2C_FIELD(arg0, u8 *, 1) * 4) == 0x24) {
+        if ((u32) (*(u8 *)((s8 *)arg0 + 1) * 4) == 0x24) {
             TItemData__sub_8010C740((void *) (arg0 + 0x10), (int) (0));
         } else {
             TItemData__sub_8010C740((void *) (arg0 + 0x10), (int) (2));

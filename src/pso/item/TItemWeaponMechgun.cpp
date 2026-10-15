@@ -54,25 +54,20 @@ struct WeaponDispatch : WeaponDispatchPrefix {
     virtual s32 launchShot(void *, s32, s32, s32);
 };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 void draw_status_icons__10TObjPlayerFPvPvPv(void *, void *, void *);
 void mechgun_sample_muzzle_points(u8 *arg0);
 extern const f32 lbl_805DADD0;
 extern const f32 lbl_805DADD4;
 void mechgun_update_rotation_decay(void *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_mechgun_weapon(u8 *arg0);
-M2C_UNK TItemWeapon__ct(void *, s32, void *);
-M2C_UNK set_status_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
-M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 TItemWeapon__ct(void *, s32, void *);
+s32 set_status_flags__10TObjPlayerFPvUi(void *, s32);
+s32 set_atp__10TObjPlayerFPvs(void *, s32);
 void spawn_weapon_impact_effect();
-extern M2C_UNK lbl_804A3260[];
+extern s32 lbl_804A3260[];
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2);
 }
 
@@ -94,12 +89,12 @@ extern "C" {
 
 void mechgun_update_rotation_decay(void *arg0) {
     s32 temp_r4;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x218) != -1) {
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x21C);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x218) != -1) {
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x21C);
         if (lbl_805DADD0 < (f32) temp_r4) {
-            M2C_FIELD(arg0, s32 *, 0x21C) = (s32) ((f32) temp_r4 - lbl_805DADD4);
-            if ((f32) M2C_FIELD(arg0, s32 *, 0x21C) < lbl_805DADD0) {
-                M2C_FIELD(arg0, s32 *, 0x21C) = 0;
+            *(s32 *)((s8 *)arg0 + 0x21C) = (s32) ((f32) temp_r4 - lbl_805DADD4);
+            if ((f32) *(s32 *)((s8 *)arg0 + 0x21C) < lbl_805DADD0) {
+                *(s32 *)((s8 *)arg0 + 0x21C) = 0;
             }
         }
     }
@@ -112,25 +107,25 @@ void mechgun_sample_muzzle_points(u8 *arg0) {
 void *TItemWeaponMechgun__ct(void *arg0, s32 parent, void *arg2) {
     u8 temp_r0;
     TItemWeapon__ct(arg0, parent, arg2);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A3260;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A3260;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x203);
-    M2C_FIELD(arg0, void (**)(), 0x1EC) = &spawn_weapon_impact_effect;
-    M2C_FIELD(arg0, s32 *, 0x210) = -1;
-    M2C_FIELD(arg0, s32 *, 0x214) = 0;
-    M2C_FIELD(arg0, s32 *, 0x218) = -1;
-    M2C_FIELD(arg0, s32 *, 0x21C) = 0;
-    temp_r0 = M2C_FIELD(arg2, u8 *, 2);
+    *(void (**)())((s8 *)arg0 + 0x1EC) = &spawn_weapon_impact_effect;
+    *(s32 *)((s8 *)arg0 + 0x210) = -1;
+    *(s32 *)((s8 *)arg0 + 0x214) = 0;
+    *(s32 *)((s8 *)arg0 + 0x218) = -1;
+    *(s32 *)((s8 *)arg0 + 0x21C) = 0;
+    temp_r0 = *(u8 *)((s8 *)arg2 + 2);
     switch ((s32) temp_r0) {
     case 6:
         break;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x210) = 2;
+        *(s32 *)((s8 *)arg0 + 0x210) = 2;
         break;
     case 7:
-        M2C_FIELD(arg0, s32 *, 0x210) = 2;
+        *(s32 *)((s8 *)arg0 + 0x210) = 2;
         break;
     }
-    if ((u8) M2C_FIELD(arg2, u8 *, 2) >= 5U) {
+    if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
         set_atp__10TObjPlayerFPvs(arg0, -1);
     }
     return arg0;

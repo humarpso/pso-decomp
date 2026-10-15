@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_80323D20 {
     s32 f0; u8 pad[0xAC - 4]; s32 fAC; s32 fB0; s32 fB4; u8 padB8[4]; f32 fBC; s32 fC0; s32 fC4; f32 pos[3];
@@ -36,23 +32,23 @@ s32 query_teammate_state__9TObjEneDDFPv(void);
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
-M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
+s32 create_emitter__14TBoss6GravBallFii(void *, int);
 void TBoss6GravBall__sub_80323320(void *);
 extern s32 lbl_8047667C[];
-extern M2C_UNK __vt__14TBoss6GravBall[];
+extern s32 __vt__14TBoss6GravBall[];
 extern s32 TBoss6GravBall__name;
 extern const f32 TBoss6GravBall__data_805DF550;
 Obj_80323D20 *TBoss6GravBall__ct(Obj_80323D20 *arg0, s32 arg1, void *arg2);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 queue_destruction__7TObjectFv(void *);
+s32 play_persistent_sound(int, void *, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 s32 get_state__14TBoss6GravBallFPv(int);
-M2C_UNK fn_80323134(void *);
-M2C_UNK destroy_part__14TBoss6GravBallFii(void *, int);
-M2C_UNK TBoss6GravBall__sub_80323214(void *, int);
-M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
-M2C_UNK TBoss6GravBall__sub_80323544(void *);
-M2C_UNK TBoss6GravBall__sub_803236F8(void *);
+s32 fn_80323134(void *);
+s32 destroy_part__14TBoss6GravBallFii(void *, int);
+s32 TBoss6GravBall__sub_80323214(void *, int);
+s32 create_emitter__14TBoss6GravBallFii(void *, int);
+s32 TBoss6GravBall__sub_80323544(void *);
+s32 TBoss6GravBall__sub_803236F8(void *);
 s32 clamp_to_ground__14TBoss6GravBallFPv();
 extern const f32 lbl_805DF568;
 extern const f32 lbl_805DF578;
@@ -63,18 +59,18 @@ extern "C" {
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1);
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0);
-M2C_UNK play_sound_effect(int, void *, int, int);
-M2C_UNK destroy_part__14TBoss6GravBallFii(void *, int);
-M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
+s32 play_sound_effect(int, void *, int, int);
+s32 destroy_part__14TBoss6GravBallFii(void *, int);
+s32 create_emitter__14TBoss6GravBallFii(void *, int);
 void clear_player_grav_flags__14TBoss6GravBallFv(void *);
-M2C_UNK TBoss6GravBall__sub_803233AC();
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 TBoss6GravBall__sub_803233AC();
+s32 play_persistent_sound(int, void *, void *, int, int);
+s32 spawn_particle_effect(void *, int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 s32 get_state__14TBoss6GravBallFPv(int);
 void init_parts__14TBoss6GravBallFPv(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     s32 temp_r0;
@@ -84,7 +80,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
 
     TBoss6GravBall__sub_803233AC();
     play_persistent_sound((int) (0x4003C418), (void *) (arg0), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if (temp_r0 >= 0x96) {
         if (temp_r0 == 0x96) {
             create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (3));
@@ -104,19 +100,19 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
             destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (3));
         }
     }
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) (M2C_FIELD(arg0, s32 *, 0xB8) + 1);
-    M2C_FIELD(arg0, s32 *, 0xB4) = (s32) (M2C_FIELD(arg0, s32 *, 0xB4) + 1);
-    temp_r3 = get_state__14TBoss6GravBallFPv((int) (M2C_FIELD(arg0, s32 *, 0xAC)));
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) (*(s32 *)((s8 *)arg0 + 0xB8) + 1);
+    *(s32 *)((s8 *)arg0 + 0xB4) = (s32) (*(s32 *)((s8 *)arg0 + 0xB4) + 1);
+    temp_r3 = get_state__14TBoss6GravBallFPv((int) (*(s32 *)((s8 *)arg0 + 0xAC)));
     switch (temp_r3) {
     case 29:
     case 30:
     case 39:
         return;
     case 31:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0xC4) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0xC4) == 0) {
             spawn_particle_effect((void *) (arg0 + 0xC8), (int) (0x21C));
             spawn_particle_effect((void *) (arg0 + 0xC8), (int) (0x21D));
-            M2C_FIELD(arg0, s32 *, 0xC4) = 1;
+            *(s32 *)((s8 *)arg0 + 0xC4) = 1;
         }
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (5));
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (6));
@@ -130,9 +126,9 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (6));
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (7));
         destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (8));
-        M2C_FIELD(arg0, s32 *, 0xB4) = 0;
+        *(s32 *)((s8 *)arg0 + 0xB4) = 0;
         clear_player_grav_flags__14TBoss6GravBallFv((void *)((void *) (arg0)));
-        M2C_FIELD(arg0, s32 *, 0xB0) = 2;
+        *(s32 *)((s8 *)arg0 + 0xB0) = 2;
         play_sound_effect((int) (0x4003C417), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
         return;
     default:
@@ -141,7 +137,7 @@ void update_charge_effects__14TBoss6GravBallFPv(u8 *arg0) {
     }
 }
 
-extern M2C_UNK __vt__14TBoss6GravBall[];
+extern s32 __vt__14TBoss6GravBall[];
 
 void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     f32 temp_f2;
@@ -154,16 +150,16 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
     fn_80323134((void *) (arg0));
     if (temp_r3 != 0) {
         create_emitter__14TBoss6GravBallFii((void *) (arg0), (int) (2));
-        temp_f2 = M2C_FIELD(arg0, f32 *, 0xBC);
+        temp_f2 = *(f32 *)((s8 *)arg0 + 0xBC);
         if (temp_f2 < lbl_805DF568) {
-            M2C_FIELD(arg0, f32 *, 0xBC) = (f32) (temp_f2 + lbl_805DF578);
-            if (M2C_FIELD(arg0, f32 *, 0xBC) > lbl_805DF568) {
-                M2C_FIELD(arg0, f32 *, 0xBC) = (f32) lbl_805DF568;
+            *(f32 *)((s8 *)arg0 + 0xBC) = (f32) (temp_f2 + lbl_805DF578);
+            if (*(f32 *)((s8 *)arg0 + 0xBC) > lbl_805DF568) {
+                *(f32 *)((s8 *)arg0 + 0xBC) = (f32) lbl_805DF568;
             }
         }
         TBoss6GravBall__sub_80323544((void *) (arg0));
         play_persistent_sound((int) (0x4003B51A), (void *) (arg0), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
-        switch (get_state__14TBoss6GravBallFPv((int) (M2C_FIELD(arg0, s32 *, 0xAC)))) {
+        switch (get_state__14TBoss6GravBallFPv((int) (*(s32 *)((s8 *)arg0 + 0xAC)))) {
         case 0x27:
             return;
         case 0x1D:
@@ -174,9 +170,9 @@ void update_state__14TBoss6GravBallFPv(u8 *arg0) {
             destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (1));
             destroy_part__14TBoss6GravBallFii((void *) (arg0), (int) (2));
             TBoss6GravBall__sub_80323214((void *) (arg0), (int) (4));
-            M2C_FIELD(arg0, s32 *, 0xB8) = 0;
-            M2C_FIELD(arg0, s32 *, 0xB4) = 0;
-            M2C_FIELD(arg0, s32 *, 0xB0) = 1;
+            *(s32 *)((s8 *)arg0 + 0xB8) = 0;
+            *(s32 *)((s8 *)arg0 + 0xB4) = 0;
+            *(s32 *)((s8 *)arg0 + 0xB0) = 1;
             play_sound_effect((int) (0x4003B516), (void *) (arg0 + 0xC8), (int) (0), (int) (0));
             break;
         case 0x20:
@@ -206,7 +202,7 @@ void run_task__14TBoss6GravBallFv(TBoss6GravBall_80323BBC *arg0) {
 
 void *__dt__14TBoss6GravBallFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TBoss6GravBall;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss6GravBall;
         init_parts__14TBoss6GravBallFPv(arg0);
         clear_player_grav_flags__14TBoss6GravBallFv((void *)(arg0));
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);

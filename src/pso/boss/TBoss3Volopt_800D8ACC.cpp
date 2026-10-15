@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Stack_800D8F78 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
 };
 
@@ -14,9 +10,9 @@ typedef struct Vec_800D8C48 {
 } Vec_800D8C48;
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK create_timed_particle_emitter(void *, int, int, int);
-M2C_UNK spawn_particle_effect(void *, int, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 create_timed_particle_emitter(void *, int, int, int);
+s32 spawn_particle_effect(void *, int, f32);
 extern const f32 lbl_805DA3C0;
 void spawn_particles_at__12TBoss3VoloptFi(s32 arg0);
 s32 remap_area_sound_id(int, int);
@@ -33,8 +29,8 @@ s32 remap_area_sound_id__12TBoss3VoloptFi(int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
 void play_area_sound_effect__12TBoss3VoloptFi(s32 arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK spawn_particle_effect(void *, int, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 spawn_particle_effect(void *, int, f32);
 s32 remap_area_sound_id(int, int);
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 play_sound_effect(int, void *, int, int);
@@ -45,8 +41,8 @@ void play_area_se_with_particle__12TBoss3VoloptFi(s32 arg0);
 extern "C" {
 
 void create_breakup_mdl__12TBoss3VoloptFiiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
-M2C_UNK TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
-void* __nw__7TObjectFUl(M2C_UNK);
+s32 TBreakUpMdl__ct(void*, s32, s32, s32, s32, s32, s32);
+void* __nw__7TObjectFUl(s32);
 
 extern s32 tl_05;
 

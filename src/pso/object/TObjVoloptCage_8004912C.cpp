@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -22,15 +18,15 @@ struct TObjVoloptCageVObj_8004912C : TObjVoloptCageBase_8004912C {
 void init_break_model__14TObjVoloptCageFv(void);
 void render__14TObjVoloptCageFv(u8 *arg0);
 s32 init_from_model__11TBreakUpMdlFPvi(s32, s32);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_chunk_object(s32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-s32 alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK, void *);
-s32 dispatch_shared_handler_a__6TLobbyFPv(M2C_UNK);
-s32 register_boss__6TLobbyFPv(M2C_UNK);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 post_translate_matrix(void *);
+s32 draw_chunk_object(s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 alloc__23TAdSinglePlyChrSelectGCFPv(s32, void *);
+s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
+s32 register_boss__6TLobbyFPv(s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 extern void *boss3_volopt_resources;
 extern s32 lbl_805D4D18;
@@ -42,8 +38,8 @@ void init_break_model__14TObjVoloptCageFv(void) {
     s32 var_r0;
     void *temp_r4;
 
-    temp_r4 = M2C_FIELD(boss3_volopt_resources, void **, 0x42C);
-    lbl_805D4D24 = M2C_FIELD(temp_r4, s32 *, 0x128);
+    temp_r4 = *(void **)((s8 *)boss3_volopt_resources + 0x42C);
+    lbl_805D4D24 = *(s32 *)((s8 *)temp_r4 + 0x128);
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10, temp_r4);
     if (var_r0 != 0) {
         var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, lbl_805D4D24);
@@ -65,7 +61,7 @@ void render__14TObjVoloptCageFv(u8 *arg0) {
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         draw_chunk_object(lbl_805D4D24);
         pop_matrix();
     }

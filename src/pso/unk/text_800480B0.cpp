@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_aa4667 { char pad[0x18]; };
 
 struct VObj_18_aa4667 : VBase_18_aa4667 {
@@ -85,11 +82,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_800480B0_lbl_80484610 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -98,15 +95,15 @@ s32 TBoss3VoloptP02__ct(void *);
 s32 TObjEnemyCustom__ct(void *);
 s32 init_and_activate__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_800480B0_lbl_80484610 lbl_80484610;
-u8 *fn_800480B0(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2);
 }
 
 extern "C" {
 
 typedef char RecoveredGlobal_800480B0_lbl_80484610_size[sizeof(RecoveredGlobal_800480B0_lbl_80484610) == 0x14C ? 1 : -1];
-u8 *fn_800480B0(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *fn_800480B0(u8 *arg0, s32 arg1, s32 arg2) {
     TObjEnemyCustom__ct((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_80484610.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_80484610.value;
     init_and_activate__10TObjPlayerFPv((void *) (arg0 + 0x490));
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     TBoss3VoloptP02__ct((void *) (arg0));

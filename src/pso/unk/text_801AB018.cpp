@@ -1,17 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_801AB018 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 pad_10[0x4];
-    M2C_UNK sp14;
+    s32 sp14;
     f32 sp18;
     u8 pad_1C[0x4];
-    M2C_UNK sp20;
+    s32 sp20;
     f32 sp24;
     u8 trailing_storage[0x4];
 };
@@ -61,10 +58,10 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
     s32 temp_r3_4;
     s32 temp_r3_5;
     u32 temp_r3_2;
-    M2C_FIELD(arg0, s32 *, 0x1A4) = (s32) (M2C_FIELD(arg0, s32 *, 0x1A4) + 1);
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 0x32) && ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) == 0)) {
-        M2C_FIELD(arg0, s32 *, 0x1A0) = 1;
-        temp_r3 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+    *(s32 *)((s8 *)arg0 + 0x1A4) = (s32) (*(s32 *)((s8 *)arg0 + 0x1A4) + 1);
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x1A4) == 0x32) && ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) == 0)) {
+        *(s32 *)((s8 *)arg0 + 0x1A0) = 1;
+        temp_r3 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
         if (temp_r3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp20), (void *) (temp_r3 + 0x38));
             stack.sp24 += lbl_805DC15C;
@@ -74,23 +71,23 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
             construct_photon_magic_square_normal((int) (temp_r3_2), (void *) (arg0), (int) (0), (void *) (&stack.sp20), (int) (0x78));
         }
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x1A4) == 0x64) && ((s16) M2C_FIELD(arg0, s16 *, 0xB8) == 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x1A4) == 0x64) && ((s16) *(s16 *)((s8 *)arg0 + 0xB8) == 1)) {
         begin_photon_summon_camera((void *) (arg0), (int) (1));
-        M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
         set_field_b8__14TObjEnePanarmsFPvs((void *) (arg0), (int) (0));
         spawn_photon_blast_attachment_effects((void *) (arg0), (int) (0));
     }
-    M2C_FIELD(arg0, s16 *, 0x194) = (s16) M2C_FIELD(arg0, s16 *, 0xB8);
+    *(s16 *)((s8 *)arg0 + 0x194) = (s16) *(s16 *)((s8 *)arg0 + 0xB8);
     update_state__10TSceneSoraFPv((void *) (arg0));
     advance_animation_playback((void *) (arg0));
     update_photon_blast_attachments((void *) (arg0));
-    M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (M2C_FIELD(arg0, s16 *, 0x14C) + 0xF);
-    M2C_FIELD(arg0, s16 *, 0x14C) = (s16) (u8) M2C_FIELD(arg0, s16 *, 0x14C);
-    if (lbl_805DC160 == (f32) M2C_FIELD(arg0, s32 *, 0x1A4)) {
+    *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (*(s16 *)((s8 *)arg0 + 0x14C) + 0xF);
+    *(s16 *)((s8 *)arg0 + 0x14C) = (s16) (u8) *(s16 *)((s8 *)arg0 + 0x14C);
+    if (lbl_805DC160 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
         update_all_slots__10TObjPlayerFPv((void *) (arg0));
     }
-    if (lbl_805DC164 == (f32) M2C_FIELD(arg0, s32 *, 0x1A4)) {
-        temp_r3_3 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+    if (lbl_805DC164 == (f32) *(s32 *)((s8 *)arg0 + 0x1A4)) {
+        temp_r3_3 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
         if (temp_r3_3 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp14), (void *) (temp_r3_3 + 0x38));
         }
@@ -99,22 +96,22 @@ void run_task__13TPhotonFarllaFPv(u8 *arg0) {
         stack.sp18 += lbl_805DC16C;
         spawn_particle_effect((void *) (&stack.sp14), (int) (0x15F));
     }
-    temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x1A4);
+    temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x1A4);
     if ((lbl_805DC170 == (f32) temp_r3_4) || (lbl_805DC174 == (f32) temp_r3_4)) {
-        temp_r3_5 = find_entity_by_id((int) ((s32) M2C_FIELD(arg0, u16 *, 0x17C)));
+        temp_r3_5 = find_entity_by_id((int) ((s32) *(u16 *)((s8 *)arg0 + 0x17C)));
         if (temp_r3_5 != 0) {
             VecCopy__FP3VecPC3Vec((void *) (&stack.sp8), (void *) (temp_r3_5 + 0x38));
             stack.spC += lbl_805DC168;
         }
         spawn_particle_effect((void *) (&stack.sp8), (int) (0x151));
     }
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x1A4) > lbl_805DC178) {
-        temp_f1 = M2C_FIELD(arg0, f32 *, 0x184);
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x1A4) > lbl_805DC178) {
+        temp_f1 = *(f32 *)((s8 *)arg0 + 0x184);
         if (temp_f1 > lbl_805DC17C) {
-            M2C_FIELD(arg0, f32 *, 0x184) = (f32) (temp_f1 - lbl_805DC180);
+            *(f32 *)((s8 *)arg0 + 0x184) = (f32) (temp_f1 - lbl_805DC180);
         }
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1A0) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1A0) != 0) {
         play_persistent_sound((int) (0x4002462F), (void *) (arg0), (int) (0), (int) (0), (int) (0));
     }
 }

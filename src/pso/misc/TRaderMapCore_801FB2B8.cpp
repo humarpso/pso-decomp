@@ -1,13 +1,10 @@
 #include "types.h"
 #include "pso/misc/TRaderMapCore.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma fp_contract on
 
 struct RecoveredGlobal_801FB430___vt__13TRaderMapCore {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x30];
 };
 
@@ -18,7 +15,7 @@ struct MRec_801FB490 { f32 v[3]; s32 a0; f32 a4; s16 h[2]; u8 padac[0x28 - 0x18]
 struct Core_801FB490 {
     s32 f0;
     u8 pad4[0x14];
-    M2C_UNK *vt;
+    s32 *vt;
     u8 pad1c[0x90 - 0x1C];
     s32 f90;
     MRec_801FB490 recs[4];
@@ -40,26 +37,26 @@ struct Core_801FB490 {
 extern "C" {
 u16 obj_getField1c(void *);
 s32 get_player_by_client_id(int);
-M2C_UNK update_radar_auto_discovery(void *, int, void *);
-M2C_UNK gather_player_markers__13TRaderMapCoreFv(void *);
-M2C_UNK update_follow_projection__13TRaderMapCoreFv(void *, void *);
-M2C_UNK update_pan_zoom_input__13TRaderMapCoreFPv();
-M2C_UNK update_target__13TRaderMapCoreFPv(void *);
+s32 update_radar_auto_discovery(void *, int, void *);
+s32 gather_player_markers__13TRaderMapCoreFv(void *);
+s32 update_follow_projection__13TRaderMapCoreFv(void *, void *);
+s32 update_pan_zoom_input__13TRaderMapCoreFPv();
+s32 update_target__13TRaderMapCoreFPv(void *);
 void advance_scroll__13TRaderMapCoreFPv(void *arg0);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u32 TRaderMapCore__floor_map_resource;
 extern s32 TRaderMapCore__view_mode;
 void run_task__13TRaderMapCoreFv(u8 *arg0);
 u8 * destroy_particle__13TParticleCtrlFPvs(void *, s16);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern s32 TRaderMapCore__instance;
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK construct_world_actor_base(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 construct_world_actor_base(void *, void *);
 s32 init_map_ptr__13TRaderMapCoreFv(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
-M2C_UNK fn_803D64F8(void *);
+s32 fn_803D64F8(void *);
 extern RecoveredGlobal_801FB430___vt__13TRaderMapCore __vt__13TRaderMapCore;
 extern GRec_801FB490 TRaderMapCore__map_view_state[];
 extern f32 lbl_805D35F0;
@@ -90,17 +87,17 @@ extern const f32 lbl_805DC59C;
 extern const f32 lbl_805DC5A0;
 
 void advance_scroll__13TRaderMapCoreFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x198) = (s32) (M2C_FIELD(arg0, s32 *, 0x198) + 0x888);
-    M2C_FIELD(arg0, f32 *, 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(M2C_FIELD(arg0, s32 *, 0x198)));
+    *(s32 *)((s8 *)arg0 + 0x198) = (s32) (*(s32 *)((s8 *)arg0 + 0x198) + 0x888);
+    *(f32 *)((s8 *)arg0 + 0x19C) = lbl_805DC59C + lbl_805DC5A0 * (TRaderMapCore__data_805DC534 + sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x198)));
 }
 void run_task__13TRaderMapCoreFv(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r4;
     s32 var_r31;
     if ((u32) TRaderMapCore__floor_map_resource != 0U) {
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x90);
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x90);
         if (temp_r4 > 0) {
-            M2C_FIELD(arg0, s32 *, 0x90) = (s32) (temp_r4 - 1);
+            *(s32 *)((s8 *)arg0 + 0x90) = (s32) (temp_r4 - 1);
             return;
         }
         switch ((s32) TRaderMapCore__view_mode) {
@@ -115,8 +112,8 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
             break;
         }
         gather_player_markers__13TRaderMapCoreFv((void *) (arg0));
-        if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((u32) M2C_FIELD(arg0, u32 *, 0x184) != 0U)) {
-            M2C_FIELD(arg0, s32 *, 0x134) = (s32) obj_getField1c(M2C_FIELD(arg0, void **, 0x184));
+        if ((is_not_split_screen__13TRaderMapCoreFv() == 1) && ((u32) *(u32 *)((s8 *)arg0 + 0x184) != 0U)) {
+            *(s32 *)((s8 *)arg0 + 0x134) = (s32) obj_getField1c(*(void **)((s8 *)arg0 + 0x184));
         }
         update_follow_projection__13TRaderMapCoreFv((void *) (arg0), (void *) (TRaderMapCore__view_mode));
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -129,7 +126,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
                 var_r31 += 1;
             } while (var_r31 < 4);
         } else {
-            update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (arg0 + M2C_FIELD(arg0, s32 *, 0x134) * 0x28 + 0x94));
+            update_radar_auto_discovery((void *) (arg0), (int) (0), (void *) (arg0 + *(s32 *)((s8 *)arg0 + 0x134) * 0x28 + 0x94));
         }
         advance_scroll__13TRaderMapCoreFPv((void *) (arg0));
     }
@@ -137,7 +134,7 @@ void run_task__13TRaderMapCoreFv(u8 *arg0) {
 typedef char RecoveredGlobal_801FB430___vt__13TRaderMapCore_size[sizeof(RecoveredGlobal_801FB430___vt__13TRaderMapCore) == 0x34 ? 1 : -1];
 u8 *__dt__13TRaderMapCoreFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__13TRaderMapCore.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__13TRaderMapCore.value;
         TRaderMapCore__instance = 0;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {

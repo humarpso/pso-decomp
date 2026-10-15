@@ -1,29 +1,25 @@
 #include "pso/object/TObjDeadListWin.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_690 { u8 bytes[0x690]; };
+struct ByteBlock_690 { u8 bytes[0x690]; };
 
 struct RecoveredGlobal_80070A78_lbl_8048C348 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x68C];
 };
 
 struct RecoveredGlobal_80070A78_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 extern "C" {
 extern RecoveredGlobal_80070A78_lbl_8048C348 challenge_settings_defaults;
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 #define challenge_mode_state (*(RecoveredGlobal_80070A78_lbl_8048C9D8 *)challenge_mode_state)
 void copy_state_block__6TLobbyFv(void);
 }
@@ -31,13 +27,13 @@ void copy_state_block__6TLobbyFv(void);
 extern "C" {
 
 void init_on_main_phase__6TLobbyFv(void);
-M2C_UNK start_lobby_name_request__6TLobbyFv();
-M2C_UNK set_name_string__6TLobbyFi(M2C_UNK *);
+s32 start_lobby_name_request__6TLobbyFv();
+s32 set_name_string__6TLobbyFi(s32 *);
 u32 create__10TChallengeFv();
-M2C_UNK load_resources__13TObjTombstoneFv();
+s32 load_resources__13TObjTombstoneFv();
 
 s32 get_main_phase();
-extern M2C_UNK lbl_804385B0[];
+extern s32 lbl_804385B0[];
 extern u32 challenge_task;
 extern s32 challenge_task_created;
 extern s32 TLobby__data_805D4E30;
@@ -61,7 +57,7 @@ void init_on_main_phase__6TLobbyFv(void) {
 typedef char RecoveredGlobal_80070A78_lbl_8048C348_size[sizeof(RecoveredGlobal_80070A78_lbl_8048C348) == 0x690 ? 1 : -1];
 typedef char RecoveredGlobal_80070A78_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070A78_lbl_8048C9D8) == 0x748 ? 1 : -1];
 void copy_state_block__6TLobbyFv(void) {
-    *(M2CCopy_690 *)(&challenge_mode_state.value) = *(const M2CCopy_690 *)(&challenge_settings_defaults.value);
+    *(ByteBlock_690 *)(&challenge_mode_state.value) = *(const ByteBlock_690 *)(&challenge_settings_defaults.value);
 }
 
 }
@@ -71,28 +67,24 @@ __declspec(section ".ctors") static void *const __sinit_TLobby_80070A00_80070A00
 #undef challenge_mode_state
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80070ACC_lbl_8048D208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8039994C_lbl_804F5800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_80399904_lbl_804F5A00 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_80399928_lbl_804F5900 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
@@ -100,7 +92,7 @@ struct G_80070B34 { u8 pad[0x10]; s32 x10; u8 pad2[0x34 - 0x14]; s32 x34; };
 
 extern "C" {
 extern RecoveredGlobal_80070ACC_lbl_8048D208 lbl_8048D208;
-M2C_UNK *TLobby__sub_80070ACC(void);
+s32 *TLobby__sub_80070ACC(void);
 extern RecoveredGlobal_80399904_lbl_804F5A00 lbl_804F5A00;
 u32 TLobby__sub_80070AD8(s32 arg0);
 #define challenge_mode_state (*(G_80070B34 *)challenge_mode_state)
@@ -121,7 +113,7 @@ u8 is_flag_set__6TLobbyFv(void) {
     extern int chat_last_line_buffer;
 int get_unit_list__6TLobbyFv(void) {  return chat_last_line_buffer; }
 typedef char RecoveredGlobal_80070ACC_lbl_8048D208_size[sizeof(RecoveredGlobal_80070ACC_lbl_8048D208) == 0x18 ? 1 : -1];
-M2C_UNK *TLobby__sub_80070ACC(void) {
+s32 *TLobby__sub_80070ACC(void) {
     return &lbl_8048D208.value;
 }
 typedef char RecoveredGlobal_8039994C_lbl_804F5800_size[sizeof(RecoveredGlobal_8039994C_lbl_804F5800) == 0x100 ? 1 : -1];
@@ -130,7 +122,7 @@ u32 TLobby__sub_80070AD8(s32 arg0) {
     if (arg0 == -1) {
         return -1U;
     }
-    return M2C_FIELD(((u8 *)(&lbl_804F5A00.value) + (u8) arg0), u8 *, 0);
+    return *(u8 *)((s8 *)((u8 *)(&lbl_804F5A00.value) + (u8) arg0) + 0);
 }
 void set_split_screen_flag__6TLobbyFv(void) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) {
@@ -154,13 +146,9 @@ typedef char RecoveredGlobal_80399928_lbl_804F5900_size[sizeof(RecoveredGlobal_8
 #undef challenge_task
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80070BE8_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
@@ -170,10 +158,10 @@ struct H_80070C50 { u8 pad[0x20]; s32 f20; s32 f24; s32 f28; };
 
 extern "C" {
 
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 void TLobby__sub_80070BE8(s32 arg0);
 void TLobby__sub_8026A328(void *);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 #define challenge_task (*(H_80070C50 **)&challenge_task)
 void TLobby__sub_80070C50(void);
 }
@@ -182,29 +170,29 @@ extern "C" {
 
 s32 get_state__6TLobbyFv(void);
 
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 
 s32 get_state__6TLobbyFv(void) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) {
         return 0;
     }
-    if (((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x2C) != 1) && ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x2C) != 0)) {
-        M2C_FIELD(challenge_mode_state, s32 *, 0x2C) = 0;
+    if (((s32) *(s32 *)((s8 *)challenge_mode_state + 0x2C) != 1) && ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x2C) != 0)) {
+        *(s32 *)((s8 *)challenge_mode_state + 0x2C) = 0;
     }
-    return M2C_FIELD(challenge_mode_state, s32 *, 0x2C);
+    return *(s32 *)((s8 *)challenge_mode_state + 0x2C);
 }
 typedef char RecoveredGlobal_80070BE8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070BE8_lbl_8048C9D8) == 0x748 ? 1 : -1];
 void TLobby__sub_80070BE8(s32 arg0) {
     s32 var_r31;
     var_r31 = arg0;
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) {
-        M2C_FIELD(&(*(RecoveredGlobal_80070BE8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x2C) = 0;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070BE8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x2C) = 0;
         return;
     }
     if ((var_r31 != 1) && (var_r31 != 0)) {
         var_r31 = 0;
     }
-    M2C_FIELD(&(*(RecoveredGlobal_80070BE8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x2C) = var_r31;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070BE8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x2C) = var_r31;
 }
 void TLobby__sub_80070C50(void) {
     s32 i;
@@ -233,52 +221,47 @@ void TLobby__sub_80070C50(void) {
 #undef challenge_task
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80070F4C_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_80070FD8_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_800713C8_lbl_804FF82C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80070DA8_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_80071064_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_80070EE4_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_8007119C_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
 struct RecoveredGlobal_800710D8_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
-typedef s32 M2C_UNK;
 struct Entry_800712D8 {
     s32 value;
     s32 arg;
@@ -295,29 +278,29 @@ struct Tbl_80070DCC { u8 pad[0x680]; s32 f680[4]; };
 extern "C" {
 int check_player_state_flag_2__6TLobbyFPv(void *);
 s32 get_player_by_client_id(u32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 extern u32 challenge_task;
 s32 TLobby__sub_80070F4C(void);
 int check_player_state_flag_2__6TLobbyFPv(void *);
 s32 get_player_by_client_id(u32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 extern u32 challenge_task;
 s32 TLobby__sub_80070FD8(void);
 s32 get_character_save_record(u32);
-M2C_UNK decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
+s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int, int);
 extern RecoveredGlobal_800713C8_lbl_804FF82C lbl_804FF82C;
-M2C_UNK *TLobby__sub_800713C8(void);
-extern M2C_UNK challenge_mode_state[];
+s32 *TLobby__sub_800713C8(void);
+extern s32 challenge_mode_state[];
 s32 TLobby__sub_80070DA8(void);
 f32 fabs_float(f32);
 
-M2C_UNK set_challenge_time_window_timer(void *);
-extern M2C_UNK challenge_mode_state[];
+s32 set_challenge_time_window_timer(void *);
+extern s32 challenge_mode_state[];
 void TLobby__sub_80071064(s32 arg0);
 f32 fabs_float(f32);
 s32 check_challenge_time_range__6TLobbyFi(s32);
-M2C_UNK send_seed_state__6TLobbyFi(void *);
-extern M2C_UNK challenge_mode_state[];
+s32 send_seed_state__6TLobbyFi(void *);
+extern s32 challenge_mode_state[];
 void TLobby__sub_80070EE4(s32 arg0);
 f32 fabs_float(f32);
 s32 check_challenge_time_range__6TLobbyFi(s32);
@@ -325,22 +308,22 @@ s32 TLobby__sub_8006F6B0(int);
 
 s32 calc_remaining_char_slots__6TLobbyFv();
 s32 get_character_save_record(u32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 s32 TLobby__sub_8007119C(s32 arg0);
-M2C_UNK **TWindowSubStatusDisp__sub_8006F134(s32, s32);
+s32 **TWindowSubStatusDisp__sub_8006F134(s32, s32);
 s32 forward_to_global_instance__23TAdSinglePlyChrSelectGCFi(int);
 s32 get_character_save_record(u32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 s32 TLobby__sub_800710D8(s32 arg0);
 s32 calc_layout_hash__20TWindowSubStatusDispFv(int);
 s32 calc_entry_offset__20TWindowSubStatusDispFv(int);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg);
 s32 calc_challenge_time_limit__6TLobbyFv();
 s32 check_challenge_time_range__6TLobbyFi(s32);
 s32 get_valid_slot__6TLobbyFi(s32);
 s32 get_player_by_client_id(u32);
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 extern s32 challenge_time_limit_sentinel;
 extern s8 challenge_time_limit_initialized;
 s32 get_max_challenge_time__6TLobbyFv(void);
@@ -353,7 +336,7 @@ void draw_if_ready__6TLobbyFv(void);
 s32 check_ready_state__6TLobbyFv(void);
 
 s32 is_ready_to_draw__6TLobbyFv();
-M2C_UNK fn_800733C4(void*);
+s32 fn_800733C4(void*);
 
 extern u32 challenge_task;
 
@@ -371,7 +354,7 @@ void draw_if_ready__6TLobbyFv(void) {
     }
 }
 
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 
 s32 check_ready_state__6TLobbyFv(void) {
     s32 var_r3;
@@ -379,7 +362,7 @@ s32 check_ready_state__6TLobbyFv(void) {
     var_r3 = TLobby__sub_80070DA8();
     if (var_r3 == 1) {
         var_r3 = -1;
-        if ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x28) != 0) {
+        if ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x28) != 0) {
             var_r3 = 1;
         }
     }
@@ -389,8 +372,8 @@ typedef char RecoveredGlobal_80070F4C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_80070DA8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80070DA8_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 TLobby__sub_80070DA8(void) {
-    if ((s32) M2C_FIELD(&(*(RecoveredGlobal_80070DA8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x20) != 0) {
-        return M2C_FIELD(&(*(RecoveredGlobal_80070DA8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x24);
+    if ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070DA8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x20) != 0) {
+        return *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070DA8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x24);
     }
     return 0;
 }
@@ -436,21 +419,21 @@ s32 get_max_challenge_time__6TLobbyFv(void) {
 
 void TLobby__sub_80070EE4(s32 arg0) {
     check_challenge_time_range__6TLobbyFi(arg0);
-    fabs_float((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80070EE4_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC)));
+    fabs_float((f32) (arg0 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070EE4_lbl_8048C9D8 *)&challenge_mode_state).value) + 0xC)));
     send_seed_state__6TLobbyFi((void *) (arg0));
 }
 
 s32 TLobby__sub_80070F4C(void) {
     u32 var_r31;
     u8 *temp_r3;
-    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&challenge_task), s32 *, 0x1C) != 2)) {
+    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) *(s32 *)((s8 *)(*(u8 * *)&challenge_task) + 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;
 loop_4:
     temp_r3 = (u8 *)(get_player_by_client_id(var_r31));
     if ((temp_r3 != NULL) && (check_player_state_flag_2__6TLobbyFPv(temp_r3) != 0)) {
-        M2C_FIELD(&(*(RecoveredGlobal_80070F4C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x20) = 1;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070F4C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x20) = 1;
         return 1;
     }
     var_r31 += 1;
@@ -463,7 +446,7 @@ typedef char RecoveredGlobal_80070FD8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 s32 TLobby__sub_80070FD8(void) {
     u32 var_r31;
     u8 *temp_r3;
-    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) M2C_FIELD((*(u8 * *)&challenge_task), s32 *, 0x1C) != 2)) {
+    if (((void *) (*(u8 * *)&challenge_task) == NULL) || ((s32) *(s32 *)((s8 *)(*(u8 * *)&challenge_task) + 0x1C) != 2)) {
         return 0;
     }
     var_r31 = 0;
@@ -474,7 +457,7 @@ loop_4:
     }
     var_r31 += 1;
     if ((s32) var_r31 >= 4) {
-        M2C_FIELD(&(*(RecoveredGlobal_80070FD8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x20) = 1;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80070FD8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x20) = 1;
         return 1;
     }
     goto loop_4;
@@ -484,8 +467,8 @@ typedef char RecoveredGlobal_800713C8_lbl_804FF82C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80071064_lbl_8048C9D8_size[sizeof(RecoveredGlobal_80071064_lbl_8048C9D8) == 0x748 ? 1 : -1];
 void TLobby__sub_80071064(s32 arg0) {
     if (((s32 (*)(void))is_flag_set__6TLobbyFv)() != 0) {
-        fabs_float((f32) (arg0 - M2C_FIELD(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC)));
-        M2C_FIELD(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC) = arg0;
+        fabs_float((f32) (arg0 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value) + 0xC)));
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_80071064_lbl_8048C9D8 *)&challenge_mode_state).value) + 0xC) = arg0;
         set_challenge_time_window_timer((void *) (arg0));
     }
 }
@@ -494,16 +477,16 @@ typedef char RecoveredGlobal_8007119C_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_800710D8_lbl_8048C9D8_size[sizeof(RecoveredGlobal_800710D8_lbl_8048C9D8) == 0x748 ? 1 : -1];
 s32 TLobby__sub_800710D8(s32 arg0) {
-    M2C_UNK **temp_r3;
-    M2C_UNK *var_r31;
-    M2C_UNK *var_r4;
+    s32 **temp_r3;
+    s32 *var_r31;
+    s32 *var_r4;
     s32 var_r30;
     s32 var_r3;
     s32 var_r5;
-    var_r4 = (M2C_UNK *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
-    var_r31 = (M2C_UNK *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
+    var_r4 = (s32 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
+    var_r31 = (s32 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
     var_r30 = arg0;
-    if (((s32) M2C_FIELD(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) < 0) || ((s32) M2C_FIELD(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) > 2)) {
+    if (((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) < 0) || ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) > 2)) {
         var_r3 = 0;
         return 0;
     }
@@ -515,17 +498,17 @@ s32 TLobby__sub_800710D8(s32 arg0) {
     }
     var_r3 = var_r30;
     if (forward_to_global_instance__23TAdSinglePlyChrSelectGCFi((int) (var_r3)) != 0) {
-        var_r4 = (M2C_UNK *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
+        var_r4 = (s32 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value);
         var_r3 = 0x10000;
-        var_r5 = M2C_FIELD(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) * 0x1C;
+        var_r5 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) * 0x1C;
         var_r3 = 0xFFFF;
-        var_r4 = (M2C_UNK *)((u8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + var_r5);
-        var_r31 = (M2C_UNK *)((u8 *)(var_r4) + 0x21C);
+        var_r4 = (s32 *)((u8 *)(&(*(RecoveredGlobal_800710D8_lbl_8048C9D8 *)&challenge_mode_state).value) + var_r5);
+        var_r31 = (s32 *)((u8 *)(var_r4) + 0x21C);
         var_r3 = ((u32)get_character_save_record((u32)((int) (0xFFFF)))) + 0x21C4;
-        var_r4 = (M2C_UNK *)((u8 *)((M2C_UNK *)-1));
-        temp_r3 = (M2C_UNK **)(TWindowSubStatusDisp__sub_8006F134(var_r3, -1));
-        var_r4 = (M2C_UNK *)(M2C_FIELD(temp_r3, M2C_UNK **, 0));
-        M2C_FIELD(temp_r3, M2C_UNK **, 0) = (M2C_UNK *) ((s32) var_r4 | M2C_FIELD(var_r31, s32 *, 4));
+        var_r4 = (s32 *)((u8 *)((s32 *)-1));
+        temp_r3 = (s32 **)(TWindowSubStatusDisp__sub_8006F134(var_r3, -1));
+        var_r4 = (s32 *)(*(s32 **)((s8 *)temp_r3 + 0));
+        *(s32 **)((s8 *)temp_r3 + 0) = (s32 *) ((s32) var_r4 | *(s32 *)((s8 *)var_r31 + 4));
         var_r3 = 1;
         return 1;
     }
@@ -537,28 +520,28 @@ s32 TLobby__sub_8007119C(s32 arg0) {
     s32 temp_r3;
     s32 var_r31;
     var_r31 = arg0;
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0) == -1) || (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U)) {
-        M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = -4;
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0) == -1) || (((u32)get_character_save_record((u32)((int) (0xFFFF)))) == 0U)) {
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = -4;
         return -4;
     }
-    fabs_float((f32) (var_r31 - M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0xC)));
+    fabs_float((f32) (var_r31 - *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0xC)));
     if (check_challenge_time_range__6TLobbyFi((s32)((int) (var_r31))) != 0) {
         var_r31 = 0x8C9F;
     }
     temp_r3 = TLobby__sub_8006F6B0((int) (var_r31));
     if (temp_r3 == -1) {
-        M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = -1;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = -1;
         return -1;
     }
     if (temp_r3 < 0) {
-        M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = -2;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = -2;
         return -2;
     }
     if (calc_remaining_char_slots__6TLobbyFv() == 0) {
-        M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = -3;
+        *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = -3;
         return -3;
     }
-    M2C_FIELD(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value, s32 *, 0x14) = temp_r3;
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_8007119C_lbl_8048C9D8 *)&challenge_mode_state).value) + 0x14) = temp_r3;
     return temp_r3;
 }
 
@@ -594,7 +577,7 @@ s32 TLobby__sub_800712D8(s32 idx, s32 value, s32 arg) {
     return 1;
 }
 
-M2C_UNK *TLobby__sub_800713C8(void) {
+s32 *TLobby__sub_800713C8(void) {
     s32 temp_r3;
     temp_r3 = get_character_save_record(0xFFFFU);
     decode_obfuscated_string__6TLobbyFPvPvi((void *) (&lbl_804FF82C.value), (void *) (temp_r3 + 0x229C), (int) (0xC), (int) (temp_r3));
@@ -604,38 +587,34 @@ M2C_UNK *TLobby__sub_800713C8(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80292574_lbl_804DB1F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6AC];
 };
 
 struct RecoveredGlobal_80291F9C_lbl_804DB1F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6AC];
 };
 
 struct RecoveredGlobal_802925C4_lbl_80540968 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_80292200_lbl_804DB1F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6AC];
 };
 
 struct RecoveredGlobal_80292604_lbl_804DB1F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x6AC];
 };
 
 extern "C" {
-M2C_UNK encode_name_xor__6TLobbyFPvPvi(void *, void *, int);
+s32 encode_name_xor__6TLobbyFPvPvi(void *, void *, int);
 #define challenge_mode_state (*(s8 (*)[1])challenge_mode_state)
 void set_player_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1);
 }
@@ -643,19 +622,19 @@ void set_player_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1);
 extern "C" {
 
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK encode_name_xor__6TLobbyFPvPvi(void *, void *, int);
+s32 encode_name_xor__6TLobbyFPvPvi(void *, void *, int);
 
 s32 add_entry__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     u8 *temp_r30;
 
-    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x1C) < 0) || ((s32) M2C_FIELD(challenge_mode_state, s32 *, 0x1C) >= 0x10)) {
+    if ((((s32 (*)(void))is_flag_set__6TLobbyFv)() == 0) || ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x1C) < 0) || ((s32) *(s32 *)((s8 *)challenge_mode_state + 0x1C) >= 0x10)) {
         return 0;
     }
-    temp_r30 = (unsigned char *) (challenge_mode_state + (M2C_FIELD(challenge_mode_state, s32 *, 0x1C) * 0x1C) + 0x5C);
+    temp_r30 = (unsigned char *) (challenge_mode_state + (*(s32 *)((s8 *)challenge_mode_state + 0x1C) * 0x1C) + 0x5C);
     encode_name_xor__6TLobbyFPvPvi((void *) (temp_r30), (void *) (arg0), (int) (0xC));
     encode_name_xor__6TLobbyFPvPvi((void *) (temp_r30 + 0xC), (void *) (arg1), (int) (0xC));
-    M2C_FIELD(temp_r30, s32 *, 0x18) = arg2;
-    M2C_FIELD(challenge_mode_state, s32 *, 0x1C) = (s32) (M2C_FIELD(challenge_mode_state, s32 *, 0x1C) + 1);
+    *(s32 *)((s8 *)temp_r30 + 0x18) = arg2;
+    *(s32 *)((s8 *)challenge_mode_state + 0x1C) = (s32) (*(s32 *)((s8 *)challenge_mode_state + 0x1C) + 1);
     return 1;
 }
 typedef char RecoveredGlobal_80291F9C_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80291F9C_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -663,7 +642,7 @@ typedef char RecoveredGlobal_80292200_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80292574_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292574_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
 void set_player_name_and_color__6TLobbyFPvi(u8 *arg0, s32 arg1) {
     encode_name_xor__6TLobbyFPvPvi((void *)((u8 *)&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value + 0x50), (void *)(arg0), (int)(0xC));
-    M2C_FIELD(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value, s32 *, 0x18) = (s32) (arg1 | 0xFF000000);
+    *(s32 *)((s8 *)(&(*(RecoveredGlobal_80292574_lbl_804DB1F0 *)&challenge_mode_state).value) + 0x18) = (s32) (arg1 | 0xFF000000);
 }
 typedef char RecoveredGlobal_802925C4_lbl_80540968_size[sizeof(RecoveredGlobal_802925C4_lbl_80540968) == 0x20 ? 1 : -1];
 typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_80292604_lbl_804DB1F0) == 0x6B0 ? 1 : -1];
@@ -673,17 +652,13 @@ typedef char RecoveredGlobal_80292604_lbl_804DB1F0_size[sizeof(RecoveredGlobal_8
 #undef challenge_mode_state
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 calc_remaining_char_slots__6TLobbyFv(void);
 void set_selected_layout__6TLobbyFi(s32 arg0);
-u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(M2C_UNK);
-s32 get_layout_id__20TWindowSubStatusDispFv(M2C_UNK);
+u8 *get_char_index__23TAdSinglePlyChrSelectGCFUi(s32);
+s32 get_layout_id__20TWindowSubStatusDispFv(s32);
 
 extern s32 challenge_mode_state[];
 
@@ -712,10 +687,6 @@ s32 calc_remaining_char_slots__6TLobbyFv(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_80071698 { s32 f0; u8 pad[0x100]; };
 
@@ -727,7 +698,7 @@ s32 count_set_bits__6TLobbyFUi(u32 x);
 
 s32 TLobby__sub_80071B30(s32, s32);
 
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 s32 get_party_min_tier__6TLobbyFi(s32 arg0);
 }
 
@@ -737,7 +708,7 @@ s32 TLobby__sub_80071654(s32 arg0);
 s32 set_split_screen_flag__6TLobbyFi(s32 arg0);
 s32 try_set_value__6TLobbyFf(f32 farg0);
 
-extern M2C_UNK challenge_mode_state[];
+extern s32 challenge_mode_state[];
 extern f32 lbl_805D9108;
 extern f32 lbl_805D910C;
 
@@ -748,7 +719,7 @@ s32 try_set_value__6TLobbyFf(f32 farg0) {
     if ((farg0 < lbl_805D9108) || (farg0 > lbl_805D910C)) {
         return 0;
     }
-    M2C_FIELD(&challenge_mode_state, f32 *, 4) = farg0;
+    *(f32 *)((s8 *)(&challenge_mode_state) + 4) = farg0;
     return 1;
 }
 

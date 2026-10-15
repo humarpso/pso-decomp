@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void notify_and_close__6TLobbyFv(void);
-M2C_UNK pop_and_close__6TLobbyFv();
+s32 pop_and_close__6TLobbyFv();
 
 extern u8 *async_file_read_current_request;
 extern s32 async_file_read_state;
 
 void notify_and_close__6TLobbyFv(void) {
-    M2C_UNK (*temp_r12)(void *);
+    s32 (*temp_r12)(void *);
     s32 *temp_r3;
 
-    temp_r3 = M2C_FIELD(async_file_read_current_request, s32 **, 0x34);
+    temp_r3 = *(s32 **)((s8 *)async_file_read_current_request + 0x34);
     if (temp_r3 != NULL) {
         *temp_r3 = 1;
     }
-    temp_r12 = M2C_FIELD(async_file_read_current_request, M2C_UNK (**)(void *), 0x40);
+    temp_r12 = *(s32 (**)(void *))((s8 *)async_file_read_current_request + 0x40);
     if (temp_r12 != NULL) {
         temp_r12(async_file_read_current_request + 0x44);
     }

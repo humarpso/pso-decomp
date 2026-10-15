@@ -12,13 +12,9 @@ extern const char *fe_obj_switch_laz_model_names[4];
 extern const char *fe_obj_switch_laz_motion_names[3];
 extern BmlResourceDescriptor laser_fence_switch_resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80193A84_lbl_8050DCF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -45,8 +41,8 @@ struct VObj_14_aa9368 : VBase_14_aa9368 {
     virtual void m3();
     virtual void m4();
     virtual void m5();
-    virtual M2C_UNK m6();
-    virtual M2C_UNK m7();
+    virtual s32 m6();
+    virtual s32 m7();
 };
 
 struct VBase_18_582a4f { char pad[0x18]; };
@@ -70,7 +66,7 @@ struct VObj_18_582a4f : VBase_18_582a4f {
     virtual void m15();
     virtual void m16();
     virtual void m17();
-    virtual M2C_UNK m18();
+    virtual s32 m18();
 };
 
 struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
@@ -80,7 +76,6 @@ struct RecoveredGlobal_80193B4C_lbl_8050DCF0 {
 
 struct Sw_80193978 { u8 pad0[0x8C]; s32 f8C; u8 pad90[0x58]; u16 fE8; };
 
-typedef s32 M2C_UNK;
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
@@ -125,12 +120,12 @@ struct Node_80193CA4 {
 extern "C" {
 void TLazerFenceSw__vt14(u8 *arg0);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK func_80141618__Fv();
-M2C_UNK set_depth_buffer_settings_id__FUl(int);
+s32 func_80141618__Fv();
+s32 set_depth_buffer_settings_id__FUl(int);
 s32 fn_80156BBC(void *, void *);
 s32 fn_80156C38(void *);
 void draw_laser_beam__13TLazerFenceSwFv(void *);
-M2C_UNK set_material_alpha_compare_reference(int);
+s32 set_material_alpha_compare_reference(int);
 extern const f32 lbl_805DBE7C;
 extern const f32 lbl_805DBE80;
 void render__13TLazerFenceSwFv(u8 *arg0);
@@ -144,14 +139,14 @@ extern u8 lbl_80445CD8[];
 void TLazerFenceSw__vt24(Sw_80193978 *arg0);
 s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
-M2C_UNK fn_80156CEC(void *);
-M2C_UNK init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
-M2C_UNK init_key__5TOKeyFPv(void *, void *);
+s32 fn_80156CEC(void *);
+s32 init_vtable_804AF8D8__14TOAirconCave01FPv(void *);
+s32 init_key__5TOKeyFPv(void *, void *);
 u8 *TOKey__ct(void *);
-M2C_UNK TLazerFenceSw__sub_8018A554(void *, f32);
+s32 TLazerFenceSw__sub_8018A554(void *, f32);
 extern u16 lbl_80445CB8[];
 extern u8 lbl_804B8370[];
-extern M2C_UNK __vt__13TLazerFenceSw[];
+extern s32 __vt__13TLazerFenceSw[];
 extern s32 lbl_805D33B0;
 extern const f32 TLazerFenceSw__data_805DBE84;
 extern const f32 lbl_805DBE8C;
@@ -164,7 +159,7 @@ void construct_collider_proxy__10TObjPlayerFPv(void *);
 void init_models__15TObjLazerFence4FPv(void *);
 extern u16 lbl_80445BE0[];
 extern u8 laser_fence4_collision_body_sets[];
-extern M2C_UNK __vt__15TObjLazerFence4[];
+extern s32 __vt__15TObjLazerFence4[];
 extern s32 lazer_fence4_class_name;
 extern const f32 lbl_805DBE6C;
 void *TObjLazerFence4__ct(void *arg0, void *arg1, void *arg2);
@@ -197,9 +192,9 @@ void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1);
 void *create__13TLazerFenceSwFPv(void *arg0);
 void *create__15TObjLazerFence4FPv(void *arg0);
 void run_task__13TLazerFenceSwFv(u8 *arg0);
-M2C_UNK TLobby__sub_8001FE7C(void *, s32);
+s32 TLobby__sub_8001FE7C(void *, s32);
 void trigger_activate_sound__5TOKeyFPv(void *);
-M2C_UNK reset_and_notify__5TOKeyFPv(void *);
+s32 reset_and_notify__5TOKeyFPv(void *);
 void free_collision_body_parts(void *);
 void unregister_object_by_id(void *);
 void __dl__7TObjectFPv(void *);
@@ -207,9 +202,9 @@ void __dt__5TOKeyFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void call_vt21__12TBoss3VoloptFPv(void *);
 void destroy__14TOAirconCave01FPvs(void *, int);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK step_laser_fence_fade(void *);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 step_laser_fence_fade(void *);
+s32 free_if_valid__10TObjPlayerFi(s32);
 
 __declspec(section ".data") u32 lazer_fence_sw_ginja_model_table[2];
 __declspec(section ".data") u32 lazer_fence_beam_motions[2];
@@ -225,12 +220,12 @@ void *create__15TObjLazerFence4FPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__15TObjLazerFence4[];
+extern s32 __vt__15TObjLazerFence4[];
 
 void *__dt__15TObjLazerFence4Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TObjLazerFence4;
-        unregister_object_by_id((void *)((M2C_UNK *)arg0));
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TObjLazerFence4;
+        unregister_object_by_id((void *)((s32 *)arg0));
         free_collision_body_parts((void *)(arg0));
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -293,16 +288,16 @@ struct Sw_801936E0 {
     u32 f114;
 };
 void free_children__12TObjDoorJungFPvPv(u32, u16);
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 set_global_param__8TObjFishFi(int);
 void scroll_ginja_mesh_uvs(u32, s32, s32, u16, s32);
 void PPCSync(void);
 void push_matrix(void);
 void post_translate_matrix(void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK draw_ginja_model_with_motion(s32, s32, f32);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 draw_ginja_object(s32);
+s32 draw_ginja_model_with_motion(s32, s32, f32);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 void pop_matrix(void);
 extern u8 *lazer_fence_switch_scroll_node;
 extern u32 actor_frame_tick;
@@ -385,16 +380,16 @@ void TLazerFenceSw__vt24(Sw_80193978 *arg0) {
 
 void TLazerFenceSw__vt16(void *arg0) {
     trigger_activate_sound__5TOKeyFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0xB0) = TLazerFenceSw__data_805DBE84;
-    M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xB0) = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
 extern const f32 TLazerFenceSw__data_805DBE84;
 
 void TLazerFenceSw__vt17(void *arg0) {
     call_vt21__12TBoss3VoloptFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0xB0) = TLazerFenceSw__data_805DBE84;
-    M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xB0) = TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
 }
 
 extern const f32 lbl_805DBE88;
@@ -403,23 +398,23 @@ typedef char RecoveredGlobal_80193A84_lbl_8050DCF0_size[sizeof(RecoveredGlobal_8
 void TLazerFenceSw__vt14(u8 *arg0) {
     u32 temp_r4;
     u32 temp_r4_2;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
-    temp_r4 = M2C_FIELD(M2C_FIELD(&lazer_fence_beam_motions.value, u8 **, 0), s32 *, 4) - 1;
-    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) temp_r4) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) temp_r4;
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8));
+    temp_r4 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(&lazer_fence_beam_motions.value) + 0)) + 4) - 1;
+    if (*(f32 *)((s8 *)arg0 + 0xB0) > (f32) temp_r4) {
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) temp_r4;
     }
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (M2C_FIELD(arg0, f32 *, 0xEC) + M2C_FIELD(arg0, f32 *, 0xB8));
-    temp_r4_2 = M2C_FIELD(M2C_FIELD(&lazer_fence_beam_motions.value, u8 **, 4), s32 *, 4) - 1;
-    if (M2C_FIELD(arg0, f32 *, 0xEC) > (f32) temp_r4_2) {
-        M2C_FIELD(arg0, f32 *, 0xEC) = (f32) temp_r4_2;
+    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (*(f32 *)((s8 *)arg0 + 0xEC) + *(f32 *)((s8 *)arg0 + 0xB8));
+    temp_r4_2 = *(s32 *)((s8 *)(*(u8 **)((s8 *)(&lazer_fence_beam_motions.value) + 4)) + 4) - 1;
+    if (*(f32 *)((s8 *)arg0 + 0xEC) > (f32) temp_r4_2) {
+        *(f32 *)((s8 *)arg0 + 0xEC) = (f32) temp_r4_2;
     }
 }
 
 typedef char RecoveredGlobal_80193B4C_lbl_8050DCF0_size[sizeof(RecoveredGlobal_80193B4C_lbl_8050DCF0) == 0x18 ? 1 : -1];
 void TLazerFenceSw__vt15(u8 *arg0) {
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) (M2C_FIELD(arg0, f32 *, 0xB0) + M2C_FIELD(arg0, f32 *, 0xB8));
-    if (M2C_FIELD(arg0, f32 *, 0xB0) > (f32) (u32) (M2C_FIELD((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value, s32 *, 4) - 1)) {
-        M2C_FIELD(arg0, f32 *, 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) (*(f32 *)((s8 *)arg0 + 0xB0) + *(f32 *)((s8 *)arg0 + 0xB8));
+    if (*(f32 *)((s8 *)arg0 + 0xB0) > (f32) (u32) (*(s32 *)((s8 *)((*(RecoveredGlobal_80193B4C_lbl_8050DCF0 *)&lazer_fence_beam_motions).value) + 4) - 1)) {
+        *(f32 *)((s8 *)arg0 + 0xB0) = (f32) TLazerFenceSw__data_805DBE84;
     }
     ((VObj_18_582a4f *)(arg0))->m18();
 }
@@ -427,7 +422,7 @@ void TLazerFenceSw__vt15(u8 *arg0) {
 void run_task__13TLazerFenceSwFv(u8 *arg0) {
     step_laser_fence_fade(arg0 + 0xF0);
     reset_and_notify__5TOKeyFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0x110) = (f32) (M2C_FIELD(arg0, f32 *, 0x110) + lbl_805DBE88);
+    *(f32 *)((s8 *)arg0 + 0x110) = (f32) (*(f32 *)((s8 *)arg0 + 0x110) + lbl_805DBE88);
 }
 
 extern void *tl_05;
@@ -452,7 +447,7 @@ void TLazerFenceSw__sub_80193C5C(void) {
     TLazerFenceSw__texture_list = 0;
 }
 
-extern M2C_UNK __vt__13TLazerFenceSw[];
+extern s32 __vt__13TLazerFenceSw[];
 
 #pragma push
 #pragma opt_propagation off
@@ -508,7 +503,7 @@ void load_resources__13TLazerFenceSwFv(void) {
 
 void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TLazerFenceSw;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TLazerFenceSw;
         unregister_object_by_id((void *)(arg0));
         free_collision_body_parts((void *)(arg0));
         destroy__14TOAirconCave01FPvs((s8 *)arg0 + 0xF0, -1);
@@ -523,23 +518,23 @@ void *__dt__13TLazerFenceSwFv(void *arg0, s16 arg1) {
 #pragma opt_common_subs off
 void *TLazerFenceSw__ct(void *arg0, void *arg1, void *arg2) {
     TOKey__ct(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = ((u8 *)&__vt__13TLazerFenceSw);
+    *(u8 **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__13TLazerFenceSw);
     init_vtable_804AF8D8__14TOAirconCave01FPv((u8 *)arg0 + 0xF0);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D33B0;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D33B0;
     init_key__5TOKeyFPv(arg0, arg2);
-    if (M2C_FIELD(arg0, s32 *, 0x8C) < 0) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+    if (*(s32 *)((s8 *)arg0 + 0x8C) < 0) {
+        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     }
-    M2C_FIELD(arg0, u16 *, 0xE8) = lbl_80445CB8[M2C_FIELD(arg0, s32 *, 0x8C) % 4];
-    M2C_FIELD(arg0, f32 *, 0xB8) = lbl_805DBE8C;
-    M2C_FIELD(arg0, f32 *, 0xEC) = TLazerFenceSw__data_805DBE84;
+    *(u16 *)((s8 *)arg0 + 0xE8) = lbl_80445CB8[*(s32 *)((s8 *)arg0 + 0x8C) % 4];
+    *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBE8C;
+    *(f32 *)((s8 *)arg0 + 0xEC) = TLazerFenceSw__data_805DBE84;
     init_collision_body_parts(arg0, lbl_804B8370, 1);
-    M2C_FIELD(arg0, s32 *, 0x30) |= 0x40000000;
+    *(s32 *)((s8 *)arg0 + 0x30) |= 0x40000000;
     reset_photon_effect__10TObjPlayerFPv(arg0);
     fn_80156CEC((u8 *)arg0 + 0xF0);
     TLazerFenceSw__sub_8018A554((u8 *)arg0 + 0xF0, lbl_805DBE90);
-    M2C_FIELD(arg0, f32 *, 0x110) = TLazerFenceSw__data_805DBE84;
-    M2C_FIELD(arg0, s32 *, 0x114) = 0;
+    *(f32 *)((s8 *)arg0 + 0x110) = TLazerFenceSw__data_805DBE84;
+    *(s32 *)((s8 *)arg0 + 0x114) = 0;
     return arg0;
 }
 #pragma pop

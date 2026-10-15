@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_14 { s32 v[5]; };
+struct ByteBlock_14 { s32 v[5]; };
 
 extern "C" {
 void update_menu_cursor__6TLobbyFv();
@@ -38,8 +34,8 @@ void free_dialog_global__6TLobbyFv(void) {
 
 void TLobby__sub_802A0F70(void) {
     update_menu_cursor__6TLobbyFv();
-    M2CCopy_14 a = *(const M2CCopy_14 *)lbl_804661E4;
-    M2CCopy_14 b = *(const M2CCopy_14 *)lbl_804661F8;
+    ByteBlock_14 a = *(const ByteBlock_14 *)lbl_804661E4;
+    ByteBlock_14 b = *(const ByteBlock_14 *)lbl_804661F8;
     s32 r4 = b.v[current_language];
     lbl_805D6630 = r4;
     TLobby__sub_8023E4B4(a.v[current_language], r4);

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80420C5C_lbl_805C1DF0 {
     s16 value;
     u8 remaining[0xE];
@@ -108,7 +105,7 @@ struct E_80420C9C { u8 c0; u8 c1; u8 c2; u8 c3; s16 f4; u8 pad6[0x3E]; };
 struct G_80420C9C { s16 count; s16 f2; s16 f4; s16 f6; E_80420C9C *ents; };
 extern "C" {
 void TLobby__sub_803F87C8(void *);
-M2C_UNK TLobby__sub_803F87C4(void *);
+s32 TLobby__sub_803F87C4(void *);
 extern RecoveredGlobal_80420C5C_lbl_805C1DF0 lbl_805C1DF0;
 s32 reset_stack_module__6TLobbyFv(void);
 void TLobby__sub_8041FDA0(O_8041FDA0 *o, s16 idx, s32 a, s32 b);

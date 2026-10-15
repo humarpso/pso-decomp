@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80071820_lbl_804FF820 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -23,8 +19,8 @@ u32 get_character_save_record(u32);
 s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2);
 s32 decode_obfuscated_string__6TLobbyFPvPvi(void *, void *, int);
 extern RecoveredGlobal_80071820_lbl_804FF820 lbl_804FF820;
-extern M2C_UNK lbl_805D2858;
-M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0);
+extern s32 lbl_805D2858;
+s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0);
 u32 get_character_save_record(u32);
 s32 resolve_player_slot__20TWindowSubStatusDispFi(s32 slot);
 s32 get_slot_clamped__6TLobbyFv(s32);
@@ -47,7 +43,7 @@ extern "C" {
 
 s32 get_status_index__20TWindowSubStatusDispFi(int arg0);
 s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0);
-M2C_UNK *get_status_window__20TWindowSubStatusDispFi(int arg0);
+s32 *get_status_window__20TWindowSubStatusDispFi(int arg0);
 s32 TLobby__sub_80071654(u16);
 u32 get_character_save_record(u32);
 
@@ -68,9 +64,9 @@ s32 get_status_index_or_default__20TWindowSubStatusDispFPv(u16 *arg0) {
     return TLobby__sub_80071654(*arg0);
 }
 
-extern M2C_UNK lbl_805D285C;
+extern s32 lbl_805D285C;
 
-M2C_UNK *get_status_window__20TWindowSubStatusDispFi(int arg0) {
+s32 *get_status_window__20TWindowSubStatusDispFi(int arg0) {
     u32 temp_r3;
 
     temp_r3 = get_character_save_record((u16)arg0);
@@ -81,7 +77,7 @@ M2C_UNK *get_status_window__20TWindowSubStatusDispFi(int arg0) {
 }
 
 typedef char RecoveredGlobal_80071820_lbl_804FF820_size[sizeof(RecoveredGlobal_80071820_lbl_804FF820) == 0xC ? 1 : -1];
-M2C_UNK *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
+s32 *TWindowSubStatusDisp__sub_80071820(u32 arg0) {
     if (arg0 == 0U) {
         return &lbl_805D2858;
     }
@@ -160,7 +156,7 @@ s32 TWindowSubStatusDisp__sub_80071A24(s32 arg0, u16 arg1, s32 arg2) {
     if ((arg0 < 0) || (arg0 >= temp_r3) || (temp_r31 == 0U)) {
         return 0;
     }
-    return get_valid_slot__6TLobbyFi((int) (M2C_FIELD(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2)), M2C_UNK *, (arg0 * 4))));
+    return get_valid_slot__6TLobbyFi((int) (*(s32 *)((s8 *)(TWindowSubStatusDisp__sub_8006F0D8((void *) (temp_r31 + 0x21C4), (void *) (arg2))) + (arg0 * 4))));
 }
 
 }

@@ -1,22 +1,18 @@
 #include "pso/TObjLiveMonitorSmall.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 is_split_screen();
-M2C_UNK TObjPlayer__sub_80084500();
-M2C_UNK free_children__12TObjDoorJungFPvPv(void *, u16);
-M2C_UNK notify_fish_if_valid__10TObjPlayerFUi(int);
-M2C_UNK update_camera__15TObjLiveMonitorFPv(int);
+s32 TObjPlayer__sub_80084500();
+s32 free_children__12TObjDoorJungFPvPv(void *, u16);
+s32 notify_fish_if_valid__10TObjPlayerFUi(int);
+s32 update_camera__15TObjLiveMonitorFPv(int);
 s32 get_table_entry__18TObjLiveCameraCtrlFi(s32);
 s32 TObjLiveMonitor__sub_8030C050(s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK draw_ginja_model(void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 draw_ginja_model(void *);
 int render_live_monitor_screen__10TObjPlayerFPv(void *arg0);
 }
 
@@ -26,23 +22,23 @@ void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2);
 int render__20TObjLiveMonitorSmallFv(void* p);
 int run_task__20TObjLiveMonitorSmallFv(void* p);
 s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0);
-void *get_bml_model(s32, M2C_UNK);
+void *get_bml_model(s32, s32);
 void __ct__15TObjLiveMonitorFv(void *);
-void *__nw__7TObjectFUl(M2C_UNK);
+void *__nw__7TObjectFUl(s32);
 int fn_8030B370(void*);
 
 int render__20TObjLiveMonitorSmallFv(void* p) { return render_live_monitor_screen__10TObjPlayerFPv((void *)(p)); }
 int run_task__20TObjLiveMonitorSmallFv(void* p) { return fn_8030B370(p); }
 
-extern M2C_UNK __vt__20TObjLiveMonitorSmall[];
+extern s32 __vt__20TObjLiveMonitorSmall[];
 extern void *TObjLiveMonitorSmall__name;
 
 TObjLiveMonitorSmall::~TObjLiveMonitorSmall() {}
 void *__ct__20TObjLiveMonitorSmallFv(void *arg0, void *arg1, void *arg2) {
     __ct__15TObjLiveMonitorFv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__20TObjLiveMonitorSmall;
-    M2C_FIELD(arg0, void **, 0x0) = TObjLiveMonitorSmall__name;
-    M2C_FIELD(arg0, void **, 0x1C) = arg2;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__20TObjLiveMonitorSmall;
+    *(void **)((s8 *)arg0 + 0x0) = TObjLiveMonitorSmall__name;
+    *(void **)((s8 *)arg0 + 0x1C) = arg2;
     return arg0;
 }
 
@@ -58,7 +54,7 @@ s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
         live_monitor_small_spawned_flag = 1;
         TObjLiveMonitorSmall__fish_spawned_flag = 1;
     }
-    var_r31 = M2C_FIELD(get_bml_model(live_monitor_shared_resource, 0), void **, 0x2C);
+    var_r31 = *(void **)((s8 *)(get_bml_model(live_monitor_shared_resource, 0)) + 0x2C);
     while (var_r31 != NULL) {
         if (live_monitor_small_spawned_flag != 0) {
             obj = __nw__7TObjectFUl(0x2C);
@@ -66,37 +62,37 @@ s32 spawn_for_each_fish__20TObjLiveMonitorSmallFi(s32 arg0) {
                 __ct__20TObjLiveMonitorSmallFv((void *)(obj), (void *)(arg0), (void *)(var_r31));
             }
         }
-        var_r31 = M2C_FIELD(var_r31, void **, 0x30);
+        var_r31 = *(void **)((s8 *)var_r31 + 0x30);
     }
     return 0;
 }
 int render_live_monitor_screen__10TObjPlayerFPv(void *arg0) {
     s32 e;
     s32 var_r4;
-    switch (M2C_FIELD(arg0, s32 *, 0x24)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x24)) {
     case 0:
-        e = get_table_entry__18TObjLiveCameraCtrlFi(M2C_FIELD(arg0, s32 *, 0x24));
+        e = get_table_entry__18TObjLiveCameraCtrlFi(*(s32 *)((s8 *)arg0 + 0x24));
         if (e != 0 && TObjLiveMonitor__sub_8030C050(e) != 0) {
             update_camera__15TObjLiveMonitorFPv(e);
         } else if (is_split_screen() == 0) {
             TObjPlayer__sub_80084500();
         } else {
-            notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x20));
+            notify_fish_if_valid__10TObjPlayerFUi(*(s32 *)((s8 *)arg0 + 0x20));
         }
         var_r4 = 0;
         break;
     case 1:
-        notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x20));
-        var_r4 = 2 - ((M2C_FIELD(arg0, u32 *, 0x28) / 3U) % 3);
+        notify_fish_if_valid__10TObjPlayerFUi(*(s32 *)((s8 *)arg0 + 0x20));
+        var_r4 = 2 - ((*(u32 *)((s8 *)arg0 + 0x28) / 3U) % 3);
         break;
     case 2:
-        notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x20));
-        var_r4 = 2 - ((M2C_FIELD(arg0, u32 *, 0x28) / 90U) % 3);
+        notify_fish_if_valid__10TObjPlayerFUi(*(s32 *)((s8 *)arg0 + 0x20));
+        var_r4 = 2 - ((*(u32 *)((s8 *)arg0 + 0x28) / 90U) % 3);
         var_r4 += 3;
         break;
     case 3:
-        notify_fish_if_valid__10TObjPlayerFUi(M2C_FIELD(arg0, s32 *, 0x20));
-        var_r4 = 4 - ((M2C_FIELD(arg0, u32 *, 0x28) / 3U) % 5);
+        notify_fish_if_valid__10TObjPlayerFUi(*(s32 *)((s8 *)arg0 + 0x20));
+        var_r4 = 4 - ((*(u32 *)((s8 *)arg0 + 0x28) / 3U) % 5);
         var_r4 += 6;
         break;
     case 4:
@@ -106,11 +102,11 @@ int render_live_monitor_screen__10TObjPlayerFPv(void *arg0) {
         var_r4 = 0;
         break;
     default:
-        return M2C_FIELD(arg0, s32 *, 0x24);
+        return *(s32 *)((s8 *)arg0 + 0x24);
     }
-    free_children__12TObjDoorJungFPvPv((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)), var_r4);
+    free_children__12TObjDoorJungFPvPv((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 4)), var_r4);
     push_matrix();
-    draw_ginja_model((void *) (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x1C), s32 *, 4)));
+    draw_ginja_model((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x1C)) + 4)));
     return pop_matrix();
 }
 

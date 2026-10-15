@@ -3,10 +3,6 @@
 TWindowEffectLight::~TWindowEffectLight() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Quad_802AD1CC { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
@@ -43,10 +39,10 @@ extern const f32 lbl_805DE128;
 extern const f32 lbl_805DE12C;
 extern const f32 lbl_805DE130;
 void render__18TWindowEffectLightFv(u8 *arg0);
-M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 s32 get_split_screen_view_index__11TCameraCtrlFUs(u16);
-M2C_UNK __ct__7TObjectFP7TObject(void *, int);
-M2C_UNK adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(void *, s32);
+s32 __ct__7TObjectFP7TObject(void *, int);
+s32 adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(void *, s32);
 extern void *__vt__18TWindowEffectLight[];
 extern s32 lbl_805D3E60;
 extern s32 tl_window;
@@ -92,13 +88,13 @@ void draw_outline_quad__18TWindowEffectLightFv(Light_802AD1CC *self, s32 color) 
 
 u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3) {
     __ct__7TObjectFP7TObject(self, tl_window);
-    M2C_FIELD(self, void **, 0x18) = __vt__18TWindowEffectLight;
-    M2C_FIELD(self, s32 *, 0) = lbl_805D3E60;
+    *(void **)((s8 *)self + 0x18) = __vt__18TWindowEffectLight;
+    *(s32 *)((s8 *)self + 0) = lbl_805D3E60;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(self + 0x1C, arg1);
     adjust_pos_for_split_screen__19TWindowKeyBoardSoftFPvi(self + 0x1C, get_split_screen_view_index__11TCameraCtrlFUs(arg3));
-    M2C_FIELD(self, s16 *, 0x24) = arg2;
-    M2C_FIELD(self, s16 *, 0x26) = -1;
-    M2C_FIELD(self, u32 *, 0x28) = arg3;
+    *(s16 *)((s8 *)self + 0x24) = arg2;
+    *(s16 *)((s8 *)self + 0x26) = -1;
+    *(u32 *)((s8 *)self + 0x28) = arg3;
     return self;
 }
 
@@ -106,7 +102,7 @@ void * create__18TWindowEffectLightFPvPvPv(void *arg0, void *arg1, void *arg2);
 void run_task__18TWindowEffectLightFv(void *arg0);
 u8 *__ct__18TWindowEffectLightFv(u8 *self, void *arg1, s16 arg2, u32 arg3);
 void *__nw__7TObjectFUl(int);
-M2C_UNK queue_destruction__7TObjectFv();
+s32 queue_destruction__7TObjectFv();
 
 #pragma fp_contract on
 
@@ -171,8 +167,8 @@ void render__18TWindowEffectLightFv(u8 *arg0) {
 void run_task__18TWindowEffectLightFv(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x26) + 1;
-    M2C_FIELD(arg0, s16 *, 0x26) = temp_r4;
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x26) + 1;
+    *(s16 *)((s8 *)arg0 + 0x26) = temp_r4;
     if ((s16)temp_r4 >= 8) {
         queue_destruction__7TObjectFv();
     }

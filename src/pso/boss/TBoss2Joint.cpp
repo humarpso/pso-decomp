@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TBJ_8003688C { char pad[0x18]; };
 struct VTbj_8003688C : TBJ_8003688C {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3(); virtual void m4();
@@ -112,12 +109,12 @@ struct VObj_18 : VBase_18 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
+    virtual s32 m81();
     virtual void m82();
     virtual void m83();
     virtual s32 m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
-    virtual M2C_UNK m86();
+    virtual s32 m85(s16, s32);
+    virtual s32 m86();
 };
 
 struct VBase_18_67c185 { char pad[0x18]; };
@@ -218,17 +215,17 @@ struct VObj_18_67c185 : VBase_18_67c185 {
     virtual void m92();
     virtual void m93();
     virtual void m94();
-    virtual M2C_UNK m95();
-    virtual M2C_UNK m96();
+    virtual s32 m95();
+    virtual s32 m96();
 };
 
 struct RecoveredGlobal_80036FC8___vt__11TBoss2Joint {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1A4];
 };
 
 struct RecoveredGlobal_80036A90_lbl_80435A68 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -313,17 +310,17 @@ typedef struct Param_80036EA8 {
 
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
-M2C_UNK TBoss2Joint__sub_80036940(void *);
+s32 TBoss2Joint__sub_80036940(void *);
 void update_position_history__11TBoss2JointFi(s32 arg0);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
-M2C_UNK TObjEneDD__sub_800BBA0C(void *);
-M2C_UNK add_radar_scaled_marker(void *, int, int, int, f32);
+s32 set_player_state_default__12TBoss8DragonFPv(void *);
+s32 TObjEneDD__sub_800BBA0C(void *);
+s32 add_radar_scaled_marker(void *, int, int, int, f32);
 extern const f32 lbl_805D848C;
 void run_task__11TBoss2JointFv(u8 *arg0);
-M2C_UNK TObjEneDD__vt91(void *);
-M2C_UNK TObjEneDD__vt90(void *);
-M2C_UNK transform_part_positions__9TObjEneDDFPv(void *);
+s32 TObjEneDD__vt91(void *);
+s32 TObjEneDD__vt90(void *);
+s32 transform_part_positions__9TObjEneDDFPv(void *);
 extern const f32 lbl_805D8258;
 extern const f32 lbl_805D847C;
 extern const f32 lbl_805D8480;
@@ -332,7 +329,7 @@ void TBoss2Joint__sub_8003688C(u8 *arg0);
 void initialize_enemy_state__9TObjEneDDFPv(void *, s32);
 void init_common_from__9TObjEneDDFPvPv(void *, void *);
 u8 * TObjEneDD__ct(void *);
-extern M2C_UNK __vt__11TBoss2Joint[];
+extern s32 __vt__11TBoss2Joint[];
 extern s32 TBoss2Joint__name;
 u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, s32 arg6);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -359,7 +356,7 @@ extern RecoveredGlobal_80036A90_lbl_80435A68 TBoss2Joint__joint_offset_vec4_tabl
 extern const f32 lbl_805D846C;
 extern const f32 TBoss2Joint__data_805D8474;
 extern const f32 lbl_805D8490;
-M2C_UNK init_params__11TBoss2JointFPv(void *arg0);
+s32 init_params__11TBoss2JointFPv(void *arg0);
 }
 
 extern "C" {
@@ -379,9 +376,9 @@ void TBoss2Joint__vt91(void *arg0);
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1);
 void call_36A90_with_1__11TBoss2JointFPv(void* p);
 void update_position_history__11TBoss2JointFi(s32 arg0);
-M2C_UNK spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
-M2C_UNK apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
-M2C_UNK clear_attack_receipts(void *);
+s32 spawn_offset_particle__13TBoss2DeRolLeFiff(void *, f32, f32);
+s32 apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(s32, s32, u16);
+s32 clear_attack_receipts(void *);
 void TObjEneDD__vt0(void *, int);
 void free_collision_body_parts(void *);
 s32 VecCopy__FP3VecPC3Vec(s32, s32);
@@ -435,7 +432,7 @@ void call_36A90_with_1__11TBoss2JointFPv(void* p) { init_joint_offset__11TBoss2J
 
 typedef char RecoveredGlobal_80036A90_lbl_80435A68_size[sizeof(RecoveredGlobal_80036A90_lbl_80435A68) == 0x20 ? 1 : -1];
 void init_joint_offset__11TBoss2JointFPvi(u8 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, f32 *, 0x3A8) = (f32) TBoss2Joint__data_805D8474;
+    *(f32 *)((s8 *)arg0 + 0x3A8) = (f32) TBoss2Joint__data_805D8474;
     copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3AC), (void *) ((u8 *)&TBoss2Joint__joint_offset_vec4_table.value + (arg1 * 0x10)));
 }
 
@@ -468,7 +465,7 @@ void TBoss2Joint__vt102(Obj_80036ACC *self) {
 }
 
 void TBoss2Joint__vt91(void *arg0) {
-    if (M2C_FIELD(M2C_FIELD(arg0, void **, 0xA4), s32 *, 0x18) & 6) {
+    if (*(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA4)) + 0x18) & 6) {
         TObjEneDD__vt90((void *)(arg0));
         return;
     }
@@ -477,13 +474,13 @@ void TBoss2Joint__vt91(void *arg0) {
 
 void TBoss2Joint__vt86(u8 *arg0) {
     u8 *temp_r3;
-    if (M2C_FIELD(arg0, f32 *, 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
+    if (*(f32 *)((s8 *)arg0 + 0x3C) < (lbl_805D8258 - lbl_805D847C)) {
         TObjEneDD__vt91((void *)(arg0));
-        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-        M2C_FIELD(temp_r3, s32 *, 0x18) = (s32) (M2C_FIELD(temp_r3, s32 *, 0x18) & 0xFFFFFFF9);
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+        *(s32 *)((s8 *)temp_r3 + 0x18) = (s32) (*(s32 *)((s8 *)temp_r3 + 0x18) & 0xFFFFFFF9);
     } else {
         TObjEneDD__vt90((void *)(arg0));
-        if (M2C_FIELD(arg0, f32 *, 0x3C) >= lbl_805D8480) {
+        if (*(f32 *)((s8 *)arg0 + 0x3C) >= lbl_805D8480) {
             ((VObj_18_67c185 *)(arg0))->m95();
         } else {
             ((VObj_18_67c185 *)(arg0))->m96();
@@ -505,35 +502,35 @@ void TBoss2Joint__vt60(u8 *arg0) {
     s32 temp_r31;
     struct TBJ_8003688C *self = (struct TBJ_8003688C *)arg0;
 
-    temp_r31 = M2C_FIELD(self, s16 *, 0x2B8) - M2C_FIELD(self, s16 *, 0x32C);
-    if (!(M2C_FIELD(self, s32 *, 0x38C) & 1)) {
+    temp_r31 = *(s16 *)((s8 *)self + 0x2B8) - *(s16 *)((s8 *)self + 0x32C);
+    if (!(*(s32 *)((s8 *)self + 0x38C) & 1)) {
         init_joint_offset__11TBoss2JointFPvi((u8 *)((void*)(self)), (s32)((int)(0)));
-        M2C_FIELD(self, s32 *, 0x394) = (s32) (M2C_FIELD(self, s32 *, 0x394) - temp_r31);
-        if ((s32) M2C_FIELD(self, s32 *, 0x394) <= 0) {
-            M2C_FIELD(self, s32 *, 0x394) = 0;
+        *(s32 *)((s8 *)self + 0x394) = (s32) (*(s32 *)((s8 *)self + 0x394) - temp_r31);
+        if ((s32) *(s32 *)((s8 *)self + 0x394) <= 0) {
+            *(s32 *)((s8 *)self + 0x394) = 0;
             ((VTbj_8003688C *)self)->m102();
         }
     } else {
         spawn_offset_particle__13TBoss2DeRolLeFiff(arg0 + 0x38, lbl_805D8484, lbl_805D8488);
-        apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(M2C_FIELD(self, s32 *, 0x10), temp_r31, M2C_FIELD(self, u16 *, 0x2D4));
+        apply_hp_damage_with_sound__13TBoss2DeRolLeFPvi(*(s32 *)((s8 *)self + 0x10), temp_r31, *(u16 *)((s8 *)self + 0x2D4));
     }
-    M2C_FIELD(self, s16 *, 0x32C) = (s16) M2C_FIELD(self, s16 *, 0x2B8);
+    *(s16 *)((s8 *)self + 0x32C) = (s16) *(s16 *)((s8 *)self + 0x2B8);
     clear_attack_receipts(arg0);
 }
 
 void TBoss2Joint__vt61(void* p) { *(u32*)((char*)p + 0x30) &= 0xfffff7ff; }
 void TBoss2Joint__vt26(void) {  }
 
-extern M2C_UNK __vt__11TBoss2Joint[];
+extern s32 __vt__11TBoss2Joint[];
 
 void run_task__11TBoss2JointFv(u8 *arg0) {
     if (check_demo_mode__10TObjPlayerFv() == 0) {
-        VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (M2C_FIELD(arg0, s32 *, 0x390))));
+        VecCopy__FP3VecPC3Vec((s32)((void *) (arg0 + 0x38)), (s32)((int) (*(s32 *)((s8 *)arg0 + 0x390))));
         ((VObj_18 *)(arg0))->m81();
         if (((VObj_18 *)(arg0))->m84() == 0) {
-            ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 3);
+            ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 3);
         }
-        ((VObj_18 *)(arg0))->m85(M2C_FIELD(arg0, s16 *, 0x326), 0);
+        ((VObj_18 *)(arg0))->m85(*(s16 *)((s8 *)arg0 + 0x326), 0);
         TObjEneDD__sub_800BBA0C((void *) (arg0));
         TBoss2Joint__sub_80036940((void *) (arg0));
         update_position_history__11TBoss2JointFi((s32)((void *) (arg0)));
@@ -545,7 +542,7 @@ void run_task__11TBoss2JointFv(u8 *arg0) {
 
 void *__dt__11TBoss2JointFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TBoss2Joint;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TBoss2Joint;
         free_collision_body_parts(arg0);
         TObjEneDD__vt0(arg0, 0);
         if (arg1 > 0) {
@@ -560,8 +557,8 @@ typedef char RecoveredGlobal_80036FC8___vt__11TBoss2Joint_size[sizeof(RecoveredG
 #pragma push
 #pragma opt_propagation off
 struct RecoveredGlobal_80036A90_lbl_80435A68;
-typedef s32 M2C_UNK;
-M2C_UNK init_params__11TBoss2JointFPv(void *arg0) {
+
+s32 init_params__11TBoss2JointFPv(void *arg0) {
     Param_80036EA8 *prm;
     Joint_80036EA8 *self = (Joint_80036EA8 *)arg0;
     prm = &TBoss2Joint__param_table;
@@ -590,14 +587,14 @@ M2C_UNK init_params__11TBoss2JointFPv(void *arg0) {
 
 u8 *TBoss2Joint__ct(u8 *arg0, u8 *arg1, s16 arg2, s16 arg3, s32 arg4, s32 arg5, s32 arg6) {
     TObjEneDD__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss2Joint__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80036FC8___vt__11TBoss2Joint *)&__vt__11TBoss2Joint).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss2Joint__name;
     init_common_from__9TObjEneDDFPvPv(arg0, arg1);
-    M2C_FIELD(arg0, s16 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s16 *, 0x2C) = arg3;
-    M2C_FIELD(arg0, s32 *, 0x390) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x398) = arg5;
-    M2C_FIELD(arg0, s32 *, 0x39C) = arg6;
+    *(s16 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s16 *)((s8 *)arg0 + 0x2C) = arg3;
+    *(s32 *)((s8 *)arg0 + 0x390) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x398) = arg5;
+    *(s32 *)((s8 *)arg0 + 0x39C) = arg6;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x2D);
     init_params__11TBoss2JointFPv((void *)((void *) (arg0)));
     return arg0;

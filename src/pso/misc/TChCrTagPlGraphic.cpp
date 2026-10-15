@@ -3,18 +3,14 @@
 TChCrTagPlGraphic::~TChCrTagPlGraphic() {}
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct TChCrTagPlGraphic__data_804664A4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x11C];
 };
 
 struct RecoveredGlobal_802A3454___vt__17TChCrTagPlGraphic {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -74,16 +70,16 @@ s32 TChCrTagPlGraphic__vt4(u8 *arg0) {
 u8 *__ct__17TChCrTagPlGraphicFv(u8 *arg0, s32 arg1, s32 _w2) {
     u8 *temp_r5;
     __ct__8TChCrTagFv(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TChCrTagPlGraphic.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) ch_cr_tag_pl_graphic_class_name;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805DDF2C;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805DDF30;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805DDF2C;
-    M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DDF30;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DDF18;
-    temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (M2C_FIELD(arg0, s32 *, 0x20) * 0x18);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) M2C_FIELD(temp_r5, f32 *, 4);
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) M2C_FIELD(temp_r5, f32 *, 0);
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TChCrTagPlGraphic.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) ch_cr_tag_pl_graphic_class_name;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805DDF2C;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805DDF30;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805DDF2C;
+    *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DDF30;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DDF18;
+    temp_r5 = (u8 *)&TChCrTagPlGraphic__data_804664A4.value + (*(s32 *)((s8 *)arg0 + 0x20) * 0x18);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) *(f32 *)((s8 *)temp_r5 + 4);
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) *(f32 *)((s8 *)temp_r5 + 0);
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(arg0 + 0x48, temp_r5 + 8);
     return arg0;
 }

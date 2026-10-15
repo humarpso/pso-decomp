@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802308A0_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_802308A0_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -150,7 +146,7 @@ extern RecoveredGlobal_802308A0_lbl_804CC55C lbl_804CC55C;
 void calc_params__11TTecGiBartaFPv(u8 *arg0);
 u16 obj_getField1c(void *);
 void TTecGiBarta__vt6(Obj_802309AC *self, VObj_802309AC *target);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
@@ -182,20 +178,20 @@ void create_ex__11TTecGiBartaFPvPvPvPv(void *arg0, void *arg1, void *arg2, void 
 void render__11TTecGiBartaFv(void);
 void run_task__11TTecGiBartaFv(void *arg0);
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
-M2C_UNK dispatch_all_technique_contacts(void *);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 dispatch_all_technique_contacts(void *);
 u32 find_entity_by_id(u16);
 void *__nw__7TObjectFUl(int);
-M2C_UNK advance_lifetime_or_destroy(void *);
-M2C_UNK move_technique_projectile(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 advance_lifetime_or_destroy(void *);
+s32 move_technique_projectile(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 void update_technique_by_phase__11TTecGiBartaFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0xC6);
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A605, (int) (arg0 + 0x20), 0, 0);
@@ -389,8 +385,8 @@ TTecGiBarta_80230B48 *__dt__11TTecGiBartaFv(TTecGiBarta_80230B48 *self, s16 dele
 }
 
 void run_task__11TTecGiBartaFv(void *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xC8));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xC8));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -421,15 +417,15 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
 u8 *construct_facing__11TTecGiBartaFPvPvPvPvPv(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
-    M2C_FIELD(arg0, void **, 0x18) = __vt__11TTecGiBarta;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37B8;
+    *(void **)((s8 *)arg0 + 0x18) = __vt__11TTecGiBarta;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37B8;
     calc_params__11TTecGiBartaFPv(arg0);
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;
     }
-    M2C_FIELD(arg0, s32 *, 0x174) = 0;
-    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
-        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    *(s32 *)((s8 *)arg0 + 0x174) = 0;
+    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
+        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     create_particles__11TTecGiBartaFv(arg0);
     update_technique_by_phase__11TTecGiBartaFPv(arg0);

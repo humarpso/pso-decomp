@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
     virtual void m0();
@@ -33,7 +29,7 @@ struct VObj_18 : VBase_18 {
     virtual void m24();
     virtual void m25();
     virtual void m26();
-    virtual M2C_UNK m27();
+    virtual s32 m27();
 };
 
 struct VBase_18_94668e
@@ -62,8 +58,8 @@ struct VObj_18_94668e : VBase_18_94668e {
     virtual void m17();
     virtual void m18();
     virtual void m19();
-    virtual M2C_UNK m20(M2C_UNK);
-    virtual M2C_UNK m21(M2C_UNK);
+    virtual s32 m20(s32);
+    virtual s32 m21(s32);
     virtual void m22();
     virtual void m23();
     virtual void m24();
@@ -113,7 +109,7 @@ struct VObj_18_94668e : VBase_18_94668e {
     virtual void m68();
     virtual void m69();
     virtual void m70();
-    virtual M2C_UNK m71();
+    virtual s32 m71();
 };
 
 struct VBase_18_8a175d
@@ -193,13 +189,13 @@ void give_item_to_client(s32 arg0, s32 arg1);
 s32 consume_item_by_id(s32 arg0);
 s32 get_id__13TItemProArmorFPv(void *);
 u8 get_field_ec__12TOSwitchItemFPv(u32);
-M2C_UNK init__9TItemDataFv(void *);
-M2C_UNK call_preserve_flag__8TItemMagFPvi(u8 *, u32);
-M2C_UNK TItem__sub_80115D68(u8 *, u32);
-M2C_UNK TItemProArmor__sub_801178A8(u8 *, u32);
-M2C_UNK set_params__14TItemProShieldFiPv(u8 *, u32);
-M2C_UNK TItem__sub_8011892C(u8 *, u32);
-M2C_UNK copy_field6_from__10TObjPlayerFPvPv(u8 *, u32);
+s32 init__9TItemDataFv(void *);
+s32 call_preserve_flag__8TItemMagFPvi(u8 *, u32);
+s32 TItem__sub_80115D68(u8 *, u32);
+s32 TItemProArmor__sub_801178A8(u8 *, u32);
+s32 set_params__14TItemProShieldFiPv(u8 *, u32);
+s32 TItem__sub_8011892C(u8 *, u32);
+s32 copy_field6_from__10TObjPlayerFPvPv(u8 *, u32);
 void replace_item_with_new_code(void *arg0, u32 arg1);
 }
 

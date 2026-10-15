@@ -1,11 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_80293F98 {
-    M2C_UNK * sp8;
+    s32 * sp8;
     s32 * spC;
     s32 sp10;
     s32 sp14;
@@ -16,7 +13,7 @@ struct Stack_80293F98 {
 };
 
 struct RecoveredGlobal_80293F98_lbl_804DB900 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -51,7 +48,7 @@ void draw_fade_strip__12TChCrEffFadeFf(f32 farg0) {
     stack.spC = (s32 *)(&stack.sp18);
     stack.sp10 = 0;
     stack.sp14 = 4;
-    stack.sp8 = (M2C_UNK *)(&lbl_804DB900.value);
+    stack.sp8 = (s32 *)(&lbl_804DB900.value);
     draw_strip_swap_color__15TWindowCtrlMainFPviif((void *) (&stack.sp8), (int) (4), (int) (6), (f32) (lbl_805DD9E4));
 }
 

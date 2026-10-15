@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Sounds_802C9C18 { s32 a[2]; s32 b[2]; s32 c[2]; s32 d[2]; };
 
 extern "C" {
 u16 obj_getField1c(void *);
-M2C_UNK obj_clear_flag30_20000(int);
+s32 obj_clear_flag30_20000(int);
 s32 check_player_flag1__6TLobbyFPv();
-M2C_UNK send_code_45_1__10TObjPlayerFi(int);
+s32 send_code_45_1__10TObjPlayerFi(int);
 s32 get_player_by_client_id(void *);
 s32 is_not_split_screen__13TRaderMapCoreFv();
 extern s32 local_client_id;
@@ -52,7 +48,7 @@ void fn_802C9D38(u8 *arg0) {
     s32 temp_r3;
     s32 temp_r3_2;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
-        void *o = M2C_FIELD(arg0, void **, 0x2A8);
+        void *o = *(void **)((s8 *)arg0 + 0x2A8);
         if (o != NULL) {
             temp_r3 = get_player_by_client_id((void *) (obj_getField1c(o)));
             if (temp_r3 != 0) {
@@ -63,7 +59,7 @@ void fn_802C9D38(u8 *arg0) {
             }
         }
     } else {
-        void *o2 = M2C_FIELD(arg0, void **, 0x2A8);
+        void *o2 = *(void **)((s8 *)arg0 + 0x2A8);
         if ((o2 != NULL) && ((s32) local_client_id == (s32) obj_getField1c(o2))) {
         temp_r3_2 = get_player_by_client_id((void *) (local_client_id));
         if ((temp_r3_2 != 0) && (check_player_flag1__6TLobbyFPv() != 0)) {

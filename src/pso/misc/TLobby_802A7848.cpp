@@ -1,15 +1,10 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_802A7AF8_lbl_804DDD28 { M2C_UNK value; u8 remaining[0x134]; };
+struct RecoveredGlobal_802A7AF8_lbl_804DDD28 { s32 value; u8 remaining[0x134]; };
 typedef char RecoveredGlobal_802A7AF8_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7AF8_lbl_804DDD28) == 0x138 ? 1 : -1];
 
 struct RecoveredGlobal_802A7B50_lbl_804DDD28 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x134];
 };
 
@@ -52,8 +47,8 @@ void set_field_4__6TLobbyFPvi(void* p, s32 v);
 s32 get_hold_effect_count__10TObjPlayerFv(void);
 s32 get_hold_effect_size_by_type__6TLobbyFv(void);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-s32 write_packet_header__6TLobbyFPviiUi(s32, s32, s32, M2C_UNK);
+s32 free__11TOBoss4RockFUi(s32);
+s32 write_packet_header__6TLobbyFPviiUi(s32, s32, s32, s32);
 s32 send_packet__6TLobbyFPviiii(void *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 void copy_motion_pair(void* p, void* q);
 int TLobby__sub_802A7B8C(void);
@@ -65,12 +60,12 @@ int TLobby__sub_802A7BB0(void);
 s32 get_param__6TLobbyFPv(void* p);
 s32 get_field_04__6TLobbyFPv(void* p);
 void TLobby__sub_802A7BC8(void* p);
-M2C_UNK free__11TOBoss4RockFUi(s32);
+s32 free__11TOBoss4RockFUi(s32);
 extern u32 snapshot_image_buffer;
 void TLobby__sub_802A7BD8(void);
 s32 fn_802A5C3C(s32);
 s32 get_size__15TWindowSnapShotFPv(s32);
-M2C_UNK memcpy(s32, s32, s32);
+s32 memcpy(s32, s32, s32);
 extern s32 shared_snapshot_capture;
 extern u32 snapshot_image_buffer;
 extern s32 lbl_805D6698;
@@ -78,12 +73,12 @@ s32 copy_if_space(void);
 s32 fn_802A5B2C(s32);
 s32 fn_802A5B50(s32, s32);
 s32 rlc_get_directory_offset(s32);
-M2C_UNK fn_802A6070(s32, s32);
-M2C_UNK fn_802A6078(s32, s32);
+s32 fn_802A6070(s32, s32);
+s32 fn_802A6078(s32, s32);
 extern u32 snapshot_image_buffer;
 extern s32 lbl_805D669C;
 void set_slot_position__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK aram_dma_blocking__6TLobbyFiiii(M2C_UNK, s32, s32, s32, s32);
+s32 aram_dma_blocking__6TLobbyFiiii(s32, s32, s32, s32, s32);
 void send_type2_event__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 alloc_buffer__11TOBoss4RockFPv(s32);
 int get_width__15TWindowSnapShotFv(void);
@@ -93,7 +88,7 @@ extern u32 snapshot_image_buffer;
 extern s32 lbl_805D6698;
 void alloc_snapshot_buffer__6TLobbyFv(void);
 s32 free_if_positive__6TLobbyFis(s32, s16);
-M2C_UNK free__10TObjPlayerFPv(void *);
+s32 free__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_802A7AF8_lbl_804DDD28 lbl_804DDD28;
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1);
 s32 TLobby__sub_802A7318(void *);
@@ -188,7 +183,7 @@ void copy_motion_pair(void* p, void* q) { *(u32*)((char*)p + 0x0) = *(u32*)((cha
 
 u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 8) = &lbl_804DDD28.value;
+        *(s32 **)((s8 *)arg0 + 8) = &lbl_804DDD28.value;
         free_if_positive__6TLobbyFis((s32) arg0, -1);
         if (arg1 > 0) {
             free__10TObjPlayerFPv((void *) (arg0));
@@ -199,7 +194,7 @@ u8 *TLobby__sub_802A7AF8(u8 *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_802A7B50_lbl_804DDD28_size[sizeof(RecoveredGlobal_802A7B50_lbl_804DDD28) == 0x138 ? 1 : -1];
 u8 *TLobby__sub_802A7B50(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 8) = &(*(RecoveredGlobal_802A7B50_lbl_804DDD28 *)&lbl_804DDD28).value;
+    *(s32 **)((s8 *)arg0 + 8) = &(*(RecoveredGlobal_802A7B50_lbl_804DDD28 *)&lbl_804DDD28).value;
     TLobby__sub_802A7318((void *) (arg0));
     return arg0;
 }

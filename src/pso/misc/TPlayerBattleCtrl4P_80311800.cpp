@@ -1,10 +1,6 @@
 #include "pso/misc/TPlayerBattleCtrl4P.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90 {
     u16 value;
@@ -20,44 +16,44 @@ struct Ctl_803119BC { u8 pad[0x20]; void *w20; void *w24; };
 extern "C" {
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFPv();
-M2C_UNK TWindow__close(void *);
-M2C_UNK send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *, int, int);
+s32 TWindow__close(void *);
+s32 send_code_45_to_window__19TPlayerBattleCtrl4PFPvii(void *, int, int);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void close_rematch_menu__19TPlayerBattleCtrl4PFv(u8 *arg0);
 u32 get_player_by_client_id(s32);
 s32 check_player_flag1__6TLobbyFPv();
-M2C_UNK release_attached_resource__10TObjPlayerFPv(int);
+s32 release_attached_resource__10TObjPlayerFPv(int);
 int close_player_windows__19TPlayerBattleCtrl4PFPv(void*);
-M2C_UNK create_result_windows__19TPlayerBattleCtrl4PFPv(void *);
-M2C_UNK remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
+s32 create_result_windows__19TPlayerBattleCtrl4PFPv(void *);
+s32 remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 void open_result_windows__19TPlayerBattleCtrl4PFv(s32 arg0);
-M2C_UNK notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void *, void *, int);
-M2C_UNK reset_score_counters__19TPlayerBattleCtrl4PFPv(void *);
-M2C_UNK record_split_screen_battle_results(void *);
+s32 notify_lobby__19TPlayerBattleCtrl4PFPvPvPv(void *, void *, int);
+s32 reset_score_counters__19TPlayerBattleCtrl4PFPv(void *);
+s32 record_split_screen_battle_results(void *);
 s32 set_state__19TPlayerBattleCtrl4PFPv(void *, int);
-M2C_UNK calculate_split_screen_battle_rankings(void *);
+s32 calculate_split_screen_battle_rankings(void *);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
-M2C_UNK update_all_players__19TPlayerBattleCtrl4PFv();
-extern M2C_UNK lbl_80475BC4[];
-extern M2C_UNK lbl_80475BCC[];
+s32 update_all_players__19TPlayerBattleCtrl4PFv();
+extern s32 lbl_80475BC4[];
+extern s32 lbl_80475BCC[];
 extern RecoveredGlobal_80311A64_TPlayerBattleCtrl4P__data_80542E90 split_screen_battle_rankings;
 extern s32 local_client_id;
 void record_battle_results_after_delay__19TPlayerBattleCtrl4PFv(u8 *arg0);
 s32 is_visible__17TWindowSubComCardFPv(void *);
-M2C_UNK get_status_flag__17TWindowSubComCardFPv(void *);
-M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
+s32 get_status_flag__17TWindowSubComCardFPv(void *);
+s32 set_ready_flag__18TCheckRoomSequenceFPv(void *);
 s32 has_player_active_menu__11TWindowCtrlFi(s32);
 s32 get_selected_menu_value(void *);
-M2C_UNK align_menu_entry_positions(void *);
-M2C_UNK calc_window_size__17TWindowSubComCardFPv(void *);
-M2C_UNK forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
+s32 align_menu_entry_positions(void *);
+s32 calc_window_size__17TWindowSubComCardFPv(void *);
+s32 forward_trade_action_default__16TObjCityMainWarpFPviii(void *, s32, int, int);
 void *check_room_seq_4__16TAdChrSelASlotGCFii(void *, int);
-M2C_UNK send_and_handle__6TLobbyFPvii(void *, s32, int);
+s32 send_and_handle__6TLobbyFPvii(void *, s32, int);
 void *set_window_mode_4__6TLobbyFPvii(void *, void *, int);
 void *get_window_layout_position(int);
-M2C_UNK set_split_screen_battle_phase(void *, int);
-M2C_UNK shuffle_order__19TPlayerBattleCtrl4PFPv(void *);
+s32 set_split_screen_battle_phase(void *, int);
+s32 shuffle_order__19TPlayerBattleCtrl4PFPv(void *);
 extern u8 lbl_80475B70[];
 extern s32 local_client_id;
 void update_rematch_menu__19TPlayerBattleCtrl4PFv(O_80311C2C *o);
@@ -73,10 +69,10 @@ extern s32 TPlayerBattleCtrl4P__init_flag;
 void begin_battle_reload_fade__19TPlayerBattleCtrl4PFv(void *arg0);
 void obj_clear_flag30_20000(u32);
 u32 get_player_by_client_id(s32);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 void close_timer_window__11TWindowCtrlFv();
 int close_player_windows__19TPlayerBattleCtrl4PFPv(void*);
-M2C_UNK remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
+s32 remove_player__19TPlayerBattleCtrl4PFPvUsi(void *, int, int);
 void close_battle_results__19TPlayerBattleCtrl4PFv(Ctl_803119BC *arg0);
 }
 
@@ -94,16 +90,16 @@ void reset_random_enemies_mode__19TPlayerBattleCtrl4PFv(void);
 int TKeyBoardControl__sub_8000F950(void);
 u32 get_player_by_client_id(s32);
 int close_windows_on_button__19TPlayerBattleCtrl4PFPv(void*);
-M2C_UNK reset_players__19TPlayerBattleCtrl4PFPv();
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 reset_players__19TPlayerBattleCtrl4PFPv();
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void *__nw__7TObjectFUl(int);
 s32 check_flag_100__10TObjPlayerFPv();
 int clear_counter__6TLobbyFv(void);
 void *init__22THunterGuildSeqOfflineFPvPvPv(void *, void *, void *);
-M2C_UNK play_effect_default__10TObjPlayerFii(u32, M2C_UNK);
+s32 play_effect_default__10TObjPlayerFii(u32, s32);
 void queue_destruction__7TObjectFv(void *);
 int reset_settings_to_default__6TLobbyFPv(void*);
-M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK *);
+s32 set_fade_params__6TLobbyFi(s32 *);
 int set_score__19TPlayerBattleCtrl4PFPvi(void*, void*);
 int update_players__19TPlayerBattleCtrl4PFv(void*);
 
@@ -125,7 +121,7 @@ void TPlayerBattleCtrl4P::return_to_hunters_guild() {
     void *o;
     o = __nw__7TObjectFUl(0x28);
     if (o != NULL) {
-        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (M2C_UNK *)reset_random_enemies_mode__19TPlayerBattleCtrl4PFv);
+        init__22THunterGuildSeqOfflineFPvPvPv(o, tl_00, (s32 *)reset_random_enemies_mode__19TPlayerBattleCtrl4PFv);
     }
     queue_destruction__7TObjectFv(((void *)this));
 }
@@ -135,7 +131,7 @@ extern "C" {
 void TPlayerBattleCtrl4P::sub_80311890() {  }
 extern "C" {
 
-extern M2C_UNK reset_ctrl_to_default__19TPlayerBattleCtrl4PFv[];
+extern s32 reset_ctrl_to_default__19TPlayerBattleCtrl4PFv[];
 extern s32 TPlayerBattleCtrl4P__init_flag;
 
 }
@@ -246,13 +242,13 @@ extern "C" {
 }
 void TPlayerBattleCtrl4P::close_rematch_menu() {
     u32 var_r31;
-    if ((u32) M2C_FIELD(((u8 *)this), u32 *, 0x20) != 0U) {
-        TWindow__close(M2C_FIELD(((u8 *)this), void **, 0x20));
-        M2C_FIELD(((u8 *)this), u32 *, 0x20) = 0U;
+    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x20) != 0U) {
+        TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x20));
+        *(u32 *)((s8 *)((u8 *)this) + 0x20) = 0U;
     }
-    if ((u32) M2C_FIELD(((u8 *)this), u32 *, 0x24) != 0U) {
-        TWindow__close(M2C_FIELD(((u8 *)this), void **, 0x24));
-        M2C_FIELD(((u8 *)this), u32 *, 0x24) = 0U;
+    if ((u32) *(u32 *)((s8 *)((u8 *)this) + 0x24) != 0U) {
+        TWindow__close(*(void **)((s8 *)((u8 *)this) + 0x24));
+        *(u32 *)((s8 *)((u8 *)this) + 0x24) = 0U;
     }
     var_r31 = 0;
     do {

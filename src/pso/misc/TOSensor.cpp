@@ -9,10 +9,6 @@ extern const char *bm_fs_obj_o_sensor01_model_names[2];
 extern const char *bm_fs_obj_o_sensor01_motion_names[2];
 extern BmlResourceDescriptor TOSensorAncient01__resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_801755BC { u8 pad[0x18]; };
 
@@ -96,7 +92,7 @@ void __dt__5TOKeyFv(void *, int);
 
 void TOSensor__sub_80175468(void) {  }
 
-extern M2C_UNK __vt__8TOSensor[];
+extern s32 __vt__8TOSensor[];
 
 void TOSensor__sub_8017546C(u8 *arg0) {
     switch (get_global_state__14TOKeyMachine01Fv()) {
@@ -217,7 +213,7 @@ s32 check_player_in_range__8TOSensorFPv(Obj_801756C4 *self) {
 
 void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TOSensor;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOSensor;
         __dt__5TOKeyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -226,14 +222,14 @@ void *__dt__8TOSensorFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__8TOSensor[];
+extern s32 __vt__8TOSensor[];
 extern void *lbl_805D3140;
 
 void *TOSensor__ct(void *arg0) {
     TOKey__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TOSensor;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOSensor;
     VecCopy__FP3VecPC3Vec((void *)((char *)arg0 + 80), (void *)((char *)arg0 + 56));
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3140;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3140;
     return arg0;
 }
 
@@ -246,17 +242,17 @@ void TOSensorAncient01__vt23(void) {  }
 #pragma push
 #pragma opt_common_subs off
 void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0xF4) & 1) {
-        M2C_FIELD(arg0, f32 *, 0xF0) += (0.26666668f);
-        if ((4.0f) < M2C_FIELD(arg0, f32 *, 0xF0)) {
-            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (4.0f);
-            M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) & 0xFFFFFFFE);
+    if (*(s32 *)((s8 *)arg0 + 0xF4) & 1) {
+        *(f32 *)((s8 *)arg0 + 0xF0) += (0.26666668f);
+        if ((4.0f) < *(f32 *)((s8 *)arg0 + 0xF0)) {
+            *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (4.0f);
+            *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) & 0xFFFFFFFE);
         }
     } else {
-        M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (M2C_FIELD(arg0, f32 *, 0xF0) - (0.26666668f));
-        if (M2C_FIELD(arg0, f32 *, 0xF0) < (0.0f)) {
-            M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (0.0f);
-            M2C_FIELD(arg0, s32 *, 0xF4) = (s32) (M2C_FIELD(arg0, s32 *, 0xF4) | 1);
+        *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (*(f32 *)((s8 *)arg0 + 0xF0) - (0.26666668f));
+        if (*(f32 *)((s8 *)arg0 + 0xF0) < (0.0f)) {
+            *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (0.0f);
+            *(s32 *)((s8 *)arg0 + 0xF4) = (s32) (*(s32 *)((s8 *)arg0 + 0xF4) | 1);
         }
     }
 }
@@ -265,30 +261,26 @@ void update_pulse_value__17TOSensorAncient01FPv(u8 *arg0) {
 void TOSensorAncient01__vt15(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0xEC);
-    M2C_FIELD(arg0, s32 *, 0xEC) = (s32) (temp_r4 + 0x28F);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0xEC);
+    *(s32 *)((s8 *)arg0 + 0xEC) = (s32) (temp_r4 + 0x28F);
     update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32) arg0));
 }
 void TOSensorAncient01__vt14(u8 *arg0) {
     s32 temp_r3;
-    M2C_FIELD(arg0, s32 *, 0xEC) += (1.31e+03f);
+    *(s32 *)((s8 *)arg0 + 0xEC) += (1.31e+03f);
     update_pulse_value__17TOSensorAncient01FPv((u8 *)((s32)(arg0)));
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0xE8);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0xE8);
     if (temp_r3 > 0) {
-        M2C_FIELD(arg0, s32 *, 0xE8) = (s32) (temp_r3 - 1);
+        *(s32 *)((s8 *)arg0 + 0xE8) = (s32) (temp_r3 - 1);
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, f32 *, 0x3C) += (1.0f);
+    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    *(f32 *)((s8 *)arg0 + 0x3C) += (1.0f);
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -298,7 +290,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct VBase_80175994 { char pad[0x18]; };
@@ -314,7 +306,7 @@ struct VObj_80175994 : VBase_80175994 {
     virtual s32 m8(f32, f32);
 };
 
-struct RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 { M2C_UNK value; u8 remaining[0x6C]; };
+struct RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 { s32 value; u8 remaining[0x6C]; };
 
 struct Model_80175D0C { u8 pad[0xC]; s32 c; };
 
@@ -323,11 +315,11 @@ struct Obj_80175D0C { u8 pad[0x42C]; Model_80175D0C *model; };
 struct Buf_80175D0C { s32 a; s32 b; s32 c; s32 d; };
 
 extern "C" {
-M2C_UNK init_switch_id__5TOKeyFPv(void *);
-extern M2C_UNK __vt__17TOSensorAncient01[];
+s32 init_switch_id__5TOKeyFPv(void *);
+extern s32 __vt__17TOSensorAncient01[];
 extern s32 TOSensorAncient01_class_name;
 extern u32 sensor_ancient01_model_resource;
-u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 void *alloc_buffer__11TOBoss4RockFPv(s32);
@@ -349,18 +341,18 @@ void destroy__17TOSensorAncient01Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK free__11TOBoss4RockFUi(void*);
-M2C_UNK free_if_valid__10TObjPlayerFi(s32);
+s32 free__11TOBoss4RockFUi(void*);
+s32 free_if_valid__10TObjPlayerFi(s32);
 
 void begin_effect_render__13TParticleCtrlFv(void);
 void end_effect_render__13TParticleCtrlFv(void);
 s32 set_global_param__8TObjFishFi(s32);
 void draw_ginja_model(s32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
+s32 rotate_matrix_y(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
 struct Pair_80175994 { s32 a; s32 b; };
 
 void render__17TOSensorAncient01Fv(u8 *arg0) {
@@ -374,69 +366,69 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
     u8 *temp_r30_8;
     u8 *temp_r30_9;
 
-    if (((VObj_80175994 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+    if (((VObj_80175994 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        set_global_param__8TObjFishFi(M2C_FIELD(ancient_sensor_resource_pair_table, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 0x8C) * 8)));
-        temp_r30 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x34));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + (*(s32 *)((s8 *)arg0 + 0x8C) * 8)));
+        temp_r30 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x34));
         post_translate_matrix((void *) (temp_r30 + 8));
-        draw_ginja_model(M2C_FIELD(temp_r30, s32 *, 4));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30 + 4));
         begin_effect_render__13TParticleCtrlFv();
         push_matrix();
-        temp_r30_2 = (u8 *)(M2C_FIELD(temp_r30, u8 **, 0x2C));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (3e+01f)) {
+        temp_r30_2 = (u8 *)(*(u8 **)((s8 *)temp_r30 + 0x2C));
+        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (3e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_2 + 8));
-        draw_ginja_model(M2C_FIELD(temp_r30_2, s32 *, 4));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_2 + 4));
         pop_matrix();
         push_matrix();
-        temp_r30_3 = (u8 *)(M2C_FIELD(temp_r30_2, u8 **, 0x30));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (6e+01f)) {
+        temp_r30_3 = (u8 *)(*(u8 **)((s8 *)temp_r30_2 + 0x30));
+        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (6e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_3 + 8));
-        draw_ginja_model(M2C_FIELD(temp_r30_3, s32 *, 4));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_3 + 4));
         pop_matrix();
         push_matrix();
-        temp_r30_4 = (u8 *)(M2C_FIELD(temp_r30_3, u8 **, 0x30));
-        if ((f32) M2C_FIELD(arg0, s32 *, 0xE8) < (9e+01f)) {
+        temp_r30_4 = (u8 *)(*(u8 **)((s8 *)temp_r30_3 + 0x30));
+        if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (9e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
             set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
         }
         post_translate_matrix((void *) (temp_r30_4 + 8));
-        draw_ginja_model(M2C_FIELD(temp_r30_4, s32 *, 4));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_4 + 4));
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();
         push_matrix();
-        temp_r30_5 = (u8 *)(M2C_FIELD(temp_r30_4, u8 **, 0x30));
+        temp_r30_5 = (u8 *)(*(u8 **)((s8 *)temp_r30_4 + 0x30));
         post_translate_matrix((void *) (temp_r30_5 + 8));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0xEC)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xEC)));
         begin_effect_render__13TParticleCtrlFv();
-        draw_ginja_model(M2C_FIELD(temp_r30_5, s32 *, 4));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_5 + 4));
         end_effect_render__13TParticleCtrlFv();
         push_matrix();
-        temp_r30_6 = (u8 *)(M2C_FIELD(temp_r30_5, u8 **, 0x2C));
-        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r30_6, f32 *, 8) + M2C_FIELD(arg0, f32 *, 0xF0)), (f32) (M2C_FIELD(temp_r30_6, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r30_6, f32 *, 0x10)));
-        draw_ginja_model(M2C_FIELD(temp_r30_6, s32 *, 4));
+        temp_r30_6 = (u8 *)(*(u8 **)((s8 *)temp_r30_5 + 0x2C));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_6 + 8) + *(f32 *)((s8 *)arg0 + 0xF0)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_6 + 0x10)));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_6 + 4));
         pop_matrix();
         push_matrix();
-        temp_r30_7 = (u8 *)(M2C_FIELD(temp_r30_6, u8 **, 0x30));
-        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r30_7, f32 *, 8)), (f32) (M2C_FIELD(temp_r30_7, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r30_7, f32 *, 0x10) - M2C_FIELD(arg0, f32 *, 0xF0)));
-        draw_ginja_model(M2C_FIELD(temp_r30_7, s32 *, 4));
+        temp_r30_7 = (u8 *)(*(u8 **)((s8 *)temp_r30_6 + 0x30));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_7 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_7 + 0x10) - *(f32 *)((s8 *)arg0 + 0xF0)));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_7 + 4));
         pop_matrix();
         push_matrix();
-        temp_r30_8 = (u8 *)(M2C_FIELD(temp_r30_7, u8 **, 0x30));
-        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r30_8, f32 *, 8) - M2C_FIELD(arg0, f32 *, 0xF0)), (f32) (M2C_FIELD(temp_r30_8, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r30_8, f32 *, 0x10)));
-        draw_ginja_model(M2C_FIELD(temp_r30_8, s32 *, 4));
+        temp_r30_8 = (u8 *)(*(u8 **)((s8 *)temp_r30_7 + 0x30));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_8 + 8) - *(f32 *)((s8 *)arg0 + 0xF0)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_8 + 0x10)));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_8 + 4));
         pop_matrix();
         push_matrix();
-        temp_r30_9 = (u8 *)(M2C_FIELD(temp_r30_8, u8 **, 0x30));
-        translate_matrix((int) (0), (f32) (M2C_FIELD(temp_r30_9, f32 *, 8)), (f32) (M2C_FIELD(temp_r30_9, f32 *, 0xC)), (f32) (M2C_FIELD(temp_r30_9, f32 *, 0x10) + M2C_FIELD(arg0, f32 *, 0xF0)));
-        draw_ginja_model(M2C_FIELD(temp_r30_9, s32 *, 4));
+        temp_r30_9 = (u8 *)(*(u8 **)((s8 *)temp_r30_8 + 0x30));
+        translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)temp_r30_9 + 8)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0xC)), (f32) (*(f32 *)((s8 *)temp_r30_9 + 0x10) + *(f32 *)((s8 *)arg0 + 0xF0)));
+        draw_ginja_model(*(s32 *)((s8 *)temp_r30_9 + 4));
         pop_matrix();
         pop_matrix();
         pop_matrix();
@@ -448,7 +440,7 @@ extern void *tl_05;
 void *create__17TOSensorAncient01FPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0xF8);
     if (o != NULL) {
-        o = TOSensorAncient01__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TOSensorAncient01__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -458,9 +450,9 @@ extern void *ancient_sensor_resource_pair_table;
 
 void destroy__17TOSensorAncient01Fv(void) {
     if ((void *) ancient_sensor_resource_pair_table != NULL) {
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 0));
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 0xC));
-        free_if_valid__10TObjPlayerFi(M2C_FIELD(ancient_sensor_resource_pair_table, s32 *, 8));
+        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0));
+        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 0xC));
+        free_if_valid__10TObjPlayerFi(*(s32 *)((s8 *)ancient_sensor_resource_pair_table + 8));
         if ((void *) ancient_sensor_resource_pair_table != NULL) {
             free__11TOBoss4RockFUi((void*)ancient_sensor_resource_pair_table);
             ancient_sensor_resource_pair_table = NULL;
@@ -472,7 +464,7 @@ void destroy__17TOSensorAncient01Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__17TOSensorAncient01[];
+extern s32 __vt__17TOSensorAncient01[];
 
 extern "C" {
 extern const char lbl_804429E8[];
@@ -506,7 +498,7 @@ __declspec(section ".rodata") extern const char lbl_80442A18[] = "fs_obj_o_senso
 
 void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TOSensorAncient01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TOSensorAncient01;
         ((void (*)(void *, int))__dt__8TOSensorFv)(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -516,38 +508,38 @@ void *__dt__17TOSensorAncient01Fv(void *arg0, s16 arg1) {
 }
 #pragma push
 #pragma opt_common_subs off
-u8 *TOSensorAncient01__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOSensorAncient01__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r0;
     ((s32 (*)(void *))TOSensor__ct)((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOSensorAncient01_class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80175E2C___vt__17TOSensorAncient01 *)&__vt__17TOSensorAncient01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOSensorAncient01_class_name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
     init_switch_id__5TOKeyFPv((void *) (arg0));
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x8C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x8C);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x8C) = 0;
     } else if (temp_r0 >= 2) {
-        M2C_FIELD(arg0, s32 *, 0x8C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x8C) = 1;
     }
-    M2C_FIELD(arg0, u8 **, 0x34) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&sensor_ancient01_model_resource), u8 **, 0x42C), void **, 8));
-    M2C_FIELD(arg0, u8 **, 0xBC) = (unsigned char *) ((void *) M2C_FIELD(M2C_FIELD((*(u8 * *)&sensor_ancient01_model_resource), u8 **, 0x430), void **, 4));
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (4e+02f);
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) M2C_FIELD(M2C_FIELD(M2C_FIELD(arg0, u8 **, 0x34), void **, 4), f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) ((5e+01f) + M2C_FIELD(arg0, f32 *, 0x68));
-    if (M2C_FIELD(arg0, f32 *, 0xCC) < (0.0f)) {
-        M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
+    *(u8 **)((s8 *)arg0 + 0x34) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x42C)) + 8));
+    *(u8 **)((s8 *)arg0 + 0xBC) = (unsigned char *) ((void *) *(void **)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&sensor_ancient01_model_resource) + 0x430)) + 4));
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (4e+02f);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) *(f32 *)((s8 *)(*(void **)((s8 *)(*(u8 **)((s8 *)arg0 + 0x34)) + 4)) + 0x14);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) ((5e+01f) + *(f32 *)((s8 *)arg0 + 0x68));
+    if (*(f32 *)((s8 *)arg0 + 0xCC) < (0.0f)) {
+        *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x88) < 0) {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 2;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x88) < 0) {
+        *(s32 *)((s8 *)arg0 + 0xD0) = 2;
     } else {
-        M2C_FIELD(arg0, s32 *, 0xD0) = 1;
+        *(s32 *)((s8 *)arg0 + 0xD0) = 1;
     }
-    M2C_FIELD(arg0, s32 *, 0xE8) = 0x78;
-    M2C_FIELD(arg0, s32 *, 0xEC) = 0;
-    M2C_FIELD(arg0, f32 *, 0xF0) = (f32) (0.0f);
-    M2C_FIELD(arg0, s32 *, 0xF4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE8) = 0x78;
+    *(s32 *)((s8 *)arg0 + 0xEC) = 0;
+    *(f32 *)((s8 *)arg0 + 0xF0) = (f32) (0.0f);
+    *(s32 *)((s8 *)arg0 + 0xF4) = 0;
     return arg0;
 }
 #pragma pop

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VObjBase { char pad[0x18]; };
 
 struct VObj : VObjBase {
@@ -15,14 +12,14 @@ struct VObj : VObjBase {
 };
 
 extern "C" {
-M2C_UNK set_hp_clamped__10TObjPlayerFPvs(s32, s32);
+s32 set_hp_clamped__10TObjPlayerFPvs(s32, s32);
 s32 obj_getS16_32E(s32);
 s32 obj_getS16_32C();
 u16 get_id__13TItemProArmorFPv();
-M2C_UNK set_facing__10TObjPlayerFPvs(s32, s32);
+s32 set_facing__10TObjPlayerFPvs(s32, s32);
 void *get_equip_field_d04__10TObjPlayerFPv(s32, s32);
 s32 get_player_by_client_id(s32);
-M2C_UNK set_technique_level_entry(s32, s16, u8);
+s32 set_technique_level_entry(s32, s16, u8);
 void set_item_owner_technique_level(void *arg0, s16 arg1, s16 arg2);
 }
 

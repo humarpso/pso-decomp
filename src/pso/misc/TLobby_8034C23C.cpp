@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-s32 get_character_save_record(M2C_UNK);
+s32 get_character_save_record(s32);
 s32 get_shared_text_buffer();
-M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
-M2C_UNK strncpy(int, int, int);
+s32 TWindowSubComCard__sub_80225E80(void *, int);
+s32 strncpy(int, int, int);
 extern s32 info_board_state_flags;
 void set_info_board_text__6TLobbyFi(s32 arg0);
 extern s32 info_board_state_flags;
@@ -21,9 +17,9 @@ extern "C" {
 void init_once_data__6TLobbyFUi(u32 arg0);
 void flush_pending_send__6TLobbyFv(void);
 s32 get_card_window_field__6TLobbyFv(void);
-M2C_UNK send_text_packet_D9__6TLobbyFPvPv(u32, s32);
-M2C_UNK send_info_board_request__9TProtocolFv(u32);
-s32 get_character_save_record(M2C_UNK);
+s32 send_text_packet_D9__6TLobbyFPvPv(u32, s32);
+s32 send_info_board_request__9TProtocolFv(u32);
+s32 get_character_save_record(s32);
 
 extern u32 TLobby__protocol_instance;
 extern s32 info_board_state_flags;
@@ -56,10 +52,10 @@ s32 get_card_window_field__6TLobbyFv(void) {
 }
 void set_info_board_text__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(get_character_save_record((M2C_UNK)(0xFFFFU)) + 0x20FC);
+    temp_r31 = (u8 *)(get_character_save_record((s32)(0xFFFFU)) + 0x20FC);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (get_shared_text_buffer()));
     strncpy((int) (temp_r31), (int) (get_shared_text_buffer()), (int) (0xAB));
-    M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;
+    *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     info_board_state_flags |= 1;
 }
 void reset_info_board__6TLobbyFv(void) { (*(int *)&info_board_state_flags) = 0; (*(int *)&information_board_response_buffer) = 0; }

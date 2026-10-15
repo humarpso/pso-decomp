@@ -1,14 +1,9 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 int is_locally_controlled__10TObjPlayerFPv(void*);
 s32 obj_getField1c(void *);
-M2C_UNK init_pad_binding(void *, void *, int);
+s32 init_pad_binding(void *, void *, int);
 void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0);
 s32 get_character_save_record(u32);
 s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0);
@@ -42,12 +37,12 @@ void TObjPlayer__sub_801AEB80(void);
 int get_max_level__10TObjPlayerFv(void);
 
 s32 get_card_window_field_244__10TObjPlayerFPv(u8 *arg0) {
-    return M2C_FIELD(get_character_save_record((u32) ((u16)obj_getField1c(arg0))), s32 *, 0x244);
+    return *(s32 *)((s8 *)(get_character_save_record((u32) ((u16)obj_getField1c(arg0)))) + 0x244);
 }
 
 void init_local_pad_binding__10TObjPlayerFPv(u8 *arg0) {
     if (((s32)is_locally_controlled__10TObjPlayerFPv((void*)(arg0))) != 0) {
-        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));
+        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) *(s32 *)((s8 *)arg0 + 0x3D0)));
     }
 }
 

@@ -1,17 +1,13 @@
 #include "types.h"
 #include "pso/system/BmlResourceDescriptor.h"
 #include "pso/animation/ActorAnimationState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_14_2f517b { char pad[0x14]; };
 
 struct VObj_14_2f517b : VBase_14_2f517b {
     virtual void m0();
     virtual void m1();
-    virtual M2C_UNK m2();
+    virtual s32 m2();
 };
 
 struct VBase_18_6eb1ad { char pad[0x18]; };
@@ -100,7 +96,7 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual void m80();
     virtual s32 m81();
     virtual void m82();
-    virtual M2C_UNK m83();
+    virtual s32 m83();
     virtual void m84();
     virtual void m85();
     virtual void m86();
@@ -115,12 +111,12 @@ struct VObj_18_6eb1ad : VBase_18_6eb1ad {
     virtual void m95();
     virtual void m96();
     virtual void m97();
-    virtual M2C_UNK m98();
+    virtual s32 m98();
     virtual void m99();
     virtual void m100();
     virtual void m101();
     virtual void m102();
-    virtual M2C_UNK m103();
+    virtual s32 m103();
 };
 
 struct Stack_800C44C4 {
@@ -130,17 +126,17 @@ struct Stack_800C44C4 {
     s32 sp14;
 };
 struct RecoveredGlobal_800C44C4_lbl_8043BB90 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 typedef char RecoveredGlobal_800C44C4_lbl_8043BB90_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BB90) == 0x10 ? 1 : -1];
 struct RecoveredGlobal_800C44C4_lbl_8043BBE0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 typedef char RecoveredGlobal_800C44C4_lbl_8043BBE0_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BBE0) == 0x14 ? 1 : -1];
 struct RecoveredGlobal_800C44C4_lbl_8043BBF4 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 typedef char RecoveredGlobal_800C44C4_lbl_8043BBF4_size[sizeof(RecoveredGlobal_800C44C4_lbl_8043BBF4) == 0x18 ? 1 : -1];
@@ -167,13 +163,13 @@ struct VObj_18_0ab400 : VBase_18_0ab400 {
     virtual void m16();
     virtual void m17();
     virtual void m18();
-    virtual M2C_UNK m19(s32, void *, s32);
+    virtual s32 m19(s32, void *, s32);
 };
 
 extern "C" {
 s32 check_v2_mode__9TObjEneDDFv();
-u8 *load_enemy_bml_resource_named(M2C_UNK *, M2C_UNK *);
-u8 *load_enemy_bml_resource(M2C_UNK *);
+u8 *load_enemy_bml_resource_named(s32 *, s32 *);
+u8 *load_enemy_bml_resource(s32 *);
 s32 create_render_texture__10TObjPlayerFv();
 s32 TObjPlayer__sub_800F0928();
 s32 get_global_state__14TOKeyMachine01Fv();
@@ -188,9 +184,9 @@ extern const f32 lbl_805D9FAC;
 extern const f32 lbl_805D9FBC;
 void TObjPlayer__sub_800C44C4(void);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK set_player_state_default__12TBoss8DragonFPv(void *);
+s32 set_player_state_default__12TBoss8DragonFPv(void *);
 s32 transition_enemy_state(void * a0, s32 a1);
-M2C_UNK TObjEneRe2Flower__sub_800C3DC4(void *);
+s32 TObjEneRe2Flower__sub_800C3DC4(void *);
 void TObjEneRe2Flower__sub_800C3F70(u8 *arg0);
 s32 TObjEneDD__sub_800C2628(void *, void *);
 s32 handle_event__16TObjEneRe2FlowerFPvi(void *, void *);
@@ -208,11 +204,11 @@ void dispatch_action__16TObjEneRe2FlowerFiUii(s32 arg0, u32 arg1, s32 arg2);
 s32 obj_is_hit_receivable(void *);
 f32 fabs_float(f32);
 s32 get_battle_param__10TObjPlayerFi(s32);
-s32 is_area_attack_target_eligible(M2C_UNK, s32);
+s32 is_area_attack_target_eligible(s32, s32);
 s32 attack_target_history_add(s32, s32);
-M2C_UNK init_all_slots__10TObjPlayerFv();
-M2C_UNK mark_enemy_body_contacts(void *);
-M2C_UNK update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
+s32 init_all_slots__10TObjPlayerFv();
+s32 mark_enemy_body_contacts(void *);
+s32 update_body_contact_flag__10TObjPlayerFPvf(void *, f32);
 extern const f32 lbl_805DA000;
 s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0);
 }
@@ -231,7 +227,7 @@ void TLobby__sub_8001FE7C(void*, int);
 s32 transition_enemy_state(void * a0 = 0, s32 a1 = 0);
 void free_collision_body_parts(void *);
 void *TObjEneRe2Flower__ct(void *, void *, void *);
-M2C_UNK TObjPlayer__sub_800C4D44();
+s32 TObjPlayer__sub_800C4D44();
 void __dl__7TObjectFPv(void *);
 void __dt__18TObjEneMe3SinowZoaFPvs(void *, int);
 void __dt__9TObjEneDDFv(void *, int);
@@ -423,7 +419,7 @@ void TObjEneRe2Flower__sub_800C3E14(void) {  }
 void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if (temp_r0 != 9) {
         if (temp_r0 == 8) {
             begin_state_242__16TObjEneRe2FlowerFPv();
@@ -436,7 +432,7 @@ void update_state__16TObjEneRe2FlowerFPv(void *arg0) {
 void set_mode0xA_unless_0xAor0xB__16TObjEneRe2FlowerFPv(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     if ((temp_r0 != 0xA) && (temp_r0 != 0xB)) {
         transition_enemy_state(arg0, 0xA);
     }
@@ -494,7 +490,7 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
     if (((VObj_18_6eb1ad *)(arg0))->m81() != 4) {
         ((VObj_18_6eb1ad *)(arg0))->m83();
     } else {
-        temp_r3 = M2C_FIELD(arg0, s16 *, 0x326);
+        temp_r3 = *(s16 *)((s8 *)arg0 + 0x326);
         if ((temp_r3 == 0) || (temp_r3 == 1)) {
             ((VObj_14_2f517b *)((u8 *)(arg0) + (1012)))->m2();
             transition_enemy_state((void *)((void *) (arg0)), (s32)((int) (2)));
@@ -507,8 +503,8 @@ void TObjEneRe2Flower__sub_800C3F70(u8 *arg0) {
 
 void *destroy__16TObjEneRe2FlowerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void **, 0x18) = __vt__16TObjEneRe2Flower;
-        if (M2C_FIELD(arg0, void **, 0x428) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x428)); M2C_FIELD(arg0, M2C_UNK *, 0x428) = 0; }
+        *(void **)((s8 *)arg0 + 0x18) = __vt__16TObjEneRe2Flower;
+        if (*(void **)((s8 *)arg0 + 0x428) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x428)); *(s32 *)((s8 *)arg0 + 0x428) = 0; }
         free_collision_body_parts(arg0);
         __dt__18TObjEneMe3SinowZoaFPvs((s8 *)arg0 + 0x3F4, -1);
         __dt__9TObjEneDDFv(arg0, 0);
@@ -545,24 +541,24 @@ void TObjPlayer__sub_800C44C4(void) {
     u8 *temp_r5;
 
     if (get_global_state__14TOKeyMachine01Fv() == 0x23) {
-        lbl_805D5174 = (u32) load_enemy_bml_resource_named((M2C_UNK *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBE0.value);
+        lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBE0.value);
     } else if (check_v2_mode__9TObjEneDDFv() != 0) {
-        lbl_805D5174 = (u32) load_enemy_bml_resource_named((M2C_UNK *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBF4.value);
+        lbl_805D5174 = (u32) load_enemy_bml_resource_named((s32 *)&TObjEneRe2Flower__resource_descriptor, &lbl_8043BBF4.value);
     } else {
-        lbl_805D5174 = (u32) load_enemy_bml_resource((M2C_UNK *)&TObjEneRe2Flower__resource_descriptor);
+        lbl_805D5174 = (u32) load_enemy_bml_resource((s32 *)&TObjEneRe2Flower__resource_descriptor);
     }
     lbl_805D5178 = 0;
     lbl_805D517C = 0;
     lbl_805D5180 = 0;
     create_render_texture__10TObjPlayerFv();
     TObjPlayer__sub_800F0928();
-    stack.sp8 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043BB90.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 8);
-    stack.sp14 = M2C_FIELD(&lbl_8043BB90.value, s32 *, 0xC);
-    stack.sp8 = M2C_FIELD(lbl_805D5174, s32 *, 0x430);
-    temp_r5 = (u8 *)(M2C_FIELD(lbl_805D5174, u8 **, 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x37), (int) (M2C_FIELD(temp_r5, s32 *, 8)), (int) (M2C_FIELD(temp_r5, s32 *, 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043BB90.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)lbl_805D5174 + 0x430);
+    temp_r5 = (u8 *)(*(u8 **)((s8 *)lbl_805D5174 + 0x42C));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (0x37), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9FBC), (f32) (lbl_805D9FAC));
 }
 s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 arg3, f32 farg0) {
     s32 result;
@@ -572,27 +568,27 @@ s32 hit_area_targets__10TObjPlayerFPvPviUif(u8 *arg0, u8 *arg1, s32 arg2, u32 ar
     s32 ok;
     result = 0;
     flags = 0;
-    if (M2C_FIELD(arg0, u32 *, 0xAC) == 0) {
+    if (*(u32 *)((s8 *)arg0 + 0xAC) == 0) {
         return 0;
     }
     init_all_slots__10TObjPlayerFv();
-    if (M2C_FIELD(arg1, s32 *, 4) & 1) {
+    if (*(s32 *)((s8 *)arg1 + 4) & 1) {
         update_body_contact_flag__10TObjPlayerFPvf(arg0, farg0);
         flags |= 0x80000;
     }
-    if (M2C_FIELD(arg1, s32 *, 4) & 2) {
+    if (*(s32 *)((s8 *)arg1 + 4) & 2) {
         mark_enemy_body_contacts(arg0);
         flags |= 0x100000;
     }
-    if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), s32 *, 0x18) & flags) {
+    if (*(s32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0x18) & flags) {
         for (i = 0; i < 0x10; i++) {
             p = get_battle_param__10TObjPlayerFi(i);
             if (p == 0) {
                 break;
             }
-            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != M2C_FIELD(arg0, u32 *, 0xAC) &&
-                is_area_attack_target_eligible((s32)arg0, M2C_FIELD(p, s32 *, 0x30)) != 0 &&
-                !(fabs_float(M2C_FIELD(arg0, f32 *, 0xB8) - M2C_FIELD(p, f32 *, 0x300)) > lbl_805DA000)) {
+            if (obj_is_hit_receivable((void *)p) != 0 && (u32)p != *(u32 *)((s8 *)arg0 + 0xAC) &&
+                is_area_attack_target_eligible((s32)arg0, *(s32 *)((s8 *)p + 0x30)) != 0 &&
+                !(fabs_float(*(f32 *)((s8 *)arg0 + 0xB8) - *(f32 *)((s8 *)p + 0x300)) > lbl_805DA000)) {
                 ok = 1;
                 if (arg3 != 0 && attack_target_history_add((s32)arg3, p) == 0) {
                     ok = 0;

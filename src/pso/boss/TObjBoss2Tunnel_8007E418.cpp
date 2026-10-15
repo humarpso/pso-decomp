@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 void rotate_vec_xz(void *arg0, void *arg1, s32 arg2);
 s32 get_view_matrix__11TCameraCtrlFv();
-M2C_UNK matrix_mult_vec(M2C_UNK, s32, s32);
-M2C_UNK concat_matrix__11TCameraCtrlFUiUi(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 matrix_mult_vec(s32, s32, s32);
+s32 concat_matrix__11TCameraCtrlFUiUi(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
 void transform_vec_by_camera__15TObjBoss2TunnelFiii(s32 arg0, s32 arg1, s32 arg2);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
@@ -34,9 +30,9 @@ s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1);
 void init_zako__15TObjBoss2TunnelFPvPv(void* p, void* a1, s32 _w2);
 s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2);
 int vec3_add_to(void*, void*);
-void *csnVecterUnder(void *, M2C_UNK, f32);
+void *csnVecterUnder(void *, s32, f32);
 f32 sin_table_lookup(s32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, s32);
 
 s32 decrement_packed_timer__15TObjBoss2TunnelFPvi(u32 *arg0, s32 arg1) {
     u32 temp_r5;
@@ -57,12 +53,12 @@ s32 spawn_effect__15TObjBoss2TunnelFiPvPv(s32 arg0, void *arg1, void *arg2) {
     void *temp_r3;
 
     VecCopy__FP3VecPC3Vec(arg1, arg0);
-    temp_f1 = M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
+    temp_f1 = *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg1 + 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
     temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(temp_r3, s32 *, 4));
-        VecCopy__FP3VecPC3Vec(arg2, M2C_FIELD(temp_r3, s32 *, 4) + 0xC);
+        VecCopy__FP3VecPC3Vec(arg1, *(s32 *)((s8 *)temp_r3 + 4));
+        VecCopy__FP3VecPC3Vec(arg2, *(s32 *)((s8 *)temp_r3 + 4) + 0xC);
         return 1;
     }
     VecCopy__FP3VecPC3Vec(arg1, arg0);
@@ -76,11 +72,11 @@ s32 adjust_to_ground__15TObjBoss2TunnelFiPv(s32 arg0, void *arg1) {
     void *temp_r3;
 
     VecCopy__FP3VecPC3Vec(arg1, arg0);
-    temp_f1 = M2C_FIELD(arg1, f32 *, 4);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
+    temp_f1 = *(f32 *)((s8 *)arg1 + 4);
+    *(f32 *)((s8 *)arg1 + 4) = (f32) (temp_f1 + TObjBoss2Tunnel__data_805D9210);
     temp_r3 = csnVecterUnder(arg1, 0x16EF, temp_f1);
     if (temp_r3 != NULL) {
-        VecCopy__FP3VecPC3Vec(arg1, M2C_FIELD(temp_r3, s32 *, 4));
+        VecCopy__FP3VecPC3Vec(arg1, *(s32 *)((s8 *)temp_r3 + 4));
         return 1;
     }
     VecCopy__FP3VecPC3Vec(arg1, arg0);
@@ -116,14 +112,14 @@ s32 count_active_segments__15TObjBoss2TunnelFPv(void *arg0) {
 
     var_r31 = 0;
     do {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0);
         if (!(temp_r3 & 8)) {
             var_r31 += 1;
         }
         if (!(temp_r3 & 0x10)) {
-            var_r31 += count_active_segments__15TObjBoss2TunnelFPv((void *)(M2C_FIELD(arg0, void **, 0x2C)));
+            var_r31 += count_active_segments__15TObjBoss2TunnelFPv((void *)(*(void **)((s8 *)arg0 + 0x2C)));
         }
-        arg0 = M2C_FIELD(arg0, void **, 0x30);
+        arg0 = *(void **)((s8 *)arg0 + 0x30);
     } while (arg0 != NULL);
     return var_r31;
 }
@@ -135,11 +131,11 @@ s32 count_tree_nodes__15TObjBoss2TunnelFPv(u8 *arg0) {
     u8 *temp_r3;
     u8 *temp_r3_2;
     var_r31 = 1;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x2C));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x2C));
     if (temp_r3 != NULL) {
         var_r31 = count_tree_nodes__15TObjBoss2TunnelFPv(temp_r3) + 1;
     }
-    temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x30));
+    temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x30));
     if (temp_r3_2 != NULL) {
         var_r31 += count_tree_nodes__15TObjBoss2TunnelFPv(temp_r3_2);
     }
@@ -158,10 +154,10 @@ void rotate_vec_xz(void *arg0, void *arg1, s32 arg2) {
     f32 temp_f3;
     temp_f31 = cos_table_lookup(arg2);
     temp_f1 = sin_table_lookup(arg2);
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0);
-    temp_f3 = M2C_FIELD(arg0, f32 *, 8);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) ((temp_f31 * temp_f3) - (temp_f1 * temp_f0));
-    M2C_FIELD(arg1, f32 *, 0) = (f32) ((temp_f1 * temp_f3) + (temp_f31 * temp_f0));
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0);
+    temp_f3 = *(f32 *)((s8 *)arg0 + 8);
+    *(f32 *)((s8 *)arg1 + 8) = (f32) ((temp_f31 * temp_f3) - (temp_f1 * temp_f0));
+    *(f32 *)((s8 *)arg1 + 0) = (f32) ((temp_f1 * temp_f3) + (temp_f31 * temp_f0));
 }
 #pragma pop
 
@@ -184,7 +180,7 @@ void rotate_xz_pair_by_angle(f32 *arg0, f32 *arg1, s32 arg2) {
 #pragma push
 #pragma fp_contract on
 bool is_vec_xz_cross_negative(u8 *arg0, u8 *arg1) {
-    return (((M2C_FIELD(arg0, f32 *, 8) * M2C_FIELD(arg1, f32 *, 0)) - (M2C_FIELD(arg0, f32 *, 0) * M2C_FIELD(arg1, f32 *, 8))) >= TObjBoss2Tunnel__data_805D9234) == 0;
+    return (((*(f32 *)((s8 *)arg0 + 8) * *(f32 *)((s8 *)arg1 + 0)) - (*(f32 *)((s8 *)arg0 + 0) * *(f32 *)((s8 *)arg1 + 8))) >= TObjBoss2Tunnel__data_805D9234) == 0;
 }
 #pragma pop
 

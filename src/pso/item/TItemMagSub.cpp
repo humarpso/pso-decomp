@@ -2,10 +2,7 @@
 #include "pso/item/TItemMagSub.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 int set_flags__11TItemMagSubFUl(void *, int);
 void release_model_and_destroy__11TItemMagSubFv(u8 *arg0);
@@ -16,9 +13,9 @@ extern "C" {
 }
 void TItemMagSub::release_model_and_destroy() {
     u8* arg0=(u8*)this;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     set_flags__11TItemMagSubFUl(arg0, 0x80U);
 }
 extern "C" {
@@ -29,10 +26,7 @@ extern "C" {
 #include "pso/item/TItemMagSub.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80114950 { char pad[0x18]; };
 struct VObj_80114950 : Base_80114950 {
     virtual void m00(); virtual void m01(); virtual void m02(); virtual void m03();
@@ -58,7 +52,7 @@ extern "C" {
 
 void set_motion_type__11TItemMagSubFl(u8 *arg0, s32 arg1);
 void transition_motion_type__11TItemMagSubFl(u8 *arg0, s32 arg1);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void reset__11TItemMagSubFv(u8*);
 void reset_oscillation__11TItemMagSubFv(u8*);
 int set_flags__11TItemMagSubFUl(void *, int);
@@ -71,11 +65,11 @@ void TItemMagSub::set_motion_type(s32 arg1) {
     u8 *temp_r5;
 
     ((void(*)(void))reset__11TItemMagSubFv)();
-    M2C_FIELD(arg0, s32 *, 0x68) = arg1;
-    M2C_FIELD(arg0, s32 **, 0x30) = (s32 *) (item_mag_param_table + (arg1 * 0x64));
-    temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x20));
+    *(s32 *)((s8 *)arg0 + 0x68) = arg1;
+    *(s32 **)((s8 *)arg0 + 0x30) = (s32 *) (item_mag_param_table + (arg1 * 0x64));
+    temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x20));
     if (temp_r5 != NULL) {
-        s32 elem = *M2C_FIELD(arg0, s32 **, 0x30);
+        s32 elem = **(s32 **)((s8 *)arg0 + 0x30);
         if (elem == -1) {
             VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xA0), (s32)(temp_r5 + 0x2FC));
             return;
@@ -104,10 +98,6 @@ extern "C" {
 #include "types.h"
 #include <stddef.h>
 #include "pso/item/TItemMagSub.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -118,12 +108,12 @@ struct Stack_80114DB8 {
 };
 
 struct RecoveredGlobal_80114DB8_lbl_8043E5A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_80114DB8_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -145,7 +135,7 @@ typedef struct TItemMagSub_801152AC {
 typedef struct MagSub_80115800 { u8 pad0[0x70]; s32 slots[3]; } MagSub_80115800;
 
 struct RecoveredGlobal_801151E0_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -297,8 +287,8 @@ struct Sub_80115334 {
     Stat_80115334 st[2];
 };
 
-M2C_UNK memset(void *, int, int);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, s32);
+s32 memset(void *, int, int);
+s32 VecCopy__FP3VecPC3Vec(void *, s32);
 void queue_destruction__7TObjectFv(void *);
 void disallow_rendering__7TObjectFv(void *);
 void copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
@@ -344,7 +334,7 @@ int mag_node_oscillation_node_index(void* p);
 int mag_item_tests_flag_20(void* p);
 void set_shadow_material_state();
 void reset_transform_state__10TObjPlayerFv();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv();
 void __dt__7TObjectFv(void *, int);
 void notify_fish_if_valid__10TObjPlayerFUi(u32);
@@ -352,19 +342,19 @@ void __dl__15TItemHeapObjectFPv(void *);
 void __ct__15TItemHeapObjectFP7TObject(void *, void *);
 f32 sin_table_lookup(s32);
 void vec3_add_to(void *, void *);
-M2C_UNK rotate_matrix_zyx(int, int, int, int, int);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
+s32 rotate_matrix_zyx(int, int, int, int, int);
+s32 scale_matrix(int, f32, f32, f32);
+s32 rotate_matrix_y(int, void *);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
 f32 transform_point_by_current_matrix(void *, void *);
 void push_matrix();
 s32 pop_matrix();
-M2C_UNK post_translate_matrix(void *);
+s32 post_translate_matrix(void *);
 s32 draw_ginja_object(void *);
 void set_color_blend_mode(s32, s32, s32, s32);
-M2C_UNK set_chunk_material_color(void *);
+s32 set_chunk_material_color(void *);
 void draw_model_motion(void *, void *, f32);
 void set_global_flag__10TObjPlayerFv();
 void clear_global_state__10TObjPlayerFv();
@@ -375,10 +365,10 @@ extern s32 TItemMagSub__feed_sequence_index;
 extern const f32 mag_sub_zero;
 extern const f32 mag_sub_angle_units_per_degree;
 extern const f32 mag_sub_one;
-extern M2C_UNK __vt__11TItemMagSub[];
+extern s32 __vt__11TItemMagSub[];
 extern Vec_801151E0 mag_sub_special_pose_offset[];
 extern RecoveredGlobal_80114DB8_lbl_8043E5A8 mag_sub_local_origin;
-extern M2C_UNK __vt__15TItemHeapObject[];
+extern s32 __vt__15TItemHeapObject[];
 extern f32 model_material_color[4], saved_model_draw_color[4];
 extern RecoveredGlobal_80114DB8_lbl_8058D490 identity_matrix;
 extern f32 mag_sub_transition_frames;
@@ -397,7 +387,7 @@ extern const f32 mag_sub_height_slope;
 void TItemMagSub::clear_optional_oscillation_flag(void* arg0) {
 
     if ((u32) arg0 != 0U) {
-        ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)(arg0, 2);
+        ((s32 (*)(void *, s32))clear_flags__11TItemMagSubFUl)(arg0, 2);
     }
 }
 extern "C" {
@@ -407,9 +397,9 @@ void TItemMagSub::reset_oscillation() {
     u8* arg0=(u8*)this;
     memset(arg0 + 0x34, 0, 0xC);
     memset(arg0 + 0x58, 0, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) mag_sub_zero;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) mag_sub_zero;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) mag_sub_zero;
+    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) mag_sub_zero;
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) mag_sub_zero;
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) mag_sub_zero;
 }
 extern "C" {
 
@@ -435,7 +425,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
             model_render_flags |= 0x10;
             set_chunk_material_color(material_parameters);
             begin_effect_render__13TParticleCtrlFv();
-            ((M2C_UNK (*)(void *, int))set_flags__11TItemMagSubFUl)(this, 0x20);
+            ((s32 (*)(void *, int))set_flags__11TItemMagSubFUl)(this, 0x20);
         }
         if (selected_node != 2) {
             selected_node++;
@@ -444,7 +434,7 @@ void TItemMagSub::apply_node_oscillation(void* _w1) {
         end_effect_render__13TParticleCtrlFv();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
         model_render_flags = lbl_805D5660;
-        ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)(this, 0x20);
+        ((s32 (*)(void *, s32))clear_flags__11TItemMagSubFUl)(this, 0x20);
     }
 }
 extern "C" {
@@ -460,8 +450,8 @@ void TItemMagSub::update_node_oscillation(void* arg) {
 extern "C" {
 
 void accumulate_mag_axis_oscillation(f32 *arg0, s32 *arg1, void *arg2) {
-    *arg1 = *arg1 + M2C_FIELD(arg2, s32 *, 0xC);
-    *arg0 = M2C_FIELD(arg2, f32 *, 0) * sin_table_lookup(*arg1 + M2C_FIELD(arg2, s32 *, 8));
+    *arg1 = *arg1 + *(s32 *)((s8 *)arg2 + 0xC);
+    *arg0 = *(f32 *)((s8 *)arg2 + 0) * sin_table_lookup(*arg1 + *(s32 *)((s8 *)arg2 + 8));
 }
 
 #pragma push
@@ -493,9 +483,9 @@ s32 TItemMagSub::get_world_position(void* output) {
     if ((mag_owner_freezes_follow((int)item) == 0) && (output != 0)) {
         push_matrix_from((void *) (&identity_matrix.value));
         apply_placement_matrix();
-        stack.sp8 = M2C_FIELD(&mag_sub_local_origin.value, s32 *, 0);
-        stack.spC = M2C_FIELD(&mag_sub_local_origin.value, s32 *, 4);
-        stack.sp10 = M2C_FIELD(&mag_sub_local_origin.value, s32 *, 8);
+        stack.sp8 = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 0);
+        stack.spC = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 4);
+        stack.sp10 = *(s32 *)((s8 *)(&mag_sub_local_origin.value) + 8);
         transform_point_by_current_matrix((void *) (&stack.sp8), output);
         pop_matrix();
         return 1;
@@ -574,7 +564,7 @@ void TItemMagSub::render_shadows() {
             end_effect_render__13TParticleCtrlFv();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
-            ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)((void *)(self), (M2C_UNK)(0x20));
+            ((s32 (*)(void *, s32))clear_flags__11TItemMagSubFUl)((void *)(self), (s32)(0x20));
         }
     }
     reset_transform_state__10TObjPlayerFv();
@@ -611,7 +601,7 @@ void TItemMagSub::render() {
             end_effect_render__13TParticleCtrlFv();
             copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);
             model_render_flags = lbl_805D5660;
-            ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)((void *)(self), (M2C_UNK)(0x20));
+            ((s32 (*)(void *, s32))clear_flags__11TItemMagSubFUl)((void *)(self), (s32)(0x20));
         }
     }
 }
@@ -626,15 +616,15 @@ s32 TItemMagSub::resolve_owner_heading() {
     void *temp_r4;
     void *temp_r4_3;
 
-    temp_r3_2 = M2C_FIELD(arg0, void **, 0x20);
-    temp_r4_2 = M2C_FIELD(temp_r3_2, void ***, 0xF8);
-    temp_r3 = M2C_FIELD(temp_r3_2, s32 *, 0x60);
+    temp_r3_2 = *(void **)((s8 *)arg0 + 0x20);
+    temp_r4_2 = *(void ***)((s8 *)temp_r3_2 + 0xF8);
+    temp_r3 = *(s32 *)((s8 *)temp_r3_2 + 0x60);
     if (temp_r4_2 != NULL) {
         temp_r4_3 = *temp_r4_2;
         if (temp_r4_3 != NULL) {
-            temp_r4 = M2C_FIELD(temp_r4_3, void **, 4);
+            temp_r4 = *(void **)((s8 *)temp_r4_3 + 4);
             if (temp_r4 != NULL) {
-                return temp_r3 + M2C_FIELD(temp_r4, s16 *, 4);
+                return temp_r3 + *(s16 *)((s8 *)temp_r4 + 4);
             }
         }
     }
@@ -667,7 +657,7 @@ void TItemMagSub::update_transition() {
     TItemMagSub_801152AC* self=(TItemMagSub_801152AC*)this;
     self->timer += mag_sub_one;
     if (mag_sub_transition_frames == self->timer) {
-        ((M2C_UNK (*)(void *, M2C_UNK))clear_flags__11TItemMagSubFUl)((void *)(self), (M2C_UNK)(0x18));
+        ((s32 (*)(void *, s32))clear_flags__11TItemMagSubFUl)((void *)(self), (s32)(0x18));
         memset(self->vec34, 0, 0xC);
         memset(self->vec58, 0, 0xC);
         self->f9C = mag_sub_zero;
@@ -730,24 +720,24 @@ void TItemMagSub::run_task() {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if (mag_owner_freezes_follow(M2C_FIELD(arg0, s32 *, 0x1C)) != 0 ||
-        ((u32 (*)(void *))mag_item_tests_flag_20)(M2C_FIELD(arg0, u8 **, 0x1C)) != 0U) {
+    if (mag_owner_freezes_follow(*(s32 *)((s8 *)arg0 + 0x1C)) != 0 ||
+        ((u32 (*)(void *))mag_item_tests_flag_20)(*(u8 **)((s8 *)arg0 + 0x1C)) != 0U) {
         return;
     }
-    if (obj_isState7_324(M2C_FIELD(arg0, u8 **, 0x20)) != 0) {
+    if (obj_isState7_324(*(u8 **)((s8 *)arg0 + 0x20)) != 0) {
         update_special_pose__11TItemMagSubFv((MagSub_801151E0 *)arg0);
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0xB8) = get_mag_scale_f__10TObjPlayerFPv(M2C_FIELD(arg0, u8 **, 0x20) + 0x608);
+    *(f32 *)((s8 *)arg0 + 0xB8) = get_mag_scale_f__10TObjPlayerFPv(*(u8 **)((s8 *)arg0 + 0x20) + 0x608);
     if (test_flags__11TItemMagSubFUl(arg0, 8U) != 0U) {
         update_transition__11TItemMagSubFv((TItemMagSub_801152AC *)arg0);
     } else {
         ((void (*)(void *))update_follow__11TItemMagSubFv)(arg0);
     }
-    if (M2C_FIELD(arg0, u32 *, 0x28) != 0U) {
-        M2C_FIELD(arg0, f32 *, 0x80) = M2C_FIELD(arg0, f32 *, 0x80) + mag_sub_one;
-        if (M2C_FIELD(arg0, f32 *, 0x84) <= M2C_FIELD(arg0, f32 *, 0x80)) {
-            M2C_FIELD(arg0, f32 *, 0x80) = mag_sub_zero;
+    if (*(u32 *)((s8 *)arg0 + 0x28) != 0U) {
+        *(f32 *)((s8 *)arg0 + 0x80) = *(f32 *)((s8 *)arg0 + 0x80) + mag_sub_one;
+        if (*(f32 *)((s8 *)arg0 + 0x84) <= *(f32 *)((s8 *)arg0 + 0x80)) {
+            *(f32 *)((s8 *)arg0 + 0x80) = mag_sub_zero;
         }
     }
 }
@@ -764,23 +754,23 @@ extern "C" {
 }
 void TItemMagSub::reset() {
     u8* arg0=(u8*)this;
-    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, M2C_FIELD(arg0, s32 *, 0x20) + 0x2FC);
-    M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    M2C_FIELD(arg0, s32 *, 0x44) = 0;
-    M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    M2C_FIELD(arg0, s32 *, 0x60) = 0;
-    M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x58) = 0;
-    M2C_FIELD(arg0, s32 *, 0x54) = 0;
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x9C) = (f32) mag_sub_zero;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) mag_sub_zero;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) mag_sub_zero;
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0xAC, *(s32 *)((s8 *)arg0 + 0x20) + 0x2FC);
+    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    *(s32 *)((s8 *)arg0 + 0x44) = 0;
+    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    *(s32 *)((s8 *)arg0 + 0x60) = 0;
+    *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x58) = 0;
+    *(s32 *)((s8 *)arg0 + 0x54) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x9C) = (f32) mag_sub_zero;
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) mag_sub_zero;
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) mag_sub_zero;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
 }
 extern "C" {
 
@@ -800,8 +790,8 @@ TItemMagSub::TItemMagSub(MagDrawOwner* player, TObject* parent) : TItemHeapObjec
     animation_frame = mag_sub_zero;
     transition_frame = mag_sub_zero;
     for (i=0; i<3; i++) node_ids[i]=-1;
-    if (0.5 < M2C_FIELD(player, f32*, 0x8A8)) {
-        owner_height_scale = -((mag_sub_height_slope*M2C_FIELD(player, f32*, 0x8A8))-mag_sub_height_intercept);
+    if (0.5 < *(f32*)((s8 *)player + 0x8A8)) {
+        owner_height_scale = -((mag_sub_height_slope**(f32*)((s8 *)player + 0x8A8))-mag_sub_height_intercept);
     } else {
         owner_height_scale = mag_sub_one;
     }
@@ -837,7 +827,7 @@ int mag_node_oscillation_uses_z(void* p) { return (*(u8*)((char*)p + 0x0) >> 7) 
 int mag_node_oscillation_uses_y(void* p) { return (*(u8*)((char*)p + 0x0) >> 6) & 0x1; }
 
 s32 mag_node_oscillation_angle(void *arg0) {
-    return (s32) (mag_sub_angle_units_per_degree * (f32) M2C_FIELD(arg0, s16 *, 2));
+    return (s32) (mag_sub_angle_units_per_degree * (f32) *(s16 *)((s8 *)arg0 + 2));
 }
 
 int mag_node_oscillation_uses_x(void* p) { return (*(u8*)((char*)p + 0x0) >> 5) & 0x1; }

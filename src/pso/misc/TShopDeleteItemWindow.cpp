@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80337910 { char pad[0x18]; };
 struct VObj_80337910 : Base_80337910 {
     virtual void m0();
@@ -22,11 +19,10 @@ struct VObj_80337948_80337910 : Base_80337948_80337910 {
 };
 
 struct Stack_803379E0 {
-    M2C_UNK sp8;
+    s32 sp8;
     u8 trailing_storage[0x10];
 };
 
-typedef s32 M2C_UNK;
 struct VBase_80337B00 { char pad[0x18]; };
 
 struct VObj_80337B00 : VBase_80337B00 {
@@ -34,7 +30,7 @@ struct VObj_80337B00 : VBase_80337B00 {
     virtual void m1();
     virtual void m2();
     virtual void m3();
-    virtual M2C_UNK m4(M2C_UNK, M2C_UNK);
+    virtual s32 m4(s32, s32);
 };
 
 typedef struct Win_80337C2C {
@@ -57,7 +53,7 @@ typedef struct Kind_80337C2C {
 extern "C" {
 s32 is_visible__17TWindowSubComCardFPv(int);
 s32 get_status_flag__17TWindowSubComCardFPv(int);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 s32 compact_items__18TCheckRoomSequenceFi(int);
 s32 remove_bank_item_amount__18TCheckRoomSequenceFiii(int, int, int);
 s32 copy_item_record__18TCheckRoomSequenceFiPvi(int, void *, int);
@@ -73,15 +69,15 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0);
 s32 TShopDeleteItemWindow__sub_80337E2C(void *);
 void TShopDeleteItemWindow__vt9(u8 *arg0);
 u16 obj_getField1c(void *);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_ready_flag__18TCheckRoomSequenceFPv(void *);
 s32 is_confirmed__24TShopEquipmentSellWindowFPv(void *);
 s32 get_result__24TShopEquipmentSellWindowFPv(void *);
 s32 is_confirmed__18TWindowInputNumberFPv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-M2C_UNK set_position_xy(void *, f32, f32);
+s32 set_position_xy(void *, f32, f32);
 void TWindow__close(void *);
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
+s32 set_selected_index__17TWindowSubComCardFPvs(void *, int);
 void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
 void handle_number_input__21TShopDeleteItemWindowFPv(u8 *arg0);
@@ -93,11 +89,11 @@ s32 TShopWindowBase__sub_80223A48(void *);
 s16 get_child_field1c__15TShopWindowBaseFPv(void *);
 s32 select_cursor_entry__6TLobbyFPv(int);
 u16 obj_getField1c(void *);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
-M2C_UNK set_ready_flag__18TCheckRoomSequenceFPv(void *);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
+s32 set_ready_flag__18TCheckRoomSequenceFPv(void *);
 f32 get_scale__15TShopWindowBaseFv(void *);
-M2C_UNK set_position_xy(void *, f32, f32);
-M2C_UNK set_selected_index__17TWindowSubComCardFPvs(void *, int);
+s32 set_position_xy(void *, f32, f32);
+s32 set_selected_index__17TWindowSubComCardFPvs(void *, int);
 void *create_yes_no_window(void *, int, int, int);
 void *get_window_layout_position(int);
 void *__nw__7TObjectFUl(u32);
@@ -125,33 +121,33 @@ void TWindow__close(void *);
 void __ct__15TShopWindowBaseFv(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__15TShopWindowBaseFv(void *, int);
-M2C_UNK clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
+s32 clear_selected_and_update_entry__14TWindowSubItemFPv(void *);
 void init__9TItemDataFv(void *);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 
 void TShopDeleteItemWindow__vt5(void *arg0) {
-    struct VObj_80337910 *o = (struct VObj_80337910 *)M2C_FIELD(arg0, void **, 0x64);
+    struct VObj_80337910 *o = (struct VObj_80337910 *)*(void **)((s8 *)arg0 + 0x64);
     if (o != NULL) {
         o->m5();
     }
 }
 
 void TShopDeleteItemWindow__vt4(void *arg0) {
-    struct VObj_80337948_80337910 *o = (struct VObj_80337948_80337910 *)M2C_FIELD(arg0, void **, 0x64);
+    struct VObj_80337948_80337910 *o = (struct VObj_80337948_80337910 *)*(void **)((s8 *)arg0 + 0x64);
     if (o != NULL) {
         o->m4();
     }
 }
 
 s32 destroy__21TShopDeleteItemWindowFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x30) != 0U) {
-        clear_selected_and_update_entry__14TWindowSubItemFPv(M2C_FIELD(arg0, void **, 0x30));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x30) != 0U) {
+        clear_selected_and_update_entry__14TWindowSubItemFPv(*(void **)((s8 *)arg0 + 0x30));
     }
     set_field_20__12TQuestListVMFPvi(arg0, 1);
     ((VObj_80337980_80337910 *)arg0)->m4(0x4C, 1);
 }
 
-extern M2C_UNK __vt__21TShopDeleteItemWindow[];
+extern s32 __vt__21TShopDeleteItemWindow[];
 
 void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
     Stack_803379E0 stack;
@@ -160,36 +156,36 @@ void handle_confirm_dialog__21TShopDeleteItemWindowFPv(u8 *arg0) {
     s32 temp_r3_3;
     u32 temp_r3;
     u32 temp_r3_4;
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x34);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x34);
     if ((temp_r3 != 0U) && (is_visible__17TWindowSubComCardFPv((int) (temp_r3)) != 0)) {
         temp_r30 = TShopWindowBase__sub_8022397C((void *) (arg0));
-        temp_r3_2 = get_selected_menu_value((int) (M2C_FIELD(arg0, u32 *, 0x34)));
+        temp_r3_2 = get_selected_menu_value((int) (*(u32 *)((s8 *)arg0 + 0x34)));
         if (temp_r3_2 == 0) {
-            temp_r3_3 = select_cursor_entry__6TLobbyFPv((int) (M2C_FIELD(arg0, s32 *, 0x30)));
+            temp_r3_3 = select_cursor_entry__6TLobbyFPv((int) (*(s32 *)((s8 *)arg0 + 0x30)));
             if (copy_item_record__18TCheckRoomSequenceFiPvi((int) (temp_r3_3), (void *) (&stack.sp8), (int) (temp_r30)) != 0) {
-                remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (temp_r3_3), (int) (M2C_FIELD(arg0, s32 *, 0x5C)), (int) (temp_r30));
+                remove_bank_item_amount__18TCheckRoomSequenceFiii((int) (temp_r3_3), (int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (temp_r30));
                 compact_items__18TCheckRoomSequenceFi((int) (temp_r30));
                 copy_bank_to_card_window((int) (temp_r30));
-                set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (0)));
+                set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (0)));
             }
-            TWindow__close((void *)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
-            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
+            TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
+            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
             return;
         }
         if (temp_r3_2 == 1) {
-            TWindow__close((void *)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
-            M2C_FIELD(arg0, u32 *, 0x34) = 0U;
-            set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (4)));
+            TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
+            *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+            set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (4)));
             return;
         }
         goto block_8;
     }
 block_8:
-    temp_r3_4 = M2C_FIELD(arg0, u32 *, 0x34);
+    temp_r3_4 = *(u32 *)((s8 *)arg0 + 0x34);
     if ((temp_r3_4 != 0U) && (get_status_flag__17TWindowSubComCardFPv((int) (temp_r3_4)) != 0)) {
-        TWindow__close((void *)((int) (M2C_FIELD(arg0, u32 *, 0x34))));
-        M2C_FIELD(arg0, u32 *, 0x34) = 0U;
-        set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (M2C_UNK)((int) (4)));
+        TWindow__close((void *)((int) (*(u32 *)((s8 *)arg0 + 0x34))));
+        *(u32 *)((s8 *)arg0 + 0x34) = 0U;
+        set_field_20__12TQuestListVMFPvi((void *)((void *) (arg0)), (s32)((int) (4)));
     }
 }
 
@@ -267,10 +263,10 @@ s32 update_item_select__21TShopDeleteItemWindowFPv(void *arg0) {
 #pragma pop
 
 void TShopDeleteItemWindow__vt9(u8 *arg0) {
-    M2C_UNK (*temp_r12)(s32);
-    M2C_UNK (*temp_r12_2)(s32);
+    s32 (*temp_r12)(s32);
+    s32 (*temp_r12_2)(s32);
     u32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0x20);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0x20);
     switch (temp_r0) {
     case 0:
         TShopDeleteItemWindow__sub_80337E2C((void *) (arg0));
@@ -288,16 +284,16 @@ void TShopDeleteItemWindow__vt9(u8 *arg0) {
         destroy__21TShopDeleteItemWindowFPv((void *) (arg0));
         return;
     case 6:
-        temp_r12 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x2C);
+        temp_r12 = *(s32 (**)(s32))((s8 *)arg0 + 0x2C);
         if (temp_r12 != NULL) {
-            temp_r12(M2C_FIELD(arg0, s32 *, 0x64));
+            temp_r12(*(s32 *)((s8 *)arg0 + 0x64));
         }
         queue_destruction__7TObjectFv((void *) (arg0));
         return;
     case 7:
-        temp_r12_2 = M2C_FIELD(arg0, M2C_UNK (**)(s32), 0x28);
+        temp_r12_2 = *(s32 (**)(s32))((s8 *)arg0 + 0x28);
         if (temp_r12_2 != NULL) {
-            temp_r12_2(M2C_FIELD(arg0, s32 *, 0x64));
+            temp_r12_2(*(s32 *)((s8 *)arg0 + 0x64));
         }
         queue_destruction__7TObjectFv((void *) (arg0));
     default:
@@ -307,11 +303,11 @@ void TShopDeleteItemWindow__vt9(u8 *arg0) {
 
 void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TShopDeleteItemWindow;
-        if (M2C_FIELD(arg0, void **, 0x30) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x30)); M2C_FIELD(arg0, M2C_UNK *, 0x30) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x34) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x34)); M2C_FIELD(arg0, M2C_UNK *, 0x34) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x38) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x38)); M2C_FIELD(arg0, M2C_UNK *, 0x38) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x3C) != NULL) { TWindow__close(M2C_FIELD(arg0, void **, 0x3C)); M2C_FIELD(arg0, M2C_UNK *, 0x3C) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TShopDeleteItemWindow;
+        if (*(void **)((s8 *)arg0 + 0x30) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x30)); *(s32 *)((s8 *)arg0 + 0x30) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x34) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x34)); *(s32 *)((s8 *)arg0 + 0x34) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x38) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x38)); *(s32 *)((s8 *)arg0 + 0x38) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { TWindow__close(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -320,25 +316,25 @@ void *__dt__21TShopDeleteItemWindowFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__21TShopDeleteItemWindow[];
+extern s32 __vt__21TShopDeleteItemWindow[];
 extern void *TShopDeleteItemWindow__name;
 
 void *TShopDeleteItemWindow__ct(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__15TShopWindowBaseFv(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TShopDeleteItemWindow;
-    M2C_FIELD(arg0, void **, 0x0) = TShopDeleteItemWindow__name;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, void **, 0x24) = arg3;
-    M2C_FIELD(arg0, u32 *, 0x5C) = 1;
-    M2C_FIELD(arg0, u8 *, 0x54) = 0;
-    M2C_FIELD(arg0, u32 *, 0x60) = 0;
-    M2C_FIELD(arg0, u32 *, 0x28) = 0;
-    M2C_FIELD(arg0, u32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x30) = 0;
-    M2C_FIELD(arg0, u32 *, 0x34) = 0;
-    M2C_FIELD(arg0, u32 *, 0x38) = 0;
-    M2C_FIELD(arg0, u32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, void **, 0x64) = arg2;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TShopDeleteItemWindow;
+    *(void **)((s8 *)arg0 + 0x0) = TShopDeleteItemWindow__name;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(void **)((s8 *)arg0 + 0x24) = arg3;
+    *(u32 *)((s8 *)arg0 + 0x5C) = 1;
+    *(u8 *)((s8 *)arg0 + 0x54) = 0;
+    *(u32 *)((s8 *)arg0 + 0x60) = 0;
+    *(u32 *)((s8 *)arg0 + 0x28) = 0;
+    *(u32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x30) = 0;
+    *(u32 *)((s8 *)arg0 + 0x34) = 0;
+    *(u32 *)((s8 *)arg0 + 0x38) = 0;
+    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(void **)((s8 *)arg0 + 0x64) = arg2;
     init__9TItemDataFv((void *)((char *)arg0 + 64));
     return arg0;
 }

@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void VecCopy__FP3VecPC3Vec(void *, void *);
 s32 rand(void);
@@ -20,11 +16,11 @@ void *TObjBoss1Rock__sub_8002E174(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK __vt__13TObjBoss1Rock[];
+extern s32 __vt__13TObjBoss1Rock[];
 
 void *TObjBoss1Rock__sub_8002E174(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjBoss1Rock;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -33,36 +29,31 @@ void *TObjBoss1Rock__sub_8002E174(void *arg0, s16 arg1) {
     return arg0;
 }
 void TObjBoss1Rock__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D26A0;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D26A0;
     VecCopy__FP3VecPC3Vec(arg0 + 0x1C, arg1);
     VecCopy__FP3VecPC3Vec(arg0 + 0x28, arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
-    M2C_FIELD(arg0, s32 *, 0x38) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805D8200;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805D8200;
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805D8200;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) lbl_805D8200;
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
+    *(s32 *)((s8 *)arg0 + 0x38) = (s32) (lbl_805D821C * (lbl_805D8220 * (f32) rand()));
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805D8200;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805D8200;
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805D8200;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) lbl_805D8200;
     if (arg3 == 0) {
-        M2C_FIELD(arg0, s32 *, 0x50) = 2;
+        *(s32 *)((s8 *)arg0 + 0x50) = 2;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x50) = 1;
+    *(s32 *)((s8 *)arg0 + 0x50) = 1;
 }
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 typedef struct Unit { u8 pad[0x2C]; } Unit;
 
 typedef struct Boss2 { u8 pad[0x20]; Unit units[0x1C]; } Boss2;
 
-typedef s32 M2C_UNK;
 struct Color_8002E3D4 { f32 a; s32 b, c, d; };
 
 struct Vec_8002E3D4 { f32 x, y, z; };
@@ -114,7 +105,7 @@ struct Model_8002E62C { u8 pad[4]; Ent_8002E62C *ents; };
 
 struct Obj_8002E62C {
     u8 pad0[0x18];
-    M2C_UNK *vt;
+    s32 *vt;
     u8 pad1c[0x20 - 0x1C];
     Part_8002E62C parts[0x1C];
     s32 f4F0;
@@ -122,23 +113,23 @@ struct Obj_8002E62C {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 TObjPlayer__sub_8002EDCC(void *);
-M2C_UNK create_particle__17TObjBoss2CeilJunkFv(void *, M2C_UNK);
+s32 create_particle__17TObjBoss2CeilJunkFv(void *, s32);
 void TObjPlayer__sub_8002E53C(u8 *arg0);
-M2C_UNK TObjLight__sub_801337F8(s32);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK set_chunk_material_override_pair(int, int);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK set_chunk_blend(int);
-M2C_UNK draw_chunk_model(s32);
+s32 TObjLight__sub_801337F8(s32);
+s32 rotate_matrix_z(int, int);
+s32 translate_matrix(int, f32, f32, f32);
+s32 rotate_matrix_x(int, int);
+s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
+s32 set_chunk_material_override_pair(int, int);
+s32 set_chunk_material_color(void *);
+s32 set_chunk_blend(int);
+s32 draw_chunk_model(s32);
 extern Color_8002E3D4 lbl_8043560C;
 extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
@@ -147,14 +138,14 @@ extern s32 model_render_flags;
 void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self);
 f32 lerp__9TDeadSpotFff(f32, f32);
 f32 rand_signed_unit();
-M2C_UNK init_base__10TObjPlayerFPv(void *);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK set_matrix_identity(int);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK concat_matrix__10TObjPlayerFUiUi(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-extern M2C_UNK lbl_80482090[];
+s32 init_base__10TObjPlayerFPv(void *);
+s32 matrix_mult_vec(int, void *, void *);
+s32 set_matrix_identity(int);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 concat_matrix__10TObjPlayerFUiUi(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+extern s32 lbl_80482090[];
 extern Model_8002E62C *lbl_805D4B8C;
 extern const f32 lbl_805D8228;
 extern const f32 lbl_805D822C;
@@ -162,7 +153,7 @@ extern const f32 lbl_805D8234;
 extern const f32 lbl_805D8238;
 extern const f32 lbl_805D823C;
 extern const f32 lbl_805D8240;
-Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2);
+Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, s32 arg1, s32 arg2);
 }
 
 extern "C" {
@@ -175,11 +166,11 @@ void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void deleting_dtor__10TObjPlayerFPvs(void *, int);
 
-extern M2C_UNK __vt__13TObjBoss1Rock[];
+extern s32 __vt__13TObjBoss1Rock[];
 
 void *construct__13TObjBoss1RockFPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjBoss1Rock;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
     TObjBoss1Rock__ct((u8 *)arg0, (u8 *)arg2, (u8 *)arg3, (s32)arg4);
     return arg0;
 }
@@ -190,7 +181,7 @@ void *construct_random__13TObjBoss1RockFPvPvPvPv(void *arg0, void *arg1, void *a
     s32 flag;
 
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjBoss1Rock;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjBoss1Rock;
     if (lbl_805D8220 * (f32)rand() > lbl_805D8224) {
         flag = 0;
     } else {
@@ -203,7 +194,7 @@ void *construct_random__13TObjBoss1RockFPvPvPvPv(void *arg0, void *arg1, void *a
 void TObjBoss1Rock__sub_8002E3CC(void) {  }
 void TObjBoss1Rock__sub_8002E3D0(void) {  }
 
-extern M2C_UNK lbl_80482090[];
+extern s32 lbl_80482090[];
 
 struct Ctr;
 typedef struct Ctr Ctr;
@@ -280,7 +271,7 @@ void TObjPlayer__sub_8002E53C(u8 *arg0) {
 
 void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80482090;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80482090;
         deleting_dtor__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -288,7 +279,7 @@ void *TObjPlayer__sub_8002E5D4(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, M2C_UNK arg1, s32 arg2) {
+Obj_8002E62C *construct_piece_controller__10TObjPlayerFPvii(Obj_8002E62C *self, s32 arg1, s32 arg2) {
     Part_8002E62C *p;
     s32 i;
     Vec_8002E62C *v;

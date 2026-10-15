@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_802895D8_lbl_804D3320 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_802895D8_lbl_804D3320 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_802895D8_lbl_804D3320_size[sizeof(RecoveredGlobal_802895D8_lbl_804D3320) == 0x10 ? 1 : -1];
 
 struct VBase_18_aa4667 { char pad[0x18]; };
@@ -89,11 +85,11 @@ struct VObj_18_aa4667 : VBase_18_aa4667 {
     virtual void m76();
     virtual void m77();
     virtual void m78();
-    virtual M2C_UNK m79(s32);
+    virtual s32 m79(s32);
 };
 
 struct RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x174];
 };
 
@@ -116,10 +112,10 @@ s32 get_bml_model(int, int);
 s32 init_position_vectors__10TObjPlayerFi(void *);
 s32 setup_common__11TObjNpcBaseFv(void *);
 s32 construct_male_npc_base(void *);
-extern M2C_UNK __vt__16TObjNpcSoutokufu[];
+extern s32 __vt__16TObjNpcSoutokufu[];
 extern s32 TObjNpcSoutokufu__name;
 extern u32 TObjNpcSoutokufu__shared_model_resource;
-u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2);
 void spawn_switch_attack__12TBoss8DragonFPv(void *);
 void spawn_attack_effect__12TBoss8DragonFPv(void *);
 s32 is_within_xz_distance__12TBoss8DragonFPvPvf(void *, void *, f32);
@@ -139,7 +135,7 @@ void TLobby__sub_8001FE7C(void*, int);
 void __dl__7TObjectFPv(void *);
 void destroy_npc_lappy_base__12TObjNpcLappyFPvs(void *, int);
 s32 is_any_teammate_in_state__10TObjPlayerFv();
-M2C_UNK render_impl__19TObjBoss5FloorStoneFPvPv(s32, s32);
+s32 render_impl__19TObjBoss5FloorStoneFPvPv(s32, s32);
 
 extern u32 TObjNpcSoutokufu__shared_model_resource;
 
@@ -150,7 +146,7 @@ void close_dialog_window__16TObjNpcSoutokufuFv(void) {
     }
 }
 
-extern M2C_UNK __vt__16TObjNpcSoutokufu[];
+extern s32 __vt__16TObjNpcSoutokufu[];
 
 void load_shared_resource__16TObjNpcSoutokufuFv(void) {
     s32 temp_r3;
@@ -165,7 +161,7 @@ void load_shared_resource__16TObjNpcSoutokufuFv(void) {
 
 void *__dt__16TObjNpcSoutokufuFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjNpcSoutokufu;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjNpcSoutokufu;
         destroy_npc_lappy_base__12TObjNpcLappyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -178,14 +174,14 @@ extern void *lbl_805D4DD8;
 extern s32 boss5_common_texture_list;
 
 typedef char RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu_size[sizeof(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu) == 0x178 ? 1 : -1];
-u8 *TObjNpcSoutokufu__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjNpcSoutokufu__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_male_npc_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjNpcSoutokufu__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80289680___vt__16TObjNpcSoutokufu *)&__vt__16TObjNpcSoutokufu).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjNpcSoutokufu__name;
     ((VObj_18_aa4667 *)(arg0))->m79(arg2);
     init_position_vectors__10TObjPlayerFi((void *) (arg0));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TObjNpcSoutokufu__shared_model_resource)), (int) (0));
     setup_common__11TObjNpcBaseFv((void *) (arg0));
     return arg0;
 }
@@ -213,7 +209,7 @@ void trigger_switches_in_range__12TBoss8DragonFPvPvPv(void *arg0, void *arg1, vo
 
 void render__19TObjBoss5FloorStoneFv(void) {
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0) {
-        render_impl__19TObjBoss5FloorStoneFPvPv(boss5_common_texture_list, M2C_FIELD(M2C_FIELD(lbl_805D4DD8, void **, 0x42C), s32 *, 0x58));
+        render_impl__19TObjBoss5FloorStoneFPvPv(boss5_common_texture_list, *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4DD8 + 0x42C)) + 0x58));
     }
 }
 

@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8033670C_lbl_804EE58C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x4C];
 };
 
@@ -20,13 +16,12 @@ typedef struct {
 struct O_8033612C { u8 pad[0x1C]; void *f1c; void *f20; void *f24; u8 pad2[0x3C - 0x28]; u32 flags; void *h[3]; };
 
 struct RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct Obj_80336340 { u8 pad[0x40]; void *objs[3]; };
 
-typedef s32 M2C_UNK;
 struct Tbl_80336750 { const char *s[5]; };
 
 class C_803362A4 {
@@ -49,25 +44,25 @@ int set_mode_0x15__21TAdMultiChgGameModeGCFv(void);
 extern int lobby_game_mode_state;
 void enter_chg_game_mode__6TLobbyFv(void);
 void TLobby__sub_8033633C(void);
-M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 queue_destruction__7TObjectFv(void*);
 void TLobby__sub_8033645C(void* p);
 void TLobby__sub_8033645C(void* p);
-M2C_UNK TCameraCtrl__sub_800694A8();
-M2C_UNK stop_audio_streams__6TLobbyFv();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK queue_destruction__7TObjectFv(void*);
-extern M2C_UNK lbl_804EEF64[];
+s32 TCameraCtrl__sub_800694A8();
+s32 stop_audio_streams__6TLobbyFv();
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 queue_destruction__7TObjectFv(void*);
+extern s32 lbl_804EEF64[];
 extern u32 title_scene_instance;
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1);
     extern int lbl_805D68C8;
 void TAdMultiPlyChrSelectGC__sub_803367E8(void);
-s32 TLobby__sub_803DA16C(void *, M2C_UNK);
+s32 TLobby__sub_803DA16C(void *, s32);
 u64 call_funcs_reverse__6TLobbyFPvUi(void *, int);
 extern RecoveredGlobal_8033670C_lbl_804EE58C lobby_load_callback_table;
 extern u8 *lobby_title_texture_list;
 void destroy_global_object__6TLobbyFv(void);
-M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 queue_destruction__7TObjectFv(void*);
 s32 disallow_rendering__7TObjectFv(void *);
 void hide_title_layers_and_release(O_8033612C *arg0);
 s32 TKeyBoardControl__sub_8000F828(void);
@@ -101,15 +96,15 @@ extern const f32 lbl_805DF908;
 
 void TKeyBoardControl__sub_8000F90C(int);
 int TKeyBoardControl__sub_8000F9CC(void*);
-M2C_UNK queue_destruction__7TObjectFv(void*);
+s32 queue_destruction__7TObjectFv(void*);
 void set_flag_4__9TObjLukerFPv(void *);
 s32 has_any_key_pressed__16TKeyBoardControlFPv(void *);
 s32 any_pad_input_active__16TKeyBoardControlFv();
 s32 probe_card_slot__15TAdPlayerLoadGCFi(int);
-M2C_UNK TWindowOptionCtrl__sub_802273B4(int);
-M2C_UNK set_default_camera__21TAdMultiChgGameModeGCFv();
-M2C_UNK request_scene_change__21TAdMultiChgGameModeGCFv();
-M2C_UNK set_opening_movie_purpose(int);
+s32 TWindowOptionCtrl__sub_802273B4(int);
+s32 set_default_camera__21TAdMultiChgGameModeGCFv();
+s32 request_scene_change__21TAdMultiChgGameModeGCFv();
+s32 set_opening_movie_purpose(int);
 s32 start_offline_seq__23TAdSinglePlyChrSelectGCFPv(void *);
 void TLobby__sub_803362A4(void *);
 extern RecoveredGlobal_80336340_TKeyBoardControl__data_80506270 TKeyBoardControl__global_key_state;
@@ -178,9 +173,9 @@ void hide_title_layers_and_release(O_8033612C *arg0) {
 }
 
 void set_flag_and_clear_download__6TLobbyFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x3C) = (s32) (M2C_FIELD(arg0, s32 *, 0x3C) | 1);
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-        clear_flag4_bit4__22TQuestVmDownLoadServerFPv(M2C_FIELD(arg0, void **, 0x24));
+    *(s32 *)((s8 *)arg0 + 0x3C) = (s32) (*(s32 *)((s8 *)arg0 + 0x3C) | 1);
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
+        clear_flag4_bit4__22TQuestVmDownLoadServerFPv(*(void **)((s8 *)arg0 + 0x24));
     }
 }
 
@@ -216,31 +211,31 @@ void update_title_idle_transition(Obj_80336340 *arg0) {
         request_scene_change__21TAdMultiChgGameModeGCFv();
         return;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x34) < (s32) M2C_FIELD(arg0, s32 *, 0x38)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x34) < (s32) *(s32 *)((s8 *)arg0 + 0x38)) {
         if ((has_any_key_pressed__16TKeyBoardControlFPv((void *) (&TKeyBoardControl__global_key_state.value)) != 0) || (any_pad_input_active__16TKeyBoardControlFv() != 0)) {
-            M2C_FIELD(arg0, s32 *, 0x34) = 0;
+            *(s32 *)((s8 *)arg0 + 0x34) = 0;
         }
         TLobby__sub_803362A4((void *) (arg0));
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x38) == (s32) M2C_FIELD(arg0, s32 *, 0x34)) {
-        set_flag_4__9TObjLukerFPv(M2C_FIELD(arg0, void **, 0x24));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x38) == (s32) *(s32 *)((s8 *)arg0 + 0x34)) {
+        set_flag_4__9TObjLukerFPv(*(void **)((s8 *)arg0 + 0x24));
         TWindowOptionCtrl__sub_802273B4((int) (0x1E));
     }
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x38) < (s32) M2C_FIELD(arg0, s32 *, 0x34)) && (start_offline_seq__23TAdSinglePlyChrSelectGCFPv((void *) (arg0)) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x38) < (s32) *(s32 *)((s8 *)arg0 + 0x34)) && (start_offline_seq__23TAdSinglePlyChrSelectGCFPv((void *) (arg0)) != 0)) {
         TKeyBoardControl__sub_8000F90C((int) (2));
         set_opening_movie_purpose((int) (0));
         TKeyBoardControl__sub_8000F9CC((void *) (3));
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) (M2C_FIELD(arg0, s32 *, 0x34) + 1);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) (*(s32 *)((s8 *)arg0 + 0x34) + 1);
 }
 
 void TLobby__sub_8033645C(void* p) { if (*(unsigned int*)((char*)p + 0x2c) != 0) { queue_destruction__7TObjectFv((void*)((void*)(*(void**)((char*)p + 0x2c)))); *(int*)((char*)p + 0x2c) = 0; } }
 void *destroy__6TLobbyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EEF64;
         (*(s32 *)&title_scene_instance) = 0;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x20) != 0U) {
-            queue_destruction__7TObjectFv((void*)(M2C_FIELD(arg0, void **, 0x20)));
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x20) != 0U) {
+            queue_destruction__7TObjectFv((void*)(*(void **)((s8 *)arg0 + 0x20)));
         }
         TLobby__sub_8033645C((void*)(arg0));
         TCameraCtrl__sub_800694A8();
@@ -256,40 +251,40 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     void *p;
 
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804EEF64;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804EEF64;
     title_scene_instance = (u32)arg0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     TKeyBoardControl__sub_8000F90C(1);
     reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
     reset_count__14TObjEneDolmOlmFv();
     TAdMultiPlyChrSelectGC__sub_803367E8();
     lobby_game_mode_state = 0;
     if (TKeyBoardControl__sub_8000F828() == 0) {
-        M2C_FIELD(arg0, s32 *, 0x38) = 0x4B0;
+        *(s32 *)((s8 *)arg0 + 0x38) = 0x4B0;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x38) = 0x320;
+        *(s32 *)((s8 *)arg0 + 0x38) = 0x320;
     }
     p = __nw__7TObjectFUl(0x24);
     if (p != 0) {
         p = construct__6TLobbyFPvPv(p, arg0);
     }
-    M2C_FIELD(arg0, void **, 0x1C) = p;
+    *(void **)((s8 *)arg0 + 0x1C) = p;
     p = __nw__7TObjectFUl(0x3C);
     if (p != 0) {
         p = init_camera_state__6TLobbyFPvi(p, arg0);
     }
-    M2C_FIELD(arg0, void **, 0x24) = p;
+    *(void **)((s8 *)arg0 + 0x24) = p;
     p = __nw__7TObjectFUl(0x20);
     if (p != 0) {
         p = ct_with_parent__6TLobbyFPvPv(p, tl_clipout);
     }
-    M2C_FIELD(arg0, void **, 0x20) = p;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    if (M2C_FIELD(arg0, void **, 0x24) != 0) {
-        set_flag_4__9TObjLukerFPv(M2C_FIELD(arg0, void **, 0x24));
+    *(void **)((s8 *)arg0 + 0x20) = p;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    if (*(void **)((s8 *)arg0 + 0x24) != 0) {
+        set_flag_4__9TObjLukerFPv(*(void **)((s8 *)arg0 + 0x24));
     }
     apply_bgm_col_ctrl__21TAdMultiChgGameModeGCFi(lbl_80477824);
     {
@@ -307,9 +302,9 @@ u8 *construct_title_scene__6TLobbyFPv(u8 *arg0) {
     }
     {
         V3_80336520 v = lbl_80477818;
-        M2C_FIELD(arg0, s32 *, 0x40) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E3, 1);
-        M2C_FIELD(arg0, s32 *, 0x44) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E4, 1);
-        M2C_FIELD(arg0, s32 *, 0x48) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E5, 1);
+        *(s32 *)((s8 *)arg0 + 0x40) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E3, 1);
+        *(s32 *)((s8 *)arg0 + 0x44) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E4, 1);
+        *(s32 *)((s8 *)arg0 + 0x48) = create_particle__20TAdLoadQuestPrtTxtGCFPvii(&v, 0x1E5, 1);
     }
     p = __nw__7TObjectFUl(0x28);
     if (p != 0) {

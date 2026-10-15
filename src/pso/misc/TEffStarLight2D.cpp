@@ -2,8 +2,6 @@
 #include "pso/TEffStarLightChild.h"
 #include "types.h"
 
-typedef s32 M2C_UNK;
-
 struct Vec_800851B0 { f32 x; f32 y; f32 z; };
 
 struct P2_800851B0 { f32 x; f32 z; };
@@ -57,10 +55,10 @@ void __ct__7TObjectFP7TObject(void *, void *);
 void project_world_to_screen(int, void *, void *);
 extern u8 __vt__15TEffStarLight2D[];
 extern u32 lbl_805D292C;
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 f32 approach_vector_fixed_distance(void *, void *, void *, f32);
 f32 vector_length(void *);
-M2C_UNK normalize_vector(void *);
+s32 normalize_vector(void *);
 f32 newton_sqrtf(f32);
 extern void *__vt__18TEffStarLightChild[];
 extern s32 lbl_805D2928;

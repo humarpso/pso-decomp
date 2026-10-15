@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VB_8015B06C { u8 pad[0x18]; };
 
@@ -17,14 +13,14 @@ u32 __nw__7TObjectFUl(int);
 extern u32 TOChatSensorFolder__instance;
 extern s32 tl_05;
 u32 TOChatSensor__create(s32 arg0);
-M2C_UNK set_trigger_text__12TOChatSensorFPvPv(void *, s32);
-M2C_UNK init_params__12TOChatSensorFPv(void *);
-M2C_UNK construct_world_actor_base(void *, void *);
-extern M2C_UNK __vt__12TOChatSensor[];
+s32 set_trigger_text__12TOChatSensorFPvPv(void *, s32);
+s32 init_params__12TOChatSensorFPv(void *);
+s32 construct_world_actor_base(void *, void *);
+extern s32 __vt__12TOChatSensor[];
 extern s32 lbl_805D2ED8;
 extern u32 chat_sensor_table;
 u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2);
-M2C_UNK handle_chat_message__12TOChatSensorFPvPv(void *, s32);
+s32 handle_chat_message__12TOChatSensorFPvPv(void *, s32);
 extern u32 TOChatSensorFolder__instance;
 void dispatch_chat_message_to_children__12TOChatSensorFi(s32 arg0);
 }
@@ -37,11 +33,11 @@ void free_nodes_with_id__6TLobbyFUi(void*);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 
-extern M2C_UNK __vt__12TOChatSensor[];
+extern s32 __vt__12TOChatSensor[];
 
 void *__dt__12TOChatSensorFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOChatSensor;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -56,15 +52,15 @@ u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
     s32 n;
     s32 *t;
     construct_world_actor_base((void *) arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TOChatSensor;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D2ED8;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TOChatSensor;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D2ED8;
     ((VO_8015B06C *) arg0)->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0xC4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xA0) = 0;
+    *(s32 *)((s8 *)arg0 + 0xC4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xA0) = 0;
     init_params__12TOChatSensorFPv((void *) arg0);
-    n = M2C_FIELD(arg0, s32 *, 0xCC);
+    n = *(s32 *)((s8 *)arg0 + 0xCC);
     if (n > 0) {
-        t = (s32 *) M2C_FIELD(chat_sensor_table, s32 *, 4);
+        t = (s32 *) *(s32 *)((s8 *)chat_sensor_table + 4);
         t += n;
         set_trigger_text__12TOChatSensorFPvPv((void *) arg0, t[-1]);
     }
@@ -74,10 +70,10 @@ u32 TOChatSensor__ct(int arg0, void *arg1, void *arg2) {
 void dispatch_chat_message_to_children__12TOChatSensorFi(s32 arg0) {
     void *var_r31;
     if (TOChatSensorFolder__instance != 0U) {
-        var_r31 = M2C_FIELD(TOChatSensorFolder__instance, void **, 0x14);
+        var_r31 = *(void **)((s8 *)TOChatSensorFolder__instance + 0x14);
         while (var_r31 != NULL) {
             handle_chat_message__12TOChatSensorFPvPv(var_r31, arg0);
-            var_r31 = M2C_FIELD(var_r31, void **, 0xC);
+            var_r31 = *(void **)((s8 *)var_r31 + 0xC);
         }
     }
 }

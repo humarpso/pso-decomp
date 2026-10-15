@@ -1,29 +1,25 @@
 #include "types.h"
 #include "pso/item/TItemDisconnectCtrl.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void cleanup_game_objects__9TMainTaskFv(void);
-M2C_UNK TEnding__sub_8008C9F8();
-M2C_UNK refresh_drop_table_if_changed__9TItemDropFv();
-M2C_UNK create__9TItemLoadFv();
-M2C_UNK respawn_missing_floor_items__6TLobbyFi(s32);
-M2C_UNK clear_object_count__6TLobbyFv();
+s32 TEnding__sub_8008C9F8();
+s32 refresh_drop_table_if_changed__9TItemDropFv();
+s32 create__9TItemLoadFv();
+s32 respawn_missing_floor_items__6TLobbyFi(s32);
+s32 clear_object_count__6TLobbyFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 get_current_floor();
-u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK set_flags__10TObjPlayerFPvUi(M2C_UNK *, M2C_UNK);
+u32 __nw__7TObjectFUl(s32);
+s32 set_flags__10TObjPlayerFPvUi(s32 *, s32);
 s32 get_game_play_mode();
-M2C_UNK create_cleanup_object__10TObjPlayerFPv(s32);
-M2C_UNK spawn_cleanup_helper__10TObjPlayerFPv(s32);
+s32 create_cleanup_object__10TObjPlayerFPv(s32);
+s32 spawn_cleanup_helper__10TObjPlayerFPv(s32);
 
 s32 get_main_phase();
 extern s32 lbl_805D543C;
-extern M2C_UNK lbl_805D5440;
+extern s32 lbl_805D5440;
 extern s32 tl_item_equip;
 extern s32 tl_particlemodel;
 

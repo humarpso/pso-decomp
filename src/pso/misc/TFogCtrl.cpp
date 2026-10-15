@@ -1,20 +1,16 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 struct RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
-struct M2CCopy_8 { u8 bytes[0x8]; };
+struct ByteBlock_8 { u8 bytes[0x8]; };
 
-struct M2CCopy_20 { u8 bytes[0x20]; };
+struct ByteBlock_20 { u8 bytes[0x20]; };
 
 struct Row_800FAFE0 { u8 pad[0x40]; s32 identity; };
 
@@ -39,12 +35,12 @@ struct TFogCtrl_800FAE1C {
 typedef char RecoveredGlobal_800FAD08_TFogCtrl__data_80501188_size[sizeof(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_800FB8A0___vt__8TFogCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -122,7 +118,7 @@ struct Stack_800FBD74 {
     f32 sp24;
 };
 
-struct RecoveredGlobal_800FBB68_lbl_8049C670 { M2C_UNK value; u8 remaining[0x8C]; };
+struct RecoveredGlobal_800FBB68_lbl_8049C670 { s32 value; u8 remaining[0x8C]; };
 
 typedef char RecoveredGlobal_800FBB68_lbl_8049C670_size[sizeof(RecoveredGlobal_800FBB68_lbl_8049C670) == 0x90 ? 1 : -1];
 
@@ -199,10 +195,10 @@ struct Quad_800FC24C { f32 x0; f32 y0; f32 x1; f32 y1; f32 u0; f32 v0; f32 u1; f
 
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
-M2C_UNK get_random_float__21TObjEneMe3ShinowaRealFv(f32);
+s32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 get_nth_view_player_id__11TCameraCtrlFi(int);
 void read_disc_file(void *, void *);
-M2C_UNK destroy_instance__22TQuestVmDownLoadServerFv();
+s32 destroy_instance__22TQuestVmDownLoadServerFv();
 void create_instance__8TFogCtrlFv(void);
 s32 update_all__8TFogCtrlFii(int, int);
 s32 select_fog_for_viewport__8TFogCtrlFiii(s32 arg0, s32 arg1, s32 arg2);
@@ -243,12 +239,12 @@ void TWindowSubStatusDisp__sub_800FC248(void);
 void build_small_font_glyph_quad(u8 c, Quad_800FC310 *q);
 s32 render_forward__20TWindowSubStatusDispFPv();
 s32 reset_transform_state__10TObjPlayerFv();
-M2C_UNK free__11TOBoss4RockFUi(void*);
+s32 free__11TOBoss4RockFUi(void*);
 FogParam_800FBC5C * alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK create__22TObjFogCollisionPoisonFv();
-M2C_UNK TObjFogCollisionPoison__sub_801533BC();
+s32 create__22TObjFogCollisionPoisonFv();
+s32 TObjFogCollisionPoison__sub_801533BC();
 void clear_state_array__22TObjFogCollisionPoisonFv(void);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
 void end_effect_render__13TParticleCtrlFv(void);
 s32 get_global_state__14TOKeyMachine01Fv();
 void __dl__7TObjectFPv(s32);
@@ -268,7 +264,7 @@ void set_scene_fog_distances(f32, f32);
 void set_scene_fog_type(s32);
 void reset_scene_fog(void);
 
-extern M2C_UNK TFogCtrl__fog_instance_table[];
+extern s32 TFogCtrl__fog_instance_table[];
 extern RecoveredGlobal_800FB8A0___vt__8TFogCtrl __vt__8TFogCtrl;
 extern u8 lbl_8043DA20[];
 extern u8 lbl_8043DA30[];
@@ -280,7 +276,7 @@ extern u32 fog_entry_array;
 extern s32 fog_update_flags;
 extern E_800FC220 *small_font_metrics_table_ptr;
 extern s32 actor_frame_tick;
-extern M2C_UNK *tl_02;
+extern s32 *tl_02;
 
 extern const f32 TFogCtrl__data_805DA948 = 0.0f;
 extern const f32 TFogCtrl__data_805DA94C = 640.0f;
@@ -337,21 +333,21 @@ void copy_fog_entry(u8 *arg0, u8 *arg1) {
     s32 var_r5;
     s32 var_r7;
     u8 *var_r6;
-    var_r5 = M2C_FIELD(arg1, s32 *, 0);
+    var_r5 = *(s32 *)((s8 *)arg1 + 0);
     var_r6 = (u8 *)(arg1) + 0x14;
     var_r7 = (long) ((u8 *)(arg0) + 0x14);
-    M2C_FIELD(arg0, s32 *, 0) = var_r5;
-    var_r5 = M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 4) = var_r5;
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    M2C_FIELD(arg0, f32 *, 0xC) = (f32) M2C_FIELD(arg1, f32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
-    var_r5 = M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x14) = var_r5;
-    *(M2CCopy_20 *)(var_r7 + 4) = *(const M2CCopy_20 *)((s32) var_r6 + 4);
+    *(s32 *)((s8 *)arg0 + 0) = var_r5;
+    var_r5 = *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 4) = var_r5;
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(f32 *)((s8 *)arg0 + 0xC) = (f32) *(f32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    var_r5 = *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x14) = var_r5;
+    *(ByteBlock_20 *)(var_r7 + 4) = *(const ByteBlock_20 *)((s32) var_r6 + 4);
     var_r7 += 0x20;
     var_r6 += 0x20;
-    *(M2CCopy_8 *)((s32) arg0 + 0x38) = *(const M2CCopy_8 *)((s32) arg1 + 0x38);
+    *(ByteBlock_8 *)((s32) arg0 + 0x38) = *(const ByteBlock_8 *)((s32) arg1 + 0x38);
 }
 extern int fold_flush_2;
 #pragma pop
@@ -370,7 +366,7 @@ void* get_entry__8TFogCtrlFi(int a0) {  return (char*)((*(int *)&fog_entry_array
 void clear_split_screen_fog__8TFogCtrlFv(void) {
     u32 temp_r3;
     if (is_split_screen() == 1) {
-        temp_r3 = M2C_FIELD(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value, M2C_UNK *, ((get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));
+        temp_r3 = *(s32 *)((s8 *)(&(*(RecoveredGlobal_800FAD08_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value) + ((get_nth_view_player_id__11TCameraCtrlFi((int) (get_camera_mode__11TCameraCtrlFv())) * 4) & 0x3FFFC));
         if (temp_r3 != 0U) {
             clear_active_flag__8TFogCtrlFPv((void *)((int) (temp_r3)));
         }
@@ -412,14 +408,14 @@ void clear_active_flag__8TFogCtrlFPv(void *arg0) {
     s32 temp_r3;
 
     if (is_split_screen() == 0) {
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x1C);
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x1C);
         if (temp_r3 & 1) {
-            M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r3 & 0xFFFFFFFE);
+            *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r3 & 0xFFFFFFFE);
             apply_fog_entry((void *)(arg0));
         }
     } else {
         apply_fog_entry((void *)(arg0));
-        M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (M2C_FIELD(arg0, s32 *, 0x1C) & 0xFFFFFFFE);
+        *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (*(s32 *)((s8 *)arg0 + 0x1C) & 0xFFFFFFFE);
     }
 }
 extern int fold_flush_5;
@@ -466,21 +462,21 @@ s32 restore_fog__8TFogCtrlFPvi(u8 *arg0, s32 arg1) {
     if (get_param__8TFogCtrlFPv((void*)arg0) != 0) {
         return 0;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x184);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x184);
     if (temp_r0 == 0) {
         return 1;
     }
-    if ((temp_r0 == 3) && ((s32) M2C_FIELD(arg0, s32 *, 0x1B4) == 0)) {
+    if ((temp_r0 == 3) && ((s32) *(s32 *)((s8 *)arg0 + 0x1B4) == 0)) {
         return 1;
     }
     if (arg1 & 1) {
-        M2C_FIELD(arg0, s32 *, 0x20) = 1;
+        *(s32 *)((s8 *)arg0 + 0x20) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+        *(s32 *)((s8 *)arg0 + 0x20) = 2;
     }
-    M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(arg0, s32 *, 0x184);
-    M2C_FIELD(arg0, s32 *, 0x1A0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x1A4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x19C) = (s32) *(s32 *)((s8 *)arg0 + 0x184);
+    *(s32 *)((s8 *)arg0 + 0x1A0) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1A4) = 0;
     return 1;
 }
 extern int fold_flush_7;
@@ -498,7 +494,7 @@ s32 select_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if (self->slots[self->selected]->identity == arg1) {
         return 1;
     }
-    ((M2C_UNK (*)(int, int, int))load_entry_into_slot__8TFogCtrlFPvii)((int)arg0, 2, arg1);
+    ((s32 (*)(int, int, int))load_entry_into_slot__8TFogCtrlFPvii)((int)arg0, 2, arg1);
     request_transition__8TFogCtrlFPvii(arg0, 1, arg2);
     return 1;
 }
@@ -537,7 +533,7 @@ s32 request_fog__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
   var_r3 = (u8 *) var_r29;
   var_r5 = var_r30;
   var_r4 = 2;
-  ((M2C_UNK (*)(int, int, int))load_entry_into_slot__8TFogCtrlFPvii)((int) var_r3, (int) 2, (int) var_r5);
+  ((s32 (*)(int, int, int))load_entry_into_slot__8TFogCtrlFPvii)((int) var_r3, (int) 2, (int) var_r5);
   var_r3 = (u8 *) var_r29;
   var_r5 = var_r31;
   var_r4 = 0;
@@ -554,13 +550,13 @@ extern int fold_flush_9;
 #pragma dont_inline off
 void request_transition__8TFogCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     if (arg2 & 1) {
-        M2C_FIELD(arg0, s32 *, 0x20) = 1;
+        *(s32 *)((s8 *)arg0 + 0x20) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x20) = 2;
+        *(s32 *)((s8 *)arg0 + 0x20) = 2;
     }
-    M2C_FIELD(arg0, s32 *, 0x19C) = (s32) M2C_FIELD(arg0, s32 *, 0x184);
-    M2C_FIELD(arg0, s32 *, 0x1A0) = 2;
-    M2C_FIELD(arg0, s32 *, 0x1A4) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x19C) = (s32) *(s32 *)((s8 *)arg0 + 0x184);
+    *(s32 *)((s8 *)arg0 + 0x1A0) = 2;
+    *(s32 *)((s8 *)arg0 + 0x1A4) = arg1;
 }
 extern int fold_flush_10;
 #pragma pop
@@ -740,12 +736,12 @@ extern int fold_flush_12;
 u8 *__dt__8TFogCtrlFv(u8 *arg0, s16 arg1) {
     s32 temp_r0;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TFogCtrl.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TFogCtrl.value;
         reset_scene_fog();
         end_effect_render__13TParticleCtrlFv();
-        temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C4);
+        temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C4);
         if ((temp_r0 >= 0) && (temp_r0 < 4)) {
-            M2C_FIELD(&(*(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value, M2C_UNK *, (temp_r0 * 4)) = 0;
+            *(s32 *)((s8 *)(&(*(RecoveredGlobal_800FB8A0_TFogCtrl__data_80501188 *)&TFogCtrl__fog_instance_table).value) + (temp_r0 * 4)) = 0;
         }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -799,14 +795,14 @@ void TFogCtrl__sub_800FBA54(void) {  }
 void TFogCtrl__sub_800FBA58(void) {
     s32 var_r29;
     s32 var_r31;
-    M2C_UNK temp_r3;
+    s32 temp_r3;
 
     var_r29 = 0;
     var_r31 = 0;
     do {
         temp_r3 = *(TFogCtrl__fog_instance_table + var_r31);
         if ((u32) temp_r3 != 0U) {
-            ((M2C_UNK (*)(M2C_UNK))TFogCtrl__sub_800FBA54)(temp_r3);
+            ((s32 (*)(s32))TFogCtrl__sub_800FBA54)(temp_r3);
         }
         var_r29 += 1;
         var_r31 += 1;
@@ -818,7 +814,7 @@ void TFogCtrl__sub_800FBAAC(void) {  }
 void update_fog_entries__8TFogCtrlFv(void) {
     s32 i;
     s32 j;
-    M2C_UNK v;
+    s32 v;
     if (is_online_ready__6TLobbyFv() != 0) {
         if (!(fog_update_flags & 2)) {
             read_disc_file(lbl_8043DA30, (void *)fog_entry_array);
@@ -833,17 +829,17 @@ void update_fog_entries__8TFogCtrlFv(void) {
     do {
         v = *(TFogCtrl__fog_instance_table + j);
         if ((u32)v != 0U) {
-            ((void (*)(M2C_UNK))TFogCtrl__sub_800FBAAC)(v);
+            ((void (*)(s32))TFogCtrl__sub_800FBAAC)(v);
         }
         i += 1;
         j += 1;
     } while (i != 4);
-    ((M2C_UNK (*)(void))end_effect_render__13TParticleCtrlFv)();
+    ((s32 (*)(void))end_effect_render__13TParticleCtrlFv)();
 }
 
 void create_area_fog_ctrl(void) {
-    M2C_UNK *var_r3;
-    M2C_UNK *var_r4;
+    s32 *var_r3;
+    s32 *var_r4;
     s32 var_r31;
     s32 var_r5;
     u32 temp_r3;
@@ -851,29 +847,29 @@ void create_area_fog_ctrl(void) {
     if (is_split_screen() != 0) {
         var_r31 = 0;
         do {
-            var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)0x1C8));
+            var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
             temp_r3 = __nw__7TObjectFUl((int) (0x1C8));
             if (temp_r3 != 0U) {
-                var_r4 = (M2C_UNK *)((u8 *)(tl_02));
+                var_r4 = (s32 *)((u8 *)(tl_02));
                 var_r5 = var_r31;
                 ((s32 (*)(int, int, int))TFogCtrl__ct)((int) (temp_r3), (int) (var_r4), (int) (var_r5));
             }
             var_r31 += 1;
         } while (var_r31 != 4);
     } else {
-        var_r3 = (M2C_UNK *)((u8 *)((M2C_UNK *)0x1C8));
+        var_r3 = (s32 *)((u8 *)((s32 *)0x1C8));
         temp_r3_2 = __nw__7TObjectFUl((int) (0x1C8));
         if (temp_r3_2 != 0U) {
-            var_r4 = (M2C_UNK *)((u8 *)(tl_02));
+            var_r4 = (s32 *)((u8 *)(tl_02));
             var_r5 = 0;
             ((s32 (*)(int, int, int))TFogCtrl__ct)((int) (temp_r3_2), (int) (var_r4), (int) (0));
         }
     }
     create__22TObjFogCollisionPoisonFv();
-    var_r4 = (M2C_UNK *)(&area_fog_row_table.value);
-    var_r3 = (M2C_UNK *)(&area_fog_row_table.value);
-    var_r3 = (M2C_UNK *)(M2C_FIELD(&area_fog_row_table.value, M2C_UNK *, (get_global_state__14TOKeyMachine01Fv() * 4)));
-    var_r4 = (M2C_UNK *)((u8 *)((M2C_UNK *)1));
+    var_r4 = (s32 *)(&area_fog_row_table.value);
+    var_r3 = (s32 *)(&area_fog_row_table.value);
+    var_r3 = (s32 *)(*(s32 *)((s8 *)(&area_fog_row_table.value) + (get_global_state__14TOKeyMachine01Fv() * 4)));
+    var_r4 = (s32 *)((u8 *)((s32 *)1));
     update_all__8TFogCtrlFii((int) (var_r3), (int) (1));
 }
 
@@ -884,9 +880,9 @@ void reset__8TFogCtrlFv(void) {
         free__11TOBoss4RockFUi((void*)fog_entry_array);
     }
     fog_entry_array = 0U;
-    ((M2C_UNK (*)(M2C_UNK))fn_803E1FC8)(-1);
-    ((M2C_UNK (*)(f32, f32))set_scene_fog_distances)((1e+03f), (1e+04f));
-    ((M2C_UNK (*)(void))reset_scene_fog)();
+    ((s32 (*)(s32))fn_803E1FC8)(-1);
+    ((s32 (*)(f32, f32))set_scene_fog_distances)((1e+03f), (1e+04f));
+    ((s32 (*)(void))reset_scene_fog)();
     begin_effect_render__13TParticleCtrlFv();
 }
 
@@ -912,7 +908,7 @@ void init_scene_fog_system(void) {
     for (i = 0; i < 4; i++) {
         TFogCtrl__fog_instance_table[i] = 0;
     }
-    ((M2C_UNK (*)(void))end_effect_render__13TParticleCtrlFv)();
+    ((s32 (*)(void))end_effect_render__13TParticleCtrlFv)();
     create_instance__8TFogCtrlFv();
     clear_state_array__22TObjFogCollisionPoisonFv();
 }

@@ -1,28 +1,24 @@
 #include "pso/map/FloorResourceCallbacks.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8007BA98_lbl_8048D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xE4];
 };
 
 struct RecoveredGlobal_8007BA98_lbl_8048D5A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
 struct RecoveredGlobal_8007BA20_lbl_8048D4C0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xE4];
 };
 
 struct RecoveredGlobal_8007BA20_lbl_8048D5A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -48,33 +44,33 @@ void clear_session_buffers__6TLobbyFv(void);
 extern "C" {
 
 void create_tasks__6TLobbyFv(void);
-M2C_UNK TCineCtrl__ct(u32, s32);
-M2C_UNK create_area_fog_ctrl();
-M2C_UNK THunterGuildSeqOnlineTask__ct(u32, s32);
+s32 TCineCtrl__ct(u32, s32);
+s32 create_area_fog_ctrl();
+s32 THunterGuildSeqOnlineTask__ct(u32, s32);
 s32 is_scene_ready__6TLobbyFv();
-M2C_UNK activate_triggered_floor_events();
-M2C_UNK cleanup_game_objects__9TMainTaskFv();
+s32 activate_triggered_floor_events();
+s32 cleanup_game_objects__9TMainTaskFv();
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK restore_floor_telepipes();
-M2C_UNK TWindowCtrlMain__ct();
-M2C_UNK TWindowCtrl__ct(u32, s32);
-M2C_UNK __ct__7TSwitchFv(u32, s32);
-M2C_UNK __ct__8TTecCtrlFv(u32, s32);
-u32 __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK create__13TRaderMapCoreFv();
-M2C_UNK create__6TSceneFv();
-M2C_UNK create_instance__10TSceneSoraFv();
-M2C_UNK init_subobject__6TLobbyFPvPvPv(u32, s32, M2C_UNK);
-M2C_UNK set_fade_params__6TLobbyFi(M2C_UNK);
-M2C_UNK ct_register__6TLobbyFPv(u32, s32);
-M2C_UNK TWindowTimer__sub_80198D98();
-M2C_UNK create__11TSetManagerFv();
-M2C_UNK TLobby__sub_8032BDC4(u32, s32);
-M2C_UNK TLobby__sub_8033ED24(u32, s32);
-M2C_UNK construct_party_area__10TNpcPlayerFPvPv(u32, s32);
-M2C_UNK TLobby__sub_80351F3C();
+s32 restore_floor_telepipes();
+s32 TWindowCtrlMain__ct();
+s32 TWindowCtrl__ct(u32, s32);
+s32 __ct__7TSwitchFv(u32, s32);
+s32 __ct__8TTecCtrlFv(u32, s32);
+u32 __nw__7TObjectFUl(s32);
+s32 create__13TRaderMapCoreFv();
+s32 create__6TSceneFv();
+s32 create_instance__10TSceneSoraFv();
+s32 init_subobject__6TLobbyFPvPvPv(u32, s32, s32);
+s32 set_fade_params__6TLobbyFi(s32);
+s32 ct_register__6TLobbyFPv(u32, s32);
+s32 TWindowTimer__sub_80198D98();
+s32 create__11TSetManagerFv();
+s32 TLobby__sub_8032BDC4(u32, s32);
+s32 TLobby__sub_8033ED24(u32, s32);
+s32 construct_party_area__10TNpcPlayerFPvPv(u32, s32);
+s32 TLobby__sub_80351F3C();
 s32 get_main_phase();
-M2C_UNK init__13TQuestColCtrlFv();
+s32 init__13TQuestColCtrlFv();
 s32 is_split_screen();
 
 extern s32 tl_00;
@@ -239,10 +235,6 @@ void reset_and_invoke__6TLobbyFv(void) { reset_keyboard_state__6TLobbyFv(); invo
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct L_8007BC5C { u8 pad0; u8 count; u8 pad2[2]; s32 ids[30]; };
 
@@ -260,7 +252,7 @@ extern "C" {
 void TLobby__sub_8007BBEC(void);
 void TLobby__sub_8007BBF8(void);
 void send_status_packet__6TLobbyFv(void);
-M2C_UNK send_c6_packet__6TLobbyFPvPv(s32, M2C_UNK *);
+s32 send_c6_packet__6TLobbyFPvPv(s32, s32 *);
 
     extern short quest_collision_next_id;
 void TLobby__sub_8007BBEC(void) { quest_collision_next_id = 0; }
@@ -317,8 +309,8 @@ void collect_active_card_ids__6TLobbyFPv(L_8007BC5C *arg0) {
 void send_status_packet__6TLobbyFv(void) {
     char sp8[0x84];
 
-    collect_active_card_ids__6TLobbyFPv((L_8007BC5C *)((M2C_UNK *) sp8));
-    send_c6_packet__6TLobbyFPvPv(TLobby__protocol_instance, (M2C_UNK *) sp8);
+    collect_active_card_ids__6TLobbyFPv((L_8007BC5C *)((s32 *) sp8));
+    send_c6_packet__6TLobbyFPvPv(TLobby__protocol_instance, (s32 *) sp8);
 }
 
 }

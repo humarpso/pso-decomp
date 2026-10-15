@@ -225,12 +225,6 @@ void fn_800E35C8(Obj_800E35C8 *arg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct VBase_18_beae68
 {
   char pad[0x18];
@@ -329,7 +323,7 @@ struct VObj_18_beae68 : VBase_18_beae68 {
     virtual void m89();
     virtual void m90();
     virtual void m91();
-    virtual M2C_UNK m92();
+    virtual s32 m92();
 };
 
 struct VBase_18_f56c51
@@ -438,7 +432,7 @@ struct VObj_18_f56c51 : VBase_18_f56c51 {
     virtual void m97();
     virtual void m98();
     virtual void m99();
-    virtual M2C_UNK m100(f32);
+    virtual s32 m100(f32);
 };
 
 struct RecoveredFields_800E3970_arg0
@@ -478,11 +472,11 @@ struct Obj_800E37E4 {
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
-M2C_UNK play_persistent_sound(M2C_UNK, void *, void *, M2C_UNK, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
+s32 play_persistent_sound(s32, void *, void *, s32, s32);
 void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0);
-M2C_UNK set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
+s32 set_flag_0x100__23TObjEneMe3ShinowaMirageFPv();
 extern f32 TObjEneMe3ShinowaMirage__data_805DA5B8;
 extern const f32 lbl_805DA5BC;
 extern const f32 lbl_805DA5C0;
@@ -490,11 +484,11 @@ extern f32 TObjEneMe3ShinowaMirage__data_805DA5C4;
 void TObjEneMe3ShinowaMirage__vt113(u8 *arg0, s32 arg1);
 u8 *dispatch_shared_handler_a__6TLobbyFPv(int);
 void set_param__12TObjEneLappyFPvi(void *, int);
-M2C_UNK copy_target_state__14TObjEnePanarmsFPvPv(void *, M2C_UNK);
+s32 copy_target_state__14TObjEnePanarmsFPvPv(void *, s32);
 void initialize__9TObjEnemyFPv(void *, void *);
 int play_sound_effect(void *, void *, void *, void *);
 extern s32 TObjEnePanarmsAtkColli__type_index_table[];
-extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
+extern s32 __vt__22TObjEnePanarmsAtkColli[];
 extern s32 lbl_805D2AC0;
 void *TObjEnePanarmsAtkColli__ct(Obj_800E37E4 *arg0, void *arg1, void *arg2, void *arg3, void *arg4);
 }
@@ -509,14 +503,14 @@ void *__nw__7TObjectFUl(int);
 
 void run_task__22TObjEnePanarmsAtkColliFv(u8 *arg0) {
     s32 temp_r0_2;
-    if (--M2C_FIELD(arg0, s32 *, 0x380) < 0) {
+    if (--*(s32 *)((s8 *)arg0 + 0x380) < 0) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
     VecCopy__FP3VecPC3Vec(arg0 + 0x44, arg0 + 0x38);
     vec3_add_to(arg0 + 0x38, arg0 + 0x308);
-    M2C_FIELD(arg0, f32 *, 0x378) = (f32) (M2C_FIELD(arg0, f32 *, 0x378) + M2C_FIELD(arg0, f32 *, 0x37C));
-    temp_r0_2 = M2C_FIELD(arg0, s32 *, 0x374);
+    *(f32 *)((s8 *)arg0 + 0x378) = (f32) (*(f32 *)((s8 *)arg0 + 0x378) + *(f32 *)((s8 *)arg0 + 0x37C));
+    temp_r0_2 = *(s32 *)((s8 *)arg0 + 0x374);
     switch (temp_r0_2) {
     case 0:
         ((void (*)(void *))fn_800E35C8)(arg0);
@@ -537,11 +531,11 @@ void * create__22TObjEnePanarmsAtkColliFPvPvPvPv(void *arg0, void *arg1, void *a
     return o;
 }
 
-extern M2C_UNK __vt__22TObjEnePanarmsAtkColli[];
+extern s32 __vt__22TObjEnePanarmsAtkColli[];
 
 void *__dt__22TObjEnePanarmsAtkColliFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjEnePanarmsAtkColli;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjEnePanarmsAtkColli;
         __dt__9TObjEnemyFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

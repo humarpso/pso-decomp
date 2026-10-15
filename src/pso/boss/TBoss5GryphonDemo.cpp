@@ -1,10 +1,6 @@
 #include "pso/TBoss5GryphonDemo.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_80066304 { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
@@ -14,7 +10,6 @@ struct E_8006633C { u8 pad[0x18]; u32 flags; u8 pad2[0x10]; };
 
 struct O_8006633C { u8 pad[0xa4]; E_8006633C *entries; s32 count; };
 
-typedef s32 M2C_UNK;
 struct O_80066304;
 struct Seg_800663DC {
     f32 f0;
@@ -42,14 +37,14 @@ struct Obj_800665FC { s32 f0; u8 pad4[0x14]; void *f18; f32 f1c; f32 f20; s32 f2
 struct Cam_800665FC { s8 f8; s8 f9; s16 fa; f32 fc; f32 f10; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_camera_capture_overlay_alpha(int);
-M2C_UNK restore_player_cameras();
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_camera_capture_overlay_alpha(int);
+s32 restore_player_cameras();
 u8 *get_scripted_camera_playback();
 void run_task__17TBoss5GryphonDemoFv(u8 *arg0);
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self);
 void set_all_entry_flags__17TBoss5GryphonDemoFPv(O_8006633C *self);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void fn_8002B630(void *, void *);
 void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self);
 u8 *alloc_buffer__11TOBoss4RockFPv(s32);
@@ -57,12 +52,12 @@ void register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
 s16 alloc_actor_ids__6TLobbyFi(s32);
-extern M2C_UNK lbl_80488668[];
-extern M2C_UNK lbl_804886AC[];
+extern s32 lbl_80488668[];
+extern s32 lbl_804886AC[];
 extern s32 lbl_805D2808;
 extern const f32 lbl_805D8ED0;
 extern const f32 lbl_805D8EDC;
-Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, s32 arg2, void *arg3, f32 len);
+Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len);
 s32 TBoss8Dragon__sub_8005D700(void);
 void activate_camera_mode(int);
 void cache_target_and_forward__11TCameraCtrlFii(void *, int);
@@ -82,15 +77,15 @@ void draw_model__17TBoss5GryphonDemoFPvPvPv(void* p, void* a1, s32 a2);
 void render__17TBoss5GryphonDemoFv(void);
 int matrix_mult_vec(void*, void*, void*);
 int post_translate_matrix(void*);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
 int refresh_collision_body_centers(void*);
 int set_matrix_identity(void*);
 int rotate_matrix_y(void*, s32);
 int push_matrix(void*);
 int pop_matrix(void);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
 
 void TBoss5GryphonDemo__sub_80066268(void) {  }
 void TBoss5GryphonDemo__sub_8006626C(void* p) { clear_entry_flags__17TBoss5GryphonDemoFPv((O_80066304 *)((void*)(p))); }
@@ -103,7 +98,7 @@ void clear_entry_flags__17TBoss5GryphonDemoFPv(O_80066304 *self) {
     }
 }
 
-extern M2C_UNK lbl_804886AC[];
+extern s32 lbl_804886AC[];
 
 void set_all_entry_flags__17TBoss5GryphonDemoFPv(O_8006633C *self) {
     s32 i;
@@ -114,7 +109,7 @@ void set_all_entry_flags__17TBoss5GryphonDemoFPv(O_8006633C *self) {
 
 void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804886AC;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804886AC;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
@@ -125,7 +120,7 @@ void *destroy__17TBoss5GryphonDemoFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, M2C_UNK arg1, s32 arg2, void *arg3, f32 len) {
+Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 arg2, void *arg3, f32 len) {
     f32 zero;
     f32 step;
     f32 z;
@@ -165,7 +160,7 @@ void run_task__17TBoss5GryphonDemoFv(u8 *arg0) {
     u8 *temp_r31;
     temp_r31 = get_scripted_camera_playback();
     set_camera_capture_overlay_alpha((int) (0x8F));
-    if ((M2C_FIELD(temp_r31, u16 *, 2) & 1) || ((s32) *M2C_FIELD(arg0, s32 **, 0x24) == 0)) {
+    if ((*(u16 *)((s8 *)temp_r31 + 2) & 1) || ((s32) **(s32 **)((s8 *)arg0 + 0x24) == 0)) {
         restore_player_cameras();
         queue_destruction__7TObjectFv((void *) (arg0));
     }

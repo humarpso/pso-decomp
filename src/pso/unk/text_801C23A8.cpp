@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801C241C_lbl_804C3E60 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -33,8 +29,8 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
     u8 *temp_r3;
     u8 *var_r0;
     if ((void *) duel_result_window != NULL) {
-        M2C_FIELD(duel_result_window, s32 *, 0x1C) = arg1;
-        M2C_FIELD(duel_result_window, s32 *, 0x20) = arg0;
+        *(s32 *)((s8 *)duel_result_window + 0x1C) = arg1;
+        *(s32 *)((s8 *)duel_result_window + 0x20) = arg0;
         set_and_notify__6TLobbyFi((int)((void *) (arg0)));
         return;
     }
@@ -49,7 +45,7 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
 typedef char RecoveredGlobal_801C241C_lbl_804C3E60_size[sizeof(RecoveredGlobal_801C241C_lbl_804C3E60) == 0x18 ? 1 : -1];
 u8 *fn_801C241C(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804C3E60.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804C3E60.value;
         (*(s32 *)&duel_result_window) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

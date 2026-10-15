@@ -8,18 +8,14 @@ extern const char *re_b_mark_base_model_names[2];
 extern BmlResourceDescriptor tombstone_resource_descriptor;
 extern const char *re_b_mark_base_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_800765B4_lbl_8048D240 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_800765B4_lbl_8048D240 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_800765B4_lbl_8048D240_size[sizeof(RecoveredGlobal_800765B4_lbl_8048D240) == 0x10 ? 1 : -1];
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
-M2C_UNK reset_matrix__13TObjTombstoneFv();
+s32 reset_matrix__13TObjTombstoneFv();
 extern u32 TObjTombstone__shared_resource_object;
 void load_resources__13TObjTombstoneFv(void);
 }
@@ -29,12 +25,12 @@ extern "C" {
 void destroy__13TObjTombstoneFv(void);
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK construct_collider_proxy__10TObjPlayerFPv();
-M2C_UNK reset_matrix__13TObjTombstoneFv();
-M2C_UNK init_parts__13TObjTombstoneFPv(void *);
-M2C_UNK setup__13TObjTombstoneFPvii(void *, s32, s32);
+s32 construct_collider_proxy__10TObjPlayerFPv();
+s32 reset_matrix__13TObjTombstoneFv();
+s32 init_parts__13TObjTombstoneFPv(void *);
+s32 setup__13TObjTombstoneFPvii(void *, s32, s32);
 
-extern M2C_UNK __vt__13TObjTombstone[];
+extern s32 __vt__13TObjTombstone[];
 extern const char* TObjTombstone__class_name;
 extern u32 TObjTombstone__shared_resource_object;
 extern s32 local_client_id;
@@ -42,16 +38,16 @@ extern s32 TLobby__designated_client_id;
 
 void *init__13TObjTombstoneFPviii(void *arg0, s32 arg1, s32 arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFPv();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjTombstone;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjTombstone__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjTombstone;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjTombstone__class_name;
     if ((u32) TObjTombstone__shared_resource_object == 0U) {
         return arg0;
     }
     setup__13TObjTombstoneFPvii(arg0, arg2, arg3);
     init_parts__13TObjTombstoneFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x234) = 0;
+    *(s32 *)((s8 *)arg0 + 0x234) = 0;
     if ((s32) local_client_id != (s32) TLobby__designated_client_id) {
-        M2C_FIELD(arg0, s32 *, 0x234) = 1;
+        *(s32 *)((s8 *)arg0 + 0x234) = 1;
     }
     return arg0;
 }

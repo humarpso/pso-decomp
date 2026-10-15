@@ -1,12 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void xfree__FPv(void *);
-M2C_UNK TObjPlayer__sub_80084694();
+s32 TObjPlayer__sub_80084694();
 extern u8 *boss2_tunnel_snapshot_buffer;
 extern u8 *TObjBoss2Tunnel__snapshot_buffer;
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
@@ -16,12 +12,12 @@ void free_buffers__15TObjBoss2TunnelFv(void);
 extern "C" {
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void);
-s32 probe_card_slot__15TAdPlayerLoadGCFi(M2C_UNK);
+s32 probe_card_slot__15TAdPlayerLoadGCFi(s32);
 s32 verify_snapshot_checksum__15TObjBoss2TunnelFv();
 s32 load_snapshot__15TObjBoss2TunnelFv();
 
-M2C_UNK save_screen_snapshot();
-M2C_UNK memcard_check_snapshot(M2C_UNK, s32 *);
+s32 save_screen_snapshot();
+s32 memcard_check_snapshot(s32, s32 *);
 extern s32 TObjBoss2Tunnel__snapshot_saved_flag;
 
 s32 save_snapshot__15TObjBoss2TunnelFv(void) {

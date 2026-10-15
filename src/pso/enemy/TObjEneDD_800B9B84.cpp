@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
-M2C_UNK vec3_add_to(void *, void *, f32);
-M2C_UNK subtract_vector(void *, void *);
+s32 vec3_add_to(void *, void *, f32);
+s32 subtract_vector(void *, void *);
 extern s32 camera_ctrl_instance;
 void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0);
 }
@@ -46,9 +42,9 @@ void project_sound_origin_from_camera(s32 arg0, u8 *arg1, f32 farg0) {
     VecCopy__FP3VecPC3Vec((void *) (arg1), (void *) (arg0));
     subtract_vector((void *) (arg1), (void *) (camera_ctrl_instance + 0x178));
     { f32 s = update_scale__15TObjBoss2TunnelFPv((void *) (arg1)); temp_f1 = s * farg0; }
-    M2C_FIELD(arg1, f32 *, 0) = (f32) (M2C_FIELD(arg1, f32 *, 0) * temp_f1);
-    M2C_FIELD(arg1, f32 *, 4) = (f32) (M2C_FIELD(arg1, f32 *, 4) * temp_f1);
-    M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) * temp_f1);
+    *(f32 *)((s8 *)arg1 + 0) = (f32) (*(f32 *)((s8 *)arg1 + 0) * temp_f1);
+    *(f32 *)((s8 *)arg1 + 4) = (f32) (*(f32 *)((s8 *)arg1 + 4) * temp_f1);
+    *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) * temp_f1);
     vec3_add_to((void *) (arg1), (void *) (camera_ctrl_instance + 0x178), (f32) (temp_f1));
 }
 

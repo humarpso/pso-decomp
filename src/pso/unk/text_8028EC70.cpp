@@ -1,12 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma inline_depth(1)
 #pragma auto_inline on
 #pragma dont_inline off
-struct M2CCopy_50 { u8 bytes[0x50]; };
+struct ByteBlock_50 { u8 bytes[0x50]; };
 
 struct Dst_8028ED24 { u8 pad[4]; s16 a[5]; u8 b; };
 
@@ -29,7 +26,7 @@ struct B_8028ECCC { u8 pad0[0x30]; s8 e; u8 pad31[7]; s16 v[5]; };
 
 extern "C" {
 s32 evict_char_entries__23TAdSinglePlyChrSelectGCFi(int);
-M2C_UNK TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
+s32 TAdSinglePlyChrSelectGC__sub_8028F084(u32, void *);
 u32 find_free_slot__23TAdSinglePlyChrSelectGCFv();
 s32 has_matching_entry__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_remaining_slots__23TAdSinglePlyChrSelectGCFv();
@@ -83,10 +80,10 @@ void copy_slot_data__23TAdSinglePlyChrSelectGCFPvPv(Dst_8028ED24 *d, Src_8028ED2
 #pragma push
 #pragma fp_contract on
 void TAdSinglePlyChrSelectGC__sub_8028ED54(s32 arg0) {
-    M2CCopy_50 buf;
+    ByteBlock_50 buf;
     u32 h;
     if (count_remaining_slots__23TAdSinglePlyChrSelectGCFv() > 0) {
-        buf = *(const M2CCopy_50 *)creation_player_character;
+        buf = *(const ByteBlock_50 *)creation_player_character;
         if ((arg0 < 0) || (arg0 >= 5)) {
             if (has_matching_entry__23TAdSinglePlyChrSelectGCFPv((void *) (&buf)) != 0) {
                 return;

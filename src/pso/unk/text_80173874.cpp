@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_1a504b { char pad[0x18]; };
 
 struct VObj_18_1a504b : VBase_18_1a504b {
@@ -11,16 +8,16 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_80173874_lbl_804B3BA8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x80];
 };
 
 struct RecoveredGlobal_80173874___vt__14TORockCaveBL03 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x4C];
 };
 
@@ -46,19 +43,19 @@ typedef char RecoveredGlobal_80173874___vt__14TORockCaveBL03_size[sizeof(Recover
 u8 *TORockCaveBL03__ct(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     TORockCaveBrakable__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TORockCaveBL03.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D313C;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TORockCaveBL03.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D313C;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model(cave_rock_resource_bundle, 0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0(cave_rock_resource_bundle, 0);
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DB970;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model(cave_rock_resource_bundle, 0);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0(cave_rock_resource_bundle, 0);
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DB970;
     init_collision_body_parts(arg0, (s32) ((u8 *)&cave_rock_collision_body_templates.value + 0x58), 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
-    M2C_FIELD(arg0, s32 *, 0xB8) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB8);
+    *(s32 *)((s8 *)arg0 + 0xB8) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB8);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0xB8) = -1;
+        *(s32 *)((s8 *)arg0 + 0xB8) = -1;
     }
     return arg0;
 }

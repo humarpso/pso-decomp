@@ -1,14 +1,10 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 s32 load_resource_from_descriptor(s32, int, void *, int, int, int);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 load_gvm_texture_file(void *);
-M2C_UNK reset_state__10TBoss6TubeFv();
+s32 reset_state__10TBoss6TubeFv();
 extern u8 lbl_80470A68[];
 extern u8 boss06_tube_dat_resource_descriptor[];
 extern u32 boss6_tube_bml_resource;
@@ -21,11 +17,11 @@ extern "C" {
 void *create__10TBoss6TubeFPv(void *arg0);
 void free_resources__10TBoss6TubeFv(void);
 void *TBoss6Tube__ct(void *, void *);
-M2C_UNK reset_state__10TBoss6TubeFv();
+s32 reset_state__10TBoss6TubeFv();
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_803DA16C(void*);
 void *__nw__7TObjectFUl(int);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 void *create__10TBoss6TubeFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x30);

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,22 +8,22 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_8015A814_lbl_804AFF10 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
 struct RecoveredGlobal_8015A734_lbl_804AFF00
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0xC];
 };
 
@@ -48,7 +44,7 @@ s32 refresh_collision_body_centers(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_map_object_base(void *, int);
 extern RecoveredGlobal_8015A814_lbl_804AFF10 lbl_804AFF10;
-extern M2C_UNK __vt__18TOCapsuleMachine01[];
+extern s32 __vt__18TOCapsuleMachine01[];
 extern s32 lbl_805D2ED4;
 extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 tl_05;
@@ -83,19 +79,19 @@ void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1);
 void *create__18TOCapsuleMachine01FPv(void *arg0);
 void render__18TOCapsuleMachine01Fv(u8 *arg0);
 void run_task__18TOCapsuleMachine01Fv(void);
-M2C_UNK PPCSync();
-M2C_UNK scroll_ginja_mesh_uvs(s32, M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 PPCSync();
+s32 scroll_ginja_mesh_uvs(s32, s32, s32, s32, s32);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(s32);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_key_base__5TOKeyFPvs(void *, M2C_UNK);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 destroy_key_base__5TOKeyFPvs(void *, s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 extern s32 actor_frame_tick;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
@@ -110,12 +106,12 @@ void run_task__18TOCapsuleMachine01Fv(void) {
 }
 
 void render__18TOCapsuleMachine01Fv(u8 *arg0) {
-    if (((VObj_8015A5E8 *)arg0)->m8(M2C_FIELD(arg0, f32 *, 0xC0), M2C_FIELD(arg0, f32 *, 0xC4)) != 0) {
+    if (((VObj_8015A5E8 *)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
 }
@@ -128,7 +124,7 @@ void *create__18TOCapsuleMachine01FPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__18TOCapsuleMachine01[];
+extern s32 __vt__18TOCapsuleMachine01[];
 
 void reset_static_state__18TOCapsuleMachine01Fv(void) {
     TOCapsuleMachine01__last_update_frame_tick = 0;
@@ -160,7 +156,7 @@ void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
 
 void *__dt__18TOCapsuleMachine01Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TOCapsuleMachine01;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TOCapsuleMachine01;
         free_collision_body_parts(arg0);
         unregister_object_by_id(arg0);
         destroy_key_base__5TOKeyFPvs(arg0, 0);
@@ -174,14 +170,14 @@ typedef char RecoveredGlobal_8015A814_lbl_804AFF10_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01_size[sizeof(RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01) == 0x3C ? 1 : -1];
 u8 *TOCapsuleMachine01__ct(u8 *arg0, s32 arg1) {
     init_map_object_base((void *) (arg0), (int) (tl_05));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01 *)&__vt__18TOCapsuleMachine01).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2ED4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015A814___vt__18TOCapsuleMachine01 *)&__vt__18TOCapsuleMachine01).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2ED4;
     ((VObj_18_1a504b *)(arg0))->m5(arg1);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__model_resource, u8 **, 0x42C), s32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(M2C_FIELD(TOCapsuleMachine01__model_resource, u8 **, 0x42C), s32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) lbl_805DB380;
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) lbl_805DB384;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCapsuleMachine01__model_resource + 0x42C)) + 8);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TOCapsuleMachine01__model_resource + 0x42C)) + 0xC);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) lbl_805DB380;
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) lbl_805DB384;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     init_collision_body_parts((void *) (arg0), (void *) (&lbl_804AFF10.value), (int) (1));
     refresh_collision_body_centers((void *) (arg0));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));

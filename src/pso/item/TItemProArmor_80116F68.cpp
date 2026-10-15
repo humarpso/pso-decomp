@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_8011620C_80115D6C { char pad[0x18]; };
 
@@ -92,15 +88,15 @@ struct VObj_801161A4_80115D6C : Base_801161A4_80115D6C {
 
 extern "C" {
 void * construct_material__13TItemProArmorFPvPvPv(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_material_item(u8 *arg0);
 void * construct_technique_disk_item(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_technique_disk_item(u8 *arg0);
 void * init__13TItemProArmorFPv(void *arg0, void *arg1, void *arg2);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_telepipe_item(u8 *arg0);
 s32 set_item_owner_technique_level(void *, void *, int);
@@ -118,22 +114,22 @@ s16 calc_scaled_offset__13TItemProArmorFv(void);
 int get_stat_value__13TItemProArmorFPv(void* p);
 void TItemObject__ct(void *);
 u8 get_tool_pmt_amount_byte();
-M2C_UNK launch_technique__10TObjPlayerFv(M2C_UNK, M2C_UNK, s32);
+s32 launch_technique__10TObjPlayerFv(s32, s32, s32);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
 int obj_getS16_2BA(void*);
 
-extern M2C_UNK lbl_8049FBC0[];
+extern s32 lbl_8049FBC0[];
 
 void *construct_material__13TItemProArmorFPvPvPv(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FBC0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FBC0;
     return arg0;
 }
 
-extern M2C_UNK lbl_8049FC90[];
+extern s32 lbl_8049FC90[];
 
-extern M2C_UNK lbl_8049FC90[];
+extern s32 lbl_8049FC90[];
 
 u8 *create_material_item(u8 *arg0) {
     u8 *temp_r3;
@@ -157,7 +153,7 @@ void technique_disk_apply_use(s32 arg0) {
 
 void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FC90;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -167,7 +163,7 @@ void *item_object_variant_deleting_dtor_80117044(void *arg0, s16 arg1) {
 }
 void *construct_technique_disk_item(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FC90;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FC90;
     return arg0;
 }
 
@@ -186,14 +182,14 @@ u8 *create_technique_disk_item(u8 *arg0) {
 }
 
 void apply_telepipe(void *arg0) {
-    launch_technique__10TObjPlayerFv(0xE, 0, M2C_FIELD(arg0, s32 *, 0xF0));
+    launch_technique__10TObjPlayerFv(0xE, 0, *(s32 *)((s8 *)arg0 + 0xF0));
 }
 
-extern M2C_UNK lbl_8049FD48[];
+extern s32 lbl_8049FD48[];
 
 void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FD48;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FD48;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -202,11 +198,11 @@ void *TItemProArmor__sub_80117160(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_8049FD48[];
+extern s32 lbl_8049FD48[];
 
 void *init__13TItemProArmorFPv(void *arg0, void * _w1, void * _w2) {
     TItemObject__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049FD48;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049FD48;
     return arg0;
 }
 

@@ -1,23 +1,19 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_801F301C_TLobby__data_80512220 { M2C_UNK value; u8 remaining[0x1C]; };
+struct RecoveredGlobal_801F301C_TLobby__data_80512220 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_801F301C_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512220) == 0x20 ? 1 : -1];
 
-struct RecoveredGlobal_801F301C_TLobby__data_80512240 { M2C_UNK value; u8 remaining[0xFC]; };
+struct RecoveredGlobal_801F301C_TLobby__data_80512240 { s32 value; u8 remaining[0xFC]; };
 typedef char RecoveredGlobal_801F301C_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F301C_TLobby__data_80512240) == 0x100 ? 1 : -1];
 
-struct RecoveredGlobal_801F2EF4_TLobby__data_80512220 { M2C_UNK value; u8 remaining[0x1C]; };
+struct RecoveredGlobal_801F2EF4_TLobby__data_80512220 { s32 value; u8 remaining[0x1C]; };
 typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512220) == 0x20 ? 1 : -1];
 
-struct RecoveredGlobal_801F2EF4_TLobby__data_80512240 { M2C_UNK value; u8 remaining[0xFC]; };
+struct RecoveredGlobal_801F2EF4_TLobby__data_80512240 { s32 value; u8 remaining[0xFC]; };
 typedef char RecoveredGlobal_801F2EF4_TLobby__data_80512240_size[sizeof(RecoveredGlobal_801F2EF4_TLobby__data_80512240) == 0x100 ? 1 : -1];
 
 struct RecoveredGlobal_801F3268_lbl_80512B18 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
@@ -62,7 +58,7 @@ struct Ctx_801F3124 {
 extern "C" {
 int bswap_32__FPUl(void*);
 void bswap_entry_words__6TLobbyFi(s32 arg0);
-M2C_UNK memcpy(void *, void *, int);
+s32 memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
 extern unsigned char* TLobby__quest_data_base;
@@ -89,7 +85,7 @@ extern u32 TLobby__quest_state_object_16c;
 extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
 void load_quest_globals__6TLobbyFPv(u8 *arg0);
-M2C_UNK memcpy(void *, void *, int);
+s32 memcpy(void *, void *, int);
 extern RecoveredGlobal_801F301C_TLobby__data_80512220 TLobby__quest_argument_stack;
 extern RecoveredGlobal_801F301C_TLobby__data_80512240 TLobby__script_value_stack;
 extern unsigned char* TLobby__quest_data_base;
@@ -117,7 +113,7 @@ extern u16 TLobby__quest_state_word_170;
 extern u16 TLobby__quest_state_word_172;
 void save_quest_state_to_record__6TLobbyFPv(u8 *arg0);
 extern RecoveredGlobal_801F3268_lbl_80512B18 lbl_80512B18;
-M2C_UNK *TObjItemOKWindow__sub_801F3268(void);
+s32 *TObjItemOKWindow__sub_801F3268(void);
 unsigned char read_packet_byte__6TLobbyFv(void);
 extern struct Op_801F2E64 qst_opcode_table[];
 extern s32 TLobby__quest_window_state;
@@ -182,16 +178,16 @@ void sync_quest_register_and_send__6TLobbyFPv(void* p);
 int test_flag_16__6TLobbyFPv(void* p);
 int TLobby__send_and_handle_60(void*);
 int test_action_mask__10TObjPlayerFPvi(void*, int);
-M2C_UNK TWindow__close(s32);
+s32 TWindow__close(s32);
 int VecCopy__FP3VecPC3Vec(void*);
 int bswap_16__FPUs(void*);
 int bswap_32__FPUl(void*);
 int check_technique_flag__10TObjPlayerFPv(void*);
-M2C_UNK clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void*);
+s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void*);
 int has_item_flag_4096__10TObjPlayerFPv(void*);
-M2C_UNK queue_destruction__7TObjectFv(s32);
+s32 queue_destruction__7TObjectFv(s32);
 int read_be16_field2__10TObjPlayerFPv(void*);
-M2C_UNK set_flag_4__9TObjLukerFPv(void*);
+s32 set_flag_4__9TObjLukerFPv(void*);
 int set_flags__10TObjPlayerFPvUi(void*, int);
 
     extern unsigned char* TLobby__quest_data_base;
@@ -272,66 +268,66 @@ s32 dispatch_quest_opcode(void) {
 }
 
 void save_quest_state_to_record__6TLobbyFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) TLobby__data_805D5E74;
-    M2C_FIELD(arg0, s32 *, 8) = (s32) TLobby__script_reg_array;
-    M2C_FIELD(arg0, s32 *, 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
-    M2C_FIELD(arg0, u8 *, 0x14) = (u8) TLobby__active_window_index;
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) TLobby__script_stack_depth;
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) lbl_805D5E94;
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) lbl_805D5E9C;
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) quest_message_speaker_id;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) TLobby__quest_arg_stack_count;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) (*(s32 *)&TLobby__quest_data_base);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) TLobby__data_805D5E74;
+    *(s32 *)((s8 *)arg0 + 8) = (s32) TLobby__script_reg_array;
+    *(s32 *)((s8 *)arg0 + 0xC) = (s32) (*(s32 *)&TLobby__quest_message_window);
+    *(s32 *)((s8 *)arg0 + 0x10) = (s32) (*(s32 *)&TLobby__quest_choice_window);
+    *(u8 *)((s8 *)arg0 + 0x14) = (u8) TLobby__active_window_index;
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) TLobby__script_stack_depth;
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)&TLobby__quest_script_pc);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) lbl_805D5E94;
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) lbl_805D5E9C;
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) quest_message_speaker_id;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) TLobby__quest_arg_stack_count;
     memcpy((void *) (arg0 + 0x34), (void *) (&TLobby__quest_argument_stack.value), (int) (0x20));
     memcpy((void *) (arg0 + 0x54), (void *) (&TLobby__script_value_stack.value), (int) (0x100));
     (*(s32 *)&TLobby__quest_message_window) = 0;
     (*(s32 *)&TLobby__quest_choice_window) = 0;
-    M2C_FIELD(arg0, u8 *, 0x154) = (u8) TLobby__data_805D5EA8;
-    M2C_FIELD(arg0, u8 *, 0x155) = (u8) TLobby__data_805D5EA9;
-    M2C_FIELD(arg0, u16 *, 0x156) = (u16) TLobby__data_805D5EAA;
-    M2C_FIELD(arg0, u16 *, 0x158) = (u16) TLobby__data_805D5EAC;
-    M2C_FIELD(arg0, s32 *, 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
+    *(u8 *)((s8 *)arg0 + 0x154) = (u8) TLobby__data_805D5EA8;
+    *(u8 *)((s8 *)arg0 + 0x155) = (u8) TLobby__data_805D5EA9;
+    *(u16 *)((s8 *)arg0 + 0x156) = (u16) TLobby__data_805D5EAA;
+    *(u16 *)((s8 *)arg0 + 0x158) = (u16) TLobby__data_805D5EAC;
+    *(s32 *)((s8 *)arg0 + 0x15C) = (s32) (*(s32 *)&TLobby__data_805D5EB0);
     (*(s32 *)&TLobby__data_805D5EB0) = 0;
-    M2C_FIELD(arg0, s32 *, 0x160) = (s32) (*(s32 *)&TLobby__quest_window_object);
+    *(s32 *)((s8 *)arg0 + 0x160) = (s32) (*(s32 *)&TLobby__quest_window_object);
     (*(s32 *)&TLobby__quest_window_object) = 0;
-    M2C_FIELD(arg0, s32 *, 0x164) = (s32) (*(s32 *)&TLobby__menu_state_object);
+    *(s32 *)((s8 *)arg0 + 0x164) = (s32) (*(s32 *)&TLobby__menu_state_object);
     (*(s32 *)&TLobby__menu_state_object) = 0;
-    M2C_FIELD(arg0, s32 *, 0x168) = (s32) (*(s32 *)&TLobby__quest_state_object_168);
+    *(s32 *)((s8 *)arg0 + 0x168) = (s32) (*(s32 *)&TLobby__quest_state_object_168);
     (*(s32 *)&TLobby__quest_state_object_168) = 0;
-    M2C_FIELD(arg0, s32 *, 0x16C) = (s32) (*(s32 *)&TLobby__quest_state_object_16c);
+    *(s32 *)((s8 *)arg0 + 0x16C) = (s32) (*(s32 *)&TLobby__quest_state_object_16c);
     (*(s32 *)&TLobby__quest_state_object_16c) = 0;
-    M2C_FIELD(arg0, u16 *, 0x170) = (u16) TLobby__quest_state_word_170;
-    M2C_FIELD(arg0, u16 *, 0x172) = (u16) TLobby__quest_state_word_172;
+    *(u16 *)((s8 *)arg0 + 0x170) = (u16) TLobby__quest_state_word_170;
+    *(u16 *)((s8 *)arg0 + 0x172) = (u16) TLobby__quest_state_word_172;
 }
 
 void load_quest_globals__6TLobbyFPv(u8 *arg0) {
-    (*(s32 *)&TLobby__quest_data_base) = M2C_FIELD(arg0, s32 *, 0);
-    TLobby__data_805D5E74 = M2C_FIELD(arg0, s32 *, 4);
-    TLobby__script_reg_array = M2C_FIELD(arg0, s32 *, 8);
-    (*(s32 *)&TLobby__quest_message_window) = M2C_FIELD(arg0, s32 *, 0xC);
-    (*(s32 *)&TLobby__quest_choice_window) = M2C_FIELD(arg0, s32 *, 0x10);
-    TLobby__active_window_index = M2C_FIELD(arg0, u8 *, 0x14);
-    TLobby__script_stack_depth = M2C_FIELD(arg0, s32 *, 0x1C);
-    (*(s32 *)&TLobby__quest_script_pc) = M2C_FIELD(arg0, s32 *, 0x20);
-    lbl_805D5E94 = M2C_FIELD(arg0, s32 *, 0x24);
-    lbl_805D5E9C = M2C_FIELD(arg0, s32 *, 0x28);
-    quest_message_speaker_id = M2C_FIELD(arg0, s32 *, 0x2C);
-    TLobby__quest_arg_stack_count = M2C_FIELD(arg0, s32 *, 0x30);
+    (*(s32 *)&TLobby__quest_data_base) = *(s32 *)((s8 *)arg0 + 0);
+    TLobby__data_805D5E74 = *(s32 *)((s8 *)arg0 + 4);
+    TLobby__script_reg_array = *(s32 *)((s8 *)arg0 + 8);
+    (*(s32 *)&TLobby__quest_message_window) = *(s32 *)((s8 *)arg0 + 0xC);
+    (*(s32 *)&TLobby__quest_choice_window) = *(s32 *)((s8 *)arg0 + 0x10);
+    TLobby__active_window_index = *(u8 *)((s8 *)arg0 + 0x14);
+    TLobby__script_stack_depth = *(s32 *)((s8 *)arg0 + 0x1C);
+    (*(s32 *)&TLobby__quest_script_pc) = *(s32 *)((s8 *)arg0 + 0x20);
+    lbl_805D5E94 = *(s32 *)((s8 *)arg0 + 0x24);
+    lbl_805D5E9C = *(s32 *)((s8 *)arg0 + 0x28);
+    quest_message_speaker_id = *(s32 *)((s8 *)arg0 + 0x2C);
+    TLobby__quest_arg_stack_count = *(s32 *)((s8 *)arg0 + 0x30);
     memcpy((void *) (&TLobby__quest_argument_stack.value), (void *) (arg0 + 0x34), (int) (0x20));
     memcpy((void *) (&TLobby__script_value_stack.value), (void *) (arg0 + 0x54), (int) (0x100));
-    TLobby__data_805D5EA8 = M2C_FIELD(arg0, u8 *, 0x154);
-    TLobby__data_805D5EA9 = M2C_FIELD(arg0, u8 *, 0x155);
-    TLobby__data_805D5EAA = M2C_FIELD(arg0, u16 *, 0x156);
-    TLobby__data_805D5EAC = M2C_FIELD(arg0, u16 *, 0x158);
-    (*(s32 *)&TLobby__data_805D5EB0) = M2C_FIELD(arg0, s32 *, 0x15C);
-    (*(s32 *)&TLobby__quest_window_object) = M2C_FIELD(arg0, s32 *, 0x160);
-    (*(s32 *)&TLobby__menu_state_object) = M2C_FIELD(arg0, s32 *, 0x164);
-    (*(s32 *)&TLobby__quest_state_object_168) = M2C_FIELD(arg0, s32 *, 0x168);
-    (*(s32 *)&TLobby__quest_state_object_16c) = M2C_FIELD(arg0, s32 *, 0x16C);
-    TLobby__quest_state_word_170 = M2C_FIELD(arg0, u16 *, 0x170);
-    TLobby__quest_state_word_172 = M2C_FIELD(arg0, u16 *, 0x172);
+    TLobby__data_805D5EA8 = *(u8 *)((s8 *)arg0 + 0x154);
+    TLobby__data_805D5EA9 = *(u8 *)((s8 *)arg0 + 0x155);
+    TLobby__data_805D5EAA = *(u16 *)((s8 *)arg0 + 0x156);
+    TLobby__data_805D5EAC = *(u16 *)((s8 *)arg0 + 0x158);
+    (*(s32 *)&TLobby__data_805D5EB0) = *(s32 *)((s8 *)arg0 + 0x15C);
+    (*(s32 *)&TLobby__quest_window_object) = *(s32 *)((s8 *)arg0 + 0x160);
+    (*(s32 *)&TLobby__menu_state_object) = *(s32 *)((s8 *)arg0 + 0x164);
+    (*(s32 *)&TLobby__quest_state_object_168) = *(s32 *)((s8 *)arg0 + 0x168);
+    (*(s32 *)&TLobby__quest_state_object_16c) = *(s32 *)((s8 *)arg0 + 0x16C);
+    TLobby__quest_state_word_170 = *(u16 *)((s8 *)arg0 + 0x170);
+    TLobby__quest_state_word_172 = *(u16 *)((s8 *)arg0 + 0x172);
 }
 
 typedef char RecoveredGlobal_801F3268_lbl_80512B18_size[sizeof(RecoveredGlobal_801F3268_lbl_80512B18) == 0x10 ? 1 : -1];
@@ -377,7 +373,7 @@ void init_quest_script_context(Hdr_801F3124 *h, Ctx_801F3124 *c) {
     c->x172 = 0;
 }
 
-M2C_UNK *TObjItemOKWindow__sub_801F3268(void) {
+s32 *TObjItemOKWindow__sub_801F3268(void) {
     return &lbl_80512B18.value;
 }
 
@@ -423,7 +419,7 @@ s32 get_field_d4(void* p) { return *(s32*)((char*)p + 0xd4); }
 s32 fn_get_field_3ac(void* p) { return *(s32*)((char*)p + 0x3ac); }
 
 void TMainTask__sub_801F34D0(u8 *arg0) {
-    M2C_FIELD(arg0, u16 *, 4) = (u16) (M2C_FIELD(arg0, u16 *, 4) ^ 8);
+    *(u16 *)((s8 *)arg0 + 4) = (u16) (*(u16 *)((s8 *)arg0 + 4) ^ 8);
 }
 
 void set_floor__6TLobbyFPvs(void* p, s16 v) { *(s16*)((char*)p + 0x11a) = v; }

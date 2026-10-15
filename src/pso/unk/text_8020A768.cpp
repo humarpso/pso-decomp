@@ -88,20 +88,16 @@ s32 load_object_set_file(s32 arg0, s32 arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK copy_name(M2C_UNK *);
-M2C_UNK advance_enemy_id_counter(u16);
-M2C_UNK advance_object_id_counter(u16);
-M2C_UNK load_enemy_set_file(s32, s32);
-M2C_UNK load_object_set_file(s32, s32);
-M2C_UNK free_data_60F0__6TLobbyFv();
-s32 init_handle__6TLobbyFi(M2C_UNK);
+s32 copy_name(s32 *);
+s32 advance_enemy_id_counter(u16);
+s32 advance_object_id_counter(u16);
+s32 load_enemy_set_file(s32, s32);
+s32 load_object_set_file(s32, s32);
+s32 free_data_60F0__6TLobbyFv();
+s32 init_handle__6TLobbyFi(s32);
 extern s32 lbl_805D60D8;
 extern s32 lbl_805D60DC;
 extern s32 map_set_object_id_counter;
@@ -111,8 +107,8 @@ extern s32 map_set_enemy_id_counter;
 extern s16 TLobby__data_805D6134;
 extern s32 TLobby__data_805D6148;
 extern s32 TLobby__data_805D614C;
-extern M2C_UNK lbl_805DC620;
-extern M2C_UNK lbl_805DC624;
+extern s32 lbl_805DC620;
+extern s32 lbl_805DC624;
 
 void load_map_set_data(s32 arg0, s32 arg1) {
     lbl_805D60D8 = 0;
@@ -149,10 +145,6 @@ struct SpawnRecord_8020A9C4 {
     u8 pad[0x48 - 0xC];
 };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Rec_8020AA94 {
     u8 pad0[4];
     s16 f4;

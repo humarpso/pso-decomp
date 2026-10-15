@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8019677C_lbl_80445E84 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_8019677C___vt__17TObjQuestColALock {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x40];
 };
 
@@ -21,7 +17,7 @@ void refresh_collision_body_centers(void *);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjQuestColBase__ct(void *, s32);
 extern RecoveredGlobal_8019677C_lbl_80445E84 TObjQuestColALock__collision_desc;
-extern M2C_UNK __vt__17TObjQuestColALock[];
+extern s32 __vt__17TObjQuestColALock[];
 extern s32 obj_quest_col_alock_class_name;
 u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1);
 }
@@ -31,16 +27,16 @@ extern "C" {
 s32 TObjQuestColALock__vt13(void *arg0);
 void TObjQuestColALock__vt14(void* p);
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK enable_action_input__10TObjPlayerFPv(s32);
-M2C_UNK disable_primary_action_input__10TObjPlayerFPv(s32);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 enable_action_input__10TObjPlayerFPv(s32);
+s32 disable_primary_action_input__10TObjPlayerFPv(s32);
+s32 submit_cursor_candidate(void *, s32);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);
 s32 get_player_by_client_id(s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__16TObjQuestColBaseFv(void *, M2C_UNK);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__16TObjQuestColBaseFv(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
@@ -48,7 +44,7 @@ s32 update_trigger_state__12TObjQuestColFPvf(void *, f32);
 
 void TObjQuestColALock__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
-extern M2C_UNK controller_input_state[];
+extern s32 controller_input_state[];
 extern s32 local_client_id;
 
 s32 TObjQuestColALock__vt13(void *arg0) {
@@ -66,7 +62,7 @@ s32 TObjQuestColALock__vt13(void *arg0) {
             return 0;
         }
         submit_cursor_candidate(arg0, -1);
-        temp_r3_2 = update_trigger_state__12TObjQuestColFPvf(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
+        temp_r3_2 = update_trigger_state__12TObjQuestColFPvf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }
@@ -85,12 +81,12 @@ block_12:
     return 0;
 }
 
-extern M2C_UNK __vt__17TObjQuestColALock[];
+extern s32 __vt__17TObjQuestColALock[];
 
 void *__dt__17TObjQuestColALockFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjQuestColALock;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjQuestColALock;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         __dt__16TObjQuestColBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -104,14 +100,14 @@ typedef char RecoveredGlobal_8019677C___vt__17TObjQuestColALock_size[sizeof(Reco
 u8 *TObjQuestColALock__ct(u8 *arg0, s32 arg1) {
     u8 *temp_r4;
     TObjQuestColBase__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8019677C___vt__17TObjQuestColALock *)&__vt__17TObjQuestColALock).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) obj_quest_col_alock_class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8019677C___vt__17TObjQuestColALock *)&__vt__17TObjQuestColALock).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) obj_quest_col_alock_class_name;
     init_collision_body_parts(arg0, (s32) &TObjQuestColALock__collision_desc.value, 1);
     set_indexed_flags(arg0, 0, 0xF0);
-    temp_r4 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xA4));
-    M2C_FIELD(temp_r4, f32 *, 4) = (f32) (M2C_FIELD(temp_r4, f32 *, 4) + M2C_FIELD(arg0, f32 *, 0x6C));
+    temp_r4 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xA4));
+    *(f32 *)((s8 *)temp_r4 + 4) = (f32) (*(f32 *)((s8 *)temp_r4 + 4) + *(f32 *)((s8 *)arg0 + 0x6C));
     refresh_collision_body_centers(arg0);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((s32) arg0);
     return arg0;
 }

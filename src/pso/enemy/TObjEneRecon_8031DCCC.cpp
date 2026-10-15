@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031DCCC { char pad[0x18]; };
 struct VObj_8031DCCC : Base_8031DCCC {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -32,8 +29,8 @@ struct VObj_8031DCCC : Base_8031DCCC {
 extern "C" {
 
 void TObjEneRecon__vt87(void *arg0);
-M2C_UNK TObjEneDD__vt86(void *);
-M2C_UNK clamp_min_height__12TObjEneReconFPv(void *);
+s32 TObjEneDD__vt86(void *);
+s32 clamp_min_height__12TObjEneReconFPv(void *);
 
 void TObjEneRecon__vt87(void *arg0) {
     struct VObj_8031DCCC *o = (struct VObj_8031DCCC *)arg0;

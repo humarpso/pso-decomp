@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8002CACC { s32 f0; u8 pad4[0x14]; void *vt; f32 f1c; f32 f20; f32 f24; s32 f28[4]; };
 
@@ -49,7 +45,7 @@ void init_bosses__6TLobbyFv(void);
 void render__14TObjBoss1FloorFv(void);
 void update_boss1_objects__6TLobbyFv(void);
 int TBoss8Dragon__sub_8002D5F8(void);
-M2C_UNK draw_ginja_model(int);
+s32 draw_ginja_model(int);
 int TObjBoss1Crater__sub_8002C7B4(void);
 int TObjBoss1Crater__sub_8002C7B8(void);
 s32 TObjBoss1Crater__sub_8002C7E4(void* p);
@@ -57,22 +53,22 @@ int TObjBoss1Floor__sub_8002CB40(void);
 int TObjBoss1Floor__sub_8002CB78(void);
 int TObjBoss1Rock__sub_8002E3CC(void);
 int TObjBoss1Rock__sub_8002E3D0(void);
-M2C_UNK render_projected_shadow_receiver(void *, void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK apply_single_screen_state__6TSceneFv();
+s32 render_projected_shadow_receiver(void *, void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 apply_single_screen_state__6TSceneFv();
 s32 check_v2_mode__9TObjEneDDFv();
 int create_instance__14TObjBoss1FloorFv(void*);
-M2C_UNK draw_if_all_ready__10TObjPlayerFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv(int);
+s32 draw_if_all_ready__10TObjPlayerFv();
+s32 end_effect_render__13TParticleCtrlFv(int);
 int load_dragon_ground_assets(void);
 int free_char_select__6TLobbyFv(void);
 int free_resources__12TBoss8DragonFv(void);
-M2C_UNK func_80141618__Fv();
+s32 func_80141618__Fv();
 s32 get_state_flag__9TMainTaskFv();
 s32 is_any_teammate_in_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_id__FUl(int);
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 set_depth_buffer_settings_id__FUl(int);
+s32 set_global_param__8TObjFishFi(void *);
 
 void update_boss1_objects__6TLobbyFv(void) { free_resources__12TBoss8DragonFv(); TObjBoss1Rock__sub_8002E3CC(); TObjBoss1Crater__sub_8002C7B4(); TObjBoss1Floor__sub_8002CB40(); free_char_select__6TLobbyFv(); }
 int forward_floor_2CB44__6TLobbyFPv(void* p) { return create_instance__14TObjBoss1FloorFv(p); }
@@ -97,9 +93,9 @@ void render__14TObjBoss1FloorFv(void) {
         set_depth_buffer_settings_id__FUl((int) (3));
         draw_if_all_ready__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
-        temp_r31 = (unsigned char *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), void **, 0x58));
+        temp_r31 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x58));
         render_projected_shadow_receiver((void *) (temp_r31 + 8), (void *) (temp_r31 + 0x14));
-        draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
+        draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
         apply_single_screen_state__6TSceneFv();
         func_80141618__Fv();
         pop_matrix();

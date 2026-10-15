@@ -1,9 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-typedef M2C_UNK (*RecoveredCallback_4873a87e26d6)(s32, M2C_UNK *, M2C_UNK);
+
+typedef s32 (*RecoveredCallback_4873a87e26d6)(s32, s32 *, s32);
 
 struct Ent_803CF958 { u32 a; char name[12]; };
 struct Drv_803CFD2C {
@@ -23,33 +20,33 @@ struct Rec_803CFD2C {
 struct V_803CEF60 { void (*fn)(); };
 
 extern "C" {
-extern M2C_UNK lbl_8047D7AC[];
-extern M2C_UNK lbl_8047D7C8[];
+extern s32 lbl_8047D7AC[];
+extern s32 lbl_8047D7C8[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0);
-extern M2C_UNK lbl_8047D7E4[];
-extern M2C_UNK lbl_8047D800[];
+extern s32 lbl_8047D7E4[];
+extern s32 lbl_8047D800[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 void cvfs_stop_tr__6TLobbyFPv(u8 *arg0);
-extern M2C_UNK lbl_8047D8B8[];
-extern M2C_UNK lbl_8047D8D4[];
+extern s32 lbl_8047D8B8[];
+extern s32 lbl_8047D8D4[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_tell__6TLobbyFPv(u8 *arg0);
-extern M2C_UNK lbl_8047D8EC[];
-extern M2C_UNK lbl_8047D908[];
+extern s32 lbl_8047D8EC[];
+extern s32 lbl_8047D908[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 void cv_fs_close__6TLobbyFPv(u8 *arg0);
-extern M2C_UNK lbl_8047D850[];
-extern M2C_UNK lbl_8047D86C[];
+extern s32 lbl_8047D850[];
+extern s32 lbl_8047D86C[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
-extern M2C_UNK lbl_8047D884[];
-extern M2C_UNK lbl_8047D8A0[];
+extern s32 lbl_8047D884[];
+extern s32 lbl_8047D8A0[];
 extern RecoveredCallback_4873a87e26d6 cvfs_completion_callback;
 extern s32 lbl_805D75FC;
 s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2);
@@ -77,15 +74,15 @@ s32 cv_fs_get_stat__6TLobbyFPv(u8 *arg0) {
     s32 var_r31;
     var_r31 = 3;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D7AC, 0);
         }
         return 3;
     }
-    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32), 0x2C);
+    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x2C);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4));
-    } else if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4));
+    } else if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
         cvfs_completion_callback(lbl_805D75FC, lbl_8047D7C8, 0);
     }
     return var_r31;
@@ -103,18 +100,18 @@ void TLobby__sub_803CEF60(void) {
 }
 
 void cvfs_stop_tr__6TLobbyFPv(u8 *arg0) {
-    M2C_UNK (*temp_r12)(s32);
+    s32 (*temp_r12)(s32);
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D7E4, 0);
         }
     } else {
-        temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), M2C_UNK (**)(s32), 0x28);
+        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x28);
         if (temp_r12 != NULL) {
-            temp_r12(M2C_FIELD(arg0, s32 *, 4));
+            temp_r12(*(s32 *)((s8 *)arg0 + 4));
             return;
         }
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D800, 0);
         }
     }
@@ -124,17 +121,17 @@ s32 cv_fs_req_rd__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D850, 0);
         }
         return 0;
     }
-    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32, s32, s32), 0x20);
+    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x20);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4), arg1, arg2);
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D86C, 0);
         }
     }
@@ -145,17 +142,17 @@ s32 cv_fs_seek__6TLobbyFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     s32 (*temp_r12)(s32, s32, s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D884, 0);
         }
         return 0;
     }
-    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32, s32, s32), 0x18);
+    temp_r12 = *(s32 (**)(s32, s32, s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x18);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4), arg1, arg2);
+        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4), arg1, arg2);
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D8A0, 0);
         }
     }
@@ -166,37 +163,37 @@ s32 cv_fs_tell__6TLobbyFPv(u8 *arg0) {
     s32 (*temp_r12)(s32);
     s32 var_r31;
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D8B8, 0);
         }
         return 0;
     }
-    temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), s32 (**)(s32), 0x1C);
+    temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x1C);
     if (temp_r12 != NULL) {
-        var_r31 = temp_r12(M2C_FIELD(arg0, s32 *, 4));
+        var_r31 = temp_r12(*(s32 *)((s8 *)arg0 + 4));
     } else {
         var_r31 = 0;
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D8D4, 0);
         }
     }
     return var_r31;
 }
 void cv_fs_close__6TLobbyFPv(u8 *arg0) {
-    M2C_UNK (*temp_r12)(s32);
+    s32 (*temp_r12)(s32);
     if (arg0 == NULL) {
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D8EC, 0);
         }
     } else {
-        temp_r12 = M2C_FIELD(M2C_FIELD(arg0, u8 **, 0), M2C_UNK (**)(s32), 0x14);
+        temp_r12 = *(s32 (**)(s32))((s8 *)(*(u8 **)((s8 *)arg0 + 0)) + 0x14);
         if (temp_r12 != NULL) {
-            temp_r12(M2C_FIELD(arg0, s32 *, 4));
-            M2C_FIELD(arg0, s32 *, 4) = 0;
-            M2C_FIELD(arg0, u8 **, 0) = NULL;
+            temp_r12(*(s32 *)((s8 *)arg0 + 4));
+            *(s32 *)((s8 *)arg0 + 4) = 0;
+            *(u8 **)((s8 *)arg0 + 0) = NULL;
             return;
         }
-        if (((M2C_UNK (*)(s32, M2C_UNK *, M2C_UNK)) cvfs_completion_callback) != NULL) {
+        if (((s32 (*)(s32, s32 *, s32)) cvfs_completion_callback) != NULL) {
             cvfs_completion_callback(lbl_805D75FC, lbl_8047D908, 0);
         }
     }

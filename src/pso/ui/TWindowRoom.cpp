@@ -1,17 +1,13 @@
 #include "types.h"
 #include "pso/ui/TWindowRoom.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8026D674_lbl_804D08DC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_8026D674___vt__11TWindowRoom {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -33,7 +29,7 @@ void refresh_status_display__9TWindowDDFv(void *);
 s32 set_text_entry_string(s32, s32, s32);
 s32 get_window_layout_position(int);
 extern RecoveredGlobal_8026D674_lbl_804D08DC room_window_base_parameters;
-extern M2C_UNK __vt__11TWindowRoom[];
+extern s32 __vt__11TWindowRoom[];
 extern s32 TWindowRoom__class_name;
 extern const f32 lbl_805DD2F0;
 extern const f32 lbl_805DD2F4;
@@ -50,7 +46,7 @@ void set_entry_display_value__20TWindowSubStatusDispFPvi(void *arg0, s32 arg1);
 s32 draw_visible_window_entries(s32, s32, s32);
 int update_window_entry_list(void*, void*);
 s32 set_text_entry_string(s32, s32, s32);
-M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
+s32 draw_window_tab(s32, s32, s32, f32);
 void __dl__7TObjectFPv(void *);
 void destroy_window_base__9TWindowDDFPvs(void *, int);
 s32 draw_default_entry__9TWindowDDFi();
@@ -83,11 +79,11 @@ void draw_status__11TWindowRoomFi(s32 arg0) {
 }
 void run_task__11TWindowRoomFv(void* p) { initialize_subwindow__9TWindowDDFPv(p); update_window_entry_list(p, (char*)p + 0x24); }
 
-extern M2C_UNK __vt__11TWindowRoom[];
+extern s32 __vt__11TWindowRoom[];
 
 void *__dt__11TWindowRoomFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TWindowRoom;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TWindowRoom;
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

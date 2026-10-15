@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8034B008_lbl_80478B78 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -70,7 +67,7 @@ void init_ws_data_tables__9TWindowDDFv(void) {
 }
 
 s32 TWindowDD__sub_8034B008(s32 arg0, s32 arg1) {
-    return M2C_FIELD(((u8 *)(((u8 *)(&lbl_80478B78.value) + (lookup_item_category__9TWindowDDFi((s32)((void *) (arg1))) * 8))) + (arg0 * 4)), s32 *, 0);
+    return *(s32 *)((s8 *)((u8 *)(((u8 *)(&lbl_80478B78.value) + (lookup_item_category__9TWindowDDFi((s32)((void *) (arg1))) * 8))) + (arg0 * 4)) + 0);
 }
 s32 lookup_item_category__9TWindowDDFi(s32 arg0) {
     s32 r;

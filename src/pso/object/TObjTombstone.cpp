@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct E_80075D68 { u8 f0; u8 pad[0x2f]; };
 
@@ -89,10 +85,10 @@ void format_enemy_text__13TObjTombstoneFPv(Tomb_80075B5C *self);
 extern "C" {
 
 void render__13TObjTombstoneFv(s32 arg0);
-s32 resolve_player_slot__20TWindowSubStatusDispFi(M2C_UNK);
-M2C_UNK update_fade_by_distance__13TObjTombstoneFPv(s32);
-M2C_UNK draw_name_labels__13TObjTombstoneFPv(s32);
-M2C_UNK update_render_flags__13TObjTombstoneFPv(s32);
+s32 resolve_player_slot__20TWindowSubStatusDispFi(s32);
+s32 update_fade_by_distance__13TObjTombstoneFPv(s32);
+s32 draw_name_labels__13TObjTombstoneFPv(s32);
+s32 update_render_flags__13TObjTombstoneFPv(s32);
 s32 check_height_ready__13TObjTombstoneFPv();
 
 void render__13TObjTombstoneFv(s32 arg0) {

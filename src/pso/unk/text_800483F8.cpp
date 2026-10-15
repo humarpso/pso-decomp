@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80048560_lbl_80484860 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80048560_lbl_804FF1D0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
-typedef s32 M2C_UNK;
 struct Vec_800483F8 { f32 x, y, z; };
 
 struct Obj_800483F8 {
@@ -31,10 +27,10 @@ struct Obj_800483F8 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK init_xyz_limits__10TObjPlayerFv();
-M2C_UNK draw_line_list(void *, int, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 init_xyz_limits__10TObjPlayerFv();
+s32 draw_line_list(void *, int, int);
 extern RecoveredGlobal_80048560_lbl_80484860 lbl_80484860;
 extern RecoveredGlobal_80048560_lbl_804FF1D0 lbl_804FF1D0;
 void fn_80048560(u8 *arg0);
@@ -43,7 +39,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 f32 vector_length(Vec_800483F8 *);
 void subtract_vector(Vec_800483F8 *, Vec_800483F8 *);
-extern M2C_UNK lbl_80484840[];
+extern s32 lbl_80484840[];
 extern void *tl_05;
 extern const f32 lbl_805D8828;
 extern const f32 lbl_805D882C;
@@ -76,8 +72,8 @@ Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *
 }
 
 void fn_80048560(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec((void *) (&lbl_804FF1D0.value), (int) (M2C_FIELD(arg0, s32 *, 0x1C)));
-    VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_804FF1D0.value + 0xC), (int) (M2C_FIELD(arg0, s32 *, 0x20)));
+    VecCopy__FP3VecPC3Vec((void *) (&lbl_804FF1D0.value), (int) (*(s32 *)((s8 *)arg0 + 0x1C)));
+    VecCopy__FP3VecPC3Vec((void *) ((u8 *)&lbl_804FF1D0.value + 0xC), (int) (*(s32 *)((s8 *)arg0 + 0x20)));
     init_xyz_limits__10TObjPlayerFv();
     draw_line_list((void *) (&lbl_80484860.value), (int) (1), (int) (5));
     reset_transform_state__10TObjPlayerFv();

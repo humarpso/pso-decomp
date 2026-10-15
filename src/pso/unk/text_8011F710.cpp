@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct VBase_18_f8c4e0 { char pad[0x18]; };
 
@@ -26,11 +23,11 @@ struct VObj_18_f8c4e0 : VBase_18_f8c4e0 {
     virtual void m16();
     virtual void m17();
     virtual void m18();
-    virtual s32 m19(void *, s32, M2C_UNK, f32);
+    virtual s32 m19(void *, s32, s32, f32);
     virtual f32 m20(void *, f32);
     virtual void m21();
-    virtual M2C_UNK m22(void *, s32);
-    virtual M2C_UNK m23(void *, f32);
+    virtual s32 m22(void *, s32);
+    virtual s32 m23(void *, f32);
     virtual void m24();
     virtual void m25();
     virtual void m26();
@@ -80,7 +77,7 @@ struct VObj_18_f8c4e0 : VBase_18_f8c4e0 {
     virtual void m70();
     virtual void m71();
     virtual void m72();
-    virtual M2C_UNK m73();
+    virtual s32 m73();
 };
 
 struct Stack_8011F7CC {
@@ -106,15 +103,15 @@ s32 obj_getField1c(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
 s8 TObjPlayer__sub_80102C30();
 s8 get_slot_count__14TItemProShieldFPv(void *);
-M2C_UNK play_weapon_hit_sound(void *);
-M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
+s32 play_weapon_hit_sound(void *);
+s32 reset_status_block__10TObjPlayerFPv(void *);
 f32 get_attack_accuracy_scale(void *);
-M2C_UNK apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
-M2C_UNK calc_photon_blast_charge__10TObjPlayerFv(void *, int);
+s32 apply_camera_shake__10TObjPlayerFiii(void *, void *, int);
+s32 calc_photon_blast_charge__10TObjPlayerFv(void *, int);
 extern s32 tl_05;
 extern const f32 lbl_805DAC94;
 extern const f32 lbl_805DAC98;
-void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
+void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0);
 s32 lookup_item_data__20TWindowSubStatusDispFPv(void *);
 Item_8011F760 *get_weapon_range_record(void *, s32);
 u32 get_attack_flags__11TItemWeaponFPv(void *self);
@@ -122,7 +119,7 @@ s32 is_active_in_game__10TObjPlayerFPv(void*);
 s32 get_flag_40__8TItemMagFPv(void*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_attack_stage__11TItemWeaponFPv(void*);
-M2C_UNK reset_status_block__10TObjPlayerFPv(void *);
+s32 reset_status_block__10TObjPlayerFPv(void *);
 s8 get_field_ed__10TObjPlayerFPv(void *);
 s8 get_slot_count__14TItemProShieldFPv(void *);
 void play_weapon_owner_sounds(void*);
@@ -166,7 +163,7 @@ u32 get_attack_flags__11TItemWeaponFPv(void *self) {
     return flags;
 }
 
-void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
+void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4, f32 farg0) {
     typedef char sp8_offset[(offsetof(Stack_8011F7CC, sp8) == 0x0) ? 1 : -1];
     typedef char sp9_offset[(offsetof(Stack_8011F7CC, sp9) == 0x1) ? 1 : -1];
     typedef char spC_offset[(offsetof(Stack_8011F7CC, spC) == 0x4) ? 1 : -1];
@@ -180,39 +177,39 @@ void deliver_hit__11TItemWeaponFPviPviif(u8 *arg0, M2C_UNK arg1, u8 *arg2, s32 a
     u8 *temp_r3;
     u8 *temp_r3_2;
     if (TObjPlayer__sub_80102C30() == 2) {
-        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
         if ((temp_r3 != NULL) && (arg2 != NULL)) {
             var_f31 = get_attack_accuracy_scale((void *) (temp_r3 + 0x7CC));
             if ((arg3 == 2) && (((VObj_18_f8c4e0 *)(arg0))->m33() == 0)) {
                 var_f31 *= lbl_805DAC94;
             }
             temp_r31 = arg4 * 0x2C;
-            if (((VObj_18_f8c4e0 *)(arg2))->m19(M2C_FIELD(arg0, u8 **, 0xF0), M2C_FIELD(arg2, s32 *, 0xA4) + temp_r31, 0, var_f31) != 0) {
+            if (((VObj_18_f8c4e0 *)(arg2))->m19(*(u8 **)((s8 *)arg0 + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31, 0, var_f31) != 0) {
                 var_f31_2 = lbl_805DAC98;
                 switch (arg3) {
                 case 0:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(M2C_FIELD(arg0, u8 **, 0xF0), farg0);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)arg0 + 0xF0), farg0);
                     break;
                 case 1:
-                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(M2C_FIELD(arg0, u8 **, 0xF0), farg0);
-                    ((VObj_18_f8c4e0 *)(arg2))->m23(M2C_FIELD(arg0, u8 **, 0xF0), lbl_805DAC94 * var_f31_2);
+                    var_f31_2 = ((VObj_18_f8c4e0 *)(arg2))->m20(*(u8 **)((s8 *)arg0 + 0xF0), farg0);
+                    ((VObj_18_f8c4e0 *)(arg2))->m23(*(u8 **)((s8 *)arg0 + 0xF0), lbl_805DAC94 * var_f31_2);
                     break;
                 case 2:
-                    ((VObj_18_f8c4e0 *)(arg2))->m22(M2C_FIELD(arg0, u8 **, 0xF0), M2C_FIELD(arg2, s32 *, 0xA4) + temp_r31);
+                    ((VObj_18_f8c4e0 *)(arg2))->m22(*(u8 **)((s8 *)arg0 + 0xF0), *(s32 *)((s8 *)arg2 + 0xA4) + temp_r31);
                     break;
                 }
-                if (((M2C_UNK (*)(s32, void *, s32, s32)) M2C_FIELD(arg0, M2C_UNK (**)(s32, void *, s32, s32), 0x1F4)) != NULL) {
-                    M2C_FIELD(arg0, M2C_UNK (**)(s32, void *, s32, s32), 0x1F4)(tl_05, arg0, obj_getField1c((void *) (arg2)), arg4);
+                if (((s32 (*)(s32, void *, s32, s32)) *(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1F4)) != NULL) {
+                    (*(s32 (**)(s32, void *, s32, s32))((s8 *)arg0 + 0x1F4))(tl_05, arg0, obj_getField1c((void *) (arg2)), arg4);
                 }
                 temp_r31_2 = (s32) var_f31_2;
-                calc_photon_blast_charge__10TObjPlayerFv((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (int) (temp_r31_2));
-                temp_r3_2 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+                calc_photon_blast_charge__10TObjPlayerFv((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (int) (temp_r31_2));
+                temp_r3_2 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
                 ((VObj_18_f8c4e0 *)(temp_r3_2))->m73();
-                apply_camera_shake__10TObjPlayerFiii((void *) (M2C_FIELD(arg0, u8 **, 0xF0)), (void *) (arg2), (int) (temp_r31_2));
+                apply_camera_shake__10TObjPlayerFiii((void *) (*(u8 **)((s8 *)arg0 + 0xF0)), (void *) (arg2), (int) (temp_r31_2));
                 reset_status_block__10TObjPlayerFPv((void *) (&stack.sp8));
                 stack.sp8 = get_field_ed__10TObjPlayerFPv((void *) (arg0));
                 stack.sp9 = get_slot_count__14TItemProShieldFPv((void *) (arg0));
-                stack.spC = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+                stack.spC = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
                 stack.sp14 = (u8 *)(arg2);
                 stack.sp18 = arg4;
                 play_weapon_hit_sound((void *) (&stack.sp8));

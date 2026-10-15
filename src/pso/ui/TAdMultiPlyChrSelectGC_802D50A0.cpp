@@ -1,9 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *);
 void fn_802D50B8(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -33,14 +29,14 @@ void draw_twin_weapon_trails(s32 arg0) {
     u32 temp_r31;
     draw_weapon_at_joint(arg0, 0x30);
     update_trail_slot__11TItemWeaponFPvi((void *) arg0, 0);
-    temp_r0 = M2C_FIELD(arg0, u32 *, 0x188);
-    temp_r31 = M2C_FIELD(arg0, u32 *, 0xF4);
+    temp_r0 = *(u32 *)((s8 *)arg0 + 0x188);
+    temp_r31 = *(u32 *)((s8 *)arg0 + 0xF4);
     if (temp_r0 != 0U) {
-        M2C_FIELD(arg0, u32 *, 0xF4) = temp_r0;
+        *(u32 *)((s8 *)arg0 + 0xF4) = temp_r0;
     }
     draw_weapon_at_joint(arg0, 0x23);
     update_trail_slot__11TItemWeaponFPvi((void *) arg0, 1);
-    M2C_FIELD(arg0, u32 *, 0xF4) = temp_r31;
+    *(u32 *)((s8 *)arg0 + 0xF4) = temp_r31;
 }
 
 }

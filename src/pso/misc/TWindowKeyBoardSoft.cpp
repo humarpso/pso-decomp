@@ -1,9 +1,5 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rec_8025D3CC { u8 a; s8 len; };
 
@@ -27,19 +23,19 @@ struct KbSoft_8025D264 {
 
 extern "C" {
 s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
-M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
+s32 strncpy(s32 *, u8 *, s32);
 void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1);
 void set_glyph_quad_extents(u8, void *);
 s32 map_char_to_font_code(u16);
 u8 get_font_char_advance(s32);
 void apply_context_transform_to_rect(void *, void *);
-M2C_UNK draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
+s32 draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, int, int, f32);
 extern u32 lbl_804CFA84[];
 extern const f32 lbl_805DD048;
 extern const f32 lbl_805DD058;
 void draw_text_glyphs__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
-M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
+s32 strncpy(s32 *, u8 *, s32);
 void insert_string__19TWindowKeyBoardSoftFPvPv(KbSoft_8025D264 *self, char *src);
 }
 
@@ -112,13 +108,13 @@ s32 strnlen__19TWindowKeyBoardSoftFPvUi(void *, u32);
 void apply_context_transform_to_rect(void *, void *);
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2);
 s32 fn_8025CE00(void *, u8 *);
-M2C_UNK TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
-void TWindowKeyBoardSoft__sub_8025CFA8(void *, M2C_UNK *);
+s32 TWindowKeyBoardSoft__sub_8025CF50(void *, int, int);
+void TWindowKeyBoardSoft__sub_8025CFA8(void *, s32 *);
 int TWindowKeyBoardSoft__sub_8025D1C8(void*, void*);
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1);
 s32 TWindowKeyBoardSoft__sub_8025D378(void *, void *);
 void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, char *name, char *text);
-s32 TWindowKeyBoardSoft__sub_8025D544(void *, M2C_UNK *, s8 *);
+s32 TWindowKeyBoardSoft__sub_8025D544(void *, s32 *, s8 *);
 void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0);
 void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0);
 void process_input__19TWindowKeyBoardSoftFPv(u8 *arg0);
@@ -127,26 +123,26 @@ void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self);
 void select_next__19TWindowKeyBoardSoftFPv(void *arg0);
 void update__19TWindowKeyBoardSoftFPv(void *arg0);
 void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0);
-M2C_UNK TWindowKeyBoardSoft__sub_8025DBDC(void *, M2C_UNK);
+s32 TWindowKeyBoardSoft__sub_8025DBDC(void *, s32);
 s32 fn_8025DE10(void *, void *);
 s32 TWindowSubStatusDisp__sub_8025E148(void *, void *, void *, int, int);
 void draw_wrapped_text__20TWindowSubStatusDispFPvPvPv(void *arg0, void *arg1, void *arg2);
 s32 TWindowSubStatusDisp__sub_8025E530(void *, void *, void *, int, int, int);
 void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1);
-M2C_UNK strncpy(M2C_UNK *, u8 *, M2C_UNK);
+s32 strncpy(s32 *, u8 *, s32);
 void draw_textured_quad_at_depth(void *, f32);
-M2C_UNK dispatch_request_0x28__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
-M2C_UNK dispatch_request_0x27__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
-M2C_UNK dispatch_request_0x26__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
+s32 dispatch_request_0x28__19TWindowKeyBoardSoftFii(void *, s32 *);
+s32 dispatch_request_0x27__19TWindowKeyBoardSoftFii(void *, s32 *);
+s32 dispatch_request_0x26__19TWindowKeyBoardSoftFii(void *, s32 *);
 int strcmp(const char *, const char *);
 extern u16 soft_keyboard_conversion_exclusions[];
-M2C_UNK dispatch_request_0x25__19TWindowKeyBoardSoftFii(void *, M2C_UNK *);
+s32 dispatch_request_0x25__19TWindowKeyBoardSoftFii(void *, s32 *);
 s32 dispatch_request_0x23__19TWindowKeyBoardSoftFii(void *, void *);
 s32 dispatch_request_0x22__19TWindowKeyBoardSoftFii(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
-M2C_UNK TWindowKeyBoardSoft__sub_803E6868(void *, void *);
-M2C_UNK dispatch_request_0x14__19TWindowKeyBoardSoftFii(void *, void *);
-s32 dispatch_request_0x13__19TWindowKeyBoardSoftFiii(u8 *, M2C_UNK *, s8 *);
+s32 TWindowKeyBoardSoft__sub_803E67D4(void *, void *);
+s32 TWindowKeyBoardSoft__sub_803E6868(void *, void *);
+s32 dispatch_request_0x14__19TWindowKeyBoardSoftFii(void *, void *);
+s32 dispatch_request_0x13__19TWindowKeyBoardSoftFiii(u8 *, s32 *, s8 *);
 
 extern const f32 lbl_805DD038;
 extern const f32 lbl_805DD03C;
@@ -158,21 +154,21 @@ extern const f32 lbl_805DD060;
 
 void init_keyboard_text_field(u8 *arg0, u32 arg1, u32 arg2) {
     if (arg2 == 0) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) lbl_805DD038;
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DD03C;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) lbl_805DD038;
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DD03C;
     } else {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) (lbl_805DD040 + (lbl_805DD044 + (f32) arg1));
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (lbl_805DD048 + (f32) (arg2 * 0x14));
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) (lbl_805DD040 + (lbl_805DD044 + (f32) arg1));
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (lbl_805DD048 + (f32) (arg2 * 0x14));
     }
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) M2C_FIELD(arg0, f32 *, 0x38);
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) M2C_FIELD(arg0, f32 *, 0x3C);
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) *(f32 *)((s8 *)arg0 + 0x38);
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) *(f32 *)((s8 *)arg0 + 0x3C);
     init_keyboard_text_buffer(arg0 + 0x6C, arg1, arg2);
-    M2C_FIELD(arg0, u8 **, 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
-    M2C_FIELD(arg0, s16 *, 0x60) = 0;
+    *(u8 **)((s8 *)arg0 + 0x68) = (unsigned char *) ((void *) (arg0 + 0x6C));
+    *(s16 *)((s8 *)arg0 + 0x60) = 0;
 }
 
 #define self ((KbSoft_8025CFA8 *)arg0)
-void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
+void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, s32 *arg1) {
 #define text ((char *)arg1)
     char out[0x100];
     char tmp[0x100];
@@ -196,21 +192,21 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
             return;
         }
     }
-    dispatch_request_0x25__19TWindowKeyBoardSoftFii(out, (M2C_UNK *)tmp);
+    dispatch_request_0x25__19TWindowKeyBoardSoftFii(out, (s32 *)tmp);
     if (strcmp(text, out) != 0) {
         self->sel++;
         self->count++;
         TWindowKeyBoardSoft__sub_803E6868(out, tmp);
         return;
     }
-    dispatch_request_0x26__19TWindowKeyBoardSoftFii(out, (M2C_UNK *)tmp);
+    dispatch_request_0x26__19TWindowKeyBoardSoftFii(out, (s32 *)tmp);
     if (strcmp(text, out) != 0) {
         self->sel++;
         self->count++;
         TWindowKeyBoardSoft__sub_803E6868(out, tmp);
         return;
     }
-    dispatch_request_0x28__19TWindowKeyBoardSoftFii(out, (M2C_UNK *)tmp);
+    dispatch_request_0x28__19TWindowKeyBoardSoftFii(out, (s32 *)tmp);
     if (strcmp(text, out) != 0) {
         self->sel++;
         self->count++;
@@ -230,7 +226,7 @@ void TWindowKeyBoardSoft__sub_8025CFA8(void *arg0, M2C_UNK *arg1) {
             }
         }
     }
-    dispatch_request_0x27__19TWindowKeyBoardSoftFii(out, (M2C_UNK *)tmp);
+    dispatch_request_0x27__19TWindowKeyBoardSoftFii(out, (s32 *)tmp);
     if (strcmp(text, out) != 0) {
         self->sel++;
         self->count++;
@@ -268,7 +264,7 @@ void insert_string__19TWindowKeyBoardSoftFPvPv(KbSoft_8025D264 *self, char *src)
     q[1] = len;
     q[2] = self->kind;
     q += 3;
-    strncpy((M2C_UNK *)q, (u8 *)src, len);
+    strncpy((s32 *)q, (u8 *)src, len);
     self->remain -= n;
     if (self->cursor > self->buf) {
         self->cursor += n;
@@ -278,7 +274,6 @@ void insert_string__19TWindowKeyBoardSoftFPvPv(KbSoft_8025D264 *self, char *src)
 
 void update_input__19TWindowKeyBoardSoftFPvPv(void* p, void* a1) { TWindowKeyBoardSoft__sub_8025D1C8(p, *(void**)((char*)p + 0xa0)); insert_string__19TWindowKeyBoardSoftFPvPv((KbSoft_8025D264 *)(p), (char *)(a1)); }
 
-typedef s32 M2C_UNK;
 void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1) {
     Rec_8025D3CC *rec;
     s32 idx;
@@ -292,7 +287,7 @@ void append_text_entry__19TWindowKeyBoardSoftFPvPv(u8 *arg0, u8 *arg1) {
     p[4] = n;
     p[5] = 1;
     p += 6;
-    strncpy((M2C_UNK *)p, arg1, n);
+    strncpy((s32 *)p, arg1, n);
     p += n;
     *p++ = 0;
     *(s32 *)(arg0 + 0xB0) = 0x94 - (p - *(u8 **)(arg0 + 0x9C));
@@ -309,7 +304,7 @@ void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, ch
     p[1] = n1;
     p[2] = self->kind;
     p += 3;
-    strncpy((M2C_UNK *)p, (u8 *)name, n1);
+    strncpy((s32 *)p, (u8 *)name, n1);
     p += n1;
     n1 = (s8)n1;
     n2 = strnlen__19TWindowKeyBoardSoftFPvUi(text, 0x100);
@@ -317,7 +312,7 @@ void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, ch
     p[1] = n2;
     p[2] = 1;
     p += 3;
-    strncpy((M2C_UNK *)p, (u8 *)text, n2);
+    strncpy((s32 *)p, (u8 *)text, n2);
     p += n2;
     *p++ = 0;
     self->remain = 0x94 - (p - self->base);
@@ -327,9 +322,9 @@ void write_name_and_text__19TWindowKeyBoardSoftFPvPvPv(KbSoft_8025D47C *self, ch
 void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     s8 sp8[0x200];
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
-        dispatch_request_0x26__19TWindowKeyBoardSoftFii(sp8, (M2C_UNK *)(sp8 + 0x100));
-        M2C_FIELD(arg0, s32 *, 0xA8) = 0xF0;
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
+        dispatch_request_0x26__19TWindowKeyBoardSoftFii(sp8, (s32 *)(sp8 + 0x100));
+        *(s32 *)((s8 *)arg0 + 0xA8) = 0xF0;
         update_input__19TWindowKeyBoardSoftFPvPv((void*)(arg0), (void*)(sp8));
     }
 }
@@ -337,9 +332,9 @@ void set_kanji_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
 void set_kana_mode__19TWindowKeyBoardSoftFPv(void *arg0) {
     s8 sp8[0x200];
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
-        dispatch_request_0x25__19TWindowKeyBoardSoftFii(sp8, (M2C_UNK *)(sp8 + 0x100));
-        M2C_FIELD(arg0, s32 *, 0xA8) = 0xF1;
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
+        dispatch_request_0x25__19TWindowKeyBoardSoftFii(sp8, (s32 *)(sp8 + 0x100));
+        *(s32 *)((s8 *)arg0 + 0xA8) = 0xF1;
         update_input__19TWindowKeyBoardSoftFPvPv((void*)(arg0), (void*)(sp8));
     }
 }
@@ -350,15 +345,15 @@ void process_input__19TWindowKeyBoardSoftFPv(u8 *arg0) {
     s32 temp_r3;
     u8 *temp_r5;
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
         temp_r3 = dispatch_request_0x23__19TWindowKeyBoardSoftFii((void *) (sp8), (void *) (sp108));
         if (temp_r3 != 0) {
-            M2C_FIELD(arg0, s32 *, 0xAC) = temp_r3;
-            M2C_FIELD(M2C_FIELD(arg0, void **, 0xA0), u8 *, 2) = (u8) M2C_FIELD(arg0, s32 *, 0xA8);
-            temp_r5 = (unsigned char *) (M2C_FIELD(arg0, void **, 0xA0));
-            M2C_FIELD(arg0, void **, 0xA0) = (void *) (temp_r5 - ((s8) M2C_FIELD(temp_r5, u8 *, 0) + 3));
-            M2C_FIELD(arg0, s32 *, 0xA8) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 0xA0), u8 *, 2);
-            TWindowKeyBoardSoft__sub_8025CF50((void *) (arg0), (int) (M2C_FIELD(arg0, s32 *, 0xA8)), (int) (temp_r5));
+            *(s32 *)((s8 *)arg0 + 0xAC) = temp_r3;
+            *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA0)) + 2) = (u8) *(s32 *)((s8 *)arg0 + 0xA8);
+            temp_r5 = (unsigned char *) (*(void **)((s8 *)arg0 + 0xA0));
+            *(void **)((s8 *)arg0 + 0xA0) = (void *) (temp_r5 - ((s8) *(u8 *)((s8 *)temp_r5 + 0) + 3));
+            *(s32 *)((s8 *)arg0 + 0xA8) = (s32) *(u8 *)((s8 *)(*(void **)((s8 *)arg0 + 0xA0)) + 2);
+            TWindowKeyBoardSoft__sub_8025CF50((void *) (arg0), (int) (*(s32 *)((s8 *)arg0 + 0xA8)), (int) (temp_r5));
         }
     }
 }
@@ -376,20 +371,20 @@ void TWindowKeyBoardSoft__sub_8025D7FC(KbSoft_8025D7FC *self) {
         return;
     }
     i = 1;
-    TWindowKeyBoardSoft__sub_8025CFA8(self, (M2C_UNK *)name);
-    while (TWindowKeyBoardSoft__sub_8025D544(self, (M2C_UNK *)name, (s8 *)text) == 0) {
+    TWindowKeyBoardSoft__sub_8025CFA8(self, (s32 *)name);
+    while (TWindowKeyBoardSoft__sub_8025D544(self, (s32 *)name, (s8 *)text) == 0) {
         TWindowKeyBoardSoft__sub_803E6868(name, text);
         i++;
         if (i > n) {
             TWindowKeyBoardSoft__sub_803E67D4(name, text);
-            ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
+            ((s32 (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
             append_text_entry__19TWindowKeyBoardSoftFPvPv((u8 *)(self), (u8 *)(text));
             return;
         }
     }
     self->sel = i;
     self->count = n;
-    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
+    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((s32 *)name), (char *)((s8 *)text));
 }
 
 void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
@@ -405,32 +400,32 @@ void TWindowKeyBoardSoft__sub_8025D8C8(KbSoft_8025D8C8 *self) {
         return;
     }
     i = 1;
-    TWindowKeyBoardSoft__sub_8025CFA8(self, (M2C_UNK *)name);
-    while (TWindowKeyBoardSoft__sub_8025D544(self, (M2C_UNK *)name, (s8 *)text) == 0) {
+    TWindowKeyBoardSoft__sub_8025CFA8(self, (s32 *)name);
+    while (TWindowKeyBoardSoft__sub_8025D544(self, (s32 *)name, (s8 *)text) == 0) {
         TWindowKeyBoardSoft__sub_803E6868(name, text);
         i++;
         if (i > n) {
             dispatch_request_0x22__19TWindowKeyBoardSoftFii(name, text);
-            ((M2C_UNK (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
+            ((s32 (*)(void *, int))TWindowKeyBoardSoft__sub_8025CF50)(self, self->sel);
             append_text_entry__19TWindowKeyBoardSoftFPvPv((u8 *)(self), (u8 *)(text));
             return;
         }
     }
     self->sel = i;
     self->count = n;
-    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((M2C_UNK *)name), (char *)((s8 *)text));
+    write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(self), (char *)((s32 *)name), (char *)((s8 *)text));
 }
 
 void select_next__19TWindowKeyBoardSoftFPv(void *arg0) {
     struct { u8 _pad[0x100]; } sp108;
     struct { u8 _pad[0x100]; } sp8;
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
         do {
             TWindowKeyBoardSoft__sub_803E6868(&sp8, &sp108);
-            M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (M2C_FIELD(arg0, s32 *, 0xA8) + 1);
-            if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) > (s32) M2C_FIELD(arg0, s32 *, 0xAC)) {
-                M2C_FIELD(arg0, s32 *, 0xA8) = 1;
+            *(s32 *)((s8 *)arg0 + 0xA8) = (s32) (*(s32 *)((s8 *)arg0 + 0xA8) + 1);
+            if ((s32) *(s32 *)((s8 *)arg0 + 0xA8) > (s32) *(s32 *)((s8 *)arg0 + 0xAC)) {
+                *(s32 *)((s8 *)arg0 + 0xA8) = 1;
             }
         } while (TWindowKeyBoardSoft__sub_8025D378(arg0, &sp8) == 0);
         update_input__19TWindowKeyBoardSoftFPvPv((void*)(arg0), (void*)(&sp8));
@@ -441,12 +436,12 @@ void update__19TWindowKeyBoardSoftFPv(void *arg0) {
     u8 sp108[0x100];
     u8 sp8[0x100];
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x10)) {
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x10)) {
         do {
             dispatch_request_0x14__19TWindowKeyBoardSoftFii(sp8, sp108);
-            M2C_FIELD(arg0, s32 *, 0xA8) = (s32) (M2C_FIELD(arg0, s32 *, 0xA8) - 1);
-            if ((s32) M2C_FIELD(arg0, s32 *, 0xA8) <= 0) {
-                M2C_FIELD(arg0, s32 *, 0xA8) = (s32) M2C_FIELD(arg0, s32 *, 0xAC);
+            *(s32 *)((s8 *)arg0 + 0xA8) = (s32) (*(s32 *)((s8 *)arg0 + 0xA8) - 1);
+            if ((s32) *(s32 *)((s8 *)arg0 + 0xA8) <= 0) {
+                *(s32 *)((s8 *)arg0 + 0xA8) = (s32) *(s32 *)((s8 *)arg0 + 0xAC);
             }
         } while (TWindowKeyBoardSoft__sub_8025D378(arg0, sp8) == 0);
         update_input__19TWindowKeyBoardSoftFPvPv((void*)(arg0), (void*)(sp8));
@@ -460,11 +455,11 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
     int temp_r0;
     u8 *var_r4;
 
-    if (!(M2C_FIELD(arg0, u16 *, 0x60) & 0x80)) {
+    if (!(*(u16 *)((s8 *)arg0 + 0x60) & 0x80)) {
         TWindowKeyBoardSoft__sub_8025DBDC(arg0, 1);
     }
-    var_r3 = M2C_FIELD(arg0, u16 **, 0x84);
-    var_r4 = M2C_FIELD(arg0, u8 **, 0x9C);
+    var_r3 = *(u16 **)((s8 *)arg0 + 0x84);
+    var_r4 = *(u8 **)((s8 *)arg0 + 0x9C);
     while ((temp_r0 = *var_r3) != 0) {
         *var_r4 = (u8) (temp_r0 >> 8);
         if ((s8) *var_r4 != 0) {
@@ -476,23 +471,23 @@ void convert_input_text__19TWindowKeyBoardSoftFPv(void *arg0) {
         var_r4 += 1;
     }
     *var_r4 = 0;
-    M2C_FIELD(arg0, u8 **, 0xA0) = (u8 *) M2C_FIELD(arg0, u8 **, 0x9C);
-    if (fn_8025CE00(arg0, M2C_FIELD(arg0, u8 **, 0x9C)) != 0) {
-        M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 0x10);
-        M2C_FIELD(arg0, s32 *, 0xAC) = 1;
-        M2C_FIELD(arg0, s32 *, 0xA8) = 1;
-        strncpy((M2C_UNK *)sp8, M2C_FIELD(arg0, u8 **, 0x9C), 0x100);
+    *(u8 **)((s8 *)arg0 + 0xA0) = (u8 *) *(u8 **)((s8 *)arg0 + 0x9C);
+    if (fn_8025CE00(arg0, *(u8 **)((s8 *)arg0 + 0x9C)) != 0) {
+        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (*(u16 *)((s8 *)arg0 + 0x60) | 0x10);
+        *(s32 *)((s8 *)arg0 + 0xAC) = 1;
+        *(s32 *)((s8 *)arg0 + 0xA8) = 1;
+        strncpy((s32 *)sp8, *(u8 **)((s8 *)arg0 + 0x9C), 0x100);
         sp108[0] = 0;
     } else {
-        M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) & 0xFFFFFFEF);
-        M2C_FIELD(arg0, s32 *, 0xAC) = dispatch_request_0x13__19TWindowKeyBoardSoftFiii(M2C_FIELD(arg0, u8 **, 0x9C), (M2C_UNK *)sp8, sp108);
-        M2C_FIELD(arg0, s32 *, 0xA8) = 1;
-        TWindowKeyBoardSoft__sub_8025CFA8(arg0, (M2C_UNK *)sp8);
+        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (*(u16 *)((s8 *)arg0 + 0x60) & 0xFFFFFFEF);
+        *(s32 *)((s8 *)arg0 + 0xAC) = dispatch_request_0x13__19TWindowKeyBoardSoftFiii(*(u8 **)((s8 *)arg0 + 0x9C), (s32 *)sp8, sp108);
+        *(s32 *)((s8 *)arg0 + 0xA8) = 1;
+        TWindowKeyBoardSoft__sub_8025CFA8(arg0, (s32 *)sp8);
     }
-    M2C_FIELD(arg0, s32 *, 0xB0) = 0x94;
-    if (TWindowKeyBoardSoft__sub_8025D544(arg0, (M2C_UNK *)sp8, sp108) != 0) {
-        write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(arg0), (char *)((M2C_UNK *)sp8), (char *)(sp108));
-        M2C_FIELD(arg0, u16 *, 0x60) = (u16) (M2C_FIELD(arg0, u16 *, 0x60) | 4);
+    *(s32 *)((s8 *)arg0 + 0xB0) = 0x94;
+    if (TWindowKeyBoardSoft__sub_8025D544(arg0, (s32 *)sp8, sp108) != 0) {
+        write_name_and_text__19TWindowKeyBoardSoftFPvPvPv((KbSoft_8025D47C *)(arg0), (char *)((s32 *)sp8), (char *)(sp108));
+        *(u16 *)((s8 *)arg0 + 0x60) = (u16) (*(u16 *)((s8 *)arg0 + 0x60) | 4);
     }
 }
 
@@ -616,48 +611,48 @@ void TWindowSubStatusDisp__sub_8025E6DC(u8 *arg0, u8 *arg1) {
     u16 temp_r3;
     u16 temp_r3_2;
     var_r31 = 1;
-    if (!(M2C_FIELD(arg0, u16 *, 0x62) & 2) || ((s32) M2C_FIELD(arg1, s32 *, 0x30) >= 0)) {
-        stack.sp10 = M2C_FIELD(arg1, f32 *, 0x10);
-        stack.sp14 = M2C_FIELD(arg1, f32 *, 0x14);
-        TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (0));
-        temp_r3 = M2C_FIELD(arg0, u16 *, 0x60);
+    if (!(*(u16 *)((s8 *)arg0 + 0x62) & 2) || ((s32) *(s32 *)((s8 *)arg1 + 0x30) >= 0)) {
+        stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
+        stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
+        TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x6C)), (int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (0));
+        temp_r3 = *(u16 *)((s8 *)arg0 + 0x60);
         if (temp_r3 & 2) {
             if (temp_r3 & 4) {
                 draw_text_glyphs__20TWindowSubStatusDispFPvPvPv((void *)((void *) (arg0)), (void *)((void *) (arg1)), (void *)((void *) (&stack.sp10)));
                 var_r31 = 0;
             } else {
-                TWindowSubStatusDisp__sub_8025E148((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) (M2C_FIELD(arg0, s32 *, 0x94)));
+                TWindowSubStatusDisp__sub_8025E148((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x84)), (int) (*(s32 *)((s8 *)arg0 + 0x94)));
             }
         }
         reset_gauge__20TWindowSubStatusDispFPv((int) (0));
-        stack.sp10 = M2C_FIELD(arg1, f32 *, 0x10);
-        stack.sp14 = M2C_FIELD(arg1, f32 *, 0x14);
-        TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x6C)), (int) (M2C_FIELD(arg0, s32 *, 0x70)), (int) (1));
-        temp_r3_2 = M2C_FIELD(arg0, u16 *, 0x60);
+        stack.sp10 = *(f32 *)((s8 *)arg1 + 0x10);
+        stack.sp14 = *(f32 *)((s8 *)arg1 + 0x14);
+        TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x6C)), (int) (*(s32 *)((s8 *)arg0 + 0x70)), (int) (1));
+        temp_r3_2 = *(u16 *)((s8 *)arg0 + 0x60);
         if (temp_r3_2 & 2) {
             if (temp_r3_2 & 4) {
                 ((s32 (*)(void *, void *, void *))draw_wrapped_text__20TWindowSubStatusDispFPvPvPv)((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10));
             } else {
-                TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84)), (int) (M2C_FIELD(arg0, s32 *, 0x88)), (int) (1));
+                TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x84)), (int) (*(s32 *)((s8 *)arg0 + 0x88)), (int) (1));
                 stack.sp8 = stack.sp10;
                 stack.spC = stack.sp14;
-                temp_r3_3 = M2C_FIELD(arg0, s32 *, 0x88);
-                temp_r7 = M2C_FIELD(arg0, s32 *, 0x94) - temp_r3_3;
+                temp_r3_3 = *(s32 *)((s8 *)arg0 + 0x88);
+                temp_r7 = *(s32 *)((s8 *)arg0 + 0x94) - temp_r3_3;
                 if (temp_r7 != 0) {
-                    TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x84) + (temp_r3_3 * 2)), (int) (temp_r7), (int) (1));
+                    TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x84) + (temp_r3_3 * 2)), (int) (temp_r7), (int) (1));
                 }
             }
         } else {
             stack.sp8 = stack.sp10;
             stack.spC = stack.sp14;
         }
-        temp_r3_4 = M2C_FIELD(arg0, s32 *, 0x70);
-        temp_r7_2 = M2C_FIELD(arg0, s32 *, 0x7C) - temp_r3_4;
+        temp_r3_4 = *(s32 *)((s8 *)arg0 + 0x70);
+        temp_r7_2 = *(s32 *)((s8 *)arg0 + 0x7C) - temp_r3_4;
         if (temp_r7_2 != 0) {
-            TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (M2C_FIELD(arg0, s32 *, 0x6C) + (temp_r3_4 * 2)), (int) (temp_r7_2), (int) (1));
+            TWindowSubStatusDisp__sub_8025E530((void *) (arg0), (void *) (arg1), (void *) (&stack.sp10), (int) (*(s32 *)((s8 *)arg0 + 0x6C) + (temp_r3_4 * 2)), (int) (temp_r7_2), (int) (1));
         }
         end_render_forward__20TWindowSubStatusDispFPv();
-        if ((var_r31 != 0) && !(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
+        if ((var_r31 != 0) && !(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
             fn_8025DE10((void *) (arg1), (void *) (&stack.sp8));
         }
     }

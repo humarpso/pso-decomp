@@ -1,15 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 sync_state__10TObjPlayerFi(s32 arg0);
 u32 update_battle_controller__10TObjPlayerFv();
-M2C_UNK export_state_to_record__10TObjPlayerFPvPv(u32, s32);
-M2C_UNK create__13TPlyOnCreatedFPvPv(u16, M2C_UNK *);
+s32 export_state_to_record__10TObjPlayerFPvPv(u32, s32);
+s32 create__13TPlyOnCreatedFPvPv(u16, s32 *);
 
 int fn_802C4748(void* p);
 extern s32 local_client_id;
@@ -18,7 +14,7 @@ s32 sync_state__10TObjPlayerFi(s32 arg0) {
     u32 temp_r3;
     temp_r3 = update_battle_controller__10TObjPlayerFv();
     if (temp_r3 == 0U) {
-        create__13TPlyOnCreatedFPvPv((u16) local_client_id, (M2C_UNK *)fn_802C4748);
+        create__13TPlyOnCreatedFPvPv((u16) local_client_id, (s32 *)fn_802C4748);
         return 0;
     }
     export_state_to_record__10TObjPlayerFPvPv(temp_r3, arg0);
@@ -36,11 +32,6 @@ void sync_char_select_state__10TObjPlayerFv(void) { get_char_index__23TAdSingleP
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1);
@@ -53,7 +44,7 @@ s32 try_assign_battle_ctrl__10TObjPlayerFiUs(s32 arg0, u16 arg1) {
     if (temp == 0) {
         return 0;
     }
-    ((M2C_UNK (*)(void *, s32))export_player_record__10TObjPlayerFPvPv)((void *)((void *) (arg0)), (s32)(temp));
+    ((s32 (*)(void *, s32))export_player_record__10TObjPlayerFPvPv)((void *)((void *) (arg0)), (s32)(temp));
     return 1;
 }
 
@@ -63,16 +54,11 @@ s32 update_battle__10TObjPlayerFi(s32 arg0) {
     if (r == 0) {
         return 0;
     }
-    ((M2C_UNK (*)(void *, s32))export_player_record__10TObjPlayerFPvPv)((void *)(arg0), (s32)(r));
+    ((s32 (*)(void *, s32))export_player_record__10TObjPlayerFPvPv)((void *)(arg0), (s32)(r));
     return 1;
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Rec_802C456C { u8 pad[6]; u8 f6; u8 pad2[0x1c - 7]; };
 
@@ -100,9 +86,9 @@ void TObjPlayer__sub_802C4668(O_802C4668 *self, u32 c);
 E_802C4698 *TObjPlayer__sub_802C4698(O_802C4698 *self, s32 i);
 s8 get_tp_materials_clamped__10TObjPlayerFPv(void *);
 s8 get_hp_material_points__10TObjPlayerFPv(void *);
-M2C_UNK copy_player_visual_record(void *, void *);
-M2C_UNK TObjPlayer__sub_8013A748(void *, void *);
-M2C_UNK clamp_stats__10TObjPlayerFiPv(void *, void *, void *);
+s32 copy_player_visual_record(void *, void *);
+s32 TObjPlayer__sub_8013A748(void *, void *);
+s32 clamp_stats__10TObjPlayerFiPv(void *, void *, void *);
 s8 query_state_if_present__10TObjPlayerFPv(void *, void *);
 u8 TObjPlayer__sub_801BE7BC(void *);
 u8 get_equip_flags__10TObjPlayerFPv(void *);
@@ -111,14 +97,14 @@ u8 get_field_374_state__10TObjPlayerFPv(void *);
 u8 get_field_374__10TObjPlayerFPv(void *);
 s32 TObjPlayer__sub_801C0124(void *, s16);
 s32 get_ptr_4__10TObjPlayerFPv(void *);
-M2C_UNK set_flag_and_update__10TObjPlayerFPvi(int, void *);
+s32 set_flag_and_update__10TObjPlayerFPvi(int, void *);
 s32 get_class_stat_entry__10TObjPlayerFPv(void *);
 void split_capped_value__10TObjPlayerFUcPvPv(s32, u8 *, E_802C4698 *);
 s32 TObjPlayer__sub_802A1018();
-M2C_UNK copy_battle_mode__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK copy_byte_339_to_record__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK copy_mag_level_to_record__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK apply_pending_action__10TObjPlayerFii(void *, void *);
+s32 copy_battle_mode__10TObjPlayerFPvPv(void *, void *);
+s32 copy_byte_339_to_record__10TObjPlayerFPvPv(void *, void *);
+s32 copy_mag_level_to_record__10TObjPlayerFPvPv(void *, void *);
+s32 apply_pending_action__10TObjPlayerFii(void *, void *);
 void set_field_157__10TObjPlayerFPvUc(void* p, u8 v);
 void set_byte_13b__10TObjPlayerFPvUc(void* p, u8 v);
 void set_action_flags__10TObjPlayerFPvUc(void* p, u8 v);
@@ -176,11 +162,11 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
     s32 i;
     set_flag_80000__10TObjPlayerFPv((void *) (arg1));
     copy_player_visual_record((void *) (arg0 + 0x370), (void *) (arg1 + 0x85C));
-    M2C_FIELD(arg0, s8 *, 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (get_ptr_4__10TObjPlayerFPv((void *) (arg0))));
-    set_flag_and_update__10TObjPlayerFPvi((int) (M2C_FIELD(arg1, s32 *, 0xD00)), (void *) (arg1));
+    *(s8 *)((s8 *)arg0 + 0) = query_state_if_present__10TObjPlayerFPv((void *) (arg1), (void *) (get_ptr_4__10TObjPlayerFPv((void *) (arg0))));
+    set_flag_and_update__10TObjPlayerFPvi((int) (*(s32 *)((s8 *)arg1 + 0xD00)), (void *) (arg1));
     clamp_stats__10TObjPlayerFiPv((void *) (arg1), (void *) (arg0 + 0x34C), (void *) (get_class_stat_entry__10TObjPlayerFPv((void *) (arg1))));
-    M2C_FIELD(arg0, s8 *, 1) = get_hp_material_points__10TObjPlayerFPv((void *) (arg1));
-    M2C_FIELD(arg0, s8 *, 2) = get_tp_materials_clamped__10TObjPlayerFPv((void *) (arg1));
+    *(s8 *)((s8 *)arg0 + 1) = get_hp_material_points__10TObjPlayerFPv((void *) (arg1));
+    *(s8 *)((s8 *)arg0 + 2) = get_tp_materials_clamped__10TObjPlayerFPv((void *) (arg1));
     set_flag_e7__10TObjPlayerFPvUc((void *) (arg0), get_field_374__10TObjPlayerFPv((void *) (arg1)));
     set_flag_103__10TObjPlayerFPvUc((void *) (arg0), get_field_374_state__10TObjPlayerFPv((void *) (arg1)));
     set_action_flags__10TObjPlayerFPvUc((void *) (arg0), get_inventory_state__10TObjPlayerFPv((void *) (arg1)));
@@ -192,7 +178,7 @@ void export_player_record__10TObjPlayerFPvPv(u8 *arg0, u8 *arg1) {
         split_capped_value__10TObjPlayerFUcPvPv(TObjPlayer__sub_801C0124((void *) (arg1 + 0x428), i),
             TObjPlayer__sub_802C4688((O_802C4688 *) arg0, i), e);
     }
-    M2C_FIELD(arg0, s8 *, 3) = current_language;
+    *(s8 *)((s8 *)arg0 + 3) = current_language;
     if (TObjPlayer__sub_802A1018() != 0) {
         set_flag_40__10TObjPlayerFPv((void *) (arg0));
     }
@@ -225,7 +211,7 @@ void set_field_1ab__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x1ab) 
 void set_field_18f__10TObjPlayerFPvUc(void* p, u8 v) { *(u8*)((char*)p + 0x18f) = v; }
 
 void set_current_time__10TObjPlayerFi(s32 arg0) {
-    M2C_UNK spC;
+    s32 spC;
     s32 sp8;
     getDateStamp__FP9DateStamp((s32 *)((void *) (&spC)));
     DateToSeconds__FP9DateStampPi((s32 *)((void *) (&spC)), (s32 *)((void *) (&sp8)));

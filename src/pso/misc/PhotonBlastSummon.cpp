@@ -3,10 +3,6 @@ extern "C" { void setup_photon_blast_camera(u8 *); }
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_801A7310 {
@@ -18,7 +14,7 @@ struct Stack_801A7310 {
 };
 
 struct RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -121,11 +117,11 @@ void queue_photon_blast_hit(u32 identity, s32 kind, s32 allow_duplicate) {
 }
 
 void queue_deferred_photon_blast_support(void) {
-    ((M2C_UNK (*)(f32))queue_deferred_photon_blast_hit)(1.0f);
+    ((s32 (*)(f32))queue_deferred_photon_blast_hit)(1.0f);
 }
 
 void queue_photon_blast_support(void) {
-    ((M2C_UNK (*)(f32))queue_photon_blast_hit)(1.0f);
+    ((s32 (*)(f32))queue_photon_blast_hit)(1.0f);
 }
 typedef char RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_801A7310_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];
 void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
@@ -141,13 +137,13 @@ void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
     stack.spA = 0;
     stack.spC = 0.0f;
     stack.sp10 = 1.0f;
-    if ((M2C_FIELD(&TCameraCtrl__view_state.value, s32 *, 8) & 4) || (M2C_FIELD(&TCameraCtrl__view_state.value, s32 *, 8) & 8)) {
+    if ((*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 4) || (*(s32 *)((s8 *)(&TCameraCtrl__view_state.value) + 8) & 8)) {
         select_active_controller__11TCameraCtrlFc((int) (5));
     }
     cache_target_and_forward__11TCameraCtrlFii((void *) (&stack.sp8), (int) (0x4222));
     temp_r3 = (long) (arg0 + 0x38);
     set_scripted_camera_pose((int) (temp_r3), (int) (temp_r3), (void *) (arg0 + 0x5C));
-    M2C_FIELD(arg0, s32 *, 0xFC) = 1;
+    *(s32 *)((s8 *)arg0 + 0xFC) = 1;
 }
 
 }
@@ -157,14 +153,11 @@ void begin_photon_summon_camera(u8 *arg0, s8 arg1) {
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 typedef struct Vec_801A73B0 { f32 x, y, z; } Vec_801A73B0;
 
@@ -285,11 +278,11 @@ void spawn_photon_blast_opening_effects(s32 arg0, s32 arg1) {
 }
 
 void copy_effect_params(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s32 *, 8) = (s32) M2C_FIELD(arg1, s32 *, 8);
-    *(M2CCopy_C *)((s32) arg0 + 0xC) = *(const M2CCopy_C *)((s32) arg1 + 0xC);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 8) = (s32) *(s32 *)((s8 *)arg1 + 8);
+    *(ByteBlock_C *)((s32) arg0 + 0xC) = *(const ByteBlock_C *)((s32) arg1 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
 }
 void publish_photon_blast_joint_origins(void) {
     s32 i;
@@ -321,10 +314,6 @@ struct PhotonDrawOwner_801A7638 {
 
 struct PhotonDrawContext_801A7638 { PhotonAttachment_801A7638 *bindings; s32 binding_count; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 typedef struct Vec_801A7680 { f32 x, y, z; } Vec_801A7680;
 
 struct Eff_801A7680 {
@@ -403,24 +392,20 @@ void apply_all_default__8TFogCtrlFv(void) { apply_all__8TFogCtrlFii((void*)63, (
 
 #pragma push
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK set_ready__6TSceneFv();
+s32 set_ready__6TSceneFv();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
 void update__10TSceneSoraFv(s32 _w0);
-M2C_UNK reset_counter__6TSceneFv();
+s32 reset_counter__6TSceneFv();
 extern s32 TSceneSora__sky_active_flag;
 extern u32 TSceneSora__instance;
 void reset_state__10TSceneSoraFv(s32 _w0);
 u16 TCameraCtrl__sub_8006A5DC();
 void *get_scripted_camera_playback();
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void update_state__10TSceneSoraFPv(void *arg0);
 }
 
@@ -429,20 +414,20 @@ extern "C" {
 void enter_scene__10TSceneSoraFi(s32 arg0);
 void update_if_active__10TSceneSoraFPv(void *arg0);
 
-M2C_UNK TObjPlayer__sub_800D8A60();
-M2C_UNK TObjPlayer__sub_800D8A6C();
-M2C_UNK allow_rendering__7TObjectFv(void *);
+s32 TObjPlayer__sub_800D8A60();
+s32 TObjPlayer__sub_800D8A6C();
+s32 allow_rendering__7TObjectFv(void *);
 
-M2C_UNK disallow_rendering__7TObjectFv(void *);
+s32 disallow_rendering__7TObjectFv(void *);
 void update__11TCameraCtrlFv();
 
 extern void *tl_05;
 
 void update_if_active__10TSceneSoraFPv(void *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x154) & 1)) {
+    if (!(*(s32 *)((s8 *)arg0 + 0x154) & 1)) {
         update__11TCameraCtrlFv();
         update__10TSceneSoraFv((s32)(arg0));
-        ((M2C_UNK (*)(void *))update_all_default__8TFogCtrlFv)(arg0);
+        ((s32 (*)(void *))update_all_default__8TFogCtrlFv)(arg0);
         TObjPlayer__sub_800D8A6C();
     }
     if (tl_05 != 0) {
@@ -453,9 +438,9 @@ void update_if_active__10TSceneSoraFPv(void *arg0) {
 extern void *tl_05;
 
 void enter_scene__10TSceneSoraFi(s32 arg0) {
-    ((M2C_UNK (*)(void))setup_photon_blast_camera)();
+    ((s32 (*)(void))setup_photon_blast_camera)();
     reset_state__10TSceneSoraFv((s32)(arg0));
-    ((M2C_UNK (*)(s32))apply_all_default__8TFogCtrlFv)(arg0);
+    ((s32 (*)(s32))apply_all_default__8TFogCtrlFv)(arg0);
     TObjPlayer__sub_800D8A60();
     if (tl_05 != NULL) {
         disallow_rendering__7TObjectFv(tl_05);
@@ -475,13 +460,13 @@ void reset_state__10TSceneSoraFv(s32 _w0) {
 }
 void update_state__10TSceneSoraFPv(void *arg0) {
     s32 temp_r0;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xFC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xFC);
     switch (temp_r0) {
     case 0:
-        ((M2C_UNK (*)(f32))update_photon_blast_camera_pose)(1.0f);
+        ((s32 (*)(f32))update_photon_blast_camera_pose)(1.0f);
         return;
     case 1:
-        if ((M2C_FIELD(get_scripted_camera_playback(), u16 *, 2) & 1) || (TCameraCtrl__sub_8006A5DC() != 5)) {
+        if ((*(u16 *)((s8 *)(get_scripted_camera_playback()) + 2) & 1) || (TCameraCtrl__sub_8006A5DC() != 5)) {
             queue_destruction__7TObjectFv(arg0);
         }
         return;
@@ -495,8 +480,6 @@ void update_state__10TSceneSoraFPv(void *arg0) {
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
@@ -511,7 +494,7 @@ void __dt__10TObjMotionFv(void *, int);
 
 void update__11TCameraCtrlFv(void) { restore_player_cameras(); release_photon_blast_camera__11TCameraCtrlFv(); }
 
-extern M2C_UNK lbl_804C3248[];
+extern s32 lbl_804C3248[];
 
 struct Vec_801A7B14
 {
@@ -520,7 +503,7 @@ struct Vec_801A7B14
   f32 z;
 };
 
-M2C_UNK activate_camera_mode(int);
+s32 activate_camera_mode(int);
 u8 *get_player_by_client_id(s32);
 
 extern Vec_801A7B14 lbl_80446A08;
@@ -577,8 +560,8 @@ void setup_photon_blast_camera(u8 *arg0)
 
 void *destroy_photon_motion_object(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3248;
-        M2C_FIELD(arg0, M2C_UNK *, 0x148) = 0;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3248;
+        *(s32 *)((s8 *)arg0 + 0x148) = 0;
         __dt__10TObjMotionFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -588,34 +571,34 @@ void *destroy_photon_motion_object(void *arg0, s16 arg1) {
 }
 
 extern void *tl_06;
-extern M2C_UNK lbl_804C3248[];
+extern s32 lbl_804C3248[];
 
 void *photon_base_ct(void *arg0) {
     TObjMotion__ct(arg0, tl_06);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804C3248;
-    M2C_FIELD(arg0, u32 *, 0x134) = 0;
-    M2C_FIELD(arg0, u32 *, 0x100) = 0;
-    M2C_FIELD(arg0, u32 *, 0x138) = 0;
-    M2C_FIELD(arg0, f32 *, 0x150) = 1.0f;
-    M2C_FIELD(arg0, u32 *, 0x154) = 0;
-    M2C_FIELD(arg0, f32 *, 0x13C) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x140) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x144) = 0.0f;
-    M2C_FIELD(arg0, u32 *, 0x148) = 0;
-    M2C_FIELD(arg0, u16 *, 0x14C) = 0;
-    M2C_FIELD(arg0, u32 *, 0xFC) = 0;
-    M2C_FIELD(arg0, f32 *, 0x104) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x108) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x10C) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x110) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x114) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x118) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x11C) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x120) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x124) = 1.0f;
-    M2C_FIELD(arg0, f32 *, 0x128) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x12C) = 0.0f;
-    M2C_FIELD(arg0, f32 *, 0x130) = 1.0f;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3248;
+    *(u32 *)((s8 *)arg0 + 0x134) = 0;
+    *(u32 *)((s8 *)arg0 + 0x100) = 0;
+    *(u32 *)((s8 *)arg0 + 0x138) = 0;
+    *(f32 *)((s8 *)arg0 + 0x150) = 1.0f;
+    *(u32 *)((s8 *)arg0 + 0x154) = 0;
+    *(f32 *)((s8 *)arg0 + 0x13C) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x140) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x144) = 0.0f;
+    *(u32 *)((s8 *)arg0 + 0x148) = 0;
+    *(u16 *)((s8 *)arg0 + 0x14C) = 0;
+    *(u32 *)((s8 *)arg0 + 0xFC) = 0;
+    *(f32 *)((s8 *)arg0 + 0x104) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x108) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x10C) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x110) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x114) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x118) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x11C) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x120) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x124) = 1.0f;
+    *(f32 *)((s8 *)arg0 + 0x128) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x12C) = 0.0f;
+    *(f32 *)((s8 *)arg0 + 0x130) = 1.0f;
     return arg0;
 }
 

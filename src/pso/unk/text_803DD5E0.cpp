@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct S_803DDD78 { s8 a, b; };
 
@@ -14,7 +10,6 @@ struct Ent_803DD6DC { s32 f0; s32 f4; s32 f8; };
 
 struct Obj_803DD6DC { struct Ent_803DD6DC *ents; u32 count; };
 
-typedef s32 M2C_UNK;
 typedef struct Info_803DDA68 { u32 f0; s32 f4; s32 f8; s32 fC; s32 f10; s32 f14; } Info_803DDA68;
 
 typedef struct Ent_803DDA68 { Info_803DDA68 *info; s32 f4; s32 f8; } Ent_803DDA68;
@@ -69,22 +64,22 @@ s32 load_texture_list(struct Obj_803DD6DC *arg0);
 typedef void (*Fn_803DD6DC)(struct Obj_803DD6DC *, s32);
 extern Fn_803DD6DC lbl_804FC688[];
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
 s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
-M2C_UNK TObjPlayer__sub_803DAC1C(s32);
+s32 TObjPlayer__sub_803DAC1C(s32);
 s32 TObjPlayer__sub_803DD91C(Obj_803DDA68 *obj, s32 idx);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 s32 TObjPlayer__sub_803DDA68(Obj_803DDA68 *obj, s32 idx);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DA7E0();
 s32 find_free_slot__10TObjPlayerFPvPv(Slot_803DDB34 **, Rec_803DDB34 **);
 s32 TObjPlayer__sub_803DA8E4(s32, s32, s32, s32 *);
-M2C_UNK TObjPlayer__sub_803DAB7C(Obj_803DDA68 *, s32, s32);
+s32 TObjPlayer__sub_803DAB7C(Obj_803DDA68 *, s32, s32);
 extern s32 player_ref_entry_active_count;
 s32 TObjPlayer__sub_803DDB34(Obj_803DDA68 *obj, s32 idx);
 s32 TLobby__sub_803DDD2C(s32 arg0);
@@ -102,11 +97,11 @@ s32 calc_gvm_entry_stride(u16 arg0);
 void replace_gvm_texture_directory(GvmTextureList_803DDDC8* list, s32 stride, const GvmTextureHeader_803DDDC8* header);
 extern S_803DA7E0 lbl_8058D470;
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
-M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 s32 is_gvm_load_ok__10TObjPlayerFv(void);
 s32 TObjPlayer__sub_803DAB9C(s32, u32);
-M2C_UNK TObjPlayer__sub_803DAC1C(s32);
+s32 TObjPlayer__sub_803DAC1C(s32);
 s32 load_gvm_texture_archive(u32 *arg0, GvmTextureList_803DDDC8 *list);
 void DCFlushRange(void *, u32);
 void bswap_u32__6TLobbyFPv(u32 *p);
@@ -120,7 +115,7 @@ s32 Dolphin_DVDReadPrio(FileInfo_803DD784 *, void *, s32, s32, s32);
 u32 find_gvrt_texture_chunk(Desc_803DDA68 *, s32 *, u32);
 s32 TObjPlayer__sub_803D9E38(Obj_803DDA68 *, s32, s32 *, s32 *);
 void append_extension_if_missing__23TAdSinglePlyChrSelectGCFPvPvPv(char *, Info_803DDA68 *, void *);
-M2C_UNK TObjPlayer__sub_803DA7E0();
+s32 TObjPlayer__sub_803DA7E0();
 s32 TObjPlayer__sub_803DAC48(Obj_803DDA68 *, s32, s32, s32, Desc_803DDA68 *, s32 *);
 extern S_803DA7E0 lbl_8058D470;
 extern u8 gvrt_header_read_buffer[];
@@ -466,7 +461,7 @@ void seek_gvrt_chunk__6TLobbyFv(void) {
     s32 spC;
     s32 sp8;
     do {
-        spC = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+        spC = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C((s32)(4))) + 0);
         bswap32_in_place__6TLobbyFPv((u32 *)((void *) (&spC)));
         switch (spC) {
         case 0x4D4D4F43:
@@ -475,7 +470,7 @@ void seek_gvrt_chunk__6TLobbyFv(void) {
         case 0x494D5650:
         case 0x4C505647:
         case 0x43474D49:
-            sp8 = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+            sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C((s32)(4))) + 0);
             bswap32_in_place__6TLobbyFPv((u32 *)((void *) (&sp8)));
             TLobby__sub_803DDD40((s32)((int) (sp8)), (s32)((int) (1)));
             break;
@@ -483,7 +478,7 @@ void seek_gvrt_chunk__6TLobbyFv(void) {
             TLobby__sub_803DDD40((s32)((int) (-4)), (s32)((int) (1)));
             break;
         default:
-            sp8 = M2C_FIELD(((s32 *)TLobby__sub_803DDD2C((s32)(4))), s32 *, 0);
+            sp8 = *(s32 *)((s8 *)((s32 *)TLobby__sub_803DDD2C((s32)(4))) + 0);
             bswap32_in_place__6TLobbyFPv((u32 *)((void *) (&sp8)));
             TLobby__sub_803DDD40((s32)((int) (sp8)), (s32)((int) (1)));
             break;

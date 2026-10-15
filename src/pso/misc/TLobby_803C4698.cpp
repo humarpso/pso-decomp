@@ -1,18 +1,14 @@
 #include "pso/system/LscStream.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_803C5850_lbl_80572020 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
 struct RecoveredGlobal_803C588C_lbl_80572020 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
@@ -20,17 +16,15 @@ struct Hdr_803C46A4 { u16 type; s16 len; };
 
 typedef void (*RecoveredCallback_e2efd47cbcab)(s32, char *);
 
-typedef s32 M2C_UNK;
-
 struct Fmt_803C46DC { s16 a; s16 b; s16 c; s16 d; s32 e; s32 f; s32 g; s32 h; };
 
 extern "C" {
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
 void clear_error_callback__6TLobbyFv(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 extern RecoveredGlobal_803C5850_lbl_80572020 adx_error_message_buffer;
 extern s32 lobby_error_callback;
 extern s32 tlobby_error_callback_arg;
@@ -53,8 +47,8 @@ void notify_error__6TLobbyFPv(const char *arg0);
 s32 parse_header_loop_points__6TLobbyFPviPvPv(u8 *arg0, s32 arg1, u16 *arg2, u16 *arg3);
 s32 ARStartDMA(u8 *arg0, s32 arg1, s16 *arg2, u8 *arg3, s8 *arg4, s8 *arg5, u8 *arg6, s32 *arg7, s32 *arg8, s32 *arg9);
 void reset_sound_buffers__6TLobbyFv(void);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
 void TLobby__sub_803C4698(void);
 void clear_error_callback_state__6TLobbyFv(void);
 void clear_buffer_a00__6TLobbyFv(void);
@@ -66,7 +60,7 @@ void sj_ring_buffer_init(void);
 void TLobby__sub_803D2ED4(void);
 void SVM_SetCbSvrId__6TLobbyFiiii(int, int, void *, int);
 s32 svm_set_cb_svr__6TLobbyFiii(int, void *, int);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void ar_alloc__6TLobbyFv(void);
 void get_state_zero__6TLobbyFv(void);
 void process_connection_state__6TLobbyFv(void);
@@ -95,23 +89,23 @@ void dec_ref_and_shutdown__6TLobbyFv(void);
 void dispatch_receive_update__6TLobbyFv(void);
 void set_global_805D7520__6TLobbyFi(s32 arg0);
 void set_params__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK clear_session_buffer__6TLobbyFv();
-M2C_UNK decode_adx_stereo_downmix();
-M2C_UNK decode_adx_stereo();
-M2C_UNK update_active_stream_reads();
-M2C_UNK dec_ref_and_reset_tables__6TLobbyFv();
-M2C_UNK TLobby__sub_803CC884();
-M2C_UNK TLobby__sub_803CEF60();
+s32 clear_session_buffer__6TLobbyFv();
+s32 decode_adx_stereo_downmix();
+s32 decode_adx_stereo();
+s32 update_active_stream_reads();
+s32 dec_ref_and_reset_tables__6TLobbyFv();
+s32 TLobby__sub_803CC884();
+s32 TLobby__sub_803CEF60();
 void sj_memory_buffer_shutdown(void);
-M2C_UNK sj_ring_buffer_shutdown();
-M2C_UNK dec_ref_and_clear_buffer__6TLobbyFv();
-M2C_UNK TLobby__sub_803D3194();
-M2C_UNK set_callback_params__6TLobbyFii();
-M2C_UNK SVM_DelCbSvr__6TLobbyFii(int, void *);
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK shutdown_cleanup__6TLobbyFv();
-M2C_UNK si_get_type_async__6TLobbyFv();
+s32 sj_ring_buffer_shutdown();
+s32 dec_ref_and_clear_buffer__6TLobbyFv();
+s32 TLobby__sub_803D3194();
+s32 set_callback_params__6TLobbyFii();
+s32 SVM_DelCbSvr__6TLobbyFii(int, void *);
+s32 init_once__6TLobbyFv();
+s32 release_ref__6TLobbyFv();
+s32 shutdown_cleanup__6TLobbyFv();
+s32 si_get_type_async__6TLobbyFv();
 
 extern s32 TLobby__init_ref_count;
 
@@ -187,12 +181,12 @@ s32 parse_header_loop_points__6TLobbyFPviPvPv(u8 *arg0, s32 arg1, u16 *arg2, u16
     u8 var_r7;
     if (arg1 < 0x14) {
         var_r0 = -1;
-    } else if ((u16) M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+    } else if ((u16) *(u16 *)((s8 *)arg0 + 0) != 0x8000) {
         var_r0 = -2;
-    } else if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0x10) {
+    } else if ((s16) *(s16 *)((s8 *)arg0 + 2) < 0x10) {
         var_r0 = -1;
     } else {
-        var_r7 = M2C_FIELD(arg0, u8 *, 0x12);
+        var_r7 = *(u8 *)((s8 *)arg0 + 0x12);
         var_r0 = 0;
     }
     if (var_r0 != 0) {
@@ -202,16 +196,16 @@ s32 parse_header_loop_points__6TLobbyFPviPvPv(u8 *arg0, s32 arg1, u16 *arg2, u16
         if (arg1 < 0x20) {
             return -1;
         }
-        if ((u16) M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+        if ((u16) *(u16 *)((s8 *)arg0 + 0) != 0x8000) {
             return -2;
         }
-        if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0x1C) {
+        if ((s16) *(s16 *)((s8 *)arg0 + 2) < 0x1C) {
             return -1;
         }
-        arg2[0] = (u16) M2C_FIELD(arg0, u16 *, 0x18);
-        arg3[0] = (u16) M2C_FIELD(arg0, u16 *, 0x1A);
-        arg2[1] = (u16) M2C_FIELD(arg0, u16 *, 0x1C);
-        arg3[1] = (u16) M2C_FIELD(arg0, u16 *, 0x1E);
+        arg2[0] = (u16) *(u16 *)((s8 *)arg0 + 0x18);
+        arg3[0] = (u16) *(u16 *)((s8 *)arg0 + 0x1A);
+        arg2[1] = (u16) *(u16 *)((s8 *)arg0 + 0x1C);
+        arg3[1] = (u16) *(u16 *)((s8 *)arg0 + 0x1E);
     } else {
         arg2[0] = arg3[0] = arg2[1] = arg3[1] = 0;
     }
@@ -222,13 +216,13 @@ s32 TLobby__sub_803C48C8(u8 *arg0, s32 arg1, u16 *arg2) {
     if (arg1 < 0x12) {
         return -1;
     }
-    if (M2C_FIELD(arg0, u16 *, 0) != 0x8000) {
+    if (*(u16 *)((s8 *)arg0 + 0) != 0x8000) {
         return -2;
     }
-    if ((s16) M2C_FIELD(arg0, s16 *, 2) < 0xE) {
+    if ((s16) *(s16 *)((s8 *)arg0 + 2) < 0xE) {
         return -1;
     }
-    *arg2 = M2C_FIELD(arg0, u16 *, 0x10);
+    *arg2 = *(u16 *)((s8 *)arg0 + 0x10);
     return 0;
 }
 

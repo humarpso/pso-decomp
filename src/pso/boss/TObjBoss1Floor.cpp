@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -10,15 +6,15 @@ void TObjBoss1Floor__sub_8002CB40(void);
 void TObjBoss1Floor__sub_8002CB78(void);
 void create_instance__14TObjBoss1FloorFv(void);
 void render_boss_effect_object(u8 *arg0);
-M2C_UNK update_dragon_trail_uvs(void *);
-M2C_UNK TObjBoss1Floor__ct(void*, s32);
-M2C_UNK draw_chunk_object(void *);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-void* __nw__7TObjectFUl(M2C_UNK);
-M2C_UNK set_chunk_material_override_pair(int, int, void *, void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 update_dragon_trail_uvs(void *);
+s32 TObjBoss1Floor__ct(void*, s32);
+s32 draw_chunk_object(void *);
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+void* __nw__7TObjectFUl(s32);
+s32 set_chunk_material_override_pair(int, int, void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
 
 void TObjBoss1Floor__sub_8002CB40(void) {  }
 
@@ -46,19 +42,19 @@ void render_boss_effect_object(u8 *arg0) {
     set_global_param__8TObjFishFi((void *) (dragon_common_texture_list));
     update_dragon_trail_uvs((void *) (arg0 + 0x28));
     push_matrix();
-    translate_matrix((int) (0), (f32) (M2C_FIELD(arg0, f32 *, 0x28)), (f32) (M2C_FIELD(arg0, f32 *, 0x34)), (f32) (M2C_FIELD(arg0, f32 *, 0x30)));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x48) != 0) {
+    translate_matrix((int) (0), (f32) (*(f32 *)((s8 *)arg0 + 0x28)), (f32) (*(f32 *)((s8 *)arg0 + 0x34)), (f32) (*(f32 *)((s8 *)arg0 + 0x30)));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x48) != 0) {
         lbl_805D5660 = model_render_flags;
         lbl_805D5664 = chunk_polygon_flags_and_mask;
         lbl_805D5668 = chunk_polygon_flags_or_mask;
         model_render_flags |= 0x800;
         set_chunk_material_override_pair((int) (0xFF00), (int) (0x100), (void *) (chunk_polygon_flags_or_mask), (void *) (chunk_polygon_flags_and_mask));
-        draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
+        draw_chunk_object((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x38)));
         chunk_polygon_flags_and_mask = lbl_805D5664;
         chunk_polygon_flags_or_mask = lbl_805D5668;
         model_render_flags = lbl_805D5660;
     } else {
-        draw_chunk_object((void *) (M2C_FIELD(M2C_FIELD(lbl_805D4B50, void **, 0x42C), s32 *, 0x38)));
+        draw_chunk_object((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4B50 + 0x42C)) + 0x38)));
     }
     pop_matrix();
 }

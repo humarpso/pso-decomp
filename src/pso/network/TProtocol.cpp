@@ -16,10 +16,6 @@
 extern packet *server_packet;
 extern const char *port_map_copyright;
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #include "types.h"
 struct RecoveredFields_801DD33C_arg0 {
     u8 field_0;
@@ -703,7 +699,7 @@ void TProtocol::recv_user_ans(packet &pkt) {
 	}
 };
 
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1);
 
 void TProtocol::recv_room_info(packet &pkt) {
@@ -730,10 +726,10 @@ void TProtocol::recv_room_info(packet &pkt) {
 #pragma dont_inline off
 #pragma scheduling off
 extern "C" u8 *__as__14LobbyListEntryFRC14LobbyListEntry(void *arg0, const void *arg1) {
-    *(M2CCopy_C *)(arg0) = *(const M2CCopy_C *)(arg1);
+    *(ByteBlock_C *)(arg0) = *(const ByteBlock_C *)(arg1);
     return (u8 *)arg0;
 }
-struct M2CCopy_C;
+struct ByteBlock_C;
 #pragma pop
 
 void TProtocol::recv_generate_id(packet &pkt) {
@@ -746,8 +742,8 @@ void TProtocol::recv_generate_id(packet &pkt) {
 };
 
 u8 *__ct__15TRecvGenerateIDFRC15TRecvGenerateID(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
     __ct__16TGenGuildCardTagFRC16TGenGuildCardTag((u8 *)(arg0 + 8), (u8 *)(arg1 + 8));
     return arg0;
 }

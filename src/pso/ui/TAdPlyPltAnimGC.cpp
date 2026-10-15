@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V2_80355D5C { f32 x, y; };
 struct Obj_80355D5C { u8 pad0[0x3C]; f32 a, b, c, d; u8 pad4C[0x10]; f32 e, f; };
@@ -37,7 +33,7 @@ struct TAdPlyPltAnimGC_8035601C {
     s32 x78;
 };
 struct RecoveredGlobal_803560F0_lbl_804F142C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
@@ -49,7 +45,7 @@ s32 set_global_param__8TObjFishFi(s32);
 void begin_screen_draw(s32);
 void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(void *, f32);
-void set_draw_texture_and_color(M2C_UNK, s32);
+void set_draw_texture_and_color(s32, s32);
 extern s32 player_prate_texture_list_ptr;
 extern const f32 lbl_805DFFC8;
 extern const f32 lbl_805DFFCC;
@@ -63,8 +59,8 @@ extern Pos_80355DE0 lbl_80479314[];
 extern u32 lbl_8047933C[];
 extern const f32 lbl_805DFFD4;
 extern const f32 lbl_805DFFD8;
-M2C_UNK __dt__7TObjectFv(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 __dt__7TObjectFv(void *, s32);
+s32 __dl__7TObjectFPv(void *);
 extern RecoveredGlobal_803560F0_lbl_804F142C TAdPlyPltAnimGC__instances;
 extern void *__vt__15TAdPlyPltAnimGC[];
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -80,12 +76,12 @@ void TLobby__sub_803DA16C(void*);
 #pragma push
 #pragma fp_contract on
 void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x74) != 0) && (get_state_flag__9TMainTaskFv() != 1)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x74) != 0) && (get_state_flag__9TMainTaskFv() != 1)) {
         init_xyz_limits__10TObjPlayerFv();
         begin_screen_draw(1);
         set_global_param__8TObjFishFi(player_prate_texture_list_ptr);
-        set_draw_texture_and_color(0, (M2C_FIELD(arg0, u8 *, 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
-        draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) M2C_FIELD(arg0, s32 *, 0x70)) + lbl_805DFFC8);
+        set_draw_texture_and_color(0, (*(u8 *)((s8 *)arg0 + 0x6C) << 0x18) | 0xFF0000 | 0xFFFF);
+        draw_textured_quad_at_depth((u8 *)(arg0) + 0x1C, (lbl_805DFFCC * (f32) *(s32 *)((s8 *)arg0 + 0x70)) + lbl_805DFFC8);
         get_player__20TWindowSubStatusDispFv();
         reset_transform_state__10TObjPlayerFv();
     }
@@ -94,9 +90,9 @@ void render__15TAdPlyPltAnimGCFv(u8 *arg0) {
 
 void set_anim_state__19TAdPlyPltAnimCtrlGCFPvi(void *arg0, s32 arg1) {
     if (arg1 == 0) {
-        M2C_FIELD(arg0, s32 *, 0x78) = -1;
+        *(s32 *)((s8 *)arg0 + 0x78) = -1;
     }
-    M2C_FIELD(arg0, s32 *, 0x74) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x74) = arg1;
 }
 
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0) {
@@ -142,7 +138,7 @@ void *__dt__15TAdPlyPltAnimGCFv(void *arg0, s16 arg1) {
     s32 i;
 
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 0x18) = __vt__15TAdPlyPltAnimGC;
+        *(void ***)((s8 *)arg0 + 0x18) = __vt__15TAdPlyPltAnimGC;
         for (i = 0; i < 5; i++) {
             if ((u32)(&TAdPlyPltAnimGC__instances.value)[i] != 0U) {
                 (&TAdPlyPltAnimGC__instances.value)[i] = 0;
@@ -187,15 +183,15 @@ s32 get_or_create__15TAdPlyPltAnimGCFii(s32 arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     temp_r30 = arg1 * 4;
-    if ((u32) M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30) == 0U) {
+    if ((u32) *(s32 *)((s8 *)(&TAdPlyPltAnimGC__instances.value) + temp_r30) == 0U) {
         temp_r3 = __nw__7TObjectFUl((int) (0x7C));
         var_r0 = temp_r3;
         if (var_r0 != 0) {
             var_r0 = TAdPlyPltAnimGC__ct((int) (temp_r3), (void *) (arg0), (void *) (arg1));
         }
-        M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30) = var_r0;
+        *(s32 *)((s8 *)(&TAdPlyPltAnimGC__instances.value) + temp_r30) = var_r0;
     }
-    return M2C_FIELD(&TAdPlyPltAnimGC__instances.value, M2C_UNK *, temp_r30);
+    return *(s32 *)((s8 *)(&TAdPlyPltAnimGC__instances.value) + temp_r30);
 }
 
 void TAdPlyPltAnimGC__sub_8035615C(void) {

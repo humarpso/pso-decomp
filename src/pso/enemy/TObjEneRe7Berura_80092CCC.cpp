@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct BeruraBase_800931C8_80093180 { char pad[0x14]; };
 struct BeruraV_800931C8_80093180 : BeruraBase_800931C8_80093180 {
     virtual void m0();
@@ -237,7 +234,7 @@ struct VObj_18_444bc5 : VBase_18_444bc5 {
     virtual void m91();
     virtual void m92();
     virtual void m93();
-    virtual M2C_UNK m94();
+    virtual s32 m94();
 };
 
 struct F_8009331C {
@@ -367,27 +364,27 @@ void VecCopy__FP3VecPC3Vec(void *, const void *);
 s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK fn_80095DD0(void *);
-M2C_UNK fn_80095DF4(void *);
+s32 fn_80095DD0(void *);
+s32 fn_80095DF4(void *);
 s32 is_main_phase_15__9TObjEneDDFv();
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
-M2C_UNK update_player_state__9TObjEneDDFPv(void *, void *, int);
-M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
-M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
+s32 clear_global_flag_400__9TObjEneDDFv();
+s32 update_player_state__9TObjEneDDFPv(void *, void *, int);
+s32 update_primary_light__9TObjEneDDFPv(void *);
+s32 update_secondary_light__9TObjEneDDFPv(void *);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-M2C_UNK update_obstruction_fade(void *);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK scroll_strip_uvs(s32, int, int);
-M2C_UNK render_world_model__10TObjPlayerFPv(void *);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 update_obstruction_fade(void *);
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 scroll_strip_uvs(s32, int, int);
+s32 render_world_model__10TObjPlayerFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 end_effect_render__13TParticleCtrlFv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_global_state__16TObjEneRe7BeruraFi(void *);
 void advance_state__16TObjEneRe7BeruraFv(void);
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
 extern Vec_80092CCC lbl_80439EC4[];
@@ -417,7 +414,7 @@ extern "C" {
 
 void advance_state__16TObjEneRe7BeruraFv(void);
 void demo_frame_callback__16TObjEneRe7BeruraFv(void);
-M2C_UNK get_camera_ctrl__9TObjEneDDFPv(s32, s32);
+s32 get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 
 extern s32 re7_berura_demo_state;
 extern s32 lbl_805D4F6C;

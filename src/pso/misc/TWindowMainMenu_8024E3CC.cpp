@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -15,7 +11,7 @@ void TWindowMainMenu__vt4(void);
 void TWindowMainMenu__vt6(void);
 void set_entry_field_20__15TWindowMainMenuFii(s32 arg0, s32 arg1);
 int update_window_entry_list(void*, void*);
-M2C_UNK draw_window_tab(s32, s32, M2C_UNK, f32);
+s32 draw_window_tab(s32, s32, s32, f32);
 void * get_array_entry__20TWindowSubStatusDispFPvi(s32 a0 = 0, s32 a1 = 0);
 int initialize_subwindow__9TWindowDDFPv(void*);
 void render_status__14TWindowDepositFPvi(void *arg0, s32 arg1);
@@ -30,7 +26,7 @@ void TWindowMainMenu__vt6(void) {  }
 
 int TWindowMainMenu__sub_8024E3F4(void* p) { return (*(u16*)((char*)p + 0x1c) >> 6) & 0x1; }
 void set_entry_field_20__15TWindowMainMenuFii(s32 arg0, s32 arg1) {
-    M2C_FIELD(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1), s32 *, 0x20) = arg1;
+    *(s32 *)((s8 *)(get_array_entry__20TWindowSubStatusDispFPvi(arg0, 1)) + 0x20) = arg1;
 }
 
 }

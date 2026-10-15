@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Win_8025B0D0 {
     u16 flags; u8 pad2[6];
@@ -33,12 +29,12 @@ void update_palette_sprite__20TWindowSubStatusDispFv(void);
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1);
 void set_sprite_dimensions(void* p, f32 a, f32 b);
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK destroy__20TWindowSubStatusDispFPvs(void *, s16);
+s32 __dl__FPv(void *);
+s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2);
-M2C_UNK TWindowSubStatusDisp__sub_80256BDC(void *, void *);
-M2C_UNK copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
+s32 TWindowSubStatusDisp__sub_80256BDC(void *, void *);
+s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 
 void *window_uv_sprite_part_vtable[6] = {
     0, 0,
@@ -50,28 +46,28 @@ void *window_uv_sprite_part_vtable[6] = {
 
 void swap_sprite_v_edges(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
-    M2C_FIELD(arg0, f32 *, 0x28) = temp_f1;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x20);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
+    *(f32 *)((s8 *)arg0 + 0x28) = temp_f1;
 }
 
 void swap_sprite_u_edges(u8 *arg0) {
     f32 temp_f1;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C);
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg0, f32 *, 0x24);
-    M2C_FIELD(arg0, f32 *, 0x24) = temp_f1;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x1C);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg0 + 0x24);
+    *(f32 *)((s8 *)arg0 + 0x24) = temp_f1;
 }
 
 void set_sprite_uv_bounds(void* p, f32 a, f32 b, f32 c, f32 d) { *(f32*)((char*)p + 0x1c) = a; *(f32*)((char*)p + 0x20) = b; *(f32*)((char*)p + 0x24) = c; *(f32*)((char*)p + 0x28) = d; }
 
 void set_sprite_uv_from_pixels(u8 *arg0, f32 farg0, f32 farg1) {
     f32 x, y;
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (farg0 / 256.0f);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (farg1 / 256.0f);
-    x = farg0 + M2C_FIELD(arg0, f32 *, 0x10);
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (x / 256.0f);
-    y = farg1 + M2C_FIELD(arg0, f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) (y / 256.0f);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (farg0 / 256.0f);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (farg1 / 256.0f);
+    x = farg0 + *(f32 *)((s8 *)arg0 + 0x10);
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (x / 256.0f);
+    y = farg1 + *(f32 *)((s8 *)arg0 + 0x14);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) (y / 256.0f);
 }
 
 void set_sprite_dimensions(void* p, f32 a, f32 b) { *(f32*)((char*)p + 0x10) = a; *(f32*)((char*)p + 0x14) = b; }
@@ -139,7 +135,7 @@ void update_palette_sprite__20TWindowSubStatusDispFv(void) {  }
 
 void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
+        *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
         destroy__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__FPv(arg0);
@@ -150,41 +146,41 @@ void *TWindowSubStatusDisp__sub_8025B2DC(void *arg0, s16 arg1) {
 
 u8 *init_part_direct__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)((void *) (arg0)), (void *)((int) (arg2)));
-    M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
+    *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) M2C_FIELD(arg1, f32 *, 0x14);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) M2C_FIELD(arg1, f32 *, 0x18);
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) M2C_FIELD(arg1, f32 *, 0x20);
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(arg1, f32 *, 0x24);
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x30);
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s32 *, 0x34);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) *(f32 *)((s8 *)arg1 + 0x18);
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) *(f32 *)((s8 *)arg1 + 0x20);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) *(f32 *)((s8 *)arg1 + 0x24);
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x2C);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x30);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s32 *)((s8 *)arg1 + 0x34);
     return arg0;
 }
 
 u8 *init_part_scaled__20TWindowSubStatusDispFPvPvi(u8 *arg0, u8 *arg1, s32 arg2) {
     TWindowSubStatusDisp__sub_80256BDC((void *)(arg0), (void *)((void *) (arg2)));
-    M2C_FIELD(arg0, void ***, 4) = window_uv_sprite_part_vtable;
+    *(void ***)((s8 *)arg0 + 4) = window_uv_sprite_part_vtable;
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 8), (void *) (arg1 + 4));
     copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *) (arg0 + 0x10), (void *) (arg1 + 0xC));
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg1, f32 *, 0x14) / 256.0f);
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) (M2C_FIELD(arg1, f32 *, 0x18) / 256.0f);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg1 + 0x14) / 256.0f);
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) (*(f32 *)((s8 *)arg1 + 0x18) / 256.0f);
     {
-        f32 t0 = M2C_FIELD(arg1, f32 *, 0x14) + M2C_FIELD(arg0, f32 *, 0x10);
-        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (t0 / 256.0f);
+        f32 t0 = *(f32 *)((s8 *)arg1 + 0x14) + *(f32 *)((s8 *)arg0 + 0x10);
+        *(f32 *)((s8 *)arg0 + 0x24) = (f32) (t0 / 256.0f);
     }
     {
-        f32 t1 = M2C_FIELD(arg1, f32 *, 0x18) + M2C_FIELD(arg0, f32 *, 0x14);
-        M2C_FIELD(arg0, f32 *, 0x28) = (f32) (t1 / 256.0f);
+        f32 t1 = *(f32 *)((s8 *)arg1 + 0x18) + *(f32 *)((s8 *)arg0 + 0x14);
+        *(f32 *)((s8 *)arg0 + 0x28) = (f32) (t1 / 256.0f);
     }
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) M2C_FIELD(arg1, f32 *, 0x1C);
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) M2C_FIELD(arg1, s32 *, 0x24);
-    M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s32 *, 0x2C);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) *(f32 *)((s8 *)arg1 + 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x20);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) *(s32 *)((s8 *)arg1 + 0x24);
+    *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s32 *)((s8 *)arg1 + 0x2C);
     return arg0;
 }
 

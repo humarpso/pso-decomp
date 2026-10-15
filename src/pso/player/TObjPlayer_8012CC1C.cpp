@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-void *init_state__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2);
-M2C_UNK TItemWeapon__ct();
-M2C_UNK set_atp__10TObjPlayerFPvs(void *, M2C_UNK);
+void *init_state__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2);
+s32 TItemWeapon__ct();
+s32 set_atp__10TObjPlayerFPvs(void *, s32);
 
-extern M2C_UNK lbl_804A5550[];
+extern s32 lbl_804A5550[];
 
-void *init_state__10TObjPlayerFPviPv(void *arg0, M2C_UNK arg1, void *arg2) {
+void *init_state__10TObjPlayerFPviPv(void *arg0, s32 arg1, void *arg2) {
     TItemWeapon__ct();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804A5550;
-    if ((u8) M2C_FIELD(arg2, u8 *, 2) >= 5U) {
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804A5550;
+    if ((u8) *(u8 *)((s8 *)arg2 + 2) >= 5U) {
         set_atp__10TObjPlayerFPvs(arg0, -1);
     }
     return arg0;

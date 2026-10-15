@@ -1,7 +1,6 @@
 #include "types.h"
 struct O_80340040 { u8 pad[0x60]; void *o[10]; };
 
-typedef s32 M2C_UNK;
 struct Vec_8033FF78 { f32 x, y, z; };
 
 struct O_8033FF78 { u8 pad[0x24]; s32 f24; u8 pad28[0x40 - 0x28]; Vec_8033FF78 pos; };
@@ -28,16 +27,16 @@ struct O_8034009C { u8 pad[0x60]; void *o[10]; };
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
 void fn_80340040(O_80340040 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 P_8033FF78 *get_player_data__10TObjPlayerFi(int);
 s32 get_game_mode__6TLobbyFv();
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 vector_length(void *);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 extern const f32 lbl_805DFAF8;
 extern const f32 lbl_805DFB10;
 void check_any_player_near(O_8033FF78 *arg0);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 create__10TObjMapCsnFi(void *);
 extern E_8034009C lbl_8047843C[];
 void fn_8034009C(O_8034009C *arg0);

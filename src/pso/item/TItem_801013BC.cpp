@@ -1,27 +1,23 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Player_8010147C { u8 pad[0xF0]; u32 f_F0; };
 
 extern "C" {
-M2C_UNK get_current_matrix(void *);
-M2C_UNK rotate_matrix_by_node_angles(void *, void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-extern M2C_UNK (*model_node_draw_callback)(s32);
-extern M2C_UNK (*model_node_visit_callback)(void *);
+s32 get_current_matrix(void *);
+s32 rotate_matrix_by_node_angles(void *, void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+extern s32 (*model_node_draw_callback)(s32);
+extern s32 (*model_node_visit_callback)(void *);
 extern u8 *model_node_matrix_output_cursor;
 void draw_model_node_tree(u8 *arg0);
 u16 obj_getField1c(void *);
-M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
-M2C_UNK TLobby__sub_80103B04();
-M2C_UNK set_indexed_flags(void *, int, int);
-M2C_UNK unregister_object_by_id(void *);
+s32 set_item_count__6TLobbyFPvs(s32, s32);
+s32 TLobby__sub_80103B04();
+s32 set_indexed_flags(void *, int, int);
+s32 unregister_object_by_id(void *);
 void unregister_from_world__5TItemFi(s32 arg0);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 u32 test_item_flags__10TObjPlayerFPvUi(void *, int);
@@ -40,30 +36,30 @@ void destroy__5TItemFPv(void* p);
 s32 register_attack__5TItemFPv(void *arg0);
 void set_mode__5TItemFPvc(void *arg0, s8 arg1);
 void update_item_data__5TItemFPv(void *arg0);
-s32 get_item_chunk_buffer(M2C_UNK);
+s32 get_item_chunk_buffer(s32);
 void is_custom_name_srank__9TItemDataFPv(void *);
 void is_rare_item__9TItemDataFPv(void *);
-M2C_UNK format_item_name__9TItemDataFv(M2C_UNK *, s32);
+s32 format_item_name__9TItemDataFv(s32 *, s32);
 int unregister_item__5TItemFPv(void*);
 s32 pop_free_id__6TLobbyFv();
 void calc_display_grade__9TItemDataFPv(void *);
-M2C_UNK clear_player_status_flag__10TObjPlayerFPviUi(s32, M2C_UNK, M2C_UNK);
+s32 clear_player_status_flag__10TObjPlayerFPviUi(s32, s32, s32);
 void copy_to_item_data__5TItemFPvPv(void *, void *);
 int disallow_rendering__7TObjectFv(void*);
 void get_item_price_if_valid__24TShopEquipmentSellWindowFUi(void *);
 int queue_destruction__7TObjectFv(void*);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(s32);
-M2C_UNK set_item_count__6TLobbyFPvs(s32, s32);
+s32 reset_photon_effect__10TObjPlayerFPv(s32);
+s32 set_item_count__6TLobbyFPvs(s32, s32);
 
 void update_item_data__5TItemFPv(void *arg0) {
-    M2C_UNK sp8[4];
+    s32 sp8[4];
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     is_custom_name_srank__9TItemDataFPv(&sp8);
 }
 
 void TItem__sub_801013E8(void *arg0) {
-    M2C_UNK sp8[4];
+    s32 sp8[4];
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     is_rare_item__9TItemDataFPv(&sp8);
@@ -72,7 +68,7 @@ void TItem__sub_801013E8(void *arg0) {
 void destroy__5TItemFPv(void* p) { unregister_item__5TItemFPv(p); disallow_rendering__7TObjectFv(p); queue_destruction__7TObjectFv(p); }
 
 void copy_item_data_and_process__5TItemFPv(void *arg0) {
-    M2C_UNK sp8[4];
+    s32 sp8[4];
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     get_item_price_if_valid__24TShopEquipmentSellWindowFUi(&sp8);
@@ -122,19 +118,19 @@ void claim_ownership__5TItemFii(s32 arg0, s32 arg1) {
 
 void set_mode__5TItemFPvc(void *arg0, s8 arg1) {
     if (arg1 == 3) {
-        M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
     }
     if (arg1 == 0) {
-        M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+        *(s32 *)((s8 *)arg0 + 0xF0) = 0;
         claim_ownership__5TItemFii((s32)(arg0), (s32)(0));
     } else {
         unregister_from_world__5TItemFi((s32)(arg0));
     }
-    M2C_FIELD(arg0, s8 *, 0xEB) = arg1;
+    *(s8 *)((s8 *)arg0 + 0xEB) = arg1;
 }
 
 s32 register_attack__5TItemFPv(void *arg0) {
-    M2C_UNK sp8[8];
+    s32 sp8[8];
     s32 temp_r3;
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(sp8));
@@ -144,7 +140,7 @@ s32 register_attack__5TItemFPv(void *arg0) {
 }
 
 void calc_display_grade__5TItemFPv(void *arg0) {
-    M2C_UNK sp8[4];
+    s32 sp8[4];
 
     copy_to_item_data__5TItemFPvPv((void *)(arg0), (void *)(&sp8));
     calc_display_grade__9TItemDataFPv(&sp8);
@@ -154,21 +150,21 @@ void draw_model_node_tree(u8 *arg0) {
     u8 *var_r31;
     var_r31 = arg0;
     do {
-        temp_r30 = M2C_FIELD(var_r31, s32 *, 0);
+        temp_r30 = *(s32 *)((s8 *)var_r31 + 0);
         if ((u32) (temp_r30 & 7) == 7) {
             push_matrix();
             if (model_node_matrix_output_cursor != NULL) {
                 get_current_matrix(model_node_matrix_output_cursor);
                 model_node_matrix_output_cursor += 0x30;
             }
-            if (((M2C_UNK (*)(void *)) model_node_visit_callback) != NULL) {
+            if (((s32 (*)(void *)) model_node_visit_callback) != NULL) {
                 model_node_visit_callback(var_r31);
             }
-            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) model_node_draw_callback) != NULL)) {
-                model_node_draw_callback(M2C_FIELD(var_r31, s32 *, 4));
+            if (!(temp_r30 & 8) && (((s32 (*)(s32)) model_node_draw_callback) != NULL)) {
+                model_node_draw_callback(*(s32 *)((s8 *)var_r31 + 4));
             }
             if (!(temp_r30 & 0x10)) {
-                draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));
+                draw_model_node_tree(*(u8 **)((s8 *)var_r31 + 0x2C));
             }
             pop_matrix();
         } else {
@@ -182,22 +178,22 @@ void draw_model_node_tree(u8 *arg0) {
             if (!(temp_r30 & 4)) {
                 scale_current_matrix((void *) (var_r31 + 0x20));
             }
-            if (((M2C_UNK (*)(void *)) model_node_visit_callback) != NULL) {
+            if (((s32 (*)(void *)) model_node_visit_callback) != NULL) {
                 model_node_visit_callback(var_r31);
             }
             if (model_node_matrix_output_cursor != NULL) {
                 get_current_matrix(model_node_matrix_output_cursor);
                 model_node_matrix_output_cursor += 0x30;
             }
-            if (!(temp_r30 & 8) && (((M2C_UNK (*)(s32)) model_node_draw_callback) != NULL)) {
-                model_node_draw_callback(M2C_FIELD(var_r31, s32 *, 4));
+            if (!(temp_r30 & 8) && (((s32 (*)(s32)) model_node_draw_callback) != NULL)) {
+                model_node_draw_callback(*(s32 *)((s8 *)var_r31 + 4));
             }
             if (!(temp_r30 & 0x10)) {
-                draw_model_node_tree(M2C_FIELD(var_r31, u8 **, 0x2C));
+                draw_model_node_tree(*(u8 **)((s8 *)var_r31 + 0x2C));
             }
             pop_matrix();
         }
-        var_r31 = M2C_FIELD(var_r31, u8 **, 0x30);
+        var_r31 = *(u8 **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
 }
 

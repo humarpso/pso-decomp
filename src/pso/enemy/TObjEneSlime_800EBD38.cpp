@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 create__12TObjEneSlimeFi(s32 arg0);
 void spawn_pair__12TObjEneSlimeFv(void);
-void *load_resource_from_descriptor(void *, s32, M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
+void *load_resource_from_descriptor(void *, s32, s32 *, s32, s32, s32);
 s32 TObjControl__ct(s32, s32);
 s32 TObjEneSlime__ct(s32, s32, s32);
-s32 __nw__7TObjectFUl(M2C_UNK);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-M2C_UNK spawn_child__12TObjEneSlimeFsiiff(M2C_UNK, s32, s32, f32, f32);
+s32 __nw__7TObjectFUl(s32);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 spawn_child__12TObjEneSlimeFsiiff(s32, s32, s32, f32, f32);
 
-extern M2C_UNK slime_pair_resource_descriptor[];
+extern s32 slime_pair_resource_descriptor[];
 extern void *slime_bml_resource;
 extern f32 lbl_805DA66C;
 extern f32 lbl_805DA6B4;
@@ -30,10 +26,10 @@ void spawn_pair__12TObjEneSlimeFv(void) {
         temp_r4 = load_resource_from_descriptor(temp_r4, 1, slime_pair_resource_descriptor, 0, 0, 0);
     }
     slime_bml_resource = temp_r4;
-    temp_r5 = M2C_FIELD(temp_r4, void **, 0x42C);
-    spawn_child__12TObjEneSlimeFsiiff(0x28, M2C_FIELD(temp_r5, s32 *, 0x48), M2C_FIELD(temp_r5, s32 *, 0x4C), lbl_805DA66C, lbl_805DA6B4);
-    temp_r5_2 = M2C_FIELD(slime_bml_resource, void **, 0x42C);
-    spawn_child__12TObjEneSlimeFsiiff(0x29, M2C_FIELD(temp_r5_2, s32 *, 0x58), M2C_FIELD(temp_r5_2, s32 *, 0x5C), lbl_805DA66C, lbl_805DA6B4);
+    temp_r5 = *(void **)((s8 *)temp_r4 + 0x42C);
+    spawn_child__12TObjEneSlimeFsiiff(0x28, *(s32 *)((s8 *)temp_r5 + 0x48), *(s32 *)((s8 *)temp_r5 + 0x4C), lbl_805DA66C, lbl_805DA6B4);
+    temp_r5_2 = *(void **)((s8 *)slime_bml_resource + 0x42C);
+    spawn_child__12TObjEneSlimeFsiiff(0x29, *(s32 *)((s8 *)temp_r5_2 + 0x58), *(s32 *)((s8 *)temp_r5_2 + 0x5C), lbl_805DA66C, lbl_805DA6B4);
 }
 
 extern s32 tl_04;

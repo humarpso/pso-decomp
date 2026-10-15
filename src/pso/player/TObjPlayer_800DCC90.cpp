@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct Vec_800DCD04 { f32 x, y, z; };
 extern "C" { extern const Vec_800DCD04 lbl_8043C920 = {0.0f, 0.0f, 0.0f}; }
@@ -44,13 +42,13 @@ extern "C" { u8 *find_entity_by_id(s16); }
 extern "C" {
 Obj_800DC4B4 *find_active_entity_by_id(u16);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, int);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 VecCopy__FP3VecPC3Vec(void *, int);
+s32 play_sound_effect(int, void *, int, int);
 void enable__13TParticleCtrlFPv(void *);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 void scale_velocity__19TObjGyaranzoMissileFPvf(void *, f32);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 vec3_add_to(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
 u32 csnVector(void *, void *, int);
 f32 xyz_distance_squared(void *, void *);
 void set_flag_20000__10TObjPlayerFPv(void *);
@@ -135,8 +133,6 @@ void update_homing_shot__10TObjPlayerFPv(Me_800DC9EC *arg0) {
 
 }
 
-typedef s32 M2C_UNK;
-
 struct Obj_800DCD04 {
     u8 pad0[0x18];
     void *vt;
@@ -165,7 +161,7 @@ void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix_from(void *);
 void pop_matrix(void);
-extern M2C_UNK lbl_80494E48[];
+extern s32 lbl_80494E48[];
 extern u8 identity_matrix[];
 extern const f32 lbl_805D5260;
 extern f32 lbl_805D5264;
@@ -183,12 +179,12 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_80494E48[];
+extern s32 lbl_80494E48[];
 
 void *destroy_particle_obj__10TObjPlayerFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80494E48;
-        if (M2C_FIELD(arg0, void **, 0xF8) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF8)); M2C_FIELD(arg0, M2C_UNK *, 0xF8) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80494E48;
+        if (*(void **)((s8 *)arg0 + 0xF8) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF8)); *(s32 *)((s8 *)arg0 + 0xF8) = 0; }
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

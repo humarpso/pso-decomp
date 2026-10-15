@@ -16,10 +16,7 @@ extern const char *bm_fe_obj_o_hahen_motion_names[];
 extern const char *bm_fe_obj_o_hahen_model_names[10];
 extern BmlResourceDescriptor TOWreckAncient__resource_descriptor;
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base1_8017dce0 { char pad[0x18]; };
 struct VObj1_8017dce0 : Base1_8017dce0 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -27,14 +24,14 @@ struct VObj1_8017dce0 : Base1_8017dce0 {
     virtual s32 m8(f32, f32);
 };
 
-struct RecoveredGlobal_8017DDA8_lbl_804B53D0 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8017DDA8_lbl_804B53D0 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017DDA8_lbl_804B53D0_size[sizeof(RecoveredGlobal_8017DDA8_lbl_804B53D0) == 0x10 ? 1 : -1];
 
-struct RecoveredGlobal_8017DDA8_lbl_804B5408 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8017DDA8_lbl_804B5408 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8017DDA8_lbl_804B5408_size[sizeof(RecoveredGlobal_8017DDA8_lbl_804B5408) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_8017DE94___vt__14TOWreckAncient {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x38];
 };
 
@@ -48,7 +45,7 @@ void load_resources__14TOWreckAncientFv(void);
 s32 construct_collider_proxy__10TObjPlayerFPv(void *, int);
 s32 TObjFish__sub_8001EDB0(void *, void *);
 s32 get_bml_model(void *, void *);
-extern M2C_UNK __vt__14TOWreckAncient[];
+extern s32 __vt__14TOWreckAncient[];
 extern s32 TOWreckAncient__name;
 extern u32 wreck_ancient_bml_resource;
 extern s32 tl_05;
@@ -63,25 +60,25 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1);
 void draw_model__14TOWreckAncientFPv(u8 *arg0);
 void free_statics__14TOWreckAncientFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK draw_ginja_object(s32);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_particle_controller__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 post_translate_matrix(void *);
+s32 draw_ginja_object(s32);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_particle_controller__10TObjPlayerFPvs(void *, s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 void draw_model__14TOWreckAncientFPv(u8 *arg0) {
     VObj1_8017dce0 *self = (VObj1_8017dce0 *)arg0;
-    if (self->m8(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
+    if (self->m8(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, s32 *, 0x24));
-        draw_ginja_object(M2C_FIELD(arg0, s32 *, 0x34));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
+        set_global_param__8TObjFishFi(*(s32 *)((s8 *)arg0 + 0x24));
+        draw_ginja_object(*(s32 *)((s8 *)arg0 + 0x34));
         pop_matrix();
     }
 }
@@ -100,7 +97,7 @@ void free_statics__14TOWreckAncientFv(void) {
     }
 }
 
-extern M2C_UNK __vt__14TOWreckAncient[];
+extern s32 __vt__14TOWreckAncient[];
 
 void load_resources__14TOWreckAncientFv(void) {
     s32 temp_r3;
@@ -123,8 +120,8 @@ void load_resources__14TOWreckAncientFv(void) {
 
 void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TOWreckAncient;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TOWreckAncient;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_particle_controller__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -136,12 +133,12 @@ void *__dt__14TOWreckAncientFv(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8017DE94___vt__14TOWreckAncient_size[sizeof(RecoveredGlobal_8017DE94___vt__14TOWreckAncient) == 0x3C ? 1 : -1];
 u8 *TOWreckAncient__ct(u8 *arg0, s32 arg1) {
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (int) (tl_05));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOWreckAncient__name;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
-    M2C_FIELD(arg0, f32 *, 0xAC) = (f32) lbl_805DBAD0;
-    M2C_FIELD(arg0, f32 *, 0xB0) = (f32) lbl_805DBAD4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8017DE94___vt__14TOWreckAncient *)&__vt__14TOWreckAncient).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOWreckAncient__name;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&wreck_ancient_bml_resource)), (void *) (arg1));
+    *(f32 *)((s8 *)arg0 + 0xAC) = (f32) lbl_805DBAD0;
+    *(f32 *)((s8 *)arg0 + 0xB0) = (f32) lbl_805DBAD4;
     return arg0;
 }
 

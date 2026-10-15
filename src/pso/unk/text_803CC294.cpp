@@ -1,20 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_803CC500_lbl_8047C910 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_803CC53C_lbl_8047C93C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x70];
 };
 
 struct RecoveredGlobal_803CCB5C_lbl_8047CA28 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x150];
 };
 
@@ -58,7 +55,6 @@ struct Snd_803CC980 {
     s32 f14; u8 pad_18[0x20 - 0x18]; s32 f20; s32 f24; s32 f28;
 };
 
-typedef s32 M2C_UNK;
 struct Ent_803CC884 {
     s8 used; s8 state; s8 f2; u8 f3; u32 f4; VObj_803CC980 *f8; u8 pad_c[0x14 - 0xC];
     s32 f14; u8 pad_18[0x20 - 0x18]; s32 f20; s32 f24; s32 f28; u8 pad_2c[0x138 - 0x2C];
@@ -69,93 +65,93 @@ struct Hdr_803CCE9C { u8 used; u8 f1; };
 struct LogHdr_803CCE9C { u8 pad[0x6]; u16 seq; };
 
 extern "C" {
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC500_lbl_8047C910 lbl_8047C910;
 s32 adxf_get_fsize_byte__6TLobbyFPv(u8 *arg0);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 notify_error__6TLobbyFPv(void *);
 extern RecoveredGlobal_803CC53C_lbl_8047C93C lbl_8047C93C;
 s32 TLobby__sub_803CC53C(u8 *arg0);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 notify_error__6TLobbyFPv(void *);
 s32 TLobby__sub_803CCB98();
 extern RecoveredGlobal_803CCB5C_lbl_8047CA28 lbl_8047CA28;
-s32 read_checked_align__6TLobbyFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 read_checked_align__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
+s32 notify_error__6TLobbyFPv(void *);
 extern char lbl_8047C88C[];
 s32 TLobby__sub_803CC4C0(Obj_803CC4C0 *p);
-M2C_UNK strncpy(void *, void *, int);
-M2C_UNK notify_error__6TLobbyFPv(void *);
-extern M2C_UNK adx_afs_partition_id_range_error[];
-extern M2C_UNK afs_file_id_out_of_range_error[];
+s32 strncpy(void *, void *, int);
+s32 notify_error__6TLobbyFPv(void *);
+extern s32 adx_afs_partition_id_range_error[];
+extern s32 afs_file_id_out_of_range_error[];
 extern Ent_803CC294 *afs_archive_toc_table[];
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
 s32 memcmp(void *, void *, int);
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 notify_error__6TLobbyFPv(void *);
 s32 TLobby__sub_803CCB98();
-M2C_UNK TLobby__sub_803CD804();
-extern M2C_UNK lbl_8047C818[];
+s32 TLobby__sub_803CD804();
+extern s32 lbl_8047C818[];
 extern Ent_803CC294 *afs_archive_toc_table[];
 extern s32 lobby_adxf_current_file_id;
 extern Strm_803CD5C4 *lobby_adxf_open_file_handle;
 extern s32 lobby_afs_toc_entry_index;
 extern u8 *lbl_805D75EC;
-extern M2C_UNK lbl_805E0D88;
+extern s32 lbl_805E0D88;
 s32 read_afs_toc__6TLobbyFi(s32 arg0);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
+s32 notify_error__6TLobbyFPv(void *);
 u32 adxstm_open_fname_range__6TLobbyFPviiii(Buf_803CD16C *, s32, s32, s32, s32);
 s32 get_afs_file_info__6TLobbyFiiPvPvPvPv(s32 arg0, s32 arg1, char *arg2, s32 *arg3, s32 *arg4, s32 *arg5);
-extern M2C_UNK lbl_8047CB7C[];
+extern s32 lbl_8047CB7C[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open_afs__6TLobbyFii(s32 arg0, s32 arg1);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK notify_error__6TLobbyFPv(void *);
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
+s32 notify_error__6TLobbyFPv(void *);
 s32 get_field_14__6TLobbyFPv(u32);
 u32 TLobby__sub_803C8CDC(u32, s32, s32);
-extern M2C_UNK lbl_8047CBA4[];
-extern M2C_UNK lbl_8047CBD8[];
+extern s32 lbl_8047CBA4[];
+extern s32 lbl_8047CBD8[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 adxf_log_write_index;
 Slot_803CD16C *adxf_open__6TLobbyFUii(u32 arg0, s32 arg1);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK notify_error__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
-M2C_UNK TLobby__sub_803C89C4(u32);
-M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
-extern M2C_UNK lbl_8047C9B0[];
-extern M2C_UNK lbl_8047C9D4[];
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
+s32 notify_error__6TLobbyFPv(void *);
+s32 TLobby__sub_803C85AC(u32, s32 *);
+s32 TLobby__sub_803C89C4(u32);
+s32 invalidate_cache__6TLobbyFv(s32, s32);
+extern s32 lbl_8047C9B0[];
+extern s32 lbl_8047C9D4[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern s32 adxf_log_write_index;
 extern s32 lbl_805D75E4;
 s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
+s32 TLobby__sub_803C85AC(u32, s32 *);
 s8 TLobby__sub_803C8B2C(u32);
-M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
+s32 invalidate_cache__6TLobbyFv(s32, s32);
 extern Slot_803CD16C adxf_file_handle_pool[];
 extern s32 lbl_805D75E4;
 void TLobby__sub_803CC884(void);
 extern Slot_803CD16C adxf_file_handle_pool[];
 void release_used_slots__6TLobbyFv(void);
-M2C_UNK release_ref__6TLobbyFv();
-M2C_UNK init_once__6TLobbyFv();
-M2C_UNK notify_error__6TLobbyFPv(void *);
-M2C_UNK TLobby__sub_803C85AC(u32, s32 *);
-M2C_UNK TLobby__sub_803C89C4(u32);
-M2C_UNK TLobby__sub_803C8B38(u32);
-M2C_UNK invalidate_cache__6TLobbyFv(s32, s32);
+s32 release_ref__6TLobbyFv();
+s32 init_once__6TLobbyFv();
+s32 notify_error__6TLobbyFPv(void *);
+s32 TLobby__sub_803C85AC(u32, s32 *);
+s32 TLobby__sub_803C89C4(u32);
+s32 TLobby__sub_803C8B38(u32);
+s32 invalidate_cache__6TLobbyFv(s32, s32);
 void *memset(void *, int, unsigned long);
-extern M2C_UNK lbl_8047C9B0[];
-extern M2C_UNK lbl_8047C9D4[];
+extern s32 lbl_8047C9B0[];
+extern s32 lbl_8047C9D4[];
 extern LogHdr_803CD16C lbl_8057B7B0;
 extern LogEnt_803CD16C lbl_8057B7D0[];
 extern s32 adxf_log_write_index;
@@ -239,7 +235,7 @@ s32 adxf_get_fsize_byte__6TLobbyFPv(u8 *arg0) {
         notify_error__6TLobbyFPv((void *) (&lbl_8047C910.value));
         return -3;
     }
-    return M2C_FIELD(arg0, s32 *, 0x10);
+    return *(s32 *)((s8 *)arg0 + 0x10);
 }
 typedef char RecoveredGlobal_803CC53C_lbl_8047C93C_size[sizeof(RecoveredGlobal_803CC53C_lbl_8047C93C) == 0x74 ? 1 : -1];
 s32 TLobby__sub_803CC53C(u8 *arg0) {
@@ -247,7 +243,7 @@ s32 TLobby__sub_803CC53C(u8 *arg0) {
         notify_error__6TLobbyFPv((void *) (&lbl_8047C93C.value));
         return -3;
     }
-    return M2C_FIELD(arg0, s32 *, 0xC);
+    return *(s32 *)((s8 *)arg0 + 0xC);
 }
 typedef char RecoveredGlobal_803CCB5C_lbl_8047CA28_size[sizeof(RecoveredGlobal_803CCB5C_lbl_8047CA28) == 0x154 ? 1 : -1];
 
@@ -341,7 +337,7 @@ s32 adxf_stop__6TLobbyFPv(Snd_803CC980 *arg0) {
 }
 #pragma pop
 
-s32 read_checked_align__6TLobbyFiii(M2C_UNK arg0, M2C_UNK arg1, s32 arg2) {
+s32 read_checked_align__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     if (arg2 & 0x1F) {
         notify_error__6TLobbyFPv((void *) (&lbl_8047CA28.value));
         return -3;

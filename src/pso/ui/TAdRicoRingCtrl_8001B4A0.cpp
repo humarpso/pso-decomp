@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_8001B8AC {
@@ -12,12 +8,12 @@ struct Stack_8001B8AC {
 };
 
 struct RecoveredGlobal_8001B8AC_lbl_8043481C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_8001B8AC___vt__15TAdRicoRingCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -27,7 +23,6 @@ struct Obj_8001B824 { u8 pad[0x1c]; u32 slot[2]; };
 
 struct Vt_8001B824 { s32 value; u8 remaining[0x14]; };
 
-typedef s32 M2C_UNK;
 struct Obj_8001B534 { u8 pad0[0x1c]; u32 slot[2]; u8 pad24[4]; f32 f28; };
 
 extern "C" {
@@ -66,8 +61,8 @@ extern "C" {
 
 void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
 void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0);
-M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, int);
-M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
+s32 clear_flags__11TAdRicoRingFPvUi(void *, int);
+s32 set_flags__10TObjPlayerFPvUi(void *, int);
 s32 test_flags_any(void *, int);
 
 extern const f32 lbl_805D7E4C;
@@ -105,14 +100,14 @@ void start_fade_all__15TAdRicoRingCtrlFPvf(Obj_8001B534 *self, f32 x) {
 #pragma opt_common_subs off
 void run_task__15TAdRicoRingCtrlFv(u8 *arg0) {
     f32 temp_f1;
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) (M2C_FIELD(arg0, f32 *, 0x24) + M2C_FIELD(arg0, f32 *, 0x28));
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x24);
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)((s8 *)arg0 + 0x24) + *(f32 *)((s8 *)arg0 + 0x28));
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x24);
     if (temp_f1 < lbl_805D7E4C) {
-        M2C_FIELD(arg0, f32 *, 0x24) = (f32) lbl_805D7E4C;
+        *(f32 *)((s8 *)arg0 + 0x24) = (f32) lbl_805D7E4C;
         return;
     }
     if (temp_f1 > (*(f32 *)&TAdRicoRingCtrl__data_805D7E50)) {
-        M2C_FIELD(arg0, f32 *, 0x24) = (f32) (*(f32 *)&TAdRicoRingCtrl__data_805D7E50);
+        *(f32 *)((s8 *)arg0 + 0x24) = (f32) (*(f32 *)&TAdRicoRingCtrl__data_805D7E50);
     }
 }
 #pragma pop
@@ -142,25 +137,25 @@ u8 *TAdRicoRingCtrl__ct(u8 *arg0, s32 arg1) {
     u32 temp_r3;
     u32 temp_r3_2;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__15TAdRicoRingCtrl.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdRicoRingCtrl__class_name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x1C);
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__15TAdRicoRingCtrl.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TAdRicoRingCtrl__class_name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x1C);
     if (temp_r3 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFPvf((int) (M2C_FIELD(arg0, u32 *, 0x1C)), (f32) (lbl_805D7E4C));
+        set_scale4__15TAdRicoRingCtrlFPvf((int) (*(u32 *)((s8 *)arg0 + 0x1C)), (f32) (lbl_805D7E4C));
     }
-    M2C_FIELD(arg0, u32 *, 0x20) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
-    temp_r3_2 = M2C_FIELD(arg0, u32 *, 0x20);
+    *(u32 *)((s8 *)arg0 + 0x20) = create__15TAdRicoRingCtrlFPv((int) (tl_04));
+    temp_r3_2 = *(u32 *)((s8 *)arg0 + 0x20);
     if (temp_r3_2 != 0U) {
         TAdRicoRingCtrl__sub_8001BED0((int) (temp_r3_2), (f32) (lbl_805D7E4C));
-        set_scale4__15TAdRicoRingCtrlFPvf((int) (M2C_FIELD(arg0, u32 *, 0x20)), (f32) (lbl_805D7E4C));
+        set_scale4__15TAdRicoRingCtrlFPvf((int) (*(u32 *)((s8 *)arg0 + 0x20)), (f32) (lbl_805D7E4C));
     }
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805D7E4C;
-    stack.sp8 = M2C_FIELD(&lbl_8043481C.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_8043481C.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_8043481C.value, s32 *, 8);
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) TAdRicoRingCtrl__data_805D7E50;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805D7E4C;
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_8043481C.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043481C.value) + 8);
     fn_8001B424((void *) (arg0), (void *) (&stack.sp8));
     return arg0;
 }
@@ -173,11 +168,11 @@ void start_fade__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
     }
     set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 2);
     if (lbl_805D7E4C != farg0) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x1C)) / farg0);
-        temp_f0 = (M2C_FIELD(arg0, f32 *, 0x34) - M2C_FIELD(arg0, f32 *, 0x20)) / farg0;
-        M2C_FIELD(arg0, f32 *, 0x3C) = temp_f0;
-        M2C_FIELD(arg0, f32 *, 0x40) = temp_f0;
-        M2C_FIELD(arg0, f32 *, 0x44) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
+        temp_f0 = (*(f32 *)((s8 *)arg0 + 0x34) - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
+        *(f32 *)((s8 *)arg0 + 0x3C) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x40) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;
     }
 }
 
@@ -192,11 +187,11 @@ void start_anim__15TAdRicoRingCtrlFPvf(u8 *arg0, f32 farg0) {
     }
     set_flags__10TObjPlayerFPvUi(arg0 + 0x2C, 1);
     if (lbl_805D7E4C != farg0) {
-        M2C_FIELD(arg0, f32 *, 0x38) = (f32) ((lbl_805D7E54 - M2C_FIELD(arg0, f32 *, 0x1C)) / farg0);
-        temp_f0 = (lbl_805D7E54 - M2C_FIELD(arg0, f32 *, 0x20)) / farg0;
-        M2C_FIELD(arg0, f32 *, 0x3C) = temp_f0;
-        M2C_FIELD(arg0, f32 *, 0x40) = temp_f0;
-        M2C_FIELD(arg0, f32 *, 0x44) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x38) = (f32) ((lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x1C)) / farg0);
+        temp_f0 = (lbl_805D7E54 - *(f32 *)((s8 *)arg0 + 0x20)) / farg0;
+        *(f32 *)((s8 *)arg0 + 0x3C) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x40) = temp_f0;
+        *(f32 *)((s8 *)arg0 + 0x44) = temp_f0;
     }
 }
 

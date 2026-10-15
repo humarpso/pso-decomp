@@ -1,9 +1,6 @@
 #include "types.h"
 #include "pso/TFontSmallTask.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Vec_800FD4D4 {
     f32 x, y, z;
 };
@@ -44,15 +41,15 @@ f32 calc_small_font_scale(void);
 extern "C" {
 
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4);
-s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6);
-s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5);
+s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6);
+s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5);
 void fn_800FCCC8(s32 arg0, s32 arg1);
 s32 fn_800FCCF4(void* p);
 s32 get_shared_text_buffer();
-M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK text_builder_append(M2C_UNK *);
-M2C_UNK text_builder_reset();
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 TWindowSubStatusDisp__sub_80228F5C(s32);
+s32 text_builder_append(s32 *);
+s32 text_builder_reset();
+s32 __nw__7TObjectFUl(s32);
 s32 set_card_window_flags__19TWindowKeyBoardHardFPvii(s32, s32, s32);
 
 void fn_800FCCC8(s32 arg0, s32 arg1) {
@@ -60,7 +57,7 @@ void fn_800FCCC8(s32 arg0, s32 arg1) {
 }
 s32 fn_800FCCF4(void* p) { return *(s32*)((char*)p + 0x874); }
 
-extern M2C_UNK lbl_805DAA34;
+extern s32 lbl_805DAA34;
 
 f32 calc_small_font_scale(void) {
     f32 temp_f1;
@@ -234,7 +231,7 @@ void TFontSmallTask::run_task() {
 
 extern "C" {
 
-s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5, s32 arg6) {
+s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5, s32 arg6) {
     s32 var_r31;
 
     text_builder_reset();
@@ -250,9 +247,9 @@ s32 create_font_small_task(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4
     return var_r31;
 }
 
-extern M2C_UNK lbl_805DAA34;
+extern s32 lbl_805DAA34;
 
-s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, M2C_UNK *arg4, s32 arg5) {
+s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3, s32 *arg4, s32 arg5) {
     s32 var_r31;
 
     text_builder_reset();
@@ -269,23 +266,18 @@ s32 create_font_small_task_default_color(s32 arg0, s32 arg1, s32 arg2, s32 arg3,
 }
 
 void TBoss3Volopt__sub_800FD344(s32 arg0, s32 arg1, s32 arg2, void *arg3, void *arg4) {
-    create_font_small_task((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(0), (M2C_UNK *)(arg3), (s32)(arg4), (s32)(0xFFFF));
+    create_font_small_task((s32)(arg0), (s32)(arg1), (s32)(arg2), (s32)(0), (s32 *)(arg3), (s32)(arg4), (s32)(0xFFFF));
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 get_shared_text_buffer();
-M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
-M2C_UNK text_builder_reset();
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 TWindowSubStatusDisp__sub_80228F5C(s32);
+s32 text_builder_reset();
+s32 __nw__7TObjectFUl(s32);
 
 s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
@@ -301,24 +293,19 @@ s32 create_damage_font__19TObjEneEpsilonGuardFiiii(s32 arg0, s32 arg1, s32 arg2,
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 
 s32 get_shared_text_buffer();
-M2C_UNK text_builder_reset();
-s32 __nw__7TObjectFUl(M2C_UNK);
+s32 text_builder_reset();
+s32 __nw__7TObjectFUl(s32);
 
 s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
     s32 var_r31;
 
     text_builder_reset();
-    ((M2C_UNK (*)(s32))text_builder_append)(arg3);
+    ((s32 (*)(s32))text_builder_append)(arg3);
     var_r31 = __nw__7TObjectFUl(0x58);
     if (var_r31 != 0) {
         var_r31 = ((s32 (*)(s32, s32, s32, s32, s32, s32, s32))__ct__14TFontSmallTaskFv)(var_r31, arg0, arg1, arg2, 0, get_shared_text_buffer(), 0xFFFF);
@@ -330,32 +317,28 @@ s32 create_font__13TOCtrlDubchikFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3) {
 
 TFontSmallTask::~TFontSmallTask() {}
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_8000F7FC_lbl_80515F48 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_8000F9E4_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F90C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F9CC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -365,12 +348,12 @@ struct RecoveredGlobal_8000F8FC_lbl_804FE120 {
 };
 
 struct RecoveredGlobal_8000F8EC_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8000F91C_lbl_804FE120 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -493,7 +476,7 @@ s32 run_load_callback_table(Ent_800FD6F8 *p, u32 size) {
 }
 
 void reset_leader_selection_static__6TLobbyFv(void) {
-    reset_leader_selection((void*)((M2C_UNK *)(&TLobby__data_805011D8.value)));
+    reset_leader_selection((void*)((s32 *)(&TLobby__data_805011D8.value)));
 }
 typedef char RecoveredGlobal_8000F90C_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F90C_lbl_804FE120) == 0x18 ? 1 : -1];
 typedef char RecoveredGlobal_8000F8FC_lbl_804FE120_size[sizeof(RecoveredGlobal_8000F8FC_lbl_804FE120) == 0x18 ? 1 : -1];

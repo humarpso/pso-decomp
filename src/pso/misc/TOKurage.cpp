@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8016E800_lbl_804B2E6C { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8016E800_lbl_804B2E6C { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8016E800_lbl_804B2E6C_size[sizeof(RecoveredGlobal_8016E800_lbl_804B2E6C) == 0x10 ? 1 : -1];
 
 struct VBase_18_1a504b { char pad[0x18]; };
@@ -15,7 +11,7 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct VBase_18_26a62c { char pad[0x18]; };
@@ -69,28 +65,28 @@ void TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 check_demo_mode__10TObjPlayerFv();
-M2C_UNK update_anim_phase__17TOBarrierEnergy01FPv(void *);
-M2C_UNK fn_8016D8F8(void *);
+s32 update_anim_phase__17TOBarrierEnergy01FPv(void *);
+s32 fn_8016D8F8(void *);
 void check_player_distance__8TOKurageFPv(u8 *arg0);
 void update_state__8TOKurageFPv(void *arg0);
 void debug_print_ranges__8TOKurageFPv(void *self);
 s32 rand(void);
 f32 sin_table_lookup(s32);
-M2C_UNK vec3_add_to(void *, void *);
-M2C_UNK rotate_vector_by_matrix(int, void *, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK normalize_vector(void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrices(int);
+s32 vec3_add_to(void *, void *);
+s32 rotate_vector_by_matrix(int, void *, void *);
+s32 rotate_matrix_y(int, int);
+s32 subtract_vector(void *, void *);
+s32 normalize_vector(void *);
+s32 push_matrix_from(void *);
+s32 pop_matrices(int);
 f32 xyz_distance(void *, void *);
 extern u8 identity_matrix[];
 void run_task__8TOKurageFv(TOKurage_8016DB24 *o);
 }
 
-struct RecoveredGlobal_8016E8A8___vt__8TOKurage { M2C_UNK value; u8 remaining[0x38]; };
+struct RecoveredGlobal_8016E8A8___vt__8TOKurage { s32 value; u8 remaining[0x38]; };
 
 extern "C" {
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
@@ -103,10 +99,10 @@ s32 TObjFish__sub_8001EDB0(int, int);
 s32 get_bml_model(int, int);
 s32 init_map_object_base(void *);
 void init__8TOKurageFPv(u8 *arg0);
-extern M2C_UNK __vt__8TOKurage[];
+extern s32 __vt__8TOKurage[];
 extern s32 TOKurage__name;
 extern u32 TOKurage__static_model_resource;
-u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2);
 s32 is_current_room(void *);
 void debug_printf_at(s32 id, const char *fmt, ...);
 extern const char lbl_80441EA0[];
@@ -126,23 +122,23 @@ void update_state__8TOKurageFPv(void *arg0);
 void TLobby__sub_8001FE7C(void*, int);
 s32 is_any_player_within_radius_xz(f32);
 f32 xyz_distance(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 
 void check_player_distance__8TOKurageFPv(u8 *arg0) {
-    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > M2C_FIELD(arg0, f32 *, 0x6C)) && ((u8) M2C_FIELD(arg0, u8 *, 0x100) != 4)) {
-        M2C_FIELD(arg0, u8 *, 0x100) = 3U;
+    if ((xyz_distance(arg0 + 0xE4, arg0 + 0x38) > *(f32 *)((s8 *)arg0 + 0x6C)) && ((u8) *(u8 *)((s8 *)arg0 + 0x100) != 4)) {
+        *(u8 *)((s8 *)arg0 + 0x100) = 3U;
     }
 }
 
 void update_state__8TOKurageFPv(void *arg0) {
     f32 temp_f0;
 
-    temp_f0 = M2C_FIELD(arg0, f32 *, 0x68);
+    temp_f0 = *(f32 *)((s8 *)arg0 + 0x68);
     if (is_any_player_within_radius_xz(temp_f0 * temp_f0) == 1) {
-        M2C_FIELD(arg0, s8 *, 0x100) = 4;
+        *(s8 *)((s8 *)arg0 + 0x100) = 4;
     }
 }
 
@@ -157,18 +153,18 @@ void debug_print_ranges__8TOKurageFPv(void *self) {
 void init__8TOKurageFPv(u8 *arg0) {
     VecCopy__FP3VecPC3Vec(arg0 + 0xCC, arg0 + 0x38);
     VecCopy__FP3VecPC3Vec(arg0 + 0xE4, arg0 + 0x38);
-    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xF8) = (f32) (0.0f);
-    M2C_FIELD(arg0, s8 *, 0x100) = 0;
-    M2C_FIELD(arg0, s8 *, 0x101) = 0;
-    M2C_FIELD(arg0, s16 *, 0xFC) = 0x1E;
-    M2C_FIELD(arg0, s16 *, 0xFE) = 0;
-    M2C_FIELD(arg0, f32 *, 0x104) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0x108) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0x10C) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0x110) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xF8) = (f32) (0.0f);
+    *(s8 *)((s8 *)arg0 + 0x100) = 0;
+    *(s8 *)((s8 *)arg0 + 0x101) = 0;
+    *(s16 *)((s8 *)arg0 + 0xFC) = 0x1E;
+    *(s16 *)((s8 *)arg0 + 0xFE) = 0;
+    *(f32 *)((s8 *)arg0 + 0x104) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0x108) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0x10C) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0x110) = (f32) (1.0f);
 }
 
 #pragma push
@@ -401,7 +397,7 @@ extern void *tl_05;
 void *create__8TOKurageFPv(void *arg0) {
     void *o = __nw__7TObjectFUl(0x114);
     if (o != NULL) {
-        o = TOKurage__ct((u8 *)(o), (M2C_UNK)(tl_05), (s32)(arg0));
+        o = TOKurage__ct((u8 *)(o), (s32)(tl_05), (s32)(arg0));
     }
     return o;
 }
@@ -415,7 +411,7 @@ void destroy_static_instance__8TOKurageFv(void) {
     }
 }
 
-extern M2C_UNK __vt__8TOKurage[];
+extern s32 __vt__8TOKurage[];
 
 void load_static_resource__8TOKurageFv(void) {
     s32 temp_r3;
@@ -430,7 +426,7 @@ void load_static_resource__8TOKurageFv(void) {
 
 void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TOKurage;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TOKurage;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -438,19 +434,19 @@ void *__dt__8TOKurageFv(void *arg0, s16 arg1) {
     }
     return arg0;
 }
-u8 *TOKurage__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TOKurage__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TOKurage__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8016E8A8___vt__8TOKurage *)&__vt__8TOKurage).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TOKurage__name;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
-    M2C_FIELD(arg0, u8 **, 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
-    M2C_FIELD(arg0, u8 **, 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
-    M2C_FIELD(arg0, f32 *, 0xB8) = (f32) (0.5f);
-    M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xBC), u32 *, 4) - (1.0f));
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (5e+02f);
-    M2C_FIELD(arg0, f32 *, 0xC4) = (f32) (1e+02f);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) ((*(s32 *)&TOKurage__static_model_resource)), (int) (0));
+    *(u8 **)((s8 *)arg0 + 0xBC) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 0);
+    *(u8 **)((s8 *)arg0 + 0xC8) = get_bml_motion((*(s32 *)&TOKurage__static_model_resource), 1);
+    *(f32 *)((s8 *)arg0 + 0xB8) = (f32) (0.5f);
+    *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - (1.0f));
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (5e+02f);
+    *(f32 *)((s8 *)arg0 + 0xC4) = (f32) (1e+02f);
     init__8TOKurageFPv((u8 *)((void *) (arg0)));
     return arg0;
 }

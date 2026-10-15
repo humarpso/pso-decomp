@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_80232598 { char pad[0x18]; };
 
@@ -28,7 +24,6 @@ typedef struct GChain_80232598 {
     GTarget_80232598 targets[1];
 } GChain_80232598;
 
-typedef s32 M2C_UNK;
 struct Vec_80231C58 { f32 x, y, z; };
 
 struct Part_80231C58 { u8 pad0[0x1C]; Vec_80231C58 pos; u8 pad28[0x2C - 0x28]; };
@@ -69,13 +64,13 @@ s32 is_parents_unqueued__9TTecLukerFUi();
 s32 is_valid_and_active__10TObjPlayerFUi(u32);
 void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self);
 s16 obj_getField1c(void *);
-M2C_UNK construct_target_cursor_records__10TObjPlayerFi(void *);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 construct_target_cursor_records__10TObjPlayerFi(void *);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
-M2C_UNK copy_technique_target_list(void *, void *);
-M2C_UNK init_parameters__11TTecGiZondeFPv(void *);
-M2C_UNK construct_facing_technique__10TObjPlayerFPviPvii(void *, void *, void *, s32);
-extern M2C_UNK __vt__11TTecGiZonde[];
+s32 copy_technique_target_list(void *, void *);
+s32 init_parameters__11TTecGiZondeFPv(void *);
+s32 construct_facing_technique__10TObjPlayerFPviPvii(void *, void *, void *, s32);
+extern s32 __vt__11TTecGiZonde[];
 extern s32 lbl_805D37C8;
 u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4);
 u32 find_entity_by_id(u16);
@@ -104,7 +99,7 @@ u32 find_entity_by_id(u16);
 void __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 #define UNQ(e) ((s32 (*)(u32)) is_parents_unqueued__9TTecLukerFUi)(e)
 s32 find_chain_targets__11TTecGiZondeFv(Chain_80231C58 *self) {
@@ -300,11 +295,11 @@ void create__11TTecGiZondeFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *ar
     }
 }
 
-extern M2C_UNK __vt__11TTecGiZonde[];
+extern s32 __vt__11TTecGiZonde[];
 
 void *__dt__11TTecGiZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TTecGiZonde;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TTecGiZonde;
         destroy_technique_effect_resources__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -325,12 +320,12 @@ void deliver_chain_hits__11TTecGiZondeFPv(GChain_80232598 *self) {
 }
 
 void run_task__11TTecGiZondeFv(void *arg0) {
-    M2C_FIELD(arg0, u32 *, 0x1C) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0xC8));
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x1C) == 0U) {
+    *(u32 *)((s8 *)arg0 + 0x1C) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0xC8));
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x1C) == 0U) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x130) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x130) == 0) {
         queue_destruction__7TObjectFv(arg0);
         return;
     }
@@ -342,12 +337,12 @@ void run_task__11TTecGiZondeFv(void *arg0) {
 u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
     s32 h;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__11TTecGiZonde;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__11TTecGiZonde;
     construct_target_cursor_records__10TObjPlayerFi(arg0 + 0x130);
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37C8;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37C8;
     init_parameters__11TTecGiZondeFPv(arg0);
     copy_technique_target_list(arg0 + 0x130, arg3);
-    switch (M2C_FIELD(arg0, s16 *, 0xC6)) {
+    switch (*(s16 *)((s8 *)arg0 + 0xC6)) {
     case 0:
         if ((h = play_sound_effect(0x4002A509, arg0 + 0x20, 0, 0)) >= 0) {
             update_technique_slot__10TTecRaFoieFi(h, 0x100, 0);
@@ -373,8 +368,8 @@ u8 *TTecGiZonde__ct(u8 *arg0, void *arg1, void *arg2, void *arg3, void * _w4) {
         }
         break;
     }
-    if (M2C_FIELD(arg0, u32 *, 0x1C) != 0U) {
-        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c((void *)M2C_FIELD(arg0, u32 *, 0x1C));
+    if (*(u32 *)((s8 *)arg0 + 0x1C) != 0U) {
+        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c((void *)*(u32 *)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }

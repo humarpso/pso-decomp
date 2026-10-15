@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8013F1F0_lbl_804A7254 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -18,7 +14,7 @@ struct Obj_8013F24C { u8 pad[0x44]; u8 arr[1]; };
 extern "C" {
 void TMainCursor__sub_8013F13C(s32 *arg0);
 void TMainCursor__sub_8013F22C(void* a0);
-extern M2C_UNK lbl_804A7254[];
+extern s32 lbl_804A7254[];
 u8 *TMainCursor__sub_8013F1F0(u8 *arg0);
 Rec_8013F154 *get_record_at__11TMainCursorFPvi(Obj_8013F154 *self, s32 i);
 u8 fn_8013F24C(Obj_8013F24C *self, s16 i);
@@ -44,7 +40,7 @@ void set_size__11TMainCursorFPvf(void* p, f32 v);
 int TLockOnCursor__sub_8013EC1C(void*);
 int reset_state__13TLockOnCursorFPv(void*);
 int reset_nearest_target_record(void*);
-M2C_UNK __dl__FPv(void *);
+s32 __dl__FPv(void *);
 int copy_vec4__13TRaderMapCoreFPvPv(void*);
 int fn_8004438C(void*);
 int init_forward__10TObjPlayerFPv(void*);
@@ -78,11 +74,11 @@ void TMainCursor__sub_8013F180(void* p, f32 v) { *(f32*)((char*)p + 0x0) = v; }
 
 int get_rader_map__11TMainCursorFPv(void* p) { return copy_vec4__13TRaderMapCoreFPvPv(p); }
 
-extern M2C_UNK lbl_804A7254[];
+extern s32 lbl_804A7254[];
 
 void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x10) = lbl_804A7254;
+        *(s32 **)((s8 *)arg0 + 0x10) = lbl_804A7254;
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -94,7 +90,7 @@ void *destroy__11TMainCursorFPvs(void *arg0, s16 arg1) {
 
 typedef char RecoveredGlobal_8013F1F0_lbl_804A7254_size[sizeof(RecoveredGlobal_8013F1F0_lbl_804A7254) == 0xC ? 1 : -1];
 u8 *TMainCursor__sub_8013F1F0(u8 *arg0) {
-    M2C_FIELD(arg0, M2C_UNK **, 0x10) = &(*(RecoveredGlobal_8013F1F0_lbl_804A7254 *)&lbl_804A7254).value;
+    *(s32 **)((s8 *)arg0 + 0x10) = &(*(RecoveredGlobal_8013F1F0_lbl_804A7254 *)&lbl_804A7254).value;
     TMainCursor__sub_8013F22C((void*)((void *) (arg0)));
     return arg0;
 }

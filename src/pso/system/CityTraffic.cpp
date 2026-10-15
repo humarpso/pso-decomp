@@ -1,7 +1,6 @@
 #pragma push
 
 #include "types.h"
-typedef s32 M2C_UNK;
 
 struct Rec_801815F8 { s32 a; s32 b; s32 c[2]; };
 
@@ -54,7 +53,7 @@ typedef struct
 } Tbl_801817AC;
 
 extern "C" {
-M2C_UNK destroy_buffer_pair(void *, M2C_UNK);
+s32 destroy_buffer_pair(void *, s32);
 extern void *air_car_buffer_pair_table[];
 void free_buffer_pair_table(void);
 void __ct__7TObjectFP7TObject(void *);

@@ -1,10 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct Base_80171E7C { char pad[0x18]; };
 
 struct VIcon_80171E7C : Base_80171E7C {
@@ -44,7 +39,7 @@ struct Icon_80171E7C {
 
 extern "C" {
 u32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void TOMineIcon04__vt78(s32 arg0);
 void calc_attach_pos__10TObjPlayerFPv(void *);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -75,10 +70,10 @@ void TOMineIcon04__vt82(void);
 void *__dt__12TOMineIcon04Fv(void *arg0, s16 arg1);
 void *create__12TOMineIcon04FPv(void *arg0);
 int spawn_particle_effect(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__6TOMineFv(void *, M2C_UNK);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__6TOMineFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 void TOMineIcon04__vt82(void) {  }
@@ -314,7 +309,7 @@ extern void *__vt__12TOMineIcon04[];
 
 void *__dt__12TOMineIcon04Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TOMineIcon04;
+        *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TOMineIcon04;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__6TOMineFv(arg0, 0);

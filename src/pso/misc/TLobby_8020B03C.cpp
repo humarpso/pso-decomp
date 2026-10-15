@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -41,23 +37,19 @@ s32 init_handle__6TLobbyFi(s32 arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
-M2C_UNK get_player_name_copy_buffer();
-M2C_UNK copy_name(M2C_UNK *);
-s32 strncmp(M2C_UNK, M2C_UNK *, M2C_UNK);
+s32 get_player_name_copy_buffer();
+s32 copy_name(s32 *);
+s32 strncmp(s32, s32 *, s32);
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_object_id_counter;
 extern s32 map_set_enemy_id_counter;
 extern s32 TLobby__map_set_file_buffer_size;
-extern M2C_UNK lbl_805DC620;
-extern M2C_UNK lbl_805DC624;
+extern s32 lbl_805DC620;
+extern s32 lbl_805DC624;
 
 void clear_map_set_data(void) {
     map_set_object_id_counter = 0;
@@ -65,7 +57,7 @@ void clear_map_set_data(void) {
     map_object_id_counter = 0;
     map_set_enemy_id_counter = 0;
     TLobby__map_set_file_buffer_size = 0;
-    M2C_UNK temp_r3 = get_player_name_copy_buffer();
+    s32 temp_r3 = get_player_name_copy_buffer();
     if (strncmp(temp_r3, &lbl_805DC620, 0x10) == 0) {
         copy_name(&lbl_805DC624);
     }
@@ -74,10 +66,7 @@ void clear_map_set_data(void) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_8020B118_lbl_8044BBF0 { char value[0x13]; };
 typedef char RecoveredGlobal_8020B118_lbl_8044BBF0_size[sizeof(RecoveredGlobal_8020B118_lbl_8044BBF0) == 0x13 ? 1 : -1];
 

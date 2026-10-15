@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8001C8B8_8001C61C { char pad[0x18]; };
 struct VObj_8001C8B8_8001C61C : Base_8001C8B8_8001C61C {
     virtual void m0(s32);
 };
 
 struct RecoveredGlobal_8001C828___vt__9TLoadCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
-struct RecoveredGlobal_8001C7A0___vt__9TLoadCtrl { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8001C7A0___vt__9TLoadCtrl { s32 value; u8 remaining[0x14]; };
 
-typedef s32 M2C_UNK;
 struct Vec_8001C620 { s32 x, y, z; };
 
 struct Obj_8001C620 { u8 pad[0x1C]; s32 f1c; s32 f20; };
@@ -31,7 +27,7 @@ extern s32 TLoadCtrl__fade_task;
 extern s32 tl_fade;
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
-M2C_UNK queue_destruction__7TObjectFv(u32);
+s32 queue_destruction__7TObjectFv(u32);
 void __dl__7TObjectFPv(s32);
 extern RecoveredGlobal_8001C828___vt__9TLoadCtrl __vt__9TLoadCtrl;
 extern u32 TLoadCtrl__instance;
@@ -40,31 +36,31 @@ u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1);
 extern u32 TLoadCtrl__instance;
 bool TLoadCtrl__sub_8001C60C(void);
 u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1);
-M2C_UNK TNowLoading__sub_8001D4D4();
-M2C_UNK init_default_view__11TCameraCtrlFv();
-M2C_UNK reset_view_state__11TCameraCtrlFv();
-M2C_UNK TCameraCtrl__ct(u8 *, s32);
-M2C_UNK TLoadCtrl__sub_80226DA0(int);
+s32 TNowLoading__sub_8001D4D4();
+s32 init_default_view__11TCameraCtrlFv();
+s32 reset_view_state__11TCameraCtrlFv();
+s32 TCameraCtrl__ct(u8 *, s32);
+s32 TLoadCtrl__sub_80226DA0(int);
 s32 select_area_entrance(void *);
 s32 __nw__7TObjectFUl(int);
-M2C_UNK TAdLoadQuestGC__sub_80309850();
-M2C_UNK fn_8034AD2C();
-extern M2C_UNK lbl_80515BA0[];
+s32 TAdLoadQuestGC__sub_80309850();
+s32 fn_8034AD2C();
+extern s32 lbl_80515BA0[];
 extern u32 TLoadCtrl__instance;
 extern s32 TLoadCtrl__loading_mode;
 extern s32 tl_su;
 extern s32 tl_camera;
 void start_loading__9TLoadCtrlFUi(u32 arg0);
-M2C_UNK TNowLoading__ct(s32, void *, void *);
-M2C_UNK set_active_camera_pose(void *, void *);
-M2C_UNK activate_camera_mode(int);
-M2C_UNK update_input_frame__16TKeyBoardControlFv();
-M2C_UNK controller_stuff__Fv();
-M2C_UNK update_sound_request_slots();
+s32 TNowLoading__ct(s32, void *, void *);
+s32 set_active_camera_pose(void *, void *);
+s32 activate_camera_mode(int);
+s32 update_input_frame__16TKeyBoardControlFv();
+s32 controller_stuff__Fv();
+s32 update_sound_request_slots();
 s32 __nw__7TObjectFUl(int);
 s32 all_parents_unqueued_for_destruction__7TObjectFv(s32);
-M2C_UNK TAdLoadQuestGC__ct(s32, void *);
-M2C_UNK __ct__14TAdFloorLoadGCFv(s32, void *, int);
+s32 TAdLoadQuestGC__ct(s32, void *);
+s32 __ct__14TAdFloorLoadGCFv(s32, void *, int);
 extern u8 lbl_804349CC[];
 extern Vec_8001C620 lbl_804349D8;
 extern Vec_8001C620 lbl_804349E4;
@@ -79,16 +75,16 @@ extern "C" {
 void cleanup_scene__9TLoadCtrlFv(void);
 void poll_default__9TLoadCtrlFv(void);
 void render__9TLoadCtrlFv(void);
-M2C_UNK TAdLoadQuestGC__sub_8030984C();
-M2C_UNK reset_default_view__11TCameraCtrlFv();
-M2C_UNK init_default_view__11TCameraCtrlFv();
-M2C_UNK reset_view_state__11TCameraCtrlFv();
-M2C_UNK TNowLoading__sub_8001D4D0();
-M2C_UNK create__11TCameraCtrlFv();
-M2C_UNK fn_8034AD28();
-M2C_UNK queue_destruction__7TObjectFv(u32);
-M2C_UNK release_bgm_resource__6TLobbyFv();
-M2C_UNK reset__11TCameraCtrlFv();
+s32 TAdLoadQuestGC__sub_8030984C();
+s32 reset_default_view__11TCameraCtrlFv();
+s32 init_default_view__11TCameraCtrlFv();
+s32 reset_view_state__11TCameraCtrlFv();
+s32 TNowLoading__sub_8001D4D0();
+s32 create__11TCameraCtrlFv();
+s32 fn_8034AD28();
+s32 queue_destruction__7TObjectFv(u32);
+s32 release_bgm_resource__6TLobbyFv();
+s32 reset__11TCameraCtrlFv();
 
 bool TLoadCtrl__sub_8001C60C(void) {
     return (*(s32 *)&TLoadCtrl__instance) != 0;
@@ -152,7 +148,7 @@ void run_task__9TLoadCtrlFv(Obj_8001C620 *self) {
 
 u8 *__dt__9TLoadCtrlFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8001C7A0___vt__9TLoadCtrl *)&__vt__9TLoadCtrl).value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8001C7A0___vt__9TLoadCtrl *)&__vt__9TLoadCtrl).value;
         if ((void *) (*(u8 * *)&TLoadCtrl__fade_task) != NULL) {
             queue_destruction__7TObjectFv((u32)((*(u8 * *)&TLoadCtrl__fade_task)));
             (*(u8 * *)&TLoadCtrl__fade_task) = NULL;
@@ -172,11 +168,11 @@ u8 *TLoadCtrl__ct(u8 *arg0, s32 arg1) {
     s32 temp_r3;
     s32 var_r0;
     __ct__7TObjectFP7TObject((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TLoadCtrl.value;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TLoadCtrl.value;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 1;
     TLoadCtrl__fade_task = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TLoadCtrl__class_name;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TLoadCtrl__class_name;
     if (((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 0U) || ((u32) (*(u32 *)&TLoadCtrl__loading_mode) == 1U)) {
         temp_r3 = __nw__7TObjectFUl((int) (0x38));
         var_r0 = temp_r3;

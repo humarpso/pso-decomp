@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void copy_position_data(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(arg1, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 4) = (s32) M2C_FIELD(arg1, s32 *, 4);
-    M2C_FIELD(arg0, s16 *, 8) = (s16) M2C_FIELD(arg1, s16 *, 8);
-    M2C_FIELD(arg0, s16 *, 0xA) = (s16) M2C_FIELD(arg1, s16 *, 0xA);
-    M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg1, s16 *, 0xC);
+    *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)arg1 + 0);
+    *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 8) = (s16) *(s16 *)((s8 *)arg1 + 8);
+    *(s16 *)((s8 *)arg0 + 0xA) = (s16) *(s16 *)((s8 *)arg1 + 0xA);
+    *(s16 *)((s8 *)arg0 + 0xC) = (s16) *(s16 *)((s8 *)arg1 + 0xC);
 }
 
 void *insert_slot_by_id__12TObjNpcEnemyFs();
@@ -21,17 +17,17 @@ void add_entry__11TMotorcycleFsiiff(s16 arg0, s32 arg1, s32 arg2, f32 farg0, f32
 
     temp_r3 = insert_slot_by_id__12TObjNpcEnemyFs();
     if (temp_r3 != NULL) {
-        M2C_FIELD(temp_r3, s16 *, 0) = arg0;
-        M2C_FIELD(temp_r3, s16 *, 2) = 2;
-        M2C_FIELD(temp_r3, f32 *, 4) = farg1;
-        M2C_FIELD(temp_r3, s32 *, 8) = arg1;
-        M2C_FIELD(temp_r3, s32 *, 0xC) = arg2;
-        M2C_FIELD(temp_r3, f32 *, 0x10) = farg0;
-        M2C_FIELD(temp_r3, s32 *, 0x14) = 0;
-        M2C_FIELD(temp_r3, s32 *, 0x18) = 0;
-        M2C_FIELD(temp_r3, s16 *, 0x1C) = 0;
-        M2C_FIELD(temp_r3, s16 *, 0x1E) = 0;
-        M2C_FIELD(temp_r3, s16 *, 0x20) = 0;
+        *(s16 *)((s8 *)temp_r3 + 0) = arg0;
+        *(s16 *)((s8 *)temp_r3 + 2) = 2;
+        *(f32 *)((s8 *)temp_r3 + 4) = farg1;
+        *(s32 *)((s8 *)temp_r3 + 8) = arg1;
+        *(s32 *)((s8 *)temp_r3 + 0xC) = arg2;
+        *(f32 *)((s8 *)temp_r3 + 0x10) = farg0;
+        *(s32 *)((s8 *)temp_r3 + 0x14) = 0;
+        *(s32 *)((s8 *)temp_r3 + 0x18) = 0;
+        *(s16 *)((s8 *)temp_r3 + 0x1C) = 0;
+        *(s16 *)((s8 *)temp_r3 + 0x1E) = 0;
+        *(s16 *)((s8 *)temp_r3 + 0x20) = 0;
     }
 }
 

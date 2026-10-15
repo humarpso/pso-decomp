@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct P_80323348 { u8 pad[0x30]; u32 flags; };
 
@@ -14,7 +10,6 @@ struct Vec_803237A0 { f32 x, y, z; };
 
 struct Obj_803237A0 { u8 pad[0xC8]; Vec_803237A0 pos; };
 
-typedef s32 M2C_UNK;
 struct Vec_803233AC { f32 x, y, z; };
 
 struct PL_803233AC { u8 pad[0x30]; u32 flags; u8 pad34[4]; Vec_803233AC pos; };
@@ -36,7 +31,7 @@ extern u8 lbl_80476684[];
 extern const f32 TBoss6GravBall__data_805DF550;
 extern const f32 lbl_805DF570;
 void TBoss6GravBall__sub_803236F8(Obj_803236F8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 project_actor_to_ground(void *, void *, int);
 extern const f32 TBoss6GravBall__data_805DF558;
 extern const f32 lbl_805DF574;
@@ -49,7 +44,7 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int destroy_part__14TBoss6GravBallFii(void*, void*);
-M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
+s32 create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 sin_table_lookup(s32);
@@ -70,7 +65,7 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 s32 project_actor_to_ground(void *, void *, int);
 int destroy_part__14TBoss6GravBallFii(void*, void*);
-M2C_UNK create_emitter__14TBoss6GravBallFii(void *, int);
+s32 create_emitter__14TBoss6GravBallFii(void *, int);
 u16 obj_getField1c(void *);
 s32 is_active__14TBoss6PlotFalzFPv(void *);
 f32 sin_table_lookup(s32);
@@ -240,8 +235,8 @@ s32 clamp_to_ground__14TBoss6GravBallFPv(Obj_803237A0 *arg0) {
 void update_lifetime__14TBoss6GravBallFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xB4) + 1;
-    M2C_FIELD(arg0, s32 *, 0xB4) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xB4) + 1;
+    *(s32 *)((s8 *)arg0 + 0xB4) = temp_r0;
     if (temp_r0 > 0x1E) {
         queue_destruction__7TObjectFv((void *)(arg0));
     }

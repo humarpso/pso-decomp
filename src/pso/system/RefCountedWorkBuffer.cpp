@@ -1,10 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK;
 
 extern "C" {
 
 void TLobby__sub_803D2ED4(void);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 
 u8 ref_counted_load_buffer[0xC00];
 s32 lobby_buffer_refcount;

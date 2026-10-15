@@ -1,7 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct Base_80118A48_8011892C { char pad[0x18]; };
 struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
     virtual void m0();
@@ -23,7 +21,6 @@ struct VObj_80118A48_8011892C : Base_80118A48_8011892C {
     virtual void m16();
     virtual void m17(int);
 };
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_80118958 { char pad[0x18]; };
 
@@ -62,7 +59,7 @@ s32 init_timer_event__12TItemProUnitFPv(int, int, void *, int);
 s32 __nw__15TItemHeapObjectFUl(int);
 extern const f32 lbl_805DABFC;
 void TItemProUnit__vt42(u8 *arg0);
-M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
+s32 set_flags__10TObjPlayerFPvUi(void *, int);
 extern const f32 TItemProUnit__data_805DABF8;
 extern const f32 lbl_805DAC00;
 void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0);
@@ -78,7 +75,7 @@ void TItemProUnit__vt46(Unit_80118AD4 *self);
 void set_evp__12TItemProUnitFPvf(void *, f32);
 u8 get_cast_technique_level(void *, s16);
 void set_technique_level_entry(void *, s16, u8);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+s32 memset(void *, s32, s32);
 extern const f32 TItemProUnit__data_805DABF8;
 void TItemProUnit__vt47(u8 *arg0);
 }
@@ -107,23 +104,23 @@ struct VItemProUnit_8011892C {
     virtual void m17(s8);
 };
 
-u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2);
+u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2);
 void TItemProUnit__vt43(void *arg0);
 void TItem__sub_8011892C(void);
 u8 *lookup_item_pmt_record(void *);
-M2C_UNK TItemEquipBase__ct();
+s32 TItemEquipBase__ct();
 s16 get_field6_bswap__9TItemDataFPv(void *);
-M2C_UNK memset(void *, M2C_UNK, M2C_UNK);
+s32 memset(void *, s32, s32);
 
 void TItem__sub_8011892C(void) {  }
 
 void TItemProUnit__vt12(u8 *arg0) {
     s16 temp_r0;
     s16 temp_r4;
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1BE);
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x1BC);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1BE);
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x1BC);
     if ((temp_r0 < temp_r4) || (temp_r4 < -temp_r0)) {
-        M2C_FIELD(arg0, s16 *, 0x1BC) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1BC) = 0;
     }
 }
 
@@ -134,12 +131,12 @@ void TItemProUnit__vt16(Self_80118958 *self, Out_80118958 *out) {
 
 void TItemProUnit__vt47(u8 *arg0) {
     s32 var_r30;
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x18C) == 0x13) {
-        set_evp__12TItemProUnitFPvf((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC), TItemProUnit__data_805DABF8);
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x18C) == 0x13) {
+        set_evp__12TItemProUnitFPvf((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC), TItemProUnit__data_805DABF8);
     }
     var_r30 = 0;
     do {
-        set_technique_level_entry((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(M2C_FIELD(arg0, s32 *, 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
+        set_technique_level_entry((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x428), (s16) var_r30, (u8) (get_cast_technique_level((void *)(*(s32 *)((s8 *)arg0 + 0xF0) + 0x428), (s16) var_r30) - ((PU_801189AC *)arg0)->arr[var_r30]));
         var_r30 += 1;
     } while (var_r30 != 0x13);
     memset(arg0 + 0x192, 0, 0x26);
@@ -337,10 +334,10 @@ void *__vt__12TItemProUnit[51] = {
 
 void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0) {
     s16 temp_r4;
-    temp_r4 = M2C_FIELD(arg0, s16 *, 0x18C);
+    temp_r4 = *(s16 *)((s8 *)arg0 + 0x18C);
     switch (temp_r4) {
     case 18:
-        M2C_FIELD(arg0, s16 *, 0x190) = (s16) M2C_FIELD(arg0, s16 *, 0x18E);
+        *(s16 *)((s8 *)arg0 + 0x190) = (s16) *(s16 *)((s8 *)arg0 + 0x18E);
         return;
     case 20:
         set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (8));
@@ -349,7 +346,7 @@ void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0) {
         set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (2));
         return;
     case 19:
-        M2C_FIELD(arg0, f32 *, 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) M2C_FIELD(arg0, s16 *, 0x18E) / lbl_805DAC00));
+        *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) (TItemProUnit__data_805DABF8 + ((f32) *(s16 *)((s8 *)arg0 + 0x18E) / lbl_805DAC00));
         return;
     case 22:
         set_flags__10TObjPlayerFPvUi((void *) ((u8 *)(arg0) + 0x178), (int) (0x80));
@@ -373,30 +370,30 @@ void apply_unit_effect_flags__12TItemProUnitFPv(u8 *arg0) {
     }
 }
 
-u8 *TItemProUnit__ct(u8 *arg0, M2C_UNK arg1, u8 *arg2) {
+u8 *TItemProUnit__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s16 temp_r0;
     u8 *temp_r3;
 
     TItemEquipBase__ct();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = (M2C_UNK *)__vt__12TItemProUnit;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2C40;
-    ((VItemProUnit_8011892C *)arg0)->m17((s8) (M2C_FIELD(arg2, u8 *, 4) + 9));
-    M2C_FIELD(arg0, s16 *, 0x190) = 0;
-    M2C_FIELD(arg0, f32 *, 0x1B8) = (f32) TItemProUnit__data_805DABF8;
+    *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__12TItemProUnit;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2C40;
+    ((VItemProUnit_8011892C *)arg0)->m17((s8) (*(u8 *)((s8 *)arg2 + 4) + 9));
+    *(s16 *)((s8 *)arg0 + 0x190) = 0;
+    *(f32 *)((s8 *)arg0 + 0x1B8) = (f32) TItemProUnit__data_805DABF8;
     temp_r3 = lookup_item_pmt_record(arg2);
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, s16 *, 0x18C) = (s16) M2C_FIELD(temp_r3, s16 *, 8);
-        M2C_FIELD(arg0, s16 *, 0x18E) = (s16) M2C_FIELD(temp_r3, s16 *, 0xA);
-        M2C_FIELD(arg0, s16 *, 0x1BE) = (s16) (M2C_FIELD(temp_r3, s16 *, 0xC) * 2);
+        *(s16 *)((s8 *)arg0 + 0x18C) = (s16) *(s16 *)((s8 *)temp_r3 + 8);
+        *(s16 *)((s8 *)arg0 + 0x18E) = (s16) *(s16 *)((s8 *)temp_r3 + 0xA);
+        *(s16 *)((s8 *)arg0 + 0x1BE) = (s16) (*(s16 *)((s8 *)temp_r3 + 0xC) * 2);
     } else {
-        M2C_FIELD(arg0, s16 *, 0x18C) = 0;
-        M2C_FIELD(arg0, s16 *, 0x18E) = 0;
-        M2C_FIELD(arg0, s16 *, 0x1BE) = 0;
+        *(s16 *)((s8 *)arg0 + 0x18C) = 0;
+        *(s16 *)((s8 *)arg0 + 0x18E) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1BE) = 0;
     }
-    M2C_FIELD(arg0, s16 *, 0x1BC) = get_field6_bswap__9TItemDataFPv(arg2);
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x1BC);
+    *(s16 *)((s8 *)arg0 + 0x1BC) = get_field6_bswap__9TItemDataFPv(arg2);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x1BC);
     if ((temp_r0 <= -0xA) || (temp_r0 >= 0xA)) {
-        M2C_FIELD(arg0, s16 *, 0x1BC) = 0;
+        *(s16 *)((s8 *)arg0 + 0x1BC) = 0;
     }
     memset(arg0 + 0x192, 0, 0x26);
     apply_unit_effect_flags__12TItemProUnitFPv((u8 *)(arg0));

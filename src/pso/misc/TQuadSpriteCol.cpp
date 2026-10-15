@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 typedef struct Vec_801E4FF0 { f32 x, y, z; } Vec_801E4FF0;
 
@@ -73,7 +71,7 @@ void quad_sprite_base_ct(void *);
 
 void TQuadSpriteCol__sub_801E4FEC(void) {  }
 
-extern M2C_UNK __vt__14TQuadSpriteCol[];
+extern s32 __vt__14TQuadSpriteCol[];
 
 #pragma push
 #pragma fp_contract on
@@ -166,7 +164,7 @@ void render__14TQuadSpriteColFv(Self_801E4FF0 *self) {
 
 void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TQuadSpriteCol;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TQuadSpriteCol;
         destroy_quad_sprite_base(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -175,13 +173,13 @@ void *__dt__14TQuadSpriteColFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__14TQuadSpriteCol[];
+extern s32 __vt__14TQuadSpriteCol[];
 extern void *TQuadSpriteCol__class_name;
 
 void *TQuadSpriteCol__ct(void *arg0) {
     quad_sprite_base_ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TQuadSpriteCol;
-    M2C_FIELD(arg0, void **, 0x0) = TQuadSpriteCol__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TQuadSpriteCol;
+    *(void **)((s8 *)arg0 + 0x0) = TQuadSpriteCol__class_name;
     return arg0;
 }
 

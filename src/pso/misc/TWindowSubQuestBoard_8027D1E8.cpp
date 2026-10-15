@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Obj_8027D1E8 { u8 pad[0x60]; s8 f60; };
 
@@ -26,7 +22,7 @@ void fn_8027D1E8(Obj_8027D1E8 *o) {
 
 void TWindowCtrl__sub_8027D1F8(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {
-        M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) & 0xFFFFFFEF);
+        *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) & 0xFFFFFFEF);
     }
 }
 
@@ -34,7 +30,7 @@ extern void *TWindowCtrl__active_window;
 
 void TWindowCtrl__sub_8027D214(void) {
     if ((void *) TWindowCtrl__active_window != NULL) {
-        M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) = (u16) (M2C_FIELD(TWindowCtrl__active_window, u16 *, 0x1C) | 0x10);
+        *(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) = (u16) (*(u16 *)((s8 *)TWindowCtrl__active_window + 0x1C) | 0x10);
     }
 }
 

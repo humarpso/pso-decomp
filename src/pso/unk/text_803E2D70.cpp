@@ -1,9 +1,5 @@
 #include "types.h"
 #include "pso/system/ChunkMaterialState.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma scheduling off
 #pragma scheduling off
@@ -12,10 +8,10 @@ struct FloatColor { f32 a, r, g, b; };
 
 struct ByteColor { u8 r, g, b, a; };
 
-typedef M2C_UNK (*RecoveredCallback_92513335c3ed)(void *);
+typedef s32 (*RecoveredCallback_92513335c3ed)(void *);
 typedef void (*RecoveredCallback_2be3cacebb2e)(void);
 struct RecoveredGlobal_803DCBD8_lbl_8058D380 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xEC];
 };
 
@@ -38,7 +34,6 @@ struct ChunkNode_803E2F78 {
 
 struct Hdr_803E34B0 { u8 *dst; u8 *src; s32 count; };
 
-typedef s32 M2C_UNK;
 typedef struct Vtx_803E2D70 { f32 x, y, w, u, v; u32 color; } Vtx_803E2D70;
 
 typedef union WGPipe_803E2D70 {
@@ -93,35 +88,35 @@ typedef union WGPipe_803E352C {
 
 typedef f32 Mtx_803E4354[3][4];
 extern "C" {
-M2C_UNK load_screen_space_matrix__10TObjPlayerFv();
-M2C_UNK setup_render__10TObjPlayerFv();
-M2C_UNK setup_blended_textured_draw();
-M2C_UNK load_context_texture_obj();
+s32 load_screen_space_matrix__10TObjPlayerFv();
+s32 setup_render__10TObjPlayerFv();
+s32 setup_blended_textured_draw();
+s32 load_context_texture_obj();
 void TLobby__sub_803E2EE4(s32 arg0);
 s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void *);
 void draw_chunk_model(void *arg0);
 void GXSetNumTexGens(u8);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK GXSetNumTevStages(int);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 GXSetNumTevStages(int);
 void setup_tev_passclr__10TObjPlayerFv(void);
 void GXSetNumTexGens(u8);
-M2C_UNK GXSetTevOp(int, int);
-M2C_UNK GXSetTevOrder(int, int, int, int);
-M2C_UNK GXSetNumTevStages(int);
+s32 GXSetTevOp(int, int);
+s32 GXSetTevOrder(int, int, int, int);
+s32 GXSetNumTevStages(int);
 extern s32 model_render_flags;
 extern u8 lbl_805D77D8;
 extern u8 lbl_805D77D9;
 void setup_chunk_tev_stages(void);
-M2C_UNK GXSetZMode(int, int, int);
-M2C_UNK GXSetZCompLoc(int);
-M2C_UNK pop_matrix();
-M2C_UNK set_effect_active__10TObjPlayerFv();
-M2C_UNK apply_scene_fog();
+s32 GXSetZMode(int, int, int);
+s32 GXSetZCompLoc(int);
+s32 pop_matrix();
+s32 set_effect_active__10TObjPlayerFv();
+s32 apply_scene_fog();
 extern s32 ginja_draw_flags;
-extern M2C_UNK (*lbl_805D77DC)();
+extern s32 (*lbl_805D77DC)();
 void end_chunk_draw__10TObjPlayerFv(void);
-M2C_UNK load_list_texture(int, int, int, int);
+s32 load_list_texture(int, int, int, int);
 extern s32 lbl_805D77EC;
 void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
@@ -177,9 +172,9 @@ void GXBegin(int, int, u16);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern s32 chunk_render_flags;
 void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u32 info);
-M2C_UNK GXSetBlendMode(int, int, int, int);
-M2C_UNK GXSetZMode(int, int, int);
-M2C_UNK GXSetZCompLoc(int);
+s32 GXSetBlendMode(int, int, int, int);
+s32 GXSetZMode(int, int, int);
+s32 GXSetZCompLoc(int);
 s32 set_chunk_alpha_compare_ref(int ref);
 void clear_move_state_bits__10TObjPlayerFv(void);
 extern FloatColor model_material_color;
@@ -217,14 +212,14 @@ void PSMTXConcat(const Mtx_803E4354, const Mtx_803E4354, Mtx_803E4354);
 void PSMTXTrans(Mtx_803E4354, f32, f32, f32);
 void PSMTXScale(Mtx_803E4354, f32, f32, f32);
 void GXSetVtxAttrFmt(int, int, int, int, u8);
-M2C_UNK GXSetNumChans(int);
-M2C_UNK GXSetZCompLoc(int);
-M2C_UNK GXLoadPosMtxImm(void *, int);
-M2C_UNK GXLoadNrmMtxImm(void *, int);
-M2C_UNK GXLoadTexMtxImm(void *, int, int);
+s32 GXSetNumChans(int);
+s32 GXSetZCompLoc(int);
+s32 GXLoadPosMtxImm(void *, int);
+s32 GXLoadNrmMtxImm(void *, int);
+s32 GXLoadTexMtxImm(void *, int, int);
 void push_matrix(void);
-M2C_UNK reset_particle_counter__10TObjPlayerFv();
-M2C_UNK apply_scene_fog();
+s32 reset_particle_counter__10TObjPlayerFv();
+s32 apply_scene_fog();
 extern Mtx_803E4354 identity_matrix;
 extern s32 ginja_draw_flags;
 extern s32 model_render_flags;
@@ -625,9 +620,9 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         if (((u32) (id & 0x20) != 0) && (lbl_805E10A0 != model_material_color.a)) {
             var_r28 = 0U;
         }
-        if ((u32) M2C_FIELD(temp_r4, u32 *, 4) == 0xEU) {
+        if ((u32) *(u32 *)((s8 *)temp_r4 + 4) == 0xEU) {
             if ((u32) (id & 0x400000) != 0) {
-                if ((u32) (M2C_FIELD(temp_r4, s32 *, 0x1C) & 0x40000000) != 0) {
+                if ((u32) (*(s32 *)((s8 *)temp_r4 + 0x1C) & 0x40000000) != 0) {
                     var_r6 |= lbl_805E1094;
                 }
             } else {
@@ -676,7 +671,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
             chunk_render_flags |= 0x400;
         }
         temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
-        if (((u32) M2C_FIELD(temp_r3, u32 *, 4) == 0xEU) && ((u32) (M2C_FIELD(temp_r3, s32 *, 0x1C) & 0x40000000) != 0)) {
+        if (((u32) *(u32 *)((s8 *)temp_r3 + 4) == 0xEU) && ((u32) (*(s32 *)((s8 *)temp_r3 + 0x1C) & 0x40000000) != 0)) {
             set_chunk_alpha_compare_ref(0x1F);
             GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
             GXSetZCompLoc((int) (0));
@@ -729,7 +724,7 @@ void end_chunk_draw__10TObjPlayerFv(void) {
     GXSetZCompLoc((int) (1));
     GXSetZMode((int) (1), (int) (1), (int) (1));
     set_chunk_alpha_compare_ref((int)((int) (0)));
-    if (((M2C_UNK (*)()) lbl_805D77DC) != NULL) {
+    if (((s32 (*)()) lbl_805D77DC) != NULL) {
         lbl_805D77DC();
     }
 }

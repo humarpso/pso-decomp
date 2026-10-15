@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -23,14 +19,14 @@ void set_enemy_mode_5__22THunterGuildSeqOfflineFv(void);
 void set_state_close2__22THunterGuildSeqOfflineFv(void);
 int TKeyBoardControl__sub_8000F950(void);
 int set_enemy_mode_flag__6TLobbyFv(void);
-M2C_UNK set_field_20__12TQuestListVMFPvi(void *, M2C_UNK);
+s32 set_field_20__12TQuestListVMFPvi(void *, s32);
 
 extern struct VObj_8021277C *THunterGuildSeqOffline__active_instance;
 
 void set_state_close2__22THunterGuildSeqOfflineFv(void) {
     if (THunterGuildSeqOffline__active_instance != NULL) {
         THunterGuildSeqOffline__active_instance->m7(0xC, 1);
-        M2C_FIELD(THunterGuildSeqOffline__active_instance, s32 *, 0x38) = 0;
+        *(s32 *)((s8 *)THunterGuildSeqOffline__active_instance + 0x38) = 0;
         set_field_20__12TQuestListVMFPvi(THunterGuildSeqOffline__active_instance, 5);
     }
 }

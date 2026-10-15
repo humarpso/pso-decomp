@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801224D4_lbl_804A0FA0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xF4];
 };
 
 extern "C" {
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_dagger_weapon(u8 *arg0);
 u8 * TItemWeapon__ct(void *, void *);
@@ -27,10 +23,10 @@ typedef char RecoveredGlobal_801224D4_lbl_804A0FA0_size[sizeof(RecoveredGlobal_8
 u8 *construct_dagger_weapon(u8 *arg0, u8 *arg1, u8 *arg2) {
     u8 temp_r0;
     TItemWeapon__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &lbl_804A0FA0.value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804A0FA0.value;
     set_status_flags__10TObjPlayerFPvUi(arg0, 0x600);
-    M2C_FIELD(arg0, f32 *, 0x1F8) = (f32) lbl_805DACE0;
-    temp_r0 = M2C_FIELD(arg2, u8 *, 2);
+    *(f32 *)((s8 *)arg0 + 0x1F8) = (f32) lbl_805DACE0;
+    temp_r0 = *(u8 *)((s8 *)arg2 + 2);
     if ((temp_r0 >= 5U) && (temp_r0 != 7)) {
         set_atp__10TObjPlayerFPvs(arg0, -1);
     }

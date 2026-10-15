@@ -2,7 +2,7 @@
 
 #include "types.h"
 #include "dolphin/mtx.h"
-typedef s32 M2C_UNK;
+
 struct Vec_8010834C { f32 x, y, z; };
 
 struct Bringer_8010834C {
@@ -65,15 +65,11 @@ TItemEffBringer::~TItemEffBringer() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *create__15TItemEffBringerFUiiif(u32 arg0, s32 arg1, s32 arg2, f32 farg0);
-void *__nw__7TObjectFUl(M2C_UNK);
+void *__nw__7TObjectFUl(s32);
 
 extern f32 lbl_805DAB10;
 

@@ -1,15 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_8023C558_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_8023C558_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -58,11 +57,7 @@ void init_parameters__9TTecZondeFPv(u8 *arg0) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct VBase_18_0c879f { char pad[0x18]; };
 
 struct HitInfo_8023C6B4 { s32 type; f32 power; };
@@ -125,11 +120,7 @@ void TTecZonde__vt6(Obj_8023C6B4 *arg0, VObj_18_0c879f *arg1) {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Seg_8023C79C { f32 a[3]; f32 b[3]; f32 len; };
 struct VBase_8023C79C { char pad[0x18]; };
 struct VObj_8023C79C : VBase_8023C79C {
@@ -150,7 +141,7 @@ struct Zonde_8023C79C {
     u16 f134;
 };
 
-struct RecoveredGlobal_8023CD48___vt__9TTecZonde { M2C_UNK value; u8 remaining[0x24]; };
+struct RecoveredGlobal_8023CD48___vt__9TTecZonde { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_8023CD48___vt__9TTecZonde_size[sizeof(RecoveredGlobal_8023CD48___vt__9TTecZonde) == 0x28 ? 1 : -1];
 
 extern "C" {
@@ -158,7 +149,7 @@ u16 obj_getField1c(void *);
 s32 construct_target_cursor_records__10TObjPlayerFi(s32);
 void copy_technique_target_list(void *, void *);
 u8 * construct_facing_technique__10TObjPlayerFPviPvii(void *, s32, void *, s32, s16);
-extern M2C_UNK __vt__9TTecZonde[];
+extern s32 __vt__9TTecZonde[];
 extern s32 lbl_805D3838;
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4);
 }
@@ -170,11 +161,11 @@ void render__9TTecZondeFv(void);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, int);
 
-extern M2C_UNK __vt__9TTecZonde[];
+extern s32 __vt__9TTecZonde[];
 
 void *__dt__9TTecZondeFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__9TTecZonde;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__9TTecZonde;
         destroy_technique_effect_resources__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -188,7 +179,7 @@ void render__9TTecZondeFv(void) {  }
 #pragma push
 #pragma fp_contract on
 
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 u8 *find_entity_by_id(u16);
 void update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
@@ -356,14 +347,14 @@ void run_task__9TTecZondeFv(Zonde_8023C79C *self) {
 u8 *TTecZonde__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, 0, arg4);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8023CD48___vt__9TTecZonde *)&__vt__9TTecZonde).value;
     construct_target_cursor_records__10TObjPlayerFi((s32) (arg0 + 0x130));
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3838;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3838;
     init_parameters__9TTecZondeFPv(arg0);
     copy_technique_target_list(arg0 + 0x130, arg3);
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, u16 *, 0xC8) = obj_getField1c(temp_r3);
+        *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
     }
     return arg0;
 }

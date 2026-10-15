@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp { M2C_UNK value; u8 remaining[0x18]; };
+struct RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp { s32 value; u8 remaining[0x18]; };
 typedef char RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp_size[sizeof(RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp) == 0x1C ? 1 : -1];
 
 struct RecoveredGlobal_80271D00_lbl_804D0FC0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x10];
 };
 
 struct RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x18];
 };
 
@@ -26,10 +22,10 @@ extern const f32 lbl_805DD4F0;
 void run_task__21TWindowSubAreaMapDispFv(u8 *arg0);
 u8 * destroy_window_base__9TWindowDDFPvs(void *, s16);
 s32 destroy_status_display__20TWindowSubStatusDispFis(s32, s16);
-M2C_UNK free__11TOBoss4RockFUi(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK clear_active_flag__11TWindowCtrlFv();
-M2C_UNK clear__13TRaderMapCoreFv();
+s32 free__11TOBoss4RockFUi(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 clear_active_flag__11TWindowCtrlFv();
+s32 clear__13TRaderMapCoreFv();
 extern RecoveredGlobal_80271C6C___vt__21TWindowSubAreaMapDisp __vt__21TWindowSubAreaMapDisp;
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1);
 u8 *get_shared_text_buffer();
@@ -103,13 +99,13 @@ extern const f32 lbl_805DD4E4;
 extern const f32 lbl_805DD4E8;
 extern const f32 lbl_805DD4EC;
 s32 draw_default_entry__9TWindowDDFi();
-M2C_UNK draw_window_frame(void *, s32);
-M2C_UNK forward_render__20TWindowSubStatusDispFPv(s32, s32);
+s32 draw_window_frame(void *, s32);
+s32 forward_render__20TWindowSubStatusDispFPv(s32, s32);
 void render__21TWindowSubAreaMapDispFv(void *arg0);
 
 struct Rect_80271848 { f32 x0, y0, x1, y1, u0, v0, u1, v1; };
 
-void fn_80271848(M2C_UNK arg0, u8 *arg1) {
+void fn_80271848(s32 arg0, u8 *arg1) {
     Rect_80271848 r;
     s32 color;
     f32 scale;
@@ -186,7 +182,7 @@ void fn_80271848(M2C_UNK arg0, u8 *arg1) {
     get_player__20TWindowSubStatusDispFv();
 }
 
-void TWindowSubStatusDisp__sub_80271A6C(M2C_UNK arg0, u8 *arg1) {
+void TWindowSubStatusDisp__sub_80271A6C(s32 arg0, u8 *arg1) {
     Vec2_80271A6C pos;
     s32 color;
     f32 scale;
@@ -210,10 +206,10 @@ void render__21TWindowSubAreaMapDispFv(void *arg0) {
 
     temp_r3 = draw_default_entry__9TWindowDDFi();
     draw_window_frame(arg0, temp_r3);
-    forward_render__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, s32 *, 0x70), temp_r3);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
-        ((M2C_UNK (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(arg0, temp_r3);
-        ((M2C_UNK (*)(void *, s32))fn_80271848)(arg0, temp_r3);
+    forward_render__20TWindowSubStatusDispFPv(*(s32 *)((s8 *)arg0 + 0x70), temp_r3);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
+        ((s32 (*)(void *, s32))TWindowSubStatusDisp__sub_80271A6C)(arg0, temp_r3);
+        ((s32 (*)(void *, s32))fn_80271848)(arg0, temp_r3);
     }
 }
 
@@ -221,22 +217,22 @@ void run_task__21TWindowSubAreaMapDispFv(u8 *arg0) {
     initialize_subwindow__9TWindowDDFPv(arg0);
     update_visibility__21TWindowSubAreaMapDispFPv(arg0);
     update_manual_scroll__21TWindowSubAreaMapDispFPv(arg0);
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD4F0) {
-        update_subwindow__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u8 **, 0x70));
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD4F0) {
+        update_subwindow__20TWindowSubStatusDispFPv(*(u8 **)((s8 *)arg0 + 0x70));
     }
 }
 u8 *__dt__21TWindowSubAreaMapDispFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__21TWindowSubAreaMapDisp.value;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x74) != 0U) {
-            free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x74));
-            M2C_FIELD(arg0, u32 *, 0x74) = 0U;
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__21TWindowSubAreaMapDisp.value;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x74) != 0U) {
+            free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x74));
+            *(u32 *)((s8 *)arg0 + 0x74) = 0U;
         }
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x6C) != 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x6C) != 0) {
             clear_active_flag__11TWindowCtrlFv();
             clear__13TRaderMapCoreFv();
         }
-        destroy_status_display__20TWindowSubStatusDispFis(M2C_FIELD(arg0, s32 *, 0x70), 1);
+        destroy_status_display__20TWindowSubStatusDispFis(*(s32 *)((s8 *)arg0 + 0x70), 1);
         destroy_window_base__9TWindowDDFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv((void *) (arg0));
@@ -252,8 +248,8 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
     s32 var_r0;
     u8 *var_r30;
     construct_base__9TWindowDDFPvPvsPv((void *) (arg0), (void *) (&TWindowSubAreaMapDisp__window_parameters.value), (void *) ((s16) local_client_id), (int) (get_window_layout_position((int) (0x59))));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TWindowSubAreaMapDisp__name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80271D00___vt__21TWindowSubAreaMapDisp *)&__vt__21TWindowSubAreaMapDisp).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TWindowSubAreaMapDisp__name;
     if (get_game_play_mode() == 1) {
         text_builder_reset();
         text_builder_append((int) (TQuestVmDownLoadServer__sub_8006EF6C((int) (0x67))));
@@ -264,15 +260,15 @@ u8 *TWindowSubAreaMapDisp__ct(u8 *arg0) {
         var_r30 = (u8 *)(get_floor_destination_name(get_global_state__14TOKeyMachine01Fv()));
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFPv((int) (var_r30));
-    M2C_FIELD(arg0, s32 *, 0x74) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));
-    strncpy((int) (M2C_FIELD(arg0, s32 *, 0x74)), (int) (var_r30), (void *) (temp_r3 + 1));
+    *(s32 *)((s8 *)arg0 + 0x74) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));
+    strncpy((int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) (var_r30), (void *) (temp_r3 + 1));
     temp_r3_2 = alloc__23TAdSinglePlyChrSelectGCFPv((int) ((void *)0x24));
     var_r0 = temp_r3_2;
     if (var_r0 != 0) {
-        var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii((int) (temp_r3_2), (int) (M2C_FIELD(arg0, s32 *, 0x74)), (int) ((s32) M2C_FIELD(arg0, s16 *, 0x20)));
+        var_r0 = construct_type1_heading__20TWindowSubStatusDispFPvii((int) (temp_r3_2), (int) (*(s32 *)((s8 *)arg0 + 0x74)), (int) ((s32) *(s16 *)((s8 *)arg0 + 0x20)));
     }
-    M2C_FIELD(arg0, s32 *, 0x70) = var_r0;
-    M2C_FIELD(arg0, s32 *, 0x6C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x70) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x6C) = 0;
     return arg0;
 }
 

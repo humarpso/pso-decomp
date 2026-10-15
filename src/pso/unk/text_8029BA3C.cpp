@@ -1,12 +1,11 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 extern "C" {
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32, f32, f32);
-M2C_UNK set_draw_texture_and_color(void *, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32, f32, f32);
+s32 set_draw_texture_and_color(void *, void *);
 extern s32 TAdBackTxtGC__backtext_texture_list;
 extern const f32 lbl_805DDCF8;
 extern const f32 lbl_805DDCFC;

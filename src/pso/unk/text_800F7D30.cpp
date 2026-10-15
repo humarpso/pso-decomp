@@ -1,10 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 extern "C" {
 u32 alloc__23TAdSinglePlyChrSelectGCFPv(int);
 u32 prs_decompress(int, int, int, int);
-M2C_UNK destroy_ep3_exist__6TLobbyFis(int, int);
+s32 destroy_ep3_exist__6TLobbyFis(int, int);
 u32 reset_counters__6TLobbyFPv();
 u32 prs_decompress_alloc(s32 arg0, s32 arg1);
 }
@@ -23,7 +22,7 @@ u32 prs_decompress_alloc(s32 arg0, s32 arg1) {
   u32 var_r31;
   u32 var_r3;
   u32 phi_r30;
-  M2C_UNK saved_reg_r30;
+  s32 saved_reg_r30;
   var_r30 = saved_reg_r30;
   var_r28 = arg0;
   var_r29 = arg1;

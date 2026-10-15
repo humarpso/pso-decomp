@@ -1,7 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
 
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct VBase_18_26a62c { char pad[0x18]; };
 
 struct VObj_18_26a62c : VBase_18_26a62c {
@@ -19,22 +17,22 @@ struct VObj_18_26a62c : VBase_18_26a62c {
 struct Rec16_80180D18 { s32 f0; s32 f4; s32 f8; s32 fc; };
 
 extern "C" {
-M2C_UNK scroll_strip_uvs(int, s16, int);
-M2C_UNK get_city_common_model(int);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object();
-M2C_UNK draw_chunk_object(int, void *);
-extern M2C_UNK city_aircar_model_indices[];
-extern M2C_UNK lbl_80443B40[];
-extern M2C_UNK city_traffic_car_chunk_index_table[];
-extern M2C_UNK air_car_buffer_pair_table[];
+s32 scroll_strip_uvs(int, s16, int);
+s32 get_city_common_model(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object();
+s32 draw_chunk_object(int, void *);
+extern s32 city_aircar_model_indices[];
+extern s32 lbl_80443B40[];
+extern s32 city_traffic_car_chunk_index_table[];
+extern s32 air_car_buffer_pair_table[];
 extern void **lbl_805D5B24;
 extern void **city_common_texture_list;
 extern const f32 lbl_805DBBA0;
@@ -74,12 +72,12 @@ struct Car_80181074 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, int, int);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(u32, void *);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(M2C_UNK, int, int);
-M2C_UNK play_persistent_sound(int, void *, void *, int, int);
+s32 copy_pos__11TNowLoadingFPvPv(u32, void *);
+s32 update_technique_slot__10TTecRaFoieFi(s32, int, int);
+s32 play_persistent_sound(int, void *, void *, int, int);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
 extern u32 city_air_car_model_resource;
@@ -90,11 +88,11 @@ extern const f32 lbl_805DBBB4;
 extern const f32 lbl_805DBBB8;
 extern const f32 lbl_805DBBBC;
 void run_task__18TObjCityAirCar_CarFv(Car_80180E70 *self);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f64 atan2_float(f32, f32);
 s32 angle_diff_s16(s32, s32);
 s32 sample_aircar_path_position(s32, void *, f32);
-M2C_UNK vec3_add_to(void *, void *);
+s32 vec3_add_to(void *, void *);
 extern const f64 lbl_80443B90;
 extern const f32 lbl_805DBBC0;
 extern const f32 lbl_805DBBC4;
@@ -110,26 +108,26 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
         end_effect_render__13TParticleCtrlFv();
         push_matrix();
         post_translate_matrix((void *) ((u8 *)(arg0) + 0x38));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x9C) != 0) {
-            rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) != 0) {
+            rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
         }
         set_global_param__8TObjFishFi((int) (city_common_texture_list));
-        get_city_common_model((int) (M2C_FIELD(((u8 *)(city_aircar_model_indices) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
+        get_city_common_model((int) (*(s32 *)((s8 *)((u8 *)(city_aircar_model_indices) + (*(s32 *)((s8 *)arg0 + 0x9C) * 4)) + 0)));
         ((void (*)()) draw_chunk_object)();
         begin_effect_render__13TParticleCtrlFv();
-        get_city_common_model((int) (M2C_FIELD(((u8 *)(lbl_80443B40) + (M2C_FIELD(arg0, s32 *, 0x9C) * 4)), s32 *, 0)));
+        get_city_common_model((int) (*(s32 *)((s8 *)((u8 *)(lbl_80443B40) + (*(s32 *)((s8 *)arg0 + 0x9C) * 4)) + 0)));
         draw_ginja_object();
         if ((void *) city_air_car_model_resource != NULL) {
-            temp_r3 = (u8 *)(M2C_FIELD(lbl_805D5B24, u8 **, 0));
-            temp_r31 = M2C_FIELD(temp_r3, s32 *, 0x20);
-            if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) >= 0x14) {
-                M2C_FIELD(temp_r3, s32 *, 0x20) = (s32) M2C_FIELD(temp_r3, s32 *, 8);
+            temp_r3 = (u8 *)(*(u8 **)((s8 *)lbl_805D5B24 + 0));
+            temp_r31 = *(s32 *)((s8 *)temp_r3 + 0x20);
+            if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) >= 0x14) {
+                *(s32 *)((s8 *)temp_r3 + 0x20) = (s32) *(s32 *)((s8 *)temp_r3 + 8);
             }
             set_global_param__8TObjFishFi((int) (lbl_805D5B24));
-            scroll_strip_uvs(air_car_buffer_pair_table[M2C_FIELD(arg0, s32 *, 0x9C)], M2C_FIELD(arg0, s32 *, 0xA0), 0);
-            draw_chunk_object(M2C_FIELD(city_air_car_model_resource, Rec16_80180D18 **, 0x42C)[((s32 *)city_traffic_car_chunk_index_table)[M2C_FIELD(arg0, s32 *, 0x9C)]].f8, (void *) (city_air_car_model_resource));
-            M2C_FIELD(M2C_FIELD(lbl_805D5B24, u8 **, 0), s32 *, 0x20) = temp_r31;
+            scroll_strip_uvs(air_car_buffer_pair_table[*(s32 *)((s8 *)arg0 + 0x9C)], *(s32 *)((s8 *)arg0 + 0xA0), 0);
+            draw_chunk_object((*(Rec16_80180D18 **)((s8 *)city_air_car_model_resource + 0x42C))[((s32 *)city_traffic_car_chunk_index_table)[*(s32 *)((s8 *)arg0 + 0x9C)]].f8, (void *) (city_air_car_model_resource));
+            *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5B24 + 0)) + 0x20) = temp_r31;
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

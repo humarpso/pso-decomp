@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8015B8E8 { char pad[0x18]; };
 struct VObj_8015B8E8 : Base_8015B8E8 {
     virtual void m0();
@@ -86,12 +83,12 @@ struct VObj_8015B8E8 : Base_8015B8E8 {
 };
 
 struct RecoveredGlobal_8015BD68_lbl_804B00C8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -189,7 +186,7 @@ struct VObj_18 : VBase_18 {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77();
+    virtual s32 m77();
 };
 
 struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
@@ -229,14 +226,14 @@ struct O_8015BAE0 { u8 pad[0x1C]; u16 id; u8 pad1e[0x80 - 0x1E]; u32 f80; s32 f8
 struct Pk_8015BAE0 { u8 pad[2]; u16 id; s32 a; s32 b; s32 c; };
 
 extern "C" {
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_model(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_model(int);
 void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0);
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 TObjFish__sub_8001EDB0(void *, int);
@@ -245,7 +242,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, int, void *);
 extern RecoveredGlobal_8015BD68_lbl_804B00C8 TOContainerAncientEnemy__collision_body_params;
-extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+extern s32 __vt__23TOContainerAncientEnemy[];
 extern s32 lbl_805D2F08;
 extern s32 tl_05;
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1);
@@ -267,9 +264,9 @@ extern s32 local_client_id;
 extern const f32 lbl_805DB39C;
 f32 open_and_send__23TOContainerAncientEnemyFPv(O_8015BAE0 *arg0);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
-M2C_UNK spawn_particle_effect(void *, int);
-M2C_UNK construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
-M2C_UNK play_container_break_sound(void *);
+s32 spawn_particle_effect(void *, int);
+s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
+s32 play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
 extern Spawn_8015B94C lbl_80440798;
 extern Spawn_8015B94C lbl_804407E4;
@@ -281,25 +278,25 @@ extern "C" {
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1);
 void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 __dl__7TObjectFPv(void *);
+s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
 
 void check_and_destroy__23TOContainerAncientEnemyFPvPvi(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
         if (arg2 != 0) {
             ((VObj_8015B8E8 *)arg0)->m77();
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
-extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+extern s32 __vt__23TOContainerAncientEnemy[];
 
 void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
     extern const u32 ancient_container_resource_bundle;
@@ -369,26 +366,26 @@ void draw_model__23TOContainerAncientEnemyFPv(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if ((u32) ancient_container_resource_bundle != 0U) {
-        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
+            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
-            draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
-            temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+            temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
-            temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
+            temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();
             pop_matrix();
@@ -410,8 +407,8 @@ void submit_cursor_candidate_if_idle__23TOContainerAncientEnemyFPv(Obj_8015BCC0 
 
 void *__dt__23TOContainerAncientEnemyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TOContainerAncientEnemy;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TOContainerAncientEnemy;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -425,17 +422,17 @@ typedef char RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy_size[sizeo
 u8 *TOContainerAncientEnemy__ct(u8 *arg0, s32 arg1) {
     extern u32 ancient_container_resource_bundle;
     init_container_base((void *) (arg0), (int) (tl_05), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D2F08;
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8015BD68___vt__23TOContainerAncientEnemy *)&__vt__23TOContainerAncientEnemy).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2F08;
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&TOContainerAncientEnemy__collision_body_params.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&TOContainerAncientEnemy__collision_body_params.value, f32 *, 4));
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&TOContainerAncientEnemy__collision_body_params.value) + 4));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((void *) ((*(s32 *)&ancient_container_resource_bundle)), (int) (0));
     return arg0;
 }
 

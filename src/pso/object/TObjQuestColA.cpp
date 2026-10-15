@@ -1,20 +1,16 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *TObjQuestColA__ct(void *arg0);
 s32 TObjQuestColA__vt13(void *arg0);
 void TObjQuestColA__vt14(void* p);
-M2C_UNK enable_action_input__10TObjPlayerFPv(s32);
-M2C_UNK disable_primary_action_input__10TObjPlayerFPv(s32);
+s32 enable_action_input__10TObjPlayerFPv(s32);
+s32 disable_primary_action_input__10TObjPlayerFPv(s32);
 s32 is_quest_interaction_blocked__10TObjPlayerFPv(s32);
 void TObjQuestColBase__ct(void *);
 s32 get_player_by_client_id(s32);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 check_flag_100__10TObjPlayerFPv();
 int create__12TQuestThreadFi(void*);
 int destroy_board__17TQuestThreadBoardFv(void*);
@@ -39,7 +35,7 @@ s32 TObjQuestColA__vt13(void *arg0) {
             enable_action_input__10TObjPlayerFPv(temp_r3);
             return 0;
         }
-        temp_r3_2 = update_trigger_state__12TObjQuestColFPvf(arg0, M2C_FIELD(arg0, f32 *, 0xAC));
+        temp_r3_2 = update_trigger_state__12TObjQuestColFPvf(arg0, *(f32 *)((s8 *)arg0 + 0xAC));
         if (temp_r3_2 == 1) {
             disable_primary_action_input__10TObjPlayerFPv(temp_r3);
         }
@@ -58,13 +54,13 @@ block_12:
     return 0;
 }
 
-extern M2C_UNK __vt__13TObjQuestColA[];
+extern s32 __vt__13TObjQuestColA[];
 extern void *TObjQuestColA__class_name;
 
 void *TObjQuestColA__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TObjQuestColA;
-    M2C_FIELD(arg0, void **, 0x0) = TObjQuestColA__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TObjQuestColA;
+    *(void **)((s8 *)arg0 + 0x0) = TObjQuestColA__class_name;
     return arg0;
 }
 

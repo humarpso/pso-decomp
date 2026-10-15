@@ -1,18 +1,14 @@
 #include "pso/TShopWindowBase.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_802239EC_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
 struct RecoveredGlobal_80223A48_lbl_8050E208 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1AC];
 };
 
@@ -70,7 +66,7 @@ f32 get_scale__15TShopWindowBaseFv(void) {
 
 u16 TShopWindowBase__sub_8022397C(u8 *arg0) {
     u32 temp_r3;
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0x24);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0x24);
     if (temp_r3 != 0U) {
         return TShopGenerator__sub_80222DAC((int) (obj_getField1c((void *)((int) (temp_r3)))));
     }
@@ -78,7 +74,7 @@ u16 TShopWindowBase__sub_8022397C(u8 *arg0) {
 }
 
 s32 get_child_field1c__15TShopWindowBaseFPv(void *arg0) {
-    void *temp_r3 = M2C_FIELD(arg0, void **, 0x24);
+    void *temp_r3 = *(void **)((s8 *)arg0 + 0x24);
     if (temp_r3 != NULL) {
         return obj_getField1c(temp_r3);
     }
@@ -89,7 +85,7 @@ extern s32 lbl_805D55C0;
 
 typedef char RecoveredGlobal_802239EC_lbl_8050E208_size[sizeof(RecoveredGlobal_802239EC_lbl_8050E208) == 0x1B0 ? 1 : -1];
 bool TShopWindowBase__sub_802239EC(u8 *arg0) {
-    if (M2C_FIELD(((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFPv((int) (M2C_FIELD(arg0, s32 *, 0x24))) * 0x50)), s32 *, 0x28) & 2) {
+    if (*(s32 *)((s8 *)((u8 *)&controller_input_state.value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 2) {
         return 1;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&controller_input_state.value + 0x160), (int) (2)) != 0;
@@ -97,7 +93,7 @@ bool TShopWindowBase__sub_802239EC(u8 *arg0) {
 
 typedef char RecoveredGlobal_80223A48_lbl_8050E208_size[sizeof(RecoveredGlobal_80223A48_lbl_8050E208) == 0x1B0 ? 1 : -1];
 bool TShopWindowBase__sub_80223A48(u8 *arg0) {
-    if (M2C_FIELD(((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (get_map_id__13TRaderMapCoreFPv((int) (M2C_FIELD(arg0, s32 *, 0x24))) * 0x50)), s32 *, 0x28) & 4) {
+    if (*(s32 *)((s8 *)((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + (get_map_id__13TRaderMapCoreFPv((int) (*(s32 *)((s8 *)arg0 + 0x24))) * 0x50)) + 0x28) & 4) {
         return 1;
     }
     return test_flag_4c__23TAdSinglePlyChrSelectGCFPv((void *) ((u8 *)&(*(RecoveredGlobal_80223A48_lbl_8050E208 *)&controller_input_state).value + 0x160), (int) (4)) != 0;
@@ -109,14 +105,14 @@ void draw_if_ready__15TShopWindowBaseFPv(void *arg0) {
     }
 }
 
-extern M2C_UNK __vt__15TShopWindowBase[];
+extern s32 __vt__15TShopWindowBase[];
 extern void *TShopWindowBase__class_name;
 
 void *__dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
     if (self != NULL) {
-        M2C_FIELD(self, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
+        *(s32 **)((s8 *)self + 0x18) = __vt__15TShopWindowBase;
         __dt__7TObjectFv(self, 0);
         if (m > 0) {
             __dl__7TObjectFPv(self);
@@ -127,11 +123,11 @@ void *__dt__15TShopWindowBaseFv(void *self, s16 m) {
 
 void *__ct__15TShopWindowBaseFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__15TShopWindowBase;
-    M2C_FIELD(arg0, void **, 0x0) = TShopWindowBase__class_name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, u32 *, 0x20) = 0;
-    M2C_FIELD(arg0, u32 *, 0x24) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__15TShopWindowBase;
+    *(void **)((s8 *)arg0 + 0x0) = TShopWindowBase__class_name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x20) = 0;
+    *(u32 *)((s8 *)arg0 + 0x24) = 0;
     return arg0;
 }
 
@@ -142,18 +138,18 @@ void TShopWindowBase__sub_80217454();
 void TShopWindowBase__sub_80216080();
 void TShopWindowBase__sub_80217458();
 void TShopWindowBase__is_ready();
-M2C_UNK __vt__15TShopWindowBase[12] = {
+s32 __vt__15TShopWindowBase[12] = {
     0,
     0,
-    (M2C_UNK)__dt__15TShopWindowBaseFv,
-    (M2C_UNK)draw_if_ready__15TShopWindowBaseFPv,
-    (M2C_UNK)render__7TObjectFv,
-    (M2C_UNK)render_shadows__7TObjectFv,
-    (M2C_UNK)TShopWindowBase__sub_802115F0,
-    (M2C_UNK)TShopWindowBase__sub_80217454,
-    (M2C_UNK)TShopWindowBase__sub_80216080,
-    (M2C_UNK)TShopWindowBase__sub_80217458,
-    (M2C_UNK)TShopWindowBase__is_ready,
-    (M2C_UNK)TShopWindowBase__vt9,
+    (s32)__dt__15TShopWindowBaseFv,
+    (s32)draw_if_ready__15TShopWindowBaseFPv,
+    (s32)render__7TObjectFv,
+    (s32)render_shadows__7TObjectFv,
+    (s32)TShopWindowBase__sub_802115F0,
+    (s32)TShopWindowBase__sub_80217454,
+    (s32)TShopWindowBase__sub_80216080,
+    (s32)TShopWindowBase__sub_80217458,
+    (s32)TShopWindowBase__is_ready,
+    (s32)TShopWindowBase__vt9,
 };
 }

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_023f9f { char pad[0x18]; };
 
@@ -12,11 +8,11 @@ struct VObj_18_023f9f : VBase_18_023f9f {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(u32);
+    virtual s32 m5(u32);
 };
 
 struct RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -39,7 +35,7 @@ struct TPlayerFootStamp_802AF8BC {
 extern "C" {
 s32 spawn_continuous_particle_effect_with_flags(void *, int, int);
 s32 construct_world_actor_base(void *, void *);
-extern M2C_UNK __vt__12TObjMistCtrl[];
+extern s32 __vt__12TObjMistCtrl[];
 extern s32 lbl_805D3E80;
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2);
 void queue_destruction__7TObjectFv(void *);
@@ -52,25 +48,25 @@ void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1);
 void render__16TPlayerFootStampFv(u8 *arg0);
 int run_task__12TObjMistCtrlFv(void* p);
 f32 horizontal_distance_squared(void *, void *);
-M2C_UNK set_texture_num(int);
+s32 set_texture_num(int);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
-M2C_UNK restore_saved_depth_alpha_state();
+s32 restore_saved_depth_alpha_state();
 int fn_802AF64C(void*);
-M2C_UNK draw_particle_strip(void *, int, int);
+s32 draw_particle_strip(void *, int, int);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK reset_transform_state__10TObjPlayerFv();
-M2C_UNK set_depth_buffer_settings_1__Fv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 reset_transform_state__10TObjPlayerFv();
+s32 set_depth_buffer_settings_1__Fv();
+s32 set_global_param__8TObjFishFi(void *);
 
 int run_task__12TObjMistCtrlFv(void* p) { return fn_802AF64C(p); }
 
-extern M2C_UNK __vt__12TObjMistCtrl[];
+extern s32 __vt__12TObjMistCtrl[];
 
 void *__dt__12TObjMistCtrlFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjMistCtrl;
-        if (M2C_FIELD(arg0, void **, 0x90) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x90)); M2C_FIELD(arg0, M2C_UNK *, 0x90) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjMistCtrl;
+        if (*(void **)((s8 *)arg0 + 0x90) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x90)); *(s32 *)((s8 *)arg0 + 0x90) = 0; }
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -88,12 +84,12 @@ extern const f32 lbl_805DE1F8;
 typedef char RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl_size[sizeof(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl) == 0x38 ? 1 : -1];
 u8 *TObjMistCtrl__ct(u8 *arg0, s32 arg1, u32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3E80;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802AF7C0___vt__12TObjMistCtrl *)&__vt__12TObjMistCtrl).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E80;
     if (arg2 != 0U) {
         ((VObj_18_023f9f *)(arg0))->m5(arg2);
     }
-    M2C_FIELD(arg0, s32 *, 0x90) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
+    *(s32 *)((s8 *)arg0 + 0x90) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0x38), (int) (0x200), (int) (0x800));
     return arg0;
 }
 
@@ -102,7 +98,7 @@ void render__16TPlayerFootStampFv(u8 *arg0) {
         lbl_805D5660 = model_render_flags;
         reset_transform_state__10TObjPlayerFv();
         set_global_param__8TObjFishFi((void *) (player_footstamp_texture_gvm_handle));
-        set_texture_num((int) (M2C_FIELD(arg0, s16 *, 0xBE)));
+        set_texture_num((int) (*(s16 *)((s8 *)arg0 + 0xBE)));
         set_depth_buffer_settings_1__Fv();
         draw_particle_strip((void *) (arg0 + 0x1C), (int) (4), (int) (1));
         restore_saved_depth_alpha_state();

@@ -17,10 +17,6 @@ struct Ok_80306C10 { u8 pad[0x97C]; s32 count; };
 
 struct Ok_80306F84 { u8 pad[0x97C]; s32 count; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Q_80306C70 { f32 a; f32 b; f32 c; f32 d; u8 pad[0x10]; };
 
 struct E_80306C70 { u8 pad0[0x1C]; s32 flags; s32 t; f32 x; f32 y; u8 pad[0x14]; Q_80306C70 q[4]; u8 pad2[4]; };
@@ -89,15 +85,15 @@ extern const f32 lbl_805DF060;
 extern const f32 lbl_805DF064;
 void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 extern Ports_80306DF4 lbl_80475410;
 extern Pad_80306DF4 controller_physical_port_bank[];
 void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1);
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK begin_screen_draw(int);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
-M2C_UNK draw_textured_quad_at_depth(void *, f32);
-M2C_UNK set_draw_texture_and_color(int, s32);
+s32 set_global_param__8TObjFishFi(s32);
+s32 begin_screen_draw(int);
+s32 get_player__20TWindowSubStatusDispFv();
+s32 draw_textured_quad_at_depth(void *, f32);
+s32 set_draw_texture_and_color(int, s32);
 extern s32 multi_confirm_texture_list;
 extern const f32 lbl_805DF040;
 extern const f32 lbl_805DF044;

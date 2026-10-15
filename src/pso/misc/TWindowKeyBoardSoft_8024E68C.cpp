@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredFields_8024E754_arg0
 {
@@ -88,7 +84,7 @@ s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1);
 u32 open_singleton__19TWindowKeyBoardSoftFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3, u32 _w4, f32 _w5);
 void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 d);
 s32 try_open__19TWindowKeyBoardSoftFii(s32 arg0, s32 arg1);
-M2C_UNK __dl__FPv(u32);
+s32 __dl__FPv(u32);
 
 typedef struct RecoveredFields_8024E754_arg0 RecoveredFields_8024E754_arg0;
 #pragma fp_contract on
@@ -136,10 +132,10 @@ void apply_window_closing_stretch(u8 *arg0, int arg1) {
 #pragma opt_common_subs off
 void set_open_tick__19TWindowKeyBoardSoftFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x30) = arg1;
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x30);
+    *(s32 *)((s8 *)arg0 + 0x30) = arg1;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x30);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x34) = (s32) ((__cvt_fp2unsigned(lbl_805DCC84 * ((lbl_805DCC88 + (f32) temp_r0) / lbl_805DCC88)) << 0x18) | 0xFF0000 | 0xFFFF);
+        *(s32 *)((s8 *)arg0 + 0x34) = (s32) ((__cvt_fp2unsigned(lbl_805DCC84 * ((lbl_805DCC88 + (f32) temp_r0) / lbl_805DCC88)) << 0x18) | 0xFF0000 | 0xFFFF);
     }
 }
 #pragma pop
@@ -149,20 +145,20 @@ void set_bounds__19TWindowKeyBoardSoftFPvffff(void* p, f32 a, f32 b, f32 c, f32 
 extern const f32 lbl_805DCC8C;
 
 void shrink_clip_right__19TWindowKeyBoardSoftFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x18) = (f32) (M2C_FIELD(arg0, f32 *, 0x18) - lbl_805DCC8C);
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) (M2C_FIELD(arg0, f32 *, 0x44) - lbl_805DCC8C);
+    *(f32 *)((s8 *)arg0 + 0x18) = (f32) (*(f32 *)((s8 *)arg0 + 0x18) - lbl_805DCC8C);
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) (*(f32 *)((s8 *)arg0 + 0x44) - lbl_805DCC8C);
 }
 
 extern const f32 lbl_805DCC90;
 
 void animate_scale__19TWindowKeyBoardSoftFPv(void *arg0) {
-    M2C_FIELD(arg0, f32 *, 0x14) = (f32) (M2C_FIELD(arg0, f32 *, 0x14) + lbl_805DCC90);
-    M2C_FIELD(arg0, f32 *, 0x1C) = (f32) (M2C_FIELD(arg0, f32 *, 0x1C) - lbl_805DCC90);
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) (M2C_FIELD(arg0, f32 *, 0x40) + lbl_805DCC90);
+    *(f32 *)((s8 *)arg0 + 0x14) = (f32) (*(f32 *)((s8 *)arg0 + 0x14) + lbl_805DCC90);
+    *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (*(f32 *)((s8 *)arg0 + 0x1C) - lbl_805DCC90);
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) (*(f32 *)((s8 *)arg0 + 0x40) + lbl_805DCC90);
 }
 
 s32 is_point_in_bounds__19TWindowKeyBoardSoftFPvPv(void *arg0, void *arg1) {
-    if ((M2C_FIELD(arg1, f32 *, 8) < M2C_FIELD(arg0, f32 *, 0x3C)) || (M2C_FIELD(arg1, f32 *, 0xC) < M2C_FIELD(arg0, f32 *, 0x40)) || (M2C_FIELD(arg1, f32 *, 0) > M2C_FIELD(arg0, f32 *, 0x44)) || (M2C_FIELD(arg1, f32 *, 4) > M2C_FIELD(arg0, f32 *, 0x48))) {
+    if ((*(f32 *)((s8 *)arg1 + 8) < *(f32 *)((s8 *)arg0 + 0x3C)) || (*(f32 *)((s8 *)arg1 + 0xC) < *(f32 *)((s8 *)arg0 + 0x40)) || (*(f32 *)((s8 *)arg1 + 0) > *(f32 *)((s8 *)arg0 + 0x44)) || (*(f32 *)((s8 *)arg1 + 4) > *(f32 *)((s8 *)arg0 + 0x48))) {
         return 0;
     }
     return 1;

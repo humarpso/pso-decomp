@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80186AF4_lbl_804FF800 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 
@@ -24,7 +20,7 @@ extern s32 lbl_805D55C0;
 s32 get_phase_flag__16TObjCityMainWarpFv(void);
 s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0);
 extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
-M2C_UNK *TObjCityMainWarp__sub_80186AF4(void);
+s32 *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C city_main_warp_floor_bit_table;
 s32 get_player_floor__6TLobbyFi(s32);
 s32 is_warp_excluded_area(s32);
@@ -32,10 +28,10 @@ s32 get_floor_warp_bit__16TObjCityMainWarpFi(s32 floor);
 s32 is_split_screen();
 s32 get_instance__6TLobbyFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-M2C_UNK update_warp_flags_from_story__16TObjCityMainWarpFPv();
-M2C_UNK init_visible_mask__16TObjCityMainWarpFPv();
+s32 update_warp_flags_from_story__16TObjCityMainWarpFPv();
+s32 init_visible_mask__16TObjCityMainWarpFPv();
 void update_unlock_flags__16TObjCityMainWarpFv(void);
-s32 get_story_flag(M2C_UNK);
+s32 get_story_flag(s32);
 extern s32 TObjCityMainWarp__enabled_destinations;
 extern s32 TObjCityMainWarp__visible_destination_mask;
 void update_main_warp_visible_mask(s32 arg0);
@@ -48,7 +44,7 @@ void reset__16TObjCityMainWarpFv(void);
 void set_active_bit__16TObjCityMainWarpFv(s32 _w0);
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p);
 void update_unlock_flags__16TObjCityMainWarpFv(void);
-s32 get_story_flag(M2C_UNK);
+s32 get_story_flag(s32);
 int clear_enabled_main_warps(void);
 s32 is_main_phase_15__9TObjEneDDFv();
 s32 is_split_screen();
@@ -56,9 +52,9 @@ s32 is_split_screen();
 extern s32 TObjCityMainWarp__visible_destination_mask;
 
 void update_unlock_flags__16TObjCityMainWarpFv(void) {
-    M2C_UNK var_r31;
-    M2C_UNK var_r30;
-    M2C_UNK var_r3;
+    s32 var_r31;
+    s32 var_r30;
+    s32 var_r3;
 
     TObjCityMainWarp__visible_destination_mask |= 1;
     if ((is_main_phase_15__9TObjEneDDFv() != 0) || (is_split_screen() != 0)) {
@@ -153,7 +149,7 @@ void reset__16TObjCityMainWarpFv(void) { clear_enabled_main_warps(); update_main
 void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x10; }
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];
-M2C_UNK *TObjCityMainWarp__sub_80186AF4(void) {
+s32 *TObjCityMainWarp__sub_80186AF4(void) {
     return &lbl_804FF800.value;
 }
 

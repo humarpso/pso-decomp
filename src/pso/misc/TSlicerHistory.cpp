@@ -1,43 +1,39 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
-M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 s32 get_field_110__10TTecSlicerFPv(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 __ct__7TObjectFP7TObject();
 
-extern M2C_UNK __vt__14TSlicerHistory[];
+extern s32 __vt__14TSlicerHistory[];
 extern s32 lbl_805D382C;
 extern const f32 lbl_805DC948;
 extern const f32 lbl_805DC950;
 
 u8 *__ct__14TSlicerHistoryFv(u8 *arg0, s32 arg1, s32 arg2, u32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__14TSlicerHistory;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D382C;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TSlicerHistory;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D382C;
     copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x1C), (void *) (arg1 + 0x5C));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x28), (void *) (arg1 + 0x38));
-    M2C_FIELD(arg0, s32 *, 0x38) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x38) = arg2;
     if (arg3 != 0U) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 1;
+        *(s32 *)((s8 *)arg0 + 0x5C) = 1;
         copy_vec4__13TRaderMapCoreFPvPv((void *) (arg0 + 0x3C), (void *) (arg3));
     } else {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0;
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DC948;
-        M2C_FIELD(arg0, f32 *, 0x40) = (f32) lbl_805DC950;
-        M2C_FIELD(arg0, f32 *, 0x44) = (f32) lbl_805DC950;
-        M2C_FIELD(arg0, f32 *, 0x48) = (f32) lbl_805DC950;
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0;
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DC948;
+        *(f32 *)((s8 *)arg0 + 0x40) = (f32) lbl_805DC950;
+        *(f32 *)((s8 *)arg0 + 0x44) = (f32) lbl_805DC950;
+        *(f32 *)((s8 *)arg0 + 0x48) = (f32) lbl_805DC950;
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = get_field_110__10TTecSlicerFPv((void *) (arg1));
+    *(s32 *)((s8 *)arg0 + 0x34) = get_field_110__10TTecSlicerFPv((void *) (arg1));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x4C), (void *) (arg1 + 0x68));
-    M2C_FIELD(arg0, s32 *, 0x58) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x58) = arg4;
     return arg0;
 }
 

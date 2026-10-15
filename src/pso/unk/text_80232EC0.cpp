@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct Part_80232EC0 { s32 id; u32 flags; u8 pad8[4]; };
 
 struct Profile_80232EC0 { Part_80232EC0 *parts; u32 count; };
@@ -22,7 +22,7 @@ u16 obj_getField1c(void *);
 u32 spawn_continuous_particle_effect_with_flags(void *, s32, s32);
 void set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 u32 *alloc_buffer__11TOBoss4RockFPv(s32);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 s32 play_sound_effect(s32, void *, s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 get_level_tier__10TObjPlayerFi(s32);

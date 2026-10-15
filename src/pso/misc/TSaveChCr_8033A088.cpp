@@ -1,9 +1,6 @@
 #include "pso/TSaveChCr.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_8033A184 {
     s32 sp8;
@@ -14,7 +11,7 @@ struct Stack_8033A184 {
 union MemberActionStorage_8033A184 { s32 words[3]; void (TSaveChCr::*action)(); };
 
 struct RecoveredGlobal_8033A184_lbl_804EF658 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x74];
 };
 
@@ -28,13 +25,9 @@ void reset_proportions__15TChCrCharSelectFv();
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8033A34C___vt__9TSaveChCr {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -62,10 +55,10 @@ void *__nw__7TObjectFUl(int);
 int begin_action_from_char_select__10TObjPlayerFv(void*);
 
 void close_window__9TSaveChCrFPv(void *arg0) {
-    if ((u32) M2C_FIELD(arg0, u32 *, 0x3C) != 0U) {
-        TWindow__close(M2C_FIELD(arg0, void **, 0x3C));
-        M2C_FIELD(arg0, u32 *, 0x3C) = 0U;
-        M2C_FIELD(arg0, s32 *, 0x38) = 7;
+    if ((u32) *(u32 *)((s8 *)arg0 + 0x3C) != 0U) {
+        TWindow__close(*(void **)((s8 *)arg0 + 0x3C));
+        *(u32 *)((s8 *)arg0 + 0x3C) = 0U;
+        *(s32 *)((s8 *)arg0 + 0x38) = 7;
     }
 }
 
@@ -76,12 +69,12 @@ void create_backgrounds__9TSaveChCrFPv(void *arg0) {
     if (o != NULL) {
         o = __ct__9TAdBackGCFv(o, arg0);
     }
-    M2C_FIELD(arg0, void **, 0x30) = o;
+    *(void **)((s8 *)arg0 + 0x30) = o;
     o2 = __nw__7TObjectFUl(0x28);
     if (o2 != NULL) {
         o2 = __ct__12TAdBackTxtGCFv(o2, arg0);
     }
-    M2C_FIELD(arg0, void **, 0x34) = o2;
+    *(void **)((s8 *)arg0 + 0x34) = o2;
 }
 
 int TSaveChCr__sub_8033A138(void) { return load_character_from_card__23TAdSinglePlyChrSelectGCFi((void*)(0)); }
@@ -98,12 +91,12 @@ void set_state__9TSaveChCrFPvi(u8 *arg0, s32 arg1) {
     typedef char sp10_offset[(offsetof(Stack_8033A184, sp10) == 0x8) ? 1 : -1];
     Stack_8033A184 stack;
     u8 *temp_r6;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != arg1) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
-        temp_r6 = (u8 *)&(*(RecoveredGlobal_8033A184_lbl_804EF658 *)&lbl_804EF658).value + (M2C_FIELD(arg0, s32 *, 0x1C) * 0x18);
-        member_action.words[0] = M2C_FIELD(temp_r6, s32 *, 0);
-        member_action.words[1] = M2C_FIELD(temp_r6, s32 *, 4);
-        member_action.words[2] = M2C_FIELD(temp_r6, s32 *, 8);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != arg1) {
+        *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+        temp_r6 = (u8 *)&(*(RecoveredGlobal_8033A184_lbl_804EF658 *)&lbl_804EF658).value + (*(s32 *)((s8 *)arg0 + 0x1C) * 0x18);
+        member_action.words[0] = *(s32 *)((s8 *)temp_r6 + 0);
+        member_action.words[1] = *(s32 *)((s8 *)temp_r6 + 4);
+        member_action.words[2] = *(s32 *)((s8 *)temp_r6 + 8);
         if (member_action.action != 0) {
             (((TSaveChCr *)((void *) (arg0)))->*member_action.action)();
         }
@@ -148,14 +141,14 @@ typedef char RecoveredGlobal_8033A34C___vt__9TSaveChCr_size[sizeof(RecoveredGlob
 
 u8 *TSaveChCr__ct(u8 *arg0, u8 *arg1, s32 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__9TSaveChCr.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TSaveChCr__name;
-    M2C_FIELD(arg0, s32 *, 0x20) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = poll_memcard_status(arg0);
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__9TSaveChCr.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TSaveChCr__name;
+    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = poll_memcard_status(arg0);
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
     create_backgrounds__9TSaveChCrFPv(arg0);
     set_state__9TSaveChCrFPvi((u8 *)(arg0), (s32)(0));
     return arg0;

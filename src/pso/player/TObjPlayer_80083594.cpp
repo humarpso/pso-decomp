@@ -1,29 +1,25 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 struct Stack_800836E8 {
     f32 sp8;
     f32 spC;
-    M2C_UNK sp10;
+    s32 sp10;
     u8 trailing_storage[0x2C];
 };
 
 extern "C" {
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK calc_projection_screen_offset(void *, void *);
+s32 calc_projection_screen_offset(void *, void *);
 f64 calc_camera_fov_degrees();
-M2C_UNK PSMTXConcat(void *, void *, void *);
-M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-M2C_UNK rotate_matrix_y(int, void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK load_current_pos_matrix(int);
-M2C_UNK load_current_tex_matrix(int);
+s32 PSMTXConcat(void *, void *, void *);
+s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
+s32 rotate_matrix_y(int, void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 load_current_pos_matrix(int);
+s32 load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
 extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
@@ -33,13 +29,13 @@ void load_projection_tex_matrix__15TOTrapAncient02Fi(s32 arg0);
 f64 calc_camera_fov_degrees();
 s32 is_split_screen();
 s32 TCameraCtrl__sub_800689F4();
-M2C_UNK calc_projection_screen_offset(void *, void *);
-M2C_UNK PSMTXConcat(void *, void *, void *);
-M2C_UNK C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK load_current_pos_matrix(int);
-M2C_UNK load_current_tex_matrix(int);
+s32 calc_projection_screen_offset(void *, void *);
+s32 PSMTXConcat(void *, void *, void *);
+s32 C_MTXLightPerspective(void *, f32, f32, f32, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 load_current_pos_matrix(int);
+s32 load_current_tex_matrix(int);
 extern const f64 lbl_80439358;
 extern s32 current_matrix;
 extern const f32 lbl_805D93DC;
@@ -51,16 +47,16 @@ extern "C" {
 
 void setup_particle_tev(s32 arg0);
 void setup_tev_stage__10TObjPlayerFv(void);
-M2C_UNK GXSetTevOp(M2C_UNK, M2C_UNK);
-M2C_UNK GXSetTevOrder(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK set_ginja_post_texgen_count(M2C_UNK);
-M2C_UNK set_ginja_post_tev_stage_count(M2C_UNK);
-M2C_UNK load_list_texture(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 GXSetTevOp(s32, s32);
+s32 GXSetTevOrder(s32, s32, s32, s32);
+s32 set_ginja_post_texgen_count(s32);
+s32 set_ginja_post_tev_stage_count(s32);
+s32 load_list_texture(s32, s32, s32, s32);
 s32 is_split_screen();
-M2C_UNK set_global_param__8TObjFishFi(M2C_UNK *);
-M2C_UNK set_tex_coord_gen__10TObjPlayerFiiii(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 set_global_param__8TObjFishFi(s32 *);
+s32 set_tex_coord_gen__10TObjPlayerFiiii(s32, s32, s32, s32);
 
-extern M2C_UNK shared_capture_texture_list[];
+extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
 
 void setup_tev_stage__10TObjPlayerFv(void) {
@@ -76,7 +72,7 @@ void setup_tev_stage__10TObjPlayerFv(void) {
     }
 }
 
-extern M2C_UNK shared_capture_texture_list[];
+extern s32 shared_capture_texture_list[];
 extern s32 model_render_flags;
 
 void setup_particle_tev(s32 arg0) {

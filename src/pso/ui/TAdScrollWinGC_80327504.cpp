@@ -1,10 +1,6 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_80327698___vt__14TAdScrollWinGC { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_80327698___vt__14TAdScrollWinGC { s32 value; u8 remaining[0x14]; };
 
 extern "C" {
 u8 * __dt__7TObjectFv(void *, s16);
@@ -24,13 +20,13 @@ extern const f32 lbl_805DF6A8;
 extern const f32 lbl_805DF6AC;
 extern const f32 lbl_805DF6B0;
 void run_task__14TAdScrollWinGCFv(u8 *arg0);
-s32 get_localized_text_entry(M2C_UNK, s32);
+s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *, void *);
 void complete_reveal__14TWindowMessageFPv(s32);
-void send_and_handle__6TLobbyFPvii(s32, s32, M2C_UNK);
+void send_and_handle__6TLobbyFPvii(s32, s32, s32);
 void update_scroll_position__17TWindowMessageLogFPv(s32);
 void TAdScrollWinGC__sub_8026A5F8(s32);
-s32 create_message_log_window(void *, void *, M2C_UNK);
+s32 create_message_log_window(void *, void *, s32);
 s32 TAdMultiPlyChrSelectGC__sub_802C6FA8(void);
 s32 get_scroll_delay_for_mode__14TAdScrollWinGCFPv(void *);
 extern u8 lbl_80476770[];
@@ -55,42 +51,42 @@ void close_window__14TAdScrollWinGCFPv(void* p) { if (*(unsigned int*)((char*)p 
 void run_task__14TAdScrollWinGCFv(u8 *arg0) {
     s32 d;
     u32 a;
-    switch (M2C_FIELD(arg0, s32 *, 0x4C)) {
+    switch (*(s32 *)((s8 *)arg0 + 0x4C)) {
     case 0:
         break;
     case 1:
-        if (++M2C_FIELD(arg0, s32 *, 0x50) > lbl_805DF69C) {
+        if (++*(s32 *)((s8 *)arg0 + 0x50) > lbl_805DF69C) {
             queue_destruction__7TObjectFv(arg0);
             return;
         }
         break;
     }
-    M2C_FIELD(arg0, u32 *, 0x3C) += 0xC;
-    M2C_FIELD(arg0, u32 *, 0x3C) = M2C_FIELD(arg0, u32 *, 0x3C) > 0xFF ? 0xFF : M2C_FIELD(arg0, u32 *, 0x3C);
-    M2C_FIELD(arg0, f32 *, 0x1C) = lbl_805DF6A0;
-    M2C_FIELD(arg0, f32 *, 0x20) = lbl_805DF6A4;
-    M2C_FIELD(arg0, f32 *, 0x24) = lbl_805DF6A8;
-    M2C_FIELD(arg0, f32 *, 0x28) = lbl_805DF6AC;
-    d = M2C_FIELD(controller_physical_port_bank, s16 *, 0x3A);
+    *(u32 *)((s8 *)arg0 + 0x3C) += 0xC;
+    *(u32 *)((s8 *)arg0 + 0x3C) = *(u32 *)((s8 *)arg0 + 0x3C) > 0xFF ? 0xFF : *(u32 *)((s8 *)arg0 + 0x3C);
+    *(f32 *)((s8 *)arg0 + 0x1C) = lbl_805DF6A0;
+    *(f32 *)((s8 *)arg0 + 0x20) = lbl_805DF6A4;
+    *(f32 *)((s8 *)arg0 + 0x24) = lbl_805DF6A8;
+    *(f32 *)((s8 *)arg0 + 0x28) = lbl_805DF6AC;
+    d = *(s16 *)((s8 *)controller_physical_port_bank + 0x3A);
     if (d < 0) {
         d += 0x19;
-        if (M2C_FIELD(arg0, void **, 0x40) != 0) {
-            fn_8026A61C(M2C_FIELD(arg0, void **, 0x40), lbl_805DF6B0 * d);
+        if (*(void **)((s8 *)arg0 + 0x40) != 0) {
+            fn_8026A61C(*(void **)((s8 *)arg0 + 0x40), lbl_805DF6B0 * d);
         }
     }
-    if (d > 0 && M2C_FIELD(arg0, void **, 0x40) != 0) {
-        advance_scroll__14TAdScrollWinGCFPvf(M2C_FIELD(arg0, void **, 0x40), lbl_805DF6B0 * (d - 0x19));
+    if (d > 0 && *(void **)((s8 *)arg0 + 0x40) != 0) {
+        advance_scroll__14TAdScrollWinGCFPvf(*(void **)((s8 *)arg0 + 0x40), lbl_805DF6B0 * (d - 0x19));
     }
 }
 
 u8 *__dt__14TAdScrollWinGCFv(u8 *arg0, s16 arg1) {
     u8 *temp_r3;
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TAdScrollWinGC.value;
-        temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x40));
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x40));
         if (temp_r3 != NULL) {
             queue_destruction__7TObjectFv(temp_r3);
-            M2C_FIELD(arg0, u8 **, 0x40) = NULL;
+            *(u8 **)((s8 *)arg0 + 0x40) = NULL;
         }
         fn_8026A14C();
         __dt__7TObjectFv(arg0, 0);
@@ -104,36 +100,36 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     s32 base;
     s32 i;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TAdScrollWinGC.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TAdScrollWinGC__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TAdScrollWinGC__class_name;
     lbl_805D6C68 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    M2C_FIELD(arg0, s32 *, 0x44) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x48) = 0;
-    M2C_FIELD(arg0, s32 *, 0x4C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x50) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    *(s32 *)((s8 *)arg0 + 0x44) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x48) = 0;
+    *(s32 *)((s8 *)arg0 + 0x4C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x50) = 0;
     base = get_scroll_delay_for_mode__14TAdScrollWinGCFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x40) = create_message_log_window(lbl_80476770, lbl_80476778, 0);
-    switch (M2C_FIELD(arg0, s32 *, 0x44)) {
+    *(s32 *)((s8 *)arg0 + 0x40) = create_message_log_window(lbl_80476770, lbl_80476778, 0);
+    switch (*(s32 *)((s8 *)arg0 + 0x44)) {
     case 0:
     case 1:
         for (i = 0; i < 10; i++) {
-            send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), get_localized_text_entry(0x1A, base + i), 1);
+            send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x40), get_localized_text_entry(0x1A, base + i), 1);
         }
         break;
     case 2:
     case 3:
-        send_and_handle__6TLobbyFPvii(M2C_FIELD(arg0, s32 *, 0x40), arg3, 1);
+        send_and_handle__6TLobbyFPvii(*(s32 *)((s8 *)arg0 + 0x40), arg3, 1);
         break;
     }
-    complete_reveal__14TWindowMessageFPv(M2C_FIELD(arg0, s32 *, 0x40));
-    update_scroll_position__17TWindowMessageLogFPv(M2C_FIELD(arg0, s32 *, 0x40));
-    TAdScrollWinGC__sub_8026A5F8(M2C_FIELD(arg0, s32 *, 0x40));
-    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DF6B4;
-    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DF6B8;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DF6BC;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DF6C0;
+    complete_reveal__14TWindowMessageFPv(*(s32 *)((s8 *)arg0 + 0x40));
+    update_scroll_position__17TWindowMessageLogFPv(*(s32 *)((s8 *)arg0 + 0x40));
+    TAdScrollWinGC__sub_8026A5F8(*(s32 *)((s8 *)arg0 + 0x40));
+    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DF6B4;
+    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DF6B8;
+    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DF6BC;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DF6C0;
     return arg0;
 }
 

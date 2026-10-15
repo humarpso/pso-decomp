@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -12,20 +8,17 @@ int is_flag_set_550__10TObjPlayerFPv(void* p);
 void TObjPlayer__sub_801BCD50(void);
 void TObjPlayer__sub_801BCD54(void);
 int TObjPlayer__sub_801BEF60(void*, int);
-M2C_UNK init_pad_binding(void *, void *, int);
+s32 init_pad_binding(void *, void *, int);
 s32 obj_getField1c(void *);
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 void init_control_mode__10TObjPlayerFPvi(u8 *arg0, s32 arg1) {
     if (is_locally_controlled__10TObjPlayerFPv() != 0) {
-        M2C_FIELD(arg0, s32 *, 0x3D0) = (s32) (arg1 & 3);
-        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) M2C_FIELD(arg0, s32 *, 0x3D0)));
+        *(s32 *)((s8 *)arg0 + 0x3D0) = (s32) (arg1 & 3);
+        init_pad_binding((void *) (arg0 + 0x550), (void *) (obj_getField1c((void *) (arg0))), (int) ((s16) *(s32 *)((s8 *)arg0 + 0x3D0)));
         return;
     }
     TObjPlayer__sub_801BEF60((void *) (arg0 + 0x550), (int) (0));

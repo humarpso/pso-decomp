@@ -1,9 +1,8 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct Stack_802CE510
 {
-  M2C_UNK sp8;
+  s32 sp8;
   f32 spC;
   u8 trailing_storage[0x4];
 };
@@ -17,7 +16,7 @@ struct RecoveredFields_802CE510_temp_r3
 extern "C" {
 s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 attach_particle_model(int, int, int, int, int, f32);
-u8 *csnVectorUnder(M2C_UNK *, s32, s32);
+u8 *csnVectorUnder(s32 *, s32, s32);
 s32 set_position_xy__10TObjPlayerFPvff(int, f32, f32);
 s32 get_particle_model__13TParticleCtrlFi(int);
 s32 get_instance__13TParticleCtrlFv();

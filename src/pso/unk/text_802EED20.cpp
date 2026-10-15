@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct TBJ_8003688C { char pad[0x18]; };
 
 struct VTbj_8003688C : TBJ_8003688C {
@@ -114,12 +111,12 @@ struct VObj_18 : VBase_18 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
+    virtual s32 m81();
     virtual void m82();
     virtual void m83();
     virtual s32 m84();
-    virtual M2C_UNK m85(s16, M2C_UNK);
-    virtual M2C_UNK m86();
+    virtual s32 m85(s16, s32);
+    virtual s32 m86();
 };
 
 struct VBase_18_67c185 { char pad[0x18]; };
@@ -220,17 +217,17 @@ struct VObj_18_67c185 : VBase_18_67c185 {
     virtual void m92();
     virtual void m93();
     virtual void m94();
-    virtual M2C_UNK m95();
-    virtual M2C_UNK m96();
+    virtual s32 m95();
+    virtual s32 m96();
 };
 
 struct RecoveredGlobal_80036FC8___vt__11TBoss2Joint {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1A4];
 };
 
 struct RecoveredGlobal_80036A90_lbl_80435A68 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1C];
 };
 

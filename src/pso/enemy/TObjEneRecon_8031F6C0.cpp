@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8031F6C0 { char pad[0x18]; };
 struct VObj_8031F6C0 : Base_8031F6C0 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -79,19 +76,19 @@ extern "C" {
 
 void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1);
 void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1);
-M2C_UNK advance_animation_playback();
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, int);
-M2C_UNK transition_enemy_state(void *, int);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
+s32 advance_animation_playback();
+s32 set_field_378__9TObjEneDDFPvi(void *, int);
+s32 transition_enemy_state(void *, int);
+s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
 
 void TObjEneRecon__sub_8031F6C0(void *arg0, s32 arg1) {
     s32 temp_r4;
 
     switch (arg1) {
     case 4:
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x40C) | 1;
-        M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) | 1;
+        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((VObj_8031F6C0 *)arg0)->m93(temp_r4);
         set_field_378__9TObjEneDDFPvi((void *)(arg0), (int)(0));
         return;
@@ -108,9 +105,9 @@ void handle_state__12TObjEneReconFPvi(u8 *arg0, s32 arg1) {
 
     switch (arg1) {
     case 4:
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x40C) & 0xFFFFFFFE;
-        M2C_FIELD(arg0, s32 *, 0x40C) = temp_r4;
-        M2C_FIELD(arg0, s16 *, 0xB8) = 0;
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x40C) & 0xFFFFFFFE;
+        *(s32 *)((s8 *)arg0 + 0x40C) = temp_r4;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 0;
         ((V_En_8031f748 *) arg0)->m93();
         set_field_378__9TObjEneDDFPvi((void *)(arg0), (int)(0));
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x3C0);

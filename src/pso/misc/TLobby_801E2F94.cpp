@@ -1,16 +1,12 @@
 #include "pso/render/DebugFont.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void draw_with_camera__6TLobbyFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0);
-M2C_UNK TCameraCtrl__sub_80068EF0();
-M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
-M2C_UNK TLobby__sub_80228154(s32, s32, s32, f32);
+s32 TCameraCtrl__sub_80068EF0();
+s32 restore_full_screen_view__11TCameraCtrlFv();
+s32 TLobby__sub_80228154(s32, s32, s32, f32);
 
 void draw_with_camera__6TLobbyFiiif(s32 arg0, s32 arg1, s32 arg2, f32 farg0) {
     restore_full_screen_view__11TCameraCtrlFv();
@@ -558,17 +554,17 @@ void render_model_tree__12TBoss8DragonFPvPv(void* p, void* a1) { bind_motion_con
 
 }
 
-struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { M2C_UNK value; u8 remaining[0xAC]; };
+struct RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270 { s32 value; u8 remaining[0xAC]; };
 typedef char RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801E3E24_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 
 extern "C" {
-M2C_UNK run_disk_error_check__6TLobbyFv();
+s32 run_disk_error_check__6TLobbyFv();
 s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803382E4();
 s32 read_afs_toc__6TLobbyFi(void *);
 s32 adxf_open_file__6TLobbyFiPviPv(void *, void *, int, void *);
 s32 TLobby__sub_801E3E9C(s32 arg0, s32 arg1, s32 arg2);
-M2C_UNK run_disk_error_check__6TLobbyFv();
+s32 run_disk_error_check__6TLobbyFv();
 s32 reset_state_byte__6TLobbyFv();
 s32 disable_disconnected_ports__16TKeyBoardControlFv(void *);
 s32 update_global_sound_frame();
@@ -586,21 +582,21 @@ extern "C" {
 
 void render_tick__Fv(void);
 void render_tree__10TObjPlayerFPv(void *arg0);
-M2C_UNK GXSetViewport(f32, f32, f32, f32, f32, f32);
-M2C_UNK GXSetZMode(M2C_UNK, M2C_UNK, M2C_UNK);
-extern M2C_UNK (*chunk_model_node_callback)(void *);
-M2C_UNK restore_full_screen_view__11TCameraCtrlFv();
-M2C_UNK TKeyBoardControl__sub_8000F7FC();
-M2C_UNK compose_motion_node_matrix(void *);
+s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
+s32 GXSetZMode(s32, s32, s32);
+extern s32 (*chunk_model_node_callback)(void *);
+s32 restore_full_screen_view__11TCameraCtrlFv();
+s32 TKeyBoardControl__sub_8000F7FC();
+s32 compose_motion_node_matrix(void *);
 
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK fn_803DCEC8();
-M2C_UNK fn_803DCF0C();
-M2C_UNK run_tasks__16TKeyBoardControlFv();
-M2C_UNK set_cull_none__8TObjFishFv();
+s32 push_matrix();
+s32 pop_matrix();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 fn_803DCEC8();
+s32 fn_803DCF0C();
+s32 run_tasks__16TKeyBoardControlFv();
+s32 set_cull_none__8TObjFishFv();
 
 void render_tree__10TObjPlayerFPv(void *arg0) {
     void *var_r31;
@@ -609,14 +605,14 @@ void render_tree__10TObjPlayerFPv(void *arg0) {
     do {
         push_matrix();
         compose_motion_node_matrix(var_r31);
-        if (((M2C_UNK (*)(void *)) chunk_model_node_callback) != NULL) {
+        if (((s32 (*)(void *)) chunk_model_node_callback) != NULL) {
             chunk_model_node_callback(var_r31);
         }
-        if ((u32) M2C_FIELD(var_r31, u32 *, 0x2C) != 0U) {
-            render_tree__10TObjPlayerFPv((void *)(M2C_FIELD(var_r31, void **, 0x2C)));
+        if ((u32) *(u32 *)((s8 *)var_r31 + 0x2C) != 0U) {
+            render_tree__10TObjPlayerFPv((void *)(*(void **)((s8 *)var_r31 + 0x2C)));
         }
         pop_matrix();
-        var_r31 = M2C_FIELD(var_r31, void **, 0x30);
+        var_r31 = *(void **)((s8 *)var_r31 + 0x30);
     } while (var_r31 != NULL);
 }
 

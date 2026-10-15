@@ -1,13 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_C { u8 bytes[0xc]; };
+struct ByteBlock_C { u8 bytes[0xc]; };
 
 #pragma inline_depth(1)
 #pragma auto_inline off
@@ -67,22 +63,22 @@ void *TObjEZRopeBase__ct(void *);
 extern u8 ezrope_chunk_material_color_table[];
 extern s32 TObjHMS_EZRope_Player__name;
 void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
-M2C_UNK scale_matrix(int, f32, f32, f32);
+s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-M2C_UNK translate_matrix_vec3(int, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK normalize_vector(void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_chunk_material_override_pair(int, int);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object(void *);
+s32 translate_matrix_vec3(int, void *);
+s32 rotate_matrix_y(int, int);
+s32 subtract_vector(void *, void *);
+s32 rotate_matrix_x(int, int);
+s32 normalize_vector(void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_chunk_material_override_pair(int, int);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object(void *);
 extern const f64 lbl_8043DF40;
 extern u8 lbl_8048DEF4[];
 extern u8 ezrope_chunk_material_color_table[];
@@ -107,14 +103,14 @@ void __dt__14TObjEZRopeBaseFv(void *, int);
 void *__nw__7TObjectFUl(int);
 void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 
-extern M2C_UNK __vt__21TObjHMS_EZRope_Player[];
+extern s32 __vt__21TObjHMS_EZRope_Player[];
 
 void *__dt__21TObjHMS_EZRope_PlayerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__21TObjHMS_EZRope_Player;
-        if (M2C_FIELD(arg0, void **, 0x3C) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x3C)); M2C_FIELD(arg0, M2C_UNK *, 0x3C) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x40) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x40)); M2C_FIELD(arg0, M2C_UNK *, 0x40) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x44) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(M2C_FIELD(arg0, void **, 0x44)); M2C_FIELD(arg0, M2C_UNK *, 0x44) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__21TObjHMS_EZRope_Player;
+        if (*(void **)((s8 *)arg0 + 0x3C) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void **)((s8 *)arg0 + 0x3C)); *(s32 *)((s8 *)arg0 + 0x3C) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x40) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void **)((s8 *)arg0 + 0x40)); *(s32 *)((s8 *)arg0 + 0x40) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x44) != NULL) { safe_free__23TAdSinglePlyChrSelectGCFUi(*(void **)((s8 *)arg0 + 0x44)); *(s32 *)((s8 *)arg0 + 0x44) = 0; }
         __dt__14TObjEZRopeBaseFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -180,19 +176,19 @@ void *TObjHMS_EZRope_Player__ct(void *arg0, void *arg1, void *arg2, void *arg3) 
 
 void TObjPlayer__sub_800FF1FC(f32 *arg0, f32 *arg1) {
     *arg0 = *arg1;
-    *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
+    *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
 }
 
 void TObjPlayer__sub_800FF220(s32 *arg0, s32 *arg1) {
     *arg0 = *arg1;
-    *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
+    *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
 }
 
 void TObjPlayer__sub_800FF244(u8 *arg0, u8 *arg1) {
-    M2C_FIELD(arg0, u8 *, 0) = (u8) M2C_FIELD(arg1, u8 *, 0);
-    *(M2CCopy_C *)((s32) arg0 + 4) = *(const M2CCopy_C *)((s32) arg1 + 4);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
+    *(u8 *)((s8 *)arg0 + 0) = (u8) *(u8 *)((s8 *)arg1 + 0);
+    *(ByteBlock_C *)((s32) arg0 + 4) = *(const ByteBlock_C *)((s32) arg1 + 4);
+    *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
 }
 
 void * create_hairmove__10TObjPlayerFPvPvPv(void *arg0, void *arg1, void *arg2) {

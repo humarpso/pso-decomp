@@ -1,6 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct VBase_18_801ABE14 { char pad[0x18]; };
 
 struct VObj_18_801ABE14 : VBase_18_801ABE14 {
@@ -23,24 +22,24 @@ struct Stack_801ABE14 { f32 x, y, z; };
 
 extern "C" {
 u8 *photon_base_ct(void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK set_field_b8__14TObjEnePanarmsFPvs(void *, M2C_UNK);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 set_field_b8__14TObjEnePanarmsFPvs(void *, s32);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
 u8 *find_entity_by_id(u16);
-M2C_UNK init_collision_body_parts(void *, void *, int);
-M2C_UNK refresh_collision_body_centers(void *);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
-M2C_UNK begin_photon_summon_camera(void *, int);
-M2C_UNK spawn_photon_blast_opening_effects(int, int);
-M2C_UNK spawn_photon_blast_attachment_effects(void *, M2C_UNK);
+s32 init_collision_body_parts(void *, void *, int);
+s32 refresh_collision_body_centers(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
+s32 begin_photon_summon_camera(void *, int);
+s32 spawn_photon_blast_opening_effects(int, int);
+s32 spawn_photon_blast_attachment_effects(void *, s32);
 void TObjPlayer__sub_801AB688(void *);
 void collect_hit_targets__12TPhotonGollaFPv(void *);
 s32 TPhotonMagicSquare__ct(int, void *, int, void *, int, f32);
 u8 *TPhotonRainbow__ct(u8 *arg0, s32 arg1_unused, s32 arg2);
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_cue_stream_file(void *);
+s32 play_cue_stream_file(void *);
 void *__nw__7TObjectFUl(int);
 extern u8 lbl_80446DA8[];
 extern u8 lbl_80446DB4[];
@@ -90,36 +89,36 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
     u8 *e;
     void *p;
     photon_base_ct(arg0);
-    M2C_FIELD(arg0, u8 **, 0x18) = (u8 *)lbl_804C35F4;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D34E8;
-    M2C_FIELD(arg0, s32 *, 0x138) = 2;
+    *(u8 **)((s8 *)arg0 + 0x18) = (u8 *)lbl_804C35F4;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D34E8;
+    *(s32 *)((s8 *)arg0 + 0x138) = 2;
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg1);
-    M2C_FIELD(arg0, u16 *, 0x158) = M2C_FIELD(arg1, u16 *, 0xC);
+    *(u16 *)((s8 *)arg0 + 0x158) = *(u16 *)((s8 *)arg1 + 0xC);
     init_collision_body_parts(arg0, (u8 *)lbl_804C35C8, 1);
     refresh_collision_body_centers(arg0);
     reset_photon_effect__10TObjPlayerFPv(arg0);
-    M2C_FIELD(arg0, s32 *, 0x1A8) = 0;
-    M2C_FIELD(arg0, u8 **, 0x1A4) = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x158));
-    e = M2C_FIELD(arg0, u8 **, 0x1A4);
+    *(s32 *)((s8 *)arg0 + 0x1A8) = 0;
+    *(u8 **)((s8 *)arg0 + 0x1A4) = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
+    e = *(u8 **)((s8 *)arg0 + 0x1A4);
     if (e != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x60) = M2C_FIELD(e, s32 *, 0x60);
+        *(s32 *)((s8 *)arg0 + 0x60) = *(s32 *)((s8 *)e + 0x60);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x60) = 0;
+        *(s32 *)((s8 *)arg0 + 0x60) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x34) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x48);
-    M2C_FIELD(arg0, s32 *, 0x24) = M2C_FIELD(M2C_FIELD(photon_blast_shared_resource, u8 **, 0x42C), s32 *, 0x4C);
+    *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x48);
+    *(s32 *)((s8 *)arg0 + 0x24) = *(s32 *)((s8 *)(*(u8 **)((s8 *)photon_blast_shared_resource + 0x42C)) + 0x4C);
     set_field_d8__10TObjPlayerFPvi(arg0, (s32) lbl_804C35A8);
-    set_field_dc__10TObjPlayerFPvi(arg0, M2C_FIELD(photon_blast_shared_resource, s32 *, 0x430));
-    M2C_FIELD(arg0, s16 *, 0xB8) = 1;
-    set_animation__10TObjPlayerFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    set_field_b8__14TObjEnePanarmsFPvs(arg0, M2C_FIELD(arg0, s16 *, 0xB8));
-    M2C_FIELD(arg0, s16 *, 0x1B8) = 1;
-    M2C_FIELD(arg0, s32 *, 0x1BC) = M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x1C0) = M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x1C4) = 0;
-    M2C_FIELD(arg0, s32 *, 0x134) = 5;
+    set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)photon_blast_shared_resource + 0x430));
+    *(s16 *)((s8 *)arg0 + 0xB8) = 1;
+    set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
+    *(s16 *)((s8 *)arg0 + 0x1B8) = 1;
+    *(s32 *)((s8 *)arg0 + 0x1BC) = *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x1C0) = *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x1C4) = 0;
+    *(s32 *)((s8 *)arg0 + 0x134) = 5;
     ((VObj_18_801ABE14 *) arg0)->m12();
-    M2C_FIELD(arg0, s32 *, 0x1C8) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1C8) = 0;
     switch (get_global_state__14TOKeyMachine01Fv()) {
     case 11: case 12: case 13: case 14:
     case 30: case 31: case 32: case 33:
@@ -135,20 +134,20 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         }
         break;
     }
-    M2C_FIELD(arg0, s32 *, 0x19C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x19C) = 0;
     collect_hit_targets__12TPhotonGollaFPv(arg0);
-    ((void (*)(void *, int)) TObjPlayer__sub_801AB688)(arg0, M2C_FIELD(arg1, u8 *, 0x1C));
-    if (M2C_FIELD(arg0, s32 *, 0x1C0) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x154) |= 1;
+    ((void (*)(void *, int)) TObjPlayer__sub_801AB688)(arg0, *(u8 *)((s8 *)arg1 + 0x1C));
+    if (*(s32 *)((s8 *)arg0 + 0x1C0) == 1) {
+        *(s32 *)((s8 *)arg0 + 0x154) |= 1;
     }
-    M2C_FIELD(arg0, f32 *, 0x150) = M2C_FIELD(arg1, f32 *, 0x20);
-    if (M2C_FIELD(arg0, s32 *, 0x1BC) == 0) {
+    *(f32 *)((s8 *)arg0 + 0x150) = *(f32 *)((s8 *)arg1 + 0x20);
+    if (*(s32 *)((s8 *)arg0 + 0x1BC) == 0) {
         set_field_b8__14TObjEnePanarmsFPvs(arg0, 0);
         begin_photon_summon_camera(arg0, 5);
-        M2C_FIELD(arg0, s32 *, 0x1BC) = 1;
-        M2C_FIELD(arg0, s16 *, 0x1B8) = 0;
-        M2C_FIELD(arg0, s32 *, 0x1C4) = 1;
-        e = find_entity_by_id(M2C_FIELD(arg0, u16 *, 0x158));
+        *(s32 *)((s8 *)arg0 + 0x1BC) = 1;
+        *(s16 *)((s8 *)arg0 + 0x1B8) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1C4) = 1;
+        e = find_entity_by_id(*(u16 *)((s8 *)arg0 + 0x158));
         if (e != NULL) {
             VecCopy__FP3VecPC3Vec(&pos, e + 0x38);
         }
@@ -160,7 +159,7 @@ u8 *TPhotonGolla__ct(u8 *arg0, u8 *arg1) {
         spawn_photon_blast_attachment_effects(arg0, 2);
         play_cue_stream_file(lbl_80446DA8);
     } else {
-        spawn_photon_blast_opening_effects(2, M2C_FIELD(arg0, u16 *, 0x158));
+        spawn_photon_blast_opening_effects(2, *(u16 *)((s8 *)arg0 + 0x158));
         play_cue_stream_file(lbl_80446DB4);
     }
     return arg0;

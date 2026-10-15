@@ -1,17 +1,13 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80050050_lbl_80485864
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x8];
 };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv();
+s32 queue_destruction__7TObjectFv();
 extern const f32 lbl_805D8A20;
 extern const f32 lbl_805D8A24;
 void update_fade_and_expire(u8 *arg0);
@@ -67,13 +63,13 @@ void draw_three_part_models(u8 *arg0) {
 void update_fade_and_expire(u8 *arg0) {
     f32 temp_f1;
     s32 temp_r0;
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0xB8) + lbl_805D8A20;
-    M2C_FIELD(arg0, f32 *, 0xB8) = temp_f1;
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0xB8) + lbl_805D8A20;
+    *(f32 *)((s8 *)arg0 + 0xB8) = temp_f1;
     if (temp_f1 >= lbl_805D8A24) {
-        M2C_FIELD(arg0, f32 *, 0xB8) = (f32) lbl_805D8A24;
+        *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805D8A24;
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x90) + 1;
-    M2C_FIELD(arg0, s32 *, 0x90) = temp_r0;
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x90) + 1;
+    *(s32 *)((s8 *)arg0 + 0x90) = temp_r0;
     if (temp_r0 >= 0x78) {
         queue_destruction__7TObjectFv();
     }

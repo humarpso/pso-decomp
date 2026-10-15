@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Base_8015B8E8 { char pad[0x18]; };
 
@@ -112,16 +108,16 @@ struct Ids_8015C234 { s32 f0; s32 a; s32 b; };
 struct Obj_8015C48C { u8 pad[0x326]; s16 a326; u8 pad2[0x364 - 0x328]; s32 a364; };
 
 extern "C" {
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_model(int);
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_model(int);
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
-extern M2C_UNK __vt__23TOContainerAncientEnemy[];
+extern s32 __vt__23TOContainerAncientEnemy[];
 void TObjPlayer__sub_8015C3C8(u8 *arg0);
 s32 is_quest_active();
 void * TOContainerAncientItemCommon__ct(void *, void *);
@@ -176,9 +172,9 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
 void destroy_ancient_container__10TObjPlayerFPvs(void *, int);
 void init_ancient_container(void *, void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
-M2C_UNK spawn_item__17TObjContainerItemFPvi(void *, void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
+s32 spawn_item__17TObjContainerItemFPvi(void *, void *);
 
 void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
     if ((s16) *arg1 == 1) {
@@ -186,13 +182,13 @@ void TOContainerAncientItemCommon__vt4(void *arg0, s16 *arg1, s32 arg2) {
             ((struct VObj_8015C098 *) arg0)->m77();
             spawn_item__17TObjContainerItemFPvi(arg0, arg0);
         }
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
         set_flag8__6TLobbyFPv(arg0);
         queue_destruction__7TObjectFv(arg0);
     }
 }
 
-extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
+extern s32 __vt__28TOContainerAncientItemCommon[];
 
 s32 create__28TOContainerAncientItemCommonFi(s32 arg0) {
     s32 temp_r3;
@@ -217,7 +213,7 @@ s32 create__28TOContainerAncientItemCommonFi(s32 arg0) {
 
 void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__28TOContainerAncientItemCommon;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
         destroy_ancient_container__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -226,13 +222,13 @@ void *__dt__28TOContainerAncientItemCommonFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK __vt__28TOContainerAncientItemCommon[];
+extern s32 __vt__28TOContainerAncientItemCommon[];
 extern void *lbl_805D2EFC;
 
 void *TOContainerAncientItemCommon__ct(void *arg0, void * _w1) {
     init_ancient_container(arg0, _w1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__28TOContainerAncientItemCommon;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D2EFC;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__28TOContainerAncientItemCommon;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D2EFC;
     return arg0;
 }
 void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
@@ -281,26 +277,26 @@ void TObjPlayer__sub_8015C3C8(u8 *arg0) {
     u8 *temp_r31_2;
     u8 *temp_r31_3;
     if ((u32) ancient_container_resource_bundle != 0U) {
-        switch (M2C_FIELD(arg0, s16 *, 0x326)) {
+        switch (*(s16 *)((s8 *)arg0 + 0x326)) {
         case 0:
             push_matrix();
             post_translate_matrix((void *) (arg0 + 0x38));
-            rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-            set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
-            temp_r31 = (unsigned char *) (M2C_FIELD(arg0, void **, 0x34));
+            rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+            set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
+            temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
             push_matrix();
             post_translate_matrix((void *) (temp_r31 + 8));
-            draw_ginja_model((int) (M2C_FIELD(temp_r31, s32 *, 4)));
-            temp_r31_2 = (unsigned char *) (M2C_FIELD(temp_r31, void **, 0x2C));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31 + 4)));
+            temp_r31_2 = (unsigned char *) (*(void **)((s8 *)temp_r31 + 0x2C));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_2 + 8));
-            draw_ginja_model((int) (M2C_FIELD(temp_r31_2, s32 *, 4)));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_2 + 4)));
             pop_matrix();
-            temp_r31_3 = (unsigned char *) (M2C_FIELD(temp_r31_2, void **, 0x30));
+            temp_r31_3 = (unsigned char *) (*(void **)((s8 *)temp_r31_2 + 0x30));
             push_matrix();
             post_translate_matrix((void *) (temp_r31_3 + 8));
             begin_effect_render__13TParticleCtrlFv();
-            draw_ginja_model((int) (M2C_FIELD(temp_r31_3, s32 *, 4)));
+            draw_ginja_model((int) (*(s32 *)((s8 *)temp_r31_3 + 4)));
             end_effect_render__13TParticleCtrlFv();
             pop_matrix();
             pop_matrix();

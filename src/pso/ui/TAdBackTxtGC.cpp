@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -14,15 +10,15 @@ void __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(void *);
 void render_shadows__7TObjectFv(void);
 void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1);
-M2C_UNK set_cached_blend_factor(M2C_UNK, M2C_UNK);
-M2C_UNK restore_saved_depth_alpha_state();
-M2C_UNK draw_character_background_frame(void *, s32, M2C_UNK);
+s32 set_cached_blend_factor(s32, s32);
+s32 restore_saved_depth_alpha_state();
+s32 draw_character_background_frame(void *, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK set_depth_buffer_settings_2__Fv();
+s32 set_depth_buffer_settings_2__Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv();
 
 void render__12TAdBackTxtGCFv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
         if (toggle_flag_9_if_flag_10_is_clear__7TObjectFv() == 0) {
             set_depth_buffer_settings_2__Fv();
             goto block_4;
@@ -31,10 +27,10 @@ void render__12TAdBackTxtGCFv(void *arg0) {
 block_4:
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 0xA);
-        draw_character_background_frame(arg0, (s32) M2C_FIELD(arg0, s32 *, 0x1C) / 3, -1);
+        draw_character_background_frame(arg0, (s32) *(s32 *)((s8 *)arg0 + 0x1C) / 3, -1);
         set_cached_blend_factor(0, 8);
         set_cached_blend_factor(1, 6);
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x24) == 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x24) == 0) {
             restore_saved_depth_alpha_state();
         }
     }
@@ -43,12 +39,12 @@ block_4:
 void run_task__12TAdBackTxtGCFv(void *arg0) {
     s32 temp_r4;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x1C);
     if (temp_r4 >= 0xE) {
-        M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         return;
     }
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) (temp_r4 + 1);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) (temp_r4 + 1);
 }
 
 extern void *__vt__12TAdBackTxtGC[];
@@ -57,7 +53,7 @@ extern void *TAdBackTxtGC__name;
 
 void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1) {
     if (self != NULL) {
-        M2C_FIELD(self, void ***, 0x18) = __vt__12TAdBackTxtGC;
+        *(void ***)((s8 *)self + 0x18) = __vt__12TAdBackTxtGC;
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -68,11 +64,11 @@ void *__dt__12TAdBackTxtGCFv(void *self, s16 arg1) {
 
 void *__ct__12TAdBackTxtGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, void ***, 0x18) = __vt__12TAdBackTxtGC;
-    M2C_FIELD(arg0, void **, 0x0) = TAdBackTxtGC__name;
-    M2C_FIELD(arg0, u32 *, 0x1C) = -1;
-    M2C_FIELD(arg0, f32 *, 0x20) = lbl_805DDD08;
-    M2C_FIELD(arg0, u32 *, 0x24) = 1;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__12TAdBackTxtGC;
+    *(void **)((s8 *)arg0 + 0x0) = TAdBackTxtGC__name;
+    *(u32 *)((s8 *)arg0 + 0x1C) = -1;
+    *(f32 *)((s8 *)arg0 + 0x20) = lbl_805DDD08;
+    *(u32 *)((s8 *)arg0 + 0x24) = 1;
     return arg0;
 }
 

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct S_803F3328 { u8 pad0[4]; s32 state; u8 card[0x80]; };
 typedef struct Slot_803F3478 {
@@ -23,11 +19,11 @@ typedef struct Slot_803F3478 {
 typedef Slot_803F3478 Slot_803F1CC4, Slot_803F1E90, Slot_803F2058;
 
 extern "C" {
-M2C_UNK OSFreeToHeap(int, void *);
+s32 OSFreeToHeap(int, void *);
 s32 get_network_config_mode();
-M2C_UNK get_or_set_network_config_mode(int);
-M2C_UNK get_or_set_network_config_backup_mode(int);
-M2C_UNK set_network_config_card_channel(int);
+s32 get_or_set_network_config_mode(int);
+s32 get_or_set_network_config_backup_mode(int);
+s32 set_network_config_card_channel(int);
 extern s32 __OSCurrHeap;
 extern s32 lbl_805D79B0;
 extern u32 lobby_net_config_buffer;
@@ -35,15 +31,15 @@ extern s32 lbl_805D7940;
 s32 TAdPlayerLoadGC__sub_803F31BC(void);
 s32 CARDUnmount(s32 chan);
 void unmount_card__15TAdPlayerLoadGCFi(s32 chan);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDClose(void *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0);
 s32 CARDProbe(s32 chan);
 char *strcpy(char *, const char *);
 u32 strlen(const char *);
-M2C_UNK memset(void *, int, int);
+s32 memset(void *, int, int);
 s32 get_load_state__15TAdPlayerLoadGCFv(void);
 s32 finish_load_slot_state4__15TAdPlayerLoadGCFiPv(s32 arg0, s32 *arg1);
 }
@@ -68,7 +64,7 @@ Slot_803F3478 TAdPlayerLoadGC__load_request_slots[2];
 S_803F3328 lbl_805A29B0[100];
 u8 lbl_805A5ED0[0x30];
 
-extern M2C_UNK lbl_805D4700;
+extern s32 lbl_805D4700;
 
 s32 get_or_set_channel_flag__15TAdPlayerLoadGCFii(s32 arg0, s32 arg1) {
     if (((arg0 != 0) && (arg0 != 1)) || (arg1 < 0) || (arg1 > 2)) {
@@ -240,16 +236,16 @@ s32 TAdPlayerLoadGC__sub_803F31BC(void) {
 void reset_slot_entry__15TAdPlayerLoadGCFi(s32 arg0) {
     u8 *temp_r30;
     temp_r30 = (u8 *)TAdPlayerLoadGC__load_request_slots + (arg0 * 0x68);
-    M2C_FIELD(temp_r30, s32 *, 0) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0) = 0;
     memset((void *) (temp_r30 + 4), (int) (0), (int) (0x20));
     memset((void *) (temp_r30 + 0x24), (int) (0), (int) (0x20));
-    M2C_FIELD(temp_r30, s32 *, 0x44) = 0;
-    M2C_FIELD(temp_r30, s32 *, 0x48) = 0;
-    M2C_FIELD(temp_r30, s32 *, 0x4C) = 0;
-    M2C_FIELD(temp_r30, s32 *, 0x50) = 0;
-    M2C_FIELD(temp_r30, s32 *, 0x54) = -1;
-    M2C_FIELD(temp_r30, s32 *, 0x58) = 0;
-    M2C_FIELD(temp_r30, s32 *, 0x5C) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x44) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x48) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x4C) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x50) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x54) = -1;
+    *(s32 *)((s8 *)temp_r30 + 0x58) = 0;
+    *(s32 *)((s8 *)temp_r30 + 0x5C) = 0;
 }
 
 s32 close_card_slot__15TAdPlayerLoadGCFi(s32 arg0) {

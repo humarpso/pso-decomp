@@ -78,12 +78,9 @@ TSetEvtDestroy::~TSetEvtDestroy() {
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_802093EC_lbl_805139F8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x44];
 };
 
@@ -131,7 +128,7 @@ extern "C" {
 
 s32 get_area_event_data(s32 arg0) {
     if (arg0 < 0x12) {
-        return M2C_FIELD(&lobby_slot_ptr_table.value, M2C_UNK *, (arg0 * 4));
+        return *(s32 *)((s8 *)(&lobby_slot_ptr_table.value) + (arg0 * 4));
     }
     return 0;
 }

@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct Pl_801960F8 { u8 pad0[0x38]; f32 pos[3]; };
 
@@ -28,7 +26,7 @@ int destroy_board__17TQuestThreadBoardFv(void*);
 void TObjQuestColApcINW__vt14(void* p) { destroy_board__17TQuestThreadBoardFv(p); create__12TQuestThreadFi(*(void**)((char*)p + 0xb0)); }
 
 extern const f32 lbl_805DBF04;
-extern M2C_UNK __vt__18TObjQuestColApcINW[];
+extern s32 __vt__18TObjQuestColApcINW[];
 extern void *lbl_805D3400;
 
 s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
@@ -56,12 +54,12 @@ s32 TObjQuestColApcINW__vt13(Col_801960F8 *arg0) {
 
 void *TObjQuestColApcINW__ct(void *arg0) {
     TObjQuestColBase__ct(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__18TObjQuestColApcINW;
-    M2C_FIELD(arg0, void **, 0x0) = lbl_805D3400;
-    M2C_FIELD(arg0, f32 *, 0xBC) = M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, f32 *, 0xC8) = lbl_805DBF04;
-    M2C_FIELD(arg0, f32 *, 0xC4) = lbl_805DBF04;
-    M2C_FIELD(arg0, f32 *, 0xC0) = lbl_805DBF04;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__18TObjQuestColApcINW;
+    *(void **)((s8 *)arg0 + 0x0) = lbl_805D3400;
+    *(f32 *)((s8 *)arg0 + 0xBC) = *(f32 *)((s8 *)arg0 + 0x6C);
+    *(f32 *)((s8 *)arg0 + 0xC8) = lbl_805DBF04;
+    *(f32 *)((s8 *)arg0 + 0xC4) = lbl_805DBF04;
+    *(f32 *)((s8 *)arg0 + 0xC0) = lbl_805DBF04;
     return arg0;
 }
 

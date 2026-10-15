@@ -7,31 +7,27 @@
 #include "pso/player/TPlayerLevelFeedback.h"
 #include "pso/player/TPlayerLobbyMarker.h"
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void *__ct__20TPlayerLevelFeedbackFP7TObjectUs(void *arg0, u16 arg1, u16 arg2);
-u32 spawn_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
-M2C_UNK set_owner_id__13TParticleCtrlFPvUs(u32, u16);
+u32 spawn_particle_effect_with_flags(s32, s32, s32);
+s32 set_owner_id__13TParticleCtrlFPvUs(u32, u16);
 u32 get_player_by_client_id(u16);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 }
 extern "C" {
 
-extern M2C_UNK __vt__20TPlayerLevelFeedback[];
+extern s32 __vt__20TPlayerLevelFeedback[];
 
 }
 extern "C" {
 
-extern M2C_UNK __vt__20TPlayerLevelFeedback[];
+extern s32 __vt__20TPlayerLevelFeedback[];
 
 }
 extern "C" {
@@ -62,21 +58,21 @@ s32 is_on_current_floor__10TObjPlayerFi(VO_801C6408*);
 s32 reset_key_machine_state__10TObjPlayerFv();
 extern const f32 lbl_805DC338;
 extern s32 tl_07;
-void* __nw__7TObjectFUl(M2C_UNK);
+void* __nw__7TObjectFUl(s32);
 
 }
 
 extern "C" {
 
 void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0);
-M2C_UNK __ct__11TPlayerSoulFP7TObjectUs();
+s32 __ct__11TPlayerSoulFP7TObjectUs();
 
 s32 is_script_controlled__10TObjPlayerFPv(s32);
 
 s32 check_flag_0x8000__10TObjPlayerFPv();
 s32 obj_getField1c(s32);
 s32 obj_isState3_324(s32);
-M2C_UNK set_flag_0x8000__10TObjPlayerFPv(s32);
+s32 set_flag_0x8000__10TObjPlayerFPv(s32);
 
 extern s32 tl_06;
 
@@ -93,8 +89,7 @@ namespace accessors {
 #include "pso/player/TPlayerParticleOwner.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 #include "pso/player/TObjPlayer.h"
 
 extern "C" {
@@ -108,7 +103,7 @@ TObjPlayer* get_player_by_client_id(int);
 f32 get_stat_f32__8TItemMagFPv(s32);
 void set_ring_action__10TObjPlayerFPvi(void*, s32);
 void set_stat_scale__10TObjPlayerFPvf(void*, f32);
-s32 test_flags_any(s32, M2C_UNK);
+s32 test_flags_any(s32, s32);
 }
 #define apply_stat_multipliers__10TObjPlayerFiif ((int (*)(void*))apply_stat_multipliers__10TObjPlayerFiif)
 #define set_stat_scale__10TObjPlayerFPvf ((int (*)(void*))set_stat_scale__10TObjPlayerFPvf)
@@ -122,20 +117,15 @@ s32 get_slot_value__10TObjPlayerFPvi(s32 *arg0, s32 arg1);
 #undef apply_stat_multipliers__10TObjPlayerFiif
 #undef set_stat_scale__10TObjPlayerFPvf
 
-#define TObjPlayer__sub_801C6FCC ((M2C_UNK (*)(s32, f32))TObjPlayer__sub_801C6FCC)
+#define TObjPlayer__sub_801C6FCC ((s32 (*)(s32, f32))TObjPlayer__sub_801C6FCC)
 #define apply_stat_multipliers_default__10TObjPlayerFv ((int (*)(void*))apply_stat_multipliers_default__10TObjPlayerFv)
 #define set_stat_scale__10TObjPlayerFPvf ((int (*)(void*))set_stat_scale__10TObjPlayerFPvf)
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0);
 void apply_stats_and_update__10TObjPlayerFPv(void* p);
-s32 test_flags_any(s32, M2C_UNK);
+s32 test_flags_any(s32, s32);
 s32 check_state_flag_1__8TItemMagFPv(s32);
 f32 get_stat_f32__8TItemMagFPv(s32);
 s32 is_flag30_8_set__10TObjPlayerFi(s32);
@@ -150,11 +140,11 @@ extern const f32 lbl_805DC340;
 
 #define TObjPlayer__sub_801C6FDC ((f32* (*)(f32*))TObjPlayer__sub_801C6FDC)
 #define TObjPlayer__sub_801C6FE0 ((void (*)(f32*, f32, f32, f32))TObjPlayer__sub_801C6FE0)
-#define apply_stat_multipliers__10TObjPlayerFiif ((M2C_UNK (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)
+#define apply_stat_multipliers__10TObjPlayerFiif ((s32 (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)
 #define get_obj_type__10TObjPlayerFPv ((u16 (*)(PlayerScaleState*))get_obj_type__10TObjPlayerFPv)
 #define get_stat_f32__8TItemMagFPv ((f32 (*)(PlayerScaleState*))get_stat_f32__8TItemMagFPv)
-#define set_ring_action__10TObjPlayerFPvi ((M2C_UNK (*)(s32, M2C_UNK))set_ring_action__10TObjPlayerFPvi)
-#define set_stat_scale__10TObjPlayerFPvf ((M2C_UNK (*)(f32))set_stat_scale__10TObjPlayerFPvf)
+#define set_ring_action__10TObjPlayerFPvi ((s32 (*)(s32, s32))set_ring_action__10TObjPlayerFPvi)
+#define set_stat_scale__10TObjPlayerFPvf ((s32 (*)(f32))set_stat_scale__10TObjPlayerFPvf)
 
 extern "C" {
 TObjPlayer* get_player_by_client_id(int);
@@ -196,7 +186,7 @@ int clear_shrink_flag__10TObjPlayerFPv(void* p);
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0);
 void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0);
 int clear_flags__11TAdRicoRingFPvUi(void*, int);
-M2C_UNK set_flags__10TObjPlayerFPvUi(void *, int);
+s32 set_flags__10TObjPlayerFPvUi(void *, int);
 
 extern const f32 lbl_805DC320;
 
@@ -215,11 +205,9 @@ extern const f32 lbl_805DC320;
 #define test_flags_any ((int (*)(void*, int))test_flags_any)
 
 struct RecoveredGlobal_801C6FF8_lbl_804C4008 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
-
-typedef s32 M2C_UNK;
 
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0);
@@ -231,21 +219,21 @@ s32 get_contact_surface_type(s32 arg0);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_801C6FF8_lbl_804C4008 __vt__18TPlayerLobbyMarker;
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3);
-M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-M2C_UNK get_cursor_state__11TMainCursorFv();
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 get_cursor_state__11TMainCursorFv();
 s32 test_flag_2000000__10TObjPlayerFPv(s32);
 s32 TObjPlayer__sub_801BF914(s32);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
 s32 all_parents_unqueued_for_destruction__7TObjectFv();
-M2C_UNK scale_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK translate_matrix_vec3(M2C_UNK, s32);
-M2C_UNK rotate_matrix_y(M2C_UNK, s32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_chunk_material_color(void *);
-M2C_UNK draw_chunk_object();
+s32 scale_matrix(s32, f32, f32, f32);
+s32 translate_matrix_vec3(s32, s32);
+s32 rotate_matrix_y(s32, s32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(void *);
+s32 set_chunk_material_color(void *);
+s32 draw_chunk_object();
 extern u8 lbl_80447020[];
 extern u8 shared_effect_texture_list[];
 extern u8 saved_model_draw_color[];
@@ -307,7 +295,7 @@ extern "C" {
 
     extern int obj_heap;
 
-extern M2C_UNK __vt__13TForceOperate[];
+extern s32 __vt__13TForceOperate[];
 
 }
 }
@@ -327,20 +315,18 @@ typedef char RecoveredGlobal_801C6FF8_lbl_804C4008_size[sizeof(RecoveredGlobal_8
 #include "pso/TPlyOnCreated.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 extern "C" {
 
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK __vt__20TPlayerReadyCallback[];
+extern s32 __vt__20TPlayerReadyCallback[];
 
 }
 extern "C" {
 
-extern M2C_UNK __vt__18TPlayerLobbyMarker[];
+extern s32 __vt__18TPlayerLobbyMarker[];
 
 }
 
@@ -577,11 +563,11 @@ namespace accessors {
 extern "C" {
 u8 *__ct__18TPlayerLobbyMarkerFP7TObjectsSc(u8 *arg0, u8 *arg1, s16 arg2, s8 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__18TPlayerLobbyMarker.value;
-    M2C_FIELD(arg0, s8 *, 0x1C) = arg3;
-    M2C_FIELD(arg0, s8 *, 0x1D) = 0;
-    M2C_FIELD(arg0, s16 *, 0x1E) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__18TPlayerLobbyMarker.value;
+    *(s8 *)((s8 *)arg0 + 0x1C) = arg3;
+    *(s8 *)((s8 *)arg0 + 0x1D) = 0;
+    *(s16 *)((s8 *)arg0 + 0x1E) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
     return arg0;
 }
 
@@ -665,7 +651,7 @@ void set_lock_timer__10TObjPlayerFPvi(void* p, s32 v) { *(s32*)((char*)p + 0x4) 
 namespace accessors {
 extern "C" {
 u8 fn_801C6F2C(u8 *arg0) {
-    return (u8) (M2C_FIELD(arg0, s32 *, 4) == 1);
+    return (u8) (*(s32 *)((s8 *)arg0 + 4) == 1);
 }
 
 }
@@ -675,7 +661,7 @@ namespace accessors {
 extern "C" {
 void *__dt__13TForceOperateFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TForceOperate;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TForceOperate;
         destroy__13TForceOperateFis((s8 *)arg0 + 0x1C, -1);
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
@@ -723,8 +709,8 @@ void free__10TObjPlayerFPv(void* a0) { heap_free__5THeapFPv((void*)(obj_heap), a
 namespace accessors {
 extern "C" {
 s32 TObjPlayer__sub_801C6DAC(u8 *arg0) {
-    M2C_FIELD(arg0, u8 **, 4) = (u8 *)((s32 (*)(u16))get_player_by_client_id)(TMainCursor__sub_8013E03C());
-    if (M2C_FIELD(arg0, u8 **, 4) != NULL) {
+    *(u8 **)((s8 *)arg0 + 4) = (u8 *)((s32 (*)(u16))get_player_by_client_id)(TMainCursor__sub_8013E03C());
+    if (*(u8 **)((s8 *)arg0 + 4) != NULL) {
         return 1;
     }
     return 0;
@@ -766,7 +752,7 @@ void TPlayerLobbyMarker::render() {
         set_global_param__8TObjFishFi(shared_effect_texture_list);
         model_render_flags |= 0x11;
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
-        rotate_matrix_y(0, M2C_FIELD(camera_ctrl_instance, s32 *, 0x194) + rotation);
+        rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
         set_chunk_material_color(lbl_80447020 + get_material_index() * 0x10);
         get_cursor_state__11TMainCursorFv();
@@ -805,7 +791,7 @@ namespace accessors {
 extern "C" {
 void handle_6x87_shrink__10TObjPlayerFPvf(u8 *arg0, f32 farg0) {
     set_flags__10TObjPlayerFPvUi(arg0 + 4, 1);
-    M2C_FIELD(arg0, f32 *, 8) = farg0;
+    *(f32 *)((s8 *)arg0 + 8) = farg0;
 }
 
 }
@@ -882,8 +868,8 @@ void update_player_scale_camera(PlayerScaleState *state) {
 namespace accessors {
 extern "C" {
 void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0) {
-    ((M2C_UNK (*)(f32))set_stat_scale__10TObjPlayerFPvf)(lbl_805DC320);
-    ((M2C_UNK (*)(s32, M2C_UNK))set_ring_action__10TObjPlayerFPvi)(arg0, 0);
+    ((s32 (*)(f32))set_stat_scale__10TObjPlayerFPvf)(lbl_805DC320);
+    ((s32 (*)(s32, s32))set_ring_action__10TObjPlayerFPvi)(arg0, 0);
 }
 
 }
@@ -892,7 +878,7 @@ void reset_stat_scale_and_ring__10TObjPlayerFi(s32 arg0) {
 namespace accessors {
 extern "C" {
 void apply_stat_multipliers_default__10TObjPlayerFv(void) {
-    ((M2C_UNK (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)(lbl_805DC320);
+    ((s32 (*)(f32))apply_stat_multipliers__10TObjPlayerFiif)(lbl_805DC320);
 }
 
 }
@@ -909,7 +895,7 @@ f32 apply_stat_multipliers__10TObjPlayerFiif(s32 arg0, s32 arg1, f32 farg0) {
     } else if (test_flags_any(arg0 + 0xC, 8) != 0) {
         var_f31 *= lbl_805DC340;
     }
-    ((M2C_UNK (*)(s32, f32))TObjPlayer__sub_801C6FCC)(arg0, var_f31);
+    ((s32 (*)(s32, f32))TObjPlayer__sub_801C6FCC)(arg0, var_f31);
     if (check_state_flag_1__8TItemMagFPv(arg1 + 0x5B0) != 0) {
         var_f31 *= get_stat_f32__8TItemMagFPv(arg1 + 0x5B0);
     }
@@ -976,9 +962,9 @@ void revive_or_spawn_marker__10TObjPlayerFi(s32 arg0) {
         set_flag_0x8000__10TObjPlayerFPv(arg0);
         return;
     }
-    temp_r3 = ((s32 (*)(M2C_UNK)) __nw__7TObjectFUl)(0x24);
+    temp_r3 = ((s32 (*)(s32)) __nw__7TObjectFUl)(0x24);
     if (temp_r3 != 0) {
-        ((M2C_UNK (*)(s32, s32, s32)) __ct__11TPlayerSoulFP7TObjectUs)(temp_r3, tl_06, obj_getField1c(arg0));
+        ((s32 (*)(s32, s32, s32)) __ct__11TPlayerSoulFP7TObjectUs)(temp_r3, tl_06, obj_getField1c(arg0));
     }
 }
 

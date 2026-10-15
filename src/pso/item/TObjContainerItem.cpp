@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80189BE0_lbl_804B63BC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x158];
 };
 
 struct RecoveredGlobal_80189BE0___vt__17TObjContainerItem {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x148];
 };
 
@@ -21,11 +17,11 @@ s32 init_collision_body_parts(void *, void *, int);
 s32 init_container_base(void *, void *, void *);
 s32 get_container_param(int);
 extern RecoveredGlobal_80189BE0_lbl_804B63BC forest_box_collision_body_parts;
-extern M2C_UNK __vt__17TObjContainerItem[];
+extern s32 __vt__17TObjContainerItem[];
 extern s32 TObjContainerItem__name;
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2);
 u32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_sound_effect(int, void *, int, int);
+s32 play_sound_effect(int, void *, int, int);
 void play_container_break_sound(s32 arg0);
 }
 
@@ -204,21 +200,21 @@ void TObjContainerItem__vt78(void *arg0);
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1);
 void *create__17TObjContainerItemFPv(void *arg0);
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1);
-M2C_UNK request_box_item_drop(s32, void *, s32, void *);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
+s32 request_box_item_drop(s32, void *, s32, void *);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(s32 *);
+s32 submit_cursor_candidate(void *, s32);
+s32 __dl__7TObjectFPv(void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK destroy_container_object__10TObjPlayerFPvs(void *, M2C_UNK);
+s32 destroy_container_object__10TObjPlayerFPvs(void *, s32);
 
 void TObjContainerItem__vt78(void *arg0) {
     s16 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x326);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x326);
     switch (temp_r0) {
     case 0:
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x364) != 0) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x364) != 0) {
             submit_cursor_candidate(arg0, -1);
         }
     case 1:
@@ -236,12 +232,12 @@ void *create__17TObjContainerItemFPv(void *arg0) {
     return o;
 }
 
-extern M2C_UNK __vt__17TObjContainerItem[];
+extern s32 __vt__17TObjContainerItem[];
 
 void *__dt__17TObjContainerItemFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__17TObjContainerItem;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__17TObjContainerItem;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         destroy_container_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
@@ -255,21 +251,21 @@ typedef char RecoveredGlobal_80189BE0_lbl_804B63BC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80189BE0___vt__17TObjContainerItem_size[sizeof(RecoveredGlobal_80189BE0___vt__17TObjContainerItem) == 0x14C ? 1 : -1];
 u8 *TObjContainerItem__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_container_base((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_80189BE0___vt__17TObjContainerItem *)&__vt__17TObjContainerItem).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjContainerItem__name;
-    M2C_FIELD(arg0, s32 *, 0x34) = get_container_param((int) (1));
-    M2C_FIELD(arg0, s16 *, 0x326) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x60000000);
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80189BE0___vt__17TObjContainerItem *)&__vt__17TObjContainerItem).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjContainerItem__name;
+    *(s32 *)((s8 *)arg0 + 0x34) = get_container_param((int) (1));
+    *(s16 *)((s8 *)arg0 + 0x326) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x60000000);
     init_collision_body_parts((void *) (arg0), (void *) (&forest_box_collision_body_parts.value), (int) (1));
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x74), (void *) (arg0 + 0x38));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x2FC), (void *) (arg0 + 0x38));
-    M2C_FIELD(arg0, f32 *, 0x78) = (f32) (M2C_FIELD(arg0, f32 *, 0x78) + M2C_FIELD(&forest_box_collision_body_parts.value, f32 *, 4));
+    *(f32 *)((s8 *)arg0 + 0x78) = (f32) (*(f32 *)((s8 *)arg0 + 0x78) + *(f32 *)((s8 *)(&forest_box_collision_body_parts.value) + 4));
     return arg0;
 }
 
 void spawn_item__17TObjContainerItemFPvi(u8 *arg0, s32 arg1) {
-    request_box_item_drop(arg1, arg0 + 0x38, M2C_FIELD(arg0, s32 *, 0x360), arg0);
+    request_box_item_drop(arg1, arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x360), arg0);
 }
 void play_container_break_sound(s32 arg0) {
     u32 temp_r3;

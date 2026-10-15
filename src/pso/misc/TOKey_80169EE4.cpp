@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8016A004_80169EE4 { char pad[0x18]; };
 struct VObj_8016A004_80169EE4 : Base_8016A004_80169EE4 {
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -58,27 +55,27 @@ void *init__5TOKeyFPv(void *arg0);
 s32 is_confirm_pressed__5TOKeyFPv(void *arg0);
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0);
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_current_floor();
 void *find_entity_by_id(u16);
-M2C_UNK clear_floor_switch_flag(u16, s32);
-M2C_UNK clear_current_floor_switch(u16);
-M2C_UNK set_floor_switch_flag(u16, s32);
-M2C_UNK set_current_floor_switch(u16);
-s32 TWindowShortListCtrl__check_controller_button(void *, M2C_UNK);
+s32 clear_floor_switch_flag(u16, s32);
+s32 clear_current_floor_switch(u16);
+s32 set_floor_switch_flag(u16, s32);
+s32 set_current_floor_switch(u16);
+s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 void __dl__7TObjectFPv(void *);
-M2C_UNK bswap_6x05_switch_flag__5TOKeyFPv();
+s32 bswap_6x05_switch_flag__5TOKeyFPv();
 s32 calc_angle_to__10TObjPlayerFPvPv(s32, void *);
 void destroy_key_base__5TOKeyFPvs(void *, int);
 s32 update_object_view_visibility();
 void init_map_object_base(void *);
-M2C_UNK start_camera_pan__10TObjPlayerFPvs(s32, M2C_UNK, s32);
+s32 start_camera_pan__10TObjPlayerFPvs(s32, s32, s32);
 
-extern M2C_UNK lbl_804B27D8[];
+extern s32 lbl_804B27D8[];
 
 void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B27D8;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B27D8;
         destroy_key_base__5TOKeyFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -87,27 +84,27 @@ void *destroy_key_object__5TOKeyFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804B27D8[];
+extern s32 lbl_804B27D8[];
 
 void *init__5TOKeyFPv(void *arg0) {
     init_map_object_base(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804B27D8;
-    M2C_FIELD(arg0, u32 *, 0xD0) = -1;
-    M2C_FIELD(arg0, u32 *, 0xC8) = 0;
-    M2C_FIELD(arg0, u32 *, 0xAC) = 0;
-    M2C_FIELD(arg0, u32 *, 0xCC) = 0;
-    M2C_FIELD(arg0, u32 *, 0xD4) = 0;
-    M2C_FIELD(arg0, u32 *, 0xD8) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804B27D8;
+    *(u32 *)((s8 *)arg0 + 0xD0) = -1;
+    *(u32 *)((s8 *)arg0 + 0xC8) = 0;
+    *(u32 *)((s8 *)arg0 + 0xAC) = 0;
+    *(u32 *)((s8 *)arg0 + 0xCC) = 0;
+    *(u32 *)((s8 *)arg0 + 0xD4) = 0;
+    *(u32 *)((s8 *)arg0 + 0xD8) = 0;
     TOKey__sub_80169FB0((void*)((void *)((char *)arg0 + 152)));
-    M2C_FIELD(arg0, u32 *, 0xDC) = 0;
-    M2C_FIELD(arg0, u32 *, 0xE0) = 1;
+    *(u32 *)((s8 *)arg0 + 0xDC) = 0;
+    *(u32 *)((s8 *)arg0 + 0xE0) = 1;
     return arg0;
 }
 
 void TOKey__sub_80169FB0(void* p) { *(s32*)((char*)p + 0x0) = 1; }
 s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
     if (update_object_view_visibility() == 1) {
-        M2C_FIELD(arg0, s32 *, 0xE4) = 1;
+        *(s32 *)((s8 *)arg0 + 0xE4) = 1;
         return 1;
     }
     return 0;
@@ -116,23 +113,23 @@ s32 set_ready_if_pressed__5TOKeyFPv(void *arg0) {
 void handle_switch_trigger__5TOKeyFPvPv(void *arg0, void *arg1) {
     s32 temp_r0;
 
-    if ((M2C_FIELD(arg1, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg1, u8 *, 0xA) == get_current_floor())) {
+    if ((*(u8 *)((s8 *)arg1 + 0xB) & 2) && ((s8) *(u8 *)((s8 *)arg1 + 0xA) == get_current_floor())) {
         play_sound_effect(0x4005281F, 0, 0, 0);
     }
-    if (M2C_FIELD(arg1, u8 *, 0xB) & 1) {
-        set_current_floor_switch(M2C_FIELD(arg1, u16 *, 8));
+    if (*(u8 *)((s8 *)arg1 + 0xB) & 1) {
+        set_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     } else {
-        clear_current_floor_switch(M2C_FIELD(arg1, u16 *, 8));
+        clear_current_floor_switch(*(u16 *)((s8 *)arg1 + 8));
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD4);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD4);
     switch (temp_r0) {
     case 0:
         ((VObj_8016A004_80169EE4 *)arg0)->m16();
-        M2C_FIELD(arg0, s32 *, 0xD4) = 1;
+        *(s32 *)((s8 *)arg0 + 0xD4) = 1;
         return;
     case 1:
         ((VObj_8016A004_80169EE4 *)arg0)->m17();
-        M2C_FIELD(arg0, s32 *, 0xD4) = 0;
+        *(s32 *)((s8 *)arg0 + 0xD4) = 0;
         return;
     }
 }
@@ -141,32 +138,32 @@ void handle_6x05_write_switch_flag(void *arg0) {
     void *temp_r3;
 
     bswap_6x05_switch_flag__5TOKeyFPv();
-    temp_r3 = find_entity_by_id(M2C_FIELD(arg0, u16 *, 2));
+    temp_r3 = find_entity_by_id(*(u16 *)((s8 *)arg0 + 2));
     if (temp_r3 != NULL) {
         ((VObj_8016A0E0_80169EE4 *)temp_r3)->m25(arg0);
         return;
     }
-    if ((M2C_FIELD(arg0, u8 *, 0xB) & 2) && ((s8) M2C_FIELD(arg0, u8 *, 0xA) == get_current_floor())) {
+    if ((*(u8 *)((s8 *)arg0 + 0xB) & 2) && ((s8) *(u8 *)((s8 *)arg0 + 0xA) == get_current_floor())) {
         play_sound_effect(0x4005281F, 0, 0, 0);
     }
-    if (M2C_FIELD(arg0, u8 *, 0xB) & 1) {
-        set_floor_switch_flag(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
+    if (*(u8 *)((s8 *)arg0 + 0xB) & 1) {
+        set_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
         return;
     }
-    clear_floor_switch_flag(M2C_FIELD(arg0, u16 *, 8), M2C_FIELD(arg0, s8 *, 0xA));
+    clear_floor_switch_flag(*(u16 *)((s8 *)arg0 + 8), *(s8 *)((s8 *)arg0 + 0xA));
 }
 
 void trigger_camera_pan__5TOKeyFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
-    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) M2C_FIELD(arg0, s32 *, 0xD4) != 1))) {
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
+    if ((temp_r0 != 2) && ((temp_r0 != 0) || ((s32) *(s32 *)((s8 *)arg0 + 0xD4) != 1))) {
         temp_r3 = get_player_by_client_id((u16)((u16)arg1));
         if (temp_r3 != 0) {
             start_camera_pan__10TObjPlayerFPvs(temp_r3, 0xC, calc_angle_to__10TObjPlayerFPvPv(temp_r3 + 0x38, arg0 + 0x38));
-            M2C_FIELD(arg0, s32 *, 0xDC) = (s32) M2C_FIELD(arg0, s32 *, 0xD8);
-            M2C_FIELD(arg0, s32 *, 0xE0) = 1;
+            *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)arg0 + 0xD8);
+            *(s32 *)((s8 *)arg0 + 0xE0) = 1;
         }
     }
 }
@@ -215,11 +212,11 @@ s32 is_local_player_in_range__5TOKeyFPv(Self_8016A310 *self) {
 s32 is_confirm_pressed__5TOKeyFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0xD0);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0xD0);
     if (temp_r0 == 2) {
         return 0;
     }
-    if ((temp_r0 == 0) && ((s32) M2C_FIELD(arg0, s32 *, 0xD4) == 1)) {
+    if ((temp_r0 == 0) && ((s32) *(s32 *)((s8 *)arg0 + 0xD4) == 1)) {
         return 0;
     }
     if ((is_local_player_in_range__5TOKeyFPv((Self_8016A310 *)(arg0)) != 0) && (TWindowShortListCtrl__check_controller_button(controller_input_state + 0x20, 4) != 0)) {

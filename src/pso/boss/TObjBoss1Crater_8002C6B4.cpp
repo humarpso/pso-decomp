@@ -1,9 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Ent_8002C730 { u8 pad0[0x38]; f32 f38; u8 pad3c[4]; f32 f40; };
 
@@ -105,12 +100,12 @@ void attack_target_list_remove(u8 *arg0, s32 arg1) {
     s32 temp_r5;
     s32 temp_r5_2;
     if (arg1 >= 0) {
-        temp_r5 = M2C_FIELD(arg0, s32 *, 8);
+        temp_r5 = *(s32 *)((s8 *)arg0 + 8);
         if (arg1 < temp_r5) {
-            M2C_FIELD(arg0, s32 *, 8) = (s32) (temp_r5 - 1);
-            temp_r5_2 = M2C_FIELD(arg0, s32 *, 0);
-            M2C_FIELD(temp_r5_2, M2C_UNK *, (arg1 * 4)) = M2C_FIELD(temp_r5_2, M2C_UNK *, (M2C_FIELD(arg0, s32 *, 8) * 4));
-            M2C_FIELD(M2C_FIELD(arg0, s32 *, 0), M2C_UNK *, (M2C_FIELD(arg0, s32 *, 8) * 4)) = M2C_FIELD(arg0, s32 *, 4);
+            *(s32 *)((s8 *)arg0 + 8) = (s32) (temp_r5 - 1);
+            temp_r5_2 = *(s32 *)((s8 *)arg0 + 0);
+            *(s32 *)((s8 *)temp_r5_2 + (arg1 * 4)) = *(s32 *)((s8 *)temp_r5_2 + (*(s32 *)((s8 *)arg0 + 8) * 4));
+            *(s32 *)((s8 *)(*(s32 *)((s8 *)arg0 + 0)) + (*(s32 *)((s8 *)arg0 + 8) * 4)) = *(s32 *)((s8 *)arg0 + 4);
         }
     }
 }

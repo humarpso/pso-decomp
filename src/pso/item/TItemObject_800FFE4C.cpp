@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Obj_800FFF68 {
     u8 pad0[0x2C];
     s16 idx;
@@ -16,17 +11,17 @@ union Pk_800FFF68 { s32 w; u16 h[2]; };
 
 extern "C" {
 s32 get_field_d8__10TObjPlayerFPv(void *);
-M2C_UNK notify_owner__5TItemFPvi(void *, M2C_UNK);
-M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
-M2C_UNK consume_item_by_id();
-M2C_UNK replace_item_with_new_code(u8 *, void *);
+s32 notify_owner__5TItemFPvi(void *, s32);
+s32 apply_switch_attack__5TItemFPvi(void *, s32);
+s32 consume_item_by_id();
+s32 replace_item_with_new_code(u8 *, void *);
 u32 find_item_by_id(s32);
-M2C_UNK copy_to_item_data__5TItemFPvPv(void *, void *);
-M2C_UNK add_item_flags__10TObjPlayerFPvUi(u32, M2C_UNK);
+s32 copy_to_item_data__5TItemFPvPv(void *, void *);
+s32 add_item_flags__10TObjPlayerFPvUi(u32, s32);
 s32 has_flag_128__10TObjPlayerFPv(void *);
 void *find_eligible_combination_recipe(u32, void *);
 void *find_unique_combination_target(u32, void *);
-M2C_UNK init__9TItemDataFv(u8 *);
+s32 init__9TItemDataFv(u8 *);
 void use_combination_recipe__5TItemFPv(void *arg0);
 s32 get_main_phase();
 u32 build_item_id(u16);
@@ -56,15 +51,15 @@ void use_combination_recipe__5TItemFPv(void *arg0) {
     u32 temp_r3_2;
     void *temp_r30;
     void *temp_r3;
-    if ((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) {
+    if ((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) {
         copy_to_item_data__5TItemFPvPv(arg0, sp1C);
-        temp_r30 = find_unique_combination_target(M2C_FIELD(arg0, u32 *, 0xF0), sp1C);
-        temp_r3 = find_eligible_combination_recipe(M2C_FIELD(arg0, u32 *, 0xF0), sp1C);
+        temp_r30 = find_unique_combination_target(*(u32 *)((s8 *)arg0 + 0xF0), sp1C);
+        temp_r3 = find_eligible_combination_recipe(*(u32 *)((s8 *)arg0 + 0xF0), sp1C);
         if ((temp_r3 != NULL) && (temp_r30 != NULL)) {
             init__9TItemDataFv(sp8);
-            sp8[0] = M2C_FIELD(temp_r3, u8 *, 6);
-            sp8[1] = M2C_FIELD(temp_r3, u8 *, 7);
-            sp8[2] = M2C_FIELD(temp_r3, u8 *, 8);
+            sp8[0] = *(u8 *)((s8 *)temp_r3 + 6);
+            sp8[1] = *(u8 *)((s8 *)temp_r3 + 7);
+            sp8[2] = *(u8 *)((s8 *)temp_r3 + 8);
             temp_r31 = has_flag_128__10TObjPlayerFPv(temp_r30);
             temp_r30_2 = get_field_d8__10TObjPlayerFPv(temp_r30);
             replace_item_with_new_code(sp8, temp_r30);

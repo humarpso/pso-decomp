@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 void queue_destruction__7TObjectFv(void *);
@@ -20,7 +16,7 @@ s32 is_player_input_active(s32 arg0);
 s32 is_input_phase_active__21TAdMultiChgGameModeGCFv();
 s32 get_multiplayer_controller_active_index(s32);
 u32 get_player_by_client_id(s32);
-M2C_UNK clear_flag1e_bit8__11TWindowCtrlFPv(void*);
+s32 clear_flag1e_bit8__11TWindowCtrlFPv(void*);
 s32 get_map_id__13TRaderMapCoreFPv();
 
 extern struct Obj054_8024A054 *TWindowCtrl__active_window;
@@ -35,10 +31,10 @@ void TWindowCtrl__sub_8024A08C(void) {
     u8 *temp_r3;
     lbl_805D63FC &= 0xFFFFFFFD;
     if ((void *) (*(u8 * *)&TWindowCtrl__active_window) != NULL) {
-        temp_r3 = (u8 *)(M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x3C));
+        temp_r3 = (u8 *)(*(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C));
         if (temp_r3 != NULL) {
             queue_destruction__7TObjectFv(temp_r3);
-            M2C_FIELD((*(u8 * *)&TWindowCtrl__active_window), u8 **, 0x3C) = NULL;
+            *(u8 **)((s8 *)(*(u8 * *)&TWindowCtrl__active_window) + 0x3C) = NULL;
         }
     }
 }

@@ -1,10 +1,6 @@
 #include "pso/TAdMultiPlayerNoGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct Self_8033A668 {
     s32 f0;
@@ -36,13 +32,13 @@ extern "C" {
 void render__18TAdMultiPlayerNoGCFv(void* p);
 void render_status__18TAdMultiPlayerNoGCFi(s32 arg0);
 void run_task__18TAdMultiPlayerNoGCFv(void);
-M2C_UNK draw_textured_quad_at_depth(s32, f32);
-M2C_UNK begin_screen_draw(M2C_UNK);
-M2C_UNK set_draw_texture_and_color(M2C_UNK, M2C_UNK);
+s32 draw_textured_quad_at_depth(s32, f32);
+s32 begin_screen_draw(s32);
+s32 set_draw_texture_and_color(s32, s32);
 int set_cached_blend_factor(void*, void*);
-M2C_UNK get_player__20TWindowSubStatusDispFv();
+s32 get_player__20TWindowSubStatusDispFv();
 int get_state_flag__9TMainTaskFv(void*);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 set_global_param__8TObjFishFi(s32);
 
 extern s32 lbl_805D6D78;
 

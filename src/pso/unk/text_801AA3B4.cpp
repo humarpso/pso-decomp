@@ -41,7 +41,6 @@ struct PhotonBlastChain_801AA424 {
     s32 state;
 };
 
-typedef s32 M2C_UNK;
 extern "C" {
 void TLobby__sub_8001FE7C(u32, int);
 void call_funcs_reverse__6TLobbyFPvUi(void *, int);
@@ -53,7 +52,7 @@ extern struct PhotonBlastChain_801AA424 photon_blast_sequence_table[];
 void clear_photon_blast_slots__10TObjPlayerFv(void);
 u8 *load_resource_from_descriptor(u8 *, int, void *, int, int, int);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(int);
-M2C_UNK run_load_callback_table(void *, int);
+s32 run_load_callback_table(void *, int);
 void clear_photon_blast_slots__10TObjPlayerFv(void);
 extern u8 photon_blast_load_callback_table[];
 extern u32 photon_blast_donation_flags[];

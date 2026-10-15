@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void s_rank_shot_open_spread(u8 *arg0);
 void s_rank_shot_close_spread(u8 *arg0);
 void* init_s_rank_shot(void* a0);
-M2C_UNK add_angle_clamped__10TObjPlayerFPvii(void *, M2C_UNK, M2C_UNK);
+s32 add_angle_clamped__10TObjPlayerFPvii(void *, s32, s32);
 int set_status_flags__10TObjPlayerFPvUi(void*, void*);
 int construct_srank_weapon(void);
 
 void s_rank_shot_open_spread(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x200) < 0x2000) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x200) < 0x2000) {
         add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x200, 0x2D8, 0x2000);
     }
 }
 
 void s_rank_shot_close_spread(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x200) > 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x200) > 0) {
         add_angle_clamped__10TObjPlayerFPvii(arg0 + 0x200, -0x2000, 0);
     }
 }

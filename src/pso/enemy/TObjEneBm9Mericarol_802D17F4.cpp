@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include "pso/enemy/TObjEnemy.h"
-typedef s32 M2C_UNK;
+
 struct VBase_18_90ef41 { char pad[0x18]; };
 
 struct VObj_18_90ef41 : VBase_18_90ef41 {
@@ -99,13 +95,13 @@ struct VObj_18_90ef41 : VBase_18_90ef41 {
     virtual void m87();
     virtual void m88();
     virtual void m89();
-    virtual M2C_UNK m90();
+    virtual s32 m90();
     virtual void m91();
-    virtual M2C_UNK m92();
+    virtual s32 m92();
     virtual void m93();
     virtual void m94();
     virtual void m95();
-    virtual M2C_UNK m96();
+    virtual s32 m96();
 };
 
 struct CBase_800c63cc { char pad[0x18]; };
@@ -202,16 +198,16 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m78();
     virtual void m79();
     virtual void m80();
-    virtual M2C_UNK m81();
-    virtual M2C_UNK m82();
-    virtual M2C_UNK m83();
-    virtual M2C_UNK m84();
-    virtual M2C_UNK m85();
-    virtual M2C_UNK m86();
-    virtual M2C_UNK m87();
-    virtual M2C_UNK m88();
-    virtual M2C_UNK m89();
-    virtual M2C_UNK m90();
+    virtual s32 m81();
+    virtual s32 m82();
+    virtual s32 m83();
+    virtual s32 m84();
+    virtual s32 m85();
+    virtual s32 m86();
+    virtual s32 m87();
+    virtual s32 m88();
+    virtual s32 m89();
+    virtual s32 m90();
     virtual void m91();
     virtual void m92();
     virtual void m93();
@@ -220,7 +216,7 @@ struct VObj_18_477421 : VBase_18_477421 {
     virtual void m96();
     virtual void m97();
     virtual void m98();
-    virtual M2C_UNK m99();
+    virtual s32 m99();
 };
 
 typedef struct Vec_800C4A5C {
@@ -286,26 +282,26 @@ typedef struct Obj_800C55E0 {
 struct Vec_802D1880 { f32 x, y, z; };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 subtract_vector(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void queue_destruction__7TObjectFv(void *);
 f32 update_scale__15TObjBoss2TunnelFPv(void *);
 s32 copy_pos__11TNowLoadingFPvPv(int, void *);
 s32 is_alive__9TObjEneDDFPv(s32);
-M2C_UNK subtract_vector(void *, void *);
+s32 subtract_vector(void *, void *);
 extern u8 *camera_ctrl_instance;
 extern const f32 lbl_805DE778;
 extern const f32 lbl_805DE77C;
 void TObjEneBm9Mericarol__sub_802D1AB8(Obj_800C4B78 *o);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s16 obj_getField1c(void *);
 s32 check_v2_mode__9TObjEneDDFv();
-M2C_UNK construct_collision_body(void *, void *, void *);
+s32 construct_collision_body(void *, void *, void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *);
 f32 vector_length(Vec_802D1880 *);
-M2C_UNK normalize_vector(Vec_802D1880 *);
-extern M2C_UNK lbl_804E18A8[];
+s32 normalize_vector(Vec_802D1880 *);
+extern s32 lbl_804E18A8[];
 extern s32 lbl_805D3F30;
 extern const f32 lbl_805DE764;
 extern const f32 lbl_805DE76C;
@@ -319,21 +315,21 @@ extern "C" {
 void *construct__19TObjEneBm9MericarolFPvii(void *arg0, s32 arg1, s32 arg2);
 void *destroy__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1);
 void *dt__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1);
-s32 spawn_continuous_particle_effect_with_flags(s32, M2C_UNK, M2C_UNK);
-M2C_UNK __ct__7TObjectFP7TObject();
+s32 spawn_continuous_particle_effect_with_flags(s32, s32, s32);
+s32 __ct__7TObjectFP7TObject();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 s32 is_alive__9TObjEneDDFPv(s32);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_804E18A8[];
+extern s32 lbl_804E18A8[];
 
 void *dt__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E18A8;
-        if (M2C_FIELD(arg0, void **, 0x110) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x110)); M2C_FIELD(arg0, M2C_UNK *, 0x110) = 0; }
-        if (M2C_FIELD(arg0, void **, 0x114) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x114)); M2C_FIELD(arg0, M2C_UNK *, 0x114) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E18A8;
+        if (*(void **)((s8 *)arg0 + 0x110) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x110)); *(s32 *)((s8 *)arg0 + 0x110) = 0; }
+        if (*(void **)((s8 *)arg0 + 0x114) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x114)); *(s32 *)((s8 *)arg0 + 0x114) = 0; }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -342,7 +338,7 @@ void *dt__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804E1908[];
+extern s32 lbl_804E1908[];
 
 #pragma push
 #pragma fp_contract on
@@ -351,66 +347,66 @@ u8 *TObjEneBm9Mericarol__sub_802D1880(u8 *arg0, u8 *arg1, Vec_802D1880 *arg2, Ve
     Vec_802D1880 d;
     f32 k;
     construct_collision_body(arg0, arg1, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E18A8;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3F30;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E18A8;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3F30;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        M2C_FIELD(arg0, s32 *, 0xF0) = 5;
+        *(s32 *)((s8 *)arg0 + 0xF0) = 5;
     } else {
         switch (get_phase__19TObjEneBm9MericarolFPv(arg1)) {
         case 1:
-            M2C_FIELD(arg0, s32 *, 0xF0) = 2;
+            *(s32 *)((s8 *)arg0 + 0xF0) = 2;
             break;
         case 2:
-            M2C_FIELD(arg0, s32 *, 0xF0) = 3;
+            *(s32 *)((s8 *)arg0 + 0xF0) = 3;
             break;
         case 0:
         default:
-            M2C_FIELD(arg0, s32 *, 0x108) = arg4;
-            M2C_FIELD(arg0, s32 *, 0xF0) = 0;
+            *(s32 *)((s8 *)arg0 + 0x108) = arg4;
+            *(s32 *)((s8 *)arg0 + 0xF0) = 0;
             break;
         }
     }
-    M2C_FIELD(arg0, f32 *, 0xF4) = farg0;
+    *(f32 *)((s8 *)arg0 + 0xF4) = farg0;
     switch (get_phase__19TObjEneBm9MericarolFPv(arg1)) {
     case 1:
-        M2C_FIELD(arg0, s32 *, 0x104) = 0x20A;
+        *(s32 *)((s8 *)arg0 + 0x104) = 0x20A;
         break;
     case 2:
-        M2C_FIELD(arg0, s32 *, 0x104) = 0x209;
+        *(s32 *)((s8 *)arg0 + 0x104) = 0x209;
         break;
     case 0:
     default:
-        M2C_FIELD(arg0, s32 *, 0x104) = 0x208;
+        *(s32 *)((s8 *)arg0 + 0x104) = 0x208;
         break;
     }
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = lbl_805DE76C;
-    M2C_FIELD(arg0, s16 *, 0xB0) = obj_getField1c(arg1);
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = lbl_805DE76C;
+    *(s16 *)((s8 *)arg0 + 0xB0) = obj_getField1c(arg1);
     VecCopy__FP3VecPC3Vec(arg0 + 0xB4, arg2);
     VecCopy__FP3VecPC3Vec(arg0 + 0x38, arg0 + 0xB4);
-    M2C_FIELD(arg0, f32 *, 0xD8) = lbl_805DE770;
-    M2C_FIELD(arg0, f32 *, 0xDC) = lbl_805DE770;
-    M2C_FIELD(arg0, f32 *, 0xE0) = lbl_805DE770;
+    *(f32 *)((s8 *)arg0 + 0xD8) = lbl_805DE770;
+    *(f32 *)((s8 *)arg0 + 0xDC) = lbl_805DE770;
+    *(f32 *)((s8 *)arg0 + 0xE0) = lbl_805DE770;
     d.x = arg3->x - arg2->x;
     d.y = lbl_805DE774 + (arg3->y - arg2->y);
     d.z = arg3->z - arg2->z;
     if (lbl_805DE770 != vector_length(&d)) {
         normalize_vector(&d);
     }
-    M2C_FIELD(arg0, f32 *, 0xC0) = d.x * farg1;
+    *(f32 *)((s8 *)arg0 + 0xC0) = d.x * farg1;
     k = lbl_805DE764 + farg1;
-    M2C_FIELD(arg0, f32 *, 0xC4) = d.y * farg1;
-    M2C_FIELD(arg0, f32 *, 0xC8) = d.z * farg1;
-    M2C_FIELD(arg0, f32 *, 0xCC) = d.x * k;
-    M2C_FIELD(arg0, f32 *, 0xD0) = d.y * k;
-    M2C_FIELD(arg0, f32 *, 0xD4) = d.z * k;
-    M2C_FIELD(arg0, f32 *, 0xE4) = lbl_805DE770;
-    M2C_FIELD(arg0, s32 *, 0xE8) = 1;
-    M2C_FIELD(arg0, f32 *, 0xF8) = lbl_805DE770;
-    M2C_FIELD(arg0, s32 *, 0xFC) = 0;
-    M2C_FIELD(arg0, s32 *, 0x100) = 0;
-    M2C_FIELD(arg0, s32 *, 0x110) = 0;
-    M2C_FIELD(arg0, s32 *, 0x114) = 0;
-    M2C_FIELD(arg0, s32 *, 0x10C) = 1;
+    *(f32 *)((s8 *)arg0 + 0xC4) = d.y * farg1;
+    *(f32 *)((s8 *)arg0 + 0xC8) = d.z * farg1;
+    *(f32 *)((s8 *)arg0 + 0xCC) = d.x * k;
+    *(f32 *)((s8 *)arg0 + 0xD0) = d.y * k;
+    *(f32 *)((s8 *)arg0 + 0xD4) = d.z * k;
+    *(f32 *)((s8 *)arg0 + 0xE4) = lbl_805DE770;
+    *(s32 *)((s8 *)arg0 + 0xE8) = 1;
+    *(f32 *)((s8 *)arg0 + 0xF8) = lbl_805DE770;
+    *(s32 *)((s8 *)arg0 + 0xFC) = 0;
+    *(s32 *)((s8 *)arg0 + 0x100) = 0;
+    *(s32 *)((s8 *)arg0 + 0x110) = 0;
+    *(s32 *)((s8 *)arg0 + 0x114) = 0;
+    *(s32 *)((s8 *)arg0 + 0x10C) = 1;
     return arg0;
 }
 
@@ -462,8 +458,8 @@ typedef struct VObj_18_477421 VObj_18_477421;
 
 void *destroy__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E1908;
-        if (M2C_FIELD(arg0, void **, 0x24) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x24)); M2C_FIELD(arg0, M2C_UNK *, 0x24) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1908;
+        if (*(void **)((s8 *)arg0 + 0x24) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x24)); *(s32 *)((s8 *)arg0 + 0x24) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -472,17 +468,17 @@ void *destroy__19TObjEneBm9MericarolFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804E1908[];
+extern s32 lbl_804E1908[];
 extern s32 lbl_805D3F38;
 
 void *construct__19TObjEneBm9MericarolFPvii(void *arg0, s32 arg1, s32 arg2) {
     __ct__7TObjectFP7TObject();
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804E1908;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3F38;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = arg2;
-    if (is_alive__9TObjEneDDFPv(M2C_FIELD(arg0, s32 *, 0x20)) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x24) = spawn_continuous_particle_effect_with_flags(M2C_FIELD(arg0, s32 *, 0x20) + 0x38, 0x20D, 0x40);
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804E1908;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3F38;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = arg2;
+    if (is_alive__9TObjEneDDFPv(*(s32 *)((s8 *)arg0 + 0x20)) != 0) {
+        *(s32 *)((s8 *)arg0 + 0x24) = spawn_continuous_particle_effect_with_flags(*(s32 *)((s8 *)arg0 + 0x20) + 0x38, 0x20D, 0x40);
     }
     return arg0;
 }

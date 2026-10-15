@@ -1,10 +1,6 @@
 #include "types.h"
 struct V3_8017F624 { s32 x; s32 y; s32 z; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Vec_8017F6C0 { f32 x, y, z; };
 
 struct Obj_8017F6C0 { u8 pad[0x38]; Vec_8017F6C0 pos; };

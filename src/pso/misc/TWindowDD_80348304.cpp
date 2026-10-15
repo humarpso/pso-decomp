@@ -1,12 +1,7 @@
 #include "pso/misc/TWindowDD.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-typedef s32 M2C_UNK;
 struct W_80348520 {
     u8 pad0[0x24];
     void *b[8];
@@ -18,14 +13,14 @@ struct W_80348520 {
 };
 
 extern "C" {
-M2C_UNK copy_chat_entry__9TWindowDDFPvPv(int, void *);
-M2C_UNK reset_selection__9TWindowDDFPv(void *, void *);
+s32 copy_chat_entry__9TWindowDDFPvPv(int, void *);
+s32 reset_selection__9TWindowDDFPv(void *, void *);
 void TWindowDD__sub_803484C4(u8 *arg0);
 s32 get_mode_code__9TWindowDDFPv(u8 *arg0);
 int TWindowDD__sub_8034B008(s32, s32);
-void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1);
+void TWindowDD__sub_80348448(s32 arg0, s16 arg1);
 void append_prompt_newline__9TWindowDDFPvPv(u8 *arg0, s32 *arg1);
-M2C_UNK TWindow__close(void *);
+s32 TWindow__close(void *);
 void close_all_windows__9TWindowDDFPv(void *p);
 s32 get_player_count__10TObjPlayerFv();
 s32 is_flag_set__6TLobbyFv();
@@ -44,16 +39,16 @@ void set_state__9TWindowDDFPv(void* p);
 int test_input_flag_4__9TWindowDDFPv(void* p);
 void update_state__9TWindowDDFv(void);
 int play_sound_effect(void*, void*, void*, void*);
-M2C_UNK TWindowDD__sub_8034435C();
-M2C_UNK TWindowDD__sub_80344568();
-M2C_UNK TWindowDD__sub_80344774();
-M2C_UNK format_message_text__9TWindowDDFPvPvUs();
-M2C_UNK format_german_message__9TWindowDDFPvPvUs();
-M2C_UNK TWindowDD__sub_80345608();
-M2C_UNK format_english_message__9TWindowDDFPvPvUs();
-M2C_UNK format_entry_text__9TWindowDDFPvPv();
-M2C_UNK TWindowDD__sub_80346434();
-M2C_UNK TWindowDD__sub_80346640();
+s32 TWindowDD__sub_8034435C();
+s32 TWindowDD__sub_80344568();
+s32 TWindowDD__sub_80344774();
+s32 format_message_text__9TWindowDDFPvPvUs();
+s32 format_german_message__9TWindowDDFPvPvUs();
+s32 TWindowDD__sub_80345608();
+s32 format_english_message__9TWindowDDFPvPvUs();
+s32 format_entry_text__9TWindowDDFPvPv();
+s32 TWindowDD__sub_80346434();
+s32 TWindowDD__sub_80346640();
 
 int test_input_flag_4__9TWindowDDFPv(void* p) { return TWindowDD_check_input_mask((char*)p + 0x1c, 4); }
 
@@ -94,18 +89,18 @@ s32 get_word_select_context__9TWindowDDFPv(u8 *arg0) {
     if (is_flag_set__6TLobbyFv() != 0) {
         return 5;
     }
-    return (M2C_FIELD(arg0, s32 *, 0xA0) != 0 ? 1 : 0) + 2;
+    return (*(s32 *)((s8 *)arg0 + 0xA0) != 0 ? 1 : 0) + 2;
 }
 
 int TWindowDD__sub_80348424(s32 _w0, s32 _w1) { return TWindowDD__sub_8034B008((s32)((void*)(1)), (s32)(_w1)); }
 
-void TWindowDD__sub_80348448(M2C_UNK arg0, s16 arg1) {
+void TWindowDD__sub_80348448(s32 arg0, s16 arg1) {
     TWindowDD__sub_8034B008((s32)(0), (s32)((s32) arg1));
 }
 
 s32 get_mode_code__9TWindowDDFPv(u8 *arg0) {
     s32 temp_r3;
-    temp_r3 = M2C_FIELD(arg0, s32 *, 0xA8);
+    temp_r3 = *(s32 *)((s8 *)arg0 + 0xA8);
     if (temp_r3 == 2) {
         return 1;
     }
@@ -115,9 +110,9 @@ s32 get_mode_code__9TWindowDDFPv(u8 *arg0) {
 void set_state__9TWindowDDFPv(void* p) { *(int*)((char*)p + 0xa8) = 3; close_all_windows__9TWindowDDFPv((void *)((void*)(p))); }
 
 void TWindowDD__sub_803484C4(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0xA8) = 2;
-    copy_chat_entry__9TWindowDDFPvPv((int) (M2C_FIELD(arg0, s32 *, 0xC0)), (void *) (arg0 + 0xC4));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xA4) != 0) {
+    *(s32 *)((s8 *)arg0 + 0xA8) = 2;
+    copy_chat_entry__9TWindowDDFPvPv((int) (*(s32 *)((s8 *)arg0 + 0xC0)), (void *) (arg0 + 0xC4));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) != 0) {
         reset_selection__9TWindowDDFPv((void *) (arg0), (void *) (arg0 + 0xC4));
     }
     close_all_windows__9TWindowDDFPv((void *)((void*)((void *) (arg0))));

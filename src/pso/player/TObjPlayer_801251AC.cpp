@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -26,8 +22,8 @@ void TObjPlayer__sub_801251B4(void *arg0) {
 
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
         if (draw_icon__10TObjPlayerFPvii(arg0, 0, &sp8) != 0) {
-            temp_r31 = M2C_FIELD(arg0, void **, 0xF0);
-            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, M2C_FIELD(temp_r31, s32 *, 0x60), get_tp__10TObjPlayerFPv(arg0) + 2);
+            temp_r31 = *(void **)((s8 *)arg0 + 0xF0);
+            create__8TTecFoieFPvPvPvPv(temp_r31, &sp8, *(s32 *)((s8 *)temp_r31 + 0x60), get_tp__10TObjPlayerFPv(arg0) + 2);
             roll_technique__11TItemWeaponFv(arg0);
         }
     } else {

@@ -1,12 +1,9 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_802302A0___vt__8TTecFoie { M2C_UNK value; u8 remaining[0x24]; };
+
+struct RecoveredGlobal_802302A0___vt__8TTecFoie { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_802302A0___vt__8TTecFoie_size[sizeof(RecoveredGlobal_802302A0___vt__8TTecFoie) == 0x28 ? 1 : -1];
 
-struct RecoveredGlobal_80230308___vt__8TTecFoie { M2C_UNK value; u8 remaining[0x24]; };
+struct RecoveredGlobal_80230308___vt__8TTecFoie { s32 value; u8 remaining[0x24]; };
 typedef char RecoveredGlobal_80230308___vt__8TTecFoie_size[sizeof(RecoveredGlobal_80230308___vt__8TTecFoie) == 0x28 ? 1 : -1];
 
 struct Band_802301EC { void *bindings; u32 count; };
@@ -61,10 +58,10 @@ void run_task__8TTecFoieFv(Foie_802301EC *self) {
 u8 *construct_aimed__8TTecFoieFPviPvPvs(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, s16 arg4) {
     u8 *temp_r3;
     construct_aimed_technique_projectile(arg0, arg1, arg2, arg3, arg4);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TTecFoie.value;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TTecFoie.value;
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, u16 *, 0xC8) = obj_getField1c(temp_r3);
+        *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
     }
     init_projectile_params__8TTecFoieFPv(arg0);
     create_particle_emitters__8TTecFoieFPv(arg0);
@@ -74,11 +71,11 @@ u8 *construct_aimed__8TTecFoieFPviPvPvs(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, 
 u8 *TTecFoie__ct(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s16 arg4) {
     u8 *temp_r3;
     construct_facing_technique__10TObjPlayerFPviPvii(arg0, arg1, arg2, arg3, arg4);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__8TTecFoie.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TTecFoie__name;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0x1C));
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__8TTecFoie.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TTecFoie__name;
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0x1C));
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, u16 *, 0xC8) = obj_getField1c(temp_r3);
+        *(u16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(temp_r3);
     }
     init_projectile_params__8TTecFoieFPv(arg0);
     create_particle_emitters__8TTecFoieFPv(arg0);

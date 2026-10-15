@@ -1,15 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 s32 get_localized_text_entry(int, int);
-M2C_UNK set_selected_index__20TWindowSubStatusDispFPvs(int, void *);
-M2C_UNK add_menu_item__17TWindowOptionCtrlFiii(int, int, int);
+s32 set_selected_index__20TWindowSubStatusDispFPvs(int, void *);
+s32 add_menu_item__17TWindowOptionCtrlFiii(int, int, int);
 s32 refresh_with_default_list__20TWindowSubStatusDispFii(int, void *);
 int get_option_entry__17TWindowOptionCtrlFi(int);
-extern M2C_UNK lbl_8044F48C[];
+extern s32 lbl_8044F48C[];
 extern s32 current_language;
 s32 create_select_menu_window__17TWindowOptionCtrlFv(void);
 }

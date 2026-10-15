@@ -1,16 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_8007FA24_lbl_8048DF88
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x8];
 };
 
 extern "C" {
-M2C_UNK launch_switcher_dol(int);
+s32 launch_switcher_dol(int);
 s32 TLobby__sub_8014618C();
-M2C_UNK init_modem_check_params__18TAdTrialModemChkGCFv();
+s32 init_modem_check_params__18TAdTrialModemChkGCFv();
 extern RecoveredGlobal_8007FA24_lbl_8048DF88 lbl_8048DF88;
 void TAdTrialModemChkGC__sub_8007FA24(s32 arg0);
 }

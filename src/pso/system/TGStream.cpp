@@ -1,8 +1,5 @@
 #include "pso/system/TGStream.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Entry_800FD944 { u8 pad[0x24]; s32 size; };
 
 struct Info_800FDBA8 {
@@ -36,36 +33,36 @@ int get_gstream_file_size();
 TGStreamPrefix * destroy_gstream(TGStreamPrefix *, s16);
 TGStreamPrefix * open__8TGStreamFPvPvi(TGStreamPrefix *, void *, s32);
 void debug_print__6TLobbyFii(const char *, ...);
-M2C_UNK move_data__6TLobbyFv(void *, M2C_UNK *, s32);
-M2C_UNK reset_read_state__6TLobbyFv();
-M2C_UNK set_read_params__6TLobbyFiii(void *, s32, s32);
-M2C_UNK run_frame__6TLobbyFv();
+s32 move_data__6TLobbyFv(void *, s32 *, s32);
+s32 reset_read_state__6TLobbyFv();
+s32 set_read_params__6TLobbyFiii(void *, s32, s32);
+s32 run_frame__6TLobbyFv();
 s32 TLobby__sub_803CC4C0(s32);
-M2C_UNK read_checked_align__6TLobbyFiii(s32);
+s32 read_checked_align__6TLobbyFiii(s32);
 void reset__8TGStreamFv();
 void reset_gstream_buffer();
 void TGStream__sub_800FDD64();
 void close_gsl_archive();
 s32 strcmp(void *, void *);
-M2C_UNK fn_800F93B4(void *, GslArchiveEntry *, s32);
-M2C_UNK change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
-M2C_UNK close_adxf_handle__6TLobbyFPv(u32);
+s32 fn_800F93B4(void *, GslArchiveEntry *, s32);
+s32 change_file_extension__6TLobbyFPvPvPv(void *, void *, const void *);
+s32 close_adxf_handle__6TLobbyFPv(u32);
 s32 strlen(char *);
-M2C_UNK strncpy(char *, char *, s32);
+s32 strncpy(char *, char *, s32);
 u32 adxf_open__6TLobbyFUii(char *, s32);
 void read_data_sync__6TLobbyFiii(s32, s32, s32);
 void align_gstream_read_offset(void *, s32);
 s32 read_data__8TGStreamFPvii(TGStreamPrefix *, s32, s32);
 s32 get_gstream_buffered_bytes();
 s32 refill_gstream_buffer(s32);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK tmp_buf_release__6TLobbyFi(M2C_UNK *);
+s32 __dl__FPv(void *);
+s32 tmp_buf_release__6TLobbyFi(s32 *);
 void TItemDrop__sub_800FE2D8();
 void reset_gstream_globals();
 s32 TLobby__sub_8001EEF4();
-s32 tmp_buf_use_req__6TLobbyFPv(M2C_UNK *);
-M2C_UNK TLobby__sub_803CC578(s32, s32, M2C_UNK);
-M2C_UNK pump_frames__6TLobbyFv();
+s32 tmp_buf_use_req__6TLobbyFPv(s32 *);
+s32 TLobby__sub_803CC578(s32, s32, s32);
+s32 pump_frames__6TLobbyFv();
 extern char lbl_8043DB04[];
 extern char lbl_8043DB14[];
 extern char lbl_8043DB28[];
@@ -128,7 +125,7 @@ extern s32 TItemDrop__data_805D53CC;
 extern s32 TItemDrop__data_805D53D0;
 extern const char lbl_805DAA3C[4];
 extern s32 gstream_tmp_buffer;
-extern M2C_UNK lbl_8043DAF8[];
+extern s32 lbl_8043DAF8[];
 
 char *area_gsl_filename_table[23] = {
     lbl_8043DB04, lbl_8043DB14, lbl_8043DB28, lbl_8043DB3C, lbl_8043DB4C, lbl_8043DB5C, lbl_8043DB6C, lbl_8043DB80, lbl_8043DB94, lbl_8043DBA8, lbl_8043DBBC, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_805DAA38, lbl_8043DBD0, lbl_8043DBE4, lbl_8043DBF8, lbl_8043DC08, lbl_8043DC08, lbl_8043DC18, lbl_8043DC18
@@ -172,25 +169,25 @@ void load_area_gsl(void) {
 }
 
 s32 load_file__8TGStreamFi(s32 arg0) {
-    M2C_UNK sp8[0xC];
+    s32 sp8[0xC];
     s32 temp_r31;
     s32 temp_r3;
     s32 temp_r3_2;
 
-    ((M2C_UNK (*)(M2C_UNK *, s32, M2C_UNK))open__8TGStreamFPvPvi)(sp8, arg0, 1);
-    temp_r3_2 = ((s32 (*)(M2C_UNK *))get_gstream_file_size)(sp8);
+    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)(sp8, arg0, 1);
+    temp_r3_2 = ((s32 (*)(s32 *))get_gstream_file_size)(sp8);
     if (temp_r3_2 <= 0) {
-        ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)(sp8, -1);
+        ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
         return 0;
     }
     temp_r31 = (s32) (temp_r3_2 + 0x7FF) / 2048;
     temp_r3 = alloc__22TQuestVmDownLoadServerFPv(temp_r31 << 0xB);
     if (temp_r3 == 0) {
-        ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)(sp8, -1);
+        ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
         return 0;
     }
-    ((M2C_UNK (*)(M2C_UNK *, s32, s32))read_sectors_sync__8TGStreamFPvii)(sp8, temp_r31, temp_r3);
-    ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)(sp8, -1);
+    ((s32 (*)(s32 *, s32, s32))read_sectors_sync__8TGStreamFPvii)(sp8, temp_r31, temp_r3);
+    ((s32 (*)(s32 *, s32))destroy_gstream)(sp8, -1);
     return temp_r3;
 }
 
@@ -199,22 +196,22 @@ s32 read_whole_file__8TGStreamFiPv(s32 arg0, u8 *arg1) {
     s32 size;
     s32 n;
     s32 rem;
-    ((M2C_UNK (*)(M2C_UNK *, s32, M2C_UNK))open__8TGStreamFPvPvi)((M2C_UNK *)&s, arg0, 1);
-    size = ((s32 (*)(M2C_UNK *))get_gstream_file_size)((M2C_UNK *)&s);
+    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)&s, arg0, 1);
+    size = ((s32 (*)(s32 *))get_gstream_file_size)((s32 *)&s);
     if (size <= 0) {
-        ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)((M2C_UNK *)&s, -1);
+        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)&s, -1);
         return -1;
     }
     n = size / 2048;
     if (n > 0) {
-        ((M2C_UNK (*)(M2C_UNK *, s32, s32))read_sectors_sync__8TGStreamFPvii)((M2C_UNK *)&s, n, (s32)arg1);
+        ((s32 (*)(s32 *, s32, s32))read_sectors_sync__8TGStreamFPvii)((s32 *)&s, n, (s32)arg1);
     }
     rem = size % 2048;
     if (rem > 0) {
-        ((M2C_UNK (*)(M2C_UNK *, s32, s32))read_sectors_sync__8TGStreamFPvii)((M2C_UNK *)&s, 1, (s32)gstream_sector_buffer);
-        move_data__6TLobbyFv(arg1 + n * 2048, (M2C_UNK *)gstream_sector_buffer, rem);
+        ((s32 (*)(s32 *, s32, s32))read_sectors_sync__8TGStreamFPvii)((s32 *)&s, 1, (s32)gstream_sector_buffer);
+        move_data__6TLobbyFv(arg1 + n * 2048, (s32 *)gstream_sector_buffer, rem);
     }
-    ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)((M2C_UNK *)&s, -1);
+    ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)&s, -1);
     return size;
 }
 
@@ -223,10 +220,10 @@ s32 load_sct_file__8TGStreamFii(s32 name, s32 dst) {
     s32 size;
     s32 sectors;
     s32 buf;
-    ((M2C_UNK (*)(M2C_UNK *, s32, M2C_UNK))open__8TGStreamFPvPvi)((M2C_UNK *)((s32 *)&st), (s32)(name), (M2C_UNK)(1));
-    size = ((s32 (*)(M2C_UNK *))get_gstream_file_size)((M2C_UNK *)((s32 *)&st));
+    ((s32 (*)(s32 *, s32, s32))open__8TGStreamFPvPvi)((s32 *)((s32 *)&st), (s32)(name), (s32)(1));
+    size = ((s32 (*)(s32 *))get_gstream_file_size)((s32 *)((s32 *)&st));
     if (size <= 0) {
-        ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)((M2C_UNK *)((s32 *)&st), (M2C_UNK)(-1));
+        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
         return -1;
     }
     sectors = (size + 0x7FF) / 2048;
@@ -235,15 +232,15 @@ s32 load_sct_file__8TGStreamFii(s32 name, s32 dst) {
         if (buf == 0) {
             debug_print__6TLobbyFii(lbl_8043DE90);
         }
-        ((M2C_UNK (*)(M2C_UNK *, s32, s32))read_sectors_sync__8TGStreamFPvii)((M2C_UNK *)((s32 *)&st), (s32)(sectors), (s32)(buf));
+        ((s32 (*)(s32 *, s32, s32))read_sectors_sync__8TGStreamFPvii)((s32 *)((s32 *)&st), (s32)(sectors), (s32)(buf));
         prs_decompress_buffer(buf, dst);
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
         size = st.info->size;
-        ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)((M2C_UNK *)((s32 *)&st), (M2C_UNK)(-1));
+        ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
         return size;
     }
-    ((M2C_UNK (*)(M2C_UNK *, s32, s32))read_sectors_sync__8TGStreamFPvii)((M2C_UNK *)((s32 *)&st), (s32)(sectors), (s32)(dst));
-    ((M2C_UNK (*)(M2C_UNK *, M2C_UNK))destroy_gstream)((M2C_UNK *)((s32 *)&st), (M2C_UNK)(-1));
+    ((s32 (*)(s32 *, s32, s32))read_sectors_sync__8TGStreamFPvii)((s32 *)((s32 *)&st), (s32)(sectors), (s32)(dst));
+    ((s32 (*)(s32 *, s32))destroy_gstream)((s32 *)((s32 *)&st), (s32)(-1));
     return size;
 }
 
@@ -309,9 +306,9 @@ void open_gsl_archive(char *name) {
     if (TItemDrop__data_805D53CC == 0) {
         TItemDrop__gsl_adxf_handle = adxf_open__6TLobbyFUii(name, 0);
         if (TItemDrop__gsl_adxf_handle != 0) {
-            ((M2C_UNK (*)())reset__8TGStreamFv)();
-            ((M2C_UNK (*)(u32, s32, GslArchiveEntry *))read_checked_align__6TLobbyFiii)(TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
-            ((M2C_UNK (*)(u32 *, s32, GslArchiveEntry *))set_read_params__6TLobbyFiii)(&TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
+            ((s32 (*)())reset__8TGStreamFv)();
+            ((s32 (*)(u32, s32, GslArchiveEntry *))read_checked_align__6TLobbyFiii)(TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
+            ((s32 (*)(u32 *, s32, GslArchiveEntry *))set_read_params__6TLobbyFiii)(&TItemDrop__gsl_adxf_handle, 6, gsl_archive_entries);
             for (;;) {
                 if (((s32 (*)(u32))TLobby__sub_803CC4C0)(TItemDrop__gsl_adxf_handle) == 3) {
                     break;
@@ -339,8 +336,8 @@ void read_data_sync__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2) {
     s32 sp8;
 
     sp8 = arg0;
-    ((M2C_UNK (*)())read_checked_align__6TLobbyFiii)();
-    ((M2C_UNK (*)(s32 *, s32, s32))set_read_params__6TLobbyFiii)(&sp8, arg1, arg2);
+    ((s32 (*)())read_checked_align__6TLobbyFiii)();
+    ((s32 (*)(s32 *, s32, s32))set_read_params__6TLobbyFiii)(&sp8, arg1, arg2);
 loop_1:
     if (TLobby__sub_803CC4C0(sp8) != 3) {
         run_frame__6TLobbyFv();
@@ -367,7 +364,7 @@ s32 read_data__8TGStreamFPvii(TGStreamPrefix *arg0, s32 dst, s32 size) {
         } else {
             n = get_gstream_buffered_bytes();
         }
-        ((M2C_UNK (*)(s32, s32, s32))move_data__6TLobbyFv)(dst, gstream_tmp_buffer + gstream_buffer_read_offset, n);
+        ((s32 (*)(s32, s32, s32))move_data__6TLobbyFv)(dst, gstream_tmp_buffer + gstream_buffer_read_offset, n);
         dst += n;
         size -= n;
         total += n;
@@ -409,7 +406,7 @@ s32 refill_gstream_buffer(s32 arg0) {
 TGStreamPrefix *destroy_gstream(TGStreamPrefix *arg0, s16 arg1) {
     if (arg0 != NULL) {
         if ((u32) (u32)arg0->archive_entry == 0U) {
-            ((M2C_UNK (*)(s32))close_adxf_handle__6TLobbyFPv)(arg0->adxf_handle);
+            ((s32 (*)(s32))close_adxf_handle__6TLobbyFPv)(arg0->adxf_handle);
         }
         if ((s32) arg0->direct_read_mode == 0) {
             tmp_buf_release__6TLobbyFi(lbl_8043DAF8);
@@ -426,19 +423,19 @@ TGStreamPrefix *open__8TGStreamFPvPvi(TGStreamPrefix *arg0, void *arg1, s32 arg2
 
     arg0->adxf_handle = 0;
     arg0->archive_entry = NULL;
-    ((M2C_UNK (*)())reset__8TGStreamFv)();
-    arg0->archive_entry = (GslArchiveEntry *)((void * (*)(void *, M2C_UNK))find_gsl_entry)(arg1, 1);
+    ((s32 (*)())reset__8TGStreamFv)();
+    arg0->archive_entry = (GslArchiveEntry *)((void * (*)(void *, s32))find_gsl_entry)(arg1, 1);
     if ((void *) arg0->archive_entry != NULL) {
         arg0->adxf_handle = (s32) TItemDrop__gsl_adxf_handle;
         TLobby__sub_803CC578(arg0->adxf_handle, arg0->archive_entry->archive_offset, 0);
         gstream_file_size = arg0->archive_entry->file_size;
-        ((M2C_UNK (*)(void *, void *, M2C_UNK))strncpy)(arg0, arg0->archive_entry, 0x20);
+        ((s32 (*)(void *, void *, s32))strncpy)(arg0, arg0->archive_entry, 0x20);
     } else {
         temp_r3 = get_file_size__6TLobbyFv(arg1);
         gstream_file_size = temp_r3;
         if (temp_r3 > 0) {
-            arg0->adxf_handle = ((s32 (*)(void *, M2C_UNK))adxf_open__6TLobbyFUii)(arg1, 0);
-            ((M2C_UNK (*)(void *, void *, M2C_UNK))strncpy)(arg0, arg1, 0x20);
+            arg0->adxf_handle = ((s32 (*)(void *, s32))adxf_open__6TLobbyFUii)(arg1, 0);
+            ((s32 (*)(void *, void *, s32))strncpy)(arg0, arg1, 0x20);
         } else {
             gstream_file_size = 0;
             arg0->name[0] = 0;

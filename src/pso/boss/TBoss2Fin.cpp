@@ -1,8 +1,7 @@
 #include "pso/boss/TBoss2Fin.h"
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
+
 struct G_800367C4;
 struct Stack_800365C8 {
     s32 sp8;
@@ -10,7 +9,7 @@ struct Stack_800365C8 {
     s32 sp10;
 };
 struct RecoveredGlobal_800365C8_lbl_80435A44 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 struct Vec_800363B4 { f32 x, y, z; };
@@ -25,18 +24,18 @@ extern RecoveredGlobal_800365C8_lbl_80435A44 lbl_80435A44;
 f32 fabs_float(f32);
 f32 atan2_float(f32, f32);
 f32 get_scale_factor__10TObjPlayerFv(f32);
-M2C_UNK TObjLight__sub_801337F8(s32);
-M2C_UNK scale_matrix(int, f32, f32, f32);
+s32 TObjLight__sub_801337F8(s32);
+s32 scale_matrix(int, f32, f32, f32);
 f32 vector_length(void *);
-M2C_UNK translate_matrix_vec3(int, void *);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK subtract_vector(void *, void *);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK normalize_vector(void *);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_chunk_object(void *);
+s32 translate_matrix_vec3(int, void *);
+s32 rotate_matrix_y(int, int);
+s32 subtract_vector(void *, void *);
+s32 rotate_matrix_x(int, int);
+s32 normalize_vector(void *);
+s32 push_matrix();
+s32 pop_matrix();
+s32 set_global_param__8TObjFishFi(s32);
+s32 draw_chunk_object(void *);
 extern const f64 lbl_80435A50[];
 extern G_800367C4 *lbl_805D4BA4;
 extern s32 current_scene_light;
@@ -54,10 +53,10 @@ void TBoss2Fin::render() {
     s32 j;
     s32 yaw;
     Vec_800363B4 v;
-    set_global_param__8TObjFishFi(M2C_FIELD(M2C_FIELD(lbl_805D4BA4, u8 **, 0x42C), s32 *, 0x2C));
-    seg = M2C_FIELD(arg0, Seg_800363B4 **, 0x20);
-    ang = M2C_FIELD(arg0, Ang_800363B4 **, 0x24);
-    pt = M2C_FIELD(arg0, Vec_800363B4 **, 0x2C);
+    set_global_param__8TObjFishFi(*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D4BA4 + 0x42C)) + 0x2C));
+    seg = *(Seg_800363B4 **)((s8 *)arg0 + 0x20);
+    ang = *(Ang_800363B4 **)((s8 *)arg0 + 0x24);
+    pt = *(Vec_800363B4 **)((s8 *)arg0 + 0x2C);
     for (; seg->n >= 2; pt++, seg++, ang++) {
         for (j = seg->n - 1; j > 0; j--, pt++) {
             push_matrix();
@@ -102,24 +101,24 @@ void TBoss2Fin::run_task() {
     typedef char sp10_offset[(offsetof(Stack_800365C8, sp10) == 0x8) ? 1 : -1];
     Stack_800365C8 stack;
     init_link_points__9TBoss2FinFPv((u8 *)((void *) (arg0)));
-    stack.sp8 = M2C_FIELD(&lbl_80435A44.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_80435A44.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_80435A44.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_80435A44.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_80435A44.value) + 8);
     fn_800FF788((void *) (arg0), (void *) (&stack.sp8));
 }
 
 extern "C" {
 void init_link_points__9TBoss2FinFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x34, M2C_FIELD(arg0, u8 **, 0x80));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x54, M2C_FIELD(arg0, u8 **, 0x80));
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) (M2C_FIELD(arg0, f32 *, 0x58) - lbl_805D8458);
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) (M2C_FIELD(arg0, f32 *, 0x5C) + lbl_805D8458);
-    M2C_FIELD(arg0, s32 *, 0x40) = 0;
-    VecCopy__FP3VecPC3Vec(arg0 + 0x44, M2C_FIELD(arg0, u8 **, 0x84));
-    VecCopy__FP3VecPC3Vec(arg0 + 0x64, M2C_FIELD(arg0, u8 **, 0x84));
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) (M2C_FIELD(arg0, f32 *, 0x68) - lbl_805D8458);
-    M2C_FIELD(arg0, f32 *, 0x6C) = (f32) (M2C_FIELD(arg0, f32 *, 0x6C) + lbl_805D8458);
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x34, *(u8 **)((s8 *)arg0 + 0x80));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x54, *(u8 **)((s8 *)arg0 + 0x80));
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) (*(f32 *)((s8 *)arg0 + 0x58) - lbl_805D8458);
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) (*(f32 *)((s8 *)arg0 + 0x5C) + lbl_805D8458);
+    *(s32 *)((s8 *)arg0 + 0x40) = 0;
+    VecCopy__FP3VecPC3Vec(arg0 + 0x44, *(u8 **)((s8 *)arg0 + 0x84));
+    VecCopy__FP3VecPC3Vec(arg0 + 0x64, *(u8 **)((s8 *)arg0 + 0x84));
+    *(f32 *)((s8 *)arg0 + 0x68) = (f32) (*(f32 *)((s8 *)arg0 + 0x68) - lbl_805D8458);
+    *(f32 *)((s8 *)arg0 + 0x6C) = (f32) (*(f32 *)((s8 *)arg0 + 0x6C) + lbl_805D8458);
 }
 }
 

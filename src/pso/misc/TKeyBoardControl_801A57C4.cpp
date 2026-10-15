@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
 struct RecoveredGlobal_801A58D8_TKeyBoardControl__data_80506270 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xAC];
 };
 
@@ -18,16 +14,16 @@ struct Pad_801A57D0 { u8 pad0[0x10]; u32 f10; u8 pad14[4]; u16 f18; u16 f1A; s16
 
 extern "C" {
 s32 TKeyBoardControl__sub_801321B4(s32);
-extern M2C_UNK TKeyBoardControl__global_key_state[];
+extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58B0(void);
 s32 TKeyBoardControl__sub_80132310(s32);
-extern M2C_UNK TKeyBoardControl__global_key_state[];
+extern s32 TKeyBoardControl__global_key_state[];
 void TKeyBoardControl__sub_801A58D8(void);
 extern Pad_801A57D0 *controller_input_state[];
 s32 any_pad_input_active__16TKeyBoardControlFv(void);
 u8 TKeyBoardControl__sub_8013239C(void *, u8);
 u8 get_key_state_2__16TKeyBoardControlFPv(void *);
-extern M2C_UNK TKeyBoardControl__global_key_state[];
+extern s32 TKeyBoardControl__global_key_state[];
 s32 is_key_down__16TKeyBoardControlFi(s32 arg0);
 }
 
@@ -42,7 +38,7 @@ void reset__16TKeyBoardControlFv(void);
 s32 OSGetResetButtonState();
 void update_state_from_input__16TKeyBoardControlFPv(void *arg0);
 s32 TKeyBoardControl__sub_801323C8(void *, void *);
-s32 check_input_ready__16TKeyBoardControlFi(M2C_UNK *);
+s32 check_input_ready__16TKeyBoardControlFi(s32 *);
 
     extern unsigned char lbl_805D5D09;
 void reset__16TKeyBoardControlFv(void) { lbl_805D5D09 = 0; }
@@ -74,7 +70,7 @@ s32 check_reset_button__16TKeyBoardControlFv(void) {
     return 0;
 }
 
-extern M2C_UNK TKeyBoardControl__global_key_state[];
+extern s32 TKeyBoardControl__global_key_state[];
 
 typedef char RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_801A58B0_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
 void TKeyBoardControl__sub_801A58B0(void) {
@@ -93,7 +89,7 @@ s32 check_and_read__16TKeyBoardControlFi(s32 arg0) {
     return 0;
 }
 
-extern M2C_UNK TKeyBoardControl__global_key_state[];
+extern s32 TKeyBoardControl__global_key_state[];
 
 s32 read_input__16TKeyBoardControlFi(s32 arg0) {
     if (check_input_ready__16TKeyBoardControlFi(TKeyBoardControl__global_key_state) != 0) {
@@ -127,20 +123,20 @@ s32 check_input_angle__16TKeyBoardControlFPv(void *arg0) {
     s32 temp_r5;
     u16 temp_r0;
 
-    temp_r4 = M2C_FIELD(arg0, void **, 8);
+    temp_r4 = *(void **)((s8 *)arg0 + 8);
     if (temp_r4 == NULL) {
         return 0;
     }
-    if (M2C_FIELD(temp_r4, f32 *, 0x24) < lbl_805DC0B0) {
+    if (*(f32 *)((s8 *)temp_r4 + 0x24) < lbl_805DC0B0) {
         return 0;
     }
-    temp_r5 = M2C_FIELD(arg0, s32 *, 0);
-    M2C_FIELD(arg0, s32 *, 0) = M2C_FIELD(temp_r4, s32 *, 0x1C);
-    temp_r0 = temp_r5 - M2C_FIELD(arg0, s32 *, 0);
+    temp_r5 = *(s32 *)((s8 *)arg0 + 0);
+    *(s32 *)((s8 *)arg0 + 0) = *(s32 *)((s8 *)temp_r4 + 0x1C);
+    temp_r0 = temp_r5 - *(s32 *)((s8 *)arg0 + 0);
     if (((s32) temp_r0 > 0x5000) && ((s32) temp_r0 < 0xB000)) {
-        temp_r4_2 = M2C_FIELD(arg0, s32 *, 4);
-        M2C_FIELD(arg0, s32 *, 4) = (s32) actor_frame_tick;
-        if ((s32) (M2C_FIELD(arg0, s32 *, 4) - temp_r4_2) < 8) {
+        temp_r4_2 = *(s32 *)((s8 *)arg0 + 4);
+        *(s32 *)((s8 *)arg0 + 4) = (s32) actor_frame_tick;
+        if ((s32) (*(s32 *)((s8 *)arg0 + 4) - temp_r4_2) < 8) {
             return 1;
         }
     }
@@ -151,9 +147,9 @@ extern s32 actor_frame_tick;
 
 void init_stick_escape_detector(void *arg0, void *arg1) {
     if (arg1 != NULL) {
-        M2C_FIELD(arg0, void **, 8) = arg1;
-        M2C_FIELD(arg0, s32 *, 0) = (s32) M2C_FIELD(M2C_FIELD(arg0, void **, 8), s32 *, 0x1C);
-        M2C_FIELD(arg0, s32 *, 4) = (s32) actor_frame_tick;
+        *(void **)((s8 *)arg0 + 8) = arg1;
+        *(s32 *)((s8 *)arg0 + 0) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 8)) + 0x1C);
+        *(s32 *)((s8 *)arg0 + 4) = (s32) actor_frame_tick;
     }
 }
 

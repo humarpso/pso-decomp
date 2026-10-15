@@ -1,6 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct VBase_18_26c590
 {
   char pad[0x18];
@@ -24,8 +23,8 @@ extern "C" {
 s8 get_actor_section_id(void *);
 s32 TObjPlayer__sub_801AFD8C(void *);
 s32 get_player_by_client_id(u32);
-M2C_UNK __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
-M2C_UNK strncpy(void *, void *, int);
+s32 __as__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *);
+s32 strncpy(void *, void *, int);
 s32 fill_guild_card_from_player(u8 *arg0, u32 arg1);
 }
 

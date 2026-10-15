@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 struct Stack_802CE68C {
     s32 sp8;
@@ -11,12 +8,12 @@ struct Stack_802CE68C {
 };
 
 struct RecoveredGlobal_802CE68C_lbl_804724A8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_802CE68C_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
@@ -30,7 +27,6 @@ struct VObj_802CE740 : VBase_802CE740 {
     virtual s32 m8(f32, f32);
 };
 
-typedef s32 M2C_UNK;
 struct Node_802CE8CC;
 struct FadeBase_802CE8CC { char pad[0x14]; };
 
@@ -106,18 +102,18 @@ extern RecoveredGlobal_802CE68C_lbl_804724A8 lbl_804724A8;
 extern RecoveredGlobal_802CE68C_lbl_8058D490 identity_matrix;
 extern s32 anim_model_matrix_array;
 void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2);
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
-M2C_UNK update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK restore_default_scene();
-M2C_UNK set_scene_override(int);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 clear_global_flag_400__9TObjEneDDFv();
+s32 update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 restore_default_scene();
+s32 set_scene_override(int);
+s32 end_effect_render__13TParticleCtrlFv();
 s32 rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
+s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK draw_chunk_object(s32);
+s32 set_global_param__8TObjFishFi(void *);
+s32 draw_chunk_object(s32);
 extern Vec_802CE740 lbl_8047249C;
 extern const f32 lbl_805DE700;
 extern const f32 lbl_805DE704;
@@ -126,28 +122,28 @@ s32 is_split_screen();
 s32 get_camera_mode__11TCameraCtrlFv();
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
-M2C_UNK update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
-M2C_UNK update_primary_light__9TObjEneDDFPv(void *);
-M2C_UNK update_secondary_light__9TObjEneDDFPv(void *);
+s32 clear_global_flag_400__9TObjEneDDFv();
+s32 update_player_state__9TObjEneDDFPv(void *, Vec_802CE740 *, int);
+s32 update_primary_light__9TObjEneDDFPv(void *);
+s32 update_secondary_light__9TObjEneDDFPv(void *);
 s32 updateFromCamera__15RenderFadeStateFPCf(void *, void *);
-M2C_UNK update_obstruction_fade(void *);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK restore_default_scene();
-M2C_UNK set_scene_override(int);
-M2C_UNK render_world_model__10TObjPlayerFPv(void *);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 update_obstruction_fade(void *);
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 restore_default_scene();
+s32 set_scene_override(int);
+s32 render_world_model__10TObjPlayerFPv(void *);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 end_effect_render__13TParticleCtrlFv();
 s32 get_global_state__14TOKeyMachine01Fv();
 s32 toggle_flag_9_if_flag_10_is_clear__7TObjectFv(void *);
 s32 get_phase__19TObjEneBm9MericarolFPv(void *);
 s32 rotate_matrix_y(int, int);
-M2C_UNK translate_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
+s32 translate_matrix(int, f32, f32, f32);
+s32 push_matrix();
 s32 pop_matrix();
 f32 post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(void *);
-M2C_UNK set_global_state__16TObjEneRe7BeruraFi(void *, int, void *);
+s32 set_global_param__8TObjFishFi(void *);
+s32 set_global_state__16TObjEneRe7BeruraFi(void *, int, void *);
 void update_particle_effect__19TObjEneBm9MericarolFv(void);
 extern Vec_802CE740 lbl_80472490;
 extern s32 lbl_805D5660;
@@ -173,15 +169,15 @@ void TObjPlayer__sub_802CE68C(u8 *arg0, s32 arg1, s32 arg2) {
     set_global_flag__10TObjPlayerFv();
     push_matrix_from((void *) (&identity_matrix.value));
     post_translate_matrix((void *) (arg0 + 0x38));
-    rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
+    rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
     set_global_flag__10TObjPlayerFv();
-    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (M2C_FIELD(arg0, f32 *, 0xC0)));
+    render_anim_model__10TObjPlayerFPvf((void *) (arg0), (f32) (*(f32 *)((s8 *)arg0 + 0xC0)));
     clear_global_state__10TObjPlayerFv();
     pop_matrix();
     push_matrix_from((void *) (anim_model_matrix_array + (arg2 * 0x30)));
-    stack.sp8 = M2C_FIELD(&lbl_804724A8.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804724A8.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804724A8.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804724A8.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804724A8.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804724A8.value) + 8);
     matrix_mult_vec((int) (0), (void *) (&stack.sp8), (void *) (arg1));
     pop_matrix();
     clear_global_state__10TObjPlayerFv();
@@ -193,39 +189,39 @@ void draw_color_variant__10TObjPlayerFPv(u8 *arg0) {
     if (((VObj_802CE740 *) arg0)->m8(lbl_805DE700, lbl_805DE704) != 0) {
         Vec_802CE740 v = lbl_8047249C;
         update_player_state__9TObjEneDDFPv(arg0, &v, 0);
-        switch (M2C_FIELD(arg0, s32 *, 0x368)) {
+        switch (*(s32 *)((s8 *)arg0 + 0x368)) {
         case 1:
-            s0 = (*M2C_FIELD(arg0, s32 ***, 0x24))[2];
-            s1 = (*M2C_FIELD(arg0, s32 ***, 0x24))[5];
-            s2 = (*M2C_FIELD(arg0, s32 ***, 0x24))[8];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[2] = (*M2C_FIELD(arg0, s32 ***, 0x24))[11];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[5] = (*M2C_FIELD(arg0, s32 ***, 0x24))[14];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[8] = (*M2C_FIELD(arg0, s32 ***, 0x24))[17];
+            s0 = (**(s32 ***)((s8 *)arg0 + 0x24))[2];
+            s1 = (**(s32 ***)((s8 *)arg0 + 0x24))[5];
+            s2 = (**(s32 ***)((s8 *)arg0 + 0x24))[8];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = (**(s32 ***)((s8 *)arg0 + 0x24))[11];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = (**(s32 ***)((s8 *)arg0 + 0x24))[14];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = (**(s32 ***)((s8 *)arg0 + 0x24))[17];
             break;
         case 2:
-            s0 = (*M2C_FIELD(arg0, s32 ***, 0x24))[2];
-            s1 = (*M2C_FIELD(arg0, s32 ***, 0x24))[5];
-            s2 = (*M2C_FIELD(arg0, s32 ***, 0x24))[8];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[2] = (*M2C_FIELD(arg0, s32 ***, 0x24))[20];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[5] = (*M2C_FIELD(arg0, s32 ***, 0x24))[23];
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[8] = (*M2C_FIELD(arg0, s32 ***, 0x24))[26];
+            s0 = (**(s32 ***)((s8 *)arg0 + 0x24))[2];
+            s1 = (**(s32 ***)((s8 *)arg0 + 0x24))[5];
+            s2 = (**(s32 ***)((s8 *)arg0 + 0x24))[8];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = (**(s32 ***)((s8 *)arg0 + 0x24))[20];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = (**(s32 ***)((s8 *)arg0 + 0x24))[23];
+            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = (**(s32 ***)((s8 *)arg0 + 0x24))[26];
             break;
         }
-        set_global_param__8TObjFishFi(M2C_FIELD(arg0, void **, 0x24));
+        set_global_param__8TObjFishFi(*(void **)((s8 *)arg0 + 0x24));
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
-        rotate_matrix_y(0, M2C_FIELD(arg0, s32 *, 0x60));
+        rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         clear_global_flag_400__9TObjEneDDFv();
         toggle_particle_effect__10TObjPlayerFv();
         set_scene_override(0);
-        draw_chunk_object(M2C_FIELD(arg0, s32 *, 0x34));
+        draw_chunk_object(*(s32 *)((s8 *)arg0 + 0x34));
         restore_default_scene();
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
-        if (M2C_FIELD(arg0, s32 *, 0x368) == 1 || M2C_FIELD(arg0, s32 *, 0x368) == 2) {
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[2] = s0;
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[5] = s1;
-            (*M2C_FIELD(arg0, s32 ***, 0x24))[8] = s2;
+        if (*(s32 *)((s8 *)arg0 + 0x368) == 1 || *(s32 *)((s8 *)arg0 + 0x368) == 2) {
+            (**(s32 ***)((s8 *)arg0 + 0x24))[2] = s0;
+            (**(s32 ***)((s8 *)arg0 + 0x24))[5] = s1;
+            (**(s32 ***)((s8 *)arg0 + 0x24))[8] = s2;
         }
     }
 }

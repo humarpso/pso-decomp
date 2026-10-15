@@ -1,9 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-struct RecoveredGlobal_802F4098_main_task { M2C_UNK value; u8 remaining[0x30]; };
+
+struct RecoveredGlobal_802F4098_main_task { s32 value; u8 remaining[0x30]; };
 typedef char RecoveredGlobal_802F4098_main_task_size[sizeof(RecoveredGlobal_802F4098_main_task) == 0x34 ? 1 : -1];
 
 typedef struct Vec_802F3F20 { f32 x, y, z; } Vec_802F3F20;
@@ -24,7 +21,7 @@ struct VObj_14_681f8e : VBase_14_681f8e {
     virtual void m3();
     virtual void m4();
     virtual void m5();
-    virtual M2C_UNK m6();
+    virtual s32 m6();
 };
 
 struct Fade_802F4114 { u8 pad[0x1C]; };
@@ -53,28 +50,28 @@ extern f32 lbl_805D69B0;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED64;
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
-M2C_UNK clear_global_flag_400__9TObjEneDDFv();
+s32 clear_global_flag_400__9TObjEneDDFv();
 s32 isFading__15RenderFadeStateCFv(int);
-M2C_UNK restore__15RenderFadeStateFv(void *);
-M2C_UNK fadeOut__15RenderFadeStateFv(void *);
-M2C_UNK toggle_particle_effect__10TObjPlayerFv();
-M2C_UNK TObjLight__sub_801337F8(void *);
-M2C_UNK setup_tev_swap__10TObjPlayerFv();
-M2C_UNK fn_801414B0(int, int, int, int);
-M2C_UNK draw__16TObjEneRe7BeruraFPv(void *);
-M2C_UNK end_effect_render__13TParticleCtrlFv();
+s32 restore__15RenderFadeStateFv(void *);
+s32 fadeOut__15RenderFadeStateFv(void *);
+s32 toggle_particle_effect__10TObjPlayerFv();
+s32 TObjLight__sub_801337F8(void *);
+s32 setup_tev_swap__10TObjPlayerFv();
+s32 fn_801414B0(int, int, int, int);
+s32 draw__16TObjEneRe7BeruraFPv(void *);
+s32 end_effect_render__13TParticleCtrlFv();
 s32 has_enough_enemies__12TBoss8DragonFv();
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK scale_current_matrix(void *);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK set_material_alpha_compare_reference(int);
-M2C_UNK set_chunk_material_override_pair(int, int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 scale_current_matrix(void *);
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 set_material_alpha_compare_reference(int);
+s32 set_chunk_material_override_pair(int, int);
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
 extern u8 *TBoss8Dragon__data_805D6988;
@@ -133,14 +130,14 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
 
 void TBoss8Dragon__sub_802F4098(u8 *arg0, u8 *arg1) {
     VecCopy__FP3VecPC3Vec(arg1, arg0 + 0x38);
-    if ((get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(arg0) == 0) && !(M2C_FIELD(arg0, f32 *, 0xC0) > lbl_805DED68)) {
-        M2C_FIELD(arg1, f32 *, 8) = (f32) (M2C_FIELD(arg1, f32 *, 8) + lbl_805DED6C);
+    if ((get_mode__11TCameraCtrlFPv(&main_task.value) & 0x10) && (TBoss8Dragon__sub_802FCCBC(arg0) == 0) && !(*(f32 *)((s8 *)arg0 + 0xC0) > lbl_805DED68)) {
+        *(f32 *)((s8 *)arg1 + 8) = (f32) (*(f32 *)((s8 *)arg1 + 8) + lbl_805DED6C);
     }
 }
 void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
     u8 *temp_r31;
-    if (!(M2C_FIELD(arg0, f32 *, 0x3C) <= lbl_805DED70)) {
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x24)));
+    if (!(*(f32 *)((s8 *)arg0 + 0x3C) <= lbl_805DED70)) {
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         clear_global_flag_400__9TObjEneDDFv();
         lbl_805D5660 = model_render_flags;
         set_material_alpha_compare_reference((int) (0));
@@ -155,18 +152,18 @@ void draw_with_fade__12TBoss8DragonFPvii(u8 *arg0, s32 arg1, s32 arg2) {
         }
         push_matrix();
         post_translate_matrix((void *) (arg1));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x60)));
-        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x5C)));
-        rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x64)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x5C)));
+        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x64)));
         scale_current_matrix((void *) (arg0 + 0x68));
         toggle_particle_effect__10TObjPlayerFv();
-        if (M2C_FIELD(arg0, s32 *, 0x3C0) & 0x80) {
+        if (*(s32 *)((s8 *)arg0 + 0x3C0) & 0x80) {
             fn_801414B0((int) (3), (int) (3), (int) (3), (int) (3));
         }
         if (has_enough_enemies__12TBoss8DragonFv() != 0) {
-            M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TBoss8Dragon__data_805D6988, u8 **, 0x42C), s32 *, 0x18);
+            *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 0x18);
         } else {
-            M2C_FIELD(arg0, s32 *, 0x34) = (s32) M2C_FIELD(M2C_FIELD(TBoss8Dragon__data_805D6988, u8 **, 0x42C), s32 *, 8);
+            *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss8Dragon__data_805D6988 + 0x42C)) + 8);
         }
         draw__16TObjEneRe7BeruraFPv((void *) (arg0));
         setup_tev_swap__10TObjPlayerFv();

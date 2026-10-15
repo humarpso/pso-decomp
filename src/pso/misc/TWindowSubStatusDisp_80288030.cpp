@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 s32 get_shared_text_buffer();
 u8 *get_message_10__20TWindowSubStatusDispFPv(s32);
@@ -64,13 +59,13 @@ void fill_card_text_entries__20TWindowSubStatusDispFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r28;
     s32 temp_r27;
     s32 temp_r26;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 4));
-    temp_r31 = M2C_FIELD(temp_r3, s32 *, 4);
-    temp_r30 = M2C_FIELD(temp_r3, s32 *, 0xC);
-    temp_r29 = M2C_FIELD(temp_r3, s32 *, 0x14);
-    temp_r28 = M2C_FIELD(temp_r3, s32 *, 0x1C);
-    temp_r27 = M2C_FIELD(temp_r3, s32 *, 0x18);
-    temp_r26 = M2C_FIELD(temp_r3, s32 *, 0x20);
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 4));
+    temp_r31 = *(s32 *)((s8 *)temp_r3 + 4);
+    temp_r30 = *(s32 *)((s8 *)temp_r3 + 0xC);
+    temp_r29 = *(s32 *)((s8 *)temp_r3 + 0x14);
+    temp_r28 = *(s32 *)((s8 *)temp_r3 + 0x1C);
+    temp_r27 = *(s32 *)((s8 *)temp_r3 + 0x18);
+    temp_r26 = *(s32 *)((s8 *)temp_r3 + 0x20);
     text_builder_reset();
     text_builder_append((void *) (&lbl_805DD898));
     text_builder_append((void *) (get_sub_disp_ptr__20TWindowSubStatusDispFPv(arg1)));

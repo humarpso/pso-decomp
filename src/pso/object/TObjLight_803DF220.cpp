@@ -4,17 +4,17 @@
 
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
+
+
+
 
 
 #pragma scheduling off
 
 
 struct RecoveredGlobal_803DF528_TObjLight__data_8058D528 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x13C];
 };
 
@@ -23,7 +23,7 @@ struct RecoveredGlobal_803DF528_TObjLight__data_8058D528 {
 
 typedef struct GXColor_803DF268 { u8 r, g, b, a; } GXColor_803DF268;
 
-typedef s32 M2C_UNK;
+
 
 #pragma scheduling off
 typedef struct Vtx_803DF5E4 { f32 x, y, z; u32 color; } Vtx_803DF5E4;
@@ -36,15 +36,15 @@ typedef union WGPipe_803DF5E4 {
 } WGPipe_803DF5E4;
 
 extern "C" {
-M2C_UNK load_camera_view_matrix();
-M2C_UNK setup_opaque_color_draw();
-M2C_UNK TObjPlayer__sub_803E21DC();
+s32 load_camera_view_matrix();
+s32 setup_opaque_color_draw();
+s32 TObjPlayer__sub_803E21DC();
 void TObjPlayer__sub_803DF768(s32 arg0);
-extern M2C_UNK light_slot_mask_table[];
+extern s32 light_slot_mask_table[];
 extern s32 gx_chan_ctrl_light_mask;
 void submit_light0(s32 arg0, s32 arg1);
-M2C_UNK GXLoadLightObjImm(void *, int);
-extern M2C_UNK light_slot_mask_table[];
+s32 GXLoadLightObjImm(void *, int);
+extern s32 light_slot_mask_table[];
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void load_gx_light_slot(s32 arg0);
 extern char lbl_804FC75C[];
@@ -60,8 +60,8 @@ void GXInitLightColor(void *, GXColor_803DF268);
 void assert_light_id__9TObjLightFi(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 void set_gx_light_color(s32 idx, f32 r, f32 g, f32 b);
-M2C_UNK GXInitLightPos(void *, f32, f32, f32);
-M2C_UNK GXInitLightDir(void *, f32, f32, f32);
+s32 GXInitLightPos(void *, f32, f32, f32);
+s32 GXInitLightDir(void *, f32, f32, f32);
 void assert_light_id__9TObjLightFi(s32 arg0);
 extern RecoveredGlobal_803DF528_TObjLight__data_8058D528 TObjLight__gx_light_objects;
 extern const f32 light_position_distance;
@@ -72,7 +72,7 @@ void draw_untextured_trail_strip(void *arg0, void *arg1);
 
 extern "C" {
 
-M2C_UNK TObjPlayer__sub_803E2248();
+s32 TObjPlayer__sub_803E2248();
 
 
 
@@ -108,9 +108,9 @@ void submit_light0(s32 arg0, s32 arg1) {
     s32 var_r0;
     assert_light_id__9TObjLightFi((s32)(arg0));
     if (arg1 == 0) {
-        var_r0 = gx_chan_ctrl_light_mask & ~M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0);
+        var_r0 = gx_chan_ctrl_light_mask & ~*(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0);
     } else {
-        var_r0 = gx_chan_ctrl_light_mask | M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0);
+        var_r0 = gx_chan_ctrl_light_mask | *(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0);
     }
     gx_chan_ctrl_light_mask = var_r0;
 }
@@ -149,7 +149,7 @@ void init_distant_light(s32 idx, f32 x, f32 y, f32 z) {
 
 void load_gx_light_slot(s32 arg0) {
     assert_light_id__9TObjLightFi((s32)(arg0));
-    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (M2C_FIELD(((u8 *)(light_slot_mask_table) + (arg0 * 4)), s32 *, 0)));
+    GXLoadLightObjImm((void *) ((u8 *)(&TObjLight__gx_light_objects.value) + (arg0 << 6)), (int) (*(s32 *)((s8 *)((u8 *)(light_slot_mask_table) + (arg0 * 4)) + 0)));
 }
 
 

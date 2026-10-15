@@ -9,15 +9,11 @@ extern const char *bm_o_grass_jungle_model_names[3];
 extern BmlResourceDescriptor ograss_jungle_resource_descriptor;
 extern const char *bm_o_grass_jungle_motion_names[1];
 }
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_8029CD0C_lbl_8046598C { char value[0x13]; };
 typedef char RecoveredGlobal_8029CD0C_lbl_8046598C_size[sizeof(RecoveredGlobal_8029CD0C_lbl_8046598C) == 0x13 ? 1 : -1];
 
-struct RecoveredGlobal_8029CD0C_lbl_804DC534 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8029CD0C_lbl_804DC534 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8029CD0C_lbl_804DC534_size[sizeof(RecoveredGlobal_8029CD0C_lbl_804DC534) == 0x10 ? 1 : -1];
 
 extern "C" {
@@ -25,7 +21,7 @@ s32 get_bml_model(void *, s32);
 u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * load_gvm_texture_file(s32);
-M2C_UNK add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
+s32 add_entry__11TMotorcycleFsiiff(int, int, int, f32, f32);
 extern RecoveredGlobal_8029CD0C_lbl_8046598C lbl_8046598C;
 extern u32 TOGrassJungle__bml_resource;
 extern u32 TOGrassJungle__grass_gvm_texture;
@@ -39,10 +35,10 @@ extern "C" {
 void *TOGrassJungle__create(void *arg0);
 void release_static_instance__13TOGrassJungleFv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
+s32 TLobby__sub_803DA16C(void*);
 void *TOGrassJungle__ct(void *, void *, void *);
 void *__nw__7TObjectFUl(int);
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern void *tl_05;
 

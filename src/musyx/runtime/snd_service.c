@@ -123,7 +123,7 @@ void sndConvertMs(s32 *arg0) {
 }
 
 void sndConvertTicks(u32 *arg0, s32 arg1) {
-    M2C_FIELD(arg0, u32 *, 0) = (u32) (((u32) (M2C_FIELD(arg0, u32 *, 0) << 0x10) / synthGetTicksPerSecond((void *) (arg1))) * 0x3E8) >> 5U;
+    *(u32 *)((s8 *)arg0 + 0) = (u32) (((u32) (*(u32 *)((s8 *)arg0 + 0) << 0x10) / synthGetTicksPerSecond((void *) (arg1))) * 0x3E8) >> 5U;
 }
 
 u32 sndConvert2Ms(u32 arg0) {

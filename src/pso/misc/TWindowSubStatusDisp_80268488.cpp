@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -10,7 +6,7 @@ int is_flag80_set__20TWindowSubStatusDispFPv(void* p);
 s32 play_sound_effect(s32 a0 = 0, s32 a1 = 0, s32 a2 = 0, s32 a3 = 0);
 s32 TWindowMenu__sub_80266B18(void *, s32);
 s32 is_open__17TWindowSubComCardFPv();
-M2C_UNK get_entry_id__17TWindowSubComCardFPv();
+s32 get_entry_id__17TWindowSubComCardFPv();
 s32 set_text__20TWindowSubStatusDispFPvUiii(s32, s32, s32, s32);
 s32 set_text__20TWindowSubStatusDispFPvUii(s32, s32, s32);
 u32 construct_type1_heading__20TWindowSubStatusDispFPvii(u32, s32, s16);

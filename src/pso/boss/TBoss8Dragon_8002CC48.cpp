@@ -1,11 +1,7 @@
 #include "types.h"
 #include <stddef.h>
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8002D41C_lbl_80482060 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8002D41C_lbl_80482060 { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8002D41C_lbl_80482060_size[sizeof(RecoveredGlobal_8002D41C_lbl_80482060) == 0x18 ? 1 : -1];
 
 struct UV_8002D4C0 { s16 u, v; };
@@ -103,7 +99,6 @@ struct Obj_8002DF7C {
     s32 idx;
 };
 
-typedef s32 M2C_UNK;
 typedef struct Obj_8002CD8C {
     s32 unk0;
     u8 pad4[0x14];
@@ -126,7 +121,7 @@ f32 lerp__9TDeadSpotFff(f32 farg0, f32 farg1);
 s32 check_v2_mode__9TObjEneDDFv(void);
 void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
-extern M2C_UNK __vt__22TObjBoss1MokoHill_Solo[];
+extern s32 __vt__22TObjBoss1MokoHill_Solo[];
 extern s32 TObjBoss1MokoHill_Solo__name;
 extern const f32 lbl_805D8180;
 extern const f32 lbl_805D8184;
@@ -139,8 +134,8 @@ void *TObjBoss1MokoHill_Solo__ct(void *arg0_, void *arg1, int arg2);
 
 extern "C" {
 
-extern M2C_UNK __vt__22TObjBoss1MokoHill_Solo[];
-extern M2C_UNK __vt__23TObjBoss1MokoHill_SoloM[];
+extern s32 __vt__22TObjBoss1MokoHill_Solo[];
+extern s32 __vt__23TObjBoss1MokoHill_SoloM[];
 extern s32 TObjBoss1MokoHill_SoloM__name;
 extern u8 *lbl_805D4B50;
 extern s32 dragon_common_texture_list;
@@ -192,8 +187,8 @@ void queue_destruction__7TObjectFv();
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK free__11TOBoss4RockFUi(s32);
-M2C_UNK __dl__FPv(void *);
+s32 free__11TOBoss4RockFUi(s32);
+s32 __dl__FPv(void *);
 void *alloc_buffer__11TOBoss4RockFPv(u32);
 f32 newton_sqrtf(f32);
 f32 calc_nearest_crater_distance(void *);
@@ -203,7 +198,7 @@ f32 horizontal_distance_squared(void *, void *);
 s32 rand(void);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32, f32);
-M2C_UNK update_scale__15TObjBoss2TunnelFPv(void *, f32);
+s32 update_scale__15TObjBoss2TunnelFPv(void *, f32);
 void rotate_matrix_y(int, int);
 void rotate_matrix_x(int, int);
 void set_chunk_material_color(void *);
@@ -262,7 +257,7 @@ s32 get_state__12TBoss8DragonFv(void) {
 
 void *__dt__22TObjBoss1MokoHill_SoloFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__22TObjBoss1MokoHill_Solo;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__22TObjBoss1MokoHill_Solo;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -424,7 +419,7 @@ void update_dragon_trail(Trail_8002CFB8 *self) {
 #pragma pop
 
 s32 is_dragon_trail_damaging(u8 *arg0) {
-    return M2C_FIELD(arg0, f32 *, 0x34) >= lbl_805D81D0;
+    return *(f32 *)((s8 *)arg0 + 0x34) >= lbl_805D81D0;
 }
 
 void set_field_3c__12TBoss8DragonFPv(void* p) { set_field_1c__12TBoss8DragonFPv((void*)((void*)(p))); *(int*)((char*)p + 0x3c) = 1; }
@@ -432,19 +427,19 @@ void set_field_1c__12TBoss8DragonFPv(void* p) { *(s32*)((char*)p + 0x1c) = 1; }
 
 void spawn_child_object__12TBoss8DragonFPv(void *arg0) {
     void *o;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805D81A0;
-    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805D81A0;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805D81A0;
+    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805D81A0;
     o = __nw__7TObjectFUl(0x50);
     if (o != NULL) {
-        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(M2C_FIELD(arg0, void **, 0x10)), (int)(30));
+        TObjBoss1MokoHill_Solo__ct((void *)(o), (void *)(*(void **)((s8 *)arg0 + 0x10)), (int)(30));
     }
-    M2C_FIELD(arg0, u32 *, 0x3C) = 0;
+    *(u32 *)((s8 *)arg0 + 0x3C) = 0;
 }
 
 void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__23TObjBoss1MokoHill_SoloM;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__23TObjBoss1MokoHill_SoloM;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -455,21 +450,21 @@ void *__dt__23TObjBoss1MokoHill_SoloMFv(void *arg0, s16 arg1) {
 
 u8 *TObjBoss1MokoHill_SoloM__ct(u8 *arg0, u8 *arg1, u8 *arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&__vt__23TObjBoss1MokoHill_SoloM).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TObjBoss1MokoHill_SoloM__name;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8002D41C_lbl_80482060 *)&__vt__23TObjBoss1MokoHill_SoloM).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TObjBoss1MokoHill_SoloM__name;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
     (*(u8 * *)&dragon_trail_position_source) = arg2;
     dragon_trail_heading_source = arg3;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, arg2);
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805D8198;
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805D81A0;
-    M2C_FIELD(arg0, f32 *, 0x34) = (f32) lbl_805D81A0;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805D8198;
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805D81A0;
+    *(f32 *)((s8 *)arg0 + 0x34) = (f32) lbl_805D81A0;
     if (check_v2_mode__9TObjEneDDFv() != 0) {
-        M2C_FIELD(arg0, s32 *, 0x38) = 1;
+        *(s32 *)((s8 *)arg0 + 0x38) = 1;
     } else {
-        M2C_FIELD(arg0, s32 *, 0x38) = 0;
+        *(s32 *)((s8 *)arg0 + 0x38) = 0;
     }
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     return arg0;
 }
 
@@ -501,21 +496,21 @@ void update_dragon_trail_uvs(Obj_8002D4C0 *self) {
 void free_resources__12TBoss8DragonFv(void) { ((int (*)(void*))free__11TOBoss4RockFUi)((void*)(lbl_805D4B78)); lbl_805D4B78 = 0; ((int (*)(void*))free__11TOBoss4RockFUi)((void*)(lbl_805D4B6C)); lbl_805D4B6C = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B64), (void*)1); lbl_805D4B64 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B68), (void*)1); lbl_805D4B68 = 0; ((int (*)(void*, void*))destroy__12TBoss8DragonFPvs)((void*)(lbl_805D4B60), (void*)1); lbl_805D4B60 = 0; }
 
 s32 TBoss8Dragon__sub_8002DAEC(void *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x14) + ((M2C_FIELD(arg0, s32 *, 0xC) + 3) * 2);
+    return *(s32 *)((s8 *)arg0 + 0x14) + ((*(s32 *)((s8 *)arg0 + 0xC) + 3) * 2);
 }
 
 s32 TBoss8Dragon__sub_8002DB04(void *arg0) {
-    return M2C_FIELD(arg0, s32 *, 0x10) + 8;
+    return *(s32 *)((s8 *)arg0 + 0x10) + 8;
 }
 
 void *destroy__12TBoss8DragonFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x10));
-        M2C_FIELD(arg0, s32 *, 0x10) = 0;
-        free__11TOBoss4RockFUi(M2C_FIELD(arg0, s32 *, 0x14));
-        M2C_FIELD(arg0, s32 *, 0x14) = 0;
-        M2C_FIELD(arg0, s32 *, 0x18) = 0;
-        M2C_FIELD(arg0, s32 *, 0x1C) = 0;
+        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x10));
+        *(s32 *)((s8 *)arg0 + 0x10) = 0;
+        free__11TOBoss4RockFUi(*(s32 *)((s8 *)arg0 + 0x14));
+        *(s32 *)((s8 *)arg0 + 0x14) = 0;
+        *(s32 *)((s8 *)arg0 + 0x18) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 0;
         if (arg1 > 0) {
             __dl__FPv(arg0);
         }
@@ -613,17 +608,17 @@ f32 apply_velocity_scale__12TBoss8DragonFPvff(f32 *arg0, f32 farg0, f32 farg1) {
     temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv(arg0);
     if (temp_f1 > farg0) {
         var_f31 = lbl_805D8198;
-        M2C_FIELD(arg0, f32 *, 0) = var_f31;
-        M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;
-        M2C_FIELD(arg0, f32 *, 8) = var_f31;
+        *(f32 *)((s8 *)arg0 + 0) = var_f31;
+        *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D81F4;
+        *(f32 *)((s8 *)arg0 + 8) = var_f31;
     } else {
         temp_r31 = (s32) (lbl_805D81F8 * (temp_f1 / farg0));
         var_f31 = farg1 * (lbl_805D81F4 + cos_table_lookup(temp_r31, lbl_805D81F8));
         temp_f1_2 = sin_table_lookup(temp_r31);
-        temp_f2 = M2C_FIELD(arg0, f32 *, 0) * temp_f1_2;
-        M2C_FIELD(arg0, f32 *, 0) = temp_f2;
-        M2C_FIELD(arg0, f32 *, 4) = (f32) lbl_805D81F4;
-        M2C_FIELD(arg0, f32 *, 8) = (f32) (M2C_FIELD(arg0, f32 *, 8) * temp_f1_2);
+        temp_f2 = *(f32 *)((s8 *)arg0 + 0) * temp_f1_2;
+        *(f32 *)((s8 *)arg0 + 0) = temp_f2;
+        *(f32 *)((s8 *)arg0 + 4) = (f32) lbl_805D81F4;
+        *(f32 *)((s8 *)arg0 + 8) = (f32) (*(f32 *)((s8 *)arg0 + 8) * temp_f1_2);
         update_scale__15TObjBoss2TunnelFPv(arg0, temp_f1_2);
     }
     return var_f31;

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 extern s32 lbl_805D49C0;
@@ -19,7 +15,7 @@ extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 int TEneParticleCtrl__vt7(void* p);
 int get_field_38_ptr__16TEneParticleCtrlFPv(void*);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -52,7 +48,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 int TEneParticleCtrl__vt7(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -87,7 +83,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 int TEneParticleCtrl__vt7(void* p);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -111,9 +107,9 @@ int reset_entry__20TWindowSubStatusDispFPv(void*, int);
 int TEneParticleCtrl__vt7(void* p);
 void* init_state__20TWindowSubStatusDispFPvii(void* a0, int a1, int a2);
 void *destroy_with_free__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
-M2C_UNK __dl__FPv(void *);
-M2C_UNK deleting_destructor__20TWindowSubStatusDispFPvs(void *, M2C_UNK);
-M2C_UNK free__11TOBoss4RockFUi(void *);
+s32 __dl__FPv(void *);
+s32 deleting_destructor__20TWindowSubStatusDispFPvs(void *, s32);
+s32 free__11TOBoss4RockFUi(void *);
 extern u8 lbl_804EF440[];
 void *destroy_with_free__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1);
 void TWindowSubStatusDisp__sub_80338A9C(void);
@@ -133,7 +129,7 @@ extern u8 lbl_804EF440[];
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1);
 s32 alloc_buffer__11TOBoss4RockFPv(void *);
 s32 measure_string_len__20TWindowSubStatusDispFPv(void *);
-M2C_UNK strncpy(int, void *, int);
+s32 strncpy(int, void *, int);
 void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8);
 typedef struct
 {
@@ -173,14 +169,14 @@ typedef struct
 } Win_80338890;
 s32 get_shared_text_buffer();
 void TWindowSubStatusDisp__sub_80228F5C(int);
-void text_builder_append(M2C_UNK *);
+void text_builder_append(s32 *);
 void text_builder_reset();
 void draw_window_text(V2_80338890 *, s32, s32, s32, f32);
 void set_text_draw_params(Win_80338890 *, s32, s32, f32, f32);
 void draw_item_list_icon(Win_80338890 *, V2_80338890 *, s8, s32, f32);
-extern M2C_UNK *lbl_805D6D68;
+extern s32 *lbl_805D6D68;
 extern u8 lbl_805D6D6C;
-extern M2C_UNK lbl_805DF9C0;
+extern s32 lbl_805DF9C0;
 extern const f32 lbl_805DF9C4;
 extern const f32 lbl_805DF9C8;
 extern const f32 lbl_805DF9D0;
@@ -196,21 +192,21 @@ extern "C" {
 void TWindowSubStatusDisp__sub_80338740(u8 *arg0, s32 arg1, s32 arg2, s8 arg3, s8 arg4, s8 arg5, s8 arg6, s8 arg7, s32 arg_sp8) {
     s32 temp_r3;
     if (arg1 != 0) {
-        M2C_FIELD(arg0, s8 *, 0x1C) = 0x18;
+        *(s8 *)((s8 *)arg0 + 0x1C) = 0x18;
     } else {
-        M2C_FIELD(arg0, s8 *, 0x1C) = 0x33;
+        *(s8 *)((s8 *)arg0 + 0x1C) = 0x33;
     }
     temp_r3 = measure_string_len__20TWindowSubStatusDispFPv((void *) (arg2));
-    M2C_FIELD(arg0, s32 *, 0x24) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));
-    strncpy((int) (M2C_FIELD(arg0, s32 *, 0x24)), (void *) (arg2), (int) (temp_r3));
-    M2C_FIELD(temp_r3, s8 *, M2C_FIELD(arg0, s32 *, 0x24)) = 0;
-    M2C_FIELD(arg0, s8 *, 0x1D) = arg7;
-    M2C_FIELD(arg0, s8 *, 0x1E) = arg6;
-    M2C_FIELD(arg0, s8 *, 0x1F) = arg5;
-    M2C_FIELD(arg0, s8 *, 0x20) = arg3;
-    M2C_FIELD(arg0, s8 *, 0x21) = arg4;
-    M2C_FIELD(arg0, s32 *, 0x18) = arg_sp8;
-    M2C_FIELD(arg0, u16 *, 0) = (u16) (M2C_FIELD(arg0, u16 *, 0) | 5);
+    *(s32 *)((s8 *)arg0 + 0x24) = alloc_buffer__11TOBoss4RockFPv((void *) (temp_r3 + 1));
+    strncpy((int) (*(s32 *)((s8 *)arg0 + 0x24)), (void *) (arg2), (int) (temp_r3));
+    *(s8 *)((s8 *)temp_r3 + (*(s32 *)((s8 *)arg0 + 0x24))) = 0;
+    *(s8 *)((s8 *)arg0 + 0x1D) = arg7;
+    *(s8 *)((s8 *)arg0 + 0x1E) = arg6;
+    *(s8 *)((s8 *)arg0 + 0x1F) = arg5;
+    *(s8 *)((s8 *)arg0 + 0x20) = arg3;
+    *(s8 *)((s8 *)arg0 + 0x21) = arg4;
+    *(s32 *)((s8 *)arg0 + 0x18) = arg_sp8;
+    *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 5);
 }
 
 void TWindowSubStatusDisp__sub_803387F8(void *arg0, s8 arg1) {
@@ -285,10 +281,10 @@ void TWindowSubStatusDisp__sub_80338A9C(void) {  }
 
 void *destroy_with_free__20TWindowSubStatusDispFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 4) = (M2C_UNK*)lbl_804EF440;
-        if ((u32) M2C_FIELD(arg0, u32 *, 0x24) != 0U) {
-            free__11TOBoss4RockFUi(M2C_FIELD(arg0, void **, 0x24));
-            M2C_FIELD(arg0, u32 *, 0x24) = 0U;
+        *(s32 **)((s8 *)arg0 + 4) = (s32*)lbl_804EF440;
+        if ((u32) *(u32 *)((s8 *)arg0 + 0x24) != 0U) {
+            free__11TOBoss4RockFUi(*(void **)((s8 *)arg0 + 0x24));
+            *(u32 *)((s8 *)arg0 + 0x24) = 0U;
         }
         deleting_destructor__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {

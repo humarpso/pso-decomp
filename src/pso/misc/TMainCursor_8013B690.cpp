@@ -1,10 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-typedef s32 M2C_UNK;
 
 struct Target_8013B70C {
     u8 pad0[0x32E];
@@ -17,29 +11,29 @@ extern "C" {
 s32 is_split_screen();
 s32 get_split_screen_view_index__11TCameraCtrlFUs();
 s32 get_mode__11TCameraCtrlFPv(void *);
-M2C_UNK render__11TMainCursorFPv(void *);
-M2C_UNK update_position__11TMainCursorFi(void *);
-M2C_UNK get_render_flag__11TMainCursorFPv(void *);
+s32 render__11TMainCursorFPv(void *);
+s32 update_position__11TMainCursorFi(void *);
+s32 get_render_flag__11TMainCursorFPv(void *);
 s32 test_flag_2_at_20__11TMainCursorFPv(void *);
 s32 init_render_flags__11TMainCursorFPv(void *);
 s32 get_camera_no__11TCameraCtrlFv();
-M2C_UNK set_global_param__8TObjFishFi(void *);
+s32 set_global_param__8TObjFishFi(void *);
 extern u8 shared_effect_texture_list[];
 extern u8 main_task[];
 void render__11TMainCursorFv(u8 *arg0);
-s32 obj_testFlags30(M2C_UNK, M2C_UNK);
+s32 obj_testFlags30(s32, s32);
 s32 obj_getField1c(void *);
-M2C_UNK clear_flags__11TAdRicoRingFPvUi(void *, u32);
+s32 clear_flags__11TAdRicoRingFPvUi(void *, u32);
 s32 test_action_mask__10TObjPlayerFPvi(void *, s32);
 s32 check_visible__11TMainCursorFPv(void *, void *, s32, s32);
-M2C_UNK set_target_index__11TMainCursorFPvs(void *, s32);
+s32 set_target_index__11TMainCursorFPvs(void *, s32);
 u32 check_field_24__11TMainCursorFPv(s32);
-M2C_UNK TMainCursor__sub_8013E310(void *);
+s32 TMainCursor__sub_8013E310(void *);
 u8 TMainCursor__sub_8013E338(void *);
 u8 TMainCursor__sub_8013E358(void *);
 s32 is_same_target__11TMainCursorFPvPv(void *, void *);
 void *get_list__11TMainCursorFPv(void *);
-M2C_UNK update_target_sub__11TMainCursorFPv(void *);
+s32 update_target_sub__11TMainCursorFPv(void *);
 s8 TMainCursor__sub_8013F244(void);
 s8 fn_8013F24C(void *, s32);
 s32 is_any_teammate_in_state__10TObjPlayerFv(void);
@@ -56,17 +50,17 @@ extern "C" {
 
 s32 check_can_pickup__11TMainCursorFi(s32 arg0);
 void run_task__11TMainCursorFv(u8 *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, void *, M2C_UNK, M2C_UNK);
-M2C_UNK TMainCursor__sub_8013F180(void *);
+s32 play_sound_effect(s32, void *, s32, s32);
+s32 TMainCursor__sub_8013F180(void *);
 s32 find_entity_by_id();
 s32 can_pickup_item_by_id__10TObjPlayerFii(u32, s32);
 u32 check_field_24__11TMainCursorFPv(s32);
 s32 check_flag_1__11TMainCursorFPv(void *);
-M2C_UNK get_id__11TMainCursorFPv(s32);
+s32 get_id__11TMainCursorFPv(s32);
 f32 get_pos__11TMainCursorFPv(void *);
 s32 init_render_flags__11TMainCursorFPv(void *);
-s32 obj_testFlags30(M2C_UNK, M2C_UNK);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 obj_testFlags30(s32, s32);
+s32 queue_destruction__7TObjectFv(void *);
 s32 update__11TMainCursorFPv(void *);
 
 extern "C" void __dt__11TMainCursorFPvs();
@@ -165,7 +159,7 @@ void validate_target__11TMainCursorFPv(u8 *self) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
-        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30((M2C_UNK)t, 0x20006) != 0) {
+        if (check_flag_100__10TObjPlayerFPv(t) == 0 && obj_testFlags30((s32)t, 0x20006) != 0) {
             update_target_sub__11TMainCursorFPv(self);
             return;
         }
@@ -245,19 +239,19 @@ void render__11TMainCursorFv(u8 *arg0) {
 void run_task__11TMainCursorFv(u8 *arg0) {
     s32 temp_r0;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 2) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) {
         validate_target__11TMainCursorFPv((u8 *)(arg0));
         if (check_flag_1__11TMainCursorFPv(arg0) != 0) {
-            M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+            *(s32 *)((s8 *)arg0 + 0x1C) = 2;
         }
     }
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
     switch (temp_r0) {
     case 0:
-        M2C_FIELD(arg0, f32 *, 0x30) = (f32) (M2C_FIELD(arg0, f32 *, 0x30) - TMainCursor__data_805DB0CC);
-        if (!(M2C_FIELD(arg0, f32 *, 0x30) > M2C_FIELD(arg0, f32 *, 0x34))) {
-            M2C_FIELD(arg0, f32 *, 0x30) = (f32) M2C_FIELD(arg0, f32 *, 0x28);
-            M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+        *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) - TMainCursor__data_805DB0CC);
+        if (!(*(f32 *)((s8 *)arg0 + 0x30) > *(f32 *)((s8 *)arg0 + 0x34))) {
+            *(f32 *)((s8 *)arg0 + 0x30) = (f32) *(f32 *)((s8 *)arg0 + 0x28);
+            *(s32 *)((s8 *)arg0 + 0x1C) = 1;
             if (init_render_flags__11TMainCursorFPv(arg0) == 0) {
                 if (update__11TMainCursorFPv(arg0) != 0) {
                     play_sound_effect(0x3816, arg0 + 0x40, 0, 1);

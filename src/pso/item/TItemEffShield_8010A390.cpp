@@ -1,16 +1,12 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_8010A404_lbl_8049F148 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 struct RecoveredGlobal_8010A5E0___vt__14TItemEffShield {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
@@ -101,7 +97,7 @@ s32 create_oneshot_particle_emitter(void *, void *, int, int);
 void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0);
 s32 get_item_system_generation(void);
 void __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_8049F148[];
+extern s32 lbl_8049F148[];
 u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2);
 void disallow_rendering__7TObjectFv(void *);
 void __ct__7TObjectFP7TObject(void *, void *);
@@ -123,12 +119,12 @@ void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
-extern M2C_UNK lbl_8049F148[];
+extern s32 lbl_8049F148[];
 
 void *__dt__14TItemEffShieldFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_8049F148;
-        if (M2C_FIELD(arg0, void **, 0x1C) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0x1C)); M2C_FIELD(arg0, M2C_UNK *, 0x1C) = 0; }
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8049F148;
+        if (*(void **)((s8 *)arg0 + 0x1C) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x1C)); *(s32 *)((s8 *)arg0 + 0x1C) = 0; }
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -140,11 +136,11 @@ void *__dt__14TItemEffShieldFPvs(void *arg0, s16 arg1) {
 typedef char RecoveredGlobal_8010A404_lbl_8049F148_size[sizeof(RecoveredGlobal_8010A404_lbl_8049F148) == 0x18 ? 1 : -1];
 u8 *ct_init__14TItemEffShieldFPvPvs(u8 *arg0, u8 *arg1, s16 arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&lbl_8049F148).value;
-    M2C_FIELD(arg0, s16 *, 0x24) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x20) = -1;
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x28) = get_item_system_generation();
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8010A404_lbl_8049F148 *)&lbl_8049F148).value;
+    *(s16 *)((s8 *)arg0 + 0x24) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x20) = -1;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x28) = get_item_system_generation();
     return arg0;
 }
 
@@ -159,7 +155,7 @@ void spawn_recipe_particles__14TItemEffShieldFPv(u8 *arg0) {
   }
   do
   {
-    temp_r5 = *((M2C_UNK *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x34)))) + var_r31));
+    temp_r5 = *((s32 *) (((s8 *) (*((s32 *) (((s8 *) arg0) + 0x34)))) + var_r31));
     if (temp_r5 != (-1))
     {
       create_oneshot_particle_emitter((void *) (arg0 + 0x1C), (void *) (arg0 + 0x28), (int) temp_r5, (int) 4);
@@ -207,13 +203,13 @@ void run_task__14TItemEffShieldFv(Shield_8010A4C0 *self) {
 
 u8 *__ct__14TItemEffShieldFv(u8 *arg0, u8 *arg1, s16 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__14TItemEffShield.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TItemEffShield__class_name;
-    M2C_FIELD(arg0, s32 *, 0x34) = arg3;
-    M2C_FIELD(arg0, s16 *, 0x44) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, s32 *, 0x3C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x40) = 0x24;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TItemEffShield.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TItemEffShield__class_name;
+    *(s32 *)((s8 *)arg0 + 0x34) = arg3;
+    *(s16 *)((s8 *)arg0 + 0x44) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(s32 *)((s8 *)arg0 + 0x3C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x40) = 0x24;
     disallow_rendering__7TObjectFv(arg0);
     return arg0;
 }

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8017E158_8017E154 { char pad[0x18]; };
 struct VObj_8017E158_8017E154 : Base_8017E158_8017E154 {
     virtual void m0();
@@ -47,7 +44,7 @@ void run__16TObjContainerIdoFPv(void *arg0) {
 
 void check_and_trigger__16TObjContainerIdoFPv(void *arg0) {
     struct VObj_8017E184_8017E154 *o = (struct VObj_8017E184_8017E154 *)arg0;
-    if (o->m7(M2C_FIELD(arg0, f32 *, 0xAC), M2C_FIELD(arg0, f32 *, 0xB0)) != 0) {
+    if (o->m7(*(f32 *)((s8 *)arg0 + 0xAC), *(f32 *)((s8 *)arg0 + 0xB0)) != 0) {
         o->m12();
     }
 }

@@ -1,11 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
-M2C_UNK* get_shared_text_buffer(void);
+s32* get_shared_text_buffer(void);
 s32 get_card_window_area__6TLobbyFv(void);
 int get_flag_bit0__6TLobbyFv(void);
 void broadcast_to_players__6TLobbyFii(s32 arg0, s32 arg1);
@@ -42,10 +38,10 @@ extern s32 aram_dma_pending;
 void TLobby__sub_8001D9DC(void);
 s32 set_flag_bit0__6TLobbyFi(s32);
 s32 is_active__6TLobbyFv(void);
-s32 get_character_save_record(M2C_UNK);
+s32 get_character_save_record(s32);
 
-M2C_UNK TWindowSubComCard__sub_80225E80(void *, int);
-M2C_UNK strncpy(int, int, int);
+s32 TWindowSubComCard__sub_80225E80(void *, int);
+s32 strncpy(int, int, int);
 extern s32 auto_reply_flags;
 void set_short_mail_text__6TLobbyFi(s32 arg0);
 Ent_8001D768 *find_free_pool_entry__6TLobbyFPv(Obj_8001D768 *self);
@@ -69,19 +65,19 @@ u32 *free_and_delete__6TLobbyFPvs(u32 *arg0, s16 arg1);
 
 u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4);
-M2C_UNK aram_read_sync__6TLobbyFiiii(M2C_UNK, s32);
-M2C_UNK aram_transfer_sync__6TLobbyFiUiii(M2C_UNK, void *, s32);
-M2C_UNK __dl__FPv(u32 *);
-u8 *fn_803DE864(s32, M2C_UNK);
-s32 get_character_save_record(M2C_UNK);
-M2C_UNK xfree__FPv(u32);
+s32 aram_read_sync__6TLobbyFiiii(s32, s32);
+s32 aram_transfer_sync__6TLobbyFiUiii(s32, void *, s32);
+s32 __dl__FPv(u32 *);
+u8 *fn_803DE864(s32, s32);
+s32 get_character_save_record(s32);
+s32 xfree__FPv(u32);
 
 void send_or_handle_packet__6TLobbyFPvPvPvPvUi(void *arg0, void *arg1, void *arg2, void *arg3, u32 arg4) {
     if (arg4 == 0U) {
-        aram_transfer_sync__6TLobbyFiUiii(0, arg1, M2C_FIELD(arg2, s32 *, 8));
+        aram_transfer_sync__6TLobbyFiUiii(0, arg1, *(s32 *)((s8 *)arg2 + 8));
         return;
     }
-    aram_read_sync__6TLobbyFiiii(0, M2C_FIELD(arg1, s32 *, 8));
+    aram_read_sync__6TLobbyFiiii(0, *(s32 *)((s8 *)arg1 + 8));
 }
 
 void merge_adjacent_free_blocks__6TLobbyFPv(Pool_8001D6E0 *pool) {
@@ -182,22 +178,22 @@ u8 *init_memory_pool__6TLobbyFPviii(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     u8 *temp_r3;
     u8 *temp_r5;
 
-    M2C_FIELD(arg0, void **, 0) = fn_803DE864(arg3, 0x10);
-    if ((void *) M2C_FIELD(arg0, void **, 0) != NULL) {
-        M2C_FIELD(arg0, s32 *, 4) = arg3;
+    *(void **)((s8 *)arg0 + 0) = fn_803DE864(arg3, 0x10);
+    if ((void *) *(void **)((s8 *)arg0 + 0) != NULL) {
+        *(s32 *)((s8 *)arg0 + 4) = arg3;
         temp_r4 = (arg2 + 0x1F) & 0xFFFFFFE0;
-        M2C_FIELD(arg0, s32 *, 8) = temp_r4;
-        temp_r3 = (unsigned char *) (M2C_FIELD(arg0, void **, 0));
-        M2C_FIELD(arg0, void **, 0x2C) = temp_r3;
+        *(s32 *)((s8 *)arg0 + 8) = temp_r4;
+        temp_r3 = (unsigned char *) (*(void **)((s8 *)arg0 + 0));
+        *(void **)((s8 *)arg0 + 0x2C) = temp_r3;
         temp_r5 = temp_r3 + 0x10;
-        M2C_FIELD(M2C_FIELD(arg0, void **, 0x2C), void **, 0) = temp_r5;
-        M2C_FIELD(M2C_FIELD(arg0, void **, 0x2C), s32 *, 4) = 0;
-        M2C_FIELD(M2C_FIELD(arg0, void **, 0x2C), s32 *, 8) = 0;
-        M2C_FIELD(M2C_FIELD(arg0, void **, 0x2C), s32 *, 0xC) = 0;
-        M2C_FIELD(temp_r5, s32 *, 0) = 0;
-        M2C_FIELD(temp_r5, void **, 4) = (void *) M2C_FIELD(arg0, void **, 0);
-        M2C_FIELD(temp_r5, s32 *, 8) = arg1;
-        M2C_FIELD(temp_r5, s32 *, 0xC) = temp_r4;
+        *(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 0) = temp_r5;
+        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 4) = 0;
+        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 8) = 0;
+        *(s32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x2C)) + 0xC) = 0;
+        *(s32 *)((s8 *)temp_r5 + 0) = 0;
+        *(void **)((s8 *)temp_r5 + 4) = (void *) *(void **)((s8 *)arg0 + 0);
+        *(s32 *)((s8 *)temp_r5 + 8) = arg1;
+        *(s32 *)((s8 *)temp_r5 + 0xC) = temp_r4;
     }
     return arg0;
 }
@@ -225,10 +221,10 @@ s32 get_card_window_area__6TLobbyFv(void) {
 }
 void set_short_mail_text__6TLobbyFi(s32 arg0) {
     u8 *temp_r31;
-    temp_r31 = (u8 *)(get_character_save_record((M2C_UNK)(0xFFFFU)) + 0x2050);
+    temp_r31 = (u8 *)(get_character_save_record((s32)(0xFFFFU)) + 0x2050);
     TWindowSubComCard__sub_80225E80((void *) (arg0), (int) (((s32 (*)(void))get_shared_text_buffer)()));
     strncpy((int) (temp_r31), (int) (((s32 (*)(void))get_shared_text_buffer)()), (int) (0xAB));
-    M2C_FIELD(temp_r31, s8 *, 0xAB) = 0;
+    *(s8 *)((s8 *)temp_r31 + 0xAB) = 0;
     auto_reply_flags |= 4;
     if (is_active__6TLobbyFv() != 0) {
         set_flag_bit0__6TLobbyFi(1);
@@ -244,11 +240,6 @@ extern "C" {
 int get_flag_bit0__6TLobbyFv(void) {  return (auto_reply_flags & 0x1); }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -274,13 +265,8 @@ s32 set_flag_bit0__6TLobbyFi(s32 arg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct RecoveredGlobal_8001DC24_lbl_80515BC8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xFC];
 };
 
@@ -312,7 +298,7 @@ void TLobby__sub_8001DC04(void* p) { TLobby__sub_8001DBD8((s32)(p)); }
     extern int TLobby__lobby_instance;
 
 typedef char RecoveredGlobal_8001DC24_lbl_80515BC8_size[sizeof(RecoveredGlobal_8001DC24_lbl_80515BC8) == 0x100 ? 1 : -1];
-M2C_UNK *get_shared_text_buffer(void) {
+s32 *get_shared_text_buffer(void) {
     return &text_builder_buffer.value;
 }
 
@@ -485,11 +471,6 @@ void copy_data__6TLobbyFPv(void* a0) { ((int (*)(void*, void*))copy_all_data__6T
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
@@ -528,11 +509,6 @@ Obj_8001DF0C *copy_pair__6TLobbyFPvPv(Obj_8001DF0C *d, Obj_8001DF0C *s) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 void copy_data__6TLobbyFPvPv(void *arg0, void *arg1);
@@ -552,17 +528,17 @@ void TLobby__sub_8001DF58(s32 arg0, s32 arg1) {
 }
 
 void copy_entry__6TLobbyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
-    M2C_FIELD(arg0, s16 *, 8) = (s16) M2C_FIELD(arg1, s16 *, 8);
-    M2C_FIELD(arg0, s16 *, 0xA) = (s16) M2C_FIELD(arg1, s16 *, 0xA);
-    M2C_FIELD(arg0, s32 *, 0xC) = (s32) M2C_FIELD(arg1, s32 *, 0xC);
-    M2C_FIELD(arg0, s32 *, 0x10) = (s32) M2C_FIELD(arg1, s32 *, 0x10);
-    M2C_FIELD(arg0, s32 *, 0x14) = (s32) M2C_FIELD(arg1, s32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(s16 *)((s8 *)arg0 + 8) = (s16) *(s16 *)((s8 *)arg1 + 8);
+    *(s16 *)((s8 *)arg0 + 0xA) = (s16) *(s16 *)((s8 *)arg1 + 0xA);
+    *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
+    *(s32 *)((s8 *)arg0 + 0x10) = (s32) *(s32 *)((s8 *)arg1 + 0x10);
+    *(s32 *)((s8 *)arg0 + 0x14) = (s32) *(s32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
 }
 
 void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1) {
@@ -578,22 +554,22 @@ void copy_all_entries__6TLobbyFii(s32 arg0, s32 arg1) {
 }
 
 void copy_from__6TLobbyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
-    M2C_FIELD(arg0, f32 *, 8) = (f32) M2C_FIELD(arg1, f32 *, 8);
-    M2C_FIELD(arg0, s32 *, 0xC) = (s32) M2C_FIELD(arg1, s32 *, 0xC);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
-    M2C_FIELD(arg0, s16 *, 0x14) = (s16) M2C_FIELD(arg1, s16 *, 0x14);
-    M2C_FIELD(arg0, s16 *, 0x16) = (s16) M2C_FIELD(arg1, s16 *, 0x16);
-    M2C_FIELD(arg0, s16 *, 0x18) = (s16) M2C_FIELD(arg1, s16 *, 0x18);
-    M2C_FIELD(arg0, s16 *, 0x1A) = (s16) M2C_FIELD(arg1, s16 *, 0x1A);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) M2C_FIELD(arg1, s32 *, 0x24);
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) M2C_FIELD(arg1, s32 *, 0x28);
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) M2C_FIELD(arg1, s32 *, 0x2C);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(f32 *)((s8 *)arg0 + 8) = (f32) *(f32 *)((s8 *)arg1 + 8);
+    *(s32 *)((s8 *)arg0 + 0xC) = (s32) *(s32 *)((s8 *)arg1 + 0xC);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(s16 *)((s8 *)arg0 + 0x14) = (s16) *(s16 *)((s8 *)arg1 + 0x14);
+    *(s16 *)((s8 *)arg0 + 0x16) = (s16) *(s16 *)((s8 *)arg1 + 0x16);
+    *(s16 *)((s8 *)arg0 + 0x18) = (s16) *(s16 *)((s8 *)arg1 + 0x18);
+    *(s16 *)((s8 *)arg0 + 0x1A) = (s16) *(s16 *)((s8 *)arg1 + 0x1A);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x20);
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) *(s32 *)((s8 *)arg1 + 0x24);
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) *(s32 *)((s8 *)arg1 + 0x28);
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) *(s32 *)((s8 *)arg1 + 0x2C);
 }
 
 void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1) {
@@ -609,27 +585,22 @@ void copy_all_data__6TLobbyFii(s32 arg0, s32 arg1) {
 }
 
 void copy_data__6TLobbyFPvPv(void *arg0, void *arg1) {
-    M2C_FIELD(arg0, s16 *, 0) = (s16) M2C_FIELD(arg1, s16 *, 0);
-    M2C_FIELD(arg0, s16 *, 2) = (s16) M2C_FIELD(arg1, s16 *, 2);
-    M2C_FIELD(arg0, s16 *, 4) = (s16) M2C_FIELD(arg1, s16 *, 4);
-    M2C_FIELD(arg0, s16 *, 6) = (s16) M2C_FIELD(arg1, s16 *, 6);
-    M2C_FIELD(arg0, s16 *, 8) = (s16) M2C_FIELD(arg1, s16 *, 8);
-    M2C_FIELD(arg0, s16 *, 0xA) = (s16) M2C_FIELD(arg1, s16 *, 0xA);
-    M2C_FIELD(arg0, s16 *, 0xC) = (s16) M2C_FIELD(arg1, s16 *, 0xC);
-    M2C_FIELD(arg0, s16 *, 0xE) = (s16) M2C_FIELD(arg1, s16 *, 0xE);
-    M2C_FIELD(arg0, f32 *, 0x10) = (f32) M2C_FIELD(arg1, f32 *, 0x10);
-    M2C_FIELD(arg0, f32 *, 0x14) = (f32) M2C_FIELD(arg1, f32 *, 0x14);
-    M2C_FIELD(arg0, s32 *, 0x18) = (s32) M2C_FIELD(arg1, s32 *, 0x18);
-    M2C_FIELD(arg0, s32 *, 0x1C) = (s32) M2C_FIELD(arg1, s32 *, 0x1C);
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) M2C_FIELD(arg1, s32 *, 0x20);
+    *(s16 *)((s8 *)arg0 + 0) = (s16) *(s16 *)((s8 *)arg1 + 0);
+    *(s16 *)((s8 *)arg0 + 2) = (s16) *(s16 *)((s8 *)arg1 + 2);
+    *(s16 *)((s8 *)arg0 + 4) = (s16) *(s16 *)((s8 *)arg1 + 4);
+    *(s16 *)((s8 *)arg0 + 6) = (s16) *(s16 *)((s8 *)arg1 + 6);
+    *(s16 *)((s8 *)arg0 + 8) = (s16) *(s16 *)((s8 *)arg1 + 8);
+    *(s16 *)((s8 *)arg0 + 0xA) = (s16) *(s16 *)((s8 *)arg1 + 0xA);
+    *(s16 *)((s8 *)arg0 + 0xC) = (s16) *(s16 *)((s8 *)arg1 + 0xC);
+    *(s16 *)((s8 *)arg0 + 0xE) = (s16) *(s16 *)((s8 *)arg1 + 0xE);
+    *(f32 *)((s8 *)arg0 + 0x10) = (f32) *(f32 *)((s8 *)arg1 + 0x10);
+    *(f32 *)((s8 *)arg0 + 0x14) = (f32) *(f32 *)((s8 *)arg1 + 0x14);
+    *(s32 *)((s8 *)arg0 + 0x18) = (s32) *(s32 *)((s8 *)arg1 + 0x18);
+    *(s32 *)((s8 *)arg0 + 0x1C) = (s32) *(s32 *)((s8 *)arg1 + 0x1C);
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) *(s32 *)((s8 *)arg1 + 0x20);
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -680,11 +651,6 @@ void set_difficulty__6TLobbyFi(s32 arg0) {
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 u8 *alloc_buffer__11TOBoss4RockFPv(u32 size);
@@ -738,8 +704,8 @@ void update_difficulty__6TLobbyFv(void) {
     temp_r31 = battle_parameter_difficulty;
     temp_r30 = battle_param_lab_variant;
     clamp_difficulty__6TLobbyFi((s32)(game_difficulty_selection));
-    ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
-    ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();
+    ((s32 (*)(void))get_instance__6TLobbyFv)();
+    ((s32 (*)(void))set_difficulty__6TLobbyFi)();
     if (((s32) battle_parameter_difficulty != temp_r31) || ((s32) battle_param_lab_variant != temp_r30)) {
         load_battle_param_entry();
     }
@@ -770,8 +736,8 @@ void alloc_battle_param_tables(void) {
     TLobby__battle_param_resistances = (s32)(buf + 0x1f80);
     battle_param_movement = (s32)(buf + 0x2b80);
     clamp_difficulty__6TLobbyFi(game_difficulty_selection);
-    ((M2C_UNK (*)(void))get_instance__6TLobbyFv)();
-    ((M2C_UNK (*)(void))set_difficulty__6TLobbyFi)();
+    ((s32 (*)(void))get_instance__6TLobbyFv)();
+    ((s32 (*)(void))set_difficulty__6TLobbyFi)();
     load_battle_param_entry();
     TLobby__lobby_instance = 0;
 }
@@ -797,11 +763,6 @@ void bswap__12player_statsFv(void *arg0) {
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 extern f32 TLobby__data_805D7EC8;
@@ -836,11 +797,6 @@ s32 TLobby__sub_8001E75C(void *arg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 s32 calc_alpha_shifted__6TLobbyFf(f32 farg0);
@@ -854,26 +810,21 @@ s32 calc_alpha_shifted__6TLobbyFf(f32 farg0) {
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 
 void close_result_windows__6TLobbyFv(void);
 f32 calc_result_offset__6TLobbyFv(void);
-M2C_UNK append_padded_number(s32, M2C_UNK);
-M2C_UNK text_builder_reset();
+s32 append_padded_number(s32, s32);
+s32 text_builder_reset();
 
 u32 get_name_text_width();
-M2C_UNK text_builder_append(M2C_UNK *);
+s32 text_builder_append(s32 *);
 
-extern M2C_UNK TLobby__data_8050AAAC[];
+extern s32 TLobby__data_8050AAAC[];
 extern s32 TLobby__data_805D55AC;
 extern s32 TLobby__lobby_number;
-extern M2C_UNK lbl_805D7ED8;
-extern M2C_UNK lbl_805D7EDC;
+extern s32 lbl_805D7ED8;
+extern s32 lbl_805D7EDC;
 
 void close_result_windows__6TLobbyFv(void) {
     text_builder_reset();
@@ -885,7 +836,7 @@ void close_result_windows__6TLobbyFv(void) {
 }
 
 s32 get_main_phase();
-extern M2C_UNK lbl_80434A90;
+extern s32 lbl_80434A90;
 extern f32 TLobby__data_805D7EE0;
 
 f32 calc_result_offset__6TLobbyFv(void) {
@@ -894,18 +845,13 @@ f32 calc_result_offset__6TLobbyFv(void) {
     var_f31 = TLobby__data_805D7EE0;
     if (get_main_phase() == 0xF) {
         close_result_windows__6TLobbyFv();
-        ((M2C_UNK (*)(void))get_shared_text_buffer)();
+        ((s32 (*)(void))get_shared_text_buffer)();
         var_f31 -= (f32) get_name_text_width();
     }
     return var_f31;
 }
 
 }
-
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 extern f32 lbl_805D4AC0;
@@ -963,7 +909,7 @@ struct DateStamp_8001E8FC
   u8 pad8[4];
 };
 u8 *get_global_state__23TAdSinglePlyChrSelectGCFv();
-M2C_UNK getDateStamp__FP9DateStamp(void *);
+s32 getDateStamp__FP9DateStamp(void *);
 s32 get_clock_frames__6TLobbyFv() {
   u8 *new_var;
   u8 *g;

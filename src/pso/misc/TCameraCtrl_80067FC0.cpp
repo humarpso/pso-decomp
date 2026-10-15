@@ -1,6 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
 struct B_80068018 { u8 pad[0x18]; };
 
@@ -19,7 +17,6 @@ struct O_80068018 : B_80068018 {
 
 struct G_80068018 { u8 pad[0x20]; u8 sub[1]; };
 
-typedef s32 M2C_UNK;
 struct Vec_8006835C { f32 x, y, z; };
 
 struct View_8006835C {
@@ -64,11 +61,9 @@ struct Hit_8006809C { u8 pad0[4]; void *pos; };
 
 struct Cam_8006809C { u8 pad0[0x1C]; Obj_8006809C *obj; u8 pad20[0x60 - 0x20]; Vec_8006835C out; };
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 extern "C" {
 extern G_80068018 controller_input_state;
-extern M2C_UNK lbl_80488838[];
+extern s32 lbl_80488838[];
 O_80068018 *construct_derived__11TCameraCtrlFPv(O_80068018 *self);
 Vec_8006835C *get_target__11TCameraCtrlFPv(void *);
 void direction_to_pitch_yaw(void *, void *, void *);
@@ -100,14 +95,14 @@ f32 fabs_float();
 s32 get_camera_mode__11TCameraCtrlFv();
 Vec_8006835C *get_position_ptr__10TObjPlayerFPv(void *);
 Vec_8006835C *get_target_ptr__11TCameraCtrlFPv(void *);
-Hit_8006809C *csnVector(void *, void *, M2C_UNK);
-M2C_UNK matrix_mult_vec(int, void *, void *);
-M2C_UNK vec3_dot(void *, void *);
+Hit_8006809C *csnVector(void *, void *, s32);
+s32 matrix_mult_vec(int, void *, void *);
+s32 vec3_dot(void *, void *);
 f32 vector_length(void *);
-M2C_UNK rotate_matrix_y(int, s32);
+s32 rotate_matrix_y(int, s32);
 void normalize_vector(void *);
-M2C_UNK push_matrix_from(void *);
-M2C_UNK pop_matrices(int);
+s32 push_matrix_from(void *);
+s32 pop_matrices(int);
 extern const Vec_8006835C lbl_80438168;
 extern const Vec_8006835C lbl_80438174;
 extern u8 identity_matrix[];
@@ -118,8 +113,8 @@ extern const f32 lbl_805D8F88;
 extern const f32 lbl_805D8F8C;
 extern const f32 lbl_805D8F90;
 s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self);
-M2C_UNK __ct__7TObjectFP7TObject(void *, void *);
-extern M2C_UNK lbl_80488A28[];
+s32 __ct__7TObjectFP7TObject(void *, void *);
+extern s32 lbl_80488A28[];
 extern const f32 TCameraCtrl__data_805D8F80;
 extern const f32 TCameraCtrl__data_805D8F84;
 extern const f32 lbl_805D8FA0;
@@ -136,11 +131,11 @@ void set_target_pos__11TCameraCtrlFPvPv(void* p, void* q);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 
-extern M2C_UNK lbl_80488838[];
+extern s32 lbl_80488838[];
 
 void *TCameraCtrl__sub_80067FC0(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488838;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488838;
         TCameraCtrl__sub_800686BC((void *)(arg0), (s16)(0));
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -240,7 +235,7 @@ s32 predict_obstruction__11TCameraCtrlFPv(Cam_8006809C *self) {
 void TCameraCtrl__sub_80068354(void) {  }
 void TCameraCtrl__sub_80068358(void) {  }
 
-extern M2C_UNK lbl_80488A28[];
+extern s32 lbl_80488A28[];
 
 void post_update_view__11TCameraCtrlFv(void) {
     Vec_8006835C e;
@@ -312,7 +307,7 @@ void apply_camera_controller_pose(Cam_80068530 *arg0) {
 
 void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488A28;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488A28;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -322,26 +317,26 @@ void *TCameraCtrl__sub_800686BC(void *arg0, s16 arg1) {
 }
 void *TCameraCtrl__sub_80068714(void *arg0) {
     __ct__7TObjectFP7TObject(arg0, 0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_80488A28;
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x40) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x44) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x30) = 0;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
-    M2C_FIELD(arg0, f32 *, 0x48) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x4C) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x50) = (f32) TCameraCtrl__data_805D8F80;
-    M2C_FIELD(arg0, f32 *, 0x60) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x64) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x68) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, s32 *, 0x28) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x38) = 0;
-    M2C_FIELD(arg0, f32 *, 0x58) = (f32) TCameraCtrl__data_805D8F84;
-    M2C_FIELD(arg0, f32 *, 0x5C) = (f32) lbl_805D8FA0;
-    M2C_FIELD(arg0, s32 *, 0x54) = 0x36C1;
-    M2C_FIELD(arg0, u16 *, 0x20) = 0xFFFF;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_80488A28;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x40) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x44) = (f32) TCameraCtrl__data_805D8F84;
+    *(s32 *)((s8 *)arg0 + 0x2C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x30) = 0;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
+    *(f32 *)((s8 *)arg0 + 0x48) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x4C) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x50) = (f32) TCameraCtrl__data_805D8F80;
+    *(f32 *)((s8 *)arg0 + 0x60) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x64) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x68) = (f32) TCameraCtrl__data_805D8F84;
+    *(s32 *)((s8 *)arg0 + 0x28) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x38) = 0;
+    *(f32 *)((s8 *)arg0 + 0x58) = (f32) TCameraCtrl__data_805D8F84;
+    *(f32 *)((s8 *)arg0 + 0x5C) = (f32) lbl_805D8FA0;
+    *(s32 *)((s8 *)arg0 + 0x54) = 0x36C1;
+    *(u16 *)((s8 *)arg0 + 0x20) = 0xFFFF;
     return arg0;
 }
 

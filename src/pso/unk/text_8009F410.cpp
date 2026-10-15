@@ -1,10 +1,7 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
-typedef s32 M2C_UNK;
+
 struct Stack_803626A8 {
     s32 sp8;
     s32 spC;
@@ -12,17 +9,17 @@ struct Stack_803626A8 {
 };
 
 struct RecoveredGlobal_803626A8_lbl_80479FBC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
 struct RecoveredGlobal_803626A8_lbl_8058D490 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x2C];
 };
 
 struct RecoveredGlobal_80362B48___vt__14TObjEneEpsilon {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x1A0];
 };
 

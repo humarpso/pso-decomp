@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,11 +8,11 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_801A1CD8___vt__10TObjRoomId {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -53,7 +49,7 @@ struct RoomId_801A18EC {
 
 extern "C" {
 s32 construct_world_actor_base(void *, void *);
-extern M2C_UNK __vt__10TObjRoomId[];
+extern s32 __vt__10TObjRoomId[];
 extern s32 lbl_805D34B0;
 extern const f32 lbl_805DC094;
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2);
@@ -76,7 +72,7 @@ void render__10TObjRoomIdFv(RoomId_801A18EC *self);
 s32 push_matrix_from(void *);
 void rotate_matrix_y(int, s32);
 s32 matrix_mult_vec(int, void *, void *);
-M2C_UNK pop_matrices(int);
+s32 pop_matrices(int);
 f32 vec3_dot(Vec_801A1A60 *, Vec_801A1A60 *);
 extern Vec_801A1A60 lbl_8044688C[];
 extern u8 identity_matrix[];
@@ -102,9 +98,9 @@ u16 fn_801A210C(s32);
 s32 get_global_state__14TOKeyMachine01Fv(void);
 s32 is_split_screen();
 void set_state__9TTecLukerFPvi(void* p, s32 v);
-M2C_UNK set_state_flags__10TObjPlayerFPvUi(void *, M2C_UNK);
+s32 set_state_flags__10TObjPlayerFPvUi(void *, s32);
 
-extern M2C_UNK __vt__10TObjRoomId[];
+extern s32 __vt__10TObjRoomId[];
 
 s32 is_player_in_range__10TObjRoomIdFPvUsf(Obj_801A1888 *self, u16 id, f32 range) {
     Obj_801A1888 *p = get_player_by_client_id(id);
@@ -182,14 +178,14 @@ void TObjRoomId::run_task() {
         d.z = p->pos[2] - o->pos.z;
         if (vec3_dot(&d, &o->normal) > lbl_805DC094) {
             if (o->mode == 0x10000) {
-                M2C_FIELD(p, s16 *, 0x28) = (s16)o->room_pos;
+                *(s16 *)((s8 *)p + 0x28) = (s16)o->room_pos;
                 set_player_room_control_flag(p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_pos);
             }
         } else {
             if (o->mode == 0x10000) {
-                M2C_FIELD(p, s16 *, 0x28) = (s16)o->room_other;
+                *(s16 *)((s8 *)p + 0x28) = (s16)o->room_other;
                 set_player_room_control_flag(p);
             } else {
                 set__10TObjRoomIdFPvs(p, (s16)o->room_other);
@@ -203,7 +199,7 @@ extern "C" {
 
 void *__dt__10TObjRoomIdFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__10TObjRoomId;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjRoomId;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -217,12 +213,12 @@ extern void *tl_05;
 typedef char RecoveredGlobal_801A1CD8___vt__10TObjRoomId_size[sizeof(RecoveredGlobal_801A1CD8___vt__10TObjRoomId) == 0x38 ? 1 : -1];
 u8 *TObjRoomId__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base((void *) (arg0), (void *) (arg1));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D34B0;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801A1CD8___vt__10TObjRoomId *)&__vt__10TObjRoomId).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D34B0;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, f32 *, 0x90) = (f32) lbl_805DC094;
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DC094;
-    M2C_FIELD(arg0, f32 *, 0x98) = (f32) lbl_805DC094;
+    *(f32 *)((s8 *)arg0 + 0x90) = (f32) lbl_805DC094;
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DC094;
+    *(f32 *)((s8 *)arg0 + 0x98) = (f32) lbl_805DC094;
     return arg0;
 }
 
@@ -254,22 +250,22 @@ u8 is_current_room__10TObjRoomIdFPv(void *arg0) {
     if (is_split_screen() != 0) {
         return 1U;
     }
-    return (u8) (M2C_FIELD(arg0, u16 *, 0x1C) == local_client_id);
+    return (u8) (*(u16 *)((s8 *)arg0 + 0x1C) == local_client_id);
 }
 
 int TObjRoomId__sub_801A1E2C(void) { return 0; }
 void set__10TObjRoomIdFPvs(void *arg0, s16 arg1) {
     u32 temp_r3;
 
-    if ((u16) M2C_FIELD(arg0, u16 *, 0x1C) < 0x1000U) {
+    if ((u16) *(u16 *)((s8 *)arg0 + 0x1C) < 0x1000U) {
         temp_r3 = get_global_state__14TOKeyMachine01Fv();
         if ((temp_r3 <= 2U) || ((s32) temp_r3 == 0x12) || (is_global_state_in_table__19TContainerAncient01Fv() != 0) || ((s32) temp_r3 == 0xC) || ((s32) temp_r3 == 0x20)) {
-            M2C_FIELD(arg0, s16 *, 0x2E) = arg1;
+            *(s16 *)((s8 *)arg0 + 0x2E) = arg1;
         }
-        M2C_FIELD(arg0, s16 *, 0x28) = arg1;
+        *(s16 *)((s8 *)arg0 + 0x28) = arg1;
         return;
     }
-    M2C_FIELD(arg0, s16 *, 0x28) = arg1;
+    *(s16 *)((s8 *)arg0 + 0x28) = arg1;
 }
 
 }

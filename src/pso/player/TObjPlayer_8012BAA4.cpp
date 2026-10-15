@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void psycho_wand_update_tp_spend(void *arg0);
 void psycho_wand_marker(s32 arg0);
 void psycho_wand_node_callback(void *arg0);
-M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK add_actor_tp(s32, s16);
-M2C_UNK play_particle_effect_once__10TObjPlayerFv();
-M2C_UNK spawn_cane_effect__10TObjPlayerFiUii(s32, s32, M2C_UNK);
+s32 rotate_matrix_z(s32, s32);
+s32 add_actor_tp(s32, s16);
+s32 play_particle_effect_once__10TObjPlayerFv();
+s32 spawn_cane_effect__10TObjPlayerFiUii(s32, s32, s32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(s32);
-M2C_UNK update_active_game_effect__10TObjPlayerFPv(s32);
+s32 update_active_game_effect__10TObjPlayerFPv(s32);
 s32 get_attack_stage__11TItemWeaponFPv();
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK psycho_wand_roll_extra(s32);
+s32 psycho_wand_roll_extra(s32);
 s32 reset_key_machine_state__10TObjPlayerFv();
-M2C_UNK translate_matrix(M2C_UNK, f32, f32, f32);
-M2C_UNK TObjectV8047c128_subtract_hp(s32, s16);
+s32 translate_matrix(s32, f32, f32, f32);
+s32 TObjectV8047c128_subtract_hp(s32, s16);
 s16 obj_getS16_32E(s32);
 
 void psycho_wand_update_tp_spend(void *arg0) {
@@ -28,14 +24,14 @@ void psycho_wand_update_tp_spend(void *arg0) {
     s16 temp_r3;
 
     if (reset_key_machine_state__10TObjPlayerFv() != 0) {
-        temp_r3 = obj_getS16_32E(M2C_FIELD(arg0, s32 *, 0xF0));
-        temp_r0 = M2C_FIELD(arg0, s16 *, 0x1F8) - temp_r3;
+        temp_r3 = obj_getS16_32E(*(s32 *)((s8 *)arg0 + 0xF0));
+        temp_r0 = *(s16 *)((s8 *)arg0 + 0x1F8) - temp_r3;
         if (temp_r0 != 0) {
-            M2C_FIELD(arg0, s16 *, 0x1F8) = temp_r3;
+            *(s16 *)((s8 *)arg0 + 0x1F8) = temp_r3;
         }
         if (temp_r0 > 0) {
-            TObjectV8047c128_subtract_hp(M2C_FIELD(arg0, s32 *, 0xF0), temp_r0);
-            add_actor_tp(M2C_FIELD(arg0, s32 *, 0xF0), (s16) (temp_r0 / 2));
+            TObjectV8047c128_subtract_hp(*(s32 *)((s8 *)arg0 + 0xF0), temp_r0);
+            add_actor_tp(*(s32 *)((s8 *)arg0 + 0xF0), (s16) (temp_r0 / 2));
         }
     }
 }
@@ -62,13 +58,13 @@ void psycho_wand_node_callback(void *arg0) {
     temp_r3 = get_player_list__10TObjPlayerFv();
     switch (temp_r3) {
     case 2:
-        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x278));
+        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x278));
         return;
     case 5:
-        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x278));
+        rotate_matrix_z(0, -*(s32 *)((s8 *)arg0 + 0x278));
         return;
     case 1:
-        translate_matrix(0, lbl_805DAEC8, lbl_805DAECC * M2C_FIELD(arg0, f32 *, 0x274), lbl_805DAEC8);
+        translate_matrix(0, lbl_805DAEC8, lbl_805DAECC * *(f32 *)((s8 *)arg0 + 0x274), lbl_805DAEC8);
         return;
     case 3:
     case 4:

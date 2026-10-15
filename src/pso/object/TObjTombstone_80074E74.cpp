@@ -1,21 +1,17 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #pragma inline_depth(1)
 #pragma auto_inline off
 #pragma dont_inline off
-struct M2CCopy_28 { u8 bytes[0x28]; };
+struct ByteBlock_28 { u8 bytes[0x28]; };
 
 struct RecoveredGlobal_80074FAC_lbl_8043878C {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x28];
 };
 
 struct RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
@@ -39,7 +35,6 @@ struct View_800751BC {
     s32 f198;
 };
 
-typedef s32 M2C_UNK;
 struct V_800753DC { f32 x, y, z; };
 
 struct P_800753DC { f32 x, y; };
@@ -60,7 +55,7 @@ struct Obj_800753DC {
 
 extern "C" {
 u16 get_nth_view_player_id__11TCameraCtrlFi();
-M2C_UNK get_camera_no__11TCameraCtrlFv();
+s32 get_camera_no__11TCameraCtrlFv();
 u32 get_player_by_client_id(int);
 f32 xyz_distance(void *, void *);
 extern const f32 TObjTombstone__data_805D9174;
@@ -117,7 +112,7 @@ extern const f32 lbl_805D9188;
 extern const f32 lbl_805D918C;
 extern const f32 lbl_805D9190;
 extern const f32 lbl_805D91A0;
-M2C_UNK draw_name_labels__13TObjTombstoneFPv(void *arg0_);
+s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_);
 }
 
 extern "C" {
@@ -135,8 +130,8 @@ void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q) { *(f32*)((char*)p + 0x
 typedef char RecoveredGlobal_80074FAC_lbl_8043878C_size[sizeof(RecoveredGlobal_80074FAC_lbl_8043878C) == 0x2C ? 1 : -1];
 typedef char RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250_size[sizeof(RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250) == 0x28 ? 1 : -1];
 void reset_matrix__13TObjTombstoneFv(void) {
-    M2CCopy_28 sp8;
-    sp8 = *(const M2CCopy_28 *)((s32) ((u8 *)(&lbl_8043878C.value) + -4) + 4);
+    ByteBlock_28 sp8;
+    sp8 = *(const ByteBlock_28 *)((s32) ((u8 *)(&lbl_8043878C.value) + -4) + 4);
     copy_matrix__13TObjTombstoneFPvPv((void*)(&TObjTombstone__base_matrix.value), (void*)(&sp8));
 }
 
@@ -149,7 +144,7 @@ s32 check_owner__13TObjTombstoneFPv(void *arg0) {
     } else {
         var_r3 = is_flag_set__6TLobbyFv();
     }
-    if ((var_r3 == 0) || ((s8) M2C_FIELD(arg0, u8 *, 0xC2) != get_current_floor())) {
+    if ((var_r3 == 0) || ((s8) *(u8 *)((s8 *)arg0 + 0xC2) != get_current_floor())) {
         return 1;
     }
     return 0;
@@ -225,11 +220,11 @@ void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0) {
     if (temp_r3 != 0U) {
         temp_f1 = xyz_distance((void *) (temp_r3 + 0x38), (void *) (arg0 + 0x38));
         if (temp_f1 <= lbl_805D9180) {
-            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9178;
+            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9178;
         } else if (temp_f1 >= TObjTombstone__data_805D917C) {
-            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) TObjTombstone__data_805D9174;
+            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) TObjTombstone__data_805D9174;
         } else {
-            M2C_FIELD(arg0, f32 *, 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
+            *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((TObjTombstone__data_805D917C - temp_f1) / TObjTombstone__data_805D9184);
         }
         draw_name_labels__13TObjTombstoneFPv((void *)((void *) (arg0)));
     }
@@ -237,7 +232,7 @@ void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 #define self ((Obj_800753DC *)arg0_)
-M2C_UNK draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
+s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
     u32 c2;
     u32 c1;
     P_800753DC screen;

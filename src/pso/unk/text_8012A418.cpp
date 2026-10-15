@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 
@@ -79,7 +75,7 @@ struct VObj_18_24931d : VBase_18_24931d {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m49(s32 *, s32, s32, s32);
     virtual void m50();
     virtual void m51();
     virtual void m52();
@@ -90,7 +86,7 @@ struct VObj_18_24931d : VBase_18_24931d {
     virtual void m57();
     virtual void m58();
     virtual void m59();
-    virtual M2C_UNK m60();
+    virtual s32 m60();
 };
 
 struct Param_8012A508 { s32 kind; f32 val; };
@@ -134,10 +130,10 @@ typedef struct Pl_8012A470
 
 extern "C" {
 s8 TObjPlayer__sub_80102C30();
-M2C_UNK deliver_hit__11TItemWeaponFPviPviif(void *, u32, u32, s32, s32, f32);
+s32 deliver_hit__11TItemWeaponFPviPviif(void *, u32, u32, s32, s32, f32);
 void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0);
-u8 * TObjPlayer__sub_8012A3B4(void *, M2C_UNK, s32);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 * TObjPlayer__sub_8012A3B4(void *, s32, s32);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0);
 s32 is_mode_two_and_ready__10TObjPlayerFPv(void *);
@@ -173,11 +169,8 @@ u8 *create_state_8012a418__10TObjPlayerFi(s32 arg0) {
     return NULL;
 }
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include "types.h"
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Pl_8012A470 Pl_8012A470;
 void send_srank_stat_extra_to_locks(Pl_8012A470 *arg0) {
@@ -232,9 +225,9 @@ s32 send_srank_stat_extra__10TObjPlayerFPvUii(void *arg0, u32 arg1, s32 arg2) {
 void receive_srank_hit(void *arg0, s32 arg1, u32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     u32 f;
     if (TObjPlayer__sub_80102C30() == 2) {
-        f = M2C_FIELD(arg0, u32 *, 0xF0);
+        f = *(u32 *)((s8 *)arg0 + 0xF0);
         if ((f != 0U) && (arg2 != 0U)) {
-            switch (M2C_FIELD(arg0, s32 *, 0x1F8)) {
+            switch (*(s32 *)((s8 *)arg0 + 0x1F8)) {
             case 1:
             case 2:
                 if (arg3 == 2) {
@@ -256,7 +249,7 @@ typedef struct VObj_18_24931d VObj_18_24931d;
 #define PSO_VCALL_VObj_18_24931d_m30(_self) (((VObj_18_24931d *)(_self))->m30())
 #define PSO_VCALL_VObj_18_24931d_m49(_self, _arg0, _arg1, _arg2, _arg3) (((VObj_18_24931d *)(_self))->m49((_arg0), (_arg1), (_arg2), (_arg3)))
 void deliver_srank_marker(u8 *arg0) {
-  M2C_UNK sp8;
+  s32 sp8;
   s32 temp_r0;
   s32 temp_r3;
   s32 new_var;

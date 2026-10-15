@@ -1,15 +1,10 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct RecoveredGlobal_800739BC_lbl_8048C9D8 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x744];
 };
 
-typedef s32 M2C_UNK;
 struct Rec_80073738 { s32 flag; u8 data[0x100]; };
 
 struct Chal_80073738 {
@@ -78,9 +73,9 @@ extern char challenge_progress_text_buffer[];
 extern char lbl_805D9128[2];
 extern char lbl_805D912C[2];
 extern char lbl_805D9130[2];
-void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s32 arg1);
+void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 s32 get_camera_id__11TCameraCtrlFv();
-void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s32 arg1);
+void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1);
 void set_position_xy(void *, f32, f32);
 void set_field_1c__6TLobbyFPvf(void *, f32);
 void send_and_handle__6TLobbyFPvii(void *, char *, s32);
@@ -113,7 +108,7 @@ typedef char RecoveredGlobal_800739BC_lbl_8048C9D8_size[sizeof(RecoveredGlobal_8
 #define CHAL ((Chal_80073738 *)&challenge_mode_state)
 
 #define CHAL_80073428 ((Chal_80073428 *)&challenge_mode_state)
-void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(M2C_UNK arg0, s32 arg1) {
+void format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii(s32 arg0, s32 arg1) {
     char buf2[0x18];
     char buf1[0x10];
     s32 h1, m1, s1;
@@ -184,7 +179,7 @@ void open_challenge_window__6TLobbyFii(s32 arg0, s32 arg1) {
     if (get_camera_id__11TCameraCtrlFv() >= 2) {
         set_position_xy((*(Chal_8007369C *)&challenge_mode_state).window, lbl_805D9138, lbl_805D9138);
     }
-    format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii((M2C_UNK)(arg0), (s32)(arg1));
+    format_challenge_stage_times__23TAdSinglePlyChrSelectGCFii((s32)(arg0), (s32)(arg1));
     send_and_handle__6TLobbyFPvii((*(Chal_8007369C *)&challenge_mode_state).window, challenge_progress_text_buffer, 0);
 }
 
@@ -253,8 +248,8 @@ void TLobby__sub_800738F4(void *arg0, s32 arg1) {
 }
 
 void TLobby__sub_800739BC(void) {
-    M2C_FIELD(&challenge_mode_state.value, s32 *, 0x48) = 0;
-    M2C_FIELD(&challenge_mode_state.value, s32 *, 0x4C) = 0;
+    *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x48) = 0;
+    *(s32 *)((s8 *)(&challenge_mode_state.value) + 0x4C) = 0;
 }
 
 }

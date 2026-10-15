@@ -1,12 +1,7 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 struct Stack_801F37CC {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     s16 spE;
     s16 sp10;
@@ -14,7 +9,7 @@ struct Stack_801F37CC {
 };
 
 struct Stack_801F3778 {
-    M2C_UNK sp8;
+    s32 sp8;
     s16 spC;
     s16 spE;
     s16 sp10;
@@ -81,13 +76,13 @@ void send_6x75_quest_flag_cur_difficulty__6TLobbyFss(s16 arg0, s16 arg1) {
 void handle_6x75_update_quest_flag_dc(u8 *arg0) {
     u16 temp_r0;
     byteswap_6x75_packet__6TLobbyFPv((void *) (arg0));
-    temp_r0 = M2C_FIELD(arg0, u16 *, 6);
+    temp_r0 = *(u16 *)((s8 *)arg0 + 6);
     if (temp_r0 == 0) {
-        set_story_flag_in_bank((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+        set_story_flag_in_bank((int) ((s32) *(s16 *)((s8 *)arg0 + 8)), (int) ((s32) *(u16 *)((s8 *)arg0 + 4)));
         return;
     }
     if (temp_r0 == 1) {
-        clear_story_flag_in_bank((int) ((s32) M2C_FIELD(arg0, s16 *, 8)), (int) ((s32) M2C_FIELD(arg0, u16 *, 4)));
+        clear_story_flag_in_bank((int) ((s32) *(s16 *)((s8 *)arg0 + 8)), (int) ((s32) *(u16 *)((s8 *)arg0 + 4)));
     }
 }
 

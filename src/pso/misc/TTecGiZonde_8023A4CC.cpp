@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 #include <stddef.h>
 #include <stddef.h>
 struct Stack_8023A510 {
-    M2C_UNK sp8;
+    s32 sp8;
     s32 spC;
     f32 sp10;
     f32 sp14;
     f32 sp18;
-    M2C_UNK sp1C;
+    s32 sp1C;
     f32 sp20;
     u8 pad_24[0x4];
     f32 sp28;
@@ -58,13 +54,13 @@ struct RecoveredFields_8023A510_temp_r6 {
 };
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK check_technique_projectile_wall_hit(void *, f32, f32);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 check_technique_projectile_wall_hit(void *, f32, f32);
 void move_technique_projectile(u8 *arg0);
 f32 fabs_float(f32);
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
-u8 *csnVecterUnder(M2C_UNK *, s32);
+u8 *csnVecterUnder(s32 *, s32);
 u8 *csnVector(f32 *, f32 *, s32);
 s32 angle_difference_abs(int, int);
 s32 direction_to_rotation_xy(void *, void *, void *);
@@ -85,12 +81,12 @@ void render__11TTecGiZondeFv(void) {  }
 void advance_lifetime_or_destroy(void *arg0) {
     f32 temp_f1;
 
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x74);
-    if (temp_f1 > M2C_FIELD(arg0, f32 *, 0x70)) {
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x74);
+    if (temp_f1 > *(f32 *)((s8 *)arg0 + 0x70)) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
-    M2C_FIELD(arg0, f32 *, 0x74) = (f32) (temp_f1 + M2C_FIELD(arg0, f32 *, 0x64));
+    *(f32 *)((s8 *)arg0 + 0x74) = (f32) (temp_f1 + *(f32 *)((s8 *)arg0 + 0x64));
 }
 
 #pragma push
@@ -136,7 +132,7 @@ void step_ground_technique_projectile(RecoveredFields_8023A510_arg0 *arg0) {
     stack.sp20 += lbl_805DC918;
     temp_r3 = (u8 *)(csnVecterUnder(&stack.sp1C, 0x16EF));
     if (temp_r3 != NULL) {
-        arg0->field_24 = (f32) (lbl_805DC91C + M2C_FIELD(((RecoveredFields_8023A510_temp_r3 *)temp_r3)->field_4, f32 *, 4));
+        arg0->field_24 = (f32) (lbl_805DC91C + *(f32 *)((s8 *)(((RecoveredFields_8023A510_temp_r3 *)temp_r3)->field_4) + 4));
     }
     if (fabs_float(arg0->field_7C - arg0->field_24) > lbl_805DC920) {
         arg0->field_24 = (f32) arg0->field_7C;
@@ -172,11 +168,11 @@ void move_technique_projectile(u8 *arg0) {
     f32 temp_f1;
     f32 temp_f2;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x78), (void *) (arg0 + 0x20));
-    M2C_FIELD(arg0, f32 *, 0x20) = (f32) ((M2C_FIELD(arg0, f32 *, 0x48) * M2C_FIELD(arg0, f32 *, 0x64)) + M2C_FIELD(arg0, f32 *, 0x20));
-    M2C_FIELD(arg0, f32 *, 0x24) = (f32) ((M2C_FIELD(arg0, f32 *, 0x4C) * M2C_FIELD(arg0, f32 *, 0x64)) + M2C_FIELD(arg0, f32 *, 0x24));
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x50);
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x64);
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) ((temp_f2 * temp_f1) + M2C_FIELD(arg0, f32 *, 0x28));
+    *(f32 *)((s8 *)arg0 + 0x20) = (f32) ((*(f32 *)((s8 *)arg0 + 0x48) * *(f32 *)((s8 *)arg0 + 0x64)) + *(f32 *)((s8 *)arg0 + 0x20));
+    *(f32 *)((s8 *)arg0 + 0x24) = (f32) ((*(f32 *)((s8 *)arg0 + 0x4C) * *(f32 *)((s8 *)arg0 + 0x64)) + *(f32 *)((s8 *)arg0 + 0x24));
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x50);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x64);
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) ((temp_f2 * temp_f1) + *(f32 *)((s8 *)arg0 + 0x28));
     check_technique_projectile_wall_hit((void *) (arg0), (f32) (temp_f1), (f32) (temp_f2));
 }
 #pragma pop

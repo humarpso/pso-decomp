@@ -1,26 +1,22 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80353E10_TBoss6Rock__data_80543778 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x7C];
 };
 
 struct RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x7C];
 };
 
 struct RecoveredGlobal_80354148_TBoss6Rock__data_80479258 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x24];
 };
 
 struct RecoveredGlobal_80354148_TBoss6Rock__data_80543778 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x7C];
 };
 
@@ -38,7 +34,6 @@ struct Vec_80353C60 { f32 x, y, z; };
 
 struct Vec_80353A14 { f32 x, y, z; };
 
-typedef s32 M2C_UNK;
 struct E_803546B0 { s32 id; f32 f4; u8 pad8[0xC]; };
 
 struct R_803546B0 {
@@ -77,10 +72,10 @@ extern const f32 lbl_805DFF70;
 extern const f32 lbl_805DFF74;
 extern const f32 lbl_805DFF78;
 void randomize_motion__10TBoss6RockFPv(u8 *arg0);
-M2C_UNK spawn_particle_effect(void *, int);
+s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(s32, u32, int, s32);
-M2C_UNK apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
-M2C_UNK TBoss6Rock__sub_80353F5C(void *);
+s32 apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
+s32 TBoss6Rock__sub_80353F5C(void *);
 void TBoss6Rock__sub_803542E8(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
@@ -136,16 +131,16 @@ extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
 extern const f32 lbl_805DFF58;
 s32 TBoss6Rock__sub_80353A14(s32 arg0, Vec_80353A14 *out, f32 *outR);
-M2C_UNK get_bml_model(int, int);
+s32 get_bml_model(int, int);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(int);
-M2C_UNK draw_ginja_object(int);
+s32 rotate_matrix_y(int, int);
+s32 rotate_matrix_z(int, int);
+s32 rotate_matrix_x(int, int);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(int);
+s32 draw_ginja_object(int);
 extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
 extern int TBoss6Rock__data_805D6EF0;
 extern int TBoss6Rock__data_805D6EF4;
@@ -165,32 +160,32 @@ void release_object__10TBoss6RockFPv(void* p);
 void render_if_active__10TBoss6RockFPv(u8 *arg0);
 void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0);
 s32 TBoss6PlotFalz__sub_802AB6CC(void *, f32);
-M2C_UNK set_fade_material_color__14TBoss6PlotFalzFf(f32);
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK rotate_matrix_z(int, int);
-M2C_UNK draw_ginja_object(int);
-M2C_UNK rotate_matrix_x(int, int);
-M2C_UNK rotate_matrix_y(int, int);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
+s32 set_fade_material_color__14TBoss6PlotFalzFf(f32);
+s32 post_translate_matrix(void *);
+s32 rotate_matrix_z(int, int);
+s32 draw_ginja_object(int);
+s32 rotate_matrix_x(int, int);
+s32 rotate_matrix_y(int, int);
+s32 push_matrix();
+s32 pop_matrix();
 void __ct__7TObjectFP7TObject(void *);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
 void *__nw__7TObjectFUl(int);
-M2C_UNK copy_xyz__10TObjPlayerFPvPv(void *, void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 int is_active__10TBoss6RockFv(void*);
 int queue_destruction__7TObjectFv(void*);
-M2C_UNK reset_fish_globals__8TObjFishFv();
-M2C_UNK set_global_param__8TObjFishFi(int);
+s32 reset_fish_globals__8TObjFishFv();
+s32 set_global_param__8TObjFishFi(int);
 
 void set_target__10TBoss6RockFPviiiiif(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, s32 arg5, f32 farg0) {
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg1;
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) {
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg1;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) {
         VecCopy__FP3VecPC3Vec((void *)((void *) (arg0 + 0x20)), (const void *)((void *) (arg2)));
         copy_xyz__10TObjPlayerFPvPv((void *) (arg0 + 0x30), (void *) (arg3));
-        M2C_FIELD(arg0, f32 *, 0x2C) = farg0;
-        M2C_FIELD(arg0, s32 *, 0x3C) = arg4;
-        M2C_FIELD(arg0, s32 *, 0x40) = arg5;
+        *(f32 *)((s8 *)arg0 + 0x2C) = farg0;
+        *(s32 *)((s8 *)arg0 + 0x3C) = arg4;
+        *(s32 *)((s8 *)arg0 + 0x40) = arg5;
     }
 }
 
@@ -198,15 +193,15 @@ extern const f32 TBoss6Rock__data_805DFF48;
 extern const f32 TBoss6Rock__data_805DFF4C;
 
 void render_if_active__10TBoss6RockFPv(u8 *arg0) {
-    if (((s32) M2C_FIELD(arg0, s32 *, 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (M2C_FIELD(arg0, f32 *, 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 0) && (TBoss6PlotFalz__sub_802AB6CC((void *) (arg0 + 0x20), (f32) (*(f32 *)((s8 *)arg0 + 0x2C) - TBoss6Rock__data_805DFF48)) != 0)) {
         push_matrix();
         post_translate_matrix((void *) (arg0 + 0x20));
-        rotate_matrix_y((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x34)));
-        rotate_matrix_x((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x30)));
-        rotate_matrix_z((int) (0), (int) (M2C_FIELD(arg0, s32 *, 0x38)));
-        set_global_param__8TObjFishFi((int) (M2C_FIELD(arg0, s32 *, 0x3C)));
+        rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x34)));
+        rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x30)));
+        rotate_matrix_z((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x38)));
+        set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x3C)));
         set_fade_material_color__14TBoss6PlotFalzFf((f32) (TBoss6Rock__data_805DFF4C));
-        draw_ginja_object((int) (M2C_FIELD(arg0, s32 *, 0x40)));
+        draw_ginja_object((int) (*(s32 *)((s8 *)arg0 + 0x40)));
         reset_fish_globals__8TObjFishFv();
         pop_matrix();
     }
@@ -214,11 +209,11 @@ void render_if_active__10TBoss6RockFPv(u8 *arg0) {
 
 void check_and_destroy__10TBoss6RockFPv(void* p) { if (is_active__10TBoss6RockFv(p) == 0) { *(int*)((char*)p + 0x1c) = 0; queue_destruction__7TObjectFv(p); } }
 
-extern M2C_UNK lbl_804F1280[];
+extern s32 lbl_804F1280[];
 
 void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1280;
+        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1280;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -227,12 +222,12 @@ void *destroy__10TBoss6RockFPvs(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern M2C_UNK lbl_804F1280[];
+extern s32 lbl_804F1280[];
 
 void *init_object__10TBoss6RockFPvPv(void *arg0, void *) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = lbl_804F1280;
-    M2C_FIELD(arg0, u32 *, 0x1C) = 0;
+    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F1280;
+    *(u32 *)((s8 *)arg0 + 0x1C) = 0;
     return arg0;
 }
 
@@ -354,7 +349,7 @@ s32 get_point__10TBoss6RockFiPvPv(s32 arg0, s32 arg1, f32 *arg2) {
     }
     temp_r5 = arg0 * 0xC;
     VecCopy__FP3VecPC3Vec((void *)((void *) (arg1)), (const void *)((void *) ((u8 *)(&TBoss6Rock__rock_point_table) + temp_r5)));
-    M2C_FIELD(arg2, f32 *, 0) = M2C_FIELD(get_rock_entry__10TBoss6RockFi(arg0), f32 *, 4);
+    *(f32 *)((s8 *)arg2 + 0) = *(f32 *)((s8 *)(get_rock_entry__10TBoss6RockFi(arg0)) + 4);
     return 1;
 }
 
@@ -363,11 +358,11 @@ u8 is_rock_state_2__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return 0U;
     }
-    temp_r3 = (u8 *)(M2C_FIELD(&(*(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value, M2C_UNK *, (arg0 * 4)));
+    temp_r3 = (u8 *)(*(s32 *)((s8 *)(&(*(RecoveredGlobal_80353DC4_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value) + (arg0 * 4)));
     if (temp_r3 == NULL) {
         return 0U;
     }
-    return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC8) == 2);
+    return (u8) (*(s32 *)((s8 *)temp_r3 + 0xC8) == 2);
 }
 
 s32 is_rock_valid__10TBoss6RockFi(s32 arg0) {
@@ -375,11 +370,11 @@ s32 is_rock_valid__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return 0U;
     }
-    temp_r3 = (u8 *)(M2C_FIELD(&TBoss6Rock__instance_table.value, M2C_UNK *, (arg0 * 4)));
+    temp_r3 = (u8 *)(*(s32 *)((s8 *)(&TBoss6Rock__instance_table.value) + (arg0 * 4)));
     if (temp_r3 == NULL) {
         return 0U;
     }
-    return (u8) (M2C_FIELD(temp_r3, s32 *, 0xC4) == 2);
+    return (u8) (*(s32 *)((s8 *)temp_r3 + 0xC4) == 2);
 }
 
 void reset_rock_state__10TBoss6RockFi(s32 arg0) {
@@ -423,12 +418,12 @@ void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 
 #pragma push
 #pragma fp_contract on
 void randomize_motion__10TBoss6RockFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x5C) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
-    M2C_FIELD(arg0, s32 *, 0x64) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
-    M2C_FIELD(arg0, s32 *, 0xD0) = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    *(s32 *)((s8 *)arg0 + 0x5C) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (lbl_805DFF70 * (lbl_805DFF6C * (f32) rand()));
+    *(s32 *)((s8 *)arg0 + 0x64) = (s32) (lbl_805DFF68 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
+    *(s32 *)((s8 *)arg0 + 0xD0) = (s32) (lbl_805DFF74 * ((lbl_805DFF6C * (f32) rand()) - TBoss6Rock__data_805DFF4C));
     VecCopy__FP3VecPC3Vec((void *)((void *) ((u8 *)(arg0) + 0x38)), (const void *)((void *) ((u8 *)(arg0) + 0xD4)));
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) lbl_805DFF78;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) lbl_805DFF78;
 }
 #pragma pop
 
@@ -440,21 +435,21 @@ u8 *get_rock_entry__10TBoss6RockFi(s32 arg0) {
     if ((arg0 < 0) || (arg0 >= 0x20)) {
         return NULL;
     }
-    return (u8 *)(&TBoss6Rock__data_80479258.value) + (M2C_FIELD(M2C_FIELD(((u8 *)(&(*(RecoveredGlobal_80354148_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value) + (arg0 * 4)), u8 **, 0), s32 *, 0xB4) * 0x14);
+    return (u8 *)(&TBoss6Rock__data_80479258.value) + (*(s32 *)((s8 *)(*(u8 **)((s8 *)((u8 *)(&(*(RecoveredGlobal_80354148_TBoss6Rock__data_80543778 *)&TBoss6Rock__instance_table).value) + (arg0 * 4)) + 0)) + 0xB4) * 0x14);
 }
 #pragma pop
 
 void break_and_release__10TBoss6RockFPv(u8 *arg0) {
     TBoss6Rock__sub_803542E8(arg0, 0);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
-        M2C_FIELD(arg0, s32 *, 0xC8) = 0;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 1) {
+        *(s32 *)((s8 *)arg0 + 0xC8) = 0;
     }
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xC8) != 2) {
-        spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, M2C_FIELD(arg0, s32 *, 0xB4));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xC8) != 2) {
+        spawn_crush_rocks__10TBoss6RockFPvi(arg0 + 0xD4, *(s32 *)((s8 *)arg0 + 0xB4));
         play_sound_effect(0x4006AB1F, (u32) (arg0 + 0x38), 0, 0);
         release_object__10TBoss6RockFPv((void*)(arg0));
         randomize_motion__10TBoss6RockFPv((u8 *)(arg0));
-        M2C_FIELD(arg0, s32 *, 0xC4) = 0;
+        *(s32 *)((s8 *)arg0 + 0xC4) = 0;
     }
 }
 #pragma fp_contract on
@@ -467,26 +462,26 @@ void update_fall__10TBoss6RockFPv(u8 *arg0) {
     f32 var_f2;
     var_f1 = lbl_805DFF94;
     var_f2 = lbl_805DFF98;
-    M2C_FIELD(arg0, s32 *, 0x60) = (s32) (M2C_FIELD(arg0, s32 *, 0x60) + M2C_FIELD(arg0, s32 *, 0xD0));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xBC) == 1) {
+    *(s32 *)((s8 *)arg0 + 0x60) = (s32) (*(s32 *)((s8 *)arg0 + 0x60) + *(s32 *)((s8 *)arg0 + 0xD0));
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xBC) == 1) {
         var_f1 = lbl_805DFF9C;
         var_f2 = lbl_805DFFA0;
     }
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (M2C_FIELD(arg0, f32 *, 0xCC) + var_f1);
-    if (M2C_FIELD(arg0, f32 *, 0xCC) < var_f2) {
-        M2C_FIELD(arg0, f32 *, 0xCC) = var_f2;
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (*(f32 *)((s8 *)arg0 + 0xCC) + var_f1);
+    if (*(f32 *)((s8 *)arg0 + 0xCC) < var_f2) {
+        *(f32 *)((s8 *)arg0 + 0xCC) = var_f2;
     }
-    M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) + M2C_FIELD(arg0, f32 *, 0xCC));
-    if (M2C_FIELD(arg0, f32 *, 0x3C) <= TBoss6Rock__data_805DFF50) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) TBoss6Rock__data_805DFF50;
-        M2C_FIELD(arg0, f32 *, 0xCC) = (f32) TBoss6Rock__data_805DFF50;
+    *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) + *(f32 *)((s8 *)arg0 + 0xCC));
+    if (*(f32 *)((s8 *)arg0 + 0x3C) <= TBoss6Rock__data_805DFF50) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
+        *(f32 *)((s8 *)arg0 + 0xCC) = (f32) TBoss6Rock__data_805DFF50;
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
         TBoss6Rock__sub_80353F5C((void *) (arg0));
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));
         apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf((void *) (arg0 + 0x38), (int) (0xC0), (int) (0xF), (f32) (lbl_805DFF54));
-        M2C_FIELD(arg0, s32 *, 0xC4) = 2;
+        *(s32 *)((s8 *)arg0 + 0xC4) = 2;
     }
 }
 #pragma pop

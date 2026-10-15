@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_8029c054_8029C030 { char pad[0x14]; };
 struct VObj_8029c054_8029C030 : Base_8029c054_8029C030 {
     virtual void m0();
@@ -53,12 +50,12 @@ extern "C" {
 void TAdRayGC__sub_8029C054(u8 *arg0);
 int TORockJungleL01__sub_8029C030(void* p);
 int update_obstruction_fade(void*);
-M2C_UNK set_cull_none__8TObjFishFv();
+s32 set_cull_none__8TObjFishFv();
 
 int TORockJungleL01__sub_8029C030(void* p) { return update_obstruction_fade((char*)p + 0xb4); }
 
 void TAdRayGC__sub_8029C054(u8 *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xD0) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xD0) != 0) {
         ((VObj_8029c054_8029C030*)(arg0 + 0xB4))->m7();
     }
     set_cull_none__8TObjFishFv();

@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct Rec_8023E638 {
     s32 a;
@@ -33,14 +29,14 @@ s32 TLobby__sub_803CC53C();
 void close_adxf_handle__6TLobbyFPv(s32);
 s32 adxf_open__6TLobbyFUii(void *, s32);
 void load_gvm_texture_archive(s32, s32);
-s32 xmalloc__FUl(M2C_UNK);
+s32 xmalloc__FUl(s32);
 void xfree__FPv(s32);
 extern char texture_prs_filename_format[];
 extern char texture_prs_disc_filename_buffer[];
 s32 TLobby__sub_8023E554(s32 arg0, s32 arg1);
 s32 load_texture_pvm_file__6TLobbyFPvi(s32, void *);
 void TObjPlayer__sub_803DD5E8(void *, s32, s32, s32);
-M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 memset(s32, s32, s32);
 extern s32 lbl_805D63C0;
 extern s32 lbl_805D63C4;
 s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1);
@@ -53,10 +49,10 @@ s32 free_texture_if_valid(u32 arg0);
 void init_buffers(void);
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0);
 int TLobby__sub_803DA16C();
-M2C_UNK load_texture_list();
-M2C_UNK memset(M2C_UNK, M2C_UNK, M2C_UNK);
+s32 load_texture_list();
+s32 memset(s32, s32, s32);
 int set_global_param__8TObjFishFi();
-s32 xmalloc__FUl(M2C_UNK);
+s32 xmalloc__FUl(s32);
 
 s32 notify_fish_if_valid__10TObjPlayerFUi(u32 arg0) {
     if (arg0 == 0U) {
@@ -92,9 +88,9 @@ s32 TLobby__sub_8023E554(s32 arg0, s32 arg1) {
         a = adxf_open__6TLobbyFUii(texture_prs_disc_filename_buffer, 0);
         b = TLobby__sub_803CC53C();
         close_adxf_handle__6TLobbyFPv(a);
-        b = xmalloc__FUl((M2C_UNK)(b << 11));
+        b = xmalloc__FUl((s32)(b << 11));
         if (read_disc_file(texture_prs_disc_filename_buffer, b) != -1) {
-            c = xmalloc__FUl((M2C_UNK)(0x200000));
+            c = xmalloc__FUl((s32)(0x200000));
             prs_decompress_buffer(b, c);
             load_gvm_texture_archive(c, arg1);
             xfree__FPv(c);
@@ -113,7 +109,7 @@ s32 bind_gvm_texture_list(s32 arg0, List_8023E638 *arg1) {
     if (arg0 == 0 || arg1 == NULL) {
         return 0;
     }
-    memset((M2C_UNK)(lbl_805D63C0), (M2C_UNK)(0), (M2C_UNK)(0x1800));
+    memset((s32)(lbl_805D63C0), (s32)(0), (s32)(0x1800));
     TObjPlayer__sub_803DD5E8(sp8, lbl_805D63C0, lbl_805D63C4, 0x200);
     if (load_texture_pvm_file__6TLobbyFPvi(arg0, sp8) == -1) {
         return 0;

@@ -7,11 +7,6 @@ struct SJIf_803D1A98 {
 
 struct SJ_803D1A98 { SJIf_803D1A98 *vt; };
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 void log_printf__6TLobbyFPvi(const char *fmt, ...);
 extern char lbl_8047DCF0[];
@@ -184,9 +179,9 @@ void lsc_poll_all(void) {
 }
 
 void lsc_stop(LscStream *arg0) {
-    M2C_UNK sp8;
+    s32 sp8;
     if (arg0 == NULL) {
-        log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+        log_printf__6TLobbyFPvi((const char *) (((s32 *)&lbl_8047DCF0)));
         return;
     }
     if ((s8) arg0->state != 0) {
@@ -202,7 +197,7 @@ void lsc_stop(LscStream *arg0) {
         }
         arg0->file_sector_count = 0;
         if (arg0 == NULL) {
-            log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+            log_printf__6TLobbyFPvi((const char *) (((s32 *)&lbl_8047DCF0)));
         } else if ((s8) arg0->state == 0) {
             arg0->write_index = 0;
             arg0->read_index = 0;
@@ -271,12 +266,12 @@ inline LscStream *find_free_803D1A98(void) {
 }
 
 void lsc_destroy(LscStream *arg0) {
-    M2C_UNK spC;
-    M2C_UNK sp8;
+    s32 spC;
+    s32 sp8;
     if (arg0 != NULL) {
         enter_lock__6TLobbyFv((void *) (&spC));
         if (arg0 == NULL) {
-            log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+            log_printf__6TLobbyFPvi((const char *) (((s32 *)&lbl_8047DCF0)));
         } else if ((s8) arg0->state != 0) {
             enter_lock__6TLobbyFv((void *) (&sp8));
             arg0->state = 0U;
@@ -290,7 +285,7 @@ void lsc_destroy(LscStream *arg0) {
             }
             arg0->file_sector_count = 0;
             if (arg0 == NULL) {
-                log_printf__6TLobbyFPvi((const char *) (((M2C_UNK *)&lbl_8047DCF0)));
+                log_printf__6TLobbyFPvi((const char *) (((s32 *)&lbl_8047DCF0)));
             } else if ((s8) arg0->state == 0) {
                 arg0->write_index = 0;
                 arg0->read_index = 0;

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_80101CFC { char pad[0x18]; };
 struct VObj_80101CFC : Base_80101CFC {
     virtual void m0();  virtual void m1();  virtual void m2();  virtual void m3();
@@ -19,10 +16,10 @@ void TItem__sub_80101CF0(void);
 void TItem__sub_80101CF4(void);
 void TItem__sub_80101CF8(void);
 s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1);
-M2C_UNK set_present_color__9TItemDataFPvi(void *, s8);
-M2C_UNK set_wrapped__9TItemDataFPv(void *);
-M2C_UNK set_packed_value__9TItemDataFPvUs(void *, u16);
-M2C_UNK init__9TItemDataFv(void *);
+s32 set_present_color__9TItemDataFPvi(void *, s8);
+s32 set_wrapped__9TItemDataFPv(void *);
+s32 set_packed_value__9TItemDataFPvUs(void *, u16);
+s32 init__9TItemDataFv(void *);
 
 void TItem__sub_80101CEC(void) {  }
 void TItem__sub_80101CF0(void) {  }
@@ -36,17 +33,17 @@ s32 copy_to_item_data__5TItemFPvPv(void *arg0, void *arg1) {
     struct VObj_80101CFC *o = (struct VObj_80101CFC *)arg0;
     if (item != NULL) {
         init__9TItemDataFv(item);
-        M2C_FIELD(item, u8 *, 0) = (u8) M2C_FIELD(o, u8 *, 0xEC);
-        M2C_FIELD(item, u8 *, 1) = (u8) M2C_FIELD(o, u8 *, 0xED);
-        M2C_FIELD(item, u8 *, 2) = (u8) M2C_FIELD(o, u8 *, 0xEE);
-        M2C_FIELD(item, s32 *, 0xC) = (s32) M2C_FIELD(o, s32 *, 0xD8);
+        *(u8 *)((s8 *)item + 0) = (u8) *(u8 *)((s8 *)o + 0xEC);
+        *(u8 *)((s8 *)item + 1) = (u8) *(u8 *)((s8 *)o + 0xED);
+        *(u8 *)((s8 *)item + 2) = (u8) *(u8 *)((s8 *)o + 0xEE);
+        *(s32 *)((s8 *)item + 0xC) = (s32) *(s32 *)((s8 *)o + 0xD8);
         o->m16(item);
-        if (M2C_FIELD(o, s32 *, 0xDC) & 0x100) {
-            set_packed_value__9TItemDataFPvUs(item, M2C_FIELD(o, u16 *, 0xE8));
+        if (*(s32 *)((s8 *)o + 0xDC) & 0x100) {
+            set_packed_value__9TItemDataFPvUs(item, *(u16 *)((s8 *)o + 0xE8));
         }
-        if (M2C_FIELD(o, s32 *, 0xDC) & 0x400) {
+        if (*(s32 *)((s8 *)o + 0xDC) & 0x400) {
             set_wrapped__9TItemDataFPv(item);
-            set_present_color__9TItemDataFPvi(item, (s8) M2C_FIELD(o, u8 *, 0xEA));
+            set_present_color__9TItemDataFPvi(item, (s8) *(u8 *)((s8 *)o + 0xEA));
         }
         return 1;
     }

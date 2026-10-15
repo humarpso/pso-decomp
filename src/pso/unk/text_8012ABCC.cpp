@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
     virtual void m0();
@@ -54,7 +51,7 @@ struct VObj_18 : VBase_18 {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual M2C_UNK m49(M2C_UNK *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m49(s32 *, s32, s32, s32);
 };
 
 struct VBase_18_382324
@@ -112,7 +109,7 @@ struct VObj_18_382324 : VBase_18_382324 {
     virtual void m46();
     virtual void m47();
     virtual void m48();
-    virtual M2C_UNK m49(void *, M2C_UNK, M2C_UNK, M2C_UNK);
+    virtual s32 m49(void *, s32, s32, s32);
 };
 
 struct RecoveredFields_8012ABCC_arg0
@@ -186,9 +183,9 @@ struct Pl_8012AC68 : PlB_8012AC68 {
 
 extern "C" {
 s32 get_internet_beat__6TLobbyFv();
-M2C_UNK send_6x61_activate_mag_effect(void *, int);
+s32 send_6x61_activate_mag_effect(void *, int);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
+s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 get_extended_state__10TObjPlayerFPv(int);
 void heaven_punisher_attack_marker(u8 *arg0);
 s32 get_current_floor();
@@ -197,7 +194,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 void heaven_punisher_receive_effect(u8 *arg0, s32 arg1);
 u32 *copy_attack_targets(u32 *dst, u32 *src);
 void spawn_heaven_effect__10TObjPlayerFiUiUsi(s32, s32, u32, s16);
-M2C_UNK draw_status_icon__10TObjPlayerFPvi(void *, void *);
+s32 draw_status_icon__10TObjPlayerFPvi(void *, void *);
 s32 get_captured_target_collider_index(s32);
 u32 get_uid__10TObjPlayerFPv(s32);
 s32 get_captured_target_entry(void *, s32);
@@ -251,10 +248,10 @@ void heaven_punisher_strike_locks(Pl_8012AC68 *arg0) {
 }
 
 void heaven_punisher_attack_marker(u8 *arg0) {
-    M2C_UNK sp8;
-    M2C_UNK var_r31;
+    s32 sp8;
+    s32 var_r31;
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        copy_attack_targets((u32 *)((void *) (arg0 + 0x1F8)), (u32 *)((int) (get_extended_state__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0))))));
+        copy_attack_targets((u32 *)((void *) (arg0 + 0x1F8)), (u32 *)((int) (get_extended_state__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0xF0))))));
         draw_status_icon__10TObjPlayerFPvi((void *) (arg0), (void *) (arg0 + 0x224));
         var_r31 = 0;
         if (!((get_internet_beat__6TLobbyFv() / 100) & 1)) {

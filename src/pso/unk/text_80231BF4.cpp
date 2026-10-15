@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #include <stddef.h>
 #pragma fp_contract on
 struct RecoveredGlobal_802384E0_lbl_804CCB28;
@@ -17,19 +14,19 @@ struct Stack_80238388 {
 };
 
 struct RecoveredGlobal_80238388_lbl_8044DAF0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0xC];
 };
 
 struct RecoveredGlobal_80230D9C_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80230D9C_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -93,30 +90,30 @@ struct Self_80239070 {
 };
 
 struct Stack_802384E0 {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802384E0_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802384E0_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 
 struct Stack_802385EC {
-    M2C_UNK sp8;
+    s32 sp8;
     f32 spC;
     u8 trailing_storage[0x4];
 };
 
-struct RecoveredGlobal_802385EC_lbl_804CCB28 { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_802385EC_lbl_804CCB28 { s32 value; u8 remaining[0x14]; };
 
 struct RecoveredGlobal_80238D10_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80238D10_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -299,8 +296,8 @@ typedef char RecoveredGlobal_80238D10_lbl_804CC55C_size[((sizeof(RecoveredGlobal
 void TTecGiZonde__vt6(u8 *arg0, u8 *arg1) {
     Elec_80238E14 d;
     d.type = 3;
-    d.val = M2C_FIELD(arg0, f32 *, 0xcc);
-    ((VObj_18_9c98dd *)(arg1))->m21(M2C_FIELD(arg0, s32 *, 0x1C), d, 0, 0x7, -1);
+    d.val = *(f32 *)((s8 *)arg0 + 0xcc);
+    ((VObj_18_9c98dd *)(arg1))->m21(*(s32 *)((s8 *)arg0 + 0x1C), d, 0, 0x7, -1);
 }
 #pragma push
 #pragma opt_loop_invariants off

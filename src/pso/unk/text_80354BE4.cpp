@@ -1,79 +1,76 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct RecoveredGlobal_80354BE4_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354C2C_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354C7C_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354CCC_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354D14_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354D5C_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354DAC_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct RecoveredGlobal_80354DF4_lbl_80543984 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x20];
 };
 
 struct E_80354E7C { u8 b[8]; };
 
 extern "C" {
-M2C_UNK finish_quest_thread__10TObjPlayerFv(void *, int);
+s32 finish_quest_thread__10TObjPlayerFv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354BE4(s32 arg0);
-M2C_UNK set_player_index__10TObjPlayerFPvi(void *, void *, int);
+s32 set_player_index__10TObjPlayerFPvi(void *, void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354C2C(s32 arg0, s32 arg1);
 s32 TObjPlayer__sub_80354F8C(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 s32 TObjPlayer__sub_80354C7C(s32 arg0);
-M2C_UNK TObjPlayer__sub_80354FB0(void *, int);
+s32 TObjPlayer__sub_80354FB0(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354CCC(s32 arg0);
-M2C_UNK set_flag0_bits01__10TObjPlayerFPv(void *, int);
+s32 set_flag0_bits01__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354D14(s32 arg0);
 s32 clear_lock_flag__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 s32 TObjPlayer__sub_80354D5C(s32 arg0);
-M2C_UNK TObjPlayer__sub_8035501C(void *, int);
+s32 TObjPlayer__sub_8035501C(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DAC(s32 arg0);
-M2C_UNK set_flag1__10TObjPlayerFPv(void *, int);
+s32 set_flag1__10TObjPlayerFPv(void *, int);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354DF4(s32 arg0);
 s32 is_locally_controlled__10TObjPlayerFPv();
 u32 get_player_by_client_id(u16);
 s32 TObjPlayer__sub_80354E3C(s32 arg0);
-M2C_UNK reset_field4__10TObjPlayerFPv(void *);
+s32 reset_field4__10TObjPlayerFPv(void *);
 extern RecoveredGlobal_80354BE4_lbl_80543984 lbl_80543984;
 void TObjPlayer__sub_80354E7C(void);
 }

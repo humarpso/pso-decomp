@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct Base_800BA0D8_800B9FE8 { char pad[0x18]; };
 struct VObj_800BA0D8_800B9FE8 : Base_800BA0D8_800B9FE8 {
     virtual void m0();    virtual void m1();    virtual void m2();    virtual void m3();
@@ -62,7 +59,7 @@ f32 calc_elapsed_scaled__9TObjEneDDFv(void) {
 }
 
 u8 TObjEneDD__vt96(void *arg0) {
-    return (u8) (((M2C_FIELD(arg0, s32 *, 0x30) & 0x10) - 0x10) == 0);
+    return (u8) (((*(s32 *)((s8 *)arg0 + 0x30) & 0x10) - 0x10) == 0);
 }
 
 void TObjEneDD__vt95(Obj_800BA030 *self) {
@@ -82,7 +79,7 @@ void TObjEneDD__vt94(Obj_800BA084 *self) {
 void TObjEneDD__vt93(void *arg0) {
     ((VObj_800BA0D8_800B9FE8*)arg0)->m90();
     ((VObj_800BA0D8_800B9FE8*)arg0)->m91();
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) & 0xFBFBFFFF);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);
 }
 
 }

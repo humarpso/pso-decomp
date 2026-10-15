@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -43,14 +39,14 @@ void swap_6x61_fields__10TObjPlayerFPv(void* p) {
 }
 
 void TObjPlayer__sub_80102D84(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 4) = -1;
-    M2C_FIELD(arg0, s8 *, 0) = 0x61;
-    M2C_FIELD(arg0, s32 *, 8) = 0;
-    M2C_FIELD(arg0, s8 *, 1) = 3;
+    *(s32 *)((s8 *)arg0 + 4) = -1;
+    *(s8 *)((s8 *)arg0 + 0) = 0x61;
+    *(s32 *)((s8 *)arg0 + 8) = 0;
+    *(s8 *)((s8 *)arg0 + 1) = 3;
 }
 
 u8 is_not_matching_lobby_id__10TObjPlayerFPv(void *arg0) {
-    return (u8) (is_matching_id__6TLobbyFiUs(arg0, M2C_FIELD(arg0, u16 *, 2)) == 0);
+    return (u8) (is_matching_id__6TLobbyFiUs(arg0, *(u16 *)((s8 *)arg0 + 2)) == 0);
 }
 
 }

@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 #define CAT2(a, b) a##b
 #define CAT(a, b) CAT2(a, b)
 #define PADV virtual void CAT(pv, __LINE__)();
@@ -93,7 +90,7 @@ struct VObj_18 : VBase_18 {
     virtual void m74();
     virtual void m75();
     virtual void m76();
-    virtual M2C_UNK m77();
+    virtual s32 m77();
 };
 
 struct Obj_80188884 { u8 pad0[0x38]; u8 pos[0x28]; s32 id; u8 pad1[0x326 - 0x64]; s16 state; };
@@ -140,8 +137,8 @@ struct Obj_80188768 { u8 pad0[0x1C]; u16 f1C; u8 pad1[0x62]; u32 f80; s32 f84; }
 struct Pkt_80188768 { u16 a; u16 b; s32 c; s32 d; s32 e; };
 
 extern "C" {
-M2C_UNK queue_destruction__7TObjectFv(void *);
-M2C_UNK set_flag8__6TLobbyFPv(void *);
+s32 queue_destruction__7TObjectFv(void *);
+s32 set_flag8__6TLobbyFPv(void *);
 void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2);
 s32 set_global_param__8TObjFishFi(s32);
 s32 push_matrix();
@@ -160,14 +157,14 @@ extern char lbl_80444EF4[];
 extern u8 lbl_804A7448[];
 extern const f32 lbl_805DBCF8;
 void TObjContainerAbeEnemy__vt80(Obj_80188814 *self);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 s32 get_bml_model(void *, s32);
 void reset_photon_effect__10TObjPlayerFPv(void *);
 u32 init_collision_body_parts(void *, void *, s32);
 void set_type__14TOKeyAncient01FPv(void *);
 void *TObjMesBase__ct(void *, void *, void *);
-extern M2C_UNK lbl_804B6254[];
-extern M2C_UNK __vt__12TObjComputer[];
+extern s32 lbl_804B6254[];
+extern s32 __vt__12TObjComputer[];
 extern s32 lbl_805D32CC;
 extern u32 TObjComputer__model_archive;
 extern s16 TObjComputer__data_805DBCD8[2];
@@ -179,29 +176,29 @@ s32 load_gvm_texture_file(char *);
 s32 get_global_state__14TOKeyMachine01Fv();
 extern char lbl_80444B60[];
 extern char lbl_80444B78[];
-extern M2C_UNK fe_obj_tanmatu02_resource_descriptor[];
-extern M2C_UNK fs_obj_tanmatu02_resource_descriptor[];
+extern s32 fe_obj_tanmatu02_resource_descriptor[];
+extern s32 fs_obj_tanmatu02_resource_descriptor[];
 extern u32 TObjComputer__model_archive;
 extern u32 TObjComputer__texture_gvm_handle;
 extern s16 lbl_805D5B70;
 void load_computer_resources(void);
-M2C_UNK begin_effect_render__13TParticleCtrlFv();
-M2C_UNK end_effect_render__13TParticleCtrlFv();
-M2C_UNK scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
-M2C_UNK PPCSync();
+s32 begin_effect_render__13TParticleCtrlFv();
+s32 end_effect_render__13TParticleCtrlFv();
+s32 scroll_ginja_mesh_uvs(void *, s32, s32, u16, s32);
+s32 PPCSync();
 s32 rotate_matrix_y(s32, s32);
-M2C_UNK rotate_matrix_by_node_angles(void *, u32);
+s32 rotate_matrix_by_node_angles(void *, u32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(s32);
-M2C_UNK draw_ginja_object(void *);
+s32 draw_ginja_object(void *);
 extern u32 actor_frame_tick;
 extern u32 TObjComputer__texture_gvm_handle;
 extern s16 lbl_805D5B70;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
-M2C_UNK draw_model__12TObjComputerFPv(void *arg0);
+s32 draw_model__12TObjComputerFPv(void *arg0);
 s32 get_current_floor();
 void send_object_state_update(void *, void *);
 s32 access_object_saved_state(void *, void *, int);
@@ -221,21 +218,21 @@ void *create__12TObjComputerFPv(void *arg0);
 void free_resources__12TObjComputerFv(void);
 void render__12TObjComputerFv(u8 *arg0);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK TLobby__sub_803DA16C(void*);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK TObjMesBase__vt12();
-M2C_UNK unregister_object_by_id(M2C_UNK *);
-M2C_UNK submit_cursor_candidate(void *, M2C_UNK);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__11TObjMesBaseFv(void *, M2C_UNK);
+s32 TLobby__sub_803DA16C(void*);
+s32 free_collision_body_parts(void *);
+s32 TObjMesBase__vt12();
+s32 unregister_object_by_id(s32 *);
+s32 submit_cursor_candidate(void *, s32);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__11TObjMesBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
-M2C_UNK clear_ref_if_destroyed__11TObjMesBaseFPv();
-M2C_UNK safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
+s32 clear_ref_if_destroyed__11TObjMesBaseFPv();
+s32 safe_free__23TAdSinglePlyChrSelectGCFUi(u32);
 
 extern const f32 lbl_805DBCDC;
 extern const f32 lbl_805DBCE0;
 
-M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
+s32 draw_model__12TObjComputerFPv(void *arg0) {
     Computer_8018807C *self = (Computer_8018807C *)arg0;
     if (self->model == NULL) {
         return;
@@ -248,7 +245,7 @@ M2C_UNK draw_model__12TObjComputerFPv(void *arg0) {
         u32 tick = actor_frame_tick;
         if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
             self->tick_c4 = tick;
-            scroll_ginja_mesh_uvs(M2C_FIELD(self->model->sub2c, void **, 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
+            scroll_ginja_mesh_uvs(*(void **)((s8 *)self->model->sub2c + 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
             PPCSync();
             f32 time = self->time_c0;
             self->time_c0 = time - (f32)(s32)time;
@@ -277,17 +274,17 @@ extern f32 lbl_805DBCE8;
 
 void TObjComputer__vt13(void *arg0) {
     clear_ref_if_destroyed__11TObjMesBaseFPv();
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + lbl_805DBCE8);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + lbl_805DBCE8);
 }
 
 extern f32 lbl_805DBCE8;
 
 void TObjComputer__vt12(void *arg0) {
     TObjMesBase__vt12();
-    if ((s32) M2C_FIELD(arg0, s32 *, 0xB4) != 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0xB4) != 0) {
         submit_cursor_candidate(arg0, -1);
     }
-    M2C_FIELD(arg0, f32 *, 0xC0) = (f32) (M2C_FIELD(arg0, f32 *, 0xC0) + lbl_805DBCE8);
+    *(f32 *)((s8 *)arg0 + 0xC0) = (f32) (*(f32 *)((s8 *)arg0 + 0xC0) + lbl_805DBCE8);
 }
 
 extern void *tl_05;
@@ -315,7 +312,7 @@ void free_resources__12TObjComputerFv(void) {
     }
 }
 
-extern M2C_UNK __vt__12TObjComputer[];
+extern s32 __vt__12TObjComputer[];
 
 void load_computer_resources(void) {
     void *p;
@@ -344,8 +341,8 @@ void load_computer_resources(void) {
 
 void *__dt__12TObjComputerFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjComputer;
-        unregister_object_by_id((M2C_UNK *)arg0);
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjComputer;
+        unregister_object_by_id((s32 *)arg0);
         free_collision_body_parts(arg0);
         __dt__11TObjMesBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -387,12 +384,12 @@ void TObjContainerAbeEnemy__vt4(u8 *arg0, s16 *arg1, s32 arg2) {
             ((VObj_18 *)(arg0))->m77();
             set_flag8__6TLobbyFPv((void *) (arg0));
             queue_destruction__7TObjectFv((void *) (arg0));
-            M2C_FIELD(arg0, s16 *, 0x326) = 1;
+            *(s16 *)((s8 *)arg0 + 0x326) = 1;
         }
     } else if ((s16) *arg1 == 1) {
         set_flag8__6TLobbyFPv((void *) (arg0));
         queue_destruction__7TObjectFv((void *) (arg0));
-        M2C_FIELD(arg0, s16 *, 0x326) = 1;
+        *(s16 *)((s8 *)arg0 + 0x326) = 1;
     }
 }
 

@@ -3,10 +3,6 @@
 
 #include "types.h"
 #include "pso/item/TItemMag.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -73,8 +69,8 @@ struct VObj_18_8b050c : VBase_18_8b050c {
     virtual void m41();
     virtual void m42();
     virtual void m43();
-    virtual M2C_UNK m44();
-    virtual M2C_UNK m45();
+    virtual s32 m44();
+    virtual s32 m45();
 };
 
 struct Self_801124C4
@@ -136,22 +132,22 @@ s32 get_item_field_6__10TObjPlayerFPv(int);
 u8 get_field_ed__10TObjPlayerFPv(s32);
 void set_flag_4__9TObjLukerFPv(void *);
 u8 * get_type__8TItemMagFPv(s32);
-M2C_UNK set_type__10TObjPlayerFPvi(s32, s32);
+s32 set_type__10TObjPlayerFPvi(s32, s32);
 void construct_target_cursor_records__10TObjPlayerFi(void *);
 s32 is_quest_active();
 s32 is_flag_set__6TLobbyFv();
 s16 get_field_2b8__14TItemProShieldFPv(void *);
 s32 clear_flag4_bit4__22TQuestVmDownLoadServerFPv(void *);
-s32 test_action_mask__10TObjPlayerFPvi(s32, M2C_UNK);
+s32 test_action_mask__10TObjPlayerFPvi(s32, s32);
 s32 spawn_particle_effect(void *, int);
 s32 get_field_d8__10TObjPlayerFPv(int);
-M2C_UNK apply_switch_attack__5TItemFPvi(void *, M2C_UNK);
-M2C_UNK refresh_owner_stats__5TItemFPv(void *);
-M2C_UNK set_field_EE__8TItemMagFPvUc(void *, void *);
+s32 apply_switch_attack__5TItemFPvi(void *, s32);
+s32 refresh_owner_stats__5TItemFPv(void *);
+s32 set_field_EE__8TItemMagFPvUc(void *, void *);
 int fn_80100D9C(s32, s32);
-M2C_UNK send_6x61_activate_mag_effect(void *, s32);
+s32 send_6x61_activate_mag_effect(void *, s32);
 s32 get_item_info__10TObjPlayerFiiPv(int, int, int);
-M2C_UNK copy_to_item_data__5TItemFPvPv(s32, void *);
+s32 copy_to_item_data__5TItemFPvPv(s32, void *);
 s8 TObjPlayer__sub_80102C30(void *);
 int get_flag_40__8TItemMagFPv(void *);
 void spawn_item_timer__13TItemAttackerFiii(void *a, void *fn, s32 t);
@@ -208,7 +204,7 @@ s16 get_mag_data__10TObjPlayerFPv(s32);
 s16 get_mag_item_data(s32);
 s16 get_mag_level(s32);
 s16 get_mag_item_percent();
-M2C_UNK get_mag_item_stat_percent(s32);
+s32 get_mag_item_stat_percent(s32);
 s32 get_status_flag__8TItemMagFPv(void *);
 s32 get_item_type__8TItemMagFPv(void *);
 s32 get_sync__8TItemMagFPv(void *);
@@ -216,16 +212,16 @@ s32 is_active__8TItemMagFPv(u32);
 s32 get_sub_value__8TItemMagFi(void *);
 void TItemMag__sub_80113EDC(s32, s16, s8);
 s32 get_mag_id__8TItemMagFPv(s32);
-M2C_UNK clear_feed_flags__8TItemMagFPvUi(void *, M2C_UNK);
+s32 clear_feed_flags__8TItemMagFPvUi(void *, s32);
 void set_flags__8TItemMagFPvUi(void *, u32);
-u32 test_flags__8TItemMagFPvUi(void *, M2C_UNK);
-M2C_UNK add_photon_blast__8TItemMagFPvUc(void *, int);
-M2C_UNK add_clamped_stat__8TItemMagFPvi(void *, int);
-M2C_UNK add_stat_clamped__8TItemMagFPvi(void *, int);
-M2C_UNK mag_feed_add_mind(void *, int);
-M2C_UNK TItemMag__sub_80114198(void *, int);
-M2C_UNK add_stat_level_capped__8TItemMagFPvs(void *, int);
-M2C_UNK mag_feed_add_def(void *, int);
+u32 test_flags__8TItemMagFPvUi(void *, s32);
+s32 add_photon_blast__8TItemMagFPvUc(void *, int);
+s32 add_clamped_stat__8TItemMagFPvi(void *, int);
+s32 add_stat_clamped__8TItemMagFPvi(void *, int);
+s32 mag_feed_add_mind(void *, int);
+s32 TItemMag__sub_80114198(void *, int);
+s32 add_stat_level_capped__8TItemMagFPvs(void *, int);
+s32 mag_feed_add_def(void *, int);
 s32 get_photon_blast_at_slot__8TItemMagFPvi(void *, s32);
 s16 get_mag_total_level(void *);
 void transition_motion_type__11TItemMagSubFl(u8 *arg0, s32 arg1);
@@ -233,13 +229,13 @@ void clear_optional_oscillation_flag__11TItemMagSubFPv(void *arg0);
 s32 get_world_position__11TItemMagSubFPv(u8 *arg0, u32 arg1);
 u8 * get_mag_feed_result(s32, s32);
 u8 * get_pmt_record__10TObjPlayerFi(u8);
-M2C_UNK send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
-M2C_UNK decrement_clamp__10TObjPlayerFPvi(s32, s32);
+s32 send_6x26_unequip_item__10TObjPlayerFPvPv(int, int);
+s32 decrement_clamp__10TObjPlayerFPvi(s32, s32);
 void assign_default_photon_blast_palette_slots(s32);
 void assign_photon_blast_palette_slot(u8 *arg0, s32 arg1);
 s32 is_boss_area();
 s32 get_global_state__14TOKeyMachine01Fv();
-M2C_UNK play_sound_effect(int, int, int, int);
+s32 play_sound_effect(int, int, int, int);
 void create__10TTecDebandFiii(void *, void *, int);
 void create__9TTecRestaFPvPvPv(void *, void *, int);
 void create__12TTecReverserFPvPvPvPv(void *, void *, void *, int);
@@ -315,7 +311,7 @@ void *__vt__8TItemMag[51] = {
     (void *)&TItemMag__vt42, (void *)&TItemMag__vt43, (void *)&TItemMag__vt44, (void *)&TItemMag__vt45,
     (void *)&TItemEquipBase__sub_8010A93C, (void *)&TItemEquipBase__sub_8010A938, (void *)&TItemMag__vt48,
 };
-#define __vt__8TItemMag ((M2C_UNK *)__vt__8TItemMag)
+#define __vt__8TItemMag ((s32 *)__vt__8TItemMag)
 
 inline f32 frand_80110A18(void) {
     f32 r = lbl_805DAB9C * (f32) rand();
@@ -332,10 +328,10 @@ extern int fold_flush_0;
 void resolve_sentinel_color__8TItemMagFv(u8 *arg0) {
     u8 v;
 
-    if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xD7) != 0) {
-        v = (u8) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s16 *, 0x896);
+    if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xD7) != 0) {
+        v = (u8) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x896);
     } else {
-        v = (u8) M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), s16 *, 0x894);
+        v = (u8) *(s16 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x894);
     }
     v = v % 9;
     if (v >= 7) {
@@ -344,7 +340,7 @@ void resolve_sentinel_color__8TItemMagFv(u8 *arg0) {
     if (lbl_805DAB9C * (f32) rand() < lbl_805DABA0) {
         v += 9;
     }
-    M2C_FIELD(arg0, u8 *, 0x1A6) = v;
+    *(u8 *)((s8 *)arg0 + 0x1A6) = v;
 }
 extern int fold_flush_1;
 #pragma pop
@@ -352,9 +348,9 @@ extern int fold_flush_1;
 void call_preserve_flag__8TItemMagFPvi(void *arg0, s32 arg1) {
     u8 temp_r31;
 
-    temp_r31 = M2C_FIELD(arg0, u8 *, 1);
+    temp_r31 = *(u8 *)((s8 *)arg0 + 1);
     copy_to_item_data__5TItemFPvPv(arg1, arg0);
-    M2C_FIELD(arg0, u8 *, 1) = temp_r31;
+    *(u8 *)((s8 *)arg0 + 1) = temp_r31;
 }
 
 void try_add_action__8TItemMagFii(s32 arg0, s32 arg1) {
@@ -430,7 +426,7 @@ s32 check_evolution_cond__8TItemMagFUii(u32 arg0, s32 arg1) {
 s32 check_feed_state__8TItemMagFPvi(void *arg0, s32 arg1) {
     s16 temp_r3;
 
-    temp_r3 = obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0));
+    temp_r3 = obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0));
     if (arg1 == 7) {
         if (temp_r3 != 0) {
             return 0;
@@ -449,22 +445,22 @@ void copy_owner_data__8TItemMagFPv(u8 *arg0) {
 
     temp_r3 = get_pmt_record__10TObjPlayerFi(((int (*)(void))get_field_ed__10TObjPlayerFPv)());
     if (temp_r3 != NULL) {
-        M2C_FIELD(arg0, s32 *, 0x1B8) = (s32) M2C_FIELD(temp_r3, s16 *, 8);
-        M2C_FIELD(arg0, u8 *, 0x1BC) = (u8) M2C_FIELD(temp_r3, u8 *, 0xB);
-        ((M2C_UNK (*)(void *, void *, void *))copy_owner_pair__8TItemMagFPvPvPv)(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
+        *(s32 *)((s8 *)arg0 + 0x1B8) = (s32) *(s16 *)((s8 *)temp_r3 + 8);
+        *(u8 *)((s8 *)arg0 + 0x1BC) = (u8) *(u8 *)((s8 *)temp_r3 + 0xB);
+        ((s32 (*)(void *, void *, void *))copy_owner_pair__8TItemMagFPvPvPv)(arg0, temp_r3 + 0xC, temp_r3 + 0x10);
     }
 }
 
 void register_photon_blasts__8TItemMagFPv(u8 *arg0) {
     s32 temp_r3;
     s32 var_r30;
-    assign_default_photon_blast_palette_slots(M2C_FIELD(arg0, s32 *, 0xF0) + 0x500);
+    assign_default_photon_blast_palette_slots(*(s32 *)((s8 *)arg0 + 0xF0) + 0x500);
     var_r30 = 0;
     do {
         temp_r3 = get_photon_blast_at_slot__8TItemMagFPvi(arg0 + 0x198, var_r30);
         if (temp_r3 != -1) {
-            TItemMag__sub_80113EDC(M2C_FIELD(arg0, s32 *, 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFPv)(arg0));
-            assign_photon_blast_palette_slot(M2C_FIELD(arg0, u8 **, 0xF0) + 0x500, (s16) temp_r3);
+            TItemMag__sub_80113EDC(*(s32 *)((s8 *)arg0 + 0xF0) + 0x4AC, (s16) temp_r3, ((u8 (*)(void *)) get_slot_count__14TItemProShieldFPv)(arg0));
+            assign_photon_blast_palette_slot(*(u8 **)((s8 *)arg0 + 0xF0) + 0x500, (s16) temp_r3);
         }
         var_r30 += 1;
     } while (var_r30 != 3);
@@ -483,7 +479,7 @@ u8 mag_owner_has_motion_action(void *arg0) {
     int var_r31;
 
     var_r31 = 0;
-    if ((test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xF0), 4) != 0) || (test_action_mask__10TObjPlayerFPvi(M2C_FIELD(arg0, s32 *, 0xF0), 0x10) != 0)) {
+    if ((test_action_mask__10TObjPlayerFPvi(*(s32 *)((s8 *)arg0 + 0xF0), 4) != 0) || (test_action_mask__10TObjPlayerFPvi(*(s32 *)((s8 *)arg0 + 0xF0), 0x10) != 0)) {
         var_r31 = 1;
     }
     return (u8) var_r31;
@@ -493,7 +489,7 @@ s32 mag_owner_freezes_follow(void *arg0) {
     s32 var_r31;
 
     var_r31 = 0;
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (is_active__8TItemMagFPv(M2C_FIELD(arg0, u32 *, 0xF0)) != 0)) {
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (is_active__8TItemMagFPv(*(u32 *)((s8 *)arg0 + 0xF0)) != 0)) {
         var_r31 = 1;
     }
     return var_r31;
@@ -507,7 +503,7 @@ s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     u8 var_r5;
     u8 *temp_r4;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0x19A);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0x19A);
     if (temp_r0 < 0x1F) {
         var_r5 = 0;
     } else if (temp_r0 < 0x3D) {
@@ -521,20 +517,20 @@ s32 check_action_probability__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     }
     temp_r4 = arg0 + arg1;
     var_r31 = 0;
-    if ((u8) M2C_FIELD(temp_r4, u8 *, 0x1BD) != 0) {
-        temp_r0_2 = M2C_FIELD(temp_r4, u8 *, 0x1C1);
+    if ((u8) *(u8 *)((s8 *)temp_r4 + 0x1BD) != 0) {
+        temp_r0_2 = *(u8 *)((s8 *)temp_r4 + 0x1C1);
         switch ((s32) temp_r0_2) {
         case 0:
-            var_r31 = M2C_FIELD(arg0, u8 *, 0x1BC);
+            var_r31 = *(u8 *)((s8 *)arg0 + 0x1BC);
             break;
         case 1:
-            var_r31 = M2C_FIELD(arg0, u8 *, 0x1BC) + var_r5;
+            var_r31 = *(u8 *)((s8 *)arg0 + 0x1BC) + var_r5;
             break;
         case 2:
             var_r31 = var_r5;
             break;
         case 3:
-            temp_r3 = M2C_FIELD(arg0, u8 *, 0x1BC);
+            temp_r3 = *(u8 *)((s8 *)arg0 + 0x1BC);
             if (temp_r3 > 0xAU) {
                 var_r31 = temp_r3 - 0xA;
             } else {
@@ -568,34 +564,34 @@ void apply_transform_action__8TItemMagFPvUc(u8 *arg0, u8 arg1) {
     temp_r31 = ((u8 (*)(void *))get_field_ed__10TObjPlayerFPv)((void *) (arg0));
     switch ((s32) arg1) {
     case 0:
-        if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), u8 *, 0x88C) & 1) {
-            ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x1D));
+        if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x88C) & 1) {
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x1D));
         } else {
-            ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x21));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x21));
         }
         break;
     case 1:
-        if (M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), u8 *, 0x88C) & 1) {
-            ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x22));
+        if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x88C) & 1) {
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x22));
         } else {
-            ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x27));
+            ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x27));
         }
         break;
     case 2:
-        ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x28));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x28));
         break;
     case 3:
-        ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x29));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x29));
         break;
     case 4:
-        ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x2A));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x2A));
         break;
     case 5:
-        ((M2C_UNK (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x2B));
+        ((s32 (*)(void *, int))try_add_action__8TItemMagFii)((void *) (arg0), (int) (0x2B));
         break;
     }
     if (temp_r31 != ((u8 (*)(void *))get_field_ed__10TObjPlayerFPv)((void *) (arg0))) {
-        ((M2C_UNK (*)(void *))apply_form_change__8TItemMagFPv)((void *) (arg0));
+        ((s32 (*)(void *))apply_form_change__8TItemMagFPv)((void *) (arg0));
     }
 }
 
@@ -642,7 +638,7 @@ s32 get_evolution_stage__8TItemMagFPv(void * _w0) {
         var_r31 = 0x42;
     }
     if (var_r31 <= 0x42U) {
-        return M2C_FIELD(M2C_FIELD(get_type__8TItemMagFPv(TItemMag__item_load_instance), s32 *, 0x14), s8 *, var_r31);
+        return *(s8 *)((s8 *)(*(s32 *)((s8 *)(get_type__8TItemMagFPv(TItemMag__item_load_instance)) + 0x14)) + var_r31);
     }
     return 0;
 }
@@ -709,22 +705,22 @@ u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
     s16 pct;
     s8 group;
     before = ((u8 (*)(void *))get_field_ed__10TObjPlayerFPv)(arg0);
-    if (M2C_FIELD(arg0, u8 **, 0xF0) != NULL && get_mag_total_level(arg0 + 0x198) >= 100) {
-        group = (s8)M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xF0), u8 *, 0x88C) % 3;
+    if (*(u8 **)((s8 *)arg0 + 0xF0) != NULL && get_mag_total_level(arg0 + 0x198) >= 100) {
+        group = (s8)*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xF0)) + 0x88C) % 3;
         pct = ((s16 (*)(s32))get_mag_item_percent)((s32)arg0);
         level = get_mag_level((s32)arg0);
         data = get_mag_item_data((s32)arg0);
         stat = ((s16 (*)(s32))get_mag_item_stat_percent)((s32)arg0);
-        idx = (u32)__cntlzw(check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0x7F)) >> 5;
+        idx = (u32)__cntlzw(check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0x7F)) >> 5;
         idx += group * 2;
-        if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) == 0) {
-            if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
+        if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xF9) == 0) {
+            if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xFA) != 0) {
                 idx += 6;
-            } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
+            } else if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xFC) != 0) {
                 idx += 12;
             }
         }
-        if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xF9) != 0) {
+        if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xF9) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {
@@ -742,7 +738,7 @@ u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
                 }
                 break;
             }
-        } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFA) != 0) {
+        } else if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xFA) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {
@@ -760,7 +756,7 @@ u8 evolve_rare_form__8TItemMagFPv(u8 *arg0) {
                 }
                 break;
             }
-        } else if (check_class_equip_permission(M2C_FIELD(arg0, u8 **, 0xF0), 0xFC) != 0) {
+        } else if (check_class_equip_permission(*(u8 **)((s8 *)arg0 + 0xF0), 0xFC) != 0) {
             switch (group) {
             case 0:
                 if (pct + data == stat + level) {
@@ -792,169 +788,169 @@ void update_feed_anim__8TItemMagFPv(void *arg0) {
     s8 temp_r28;
     void *temp_r4;
 
-    if ((void *) M2C_FIELD(arg0, void **, 0xF0) != NULL) {
+    if ((void *) *(void **)((s8 *)arg0 + 0xF0) != NULL) {
         temp_r25 = ((s32 (*)(void))get_max_stat_flags__8TItemMagFi)();
-        temp_r4 = M2C_FIELD(arg0, void **, 0xF0);
-        temp_r28 = (s8) M2C_FIELD(temp_r4, u8 *, 0x88C);
+        temp_r4 = *(void **)((s8 *)arg0 + 0xF0);
+        temp_r28 = (s8) *(u8 *)((s8 *)temp_r4 + 0x88C);
         temp_r29 = ((s16 (*)(void *, void *))get_mag_item_percent)(arg0, temp_r4);
         temp_r30 = ((s16 (*)(void *))get_mag_level)(arg0);
         temp_r31 = ((s16 (*)(void *))get_mag_item_data)(arg0);
         temp_r26 = ((s16 (*)(void *))get_mag_item_stat_percent)(arg0);
-        if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)(M2C_FIELD(arg0, void **, 0xF0), 0xF9) != 0) {
+        if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)arg0 + 0xF0), 0xF9) != 0) {
             if (temp_r25 & 0x108) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(5));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(5));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xC));
                     return;
                 }
                 if (temp_r31 <= temp_r30) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(6));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(6));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(8));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(8));
                 return;
             }
             if (temp_r25 & 0x10) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x13));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x13));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x17));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x17));
                     return;
                 }
                 if (temp_r29 <= temp_r31) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x10));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x10));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x12));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x12));
                 return;
             }
             if (temp_r25 & 0x20) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r30 <= temp_r29) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1E));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1E));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(7));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(7));
                     return;
                 }
                 if (temp_r30 <= temp_r29) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x24));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x24));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x16));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x16));
             }
-        } else if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)(M2C_FIELD(arg0, void **, 0xF0), 0xFA) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)arg0 + 0xF0), 0xFA) != 0) {
             if (temp_r25 & 0x110) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r29 <= temp_r31) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(6));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(6));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xC));
                     return;
                 }
                 if (temp_r29 <= temp_r31) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(5));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(5));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xA));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xA));
                 return;
             }
             if (temp_r25 & 8) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r31 <= temp_r30) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(6));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(6));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xC));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xC));
                     return;
                 }
                 if (temp_r31 <= temp_r30) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x26));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x26));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xA));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xA));
                 return;
             }
             if (temp_r25 & 0x20) {
                 if (!(temp_r28 & 1)) {
                     if (temp_r30 <= temp_r29) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(5));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(5));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(8));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(8));
                     return;
                 }
                 if (temp_r30 <= temp_r29) {
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1E));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1E));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x18));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x18));
             }
-        } else if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)(M2C_FIELD(arg0, void **, 0xF0), 0xFC) != 0) {
+        } else if (((s32 (*)(void *, s32))check_class_equip_permission)(*(void **)((s8 *)arg0 + 0xF0), 0xFC) != 0) {
             if (temp_r25 & 0x120) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r30 <= temp_r29) {
-                            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1C));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1C));
                             return;
                         }
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1E));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1E));
                         return;
                     }
                     if (temp_r30 <= temp_r29) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(9));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(9));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x17));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x17));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x24));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x24));
                 return;
             }
             if (temp_r25 & 8) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r31 <= temp_r30) {
-                            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x25));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x25));
                             return;
                         }
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1F));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1F));
                         return;
                     }
                     if (temp_r31 <= temp_r30) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x20));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x20));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1C));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1C));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x23));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x23));
                 return;
             }
             if (temp_r25 & 0x10) {
                 if (temp_r26 <= 0x2C) {
                     if (!(temp_r28 & 1)) {
                         if (temp_r29 <= temp_r31) {
-                            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x11));
+                            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x11));
                             return;
                         }
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x15));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x15));
                         return;
                     }
                     if (temp_r29 <= temp_r31) {
-                        ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xC));
+                        ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xC));
                         return;
                     }
-                    ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x12));
+                    ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x12));
                     return;
                 }
-                ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x24));
+                ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x24));
             }
         }
     }
@@ -969,42 +965,42 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
     switch ((s32) temp_r3) {
     case 1:
         if (temp_r31 & 0x108) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xE));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xE));
             return;
         }
         if (temp_r31 & 0x10) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xF));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xF));
             return;
         }
         if (temp_r31 & 0x20) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(4));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(4));
         }
         break;
     case 13:
         if (temp_r31 & 0x110) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(2));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(2));
             return;
         }
         if (temp_r31 & 8) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(3));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(3));
             return;
         }
         if (temp_r31 & 0x20) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0xB));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0xB));
             return;
         }
         break;
     case 25:
         if (temp_r31 & 0x120) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1A));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1A));
             return;
         }
         if (temp_r31 & 8) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x1B));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x1B));
             return;
         }
         if (temp_r31 & 0x10) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)(arg0), (M2C_UNK)(0x14));
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)(arg0), (s32)(0x14));
         }
         break;
     }
@@ -1012,18 +1008,18 @@ void do_action_by_class__8TItemMagFi(s32 arg0) {
 
 void evolve_first_form__8TItemMagFPv(u8 *arg0) {
     u8 *temp_r3;
-    temp_r3 = (u8 *)(M2C_FIELD(arg0, u8 **, 0xF0));
+    temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xF0));
     if (temp_r3 != NULL) {
-        if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)((void *)(temp_r3), (M2C_UNK)(0xF9)) != 0) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)((s32) arg0), (M2C_UNK)(1));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(temp_r3), (s32)(0xF9)) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(1));
             return;
         }
-        if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)((void *)(M2C_FIELD(arg0, u8 **, 0xF0)), (M2C_UNK)(0xFA)) != 0) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)((s32) arg0), (M2C_UNK)(0xD));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 **)((s8 *)arg0 + 0xF0)), (s32)(0xFA)) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0xD));
             return;
         }
-        if (((s32 (*)(void *, M2C_UNK))check_class_equip_permission)((void *)(M2C_FIELD(arg0, u8 **, 0xF0)), (M2C_UNK)(0xFC)) != 0) {
-            ((M2C_UNK (*)(void *, M2C_UNK))try_add_action__8TItemMagFii)((void *)((s32) arg0), (M2C_UNK)(0x19));
+        if (((s32 (*)(void *, s32))check_class_equip_permission)((void *)(*(u8 **)((s8 *)arg0 + 0xF0)), (s32)(0xFC)) != 0) {
+            ((s32 (*)(void *, s32))try_add_action__8TItemMagFii)((void *)((s32) arg0), (s32)(0x19));
         }
     }
 }
@@ -1032,16 +1028,16 @@ void apply_form_change__8TItemMagFPv(u8 *arg0) {
     u8 *temp_r3;
     temp_r3 = (u8 *)(((u8 * (*)(int))get_pmt_record__10TObjPlayerFi)((s32) get_field_ed__10TObjPlayerFPv((s32)(arg0))));
     if (temp_r3 != NULL) {
-        add_photon_blast__8TItemMagFPvUc((void *) (arg0 + 0x198), (int) (M2C_FIELD(temp_r3, u8 *, 0xA)));
+        add_photon_blast__8TItemMagFPvUc((void *) (arg0 + 0x198), (int) (*(u8 *)((s8 *)temp_r3 + 0xA)));
     }
     if (TObjPlayer__sub_80102C30(arg0) == 2) {
         ((VObj_18_8b050c *)(arg0))->m45();
-        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x40);
+        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x40);
         ((VObj_18_8b050c *)(arg0))->m44();
-        ((M2C_UNK (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
+        ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }
     if (get_flag_40__8TItemMagFPv(arg0) == 0) {
-        play_sound_effect((int) (0x4000B20A), (int) (M2C_FIELD(arg0, s32 *, 0xF0) + 0x38), (int) (0), (int) (0));
+        play_sound_effect((int) (0x4000B20A), (int) (*(s32 *)((s8 *)arg0 + 0xF0) + 0x38), (int) (0), (int) (0));
     }
     ((void (*)(void *))copy_owner_data__8TItemMagFPv)(arg0);
 }
@@ -1086,36 +1082,36 @@ void apply_natural_evolution__8TItemMagFPv(Self_801124C4 *self) {
 void feed_by_item_flags__8TItemMagFPvc(void *arg0, s8 arg1) {
     rand();
     if (arg1 & 0x40) {
-        if (((s32 (*)(void *, M2C_UNK))check_action_probability__8TItemMagFPvi)(arg0, 0) != 0) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, M2C_FIELD(arg0, u8 *, 0x1BD));
+        if (((s32 (*)(void *, s32))check_action_probability__8TItemMagFPvi)(arg0, 0) != 0) {
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, *(u8 *)((s8 *)arg0 + 0x1BD));
         }
     } else if (arg1 & 1) {
-        if (((s32 (*)(void *, M2C_UNK))check_action_probability__8TItemMagFPvi)(arg0, 1) != 0) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, M2C_FIELD(arg0, u8 *, 0x1BE));
+        if (((s32 (*)(void *, s32))check_action_probability__8TItemMagFPvi)(arg0, 1) != 0) {
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, *(u8 *)((s8 *)arg0 + 0x1BE));
         }
     } else if (arg1 & 2) {
-        if (((s32 (*)(void *, M2C_UNK))check_action_probability__8TItemMagFPvi)(arg0, 2) != 0) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, M2C_FIELD(arg0, u8 *, 0x1BF));
+        if (((s32 (*)(void *, s32))check_action_probability__8TItemMagFPvi)(arg0, 2) != 0) {
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, *(u8 *)((s8 *)arg0 + 0x1BF));
         }
     } else if (arg1 & 0x80) {
-        if (((s32 (*)(void *, M2C_UNK))check_action_probability__8TItemMagFPvi)(arg0, 3) != 0) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, M2C_FIELD(arg0, u8 *, 0x1C0));
+        if (((s32 (*)(void *, s32))check_action_probability__8TItemMagFPvi)(arg0, 3) != 0) {
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, *(u8 *)((s8 *)arg0 + 0x1C0));
         }
     } else {
         if (arg1 & 0x20) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 2U);
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 2U);
             return;
         }
         if (arg1 & 0x10) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 3U);
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 3U);
             return;
         }
         if (arg1 & 4) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 5U);
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 5U);
             return;
         }
         if (arg1 & 8) {
-            ((M2C_UNK (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 4U);
+            ((s32 (*)(void *, u8))request_support_action__8TItemMagFPvi)(arg0, 4U);
         }
     }
 }
@@ -1129,18 +1125,18 @@ s8 collect_support_events__8TItemMagFv(u8 *arg0) {
     s32 g;
     s8 ev;
 
-    if (!(M2C_FIELD(arg0, s32 *, 0x18C) & 1)) {
+    if (!(*(s32 *)((s8 *)arg0 + 0x18C) & 1)) {
         return 0;
     }
     delta = 0;
-    cur = obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0));
-    lim = get_field_2b8__14TItemProShieldFPv(M2C_FIELD(arg0, void **, 0xF0));
+    cur = obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0));
+    lim = get_field_2b8__14TItemProShieldFPv(*(void **)((s8 *)arg0 + 0xF0));
     ev = 0;
-    if (M2C_FIELD(arg0, s16 *, 0x1DC) != cur) {
-        if (cur < M2C_FIELD(arg0, s16 *, 0x1DC)) {
-            delta = M2C_FIELD(arg0, s16 *, 0x1DC) - cur;
+    if (*(s16 *)((s8 *)arg0 + 0x1DC) != cur) {
+        if (cur < *(s16 *)((s8 *)arg0 + 0x1DC)) {
+            delta = *(s16 *)((s8 *)arg0 + 0x1DC) - cur;
         }
-        M2C_FIELD(arg0, s16 *, 0x1DC) = cur;
+        *(s16 *)((s8 *)arg0 + 0x1DC) = cur;
     }
     if (cur == 0) {
         if (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 2) == 0) {
@@ -1161,12 +1157,12 @@ s8 collect_support_events__8TItemMagFv(u8 *arg0) {
     } else if (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 1) != 0) {
         clear_feed_flags__8TItemMagFPvUi(arg0 + 0x1D4, 1);
     }
-    if (M2C_FIELD(arg0, s16 *, 0x19A) < 0x1E) {
+    if (*(s16 *)((s8 *)arg0 + 0x19A) < 0x1E) {
         if (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 4) == 0) {
             ev |= 4;
             set_flags__8TItemMagFPvUi(arg0 + 0x1D4, 4);
         }
-    } else if (M2C_FIELD(arg0, s16 *, 0x19A) > 0x64) {
+    } else if (*(s16 *)((s8 *)arg0 + 0x19A) > 0x64) {
         if (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 8) == 0) {
             ev |= 8;
             set_flags__8TItemMagFPvUi(arg0 + 0x1D4, 8);
@@ -1174,22 +1170,22 @@ s8 collect_support_events__8TItemMagFv(u8 *arg0) {
     } else {
         clear_feed_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0xC);
     }
-    if (M2C_FIELD(arg0, s16 *, 0x1D4) < M2C_FIELD(arg0, VObj_80112720 **, 0xF0)->m14()) {
-        M2C_FIELD(arg0, s16 *, 0x1D4) = M2C_FIELD(arg0, VObj_80112720 **, 0xF0)->m14();
+    if (*(s16 *)((s8 *)arg0 + 0x1D4) < (*(VObj_80112720 **)((s8 *)arg0 + 0xF0))->m14()) {
+        *(s16 *)((s8 *)arg0 + 0x1D4) = (*(VObj_80112720 **)((s8 *)arg0 + 0xF0))->m14();
         ev |= 0x20;
     }
     g = get_global_state__14TOKeyMachine01Fv();
-    if (M2C_FIELD(arg0, s16 *, 0x1D6) != g) {
-        M2C_FIELD(arg0, s16 *, 0x1D6) = g;
+    if (*(s16 *)((s8 *)arg0 + 0x1D6) != g) {
+        *(s16 *)((s8 *)arg0 + 0x1D6) = g;
         if (is_boss_area() == 1) {
             ev |= 0x80;
         }
     }
-    if (lbl_805DABAC == (f32)get_sub_value__8TItemMagFi(M2C_FIELD(arg0, void **, 0xF0)) &&
+    if (lbl_805DABAC == (f32)get_sub_value__8TItemMagFi(*(void **)((s8 *)arg0 + 0xF0)) &&
         test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x40) == 0) {
         set_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x40);
         ev |= 0x40;
-    } else if ((f32)get_sub_value__8TItemMagFi(M2C_FIELD(arg0, void **, 0xF0)) < lbl_805DABAC &&
+    } else if ((f32)get_sub_value__8TItemMagFi(*(void **)((s8 *)arg0 + 0xF0)) < lbl_805DABAC &&
                test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x40) != 0) {
         clear_feed_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x40);
     }
@@ -1219,7 +1215,7 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
     if (*arg1 == 3) {
         rec = lookup_item_pmt_record(arg1);
         if (rec != NULL) {
-            tbl = get_mag_feed_result(M2C_FIELD(arg0, s32 *, 0x1B8), *rec);
+            tbl = get_mag_feed_result(*(s32 *)((s8 *)arg0 + 0x1B8), *rec);
             if (tbl != NULL) {
                 stats.c = (s8)tbl[0];
                 stats.d = (s8)tbl[1];
@@ -1228,10 +1224,10 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
                 stats.a = (s8)tbl[4];
                 stats.b = (s8)tbl[5];
                 set_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x10);
-                if (TItemMag__data_805DABA4 != M2C_FIELD(arg0, f32 *, 0x190)) {
-                    M2C_FIELD(arg0, f32 *, 0x194) = M2C_FIELD(arg0, f32 *, 0x194) + TItemMag__data_805DABA8;
+                if (TItemMag__data_805DABA4 != *(f32 *)((s8 *)arg0 + 0x190)) {
+                    *(f32 *)((s8 *)arg0 + 0x194) = *(f32 *)((s8 *)arg0 + 0x194) + TItemMag__data_805DABA8;
                 } else {
-                    M2C_FIELD(arg0, f32 *, 0x190) = lbl_805DABB0;
+                    *(f32 *)((s8 *)arg0 + 0x190) = lbl_805DABB0;
                 }
             }
         }
@@ -1243,33 +1239,33 @@ s32 TItemMag__vt39(u8 *arg0, u8 *arg1) {
                 spawn_particle_effect(pos, 0x9B);
             }
         }
-        ((void (*)(int, int, int, int))play_sound_effect)(0x5B211, M2C_FIELD(arg0, s32 *, 0xF0) + 0x38, 0, 0);
+        ((void (*)(int, int, int, int))play_sound_effect)(0x5B211, *(s32 *)((s8 *)arg0 + 0xF0) + 0x38, 0, 0);
     }
     return apply_feed_stats__8TItemMagFPvPv(arg0, (u8 *)&stats);
 }
 
 void cast_support_technique__8TItemMagFPvi(u8 *self, s32 technique) {
     TargetList_80112BC4 targets;
-    s32 level = M2C_FIELD(self, s16 *, 0x198) / 40;
-    if (M2C_FIELD(self, u8 **, 0xF0) == NULL) {
+    s32 level = *(s16 *)((s8 *)self + 0x198) / 40;
+    if (*(u8 **)((s8 *)self + 0xF0) == NULL) {
         return;
     }
     switch (technique) {
     case 13:
-        create__9TTecSiftaFPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        create__9TTecSiftaFPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
         break;
     case 10:
-        create__10TTecDebandFiii(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        create__10TTecDebandFiii(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
         break;
     case 15:
-        create__9TTecRestaFPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, level);
+        create__9TTecRestaFPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, level);
         break;
     case 17:
         construct_target_cursor_records__10TObjPlayerFi(&targets);
         targets.count = 1;
-        targets.ids[0] = obj_getField1c(M2C_FIELD(self, u8 **, 0xF0));
+        targets.ids[0] = obj_getField1c(*(u8 **)((s8 *)self + 0xF0));
         targets.ids[1] = 0;
-        create__12TTecReverserFPvPvPvPv(M2C_FIELD(self, u8 **, 0xF0), M2C_FIELD(self, u8 **, 0xF0) + 0x38, &targets, level);
+        create__12TTecReverserFPvPvPvPv(*(u8 **)((s8 *)self + 0xF0), *(u8 **)((s8 *)self + 0xF0) + 0x38, &targets, level);
         break;
     case 11:
         return;
@@ -1284,23 +1280,23 @@ void cast_support_technique__8TItemMagFPvi(u8 *self, s32 technique) {
 
 s32 apply_feed_stats__8TItemMagFPvPv(u8 *arg0, u8 *arg1) {
     if (arg1 != NULL) {
-        mag_feed_add_def((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 4)));
-        add_stat_level_capped__8TItemMagFPvs((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 6)));
-        mag_feed_add_mind((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0xA)));
-        TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 8)));
-        add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 0)));
-        add_clamped_stat__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (M2C_FIELD(arg1, s16 *, 2)));
+        mag_feed_add_def((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 4)));
+        add_stat_level_capped__8TItemMagFPvs((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 6)));
+        mag_feed_add_mind((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 0xA)));
+        TItemMag__sub_80114198((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 8)));
+        add_stat_clamped__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 0)));
+        add_clamped_stat__8TItemMagFPvi((void *) (arg0 + 0x198), (int) (*(s16 *)((s8 *)arg1 + 2)));
         set_field_EE__8TItemMagFPvUc((void *) (arg0), (void *) (((u8 (*)(void *))get_mag_total_level)((void *) (arg0 + 0x198))));
         if (TObjPlayer__sub_80102C30((void *) (arg0)) == 2) {
             refresh_owner_stats__5TItemFPv((void *) (arg0));
-            if (obj_isState2_324((int) (M2C_FIELD(arg0, s32 *, 0xF0))) == 0) {
-                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)));
-                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFiiPv((int) (arg1), (int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (0)) == 0)) {
-                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (M2C_FIELD(arg0, s32 *, 0xF0)), (int) (get_field_d8__10TObjPlayerFPv((int) (arg1))));
+            if (obj_isState2_324((int) (*(s32 *)((s8 *)arg0 + 0xF0))) == 0) {
+                arg1 = (u8 *) get_item_field_6__10TObjPlayerFPv((int) (*(s32 *)((s8 *)arg0 + 0xF0)));
+                if ((arg1 != NULL) && (get_item_info__10TObjPlayerFiiPv((int) (arg1), (int) (*(s32 *)((s8 *)arg0 + 0xF0)), (int) (0)) == 0)) {
+                    send_6x26_unequip_item__10TObjPlayerFPvPv((int) (*(s32 *)((s8 *)arg0 + 0xF0)), (int) (get_field_d8__10TObjPlayerFPv((int) (arg1))));
                 }
             }
         }
-        ((M2C_UNK (*)(void *))apply_natural_evolution__8TItemMagFPv)((void *) (arg0));
+        ((s32 (*)(void *))apply_natural_evolution__8TItemMagFPv)((void *) (arg0));
         return 1;
     }
     return 0;
@@ -1311,13 +1307,13 @@ void TItemMag__vt15(void* p, s32 _w1) { select_support_action__8TItemMagFPvi((u8
 void select_support_action__8TItemMagFPvi(u8 *arg0, s32 arg1) {
     s32 temp_r4;
     apply_feed_delta__8TItemMagFPv((u8 *)(arg0));
-    M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) & 0xF0);
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x18C) | arg1;
-    M2C_FIELD(arg0, s32 *, 0x18C) = temp_r4;
-    M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) lbl_805DABB4;
-    M2C_FIELD(arg0, s32 *, 0x1CC) = 0;
-    ((M2C_UNK (*)(void *, int))select_action_motion__8TItemMagFPv)((void *) (arg0), (int) (temp_r4));
-    ((M2C_UNK (*)(void *, int))set_subs_visible__8TItemMagFPvi)((void *) (arg0), (int) (1));
+    *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xF0);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x18C) | arg1;
+    *(s32 *)((s8 *)arg0 + 0x18C) = temp_r4;
+    *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) lbl_805DABB4;
+    *(s32 *)((s8 *)arg0 + 0x1CC) = 0;
+    ((s32 (*)(void *, int))select_action_motion__8TItemMagFPv)((void *) (arg0), (int) (temp_r4));
+    ((s32 (*)(void *, int))set_subs_visible__8TItemMagFPvi)((void *) (arg0), (int) (1));
 }
 
 void request_support_action__8TItemMagFPvi(void *arg0, s32 arg1) {
@@ -1328,7 +1324,7 @@ void request_support_action__8TItemMagFPvi(void *arg0, s32 arg1) {
         return;
     }
     if (arg1 != 1) {
-        if (get_status_flag__8TItemMagFPv(arg0) != 0 && !(TItemMag__data_805DABA4 < M2C_FIELD(arg0, f32 *, 0x1C8)) && check_feed_state__8TItemMagFPvi(arg0, arg1) != 0) {
+        if (get_status_flag__8TItemMagFPv(arg0) != 0 && !(TItemMag__data_805DABA4 < *(f32 *)((s8 *)arg0 + 0x1C8)) && check_feed_state__8TItemMagFPvi(arg0, arg1) != 0) {
             send_6x61_activate_mag_effect(arg0, arg1);
         }
     } else {
@@ -1340,11 +1336,11 @@ void transfer_energy__8TItemMagFPv(void *arg0) {
     u32 temp_r3;
     s32 temp_r4;
 
-    temp_r3 = M2C_FIELD(arg0, u32 *, 0xF0);
+    temp_r3 = *(u32 *)((s8 *)arg0 + 0xF0);
     if ((temp_r3 != 0U) && (get_mag_id__8TItemMagFPv(temp_r3 + 0x644) == 0)) {
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x1D0) - M2C_FIELD(arg0, s32 *, 0x1CC);
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x1D0) - *(s32 *)((s8 *)arg0 + 0x1CC);
         if (temp_r4 > 0) {
-            set_type__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xF0) + 0x644, temp_r4);
+            set_type__10TObjPlayerFPvi(*(u32 *)((s8 *)arg0 + 0xF0) + 0x644, temp_r4);
         }
     }
 }
@@ -1352,36 +1348,36 @@ void transfer_energy__8TItemMagFPv(void *arg0) {
 void apply_feed_delta__8TItemMagFPv(u8 *arg0) {
     s32 temp_r4;
 
-    if (((u32) M2C_FIELD(arg0, u32 *, 0xF0) != 0U) && (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x100) != 0U)) {
-        temp_r4 = M2C_FIELD(arg0, s32 *, 0x1D0) - M2C_FIELD(arg0, s32 *, 0x1CC);
+    if (((u32) *(u32 *)((s8 *)arg0 + 0xF0) != 0U) && (test_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x100) != 0U)) {
+        temp_r4 = *(s32 *)((s8 *)arg0 + 0x1D0) - *(s32 *)((s8 *)arg0 + 0x1CC);
         if (temp_r4 > 0) {
-            decrement_clamp__10TObjPlayerFPvi(M2C_FIELD(arg0, u32 *, 0xF0) + 0x644, temp_r4);
+            decrement_clamp__10TObjPlayerFPvi(*(u32 *)((s8 *)arg0 + 0xF0) + 0x644, temp_r4);
         }
         clear_feed_flags__8TItemMagFPvUi(arg0 + 0x1D4, 0x100);
     }
 }
 
 void update_protection__8TItemMagFv(u8 *self) {
-    M2C_FIELD(self, s32 *, 0x1D0) = (s32) (lbl_805DABB4 * (f32) ((((s16) get_sync__8TItemMagFPv(self + 0x198) + (s16) get_item_type__8TItemMagFPv(self + 0x198)) / 3) + 40));
-    if (M2C_FIELD(self, s32 *, 0x1D0) > 900) {
-        M2C_FIELD(self, s32 *, 0x1D0) = 900;
+    *(s32 *)((s8 *)self + 0x1D0) = (s32) (lbl_805DABB4 * (f32) ((((s16) get_sync__8TItemMagFPv(self + 0x198) + (s16) get_item_type__8TItemMagFPv(self + 0x198)) / 3) + 40));
+    if (*(s32 *)((s8 *)self + 0x1D0) > 900) {
+        *(s32 *)((s8 *)self + 0x1D0) = 900;
     }
-    if (M2C_FIELD(self, u32 *, 0xF0) != 0 && get_mag_id__8TItemMagFPv(M2C_FIELD(self, u32 *, 0xF0) + 0x644) < M2C_FIELD(self, s32 *, 0x1D0)) {
-        set_type__10TObjPlayerFPvi(M2C_FIELD(self, s32 *, 0xF0) + 0x644, M2C_FIELD(self, s32 *, 0x1D0));
+    if (*(u32 *)((s8 *)self + 0xF0) != 0 && get_mag_id__8TItemMagFPv(*(u32 *)((s8 *)self + 0xF0) + 0x644) < *(s32 *)((s8 *)self + 0x1D0)) {
+        set_type__10TObjPlayerFPvi(*(s32 *)((s8 *)self + 0xF0) + 0x644, *(s32 *)((s8 *)self + 0x1D0));
         set_flags__8TItemMagFPvUi(self + 0x1D4, 0x100);
     }
 }
 
 void update_feed_timer__8TItemMagFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1CC) == 0) {
-        ((M2C_UNK (*)(void))update_protection__8TItemMagFv)();
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1CC) == 0) {
+        ((s32 (*)(void))update_protection__8TItemMagFv)();
     }
     transfer_energy__8TItemMagFPv((void *)(arg0));
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x1D0) <= (s32) M2C_FIELD(arg0, s32 *, 0x1CC)) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x1D0) <= (s32) *(s32 *)((s8 *)arg0 + 0x1CC)) {
         apply_feed_delta__8TItemMagFPv((u8 *)((u8 *)(arg0)));
         request_support_action__8TItemMagFPvi((void *)((void*)(arg0)), (s32)((void*)(1)));
     }
-    if ((M2C_FIELD(arg0, s32 *, 0x1CC) % 60) == 0) {
+    if ((*(s32 *)((s8 *)arg0 + 0x1CC) % 60) == 0) {
         apply_switch_attack__5TItemFPvi(arg0, 0x6C);
     }
 }
@@ -1393,7 +1389,7 @@ void feed_if_over_45__8TItemMagFPv(void* p) { if (*(int*)((char*)p + 0x1cc) > 45
 void update_feed__8TItemMagFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1CC);
     if ((temp_r0 != 0x5A) && (temp_r0 > 0x5A)) {
         request_support_action__8TItemMagFPvi((void *)((void*)(arg0)), (s32)((void*)(1)));
     }
@@ -1402,7 +1398,7 @@ void update_feed__8TItemMagFPv(void *arg0) {
 void check_level_cap__8TItemMagFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1CC);
     if (temp_r0 == 0x5A) {
         cast_support_technique__8TItemMagFPvi((u8 *)(arg0), (s32)(0x11));
         return;
@@ -1415,9 +1411,9 @@ void check_level_cap__8TItemMagFPv(void *arg0) {
 void check_level_evolve__8TItemMagFPv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x1CC);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x1CC);
     if (temp_r0 == 0x5A) {
-        if (obj_getS16_32C(M2C_FIELD(arg0, s32 *, 0xF0)) > 0) {
+        if (obj_getS16_32C(*(s32 *)((s8 *)arg0 + 0xF0)) > 0) {
             cast_support_technique__8TItemMagFPvi((u8 *)(arg0), (s32)(0xF));
         }
     } else if (temp_r0 > 0x5A) {
@@ -1429,8 +1425,8 @@ void apply_auto_support_techniques__8TItemMagFPv(struct RecoveredFields_80113244
     s32 temp_r0;
     temp_r0 = arg0->field_1CC;
     if (temp_r0 == 0x5A) {
-        cast_support_technique__8TItemMagFPvi((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(0xD)));
-        cast_support_technique__8TItemMagFPvi((u8 *)((void *)(arg0)), (s32)((M2C_UNK)(0xA)));
+        cast_support_technique__8TItemMagFPvi((u8 *)((void *)(arg0)), (s32)((s32)(0xD)));
+        cast_support_technique__8TItemMagFPvi((u8 *)((void *)(arg0)), (s32)((s32)(0xA)));
         return;
     }
     if (temp_r0 > 0x5A) {
@@ -1443,10 +1439,6 @@ void apply_auto_support_techniques__8TItemMagFPv(struct RecoveredFields_80113244
 #pragma dont_inline on
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18 { char pad[0x18]; };
 struct VObj_18 : VBase_18 {
@@ -1517,7 +1509,6 @@ struct Self_80113310 {
     s32 f1CC;
 };
 
-typedef s32 M2C_UNK;
 struct VBase_18_801135E0 { char pad[0x18]; };
 
 struct VObj_18_801135E0 : VBase_18_801135E0 {
@@ -1544,7 +1535,7 @@ struct Rec_80113B6C {
 };
 
 extern "C" {
-M2C_UNK refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
+s32 refresh_if_current_player__20TWindowSubStatusDispFPv(void *);
 int get_mag_mind_level__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
 int get_level__9TItemDataFPv(void*);
@@ -1557,10 +1548,10 @@ s32 obj_isState7_324(void *);
 void TItemMag__vt42(u8 *arg0);
 s32 get_photon_blast_at_slot__8TItemMagFPvi(void *, s32);
 s32 is_flag_20000_set__10TObjPlayerFv(void *);
-M2C_UNK init_feed_timer__8TItemMagFPv(void *);
-M2C_UNK send_6x3A_clear_photon_blast_ready_flag(void *);
+s32 init_feed_timer__8TItemMagFPv(void *);
+s32 send_6x3A_clear_photon_blast_ready_flag(void *);
 void TItemMag__vt43(u8 *arg0);
-u8 *alloc_from_obj_heap__10TObjPlayerFPv(M2C_UNK);
+u8 *alloc_from_obj_heap__10TObjPlayerFPv(s32);
 extern s32 tl_05;
 u8 *create__8TItemMagFi(s32 arg0);
 void set_node_id__11TItemMagSubFll(Obj_80113CA8 *self, s32 i, s32 v);
@@ -1575,7 +1566,7 @@ u8 *TItemMag__ct(Mag_801139F4 *self, s32 a, s32 src);
 void release_model_and_destroy__11TItemMagSubFv(void *);
 void release__14TItemEquipBaseFPv(void *arg0);
 void TItemMag__vt45(TItemMag_801138F0 *self);
-s32 obj_testFlags30(void *, M2C_UNK);
+s32 obj_testFlags30(void *, s32);
 void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
 int is_growth_inactive__11TItemMagSubFv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
@@ -1595,7 +1586,7 @@ void check_level_evolve__8TItemMagFPv(void *);
 void update__8TItemMagFPv(void *arg0);
 s32 reset_key_machine_state__10TObjPlayerFv();
 void TItemMag__vt14(Self_80113310 *self);
-s32 obj_testFlags30(void *, M2C_UNK);
+s32 obj_testFlags30(void *, s32);
 void scale_owner_height__11TItemMagSubFf(void* p, f32 v);
 int is_growth_inactive__11TItemMagSubFv(void* p);
 f32 get_stat_f32__8TItemMagFPv(void *);
@@ -1635,19 +1626,19 @@ void set_model__11TItemMagSubFPvUlPv(void *arg0, s32 arg1, s32 arg2, void *arg3)
 void update__8TItemMagFPv(void *arg0);
 void serialize_mag__9TItemDataFPvPv(void *, const void *);
 int get_mag_mind_level__9TItemDataFPv(void*);
-M2C_UNK request_model_load__14TItemEquipBaseFPvi(s32, u8);
+s32 request_model_load__14TItemEquipBaseFPvi(s32, u8);
 void TItemMag__sub_80113E3C(void* p);
 u8 TItemMag__sub_80113E74(void* p);
 f32 TItemMag__sub_80113EEC(void* p);
 void __dt__14TItemEquipBaseFv(void *, int);
 int __dt__9TItemLoadFPvs(void*, void*);
-M2C_UNK copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
+s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
 int fn_800F953C(void*);
 void free_obj_heap__10TObjPlayerFPv(void *);
 int get_level__9TItemDataFPv(void*);
 int get_percent__9TItemDataFPv(void*);
 int get_stat_percent__9TItemDataFPv(void*);
-s32 obj_testFlags30(void *, M2C_UNK);
+s32 obj_testFlags30(void *, s32);
 int test_flags__11TItemMagSubFUl(void* p, u32 m);
 
 extern const f32 TItemMag__data_805DABA4;
@@ -1656,15 +1647,15 @@ extern const f32 TItemMag__data_805DABA8;
 void update__8TItemMagFPv(void *arg0) {
     f32 temp_f1;
 
-    temp_f1 = M2C_FIELD(arg0, f32 *, 0x1C8);
+    temp_f1 = *(f32 *)((s8 *)arg0 + 0x1C8);
     if (TItemMag__data_805DABA4 < temp_f1) {
-        M2C_FIELD(arg0, f32 *, 0x1C8) = (f32) (temp_f1 - TItemMag__data_805DABA8);
+        *(f32 *)((s8 *)arg0 + 0x1C8) = (f32) (temp_f1 - TItemMag__data_805DABA8);
     }
     if (obj_testFlags30(arg0, 0x08000000) == 0) {
-        ((M2C_UNK (*)(void *, M2C_UNK))set_subs_visible__8TItemMagFPvi)(arg0, 1);
+        ((s32 (*)(void *, s32))set_subs_visible__8TItemMagFPvi)(arg0, 1);
         return;
     }
-    ((M2C_UNK (*)(void *, M2C_UNK))set_subs_visible__8TItemMagFPvi)(arg0, 0);
+    ((s32 (*)(void *, s32))set_subs_visible__8TItemMagFPvi)(arg0, 0);
 }
 
 void TItemMag__vt14(Self_80113310 *self) {
@@ -1725,7 +1716,7 @@ void TItemMag__vt25(Self_801134CC *self) {
     VObj_18_801134CC *child;
     s32 i;
     f32 scale;
-    if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && ((s32 (*)(void *))get_flag_40__8TItemMagFPv)(self) == 0) {
+    if (self->owner != NULL && obj_testFlags30((void *)(self), (s32)(0x08000000)) == 0 && ((s32 (*)(void *))get_flag_40__8TItemMagFPv)(self) == 0) {
     scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
     push_matrix();
@@ -1750,7 +1741,7 @@ void TItemMag__vt24(Self_801135E0 *self) {
     VObj_18_801135E0 *child;
     s32 i;
     f32 scale;
-    if (self->owner != NULL && obj_testFlags30((void *)(self), (M2C_UNK)(0x08000000)) == 0 && ((s32 (*)(void *))get_flag_40__8TItemMagFPv)(self) == 0) {
+    if (self->owner != NULL && obj_testFlags30((void *)(self), (s32)(0x08000000)) == 0 && ((s32 (*)(void *))get_flag_40__8TItemMagFPv)(self) == 0) {
     scaled = check_state_flag_1__8TItemMagFPv(self->owner->stats);
     scale = get_stat_f32__8TItemMagFPv(self->owner->stats);
     push_matrix();
@@ -1785,7 +1776,7 @@ void TItemMag__vt43(u8 *arg0) {
   u8 *new_var;
   if (((volatile int)((s32 (*)(void *))obj_isState2_324)(*((u8 **) (((s8 *) arg0) + 0xF0)))) == 0)
   {
-    ((M2C_UNK (*)(void *))assign_default_photon_blast_palette_slots)((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
+    ((s32 (*)(void *))assign_default_photon_blast_palette_slots)((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x500));
     var_r31 = 0;
     do
     {
@@ -1794,7 +1785,7 @@ void TItemMag__vt43(u8 *arg0) {
       {
         new_var = arg0;
         temp_r6 = (u8 *) (*((u8 **) (((s8 *) new_var) + 0xF0)));
-        ((M2C_UNK (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), (int) (-1), (int) temp_r6);
+        ((s32 (*)(void *, int, int, int))TItemMag__sub_80113EDC)((void *) (temp_r6 + 0x4AC), (int) ((s16) temp_r3), (int) (-1), (int) temp_r6);
       }
       var_r31 += 1;
     }
@@ -1805,31 +1796,31 @@ void TItemMag__vt43(u8 *arg0) {
       send_6x3A_clear_photon_blast_ready_flag((void *) ((*((u8 **) (((s8 *) arg0) + 0xF0))) + 0x4AC));
     }
   }
-  ((M2C_UNK (*)(void *))apply_feed_delta__8TItemMagFPv)((void *) arg0);
+  ((s32 (*)(void *))apply_feed_delta__8TItemMagFPv)((void *) arg0);
 }
 
 void TItemMag__vt42(u8 *arg0) {
     u8 *temp_r3;
-    M2C_FIELD(arg0, s32 *, 0x18C) = 0;
-    if (((s32 (*)(void *))obj_isState2_324)((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0) {
-        M2C_FIELD(arg0, s32 *, 0x18C) = 0x10;
-        ((M2C_UNK (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
+    *(s32 *)((s8 *)arg0 + 0x18C) = 0;
+    if (((s32 (*)(void *))obj_isState2_324)((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0) {
+        *(s32 *)((s8 *)arg0 + 0x18C) = 0x10;
+        ((s32 (*)(void *))register_photon_blasts__8TItemMagFPv)((void *) (arg0));
     }
-    ((M2C_UNK (*)(void *, int))request_support_action__8TItemMagFPvi)((void *) (arg0), (int) (1));
-    temp_r3 = M2C_FIELD(arg0, u8 **, 0xF0);
-    M2C_FIELD(arg0, s16 *, 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x1D6) == -1) {
-        M2C_FIELD(arg0, s16 *, 0x1D6) = ((s16 (*)())get_global_state__14TOKeyMachine01Fv)();
+    ((s32 (*)(void *, int))request_support_action__8TItemMagFPvi)((void *) (arg0), (int) (1));
+    temp_r3 = *(u8 **)((s8 *)arg0 + 0xF0);
+    *(s16 *)((s8 *)arg0 + 0x1D4) = ((VObj_18 *)(temp_r3))->m14();
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x1D6) == -1) {
+        *(s16 *)((s8 *)arg0 + 0x1D6) = ((s16 (*)())get_global_state__14TOKeyMachine01Fv)();
     }
-    M2C_FIELD(arg0, s16 *, 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
-    M2C_FIELD(arg0, s16 *, 0x1DE) = obj_getS16_32E((void *) (M2C_FIELD(arg0, u8 **, 0xF0)));
+    *(s16 *)((s8 *)arg0 + 0x1DC) = ((s16 (*)(void *))obj_getS16_32C)((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
+    *(s16 *)((s8 *)arg0 + 0x1DE) = obj_getS16_32E((void *) (*(u8 **)((s8 *)arg0 + 0xF0)));
     if (test_flags_any((void *) (arg0 + 0x178), (int) (1)) != 0) {
-        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) & 0xFFFFFFDF);
+        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) & 0xFFFFFFDF);
     } else {
-        M2C_FIELD(arg0, s32 *, 0x18C) = (s32) (M2C_FIELD(arg0, s32 *, 0x18C) | 0x20);
+        *(s32 *)((s8 *)arg0 + 0x18C) = (s32) (*(s32 *)((s8 *)arg0 + 0x18C) | 0x20);
     }
-    if ((((s32 (*)(void *))get_flag_40__8TItemMagFPv)((void *) (arg0)) == 0) && (obj_isState7_324((void *) (M2C_FIELD(arg0, u8 **, 0xF0))) == 0)) {
-        ((M2C_UNK (*)(int, void *, int, int))play_sound_effect)((int) (0x4000B20A), (void *) (M2C_FIELD(arg0, u8 **, 0xF0) + 0x38), (int) (0), (int) (0));
+    if ((((s32 (*)(void *))get_flag_40__8TItemMagFPv)((void *) (arg0)) == 0) && (obj_isState7_324((void *) (*(u8 **)((s8 *)arg0 + 0xF0))) == 0)) {
+        ((s32 (*)(int, void *, int, int))play_sound_effect)((int) (0x4000B20A), (void *) (*(u8 **)((s8 *)arg0 + 0xF0) + 0x38), (int) (0), (int) (0));
     }
 }
 
@@ -1858,7 +1849,7 @@ void TItemMag__vt44(s32 arg0) {
 
 void *__dt__8TItemMagFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__8TItemMag;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__8TItemMag;
         __dt__14TItemEquipBaseFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -1959,19 +1950,13 @@ void TItemMagSub::set_flags(u32 value) { flags |= value; }
 extern "C" {
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 }
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 extern "C" {
 
 }
@@ -1984,19 +1969,19 @@ extern "C" {
 
 }
 
-extern M2C_UNK lbl_8043E560;
+extern s32 lbl_8043E560;
 extern const f32 TItemMag__data_805DABA4;
 extern const f32 TItemMag__data_805DABA8;
 
 }
 void TItemMagSub::set_model(void* model_arg, u32 textures_arg, void* animation_arg) {
     void* arg0=this; s32 arg1=(s32)model_arg; s32 arg2=(s32)textures_arg; void* arg3=animation_arg;
-    M2C_FIELD(arg0, s32 *, 0x24) = arg1;
-    M2C_FIELD(arg0, s32 *, 0x2C) = arg2;
-    M2C_FIELD(arg0, void **, 0x28) = arg3;
-    if ((void *) M2C_FIELD(arg0, void **, 0x28) != NULL) {
-        M2C_FIELD(arg0, f32 *, 0x80) = (f32) TItemMag__data_805DABA4;
-        M2C_FIELD(arg0, f32 *, 0x84) = (f32) ((f32) M2C_FIELD(M2C_FIELD(arg0, void **, 0x28), u32 *, 4) - TItemMag__data_805DABA8);
+    *(s32 *)((s8 *)arg0 + 0x24) = arg1;
+    *(s32 *)((s8 *)arg0 + 0x2C) = arg2;
+    *(void **)((s8 *)arg0 + 0x28) = arg3;
+    if ((void *) *(void **)((s8 *)arg0 + 0x28) != NULL) {
+        *(f32 *)((s8 *)arg0 + 0x80) = (f32) TItemMag__data_805DABA4;
+        *(f32 *)((s8 *)arg0 + 0x84) = (f32) ((f32) *(u32 *)((s8 *)(*(void **)((s8 *)arg0 + 0x28)) + 4) - TItemMag__data_805DABA8);
     }
 }
 extern "C" {

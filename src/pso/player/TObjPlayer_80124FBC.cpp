@@ -1,28 +1,24 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
 void launch_double_cannon_extra__10TObjPlayerFPv(void *arg0);
 void play_side_step_particle__10TObjPlayerFPv(void *arg0);
 void TObjPlayer__sub_80125090(void *arg0);
-M2C_UNK rotate_matrix_z(M2C_UNK, s32);
-M2C_UNK play_particle_effect_once__10TObjPlayerFv();
-M2C_UNK drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
+s32 rotate_matrix_z(s32, s32);
+s32 play_particle_effect_once__10TObjPlayerFv();
+s32 drain_owner_hp_fraction__10TObjPlayerFPvf(void *, f32);
 s32 is_mode_two_and_ready__10TObjPlayerFPv();
-M2C_UNK update_active_game_effect__10TObjPlayerFPv(void *);
+s32 update_active_game_effect__10TObjPlayerFPv(void *);
 s32 get_player_list__10TObjPlayerFv();
-M2C_UNK TObjPlayer__sub_80124C90(void *);
+s32 TObjPlayer__sub_80124C90(void *);
 s16 get_stage_strike_count__10TObjPlayerFPv(s32);
 
 extern f32 lbl_805DAD3C;
 
 void launch_double_cannon_extra__10TObjPlayerFPv(void *arg0) {
     if (is_mode_two_and_ready__10TObjPlayerFPv() != 0) {
-        if (get_stage_strike_count__10TObjPlayerFPv(M2C_FIELD(arg0, s32 *, 0xF0) + 0x7CC) == 0) {
+        if (get_stage_strike_count__10TObjPlayerFPv(*(s32 *)((s8 *)arg0 + 0xF0) + 0x7CC) == 0) {
             drain_owner_hp_fraction__10TObjPlayerFPvf(arg0, lbl_805DAD3C);
             TObjPlayer__sub_80124C90(arg0);
         }
@@ -38,17 +34,17 @@ void play_side_step_particle__10TObjPlayerFPv(void *arg0) {
     switch (temp_r3) {
     case 1:
         play_particle_effect_once__10TObjPlayerFv();
-        rotate_matrix_z(0, M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x1F8));
         return;
     case 4:
         play_particle_effect_once__10TObjPlayerFv();
-        rotate_matrix_z(0, -M2C_FIELD(arg0, s32 *, 0x1F8));
+        rotate_matrix_z(0, -*(s32 *)((s8 *)arg0 + 0x1F8));
         return;
     }
 }
 
 void TObjPlayer__sub_80125090(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x1F8) = (s32) (M2C_FIELD(arg0, s32 *, 0x1F8) + 0xAAA);
+    *(s32 *)((s8 *)arg0 + 0x1F8) = (s32) (*(s32 *)((s8 *)arg0 + 0x1F8) + 0xAAA);
 }
 
 }

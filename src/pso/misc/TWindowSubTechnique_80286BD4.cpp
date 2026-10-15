@@ -1,11 +1,6 @@
 #include "types.h"
 #include "pso/misc/TWindowSubTechnique.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 extern "C" {
 extern s32 lbl_805D49C0;
 void TKeyBoardControl__sub_8000F950(void);
@@ -17,7 +12,7 @@ extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 int get_selection__19TWindowSubTechniqueFPvPvi(void*, void* a1);
-extern M2C_UNK lbl_80515F70[];
+extern s32 lbl_80515F70[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;
@@ -27,14 +22,14 @@ extern s32 lbl_805D62B0;
     extern int lbl_805D5680;
 int get_current_selection__19TWindowSubTechniqueFPvPv(void* p, void* _w1);
 u32 get_player_by_client_id(s32);
-s32 is_palette_entry_displayable__10TObjPlayerFv(s32, M2C_UNK, u8);
+s32 is_palette_entry_displayable__10TObjPlayerFv(s32, s32, u8);
 s32 reset_key_machine_state__10TObjPlayerFv();
 s32 lookup_technique__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 is_technique_available__19TWindowSubTechniqueFii(s32 arg0, s32 arg1);
 s32 get_message_10__20TWindowSubStatusDispFPv(int);
-M2C_UNK set_flag70_bit10__16TObjCityMainWarpFPv(int);
-M2C_UNK set_field_1c__6TLobbyFPvf(int);
-M2C_UNK set_flag70_bit100__17TWindowOptionCtrlFPv(int);
+s32 set_flag70_bit10__16TObjCityMainWarpFPv(int);
+s32 set_field_1c__6TLobbyFPvf(int);
+s32 set_flag70_bit100__17TWindowOptionCtrlFPv(int);
 f32 TWindowSubEquip__sub_80263AF8(int, int);
 s32 create_titled_window_menu(int, int, int, int);
 s32 get_window_layout_position(int);

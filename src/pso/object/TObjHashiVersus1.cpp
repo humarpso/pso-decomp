@@ -1,19 +1,15 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8019153C_lbl_804B7C78 { M2C_UNK value; u8 remaining[0xC]; };
+struct RecoveredGlobal_8019153C_lbl_804B7C78 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_8019153C_lbl_804B7C78_size[sizeof(RecoveredGlobal_8019153C_lbl_804B7C78) == 0x10 ? 1 : -1];
 
 struct RecoveredGlobal_801915F4_lbl_804B7CCC {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x54];
 };
 
 struct RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -27,10 +23,10 @@ s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
 u32 init_collision_body_parts(void *, s32, s32);
 u8 * TObjHashiBase__ct(void *, s32);
-M2C_UNK reset_photon_effect__10TObjPlayerFPv(void *);
+s32 reset_photon_effect__10TObjPlayerFPv(void *);
 u8 is_current_floor_switch_set(int);
 extern RecoveredGlobal_801915F4_lbl_804B7CCC versus_bridge_collision_bodies;
-extern M2C_UNK __vt__16TObjHashiVersus1[];
+extern s32 __vt__16TObjHashiVersus1[];
 extern s32 lbl_805D337C;
 extern u32 TObjHashiVersus1__resource_bundle;
 u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2);
@@ -42,10 +38,10 @@ void *TObjHashiVersus1__create(void *arg0);
 void *__dt__16TObjHashiVersus1Fv(void *arg0, s16 arg1);
 void release_static_instance__16TObjHashiVersus1Fv(void);
 void TLobby__sub_8001FE7C(void*, int);
-M2C_UNK free_collision_body_parts(void *);
-M2C_UNK unregister_object_by_id(void *);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK __dt__13TObjHashiBaseFv(void *, M2C_UNK);
+s32 free_collision_body_parts(void *);
+s32 unregister_object_by_id(void *);
+s32 __dl__7TObjectFPv(void *);
+s32 __dt__13TObjHashiBaseFv(void *, s32);
 void *__nw__7TObjectFUl(int);
 
 extern void *tl_05;
@@ -67,7 +63,7 @@ void release_static_instance__16TObjHashiVersus1Fv(void) {
     }
 }
 
-extern M2C_UNK __vt__16TObjHashiVersus1[];
+extern s32 __vt__16TObjHashiVersus1[];
 
 void load_shared_resource__16TObjHashiVersus1Fv(void) {
     s32 temp_r3;
@@ -82,7 +78,7 @@ void load_shared_resource__16TObjHashiVersus1Fv(void) {
 
 void *__dt__16TObjHashiVersus1Fv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__16TObjHashiVersus1;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__16TObjHashiVersus1;
         unregister_object_by_id(arg0);
         free_collision_body_parts(arg0);
         __dt__13TObjHashiBaseFv(arg0, 0);
@@ -96,16 +92,16 @@ typedef char RecoveredGlobal_801915F4_lbl_804B7CCC_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_801915F4___vt__16TObjHashiVersus1_size[sizeof(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1) == 0x38 ? 1 : -1];
 u8 *TObjHashiVersus1__ct(u8 *arg0, s32 arg1, s32 _w2) {
     TObjHashiBase__ct(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 *)&__vt__16TObjHashiVersus1).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D337C;
-    if (is_current_floor_switch_set((int) ((u16) M2C_FIELD(arg0, s32 *, 0xC8))) == 0) {
-        M2C_FIELD(arg0, f32 *, 0x3C) = (f32) (M2C_FIELD(arg0, f32 *, 0x3C) - M2C_FIELD(arg0, f32 *, 0x68));
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801915F4___vt__16TObjHashiVersus1 *)&__vt__16TObjHashiVersus1).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D337C;
+    if (is_current_floor_switch_set((int) ((u16) *(s32 *)((s8 *)arg0 + 0xC8))) == 0) {
+        *(f32 *)((s8 *)arg0 + 0x3C) = (f32) (*(f32 *)((s8 *)arg0 + 0x3C) - *(f32 *)((s8 *)arg0 + 0x68));
     }
-    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) M2C_FIELD(arg0, f32 *, 0x6C);
-    M2C_FIELD(arg0, s32 *, 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
-    M2C_FIELD(arg0, s32 *, 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
+    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) *(f32 *)((s8 *)arg0 + 0x6C);
+    *(s32 *)((s8 *)arg0 + 0x34) = get_bml_model((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
+    *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((*(u8 * *)&TObjHashiVersus1__resource_bundle), 0);
     init_collision_body_parts(arg0, (s32) &versus_bridge_collision_bodies.value, 2);
-    M2C_FIELD(arg0, s32 *, 0x30) = (s32) (M2C_FIELD(arg0, s32 *, 0x30) | 0x40000000);
+    *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) | 0x40000000);
     reset_photon_effect__10TObjPlayerFPv((void *) (arg0));
     return arg0;
 }

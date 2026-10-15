@@ -1,18 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct RecoveredGlobal_80235348_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80235348_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -34,13 +30,13 @@ struct RecoveredFields_80235348_arg0
 
 struct RecoveredGlobal_802308A0_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_802308A0_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -245,7 +241,7 @@ s32 copy_params__8TTecAntiFPvPv(void *, int);
 extern RecoveredGlobal_80235348_lbl_804CC510 tech_high_level_linear_power_table;
 extern RecoveredGlobal_80235348_lbl_804CC55C lbl_804CC55C;
 void init_parameters__9TTecMegidFPv(u8 *arg0);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 void free__11TOBoss4RockFUi(void **);
 void __dl__7TObjectFPv(void *);
 void destroy_technique_effect_resources__10TObjPlayerFPvs(void *, s16);
@@ -270,11 +266,11 @@ extern const f32 lbl_805DC884;
 u8 *construct_facing__9TTecMegidFPviiii(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4);
 u16 obj_getField1c(void *);
 s32 obj_isState3_324(void *);
-M2C_UNK queue_destruction__7TObjectFv(void *);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 queue_destruction__7TObjectFv(void *);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_technique_caster_flags(s32, u16);
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 extern TTecGiBartaData_80230B48 TTecMegid__emitter_bands[];
 void *find_entity_by_id(u16);
 void push_matrix_from(void *);
@@ -289,8 +285,8 @@ extern Vec_80235740 lbl_8044D8B0;
 extern u8 identity_matrix[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
 void *get_bml_model(s32, u32);
-M2C_UNK attach_particle_model(void *, void *, s32, int, int, f32);
-M2C_UNK set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
+s32 attach_particle_model(void *, void *, s32, int, int, f32);
+s32 set_position_xy__10TObjPlayerFPvff(void *, f32, f32);
 void *spawn_particle_effect_with_rotation(void *, void *, u32, u16);
 void *spawn_continuous_particle_effect_with_flags(void *, u32, u16);
 void **alloc_buffer__11TOBoss4RockFPv(u32, s32);
@@ -308,15 +304,15 @@ void create_ex__9TTecMegidFiiii(s32 arg0, s32 arg1, s32 arg2, s32 arg3);
 void fn_802359E4(void *arg0);
 void render__9TTecMegidFv(void);
 void update_by_state__9TTecMegidFPv(u8 *arg0);
-s32 play_sound_effect(M2C_UNK, s32, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 u32 __nw__7TObjectFUl(s32 a0 = 0);
-M2C_UNK update_technique_slot__10TTecRaFoieFi(s32, M2C_UNK, M2C_UNK);
+s32 update_technique_slot__10TTecRaFoieFi(s32, s32, s32);
 
 void update_by_state__9TTecMegidFPv(u8 *arg0) {
     s16 temp_r0;
     s32 temp_r3;
 
-    temp_r0 = M2C_FIELD(arg0, s16 *, 0xC6);
+    temp_r0 = *(s16 *)((s8 *)arg0 + 0xC6);
     switch (temp_r0) {
     case 0:
         temp_r3 = play_sound_effect(0x4002A60B, (int) (arg0 + 0x20), 0, 0);
@@ -427,7 +423,6 @@ void init_parameters__9TTecMegidFPv(u8 *arg0) {
   ((RecoveredFields_80235348_arg0 *) arg0)->field_70 = (f32) ((RecoveredFields_80235348_arg0 *) arg0)->field_D4;
 }
 
-typedef s32 M2C_UNK;
 void TTecMegid__vt6(Obj_80235490 *self, VObj_80235490 *target) {
     s32 found = 0;
     s32 i;
@@ -526,18 +521,18 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
 u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     construct_aimed_technique_projectile();
-    M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
+    *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
     init_parameters__9TTecMegidFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
+    *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
         ((Obj_8023589C *)arg0)->ids[i] = 0xFFFF;
     }
-    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    *(s32 *)((s8 *)arg0 + 0x174) = 0;
     spawn_particle_emitters__9TTecMegidFPv((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
-    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
-        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
+        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }
@@ -545,25 +540,25 @@ u8 *TTecMegid__ct(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
 u8 *construct_facing__9TTecMegidFPviiii(u8 *arg0, s32 _w1, s32 _w2, s32 _w3, s32 _w4) {
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
-    M2C_FIELD(arg0, void **, 0x18) = __vt__9TTecMegid;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D37E8;
+    *(void **)((s8 *)arg0 + 0x18) = __vt__9TTecMegid;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37E8;
     init_parameters__9TTecMegidFPv(arg0);
-    M2C_FIELD(arg0, f32 *, 0x178) = lbl_805DC884;
+    *(f32 *)((s8 *)arg0 + 0x178) = lbl_805DC884;
     for (i = 0; i < 0x20; i++) {
         ((Obj_80235940 *)arg0)->ids[i] = 0xFFFF;
     }
-    M2C_FIELD(arg0, s32 *, 0x174) = 0;
+    *(s32 *)((s8 *)arg0 + 0x174) = 0;
     spawn_particle_emitters__9TTecMegidFPv((void *)(arg0));
     update_by_state__9TTecMegidFPv(arg0);
-    if (M2C_FIELD(arg0, void **, 0x1C) != 0) {
-        M2C_FIELD(arg0, s16 *, 0xC8) = obj_getField1c(M2C_FIELD(arg0, void **, 0x1C));
+    if (*(void **)((s8 *)arg0 + 0x1C) != 0) {
+        *(s16 *)((s8 *)arg0 + 0xC8) = obj_getField1c(*(void **)((s8 *)arg0 + 0x1C));
     }
     return arg0;
 }
 
 void fn_802359E4(void *arg0) {
-    M2C_FIELD(arg0, s16 *, 0x1E) = (s16) (M2C_FIELD(arg0, s16 *, 0x1E) + 1);
-    if ((s16) M2C_FIELD(arg0, s16 *, 0x1E) > (s16) M2C_FIELD(arg0, s16 *, 0x1C)) {
+    *(s16 *)((s8 *)arg0 + 0x1E) = (s16) (*(s16 *)((s8 *)arg0 + 0x1E) + 1);
+    if ((s16) *(s16 *)((s8 *)arg0 + 0x1E) > (s16) *(s16 *)((s8 *)arg0 + 0x1C)) {
         queue_destruction__7TObjectFv((void *)((void *)(arg0)));
     }
 }

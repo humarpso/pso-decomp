@@ -1,10 +1,6 @@
 #include "pso/TAdTitleTexGC.h"
 
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct V_802A4EF4 { f32 x, y; };
 
@@ -34,18 +30,18 @@ extern "C" {
 void *__ct__13TAdTitleTexGCFv(void *arg0);
 void render__13TAdTitleTexGCFv(void *arg0);
 void run_task__13TAdTitleTexGCFv(void *arg0);
-s32 get_localized_text_entry(M2C_UNK, M2C_UNK);
+s32 get_localized_text_entry(s32, s32);
 void __ct__7TObjectFP7TObject(void *);
-M2C_UNK fn_802A4D74(void *, s32, s32, s32);
+s32 fn_802A4D74(void *, s32, s32, s32);
 s32 get_state_flag__9TMainTaskFv();
-M2C_UNK render_status_pair__20TWindowSubStatusDispFii(void *, s32);
+s32 render_status_pair__20TWindowSubStatusDispFii(void *, s32);
 
 void render__13TAdTitleTexGCFv(void *arg0) {
     s32 temp_r31;
 
     if (get_state_flag__9TMainTaskFv() != 1) {
-        render_status_pair__20TWindowSubStatusDispFii(arg0, (M2C_FIELD(arg0, s32 *, 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
-        fn_802A4D74(arg0, (M2C_FIELD(arg0, s32 *, 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
+        render_status_pair__20TWindowSubStatusDispFii(arg0, (*(s32 *)((s8 *)arg0 + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF);
+        fn_802A4D74(arg0, (*(s32 *)((s8 *)arg0 + 0x7C) << 0x18) | 0xFF0000 | 0xFFFF, get_localized_text_entry(0x28, 0), get_localized_text_entry(0x28, 1));
     }
 }
 
@@ -68,20 +64,20 @@ void run_task__13TAdTitleTexGCFv(void *arg0) {
     u32 temp_r4_2;
     u32 temp_r4_3;
 
-    temp_r4 = M2C_FIELD(arg0, s32 *, 0x80);
+    temp_r4 = *(s32 *)((s8 *)arg0 + 0x80);
     if (temp_r4 < 0x14) {
-        M2C_FIELD(arg0, s32 *, 0x80) = (s32) (temp_r4 + 1);
+        *(s32 *)((s8 *)arg0 + 0x80) = (s32) (temp_r4 + 1);
     }
-    temp_r4_2 = M2C_FIELD(arg0, u32 *, 0x7C);
+    temp_r4_2 = *(u32 *)((s8 *)arg0 + 0x7C);
     if (temp_r4_2 < 0xFFU) {
-        M2C_FIELD(arg0, u32 *, 0x7C) = (u32) (temp_r4_2 + 0xC);
+        *(u32 *)((s8 *)arg0 + 0x7C) = (u32) (temp_r4_2 + 0xC);
     }
-    temp_r4_3 = M2C_FIELD(arg0, u32 *, 0x7C);
-    M2C_FIELD(arg0, u32 *, 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
+    temp_r4_3 = *(u32 *)((s8 *)arg0 + 0x7C);
+    *(u32 *)((s8 *)arg0 + 0x7C) = (temp_r4_3 <= 0xFFU) ? temp_r4_3 : 0xFFU;
     update_title_tex_positions__13TAdTitleTexGCFPv((Obj_802A4EF4 *)(arg0));
 }
 
-extern M2C_UNK __vt__13TAdTitleTexGC[];
+extern s32 __vt__13TAdTitleTexGC[];
 extern const f32 lbl_805DDF9C;
 extern void *TAdTitleTexGC__name;
 extern const f32 lbl_805DDFA0;
@@ -97,24 +93,24 @@ extern const f32 lbl_805DDFC0;
 TAdTitleTexGC::~TAdTitleTexGC() {}
 void *__ct__13TAdTitleTexGCFv(void *arg0) {
     __ct__7TObjectFP7TObject(arg0);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__13TAdTitleTexGC;
-    M2C_FIELD(arg0, void **, 0x0) = TAdTitleTexGC__name;
-    M2C_FIELD(arg0, u32 *, 0x7C) = 51;
-    M2C_FIELD(arg0, u32 *, 0x80) = -1;
-    M2C_FIELD(arg0, f32 *, 0x34) = lbl_805DDF9C;
-    M2C_FIELD(arg0, f32 *, 0x38) = lbl_805DDFA0;
-    M2C_FIELD(arg0, f32 *, 0x2C) = lbl_805DDFA4;
-    M2C_FIELD(arg0, f32 *, 0x30) = lbl_805DDFA8;
-    M2C_FIELD(arg0, f32 *, 0x4C) = lbl_805DDFAC;
-    M2C_FIELD(arg0, f32 *, 0x50) = lbl_805DDFA8;
-    M2C_FIELD(arg0, f32 *, 0x54) = lbl_805DDFB0;
-    M2C_FIELD(arg0, f32 *, 0x58) = lbl_805DDFA0;
-    M2C_FIELD(arg0, f32 *, 0x84) = lbl_805DDFB4;
-    M2C_FIELD(arg0, f32 *, 0x88) = lbl_805DDFB8;
-    M2C_FIELD(arg0, f32 *, 0x8C) = lbl_805DDFBC;
-    M2C_FIELD(arg0, f32 *, 0x90) = lbl_805DDFB8;
-    M2C_FIELD(arg0, f32 *, 0x94) = lbl_805DDFC0;
-    M2C_FIELD(arg0, f32 *, 0x98) = lbl_805DDFB8;
+    *(s32 **)((s8 *)arg0 + 0x18) = __vt__13TAdTitleTexGC;
+    *(void **)((s8 *)arg0 + 0x0) = TAdTitleTexGC__name;
+    *(u32 *)((s8 *)arg0 + 0x7C) = 51;
+    *(u32 *)((s8 *)arg0 + 0x80) = -1;
+    *(f32 *)((s8 *)arg0 + 0x34) = lbl_805DDF9C;
+    *(f32 *)((s8 *)arg0 + 0x38) = lbl_805DDFA0;
+    *(f32 *)((s8 *)arg0 + 0x2C) = lbl_805DDFA4;
+    *(f32 *)((s8 *)arg0 + 0x30) = lbl_805DDFA8;
+    *(f32 *)((s8 *)arg0 + 0x4C) = lbl_805DDFAC;
+    *(f32 *)((s8 *)arg0 + 0x50) = lbl_805DDFA8;
+    *(f32 *)((s8 *)arg0 + 0x54) = lbl_805DDFB0;
+    *(f32 *)((s8 *)arg0 + 0x58) = lbl_805DDFA0;
+    *(f32 *)((s8 *)arg0 + 0x84) = lbl_805DDFB4;
+    *(f32 *)((s8 *)arg0 + 0x88) = lbl_805DDFB8;
+    *(f32 *)((s8 *)arg0 + 0x8C) = lbl_805DDFBC;
+    *(f32 *)((s8 *)arg0 + 0x90) = lbl_805DDFB8;
+    *(f32 *)((s8 *)arg0 + 0x94) = lbl_805DDFC0;
+    *(f32 *)((s8 *)arg0 + 0x98) = lbl_805DDFB8;
     return arg0;
 }
 

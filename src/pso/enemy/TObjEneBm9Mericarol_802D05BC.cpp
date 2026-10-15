@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 extern "C" {
 
@@ -117,7 +113,7 @@ struct SubObj_802d05bc : SubBase_802d05bc {
     virtual void v2();
     virtual void v3();
     virtual void v4();
-    virtual M2C_UNK v5();
+    virtual s32 v5();
     virtual void v6();
 };
 struct Base_802D06E0_802D05BC { char pad[0x18]; };
@@ -139,22 +135,22 @@ struct VObj_802D06E0_802D05BC : Base_802D06E0_802D05BC {
 
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1);
 void handle_action__19TObjEneBm9MericarolFPvi(void *arg0, s32 arg1);
-M2C_UNK advance_animation_playback();
-M2C_UNK play_area_sound_effect__12TBoss3VoloptFi(void *);
-M2C_UNK TObjEneBm9Mericarol__sub_802D093C(void *);
-M2C_UNK transition_enemy_state(void *, s32);
-M2C_UNK TObjEneMe3SinowZoa__sub_800D758C(void *);
-M2C_UNK enemy_clear_target(void *);
-M2C_UNK set_field_378__9TObjEneDDFPvi(void *, M2C_UNK);
+s32 advance_animation_playback();
+s32 play_area_sound_effect__12TBoss3VoloptFi(void *);
+s32 TObjEneBm9Mericarol__sub_802D093C(void *);
+s32 transition_enemy_state(void *, s32);
+s32 TObjEneMe3SinowZoa__sub_800D758C(void *);
+s32 enemy_clear_target(void *);
+s32 set_field_378__9TObjEneDDFPvi(void *, s32);
 
 void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
     switch (arg1) {
     case 4:
-        M2C_FIELD(arg0, s16 *, 0xB8) = 2;
+        *(s16 *)((s8 *)arg0 + 0xB8) = 2;
         ((TObj_802d05bc *)arg0)->v93();
         TObjEneBm9Mericarol__sub_802D093C(arg0);
-        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) | 0x28);
-        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & 0xFFFFFFEF);
+        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) | 0x28);
+        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & 0xFFFFFFEF);
         set_field_378__9TObjEneDDFPvi(arg0, 2);
         enemy_clear_target(arg0);
         TObjEneMe3SinowZoa__sub_800D758C(arg0 + 0x46C);
@@ -172,7 +168,7 @@ void TObjEneBm9Mericarol__sub_802D05BC(u8 *arg0, s32 arg1) {
         ((TObj_802d05bc *)arg0)->v86();
         return;
     case 5:
-        M2C_FIELD(arg0, s32 *, 0x438) = (s32) (M2C_FIELD(arg0, s32 *, 0x438) & ~0x28);
+        *(s32 *)((s8 *)arg0 + 0x438) = (s32) (*(s32 *)((s8 *)arg0 + 0x438) & ~0x28);
         break;
     }
 }

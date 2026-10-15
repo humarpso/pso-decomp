@@ -1,8 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
+
 struct VBase_18_44382c { char pad[0x18]; };
 
 struct VObj_18_44382c : VBase_18_44382c {
@@ -14,7 +11,7 @@ struct VObj_18_44382c : VBase_18_44382c {
     virtual void m5();
     virtual void m6();
     virtual void m7();
-    virtual M2C_UNK m8(u8 *, M2C_UNK);
+    virtual s32 m8(u8 *, s32);
 };
 
 struct Stack_801DB998 {
@@ -32,11 +29,11 @@ struct Stack_801DB998 {
 };
 
 extern "C" {
-M2C_UNK fn_801DF918(void *);
-M2C_UNK fn_801DF954(void *);
-M2C_UNK __as__8TPlySmthFRC8TPlySmth(void *, void *);
-M2C_UNK strncpy(void *, void *, int);
-M2C_UNK memset(void *, int, int);
+s32 fn_801DF918(void *);
+s32 fn_801DF954(void *);
+s32 __as__8TPlySmthFRC8TPlySmth(void *, void *);
+s32 strncpy(void *, void *, int);
+s32 memset(void *, int, int);
 void send_register_9c(u8 *arg0);
 }
 
@@ -49,8 +46,8 @@ void send_register_9c(u8 *arg0) {
     stack.sp8 = 0x9C;
     stack.spA = 0xA4;
     __as__8TPlySmthFRC8TPlySmth((void *) (&stack.spC), (void *) (arg0 + 0x18F8));
-    stack.sp14 = (s32) M2C_FIELD(arg0, u16 *, 0x1908);
-    stack.sp19 = (s8) M2C_FIELD(arg0, s32 *, 0x1934);
+    stack.sp14 = (s32) *(u16 *)((s8 *)arg0 + 0x1908);
+    stack.sp19 = (s8) *(s32 *)((s8 *)arg0 + 0x1934);
     strncpy((void *) (&stack.sp1C), (void *) (arg0 + 0x3EDA), (int) (0x30));
     strncpy((void *) (&stack.sp4C), (void *) (arg0 + 0x3F0A), (int) (0x30));
     strncpy((void *) (&stack.sp7C), (void *) (arg0 + 0x3F3A), (int) (0x30));

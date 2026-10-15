@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 struct VBase_18_1a504b { char pad[0x18]; };
 
@@ -12,11 +8,11 @@ struct VObj_18_1a504b : VBase_18_1a504b {
     virtual void m2();
     virtual void m3();
     virtual void m4();
-    virtual M2C_UNK m5(s32);
+    virtual s32 m5(s32);
 };
 
 struct RecoveredGlobal_801976F4___vt__12TObjRaderCol {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x34];
 };
 
@@ -27,9 +23,9 @@ struct Ply_8019750C { u8 pad0[0x38]; f32 pos[3]; };
 extern "C" {
 s32 disallow_rendering__7TObjectFv(void *);
 s32 construct_world_actor_base(void *);
-extern M2C_UNK __vt__12TObjRaderCol[];
+extern s32 __vt__12TObjRaderCol[];
 extern s32 lbl_805D3410;
-u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2);
 void queue_destruction__7TObjectFv(void *);
 f32 xz_distance_squared(void *, void *);
 int test_flag_2000000__10TObjPlayerFPv(void *);
@@ -45,7 +41,7 @@ void *__dt__12TObjRaderColFv(void *arg0, s16 arg1);
 void render__12TObjRaderColFv(void);
 void run_task__12TObjRaderColFv(void *arg0);
 void check_local_player_in_range__12TObjRaderColFPv(void *);
-M2C_UNK block_region_by_id__13TRaderMapCoreFs(s16);
+s32 block_region_by_id__13TRaderMapCoreFs(s16);
 void __dl__7TObjectFPv(void *);
 void destroy_particle__13TParticleCtrlFPvs(void *, int);
 s32 is_not_split_screen__13TRaderMapCoreFv();
@@ -107,11 +103,11 @@ void check_local_player_in_range__12TObjRaderColFPv(void *arg0_) {
 void run_task__12TObjRaderColFv(void *arg0) {
     s32 temp_r0;
 
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x98);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x98);
     switch (temp_r0) {
     case 0:
-        block_region_by_id__13TRaderMapCoreFs((s16) M2C_FIELD(arg0, s32 *, 0x94));
-        M2C_FIELD(arg0, s32 *, 0x98) = 1;
+        block_region_by_id__13TRaderMapCoreFs((s16) *(s32 *)((s8 *)arg0 + 0x94));
+        *(s32 *)((s8 *)arg0 + 0x98) = 1;
         return;
     case 1:
         if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
@@ -123,25 +119,25 @@ void run_task__12TObjRaderColFv(void *arg0) {
     }
 }
 
-extern M2C_UNK __vt__12TObjRaderCol[];
+extern s32 __vt__12TObjRaderCol[];
 
 typedef char RecoveredGlobal_801976F4___vt__12TObjRaderCol_size[sizeof(RecoveredGlobal_801976F4___vt__12TObjRaderCol) == 0x38 ? 1 : -1];
-u8 *TObjRaderCol__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+u8 *TObjRaderCol__ct(u8 *arg0, s32 arg1, s32 arg2) {
     construct_world_actor_base((void *) (arg0));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3410;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_801976F4___vt__12TObjRaderCol *)&__vt__12TObjRaderCol).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3410;
     ((VObj_18_1a504b *)(arg0))->m5(arg2);
-    M2C_FIELD(arg0, f32 *, 0x90) = (f32) M2C_FIELD(arg0, f32 *, 0x68);
-    M2C_FIELD(arg0, s32 *, 0x94) = (s32) M2C_FIELD(arg0, s32 *, 0x84);
-    M2C_FIELD(arg0, s32 *, 0x98) = 0;
-    M2C_FIELD(arg0, s32 *, 0x9C) = 3;
+    *(f32 *)((s8 *)arg0 + 0x90) = (f32) *(f32 *)((s8 *)arg0 + 0x68);
+    *(s32 *)((s8 *)arg0 + 0x94) = (s32) *(s32 *)((s8 *)arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0x98) = 0;
+    *(s32 *)((s8 *)arg0 + 0x9C) = 3;
     disallow_rendering__7TObjectFv((void *) (arg0));
     return arg0;
 }
 
 void *__dt__12TObjRaderColFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = __vt__12TObjRaderCol;
+        *(s32 **)((s8 *)arg0 + 0x18) = __vt__12TObjRaderCol;
         destroy_particle__13TParticleCtrlFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

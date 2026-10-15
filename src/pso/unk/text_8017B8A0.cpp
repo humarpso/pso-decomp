@@ -1,10 +1,5 @@
 #include "types.h"
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
 struct Obj_8017B8A0 {
     u8 pad[0x18];
     virtual void m0(); virtual void m1(); virtual void m2(); virtual void m3();
@@ -87,36 +82,36 @@ void TOTrapAncient02R__vt22(V_8017B8D4 *self) {
 
 void init_trap_param_clamped(u8 *arg0) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x368) = (s32) M2C_FIELD(arg0, f32 *, 0x6C);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x368);
+    *(s32 *)((s8 *)arg0 + 0x368) = (s32) *(f32 *)((s8 *)arg0 + 0x6C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x368);
     if (temp_r0 < 1) {
-        M2C_FIELD(arg0, s32 *, 0x368) = 1;
+        *(s32 *)((s8 *)arg0 + 0x368) = 1;
         return;
     }
     if (temp_r0 > 0x100) {
-        M2C_FIELD(arg0, s32 *, 0x368) = 0x100;
+        *(s32 *)((s8 *)arg0 + 0x368) = 0x100;
     }
 }
 
 void clamp_trap_level_param(u8 *arg0) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x35C) = (s32) M2C_FIELD(arg0, s32 *, 0x8C);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x35C);
+    *(s32 *)((s8 *)arg0 + 0x35C) = (s32) *(s32 *)((s8 *)arg0 + 0x8C);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x35C);
     if (temp_r0 < 0) {
-        M2C_FIELD(arg0, s32 *, 0x35C) = 0;
+        *(s32 *)((s8 *)arg0 + 0x35C) = 0;
         return;
     }
     if (temp_r0 >= 5) {
-        M2C_FIELD(arg0, s32 *, 0x35C) = 4;
+        *(s32 *)((s8 *)arg0 + 0x35C) = 4;
     }
 }
 
 void init_trap_object_id(u8 *arg0) {
     s32 temp_r0;
-    M2C_FIELD(arg0, s32 *, 0x364) = (s32) M2C_FIELD(arg0, s32 *, 0x88);
-    temp_r0 = M2C_FIELD(arg0, s32 *, 0x364);
+    *(s32 *)((s8 *)arg0 + 0x364) = (s32) *(s32 *)((s8 *)arg0 + 0x88);
+    temp_r0 = *(s32 *)((s8 *)arg0 + 0x364);
     if ((temp_r0 < 0) || (temp_r0 >= 0x100)) {
-        M2C_FIELD(arg0, s32 *, 0x364) = -1;
+        *(s32 *)((s8 *)arg0 + 0x364) = -1;
     }
 }
 

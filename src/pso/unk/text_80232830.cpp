@@ -1,15 +1,14 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
+
 struct RecoveredGlobal_80232830_lbl_804CC510
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x48];
 };
 
 struct RecoveredGlobal_80232830_lbl_804CC55C
 {
-  M2C_UNK value;
+  s32 value;
   u8 remaining[0x94];
 };
 
@@ -29,7 +28,7 @@ typedef struct RecoveredGlobal_80232830_lbl_804CC55C RecoveredGlobal_80232830_lb
 typedef char RecoveredGlobal_80232830_lbl_804CC510_size[((sizeof(RecoveredGlobal_80232830_lbl_804CC510)) == 0x4C) ? (1) : (-1)];
 typedef char RecoveredGlobal_80232830_lbl_804CC55C_size[((sizeof(RecoveredGlobal_80232830_lbl_804CC55C)) == 0x98) ? (1) : (-1)];
 void init_parameters__10TTecGrantsFPv(u8 *arg0) {
-  M2C_UNK *new_var2;
+  s32 *new_var2;
   int new_var3;
   s8 *new_var;
   new_var = (s8 *) arg0;

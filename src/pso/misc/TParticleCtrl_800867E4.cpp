@@ -1,9 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_BITWISE(type, expr) ((type)(expr))
 #include <stddef.h>
 struct Stack_8008683C {
     s32 sp8;
@@ -12,7 +8,7 @@ struct Stack_8008683C {
 };
 
 struct RecoveredGlobal_8008683C_lbl_804393F0 {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x8];
 };
 
@@ -73,9 +69,9 @@ void generate_child_default__13TParticleCtrlFiii(s32 arg0, s32 arg1, s32 arg2) {
     typedef char spC_offset[(offsetof(Stack_8008683C, spC) == 0x4) ? 1 : -1];
     typedef char sp10_offset[(offsetof(Stack_8008683C, sp10) == 0x8) ? 1 : -1];
     Stack_8008683C stack;
-    stack.sp8 = M2C_FIELD(&lbl_804393F0.value, s32 *, 0);
-    stack.spC = M2C_FIELD(&lbl_804393F0.value, s32 *, 4);
-    stack.sp10 = M2C_FIELD(&lbl_804393F0.value, s32 *, 8);
+    stack.sp8 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&lbl_804393F0.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&lbl_804393F0.value) + 8);
     alloc_child_particle__13TParticleCtrlFPvPvPvPv((void *) (arg0), (void *) (arg1), (void *) (&stack.sp8), (void *) (arg2));
 }
 

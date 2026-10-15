@@ -1,8 +1,4 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
 typedef struct TBoss6Tube_802B1020 {
     u8 pad[0x28];
@@ -48,9 +44,9 @@ extern "C" {
 void reset_state__10TBoss6TubeFv(void);
 void spawn_trap__10TBoss6TubeFi(s32 arg0);
 void update_timer__10TBoss6TubeFPv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK play_persistent_sound(M2C_UNK, s32, M2C_UNK, M2C_UNK, M2C_UNK);
-M2C_UNK set_shake_preset__11TCameraCtrlFi(M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
+s32 play_persistent_sound(s32, s32, s32, s32, s32);
+s32 set_shake_preset__11TCameraCtrlFi(s32);
 
 void render__10TBoss6TubeFv(TBoss6Tube_802B1020 *o) {
     f32 lo = (-1.6e+03f);
@@ -122,12 +118,12 @@ f32 calc_tube_progress__10TBoss6TubeFi(s32 arg0) {
 
 void TBoss6Tube__sub_802B1218(u8 *arg0) {
     if (((0.0f) == TBoss6Tube__scroll_delta) && ((s32) TBoss6Tube__previous_scroll_phase == 0)) {
-        TBoss6Tube__previous_scroll_phase = M2C_FIELD(arg0, s32 *, 0x28);
+        TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
         return;
     }
     TBoss6Tube__scroll_delta = scale_by_const__10TBoss6TubeFf(
-        calc_tube_progress__10TBoss6TubeFi(TBoss6Tube__previous_scroll_phase - M2C_FIELD(arg0, s32 *, 0x28)));
-    TBoss6Tube__previous_scroll_phase = M2C_FIELD(arg0, s32 *, 0x28);
+        calc_tube_progress__10TBoss6TubeFi(TBoss6Tube__previous_scroll_phase - *(s32 *)((s8 *)arg0 + 0x28)));
+    TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
 }
 
 void reset_state__10TBoss6TubeFv(void) {
@@ -151,14 +147,14 @@ void TBoss6Tube__sub_802B129C(u8 *arg0) {
 #pragma push
 #pragma fp_contract on
 void update_wobble__10TBoss6TubeFPv(u8 *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x24) = (s32) (M2C_FIELD(arg0, s32 *, 0x24) + (s32) (((-464.0f) * ((3.0517578e-05f) * (f32) rand())) + (-116.0f)));
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x24) <= (0.0f)) {
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
-        M2C_FIELD(arg0, s32 *, 0x28) = (s32) ((f32) M2C_FIELD(arg0, s32 *, 0x28) + (((13107.0f) * ((3.0517578e-05f) * (f32) rand())) - (6553.0f)));
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) (*(s32 *)((s8 *)arg0 + 0x24) + (s32) (((-464.0f) * ((3.0517578e-05f) * (f32) rand())) + (-116.0f)));
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x24) <= (0.0f)) {
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x28) = (s32) ((f32) *(s32 *)((s8 *)arg0 + 0x28) + (((13107.0f) * ((3.0517578e-05f) * (f32) rand())) - (6553.0f)));
     }
-    M2C_FIELD(arg0, s32 *, 0x28) = (s32) (M2C_FIELD(arg0, s32 *, 0x28) + M2C_FIELD(arg0, s32 *, 0x24));
+    *(s32 *)((s8 *)arg0 + 0x28) = (s32) (*(s32 *)((s8 *)arg0 + 0x28) + *(s32 *)((s8 *)arg0 + 0x24));
     TBoss6Tube__scroll_delta = (0.0f);
-    TBoss6Tube__previous_scroll_phase = M2C_FIELD(arg0, s32 *, 0x28);
+    TBoss6Tube__previous_scroll_phase = *(s32 *)((s8 *)arg0 + 0x28);
 }
 #pragma pop
 
@@ -168,10 +164,10 @@ void spawn_trap__10TBoss6TubeFi(s32 arg0) {
 }
 
 void update_timer__10TBoss6TubeFPv(void *arg0) {
-    M2C_FIELD(arg0, s32 *, 0x20) = (s32) (M2C_FIELD(arg0, s32 *, 0x20) + 1);
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x20) >= 0x10E) {
-        M2C_FIELD(arg0, s32 *, 0x20) = 0;
-        M2C_FIELD(arg0, s32 *, 0x1C) = 1;
+    *(s32 *)((s8 *)arg0 + 0x20) = (s32) (*(s32 *)((s8 *)arg0 + 0x20) + 1);
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x20) >= 0x10E) {
+        *(s32 *)((s8 *)arg0 + 0x20) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 1;
         play_sound_effect(0x4003351F, 0, 0, 0);
         set_shake_preset__11TCameraCtrlFi(2);
     }

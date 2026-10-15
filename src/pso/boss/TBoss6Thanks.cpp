@@ -2,7 +2,6 @@
 #include "pso/boss/TBoss6Thanks.h"
 
 #include <stddef.h>
-typedef s32 M2C_UNK;
 
 typedef char Thanks_current_motion[offsetof(TBoss6Thanks,current_motion)==0x20?1:-1];
 typedef char Thanks_frame0[offsetof(TBoss6Thanks,frame0)==0x28?1:-1];
@@ -28,31 +27,26 @@ void mark_done__12TBoss6ThanksFPv(void* p);
 
 extern "C" {
 
-M2C_UNK reset_fish_globals__8TObjFishFv();
+s32 reset_fish_globals__8TObjFishFv();
 void set_fade_material_color__14TBoss6PlotFalzFf(f32);
-M2C_UNK scale_matrix(int, f32, f32, f32);
-M2C_UNK push_matrix();
-M2C_UNK pop_matrix();
-M2C_UNK post_translate_matrix(void *);
-M2C_UNK set_global_param__8TObjFishFi(s32);
+s32 scale_matrix(int, f32, f32, f32);
+s32 push_matrix();
+s32 pop_matrix();
+s32 post_translate_matrix(void *);
+s32 set_global_param__8TObjFishFi(s32);
 void draw_model_motion(void *, void *, f32);
-M2C_UNK set_global_flag__10TObjPlayerFv();
-M2C_UNK clear_global_state__10TObjPlayerFv();
+s32 set_global_flag__10TObjPlayerFv();
+s32 clear_global_state__10TObjPlayerFv();
 extern u8 TBoss6Thanks__data_80479BA8[];
 extern const f32 lbl_805E019C;
 extern const f32 lbl_805E01A0;
 
 }
 
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
-
-struct RecoveredGlobal_8035D10C___vt__12TBoss6Thanks { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8035D10C___vt__12TBoss6Thanks { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8035D10C___vt__12TBoss6Thanks_size[sizeof(RecoveredGlobal_8035D10C___vt__12TBoss6Thanks) == 0x18 ? 1 : -1];
 
-struct RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks { s32 value; u8 remaining[0x14]; };
 
 struct O_8035CCAC { u8 pad[0x54]; s32 arr[4]; };
 
@@ -64,7 +58,6 @@ struct Ent_8035CB88 { s32 id; s32 lo; s32 hi; };
 
 struct Obj_8035CB88 { u8 pad[0x34]; s32 x30; u8 pad38[0x1C]; void *p[4]; };
 
-typedef s32 M2C_UNK;
 extern "C" {
 s32 get_bml_motion(void *, s32);
 s32 TObjFish__sub_8001EDB0(void *, s32);
@@ -108,10 +101,10 @@ int dispatch_darkfalz_phase__12TBoss6ThanksFv(void);
 u8 fn_8035CAE0(void);
 void mark_done__12TBoss6ThanksFPv(void* p);
 void update_fade_out__12TBoss6ThanksFPv(void *arg0);
-M2C_UNK play_sound_effect(M2C_UNK, M2C_UNK, M2C_UNK, M2C_UNK);
+s32 play_sound_effect(s32, s32, s32, s32);
 s32 get_story_flag(s32);
 int dispatch_by_main_phase__14TBoss4DarkFalzFUs(void*);
-M2C_UNK queue_destruction__7TObjectFv(void *);
+s32 queue_destruction__7TObjectFv(void *);
 
 u8 fn_8035CAE0(void) {
     return (u8) (get_story_flag(0x9A) != 0);
@@ -122,7 +115,7 @@ u8 check_ship_door__12TBoss6ThanksFv(void) {
 int TBoss6Thanks__sub_8035CB40(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(154)); }
 int dispatch_darkfalz_phase__12TBoss6ThanksFv(void) { return dispatch_by_main_phase__14TBoss4DarkFalzFUs((void*)(152)); }
 
-extern M2C_UNK lbl_80479C08;
+extern s32 lbl_80479C08;
 extern const f32 lbl_805E01A4;
 extern const f32 lbl_805E01A8;
 extern const f32 lbl_805E01AC;
@@ -213,26 +206,26 @@ extern "C" {
 void update_fade_out__12TBoss6ThanksFPv(void *arg0) {
     s32 temp_r3;
 
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x20) != 1) {
-        if ((s32) M2C_FIELD(arg0, s32 *, 0x34) == 0) {
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x20) != 1) {
+        if ((s32) *(s32 *)((s8 *)arg0 + 0x34) == 0) {
             play_sound_effect(0x40033231, 0, 0, 0);
         }
         update_particle_emitters__12TBoss6ThanksFPv((void *)(arg0));
-        M2C_FIELD(arg0, f32 *, 0x30) = (f32) (lbl_805E01A4 * (lbl_805E01A8 - ((f32) M2C_FIELD(arg0, s32 *, 0x34) / lbl_805E01AC)));
-        temp_r3 = M2C_FIELD(arg0, s32 *, 0x34);
+        *(f32 *)((s8 *)arg0 + 0x30) = (f32) (lbl_805E01A4 * (lbl_805E01A8 - ((f32) *(s32 *)((s8 *)arg0 + 0x34) / lbl_805E01AC)));
+        temp_r3 = *(s32 *)((s8 *)arg0 + 0x34);
         if (temp_r3 == 0x78) {
             play_sound_effect(0x40033232, 0, 0, 0);
             queue_destruction__7TObjectFv(arg0);
             return;
         }
-        M2C_FIELD(arg0, s32 *, 0x34) = (s32) (temp_r3 + 1);
+        *(s32 *)((s8 *)arg0 + 0x34) = (s32) (temp_r3 + 1);
     }
 }
 
 void advance_thanks_state__12TBoss6ThanksFPv(void *arg0) {
-    if ((s32) M2C_FIELD(arg0, s32 *, 0x20) == 1) {
-        M2C_FIELD(arg0, s32 *, 0x24) = 0;
-        M2C_FIELD(arg0, s32 *, 0x1C) = 2;
+    if ((s32) *(s32 *)((s8 *)arg0 + 0x20) == 1) {
+        *(s32 *)((s8 *)arg0 + 0x24) = 0;
+        *(s32 *)((s8 *)arg0 + 0x1C) = 2;
     }
 }
 
@@ -277,7 +270,7 @@ void TBoss6Thanks::run_task() {
 
 u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks *)&__vt__12TBoss6Thanks).value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8035D0A4___vt__12TBoss6Thanks *)&__vt__12TBoss6Thanks).value;
         TBoss6Thanks__sub_8035CB40();
         destroy_effects__12TBoss6ThanksFPv((W_8035CC50 *)((s32) arg0));
         __dt__7TObjectFv(arg0, 0);
@@ -291,24 +284,24 @@ u8 *__dt__12TBoss6ThanksFv(u8 *arg0, s16 arg1) {
 u8 *TBoss6Thanks__ct(u8 *arg0, u8 *arg1) {
     u8 *temp_r3;
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__12TBoss6Thanks.value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) TBoss6Thanks__class_name;
+    *(s32 **)((s8 *)arg0 + 0x18) = &__vt__12TBoss6Thanks.value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss6Thanks__class_name;
     temp_r3 = (u8 *)(get_fish_count__8TObjFishFv());
-    M2C_FIELD(arg0, s32 *, 0x38) = get_bml_model(temp_r3, 7);
-    M2C_FIELD(arg0, s32 *, 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
-    M2C_FIELD(arg0, s32 *, 0x48) = get_bml_motion(temp_r3, 9);
-    M2C_FIELD(arg0, s32 *, 0x4C) = get_bml_motion(temp_r3, 0xB);
-    M2C_FIELD(arg0, s32 *, 0x3C) = get_bml_model(temp_r3, 9);
-    M2C_FIELD(arg0, s32 *, 0x44) = TObjFish__sub_8001EDB0(temp_r3, 9);
-    M2C_FIELD(arg0, s32 *, 0x50) = get_bml_motion(temp_r3, 0xA);
+    *(s32 *)((s8 *)arg0 + 0x38) = get_bml_model(temp_r3, 7);
+    *(s32 *)((s8 *)arg0 + 0x40) = TObjFish__sub_8001EDB0(temp_r3, 7);
+    *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(temp_r3, 9);
+    *(s32 *)((s8 *)arg0 + 0x4C) = get_bml_motion(temp_r3, 0xB);
+    *(s32 *)((s8 *)arg0 + 0x3C) = get_bml_model(temp_r3, 9);
+    *(s32 *)((s8 *)arg0 + 0x44) = TObjFish__sub_8001EDB0(temp_r3, 9);
+    *(s32 *)((s8 *)arg0 + 0x50) = get_bml_motion(temp_r3, 0xA);
     TBoss6Thanks__sub_8035CCAC((s32)((s32) arg0));
-    M2C_FIELD(arg0, s32 *, 0x1C) = 0;
-    M2C_FIELD(arg0, s32 *, 0x24) = 0;
-    M2C_FIELD(arg0, s32 *, 0x20) = 0;
-    M2C_FIELD(arg0, f32 *, 0x28) = (f32) lbl_805E019C;
-    M2C_FIELD(arg0, f32 *, 0x2C) = (f32) lbl_805E019C;
-    M2C_FIELD(arg0, f32 *, 0x30) = (f32) lbl_805E01A4;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = 0;
+    *(s32 *)((s8 *)arg0 + 0x24) = 0;
+    *(s32 *)((s8 *)arg0 + 0x20) = 0;
+    *(f32 *)((s8 *)arg0 + 0x28) = (f32) lbl_805E019C;
+    *(f32 *)((s8 *)arg0 + 0x2C) = (f32) lbl_805E019C;
+    *(f32 *)((s8 *)arg0 + 0x30) = (f32) lbl_805E01A4;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
     return arg0;
 }
 

@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog { M2C_UNK value; u8 remaining[0x14]; };
+struct RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog { s32 value; u8 remaining[0x14]; };
 typedef char RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog_size[sizeof(RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog) == 0x18 ? 1 : -1];
 
 #include <stddef.h>
@@ -14,15 +10,15 @@ struct Stack_8026ABA8 {
 };
 
 struct RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog {
-    M2C_UNK value;
+    s32 value;
     u8 remaining[0x14];
 };
 
 extern "C" {
 s32 get_draw_context__11TWindowBaseFPv();
-M2C_UNK draw_window_frame(void *, int);
-M2C_UNK draw_visible_window_entries(void *, void *, int);
-M2C_UNK draw_window_scrollbar(int, int, void *);
+s32 draw_window_frame(void *, int);
+s32 draw_visible_window_entries(void *, void *, int);
+s32 draw_window_scrollbar(int, int, void *);
 void render__17TWindowMessageLogFv(u8 *arg0);
 int initialize_subwindow__9TWindowDDFPv(void *);
 void update_window_entry_list(void *, void *);
@@ -34,8 +30,8 @@ extern const f32 lbl_805DD254;
 void run_task__17TWindowMessageLogFv(u8 *arg0);
 u8 * __dt__14TWindowMessageFv(void *, s16);
 s32 destroy_allocation__20TWindowSubStatusDispFis(s32, s16);
-M2C_UNK __dl__7TObjectFPv(void *);
-M2C_UNK TWindowCtrl__sub_8026AD60();
+s32 __dl__7TObjectFPv(void *);
+s32 TWindowCtrl__sub_8026AD60();
 extern RecoveredGlobal_8026AB3C___vt__17TWindowMessageLog __vt__17TWindowMessageLog;
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1);
 s32 alloc__23TAdSinglePlyChrSelectGCFPv(int, f32, f32);
@@ -57,14 +53,14 @@ void render__17TWindowMessageLogFv(u8 *arg0) {
     temp_r3 = get_draw_context__11TWindowBaseFPv();
     draw_window_frame((void *) (arg0), (int) (temp_r3));
     draw_visible_window_entries((void *) (arg0), (void *) (arg0 + 0x24), (int) (temp_r3));
-    draw_window_scrollbar((int) (M2C_FIELD(arg0, s32 *, 0x90)), (int) (temp_r3), (void *) (arg0 + 0x68));
+    draw_window_scrollbar((int) (*(s32 *)((s8 *)arg0 + 0x90)), (int) (temp_r3), (void *) (arg0 + 0x68));
 }
 void run_task__17TWindowMessageLogFv(u8 *arg0) {
-    if (!(M2C_FIELD(arg0, s32 *, 0x2C) & 2)) {
-        M2C_FIELD(arg0, s32 *, 0x5C) = 0x01000000;
+    if (!(*(s32 *)((s8 *)arg0 + 0x2C) & 2)) {
+        *(s32 *)((s8 *)arg0 + 0x5C) = 0x01000000;
     }
-    if ((f32) M2C_FIELD(arg0, s32 *, 0x5C) >= lbl_805DD254) {
-        increment_counter__20TWindowSubStatusDispFPv(M2C_FIELD(arg0, u8 **, 0x90));
+    if ((f32) *(s32 *)((s8 *)arg0 + 0x5C) >= lbl_805DD254) {
+        increment_counter__20TWindowSubStatusDispFPv(*(u8 **)((s8 *)arg0 + 0x90));
     }
     update_scroll_animation__17TWindowMessageLogFPv(arg0);
     update_scroll__14TWindowMessageFPv(arg0);
@@ -74,8 +70,8 @@ void run_task__17TWindowMessageLogFv(u8 *arg0) {
 }
 u8 *__dt__17TWindowMessageLogFv(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TWindowMessageLog.value;
-        destroy_allocation__20TWindowSubStatusDispFis(M2C_FIELD(arg0, s32 *, 0x90), 1);
+        *(s32 **)((s8 *)arg0 + 0x18) = &__vt__17TWindowMessageLog.value;
+        destroy_allocation__20TWindowSubStatusDispFis(*(s32 *)((s8 *)arg0 + 0x90), 1);
         TWindowCtrl__sub_8026AD60();
         __dt__14TWindowMessageFv(arg0, 0);
         if (arg1 > 0) {
@@ -94,10 +90,10 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     s32 temp_r3;
     s32 var_r0;
     TWindowMessage__ct((void *) (arg0), (void *) (arg1), (int) (0x1E), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3990;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8026ABA8___vt__17TWindowMessageLog *)&__vt__17TWindowMessageLog).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3990;
     TWindowCtrl__sub_8026AD78((void *) (arg0));
-    temp_f2 = M2C_FIELD(arg0, f32 *, 0x38);
+    temp_f2 = *(f32 *)((s8 *)arg0 + 0x38);
     temp_f1 = temp_f2 - lbl_805DD258;
     stack.spC = lbl_805DD240;
     stack.sp8 = temp_f1;
@@ -106,9 +102,9 @@ u8 *TWindowMessageLog__ct(u8 *arg0, s32 arg1, s32 arg2) {
     if (var_r0 != 0) {
         var_r0 = reset_selection__20TWindowSubStatusDispFPv((int) (temp_r3), (void *) (&stack.sp8));
     }
-    M2C_FIELD(arg0, s32 *, 0x90) = var_r0;
-    M2C_FIELD(arg0, s32 *, 0x2C) = (s32) (M2C_FIELD(arg0, s32 *, 0x2C) | 0x80);
-    M2C_FIELD(arg0, f32 *, 0x94) = (f32) lbl_805DD240;
+    *(s32 *)((s8 *)arg0 + 0x90) = var_r0;
+    *(s32 *)((s8 *)arg0 + 0x2C) = (s32) (*(s32 *)((s8 *)arg0 + 0x2C) | 0x80);
+    *(f32 *)((s8 *)arg0 + 0x94) = (f32) lbl_805DD240;
     load_chat_history__17TWindowMessageLogFPv((void *) (arg0));
     return arg0;
 }

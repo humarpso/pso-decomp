@@ -1,5 +1,5 @@
 #include "types.h"
-typedef s32 M2C_UNK;
+
 struct Obj_802F0E94 { u8 pad[0x42C]; u8 *f42c; };
 
 extern "C" {
@@ -11,9 +11,9 @@ extern void *lbl_805D6950;
 extern void *lbl_805D6954;
 void fn_802F0E24(void);
 void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
-void *alloc__23TAdSinglePlyChrSelectGCFPv(M2C_UNK);
-M2C_UNK init_heap__13TParticleCtrlFPv(M2C_UNK);
-M2C_UNK load_texture_pvm_file__6TLobbyFPvi(void *, void *);
+void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
+s32 init_heap__13TParticleCtrlFPv(s32);
+s32 load_texture_pvm_file__6TLobbyFPvi(void *, void *);
 extern u8 lbl_80474344[];
 extern u8 boss7_common_resource_descriptor[];
 extern void *lbl_805D6950;

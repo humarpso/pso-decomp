@@ -1,10 +1,6 @@
 #include "types.h"
-typedef s32 M2C_UNK; typedef s8 M2C_UNK8; typedef s16 M2C_UNK16;
-typedef s32 M2C_UNK32; typedef s64 M2C_UNK64;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
-#define M2C_BITWISE(type, expr) ((type)(expr))
 
-struct RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet { M2C_UNK value; u8 remaining[0x58]; };
+struct RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet { s32 value; u8 remaining[0x58]; };
 typedef char RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet_size[sizeof(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet) == 0x5C ? 1 : -1];
 
 #pragma fp_contract on
@@ -25,7 +21,7 @@ struct VObj_18_39be15 : VBase_18_39be15 {
     virtual void m11();
     virtual void m12();
     virtual void m13();
-    virtual s32 m14(M2C_UNK *, void *);
+    virtual s32 m14(s32 *, void *);
 };
 
 struct V2_802EF2AC { s32 x; f32 y; };
@@ -52,11 +48,11 @@ extern void *__vt__18TBoss7PhotonBullet[];
 extern s32 lbl_805D3FD4;
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0);
 void queue_destruction__7TObjectFv(void *);
-M2C_UNK copy_pos__11TNowLoadingFPvPv(void *, void *);
+s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 project_actor_to_ground(void *, void *, void *);
 f32 get_target_pos_y__18TBoss7PhotonBulletFv(void);
 extern V2_802EF2AC lbl_80474038[];
-extern M2C_UNK lbl_80474040[];
+extern s32 lbl_80474040[];
 extern const f32 lbl_805DEA00;
 extern const f32 lbl_805DEA04;
 void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0);
@@ -66,13 +62,13 @@ extern "C" {
 
 void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1);
 void render__18TBoss7PhotonBulletFv(u8 *arg0);
-M2C_UNK draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
+s32 draw_oriented_shadow__9TObjEneDDFiiiUi(void *, void *, int, void *);
 void __dl__7TObjectFPv(void *);
 void destroy_enemy_object__10TObjPlayerFPvs(void *, int);
 void queue_destruction__7TObjectFv(void *);
 
 void render__18TBoss7PhotonBulletFv(u8 *arg0) {
-    if (M2C_FIELD(arg0, s32 *, 0xE8) & 1) {
+    if (*(s32 *)((s8 *)arg0 + 0xE8) & 1) {
         draw_oriented_shadow__9TObjEneDDFiiiUi(arg0 + 0x38, arg0 + 0xCC, 0, arg0 + 0xD8);
     }
 }
@@ -127,9 +123,9 @@ void run_task__18TBoss7PhotonBulletFv(Bullet_802EF2AC *arg0) {
 
 void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        M2C_FIELD(arg0, void ***, 0x18) = __vt__18TBoss7PhotonBullet;
-        if (M2C_FIELD(arg0, void **, 0xF0) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF0)); }
-        if (M2C_FIELD(arg0, void **, 0xF4) != NULL) { queue_destruction__7TObjectFv(M2C_FIELD(arg0, void **, 0xF4)); }
+        *(void ***)((s8 *)arg0 + 0x18) = __vt__18TBoss7PhotonBullet;
+        if (*(void **)((s8 *)arg0 + 0xF0) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF0)); }
+        if (*(void **)((s8 *)arg0 + 0xF4) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0xF4)); }
         destroy_enemy_object__10TObjPlayerFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);
@@ -139,30 +135,28 @@ void *__dt__18TBoss7PhotonBulletFv(void *arg0, s16 arg1) {
 }
 u8 *TBoss7PhotonBullet__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4, f32 farg0) {
     construct_collision_body((void *) (arg0), (void *) (arg1), (void *) (arg2));
-    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &(*(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet *)&__vt__18TBoss7PhotonBullet).value;
-    M2C_FIELD(arg0, s32 *, 0) = (s32) lbl_805D3FD4;
+    *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_802EF514___vt__18TBoss7PhotonBullet *)&__vt__18TBoss7PhotonBullet).value;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3FD4;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xC0), (void *) (arg3))));
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0xB4), (void *) (arg4));
-    M2C_FIELD(M2C_FIELD(arg0, u8 **, 0xA4), f32 *, 0xC) = (f32) (3.0f);
-    M2C_FIELD(arg0, f32 *, 0xCC) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xD0) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xD4) = (f32) (0.0f);
-    M2C_FIELD(arg0, f32 *, 0xD8) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0xDC) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0xE0) = (f32) (1.0f);
-    M2C_FIELD(arg0, f32 *, 0xB0) = farg0;
-    M2C_FIELD(arg0, s32 *, 0xE4) = 0;
-    M2C_FIELD(arg0, s32 *, 0xE8) = 0;
-    M2C_FIELD(arg0, f32 *, 0xEC) = (f32) (0.0f);
-    M2C_FIELD(arg0, s32 *, 0xF0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
-    M2C_FIELD(arg0, s32 *, 0xF4) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
+    *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) (3.0f);
+    *(f32 *)((s8 *)arg0 + 0xCC) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xD0) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xD4) = (f32) (0.0f);
+    *(f32 *)((s8 *)arg0 + 0xD8) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xDC) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xE0) = (f32) (1.0f);
+    *(f32 *)((s8 *)arg0 + 0xB0) = farg0;
+    *(s32 *)((s8 *)arg0 + 0xE4) = 0;
+    *(s32 *)((s8 *)arg0 + 0xE8) = 0;
+    *(f32 *)((s8 *)arg0 + 0xEC) = (f32) (0.0f);
+    *(s32 *)((s8 *)arg0 + 0xF0) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x202), (int) (0x40));
+    *(s32 *)((s8 *)arg0 + 0xF4) = spawn_continuous_particle_effect_with_flags((void *) (arg0 + 0xC0), (int) (0x203), (int) (0x40));
     return arg0;
 }
 
 }
 
-typedef s32 M2C_UNK;
-#define M2C_FIELD(expr, type_ptr, offset) (*(type_ptr)((s8 *)(expr) + (offset)))
 struct Vec_802EF74C { f32 x, y, z; };
 
 struct Ent_802EF74C { s32 a; s32 b; s32 c; f32 d; };
@@ -180,9 +174,9 @@ typedef struct Pad_802EF604 {
 } Pad_802EF604;
 
 extern "C" {
-M2C_UNK VecCopy__FP3VecPC3Vec(void *, void *);
-M2C_UNK rotate_xz_pair_by_angle(void *, void *, int);
-M2C_UNK __ct__7TObjectFP7TObject(void *, M2C_UNK);
+s32 VecCopy__FP3VecPC3Vec(void *, void *);
+s32 rotate_xz_pair_by_angle(void *, void *, int);
+s32 __ct__7TObjectFP7TObject(void *, s32);
 extern Ent_802EF74C boss7_photon_bullet_level_table[];
 extern void *__vt__15TBoss7PhotonPad[];
 extern s32 lbl_805D3FD0;
@@ -192,7 +186,7 @@ s32 get_state__11TBoss7JointFv();
 u32 __nw__7TObjectFUl(int);
 
 void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self);
-u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4);
+u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
 
 extern "C" {
@@ -213,7 +207,7 @@ void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self) {
         if (st != 0) {
             p = __nw__7TObjectFUl(0xF8);
             if (p != 0) {
-                ((M2C_UNK (*)(void *, void *, s32, s32, void *, f32))TBoss7PhotonBullet__ct)((void *)p, self->parent, st, self->unk1C, self->pos, 1.5f * boss7_photon_bullet_level_table[self->level].d);
+                ((s32 (*)(void *, void *, s32, s32, void *, f32))TBoss7PhotonBullet__ct)((void *)p, self->parent, st, self->unk1C, self->pos, 1.5f * boss7_photon_bullet_level_table[self->level].d);
             }
         }
         self->timer = boss7_photon_bullet_level_table[self->level].b;
@@ -226,7 +220,7 @@ void run_task__15TBoss7PhotonPadFv(Pad_802EF604 *self) {
 }
 void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1) {
     if (self != NULL) {
-        M2C_FIELD(self, void ***, 0x18) = __vt__15TBoss7PhotonPad;
+        *(void ***)((s8 *)self + 0x18) = __vt__15TBoss7PhotonPad;
         __dt__7TObjectFv(self, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(self);
@@ -234,16 +228,16 @@ void *__dt__15TBoss7PhotonPadFv(void *self, s16 arg1) {
     }
     return self;
 }
-u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, M2C_UNK arg1, s32 arg2, s32 arg3, s32 arg4) {
+u8 *__ct__15TBoss7PhotonPadFv(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     __ct__7TObjectFP7TObject(arg0, arg1);
-    M2C_FIELD(arg0, void ***, 0x18) = __vt__15TBoss7PhotonPad;
-    M2C_FIELD(arg0, s32 *, 0) = lbl_805D3FD0;
-    M2C_FIELD(arg0, s32 *, 0x1C) = arg2;
-    M2C_FIELD(arg0, s32 *, 0x2C) = arg4;
+    *(void ***)((s8 *)arg0 + 0x18) = __vt__15TBoss7PhotonPad;
+    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3FD0;
+    *(s32 *)((s8 *)arg0 + 0x1C) = arg2;
+    *(s32 *)((s8 *)arg0 + 0x2C) = arg4;
     VecCopy__FP3VecPC3Vec(arg0 + 0x20, (void *)arg3);
-    rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -(boss7_photon_bullet_level_table[M2C_FIELD(arg0, s32 *, 0x2C)].c / 2));
-    M2C_FIELD(arg0, s32 *, 0x30) = boss7_photon_bullet_level_table[M2C_FIELD(arg0, s32 *, 0x2C)].a;
-    M2C_FIELD(arg0, s32 *, 0x34) = 0;
+    rotate_xz_pair_by_angle(arg0 + 0x20, arg0 + 0x28, -(boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].c / 2));
+    *(s32 *)((s8 *)arg0 + 0x30) = boss7_photon_bullet_level_table[*(s32 *)((s8 *)arg0 + 0x2C)].a;
+    *(s32 *)((s8 *)arg0 + 0x34) = 0;
     return arg0;
 }
 
