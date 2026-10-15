@@ -139,7 +139,7 @@ void *derolle_part_transform_template[12] = {
     (void *)0x0, (void *)0x3f800000, (void *)0x0, (void *)0x0,
     (void *)0x40800000, (void *)0x0, (void *)0x0, (void *)0x41500000,
 };
-void *lbl_80482108[44] = {
+void *derolle_action_mode_sequence_table[44] = {
     (void *)0x1, (void *)0x3, (void *)0x18, (void *)0x6,
     (void *)0x11, (void *)0x9, (void *)0xc, (void *)0x12,
     (void *)0x14, (void *)0x16, (void *)0x3, (void *)0x6,
@@ -152,7 +152,7 @@ void *lbl_80482108[44] = {
     (void *)0x22, (void *)0x1a, (void *)0x1b, (void *)0x1b,
     (void *)0x1b, (void *)0x1b, (void *)0x1d, (void *)0x2c,
 };
-void *lbl_804821B8[50] = {
+void *derolle_action_sequence_table[50] = {
     (void *)0x1, (void *)0x28, (void *)0x29, (void *)0x2a,
     (void *)0x2b, (void *)0x22, (void *)0xd, (void *)0x25,
     (void *)0x21, (void *)0x28, (void *)0x27, (void *)0x29,
@@ -712,9 +712,9 @@ s32 set_global_param__8TObjFishFi(int);
 s32 set_global_state__16TObjEneRe7BeruraFi(void *);
 void TObjPlayer__sub_8002F61C(void);
 extern Vec_8002F258 lbl_804359D8[];
-extern u8 lbl_804FE328[];
+extern u8 derolle_segment_texture_slots[];
 extern Light_8002F258 TObjLight__scene_light_state;
-extern Ctx_8002F258 *lbl_805D4BC8;
+extern Ctx_8002F258 *derolle_texture_list_handle;
 extern void *lbl_805D4BCC;
 extern s32 current_scene_light;
 extern s32 lbl_805D5564;
@@ -756,9 +756,9 @@ void render__13TBoss2DeRolLeFPv(u8 *arg0) {
         TBoss2Joint__sub_8003688C(e->joints[i]);
     }
     if (e->flags & 0x40) {
-        lbl_805D4BC8->tex = lbl_804FE328;
+        derolle_texture_list_handle->tex = derolle_segment_texture_slots;
     } else {
-        lbl_805D4BC8->tex = lbl_805D4BCC;
+        derolle_texture_list_handle->tex = lbl_805D4BCC;
     }
     fn_8002F5AC(arg0);
     set_global_param__8TObjFishFi(e->f24);
@@ -898,7 +898,7 @@ s32 get_current_matrix(void *);
 s32 subtract_vector(void *, void *);
 s32 push_matrix();
 s32 pop_matrix();
-extern RecoveredGlobal_8002F61C_lbl_80435628 lbl_80435628;
+extern RecoveredGlobal_8002F61C_lbl_80435628 derolle_attack_sequence_id_table;
 extern RecoveredGlobal_8002F61C_lbl_804820D8 derolle_part_transform_template;
 extern RecoveredGlobal_8002F61C_lbl_804FE31C lbl_804FE31C;
 extern s32 TBoss2DeRolLe__current_attack_id;
@@ -917,7 +917,7 @@ typedef char RecoveredGlobal_8002F61C_lbl_80435628_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_8002F61C_lbl_804820D8_size[sizeof(RecoveredGlobal_8002F61C_lbl_804820D8) == 0x30 ? 1 : -1];
 typedef char RecoveredGlobal_8002F61C_lbl_804FE31C_size[sizeof(RecoveredGlobal_8002F61C_lbl_804FE31C) == 0xC ? 1 : -1];
 void TObjPlayer__sub_8002F61C(void) {
-    if ((s32) TBoss2DeRolLe__current_attack_id == (s32) *(s32 *)((s8 *)(&lbl_80435628.value) + (TBoss2DeRolLe__sequence_match_index * 4))) {
+    if ((s32) TBoss2DeRolLe__current_attack_id == (s32) *(s32 *)((s8 *)(&derolle_attack_sequence_id_table.value) + (TBoss2DeRolLe__sequence_match_index * 4))) {
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_804FE31C.value, lbl_805D4BB4);
         TBoss2DeRolLe__sequence_match_index += 1;
         lbl_805D4BB4 += 0xC;
@@ -1750,8 +1750,8 @@ extern const f32 TBoss2DeRolLe__data_805D82DC;
 extern const f32 TBoss2DeRolLe__data_805D82E4;
 extern const f32 TBoss2DeRolLe__data_805D82F0;
 extern const f32 TBoss2DeRolLe__data_805D82FC;
-extern s32 lbl_80482108[];
-extern s32 lbl_804821B8[];
+extern s32 derolle_action_mode_sequence_table[];
+extern s32 derolle_action_sequence_table[];
 extern RecoveredGlobal_800339BC_lbl_804FF5E8 lbl_804FF5E8;
 extern const f32 lbl_805D82CC;
 extern const f32 lbl_805D82EC;
@@ -4141,9 +4141,9 @@ void advance_action_sequence__13TBoss2DeRolLeFPv(Obj_80034034 *self) {
         retry = 0;
         (*(s32 *)((s8 *)self + 0x3D4))++;
         if (check_v2_mode__9TObjEneDDFv() != 0) {
-            mode = lbl_804821B8[*(s32 *)((s8 *)self + 0x3D4)];
+            mode = derolle_action_sequence_table[*(s32 *)((s8 *)self + 0x3D4)];
         } else {
-            mode = lbl_80482108[*(s32 *)((s8 *)self + 0x3D4)];
+            mode = derolle_action_mode_sequence_table[*(s32 *)((s8 *)self + 0x3D4)];
         }
         switch (mode) {
         case 33:
@@ -4941,7 +4941,7 @@ s32 TBoss2Joint_get_shell_max_hp(void) {
     return *(s32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 0x1C);
 }
 
-extern s32 lbl_804356AC[];
+extern s32 derolle_effect_params[];
 
 f32 TBoss2DeRolLe__sub_80034CEC(void) {
     return *(f32 *)((s8 *)TBoss2DeRolLe__data_805D4BA0 + 8);
@@ -4953,7 +4953,7 @@ f32 TBoss2DeRolLe__sub_80034CF8(void) {
 
 void emit_effect_and_step__13TBoss2DeRolLeFPvPv(void *arg0, void *arg1) {
     reload_stats_for_phase__13TBoss2DeRolLeFPvi((void *)(arg0), (s32)(2));
-    emit_effect__9TObjEneDDFPvii(arg0, arg1, lbl_804356AC);
+    emit_effect__9TObjEneDDFPvii(arg0, arg1, derolle_effect_params);
     ((void (*)(void *, void *))reload_stats_for_phase__13TBoss2DeRolLeFPvi)(arg0, *(void **)((s8 *)arg0 + 0x3C4));
 }
 
@@ -5432,7 +5432,7 @@ extern s32 lbl_805D4BB8;
 extern s32 lbl_805D4BBC;
 extern s32 lbl_805D4BC0;
 extern s32 TBoss2DeRolLe__instance;
-extern u8 *lbl_805D4BC8;
+extern u8 *derolle_texture_list_handle;
 extern s32 lbl_805D4BCC;
 extern const f32 TBoss2DeRolLe__data_805D827C;
 void load_resources__13TBoss2DeRolLeFv(void);
@@ -5976,8 +5976,8 @@ extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 using constructor_data::derolle_part_transform_template;
-using constructor_data::lbl_80482108;
-using constructor_data::lbl_804821B8;
+using constructor_data::derolle_action_mode_sequence_table;
+using constructor_data::derolle_action_sequence_table;
 using constructor_data::TBoss2DeRolLe__shared_handler_id_table;
 using constructor_data::lbl_8048228C;
 using constructor_data::lbl_804822A8;
@@ -5990,7 +5990,7 @@ using constructor_data::boss2_derolle_particle_limits;
 using constructor_data::__vt__13TBoss2DeRolLe;
 u32 TBoss2DeRolLe__mine_ground_targets[15];
 u32 boss2_derolle_primary_color_targets[3];
-u32 lbl_804FE2B0[10];
+u32 derolle_segment_joint_node_offsets[10];
 u32 boss2_derolle_segment_color_targets[10];
 u32 TBoss2DeRolLe__attack_params_table[3];
 
@@ -6129,7 +6129,7 @@ void *TBoss2DeRolLe__ct(void *arg0, void *arg1, void *arg2) {
             self->f5B8[j] = -1;
             p = __nw__7TObjectFUl(0x3BC);
             if (p != NULL) {
-                p = TBoss2Joint__ct(p, self, a++, b++, &self->v540[j], ((s32 *)lbl_804FE2B0)[j], ((s32 *)boss2_derolle_segment_color_targets)[j]);
+                p = TBoss2Joint__ct(p, self, a++, b++, &self->v540[j], ((s32 *)derolle_segment_joint_node_offsets)[j], ((s32 *)boss2_derolle_segment_color_targets)[j]);
             }
             self->f5E0[j] = p;
         }
@@ -6274,12 +6274,12 @@ extern const f32 TBoss2DeRolLe__data_805D827C;
 
 using constructor_view::TBoss2DeRolLe__mine_ground_targets;
 using constructor_view::boss2_derolle_primary_color_targets;
-using constructor_view::lbl_804FE2B0;
+using constructor_view::derolle_segment_joint_node_offsets;
 using constructor_view::boss2_derolle_segment_color_targets;
 using constructor_view::TBoss2DeRolLe__attack_params_table;
 u32 lbl_804FE30C[4];
 u32 lbl_804FE31C[3];
-Slot_80035D24 lbl_804FE328[11];
+Slot_80035D24 derolle_segment_texture_slots[11];
 void load_resources__13TBoss2DeRolLeFv(void) {
     s32 k;
     s32 m2;
@@ -6331,7 +6331,7 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     res = (*(u8 * *)&lbl_805D4BA4);
     n = *(Node_80035D24 **)(*(u8 **)(*(u8 **)(res + 0x42C) + 0x28) + 0x2C);
     for (i = 0; i < 10; i++) {
-        ((s32 *)lbl_804FE2B0)[i] = n->h->v + 8;
+        ((s32 *)derolle_segment_joint_node_offsets)[i] = n->h->v + 8;
         ((s32 *)boss2_derolle_segment_color_targets)[i] = n->sub->h->v + 8;
         n = n->next;
     }
@@ -6339,10 +6339,10 @@ void load_resources__13TBoss2DeRolLeFv(void) {
     m = n->next;
     ((s32 *)boss2_derolle_primary_color_targets)[1] = m->h->v + 8;
     ((s32 *)boss2_derolle_primary_color_targets)[2] = m->next->h->v + 8;
-    lbl_805D4BC8 = collect_and_count__12TBoss3VoloptFUii(*(s32 *)(*(u8 **)(res + 0x42C) + 0x28), 0x4D);
-    lbl_805D4BCC = *(s32 *)(lbl_805D4BC8 + 0x2C);
+    derolle_texture_list_handle = collect_and_count__12TBoss3VoloptFUii(*(s32 *)(*(u8 **)(res + 0x42C) + 0x28), 0x4D);
+    lbl_805D4BCC = *(s32 *)(derolle_texture_list_handle + 0x2C);
     for (m2 = 0; m2 < 11; m2++) {
-        p = &lbl_804FE328[m2];
+        p = &derolle_segment_texture_slots[m2];
         p->kind = 0xF;
         p->f04 = 0;
         p->f08[0] = TBoss2DeRolLe__data_805D827C;
@@ -6358,9 +6358,9 @@ void load_resources__13TBoss2DeRolLeFv(void) {
         p->f30 = 0;
     }
     for (m3 = 0; m3 < 10; m3++) {
-        lbl_804FE328[m3].next = &lbl_804FE328[m3 + 1];
+        derolle_segment_texture_slots[m3].next = &derolle_segment_texture_slots[m3 + 1];
     }
-    p = &lbl_804FE328[10];
+    p = &derolle_segment_texture_slots[10];
     p->kind = 0x1F;
     p->next = 0;
     create_breakup_model__10TObjPlayerFv();

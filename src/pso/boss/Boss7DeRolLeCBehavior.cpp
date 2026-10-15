@@ -988,7 +988,7 @@ s32 init_laser__15TBoss7LaserPtclFPv(void *);
 s32 calc_position__15TBoss7LaserPtclFPvPvPv(void *, void *, void *);
 s32 destroy_particles__15TBoss7LaserPtclFi(void *);
 u32 TBoss7LaserPtcl__ct(u32, void *, void *, int);
-extern s32 lbl_80472D90[];
+extern s32 boss7_laser_particle_params[];
 void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 set_field_b8__14TObjEnePanarmsFPvs(void *, int);
@@ -2080,7 +2080,7 @@ void TBoss7LaserPtcl__sub_802E8FCC(u8 *arg0, u32 arg1) {
                     push_ring_point__15TBoss7LaserPtclFPvPv(*(void **)((s8 *)arg0 + 0x720), temp_r30_2);
                 }
             }
-            temp_r4 = (u8 *)((void *)((u8 *)(lbl_80472D90) + -4));
+            temp_r4 = (u8 *)((void *)((u8 *)(boss7_laser_particle_params) + -4));
             *(ByteBlock_14 *)(copy_storage_802E8FCC.bytes) = *(const ByteBlock_14 *)((s32) temp_r4 + 4);
             (*(f32 *)(copy_storage_802E8FCC.bytes + 0x4)) = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x620)) + 0);
             setup_instance__9TObjEneDDFiiPvi((void *) (arg0), (int) (temp_r30_2), (void *) ((copy_storage_802E8FCC.bytes)), (int) (*(s32 *)((s8 *)arg0 + 0x718)));

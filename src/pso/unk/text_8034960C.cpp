@@ -45,7 +45,7 @@ extern const f32 lbl_805DFD00;
 void draw_quest_load_letterbox_bars(void);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(void *, s32, s32, f32);
 extern const Vec2_8034960C lbl_80478738[2];
-extern const Vec2_8034960C lbl_80478748[2];
+extern const Vec2_8034960C quest_load_panel_overlay_offsets[2];
 extern const f32 lbl_805DFD00;
 void draw_quest_load_panel_overlays(void);
 }
@@ -67,12 +67,12 @@ void draw_quest_load_panel_overlays(void) {
         d.pos[1] = lbl_80478738[i].y;
         d.col[0] = 0x77;
         d.pos[2] = lbl_80478738[i].x;
-        d.pos[3] = d.pos[1] + lbl_80478748[i].y;
+        d.pos[3] = d.pos[1] + quest_load_panel_overlay_offsets[i].y;
         d.col[1] = 0x77;
-        d.pos[4] = d.pos[0] + lbl_80478748[i].x;
-        d.pos[5] = d.pos[1] + lbl_80478748[i].y;
+        d.pos[4] = d.pos[0] + quest_load_panel_overlay_offsets[i].x;
+        d.pos[5] = d.pos[1] + quest_load_panel_overlay_offsets[i].y;
         d.col[2] = 0x77;
-        d.pos[6] = d.pos[0] + lbl_80478748[i].x;
+        d.pos[6] = d.pos[0] + quest_load_panel_overlay_offsets[i].x;
         d.pos[7] = d.pos[1];
         d.col[3] = 0x77;
         draw_tri_fan_2d__14TObjCMHairMenuFPviif(&d, 4, 7, lbl_805DFD00);

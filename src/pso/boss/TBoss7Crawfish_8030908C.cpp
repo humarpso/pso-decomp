@@ -119,7 +119,7 @@ s32 clear_object_state_exchange__14TBoss7CrawfishFi(void *);
 s32 TBoss7Crawfish__sub_80308ED8(void *, void *);
 s32 change_state__14TBoss7CrawfishFPvi(void *, int);
 void set_anim_timer__14TBoss7CrawfishFPvs(void* p, s16 v);
-extern s32 lbl_80475570[];
+extern s32 crawfish_collision_body_desc[];
 extern s32 lbl_804E7380[];
 extern s32 __vt__14TBoss7Crawfish[];
 extern s32 TBoss7Crawfish__class_name;
@@ -228,7 +228,7 @@ u8 *TBoss7Crawfish__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__14TBoss7Crawfish;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TBoss7Crawfish__class_name;
     *(s32 *)((s8 *)arg0 + 0x24) = TObjFish__sub_8001EDB0((int) (TBoss7Crawfish__shared_resource), (int) (0));
-    fn_8002B630((void *) (arg0 + 0x374), (void *) (lbl_80475570));
+    fn_8002B630((void *) (arg0 + 0x374), (void *) (crawfish_collision_body_desc));
     initialize_linked_object_reference((void *) (arg0), (void *) (arg0 + 0x374));
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (lbl_804E7380));
     set_field_dc__10TObjPlayerFPvi((void *) (arg0), (int) (*(s32 *)((s8 *)((u8 *)TBoss7Crawfish__shared_resource) + 0x430)));

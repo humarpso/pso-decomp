@@ -56,7 +56,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8015A734_lbl_804AFF00 bm_fs_obj_cap_moto_resource_descriptor;
 extern u8 *TOCapsuleMachine01__model_resource;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
-extern s32 lbl_805D58CC;
+extern s32 capsule_machine_ginja_mesh_handle;
 void alloc_and_load_resource__18TOCapsuleMachine01Fv(void);
 }
 
@@ -95,12 +95,12 @@ s32 set_global_param__8TObjFishFi(s32);
 
 extern s32 actor_frame_tick;
 extern s32 TOCapsuleMachine01__last_update_frame_tick;
-extern s32 lbl_805D58CC;
+extern s32 capsule_machine_ginja_mesh_handle;
 
 void run_task__18TOCapsuleMachine01Fv(void) {
     if ((s32) TOCapsuleMachine01__last_update_frame_tick != (s32) actor_frame_tick) {
         TOCapsuleMachine01__last_update_frame_tick = actor_frame_tick;
-        scroll_ginja_mesh_uvs(lbl_805D58CC, 0, 5, 4, 1);
+        scroll_ginja_mesh_uvs(capsule_machine_ginja_mesh_handle, 0, 5, 4, 1);
         PPCSync();
     }
 }
@@ -150,7 +150,7 @@ void alloc_and_load_resource__18TOCapsuleMachine01Fv(void) {
   }
   TOCapsuleMachine01__model_resource = (unsigned char *) ((void *) var_r4);
   new_var = (void **) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) ((RecoveredFields_8015A734_var_r4 *) var_r4)->field_42C) + 8)))) + 0x2C)))) + 0x30);
-  lbl_805D58CC = *((int *) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) (*new_var)) + 0x2C)))) + 0x30)))) + 4));
+  capsule_machine_ginja_mesh_handle = *((int *) (((s8 *) (*((void **) (((s8 *) (*((void **) (((s8 *) (*new_var)) + 0x2C)))) + 0x30)))) + 4));
   TOCapsuleMachine01__last_update_frame_tick = 0;
 }
 

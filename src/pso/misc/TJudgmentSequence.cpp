@@ -104,7 +104,7 @@ s32 __dl__7TObjectFPv(void *);
 s32 TWindow__close(void *);
 extern RecoveredGlobal_80215EF8___vt__17TJudgmentSequence __vt__17TJudgmentSequence;
 extern RecoveredGlobal_80215EF8_TJudgmentSequence__data_80513E80 TJudgmentSequence__slot_flags;
-extern s32 lbl_805D61D0;
+extern s32 judgment_sequence_instance;
 u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
 void *__nw__7TObjectFUl(u32);
@@ -234,7 +234,7 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
             TWindow__close(*(void **)((s8 *)arg0 + 0x2C));
             *(u32 *)((s8 *)arg0 + 0x2C) = 0U;
         }
-        lbl_805D61D0 = 0;
+        judgment_sequence_instance = 0;
         *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 0;
         __dt__13TShopSequenceFv((void *) (arg0), (int) (0));
         if (arg1 > 0) {
@@ -261,7 +261,7 @@ u8 *TJudgmentSequence__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(s32 *)((s8 *)arg0 + 0x24) = arg2;
     *(s32 *)((s8 *)arg0 + 0x2C) = 0;
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    lbl_805D61D0 = (s32) arg0;
+    judgment_sequence_instance = (s32) arg0;
     set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0));
     *(s32 *)((s8 *)(&TJudgmentSequence__slot_flags.value) + (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
     return arg0;

@@ -119,7 +119,7 @@ struct RecoveredGlobal_80069A6C_TCameraCtrl__data_804FF628 {
 
 extern "C" {
 s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, int);
-extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 lbl_804DBE6C;
+extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 cm_icon_screen_position;
 void fn_8029945C(u8 *arg0);
 }
 
@@ -129,7 +129,7 @@ typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(Rec
 typedef char RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 typedef char RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4_size[sizeof(RecoveredGlobal_800687C8_TCameraCtrl__data_804FF6C4) == 0xC ? 1 : -1];
 void fn_8029945C(u8 *arg0) {
-    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)(&lbl_804DBE6C.value), (int)(arg0));
+    copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv((void *)(&cm_icon_screen_position.value), (int)(arg0));
 }
 typedef char RecoveredGlobal_80069024_TCameraCtrl__data_804FF634_size[sizeof(RecoveredGlobal_80069024_TCameraCtrl__data_804FF634) == 0x48 ? 1 : -1];
 typedef char RecoveredGlobal_80069024_lbl_804FF67C_size[sizeof(RecoveredGlobal_80069024_lbl_804FF67C) == 0x48 ? 1 : -1];

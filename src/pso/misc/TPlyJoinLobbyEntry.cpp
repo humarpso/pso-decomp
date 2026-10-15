@@ -551,7 +551,7 @@ u32 lbl_8050AAD4[5];
 Row_TLobby__data_8050AAE8 TLobby__player_names[12];
 s32 game_join_pending_clients[4];
 Row_80135208 game_join_player_records[4];
-u32 lbl_8050AC38[64];
+u32 lobby_join_message_buffer[64];
 u32 lbl_8050AD38[32];
 char lbl_8050ADB8[0x100];
 
@@ -2380,7 +2380,7 @@ s32 get_seq_phase__6TLobbyFPv(s32);
 s32 reparent_to_main_ctrl__17TWindowSubComCardFi(s32);
 int sprintf(char *, const char *, ...);
 extern char lbl_80509D3C[];
-extern char lbl_8050AC38[];
+extern char lobby_join_message_buffer[];
 extern void *TLobby__protocol_instance;
 extern s32 TLobby__deferred_player_setup_state;
 extern s32 TLobby__data_805D5594;
@@ -2477,8 +2477,8 @@ void TLobby__sub_801384E4(void) {
     if ((u32) (*(u32 *)&(*(u32 *)&TLobby__join_lobby_controller)) != 0U) {
         if ((s32) TLobby__player_setup_pending == 0) {
             if ((s32) TLobby__data_805D5594 != 0xC) {
-                sprintf(lbl_8050AC38, (const char *)get_seq_phase__6TLobbyFPv(7), lbl_80509D3C);
-                TLobby__sub_80139894((s32)lbl_8050AC38);
+                sprintf(lobby_join_message_buffer, (const char *)get_seq_phase__6TLobbyFPv(7), lbl_80509D3C);
+                TLobby__sub_80139894((s32)lobby_join_message_buffer);
                 reparent_to_main_ctrl__17TWindowSubComCardFi(TLobby__current_dialog_window);
                 ((s32 (*)())init_player_window_effect__6TLobbyFv)();
                 TLobby__join_lobby_idle_timer = 0;
@@ -3976,7 +3976,7 @@ struct Rec_8013A5D4 { P8_8013A5D4 f0; u32 f8; u32 fc; P8_8013A5D4 f10; P8_8013A5
 
 extern "C" {
 void TObjPlayer__sub_8013A820(void *arg0, void *arg1);
-    extern int lbl_805D60D0;
+    extern int item_drop_server_seed;
     extern int area_random_seed;
 void TObjPlayer__sub_8013A820(void *arg0, void *arg1);
 void *TObjPlayer__sub_8013A748(void *arg0, void *arg1);

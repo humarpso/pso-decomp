@@ -86,7 +86,7 @@ void mark_area_change_pending(void);
 extern s32 keyboard_key_state;
 void clear_keyboard_key_state(void);
 void fn_801DF7F8(void* p);
-extern s32 lbl_80515F70[];
+extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;

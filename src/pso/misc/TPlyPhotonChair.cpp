@@ -386,12 +386,12 @@ u8 *init_parts__15TPlyPhotonChairFPv(u8 *arg0) {
 
 void TPlyPhotonChair__sub_8035B66C(void* p) { *(s32*)((char*)p + 0x0) = 0; }
 
-extern u32 lbl_805D6F48;
+extern u32 chao_npc_instance_handle;
 
 void free_instance__15TPlyPhotonChairFv(void) {
-    if ((u32) lbl_805D6F48 != 0U) {
-        TLobby__sub_8001FE7C((void*)lbl_805D6F48, 1);
-        lbl_805D6F48 = 0U;
+    if ((u32) chao_npc_instance_handle != 0U) {
+        TLobby__sub_8001FE7C((void*)chao_npc_instance_handle, 1);
+        chao_npc_instance_handle = 0U;
     }
 }
 

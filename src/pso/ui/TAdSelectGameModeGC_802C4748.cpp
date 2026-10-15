@@ -58,9 +58,9 @@ void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 s32 set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(int, int, int);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
-extern S24_802C4944 lbl_80471A2C;
+extern S24_802C4944 select_game_mode_text_layout;
 extern S8_802C4944 lbl_80471A44[];
-extern S16_802C4944 lbl_80471A4C;
+extern S16_802C4944 select_game_mode_button_rect;
 extern s32 __vt__19TAdSelectGameModeGC[];
 extern void *TAdSelectGameModeGC__name;
 extern s32 TAdSelectGameModeGC__cached_mode_value;
@@ -167,7 +167,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
         __ct__13TAdTitleTexGCFv(p, arg0);
     }
     {
-        S24_802C4944 txt = lbl_80471A2C;
+        S24_802C4944 txt = select_game_mode_text_layout;
         if ((p = __nw__7TObjectFUl(0xE0)) != 0) {
             __ct__14TAdSelectTxtGCFv(p, arg0, &txt.t[0], 6);
         }
@@ -177,7 +177,7 @@ u8 *__ct__19TAdSelectGameModeGCFv(u8 *arg0, void *parent) {
     }
     {
         S8_802C4944 a = lbl_80471A44[0];
-        S16_802C4944 b = lbl_80471A4C;
+        S16_802C4944 b = select_game_mode_button_rect;
         p = __nw__7TObjectFUl(0x708);
         if (p != 0) {
             p = __ct__14TAdSelectCurGCFv(p, arg0, &b, &a);

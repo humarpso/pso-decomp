@@ -45,9 +45,9 @@ void rotate_matrix_y(s32, s32);
 void rotate_matrix_x(s32, s32);
 void push_matrix(void);
 void pop_matrix(void);
-extern Vec_80048260 lbl_804366B8;
-extern Color_80048260 lbl_80484828[];
-extern u8 lbl_80484830[];
+extern Vec_80048260 direction_line_zero_vec;
+extern Color_80048260 direction_line_color_pair[];
+extern u8 boss3_volopt_direction_line_desc[];
 extern Vec_80048260 boss3_volopt_direction_line_points[];
 void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self);
 }
@@ -87,8 +87,8 @@ void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
     s32 a;
     if (self->timer < 10) {
         a = (self->timer << 7) / 10;
-        lbl_80484828[0].a = a;
-        lbl_80484828[0].a = a;
+        direction_line_color_pair[0].a = a;
+        direction_line_color_pair[0].a = a;
     }
     VecCopy__FP3VecPC3Vec(&boss3_volopt_direction_line_points[0], self->pos);
     dst = &boss3_volopt_direction_line_points[1];
@@ -96,7 +96,7 @@ void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
     push_matrix();
     set_matrix_identity(0);
     {
-        Vec_80048260 v = lbl_804366B8;
+        Vec_80048260 v = direction_line_zero_vec;
         v.z = self->unk40;
         rotate_matrix_x(0, self->rotY);
         rotate_matrix_y(0, self->rotZ);
@@ -105,7 +105,7 @@ void draw_direction_line__10TObjPlayerFPv(Obj_80048260 *self) {
     }
     pop_matrix();
     init_xyz_limits__10TObjPlayerFv();
-    draw_line_list(lbl_80484830, 1, 5);
+    draw_line_list(boss3_volopt_direction_line_desc, 1, 5);
     reset_transform_state__10TObjPlayerFv();
 }
 

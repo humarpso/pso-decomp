@@ -53,11 +53,11 @@ s32 rotate_matrix_y(int, int);
 s32 rotate_matrix_x(int, int);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern RecoveredGlobal_80049E9C_lbl_80484AD0 lbl_80484AD0;
+extern RecoveredGlobal_80049E9C_lbl_80484AD0 volopt_collision_body_desc;
 extern s32 lbl_80484AFC[];
 extern RecoveredGlobal_80049E9C_lbl_8058D490 identity_matrix;
 extern u8 *boss3_volopt_resources;
-extern s32 lbl_805D4D30;
+extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88AC;
 extern const f32 lbl_805D88B0;
 u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
@@ -76,7 +76,7 @@ Tgt_80049C10 *get_player_by_client_id(s32);
 void play_persistent_sound(s32, void *, void *, s32, s32);
 void vec3_add_to(void *, void *);
 void subtract_vector(void *, void *);
-extern s32 lbl_805D4D30;
+extern s32 volopt_homing_projectile_expire_tick;
 extern const f32 lbl_805D88A4;
 extern const f32 lbl_805D88A8;
 void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self);
@@ -134,7 +134,7 @@ void update_homing_projectile__12TBoss3VoloptFPv(Self_80049C10 *self) {
         return;
     }
     self->fd0++;
-    if (self->fd0 > lbl_805D4D30) {
+    if (self->fd0 > volopt_homing_projectile_expire_tick) {
         explode_and_destroy__12TBoss3VoloptFPv(self);
         return;
     }
@@ -162,7 +162,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     u8 *temp_r4;
     construct_collider_proxy__10TObjPlayerFPv((void *) (arg0), (void *) (arg1));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_80049E9C_lbl_80484AFC *)&lbl_80484AFC).value;
-    init_collision_body_parts((void *) (arg0), (void *) (&lbl_80484AD0.value), (int) (1));
+    init_collision_body_parts((void *) (arg0), (void *) (&volopt_collision_body_desc.value), (int) (1));
     *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xA4)) + 0xC) = (f32) lbl_805D88AC;
     VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x38), (void *) (arg2));
     *(s32 *)((s8 *)arg0 + 0xCC) = arg4;
@@ -184,7 +184,7 @@ u8 *TBoss3Volopt__sub_80049E9C(u8 *arg0, s32 arg1, s32 arg2, s32 arg3, s32 arg4)
     *(s32 *)((s8 *)arg0 + 0xE8) = 0;
     *(s32 *)((s8 *)arg0 + 0xE4) = 0;
     *(s32 *)((s8 *)arg0 + 0xE0) = spawn_particle_effect_with_rotation((void *) (arg0 + 0x38), (void *) (arg0 + 0xE4), (int) (0x112), (int) (2));
-    lbl_805D4D30 = (s32) TBoss3Volopt__sub_8004812C((int) (3)) + 0xF0;
+    volopt_homing_projectile_expire_tick = (s32) TBoss3Volopt__sub_8004812C((int) (3)) + 0xF0;
     return arg0;
 }
 

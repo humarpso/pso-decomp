@@ -53,7 +53,7 @@ s32 queue_destruction__7TObjectFv(void *);
 
 void init_parts__13TObjTombstoneFPv(void* p) { format_player_name__13TObjTombstoneFPv(p); format_label__13TObjTombstoneFPv(p); build_name_text__13TObjTombstoneFPv(p); format_enemy_text__13TObjTombstoneFPv(p); format_quoted_name__13TObjTombstoneFPv(p); format_date_text__13TObjTombstoneFPv(p); }
 
-extern s32 lbl_805D4E4C;
+extern s32 tombstone_first_run_flag;
 
 s32 is_player_nearby__13TObjTombstoneFPv(void *arg0) {
     Tomb_80076098 *self = (Tomb_80076098 *)arg0;
@@ -119,7 +119,7 @@ void run_task__13TObjTombstoneFv(void *arg0) {
         TObjTombstone__sub_80075DFC(arg0);
     }
     *(s32 *)((s8 *)arg0 + 0x230) = (s32) (*(s32 *)((s8 *)arg0 + 0x230) + 1);
-    lbl_805D4E4C = 0;
+    tombstone_first_run_flag = 0;
 }
 
 extern s32 __vt__13TObjTombstone[];

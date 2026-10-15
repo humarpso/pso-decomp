@@ -630,7 +630,7 @@ s32 transform_relative_position__9TObjEneDDFPvPv(void *, void *);
 s32 calc_wall_clamped_destination(void *, void *, f32, f32, f32);
 s32 collect_target_candidates__9TObjEneDDFif(void *, f32);
 s32 subtract_vector(void *, void *);
-extern Tgt_800E54E8 lbl_80500B98[];
+extern Tgt_800E54E8 enemy_target_candidate_table[];
 f64 atan2_float(f32, f32);
 s32 get_flag_b4__21TObjEneMe3ShinowaRealFPv(void *);
 s32 spawn_particle_effect(void *, int);
@@ -2414,7 +2414,7 @@ extern const f32 TObjEneMe3ShinowaMirage__data_805DA5DC;
 extern const f32 TObjEneMe3ShinowaMirage__data_805DA5E4;
 extern const f32 TObjEneMe3ShinowaReal__data_805DA5CC;
 extern s32 __vt__17TObjEneMe3Shinowa[];
-extern u8 lbl_8043CE00[];
+extern u8 shinowa_mirage_breakup_params[];
 extern RecoveredGlobal_800E7324_lbl_8043CF94 lbl_8043CF94;
 extern RecoveredGlobal_800F4758_lbl_8050110C lbl_80500FEC;
 extern RecoveredGlobal_800E4D7C_lbl_80500FF4 lbl_80500FF4;
@@ -2987,7 +2987,7 @@ void state_break_apart__23TObjEneMe3ShinowaMirageFPvi(u8 *arg0, s32 arg1) {
             if (*(s32 *)((s8 *)arg0 + 0x408) >= 0x14) {
                 *(s32 *)((s8 *)arg0 + 0x404) = 2;
                 *(s32 *)((s8 *)arg0 + 0x3C4) |= 2;
-                create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe3ShinowaMirage__data_805D52A0, lbl_8043CE00, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x60));
+                create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe3ShinowaMirage__data_805D52A0, shinowa_mirage_breakup_params, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x38, *(s32 *)((s8 *)arg0 + 0x60));
                 VecCopy__FP3VecPC3Vec(&sp8, arg0 + 0x38);
                 sp8.x += TObjEneMe3ShinowaMirage__data_805DA5EC * sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
                 sp8.z += TObjEneMe3ShinowaMirage__data_805DA5EC * cos_table_lookup(*(s32 *)((s8 *)arg0 + 0x60));
@@ -3204,7 +3204,7 @@ void TObjEneMe3ShinowaMirage__sub_800E54E8(void *arg0_, s32 arg1) {
             TObjEneMe3Shinowa__sub_800E7268(arg0);
             s32 r = collect_target_candidates__9TObjEneDDFif(arg0, lbl_805DA600);
             if (r > 0) {
-                enemy_set_target_id(arg0, lbl_80500B98[r - 1].id);
+                enemy_set_target_id(arg0, enemy_target_candidate_table[r - 1].id);
                 transition_enemy_state(arg0, 4);
             } else {
                 transition_enemy_state(arg0, 11);

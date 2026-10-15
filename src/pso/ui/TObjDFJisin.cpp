@@ -945,7 +945,7 @@ s32 push_matrix();
 s32 pop_matrix();
 s32 scale_current_matrix(void *);
 f32 post_translate_matrix(void *);
-extern RecoveredGlobal_80051AD0_lbl_804858B4 lbl_804858B4;
+extern RecoveredGlobal_80051AD0_lbl_804858B4 dark_falz_jisin_zero_vec;
 extern RecoveredGlobal_80051AD0_lbl_804FF228 lbl_804FF228;
 extern RecoveredGlobal_80051AD0_lbl_804FF234 lbl_804FF234;
 extern int TObjDFTenchuFuru__matrix_node_index;
@@ -1051,10 +1051,10 @@ void transform_node_tree__16TObjDFTenchuFuruFPv(u8 *arg0) {
         scale_current_matrix((void *) (var_r31 + 0x20));
         switch ((s32) (*(s32 *)&TObjDFTenchuFuru__matrix_node_index)) {
         case 0x3B:
-            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF228.value));
+            matrix_mult_vec((int) (0), (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF228.value));
             break;
         case 0x3A:
-            matrix_mult_vec((int) (0), (void *) (&lbl_804858B4.value), (void *) (&lbl_804FF234.value));
+            matrix_mult_vec((int) (0), (void *) (&dark_falz_jisin_zero_vec.value), (void *) (&lbl_804FF234.value));
             break;
         }
         (*(s32 *)&TObjDFTenchuFuru__matrix_node_index) += 1;

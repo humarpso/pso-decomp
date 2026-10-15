@@ -366,7 +366,7 @@ extern const char lbl_80441780[] = "fe_obj_turiten_moto.bml";
 extern const char lbl_80441798[] = "fe_obj_gc_turiten_moto.gj";
 extern const char lbl_804417B4[] = "fe_obj_gc_turiten_moto.njm";
 extern const char lbl_804417D0[] = "bm_obj_ruins_turiten.bml";
-__declspec(section ".rodata") extern Q_801681D0 lbl_804417EC = { 1.0f, 2.0f, 3.0f, 6.0f };
+__declspec(section ".rodata") extern Q_801681D0 hang_ceiling_cave_scale_params = { 1.0f, 2.0f, 3.0f, 6.0f };
 extern const char lbl_804417FC[] = "TOHangceilingCave01Normal";
 extern const char lbl_80441818[] = "TOHangceilingCave01Key";
 extern const char TOHangceilingCave01KeyQuick__class_name_string[] = "TOHangceilingCave01KeyQuick";
@@ -594,7 +594,7 @@ void *TOHangceilingCave01Normal__ct(void *arg0) {
 }
 
 f32 TOHangceilingCave01Normal__sub_801681D0(f32 farg0) {
-    Q_801681D0 q = lbl_804417EC;
+    Q_801681D0 q = hang_ceiling_cave_scale_params;
     return farg0 * q.w[game_difficulty_selection];
 }
 

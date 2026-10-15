@@ -10,7 +10,7 @@ struct Out_8017F6C0 { f32 x, y; };
 extern "C" {
 void get_camera_ctrl__9TObjEneDDFPv(void *, void *);
 extern s32 camera_slot_id_table[];
-extern V3_8017F624 lbl_80443AB8[];
+extern V3_8017F624 camera_slot_zero_vec_table[];
 extern V3_8017F624 camera_slot_positions[];
 extern s32 TObjCamera__camera_slot_scan_index;
 void update_camera_slots__10TObjCameraFv(void);
@@ -28,7 +28,7 @@ void update_camera_slots__10TObjCameraFv(void) {
     s32 i;
     for (i = 0; i < 8; i++) {
         if (TObjCamera__camera_slot_scan_index == camera_slot_id_table[i]) {
-            V3_8017F624 v = lbl_80443AB8[0];
+            V3_8017F624 v = camera_slot_zero_vec_table[0];
             get_camera_ctrl__9TObjEneDDFPv(&v, &camera_slot_positions[i]);
         }
     }

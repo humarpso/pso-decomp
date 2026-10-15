@@ -190,7 +190,7 @@ s32 VecCopy__FP3VecPC3Vec(void *, void *);
 void TObjPlayer__sub_801550B8(u8 *arg0, u8 *arg1);
 extern const f32 TObjPlayer__data_805DB270;
 s32 test_collider_sphere_overlap_xz(s32 arg0, u8 *arg1, u32 arg2);
-extern int lbl_8050DA90[];
+extern int player_battle_param_table[];
 int TObjPlayer__sub_80154E28(int a0, int a1);
 s32 get_player_data__10TObjPlayerFi(s32);
 s32 check_flag_pair__10TObjPlayerFii(s32 arg0, s32 arg1);
@@ -618,7 +618,7 @@ loop_1:
 int TObjPlayer__sub_80154E28(int a0, int a1) {
   long long new_var;
   new_var = a0;
-  lbl_8050DA90[new_var] = a1;
+  player_battle_param_table[new_var] = a1;
   return a0;
 }
 

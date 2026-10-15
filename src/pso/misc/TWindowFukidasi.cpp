@@ -327,7 +327,7 @@ extern const f32 TWindowFukidasi__data_805DCD28;
 extern const f32 TWindowFukidasi__data_805DCD30;
 extern const f32 TWindowFukidasi__data_805DCD4C;
 extern s32 TWindowFukidasi__balloon_color_table[];
-extern Vec_80251380 lbl_8044ED58;
+extern Vec_80251380 fukidasi_forward_vec;
 extern RecoveredGlobal_80251BA0_lbl_804CF080 window_fukidasi_layout_entries;
 extern u8 identity_matrix[];
 extern s32 lbl_805D3900;
@@ -794,7 +794,7 @@ s32 is_speaker_far_or_offscreen__15TWindowFukidasiFPv(Fuki_802504C0 *arg0) {
     if (scr[1] > m + get_field_18__15TWindowCtrlMainFv(((Fuki_80251380 *)arg0)->viewport)) {
         return 1;
     }
-    Vec_80251380 v = lbl_8044ED58;
+    Vec_80251380 v = fukidasi_forward_vec;
     f32 d[3];
     push_matrix_from(identity_matrix);
     rotate_matrix_y(0, camera_ctrl_instance->ry);

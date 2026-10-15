@@ -73,7 +73,7 @@ s32 vec3_add_to(void *, void *);
 f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
-extern u32 lbl_80487174[];
+extern u32 boss4_type3_radar_marker_colors[];
 extern const f32 TBoss4Type3__data_805D8C40;
 extern const f32 lbl_805D8C68;
 extern const f32 lbl_805D8C70;
@@ -749,7 +749,7 @@ extern s32 boss4_type3_effect_ids[];
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
 extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
-extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
+extern RecoveredGlobal_80059450_lbl_80437878 boss4_type3_follow_camera_offsets;
 extern const f64 lbl_80437890[];
 extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
@@ -757,7 +757,7 @@ extern Row_8005A398 boss4_type3_states[];
 extern u8 lbl_80486FB0[];
 extern u8 boss4_type3_index_table[];
 extern Vec_80059C20 boss4_type3_default_position;
-extern Vec_80059C20 lbl_80487168;
+extern Vec_80059C20 boss4_type3_interp_origin_vec;
 extern u8 __vt__11TBoss4Type3[];
 extern void *TBoss4Zanzo__name;
 extern s32 TObjBs4CutAtk_name;
@@ -786,7 +786,7 @@ void bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_804376D0[];
-extern u8 lbl_804376D8[];
+extern u8 boss4_type2_model_node_table[];
 extern s32 lbl_805D27D8;
 extern const f32 lbl_805D8C28;
 extern "C" {
@@ -2013,7 +2013,7 @@ u8 *TBoss4Type2__ct(u8 *arg0, s32 arg1, s32 *arg2) {
     for (; i < 8; i++) {
         ((Arr_800579A0 *) arg0)->f42C[i] = 0;
     }
-    init_model_node_tables(arg0 + 0x378, lbl_804376D8, 6);
+    init_model_node_tables(arg0 + 0x378, boss4_type2_model_node_table, 6);
     *(s32 *)((s8 *)arg0 + 0x3A0) = 0;
     *(s32 *)((s8 *)arg0 + 0x3E0) = 0;
     *(u16 *)((s8 *)arg0 + 0x3C4) = 0xFFFF;

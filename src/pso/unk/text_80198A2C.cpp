@@ -71,7 +71,7 @@ s32 spawn_particle_effect_with_flags(void *, int, int);
 s32 spawn_particle_effect(void *, int);
 s32 copy_pos__11TNowLoadingFPvPv(void *, void *);
 s32 play_sound_effect(int, void *, int, int);
-extern Vec_80198A2C lbl_80446070;
+extern Vec_80198A2C boss3_volopt_init_vec;
 extern Sys_80198A2C gogo_ball_configuration;
 void TBoss3Volopt__sub_80198A2C(u8 *arg0);
 }
@@ -109,7 +109,7 @@ void TBoss3Volopt__sub_80198A2C(u8 *arg0) {
     }
     if (state != 0) {
         if (self->effect == NULL) {
-            Vec_80198A2C init = lbl_80446070;
+            Vec_80198A2C init = boss3_volopt_init_vec;
             if (gogo_ball_configuration.mode != 6) {
                 self->effect = spawn_particle_effect_with_rotation(&self->pos, &init, 0xC0, 2);
             }
@@ -882,7 +882,7 @@ s32 set_global_param__8TObjFishFi(s32);
 void set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object(s32);
-extern Color_80199A44 lbl_80446060[];
+extern Color_80199A44 fish_draw_color[];
 extern const f32 chunk_material_color_half_alpha_f32[];
 extern s32 lobby_gvm_texture_handles[];
 extern u8 saved_model_draw_color[];
@@ -899,7 +899,7 @@ extern s32 model_render_flags;
 extern const f32 lbl_805DBF40;
 void draw_model__8TObjFishFPv(u8 *arg0) {
     Vec_80199A44 dir;
-    Color_80199A44 color = lbl_80446060[0];
+    Color_80199A44 color = fish_draw_color[0];
     Vec_80199A44 pos;
     f32 len;
     f32 rate;

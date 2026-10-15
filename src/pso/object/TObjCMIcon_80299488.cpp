@@ -60,7 +60,7 @@ f32 get_scale__14TObjCMMainMenuFv(void);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
 void draw_ui_sprite(s32, void *, f32, f32);
 void restore_saved_depth_alpha_state(void);
-extern f32 lbl_804DBE6C[];
+extern f32 cm_icon_screen_position[];
 extern Grp_802995A0 TObjCMIcon__icon_group_table[];
 void render__10TObjCMIconFv(s32 self);
 s32 get_creation_sprite_id__14TObjCMMainMenuFi(s32);
@@ -160,13 +160,13 @@ void render__10TObjCMIconFv(s32 self) {
     }
     set_depth_buffer_settings_1__Fv();
     set_depth_buffer_settings_id__FUl(2);
-    x0 = lbl_804DBE6C[0] - TObjCMIcon__horizontal_scroll_offset;
+    x0 = cm_icon_screen_position[0] - TObjCMIcon__horizontal_scroll_offset;
     for (i = 0; i < 7; i++) {
         id = idx[i];
         depth = keys[i];
         g = &TObjCMIcon__icon_group_table[id];
         pos.x = x0 + ((Ent_802995A0 *)&TObjCMIcon__icon_entries)[id].x;
-        pos.y = lbl_804DBE6C[1] * get_scale__14TObjCMMainMenuFv();
+        pos.y = cm_icon_screen_position[1] * get_scale__14TObjCMMainMenuFv();
         z = (-2.0f) - (1.0f - (f32)(i / 7));
         for (n = 0; n < g->n; n++) {
             s = TObjCMIcon__sub_80299598(self, g->ids[n]);

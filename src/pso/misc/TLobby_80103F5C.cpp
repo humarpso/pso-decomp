@@ -67,9 +67,9 @@ s32 get_item_icon_index();
 s32 get_item_data__6TLobbyFUi(u32 arg0);
 s32 format_item_name__9TItemDataFv(u32, s32);
 void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1);
-    extern int lbl_805D5448;
+    extern int lobby_drop_flag;
 void mark_selected__6TLobbyFv(void);
-extern int lbl_805D5448;
+extern int lobby_drop_flag;
 int get_drop_flag__6TLobbyFv(void);
 void TLobby__sub_80104464(void);
 s32 fn_80077788();
@@ -224,8 +224,8 @@ void forward_message__6TLobbyFiUi(s32 arg0, u32 arg1) {
         format_item_name__9TItemDataFv(arg1, arg0);
     }
 }
-void mark_selected__6TLobbyFv(void) { lbl_805D5448 = 1; }
-int get_drop_flag__6TLobbyFv(void) {  return lbl_805D5448; }
+void mark_selected__6TLobbyFv(void) { lobby_drop_flag = 1; }
+int get_drop_flag__6TLobbyFv(void) {  return lobby_drop_flag; }
 
 void *TLobby__sub_8010440C(In_8010440C *arg0) {
     u8 i = arg0->idx;

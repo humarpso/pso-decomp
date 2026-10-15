@@ -71,7 +71,7 @@ extern s32 TCameraCtrl__fixed_npc_camera_active;
 u8 *TCameraCtrl__sub_8006BA08(u8 *arg0, s16 arg1);
 void set_active_camera_pose(void *, void *);
 s32 approach_camera_vector(void *, void *, f32);
-extern RecoveredGlobal_8006B4A0_lbl_804381E0 lbl_804381E0;
+extern RecoveredGlobal_8006B4A0_lbl_804381E0 fixed_npc_camera_destination_table;
 extern s32 TCameraCtrl__fixed_npc_camera_active;
 extern const f32 lbl_805D8FF8;
 void update_fixed_npc_camera(u8 *arg0);
@@ -161,8 +161,8 @@ u8 *create_conversation_camera(s32 arg0) {
 
 typedef char RecoveredGlobal_8006B4A0_lbl_804381E0_size[sizeof(RecoveredGlobal_8006B4A0_lbl_804381E0) == 0x1E0 ? 1 : -1];
 void update_fixed_npc_camera(u8 *arg0) {
-    approach_camera_vector(arg0 + 0x1C, (u8 *)&lbl_804381E0.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18), lbl_805D8FF8);
-    approach_camera_vector(arg0 + 0x28, (u8 *)&lbl_804381E0.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18) + 0xC, lbl_805D8FF8);
+    approach_camera_vector(arg0 + 0x1C, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18), lbl_805D8FF8);
+    approach_camera_vector(arg0 + 0x28, (u8 *)&fixed_npc_camera_destination_table.value + (*(s32 *)((s8 *)arg0 + 0x34) * 0x18) + 0xC, lbl_805D8FF8);
     TCameraCtrl__fixed_npc_camera_active = 1;
     set_active_camera_pose(arg0 + 0x1C, arg0 + 0x28);
 }

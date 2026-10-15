@@ -155,7 +155,7 @@ void subtract_vector(void *, void *);
 void normalize_vector(void *);
 void push_matrix_from(void *);
 void pop_matrices(int);
-extern const Packet_801AB6A0 lbl_80446D68;
+extern const Packet_801AB6A0 photon_golla_concentrate_packet;
 extern u8 identity_matrix[];
 extern const float lbl_805DC188;
 extern const f32 lbl_805DC18C;
@@ -249,7 +249,7 @@ s32 spawn_concentrate__12TPhotonGollaFPv(void *arg0) {
     normalize_vector(&direction);
     random = lbl_805DC198 * (f32)rand();
     angle = __cvt_fp2unsigned(lbl_805DC194 * random + lbl_805DC190);
-    Packet_801AB6A0 packet = lbl_80446D68;
+    Packet_801AB6A0 packet = photon_golla_concentrate_packet;
     packet.origin.x = self->f1ac.x;
     packet.origin.y = self->f1ac.y;
     packet.origin.z = self->f1ac.z;

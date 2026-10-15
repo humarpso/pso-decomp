@@ -167,7 +167,7 @@ struct RecoveredGlobal_8034CC68_lbl_80478C3C {
 struct Rec_80272290 { s32 f0; u8 f4[0xD0]; };
 
 extern "C" {
-extern const RecoveredGlobal_8034CC68_lbl_80478C3C lbl_8044F6D4;
+extern const RecoveredGlobal_8034CC68_lbl_80478C3C com_card_help_message_id_table;
 void set_help_message__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1);
 Rec_80272290 *get_com_count__17TWindowSubComCardFv();
 void text_builder_append(void *);
@@ -214,7 +214,7 @@ void set_selected_card__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
 void set_help_message__17TWindowSubComCardFPvi(u8 *arg0, s32 arg1) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0x28) != arg1) {
         *(s32 *)((s8 *)arg0 + 0x28) = arg1;
-        send_and_handle__6TLobbyFPvii((s32)((s32)(*(u8 **)((s8 *)arg0 + 0x6c))), (s32)((s32)(((s32)get_message_10__20TWindowSubStatusDispFPv((void*)((int) (*(s32 *)((s8 *)(&lbl_8044F6D4.value) + (arg1 * 4)))))))), (s32)((s32)(0x80)));
+        send_and_handle__6TLobbyFPvii((s32)((s32)(*(u8 **)((s8 *)arg0 + 0x6c))), (s32)((s32)(((s32)get_message_10__20TWindowSubStatusDispFPv((void*)((int) (*(s32 *)((s8 *)(&com_card_help_message_id_table.value) + (arg1 * 4)))))))), (s32)((s32)(0x80)));
     }
 }
 

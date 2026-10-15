@@ -55,8 +55,8 @@ extern const V2_80355D5C lbl_80479350[];
 extern const f32 lbl_805DFFD0;
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p);
 void TAdPlyPltAnimCtrlGC__sub_80355D38(void *arg0);
-extern Pos_80355DE0 lbl_80479314[];
-extern u32 lbl_8047933C[];
+extern Pos_80355DE0 ply_plt_anim_target_position_table[];
+extern u32 ply_plt_anim_duration_table[];
 extern const f32 lbl_805DFFD4;
 extern const f32 lbl_805DFFD8;
 s32 __dt__7TObjectFv(void *, s32);
@@ -116,12 +116,12 @@ void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(Obj_80355D5C *o, V2_80355D5C *p
 void run_task__15TAdPlyPltAnimGCFv(Anim_80355DE0 *o) {
     if (o->active != 0) {
         o->time++;
-        if (o->time < lbl_8047933C[o->idx] + 1) {
-            f32 dx = (lbl_80479314[o->idx].x - lbl_805DFFD4) / (f32)lbl_8047933C[o->idx];
-            f32 dy = (lbl_80479314[o->idx].y - lbl_805DFFD4) / (f32)lbl_8047933C[o->idx];
-            o->x64 = lbl_80479314[o->idx].x - dx * (f32)o->time;
-            o->x68 = lbl_80479314[o->idx].y - dy * (f32)o->time;
-            f32 r = lbl_805DFFD4 / (f32)lbl_8047933C[o->idx];
+        if (o->time < ply_plt_anim_duration_table[o->idx] + 1) {
+            f32 dx = (ply_plt_anim_target_position_table[o->idx].x - lbl_805DFFD4) / (f32)ply_plt_anim_duration_table[o->idx];
+            f32 dy = (ply_plt_anim_target_position_table[o->idx].y - lbl_805DFFD4) / (f32)ply_plt_anim_duration_table[o->idx];
+            o->x64 = ply_plt_anim_target_position_table[o->idx].x - dx * (f32)o->time;
+            o->x68 = ply_plt_anim_target_position_table[o->idx].y - dy * (f32)o->time;
+            f32 r = lbl_805DFFD4 / (f32)ply_plt_anim_duration_table[o->idx];
             o->x6c = lbl_805DFFD8 * (lbl_805DFFD4 - r * (f32)o->time);
         } else {
             o->x6c = 0;

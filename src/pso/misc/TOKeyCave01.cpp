@@ -84,7 +84,7 @@ extern RecoveredGlobal_8016C474_lbl_804B2BB8 bm_fs_obj_do_doa_panel_resource_des
 extern RecoveredGlobal_8016C474_lbl_804B2BD0 fs_obj_key_jungle_resource_descriptor;
 extern u32 TOKeyCave01__resource_bundle;
 extern s32 *TOKeyCave01__texture_lists;
-extern s32 lbl_805D5A20;
+extern s32 key_cave_render_state;
 void load_resources__11TOKeyCave01Fv(void);
 s32 get_main_phase(void);
 u8 * TOKey__ct(void *);
@@ -117,7 +117,7 @@ int set_chunk_material_color(void *);
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 *TOKeyCave01__texture_lists;
-extern s32 lbl_805D5A20;
+extern s32 key_cave_render_state;
 extern s32 model_render_flags;
 void render__11TOKeyCave01Fv(u8 *arg0);
 }
@@ -194,7 +194,7 @@ void render__11TOKeyCave01Fv(u8 *arg0) {
         begin_effect_render__13TParticleCtrlFv();
         temp_r31_2 = *(u8 **)((s8 *)temp_r31 + 0x2C);
         push_matrix();
-        switch ((s32) lbl_805D5A20) {
+        switch ((s32) key_cave_render_state) {
         case 0:
             post_translate_matrix((void *) (arg0 + 0x68));
             break;
@@ -263,7 +263,7 @@ void load_resources__11TOKeyCave01Fv(void) {
         (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441BE8.value));
         *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
-        lbl_805D5A20 = 1;
+        key_cave_render_state = 1;
         return;
     }
     temp_r3_2 = (u8 *)(alloc__23TAdSinglePlyChrSelectGCFPv(0x440));
@@ -275,7 +275,7 @@ void load_resources__11TOKeyCave01Fv(void) {
     (*(u8 * *)&TOKeyCave01__texture_lists) = alloc_buffer__11TOBoss4RockFPv(8);
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 0) = load_gvm_texture_file((void *) (&lbl_80441C04.value));
     *(s32 *)((s8 *)(*(u8 * *)&TOKeyCave01__texture_lists) + 4) = (s32) *(s32 *)((s8 *)(*(u8 **)((s8 *)(*(u8 * *)&TOKeyCave01__resource_bundle) + 0x42C)) + 0xC);
-    lbl_805D5A20 = 0;
+    key_cave_render_state = 0;
 }
 
 void *__dt__11TOKeyCave01Fv(void *arg0, s16 arg1) {

@@ -108,7 +108,7 @@ extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
-extern Entry_800A4064 *lbl_80500970[];
+extern Entry_800A4064 *player_effect_task_list[];
 extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;

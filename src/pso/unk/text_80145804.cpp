@@ -52,7 +52,7 @@ void load_menu_font(void);
 
 extern "C" {
 
-__declspec(section ".data") u32 *lbl_8050C040[2];
+__declspec(section ".data") u32 *menu_font_glyph_pixel_buffers[2];
 Rect_80145804 lbl_8050C048[2];
 Tex_80145804 lbl_8050C090[2];
 #pragma push
@@ -85,8 +85,8 @@ void load_menu_font(void) {
     }
     load_texture_list(menu_font_texture_list);
     for (m = 0; m < 2; m++) {
-        *(lbl_8050C040 + m) = menu_font_texture_list[0].ents[m].obj->img->pixels;
-        clear_words_80145804(*(lbl_8050C040 + m), 0x2000);
+        *(menu_font_glyph_pixel_buffers + m) = menu_font_texture_list[0].ents[m].obj->img->pixels;
+        clear_words_80145804(*(menu_font_glyph_pixel_buffers + m), 0x2000);
     }
     lbl_805D56B4 = (s16 *)alloc_buffer__11TOBoss4RockFPv(0x100);
     clear_words_80145804((u32 *)lbl_805D56B4, 0x40);

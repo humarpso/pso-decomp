@@ -1942,23 +1942,23 @@ extern const f32 TBoss8Dragon__data_805DEE9C;
 extern const f32 TBoss8Dragon__data_805DEEA4;
 extern s32 TLobby__designated_client_id;
 extern RecoveredGlobal_802FB778_lbl_804744B4 lbl_804744B4;
-extern s32 lbl_804744DC[];
-extern RecoveredGlobal_802F45A0_lbl_80474580 lbl_80474580;
-extern const RecoveredGlobal_802FBA84_lbl_8047460C lbl_8047460C;
-extern RecoveredGlobal_802FBA1C_lbl_80474638 lbl_80474638;
-extern const RecoveredGlobal_802FBA84_lbl_80474658 lbl_80474658;
-extern const RecoveredGlobal_802FBA84_lbl_804746CC lbl_804746CC;
+extern s32 boss8_dragon_init_state_params[];
+extern RecoveredGlobal_802F45A0_lbl_80474580 dragon_camera_script_frame_table;
+extern const RecoveredGlobal_802FBA84_lbl_8047460C dragon_next_action_table;
+extern RecoveredGlobal_802FBA1C_lbl_80474638 boss8_dragon_state_transition_table;
+extern const RecoveredGlobal_802FBA84_lbl_80474658 boss8_dragon_action_pick_table;
+extern const RecoveredGlobal_802FBA84_lbl_804746CC boss8_dragon_action_pick_table_b;
 extern Eff_802FB828 boss8_dragon_breath_eff_params;
 extern S_802FB290 TBoss8Dragon__breath_params;
 extern s32 lbl_80474B40[];
 extern u8 controller_input_state[];
 extern RecoveredGlobal_802F45A0_lbl_80541DE8 lbl_80541DE8;
 extern RecoveredGlobal_802F45A0_lbl_80541DF4 lbl_80541DF4;
-extern RecoveredGlobal_802F4760_lbl_80541E30 lbl_80541E30;
-extern RecoveredGlobal_802F4760_lbl_80541E3C lbl_80541E3C;
+extern RecoveredGlobal_802F4760_lbl_80541E30 boss8_dragon_reference_pos_vec;
+extern RecoveredGlobal_802F4760_lbl_80541E3C dragon_forward_reference_vec;
 extern s32 local_client_id;
 extern s32 lbl_805D6990;
-extern const f32 lbl_805D69B0;
+extern const f32 boss8_dragon_visibility_distance;
 extern const float lbl_805DED70;
 extern const f32 lbl_805DED78;
 extern const f32 lbl_805DED80;
@@ -2726,7 +2726,7 @@ void update_camera_script__12TBoss8DragonFv(void) {
         mult_vec_array__10TObjPlayerFUii((int) (0), (void *) (&lbl_80541DF4.value), (int) (TBoss8Dragon__data_805D6994), (int) (3));
         pop_matrix();
     }
-    if ((s32) TBoss8Dragon__data_805D698C == (s32) *(s32 *)((s8 *)(&lbl_80474580.value) + (TBoss8Dragon__data_805D6998 * 4))) {
+    if ((s32) TBoss8Dragon__data_805D698C == (s32) *(s32 *)((s8 *)(&dragon_camera_script_frame_table.value) + (TBoss8Dragon__data_805D6998 * 4))) {
         temp_r4 = TBoss8Dragon__data_805D699C;
         TBoss8Dragon__data_805D699C = temp_r4 + 0xC;
         get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_80541DE8.value, temp_r4);
@@ -2785,11 +2785,11 @@ s32 TBoss8Dragon__sub_802F4760(f32 farg0) {
     f32 temp_f31;
     ((s32 (*)(void *))VecCopy__FP3VecPC3Vec)((void *) (&stack.sp8));
     stack.spC = TBoss8Dragon__data_805DED50;
-    ((s32 (*)(void *, void *))subtract_vector)((void *) (&stack.sp8), (void *) (&lbl_80541E30.value));
+    ((s32 (*)(void *, void *))subtract_vector)((void *) (&stack.sp8), (void *) (&boss8_dragon_reference_pos_vec.value));
     temp_f1 = clamp_velocity__15TObjBoss2TunnelFPv((void *) (&stack.sp8));
-    if ((temp_f1 + farg0) < lbl_805D69B0) {
+    if ((temp_f1 + farg0) < boss8_dragon_visibility_distance) {
         temp_f31 = temp_f1 * (TBoss8Dragon__data_805DED74 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
-        if (vec3_dot((void *) (&stack.sp8), (void *) (&lbl_80541E3C.value)) >= temp_f31) {
+        if (vec3_dot((void *) (&stack.sp8), (void *) (&dragon_forward_reference_vec.value)) >= temp_f31) {
             return 1;
         }
     }
@@ -6473,7 +6473,7 @@ void emit_body_effects__12TBoss8DragonFPv(u8 *arg0) {
 
 void init_state__12TBoss8DragonFi(s32 arg0) {
     TBoss8Dragon__sub_802FBE3C();
-    ((s32 (*)(s32, s32 *))get_state_flags__12TBoss8DragonFPv)(arg0, lbl_804744DC);
+    ((s32 (*)(s32, s32 *))get_state_flags__12TBoss8DragonFPv)(arg0, boss8_dragon_init_state_params);
     ((s32 (*)(s32))reload_boss_stats__12TBoss8DragonFPv)(arg0);
 }
 
@@ -6607,7 +6607,7 @@ void TBoss8Dragon__sub_802FBA1C(u8 *arg0) {
         return;
     }
     if (check_damage_reaction__12TBoss8DragonFPv(arg0) == 0) {
-        *(s32 *)((s8 *)arg0 + 0x674) = (s32) *(s32 *)((s8 *)(&lbl_80474638.value) + (*(s32 *)((s8 *)arg0 + 0x674) * 4));
+        *(s32 *)((s8 *)arg0 + 0x674) = (s32) *(s32 *)((s8 *)(&boss8_dragon_state_transition_table.value) + (*(s32 *)((s8 *)arg0 + 0x674) * 4));
         pick_next_action__12TBoss8DragonFPv((u8 *)(arg0));
     }
 }
@@ -6621,7 +6621,7 @@ void pick_next_action__12TBoss8DragonFPv(u8 *arg0) {
   if ((*((s32 *) (((s8 *) arg0) + 0x3C0))) & 0x40)
   {
     var_r7 = *((s32 *) (((s8 *) arg0) + 0x674));
-    var_r8 = (s32 *) (&lbl_804746CC.value);
+    var_r8 = (s32 *) (&boss8_dragon_action_pick_table_b.value);
   }
   else
   {
@@ -6629,12 +6629,12 @@ void pick_next_action__12TBoss8DragonFPv(u8 *arg0) {
     if (temp_r5 < 0x32)
     {
       var_r7 = temp_r5;
-      var_r8 = (s32 *) (&lbl_8047460C.value);
+      var_r8 = (s32 *) (&dragon_next_action_table.value);
     }
     else
     {
       var_r7 = temp_r5 - 0x32;
-      var_r8 = (s32 *) (&lbl_80474658.value);
+      var_r8 = (s32 *) (&boss8_dragon_action_pick_table.value);
     }
   }
   do

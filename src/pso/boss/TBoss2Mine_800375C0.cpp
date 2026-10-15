@@ -713,7 +713,7 @@ f32 TBoss2DeRolLe__sub_80034CEC(void);
 s32 create_timed_particle_emitter(s32, s32, s32, s32);
 s32 spawn_particle_effect_with_flags(s32, s32, s32);
 void TObjEneDD__sub_800BA5A4(s32, s32);
-extern RecoveredGlobal_800384C8_lbl_80435AB0 lbl_80435AB0;
+extern RecoveredGlobal_800384C8_lbl_80435AB0 boss2_mine_collision_desc;
 void TBoss2Mine__vt105(u8 *arg0, s32 arg1);
 void render_with_position_override__10TObjPlayerFPvPvi(void *, void *, s32);
 s32 check_demo_mode__10TObjPlayerFv(void);
@@ -731,7 +731,7 @@ void set_global_param__8TObjFishFi(void *);
 void set_chunk_material_color(void *);
 void draw_chunk_object(void *);
 extern Vec_80038200 lbl_80435AD0;
-extern Col_80038200 lbl_80435ADC;
+extern Col_80038200 boss2_mine_render_color;
 extern void *lbl_805D28BC;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -807,7 +807,7 @@ void render__10TBoss2MineFv(Mine_80038200 *self) {
     translate_matrix(0, (0.0f), (-1e+01f), (0.0f));
     if (self->flags & 4) {
         model_render_flags |= 0x20;
-        Col_80038200 c = lbl_80435ADC;
+        Col_80038200 c = boss2_mine_render_color;
         f32 f = -(f32)(self->f3B0 >> 16) / (255.0f);
         c.b = f;
         c.g = f;
@@ -887,7 +887,7 @@ void TBoss2Mine__vt105(u8 *arg0, s32 arg1) {
       *((s32 *) (((s8 *) arg0) + 0x3C8)) = (s32) ((*((s32 *) (((s8 *) arg0) + 0x3C8))) + 1);
       if (((s32) (*((s32 *) (((s8 *) arg0) + 0x3C8)))) > 0x1E)
     {
-      temp_r4 = ((u8 *) (&lbl_80435AB0.value)) - 4;
+      temp_r4 = ((u8 *) (&boss2_mine_collision_desc.value)) - 4;
       *((ByteBlock_14 *) (((s32) (copy_storage_800384C8.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (((s32) temp_r4) + 4));
       *((f32 *) (copy_storage_800384C8.bytes + 0x4)) = TBoss2DeRolLe__sub_80034CEC();
       TObjEneDD__sub_800BA5A4((s32) arg0, (s32) copy_storage_800384C8.bytes);

@@ -32,24 +32,24 @@ extern void *boss3_volopt_resources;
 extern s32 lbl_805D4D18;
 extern s32 lbl_805D4D1C;
 extern s32 volopt_cage_breakup_model;
-extern s32 lbl_805D4D24;
+extern s32 volopt_cage_break_model_handle;
 
 void init_break_model__14TObjVoloptCageFv(void) {
     s32 var_r0;
     void *temp_r4;
 
     temp_r4 = *(void **)((s8 *)boss3_volopt_resources + 0x42C);
-    lbl_805D4D24 = *(s32 *)((s8 *)temp_r4 + 0x128);
+    volopt_cage_break_model_handle = *(s32 *)((s8 *)temp_r4 + 0x128);
     var_r0 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10, temp_r4);
     if (var_r0 != 0) {
-        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, lbl_805D4D24);
+        var_r0 = init_from_model__11TBreakUpMdlFPvi(var_r0, volopt_cage_break_model_handle);
     }
     volopt_cage_breakup_model = var_r0;
     lbl_805D4D18 = register_boss__6TLobbyFPv(0x26);
     lbl_805D4D1C = dispatch_shared_handler_a__6TLobbyFPv(0x26);
 }
 
-extern s32 lbl_805D4D24;
+extern s32 volopt_cage_break_model_handle;
 extern s32 TObjVoloptCage__texture_list;
 extern s32 model_render_flags;
 extern const f32 lbl_805D887C;
@@ -62,7 +62,7 @@ void render__14TObjVoloptCageFv(u8 *arg0) {
         model_render_flags &= 0xFFFFFBFF;
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
-        draw_chunk_object(lbl_805D4D24);
+        draw_chunk_object(volopt_cage_break_model_handle);
         pop_matrix();
     }
 }

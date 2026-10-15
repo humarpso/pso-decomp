@@ -182,7 +182,7 @@ struct RecoveredGlobal_8006C140_TCameraCtrl__data_804FF7C0 {
 extern "C" {
 void direction_to_pitch_yaw(u8 *arg0, s32 *arg1, s32 *arg2);
 s32 set_camera_look_at(void *, void *, void *);
-extern RecoveredGlobal_8006C03C_lbl_804383E0 lbl_804383E0;
+extern RecoveredGlobal_8006C03C_lbl_804383E0 camera_look_at_up_vec;
 extern RecoveredGlobal_8006C03C_lbl_804FF5E8 lbl_804FF5E8;
 extern void *camera_ctrl_instance;
 void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0);
@@ -364,9 +364,9 @@ void apply_look_at_from_target__11TCameraCtrlFPv(u8 *arg0) {
     stack.sp20 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_184;
     stack.sp24 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_188;
     stack.sp28 = ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_18C;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804383E0.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804383E0.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804383E0.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&camera_look_at_up_vec.value) + 8);
     set_camera_look_at((void *) ((*(u8 * *)&camera_ctrl_instance) + 0x178), (void *) (&stack.sp20), (void *) (&stack.sp8));
     *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 0) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_178;
     *(f32 *)((s8 *)(&lbl_804FF5E8.value) + 4) = (f32) ((RecoveredFields_8006C03C_lbl_805D4DF0 *)(*(u8 * *)&camera_ctrl_instance))->field_17C;

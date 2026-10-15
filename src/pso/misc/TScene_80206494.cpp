@@ -108,9 +108,9 @@ extern s32 lbl_805D6014;
 extern s32 lbl_805D6018;
 extern s32 TScene__loaded_floor_rel_file_index;
 extern u32 TScene__data_805D6020;
-extern s32 lbl_805D6024;
+extern s32 floor_bin_file_size;
 extern u32 TScene__material_info_buffer;
-extern s32 lbl_805D602C;
+extern s32 scene_file_buffer_size;
 extern const f32 TScene__data_805DC5D8;
 void load_current_floor__6TSceneFv(void);
 s32 *load_relocatable_file(s32 *, u32);
@@ -158,7 +158,7 @@ s32 is_not_split_screen__13TRaderMapCoreFv();
 extern u8 lbl_8044A994[];
 extern u8 lbl_8044A99C[];
 extern u32 TScene__data_805D6020;
-extern s32 lbl_805D6024;
+extern s32 floor_bin_file_size;
 void load_floor_bin_file__6TSceneFi(s32 arg0);
 u32 alloc__22TQuestVmDownLoadServerFPv(s32);
 s32 *load_relocatable_file(s32 *, u32);
@@ -261,7 +261,7 @@ void TScene__sub_802065EC(void) {  }
 
 extern s32 lbl_8044A98C[];
 extern u32 TScene__material_info_buffer;
-extern s32 lbl_805D602C;
+extern s32 scene_file_buffer_size;
 
 void load_floor_rel_file__6TSceneFi(s32 arg0) {
     u8 sp8[0x20];
@@ -423,7 +423,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
     u32 temp_r3_2;
 
     TScene__material_info_buffer = 0U;
-    lbl_805D602C = 0;
+    scene_file_buffer_size = 0;
     replace_file_extension__6TLobbyFPvPvPv((s32 *)(sp8), (s32)(arg0), (s32 *)(lbl_8044A98C));
     temp_r31 = update_lobby_scene__6TSceneFPv((char *)(sp8));
     if (get_global_state__14TOKeyMachine01Fv() == 0xF) {
@@ -432,7 +432,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
             TScene__material_info_buffer = temp_r3;
             if (temp_r3 != 0U) {
                 read_disc_file((char *)(sp8), (u32)(temp_r3));
-                lbl_805D602C = 0x100;
+                scene_file_buffer_size = 0x100;
             }
         }
     } else if (temp_r31 > 0) {
@@ -440,7 +440,7 @@ void load_file_to_buffer__6TSceneFi(s32 arg0) {
         TScene__material_info_buffer = temp_r3_2;
         if (temp_r3_2 != 0U) {
             read_disc_file((char *)(sp8), (u32)(temp_r3_2));
-            lbl_805D602C = temp_r31;
+            scene_file_buffer_size = temp_r31;
         }
     }
 }
@@ -454,7 +454,7 @@ void load_floor_bin_file__6TSceneFi(s32 arg0) {
     u8 sp8[0x20];
     s32 size;
     TScene__data_805D6020 = 0U;
-    lbl_805D6024 = 0;
+    floor_bin_file_size = 0;
     if (is_not_split_screen__13TRaderMapCoreFv() == 1) {
         replace_file_extension__6TLobbyFPvPvPv((s32 *)sp8, arg0, (s32 *)lbl_8044A994);
     } else {
@@ -466,14 +466,14 @@ void load_floor_bin_file__6TSceneFi(s32 arg0) {
             TScene__data_805D6020 = alloc__22TQuestVmDownLoadServerFPv(0x100);
             if (TScene__data_805D6020 != 0U) {
                 read_disc_file((char *)sp8, TScene__data_805D6020);
-                lbl_805D6024 = 0x100;
+                floor_bin_file_size = 0x100;
             }
         }
     } else if (size > 0) {
         TScene__data_805D6020 = alloc__22TQuestVmDownLoadServerFPv(size);
         if (TScene__data_805D6020 != 0U) {
             read_disc_file((char *)sp8, TScene__data_805D6020);
-            lbl_805D6024 = size;
+            floor_bin_file_size = size;
         }
     }
 }
@@ -637,8 +637,8 @@ void load_current_floor__6TSceneFv(void) {
     lbl_805D6014 = 0;
     TScene__loaded_floor_rel_file_index = 0;
     lbl_805D6018 = 0;
-    lbl_805D6024 = 0;
-    lbl_805D602C = 0;
+    floor_bin_file_size = 0;
+    scene_file_buffer_size = 0;
     TScene__data_805D5FE8 = -1;
     if (get_floor_map_selection(current_floor_index, &res) == 1) {
         tbl = get_floor_scene_table(res.table);

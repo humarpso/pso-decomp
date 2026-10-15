@@ -30,7 +30,7 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 set_global_param__8TObjFishFi(s32);
 
 extern u8 *TOBarrierEnergy01__texture_lists;
-extern s32 lbl_805D5898;
+extern s32 barrier_energy_model;
 
 void render__17TOBarrierEnergy01Fv(u8 *arg0) {
     if (((BarrierObj_80157F30*)arg0)->m8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
@@ -42,7 +42,7 @@ void render__17TOBarrierEnergy01Fv(u8 *arg0) {
         draw_ginja_model_with_motion(*(s32 *)((s8 *)arg0 + 0x34), *(s32 *)((s8 *)arg0 + 0xBC), *(f32 *)((s8 *)arg0 + 0xB0));
         end_effect_render__13TParticleCtrlFv();
         set_global_param__8TObjFishFi(*(s32 *)((s8 *)TOBarrierEnergy01__texture_lists + 8));
-        draw_ginja_object(lbl_805D5898);
+        draw_ginja_object(barrier_energy_model);
         pop_matrix();
     }
 }

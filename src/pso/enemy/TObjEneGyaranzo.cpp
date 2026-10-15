@@ -966,9 +966,9 @@ extern s32 lbl_8043C428[];
 extern u32 *gyaranzo_model_resources[];
 extern u8 *gyaranzo_resource_ptrs[];
 extern s32 lbl_805D2A78;
-extern s32 lbl_805D51E0;
-extern s32 lbl_805D51E4;
-extern s32 lbl_805D51E8;
+extern s32 gyaranzo_boss_stats_handle;
+extern s32 gyaranzo_boss_stats_ptr_b;
+extern s32 gyaranzo_object_handle;
 extern s32 gyaranzo_missile_param_table;
 extern u32 gyaranzo_bml_resource;
 extern u32 *lbl_805D5200;
@@ -1275,7 +1275,7 @@ void *bm_ene_gyaranzo_motion_names[9] = {
 void *bm_ene_gyaranzo_resource_descriptor[4] = {
     (void *)&lbl_8043C238, (void *)&bm_ene_gyaranzo_model_names, (void *)&bm_ene_gyaranzo_motion_names, (void *)0x70008,
 };
-void *lbl_8049415C[32] = {
+void *gyaranzo_action_table[32] = {
     (void *)0x20000, (void *)0x4, (void *)0x3f333333, (void *)0x0,
     (void *)0x20005, (void *)0x5, (void *)0x3f333333, (void *)0x1,
     (void *)0x20000, (void *)0x0, (void *)0x3f800000, (void *)0x4,
@@ -1294,20 +1294,20 @@ void *lbl_804941F8[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80494224[11] = {
+void *gyaranzo_resource_index_table[11] = {
     (void *)0x60007, (void *)0xa000b, (void *)0xc000f, (void *)0xe0009,
     (void *)0x80025, (void *)0x210036, (void *)0x2c0010, (void *)0x110012,
     (void *)0x130014, (void *)0x150016, (void *)0x170018,
 };
-void *lbl_80494250[7] = {
+void *gyaranzo_flagged_resource_index_table[7] = {
     (void *)0x20003, (void *)0x4000b, (void *)0xc0000, (void *)0x10005,
     (void *)0x60007, (void *)0x80009, (void *)0xa0000,
 };
-void *lbl_8049426C[7] = {
+void *gyaranzo_death_breakup_params[7] = {
     (void *)0x14, (void *)0x3d75c28f, (void *)0x3fc00000, (void *)0x3f666666,
     (void *)0x3df5c28f, (void *)0x3f0ccccd, (void *)0x3f000000,
 };
-void *lbl_80494288[83] = {
+void *gyaranzo_actor_vtable_ops[83] = {
     (void *)0x0, (void *)0x0, (void *)&fn_800D3E54, (void *)&update_main__10TObjPlayerFPv,
     (void *)&TObjPlayer__sub_800D35D8, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
     (void *)&reset_actor_action_state, (void *)&get_actor_body_center, (void *)&update_object_view_visibility, (void *)&classify_actor_view_detail,
@@ -1331,10 +1331,10 @@ void *lbl_80494288[83] = {
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 #define bm_ene_gyaranzo_resource_descriptor ((s32 *)bm_ene_gyaranzo_resource_descriptor)
-#define lbl_80494224 ((s16 *)lbl_80494224)
-#define lbl_80494250 ((s16 *)lbl_80494250)
-#define lbl_8049426C ((u8 *)lbl_8049426C)
-#define lbl_80494288 ((u8 *)lbl_80494288)
+#define gyaranzo_resource_index_table ((s16 *)gyaranzo_resource_index_table)
+#define gyaranzo_flagged_resource_index_table ((s16 *)gyaranzo_flagged_resource_index_table)
+#define gyaranzo_death_breakup_params ((u8 *)gyaranzo_death_breakup_params)
+#define gyaranzo_actor_vtable_ops ((u8 *)gyaranzo_actor_vtable_ops)
 
 #pragma push
 #pragma fp_contract on
@@ -1379,8 +1379,8 @@ void fn_800D2900(u8 *arg0) {
         }
         render_anim_model_at_pos__12TBoss3VoloptFPv(arg0);
         for (i = start; i < end; i++) {
-            idx = lbl_80494250[i];
-            ((VObj_18_5c0ed3 *)(arg0))->m63(lbl_80494224[idx], &v.x);
+            idx = gyaranzo_flagged_resource_index_table[i];
+            ((VObj_18_5c0ed3 *)(arg0))->m63(gyaranzo_resource_index_table[idx], &v.x);
             {
                 Params_800D2900 p = lbl_8043C35C;
                 p.pos.x = v.x;
@@ -1460,10 +1460,10 @@ void update_aim_and_fire__10TObjPlayerFPv(u8 *arg0) {
 void TObjPlayer__sub_800D2E8C(Ene_800D2E8C *arg0) {
     s32 i;
     for (i = 0; i < arg0->count; i++) {
-        *gyaranzo_model_resources[lbl_80494250[i]] |= 8;
+        *gyaranzo_model_resources[gyaranzo_flagged_resource_index_table[i]] |= 8;
     }
     for (; i < 13; i++) {
-        *gyaranzo_model_resources[lbl_80494250[i]] &= ~8;
+        *gyaranzo_model_resources[gyaranzo_flagged_resource_index_table[i]] &= ~8;
     }
     if (arg0->f3A8 >= 1) {
         *lbl_805D5200 |= 8;
@@ -1487,7 +1487,7 @@ void update_death_breakup__10TObjPlayerFPv(Ene_800D2F6C *arg0) {
         advance_animation_playback(arg0);
         arg0->timer--;
         if (arg0->timer < 0) {
-            create_breakup_mdl__12TBoss3VoloptFiiiii(gyaranzo_breakup_model_obj, lbl_8049426C, arg0->f24, arg0->v2FC, arg0->f60);
+            create_breakup_mdl__12TBoss3VoloptFiiiii(gyaranzo_breakup_model_obj, gyaranzo_death_breakup_params, arg0->f24, arg0->v2FC, arg0->f60);
             send_entity_set_flags__6TLobbyFPv(arg0);
             trigger_dell_biter_events__10TObjPlayerFPv(arg0->v2FC);
             play_sound_effect((void *)copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003AD10), arg0->pos, 0, 0);
@@ -1867,10 +1867,10 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
         gyaranzo_bml_resource = (u32)p;
     }
     for (i = 0; i < 0x16; i++) {
-        ((s32 *)gyaranzo_model_resources)[i] = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, lbl_80494224[i]);
+        ((s32 *)gyaranzo_model_resources)[i] = collect_and_count__12TBoss3VoloptFUii(AREA->res->r38, gyaranzo_resource_index_table[i]);
     }
     for (i = 0; i < 0xD; i++) {
-        gyaranzo_resource_ptrs[i] = (u8 *)collect_and_count__12TBoss3VoloptFUii(AREA->res->r48, lbl_80494224[i]);
+        gyaranzo_resource_ptrs[i] = (u8 *)collect_and_count__12TBoss3VoloptFUii(AREA->res->r48, gyaranzo_resource_index_table[i]);
     }
     for (i = 0; i < 0xD; i++) {
         *(s32 *)((s8 *)gyaranzo_resource_ptrs[i] + 0x30) = 0;
@@ -1882,9 +1882,9 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
         p = init__11TBreakUpMdlFPviif(p, AREA->res->r38, get_bml_motion(gyaranzo_bml_resource, 3), lbl_805DA294);
     }
     (*(struct VObj_800D3BA0_800D3B38 * *)&gyaranzo_breakup_model_obj) = (VObj_800D3BA0_800D3B38 *)p;
-    lbl_805D51E0 = register_boss__6TLobbyFPv(0x1D);
-    lbl_805D51E4 = dispatch_shared_handler_b__6TLobbyFPv(0x1D);
-    lbl_805D51E8 = register_object__6TLobbyFPv(0x1D);
+    gyaranzo_boss_stats_handle = register_boss__6TLobbyFPv(0x1D);
+    gyaranzo_boss_stats_ptr_b = dispatch_shared_handler_b__6TLobbyFPv(0x1D);
+    gyaranzo_object_handle = register_object__6TLobbyFPv(0x1D);
     gyaranzo_missile_param_table = dispatch_shared_handler_a__6TLobbyFPv(0x1D);
     {
         Pos_800D3C04 pos = lbl_8043C25C;
@@ -1897,7 +1897,7 @@ void load_gyaranzo_resources__6TLobbyFv(void) {
 #undef AREA
 Obj_800D3E54 *fn_800D3E54(Obj_800D3E54 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        arg0->vt = lbl_80494288;
+        arg0->vt = gyaranzo_actor_vtable_ops;
         free_collision_body_parts(arg0);
         __destroy_arr((u8 *)arg0 + 0x3EC, (void *)TObjPlayer__sub_800D7C58, 0x1C, 4);
         __dt__18TObjEneMe3SinowZoaFPvs((u8 *)arg0 + 0x3D0, -1);
@@ -1916,19 +1916,19 @@ u8 *TObjEneGyaranzo__ct(u8 *arg0, s32 arg1, u8 *arg2) {
     s32 var_r31;
 
     ((void (*)(void *, s32, void *)) TObjEnemyCustom__ct)(arg0, arg1, arg2);
-    *(u8 **)((s8 *)arg0 + 0x18) = (u8 *) ((void * *)lbl_80494288);
+    *(u8 **)((s8 *)arg0 + 0x18) = (u8 *) ((void * *)gyaranzo_actor_vtable_ops);
     init_common__18TObjEneMe3SinowZoaFPv((void *) ((u8 *)(arg0) + 0x3D0));
     __construct_array((void *) ((u8 *)(arg0) + 0x3EC), (void *) (&init_and_activate__10TObjPlayerFPv), (void *) (&TObjPlayer__sub_800D7C58), (int) (0x1C), (int) (4));
     *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D2A78;
     ((VObj_18_fe72f9 *)(arg0))->m79(arg2);
     VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x290, VecCopy__FP3VecPC3Vec((u8 *)(arg0) + 0x29C, (u8 *)(arg0) + 0x38));
     *(s32 *)((s8 *)arg0 + 0xDC) = (s32) *(s32 *)((s8 *)(*(u8 * *)&gyaranzo_bml_resource) + 0x430);
-    *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *) lbl_8049415C;
+    *(u8 **)((s8 *)arg0 + 0xD8) = (u8 *) gyaranzo_action_table;
     set_field_d8__10TObjPlayerFPvi((void *) (arg0), (void *) (*(u8 **)((s8 *)arg0 + 0xD8)));
     init_collision_body_parts((void *) (arg0), (void *) lbl_804941F8, (int) (1));
     *(s32 *)((s8 *)arg0 + 0x368) = 0;
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *) lbl_804941DC;
-    bind_enemy_combat_stats((void *) (arg0), (void *) (lbl_805D51E0), (void *) (lbl_805D51E4), (void *) (lbl_805D51E8));
+    bind_enemy_combat_stats((void *) (arg0), (void *) (gyaranzo_boss_stats_handle), (void *) (gyaranzo_boss_stats_ptr_b), (void *) (gyaranzo_object_handle));
     init_params_from_table__19TObjGyaranzoMissileFPv((void *) (arg0));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs((void *) (arg0), (int) (*(s16 *)((s8 *)arg0 + 0xB8)));

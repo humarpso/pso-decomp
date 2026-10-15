@@ -117,7 +117,7 @@ void post_translate_matrix(void *);
 void draw_ginja_object(int);
 void set_color_blend_mode(int, int, int, int, s32, s32);
 void set_chunk_material_color(void *);
-extern Color_8017FCD0 lbl_80443AFC;
+extern Color_8017FCD0 chip_color_white_c;
 extern u8 chunk_material_color_half_alpha_f32[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -132,7 +132,7 @@ void *__ct__15TEffStarLight2DFv(void *, void *, void *, void *);
 void init_map_object_base(void *);
 void fn_8017F550(void *);
 void *__nw__7TObjectFUl(int);
-extern Copy_8017FA9C lbl_80443AA4;
+extern Copy_8017FA9C camera_object_init_params;
 extern s32 __vt__10TObjCamera[];
 extern s32 TObjCamera__name;
 extern u32 TObjCamera__bml_resource;
@@ -233,7 +233,7 @@ u8 *TObjCamera__ct(u8 *arg0, s32 arg1, s32 arg2) {
     init_map_object_base(arg0);
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TObjCamera;
     *(s32 *)((s8 *)arg0 + 0) = TObjCamera__name;
-    Copy_8017FA9C c = lbl_80443AA4;
+    Copy_8017FA9C c = camera_object_init_params;
     ((VObj_8017FA9C *)(arg0))->m5(arg2);
     *(f32 *)((s8 *)arg0 + 0xB0) = TObjCamera__data_805DBB58;
     *(f32 *)((s8 *)arg0 + 0xB8) = lbl_805DBB70;
@@ -294,7 +294,7 @@ void TObjChip__vt10(u8 *arg0) {
         model_render_flags |= 0x8011;
         set_color_blend_mode(1, 4, 5, 0, chunk_polygon_flags_or_mask, chunk_polygon_flags_and_mask);
         for (i = 0; i < *(s32 *)(arg0 + 0x54); i++, p++) {
-            Color_8017FCD0 c = lbl_80443AFC;
+            Color_8017FCD0 c = chip_color_white_c;
             c.a = p->x30;
             set_chunk_material_color(&c);
             push_matrix();

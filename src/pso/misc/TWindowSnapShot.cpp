@@ -29,7 +29,7 @@ extern "C" {
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 u8 * init_and_reset__15TWindowSnapShotFPv(void *);
 s32 start_capture__15TWindowSnapShotFPvi(void *, s32);
-extern int lbl_805D3E10;
+extern int player_motion_data_filename_ptr;
 extern void *shared_snapshot_capture;
 s32 load_player_motion_data(void);
 s32 TObjBoss2Tunnel__sub_8007CAE8(f32 *, f32);
@@ -101,7 +101,7 @@ s32 load_player_motion_data(void) {
     if ((u32) var_r0 == 0U) {
         return 0;
     }
-    start_capture__15TWindowSnapShotFPvi((void *) var_r0, (*(s32 *)&lbl_805D3E10));
+    start_capture__15TWindowSnapShotFPvi((void *) var_r0, (*(s32 *)&player_motion_data_filename_ptr));
     return 1;
 }
 
@@ -109,8 +109,8 @@ s32 get_size__15TWindowSnapShotFPv(void* p) { return *(s32*)((char*)p + 0x0); }
 s32 get_field_8__15TWindowSnapShotFPv(void* p) { return *(s32*)((char*)p + 0x8); }
 int get_height__15TWindowSnapShotFv(void) { return 600; }
 
-    extern int lbl_805D3E10;
-int TWindowSnapShot__sub_802A7EAC(void) {  return lbl_805D3E10; }
+    extern int player_motion_data_filename_ptr;
+int TWindowSnapShot__sub_802A7EAC(void) {  return player_motion_data_filename_ptr; }
 
 void play_open_sound__15TWindowSnapShotFPv(void *arg0) {
     play_sound_effect(0x52F16, 0, 0, 0);

@@ -834,7 +834,7 @@ extern void* __vt__13TObjBs4CutAtk[];
 extern RecoveredGlobal_80059450_lbl_80437854 lbl_80437854;
 extern RecoveredGlobal_80059450_lbl_80437860 lbl_80437860;
 extern RecoveredGlobal_80059450_lbl_8043786C lbl_8043786C;
-extern RecoveredGlobal_80059450_lbl_80437878 lbl_80437878;
+extern RecoveredGlobal_80059450_lbl_80437878 boss4_type3_follow_camera_offsets;
 extern const f64 lbl_80437890[];
 extern Ofs_8005683C bishi_spawn_offset_table[];
 extern u8 lbl_80486924[];
@@ -862,7 +862,7 @@ void bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_804376D0[];
-extern u8 lbl_804376D8[];
+extern u8 boss4_type2_model_node_table[];
 extern s32 lbl_805D27D8;
 extern const f32 lbl_805D8C28;
 extern "C" {
@@ -1209,7 +1209,7 @@ TBoss4Type3State boss4_type3_states[17] = {
     { boss4_type3_state_name_bura, 0x0, &TBoss4Type3::enter_bura, &TBoss4Type3::advance_bura, &TBoss4Type3::update_bura },
     { boss4_type3_state_name_libera, 0x0, &TBoss4Type3::enter_libera, &TBoss4Type3::advance_libera, &TBoss4Type3::update_libera },
 };
-void *lbl_80486F84[11] = {
+void *boss4_type3_collision_body_desc[11] = {
     (void *)0x0, (void *)0x41a00000, (void *)0x0, (void *)0x42340000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -1246,13 +1246,13 @@ void *lbl_80487100[12] = {
     (void *)0xc, (void *)0x0, (void *)0x0, (void *)0x0,
     (void *)0xffffffff, (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80487130[3] = {
+void *boss4_type3_start_position[3] = {
     (void *)0x461c4000, (void *)0xc1200000, (void *)0x0,
 };
-void *lbl_8048713C[3] = {
+void *boss4_type3_effect_desc_ptr_table[3] = {
     (void *)&lbl_80487090, (void *)&lbl_80487100, (void *)&lbl_80487100,
 };
-__declspec(section ".data") void *lbl_80487148[2] = {
+__declspec(section ".data") void *boss4_type3_run_task_params[2] = {
     (void *)0x34, (void *)0x35,
 };
 void *lbl_80487150[3] = {
@@ -1261,10 +1261,10 @@ void *lbl_80487150[3] = {
 void *boss4_type3_default_position[3] = {
     (void *)0x461c4000, (void *)0xc1200000, (void *)0x0,
 };
-void *lbl_80487168[3] = {
+void *boss4_type3_interp_origin_vec[3] = {
     (void *)0x461c4000, (void *)0x43960000, (void *)0x0,
 };
-void *lbl_80487174[4] = {
+void *boss4_type3_radar_marker_colors[4] = {
     (void *)0xffff0000, (void *)0xff00ff00, (void *)0xffffff00, (void *)0xff0000ff,
 };
 void *__vt__11TBoss4Type3[83] = {
@@ -1295,8 +1295,8 @@ void *__vt__11TBoss4Type3[83] = {
 #define TBoss4Type3__anim_state_table (*(RecoveredGlobal_8005A678_TBoss4Type3__data_80486FC8 *)TBoss4Type3__anim_state_table)
 #define lbl_80487150 ((u8 *)lbl_80487150)
 #define boss4_type3_default_position (*(Vec_80059C20 *)boss4_type3_default_position)
-#define lbl_80487168 (*(Vec_80059C20 *)lbl_80487168)
-#define lbl_80487174 ((u32 *)lbl_80487174)
+#define boss4_type3_interp_origin_vec (*(Vec_80059C20 *)boss4_type3_interp_origin_vec)
+#define boss4_type3_radar_marker_colors ((u32 *)boss4_type3_radar_marker_colors)
 #define __vt__11TBoss4Type3 ((u8 *)__vt__11TBoss4Type3)
 
 extern "C" {
@@ -1915,9 +1915,9 @@ void request_follow_camera_default_offsets__11TBoss4Type3FPv(u8 *arg0) {
     stack.sp14 = *(s32 *)((s8 *)(&lbl_8043786C.value) + 0);
     stack.sp18 = *(s32 *)((s8 *)(&lbl_8043786C.value) + 4);
     stack.sp1C = *(s32 *)((s8 *)(&lbl_8043786C.value) + 8);
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_80437878.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_80437878.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_80437878.value) + 8);
+    stack.sp8 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&boss4_type3_follow_camera_offsets.value) + 8);
     request_follow_camera_offsets((void *) (&stack.sp8), (void *) (&stack.sp14), (int) (0xFFFFU));
 }
 extern int fold_flush_6;
@@ -2009,7 +2009,7 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
     id = *(u16 *)((s8 *)arg0 + 0x3BA);
     if (id != 0xFFFF) {
         if (id >= 4) return;
-        col = lbl_80487174[id];
+        col = boss4_type3_radar_marker_colors[id];
     }
     for (i = 0, sh = 0; i < 3; i++, sh += 8) {
         tgt = col >> sh;
@@ -2044,7 +2044,7 @@ void update_radar_markers__11TBoss4Type3FPv(u8 *arg0) {
                 Vec_800597A8 w = *(Vec_800597A8 *)(arg0 + 0x38);
                 vec3_add_to(&w, &v);
                 for (j = 0; j < n; j++) {
-                    add_radar_scaled_marker(&w, lbl_80487174[*(u16 *)((s8 *)arg0 + 0x3BA)], 1, 1, lbl_805D8C74);
+                    add_radar_scaled_marker(&w, boss4_type3_radar_marker_colors[*(u16 *)((s8 *)arg0 + 0x3BA)], 1, 1, lbl_805D8C74);
                     vec3_add_to(&w, &v);
                 }
                 }
@@ -2114,7 +2114,7 @@ void interp_position_between_nodes__11TBoss4Type3FPv(u8 *arg0) {
             ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &boss4_type3_default_position);
             break;
         case 17:
-            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &lbl_80487168);
+            ((void (*)(void *, void *))VecCopy__FP3VecPC3Vec)(&pts[i], &boss4_type3_interp_origin_vec);
             break;
         default:
             p = &pts[i];
@@ -2544,7 +2544,7 @@ void TBoss4Type3::run_task() {
     Type3Tick::set_global_flag__10TObjPlayerFv();
     Type3Tick::draw_motion_trail__11TBoss4Type3FPviiii(p, Type3Tick::get_bml_model(this->m_390, ((s32 *)lbl_80486FB0)[0]),
         Type3Tick::get_bml_motion(this->m_390, TBoss4Type3__anim_state_table[this->m_3f0].motions[0]),
-        lbl_80487148, 0);
+        boss4_type3_run_task_params, 0);
     Type3Tick::clear_global_state__10TObjPlayerFv();
     e = ((u8 *(*)(void *, f32))Type3Tick::lookup_entry_by_value__10TObjPlayerFPvf)(p, lim);
     Type3Tick::push_matrix();
@@ -2644,12 +2644,12 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     self->f390 = get_instance_count__9TBoss4UroFv();
     self->f24 = 0;
     self->f34 = 0;
-    VecCopy__FP3VecPC3Vec(self->v38, lbl_80487130);
+    VecCopy__FP3VecPC3Vec(self->v38, boss4_type3_start_position);
     self->f60 = 0;
     VecCopy__FP3VecPC3Vec(self->v44,
         (void *)VecCopy__FP3VecPC3Vec(self->v50,
             (void *)VecCopy__FP3VecPC3Vec(self->v74, self->v38)));
-    self->f394 = init_collision_body_parts(self, lbl_80486F84, 1);
+    self->f394 = init_collision_body_parts(self, boss4_type3_collision_body_desc, 1);
     VecCopy__FP3VecPC3Vec(self->v2FC, self->v38);
     self->f308 = self->f30C = self->f310 = TBoss4Type3__data_805D8C40;
     self->f2A8 = 0;
@@ -2662,7 +2662,7 @@ Self_8005AE60 *TBoss4Type3__ct(Self_8005AE60 *self, s32 arg1, s32 *arg2) {
     self->f3F8 = lbl_805D8CAC;
     self->f3F4 = TBoss4Type3__data_805D8C40;
     for (i = 0; i < 3; i++) {
-        self->a438[i] = ((s32 (*)(void *, void *))TObjFish__sub_800E3124)(((void **)lbl_8048713C)[i], &self->a444[i]);
+        self->a438[i] = ((s32 (*)(void *, void *))TObjFish__sub_800E3124)(((void **)boss4_type3_effect_desc_ptr_table)[i], &self->a444[i]);
     }
     set_global_flag__10TObjPlayerFv();
     model = get_bml_model(self->f390, ((s32 *)lbl_80486FB0)[0]);

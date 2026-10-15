@@ -394,7 +394,7 @@ void handle_message__13TObjEneBm3FlyFPvi(void *arg0, s32 arg1) {
     }
 }
 
-extern s32 lbl_8043B0D0[];
+extern s32 bm3_fly_breakup_params[];
 extern s32 TObjEneBm3Fly__breakup_model;
 
 void state_death_fall__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
@@ -484,7 +484,7 @@ void action__13TObjEneBm3FlyFPvi(u8 *arg0, s32 arg1) {
         TBoss8Dragon__sub_800BB7DC(arg0);
         TBoss8Dragon__sub_800BB7D8(arg0, 0xF1, (1.0f));
         play_sound_effect(copy_target_state__14TObjEnePanarmsFPvPv(arg0, 0x4003E425), arg0 + 0x38, 0, 0);
-        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__breakup_model, lbl_8043B0D0, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+        create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneBm3Fly__breakup_model, bm3_fly_breakup_params, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
         *(s32 *)((s8 *)arg0 + 0x3C0) = 0;
         return;
     case 3:
@@ -3758,9 +3758,9 @@ extern char lbl_8043B264[];
 extern char lbl_8043B27C[];
 extern char lbl_8043B290[];
 extern s32 TObjEneBm3Fly__attack_params;
-extern RecoveredGlobal_800B22C8_lbl_8043B0FC lbl_8043B0FC;
-extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
-extern Anim_800B41E8 lbl_8043B2F4;
+extern RecoveredGlobal_800B22C8_lbl_8043B0FC bm3_fly_resource_binding_desc;
+extern RecoveredGlobal_800B2948_lbl_8043B2A4 bm3_fly_nest_attachment_sample_table;
+extern Anim_800B41E8 bm3_flynest_anim_binding;
 extern Vec_800B39CC lbl_8043B304[];
 extern Vec_800B264C lbl_8043B310;
 extern const Vec_800B23A0 lbl_8043B31C;
@@ -3779,10 +3779,10 @@ typedef struct Ctl_800B47C4 {
     s32 e;
     s32 f;
 } Ctl_800B47C4;
-extern s32 lbl_805D28B8;
+extern s32 debug_chunk_object;
 extern s32 TObjEneBm3Fly__name;
 extern s32 TObjEneBm3FlyNest_CarryFly__name;
-extern s32 lbl_805D50E0;
+extern s32 bm3_fly_boss_stat_handle;
 extern s32 lbl_805D50E8;
 extern u8 *bm3_fly_nest_resources;
 extern s32 lbl_805D50F8;
@@ -4168,7 +4168,7 @@ void set_animation__10TObjPlayerFPvs(void *, s16);
 
 struct Sub_800B1F80 { u8 x[0x1C]; };
 struct Data_800B1F80 { Sub_800B1F80 a; u8 b[0x2C]; u8 c[4]; };
-extern s32 lbl_805D50E0;
+extern s32 bm3_fly_boss_stat_handle;
 extern s32 TObjEneBm3Fly__attack_params;
 extern s32 lbl_805D50E8;
 extern u8 *bm3_fly_nest_resources;
@@ -4183,7 +4183,7 @@ s32 init_child_params__13TObjEneBm3FlyFv(void *arg0) {
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    reset_hp__9TObjEneDDFPv(arg0, lbl_805D50E0, TObjEneBm3Fly__attack_params, lbl_805D50E8);
+    reset_hp__9TObjEneDDFPv(arg0, bm3_fly_boss_stat_handle, TObjEneBm3Fly__attack_params, lbl_805D50E8);
     check_state_flag_1__9TObjEneDDFPv(arg0);
     *(void **)((s8 *)arg0 + 0x350) = bm3_fly_decision_row;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 3);
@@ -4281,14 +4281,14 @@ void load_resources__13TObjEneBm3FlyFv(void) {
         var_r0 = init_from_model__11TBreakUpMdlFPvi((int) (temp_r3), (void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C)) + 8)));
     }
     (*(s32 *)&TObjEneBm3Fly__breakup_model) = var_r0;
-    lbl_805D50E0 = register_boss__6TLobbyFPv((int) (0));
+    bm3_fly_boss_stat_handle = register_boss__6TLobbyFPv((int) (0));
     TObjEneBm3Fly__attack_params = dispatch_shared_handler_b__6TLobbyFPv((int) (0));
     lbl_805D50E8 = register_object__6TLobbyFPv((int) (0));
     (*(s32 *)&lbl_805D50EC) = dispatch_shared_handler_a__6TLobbyFPv((int) (0));
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B0FC.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B0FC.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043B0FC.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043B0FC.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&bm3_fly_resource_binding_desc.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)bm3_fly_nest_resources + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)bm3_fly_nest_resources + 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (7), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (*(f32 *)((s8 *)(&bm3_fly_collider_params.value) + 0xC)), (f32) ((15.0f)));

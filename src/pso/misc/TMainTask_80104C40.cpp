@@ -18,7 +18,7 @@ s32 create_cleanup_object__10TObjPlayerFPv(s32);
 s32 spawn_cleanup_helper__10TObjPlayerFPv(s32);
 
 s32 get_main_phase();
-extern s32 lbl_805D543C;
+extern s32 item_ground_placement_enabled;
 extern s32 lbl_805D5440;
 extern s32 tl_item_equip;
 extern s32 tl_particlemodel;
@@ -35,7 +35,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     temp_r30 = get_main_phase();
     temp_r31 = get_global_state__14TOKeyMachine01Fv();
     temp_r29 = get_current_floor();
-    lbl_805D543C = 0;
+    item_ground_placement_enabled = 0;
     clear_object_count__6TLobbyFv();
     respawn_missing_floor_items__6TLobbyFi(temp_r29);
     if ((temp_r31 == 0) || (temp_r31 == 0x12)) {
@@ -50,7 +50,7 @@ void cleanup_game_objects__9TMainTaskFv(void) {
     if (temp_r30 == 0xF) {
         new TItemDisconnectCtrl;
     }
-    lbl_805D543C = 1;
+    item_ground_placement_enabled = 1;
 }
 
 }

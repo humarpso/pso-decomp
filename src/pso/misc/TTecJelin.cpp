@@ -150,7 +150,7 @@ s32 is_parents_unqueued__9TTecLukerFUi(u32);
 void run_task__9TTecJelinFv(struct Self_802336F0 *self);
 void construct_area_technique_base(void *);
 s32 construct_target_cursor_records__10TObjPlayerFi(void *);
-extern s32 lbl_805D37D8;
+extern s32 tec_jelin_class_name_ptr;
 extern s32 __vt__9TTecJelin[];
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 void VecCopy__FP3VecPC3Vec(Vec_80233958 *, Vec_80233958 *);
@@ -167,7 +167,7 @@ void copy_technique_target_list(void *, void *);
 void init_technique_effect_base(void *, void *, void *, void *);
 void init_tech_params__9TTecJelinFPv(u8 *arg0);
 extern s32 __vt__9TTecJelin[];
-extern s32 lbl_805D37D8;
+extern s32 tec_jelin_class_name_ptr;
 Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *_w3, void *_w4);
 }
 
@@ -254,7 +254,7 @@ Jelin_80233808 *TTecJelin__ct(Jelin_80233808 *self, void *_w1, void *_w2, void *
     init_technique_effect_base(self, _w1, _w2, _w4);
     self->vt = __vt__9TTecJelin;
     construct_target_cursor_records__10TObjPlayerFi(self->sub);
-    self->f0 = lbl_805D37D8;
+    self->f0 = tec_jelin_class_name_ptr;
     self->fec = 1;
     copy_technique_target_list(self->sub, _w3);
     init_tech_params__9TTecJelinFPv((u8 *)self);
@@ -293,7 +293,7 @@ Jelin_80233958 *construct__9TTecJelinFPviiii(Jelin_80233958 *self, s32 _w1, s32 
     construct_area_technique_base(self);
     self->vt = ((s32 *)&__vt__9TTecJelin);
     construct_target_cursor_records__10TObjPlayerFi(self->sub);
-    self->f0 = lbl_805D37D8;
+    self->f0 = tec_jelin_class_name_ptr;
     self->fec = 0;
     init_tech_params__9TTecJelinFPv((u8 *)self);
     VecCopy__FP3VecPC3Vec(&self->pos, &self->src_pos);

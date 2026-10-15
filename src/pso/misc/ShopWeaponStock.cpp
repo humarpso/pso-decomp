@@ -239,9 +239,9 @@ void roll_shop_weapon_second_bonus(Obj_80224C68 *obj);
 void roll_shop_weapon_first_bonus(Obj_80224DF0 *obj);
 void roll_shop_weapon_special(Obj_80224F7C *obj);
 void roll_shop_weapon_grind(Item_80225064 *it);
-extern Pair_8022525C lbl_8044C488[];
-extern Pair_8022525C lbl_8044C6C8[];
-extern Pair_8022525C lbl_8044C718[];
+extern Pair_8022525C shop_weapon_group_subtype_table[];
+extern Pair_8022525C shop_section_id_weapon_table_a[];
+extern Pair_8022525C shop_section_id_weapon_table_b[];
 extern s32 lbl_805D6238;
 extern u32 lobby_weapon_random_tables_ptr;
 extern int shop_weapon_stock_level;
@@ -733,28 +733,28 @@ void generate_shop_weapon_stock(s32 tbl) {
       init__9TItemDataFv(&item);
       if (id == 0x39)
       {
-        if (lbl_8044C6C8[lbl_805D6238].a != (-1))
+        if (shop_section_id_weapon_table_a[lbl_805D6238].a != (-1))
         {
           item.b0 = 0;
-          item.b1 = lbl_8044C6C8[lbl_805D6238].a;
-          item.b2 = lbl_8044C6C8[lbl_805D6238].b;
+          item.b1 = shop_section_id_weapon_table_a[lbl_805D6238].a;
+          item.b2 = shop_section_id_weapon_table_a[lbl_805D6238].b;
         }
       }
       else
         if (id == 0x3A)
       {
-        if (lbl_8044C718[lbl_805D6238].a != (-1))
+        if (shop_section_id_weapon_table_b[lbl_805D6238].a != (-1))
         {
           item.b0 = 0;
-          item.b1 = lbl_8044C718[lbl_805D6238].a;
-          item.b2 = lbl_8044C718[lbl_805D6238].b;
+          item.b1 = shop_section_id_weapon_table_b[lbl_805D6238].a;
+          item.b2 = shop_section_id_weapon_table_b[lbl_805D6238].b;
         }
       }
       else
       {
         item.b0 = 0;
-        item.b1 = lbl_8044C488[id].a;
-        item.b2 = lbl_8044C488[id].b;
+        item.b1 = shop_weapon_group_subtype_table[id].a;
+        item.b2 = shop_weapon_group_subtype_table[id].b;
       }
       roll_shop_weapon_grind((Item_80225064 *)(&item));
       roll_shop_weapon_special((Obj_80224F7C *)(&item));

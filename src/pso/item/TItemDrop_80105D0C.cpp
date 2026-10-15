@@ -18,7 +18,7 @@ s32 calc_drop_offset__9TItemDropFi(s32 arg0);
 s32 get_drop_table_mode_flags(void);
 void TItemDrop__vt0(void);
 extern u8 TLobby__data_805011D8[];
-extern s32 lbl_805D2B78;
+extern s32 item_drop_cached_offset;
 extern s32 TItemDrop__drop_table_mode_flags;
 extern s32 TItemDrop__section_id;
 void refresh_drop_table_if_changed__9TItemDropFv(void);
@@ -329,7 +329,7 @@ void count_unit_star_buckets__9TItemDropFv(void) {
     }
 }
 void refresh_drop_table_if_changed__9TItemDropFv(void) {
-    if (lbl_805D2B78 != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
+    if (item_drop_cached_offset != calc_drop_offset__9TItemDropFi(get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8)) ||
         TItemDrop__drop_table_mode_flags != get_drop_table_mode_flags()) {
         TItemDrop__section_id = get_task_id__14TFontSmallTaskFPv(TLobby__data_805011D8);
         TItemDrop__vt0();
@@ -507,7 +507,7 @@ extern char lbl_8043E0F4[];
 extern char lbl_8043E100[];
 extern char lbl_8043E108[];
 extern char lbl_8043E114[];
-extern s32 lbl_805D2B78;
+extern s32 item_drop_cached_offset;
 extern s32 TItemDrop__relocatable_load_buffer;
 extern s32 TItemDrop__second_relocatable_load_buffer;
 extern void *TItemDrop__common_probability_table;
@@ -570,9 +570,9 @@ extern s32 *TItemDrop__rare_item_table_file;
 
 void TItemDrop__vt0(void) {
     char path[0x48];
-    lbl_805D2B78 = calc_drop_offset__9TItemDropFi(TItemDrop__section_id);
+    item_drop_cached_offset = calc_drop_offset__9TItemDropFi(TItemDrop__section_id);
     TItemDrop__drop_table_mode_flags = get_drop_table_mode_flags();
-    if (lbl_805D2B78 >= 0 && lbl_805D2B78 <= 0xA0) {
+    if (item_drop_cached_offset >= 0 && item_drop_cached_offset <= 0xA0) {
         open_gsl_archive(lbl_8043E0F4);
         format_drop_table_filename(path, lbl_8043E100);
         TItemDrop__common_probability_table = load_relocatable_file(path, TItemDrop__relocatable_load_buffer);

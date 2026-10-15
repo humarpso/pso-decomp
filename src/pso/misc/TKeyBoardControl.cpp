@@ -125,7 +125,7 @@ extern const f32 lbl_805DD08C;
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(u32);
-extern UV_80262038 lbl_8044F14C[];
+extern UV_80262038 keyboard_key_frame_uv_table[];
 extern const f32 TWindowKeyBoardSoft__data_805DD090;
 extern const f32 lbl_805DD0C8;
 
@@ -429,7 +429,7 @@ void draw_key_frame__19TWindowKeyBoardSoftFPvPvUiiffff(void *self, f32 *rect, u3
     }
     x0 += rect[0];
     y += rect[1];
-    uv = &lbl_8044F14C[idx];
+    uv = &keyboard_key_frame_uv_table[idx];
     set_constant_material_color(color);
     x2 = 10.0f + x0;
     y2 = 20.0f + y;

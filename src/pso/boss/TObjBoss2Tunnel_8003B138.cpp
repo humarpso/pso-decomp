@@ -172,7 +172,7 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_object(s32);
-extern Vec_8003B2EC lbl_80435EB8[];
+extern Vec_8003B2EC boss2_tunnel_render_zero_vec[];
 extern s32 boss2_tunnel_model_index_table[];
 extern s32 boss2_tunnel_model_order_table[];
 extern Models_8003B2EC *boss2_tunnel_instance;
@@ -241,7 +241,7 @@ void render__15TObjBoss2TunnelFv(u8 *arg0) {
     s32 saved;
     s32 i;
     Tunnel_8003B2EC *o = (Tunnel_8003B2EC *)arg0;
-    Vec_8003B2EC v = lbl_80435EB8[0];
+    Vec_8003B2EC v = boss2_tunnel_render_zero_vec[0];
     if (is_any_teammate_in_state__10TObjPlayerFv() == 0 && get_state_flag__9TMainTaskFv() == 0) {
     push_matrix();
     {
@@ -819,7 +819,7 @@ void TObjBoss2Tunnel__sub_8003C610(void);
 u8 *TObjBoss2RaftSplash__ct(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, f32 *arg4);
 void reset_floats__15TObjBoss2TunnelFPv(void *a0);
 s32 reset_floats__15TObjBoss2TunnelFi(s32 arg0);
-extern u8 lbl_80435E90[];
+extern u8 boss2_tunnel_raft_splash_offsets[];
 extern u8 lbl_80483578[];
 extern s32 __vt__15TObjBoss2Tunnel[];
 extern s32 lbl_805D2708;
@@ -892,7 +892,7 @@ void *TObjBoss2Tunnel__ct(void *arg0, void *arg1) {
     for (i = 0; i < 2; i++) {
         u8 *o = (u8 *)__nw__7TObjectFUl(0x40);
         if (o != NULL) {
-            o = TObjBoss2RaftSplash__ct(o, (u8 *)self, lbl_80483578 + i * 0xC, lbl_80435E90 + i * 0xC, &self->f20);
+            o = TObjBoss2RaftSplash__ct(o, (u8 *)self, lbl_80483578 + i * 0xC, boss2_tunnel_raft_splash_offsets + i * 0xC, &self->f20);
         }
         self->splash[i] = o;
     }

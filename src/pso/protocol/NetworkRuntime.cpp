@@ -870,9 +870,9 @@ extern u16 lbl_805D7A60;
 extern Ent_803F8D84 *lbl_805D7A64;
 extern u16 lbl_805D7A68;
 extern Ent_803F9B48 *lbl_805D7A6C;
-extern u8 *lbl_805D7BE0;
+extern u8 *lobby_buffer_pool_base;
 extern u8 *lbl_805D7BE4;
-extern u32 lbl_805D7BE8;
+extern u32 lobby_buffer_pool_size;
 extern u8 *lbl_805D7C04;
 extern u32 lbl_805D7C08;
 u8 *layout_buffers__6TLobbyFPvPvPv(H_803F8BA4 *h, u8 *p, u8 *end);
@@ -979,14 +979,14 @@ void TLobby__sub_803F8794(void *);
 
 extern s16 net_param_room_count;
 extern s32 lbl_805D4800;
-extern s32 lbl_805D7A44;
+extern s32 net_transport_buffer_ptr_b;
 
 void init_params__6TLobbyFPv(u8 *arg0);
 
 void TLobby__sub_803F87C4(void);
 
 extern s16 net_param_player_count;
-extern s32 lbl_805D7A40;
+extern s32 net_transport_buffer_ptr_a;
 
 void TLobby__sub_803F87C8(u8 *arg0);
 

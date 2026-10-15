@@ -234,7 +234,7 @@ s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(void *);
 s32 set_chunk_material_color(void *);
 s32 draw_chunk_object();
-extern u8 lbl_80447020[];
+extern u8 player_lobby_marker_color_table[];
 extern u8 shared_effect_texture_list[];
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
@@ -754,7 +754,7 @@ void TPlayerLobbyMarker::render() {
         translate_matrix_vec3(0, TObjPlayer__sub_801BF914(temp_r3 + 0x84C));
         rotate_matrix_y(0, *(s32 *)((s8 *)camera_ctrl_instance + 0x194) + rotation);
         scale_matrix(0, lbl_805DC358, lbl_805DC358, lbl_805DC358);
-        set_chunk_material_color(lbl_80447020 + get_material_index() * 0x10);
+        set_chunk_material_color(player_lobby_marker_color_table + get_material_index() * 0x10);
         get_cursor_state__11TMainCursorFv();
         draw_chunk_object();
         copy_vec4__13TRaderMapCoreFPvPv(model_material_color, saved_model_draw_color);

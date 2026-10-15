@@ -250,7 +250,7 @@ s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(u32);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern const Ang_8008BAF8 lbl_80439540;
+extern const Ang_8008BAF8 radial_particle_zero_angles;
 extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;
@@ -437,7 +437,7 @@ void draw_radial_sprite_particle(u8 *arg0) {
     flags = *(u16 *)((s8 *)arg0 + 0x24);
     if (flags & 0x200) {
         if (((is_split_screen() == 0) || !(*(u16 *)((s8 *)arg0 + 0x24) & 0x400)) && (*(u32 *)((s8 *)arg0 + 0xB4) != 0U) && (*(u32 *)((s8 *)arg0 + 0xB0) != 0U)) {
-            Ang_8008BAF8 ang = lbl_80439540;
+            Ang_8008BAF8 ang = radial_particle_zero_angles;
             Vec_8008BAF8 pos2;
             direction_to_rotation_xz(arg0 + 0x3C, &ang.x, &ang.z);
             if (*(u8 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x20)) + 0x88) & 4) {

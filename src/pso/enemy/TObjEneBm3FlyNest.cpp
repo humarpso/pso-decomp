@@ -1752,9 +1752,9 @@ extern s32 TObjEneBm3Fly__attack_params;
 extern void *TObjEneBm3Fly__breakup_model;
 extern const f32 TObjEneBm3Fly__data_805D9C6C;
 extern s32 __vt__13TObjEneBm3Fly[];
-extern RecoveredGlobal_800B22C8_lbl_8043B0FC lbl_8043B0FC;
-extern RecoveredGlobal_800B2948_lbl_8043B2A4 lbl_8043B2A4;
-extern Anim_800B41E8 lbl_8043B2F4;
+extern RecoveredGlobal_800B22C8_lbl_8043B0FC bm3_fly_resource_binding_desc;
+extern RecoveredGlobal_800B2948_lbl_8043B2A4 bm3_fly_nest_attachment_sample_table;
+extern Anim_800B41E8 bm3_flynest_anim_binding;
 extern Vec_800B39CC lbl_8043B304[];
 extern Vec_800B264C lbl_8043B310;
 extern const Vec_800B23A0 lbl_8043B31C;
@@ -1778,10 +1778,10 @@ f32 lbl_80500B0C[6];
 __declspec(section ".data") s32 lbl_80500B24[2];
 Ctl_800B47C4 lbl_80500B2C;
 #define TObjEneBm3FlyNest__attachment_sample_origin (*(RecoveredGlobal_800B2948_lbl_80500B00 *)TObjEneBm3FlyNest__attachment_sample_origin)
-extern s32 lbl_805D28B8;
+extern s32 debug_chunk_object;
 extern s32 TObjEneBm3Fly__name;
 extern s32 TObjEneBm3FlyNest_CarryFly__name;
-extern s32 lbl_805D50E0;
+extern s32 bm3_fly_boss_stat_handle;
 extern s32 lbl_805D50E8;
 extern f32 *lbl_805D50EC;
 extern u8 *bm3_fly_nest_resources;
@@ -1888,7 +1888,7 @@ void render_with_state_debug__10TObjPlayerFPv(u8 *arg0) {
     ((void (*)(void *))post_translate_matrix)(arg0 + 0x38);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     translate_matrix(0, *(f32 *)((s8 *)arg0 + 0x35C), *(f32 *)((s8 *)arg0 + 0x360), *(f32 *)((s8 *)arg0 + 0x364));
-    draw_chunk_object(lbl_805D28B8);
+    draw_chunk_object(debug_chunk_object);
     ((void (*)(void))pop_matrix)();
 }
 
@@ -1984,7 +1984,7 @@ void render__17TObjEneBm3FlyNestFPv(u8 *arg0) {
 
 void handle_attachment_sample__17TObjEneBm3FlyNestFi(s32 arg0) {
     s32 temp_r4;
-    if ((s32) lbl_805D510C == (s32) *(s32 *)((s8 *)(&lbl_8043B2A4.value) + (bm3_fly_nest_attachment_index * 4))) {
+    if ((s32) lbl_805D510C == (s32) *(s32 *)((s8 *)(&bm3_fly_nest_attachment_sample_table.value) + (bm3_fly_nest_attachment_index * 4))) {
         temp_r4 = lbl_805D5114;
         bm3_fly_nest_attachment_index += 1;
         lbl_805D5114 = temp_r4 + 0xC;
@@ -2810,7 +2810,7 @@ void load_resources__17TObjEneBm3FlyNestFv(void) {
     ((s32 (*)(void))load_resources__13TObjEneBm3FlyFv)();
     init_vertex_table__17TObjEneBm3FlyNestFv();
     {
-        Anim_800B41E8 anim = lbl_8043B2F4;
+        Anim_800B41E8 anim = bm3_flynest_anim_binding;
         anim.motions = ((Res_800B41E8 *)lbl_805D5108)->motions;
         bodies = (Bodies_800B41E8 *)((Res_800B41E8 *)lbl_805D5108)->bodies;
         spawn_npc_enemy__6TLobbyFsiiiff(8, bodies->model, bodies->textures, &anim, bm3_flynest_collider_params.radius, 0.0f);

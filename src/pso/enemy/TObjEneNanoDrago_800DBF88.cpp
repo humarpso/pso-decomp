@@ -247,7 +247,7 @@ s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 void __destroy_arr(void *, void *, int, int);
 void __construct_array(void *, void *, void *, int, int);
 
-extern RecoveredGlobal_800DC028_lbl_8043C8D4 lbl_8043C8D4;
+extern RecoveredGlobal_800DC028_lbl_8043C8D4 nano_drago_anim_binding;
 extern s32 lbl_805D2AA8;
 extern s32 lbl_805D5248;
 extern s32 lbl_805D524C;
@@ -819,10 +819,10 @@ void TLobby__sub_800DC028(void) {
     lbl_805D524C = dispatch_shared_handler_b__6TLobbyFPv((int) (0x1A));
     lbl_805D5250 = register_object__6TLobbyFPv((int) (0x1A));
     lbl_805D5254 = dispatch_shared_handler_a__6TLobbyFPv((int) (0x1A));
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043C8D4.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043C8D4.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043C8D4.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043C8D4.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)(&nano_drago_anim_binding.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&nano_drago_anim_binding.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&nano_drago_anim_binding.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&nano_drago_anim_binding.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)nano_drago_entry_params_resource + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)nano_drago_entry_params_resource + 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x22), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805DA448), (f32) (lbl_805DA3F8));

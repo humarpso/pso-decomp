@@ -48,8 +48,8 @@ extern "C" {
 extern RecoveredGlobal_80349E5C_lbl_8047890C TAdLoadQuestLineGC__rectangle_groups;
 void fn_80349E5C(s32 arg0);
 extern RecoveredGlobal_80349DC8_lbl_804788B8 quest_line_color_quad_coordinates;
-extern RecoveredGlobal_80349DC8_lbl_804788D8 lbl_804788D8;
-extern RecoveredGlobal_80349DC8_lbl_8047896C lbl_8047896C;
+extern RecoveredGlobal_80349DC8_lbl_804788D8 quest_line_quad_vertices;
+extern RecoveredGlobal_80349DC8_lbl_8047896C quest_line_color_entry_table;
 void init_quest_line_draw_colors(s32 arg0);
 void draw_tri_fan_2d__14TObjCMHairMenuFPviif(Desc_80349C54 *, s32, s32, f32);
 extern const f32 lbl_805DFD18;
@@ -131,10 +131,10 @@ void draw_filled_rects_2d(void *arg0, void *arg1, int arg2) {
 
 void init_quest_line_draw_colors(s32 arg0) {
     ByteBlock_20 sp8;
-    sp8 = *(const ByteBlock_20 *)((s32) ((u8 *)&lbl_8047896C.value - 4) + 4);
+    sp8 = *(const ByteBlock_20 *)((s32) ((u8 *)&quest_line_color_entry_table.value - 4) + 4);
     draw_filled_rects_2d((void *)((void *) (arg0)), (void *)((void *) (&sp8)), (int)((int) (2)));
     draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&quest_line_color_quad_coordinates.value)), (int)((int) (0x777777FF)));
-    draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&lbl_804788D8.value)), (int)((int) (0x777777FF)));
+    draw_color_quad_2d((void *)((void *) (arg0)), (void *)((void *) (&quest_line_quad_vertices.value)), (int)((int) (0x777777FF)));
 }
 
 void fn_80349E5C(s32 arg0) {

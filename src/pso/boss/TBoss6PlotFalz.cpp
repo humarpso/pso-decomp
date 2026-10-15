@@ -106,7 +106,7 @@ extern s32 lbl_805D5668;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
-extern s32 lbl_805D66F8;
+extern s32 plot_falz_phase;
 extern s32 lbl_805D586C;
 void set_chunk_material_override_pair(int, int, s32, s32);
 void set_chunk_material_color(Color_802ABF44 *);
@@ -1101,7 +1101,7 @@ extern "C" {
 
 int get_phase__14TBoss6PlotFalzFv(void);
 
-int get_phase__14TBoss6PlotFalzFv(void) {  return lbl_805D66F8; }
+int get_phase__14TBoss6PlotFalzFv(void) {  return plot_falz_phase; }
 
 }
 
@@ -1191,9 +1191,9 @@ s32 get_main_phase();
 s32 is_split_screen();
 
 void update_active_flag__14TBoss6PlotFalzFv(void) {
-    lbl_805D66F8 = 0;
+    plot_falz_phase = 0;
     if ((get_main_phase() == 0xF) || (is_split_screen() != 0)) {
-        lbl_805D66F8 = 1;
+        plot_falz_phase = 1;
     }
 }
 

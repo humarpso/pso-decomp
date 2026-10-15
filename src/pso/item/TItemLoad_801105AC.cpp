@@ -40,7 +40,7 @@ extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
 extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
-extern s32 lbl_805D5490;
+extern s32 item_load_resource_handle;
 void init_resources__9TItemLoadFv(void);
 }
 
@@ -70,7 +70,7 @@ extern s32 TItemLoad__bml_resource;
 extern void *TItemLoad__model_load_task_root;
 extern void *TItemLoad__completed_model_load_task_root;
 extern s32 TItemLoad__model_slot_in_use;
-extern s32 lbl_805D5490;
+extern s32 item_load_resource_handle;
 
 void free_all__9TItemLoadFv(void) {
     free__11TOBoss4RockFUi(TItemLoad__model_slot_in_use);
@@ -81,7 +81,7 @@ void free_all__9TItemLoadFv(void) {
         ((VObj_801105AC *)TItemLoad__completed_model_load_task_root)->m0(1);
     }
     TLobby__sub_8001FE7C(TItemLoad__bml_resource, 1);
-    lbl_805D5490 = 0;
+    item_load_resource_handle = 0;
     TItemLoad__bml_resource = 0;
     TItemLoad__model_load_task_root = NULL;
     TItemLoad__completed_model_load_task_root = NULL;
@@ -115,7 +115,7 @@ void init_resources__9TItemLoadFv(void) {
     TItemLoad__model_load_task_root = p;
     buf = alloc_buffer__11TOBoss4RockFPv(0x30);
     TItemLoad__model_slot_in_use = buf;
-    lbl_805D5490 = 0;
+    item_load_resource_handle = 0;
     if (buf != 0) {
         for (i = 0; i < 12; i++) {
             ((s32 *)TItemLoad__model_slot_in_use)[i] = 0;

@@ -38,9 +38,9 @@ typedef struct B_802F3D6C { u8 pad0[4]; Anim_802F3D6C *anim; } B_802F3D6C;
 struct Pair_802F3D18 { s32 a; s32 b; };
 
 extern "C" {
-extern RecoveredGlobal_802F3CA0_lbl_80474508 lbl_80474508;
-extern RecoveredGlobal_802F3CA0_lbl_80474530 lbl_80474530;
-extern RecoveredGlobal_802F3CA0_lbl_80474558 lbl_80474558;
+extern RecoveredGlobal_802F3CA0_lbl_80474508 boss8_dragon_mode_params;
+extern RecoveredGlobal_802F3CA0_lbl_80474530 dragon_mode_params_a;
+extern RecoveredGlobal_802F3CA0_lbl_80474558 dragon_mode_params_b;
 void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1);
 void TObjLight__sub_801337F8(s32);
 void scale_matrix(s32, f32, f32, f32);
@@ -77,15 +77,15 @@ void set_mode_params__12TBoss8DragonFPvc(u8 *arg0, s8 arg1) {
     switch (temp_r0) {
     case 0:
         *(s32 *)((s8 *)arg0 + 0x75C) = 1;
-        *(s32 **)((s8 *)arg0 + 0x760) = &lbl_80474508.value;
+        *(s32 **)((s8 *)arg0 + 0x760) = &boss8_dragon_mode_params.value;
         return;
     case 1:
         *(s32 *)((s8 *)arg0 + 0x75C) = 2;
-        *(s32 **)((s8 *)arg0 + 0x760) = &lbl_80474530.value;
+        *(s32 **)((s8 *)arg0 + 0x760) = &dragon_mode_params_a.value;
         return;
     case 2:
         *(s32 *)((s8 *)arg0 + 0x75C) = 3;
-        *(s32 **)((s8 *)arg0 + 0x760) = &lbl_80474558.value;
+        *(s32 **)((s8 *)arg0 + 0x760) = &dragon_mode_params_b.value;
         return;
     }
 }

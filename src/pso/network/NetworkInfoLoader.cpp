@@ -468,15 +468,15 @@ s32 get_or_set_network_config_backup_mode(s32 arg0) {
     return TAdPlayerLoadGC__player_load_value;
 }
 
-extern s32 lbl_805D4708;
+extern s32 network_config_card_channel;
 
 s32 get_network_config_card_channel(void) {
-    return lbl_805D4708;
+    return network_config_card_channel;
 }
 
 void set_network_config_card_channel(s32 arg0) {
     if (get_network_config_mode() >= 1) {
-        lbl_805D4708 = arg0;
+        network_config_card_channel = arg0;
         init_network_config_defaults();
     }
 }

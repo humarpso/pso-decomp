@@ -102,7 +102,7 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void init_slot__13TAdMcSelectGCFPviPv(S_802C7560 *arg0, s32 arg1, void *arg2);
 void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
-extern const s32 lbl_80471D3C[];
+extern const s32 chr_sel_slot_resource_name_table[];
 extern const s32 lbl_80471D50[];
 extern const s32 current_language;
 extern u32 lbl_805D67F0;
@@ -373,7 +373,7 @@ void TLobby__sub_802C78EC(void) {
 }
 void TLobby__sub_802C7920(void) {
     update_menu_cursor__6TLobbyFv();
-    ByteBlock_14 a = *(const ByteBlock_14 *)lbl_80471D3C;
+    ByteBlock_14 a = *(const ByteBlock_14 *)chr_sel_slot_resource_name_table;
     ByteBlock_14 b = *(const ByteBlock_14 *)lbl_80471D50;
     s32 r4 = b.v[current_language];
     lbl_805D67F0 = r4;

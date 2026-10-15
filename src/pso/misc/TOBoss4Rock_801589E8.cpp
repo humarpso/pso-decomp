@@ -626,7 +626,7 @@ extern "C" {
 u8 *get_bml_motion(s32, s32);
 s32 rand(void);
 f32 sin_table_lookup(s32);
-extern VecTbl_80159A10 lbl_80440348[];
+extern VecTbl_80159A10 boss4_bird_vec_table[];
 extern s32 lbl_805D2EB4;
 extern s32 lbl_805D58A8;
 u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1);
@@ -663,7 +663,7 @@ u8 *TOBoss4Bird__ct(u8 *arg0, s32 arg1) {
     o->vecs = (Vec_80159A10 *)alloc_buffer__11TOBoss4RockFPv(o->count * 0xC);
     o->angs = (s32 *)alloc_buffer__11TOBoss4RockFPv(o->count * 4);
     {
-        VecTbl_80159A10 tbl = lbl_80440348[0];
+        VecTbl_80159A10 tbl = boss4_bird_vec_table[0];
         for (i = 0; i < o->count; i++) {
             VecCopy__FP3VecPC3Vec(&o->vecs[i], &tbl.v[i]);
             o->angs[i] = 0x8000;

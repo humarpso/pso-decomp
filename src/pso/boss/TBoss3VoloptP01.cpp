@@ -835,14 +835,14 @@ s32 draw_chunk_object(void *);
 extern RecoveredGlobal_80044174_lbl_804FEE68 boss3_volopt_spawn_pos;
 extern void *boss3_volopt_resources;
 extern s32 volopt_breakup_flag;
-extern s32 lbl_805D4CB0;
-extern s32 lbl_805D4CB4;
-extern s32 lbl_805D4CB8;
-extern s32 lbl_805D4CBC;
+extern s32 volopt_p01_boss_stat_handle_a;
+extern s32 volopt_p01_shared_handler_b;
+extern s32 volopt_p01_object_handle;
+extern s32 volopt_p01_shared_handler_handle;
 extern void *TBoss3VoloptP01__resource_bundle;
 extern s32 TBoss3VoloptP01__breakup_model;
 extern void *lbl_805D4CC8;
-extern u8 *lbl_805D4CCC;
+extern u8 *volopt_p01_breakup_color_ptr;
 extern void *tl_04;
 
 extern "C" void TBoss3Volopt__sub_800C762C();
@@ -923,7 +923,7 @@ extern "C" void update_if_active__15TObjEnemyCustomFPv();
 extern "C" void update_movement_status__10TObjPlayerFv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-void *lbl_80484170[24] = {
+void *volopt_p01_action_table[24] = {
     (void *)0x10000, (void *)0xf, (void *)0x3f333333, (void *)0x0,
     (void *)0x10000, (void *)0xf, (void *)0x3f800000, (void *)0x1,
     (void *)0x20000, (void *)0x0, (void *)0x3f000000, (void *)0x4,
@@ -940,7 +940,7 @@ void *lbl_804841EC[11] = {
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80484218[7] = {
+void *volopt_p01_breakup_params[7] = {
     (void *)0x14, (void *)0x3d75c28f, (void *)0x3fc00000, (void *)0x3f666666,
     (void *)0x3df5c28f, (void *)0x3f0ccccd, (void *)0x3f000000,
 };
@@ -967,7 +967,7 @@ void *__vt__15TBoss3VoloptP01[83] = {
     (void *)&fn_80010EC4, (void *)&fn_80010EC0, (void *)&fn_80010EBC, (void *)&call_player_preserving_field__15TObjEnemyCustomFPv,
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
-#define lbl_80484218 ((u8 *)lbl_80484218)
+#define volopt_p01_breakup_params ((u8 *)volopt_p01_breakup_params)
 #define __vt__15TBoss3VoloptP01 ((s32 *)__vt__15TBoss3VoloptP01)
 
 void TBoss3VoloptP01__sub_80042F84(u8 *arg0) {
@@ -1379,7 +1379,7 @@ void update_breakup__15TBoss3VoloptP01FPv(u8 *arg0) {
         advance_animation_playback(arg0);
         *(s16 *)((s8 *)arg0 + 0x33C) -= 1;
         if (*(s16 *)((s8 *)arg0 + 0x33C) < 0) {
-            create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptP01__breakup_model, lbl_80484218, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
+            create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3VoloptP01__breakup_model, volopt_p01_breakup_params, *(s32 *)((s8 *)arg0 + 0x24), arg0 + 0x2FC, *(s32 *)((s8 *)arg0 + 0x60));
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             *(s32 *)((s8 *)arg0 + 0x388) |= 0x40000;
             play_sound_effect(0x4003AD07, arg0 + 0x38, 0, 0);
@@ -1479,13 +1479,13 @@ void render__15TBoss3VoloptP01Fv(u8 *arg0) {
             } else {
                 if (temp_r3 & 0x80000) {
                     sin_table_lookup(*(s32 *)((s8 *)arg0 + 0x3B4));
-                    *(s8 *)((s8 *)lbl_805D4CCC + 7) = (s8) ((255.0f) * fabs_float());
-                    *(s8 *)((s8 *)lbl_805D4CCC + 4) = 0;
-                    *(s8 *)((s8 *)lbl_805D4CCC + 5) = 0;
+                    *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 7) = (s8) ((255.0f) * fabs_float());
+                    *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 4) = 0;
+                    *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 5) = 0;
                 } else {
-                    *(s8 *)((s8 *)lbl_805D4CCC + 7) = 0;
-                    *(u8 *)((s8 *)lbl_805D4CCC + 4) = 0xCC;
-                    *(u8 *)((s8 *)lbl_805D4CCC + 5) = 0xFF;
+                    *(s8 *)((s8 *)volopt_p01_breakup_color_ptr + 7) = 0;
+                    *(u8 *)((s8 *)volopt_p01_breakup_color_ptr + 4) = 0xCC;
+                    *(u8 *)((s8 *)volopt_p01_breakup_color_ptr + 5) = 0xFF;
                 }
                 draw__16TObjEneRe7BeruraFPv(arg0);
             }
@@ -1565,11 +1565,11 @@ void init_breakup_effect__15TBoss3VoloptP01Fv(void) {
     }
     TBoss3VoloptP01__breakup_model = temp_r3;
     lbl_805D4CC8 = collect_and_count__12TBoss3VoloptFUii(*(s32 *)((s8 *)(*(void **)((s8 *)TBoss3VoloptP01__resource_bundle + 0x42C)) + 0x118), 0xD);
-    lbl_805D4CB0 = register_boss__6TLobbyFPv(0x22);
-    lbl_805D4CB4 = dispatch_shared_handler_b__6TLobbyFPv(0x22);
-    lbl_805D4CB8 = register_object__6TLobbyFPv(0x22);
-    lbl_805D4CBC = dispatch_shared_handler_a__6TLobbyFPv(0x22);
-    (*(s32 *)&lbl_805D4CCC) = *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4CC8 + 4)) + 4);
+    volopt_p01_boss_stat_handle_a = register_boss__6TLobbyFPv(0x22);
+    volopt_p01_shared_handler_b = dispatch_shared_handler_b__6TLobbyFPv(0x22);
+    volopt_p01_object_handle = register_object__6TLobbyFPv(0x22);
+    volopt_p01_shared_handler_handle = dispatch_shared_handler_a__6TLobbyFPv(0x22);
+    (*(s32 *)&volopt_p01_breakup_color_ptr) = *(s32 *)((s8 *)(*(void **)((s8 *)lbl_805D4CC8 + 4)) + 4);
 }
 
 void *create__15TBoss3VoloptP01FPv(void *arg0) {
@@ -1595,12 +1595,12 @@ void *__dt__15TBoss3VoloptP01Fv(void *arg0, s16 arg1) {
 void init_params__15TBoss3VoloptP01FPv(VObj_80044038 *arg0) {
     void *p;
     F(arg0, s32, 0xDC) = F(TBoss3VoloptP01__resource_bundle, s32, 0x430);
-    F(arg0, s32, 0xD8) = (s32) lbl_80484170;
+    F(arg0, s32, 0xD8) = (s32) volopt_p01_action_table;
     set_field_d8__10TObjPlayerFPvi(arg0, F(arg0, s32, 0xD8));
     init_collision_body_parts(arg0, (void *) lbl_804841EC, 1);
     F(arg0, s32, 0x368) = 0;
     F(arg0, s32, 0x350) = (s32) lbl_804841D0;
-    recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4CB0, lbl_805D4CB4, lbl_805D4CB8, (1.0f), (1.0f));
+    recalc_combat_stats__10TObjPlayerFv(arg0, volopt_p01_boss_stat_handle_a, volopt_p01_shared_handler_b, volopt_p01_object_handle, (1.0f), (1.0f));
     F(arg0, s16, 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, F(arg0, s16, 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, F(arg0, s16, 0xB8));

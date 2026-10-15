@@ -130,7 +130,7 @@ s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_chunk_blend(int);
 s32 draw_chunk_model(s32);
-extern Color_8002E3D4 lbl_8043560C;
+extern Color_8002E3D4 player_part_model_white_color;
 extern Holder_8002E3D4 *lbl_805D4BA4;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
@@ -209,7 +209,7 @@ void draw_part_models__10TObjPlayerFPv(Obj_8002E3D4 *self) {
     model = lbl_805D4BA4->model;
     mesh = model->mesh;
     {
-        Color_8002E3D4 c = lbl_8043560C;
+        Color_8002E3D4 c = player_part_model_white_color;
         n = mesh->nodes;
         set_global_param__8TObjFishFi(model->f2C);
         push_matrix();

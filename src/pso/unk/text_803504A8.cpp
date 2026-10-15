@@ -12,7 +12,7 @@ void *fn_80350588(void *arg0);
 void TItemObject__ct(void *);
 void __dt__11TItemObjectFv(void *, int);
 void free_obj_heap__10TObjPlayerFPv(void *);
-extern s32 lbl_804F0D34[];
+extern s32 item_object_dispatch_table[];
 
 void create_quest_bgm_object(s32 arg0, u32 arg1) {
     u32 var_r31;
@@ -35,7 +35,7 @@ void fn_80350504(void) {
 
 void *item_object_variant_deleting_dtor_80350530(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0D34;
+        *(s32 **)((s8 *)arg0 + 0x18) = item_object_dispatch_table;
         __dt__11TItemObjectFv(arg0, 0);
         if (arg1 > 0) {
             free_obj_heap__10TObjPlayerFPv(arg0);
@@ -46,7 +46,7 @@ void *item_object_variant_deleting_dtor_80350530(void *arg0, s16 arg1) {
 
 void *fn_80350588(void *arg0) {
     TItemObject__ct(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804F0D34;
+    *(s32 **)((s8 *)arg0 + 0x18) = item_object_dispatch_table;
     return arg0;
 }
 

@@ -281,7 +281,7 @@ void copy_pos__11TNowLoadingFPvPv(void *, Vec_80235740 *);
 void move_technique_projectile(Obj_80235740 *);
 void advance_lifetime_or_destroy(Obj_80235740 *);
 void dispatch_technique_contact(Obj_80235740 *, s32);
-extern Vec_80235740 lbl_8044D8B0;
+extern Vec_80235740 tec_megid_offset_vec;
 extern u8 identity_matrix[];
 void run_task__9TTecMegidFv(Obj_80235740 *self);
 void *get_bml_model(s32, u32);
@@ -499,7 +499,7 @@ void run_task__9TTecMegidFv(Obj_80235740 *self) {
     }
     for (i = 0; i < ((Data_80235740 *)TTecMegid__emitter_bands)[self->band].count; i++) {
         if (((Data_80235740 *)TTecMegid__emitter_bands)[self->band].rows[i].flags & 4) {
-            Vec_80235740 off = lbl_8044D8B0;
+            Vec_80235740 off = tec_megid_offset_vec;
             Vec_80235740 p;
             push_matrix_from(identity_matrix);
             rotate_matrix_y(0, self->f58);

@@ -158,7 +158,7 @@ void create_particles__11TTecGiBartaFv(void *);
 void calc_params__11TTecGiBartaFPv(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern void *__vt__11TTecGiBarta[];
-extern s32 lbl_805D37B8;
+extern s32 tec_gibarta_class_name_ptr;
 extern const f32 lbl_805DC80C;
 TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 u16 obj_getField1c(void *);
@@ -167,7 +167,7 @@ void create_particles__11TTecGiBartaFv(void *);
 void calc_params__11TTecGiBartaFPv(u8 *arg0);
 void construct_facing_technique__10TObjPlayerFPviPvii();
 extern void *__vt__11TTecGiBarta[];
-extern s32 lbl_805D37B8;
+extern s32 tec_gibarta_class_name_ptr;
 u8 *construct_facing__11TTecGiBartaFPvPvPvPvPv(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 }
 
@@ -399,7 +399,7 @@ TTecGiBarta_80230C58 *TTecGiBarta__ct(TTecGiBarta_80230C58 *self, void * _w1, vo
     s32 i;
     construct_aimed_technique_projectile();
     self->vtable = __vt__11TTecGiBarta;
-    self->f0 = lbl_805D37B8;
+    self->f0 = tec_gibarta_class_name_ptr;
     calc_params__11TTecGiBartaFPv((u8 *)self);
     self->f12c = lbl_805DC80C;
     for (i = 0; i < 32; i++) {
@@ -418,7 +418,7 @@ u8 *construct_facing__11TTecGiBartaFPvPvPvPvPv(u8 *arg0, void * _w1, void * _w2,
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     *(void **)((s8 *)arg0 + 0x18) = __vt__11TTecGiBarta;
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D37B8;
+    *(s32 *)((s8 *)arg0 + 0) = tec_gibarta_class_name_ptr;
     calc_params__11TTecGiBartaFPv(arg0);
     for (i = 0; i < 0x20; i++) {
         ((Obj_80230CFC *)arg0)->ids[i] = 0xFFFF;

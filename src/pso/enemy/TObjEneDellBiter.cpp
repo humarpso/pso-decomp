@@ -2064,7 +2064,7 @@ extern char lbl_8047530C[];
 extern char lbl_80475318[];
 extern s32 __vt__25TObjEneDellBiter_Eff_Rush[];
 extern s32 lbl_804E6FA8[];
-extern RecoveredGlobal_80303894_lbl_80541E48 lbl_80541E48;
+extern RecoveredGlobal_80303894_lbl_80541E48 dellbiter_demo_camera_vec;
 extern s32 TObjEneDellBiter_Eff_Rush__name;
 extern void *TObjEneDellBiter__class_name;
 extern s32 actor_frame_tick;
@@ -2677,7 +2677,7 @@ void step_demo_script__16TObjEneDellBiterFv(void) {
     case 32:
         temp_r4 = TObjEneDellBiter__demo_script_cursor;
         TObjEneDellBiter__demo_script_cursor = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFPv((void *) (&lbl_80541E48.value), (int) (temp_r4));
+        get_camera_ctrl__9TObjEneDDFPv((void *) (&dellbiter_demo_camera_vec.value), (int) (temp_r4));
         break;
     }
     TObjEneDellBiter__demo_script_step += 1;
@@ -3861,8 +3861,8 @@ u8 *__dt__16TObjEneDellBiterFv(u8 *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D6A20;
-extern s32 lbl_805D6A28;
+extern s32 dellbiter_boss_stat_handle;
+extern s32 dellbiter_object_stat_handle;
 extern const f32 lbl_805DF038;
 void init_params__16TObjEneDellBiterFPv(void *arg0_) {
     Obj_80306468 *self = (Obj_80306468 *)arg0_;
@@ -3879,7 +3879,7 @@ void init_params__16TObjEneDellBiterFPv(void *arg0_) {
     self->fB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->fB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->fB8);
-    reset_hp__9TObjEneDDFPv(self, lbl_805D6A20, TObjEneDellBiter__shared_handler_param, lbl_805D6A28);
+    reset_hp__9TObjEneDDFPv(self, dellbiter_boss_stat_handle, TObjEneDellBiter__shared_handler_param, dellbiter_object_stat_handle);
     set_state_8__9TObjEneDDFPv(self);
     self->f350 = TObjEneDellBiter__param_table;
     initialize_enemy_state__9TObjEneDDFPv(self, 0x48);
@@ -3975,7 +3975,7 @@ void *TObjEneDellBiter__create(void *arg0) {
     return o;
 }
 
-#define G_80306858 (*(V3_80306858 *)&lbl_80541E48)
+#define G_80306858 (*(V3_80306858 *)&dellbiter_demo_camera_vec)
 void load_resources__16TObjEneDellBiterFv(void) {
     G_80306858.x = TObjEneDellBiter__data_805DEFF4;
     G_80306858.y = TObjEneDellBiter__data_805DEFF4;
@@ -3985,9 +3985,9 @@ void load_resources__16TObjEneDellBiterFv(void) {
     } else {
         TObjEneDellBiter__shared_model_resource = (u32)load_enemy_bml_resource(lbl_804E6C70);
     }
-    lbl_805D6A20 = register_boss__6TLobbyFPv(0xD);
+    dellbiter_boss_stat_handle = register_boss__6TLobbyFPv(0xD);
     TObjEneDellBiter__shared_handler_param = dispatch_shared_handler_b__6TLobbyFPv(0xD);
-    lbl_805D6A28 = register_object__6TLobbyFPv(0xD);
+    dellbiter_object_stat_handle = register_object__6TLobbyFPv(0xD);
     TObjEneDellBiter__movement_params = dispatch_shared_handler_a__6TLobbyFPv(0xD);
     TObjEneDellBiter__demo_script_step = 0;
     TObjEneDellBiter__demo_rotate_x_angle = 0;

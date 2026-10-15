@@ -69,8 +69,8 @@ s32 construct_with_parent__15TWindowAdditionFPvPv(void *, void *, s16, s32);
 s32 get_window_layout_position(int);
 void *reset_selection__20TWindowSubStatusDispFPv(void *, Pos_80277AEC *);
 void *construct_type1_heading__20TWindowSubStatusDispFPvii(void *, s32, s32);
-extern u8 lbl_8044F818[];
-extern u8 lbl_8044F8B8[];
+extern u8 custom_select_organic_action_table[];
+extern u8 custom_select_android_action_table[];
 extern u8 TWindowSubCustomSelect__window_settings[];
 extern s32 __vt__22TWindowSubCustomSelect[];
 extern s32 TWindowSubCustomSelect__class_name;
@@ -325,9 +325,9 @@ u8 *TWindowSubCustomSelect__ct(u8 *arg0, s32 arg1) {
         return arg0;
     }
     if (q->flags & 0x10) {
-        *(u8 **)((s8 *)arg0 + 0x78) = lbl_8044F8B8;
+        *(u8 **)((s8 *)arg0 + 0x78) = custom_select_android_action_table;
     } else {
-        *(u8 **)((s8 *)arg0 + 0x78) = lbl_8044F818;
+        *(u8 **)((s8 *)arg0 + 0x78) = custom_select_organic_action_table;
     }
     *(s8 *)((s8 *)arg0 + 0x73) = 0;
     *(s8 *)((s8 *)arg0 + 0x70) = 0;

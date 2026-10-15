@@ -72,7 +72,7 @@ extern const f32 lbl_805DB190;
 extern const f32 lbl_805DB194;
 extern const f32 lbl_805DB198;
 void set_glyph_quad_extents(u8 arg0, u8 *arg1);
-extern RecoveredGlobal_80144FCC_lbl_804A74F0 lbl_804A74F0;
+extern RecoveredGlobal_80144FCC_lbl_804A74F0 menu_font_char_advance_table;
 u32 get_font_char_advance(u16 arg0);
 u16 map_char_to_font_code(u16 c);
 s32 get_field24__11TWindowCtrlFv();
@@ -81,7 +81,7 @@ char *parse_text_control_codes(char *p, s32 *a, s32 *b);
 u32 get_font_char_advance(u16 arg0);
 void pack_status_flags__20TWindowSubStatusDispFPvUi(void *arg0, u32 arg1);
 void DCStoreRange(void *, u32);
-extern u8 *lbl_8050C040[];
+extern u8 *menu_font_glyph_pixel_buffers[];
 extern u8 *menu_font_glyph_data;
 extern u32 menu_font_upload_flags;
 void upload_font_glyph(u16 c, void *arg1);
@@ -299,7 +299,7 @@ u32 get_font_char_advance(u16 arg0) {
     return 0x12U;
   }
   new_var = arg0 - 0x21;
-  return (u8) (*((s32 *) (0 + ((s8 *) (((u8 *) (&lbl_804A74F0.value)) + ((new_var * 4) & 0x3FFFC))))));
+  return (u8) (*((s32 *) (0 + ((s8 *) (((u8 *) (&menu_font_char_advance_table.value)) + ((new_var * 4) & 0x3FFFC))))));
 }
 
 s32 is_alpha_char__20TWindowSubStatusDispFUs(u16 arg0) {
@@ -381,7 +381,7 @@ void upload_font_glyph(u16 c, void *arg1) {
         c -= 0xDF20;
     }
     g->width = get_font_char_advance(c);
-    tex = lbl_8050C040[g->page];
+    tex = menu_font_glyph_pixel_buffers[g->page];
     y = g->y;
     x = g->x;
     src = menu_font_glyph_data + (u16)(c - 0x20) * 0x5A;

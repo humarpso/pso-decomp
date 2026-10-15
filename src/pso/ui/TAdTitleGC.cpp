@@ -52,7 +52,7 @@ u32 create_draw_line_ctrl__13TAdMcSelectGCFiif(void *, s32, f32);
 extern u8 __vt__10TAdTitleGC[];
 extern s32 ad_title_gc_class_name;
 TAdTitleGC_802A0E08 *__ct__10TAdTitleGCFv(TAdTitleGC_802A0E08 *self, void *parent, s32 idx);
-extern f32 lbl_8046620C[];
+extern f32 title_rect_scale_table[];
 s32 update_title_rects__10TAdTitleGCFPv(void *p);
 }
 
@@ -113,7 +113,7 @@ s32 update_title_rects__10TAdTitleGCFPv(void *p) {
     Title_802A0C84 *arg0 = (Title_802A0C84 *)p;
     s32 i;
     for (i = 0; i < 8; i++) {
-        arg0->rects[i].x0 = (64.0f) - ((f32)(10 - arg0->f128) * ((f32)(10 - arg0->f128) * lbl_8046620C[i]));
+        arg0->rects[i].x0 = (64.0f) - ((f32)(10 - arg0->f128) * ((f32)(10 - arg0->f128) * title_rect_scale_table[i]));
         arg0->rects[i].y0 = (43.0f);
         arg0->rects[i].x1 = (512.0f) + arg0->rects[i].x0;
         arg0->rects[i].y1 = (4e+01f) + arg0->rects[i].y0;

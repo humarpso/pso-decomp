@@ -411,8 +411,8 @@ void set_flag_8_and_notify__19TObjEneEpsilonGuardFPv(u8 *arg0);
 void TObjEneEpsilonGuard__sub_8035DEC0(u8 *arg0);
 void get_camera_ctrl__9TObjEneDDFPv(s32, s32);
 extern RecoveredGlobal_8035E374_lbl_805439E0 lbl_805439E0;
-extern s32 lbl_805D6F78;
-extern s32 lbl_805D6F7C;
+extern s32 epsilon_guard_camera_step;
+extern s32 epsilon_guard_camera_ctrl_ptr;
 void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 is_main_phase_15__9TObjEneDDFv();
@@ -436,7 +436,7 @@ void create_breakup_mdl__12TBoss3VoloptFiiiii(s32, void *, s32, void *, s32);
 void spawn_effect_f8__10TObjPlayerFii(void *, int);
 void trigger_dell_biter_events__10TObjPlayerFPv(void *);
 void play_sound_effect(int, void *, int, int);
-extern u8 lbl_80479C50[];
+extern u8 epsilon_guard_breakup_params[];
 extern s32 lbl_805D6FA8;
 struct G_8035E430;
 void handle_break_state__19TObjEneEpsilonGuardFPvi(G_8035E430 *, s32);
@@ -464,8 +464,8 @@ extern s32 main_task[];
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
-extern s32 lbl_805D6F78;
-extern s32 lbl_805D6F7C;
+extern s32 epsilon_guard_camera_step;
+extern s32 epsilon_guard_camera_ctrl_ptr;
 extern s32 chunk_polygon_flags_or_mask;
 extern s32 chunk_polygon_flags_and_mask;
 extern s32 model_render_flags;
@@ -709,8 +709,8 @@ void render_with_fade__19TObjEneEpsilonGuardFPvi(u8 *arg0, s32 arg1) {
     translate_matrix(0, TObjEneEpsilonGuard__data_805E01D8, TObjEneEpsilonGuard__data_805E01DC, TObjEneEpsilonGuard__data_805E01D8);
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
     clear_global_flag_400__9TObjEneDDFv();
-    lbl_805D6F78 = 0;
-    lbl_805D6F7C = (s32)(arg0 + 0x460);
+    epsilon_guard_camera_step = 0;
+    epsilon_guard_camera_ctrl_ptr = (s32)(arg0 + 0x460);
     *(f32 *)((s8 *)arg0 + 0x460) = TObjEneEpsilonGuard__data_805E01D8;
     *(f32 *)((s8 *)arg0 + 0x464) = TObjEneEpsilonGuard__data_805E01D8;
     *(f32 *)((s8 *)arg0 + 0x468) = TObjEneEpsilonGuard__data_805E01D8;
@@ -766,10 +766,10 @@ void render__19TObjEneEpsilonGuardFv(u8 *arg0) {
 #pragma pop
 
 void advance_camera_ctrl_step__19TObjEneEpsilonGuardFv(void) {
-    if ((s32) lbl_805D6F78 == 0) {
-        get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_805439E0.value, lbl_805D6F7C);
+    if ((s32) epsilon_guard_camera_step == 0) {
+        get_camera_ctrl__9TObjEneDDFPv((s32) &lbl_805439E0.value, epsilon_guard_camera_ctrl_ptr);
     }
-    lbl_805D6F78 += 1;
+    epsilon_guard_camera_step += 1;
 }
 
 void handle_message__19TObjEneEpsilonGuardFPvi(void *arg0, s32 arg1) {
@@ -821,7 +821,7 @@ void handle_break_state__19TObjEneEpsilonGuardFPvi(G_8035E430 *o, s32 arg1) {
         o->x434++;
         if (o->x434 >= 0x14) {
             ((VO_8035E430 *)o)->m94();
-            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6FA8, lbl_80479C50, o->x24, o->x38, o->x60);
+            create_breakup_mdl__12TBoss3VoloptFiiiii(lbl_805D6FA8, epsilon_guard_breakup_params, o->x24, o->x38, o->x60);
             play_sound_effect(0x4003AD4C, o->x2FC, 0, 0);
             trigger_dell_biter_events__10TObjPlayerFPv(o->x2FC);
             o->x430 = 1;
@@ -1410,9 +1410,9 @@ s32 set_animation__10TObjPlayerFPvs(void *, int);
 s32 set_indexed_flags(void *, int, int);
 s32 init_collision_body_parts(void *, void *, int);
 void *construct_collider_proxy__10TObjPlayerFPv(void *, int);
-extern s32 lbl_805D6F68;
-extern s32 lbl_805D6F6C;
-extern s32 lbl_805D6F70;
+extern s32 epsilon_guard_boss_stat_handle;
+extern s32 epsilon_guard_shared_handler_b;
+extern s32 epsilon_guard_registered_object_handle;
 extern u8 *lbl_805D6FA0;
 extern const f32 TObjEneEpsilonGuard__data_805E01D8;
 s32 TObjEneEpsilon__ct();
@@ -1695,7 +1695,7 @@ void init_model_and_state__19TObjEneEpsilonGuardFPv(void *arg0_) {
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    reset_hp__9TObjEneDDFPv(arg0, lbl_805D6F68, lbl_805D6F6C, lbl_805D6F70);
+    reset_hp__9TObjEneDDFPv(arg0, epsilon_guard_boss_stat_handle, epsilon_guard_shared_handler_b, epsilon_guard_registered_object_handle);
     set_indexed_flags(arg0, 0, 0x80020);
     check_state_flag_4__9TObjEneDDFPv(arg0);
     *(void **)((s8 *)arg0 + 0x350) = lbl_804F2008;

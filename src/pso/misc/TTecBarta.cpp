@@ -121,14 +121,14 @@ void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 void init_parameters__9TTecBartaFPv(u8 *arg0);
 void construct_aimed_technique_projectile();
 extern TechniqueContactVtable __vt__9TTecBarta;
-extern s32 lbl_805D3798;
+extern s32 tec_barta_class_name_ptr;
 TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _w2, void * _w3, void * _w4);
 u16 obj_getField1c(void *);
 void update_technique_by_state__9TTecBartaFPv(u8 *arg0);
 void init_parameters__9TTecBartaFPv(u8 *arg0);
 void construct_facing_technique__10TObjPlayerFPviPvii();
 extern TechniqueContactVtable __vt__9TTecBarta;
-extern s32 lbl_805D3798;
+extern s32 tec_barta_class_name_ptr;
 extern const f32 lbl_805DC7A8;
 u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, void * _w4);
 void queue_destruction__7TObjectFv(TechniqueParticleEmitter*);
@@ -367,7 +367,7 @@ TTecBarta_8022BC10 *TTecBarta__ct(TTecBarta_8022BC10 *self, void * _w1, void * _
     s32 i;
     construct_aimed_technique_projectile();
     self->vtable = ((void * *)&__vt__9TTecBarta);
-    self->f0 = lbl_805D3798;
+    self->f0 = tec_barta_class_name_ptr;
     init_parameters__9TTecBartaFPv((u8 *)self);
     self->f114 = 0x40003;
     for (i = 0; i < 32; i++) {
@@ -386,7 +386,7 @@ u8 *construct_tec_barta_facing(u8 *arg0, void * _w1, void * _w2, void * _w3, voi
     s32 i;
     construct_facing_technique__10TObjPlayerFPviPvii();
     *(void **)((s8 *)arg0 + 0x18) = ((u8 *)&__vt__9TTecBarta);
-    *(s32 *)((s8 *)arg0 + 0) = lbl_805D3798;
+    *(s32 *)((s8 *)arg0 + 0) = tec_barta_class_name_ptr;
     init_parameters__9TTecBartaFPv((u8 *)(arg0));
     for (i = 0; i < 0x20; i++) {
         ((Obj_8022BCB8 *)arg0)->ids[i] = 0xFFFF;

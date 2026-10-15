@@ -2806,8 +2806,8 @@ extern const f32 TObjEneMe1Canadin__data_805D98BC;
 extern s32 __vt__17TObjEneMe1Canadin[];
 extern const s32 canadin_formation_reset_vec4[];
 extern RecoveredGlobal_8009E4AC_lbl_8043A2A0 canadin_formation_fade_start_color;
-extern RecoveredGlobal_8009E1D4_lbl_8043A32C lbl_8043A32C;
-extern u8 lbl_8043A340[];
+extern RecoveredGlobal_8009E1D4_lbl_8043A32C canadin_behavior_params;
+extern u8 canadin_projectile_param_block[];
 extern const f64 lbl_8043A3C8;
 extern s32 bringer_rush_effect_vtable[];
 extern RecoveredGlobal_8009BD00_lbl_80500960 lbl_80500960;
@@ -3173,7 +3173,7 @@ void update_poison_status__10TObjPlayerFv();
 }
 extern void *bm_ene_me1_mb_model_names[3];
 extern void *bm_ene_me1_mb_motion_names[7];
-void *lbl_8048FEB0[7] = {
+void *canadin_setup_param_block[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -3237,7 +3237,7 @@ void *__vt__23TObjEneMe1CanadinLeader[118] = {
     (void *)&TObjEneMe1CanadinLeader__vt110, (void *)&TObjEneMe1CanadinLeader__vt111, (void *)&update_if_ready__17TObjEneMe1CanadinFPv, (void *)&render_canadin_model_with_debug_type,
     (void *)&TObjEneMe1CanadinLeader__vt114, (void *)&TObjEneMe1CanadinLeader__vt115,
 };
-#define lbl_8048FEB0 ((u8 *)lbl_8048FEB0)
+#define canadin_setup_param_block ((u8 *)canadin_setup_param_block)
 #define lbl_8048FECC ((u8 *)lbl_8048FECC)
 #define lbl_8048FF30 ((u8 *)lbl_8048FF30)
 #define __vt__23TObjEneMe1CanadinLeader ((s32 *)__vt__23TObjEneMe1CanadinLeader)
@@ -4043,7 +4043,7 @@ void TObjEneMe1Canadin__sub_8009C2EC(u8 *arg0, s32 arg1) {
         *(s32 *)((s8 *)arg0 + 0x64) += 0x2000;
         (*(s32 *)((s8 *)arg0 + 0x470))++;
         if (*(s32 *)((s8 *)arg0 + 0x470) >= 0x96) {
-            Copy5_8009C2EC c = *(Copy5_8009C2EC *)lbl_8043A340;
+            Copy5_8009C2EC c = *(Copy5_8009C2EC *)canadin_projectile_param_block;
             u8 *t = *(u8 **)((s8 *)arg0 + 0x468);
             *(f32 *)&c.w[1] = *(f32 *)((s8 *)t + 8);
             TObjEneDD__sub_800BA5A4(arg0, &c, t);
@@ -4764,7 +4764,7 @@ void fn_8009E1D4(u8 *arg0, s32 arg1) {
     struct CopyStack_8009E1D4 { u8 bytes[0x14]; };
     CopyStack_8009E1D4 copy_storage_8009E1D4;
     u8 *temp_r6;
-    temp_r6 = (u8 *)((void *)((u8 *)(&lbl_8043A32C.value) + -4));
+    temp_r6 = (u8 *)((void *)((u8 *)(&canadin_behavior_params.value) + -4));
     *(ByteBlock_14 *)(copy_storage_8009E1D4.bytes) = *(const ByteBlock_14 *)((s32) temp_r6 + 4);
     (*(f32 *)(copy_storage_8009E1D4.bytes + 0x4)) = *(f32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0x468)) + 4);
     setup__9TObjEneDDFPvii(arg0, arg1, (s32) (copy_storage_8009E1D4.bytes));
@@ -5190,7 +5190,7 @@ void setup_enemy__17TObjEneMe1CanadinFPv(u8 *arg0) {
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     reset_hp__9TObjEneDDFPv(arg0, lbl_80500930[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_8050093C[*(s32 *)((s8 *)arg0 + 0x3C4)], lbl_80500948[*(s32 *)((s8 *)arg0 + 0x3C4)]);
     check_state_flag_4__9TObjEneDDFPv(arg0);
-    *(void **)((s8 *)arg0 + 0x350) = lbl_8048FEB0;
+    *(void **)((s8 *)arg0 + 0x350) = canadin_setup_param_block;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x1C);
     *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805D989C;
     enemy_init_acquire_period(arg0, 0x2D);

@@ -34,7 +34,7 @@ void *TWindowHelpItem__sub_8025A904(void *arg0, s16 arg1);
 s32 __dl__FPv(void *);
 s32 destroy__20TWindowSubStatusDispFPvs(void *, s16);
 
-extern const UV_8025A650 lbl_8044F028[4] = {
+extern const UV_8025A650 item_rarity_star_uv_table[4] = {
     { 0.0f, 239.0f }, { 17.0f, 239.0f }, { 34.0f, 239.0f }, { 51.0f, 239.0f },
 };
 
@@ -76,9 +76,9 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
     depth = -1.0f / (0.1196f + ctx->z);
     for (i = 0; i < item->count; i++) {
         if (i < 9) {
-            uv = &lbl_8044F028[1];
+            uv = &item_rarity_star_uv_table[1];
         } else {
-            uv = &lbl_8044F028[2];
+            uv = &item_rarity_star_uv_table[2];
         }
         q.x0 = x;
         q.y0 = y;
@@ -93,7 +93,7 @@ void render_item_rarity_stars(Item_8025A650 *item, Ctx_8025A650 *ctx) {
         }
         x += 17.0f;
     }
-    uv = lbl_8044F028;
+    uv = item_rarity_star_uv_table;
     x = ctx->x + item->x;
     y = ctx->y + item->y;
     depth2 = -1.0f / (0.0897f + ctx->z);

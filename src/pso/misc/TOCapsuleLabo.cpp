@@ -52,7 +52,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 count_linked_switches__23TObjSeabedSuisoBrakableFUii(u32, s32);
 extern u32 TOCapsuleLabo__model_resource;
-extern s32 *lbl_805D670C;
+extern s32 *capsule_labo_switch_flags_ptr;
 void load_resources__13TOCapsuleLaboFv(void);
 s32 is_split_screen();
 s32 queue_destruction__7TObjectFv(void *);
@@ -105,7 +105,7 @@ void unload_static_data__13TOCapsuleLaboFv(void) {
     }
 }
 
-extern s32 *lbl_805D670C;
+extern s32 *capsule_labo_switch_flags_ptr;
 
 void load_resources__13TOCapsuleLaboFv(void) {
     s32 temp_r3;
@@ -119,7 +119,7 @@ void load_resources__13TOCapsuleLaboFv(void) {
     (*(u8 * *)&TOCapsuleLabo__model_resource) = (unsigned char *) ((void *) var_r0);
     temp_r3_2 = get_bml_model((void *) var_r0, 0);
     if (temp_r3_2 != 0) {
-        (*(s32 *)&lbl_805D670C) = count_linked_switches__23TObjSeabedSuisoBrakableFUii(temp_r3_2, 3);
+        (*(s32 *)&capsule_labo_switch_flags_ptr) = count_linked_switches__23TObjSeabedSuisoBrakableFUii(temp_r3_2, 3);
     }
 }
 
@@ -132,11 +132,11 @@ void render__13TOCapsuleLaboFv(u8 *arg0) {
     if ((s32) *(s32 *)((s8 *)arg0 + 0xE0) == 1) {
         set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x24)));
         if ((s32) *(s32 *)((s8 *)arg0 + 0xCC) == 1) {
-            if ((s32 *) lbl_805D670C != NULL) {
-                *lbl_805D670C &= 0xFFFFFFF7;
+            if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
+                *capsule_labo_switch_flags_ptr &= 0xFFFFFFF7;
             }
-        } else if ((s32 *) lbl_805D670C != NULL) {
-            *lbl_805D670C |= 8;
+        } else if ((s32 *) capsule_labo_switch_flags_ptr != NULL) {
+            *capsule_labo_switch_flags_ptr |= 8;
         }
         temp_r31 = (unsigned char *) (*(void **)((s8 *)arg0 + 0x34));
         push_matrix();

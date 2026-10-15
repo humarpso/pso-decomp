@@ -83,7 +83,7 @@ extern s32 city_traffic_path_motion_index_table[];
 extern s32 city_aircar_model_indices[];
 extern s32 city_traffic_car_chunk_index_table[];
 extern Lob_801817AC *city_air_car_model_resource;
-extern s32 lbl_805D5B24;
+extern s32 city_air_car_model_handle;
 extern const f32 lbl_805DBBC4;
 extern const f32 lbl_805DBBC8;
 void measure_traffic_path_lengths(void);
@@ -209,7 +209,7 @@ void measure_traffic_path_lengths(void) {
     air_car_lane_speed_scale_table[i] = end / total;
   }
   city_air_car_model_resource = 0;
-  lbl_805D5B24 = 0;
+  city_air_car_model_handle = 0;
   for (i = 0; i < 5; i++)
   {
     air_car_buffer_pair_table[i] = 0;
@@ -217,7 +217,7 @@ void measure_traffic_path_lengths(void) {
   city_air_car_model_resource = get_season_model_resource(2);
   if (city_air_car_model_resource != 0)
   {
-    lbl_805D5B24 = TLobby__sub_80184C2C(2);
+    city_air_car_model_handle = TLobby__sub_80184C2C(2);
     for (j = 0; j < 5; j++)
     {
       p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);

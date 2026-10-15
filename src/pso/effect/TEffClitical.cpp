@@ -40,8 +40,8 @@ s32 queue_destruction__7TObjectFv(void *);
 s32 approach_vector_in_place(void *, void *, f32);
 s32 approach_alpha_clamped(void *, void *, f32);
 s32 spawn_particle_effect(void *, int);
-extern RecoveredGlobal_800823E0_lbl_80438EB8 lbl_80438EB8;
-extern RecoveredGlobal_800823E0_lbl_80438EC8 lbl_80438EC8;
+extern RecoveredGlobal_800823E0_lbl_80438EB8 clitical_vec_a;
+extern RecoveredGlobal_800823E0_lbl_80438EC8 clitical_vec_b;
 extern const f32 TEffClitical__alpha_approach_step;
 extern const f32 lbl_805D93A8;
 extern const f32 lbl_805D93AC;
@@ -127,13 +127,13 @@ void run_task__12TEffCliticalFv(u8 *arg0) {
     Stack_800823E0 stack;
     s32 temp_r0;
     s32 var_r30;
-    stack.sp20 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 0);
-    stack.sp24 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 4);
-    stack.sp28 = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 8);
-    stack.sp2C = *(s32 *)((s8 *)(&lbl_80438EB8.value) + 0xC);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 0);
-    stack.sp18 = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 4);
-    stack.sp1C = *(s32 *)((s8 *)(&lbl_80438EC8.value) + 8);
+    stack.sp20 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 0);
+    stack.sp24 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 4);
+    stack.sp28 = *(s32 *)((s8 *)(&clitical_vec_a.value) + 8);
+    stack.sp2C = *(s32 *)((s8 *)(&clitical_vec_a.value) + 0xC);
+    stack.sp14 = *(s32 *)((s8 *)(&clitical_vec_b.value) + 0);
+    stack.sp18 = *(s32 *)((s8 *)(&clitical_vec_b.value) + 4);
+    stack.sp1C = *(s32 *)((s8 *)(&clitical_vec_b.value) + 8);
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x74);
     switch (temp_r0) {
     case 1:

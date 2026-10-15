@@ -17,7 +17,7 @@ s32 TObjCMIcon__icon_group_table[35] = {
     2, 0x37, 0xAB, 0, 0,
     2, 0x37, 0xAC, 0, 0,
 };
-__declspec(section ".data") f32 lbl_804DBE6C[2] = { 604.0f, 443.0f };
+__declspec(section ".data") f32 cm_icon_screen_position[2] = { 604.0f, 443.0f };
 
 TObjCMIcon::~TObjCMIcon() {}
 

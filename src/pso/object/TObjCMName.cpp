@@ -491,13 +491,13 @@ extern void *__vt__16TObjCMAssignMenu[];
 extern s32 __vt__16TObjCMAutoMkData[];
 extern s32 __vt__16TObjCMProportion[];
 extern u8 lbl_80464F50[];
-extern s32 lbl_80464FD0[];
-extern f32 lbl_80465020[];
+extern s32 char_creation_root_menu_tab_table[];
+extern f32 char_creation_assign_menu_tab_positions[];
 extern u8 lbl_80465048[];
 extern u8 lbl_80465050[];
 extern u8 lbl_80465058[];
-extern s32 lbl_80465060[];
-extern s32 lbl_8046507C[];
+extern s32 char_creation_assign_sprite_id_table[];
+extern s32 char_creation_assign_icon_sprite_id_table[];
 extern Ent_802964B0 class_appearance_table[];
 extern Cols_80297DB8 lbl_804DBC68[2];
 extern Quad_80297DB8 lbl_804DBC88[2];
@@ -1094,7 +1094,7 @@ void draw_assign_icons__16TObjCMAssignMenuFPv(Menu_80296560 *self) {
                 bit <<= 1;
                 idx++;
             }
-            draw_ui_sprite(lbl_8046507C[idx], &pos, lbl_805DDA94, a);
+            draw_ui_sprite(char_creation_assign_icon_sprite_id_table[idx], &pos, lbl_805DDA94, a);
             bit <<= 1;
             idx++;
         }
@@ -1128,7 +1128,7 @@ void TObjCMAssignMenu__sub_80296648(Menu_80296648 *self) {
                 idx++;
                 off += 4;
             }
-            if (idx < 7) draw_ui_sprite(*(s32 *)((u8 *)lbl_80465060 + off), &pos, lbl_805DDA94, a);
+            if (idx < 7) draw_ui_sprite(*(s32 *)((u8 *)char_creation_assign_sprite_id_table + off), &pos, lbl_805DDA94, a);
         }
     }
 }
@@ -1210,7 +1210,7 @@ void render__16TObjCMAssignMenuFv(Menu_80296928 *self) {
     } else if (idx >= 10) {
         idx = 9;
     }
-    base = lbl_80465020[idx];
+    base = char_creation_assign_menu_tab_positions[idx];
     if (!(self->timer <= 0.33f)) {
         if (self->timer >= 0.66f) {
             t = 1.0f;
@@ -1632,7 +1632,7 @@ void draw_root_menu__14TObjCMMainMenuFv(u8 *arg0) {
             k = 0;
             v = get_creation_sprite_id__14TObjCMMainMenuFi(m->ids[i] + 0x8F) + 0x90;
             for (j = 0; j < 15; j++) {
-                e = lbl_80464FD0[j];
+                e = char_creation_root_menu_tab_table[j];
                 if (v < e) {
                     break;
                 }

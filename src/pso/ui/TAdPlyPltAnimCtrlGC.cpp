@@ -22,7 +22,7 @@ s32 get_state_flag__9TMainTaskFv();
 void render__19TAdPlyPltAnimCtrlGCFv(void *self);
 int get_table_value__19TAdPlyPltAnimCtrlGCFi(int a0);
 void start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(void *, void *);
-extern u32 lbl_804792B0[];
+extern u32 ply_plt_anim_time_threshold_table[];
 void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0);
 }
 
@@ -100,7 +100,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
     case 0:
         break;
     case 1:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= lbl_804792B0[0]) {
+        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[0]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(0)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
@@ -108,7 +108,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         }
         break;
     case 2:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= lbl_804792B0[1]) {
+        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[1]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(1)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
@@ -116,7 +116,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         }
         break;
     case 3:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= lbl_804792B0[2]) {
+        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[2]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(2)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
@@ -124,7 +124,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         }
         break;
     case 4:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= lbl_804792B0[3]) {
+        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[3]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(3)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }
@@ -132,7 +132,7 @@ void run_task__19TAdPlyPltAnimCtrlGCFv(u8 *arg0) {
         }
         break;
     case 5:
-        if (*(u32 *)((s8 *)arg0 + 0x20) >= lbl_804792B0[4]) {
+        if (*(u32 *)((s8 *)arg0 + 0x20) >= ply_plt_anim_time_threshold_table[4]) {
             if ((p = (void *)get_table_value__19TAdPlyPltAnimCtrlGCFi(4)) != NULL) {
                 start_anim_rect__19TAdPlyPltAnimCtrlGCFPvPv(p, arg0 + 0x24);
             }

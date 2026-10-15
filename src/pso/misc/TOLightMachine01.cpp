@@ -30,8 +30,8 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 extern RecoveredGlobal_8016EB3C_lbl_804B2EC4 light_machine01_resource_desc;
 extern u32 TOLightMachine01__shared_bml_archive;
-extern s32 lbl_805D5A44;
-extern s32 lbl_805D5A48;
+extern s32 light_machine_ginja_model_handle;
+extern s32 light_machine_ginja_param;
 void load_assets__16TOLightMachine01Fv(void);
 s32 TObjFish__sub_8001EDB0(void *, s32);
 s32 get_bml_model(void *, s32);
@@ -82,8 +82,8 @@ void run_task__16TOLightMachine01Fv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0xAC) = (s32) (*(s32 *)((s8 *)arg0 + 0xAC) + *(s32 *)((s8 *)arg0 + 0x8C));
 }
 
-extern s32 lbl_805D5A44;
-extern s32 lbl_805D5A48;
+extern s32 light_machine_ginja_model_handle;
+extern s32 light_machine_ginja_param;
 extern const f32 lbl_805DB828;
 
 void render__16TOLightMachine01Fv(u8 *arg0) {
@@ -98,8 +98,8 @@ void render__16TOLightMachine01Fv(u8 *arg0) {
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0xAC));
         draw_ginja_model(*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 4));
         begin_effect_render__13TParticleCtrlFv();
-        set_global_param__8TObjFishFi(lbl_805D5A48);
-        draw_ginja_object(lbl_805D5A44);
+        set_global_param__8TObjFishFi(light_machine_ginja_param);
+        draw_ginja_object(light_machine_ginja_model_handle);
         end_effect_render__13TParticleCtrlFv();
         pop_matrix();
         pop_matrix();
@@ -134,8 +134,8 @@ void load_assets__16TOLightMachine01Fv(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &light_machine01_resource_desc.value, 0, 0, 0));
     }
     (*(u8 * *)&TOLightMachine01__shared_bml_archive) = (unsigned char *) ((void *) var_r0);
-    lbl_805D5A44 = get_bml_model((void *) var_r0, 0);
-    lbl_805D5A48 = TObjFish__sub_8001EDB0((*(u8 * *)&TOLightMachine01__shared_bml_archive), 0);
+    light_machine_ginja_model_handle = get_bml_model((void *) var_r0, 0);
+    light_machine_ginja_param = TObjFish__sub_8001EDB0((*(u8 * *)&TOLightMachine01__shared_bml_archive), 0);
 }
 
 void *__dt__16TOLightMachine01Fv(void *arg0, s16 arg1) {

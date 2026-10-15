@@ -37,7 +37,7 @@ typedef s32 (*Fn_803E6610)(void *);
 struct S_803E6610 { s32 idx; s32 rest; };
 
 extern "C" {
-extern Fn_803E6610 lbl_8047E570[];
+extern Fn_803E6610 keyboard_soft_dispatch_fn_table[];
 s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
 void dispatch_request_0x1c__19TWindowKeyBoardSoftFv(void);
 s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *);
@@ -79,7 +79,7 @@ s32 dispatch_by_index__19TWindowKeyBoardSoftFPv(void *p) {
     if (i <= 0 || (u32)i > 0x3F) {
         return -1;
     }
-    return lbl_8047E570[i - 1](rest);
+    return keyboard_soft_dispatch_fn_table[i - 1](rest);
 }
 
 void dispatch_request_0x28__19TWindowKeyBoardSoftFii(s32 a, s32 b) {

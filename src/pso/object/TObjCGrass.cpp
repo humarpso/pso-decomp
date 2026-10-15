@@ -86,7 +86,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(int);
 s32 pop_matrices(int);
-extern s32 lbl_80492510[];
+extern s32 cgrass_action_desc[];
 extern s32 __vt__10TObjCGrass[];
 extern u8 identity_matrix[];
 extern s32 lbl_805D2A28;
@@ -127,7 +127,7 @@ struct RecoveredGlobal_800B8DC4_lbl_8043B628 {
     u8 remaining[0xC];
 };
 typedef char RecoveredGlobal_800B8DC4_lbl_8043B628_size[sizeof(RecoveredGlobal_800B8DC4_lbl_8043B628) == 0x10 ? 1 : -1];
-extern RecoveredGlobal_800B8DC4_lbl_8043B628 lbl_8043B628;
+extern RecoveredGlobal_800B8DC4_lbl_8043B628 cgrass_anim_binding;
 struct RecoveredGlobal_800B8DC4_lbl_8043B638 {
     s32 value;
     u8 remaining[0x10];
@@ -231,10 +231,10 @@ void load_resources__10TObjCGrassFv(void) {
         }
         TObjCGrass_bml_resource = (u32) var_r0;
     }
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_8043B628.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_8043B628.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&cgrass_anim_binding.value) + 0xC);
     stack.sp8 = *(s32 *)((s8 *)TObjCGrass_bml_resource + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)TObjCGrass_bml_resource + 0x42C));
     spawn_npc_enemy__6TLobbyFsiiiff((int) (0x36), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (f32) (lbl_805D9E68), (f32) (TObjCGrass__data_805D9E64));
@@ -270,7 +270,7 @@ u8 *TObjCGrass__ct(Grass_800B8EFC *self, u8 *arg1, s32 arg2, s32 arg3) {
     self->f34 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->f8;
     self->f24 = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->src->fC;
     self->fDC = (*(Mgr_800B8EFC * *)&TObjCGrass_bml_resource)->f430;
-    self->fD8 = lbl_80492510;
+    self->fD8 = cgrass_action_desc;
     set_field_d8__10TObjPlayerFPvi(self, self->fD8);
     set_animation__10TObjPlayerFPvs(self, 0);
     self->f100 = self->fC4 - lbl_805D9E6C;

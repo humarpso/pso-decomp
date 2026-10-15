@@ -337,7 +337,7 @@ s32 objInBand__FP7GameObjf(void *, f32);
 s32 advance_animation_playback(void *);
 s32 clear_player_status_flag__10TObjPlayerFPviUi(void *, int, int);
 s32 play_sound_effect(int, void *, int, int);
-extern const Quad_800F1440 lbl_8043D450;
+extern const Quad_800F1440 me3_stelth_offset_vec;
 extern const f32 lbl_805DA828;
 extern const f32 lbl_805DA82C;
 void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1);
@@ -569,10 +569,10 @@ void TObjEneMe3Stelth__sub_800F1440(u8 *arg0, s32 arg1) {
             case 0:
                 if (objInBand__FP7GameObjf(arg0, lbl_805DA828) != 0) {
                     F(s32, 0x3CC) |= 8;
-                    q.a = lbl_8043D450.a;
-                    q.b = lbl_8043D450.b;
-                    q.c = lbl_8043D450.c;
-                    q.d = lbl_8043D450.d;
+                    q.a = me3_stelth_offset_vec.a;
+                    q.b = me3_stelth_offset_vec.b;
+                    q.c = me3_stelth_offset_vec.c;
+                    q.d = me3_stelth_offset_vec.d;
                     copy_position_vector__18TObjEneMe3SinowZoaFPvPv(arg0 + 0x404, &q);
                     F(s32, 0x424) = 1;
                 }

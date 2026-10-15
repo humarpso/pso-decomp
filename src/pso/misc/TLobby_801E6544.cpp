@@ -499,7 +499,7 @@ namespace pf2_p3 { extern "C" { u8 *get_player_by_client_id(s32); } }
 #define get_player_by_client_id pf2_p3::get_player_by_client_id
 void TLobby__sub_801E6E20(void);
 void TLobby__sub_80141038(u8 *arg0, s32 arg1, s32 arg2);
-extern Tbl_801E6CA4 lbl_80449B34;
+extern Tbl_801E6CA4 lobby_index_identity_table_b;
 extern u8 lbl_80515BA0[];
 void TLobby__sub_801E6CA4(void);
 void send_slot_entity_or_local__6TLobbyFUsi(u16 arg0, s32 arg1);
@@ -534,7 +534,7 @@ void TLobby__sub_801E6C4C(s32 arg0) {
 typedef char RecoveredGlobal_801E6D18_TLobby__data_80512220_size[sizeof(RecoveredGlobal_801E6D18_TLobby__data_80512220) == 0x20 ? 1 : -1];
 
 void TLobby__sub_801E6CA4(void) {
-    Tbl_801E6CA4 t = lbl_80449B34;
+    Tbl_801E6CA4 t = lobby_index_identity_table_b;
     if (TLobby__quest_argument_stack.value <= 0x11U) {
         TLobby__sub_80141038(lbl_80515BA0, t.w[TLobby__quest_argument_stack.value], 0);
     }
@@ -2849,9 +2849,9 @@ extern int evt2_random_enemies_mode;
 extern RecoveredGlobal_8000F7FC_lbl_80515F48 fn_801F3480;
 extern RecoveredGlobal_801F196C_lbl_804499A8 quest_sound_effect_ids;
 extern Pair_801F1838 lbl_80449A38[];
-extern Tbl_801EDC98 lbl_80449A40;
+extern Tbl_801EDC98 lobby_sub_801edc98_id_table;
 extern RecoveredGlobal_801EDC24_lbl_80449A88 lbl_80449A88;
-extern RecoveredGlobal_801EDBDC_lbl_80449A94 lbl_80449A94;
+extern RecoveredGlobal_801EDBDC_lbl_80449A94 lobby_menu_byte_1_map;
 extern RecoveredGlobal_801EDB4C_lbl_80449AAC lbl_80449AA4;
 extern RecoveredGlobal_801EDB4C_lbl_80449AAC lbl_80449AAC;
 extern RecoveredGlobal_801EDB4C_lbl_80449AAC lbl_80449AB8;
@@ -2863,7 +2863,7 @@ extern RecoveredGlobal_801EDB4C_lbl_80449AAC lbl_80449AE4;
 extern RecoveredGlobal_801EC90C_lbl_80449AFC lbl_80449AFC;
 extern RecoveredGlobal_801EC90C_lbl_80449AFC lbl_80449B08;
 extern s32 lbl_80449B10[];
-extern Tbl_801E9AF8 lbl_80449B18[];
+extern Tbl_801E9AF8 lobby_index_identity_table_a[];
 extern s32 lbl_80449B2C[];
 extern const f64 lbl_80449CC0;
 extern s32 qst_bgm_filename_table[];
@@ -4173,7 +4173,7 @@ void create_challenge_4p_results__6TLobbyFUc(u8 arg0) {
 void TLobby__sub_801E9AF8(s32 idx) {
     s32 tbl[5];
     s32 n;
-    *(Tbl_801E9AF8 *)tbl = *lbl_80449B18;
+    *(Tbl_801E9AF8 *)tbl = *lobby_index_identity_table_a;
     update_gba_joyboot_transfer();
     n = TLobby__sub_801F34F8();
     if (n >= 0 && n < 5) {
@@ -7562,10 +7562,10 @@ void set_menu_byte_2__6TLobbyFv(void) {
 #pragma dont_inline off
 void set_menu_byte_1__6TLobbyFv(void) {
     if ((u32) (*(RecoveredGlobal_801EDBDC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value <= 3U) {
-        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) (&lbl_80449A94.value)[(*(RecoveredGlobal_801EDBDC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
+        *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) (&lobby_menu_byte_1_map.value)[(*(RecoveredGlobal_801EDBDC_TLobby__data_80512220 *)&TLobby__quest_argument_stack).value];
         return;
     }
-    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) lbl_80449A94.value;
+    *(s8 *)((s8 *)(&(*(RecoveredGlobal_801EDBDC_TLobby__data_80512360 *)&TLobby__data_80512360).value) + 1) = (s8) lobby_menu_byte_1_map.value;
 }
 #pragma pop
 
@@ -7598,7 +7598,7 @@ void op_clear_block__6TLobbyFv(void) {
 #pragma auto_inline off
 #pragma dont_inline off
 void TLobby__sub_801EDC98(void) {
-    Tbl_801EDC98 t = lbl_80449A40;
+    Tbl_801EDC98 t = lobby_sub_801edc98_id_table;
     if (((u32 *)&TLobby__quest_argument_stack)[0] <= 0x11U) {
         TLobby__sub_80141038(lbl_80515BA0, t.w[((u32 *)&TLobby__quest_argument_stack)[0]], 0);
     }

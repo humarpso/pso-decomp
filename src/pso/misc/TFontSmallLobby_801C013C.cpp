@@ -117,7 +117,7 @@ void reset_tech_state__10TObjPlayerFPv(void *);
 void *TFontSmallLobby__sub_801C0164(void *arg0);
 int TFontSmallLobby__sub_801C01BC(void* p);
 int read_be16_field2__10TObjPlayerFPv(void*);
-extern s32 lbl_80515F70[];
+extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;

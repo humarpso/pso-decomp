@@ -26,7 +26,7 @@ TFontSmallTask_800FD4D4 *__ct__14TFontSmallTaskFv(TFontSmallTask_800FD4D4 *self,
 }
 
 struct Vec_800FCD40 { f32 x, y, z; };
-static const Vec_800FCD40 lbl_8043DAD0 = {0.0f, 0.0f, -1.0f};
+static const Vec_800FCD40 font_small_forward_vec = {0.0f, 0.0f, -1.0f};
 extern "C" {
 f32 get_view_scale__11TCameraCtrlFv(void);
 void allow_rendering__7TObjectFv(TObject*);
@@ -117,7 +117,7 @@ extern const f32 lbl_805DAA2C;
 #pragma push
 #pragma fp_contract on
 void TFontSmallTask::render() {
-    Vec_800FCD40 forward = lbl_8043DAD0;
+    Vec_800FCD40 forward = font_small_forward_vec;
     Vec_800FCD40 diff;
     f32 screen[2];
     Quad_800FCD40 q;

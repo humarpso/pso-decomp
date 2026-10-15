@@ -299,7 +299,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern s32 lbl_8043AD00[];
+extern s32 player_sub_800ab7a0_id_table[];
 extern s32 lbl_80491478[];
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;
@@ -596,7 +596,7 @@ u8 *TObjPlayer__sub_800AB7A0(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3, s32 arg4) {
     *(s16 *)((s8 *)arg0 + 0xAC) = arg1;
     *(s16 *)((s8 *)arg0 + 0xD4) = obj_getField1c((void *) (arg2));
     *(s16 *)((s8 *)arg0 + 0xAE) = 0;
-    t = lbl_8043AD00[arg1];
+    t = player_sub_800ab7a0_id_table[arg1];
     *(s32 *)((s8 *)arg0 + 0xD8) = arg3;
     *(s32 *)((s8 *)arg0 + 0xC8) = collect_and_count__12TBoss3VoloptFUii((void *) (*(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5090 + 0x42C)) + 0x18)), t);
     *(Vec_800AB7A0 **)((s8 *)arg0 + 0xCC) = &((Arr_800AB7A0 *)arg2)->arr[arg1];

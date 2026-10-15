@@ -152,7 +152,7 @@ extern u8 lbl_8043ACA4[];
 extern u8 lbl_8043ACBC[];
 extern u8 lbl_8043ACD0[];
 extern u8 bm_ene_dubchik_resource_descriptor[];
-extern s16 lbl_804912C0[];
+extern s16 player_model_node_index_pair[];
 extern Res_800AA82C *lbl_805D5090;
 extern s32 lbl_805D5094;
 extern s32 lbl_805D5098;
@@ -732,7 +732,7 @@ u32 lookup_entry_by_value__10TObjPlayerFPvf(s32, f32);
 s32 objInBand__FP7GameObjf(void *, f32);
 s32 mult_vec_array__10TObjPlayerFUii(int, u32, void *, int);
 s32 set_matrix_identity(int);
-extern f32 lbl_8043AC84[];
+extern f32 player_band_threshold_table[];
 extern Pair_800A93E4 lbl_8043AC9C[];
 extern s32 lbl_80500AF0[];
 extern s32 lbl_80500AF8[];
@@ -901,11 +901,11 @@ void TObjPlayer__sub_800A93E4(void *arg0_) {
         }
         advance_animation_playback(arg0);
         act = -1;
-        if (objInBand__FP7GameObjf(arg0, lbl_8043AC84[e->kind]) != 0) {
+        if (objInBand__FP7GameObjf(arg0, player_band_threshold_table[e->kind]) != 0) {
             if (e->f39c == 0) {
                 act = 4;
             }
-        } else if (objInBand__FP7GameObjf(arg0, lbl_8043AC84[e->kind + 2]) != 0 && e->f398 == 0) {
+        } else if (objInBand__FP7GameObjf(arg0, player_band_threshold_table[e->kind + 2]) != 0 && e->f398 == 0) {
             act = 3;
         }
         if (act >= 0) {
@@ -1364,7 +1364,7 @@ void TObjPlayer__sub_800AA82C(void) {
     }
     mdl = lbl_805D5090->mdl->f8;
     for (i = 0; i < 3; i++) {
-        nodes[i] = collect_and_count__12TBoss3VoloptFUii(mdl, lbl_804912C0[i]);
+        nodes[i] = collect_and_count__12TBoss3VoloptFUii(mdl, player_model_node_index_pair[i]);
     }
     query_field_30__12TBoss3VoloptFPvPv(nodes[0], lbl_80500A08);
     query_field_30__12TBoss3VoloptFPvPv(nodes[1], lbl_80500A18);

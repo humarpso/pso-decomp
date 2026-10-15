@@ -71,10 +71,10 @@ void *init_trail_buffer__11TBoss4Type3FPvifff(void *, s32, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(s32);
 void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern Ids_800A8118 lbl_8043AA8C[];
-extern Anim_800A8118 lbl_8043AA94[];
+extern Anim_800A8118 dimedian_anim_binding[];
 extern u8 lbl_8043AAA4[];
-extern s32 lbl_80500988[];
-extern s32 lbl_80500994[];
+extern s32 dimedian_resource_handles[];
+extern s32 dimedian_last_draw_tick[];
 extern const f32 lbl_805D9AA4;
 extern const f32 lbl_805D9AB8;
 extern const f32 lbl_805D9AC0;
@@ -387,12 +387,12 @@ void load_dimedian_resources__6TLobbyFv(void) {
         dimedian_resource_ptr = (u8 *)p;
     }
     r = *(u8 **)((s8 *)dimedian_resource_ptr + 0x42C);
-    lbl_80500988[0] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x8));
-    lbl_80500988[1] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x18));
-    lbl_80500988[2] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x28));
-    lbl_80500994[0] = 0;
-    lbl_80500994[1] = 0;
-    lbl_80500994[2] = 0;
+    dimedian_resource_handles[0] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x8));
+    dimedian_resource_handles[1] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x18));
+    dimedian_resource_handles[2] = CHAIN_800A8118(*(u8 **)((s8 *)r + 0x28));
+    dimedian_last_draw_tick[0] = 0;
+    dimedian_last_draw_tick[1] = 0;
+    dimedian_last_draw_tick[2] = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x18);
     if (p != NULL) {
         p = init_trail_buffer__11TBoss4Type3FPvifff(p, 2, lbl_805D9AC0, lbl_805D9AA4, lbl_805D9AB8);

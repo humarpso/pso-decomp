@@ -155,8 +155,8 @@ extern s32 lbl_805D4800;
 extern s16 lbl_805D4804;
 extern s32 lbl_805D4808;
 extern s32 lbl_805D480C;
-extern s32 lbl_805D7A48;
-extern s32 lbl_805D7A4C;
+extern s32 net_param_word_h;
+extern s32 net_param_word_i;
 s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0);
 extern s32 lobby_map_state_code;
 s32 map_state_to_mode_id__6TLobbyFv(void);
@@ -227,8 +227,8 @@ extern s16 network_pppoe_transport_enabled;
 s32 TLobby__sub_803F8314(A_803F8314 *arg0);
 u32 compute_range_end__6TLobbyFPviUi(u8 *arg0, s32 arg1, u32 arg2);
 u32 layout_buffers__6TLobbyFPvPvPv(u8 *, u32, u32);
-extern u32 lbl_805D7A40;
-extern u32 lbl_805D7A44;
+extern u32 net_transport_buffer_ptr_a;
+extern u32 net_transport_buffer_ptr_b;
 s32 TLobby__sub_803F8470(u8 *data, s32 size);
 extern u8 lobby_net_config_block[];
 extern T_803F86C0 lbl_805D7A50;
@@ -252,8 +252,8 @@ extern s32 lbl_805D4800;
 extern s16 lbl_805D4804;
 extern s32 lbl_805D4808;
 extern s32 lbl_805D480C;
-extern s32 lbl_805D7A48;
-extern s32 lbl_805D7A4C;
+extern s32 net_param_word_h;
+extern s32 net_param_word_i;
 s32 TLobby__sub_803F861C(Info_803F861C *arg0);
 s16 TLobby__sub_80427F48(s16, u8 *, u16);
 s32 write_ring_buffer__6TLobbyFPvi(u8 *src, s32 len);
@@ -874,12 +874,12 @@ s32 TLobby__sub_803F8470(u8 *data, s32 size) {
     if (size < r) {
         return -1;
     }
-    lbl_805D7A40 = (u32)data;
+    net_transport_buffer_ptr_a = (u32)data;
     p = data + hdr.n1 * 0x44;
     if ((u32)p > end) {
         return -1;
     }
-    lbl_805D7A44 = (u32)p;
+    net_transport_buffer_ptr_b = (u32)p;
     p += hdr.n2 * 0x544;
     if ((u32)p > end) {
         return -1;
@@ -916,8 +916,8 @@ s32 validate_and_store_net_params__6TLobbyFPv(u8 *arg0) {
     lbl_805D4800 = *(s32 *)((s8 *)arg0 + 8);
     lbl_805D4808 = *(s32 *)((s8 *)arg0 + 0xC);
     lbl_805D480C = *(s32 *)((s8 *)arg0 + 0x10);
-    lbl_805D7A48 = *(s32 *)((s8 *)arg0 + 0x14);
-    lbl_805D7A4C = *(s32 *)((s8 *)arg0 + 0x18);
+    net_param_word_h = *(s32 *)((s8 *)arg0 + 0x14);
+    net_param_word_i = *(s32 *)((s8 *)arg0 + 0x18);
     return TLobby__sub_803F861C((Info_803F861C *)((int) (0)));
 }
 #pragma pop
@@ -941,8 +941,8 @@ s32 TLobby__sub_803F861C(Info_803F861C *arg0) {
     n += lbl_805D480C;
     arg0->e = lbl_805D4800;
     arg0->f = lbl_805D4808;
-    arg0->h = lbl_805D7A48;
-    arg0->i = lbl_805D7A4C;
+    arg0->h = net_param_word_h;
+    arg0->i = net_param_word_i;
     n += TLobby__sub_803F8D24(arg0);
     return n;
 }

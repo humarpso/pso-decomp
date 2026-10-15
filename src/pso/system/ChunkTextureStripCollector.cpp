@@ -20,8 +20,8 @@ void count_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 void collect_model_strips_by_texture(void *ctx, Node_800F5A50 *node, void *arg);
 extern s32 plist_texture_matches_filter;
 void count_plist_strips_by_texture(void *ctx, void *plist, void *arg);
-extern StripRef_800F591C *lbl_805D5318;
-extern s16 *lbl_805D531C;
+extern StripRef_800F591C *plist_strip_write_ptr;
+extern s16 *plist_strip_uv_write_ptr;
 extern s32 plist_texture_matches_filter;
 void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex);
 }
@@ -66,9 +66,9 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
             s32 skip = *(u16 *) p;
             p++;
             if (plist_texture_matches_filter != 0 && type == 0x41) {
-                lbl_805D5318->strip = p;
-                lbl_805D5318->uv = lbl_805D531C;
-                lbl_805D5318++;
+                plist_strip_write_ptr->strip = p;
+                plist_strip_write_ptr->uv = plist_strip_uv_write_ptr;
+                plist_strip_write_ptr++;
                 n = *p++ & 0x3FFF;
                 for (i = 0; i < n; i++) {
                     len = *p++;
@@ -76,8 +76,8 @@ void collect_plist_strips_by_texture(void *ctx, s16 *p, s32 tex) {
                         len = -len;
                     }
                     for (k = 0; k < len; k++) {
-                        *lbl_805D531C++ = p[1];
-                        *lbl_805D531C++ = p[2];
+                        *plist_strip_uv_write_ptr++ = p[1];
+                        *plist_strip_uv_write_ptr++ = p[2];
                         p += 3;
                     }
                 }

@@ -997,7 +997,7 @@ void *lbl_80496574[90] = {
 __declspec(section ".data") void *lbl_804966DC[2] = {
     (void *)0x0, (void *)0x2,
 };
-__declspec(section ".data") void *lbl_804966E4[2] = {
+__declspec(section ".data") void *slime_tail_attack_id_pair[2] = {
     (void *)0x4, (void *)0x5,
 };
 __declspec(section ".data") void *TObjEneSlime__attack_target_param_table[2] = {
@@ -1009,10 +1009,10 @@ __declspec(section ".data") void *lbl_804966F4[2] = {
 __declspec(section ".data") void *lbl_804966FC[2] = {
     (void *)0x30, (void *)0x34,
 };
-void *lbl_80496704[3] = {
+void *slime_tail_attack_zero_vec[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80496710[3] = {
+void *slime_tail_attack_transform[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 void *__vt__22TObjEneSlimeTailAttack[83] = {
@@ -1039,10 +1039,10 @@ void *__vt__22TObjEneSlimeTailAttack[83] = {
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state,
 };
 #define lbl_80496574 ((Ent_800EAE78 *)lbl_80496574)
-#define lbl_804966E4 ((s32 *)lbl_804966E4)
+#define slime_tail_attack_id_pair ((s32 *)slime_tail_attack_id_pair)
 #define TObjEneSlime__attack_target_param_table ((s32 *)TObjEneSlime__attack_target_param_table)
-#define lbl_80496704 (*(RecoveredGlobal_800E8128_lbl_80496704 *)lbl_80496704)
-#define lbl_80496710 (*(RecoveredGlobal_800E8128_lbl_80496710 *)lbl_80496710)
+#define slime_tail_attack_zero_vec (*(RecoveredGlobal_800E8128_lbl_80496704 *)slime_tail_attack_zero_vec)
+#define slime_tail_attack_transform (*(RecoveredGlobal_800E8128_lbl_80496710 *)slime_tail_attack_transform)
 #define __vt__22TObjEneSlimeTailAttack ((s32 *)__vt__22TObjEneSlimeTailAttack)
 
 void TObjPlayer__sub_800E80C0(u8 *arg0) {
@@ -1069,10 +1069,10 @@ extern int fold_flush_1;
 #pragma dont_inline off
 void TObjPlayer__sub_800E8128(void) {
     if ((s32) (*(s32 *)&lbl_805D52B4) == 7) {
-        transform_to_view__11TCameraCtrlFii((s32) &lbl_80496704.value, (s32) &lbl_80501010.value);
+        transform_to_view__11TCameraCtrlFii((s32) &slime_tail_attack_zero_vec.value, (s32) &lbl_80501010.value);
     }
     if (((s32) (*(s32 *)&lbl_805D52B4) >= 4) && ((s32) (*(s32 *)&lbl_805D52B4) < 8)) {
-        transform_to_view__11TCameraCtrlFii((s32) &lbl_80496710.value, (s32) ((u8 *)&lbl_80501010.value + (((*(s32 *)&lbl_805D52B4) - 4) * 0xC) + 0xC));
+        transform_to_view__11TCameraCtrlFii((s32) &slime_tail_attack_transform.value, (s32) ((u8 *)&lbl_80501010.value + (((*(s32 *)&lbl_805D52B4) - 4) * 0xC) + 0xC));
     }
     (*(s32 *)&lbl_805D52B4) += 1;
 }
@@ -1494,7 +1494,7 @@ void TObjPlayer__sub_800E9090(Bomb_800E9090 *self) {
     ((void (*)(void *))post_translate_matrix)(&c);
     rotate_matrix_y(0, ang);
     ((void (*)(int, void *))scale_matrix_vec3)(0, &b);
-    t = lbl_804966E4[self->f3F4];
+    t = slime_tail_attack_id_pair[self->f3F4];
     ((s32 (*)(int))set_global_param__8TObjFishFi)(TObjFish__sub_8001EDB0(self->f380, t));
     draw_chunk_object(get_bml_model(self->f380, t));
     ((int (*)(void))pop_matrix)();

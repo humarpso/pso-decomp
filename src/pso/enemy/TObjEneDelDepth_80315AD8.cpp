@@ -11,8 +11,8 @@ s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
 Obj_80315B10 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
-extern Info_80315B10 lbl_80475D84;
-extern Info_80315B10 lbl_80475D94;
+extern Info_80315B10 deldepth_anim_binding;
+extern Info_80315B10 deldepth_anim_binding_b;
 extern s32 TObjEneDelDepth__tune_params;
 extern const f32 TObjEneDelDepth__data_805DF258;
 }
@@ -194,12 +194,12 @@ void load_assets__15TObjEneDelDepthFv(void) {
     }
     g = (Sub_80315B10 *)TObjEneDelDepth_collision_body_parts;
     {
-        Info_80315B10 info = lbl_80475D84;
+        Info_80315B10 info = deldepth_anim_binding;
         info.a = TObjEneDelDepth__shared_resource->f430;
         spawn_npc_enemy__6TLobbyFsiiiff(0x47, TObjEneDelDepth__shared_resource->rec->f8, TObjEneDelDepth__shared_resource->rec->fC, &info, g->fC, TObjEneDelDepth__data_805DF258);
     }
     {
-        Info_80315B10 info = lbl_80475D94;
+        Info_80315B10 info = deldepth_anim_binding_b;
         info.a = TObjEneDelDepth__shared_resource->f430;
         spawn_npc_enemy__6TLobbyFsiiiff(0x48, TObjEneDelDepth__shared_resource->rec->f18, TObjEneDelDepth__shared_resource->rec->f1C, &info, g->fC, TObjEneDelDepth__data_805DF258);
     }

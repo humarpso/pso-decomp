@@ -118,7 +118,7 @@ s32 concat_matrix__10TObjPlayerFUiUi(int, int);
 s32 push_matrix();
 s32 pop_matrix();
 extern int TBoss2Tentacle__rest_angles[];
-extern s32 lbl_80435B88[];
+extern s32 boss2_tentacle_angle_limit_table[];
 extern const f64 lbl_80435BA8[];
 extern V3_80039DE0 TBoss2Tentacle__segment_points[];
 extern const f32 lbl_805D852C;
@@ -321,7 +321,7 @@ void run_task__14TBoss2TentacleFv(u8 *arg0) {
             } else {
                 F(f32, 0x13C) = F(f32, 0x138) / (lbl_805D8540 * len);
             }
-            F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), lbl_80435B88[F(s32, 0x2C)], 0x100);
+            F(s32, 0x120) = approach_angle_limited(F(s32, 0x120), boss2_tentacle_angle_limit_table[F(s32, 0x2C)], 0x100);
             TBoss2Tentacle__sub_80039994((Obj_80039994 *)(arg0), len);
             break;
         case 2:

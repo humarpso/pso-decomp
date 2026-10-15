@@ -32,7 +32,7 @@ Player_800A0994 *get_player_data__10TObjPlayerFi(s32);
 s16 obj_getField1c(void *);
 s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 Ene_800A0994 *get_enemy_entity(u16);
-extern s32 lbl_805D29D0;
+extern s32 dark_gunner_class_name_ptr;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 void TObjEneDarkGunner__ct(Gunner_800A0994 *self);
@@ -51,7 +51,7 @@ void TObjEneDarkGunner__ct(Gunner_800A0994 *self) {
     self->count = 0;
     for (k = lbl_805D586C; k < lbl_805D586C + lbl_805D5870; k++) {
         p = get_player_data__10TObjPlayerFi(k);
-        if (p != NULL && check_value_equals__13TQuestColCtrlFPvi(p, lbl_805D29D0) != 0 &&
+        if (p != NULL && check_value_equals__13TQuestColCtrlFPvi(p, dark_gunner_class_name_ptr) != 0 &&
             self->f354 == p->f354 && self->f28 == p->f28) {
             p->f428 = self->f1C;
             self->ids[self->count++] = obj_getField1c(p);

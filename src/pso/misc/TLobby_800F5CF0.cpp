@@ -23,8 +23,8 @@ int initialize_enemy_photon_effect(void* p);
 int reset_photon_effect__12TBoss3VoloptFPv(void*);
 void set_param__12TObjEneLappyFPvi(void* p, s32 v);
 
-extern s32 lbl_805D5318;
-extern s32 lbl_805D531C;
+extern s32 plist_strip_write_ptr;
+extern s32 plist_strip_uv_write_ptr;
 extern s32 plist_texture_matches_filter;
 
 void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
@@ -36,9 +36,9 @@ void *alloc_tables__6TLobbyFPvii(void *arg0, s32 arg1, s32 arg2) {
     count_model_strips_by_texture();
     *(s32 *)((s8 *)arg0 + 8) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 4) * 8);
     *(s32 *)((s8 *)arg0 + 0xC) = alloc_buffer__11TOBoss4RockFPv(*(s32 *)((s8 *)arg0 + 0) * 4);
-    lbl_805D5318 = *(s32 *)((s8 *)arg0 + 8);
+    plist_strip_write_ptr = *(s32 *)((s8 *)arg0 + 8);
     temp_r6 = *(s32 *)((s8 *)arg0 + 0xC);
-    lbl_805D531C = temp_r6;
+    plist_strip_uv_write_ptr = temp_r6;
     plist_texture_matches_filter = 0;
     collect_model_strips_by_texture(arg0, arg1, arg2, temp_r6);
     return arg0;

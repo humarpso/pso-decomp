@@ -183,11 +183,11 @@ void render__13TAdVIConfigGCFv(void *arg0) {
     o->m10();
 }
 
-extern s32 lbl_805D4090;
+extern s32 logo_clear_flag;
 
 void set_field48_clear_global__13TAdVIConfigGCFPv(void *arg0) {
     *(s32 *)((s8 *)arg0 + 0x48) = 1;
-    lbl_805D4090 = 0;
+    logo_clear_flag = 0;
 }
 
     extern unsigned char GXNtsc480Prog[];

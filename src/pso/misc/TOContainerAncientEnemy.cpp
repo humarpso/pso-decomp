@@ -268,8 +268,8 @@ s32 spawn_particle_effect(void *, int);
 s32 construct_debris__8TObjChipFPvPvPv(void *, s32, void *);
 s32 play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
-extern Spawn_8015B94C lbl_80440798;
-extern Spawn_8015B94C lbl_804407E4;
+extern Spawn_8015B94C ancient_enemy_break_debris_desc;
+extern Spawn_8015B94C ancient_enemy_break_debris_desc_b;
 extern s32 lbl_805D2F10;
 extern Ref_8015B94C *ancient_container_fragment_texture_lists;
 }
@@ -302,14 +302,14 @@ void spawn_break_debris__23TOContainerAncientEnemyFPv(Obj_8015B94C *self) {
     extern const u32 ancient_container_resource_bundle;
     void *o;
     if (self->f326 != 1) {
-        Spawn_8015B94C a = lbl_80440798;
+        Spawn_8015B94C a = ancient_enemy_break_debris_desc;
         a.x = self->x;
         a.y = self->y;
         a.z = self->z;
         a.f38 = self->y;
         a.f40 = get_bml_model((void *)ancient_container_resource_bundle, 1);
         a.f44 = TObjFish__sub_8001EDB0((void *)ancient_container_resource_bundle, 1);
-        Spawn_8015B94C b = lbl_804407E4;
+        Spawn_8015B94C b = ancient_enemy_break_debris_desc_b;
         b.x = self->x;
         b.y = self->y;
         b.z = self->z;

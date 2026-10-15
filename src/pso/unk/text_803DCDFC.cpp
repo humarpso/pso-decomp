@@ -89,7 +89,7 @@ extern s32 gx_fifo_buffer;
 extern s32 display_heap_size;
 extern s32 locked_cache_heap_handle;
 extern s32 lbl_8058D340[];
-extern Tlut_803DD0D8 lbl_8058CE40[];
+extern Tlut_803DD0D8 gx_tlut_region_table[];
 extern void *lbl_805D771C;
 extern void *lbl_805D7720;
 
@@ -224,11 +224,11 @@ void init_gx_display(void) {
     addr = 0xC0000;
     n = 0;
     for (i = 0; i < 0x40; i++, n++) {
-        GXInitTlutRegion(&lbl_8058CE40[n], addr, 1);
+        GXInitTlutRegion(&gx_tlut_region_table[n], addr, 1);
         addr += 0x200;
     }
     for (i = 0; i < 0x10; i++, n++) {
-        GXInitTlutRegion(&lbl_8058CE40[n], addr, 0x10);
+        GXInitTlutRegion(&gx_tlut_region_table[n], addr, 0x10);
         addr += 0x2000;
     }
     GXSetTlutRegionCallback((void *)fn_803DD3C8);
@@ -366,7 +366,7 @@ extern "C" {
 #pragma scheduling off
 #pragma peephole off
 E_803DD3C8 *fn_803DD3C8(s32 i) {
-    return &lbl_8058CE40[i];
+    return &gx_tlut_region_table[i];
 }
 #pragma pop
 

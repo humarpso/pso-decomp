@@ -321,7 +321,7 @@ s32 get_class_state_field__10TObjPlayerFii(s32 arg0, s32 arg1);
 s16 get_stage_strike_count__10TObjPlayerFPv(void *);
 s32 get_move_mode__10TObjPlayerFPv(void *);
 f32 lookup_attack_marker(s32, s16, s16, s32);
-extern s32 lbl_804477F0[];
+extern s32 attack_marker_table[];
 extern s32 attack_marker_table_dagger[];
 extern s32 attack_marker_table_double_saber[];
 extern s32 twin_sword_male_marker_table[];
@@ -352,7 +352,7 @@ s32 get_class_starting_inventory(s8 arg0);
 extern RecoveredGlobal_801D8E60_lbl_804C4980 lbl_804C4980;
 s32 get_table_entry_by_clamped_index__10TObjPlayerFPv(u8 *arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
-extern RecoveredGlobal_801D9328_lbl_80447430 lbl_80447430;
+extern RecoveredGlobal_801D9328_lbl_80447430 class_defense_template_table;
 u8 *get_class_defense_template(u8 *arg0);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_801A51C0_lbl_80446980 lbl_80449254;
@@ -366,7 +366,7 @@ s32 get_hospital_yaw__10TObjPlayerFv(void);
 s8 TObjPlayer__sub_801AFDBC(s8);
 player_stats *get_class_stat_caps(s8 arg0);
 s8 get_class_index__10TObjPlayerFPv(s32 _w0);
-extern RecoveredGlobal_801D92F4_lbl_804475B0 lbl_804475B0;
+extern RecoveredGlobal_801D92F4_lbl_804475B0 class_attack_template_table;
 u8 *get_class_attack_template(u8 *arg0);
 s8 TObjPlayer__sub_801AFDBC(s8);
 stats *get_class_base_stats(s8 arg0);
@@ -715,7 +715,7 @@ f32 lookup_attack_marker(s32 arg0, s16 arg1, s16 arg2, s32 arg3) {
         }
         return *(f32 *)((s8 *)((u8 *)(((u8 *)(twin_sword_female_marker_table) + (arg2 * 0xC))) + (arg1 * 4)) + 0);
     default:
-        return *(f32 *)((s8 *)((u8 *)(((u8 *)(lbl_804477F0) + (arg0 * 0xC))) + (arg1 * 4)) + 0);
+        return *(f32 *)((s8 *)((u8 *)(((u8 *)(attack_marker_table) + (arg0 * 0xC))) + (arg1 * 4)) + 0);
     }
 }
 
@@ -749,11 +749,11 @@ typedef char RecoveredGlobal_801D9328_lbl_80447430_size[sizeof(RecoveredGlobal_8
 
 typedef char RecoveredGlobal_801D92F4_lbl_804475B0_size[sizeof(RecoveredGlobal_801D92F4_lbl_804475B0) == 0x240 ? 1 : -1];
 u8 *get_class_attack_template(u8 *arg0) {
-    return (u8 *)&lbl_804475B0.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x30);
+    return (u8 *)&class_attack_template_table.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) * 0x30);
 }
 
 u8 *get_class_defense_template(u8 *arg0) {
-    return (u8 *)&lbl_80447430.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) << 5);
+    return (u8 *)&class_defense_template_table.value + (get_class_index__10TObjPlayerFPv((s32)(arg0)) << 5);
 }
 
 stats *get_class_base_stats(s8 arg0) {

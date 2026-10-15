@@ -6,7 +6,7 @@ TChCrTagInformationStr::~TChCrTagInformationStr() {}
 
 extern "C" {
 s32 queue_destruction__7TObjectFv();
-extern s32 lbl_805D40BC;
+extern s32 char_creation_tag_info_selected_index;
 extern const f32 TChCrTagInformationStr__data_805DF108;
 extern const f32 lbl_805DF110;
 extern const f32 lbl_805DF124;
@@ -41,7 +41,7 @@ void run_task__22TChCrTagInformationStrFv(u8 *arg0) {
     s32 temp_r0;
     s32 temp_r0_2;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) (*(s32 *)((s8 *)arg0 + 0x34) + 1);
-    if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x20) != (s32) lbl_805D40BC)) {
+    if (((s32) *(s32 *)((s8 *)arg0 + 0x1C) != 2) && ((s32) *(s32 *)((s8 *)arg0 + 0x20) != (s32) char_creation_tag_info_selected_index)) {
         *(s32 *)((s8 *)arg0 + 0x1C) = 2;
     }
     temp_r0 = *(s32 *)((s8 *)arg0 + 0x1C);
@@ -63,7 +63,7 @@ void run_task__22TChCrTagInformationStrFv(u8 *arg0) {
         }
         break;
     case 2:
-        if ((s32) lbl_805D40BC == -1) {
+        if ((s32) char_creation_tag_info_selected_index == -1) {
             *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + lbl_805DF128);
         } else {
             *(f32 *)((s8 *)arg0 + 0x30) = (f32) (*(f32 *)((s8 *)arg0 + 0x30) + lbl_805DF12C);

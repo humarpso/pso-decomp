@@ -174,7 +174,7 @@ CreationHeightBounds creation_camera_height_bounds_table[12] = {
     {1.13f, 1.5f}
 };
 struct CreationViewParameters { f32 values[18]; };
-CreationViewParameters lbl_804DAA78[2] = {
+CreationViewParameters creation_view_parameters[2] = {
     {{1.0f, 1.0f, 320.0f, 240.0f, 1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f, 640.0f, 480.0f, 0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}},
     {{1.0f, 1.0f, 460.800018f, 240.0f, 1.0f, 1.0f, 500.0f, 1.0f, 1.0f, 1.0f, 640.0f, 480.0f, 0.0f, 0.0f, 20.0f, 15.0f, 1.0f, 1.0f}}
 };

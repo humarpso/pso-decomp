@@ -180,7 +180,7 @@ extern s32 fe_obj_tanmatu02_resource_descriptor[];
 extern s32 fs_obj_tanmatu02_resource_descriptor[];
 extern u32 TObjComputer__model_archive;
 extern u32 TObjComputer__texture_gvm_handle;
-extern s16 lbl_805D5B70;
+extern s16 computer_uv_scroll_phase;
 void load_computer_resources(void);
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
@@ -195,7 +195,7 @@ s32 set_global_param__8TObjFishFi(s32);
 s32 draw_ginja_object(void *);
 extern u32 actor_frame_tick;
 extern u32 TObjComputer__texture_gvm_handle;
-extern s16 lbl_805D5B70;
+extern s16 computer_uv_scroll_phase;
 extern s16 TObjComputer__data_805DBCD8[2];
 extern const f32 lbl_805DBCE4;
 s32 draw_model__12TObjComputerFPv(void *arg0);
@@ -245,7 +245,7 @@ s32 draw_model__12TObjComputerFPv(void *arg0) {
         u32 tick = actor_frame_tick;
         if (tick != self->tick_c4 && self->time_c0 >= lbl_805DBCE4) {
             self->tick_c4 = tick;
-            scroll_ginja_mesh_uvs(*(void **)((s8 *)self->model->sub2c + 4), 0, (s32)self->time_c0, (*(u16 *)&lbl_805D5B70), 1);
+            scroll_ginja_mesh_uvs(*(void **)((s8 *)self->model->sub2c + 4), 0, (s32)self->time_c0, (*(u16 *)&computer_uv_scroll_phase), 1);
             PPCSync();
             f32 time = self->time_c0;
             self->time_c0 = time - (f32)(s32)time;
@@ -325,7 +325,7 @@ void load_computer_resources(void) {
         }
         TObjComputer__model_archive = (u32) p;
         TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B60);
-        lbl_805D5B70 = 0;
+        computer_uv_scroll_phase = 0;
         break;
     default:
         p = alloc__23TAdSinglePlyChrSelectGCFPv(0x440);
@@ -334,7 +334,7 @@ void load_computer_resources(void) {
         }
         TObjComputer__model_archive = (u32) p;
         TObjComputer__texture_gvm_handle = load_gvm_texture_file(lbl_80444B78);
-        lbl_805D5B70 = 1;
+        computer_uv_scroll_phase = 1;
         break;
     }
 }

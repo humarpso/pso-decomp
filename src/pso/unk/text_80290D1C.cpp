@@ -6,7 +6,7 @@ extern "C" {
 s32 draw_line_list(void *, int, int);
 void draw_tri_fan_3d__10TObjPlayerFPviUi(void *, int, int);
 s32 __cvt_fp2unsigned(f32);
-extern s32 lbl_80464CB0[];
+extern s32 creation_ruler_line_vertices[];
 extern u32 lbl_804DA97C[4];
 extern s32 lbl_804DA98C[];
 extern const f32 lbl_805DD958;
@@ -25,7 +25,7 @@ void draw_creation_ruler_lines(f32 farg0) {
     for (i = 0; i < 32; i++) {
         colors[i] = c;
     }
-    d.verts = lbl_80464CB0;
+    d.verts = creation_ruler_line_vertices;
     d.colors = colors;
     d.start = 0;
     d.count = 32;

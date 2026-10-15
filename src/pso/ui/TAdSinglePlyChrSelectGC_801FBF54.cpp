@@ -191,14 +191,14 @@ s32 is_ready__6TLobbyFv();
 int memcpy(void*, void*, void*);
 s32 strncpy(s32 *, s32 *, s32);
 
-extern s32 lbl_805D5FB0;
+extern s32 chr_select_game_name_buffer;
 
 void copy_name__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     u32 var_r3;
     if (arg0 >= 0) {
         var_r3 = CARDGetDiskID();
         if (var_r3 != 0U) {
-            strncpy((s32 *)var_r3, &lbl_805D5FB0, 4);
+            strncpy((s32 *)var_r3, &chr_select_game_name_buffer, 4);
         }
     }
 }
@@ -4402,7 +4402,7 @@ extern s32 character_save_file_block_count;
 extern s32 guild_card_save_file_block_count;
 extern s32 system_save_file_block_count;
 extern s32 card_load_followup_pending;
-extern s32 lbl_805D5FB0;
+extern s32 chr_select_game_name_buffer;
 
 void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
     s32 sp10;
@@ -4525,7 +4525,7 @@ void init_char_select_globals__23TAdSinglePlyChrSelectGCFv(void) {
     reset_slot_lists__23TAdSinglePlyChrSelectGCFPv(chr_select_request_buffer);
     {
         DVDDiskID_802019F8 *id = DVDGetCurrentDiskID();
-        strncpy((void *)&lbl_805D5FB0, id->gameName, 4);
+        strncpy((void *)&chr_select_game_name_buffer, id->gameName, 4);
     }
     getDateStamp__FP9DateStamp(char_select_date_stamp);
     DateToSeconds__FP9DateStampPi(char_select_date_stamp, &sp8);

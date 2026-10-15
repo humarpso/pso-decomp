@@ -18,7 +18,7 @@ s32 TObjFish__sub_8001EDB0(int, void *);
 s32 get_bml_model(int, void *);
 u32 __nw__7TObjectFUl(int);
 extern s32 TOVS2Wall01__bml_resource;
-extern RecoveredGlobal_8017BC10_lbl_8044311C lbl_8044311C;
+extern RecoveredGlobal_8017BC10_lbl_8044311C vs2_wall_debris_desc;
 extern s32 tl_05;
 void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1);
 }
@@ -52,7 +52,7 @@ void spawn_debris__11TOVS2Wall01FPvi(u8 *arg0, s32 arg1) {
     CopyStack_8017BC10 copy_storage_8017BC10;
     u8 *temp_r5;
     u8 *chip;
-    temp_r5 = (u8 *)((void *)((u8 *)(&lbl_8044311C.value) + -4));
+    temp_r5 = (u8 *)((void *)((u8 *)(&vs2_wall_debris_desc.value) + -4));
     *(ByteBlock_4C *)(copy_storage_8017BC10.bytes) = *(const ByteBlock_4C *)((s32) temp_r5 + 4);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0xC)) = *(f32 *)((s8 *)arg0 + 0x2FC);
     (*(f32 *)(copy_storage_8017BC10.bytes + 0x10)) = *(f32 *)((s8 *)arg0 + 0x300);

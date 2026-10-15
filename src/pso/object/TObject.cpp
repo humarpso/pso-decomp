@@ -2,7 +2,7 @@
 #define TOBJECT_CPP
 #define TOBJECT_OUT_OF_LINE_HELPERS
 #define global_obj1 lbl_80515F48
-#define global_obj2 lbl_80515F70
+#define global_obj2 keyboard_task_object
 
 #include "pso/THeap.h"
 #include "pso/TMainTask.h"

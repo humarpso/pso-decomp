@@ -142,8 +142,8 @@ extern "C" {
 s32 __dt__10TObjMotionFv(void *, int);
 s32 free__11TOBoss4RockFUi(int);
 s32 __dl__7TObjectFPv(void *);
-extern RecoveredGlobal_802E0B60_lbl_804E2F68 lbl_804E2F68;
-extern RecoveredGlobal_802E0B60_lbl_804E3008 lbl_804E3008;
+extern RecoveredGlobal_802E0B60_lbl_804E2F68 multi_chr_select_player_slot_table;
+extern RecoveredGlobal_802E0B60_lbl_804E3008 multi_chr_select_player_actor_ops;
 u8 *fn_802E0B60(u8 *arg0, s16 arg1);
 }
 
@@ -310,10 +310,10 @@ u8 *fn_802E0B60(u8 *arg0, s16 arg1) {
     u32 temp_r3_2;
     u32 temp_r3_3;
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804E3008.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &multi_chr_select_player_actor_ops.value;
         temp_r4 = *(s32 *)((s8 *)arg0 + 0x10C) * 4;
-        if ((u32) *(s32 *)((s8 *)(&lbl_804E2F68.value) + temp_r4) != 0U) {
-            *(s32 *)((s8 *)(&lbl_804E2F68.value) + temp_r4) = 0;
+        if ((u32) *(s32 *)((s8 *)(&multi_chr_select_player_slot_table.value) + temp_r4) != 0U) {
+            *(s32 *)((s8 *)(&multi_chr_select_player_slot_table.value) + temp_r4) = 0;
         }
         temp_r3 = *(u32 *)((s8 *)arg0 + 0xE0);
         if (temp_r3 != 0U) {

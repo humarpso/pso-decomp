@@ -92,9 +92,9 @@ void draw_text_gray__17TWindowSubComCardFiiii(s32, s32, s32, s32);
 void forward_trade_action_default__16TObjCityMainWarpFPviii(s32, s32, s32, s32);
 s32 check_room_seq_4__16TAdChrSelASlotGCFii(void *, u32);
 s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u32 idx);
-extern Pos3_803001B4 lbl_80474ED4;
+extern Pos3_803001B4 multi_sel_game_mode_position;
 extern Arr3_803001B4 lbl_80474EEC;
-extern Arr3_803001B4 lbl_80474EF8;
+extern Arr3_803001B4 multi_sel_game_mode_arr3;
 extern const f32 lbl_805DEF40;
 s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1);
 }
@@ -129,7 +129,7 @@ s32 is_mode_entry_enabled__21TAdMultiSelGameModeGCFPviUi(void *self, s32 mode, u
 }
 
 s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1) {
-    Pos3_803001B4 pos = lbl_80474ED4;
+    Pos3_803001B4 pos = multi_sel_game_mode_position;
     u32 counts[3];
     u32 n;
     s32 r;
@@ -139,7 +139,7 @@ s32 build_mode_menu__21TAdMultiSelGameModeGCFPvi(void *arg0, s32 arg1) {
     counts[2] = 2;
     {
     Arr3_803001B4 a = lbl_80474EEC;
-    Arr3_803001B4 b = lbl_80474EF8;
+    Arr3_803001B4 b = multi_sel_game_mode_arr3;
     n = counts[arg1];
     r = check_room_seq_4__16TAdChrSelASlotGCFii(&pos.p[arg1], n);
     for (i = 0; i < n; i++) {

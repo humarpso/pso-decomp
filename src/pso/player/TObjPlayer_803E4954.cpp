@@ -60,10 +60,10 @@ void clear_move_state_bits__10TObjPlayerFv(void) {
     chunk_render_flags &= 0xFFFFF9FF;
 }
 
-extern s32 lbl_805D77DC;
+extern s32 player_chunk_draw_end_callback;
 
 void set_global_state__10TObjPlayerFi(s32 arg0) {
-    lbl_805D77DC = arg0;
+    player_chunk_draw_end_callback = arg0;
 }
 
 extern s32 motion_packed_rotation_mode;

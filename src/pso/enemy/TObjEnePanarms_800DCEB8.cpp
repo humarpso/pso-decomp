@@ -212,7 +212,7 @@ u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 Obj_800DF634 *load_resource_from_descriptor(Obj_800DF634 *, s32, void *, s32, s32, s32);
 void spawn_npc_pair__14TObjEnePanarmsFv(void);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(s32, s32, s32, void *, s32, void *, f32, f32);
-extern S_800DF634 lbl_8043CCE4[];
+extern S_800DF634 panarms_npc_spawn_descriptor[];
 extern u8 lbl_80494F10[];
 extern u32 TObjEnePanarms__entry_params_resource;
 extern const f32 TObjEnePanarms__data_805DA4A0;
@@ -1226,9 +1226,9 @@ void load_and_spawn_npc__14TObjEnePanarmsFv(void) {
     }
     TObjEnePanarms__entry_params_resource = (u32) o;
     if (o != NULL) {
-        S_800DF634 sp = lbl_8043CCE4[0];
+        S_800DF634 sp = panarms_npc_spawn_descriptor[0];
         sp.a = o->f430;
-        spawn_npc_enemy__6TLobbyFsiiiff(0x23, *(s32 *)(o->f42C + 8), *(s32 *)(o->f42C + 0xC), &sp, lbl_8043CCE4[0].a, lbl_8043CCE4, lbl_805DA51C, TObjEnePanarms__data_805DA4A0);
+        spawn_npc_enemy__6TLobbyFsiiiff(0x23, *(s32 *)(o->f42C + 8), *(s32 *)(o->f42C + 0xC), &sp, panarms_npc_spawn_descriptor[0].a, panarms_npc_spawn_descriptor, lbl_805DA51C, TObjEnePanarms__data_805DA4A0);
         spawn_npc_pair__14TObjEnePanarmsFv();
     }
 }

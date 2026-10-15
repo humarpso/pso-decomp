@@ -1019,7 +1019,7 @@ int clear_player_status_flag__10TObjPlayerFPviUi(void*, void*, void*);
 s32 obj_clearFlags30(void * a0, s32 a1);
 s32 update_action_hold_status__10TObjPlayerFv(void *);
 s32 update_action_hold__12TObjEneBeastFPv(u8 *arg0);
-extern void *lbl_805D5188;
+extern void *player_render_texture_buffer;
 void TLobby__sub_803DA16C(void *);
 void free__11TOBoss4RockFUi(void *);
 void TObjPlayer__sub_800C4D44(void);

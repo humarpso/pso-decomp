@@ -6,7 +6,7 @@ extern "C" {
 extern int lbl_8050DC20[];
 void clear_global_array__6TLobbyFPv(void* _w0);
 extern int lbl_8050DC20[];
-extern s32 lbl_80444268[];
+extern s32 lobby_event_theme_id_table[];
 extern s32 TLobby__event_theme_id;
 void clear_global_array__6TLobbyFPv(void* _w0);
 void TLobby__sub_80184C80(void *p);
@@ -61,7 +61,7 @@ void TLobby__sub_80184C80(void *p) {
     s32 i;
     clear_global_array__6TLobbyFPv((void*)(p));
     for (i = 0; i < 6; i++) {
-        if (TLobby__event_theme_id == lbl_80444268[i]) {
+        if (TLobby__event_theme_id == lobby_event_theme_id_table[i]) {
             lbl_8050DC20[i] = 1;
             return;
         }

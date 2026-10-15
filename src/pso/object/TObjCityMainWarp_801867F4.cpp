@@ -19,7 +19,7 @@ s32 get_main_phase();
 extern s32 lbl_805D55C0;
 s32 get_phase_flag__16TObjCityMainWarpFv(void);
 s32 are_all_players_in_range__16TObjCityMainWarpFPv(Obj_80186B34 *arg0);
-extern RecoveredGlobal_80186AF4_lbl_804FF800 lbl_804FF800;
+extern RecoveredGlobal_80186AF4_lbl_804FF800 lobby_name_string_buffer;
 s32 *TObjCityMainWarp__sub_80186AF4(void);
 extern const Bits_80186A3C city_main_warp_floor_bit_table;
 s32 get_player_floor__6TLobbyFi(s32);
@@ -150,7 +150,7 @@ void set_flag70_bit10__16TObjCityMainWarpFPv(void* p) { *(u16*)((char*)p + 0x70)
 
 typedef char RecoveredGlobal_80186AF4_lbl_804FF800_size[sizeof(RecoveredGlobal_80186AF4_lbl_804FF800) == 0x20 ? 1 : -1];
 s32 *TObjCityMainWarp__sub_80186AF4(void) {
-    return &lbl_804FF800.value;
+    return &lobby_name_string_buffer.value;
 }
 
 s32 get_phase_flag__16TObjCityMainWarpFv(void) {

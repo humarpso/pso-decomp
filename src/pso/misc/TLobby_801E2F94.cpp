@@ -78,10 +78,10 @@ void draw_shadow_quad__10TObjPlayerFPvii(Self_801E2FEC *self, s32 arg1, s32 flag
 struct Rect_801E317C { f32 x0, y0, x1, y1; };
 
 extern "C" {
-extern f32 lbl_805D3588;
+extern f32 viewport_scissor_origin_x;
 extern f32 camera_viewport_center_y;
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1);
-extern f32 lbl_805D3588;
+extern f32 viewport_scissor_origin_x;
 extern f32 camera_viewport_center_y;
 void GXSetScissor(u32, u32, u32, u32);
 void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r);
@@ -112,7 +112,7 @@ void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
         if (w >= 640.0f) {
             w = 640.0f;
         }
-        ox = lbl_805D3588 - 320.0f;
+        ox = viewport_scissor_origin_x - 320.0f;
         oy = camera_viewport_center_y - 240.0f;
         if (oy >= 0.0f) {
             adj = -oy;
@@ -125,7 +125,7 @@ void set_viewport_scissor__11TCameraCtrlFiPv(s32 mode, Rect_801E317C *r) {
 }
 
 void TCameraCtrl__sub_801E32D8(f32 farg0, f32 farg1) {
-    lbl_805D3588 = farg0;
+    viewport_scissor_origin_x = farg0;
     camera_viewport_center_y = farg1;
 }
 

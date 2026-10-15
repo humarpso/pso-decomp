@@ -146,8 +146,8 @@ s32 pop_matrix();
 s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(int);
 s32 draw_chunk_object(void *);
-extern s32 lbl_80500988[];
-extern s32 lbl_80500994[];
+extern s32 dimedian_resource_handles[];
+extern s32 dimedian_last_draw_tick[];
 extern s32 actor_frame_tick;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
@@ -347,9 +347,9 @@ void draw_actor_model__10TObjPlayerFPv(Player_800A7CA4 *self) {
     s32 d;
     s32 doDraw;
     f32 pos[3];
-    if (actor_frame_tick != lbl_80500994[self->f368]) {
-        lbl_80500994[self->f368] = actor_frame_tick;
-        TObjPlayer__sub_8023DEE0(lbl_80500988[self->f368], 0xE, 0, 0);
+    if (actor_frame_tick != dimedian_last_draw_tick[self->f368]) {
+        dimedian_last_draw_tick[self->f368] = actor_frame_tick;
+        TObjPlayer__sub_8023DEE0(dimedian_resource_handles[self->f368], 0xE, 0, 0);
     }
     mode = 0;
     if (is_split_screen() != 0) {

@@ -46,7 +46,7 @@ s32 GXSetViewport(f32, f32, f32, f32, f32, f32);
 s32 GXSetScissor(int, int, int, int);
 s32 set_camera_look_at(void *, void *, void *);
 s32 set_perspective_projection_from_fov(int, f32, f32, f32);
-extern RecoveredGlobal_800830B0_lbl_80439348 lbl_80439348;
+extern RecoveredGlobal_800830B0_lbl_80439348 camera_ctrl_up_vector;
 extern RecoveredGlobal_800830B0_main_task main_task;
 extern u8 *camera_ctrl_instance;
 extern u32 camera_render_target_singleton;
@@ -130,9 +130,9 @@ void TCameraCtrl__sub_800830B0(u8 *arg0) {
         restore_full_screen_view__11TCameraCtrlFv();
         GXSetViewport((f32) (lbl_805D93D0), (f32) (lbl_805D93D0), (f32) (lbl_805D9404), (f32) (lbl_805D9408), (f32) (lbl_805D93D0), (f32) (lbl_805D93D8));
         GXSetScissor((int) (0), (int) (0), (int) (0x280), (int) (0x1E0));
-        stack.sp20 = *(s32 *)((s8 *)(&lbl_80439348.value) + 0);
-        stack.sp24 = *(s32 *)((s8 *)(&lbl_80439348.value) + 4);
-        stack.sp28 = *(s32 *)((s8 *)(&lbl_80439348.value) + 8);
+        stack.sp20 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 0);
+        stack.sp24 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 4);
+        stack.sp28 = *(s32 *)((s8 *)(&camera_ctrl_up_vector.value) + 8);
         set_perspective_projection_from_fov((int) (*(s32 *)((s8 *)camera_ctrl_instance + 0x19C)), (f32) (lbl_805D940C), (f32) (lbl_805D93D8), (f32) (lbl_805D9410));
         set_camera_look_at((void *) (arg0 + 0x20), (void *) (arg0 + 0x2C), (void *) (&stack.sp20));
         if ((void *) camera_ctrl_instance != NULL) {

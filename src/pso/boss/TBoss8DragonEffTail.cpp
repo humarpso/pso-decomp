@@ -205,8 +205,8 @@ void *__dt__19TBoss8DragonEffTailFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D69C8;
-extern u32 lbl_805D69CC;
+extern s32 boss8_eff_tail_bml_resource;
+extern u32 dragon_tail_gvm_texture_handle;
 
 EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 arg2) {
     void *data;
@@ -234,13 +234,13 @@ EffTail_8002C06C *TBoss8DragonEffTail__ct(EffTail_8002C06C *arg0, s32 arg1, s32 
 }
 
 void free_statics__19TBoss8DragonEffTailFv(void) {
-    if ((u32) lbl_805D69CC != 0U) {
-        TLobby__sub_803DA16C((void*)lbl_805D69CC);
-        safe_free__23TAdSinglePlyChrSelectGCFUi(lbl_805D69CC);
-        lbl_805D69CC = 0U;
+    if ((u32) dragon_tail_gvm_texture_handle != 0U) {
+        TLobby__sub_803DA16C((void*)dragon_tail_gvm_texture_handle);
+        safe_free__23TAdSinglePlyChrSelectGCFUi(dragon_tail_gvm_texture_handle);
+        dragon_tail_gvm_texture_handle = 0U;
     }
-    TLobby__sub_8001FE7C(lbl_805D69C8, 1);
-    lbl_805D69C8 = 0;
+    TLobby__sub_8001FE7C(boss8_eff_tail_bml_resource, 1);
+    boss8_eff_tail_bml_resource = 0;
 }
 
 }

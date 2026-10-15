@@ -11,7 +11,7 @@ void *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 is_global_state_in_table__19TContainerAncient01Fv();
 void spawn_attack__16TObjEneMe3StelthFsiiiff(s16, s32, s32, Param_8018BB64 *, f32, f32);
-extern Param_8018BB64 lbl_80445084[];
+extern Param_8018BB64 container_ancient_anim_binding[];
 extern u8 TContainerAncient01__resource_descriptor[];
 extern u8 TContainerAncient01__resource_descriptor_2[];
 extern s32 TContainerAncient01__effect_id_table[];
@@ -67,7 +67,7 @@ void load_resources__19TContainerAncient01Fv(void) {
         TContainerAncient01__bml_resource = (u32)p;
         TContainerAncient01__effect_id_table[1] = 0x46;
     }
-    Param_8018BB64 prm = lbl_80445084[0];
+    Param_8018BB64 prm = container_ancient_anim_binding[0];
     prm.a = ((Res_8018BB64 *)TContainerAncient01__bml_resource)->x430;
     spawn_attack__16TObjEneMe3StelthFsiiiff(0x3B, get_bml_model(TContainerAncient01__bml_resource, 0),
                                             TObjFish__sub_8001EDB0(TContainerAncient01__bml_resource, 0), &prm,

@@ -382,7 +382,7 @@ s32 clear_global_state__10TObjPlayerFv();
 
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern Vec_800530C0 lbl_80437604;
-extern Vec_800530C0 lbl_80437610;
+extern Vec_800530C0 boss4_type2_effect_offset_vec_b;
 extern const f64 lbl_80437620[];
 extern const f64 lbl_80437630;
 extern RecoveredGlobal_80054F6C_lbl_804FF2A0 TBoss4Type2__tenchu_furu_array;
@@ -1053,7 +1053,7 @@ void update_flag800_state__11TBoss4Type2FPv(void *arg0) {
 void TBoss4Type2__sub_800530C0(Obj_800530C0 *arg0) {
     arg0->f39c = ((f32 (*)(void *, f32))calc_wave_offset__11TBoss4Type2Ff)(arg0, lbl_805D8B18 - (f32)arg0->timer / lbl_805D8B1C);
     Vec_800530C0 a = lbl_80437604;
-    Vec_800530C0 b = lbl_80437610;
+    Vec_800530C0 b = boss4_type2_effect_offset_vec_b;
     ((void (*)(void *, Vec_800530C0 *, Vec_800530C0 *))set_pos_from_scaled_offset__11TBoss4Type2FPvPvPv)(arg0, &a, &b);
     if (--arg0->timer < 0) {
         ((s32 (*)(void *, int))set_state__11TBoss4Type2FPvi)(arg0, 1);
@@ -1762,8 +1762,8 @@ void set_param__12TObjEneLappyFPvi(void *, int);
 void bind_enemy_combat_stats(void *, int, int, int);
 void initialize__9TObjEnemyFPv(void *, s32);
 s32 init_collision_body_parts(void *, void *, int);
-extern s32 lbl_80437578[];
-extern u8 lbl_80437598[];
+extern s32 boss4_type1_emitter_id_table[];
+extern u8 boss4_type1_model_node_table[];
 extern s32 TBoss4Type1__name;
 extern const f32 lbl_805D8B84;
 Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2);
@@ -1802,12 +1802,12 @@ Self_80054A1C *TBoss4Type1__ct(Self_80054A1C *self, s32 arg1, s32 *arg2) {
     }
     self->f480 = TObjFish__sub_800E3124(lbl_80486120, self->v484);
     for (j = 0; j < 8; j++) {
-        self->a3F8[j] = create_particle_emitter((int)self->v38, lbl_80437578[j]);
+        self->a3F8[j] = create_particle_emitter((int)self->v38, boss4_type1_emitter_id_table[j]);
     }
     for (; j < 13; j++) {
         self->a3F8[j] = 0;
     }
-    init_model_node_tables(self->f378, lbl_80437598, 7);
+    init_model_node_tables(self->f378, boss4_type1_model_node_table, 7);
     self->f3A4 = 0;
     self->f3A0 = 0;
     self->f3AC = 1;

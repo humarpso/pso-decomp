@@ -205,7 +205,7 @@ u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2);
 
 extern "C" {
 
-void *lbl_804A7EA0[8] = {
+void *npc_bringer_animation_table[8] = {
     (void *)0x10000, (void *)0x9, (void *)0x3f4ccccd, (void *)0x1,
     (void *)0x10000, (void *)0xa, (void *)0x3f800000, (void *)0x1,
 };
@@ -252,7 +252,7 @@ u8 *TObjNpcBringer__ct(u8 *self, void *parent, s32 arg2) {
     ((VObj_8014952C *)self)->m85(0, 1);
     *(s32 *)(self + 0x34) = get_bml_model(TObjEneDf2Bringer__resource_bundle, 0);
     *(s32 *)(self + 0x24) = TObjFish__sub_8001EDB0(TObjEneDf2Bringer__resource_bundle, 0);
-    init_npc_animation__10TObjPlayerFPvPvPvPv(self, lbl_804A7EA0, *(s32 *)(TObjEneDf2Bringer__resource_bundle + 0x430), *(s16 *)(self + 0xB8));
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, npc_bringer_animation_table, *(s32 *)(TObjEneDf2Bringer__resource_bundle + 0x430), *(s16 *)(self + 0xB8));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804A7EC0, 2);

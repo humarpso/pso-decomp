@@ -45,7 +45,7 @@ s32 get_or_create_player__22TAdMultiPlyChrSelectGCFiiii(void *, int, int, int);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
 extern u8 single_chr_select_item_rect_table[];
 extern u8 lbl_80472530[];
-extern T_802D4F2C lbl_80472570;
+extern T_802D4F2C single_chr_select_position_table;
 extern s32 __vt__23TAdSinglePlyChrSelectGC[];
 extern s32 lbl_805D3F40;
 u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent);
@@ -208,7 +208,7 @@ u8 *TAdSinglePlyChrSelectGC__ct(u8 *arg0, void *parent) {
     if (p != NULL) {
         p = __ct__13TAdTitleTexGCFv(p, arg0);
     }
-    T_802D4F2C t = lbl_80472570;
+    T_802D4F2C t = single_chr_select_position_table;
     fn_802D50B8(p, &t.p[0], &t.p[1], &t.p[2]);
     return arg0;
 }

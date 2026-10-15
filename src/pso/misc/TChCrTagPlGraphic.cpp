@@ -93,13 +93,13 @@ void *create__17TChCrTagPlGraphicFPv(void *arg0) {
 }
 
 struct Ent_802A3534 { f32 a; f32 b; u8 pad[0x10]; };
-extern f32 lbl_804665C4[];
+extern f32 tag_player_graphic_match_value_table[];
 
 void create_matching_tags__17TChCrTagPlGraphicFv(void) {
     s32 i, j;
     for (i = 0; i < 4; i++) {
         for (j = 0; j < 12; j++) {
-            if (((Ent_802A3534 *)&TChCrTagPlGraphic__data_804664A4)[j].b == lbl_804665C4[i]) {
+            if (((Ent_802A3534 *)&TChCrTagPlGraphic__data_804664A4)[j].b == tag_player_graphic_match_value_table[i]) {
                 create__17TChCrTagPlGraphicFPv((void *)j);
             }
         }

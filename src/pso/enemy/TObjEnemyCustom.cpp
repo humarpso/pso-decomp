@@ -33,7 +33,7 @@ void *__dt__15TObjEnemyCustomFv(void *arg0, s16 arg1) {
     return arg0;
 }
 
-extern s32 lbl_805D5198;
+extern s32 enemy_custom_camera_active_flag;
 
 typedef char RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom_size[sizeof(RecoveredGlobal_800C7F80___vt__15TObjEnemyCustom) == 0x14C ? 1 : -1];
 u8 *TObjEnemyCustom__ct(u8 *arg0) {
@@ -51,7 +51,7 @@ u8 *TObjEnemyCustom__ct(u8 *arg0) {
 }
 
 void update_camera_if_active__15TObjEnemyCustomFv(void) {
-    if ((s32) lbl_805D5198 != 0) {
+    if ((s32) enemy_custom_camera_active_flag != 0) {
         restore_player_cameras();
     }
 }

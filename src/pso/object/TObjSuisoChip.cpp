@@ -13,7 +13,7 @@ void *__dt__13TObjSuisoChipFv(void *self, s16 arg1);
 extern void *__vt__13TObjSuisoChip[];
 
 extern void *__vt__13TObjSuisoChip[];
-extern s32 lbl_805D3E08;
+extern s32 suiso_chip_class_name_ptr;
 extern s32 tl_05;
 extern const f32 lbl_805DDFF8;
 
@@ -31,7 +31,7 @@ void *__dt__13TObjSuisoChipFv(void *self, s16 arg1) {
 u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
     __ct__8TObjChipFv((void *) (arg0), (void *) (tl_05));
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E08;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
@@ -47,14 +47,14 @@ u8 *__ct__13TObjSuisoChipFv(u8 *arg0, u8 *arg1) {
 }
 
 extern void *__vt__13TObjSuisoChip[];
-extern s32 lbl_805D3E08;
+extern s32 suiso_chip_class_name_ptr;
 extern s32 tl_05;
 extern const f32 lbl_805DDFF8;
 
 u8 *init__13TObjSuisoChipFPvPv(u8 *arg0, u8 *arg1) {
     construct_debris__8TObjChipFPvPvPv((void *) (arg0), (void *) (tl_05));
     *(void ***)((s8 *)arg0 + 0x18) = __vt__13TObjSuisoChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3E08;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) suiso_chip_class_name_ptr;
     if (arg1 != NULL) {
         VecCopy__FP3VecPC3Vec((void *) (arg0 + 0x234), (void *) (arg1 + 0x38));
         *(s32 *)((s8 *)arg0 + 0x240) = (s32) *(s32 *)((s8 *)arg1 + 0x60);
@@ -364,7 +364,7 @@ void *create__23TObjSeabedSuisoBrakableFPv(void *arg0) {
 void update_anim_if_active__23TObjSeabedSuisoBrakableFPv(void* p) { if (*(unsigned int*)((char*)p + 0xbc) != 0) { update_anim_phase__17TOBarrierEnergy01FPv(p); } }
 
 extern s32 actor_frame_tick;
-extern s32 lbl_805D6678;
+extern s32 suiso_brakable_last_frame_tick;
 
 void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 *temp_r3;
@@ -407,7 +407,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
             *temp_r3_4 |= 8;
         }
     }
-    if ((s32) lbl_805D6678 != (s32) actor_frame_tick) {
+    if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
         temp_r31 = get_break_data__23TObjSeabedSuisoBrakableFi(4);
         temp_r3_5 = get_table1_entry__23TObjSeabedSuisoBrakableFi(2);
         if ((temp_r3_5 != NULL) && (temp_r31 != -1)) {
@@ -418,7 +418,7 @@ void update_switch_lock__23TObjSeabedSuisoBrakableFPv(void *arg0) {
         if ((temp_r3_6 != NULL) && (temp_r31_2 != -1)) {
             scroll_ginja_mesh_uvs((s32)(*(s32 *)((s8 *)temp_r3_6 + 4)), (s32)(0), (s32)(3), (u16)((u16) temp_r31_2), (s32)(1));
         }
-        lbl_805D6678 = actor_frame_tick;
+        suiso_brakable_last_frame_tick = actor_frame_tick;
     }
 }
 
@@ -432,21 +432,21 @@ void *count_linked_switches__23TObjSeabedSuisoBrakableFUii(s32, s32);
 s32 set_model_node_callback(s32 *);
 
 extern s32 actor_frame_tick;
-extern s32 lbl_805D6678;
+extern s32 suiso_brakable_last_frame_tick;
 
 void notify_break__23TObjSeabedSuisoBrakableFPv(void *arg0) {
     s32 temp_r3;
     void *temp_r31;
 
     temp_r31 = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0xD4), 4);
-    if ((s32) lbl_805D6678 != (s32) actor_frame_tick) {
+    if ((s32) suiso_brakable_last_frame_tick != (s32) actor_frame_tick) {
         if ((temp_r31 != NULL) && ((u32) *(u32 *)((s8 *)temp_r31 + 4) != 0U)) {
             temp_r3 = get_break_data__23TObjSeabedSuisoBrakableFi(0);
             if (temp_r3 != -1) {
                 ((s32 (*)(u32, s32, s32, u16, s32))scroll_ginja_mesh_uvs)(*(u32 *)((s8 *)temp_r31 + 4), 1, 0, (u16) temp_r3, 1);
             }
         }
-        lbl_805D6678 = actor_frame_tick;
+        suiso_brakable_last_frame_tick = actor_frame_tick;
     }
     set_model_node_callback((s32 *)notify_break__23TObjSeabedSuisoBrakableFUi);
 }

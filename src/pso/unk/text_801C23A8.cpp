@@ -18,7 +18,7 @@ extern s32 tl_00;
 void show_duel_result_window(s32 arg0, s32 arg1);
 u8 * __dt__7TObjectFv(void *, s16);
 void __dl__7TObjectFPv(s32);
-extern RecoveredGlobal_801C241C_lbl_804C3E60 lbl_804C3E60;
+extern RecoveredGlobal_801C241C_lbl_804C3E60 duel_result_window_dispatch_table;
 extern u8 *duel_result_window;
 u8 *fn_801C241C(u8 *arg0, s16 arg1);
 }
@@ -45,7 +45,7 @@ void show_duel_result_window(s32 arg0, s32 arg1) {
 typedef char RecoveredGlobal_801C241C_lbl_804C3E60_size[sizeof(RecoveredGlobal_801C241C_lbl_804C3E60) == 0x18 ? 1 : -1];
 u8 *fn_801C241C(u8 *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = &lbl_804C3E60.value;
+        *(s32 **)((s8 *)arg0 + 0x18) = &duel_result_window_dispatch_table.value;
         (*(s32 *)&duel_result_window) = 0;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {

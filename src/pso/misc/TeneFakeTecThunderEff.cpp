@@ -102,7 +102,7 @@ extern s32 model_render_flags;
 void render__12TEneEffHamonFv(Hamon_800A36A8 *o);
 void build_beam_points__12TTecZondeEffFPv(struct Obj_800A39A8 *);
 f32 sin_table_lookup(s32);
-extern Entry_800A4064 *lbl_80500970[];
+extern Entry_800A4064 *player_effect_task_list[];
 extern s32 TObjPlayer__effect_count;
 extern const f32 lbl_805D99F8;
 extern const f32 lbl_805D9A04;
@@ -409,7 +409,7 @@ void TObjPlayer__sub_800A4064(Obj_800A4064 *self) {
     s32 i;
     if (self->active != 0) {
         build_beam_points__12TTecZondeEffFPv((Obj_800A39A8 *)self);
-        TObjPlayer__effect_count = *lbl_80500970[0][self->type].inner->p;
+        TObjPlayer__effect_count = *player_effect_task_list[0][self->type].inner->p;
         for (i = 0; i < self->count; i++) {
             self->scale[i] = lbl_805D99F8 * (lbl_805D9A08 * sin_table_lookup(self->timer * 0x1800) + lbl_805D9A04);
         }

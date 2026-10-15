@@ -60,12 +60,12 @@ void draw_color_palette__24TWindowSubSymbolChatHelpFPvPv(Self_8028429C *arg0, Wi
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
-extern UV_802844C8 lbl_8044FBA4[];
+extern UV_802844C8 symbol_chat_help_entry_uv_table[];
 void draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii(Self_802844C8 *arg0, Win_802844C8 *arg1, s32 arg2, s32 arg3);
 void apply_context_transform_to_rect(void *, void *);
 void draw_textured_quad_at_depth(void *, f32);
 void set_constant_material_color(s32);
-extern UV_802845EC lbl_8044FB74[];
+extern UV_802845EC symbol_chat_help_icon_uv_table[];
 void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *arg1, s32 arg2, s32 arg3);
 }
 
@@ -142,7 +142,7 @@ void draw_help_entry__24TWindowSubSymbolChatHelpFPvPvii(Self_802844C8 *arg0, Win
     if (arg2 == 2 && *arg0->mode == 1) {
         idx = 6;
     }
-    uv = &lbl_8044FBA4[idx];
+    uv = &symbol_chat_help_entry_uv_table[idx];
     scale = (-1.0f) / ((0.1794f) + arg1->scale);
     set_constant_material_color(arg3);
     q.x = (16.0f) + arg1->x;
@@ -164,7 +164,7 @@ void draw_help_icon__24TWindowSubSymbolChatHelpFiPvii(s32 arg0, Win_802845EC *ar
     Quad_802845EC q;
     UV_802845EC *uv;
     f32 scale;
-    uv = &lbl_8044FB74[arg2];
+    uv = &symbol_chat_help_icon_uv_table[arg2];
     scale = (-1.0f) / ((0.1794f) + arg1->scale);
     set_constant_material_color(arg3);
     q.x = arg1->x;

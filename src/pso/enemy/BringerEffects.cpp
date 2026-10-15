@@ -77,8 +77,8 @@ f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 s32 rand();
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-extern Vec_8009A7A4 lbl_805008B8[6];
-extern u32 lbl_80500900[12];
+extern Vec_8009A7A4 bringer_effect_vec_table[6];
+extern u32 bringer_effect_color_table[12];
 extern const f32 lbl_805D9860;
 extern const f32 lbl_805D9874;
 extern const f32 lbl_805D987C;
@@ -101,7 +101,7 @@ void init_bringer_effect_tables(void) {
   f32 sn;
   f32 cs;
   ang = 0;
-  v = lbl_805008B8;
+  v = bringer_effect_vec_table;
   for (i = 0; i < 6; i++)
   {
     sn = sin_table_lookup(ang);
@@ -116,7 +116,7 @@ void init_bringer_effect_tables(void) {
   b = (u8) ((u32) get_random_float__21TObjEneMe3ShinowaRealFv(lbl_805D9874 * (lbl_805D987C * rand())));
   new_var = get_random_float__21TObjEneMe3ShinowaRealFv(lbl_805D9874 * (lbl_805D987C * rand()));
   c = (((u8) ((u32) new_var)) << 8) | b;
-  p = lbl_80500900;
+  p = bringer_effect_color_table;
   for (j = 0; j < 12; j++)
   {
     c = ((u16) c) << 8;

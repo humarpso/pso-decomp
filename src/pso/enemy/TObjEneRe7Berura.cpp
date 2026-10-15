@@ -615,12 +615,12 @@ extern s32 berura_demo_flag;
 extern s32 re7_berura_demo_flag;
 extern s32 TObjEneRe7Berura__demo_target;
 extern u32 re7_berura_static_buffer;
-extern s32 lbl_805D4F84;
-extern s32 lbl_805D4F88;
+extern s32 berura_node_matrix_ptr_a;
+extern s32 berura_node_matrix_ptr_b;
 extern u32 belra_uv_animation_buffer;
-extern s32 lbl_805D4F90;
-extern s32 lbl_805D4F94;
-extern s32 lbl_805D4F9C;
+extern s32 berura_attack_node_range_start;
+extern s32 berura_attack_node_range_end;
+extern s32 berura_attack_node_vec_ptr;
 extern u32 belra_trail_buffer;
 extern const s32 lbl_805D9718[1];
 extern const s32 lbl_805D971C[1];
@@ -746,7 +746,7 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *bm_ene_re7_berura_model_names[2];
 extern void *bm_ene_re7_berura_motion_names[9];
-void *lbl_8048F650[7] = {
+void *berura_init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -805,7 +805,7 @@ void *__vt__16TObjEneRe7Berura[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneRe7Berura__vt103, (void *)&TObjEneRe7Berura__vt104,
 };
-#define lbl_8048F650 ((u8 *)lbl_8048F650)
+#define berura_init_params ((u8 *)berura_init_params)
 #define lbl_8048F66C ((u8 *)lbl_8048F66C)
 #define ene_berura_bml_descriptor ((u8 *)ene_berura_bml_descriptor)
 #define TObjEneRe7Berura__animation_definitions ((T16_800959F8 *)TObjEneRe7Berura__animation_definitions)
@@ -1039,16 +1039,16 @@ void apply_attack_params__16TObjEneRe7BeruraFiPv(s32 arg0, u8 *arg1) {
     temp_r6 = *(s32 *)((s8 *)arg1 + 0);
     TObjEneRe7Berura__node_matrix_cursor = temp_r6;
     temp_r5 = *(s32 *)((s8 *)arg1 + 4);
-    lbl_805D4F90 = temp_r5;
+    berura_attack_node_range_start = temp_r5;
     temp_r4 = *(s32 *)((s8 *)arg1 + 8);
-    lbl_805D4F94 = temp_r4;
-    lbl_805D4F9C = (long) (arg1 + 0x58);
+    berura_attack_node_range_end = temp_r4;
+    berura_attack_node_vec_ptr = (long) (arg1 + 0x58);
     push_matrix_from((void *) (identity_matrix), (int) (temp_r4), (int) (temp_r5), (int) (temp_r6));
     collect_node_matrices__16TObjEneRe7BeruraFPvi((void *)((void *) (arg0)), (int)((int) (0)));
     pop_matrix();
 }
 
-#define V ((f32 *)lbl_805D4F9C)
+#define V ((f32 *)berura_attack_node_vec_ptr)
 #define node ((Node_8009503C *)arg0)
 s32 collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
     Mtx_8009503C m;
@@ -1057,7 +1057,7 @@ s32 collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
         push_matrix();
         compose_motion_node_matrix((int)node);
         flags = node->flags;
-        if (idx == lbl_805D4F90) {
+        if (idx == berura_attack_node_range_start) {
             V[0] = TObjEneRe7Berura__data_805D972C;
             V[1] = TObjEneRe7Berura__data_805D972C;
             V[2] = TObjEneRe7Berura__data_805D972C;
@@ -1072,7 +1072,7 @@ s32 collect_node_matrices__16TObjEneRe7BeruraFPvi(void *arg0, int idx) {
             pop_matrix();
             copy_matrix__10TObjPlayerFUiUi(0, &m);
         }
-        if (idx >= lbl_805D4F90 && idx <= lbl_805D4F94) {
+        if (idx >= berura_attack_node_range_start && idx <= berura_attack_node_range_end) {
             s32 p = TObjEneRe7Berura__node_matrix_cursor;
             TObjEneRe7Berura__node_matrix_cursor = p + 0x30;
             get_current_matrix((void *)p);
@@ -1224,7 +1224,7 @@ void init_enemy__16TObjEneRe7BeruraFPv(u8 *arg0) {
         TObjEneRe7Berura__data_805007D4[TObjEneRe7Berura__data_80439DB0[0]],
         TObjEneRe7Berura__shared_object_handles[TObjEneRe7Berura__data_80439DB8[0]]);
     set_state_8__9TObjEneDDFPv(arg0);
-    *(u8 **)((s8 *)arg0 + 0x350) = lbl_8048F650;
+    *(u8 **)((s8 *)arg0 + 0x350) = berura_init_params;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x25);
     *(f32 *)((s8 *)arg0 + 0x37C) = TObjEneRe7Berura__data_805D9730;
     enemy_init_acquire_period(arg0, 0x3C);
@@ -1376,8 +1376,8 @@ void load_static_resources__16TObjEneRe7BeruraFv(void) {
         e->f4C = e->f18[0x2C / 4];
         e->f50 = 0;
     }
-    lbl_805D4F84 = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 2)[1])[1] + 8;
-    lbl_805D4F88 = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 1)[1])[1] + 8;
+    berura_node_matrix_ptr_a = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 2)[1])[1] + 8;
+    berura_node_matrix_ptr_b = ((s32 *)collect_and_count__12TBoss3VoloptFUii(m, 1)[1])[1] + 8;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x14);
     if (p != NULL) {
         p = alloc_tables__6TLobbyFPvii(p, *(s32 *)(RES->f42C + 8), 2);

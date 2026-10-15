@@ -132,7 +132,7 @@ s32 rotate_matrix_y(int, int);
 s32 push_matrix_from(u32);
 s32 pop_matrix(void);
 extern Vec_800D9C7C lbl_8043C8E4;
-extern Vec_800D9C7C lbl_8043C8F0;
+extern Vec_800D9C7C find_open_direction_zero_vec;
 extern const f64 lbl_8043C900[];
 extern RecoveredGlobal_800D9E8C_lbl_8058D490 identity_matrix;
 extern const f32 lbl_805DA3F8;
@@ -200,7 +200,7 @@ void find_open_direction__10TObjPlayerFPvPv(u8 *arg0, f32 *arg1) {
     pop_matrix();
     push_matrix_from((u32) &identity_matrix.value);
     {
-        Vec_800D9C7C v2 = lbl_8043C8F0;
+        Vec_800D9C7C v2 = find_open_direction_zero_vec;
         v2.x = bestv;
         rotate_matrix_y(0, best);
         matrix_mult_vec(0, &v2, arg0 + 0x390);

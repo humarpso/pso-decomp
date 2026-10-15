@@ -30,7 +30,7 @@ void free_dialog_global__6TLobbyFv(void) {
     }
 }
 
-    extern int lbl_805D663C;
+    extern int lobby_cursor_active_flag;
 
 void TLobby__sub_802A0F70(void) {
     update_menu_cursor__6TLobbyFv();
@@ -41,6 +41,6 @@ void TLobby__sub_802A0F70(void) {
     TLobby__sub_8023E4B4(a.v[current_language], r4);
 }
 
-int TObjPlayer__sub_802A1018(void) {  return lbl_805D663C; }
+int TObjPlayer__sub_802A1018(void) {  return lobby_cursor_active_flag; }
 
 }

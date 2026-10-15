@@ -150,7 +150,7 @@ extern char lbl_80476400[];
 extern char lbl_80476410[];
 extern char lbl_80476428[];
 extern char lbl_80476440[];
-extern s32 lbl_805D28B8;
+extern s32 debug_chunk_object;
 extern const f32 TObjEneRecon__data_805DF438;
 extern const f32 lbl_805DF43C;
 void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0);
@@ -237,7 +237,7 @@ void draw_with_debug_info__12TObjEneReconFPv(u8 *arg0) {
     push_matrix();
     post_translate_matrix((void *) (arg0 + 0x38));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0x60)));
-    draw_chunk_object((void *) (lbl_805D28B8));
+    draw_chunk_object((void *) (debug_chunk_object));
     pop_matrix();
 }
 void render__12TObjEneReconFPv(u8 *arg0) {

@@ -27,7 +27,7 @@ s32 TLobby__sub_803F53A0(int, void *, int);
 s32 TLobby__sub_8042EE4C(u32 *);
 s32 memset(void *, int, int);
 extern s32 lbl_8043F3E8[];
-extern s16 lbl_805D4EBE;
+extern s16 disc_error_code;
 extern s32 lbl_805D56C8;
 extern u16 lbl_805D56CC;
 extern u16 lbl_805D56CE;
@@ -71,7 +71,7 @@ s32 TLobby__sub_80145A94(void) {
     TAdPlayerLoadGC__sub_803F31D8();
     start = 0;
     end = 2;
-    switch (lbl_805D4EBE) {
+    switch (disc_error_code) {
     case 0:
         start = 0;
         end = 2;

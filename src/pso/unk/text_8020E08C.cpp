@@ -101,8 +101,8 @@ extern s32 TLobby__data_805D611C;
 extern s32 TLobby__data_805D6120;
 extern s32 TLobby__data_805D6124;
 extern s32 TLobby__data_805D6128;
-extern s32 lbl_805D612C;
-extern s32 lbl_805D6130;
+extern s32 item_drop_memory_pool_ar_addr;
+extern s32 item_drop_memory_pool_size;
 extern s16 TLobby__data_805D6134;
 extern s32 TLobby__data_805D6138;
 extern s32 TLobby__data_805D613C;
@@ -123,7 +123,7 @@ void init_item_drop_tables(void) {
     TLobby__data_805D6108 = 0;
     p = alloc__23TAdSinglePlyChrSelectGCFPv(0x30);
     if (p != NULL) {
-        p = init_memory_pool__6TLobbyFPviii(p, lbl_805D612C, lbl_805D6130, 0x40);
+        p = init_memory_pool__6TLobbyFPviii(p, item_drop_memory_pool_ar_addr, item_drop_memory_pool_size, 0x40);
     }
     TLobby__data_805D6104 = p;
     for (i = 0; i < 18; i++) {

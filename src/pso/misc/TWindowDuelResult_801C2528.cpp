@@ -18,11 +18,11 @@ void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, voi
 void __ct__7TObjectFP7TObject(void *);
 void set_and_notify__6TLobbyFi(void *);
 
-extern s32 lbl_804C3E60[];
+extern s32 duel_result_window_dispatch_table[];
 
 void *init__17TWindowDuelResultFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3) {
     __ct__7TObjectFP7TObject(arg0);
-    *(s32 **)((s8 *)arg0 + 0x18) = lbl_804C3E60;
+    *(s32 **)((s8 *)arg0 + 0x18) = duel_result_window_dispatch_table;
     *(void **)((s8 *)arg0 + 0x1C) = arg3;
     *(void **)((s8 *)arg0 + 0x20) = arg2;
     set_and_notify__6TLobbyFi(arg2);

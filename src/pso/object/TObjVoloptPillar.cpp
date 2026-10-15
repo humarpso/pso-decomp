@@ -81,7 +81,7 @@ void VecCopy__FP3VecPC3Vec(void *, void *);
 f32 horizontal_distance__10TObjPlayerFPvPv(void *, void *);
 void init_collision_body_parts(void *, void *, s32);
 void construct_collider_proxy__10TObjPlayerFPv(void *, s32);
-extern u8 lbl_80484B38[];
+extern u8 volopt_pillar_collision_body[];
 extern s32 __vt__16TObjVoloptPillar[];
 extern u8 boss3_volopt_spawn_pos[];
 extern s32 lbl_805D2760;
@@ -104,10 +104,10 @@ void pop_matrix();
 void post_translate_matrix(void *);
 void set_global_param__8TObjFishFi(s32);
 void draw_chunk_object(s32);
-extern s32 lbl_805D4D38;
-extern s32 lbl_805D4D3C;
-extern s32 lbl_805D4D40;
-extern s32 lbl_805D4D44;
+extern s32 volopt_pillar_chunk_model_handle;
+extern s32 volopt_pillar_secondary_chunk_model;
+extern s32 volopt_pillar_texture_param_a;
+extern s32 volopt_pillar_texture_param_b;
 extern const f32 lbl_805D88B8;
 extern const f32 lbl_805D88BC;
 extern const f32 lbl_805D88C0;
@@ -157,10 +157,10 @@ void __dl__7TObjectFPv(void *);
 void destroy_particle_controller__10TObjPlayerFPvs(void *, int);
 
 extern u8 *boss3_volopt_resources;
-extern s32 lbl_805D4D38;
-extern s32 lbl_805D4D3C;
-extern s32 lbl_805D4D40;
-extern s32 lbl_805D4D44;
+extern s32 volopt_pillar_chunk_model_handle;
+extern s32 volopt_pillar_secondary_chunk_model;
+extern s32 volopt_pillar_texture_param_a;
+extern s32 volopt_pillar_texture_param_b;
 
 #pragma fp_contract on
 void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
@@ -170,13 +170,13 @@ void render__16TObjVoloptPillarFv(Obj_8004A0AC *arg0) {
         toggle_particle_effect__10TObjPlayerFv();
         push_matrix();
         post_translate_matrix(&arg0->f38);
-        set_global_param__8TObjFishFi(lbl_805D4D40);
-        draw_chunk_object(lbl_805D4D38);
+        set_global_param__8TObjFishFi(volopt_pillar_texture_param_a);
+        draw_chunk_object(volopt_pillar_chunk_model_handle);
         pop_matrix();
         push_matrix();
         translate_matrix(0, arg0->f38, arg0->fb8, arg0->f40);
-        set_global_param__8TObjFishFi(lbl_805D4D44);
-        draw_chunk_object(lbl_805D4D3C);
+        set_global_param__8TObjFishFi(volopt_pillar_texture_param_b);
+        draw_chunk_object(volopt_pillar_secondary_chunk_model);
         pop_matrix();
         restore_scene_lighting();
         end_effect_render__13TParticleCtrlFv();
@@ -276,10 +276,10 @@ void run_task__16TObjVoloptPillarFv(Self_8004A1CC *self) {
 }
 
 void cache_target_values__16TObjVoloptPillarFv(void) {
-    lbl_805D4D38 = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x178);
-    lbl_805D4D40 = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x17C);
-    lbl_805D4D3C = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x158);
-    lbl_805D4D44 = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x15C);
+    volopt_pillar_chunk_model_handle = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x178);
+    volopt_pillar_texture_param_a = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x17C);
+    volopt_pillar_secondary_chunk_model = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x158);
+    volopt_pillar_texture_param_b = *(s32 *)((s8 *)(*(void **)((s8 *)boss3_volopt_resources + 0x42C)) + 0x15C);
 }
 
 extern s32 __vt__16TObjVoloptPillar[];
@@ -302,7 +302,7 @@ S_8004A574 *TObjVoloptPillar__ct(S_8004A574 *o, void *pos, s32 arg2) {
     construct_collider_proxy__10TObjPlayerFPv(o, tl_04);
     o->vt = ((u8 *)&__vt__16TObjVoloptPillar);
     o->f0 = lbl_805D2760;
-    init_collision_body_parts(o, lbl_80484B38, 1);
+    init_collision_body_parts(o, volopt_pillar_collision_body, 1);
     VecCopy__FP3VecPC3Vec(o->v38, pos);
     d = horizontal_distance__10TObjPlayerFPvPv(o->v38, boss3_volopt_spawn_pos);
     if (d < lbl_805D88E4) {

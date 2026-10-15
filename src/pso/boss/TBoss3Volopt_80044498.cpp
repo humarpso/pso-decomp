@@ -660,7 +660,7 @@ void TObjPlayer__sub_800D7C58(void *, int);
 void __dl__7TObjectFPv(void *);
 void __dt__15TObjEnemyCustomFv(void *, int);
 void queue_destruction__7TObjectFv(void *);
-extern s32 lbl_80484610[];
+extern s32 volopt_boss_dispatch_table[];
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1);
 s32 spawn_particle_effect(s32, s32);
 s32 play_persistent_sound(s32, s32, u32, s16, s32);
@@ -842,7 +842,7 @@ s32 play_persistent_sound(s32, s32, u32, s16, s32);
 s32 play_sound_effect(s32, u32, s16, s32);
 s32 init_all_slots__11TWindowCtrlFv();
 s32 init_all_slots2__11TWindowCtrlFv();
-extern u8 lbl_804845CC[];
+extern u8 volopt_death_breakup_params[];
 extern u8 boss3_volopt_spawn_pos[];
 extern s32 volopt_death_active;
 extern s32 TBoss3Volopt__data_805D4CE8;
@@ -1390,7 +1390,7 @@ void update_death_sequence__12TBoss3VoloptFPv(void *arg0_) {
         spawn_ambient_particles__12TBoss3VoloptFPv(arg0);
         *(f32 *)((s8 *)arg0 + 0x3C) = lbl_805D87EC * *(f32 *)((s8 *)arg0 + 0xC0);
         if (*(f32 *)((s8 *)arg0 + 0xC0) >= lbl_805D87F0) {
-            create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3Volopt__data_805D4CE8, (s32)lbl_804845CC, *(s32 *)((s8 *)arg0 + 0x24), (s32)(arg0 + 0x2FC), *(s32 *)((s8 *)arg0 + 0x60));
+            create_breakup_mdl__12TBoss3VoloptFiiiii(TBoss3Volopt__data_805D4CE8, (s32)volopt_death_breakup_params, *(s32 *)((s8 *)arg0 + 0x24), (s32)(arg0 + 0x2FC), *(s32 *)((s8 *)arg0 + 0x60));
             trigger_dell_biter_events__10TObjPlayerFPv(arg0 + 0x2FC);
             refresh_lobby_state__10TObjPlayerFPv(arg0);
             volopt_death_active = 1;
@@ -2022,7 +2022,7 @@ void *TBoss3Volopt__sub_80047DD4(void *arg0) {
 }
 void *destroy__12TBoss3VoloptFPvs(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_80484610;
+        *(s32 **)((s8 *)arg0 + 0x18) = volopt_boss_dispatch_table;
         free_collision_body_parts(arg0);
         if (*(void **)((s8 *)arg0 + 0x474) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x474)); }
         if (*(void **)((s8 *)arg0 + 0x478) != NULL) { queue_destruction__7TObjectFv(*(void **)((s8 *)arg0 + 0x478)); }

@@ -30,10 +30,10 @@ s32 set_global_param__8TObjFishFi(int);
 s32 draw_ginja_object();
 s32 draw_chunk_object(int, void *);
 extern s32 city_aircar_model_indices[];
-extern s32 lbl_80443B40[];
+extern s32 city_air_car_model_index_table[];
 extern s32 city_traffic_car_chunk_index_table[];
 extern s32 air_car_buffer_pair_table[];
-extern void **lbl_805D5B24;
+extern void **city_air_car_model_handle;
 extern void **city_common_texture_list;
 extern const f32 lbl_805DBBA0;
 extern const f32 lbl_805DBBA4;
@@ -116,18 +116,18 @@ void render__18TObjCityAirCar_CarFPv(u8 *arg0) {
         get_city_common_model((int) (*(s32 *)((s8 *)((u8 *)(city_aircar_model_indices) + (*(s32 *)((s8 *)arg0 + 0x9C) * 4)) + 0)));
         ((void (*)()) draw_chunk_object)();
         begin_effect_render__13TParticleCtrlFv();
-        get_city_common_model((int) (*(s32 *)((s8 *)((u8 *)(lbl_80443B40) + (*(s32 *)((s8 *)arg0 + 0x9C) * 4)) + 0)));
+        get_city_common_model((int) (*(s32 *)((s8 *)((u8 *)(city_air_car_model_index_table) + (*(s32 *)((s8 *)arg0 + 0x9C) * 4)) + 0)));
         draw_ginja_object();
         if ((void *) city_air_car_model_resource != NULL) {
-            temp_r3 = (u8 *)(*(u8 **)((s8 *)lbl_805D5B24 + 0));
+            temp_r3 = (u8 *)(*(u8 **)((s8 *)city_air_car_model_handle + 0));
             temp_r31 = *(s32 *)((s8 *)temp_r3 + 0x20);
             if ((s32) *(s32 *)((s8 *)arg0 + 0xA4) >= 0x14) {
                 *(s32 *)((s8 *)temp_r3 + 0x20) = (s32) *(s32 *)((s8 *)temp_r3 + 8);
             }
-            set_global_param__8TObjFishFi((int) (lbl_805D5B24));
+            set_global_param__8TObjFishFi((int) (city_air_car_model_handle));
             scroll_strip_uvs(air_car_buffer_pair_table[*(s32 *)((s8 *)arg0 + 0x9C)], *(s32 *)((s8 *)arg0 + 0xA0), 0);
             draw_chunk_object((*(Rec16_80180D18 **)((s8 *)city_air_car_model_resource + 0x42C))[((s32 *)city_traffic_car_chunk_index_table)[*(s32 *)((s8 *)arg0 + 0x9C)]].f8, (void *) (city_air_car_model_resource));
-            *(s32 *)((s8 *)(*(u8 **)((s8 *)lbl_805D5B24 + 0)) + 0x20) = temp_r31;
+            *(s32 *)((s8 *)(*(u8 **)((s8 *)city_air_car_model_handle + 0)) + 0x20) = temp_r31;
         }
         pop_matrix();
         end_effect_render__13TParticleCtrlFv();

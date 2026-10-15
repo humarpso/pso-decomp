@@ -16,7 +16,7 @@ void TCameraCtrl__sub_801A3C30(int a0) { TCameraCtrl__camera_id = a0; }
     extern short TCameraCtrl__camera_mode;
 void set_mode__11TCameraCtrlFi(int a0) { TCameraCtrl__camera_mode = a0; }
 
-    extern unsigned char lbl_805D4DF8;
-unsigned char TLobby__sub_801A3C40(void) {  return lbl_805D4DF8; }
+    extern unsigned char camera_ctrl_view_state_byte;
+unsigned char TLobby__sub_801A3C40(void) {  return camera_ctrl_view_state_byte; }
 
 }

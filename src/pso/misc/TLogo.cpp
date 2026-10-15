@@ -314,7 +314,7 @@ int is_sega_logo_done(int _w0) {  return sega_logo_done_flag; }
 
 s32 TLogo__sub_8013F800(void* p) { return *(s32*)((char*)p + 0x48); }
 
-    extern int lbl_805D4090;
-int TLogo__sub_8013F808(void) {  return lbl_805D4090; }
+    extern int logo_clear_flag;
+int TLogo__sub_8013F808(void) {  return logo_clear_flag; }
 
 }

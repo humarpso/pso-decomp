@@ -240,7 +240,7 @@ void __dt__19TAdPlyChrSelPlateGCFv(void *, int);
 void *__ct__19TAdPlyChrSelPlateGCFv(void *, s32, void *);
 void draw_serial_separators__22TAdEnterSerialAccessGCFv(void);
 extern Vec2_803214C4 lbl_80476548[];
-extern Vec2_803214C4 lbl_80476550[];
+extern Vec2_803214C4 serial_plate_position_table[];
 extern s32 tl_clipout;
 extern s32 TAdEnterSerialAccessGC__input_state;
 extern Col_803214C4 lbl_805DF4D8;
@@ -258,7 +258,7 @@ s32 get_field20_state__22TAdEnterSerialAccessGCFPv(void *arg0);
 int sprintf(char *, const char *, ...);
 void strncpy(s32, s32, s32);
 s32 memset(void *, int, int);
-extern f32 lbl_80476568[][13];
+extern f32 serial_char_row_x_table[][13];
 extern u32 TAdEnterSerialAccessGC__keyboard_control;
 extern s32 TAdEnterSerialAccessGC__input_state;
 extern const f32 TAdEnterSerialAccessGC__data_805DF4DC;
@@ -341,7 +341,7 @@ void draw_serial_chars__22TAdEnterSerialAccessGCFi(s32 arg0) {
         free__11TOBoss4RockFUi(str);
         p = text;
         r = TAdEnterSerialAccessGC__input_state == 2 ? 0 : 1;
-        row = lbl_80476568[r];
+        row = serial_char_row_x_table[r];
         n = r * 2 + 10;
         for (i = 0; i < n; i++, p++) {
             memset(buf, 0, 8);
@@ -383,9 +383,9 @@ void draw_serial_plates__22TAdEnterSerialAccessGCFv(void) {
         case 3:
             break;
         case 2:
-            TAdEnterSerialAccessGC__sub_802C4B64(&b, &lbl_80476550[0], c, 0);
+            TAdEnterSerialAccessGC__sub_802C4B64(&b, &serial_plate_position_table[0], c, 0);
             for (i = 0; i < 2; i++) {
-                TAdEnterSerialAccessGC__sub_802C4B64(&a, &lbl_80476550[i + 1], c, 0);
+                TAdEnterSerialAccessGC__sub_802C4B64(&a, &serial_plate_position_table[i + 1], c, 0);
             }
             draw_serial_separators__22TAdEnterSerialAccessGCFv();
             break;

@@ -5,8 +5,8 @@ extern "C" {
 int get_game_mode__23TAdSinglePlyChrSelectGCFv(void);
 u8 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *arg0);
 
-    extern int lbl_805D5FA4;
-int get_game_mode__23TAdSinglePlyChrSelectGCFv(void) {  return lbl_805D5FA4; }
+    extern int chr_select_game_mode;
+int get_game_mode__23TAdSinglePlyChrSelectGCFv(void) {  return chr_select_game_mode; }
 
 u8 is_both_confirmed__23TAdSinglePlyChrSelectGCFPv(void *arg0) {
     s32 var_r4;

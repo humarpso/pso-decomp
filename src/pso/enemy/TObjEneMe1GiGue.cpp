@@ -2092,7 +2092,7 @@ s32 TObjEneMe1GiGueBarrier__sub_80325CC0();
 void init_global__22TObjEneMe1GiGueBarrierFv();
 
 extern s32 TObjEneMe1GiGue__param_table;
-extern Spawn_802CD62C lbl_80472264;
+extern Spawn_802CD62C gigue_spawn_descriptor;
 extern s32 ene_me1_gigue_boss_id;
 extern s32 lbl_805D682C;
 extern s32 lbl_805D6830;
@@ -2459,7 +2459,7 @@ void load_resources__15TObjEneMe1GiGueFv(void) {
     init_global__22TObjEneMe1GiGueBarrierFv();
     q = (Sub_802CD62C *)lbl_804E1304;
     {
-    Spawn_802CD62C sp = lbl_80472264;
+    Spawn_802CD62C sp = gigue_spawn_descriptor;
     sp.w[0] = ((Obj_802CD62C *)TObjEneMe1GiGue__data_805D6838)->v430;
     spawn_npc_enemy__6TLobbyFsiiiff(0x41, ((Obj_802CD62C *)TObjEneMe1GiGue__data_805D6838)->mdl->a,
         ((Obj_802CD62C *)TObjEneMe1GiGue__data_805D6838)->mdl->b, &sp,

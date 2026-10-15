@@ -61,7 +61,7 @@ s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(int);
 void set_texture_num(int);
 extern Pos_8019806C TObjSinBoard__quad_position_table;
-extern Uv_8019806C lbl_80445FD0;
+extern Uv_8019806C sin_board_uv_table;
 extern u8 signboard_texture_list[];
 extern u32 TObjSinBoard__texture_buffer;
 void render__12TObjSinBoardFv(u8 *arg0);
@@ -98,7 +98,7 @@ void render__12TObjSinBoardFv(u8 *arg0) {
     s16 col[8];
     if (get_state_flag__9TMainTaskFv() != 1 && TObjSinBoard__texture_buffer != 0) {
         pos = TObjSinBoard__quad_position_table;
-        uv = lbl_80445FD0;
+        uv = sin_board_uv_table;
         col[0] = 0;
         col[1] = 0;
         col[2] = 0;

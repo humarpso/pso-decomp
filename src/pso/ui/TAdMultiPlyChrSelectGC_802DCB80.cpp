@@ -8,7 +8,7 @@ s32 get_field_118__22TAdEnterSerialAccessGCFv();
 void begin_transition__21TAdMultiChgGameModeGCFv();
 void set_opening_movie_purpose(s32);
 void collect_player_slots__22TAdMultiPlyChrSelectGCFv(void *);
-extern s32 lbl_805D68CC;
+extern s32 multi_chr_select_serial_access_state;
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0);
 }
 
@@ -58,7 +58,7 @@ void close_and_reset__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     }
 }
 void TAdMultiPlyChrSelectGC__sub_802DCCA4(Obj_802DCCA4 *arg0) {
-    lbl_805D68CC = get_field_118__22TAdEnterSerialAccessGCFv();
+    multi_chr_select_serial_access_state = get_field_118__22TAdEnterSerialAccessGCFv();
     switch (arg0->f2C) {
     case 2:
         break;

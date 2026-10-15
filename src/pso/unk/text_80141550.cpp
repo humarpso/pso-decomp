@@ -45,10 +45,10 @@ u32 lbl_8050BF20[8];
 u32 lbl_8050BF40[8];
 f32 lbl_8050BF60[16];
 u32 lbl_8050BFA0[16];
-f32 lbl_8050BFE0[4];
-u32 lbl_8050BFF0[4];
+f32 player_feedback_light_color[4];
+u32 photon_chair_color_vec4[4];
 Cfg_80141604 depth_buffer_settings;
-Cfg_80141604 lbl_8050C014;
+Cfg_80141604 depth_buffer_config_copy;
 Cfg_80141604 saved_depth_alpha_scene_state;
 void init_default_config__10TObjPlayerFv(void) {
     depth_buffer_settings.a = 7;
@@ -58,7 +58,7 @@ void init_default_config__10TObjPlayerFv(void) {
     depth_buffer_settings.e = 1;
     depth_buffer_settings.f = 0xBF;
     depth_buffer_settings.g = 1;
-    copy_config__10TObjPlayerFPvPv(&lbl_8050C014, &depth_buffer_settings);
+    copy_config__10TObjPlayerFPvPv(&depth_buffer_config_copy, &depth_buffer_settings);
     copy_config__10TObjPlayerFPvPv(&saved_depth_alpha_scene_state, &depth_buffer_settings);
 }
 
@@ -151,7 +151,7 @@ void TObjPlayer__sub_801416AC(void) {
     depth_buffer_settings.e = 1;
     depth_buffer_settings.f = 0xBF;
     depth_buffer_settings.g = 1;
-    copy_config__10TObjPlayerFPvPv(&lbl_8050C014, &depth_buffer_settings);
+    copy_config__10TObjPlayerFPvPv(&depth_buffer_config_copy, &depth_buffer_settings);
     copy_config__10TObjPlayerFPvPv(&saved_depth_alpha_scene_state, &depth_buffer_settings);
     set_global_state__10TObjPlayerFi((void *)restore_saved_depth_alpha_state);
     set_ginja_draw_end_callback((void *)restore_saved_depth_alpha_state);

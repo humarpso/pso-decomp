@@ -43,10 +43,10 @@ u8 *find_entity_by_id(void);
 s32 TBoss8Dragon__sub_802F4760(void *, void *, f32);
 void subtract_vector(void *, void *);
 extern s32 boss8_dragon_point_index_table[];
-extern u8 lbl_80541E30[];
-extern u8 lbl_80541E3C[];
+extern u8 boss8_dragon_reference_pos_vec[];
+extern u8 dragon_forward_reference_vec[];
 extern u8 *camera_ctrl_instance;
-extern f32 lbl_805D69B0;
+extern f32 boss8_dragon_visibility_distance;
 extern const f32 TBoss8Dragon__data_805DED50;
 extern const f32 TBoss8Dragon__data_805DED64;
 s32 TBoss8Dragon__sub_802F3F20(u8 *arg0);
@@ -117,9 +117,9 @@ s32 TBoss8Dragon__sub_802F3F20(u8 *arg0) {
     subtract_vector(&sp8, &sp14);
     sp8.y = TBoss8Dragon__data_805DED50;
     temp_f31 = clamp_velocity__15TObjBoss2TunnelFPv(&sp8);
-    VecCopy__FP3VecPC3Vec(lbl_80541E30, &sp14);
-    VecCopy__FP3VecPC3Vec(lbl_80541E3C, &sp8);
-    lbl_805D69B0 = temp_f31;
+    VecCopy__FP3VecPC3Vec(boss8_dragon_reference_pos_vec, &sp14);
+    VecCopy__FP3VecPC3Vec(dragon_forward_reference_vec, &sp8);
+    boss8_dragon_visibility_distance = temp_f31;
     for (i = 0; i < 4; i++) {
         if (TBoss8Dragon__sub_802F4760(arg0, &((Obj_802F3F20 *)arg0)->pts[boss8_dragon_point_index_table[i]], TBoss8Dragon__data_805DED64) != 0) {
             return 1;

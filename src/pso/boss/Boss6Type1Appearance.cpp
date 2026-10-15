@@ -46,7 +46,7 @@ int __ct__7TObjectFP7TObject(void *, void *);
 int build_tables__14TBoss6PlotFalzFPvPvi(void *, void *, int);
 s32 get_fish_count__8TObjFishFv();
 extern s32 lbl_80477DEC[];
-extern s32 lbl_80477DF8[];
+extern s32 boss6_type1_appear_node_desc[];
 extern s32 boss6_type1_appear_model_node_descriptors[];
 extern s32 lbl_80477E30[];
 extern s32 lbl_80477E3C[];
@@ -225,7 +225,7 @@ Fish_8033CB4C *TBoss6Demo10_TYPE1_APPEAR__ct(Fish_8033CB4C *self, void *parent) 
     self->tbl[i].b = TObjFish__sub_8001EDB0(n, k);
     self->tbl[i].c = get_bml_motion(n, boss6_type1_appear_motion_indices[i]);
   }
-  self->x60 = TObjFish__sub_800E3124(lbl_80477DF8, self->x54);
+  self->x60 = TObjFish__sub_800E3124(boss6_type1_appear_node_desc, self->x54);
   self->x64 = 0;
   build_tables__14TBoss6PlotFalzFPvPvi(self->x40, boss6_type1_appear_model_node_descriptors, 2);
   activate_camera_mode(5);
@@ -251,7 +251,7 @@ extern "C" {
 extern const char TBoss6Demo10_TYPE1_APPEAR__class_name[];
 __declspec(section ".rodata") const char TBoss6Demo10_TYPE1_APPEAR__class_name[] ATTRIBUTE_ALIGN(4) = "TBoss6Demo10_TYPE1_APPEAR";
 __declspec(section ".rodata") s32 lbl_80477DEC[] = {0x00000000, 0x41C80000, 0x42960000};
-__declspec(section ".rodata") s32 lbl_80477DF8[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000};
+__declspec(section ".rodata") s32 boss6_type1_appear_node_desc[] = {0x00000000, 0x00000000, 0x00000000, 0x00000000, 0xFFFFFFFF, 0x00000000, 0x00000000, 0x00000000};
 __declspec(section ".rodata") s32 boss6_type1_appear_model_node_descriptors[] = {0x00000003, 0x00000001, 0x00000000, 0x00000006, 0x00000001, 0x00000000};
 __declspec(section ".rodata") s32 lbl_80477E30[] = {0x00000000, 0x00000000, 0x00000000};
 __declspec(section ".rodata") s32 lbl_80477E3C[] = {0x01020000, 0x00000000, 0x3F333333};

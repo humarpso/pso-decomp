@@ -139,7 +139,7 @@ s32 text_builder_reset();
 s32 init_window_layout_entries(void *, s32 *, s16);
 s32 set_text_entry_string(void *, s32, s32);
 s32 get_display_mode__20TWindowSubStatusDispFPv(Win_8027FD9C *arg0);
-extern s32 lbl_8044FAF0[];
+extern s32 status_disp_vt5_message_ids[];
 extern s32 TWindowSubStatusDisp__numbered_times_layout[];
 extern char lbl_805DD6E4[2];
 extern const f32 TWindowSubStatusDisp__data_805DD708;
@@ -196,7 +196,7 @@ void vt5__20TWindowSubStatusDispFv(u8 *arg0) {
   new_var = arg0;
   type = get_display_mode__20TWindowSubStatusDispFPv((Win_8027FD9C *) new_var);
   e = (u16 *) get_array_entry__20TWindowSubStatusDispFPvi(arg0, 0);
-  set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFPv(lbl_8044FAF0[type]), 0);
+  set_text_entry_string(e, get_message_10__20TWindowSubStatusDispFPv(status_disp_vt5_message_ids[type]), 0);
   n = get_layout_id__20TWindowSubStatusDispFv(type);
   i = 0;
   do

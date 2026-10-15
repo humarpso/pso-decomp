@@ -43,9 +43,9 @@ s32 end_effect_render__13TParticleCtrlFv();
 s32 set_global_param__8TObjFishFi(s32);
 s32 toggle_particle_effect__10TObjPlayerFv();
 
-extern s32 lbl_805D4D48;
-extern s32 lbl_805D4D4C;
-extern s32 lbl_805D4D50;
+extern s32 volopt_shutter_model_a;
+extern s32 volopt_shutter_model_b;
+extern s32 volopt_shutter_global_param;
 extern s32 model_render_flags;
 extern const f32 TObjVoloptShutter__data_805D88F4;
 
@@ -102,15 +102,15 @@ void update_shutter_state__17TObjVoloptShutterFPv(u8 *arg0) {
 
 void render__17TObjVoloptShutterFv(void *arg0) {
     toggle_particle_effect__10TObjPlayerFv();
-    set_global_param__8TObjFishFi(lbl_805D4D50);
+    set_global_param__8TObjFishFi(volopt_shutter_global_param);
     push_matrix();
     model_render_flags &= 0xFFFFFBFF;
     rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x30));
     push_matrix();
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)arg0 + 0x2C));
-    draw_chunk_model(lbl_805D4D4C);
+    draw_chunk_model(volopt_shutter_model_b);
     translate_matrix(0, TObjVoloptShutter__data_805D88F4, *(f32 *)((s8 *)arg0 + 0x28), TObjVoloptShutter__data_805D88F4);
-    draw_chunk_model(lbl_805D4D48);
+    draw_chunk_model(volopt_shutter_model_a);
     pop_matrix();
     pop_matrix();
     end_effect_render__13TParticleCtrlFv();

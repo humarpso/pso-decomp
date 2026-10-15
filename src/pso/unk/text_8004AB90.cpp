@@ -13,7 +13,7 @@ f32 vector_length(void *);
 s32 subtract_vector(void *, void *);
 s32 normalize_vector(void *);
 f32 xyz_distance(void *, void *);
-extern E_8004AB90 lbl_80484D90[];
+extern E_8004AB90 dark_falz_push_zone_table[];
 extern s32 lbl_805D5868;
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
@@ -38,10 +38,10 @@ void push_players_out_of_zone__14TBoss4DarkFalzFii(s32 arg0, s32 arg1) {
     f32 r;
     f32 sc;
     f32 orad;
-    e = &lbl_80484D90[arg1];
-    r = lbl_80484D90[arg1].r;
-    sc = lbl_80484D90[arg1].s;
-    ev = &lbl_80484D90[arg1].v;
+    e = &dark_falz_push_zone_table[arg1];
+    r = dark_falz_push_zone_table[arg1].r;
+    sc = dark_falz_push_zone_table[arg1].s;
+    ev = &dark_falz_push_zone_table[arg1].v;
     for (i = lbl_805D586C + lbl_805D5870; i < lbl_805D5868; i++) {
         p = get_player_data__10TObjPlayerFi(i);
         if (p == NULL) continue;
@@ -49,8 +49,8 @@ void push_players_out_of_zone__14TBoss4DarkFalzFii(s32 arg0, s32 arg1) {
         if (q == NULL || !(*(s32 *)((s8 *)q + 0x18) & 0x20000)) continue;
         if (xyz_distance(e, p + 0x38) <= r) continue;
         for (j = 0; j < 3; j++) {
-            o = &lbl_80484D90[j];
-            orad = lbl_80484D90[j].r;
+            o = &dark_falz_push_zone_table[j];
+            orad = dark_falz_push_zone_table[j].r;
             if (j != arg1 && !(xyz_distance(p + 0x38, o) > orad)) {
                 VecCopy__FP3VecPC3Vec(&v, p + 0x38);
                 subtract_vector(&v, o);

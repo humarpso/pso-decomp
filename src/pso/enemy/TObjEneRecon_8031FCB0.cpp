@@ -666,7 +666,7 @@ s32 register_boss__6TLobbyFPv(s32);
 u32 load_enemy_bml_resource(void *);
 void spawn_npc_enemy__6TLobbyFsiiiff(s16, s32, s32, void *, f32, f32);
 void load_resources__12TObjEneReconFv(void);
-extern Spawn_80320260 lbl_804762D4;
+extern Spawn_80320260 recobox_resource_binding_desc;
 extern "C" u8 lbl_80476118[];
 extern "C" u8 lbl_80476124[];
 extern "C" u8 lbl_80476134[];
@@ -721,7 +721,7 @@ void load_resources__14TObjEneRecoboxFv(void) {
     load_resources__12TObjEneReconFv();
     {
         Sub_80320260 *sp = &lbl_804EC684;
-        Spawn_80320260 s = lbl_804762D4;
+        Spawn_80320260 s = recobox_resource_binding_desc;
         box = (Box_80320260 *)TObjEneRecobox__static_instance;
         s.a = box->f430;
         spawn_npc_enemy__6TLobbyFsiiiff(0xD, box->f42C->f18, box->f42C->f1C, &s, getf_80320260(sp), lbl_805DF46C);

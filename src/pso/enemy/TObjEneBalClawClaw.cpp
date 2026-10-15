@@ -1363,7 +1363,7 @@ extern "C" void update_flag30_timer__10TObjPlayerFPv();
 extern "C" void update_gigue__15TObjEnemyCustomFPv();
 extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
-void *lbl_8048F090[28] = {
+void *balclaw_claw_model_node_desc[28] = {
     (void *)0x10000, (void *)0xf, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0xf, (void *)0x3f800000, (void *)0x1,
     (void *)0x20000, (void *)0xa, (void *)0x3f4ccccd, (void *)0x4,
@@ -1635,7 +1635,7 @@ void *deleting_dtor__18TObjEneBalClawClawFPvs(void *arg0, s16 arg1) {
 s32 TObjEneBalClawClaw__ct(void *arg0) {
     *(s32 *)((s8 *)self + 0) = lbl_805D2978;
     *(s32 *)((s8 *)self + 0xDC) = *(s32 *)((s8 *)lbl_805D4F20 + 0x430);
-    *(u8 **)((s8 *)self + 0xD8) = (u8 *)lbl_8048F090;
+    *(u8 **)((s8 *)self + 0xD8) = (u8 *)balclaw_claw_model_node_desc;
     set_field_d8__10TObjPlayerFPvi(self, *(u8 **)((s8 *)self + 0xD8));
     init_collision_body_parts(self, TObjEneBalClawClaw__collision_body_template, 1);
     *(s32 *)((s8 *)self + 0x368) = 0;

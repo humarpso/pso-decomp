@@ -16,7 +16,7 @@ extern const f32 lbl_805DD98C;
 void approach_creation_camera_target(u8 *arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
 s32 TCameraCtrl__sub_800695A0(void *);
 s32 set_creation_projection_center(f32);
-extern RecoveredGlobal_80291290_lbl_804DAA78 lbl_804DAA78;
+extern RecoveredGlobal_80291290_lbl_804DAA78 creation_view_parameters;
 extern const f32 lbl_805DD978;
 void fn_80291290(void);
 }
@@ -25,7 +25,7 @@ extern "C" {
 
 typedef char RecoveredGlobal_80291290_lbl_804DAA78_size[sizeof(RecoveredGlobal_80291290_lbl_804DAA78) == 0x90 ? 1 : -1];
 void fn_80291290(void) {
-    TCameraCtrl__sub_800695A0((void *) ((u8 *)&lbl_804DAA78.value + 0x48));
+    TCameraCtrl__sub_800695A0((void *) ((u8 *)&creation_view_parameters.value + 0x48));
     set_creation_projection_center((f32) (lbl_805DD978));
 }
 

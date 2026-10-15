@@ -191,7 +191,7 @@ extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void handle_dpad_input__22TAdMultiPlyChrSelectGCFPv(S_802C61E4 *self);
 s32 play_sound_effect(int, void *, int, int);
 extern s32 TAdMultiPlyChrSelectGC__data_804E0A68[][5];
-extern Jump_802C5C84 lbl_80471B00[][5];
+extern Jump_802C5C84 multi_chr_select_cursor_jump_table[][5];
 extern int TAdMultiPlyChrSelectGC__data_805D67D8;
 void move_cursor__22TAdMultiPlyChrSelectGCFPviiiii(Self_802C5C84 *self, s32 x_, s32 y_, s32 dx, s32 dy, s32 depth);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
@@ -420,7 +420,7 @@ void move_cursor__22TAdMultiPlyChrSelectGCFPviiiii(Self_802C5C84 *self, s32 x_, 
         return;
     }
     if (TAdMultiPlyChrSelectGC__data_804E0A68[ny][nx] == 0) {
-        Jump_802C5C84 j = lbl_80471B00[ny][nx];
+        Jump_802C5C84 j = multi_chr_select_cursor_jump_table[ny][nx];
         switch (dir) {
         case 0:
         case 1:

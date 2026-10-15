@@ -47,8 +47,8 @@ void copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 void init_slot_entries__14TAdSelectTxtGCFPvPvPv(Sel_802A1838 *arg0, Src_802A1838 *arg1, void *arg2);
 void update_menu_cursor__6TLobbyFv();
 void TLobby__sub_8023E4B4(s32, s32);
-extern Tbl_802A194C lbl_80466340;
-extern Tbl_802A194C lbl_80466354;
+extern Tbl_802A194C select_gamen_resource_name_table;
+extern Tbl_802A194C select_gamen_resource_name_table_b;
 extern const s32 current_language;
 extern u32 ad_select_text_texture_handle;
 void TLobby__sub_802A194C(void);
@@ -132,8 +132,8 @@ void TLobby__sub_802A1918(void) {
 }
 void TLobby__sub_802A194C(void) {
     update_menu_cursor__6TLobbyFv();
-    Tbl_802A194C a = lbl_80466340;
-    Tbl_802A194C b = lbl_80466354;
+    Tbl_802A194C a = select_gamen_resource_name_table;
+    Tbl_802A194C b = select_gamen_resource_name_table_b;
     s32 i = current_language;
     s32 v = b.v[i];
     ad_select_text_texture_handle = v;

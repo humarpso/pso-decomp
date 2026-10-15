@@ -56,7 +56,7 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern u32 TObjCurtainLobby__model_resource;
-extern s32 lbl_805D6F5C;
+extern s32 curtain_lobby_type;
 void load_resources__16TObjCurtainLobbyFv(void);
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1);
 void __dl__7TObjectFPv(void *);
@@ -157,7 +157,7 @@ void load_resources__16TObjCurtainLobbyFv(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &lobby_curtain_resource_descriptor, 0, 0, 0));
     }
     (*(s32 *)&TObjCurtainLobby__model_resource) = var_r0;
-    lbl_805D6F5C = get_lobby_type__6TLobbyFv();
+    curtain_lobby_type = get_lobby_type__6TLobbyFv();
 }
 void *__dt__16TObjCurtainLobbyFv(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
@@ -181,7 +181,7 @@ void *TObjCurtainLobby__ct(void *arg0, s32 arg1, s32 arg2) {
     }
     *(f32 *)((s8 *)arg0 + 0xCC) = 1.0f;
     *(s32 *)((s8 *)arg0 + 0x34) = (s32) *(s32 *)((s8 *)(*(void **)((s8 *)((void *)TObjCurtainLobby__model_resource) + 0x42C)) + 8);
-    *(s32 *)((s8 *)arg0 + 0x24) = (s32) lbl_805D6F5C;
+    *(s32 *)((s8 *)arg0 + 0x24) = (s32) curtain_lobby_type;
     return arg0;
 }
 

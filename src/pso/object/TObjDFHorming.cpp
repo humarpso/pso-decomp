@@ -256,7 +256,7 @@ void TBoss4DarkFalz__sub_8004B4F0(void *, void *);
 void create__10TBoss4ZakoFi(void *);
 f32 sin_table_lookup(s32);
 f32 cos_table_lookup(s32);
-extern u8 lbl_80484D84[];
+extern u8 dark_falz_zako_ring_origin_vec[];
 extern u8 TBoss4DarkFalz__data_804FF1E8[];
 extern s32 game_difficulty_selection;
 extern const f32 lbl_805D891C;
@@ -479,7 +479,7 @@ void spawn_zako_rings__14TBoss4DarkFalzFPv(u8 *arg0) {
             if (TBoss4DarkFalz__sub_8004AF5C(arg0, p.a, &p.b) == 0) {
                 return;
             }
-            VecCopy__FP3VecPC3Vec(&p.pos, lbl_80484D84);
+            VecCopy__FP3VecPC3Vec(&p.pos, dark_falz_zako_ring_origin_vec);
             p.pos.x += r * sin_table_lookup(ang);
             p.pos.z += r * cos_table_lookup(ang);
             create__10TBoss4ZakoFi(&p);

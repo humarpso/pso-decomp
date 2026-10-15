@@ -38,7 +38,7 @@ void* init__17TObjEneDf2BringerFPviii(void* a0, int a1, int a2, int a3);
 void TObjEneDf2Bringer__sub_8009A2A0(void);
 void __dl__7TObjectFPv(void *);
 void __dt__7TObjectFv(void *, int);
-extern s32 lbl_8048FE64[];
+extern s32 bringer_projectile_actor_ops_table[];
 void *TObjEneDf2Bringer__sub_8009A340(void *arg0, s16 arg1);
 s32 VecCopy__FP3VecPC3Vec(void *, const void *);
 void queue_destruction__7TObjectFv(void *);
@@ -179,7 +179,7 @@ void update_projectile_motion__17TObjEneDf2BringerFPv(u8 *arg0) {
 
 void *TObjEneDf2Bringer__sub_8009A340(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_8048FE64;
+        *(s32 **)((s8 *)arg0 + 0x18) = bringer_projectile_actor_ops_table;
         __dt__7TObjectFv(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

@@ -1,6 +1,6 @@
 #include "types.h"
-extern "C" __declspec(section ".data") s32 lbl_80500BF8[2];
-#define lbl_80500BF8 ((f32 * *)lbl_80500BF8)
+extern "C" __declspec(section ".data") s32 lappy_variant_speed_ptr_table[2];
+#define lappy_variant_speed_ptr_table ((f32 * *)lappy_variant_speed_ptr_table)
 extern "C" void * rappy_variant_speed_table[40];
 #define rappy_variant_speed_table (*(G_800BFCD4 *)&rappy_variant_speed_table)
 
@@ -373,7 +373,7 @@ u8 *get_player_data__10TObjPlayerFi(s32);
 s32 obj_getField1c(void *);
 f32 xz_distance_squared(void *, void *);
 s32 subtract_vector(void *, void *);
-extern s32 lbl_8043BA08[];
+extern s32 lappy_target_zero_vec[];
 extern s32 lbl_805D586C;
 extern s32 lbl_805D5870;
 extern const f32 lbl_805D9F4C;
@@ -480,8 +480,8 @@ void apply_variant_speeds__12TObjEneLappyFPv(Obj_800BFCD4 *self) {
     if (self->f368 >= 2) {
         return;
     }
-    self->fa4->fc = lbl_80500BF8[self->f368][0];
-    p = lbl_80500BF8[self->f368];
+    self->fa4->fc = lappy_variant_speed_ptr_table[self->f368][0];
+    p = lappy_variant_speed_ptr_table[self->f368];
     rappy_variant_speed_table.f68 = p[1];
     rappy_variant_speed_table.f88 = p[2];
 }
@@ -1085,7 +1085,7 @@ void select_target__12TObjEneLappyFPv(u8 *arg0) {
         } else if (obj_testFlags30((void *)((void *) (arg0)), (s32)(0x10)) != 0) {
             i = 0;
             best_id = 0xFFFF;
-            Vec_800C1224 v = *(Vec_800C1224 *)lbl_8043BA08;
+            Vec_800C1224 v = *(Vec_800C1224 *)lappy_target_zero_vec;
             best = *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0) * *(f32 *)((s8 *)(*(f32 **)((s8 *)arg0 + 0x350)) + 0);
             for (; i < lbl_805D586C + lbl_805D5870; i++) {
                 p = get_player_data__10TObjPlayerFi(i);
@@ -1203,7 +1203,7 @@ void run_task__12TObjEneLappyFPv(u8 *arg0) {
 #undef fn_800C20C0
 
 #undef rappy_variant_speed_table
-#undef lbl_80500BF8
+#undef lappy_variant_speed_ptr_table
 
 #include "types.h"
 
@@ -1618,7 +1618,7 @@ s32 reset_photon_effect__10TObjPlayerFPv(void *);
 s32 init_collision_body_parts(void *, void *, int);
 
 extern s32 lbl_805D2A40;
-extern s32 lbl_805D5160;
+extern s32 lappy_variant_id;
 extern void *rappy_bml_resource;
 extern const f32 lbl_805D9F2C;
 extern const f32 lbl_805D9F60;
@@ -1874,10 +1874,10 @@ void *lbl_80492F28[84] = {
     (void *)&apply_hit_message_flags__10TObjPlayerFPvPv, (void *)&apply_set_data__9TObjEnemyFPvPv, (void *)&clear_lobby_object_state, (void *)0x0,
 };
 
-__declspec(section ".data") s32 lbl_80500BE0[2];
-__declspec(section ".data") s32 lbl_80500BE8[2];
-__declspec(section ".data") s32 lbl_80500BF0[2];
-__declspec(section ".data") s32 lbl_80500BF8[2];
+__declspec(section ".data") s32 lappy_boss_stats_handles[2];
+__declspec(section ".data") s32 lappy_boss_stats_ptrs_b[2];
+__declspec(section ".data") s32 lappy_object_handles[2];
+__declspec(section ".data") s32 lappy_variant_speed_ptr_table[2];
 #define lbl_80492F28 ((s32 *)lbl_80492F28)
 
 typedef struct Desc_800C17B8 {
@@ -1902,7 +1902,7 @@ s32 load_gvm_texture_file(void *);
 void spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, f32, f32);
 extern u8 lbl_8043BA28[];
 extern u8 lbl_8043BA44[];
-extern const Desc_800C17B8 lbl_8043B9F8;
+extern const Desc_800C17B8 lappy_resource_binding_desc;
 extern const f32 lbl_805D9F28;
 extern const f32 lbl_805D9F4C;
 extern s32 game_difficulty_selection;
@@ -1938,7 +1938,7 @@ void load_resources__12TObjEneLappyFv(void) {
     if (get_main_phase() == 0xF) {
         switch (TLobby__event_theme_id) {
         case 1:
-            lbl_805D5160 = 1;
+            lappy_variant_id = 1;
             if (rare) {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
@@ -1954,7 +1954,7 @@ void load_resources__12TObjEneLappyFv(void) {
             }
             break;
         case 4:
-            lbl_805D5160 = 2;
+            lappy_variant_id = 2;
             if (rare) {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
@@ -1970,7 +1970,7 @@ void load_resources__12TObjEneLappyFv(void) {
             }
             break;
         case 5:
-            lbl_805D5160 = 3;
+            lappy_variant_id = 3;
             if (rare) {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
@@ -1986,7 +1986,7 @@ void load_resources__12TObjEneLappyFv(void) {
             }
             break;
         default:
-            lbl_805D5160 = 0;
+            lappy_variant_id = 0;
             if (rare) {
                 p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
                 if (p != 0) {
@@ -2003,7 +2003,7 @@ void load_resources__12TObjEneLappyFv(void) {
             break;
         }
     } else {
-        lbl_805D5160 = 0;
+        lappy_variant_id = 0;
         if (rare) {
             p = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0x440);
             if (p != 0) {
@@ -2029,14 +2029,14 @@ void load_resources__12TObjEneLappyFv(void) {
     }
     rappy_visibility_node = ((s32 (*)(s32, s32))collect_and_count__12TBoss3VoloptFUii)(*(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8), 0x12);
     for (i = 0; i < 2; i++) {
-        lbl_80500BE0[i] = register_boss__6TLobbyFPv(i + 0x18);
-        lbl_80500BE8[i] = dispatch_shared_handler_b__6TLobbyFPv(i + 0x18);
-        lbl_80500BF0[i] = register_object__6TLobbyFPv(i + 0x18);
-        lbl_80500BF8[i] = dispatch_shared_handler_a__6TLobbyFPv(i + 0x18);
+        lappy_boss_stats_handles[i] = register_boss__6TLobbyFPv(i + 0x18);
+        lappy_boss_stats_ptrs_b[i] = dispatch_shared_handler_b__6TLobbyFPv(i + 0x18);
+        lappy_object_handles[i] = register_object__6TLobbyFPv(i + 0x18);
+        lappy_variant_speed_ptr_table[i] = dispatch_shared_handler_a__6TLobbyFPv(i + 0x18);
     }
     {
         u8 *res = RES_800C17B8;
-        Desc_800C17B8 d = lbl_8043B9F8;
+        Desc_800C17B8 d = lappy_resource_binding_desc;
         d.a = *(s32 *)(res + 0x430);
         spawn_npc_enemy__6TLobbyFsiiiff(5, *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 8),
                                         *(s32 *)(*(u8 **)(RES_800C17B8 + 0x42C) + 0xC), &d, lbl_805D9F28, lbl_805D9F4C);
@@ -2092,7 +2092,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
     if (*(s32 *)(self + 0x368) == 0) {
         set_param__12TObjEneLappyFPvi(self, 5);
     } else if (get_instance__6TLobbyFv() == 1) {
-        switch (lbl_805D5160) {
+        switch (lappy_variant_id) {
         case 1:
             set_param__12TObjEneLappyFPvi(self, 0x4F);
             break;
@@ -2131,7 +2131,7 @@ u8 *TObjEneLappy__ct(u8 *self, s32 arg1, Set_800C1C4C *set) {
         *(u32 *)(self + 0x30) &= ~0x800000;
         *(u32 *)(*(u8 **)(self + 0xA4) + 0x18) &= ~1;
     }
-    bind_enemy_combat_stats(self, lbl_80500BE0[*(s32 *)(self + 0x368)], lbl_80500BE8[*(s32 *)(self + 0x368)], lbl_80500BF0[*(s32 *)(self + 0x368)]);
+    bind_enemy_combat_stats(self, lappy_boss_stats_handles[*(s32 *)(self + 0x368)], lappy_boss_stats_ptrs_b[*(s32 *)(self + 0x368)], lappy_object_handles[*(s32 *)(self + 0x368)]);
     apply_variant_speeds__12TObjEneLappyFPv(self);
     *(s16 *)(self + 0x32C) = *(s16 *)(self + 0x2B8);
     *(s16 *)(self + 0x32E) = *(s16 *)(self + 0x2BA);

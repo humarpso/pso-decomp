@@ -23,7 +23,7 @@ s32 set_field_1c__6TLobbyFPvf(u32, f32);
 s32 set_position_xy(u32, f32, f32);
 u32 set_window_mode_4__6TLobbyFPvii(s32, void*, s32);
 extern ControllerInputStateResultWin controller_input_state;
-extern s32 lbl_805D5FD8;
+extern s32 current_lobby_id;
 extern TObject* tl_07;
 ChallengeResultRecord* copy_challenge_result_record(ChallengeResultRecord*, const ChallengeResultRecord*);
 __declspec(section ".rodata") extern const char TObjResultWin_class_name[];
@@ -50,7 +50,7 @@ __declspec(section ".sdata2") extern const f32 challenge_result_split_screen_pos
 __declspec(section ".sdata2") extern const f32 challenge_result_window_depth;
 
 void set_flag_40__16TAdChrSelASlotGCFPv(void* p) { *(u16*)((char*)p + 0x70) |= 0x40; }
-int TObjNewFloorWin__sub_8007410C(void) {  return lbl_805D5FD8; }
+int TObjNewFloorWin__sub_8007410C(void) {  return current_lobby_id; }
 }
 
 void TObjResultWin::build_result_text() {

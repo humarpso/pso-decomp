@@ -31,7 +31,7 @@ s32 TAdMultiPlyChrSelectGC__sub_802E006C(int, int, int);
 s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 s32 set_index_and_close_status__22TAdMultiPlyChrSelectGCFPvi(int, int);
 extern RecoveredGlobal_802DEDA8_TAdMultiPlyChrSelectGC__data_804727B0 TAdMultiPlyChrSelectGC__character_slot_positions;
-extern RecoveredGlobal_802DEDA8_lbl_804727D0 lbl_804727D0;
+extern RecoveredGlobal_802DEDA8_lbl_804727D0 multi_play_chr_select_slot_positions;
 extern s8 controller_physical_port_bank[];
 void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0);
 }
@@ -105,9 +105,9 @@ void TAdMultiPlyChrSelectGC__sub_802DEDA8(u8 *arg0) {
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__character_slot_positions.value + 8), (int) (0));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__character_slot_positions.value + 0x10), (int) (0));
     TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&TAdMultiPlyChrSelectGC__character_slot_positions.value + 0x18), (int) (0));
-    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) (&lbl_804727D0.value), (int) (1));
-    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&lbl_804727D0.value + 8), (int) (1));
-    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&lbl_804727D0.value + 0x10), (int) (1));
+    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) (&multi_play_chr_select_slot_positions.value), (int) (1));
+    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&multi_play_chr_select_slot_positions.value + 8), (int) (1));
+    TAdMultiPlyChrSelectGC__sub_802C5A44((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (void *) ((u8 *)&multi_play_chr_select_slot_positions.value + 0x10), (int) (1));
     TAdMultiPlyChrSelectGC__sub_802E006C((int) (*(s32 *)((s8 *)arg0 + 0x5C)), (int) (0), (int) (1));
     var_r30 = 0;
     do {

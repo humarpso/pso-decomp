@@ -87,8 +87,8 @@ s32 set_chunk_material_override_pair(int, int);
 void set_chunk_material_color(void *);
 s32 draw_chunk_object(s32);
 extern Color_80153B64 lbl_8044002C;
-extern Color_80153B64 lbl_8044003C;
-extern Color_80153B64 lbl_8044004C;
+extern Color_80153B64 fog_collision_color_a;
+extern Color_80153B64 fog_collision_color_b;
 extern s32 saved_model_draw_color[];
 extern s32 model_material_color[];
 extern s32 lbl_805D28BC;
@@ -141,8 +141,8 @@ void draw_volume__16TObjFogCollisionFPv(u8 *arg0) {
     f32 s;
     if (((VObj_18_26a62c *)(arg0))->m8(lbl_805DB260, *(f32 *)((s8 *)arg0 + 0x68)) != 0) {
         Color_80153B64 c0 = lbl_8044002C;
-        Color_80153B64 c3 = lbl_8044003C;
-        Color_80153B64 cd = lbl_8044004C;
+        Color_80153B64 c3 = fog_collision_color_a;
+        Color_80153B64 cd = fog_collision_color_b;
         lbl_805D5660 = model_render_flags;
         copy_vec4__13TRaderMapCoreFPvPv(saved_model_draw_color, model_material_color);
         lbl_805D5664 = chunk_polygon_flags_and_mask;

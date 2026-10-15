@@ -76,7 +76,7 @@ void reflect_matrix_in_plane(s32, Cam_8029EFFC *);
 void normalize_vector(Vec_8029EFFC *);
 s32 push_matrix();
 s32 pop_matrix();
-extern Vec_8029EFFC lbl_80465E08;
+extern Vec_8029EFFC sora_reflection_up_vec;
 extern u8 main_task[];
 extern s32 TSceneSora__sky_active_flag;
 extern u32 camera_ctrl_instance;
@@ -145,7 +145,7 @@ void render_reflections__10TSceneSoraFPv(Sora_8029EFFC *o) {
     Cam_8029EFFC c2;
     Cam_8029EFFC c1;
     s32 r = 0;
-    Vec_8029EFFC v = lbl_80465E08;
+    Vec_8029EFFC v = sora_reflection_up_vec;
     s32 hit;
     s32 i;
     f32 k;

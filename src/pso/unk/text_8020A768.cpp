@@ -98,8 +98,8 @@ s32 load_enemy_set_file(s32, s32);
 s32 load_object_set_file(s32, s32);
 s32 free_data_60F0__6TLobbyFv();
 s32 init_handle__6TLobbyFi(s32);
-extern s32 lbl_805D60D8;
-extern s32 lbl_805D60DC;
+extern s32 map_set_data_handle_a;
+extern s32 map_set_data_handle_b;
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_object_id_counter;
@@ -111,8 +111,8 @@ extern s32 lbl_805DC620;
 extern s32 lbl_805DC624;
 
 void load_map_set_data(s32 arg0, s32 arg1) {
-    lbl_805D60D8 = 0;
-    lbl_805D60DC = 0;
+    map_set_data_handle_a = 0;
+    map_set_data_handle_b = 0;
     map_set_object_id_counter = 0;
     TLobby__next_enemy_set_actor_id = 0;
     map_object_id_counter = 0;

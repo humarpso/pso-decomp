@@ -200,7 +200,7 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern "C" void update_standing__11TObjNpcBaseFPv();
 extern "C" void update_wandering__11TObjNpcBaseFPv();
-void *lbl_804A9D08[40] = {
+void *npc_lappy_animation_table[40] = {
     (void *)0x10000, (void *)0x5, (void *)0x3f333333, (void *)0x0,
     (void *)0x10001, (void *)0x9, (void *)0x3fe66666, (void *)0x1,
     (void *)0x10002, (void *)0x6, (void *)0x3f666666, (void *)0x0,
@@ -266,7 +266,7 @@ u8 *TObjNpcLappy__ct(u8 *self, void *parent, s32 arg2) {
     ((VObj_8014B704 *)self)->m85(0, 1);
     *(s32 *)(self + 0x34) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 8);
     *(s32 *)(self + 0x24) = *(s32 *)(*(u8 **)(rappy_bml_resource + 0x42C) + 0xC);
-    init_npc_animation__10TObjPlayerFPvPvPvPv(self, lbl_804A9D08, *(s32 *)(rappy_bml_resource + 0x430), *(s16 *)(self + 0xB8));
+    init_npc_animation__10TObjPlayerFPvPvPvPv(self, npc_lappy_animation_table, *(s32 *)(rappy_bml_resource + 0x430), *(s16 *)(self + 0xB8));
     *(u8 **)(self + 0x350) = npc_movement_parameters;
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     init_collision_body_parts(self, lbl_804A9DA8, 1);

@@ -172,7 +172,7 @@ extern s32 lbl_8048E6DC[];
 extern s32 lbl_805D2930;
 extern const f32 lbl_805D9484;
 u8 *init_particle_obj__13TParticleCtrlFPvii(u8 *arg0, s32 arg1, s32 arg2);
-extern Col_80085798 lbl_804393DC;
+extern Col_80085798 demo_mode_particle_color;
 extern const f32 lbl_805D9478;
 s32 check_demo_mode__10TObjPlayerFv(void);
 void TObjRoomId__sub_80141CF4(void *dst, Col_80085798 *src, f32 t);
@@ -266,7 +266,7 @@ extern const f32 lbl_805D9480;
 
 void apply_demo_mode_color__13TParticleCtrlFPv(Obj_80085798 *self) {
     if (check_demo_mode__10TObjPlayerFv() != 0) {
-        Col_80085798 c = lbl_804393DC;
+        Col_80085798 c = demo_mode_particle_color;
         TObjRoomId__sub_80141CF4(self->target, &c, lbl_805D9478);
     }
 }

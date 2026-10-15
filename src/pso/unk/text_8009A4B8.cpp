@@ -21,13 +21,13 @@ struct Obj_8009A4B8 {
 };
 
 extern "C" {
-extern Vec_8009A640 lbl_805008B8[6];
+extern Vec_8009A640 bringer_effect_vec_table[6];
 extern const f32 lbl_805D9878;
 extern const f32 lbl_805D9860;
 void fn_8009A640(Obj_8009A640 *self);
 f32 get_random_float__21TObjEneMe3ShinowaRealFv(f32);
 u32 __cvt_fp2unsigned();
-extern u32 lbl_80500900[];
+extern u32 bringer_effect_color_table[];
 extern const f32 lbl_805D9874;
 void fn_8009A598(Obj_8009A598 *arg0);
 void queue_destruction__7TObjectFv(void *);
@@ -75,12 +75,12 @@ void fn_8009A598(Obj_8009A598 *arg0) {
     n = arg0->n;
     p = arg0->ents;
     for (i = n; i < 12; i++) {
-        u32 v = lbl_80500900[n];
+        u32 v = bringer_effect_color_table[n];
         p->col = v | c;
         p++;
     }
     for (i = 0; i < arg0->n; i++) {
-        p->col = lbl_80500900[0] | c;
+        p->col = bringer_effect_color_table[0] | c;
         p++;
     }
 }
@@ -89,7 +89,7 @@ void fn_8009A640(Obj_8009A640 *self) {
     s32 i;
     f32 outer = lbl_805D9878 + self->radius;
     f32 inner = self->radius - lbl_805D9878;
-    Vec_8009A640 *src = lbl_805008B8;
+    Vec_8009A640 *src = bringer_effect_vec_table;
     Pair_8009A640 *dst = self->pts;
     for (i = 0; i < 6; i++) {
         f32 x = src->x;

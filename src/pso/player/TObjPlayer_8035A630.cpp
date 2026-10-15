@@ -4,25 +4,25 @@ extern "C" {
 
 void process_callback_list__10TObjPlayerFi(s32 arg0);
 void draw_node_tree__10TObjPlayerFPvPv(void *arg0, void *arg1);
-extern s32 (*lbl_805D6F3C)(s32);
+extern s32 (*player_apply_callback_fn)(s32);
 s32 get_current_matrix(s32);
 s32 concat_matrix__10TObjPlayerFUiUi(s32, s32);
 s32 push_matrix();
 s32 pop_matrix();
 s32 draw_chunk_model(s32);
 
-extern s32 lbl_805D6F30;
-extern s32 lbl_805D6F34;
+extern s32 player_node_matrix_cursor;
+extern s32 player_node_matrix_count;
 extern s32 node_matrix_array_base;
 
 void process_callback_list__10TObjPlayerFi(s32 arg0) {
-    if ((s32) lbl_805D6F30 < (s32) lbl_805D6F34) {
-        get_current_matrix(node_matrix_array_base + (lbl_805D6F30 * 0x30));
+    if ((s32) player_node_matrix_cursor < (s32) player_node_matrix_count) {
+        get_current_matrix(node_matrix_array_base + (player_node_matrix_cursor * 0x30));
     }
-    if (((s32 (*)(s32)) lbl_805D6F3C) != NULL) {
-        lbl_805D6F3C(arg0);
+    if (((s32 (*)(s32)) player_apply_callback_fn) != NULL) {
+        player_apply_callback_fn(arg0);
     }
-    lbl_805D6F30 += 1;
+    player_node_matrix_cursor += 1;
 }
 
 extern s32 node_matrix_array_base;

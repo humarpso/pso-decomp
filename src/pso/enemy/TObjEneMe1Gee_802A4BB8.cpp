@@ -20,7 +20,7 @@ extern s32 TObjEneMe1Gee_NEEDLE__name;
 u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, f32 farg1);
 void TObjEneMe1Gee__sub_802A4D4C(void);
 int TObjEneMe1Gee__sub_800CC2BC(void);
-extern u32 lbl_805D6660;
+extern u32 me1gee_cached_model_handle;
 void cache_result_805D6660__13TObjEneMe1GeeFv(void);
 }
 
@@ -39,10 +39,10 @@ s32 pop_matrix();
 s32 begin_effect_render__13TParticleCtrlFv();
 s32 end_effect_render__13TParticleCtrlFv();
 
-extern u32 lbl_805D6660;
+extern u32 me1gee_cached_model_handle;
 
 void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
-    if ((u32) lbl_805D6660 == 0U) {
+    if ((u32) me1gee_cached_model_handle == 0U) {
         queue_destruction__7TObjectFv((void *)(arg0));
         return;
     }
@@ -51,9 +51,9 @@ void draw_model__13TObjEneMe1GeeFPv(u8 *arg0) {
     post_translate_matrix((void *) (arg0 + 0x6C));
     rotate_matrix_y((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA4)));
     rotate_matrix_x((int) (0), (int) (*(s32 *)((s8 *)arg0 + 0xA0)));
-    TObjFish__sub_8001EDB0((void *) (lbl_805D6660), (int) (1));
+    TObjFish__sub_8001EDB0((void *) (me1gee_cached_model_handle), (int) (1));
     set_global_param__8TObjFishFi();
-    get_bml_model((void *) (lbl_805D6660), (int) (1));
+    get_bml_model((void *) (me1gee_cached_model_handle), (int) (1));
     draw_ginja_object();
     end_effect_render__13TParticleCtrlFv();
     pop_matrix();
@@ -88,7 +88,7 @@ u8 *TObjEneMe1Gee_NEEDLE__ct(u8 *arg0, s32 arg1, u8 *arg2, u8 *arg3, f32 farg0, 
     return arg0;
 }
 void TObjEneMe1Gee__sub_802A4D4C(void) {  }
-void cache_result_805D6660__13TObjEneMe1GeeFv(void) { (*(int *)&lbl_805D6660) = TObjEneMe1Gee__sub_800CC2BC(); }
+void cache_result_805D6660__13TObjEneMe1GeeFv(void) { (*(int *)&me1gee_cached_model_handle) = TObjEneMe1Gee__sub_800CC2BC(); }
 
 typedef char RecoveredGlobal_802A4CC4_lbl_804DCFF8_size[sizeof(RecoveredGlobal_802A4CC4_lbl_804DCFF8) == 0x28 ? 1 : -1];
 

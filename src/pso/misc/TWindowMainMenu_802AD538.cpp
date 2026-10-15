@@ -156,7 +156,7 @@ void get_player__20TWindowSubStatusDispFv(void);
 void draw_textured_quad_at_depth(Rect_802AD538 *, f32);
 void set_draw_texture_and_color(int, u32);
 
-extern UV_802AD538 lbl_8047063C[];
+extern UV_802AD538 main_menu_label_uv_table[];
 extern RecoveredGlobal_802AE59C_lbl_8050E208 controller_input_state;
 extern const f32 lbl_805DE138;
 extern const f32 lbl_805DE13C;
@@ -185,7 +185,7 @@ void draw_item_labels__15TWindowMainMenuFv(Item_802AD538 *p, Win_802AD538 *w) {
 
     if (is_item_active__15TWindowMainMenuFPv(p) != 0 && p->x10 > 0) {
         scale = lbl_805DE138 / (lbl_805DE13C + w->x38);
-        uv = &lbl_8047063C[p->x11];
+        uv = &main_menu_label_uv_table[p->x11];
         begin_render__20TWindowSubStatusDispFv();
         switch (p->x12) {
         case 0:

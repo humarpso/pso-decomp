@@ -76,7 +76,7 @@ s32 draw_model_motion(s32, s32, f32);
 s32 TObjEneSlimeOne__sub_803E4B54(s32, s32, s32, f32);
 s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
-extern s32 lbl_80496CC8[];
+extern s32 slime_one_part_texture_index_table[];
 extern s32 model_render_flags;
 void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1);
 s32 get_bml_motion(s32, s32);
@@ -149,7 +149,7 @@ void draw_part__15TObjEneSlimeOneFPvi(u8 *arg0, s32 arg1) {
         return;
     }
     if (state < 7) {
-        set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(get_instance__15TObjEneSlimeOneFv(), lbl_80496CC8[get_attack_target__15TObjEneSlimeOneFPv((void*)(*(void **)((s8 *)arg0 + 0)))]));
+        set_global_param__8TObjFishFi(TObjFish__sub_8001EDB0(get_instance__15TObjEneSlimeOneFv(), slime_one_part_texture_index_table[get_attack_target__15TObjEneSlimeOneFPv((void*)(*(void **)((s8 *)arg0 + 0)))]));
         if (arg1 != 0) {
             model_render_flags |= 0x400000;
             func_803e11e8__FUl(1);
@@ -267,16 +267,16 @@ typedef struct E20_800EC7F4 E20_800EC7F4;
 typedef struct Res_800EC7F4 Res_800EC7F4;
 typedef struct Slime_800EC7F4 Slime_800EC7F4;
 typedef struct Tbl_800EC7F4 Tbl_800EC7F4;
-void *lbl_80496C50[6] = {(void *) 0xb, (void *) 0xc, (void *) 0x3f333333, (void *) 0x6, (void *) 0x7, (void *) 0x3f4ccccd};
+void *slime_one_motion_state_table[6] = {(void *) 0xb, (void *) 0xc, (void *) 0x3f333333, (void *) 0x6, (void *) 0x7, (void *) 0x3f4ccccd};
 void *lbl_80496C68[10] = {(void *) 0x4, (void *) 0x5, (void *) 0x0, (void *) 0x1, (void *) 0x3f19999a, (void *) 0x4, (void *) 0x0, (void *) 0x0, (void *) 0x4, (void *) 0x3f19999a};
 void *lbl_80496C90[10] = {(void *) 0x5, (void *) 0x5, (void *) 0x2, (void *) 0x1, (void *) 0x3f19999a, (void *) 0x5, (void *) 0x0, (void *) 0x2, (void *) 0x4, (void *) 0x3f19999a};
 __declspec(section ".data") void *lbl_80496CB8[2] = {
     (void *)&lbl_80496C68, (void *)&lbl_80496C90,
 };
-__declspec(section ".data") void *lbl_80496CC0[2] = {
+__declspec(section ".data") void *slime_one_attack_target_id_table[2] = {
     (void *)0x4, (void *)0x5,
 };
-__declspec(section ".data") s32 lbl_80496CC8[2] = { 0, 2 };
+__declspec(section ".data") s32 slime_one_part_texture_index_table[2] = { 0, 2 };
 void set_motion_state__15TObjEneSlimeOneFPvi(Slime_800EC7F4 *arg0, s32 arg1) {
   s32 flag;
   flag = arg0->state & 0x1000;
@@ -300,8 +300,8 @@ void set_motion_state__15TObjEneSlimeOneFPvi(Slime_800EC7F4 *arg0, s32 arg1) {
   if (arg0->state < 9)
   {
     s32 inst = get_instance__15TObjEneSlimeOneFv();
-    E12_800EC7F4 *e = (((E12_800EC7F4 *) lbl_80496C50) + arg0->state) - 7;
-    unsigned int id = (s32) lbl_80496CC0[get_attack_target__15TObjEneSlimeOneFPv((void*)(arg0->obj))];
+    E12_800EC7F4 *e = (((E12_800EC7F4 *) slime_one_motion_state_table) + arg0->state) - 7;
+    unsigned int id = (s32) slime_one_attack_target_id_table[get_attack_target__15TObjEneSlimeOneFPv((void*)(arg0->obj))];
     arg0->f8 = get_bml_model(inst, id);
     arg0->fC = TObjFish__sub_8001EDB0(inst, id);
     arg0->f10 = (Res_800EC7F4 *) get_bml_motion(inst, e->a);

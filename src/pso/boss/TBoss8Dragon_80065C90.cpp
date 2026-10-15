@@ -57,7 +57,7 @@ extern s32 lbl_80434088;
 extern const f32 lbl_805D7D3C;
 extern s32 current_floor_index;
 extern s32 lobby_player_count;
-extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 lbl_80487CCC;
+extern RecoveredGlobal_80065EA0_lbl_80487CCC_80065C90 boss8_dragon_follow_camera_offsets;
 extern RecoveredGlobal_80065EA0_lbl_80487CD8_80065C90 lbl_80487CD8;
 extern int boss5_gryphon_instance;
 extern RecoveredGlobal_80065DB4_lbl_804FF5B4_80065C90 boss5_gryphon_behavior_params;
@@ -101,7 +101,7 @@ void fill_follow_camera_params__12TBoss8DragonFPvPvPv(u8 *arg0, u8 *arg1, u8 *ar
 
 void get_follow_camera_offsets__12TBoss8DragonFPvPv(u8 *arg0, u8 *arg1) {
     if ((void *) (*(u8 * *)&boss5_gryphon_instance) == NULL) {
-        VecCopy__FP3VecPC3Vec(arg0, &lbl_80487CCC.value);
+        VecCopy__FP3VecPC3Vec(arg0, &boss8_dragon_follow_camera_offsets.value);
         VecCopy__FP3VecPC3Vec(arg1, &lbl_80487CD8.value);
         return;
     }

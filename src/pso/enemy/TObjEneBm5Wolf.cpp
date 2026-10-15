@@ -104,10 +104,10 @@ u8 * TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2);
 extern void* bm5_wolf_decision_row[];
 extern void* TObjEneBm5Wolf__collider_params[];
 extern void* bm_ene_bm5_wolf_resource_descriptor[];
-extern void* lbl_804921C8[];
+extern void* wolf_action_table[];
 extern s32 TObjEneBm5Wolf__stat_params[];
-extern s32 lbl_80500B48[];
-extern s32 lbl_80500B50[];
+extern s32 wolf_stat_handle_a_table[];
+extern s32 wolf_stat_handle_b_table[];
 extern u32 TObjEneBm5Wolf__instance_list[];
 extern u32 TObjEneBm5Wolf__pack_member_list[];
 extern const f32 TObjEneBm5Wolf__data_805D9DB4;
@@ -159,7 +159,7 @@ void *bm_ene_bm5_wolf_motion_names[15] = {
 void *bm_ene_bm5_wolf_resource_descriptor[4] = {
     (void *)&lbl_8043B550, (void *)&bm_ene_bm5_wolf_model_names, (void *)&bm_ene_bm5_wolf_motion_names, (void *)0x2000e,
 };
-void *lbl_804921C8[76] = {
+void *wolf_action_table[76] = {
     (void *)0x10000, (void *)0xc, (void *)0x3f4ccccd, (void *)0x0,
     (void *)0x10000, (void *)0xd, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x9, (void *)0x3f800000, (void *)0x0,
@@ -181,8 +181,8 @@ void *lbl_804921C8[76] = {
     (void *)0x30000, (void *)0x9, (void *)0x3f800000, (void *)0x0,
 };
 __declspec(section ".data") s32 TObjEneBm5Wolf__stat_params[2];
-__declspec(section ".data") s32 lbl_80500B48[2];
-__declspec(section ".data") s32 lbl_80500B50[2];
+__declspec(section ".data") s32 wolf_stat_handle_a_table[2];
+__declspec(section ".data") s32 wolf_stat_handle_b_table[2];
 __declspec(section ".data") s32 lbl_80500B58[2];
 }
 
@@ -3886,13 +3886,13 @@ u8 *TObjEneBm5Wolf__ct(u8 *arg0, void *arg1, void *arg2) {
     select_subtype__14TObjEneBm5WolfFPv(arg0);
     init_position_vectors__9TObjEneDDFPv(arg0);
     init_model__9TObjEneDDFPv(arg0, (void *)TObjEneBm5Wolf__collider_params, 1);
-    set_field_d8__10TObjPlayerFPvi(arg0, (void *)lbl_804921C8);
+    set_field_d8__10TObjPlayerFPvi(arg0, (void *)wolf_action_table);
     set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)TObjEneBm5Wolf__bml_resource + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     n = *(s32 *)((s8 *)arg0 + 0x3D8);
-    reset_hp__9TObjEneDDFPv(arg0, TObjEneBm5Wolf__stat_params[n != 0], lbl_80500B48[n != 0], lbl_80500B50[n != 0], n);
+    reset_hp__9TObjEneDDFPv(arg0, TObjEneBm5Wolf__stat_params[n != 0], wolf_stat_handle_a_table[n != 0], wolf_stat_handle_b_table[n != 0], n);
     check_state_flag_1__9TObjEneDDFPv(arg0);
     *(u8 **)((s8 *)arg0 + 0x350) = (u8 *)bm5_wolf_decision_row;
     if (*(s32 *)((s8 *)arg0 + 0x3D8) != 0) {
@@ -4055,7 +4055,7 @@ extern s32 lbl_8043B3A8[];
 extern s32 lbl_8043B3B0[];
 extern s32 lbl_8043B3B8[];
 extern s32 lbl_8043B3C0[];
-extern Spawn_800B86B4 lbl_8043B574;
+extern Spawn_800B86B4 bm5_wolf_spawn_descriptor;
 extern u8 lbl_8043B5C0[];
 Vec_800B86B4 lbl_80500B60;
 u32 lbl_80500B6C[3];
@@ -4105,12 +4105,12 @@ void load_resources__14TObjEneBm5WolfFv(void) {
     lbl_80500B60.z = TObjEneBm5Wolf__data_805D9D78;
     for (i = 0; i < 2; i++) {
         TObjEneBm5Wolf__stat_params[i] = register_boss__6TLobbyFPv(lbl_8043B3A8[i]);
-        lbl_80500B48[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043B3B0[i]);
-        lbl_80500B50[i] = register_object__6TLobbyFPv(lbl_8043B3B8[i]);
+        wolf_stat_handle_a_table[i] = dispatch_shared_handler_b__6TLobbyFPv(lbl_8043B3B0[i]);
+        wolf_stat_handle_b_table[i] = register_object__6TLobbyFPv(lbl_8043B3B8[i]);
         lbl_80500B58[i] = dispatch_shared_handler_a__6TLobbyFPv(lbl_8043B3C0[i]);
     }
     {
-    Spawn_800B86B4 sp = lbl_8043B574;
+    Spawn_800B86B4 sp = bm5_wolf_spawn_descriptor;
     sp.a = TObjEneBm5Wolf__bml_resource->x430;
     spawn_npc_enemy__6TLobbyFsiiiff(9, TObjEneBm5Wolf__bml_resource->p42c[6], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, TObjEneBm5Wolf__collider_params[3], TObjEneBm5Wolf__data_805D9D78);
     spawn_npc_enemy__6TLobbyFsiiiff(10, TObjEneBm5Wolf__bml_resource->p42c[2], TObjEneBm5Wolf__bml_resource->p42c[3], &sp, TObjEneBm5Wolf__collider_params[3], TObjEneBm5Wolf__data_805D9D78);

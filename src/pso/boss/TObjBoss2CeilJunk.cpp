@@ -116,9 +116,9 @@ s32 draw_ginja_object(s32);
 s32 set_chunk_material_override_pair(int, int);
 s32 set_chunk_material_color(void *);
 s32 set_chunk_blend(int);
-extern s32 lbl_80435BC0[];
+extern s32 boss2_ceil_junk_model_index_table[];
 extern f32 TObjBoss2CeilJunk__radius_table[];
-extern Color_8003A1B4 lbl_80435C1C;
+extern Color_8003A1B4 boss2_ceil_junk_render_color;
 extern Holder_8003A1B4 *boss2_tunnel_instance;
 extern s32 lbl_805D4BEC;
 extern s32 lbl_805D5660;
@@ -173,7 +173,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   {
     model_render_flags = lbl_805D5660 | 0x8820;
     {
-      Color_8003A1B4 c = lbl_80435C1C;
+      Color_8003A1B4 c = boss2_ceil_junk_render_color;
       c.a = (-1.0f) + self->fB4;
       set_chunk_material_color(&c);
     }
@@ -185,7 +185,7 @@ void render__17TObjBoss2CeilJunkFv(Obj_8003A1B4 *self) {
   post_translate_matrix(self->pos);
   rotate_matrix_y(0, self->f60);
   rotate_matrix_x(0, self->f5C);
-  draw_ginja_object(boss2_tunnel_instance->mdls[lbl_80435BC0[self->fAC]].f8);
+  draw_ginja_object(boss2_tunnel_instance->mdls[boss2_ceil_junk_model_index_table[self->fAC]].f8);
   pop_matrix();
   model_render_flags = lbl_805D5660;
   set_chunk_material_override_pair(0xFF00, 0);

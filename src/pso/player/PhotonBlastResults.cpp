@@ -87,7 +87,7 @@ s32 init_arrays__10TObjPlayerFi(void *);
 void *TObjPlayer__sub_801AA66C(void *, void *);
 void *__nw__7TObjectFUl(int);
 s16 TObjPlayer__sub_80313114(void *);
-extern Counts_801A8868 lbl_80446CB8;
+extern Counts_801A8868 photon_blast_result_counts_init;
 extern Rec_801A8868 photon_blast_sequence_table[];
 void admit_photon_blast_sequence(u8 *players, void *self);
 
@@ -232,7 +232,7 @@ void admit_photon_blast_sequence(u8 *players, void *self) {
     init_arrays__10TObjPlayerFi(&b[1]);
     init_arrays__10TObjPlayerFi(&b[2]);
     init_arrays__10TObjPlayerFi(&b[3]);
-    Counts_801A8868 counts = lbl_80446CB8;
+    Counts_801A8868 counts = photon_blast_result_counts_init;
     for (n = 0; n < 4; n++) {
         SET_TYPE(&b[n], 0xFFFF);
         set_field_2__10TObjPlayerFPvs(&b[n], -1);

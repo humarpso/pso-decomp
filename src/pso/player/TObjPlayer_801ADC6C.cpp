@@ -55,7 +55,7 @@ void render__12TPhotonPillaFPv(Self_801ADDDC *self);
 void TPhotonLaser__ct(void *, void *, void *, u16);
 s32 __nw__7TObjectFUl(s32);
 void vec3_add_to(void *, void *);
-extern Packet_801ADD10 lbl_80446EA8;
+extern Packet_801ADD10 photon_pilla_laser_packet;
 extern Vec_801ADD10 lbl_804C3A84[];
 extern const f32 lbl_805DC22C;
 void spawn_laser__12TPhotonPillaFPv(u8 *self);
@@ -129,7 +129,7 @@ void spawn_laser__12TPhotonPillaFPv(u8 *self) {
     position.z = *(f32 *)((s8 *)self + 0x40);
     vec3_add_to(&position, &lbl_804C3A84[*(s32 *)((s8 *)self + 0x194)]);
     (*(s32 *)((s8 *)self + 0x194))++;
-    Packet_801ADD10 packet = lbl_80446EA8;
+    Packet_801ADD10 packet = photon_pilla_laser_packet;
     packet.pos.x = position.x;
     packet.pos.y = position.y;
     packet.pos.z = position.z;

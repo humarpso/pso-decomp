@@ -168,7 +168,7 @@ s32 get_flag_11__16TObjEneRe2FlowerFPv(void *);
 s32 clear_child_flags__16TObjEneRe2FlowerFPv(void *);
 s32 advance_animation_playback();
 s32 play_sound_effect(s32, void *, s32, s32);
-extern Prm_800C2628 lbl_8043BA68;
+extern Prm_800C2628 enemy_dd_attack_param_block;
 extern Prm_800C2628 lbl_8043BBA0;
 extern f32 *const lbl_805D5170;
 extern const f32 lbl_805D9FBC;
@@ -231,7 +231,7 @@ void TObjEneDD__sub_800C2628(u8 *arg0, s32 arg1) {
                 if (get_flag_11__16TObjEneRe2FlowerFPv(arg0) != 0) {
                     TObjEneDD__sub_800BA5A4(arg0, &prm);
                 } else {
-                    TObjEneDD__sub_800BA5A4(arg0, &lbl_8043BA68);
+                    TObjEneDD__sub_800BA5A4(arg0, &enemy_dd_attack_param_block);
                 }
             }
             play_sound_effect(fn_800C3A60(arg0, 0x4003A311), arg0 + 0x38, 0, 0);

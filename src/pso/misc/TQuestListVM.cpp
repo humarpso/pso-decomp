@@ -191,7 +191,7 @@ extern s32 TQuestListVM__decrypted_quest_buffer;
 extern s32 TQuestListVM__decompression_capacity;
 extern s32 TQuestListVM__quest_data_output_cursor;
 extern s32 TQuestListVM__quest_decrypt_result_size;
-extern s32 lbl_805D6210;
+extern s32 quest_list_vm_instance;
 u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 TQuestVmDownLoadServer__sub_8006EF6C(s32);
 int set_field_20__12TQuestListVMFPvi(void*, void*);
@@ -945,7 +945,7 @@ s32 init__12TQuestListVMFPv(void* p) { memset((char*)p + 0x28, (void*)0, (void*)
 
 extern s32 TQuestListVM__data_8044BF20[];
 extern s32 __vt__12TQuestListVM[];
-extern s32 lbl_805D6210;
+extern s32 quest_list_vm_instance;
 
 void TQuestListVM__vt9(u8 *arg0) {
     u32 temp_r0;
@@ -1042,7 +1042,7 @@ void *__dt__12TQuestListVMFv(void *arg0, s16 arg1) {
             safe_free__23TAdSinglePlyChrSelectGCFUi(*(void **)((s8 *)arg0 + 0x2388));
             *(u32 *)((s8 *)arg0 + 0x2388) = 0U;
         }
-        lbl_805D6210 = 0;
+        quest_list_vm_instance = 0;
         TLobby__sub_8001EDF4(TQuestListVM__data_8044BF20);
         __dt__15TShopWindowBaseFv(arg0, 0);
         if (arg1 > 0) {
@@ -1077,7 +1077,7 @@ u8 *TQuestListVM__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     *(s32 *)((s8 *)arg0 + 0x23BC) = 0;
     *(s32 *)((s8 *)arg0 + 0x23C0) = 0;
     set_field_20__12TQuestListVMFPvi((void*)((void *) (arg0)), (void*)((int) (0)));
-    (*(u8 * *)&lbl_805D6210) = arg0;
+    (*(u8 * *)&quest_list_vm_instance) = arg0;
     *(s32 *)((s8 *)arg0 + 0x24) = arg3;
     *(s32 *)((s8 *)arg0 + 0x23A8) = 0;
     *(s32 *)((s8 *)arg0 + 0x23A4) = 0;

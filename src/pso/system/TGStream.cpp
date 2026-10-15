@@ -120,7 +120,7 @@ extern GslArchiveEntry gsl_archive_entries[256];
 extern u32 TItemDrop__gsl_adxf_handle;
 extern s32 TItemDrop__gsl_entry_count;
 extern char gsl_archive_filename[32];
-extern char *lbl_805D2B38;
+extern char *gsl_archive_path_buffer_ptr;
 extern s32 TItemDrop__data_805D53CC;
 extern s32 TItemDrop__data_805D53D0;
 extern const char lbl_805DAA3C[4];
@@ -289,7 +289,7 @@ void close_gsl_archive(void) {
         close_adxf_handle__6TLobbyFPv(TItemDrop__gsl_adxf_handle);
         TItemDrop__gsl_adxf_handle = 0;
     } else {
-        n = strlen(lbl_805D2B38);
+        n = strlen(gsl_archive_path_buffer_ptr);
         if (n > 0) {
             change_file_extension__6TLobbyFPvPvPv(buf, gsl_archive_filename, lbl_805DAA3C);
             fn_800F93B4(buf, gsl_archive_entries, n);
@@ -328,7 +328,7 @@ void open_gsl_archive(char *name) {
     } else {
         TItemDrop__gsl_entry_count = 0;
         TItemDrop__data_805D53D0 = 1;
-        *lbl_805D2B38 = 0;
+        *gsl_archive_path_buffer_ptr = 0;
     }
 }
 

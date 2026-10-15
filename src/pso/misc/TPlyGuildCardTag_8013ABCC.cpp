@@ -4,7 +4,7 @@ extern "C" {
 void* copy__16TPlyGuildCardTagFPvPv(void* p, void* a1);
 void TPlyGuildCardTag__sub_8013ACA4(void *arg0, void *arg1);
 void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1);
-    extern int lbl_805D60D0;
+    extern int item_drop_server_seed;
 void fn_8013ACE4(int a0);
     extern int area_random_seed;
 void set_area_random_seed(int a0);
@@ -34,7 +34,7 @@ void __ct__16TPlyGuildCardTagFRC16TPlyGuildCardTag(void *arg0, void *arg1) {
     *(u16 *)((s8 *)arg0 + 2) = (u16) *(u16 *)((s8 *)arg1 + 2);
     *(s32 *)((s8 *)arg0 + 4) = (s32) *(s32 *)((s8 *)arg1 + 4);
 }
-void fn_8013ACE4(int a0) { lbl_805D60D0 = a0; }
+void fn_8013ACE4(int a0) { item_drop_server_seed = a0; }
 void set_area_random_seed(int a0) { area_random_seed = a0; }
 void TQuestListOnline__sub_8013ACF4(s32 arg0) {
     if ((void *) TQuestListOnline__instance != NULL) {

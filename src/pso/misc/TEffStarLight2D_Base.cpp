@@ -63,7 +63,7 @@ struct Eff_80084C64 {
 
 extern "C" {
 s32 TObjRoomId__sub_80141CF4(void *, void *, int, int, int, void *, f32);
-extern RecoveredGlobal_80084C10_lbl_804393AC lbl_804393AC;
+extern RecoveredGlobal_80084C10_lbl_804393AC star_light_2d_base_color;
 extern const f32 lbl_805D9450;
 void TEffStarLight2D_Base__sub_80084C10(s32 arg0);
 u8 * __ct__15TEffStarLight2DFv(void *, s32, s32, s32);
@@ -104,11 +104,11 @@ void TEffStarLight2D_Base__sub_80084C10(s32 arg0) {
     typedef char sp10_offset[(offsetof(Stack_80084C10, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80084C10, sp14) == 0xC) ? 1 : -1];
     Stack_80084C10 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804393AC.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_804393AC.value) + 0xC);
-    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 8)), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 4)), (int) (*(s32 *)((s8 *)(&lbl_804393AC.value) + 0)), (void *) (&lbl_804393AC.value), (f32) (lbl_805D9450));
+    stack.sp8 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0xC);
+    TObjRoomId__sub_80141CF4((void *) (arg0 + 0x38), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 8)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 4)), (int) (*(s32 *)((s8 *)(&star_light_2d_base_color.value) + 0)), (void *) (&star_light_2d_base_color.value), (f32) (lbl_805D9450));
 }
 
 void sync_sub_sprite__20TEffStarLight2D_BaseFPv(Eff_80084C64 *self) {

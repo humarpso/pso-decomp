@@ -52,11 +52,11 @@ int draw_chunk_object(void);
 void TLobby__sub_80142920(void * _w0);
 int TLobby__sub_80142944(void* p);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
+extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
 void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0);
 s32 copy_vec4__13TRaderMapCoreFPvPv(void *, void *);
-extern RecoveredGlobal_801426DC_lbl_8050BFF0 lbl_8050BFF0;
+extern RecoveredGlobal_801426DC_lbl_8050BFF0 photon_chair_color_vec4;
 extern RecoveredGlobal_801426DC_lbl_8058D4C0 model_material_color;
 void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0);
 f32 get_float_c__15TPlyPhotonChairFPv(void *);
@@ -122,7 +122,7 @@ void restore_state__15TPlyPhotonChairFv(s32 _w0) { (*(int *)&model_render_flags)
 typedef char RecoveredGlobal_801426DC_lbl_8050BFF0_size[sizeof(RecoveredGlobal_801426DC_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_801426DC_lbl_8058D4C0_size[sizeof(RecoveredGlobal_801426DC_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void copy_vec4_forward__15TPlyPhotonChairFi(s32 _w0) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&lbl_8050BFF0.value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&model_material_color.value), (void *) (&photon_chair_color_vec4.value));
 }
 
 int TPlyPhotonChair__sub_8014270C(s32 _w0) { chunk_polygon_flags_and_mask = lbl_805D5670; chunk_polygon_flags_or_mask = lbl_805D5674; return lbl_805D5670; }
@@ -131,7 +131,7 @@ int TPlyPhotonChair__sub_80142720(s32 _w0) { lbl_805D5670 = chunk_polygon_flags_
 typedef char RecoveredGlobal_80142734_lbl_8050BFF0_size[sizeof(RecoveredGlobal_80142734_lbl_8050BFF0) == 0x10 ? 1 : -1];
 typedef char RecoveredGlobal_80142734_lbl_8058D4C0_size[sizeof(RecoveredGlobal_80142734_lbl_8058D4C0) == 0x10 ? 1 : -1];
 void copy_vec4_reverse__15TPlyPhotonChairFi(s32 _w0) {
-    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&lbl_8050BFF0).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
+    copy_vec4__13TRaderMapCoreFPvPv((void *) (&(*(RecoveredGlobal_80142734_lbl_8050BFF0 *)&photon_chair_color_vec4).value), (void *) (&(*(RecoveredGlobal_80142734_lbl_8058D4C0 *)&model_material_color).value));
 }
 
 void save_state__15TPlyPhotonChairFv(s32 _w0) { lbl_805D566C = (*(int *)&model_render_flags); }

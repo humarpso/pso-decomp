@@ -16,8 +16,8 @@ s32 draw_window_text(void *, void *, s32, s32, f32);
 void set_text_draw_params(void *, s32, s32, f32, f32);
 extern s32 lbl_8044F0CC[];
 extern s32 lbl_8044F0D4[];
-extern s32 lbl_8044F0DC[];
-extern s32 lbl_8044F0EC[];
+extern s32 keyboard_hard_status_text_a[];
+extern s32 keyboard_hard_status_text_b[];
 extern s32 lbl_8044F0FC[];
 extern s32 lbl_8044F104[];
 extern s32 current_language;
@@ -52,9 +52,9 @@ void draw_status_text__19TWindowKeyBoardHardFPvPv(Win_80260020 *self, Ctx_802600
             draw_window_text(&pt, lbl_8044F0D4, -1, 0, lbl_805DD070);
         } else if (flags & 4) {
             if (flags & 8) {
-                draw_window_text(&pt, lbl_8044F0DC, -1, 0, lbl_805DD070);
+                draw_window_text(&pt, keyboard_hard_status_text_a, -1, 0, lbl_805DD070);
             } else {
-                draw_window_text(&pt, lbl_8044F0EC, -1, 0, lbl_805DD070);
+                draw_window_text(&pt, keyboard_hard_status_text_b, -1, 0, lbl_805DD070);
             }
         } else if (flags & 8) {
             draw_window_text(&pt, lbl_8044F0FC, -1, 0, lbl_805DD070);

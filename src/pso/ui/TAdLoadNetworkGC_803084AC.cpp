@@ -20,7 +20,7 @@ Net_80308518 *__dt__16TAdLoadNetworkGCFv(Net_80308518 *self, s16 flag);
 void VecCopy__FP3VecPC3Vec(void *, void *);
 void *fn_80086FE0(void *, void *, s32, s32);
 void *__ct__7TObjectFP7TObject(void *, void *);
-extern const s32 lbl_80475478[];
+extern const s32 load_network_object_id_table[];
 extern V_803084AC TAdLoadNetworkGC__object_offset_table[];
 extern u8 __vt__16TAdLoadNetworkGC[];
 extern Ray_803085A0 lbl_804FF5E8;
@@ -67,7 +67,7 @@ Net_803084AC *TAdLoadNetworkGC__ct(Net_803084AC *self, void *parent, V_803084AC 
     self->pos.z = lbl_805DF0C0 * lbl_804FF5E8.b.z + lbl_804FF5E8.a.z;
     for (i = 0; i < 5; i++) {
         self->obj[i] = 0;
-        self->obj[i] = fn_80086FE0(&self->pos, &TAdLoadNetworkGC__object_offset_table[i], lbl_80475478[i], 1);
+        self->obj[i] = fn_80086FE0(&self->pos, &TAdLoadNetworkGC__object_offset_table[i], load_network_object_id_table[i], 1);
     }
     return self;
 }

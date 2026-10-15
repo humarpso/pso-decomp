@@ -213,9 +213,9 @@ u32 get_player_by_client_id(s32);
 u32 TObjPlayer__sub_801BFFA0(void *p);
 void set_state__9TTecLukerFPvi(void *p, s32 v);
 s32 get_global_state__14TOKeyMachine01Fv(void);
-extern s32 lbl_8044D798[];
-extern Vec_80233E78 lbl_8044D738[];
-extern Vec_80233E78 lbl_8044D768[];
+extern s32 telepipe_town_heading_table[];
+extern Vec_80233E78 telepipe_town_position_table[];
+extern Vec_80233E78 telepipe_town_position_table_b[];
 Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading);
 u32 get_player_by_client_id(s32);
 void create__9TTecLukerFPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3);
@@ -325,8 +325,8 @@ s32 set_tint_color__13TParticleCtrlFPvi(u32, s32);
 void *__nw__7TObjectFUl(int);
 s32 __ct__7TObjectFP7TObject(void *, void *);
 void *create_telepipe_marker(void *, void *, s32, s32, s32, s32, s32, f32, f32);
-extern s32 lbl_8044D660[][3];
-extern s32 lbl_8044D6F0[];
+extern s32 telepipe_visual_template_table[][3];
+extern s32 telepipe_owner_tint_table[];
 extern u8 lbl_804CCA0C[];
 extern s32 tl_particlemodel;
 extern const f32 lbl_805DC86C;
@@ -492,12 +492,12 @@ Vec_80233E78 *consume_telepipe_arrival(u16 slot, s32 *heading) {
         }
         set_state__9TTecLukerFPvi(p->arrival, 0xffff);
         if (get_global_state__14TOKeyMachine01Fv() == 0) {
-            *heading = lbl_8044D798[slot];
-            return &lbl_8044D738[slot];
+            *heading = telepipe_town_heading_table[slot];
+            return &telepipe_town_position_table[slot];
         }
         if (get_global_state__14TOKeyMachine01Fv() == 0x12) {
-            *heading = lbl_8044D798[slot];
-            return &lbl_8044D768[slot];
+            *heading = telepipe_town_heading_table[slot];
+            return &telepipe_town_position_table_b[slot];
         }
         p = (Player_80233E78 *)get_player_by_client_id(owner);
         if (p == 0) {
@@ -755,9 +755,9 @@ void *create_telepipe_visual(void *self, Vec_802347B4 *pos, u32 id, s32 res) {
   {
     VecCopy__FP3VecPC3Vec(&((Fx_8023453C *) self)->pos2, hit->pos);
   }
-  row = lbl_8044D660[id];
+  row = telepipe_visual_template_table[id];
   off = id * 4;
-  pt = (u8 *) lbl_8044D6F0;
+  pt = (u8 *) telepipe_owner_tint_table;
   for (i = 0; i < 3; i++)
   {
     switch (i)

@@ -19,7 +19,7 @@ extern s32 keyboard_key_state;
 void mark_area_change_pending(void);
 void clear_keyboard_key_state(void);
 int matches_type_and_enabled__11TMainCursorFiUcUc(void*, void* a1, void* a2);
-extern s32 lbl_80515F70[];
+extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
     extern int lbl_805D49A0;
     extern int lbl_805D49A4;

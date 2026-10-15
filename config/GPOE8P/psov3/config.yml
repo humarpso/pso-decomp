@@ -1975,13 +1975,13 @@ force_active:
   - lbl_80496C68
   - lbl_80496C90
   - lbl_80496CB8
-  - lbl_80496CC0
+  - slime_one_attack_target_id_table
   - lbl_80497710
   - lbl_80497718
-  - lbl_80497748
+  - stelth_bml_resource_desc
   - lbl_80497758
   - lbl_80497760
-  - lbl_80497790
+  - me3_stelth_bml_resource_desc
   - lbl_8049C5E0
   - lbl_8049CBA8
   - lbl_8049CBE8
@@ -2064,7 +2064,7 @@ force_active:
   - lbl_8049D970
   - lbl_8049D984
   - lbl_8049DC28
-  - lbl_804A7CF8
+  - npc_base_collision_body_desc
   - lbl_804B94BC
   - lbl_804B94E8
   - lbl_804CE820
@@ -2103,22 +2103,22 @@ force_active:
   - lbl_80500B0C
   - lbl_80500B24
   - lbl_80500B2C
-  - lbl_80500B48
-  - lbl_80500B50
+  - wolf_stat_handle_a_table
+  - wolf_stat_handle_b_table
   - lbl_80500B58
   - lbl_80500B60
   - lbl_80500B6C
   - lbl_80500BC4
-  - lbl_80500BE8
-  - lbl_80500BF0
+  - lappy_boss_stats_ptrs_b
+  - lappy_object_handles
   - lbl_80500C24
   - lbl_80501058
   - lbl_80501060
   - lbl_80501068
   - lbl_80501114
-  - lbl_8050C014
+  - depth_buffer_config_copy
   - lbl_8050C048
-  - lbl_8050DCF8
+  - lazer_fence_beam_node_table
   - lbl_8050EA64
   - lbl_80513F00
   - lbl_80540BBC

@@ -64,9 +64,9 @@ void add_item_rect__12TLevelSelectFPvPv(void *, void *);
 void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 void set_ad_field__6TLobbyFPvi(void *, s32);
-extern Txt_802FFE58 lbl_80474DF8;
+extern Txt_802FFE58 multi_chg_game_mode_text_layout;
 extern Cur_802FFE58 lbl_80474E1C[];
-extern Pos_802FFE58 lbl_80474E24;
+extern Pos_802FFE58 multi_chg_game_mode_position_table;
 extern void *__vt__21TAdMultiChgGameModeGC[];
 extern s32 TAdMultiChgGameModeGC__name;
 extern const f32 lbl_805DEF38;
@@ -168,7 +168,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
         __ct__10TAdTitleGCFv(p, self, 0xF);
     }
     {
-        Txt_802FFE58 txt = lbl_80474DF8;
+        Txt_802FFE58 txt = multi_chg_game_mode_text_layout;
         if ((p = __nw__7TObjectFUl(0xE0)) != NULL) {
             __ct__14TAdSelectTxtGCFv(p, self, &txt.v[0], 0xC);
         }
@@ -183,7 +183,7 @@ Obj_802FFE58 *__ct__21TAdMultiChgGameModeGCFv(Obj_802FFE58 *self) {
         }
         {
             Cur_802FFE58 cur = lbl_80474E1C[0];
-            Pos_802FFE58 pos = lbl_80474E24;
+            Pos_802FFE58 pos = multi_chg_game_mode_position_table;
             p = __nw__7TObjectFUl(0x708);
             if (p != NULL) {
                 p = __ct__14TAdSelectCurGCFv(p, self, &pos, &cur);

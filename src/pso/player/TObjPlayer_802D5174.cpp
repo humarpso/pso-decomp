@@ -299,7 +299,7 @@ void push_matrix(void);
 void pop_matrix(void);
 void post_translate_matrix(void *);
 extern V_802D577C lbl_8047259C;
-extern V_802D577C lbl_804725A8;
+extern V_802D577C player_pb_zero_vec_block;
 void TObjPlayer__sub_802D577C(void *arg0_);
 }
 
@@ -392,7 +392,7 @@ void TObjPlayer__sub_802D577C(void *arg0_) {
         p = arg0 + 0x20C;
         q = *(u8 **)((s8 *)arg0 + 0xF0) + 0x2FC;
         pa = &lbl_8047259C;
-        pb = &lbl_804725A8;
+        pb = &player_pb_zero_vec_block;
         ang2 = 0x31C7;
         step = 0x10000 / n;
         step2 = 0x238E / n;

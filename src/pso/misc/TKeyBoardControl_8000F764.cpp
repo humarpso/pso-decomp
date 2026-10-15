@@ -235,7 +235,7 @@ int free_system__13TParticleCtrlFv(void);
 s32 run_tasks__7TObjectFv(s32 *);
 int xfree__FPv(void*);
 
-extern s32 lbl_80515F70[];
+extern s32 keyboard_task_object[];
 extern s32 lbl_805D62B0;
 
 typedef char RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270_size[sizeof(RecoveredGlobal_8000F764_TKeyBoardControl__data_80506270) == 0xB0 ? 1 : -1];
@@ -253,7 +253,7 @@ void run_tasks__16TKeyBoardControlFv(void) {
     if ((s32) lbl_805D62B0 != 0) {
         update_music_sequencer();
     }
-    run_tasks__7TObjectFv(lbl_80515F70);
+    run_tasks__7TObjectFv(keyboard_task_object);
 }
 
 int get_fog_ctrl__16TKeyBoardControlFPv(void* p) { return clear_split_screen_fog__8TFogCtrlFv(p); }

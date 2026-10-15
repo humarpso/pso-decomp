@@ -17,7 +17,7 @@ s32 play_persistent_sound(int, void *, int, int, int);
 s32 play_sound_effect(int, int, int, int);
 s32 queue_event_1D__12TBoss3VoloptFss(int, int);
 s32 get_phase__8TObjFishFPv(int);
-extern Range_8033CDF8 lbl_80477ED8[];
+extern Range_8033CDF8 fish_spawn_entry_table[];
 void TObjFish__sub_8033CDF8(u8 *arg0);
 int clear_render_callback__8TObjFishFv(void);
 void set_draw_callback_list__8TObjFishFPv(void *);
@@ -134,7 +134,7 @@ void TObjFish__sub_8033CDF8(u8 *arg0) {
     }
     found = 0;
     for (i = 0; i < 4; i++) {
-        t = &lbl_80477ED8[i];
+        t = &fish_spawn_entry_table[i];
         if (F(s32, 0x44) >= t->lo && F(s32, 0x44) < t->hi) {
             p = &((Fish_8033CDF8 *)arg0)->vecs[t->idx];
             if (F(void *, 0x8C) == NULL) {

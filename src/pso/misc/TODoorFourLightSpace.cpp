@@ -56,7 +56,7 @@ s32 init_door_base();
 u8 *fn_8028A714(s32);
 s32 fn_8028A750(int);
 s32 fn_8028A78C(int);
-extern Tbl_80289EE0 lbl_80450C24;
+extern Tbl_80289EE0 door_four_light_space_index_table;
 extern s32 TODoorFourLight__collision_body_params[];
 extern s32 __vt__20TODoorFourLightSpace[];
 extern s32 lbl_805D3B1C;
@@ -351,7 +351,7 @@ u8 *TODoorFourLightSpace__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DD8F8;
     {
-        Tbl_80289EE0 t = lbl_80450C24;
+        Tbl_80289EE0 t = door_four_light_space_index_table;
         for (i = 0; i < 8; i++) {
             ((Door_80289EE0 *)arg0)->sw[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0xD4), t.v[i]);
         }
@@ -617,7 +617,7 @@ s32 init_door_base();
 u8 *fn_8028A714(s32);
 s32 fn_8028A750(int);
 s32 fn_8028A78C(int);
-extern Tbl_8028A5C4 lbl_80450BEC;
+extern Tbl_8028A5C4 door_four_light_ruins_index_table;
 extern s32 lbl_80450C48[];
 extern s32 TODoorFourLight__collision_body_params[];
 extern s32 __vt__20TODoorFourLightRuins[];
@@ -642,7 +642,7 @@ u8 *TODoorFourLightRuins__ct(u8 *arg0, s32 arg1, s32 arg2) {
     *(f32 *)((s8 *)arg0 + 0xB4) = (f32) ((f32) *(u32 *)((s8 *)(*(u8 **)((s8 *)arg0 + 0xBC)) + 4) - lbl_805DD8F4);
     *(f32 *)((s8 *)arg0 + 0xB8) = (f32) lbl_805DD8F8;
     {
-        Tbl_8028A5C4 t = lbl_80450BEC;
+        Tbl_8028A5C4 t = door_four_light_ruins_index_table;
         for (i = 0; i < 8; i++) {
             ((Door_8028A5C4 *)arg0)->sw[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(*(s32 *)((s8 *)arg0 + 0xD4), t.v[i]);
         }

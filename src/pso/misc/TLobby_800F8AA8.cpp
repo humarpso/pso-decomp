@@ -961,7 +961,7 @@ void set_read_params__6TLobbyFiii(int a0, int a1, int a2) { pending_file_read_ha
 #define pending_file_read_flush_requested (*(int *)&pending_file_read_flush_requested)
 void TLobby__sub_800F8DD8(void) { pending_file_read_flush_requested = 1; }
 
-    extern unsigned char lbl_805D5358;
+    extern unsigned char lobby_state_byte_flag;
 
 void draw_fullscreen_texture_quad__6TLobbyFPv(void *arg0) {
     f32 v[8];
@@ -999,7 +999,7 @@ void load_font_texture__6TLobbyFv(void) {
     }
 }
 
-void TLobby__sub_800F8F34(void) { lbl_805D5358 = 1; }
+void TLobby__sub_800F8F34(void) { lobby_state_byte_flag = 1; }
 
 }
 
@@ -1013,12 +1013,12 @@ extern "C" {
 
 void reset_state_byte__6TLobbyFv(void);
 
-#define lbl_805D5358 (*(s8 *)&lbl_805D5358)
-extern u8 lbl_805D5359;
+#define lobby_state_byte_flag (*(s8 *)&lobby_state_byte_flag)
+extern u8 lobby_wait_ready_flag;
 
 void reset_state_byte__6TLobbyFv(void) {
-    if ((u8) lbl_805D5359 == 0) {
-        lbl_805D5358 = 0;
+    if ((u8) lobby_wait_ready_flag == 0) {
+        lobby_state_byte_flag = 0;
     }
 }
 
@@ -1026,7 +1026,7 @@ void reset_state_byte__6TLobbyFv(void) {
 
 #pragma pop
 
-#undef lbl_805D5358
+#undef lobby_state_byte_flag
 #pragma push
 
 #include "types.h"
@@ -1040,17 +1040,17 @@ s32 set_state__15TAdPlayerLoadGCFi(s32);
 s32 get_main_phase();
 s32 render_tick__Fv();
 
-#define lbl_805D5359 (*(s8 *)&lbl_805D5359)
+#define lobby_wait_ready_flag (*(s8 *)&lobby_wait_ready_flag)
 
 void wait_ready_loop__6TLobbyFv(void) {
-    lbl_805D5359 = 0;
+    lobby_wait_ready_flag = 0;
 loop_1:
     if (run_disk_error_check__6TLobbyFv() != 1) {
         if (get_main_phase() == 0xF) {
             TLobby__sub_801384E4();
         }
         set_state__15TAdPlayerLoadGCFi(1);
-        lbl_805D5359 = 1;
+        lobby_wait_ready_flag = 1;
         render_tick__Fv();
         goto loop_1;
     }
@@ -1217,5 +1217,5 @@ s32 run_disk_error_check__6TLobbyFv(void) {
 
 #pragma pop
 
-#undef lbl_805D5359
+#undef lobby_wait_ready_flag
 #undef pending_file_read_flush_requested

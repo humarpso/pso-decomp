@@ -33,24 +33,24 @@ u16 get_trap_type__10TOMineTrapFPv(void* p) { return *(u16*)((char*)p + 0x2d8); 
 s16 TOMineTrap__sub_80171340(void* p) { return *(s16*)((char*)p + 0x326); }
 void TOMineTrap__sub_80171348(void* p, s16 v) { *(s16*)((char*)p + 0x2d8) = v; }
 
-    extern int lbl_805D3078;
-int TOMineTrap__sub_80171350(void) {  return lbl_805D3078; }
+    extern int mine_trap_instance_id;
+int TOMineTrap__sub_80171350(void) {  return mine_trap_instance_id; }
 
 u16 TOMineTrap__sub_80171358(void* p) { return *(u16*)((char*)p + 0x37e); }
 
-    extern int lbl_805D5A54;
-int get_trap_count__10TOMineTrapFv(void) {  return lbl_805D5A54; }
+    extern int mine_trap_count;
+int get_trap_count__10TOMineTrapFv(void) {  return mine_trap_count; }
 
-    extern int lbl_805D3078;
+    extern int mine_trap_instance_id;
 
 void TOMineTrap__sub_80171368(f32 farg0) {
     lbl_805D307C = farg0;
 }
 
-void set_instance__10TOMineTrapFi(int a0) { lbl_805D3078 = a0; }
+void set_instance__10TOMineTrapFi(int a0) { mine_trap_instance_id = a0; }
 
-    extern int lbl_805D5A54;
-void set_trap_count__10TOMineTrapFi(int a0) { lbl_805D5A54 = a0; }
+    extern int mine_trap_count;
+void set_trap_count__10TOMineTrapFi(int a0) { mine_trap_count = a0; }
 
 void TOMineTrap__sub_80171380(void) {  }
 

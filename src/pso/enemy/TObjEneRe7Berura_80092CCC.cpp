@@ -395,8 +395,8 @@ extern s32 re7_berura_demo_camera_ptr;
 extern s32 berura_demo_flag;
 extern s32 re7_berura_demo_flag;
 extern void *TObjEneRe7Berura__demo_target;
-extern s32 *lbl_805D4F84;
-extern s16 *lbl_805D4F88;
+extern s32 *berura_node_matrix_ptr_a;
+extern s16 *berura_node_matrix_ptr_b;
 extern s32 belra_uv_animation_buffer;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
@@ -461,9 +461,9 @@ void render__16TObjEneRe7BeruraFv(Berura_80092CCC *o) {
                 fn_80095DF4(&TObjEneRe7Berura__detached_part_states[i]);
             }
         }
-        *lbl_805D4F84 = o->f3C4;
-        lbl_805D4F88[0] = o->f3C8;
-        lbl_805D4F88[1] = o->f3C8 >> 16;
+        *berura_node_matrix_ptr_a = o->f3C4;
+        berura_node_matrix_ptr_b[0] = o->f3C8;
+        berura_node_matrix_ptr_b[1] = o->f3C8 >> 16;
         scroll_strip_uvs(belra_uv_animation_buffer, (s16)o->f3D0, 0);
         fade = (s32)&o->fades[cam];
         update_obstruction_fade((void *)fade);

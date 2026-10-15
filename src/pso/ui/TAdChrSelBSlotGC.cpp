@@ -10,7 +10,7 @@ void *__ct__19TAdPlyChrSelPlateGCFv(void *, void *, void *);
 void *__ct__20TAdChrSelMovePlateGCFv(void *, void *);
 void *__nw__7TObjectFUl(int);
 
-extern s32 lbl_804758D8[];
+extern s32 chr_sel_b_slot_plate_layout[];
 
 void create_children__16TAdChrSelBSlotGCFPv(void *arg0) {
     void *o;
@@ -24,7 +24,7 @@ void create_children__16TAdChrSelBSlotGCFPv(void *arg0) {
     *(void **)((s8 *)arg0 + 0x28) = o;
     o2 = __nw__7TObjectFUl(0x3B4);
     if (o2 != NULL) {
-        o2 = __ct__19TAdPlyChrSelPlateGCFv(o2, arg0, lbl_804758D8);
+        o2 = __ct__19TAdPlyChrSelPlateGCFv(o2, arg0, chr_sel_b_slot_plate_layout);
     }
     *(void **)((s8 *)arg0 + 0x2C) = o2;
     o3 = __nw__7TObjectFUl(0x48C);

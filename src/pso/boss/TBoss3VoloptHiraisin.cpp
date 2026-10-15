@@ -18,11 +18,11 @@ void *TBoss3VoloptHiraisin__init_param_table[45] = {
 extern void *__vt__20TBoss3VoloptHiraisin[];
 void copy_position__20TBoss3VoloptHiraisinFi(s32 arg0);
 s32 lbl_805D4C70;
-s32 lbl_805D4C74;
-s32 lbl_805D4C78;
+s32 volopt_hiraisin_shared_handler_b;
+s32 volopt_hiraisin_object_handle;
 s32 lbl_805D4C7C;
 s32 TBoss3VoloptHiraisin__resource_bundle;
-u8 *lbl_805D4C84;
+u8 *volopt_hiraisin_model_data;
 s32 TBoss3VoloptHiraisin__breakup_model;
 }
 
@@ -460,7 +460,7 @@ void dispatch_state__20TBoss3VoloptHiraisinFPv(void *arg0);
 s32 check_demo_mode__10TObjPlayerFv();
 s32 submit_cursor_candidate(void *, int);
 s32 minimap_render_dot(void *, int, int, int);
-extern u8 *lbl_805D4C84;
+extern u8 *volopt_hiraisin_model_data;
 void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0);
 }
 
@@ -533,8 +533,8 @@ void run_task__20TBoss3VoloptHiraisinFv(u8 *arg0) {
     copy_position__20TBoss3VoloptHiraisinFi((void *) arg0);
     submit_cursor_candidate((void *) arg0, (int) (-1));
     minimap_render_dot((void *) (arg0 + 0x38), (int) (-0x5DB4), (int) 1, (int) 0);
-    temp_r4 = *((s32 *) (((s8 *) lbl_805D4C84) + 0x18));
-    new_var = lbl_805D4C84;
+    temp_r4 = *((s32 *) (((s8 *) volopt_hiraisin_model_data) + 0x18));
+    new_var = volopt_hiraisin_model_data;
     *((s32 *) (((s8 *) new_var) + 0x18)) = (s32) (temp_r4 + 0x4000);
     PSO_VCALL_VObj_18_6fcf4f_m53(arg0, temp_r4, new_var);
   }
@@ -560,7 +560,7 @@ void destroy__20TBoss3VoloptHiraisinFv(void) {
 #define TObjEnemyCustom__sub_800C7860 ((void (*)(void *))TObjEnemyCustom__sub_800C7860)
 #define TBoss3VoloptHiraisin__init_param_table (*(Param_800418C8 *)TBoss3VoloptHiraisin__init_param_table)
 #define play_sound_effect ((int (*)(int, void *, int, int))play_sound_effect)
-#define lbl_805D4C84 (*(s32 **)&lbl_805D4C84)
+#define volopt_hiraisin_model_data (*(s32 **)&volopt_hiraisin_model_data)
 
 struct Base_80041C78_80041770 { char pad[0x18]; };
 struct VObj_80041C78_80041770 : Base_80041C78_80041770 {
@@ -887,7 +887,7 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
 
     TBoss3VoloptHiraisin__resource_bundle = boss3_volopt_resources;
     temp_r3 = collect_and_count__12TBoss3VoloptFUii(get_bml_model(boss3_volopt_resources, 0x10), 0xB);
-    lbl_805D4C84 = temp_r3;
+    volopt_hiraisin_model_data = temp_r3;
     *temp_r3 &= 0xFFFFFFFD;
     var_r31 = alloc__23TAdSinglePlyChrSelectGCFPv(0x10);
     if (var_r31 != 0) {
@@ -895,8 +895,8 @@ void init_models__20TBoss3VoloptHiraisinFv(void) {
     }
     TBoss3VoloptHiraisin__breakup_model = var_r31;
     lbl_805D4C70 = register_boss__6TLobbyFPv(0x24);
-    lbl_805D4C74 = dispatch_shared_handler_b__6TLobbyFPv(0x24);
-    lbl_805D4C78 = register_object__6TLobbyFPv(0x24);
+    volopt_hiraisin_shared_handler_b = dispatch_shared_handler_b__6TLobbyFPv(0x24);
+    volopt_hiraisin_object_handle = register_object__6TLobbyFPv(0x24);
     lbl_805D4C7C = dispatch_shared_handler_a__6TLobbyFPv(0x24);
 }
 
@@ -936,7 +936,7 @@ void init_params__20TBoss3VoloptHiraisinFPv(Hira_800418C8 *self) {
     init_collision_body_parts(self, prm->unk88, 1);
     self->unk368 = 0;
     self->unk350 = prm->unk6C;
-    recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, lbl_805D4C74, lbl_805D4C78, (1.0f), (1.0f));
+    recalc_combat_stats__10TObjPlayerFv(self, lbl_805D4C70, volopt_hiraisin_shared_handler_b, volopt_hiraisin_object_handle, (1.0f), (1.0f));
     self->unkB8 = 0;
     set_animation__10TObjPlayerFPvs(self, self->unkB8);
     set_field_b8__14TObjEnePanarmsFPvs(self, self->unkB8);
@@ -1099,7 +1099,7 @@ void TBoss3VoloptHiraisin__sub_80041D3C(Hira_80041D3C *self) {
 #undef TObjEnemyCustom__sub_800C7860
 #undef TBoss3VoloptHiraisin__init_param_table
 #undef play_sound_effect
-#undef lbl_805D4C84
+#undef volopt_hiraisin_model_data
 
 #undef get_bml_model
 extern "C" void TBoss3Volopt__sub_800C762C();

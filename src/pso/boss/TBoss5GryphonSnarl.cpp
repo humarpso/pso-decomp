@@ -10,7 +10,7 @@ struct D_80066DC8 { s32 f0; s32 f4; s32 f8; s32 fc; };
 
 extern "C" {
 s32 TBoss8Dragon__sub_8005D700(void *self);
-extern u8 lbl_80437F70[];
+extern u8 boss5_gryphon_snarl_effect_id_table[];
 extern void *TBoss5GryphonSnarl__effect_table;
 void TBoss5GryphonSnarl__sub_80066E88(void *self);
 void VecCopy__FP3VecPC3Vec(void *, void *);
@@ -81,7 +81,7 @@ extern u32 boss5_common_texture_list;
 void TBoss5GryphonSnarl__sub_80066E88(void *self) {
     switch (TBoss8Dragon__sub_8005D700(self)) {
     case 0:
-        TBoss5GryphonSnarl__effect_table = lbl_80437F70;
+        TBoss5GryphonSnarl__effect_table = boss5_gryphon_snarl_effect_id_table;
         break;
     }
 }

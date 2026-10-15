@@ -37,7 +37,7 @@ extern s32 bm_obj_seabed_suiso_2_resource_descriptor[];
 
 int TObjSeabedSuisoBrakable__break_model_entries[5];
 int TObjSeabedSuisoBrakable__model12_render_nodes[3];
-int lbl_80540AE0[4];
+int suiso_brakable_linked_switch_counts[4];
 
 extern u32 TObjSeabedSuisoBrakable__resource_bundle;
 extern u32 TObjSeabedSuisoBrakable__texture_gvm_handle;
@@ -101,10 +101,10 @@ void load_resources__23TObjSeabedSuisoBrakableFv(void) {
         TObjSeabedSuisoBrakable__model12_render_nodes[2] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(item, 4);
     }
     if ((p = get_bml_model(TObjSeabedSuisoBrakable__resource_bundle, 0xD)) != NULL) {
-        lbl_80540AE0[0] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 1);
-        lbl_80540AE0[1] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 2);
-        lbl_80540AE0[2] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 3);
-        ptrs = (s32 **)lbl_80540AE0;
+        suiso_brakable_linked_switch_counts[0] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 1);
+        suiso_brakable_linked_switch_counts[1] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 2);
+        suiso_brakable_linked_switch_counts[2] = (int) count_linked_switches__23TObjSeabedSuisoBrakableFUii(p, 3);
+        ptrs = (s32 **)suiso_brakable_linked_switch_counts;
         for (i = 0; i < 3; i++) {
             if (ptrs[i] != NULL) {
                 *ptrs[i] |= 0x100000;
@@ -121,8 +121,8 @@ int get_break_data__23TObjSeabedSuisoBrakableFi(int a0) {  return TObjSeabedSuis
     extern int TObjSeabedSuisoBrakable__model12_render_nodes[];
 int get_table0_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return TObjSeabedSuisoBrakable__model12_render_nodes[a0]; }
 
-    extern int lbl_80540AE0[];
-int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return lbl_80540AE0[a0]; }
+    extern int suiso_brakable_linked_switch_counts[];
+int get_table1_entry__23TObjSeabedSuisoBrakableFi(int a0) {  return suiso_brakable_linked_switch_counts[a0]; }
 
 void TObjSeabedSuisoBrakable__vt17(void) {  }
 

@@ -216,7 +216,7 @@ extern const f32 TOTrap__data_805DBA3C;
 f32 set_triggered_state__6TOTrapFPvUi(u8 *arg0, u32 arg1);
 s32 submit_cursor_candidate(void *, s32);
 void submit_cursor_and_notify__6TOTrapFPv(u8 *arg0);
-extern u32 lbl_80442CD0[];
+extern u32 trap_scale_factor_table[];
 extern s32 game_difficulty_selection;
 f32 scale_by_table_value__6TOTrapFf(f32 farg0);
 s32 fn_80171314(void *);
@@ -272,10 +272,10 @@ s32 set_flag8__6TLobbyFPv(void *);
 
 f32 scale_by_table_value__6TOTrapFf(f32 farg0) {
     u32 v[4];
-    v[0] = lbl_80442CD0[0];
-    v[1] = lbl_80442CD0[1];
-    v[2] = lbl_80442CD0[2];
-    v[3] = lbl_80442CD0[3];
+    v[0] = trap_scale_factor_table[0];
+    v[1] = trap_scale_factor_table[1];
+    v[2] = trap_scale_factor_table[2];
+    v[3] = trap_scale_factor_table[3];
     return farg0 * ((f32*)v)[game_difficulty_selection];
 }
 

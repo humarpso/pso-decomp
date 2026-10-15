@@ -97,7 +97,7 @@ u32 get_character_save_record(int);
 extern RecoveredGlobal_8006F5B0_lbl_8048C9D8 challenge_mode_state;
 s32 TLobby__sub_8006F5B0(s32 arg0);
 s32 strncpy(void *, void *, int);
-extern RecoveredGlobal_8006F848_lbl_804FF800 lbl_804FF800;
+extern RecoveredGlobal_8006F848_lbl_804FF800 lobby_name_string_buffer;
 void set_name_string__6TLobbyFi(s32 arg0);
 s32 decode_slot__6TLobbyFUi(u32 id);
 s32 is_id_out_of_range__6TLobbyFi(s32 arg0);
@@ -247,8 +247,8 @@ block_12:
 }
 typedef char RecoveredGlobal_8006F848_lbl_804FF800_size[sizeof(RecoveredGlobal_8006F848_lbl_804FF800) == 0x20 ? 1 : -1];
 void set_name_string__6TLobbyFi(s32 arg0) {
-    strncpy((void *) (&lbl_804FF800.value), (void *) (arg0), (int) (0x1F));
-    *(s8 *)((s8 *)(&lbl_804FF800.value) + 0x1F) = 0;
+    strncpy((void *) (&lobby_name_string_buffer.value), (void *) (arg0), (int) (0x1F));
+    *(s8 *)((s8 *)(&lobby_name_string_buffer.value) + 0x1F) = 0;
 }
 
 void decode_obfuscated_string__6TLobbyFPvPvi(void *arg0, void *arg1, int arg2) {

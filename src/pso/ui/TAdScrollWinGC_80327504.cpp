@@ -33,7 +33,7 @@ extern u8 lbl_80476770[];
 extern u8 lbl_80476778[];
 extern RecoveredGlobal_80327698___vt__14TAdScrollWinGC __vt__14TAdScrollWinGC;
 extern s32 TAdScrollWinGC__class_name;
-extern s32 lbl_805D6C68;
+extern s32 scroll_win_texture_handle;
 extern const f32 lbl_805DF6B4;
 extern const f32 lbl_805DF6B8;
 extern const f32 lbl_805DF6BC;
@@ -102,7 +102,7 @@ void *TAdScrollWinGC__ct(void *arg0, void *arg1, s32 arg2, s32 arg3) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = &__vt__14TAdScrollWinGC.value;
     *(s32 *)((s8 *)arg0 + 0) = (s32) TAdScrollWinGC__class_name;
-    lbl_805D6C68 = TAdMultiPlyChrSelectGC__sub_802C6FA8();
+    scroll_win_texture_handle = TAdMultiPlyChrSelectGC__sub_802C6FA8();
     *(s32 *)((s8 *)arg0 + 0x3C) = 0;
     *(s32 *)((s8 *)arg0 + 0x40) = 0;
     *(s32 *)((s8 *)arg0 + 0x44) = arg2;

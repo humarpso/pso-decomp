@@ -61,7 +61,7 @@ void copy_pos__11TNowLoadingFPvPv(u32, void *);
 void play_sound_effect(s32, void *, s32, s32);
 void queue_event_1D__12TBoss3VoloptFss(s16, s16);
 extern Vec_8004F3D4 lbl_804373F4[];
-extern Vec_8004F3D4 lbl_80437400[];
+extern Vec_8004F3D4 boss4_type2_effect_offset_vec[];
 extern const f32 lbl_805D89FC;
 extern const f32 lbl_805D8A00;
 void update_effect_timeline__11TBoss4Type2FPv(Self_8004F3D4 *self);
@@ -164,7 +164,7 @@ void update_effect_timeline__11TBoss4Type2FPv(Self_8004F3D4 *self) {
   if (self->fF8 == 0x72)
   {
     Vec_8004F3D4 a = lbl_804373F4[0];
-    Vec_8004F3D4 b = lbl_80437400[0];
+    Vec_8004F3D4 b = boss4_type2_effect_offset_vec[0];
     VecCopy__FP3VecPC3Vec(&self->pos, &a);
     self->fF4 = 0;
     set_scripted_camera_pose(&self->pos, &self->pos, &b);

@@ -203,7 +203,7 @@ int xmalloc__FUl(void);
 
     extern int lbl_805D56C8;
     extern short lbl_805D56CE;
-    extern int lbl_805D56D0;
+    extern int keyboard_buffer_cursor;
 u32 lbl_8050C0A8[7];
 u32 lbl_8050C0C4[368];
 u32 lbl_8050C684[64];
@@ -219,7 +219,7 @@ extern s32 lbl_805D5714;
 #define lbl_8050CCE8 (*(RecoveredGlobal_80146CB8_lbl_8050CCE8 *)lbl_8050CCE8)
 #define lbl_8050CE14 (*(RecoveredGlobal_80146D44_lbl_8050CE14 *)lbl_8050CE14)
 
-void init_keyboard_buffer__6TLobbyFv(void) { lbl_805D56D0 = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
+void init_keyboard_buffer__6TLobbyFv(void) { keyboard_buffer_cursor = 0; lbl_805D56CE = 0; lbl_805D56C8 = 0; get_network_config_buffer_size((void*)0); lbl_805D56C8 = xmalloc__FUl(); TLobby__sub_80145A94(); }
 
 s32 poll_connect__6TLobbyFv(void) {
     s32 var_r31;
@@ -714,11 +714,11 @@ void init_account_entries__6TLobbyFv(void) {
 #undef memset
 #undef strncpy
 
-    extern int lbl_805D56D0;
-void fn_80147A60(int a0) { lbl_805D56D0 = a0; }
+    extern int keyboard_buffer_cursor;
+void fn_80147A60(int a0) { keyboard_buffer_cursor = a0; }
 
-    extern int lbl_805D56D0;
-void fn_80147A68(void) { lbl_805D56D0 = 0; }
+    extern int keyboard_buffer_cursor;
+void fn_80147A68(void) { keyboard_buffer_cursor = 0; }
 typedef char RecoveredGlobal_80147A74_lbl_804EF500_size[sizeof(RecoveredGlobal_80147A74_lbl_804EF500) == 0x98 ? 1 : -1];
 s32 *get_ppp_password_buffer(void) {
     return &ppp_password_buffer.value;

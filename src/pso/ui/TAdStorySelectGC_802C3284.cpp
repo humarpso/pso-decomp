@@ -53,9 +53,9 @@ void *__ct__14TAdSelectCurGCFv(void *, void *, void *, void *);
 void set_entry_value__22TAdMultiPlyChrSelectGCFiiUi(s32, s32, s32);
 void *__ct__13TAdGuideTxtGCFv(void *, void *);
 s32 get_data__23TAdSinglePlyChrSelectGCFv(s32);
-extern C_802C3400 lbl_804719E4;
+extern C_802C3400 story_select_colors_and_positions;
 extern A_802C3400 lbl_804719FC[];
-extern B_802C3400 lbl_80471A04;
+extern B_802C3400 story_select_rect_table;
 extern void *__vt__16TAdStorySelectGC[];
 extern s32 lbl_805D3EC8;
 extern s32 lbl_805D67C0;
@@ -146,7 +146,7 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
         __ct__13TAdTitleTexGCFv(p, self);
     }
     {
-        C_802C3400 c = lbl_804719E4;
+        C_802C3400 c = story_select_colors_and_positions;
         p = __nw__7TObjectFUl(0xE0);
         if (p != NULL) {
             __ct__14TAdSelectTxtGCFv(p, self, &c.e[0], 4);
@@ -157,7 +157,7 @@ Self_802C3400 *__ct__16TAdStorySelectGCFv(Self_802C3400 *self, void *parent) {
         }
         {
         A_802C3400 a = lbl_804719FC[0];
-        B_802C3400 b = lbl_80471A04;
+        B_802C3400 b = story_select_rect_table;
         p = __nw__7TObjectFUl(0x708);
         if (p != NULL) {
             p = __ct__14TAdSelectCurGCFv(p, self, &b, &a);

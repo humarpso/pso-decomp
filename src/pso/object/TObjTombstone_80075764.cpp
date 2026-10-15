@@ -13,16 +13,16 @@ s32 push_matrix();
 s32 pop_matrix();
 
 extern u32 TObjTombstone__shared_resource_object;
-extern s32 lbl_805D4E4C;
+extern s32 tombstone_first_run_flag;
 
 void update_render_flags__13TObjTombstoneFPv(u8 *arg0) {
     u8 *temp_r3;
     s32 *temp_r4;
 
     if ((u32) TObjTombstone__shared_resource_object != 0U) {
-        if ((s32) lbl_805D4E4C == 0) {
+        if ((s32) tombstone_first_run_flag == 0) {
             scroll_ginja_mesh_uvs((void *) (*(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 4)), (int) (-8), (int) (0), (int) (0), (int) (1));
-            lbl_805D4E4C = 1;
+            tombstone_first_run_flag = 1;
             PPCSync();
         }
         temp_r3 = (unsigned char *) (*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)arg0 + 0x34)) + 0x2C)) + 0x30)) + 0x30));

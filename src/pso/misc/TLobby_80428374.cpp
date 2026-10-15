@@ -143,7 +143,7 @@ extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 void reset_boot_state__6TLobbyFv(void);
 extern RecoveredGlobal_80428374_lbl_805D0A40 lobby_net_session_state;
 void TLobby__sub_803F95E4(u32);
-extern u32 lbl_805D7C00;
+extern u32 lobby_buffer_pool_alarm_handle;
 void cancel_alarm_b__6TLobbyFv(void);
 s32 OSWakeupThread(void *);
 extern s32 network_thread_queue;
@@ -157,7 +157,7 @@ void exi_write__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 extern s32 exi_send_started_flag;
 extern s32 lbl_805D7C54;
 extern s32 lbl_805D7C7C;
-extern s32 lbl_805D7C80;
+extern s32 exi_send_size;
 void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 s32 memcpy(void *, void *, int);
 extern s32 exi_mac_address;
@@ -193,14 +193,14 @@ extern RecoveredGlobal_80427D0C_lbl_805CFC20 lobby_pppoe_slot_table;
 s32 TLobby__sub_80428360(void);
 s16 TLobby__sub_803F96AC(void *, void *, void *);
 void reset_buffer_pool__6TLobbyFv(void);
-extern s32 lbl_805D7BE0;
-extern s32 lbl_805D7BE8;
+extern s32 lobby_buffer_pool_base;
+extern s32 lobby_buffer_pool_size;
 extern s32 lbl_805D7BEC;
 extern s32 lbl_805D7BF0;
 extern s32 lbl_805D7BF4;
 extern s32 lbl_805D7BF8;
 extern s32 lbl_805D7BFC;
-extern u32 lbl_805D7C00;
+extern u32 lobby_buffer_pool_alarm_handle;
 s32 init_buffer_pool__6TLobbyFv(void);
 void TAdSinglePlyChrSelectGC__sub_8042DDE4(int, int);
 extern RecoveredGlobal_8042E768_lbl_805D1D20 modem_connection_info;
@@ -214,7 +214,7 @@ extern u8 lobby_net_channel_table[];
 void forward_to_channel__6TLobbyFPvPv(void *a, void *b);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 extern u8 lbl_805CF380[];
-extern s32 lbl_805D7BCC;
+extern s32 network_message_pending_count;
 void TLobby__sub_80425D88(u8 v);
 void TLobby__sub_80426190(Obj_80426110 *);
 s16 TLobby__sub_80426110(Obj_80426110 *o, u16 arg1, u16 arg2);
@@ -262,7 +262,7 @@ void TLobby__sub_80425D88(u8 v);
 void start_exi_send__6TLobbyFiii(s32 arg0, s32 arg1, s32 arg2);
 extern u8 lbl_805CF240[];
 extern u8 lbl_805CF380[];
-extern s32 lbl_805D7BCC;
+extern s32 network_message_pending_count;
 void message_thread_loop__6TLobbyFv(void);
 s32 OSSendMessage(void *mq, void *msg, s32 flags);
 s32 NetMemcpy(void *, void *, int);
@@ -355,7 +355,7 @@ s32 EXIDma(s32, void *, s32, u32, void *);
 void DCStoreRange(void *, u32);
 void TLobby__sub_8042B434(s32, void *);
 extern s32 lbl_805D7C7C;
-extern s32 lbl_805D7C80;
+extern s32 exi_send_size;
 extern s32 lbl_805D7C84;
 extern s32 lbl_805D7C88;
 s32 exi_start_send_dma__6TLobbyFii(int, int);
@@ -548,16 +548,16 @@ s32 wait_timeout_loop__6TLobbyFPv(u8 *arg0) {
 }
 
 void cancel_alarm_b__6TLobbyFv(void) {
-    TLobby__sub_803F95E4(lbl_805D7C00);
+    TLobby__sub_803F95E4(lobby_buffer_pool_alarm_handle);
 }
 
 s32 init_buffer_pool__6TLobbyFv(void) {
-    lbl_805D7BEC = lbl_805D7BE0;
-    lbl_805D7BF0 = lbl_805D7BE0;
-    lbl_805D7BF4 = lbl_805D7BE0;
-    lbl_805D7BF8 = lbl_805D7BE0 + lbl_805D7BE8;
-    lbl_805D7BFC = lbl_805D7BE8;
-    if (TLobby__sub_803F96AC((void *) (&lbl_805D7C00), (void *) (lbl_805D7BE0), (void *) (lbl_805D7BE8)) < 0) {
+    lbl_805D7BEC = lobby_buffer_pool_base;
+    lbl_805D7BF0 = lobby_buffer_pool_base;
+    lbl_805D7BF4 = lobby_buffer_pool_base;
+    lbl_805D7BF8 = lobby_buffer_pool_base + lobby_buffer_pool_size;
+    lbl_805D7BFC = lobby_buffer_pool_size;
+    if (TLobby__sub_803F96AC((void *) (&lobby_buffer_pool_alarm_handle), (void *) (lobby_buffer_pool_base), (void *) (lobby_buffer_pool_size)) < 0) {
         return -1;
     }
     reset_buffer_pool__6TLobbyFv();

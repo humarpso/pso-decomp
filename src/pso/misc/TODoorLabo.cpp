@@ -534,7 +534,7 @@ struct Door_802A0068 {
 };
 
 s32 clamp_light_index__19TODoorFourLightBaseFPv(void *);
-extern Tbl_802A0068 lbl_80465F74;
+extern Tbl_802A0068 door_four_light_seabed_index_table;
 extern s32 __vt__21TODoorFourLightSeabed[];
 extern s32 TODoorFourLightSeabed__class_name;
 extern s32 door_labo_bml_resource;
@@ -555,7 +555,7 @@ u8 *TODoorFourLightSeabed__ct(u8 *arg0) {
     self->fB4 = (f32)self->infoBC->v4 - lbl_805DDDB8;
     self->fB8 = lbl_805DDDBC;
     {
-        Tbl_802A0068 tbl = lbl_80465F74;
+        Tbl_802A0068 tbl = door_four_light_seabed_index_table;
         for (i = 0; i < 8; i++) {
             self->fD8[i] = count_linked_switches__23TObjSeabedSuisoBrakableFUii(self->fD4, tbl.w[i]);
         }

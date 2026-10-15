@@ -161,7 +161,7 @@ s32 get_state__10TSceneSoraFPv(void* p);
 extern s32 lbl_805D65F0;
 void set_scene_flag__10TSceneSoraFi(int a0);
 s32 VecCopy__FP3VecPC3Vec(void *, int);
-extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 lbl_804DC7B8;
+extern RecoveredGlobal_800687E4_TCameraCtrl__data_804FF6C4 sora_reflection_ray_direction;
 void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0);
 }
 
@@ -242,7 +242,7 @@ void *create_instance__10TSceneSoraFPv(void *arg0) {
 s32 get_state__10TSceneSoraFPv(void* p) { return *(s32*)((char*)p + 0x20); }
 void set_scene_flag__10TSceneSoraFi(int a0) { (*(int *)&lbl_805D65F0) = a0; }
 void copy_reflection_vec__10TSceneSoraFPv(u8 *arg0) {
-    VecCopy__FP3VecPC3Vec((void *)(&lbl_804DC7B8.value), (int)(arg0));
+    VecCopy__FP3VecPC3Vec((void *)(&sora_reflection_ray_direction.value), (int)(arg0));
 }
 
 typedef char RecoveredGlobal_80069094_camera_controller_registry_size[sizeof(RecoveredGlobal_80069094_camera_controller_registry) == 0x68 ? 1 : -1];

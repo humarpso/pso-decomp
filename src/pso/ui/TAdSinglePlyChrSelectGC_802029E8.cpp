@@ -104,7 +104,7 @@ int fn_8020325C(void *arg0);
 s32 free_chardata__23TAdSinglePlyChrSelectGCFis(s32 arg0, s16 arg1);
 s32 __destroy_arr(s32, s32 *, s32, s32);
 s32 __dl__FPv(s32);
-extern s32 lbl_805D5FB0;
+extern s32 chr_select_game_name_buffer;
 extern int card_character_save_buffer;
 extern s32 selected_character_data;
 extern s32 *active_character_save_record;
@@ -260,7 +260,7 @@ u8 check_flag__23TAdSinglePlyChrSelectGCFi(s32 arg0) {
     extern int lbl_805D5FA0;
 void set_state__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FA0 = a0; }
 
-    extern int lbl_805D5FA4;
+    extern int chr_select_game_mode;
 
 void clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C08 *self) {
     s32 i;
@@ -271,7 +271,7 @@ void clear_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C08 *self) {
     }
 }
 
-void set_chr_select_state__23TAdSinglePlyChrSelectGCFi(int a0) { lbl_805D5FA4 = a0; }
+void set_chr_select_state__23TAdSinglePlyChrSelectGCFi(int a0) { chr_select_game_mode = a0; }
 
 void reset_slot_lists__23TAdSinglePlyChrSelectGCFPv(Obj_80202C3C *self) {
     s32 i;

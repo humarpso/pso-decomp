@@ -28,7 +28,7 @@ s32 TWindowShortListCtrl__check_controller_button(void *, s32);
 s32 is_message_window_ready();
 extern s8 controller_input_state[];
 void update_wait_confirm__17TMCFormatSequenceFPv(void *arg0);
-extern RecoveredGlobal_801F6548_lbl_80512790 lbl_80512790;
+extern RecoveredGlobal_801F6548_lbl_80512790 offline_quest_filename_buffer_a;
 s32 *TQuestThread__sub_801F6548(void);
 s32 get_localized_text_entry(s32, s32);
 void show_message__17TMCFormatSequenceFPvii(void *arg0, s32 arg1, s32 arg2);
@@ -59,7 +59,7 @@ s32 send_and_handle__6TLobbyFPvii(s32, s32, s32);
 
 typedef char RecoveredGlobal_801F6548_lbl_80512790_size[sizeof(RecoveredGlobal_801F6548_lbl_80512790) == 0x20 ? 1 : -1];
 s32 *TQuestThread__sub_801F6548(void) {
-    return &lbl_80512790.value;
+    return &offline_quest_filename_buffer_a.value;
 }
 
 void close_window__17TMCFormatSequenceFPv(void* p) { if (*(unsigned int*)((char*)p + 0x34) != 0) { TWindow__close((void*)(*(void**)((char*)p + 0x34))); *(int*)((char*)p + 0x34) = 0; } }

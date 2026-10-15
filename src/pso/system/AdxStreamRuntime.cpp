@@ -265,7 +265,7 @@ s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C634[];
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 lbl_805D4668;
+extern s32 adx_stream_request_count_ex;
 extern s32 lbl_805D7550;
 Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
@@ -276,8 +276,8 @@ u32 TLobby__sub_803CF2F4(const char *, int, int);
 s32 TLobby__sub_803CE568(void);
 extern char lbl_8047C634[];
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 lbl_805D4670;
-extern s32 lbl_805D466C;
+extern s32 adx_stream_fname_slot_count;
+extern s32 adx_stream_request_base_index;
 Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
 s32 cv_fs_seek__6TLobbyFPvii(int, int, int);
@@ -285,7 +285,7 @@ s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C600[];
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 lbl_805D4668;
+extern s32 adx_stream_request_count_ex;
 extern s32 lbl_805D7550;
 Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 void report_adx_error__6TLobbyFPvi(const char *, const char *);
@@ -294,8 +294,8 @@ s32 cv_fs_tell__6TLobbyFPv(int);
 u32 TLobby__sub_803CF2F4(const char *, int, int);
 extern char lbl_8047C660[];
 extern RecoveredGlobal_803C90B0_lbl_80575140 adx_stream_read_requests;
-extern s32 lbl_805D4670;
-extern s32 lbl_805D466C;
+extern s32 adx_stream_fname_slot_count;
+extern s32 adx_stream_request_base_index;
 Ent_803C8BAC *adxstm_open_fname_range__6TLobbyFPviiii(const char *name, s32 mode, s32 off, s32 nsect, s32 arg);
 void clear_buffer_1680__6TLobbyFv(void);
 void clear_net_buffer_1680__6TLobbyFv(void);
@@ -1093,13 +1093,13 @@ void TLobby__sub_803C8B38(u8 *arg0) {
 inline Ent_803C8BAC *alloc_803C8BAC(s32 arg, u32 h, s32 size) {
     Ent_803C8BAC *p = NULL;
     s32 i;
-    for (i = 0; i < lbl_805D4668; i++) {
+    for (i = 0; i < adx_stream_request_count_ex; i++) {
         p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D7550 + i];
         if (p->used == 0) {
             break;
         }
     }
-    if (i == lbl_805D4668) {
+    if (i == adx_stream_request_count_ex) {
         return NULL;
     }
     p->b1 = 1;
@@ -1137,13 +1137,13 @@ Ent_803C8BAC *TLobby__sub_803C8BAC(const char *name, s32 arg) {
 inline Ent_803C8BAC *alloc_803C8CDC(s32 arg, u32 h, s32 f10, s32 size) {
     Ent_803C8BAC *p = NULL;
     s32 i;
-    for (i = 0; i < lbl_805D4670; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D466C + i];
+    for (i = 0; i < adx_stream_fname_slot_count; i++) {
+        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
         if (p->used == 0) {
             break;
         }
     }
-    if (i == lbl_805D4670) {
+    if (i == adx_stream_fname_slot_count) {
         return NULL;
     }
     p->b1 = 1;
@@ -1185,13 +1185,13 @@ Ent_803C8BAC *TLobby__sub_803C8CDC(const char *name, s32 mode, s32 arg) {
 inline Ent_803C8BAC *alloc_803C8E28(s32 arg, u32 h, s32 f10, s32 size) {
     Ent_803C8BAC *p = NULL;
     s32 i;
-    for (i = 0; i < lbl_805D4668; i++) {
+    for (i = 0; i < adx_stream_request_count_ex; i++) {
         p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D7550 + i];
         if (p->used == 0) {
             break;
         }
     }
-    if (i == lbl_805D4668) {
+    if (i == adx_stream_request_count_ex) {
         return NULL;
     }
     p->b1 = 1;
@@ -1227,13 +1227,13 @@ Ent_803C8BAC *adxstm_open_fname_range_ex_rt__6TLobbyFPviiii(const char *name, s3
 inline Ent_803C8BAC *alloc_803C8F5C(s32 arg, u32 h, s32 f10, s32 size) {
     Ent_803C8BAC *p = NULL;
     s32 i;
-    for (i = 0; i < lbl_805D4670; i++) {
-        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[lbl_805D466C + i];
+    for (i = 0; i < adx_stream_fname_slot_count; i++) {
+        p = &((Ent_803C8BAC *)&adx_stream_read_requests)[adx_stream_request_base_index + i];
         if (p->used == 0) {
             break;
         }
     }
-    if (i == lbl_805D4670) {
+    if (i == adx_stream_fname_slot_count) {
         return NULL;
     }
     p->b1 = 1;
@@ -1577,7 +1577,7 @@ void adxt_trap_entry_update__6TLobbyFPv(Obj_803CB20C *arg0);
 s32 VIWaitForRetrace();
 s32 run_callbacks_group2__6TLobbyFv();
 
-extern Cb_803CBA58 lbl_805D4680;
+extern Cb_803CBA58 adx_worker_thread_pending_callback;
 extern s32 lbl_805D7540;
 extern s32 lbl_805D75A0;
 extern s32 lbl_805D75B4;
@@ -1666,7 +1666,7 @@ void TLobby__sub_803CB74C(s32 *arg0);
 s32 run_worker_callbacks_slot5__6TLobbyFv(int);
 extern Cfg_803CBA58 lbl_804F9D80;
 
-extern Cb_803CBA58 lbl_805D4680;
+extern Cb_803CBA58 adx_worker_thread_pending_callback;
 extern s32 lbl_805D7598;
 extern s32 lbl_805D75A4;
 extern s32 lbl_805D75BC;
@@ -2795,8 +2795,8 @@ void worker_thread_loop__6TLobbyFv(void) {
                 lbl_805D7598 = 0;
                 OSSetThreadPriority(&adxm_worker_thread, lbl_804F9D80.prio);
             }
-            if (lbl_805D4680.fn != NULL) {
-                lbl_805D4680.fn(lbl_805D4680.arg);
+            if (adx_worker_thread_pending_callback.fn != NULL) {
+                adx_worker_thread_pending_callback.fn(adx_worker_thread_pending_callback.arg);
             }
             OSSuspendThread(&adxm_worker_thread);
         }
@@ -2812,8 +2812,8 @@ void TLobby__sub_803CBB14(void) {
         run_callbacks_group2__6TLobbyFv();
         if (lbl_805D75BC == 0) {
             OSResumeThread(&adxm_worker_thread);
-            if (lbl_805D4680.fn != NULL) {
-                lbl_805D4680.fn(lbl_805D4680.arg);
+            if (adx_worker_thread_pending_callback.fn != NULL) {
+                adx_worker_thread_pending_callback.fn(adx_worker_thread_pending_callback.arg);
             }
         }
     }

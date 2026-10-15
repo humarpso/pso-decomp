@@ -51,7 +51,7 @@ void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
 void set_global_param__8TObjFishFi(s32);
 void load_list_texture(s32, s32, s32, s32);
-extern Tbl5_802A85F0 lbl_8046FC0C;
+extern Tbl5_802A85F0 indirect_tev_alternate_coord_table;
 extern Tbl5_802A85F0 indirect_tev_scale_table;
 extern const f32 lbl_805DE020;
 extern const f32 lbl_805DE024;
@@ -63,7 +63,7 @@ void GXSetNumIndStages(s32);
 void GXSetTevIndWarp(s32, s32, s32, s32, s32);
 void set_global_param__8TObjFishFi(s32);
 void load_list_texture(s32, s32, s32, s32);
-extern Tbl5_802A8448 lbl_8046FC34;
+extern Tbl5_802A8448 indirect_tev_ordinary_scale_table;
 extern const f32 lbl_805DE020;
 extern const f32 lbl_805DE024;
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second);
@@ -111,7 +111,7 @@ void TObjPlayer__sub_802A841C(void) {
 void *indirect_effect_tile_buffer;
 
 s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
-    Tbl5_802A8448 scales = lbl_8046FC34;
+    Tbl5_802A8448 scales = indirect_tev_ordinary_scale_table;
     f32 m0[2][3];
     f32 m1[2][3];
     GXSetNumIndStages(1);
@@ -146,7 +146,7 @@ s32 setup_indirect_tev_ordinary(s32 arg0, s32 sampler, s32 scale, s32 second) {
 s32 setup_indirect_tev_alternate(s32 arg0, s32 unused, s32 sampler, s32 arg3) {
     if ((u8)arg3 < 5) {
         u8 scale = arg3;
-        Tbl5_802A85F0 coords = lbl_8046FC0C;
+        Tbl5_802A85F0 coords = indirect_tev_alternate_coord_table;
         Tbl5_802A85F0 scales = indirect_tev_scale_table;
         f32 mtx[2][3];
         GXSetNumIndStages(1);

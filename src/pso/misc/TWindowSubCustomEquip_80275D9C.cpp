@@ -34,7 +34,7 @@ void begin_screen_draw(int);
 void get_player__20TWindowSubStatusDispFv();
 void draw_textured_quad_at_depth(void *, f32);
 void set_draw_texture_and_color(int, int);
-extern Vec2_80275DE8 lbl_8044F760[];
+extern Vec2_80275DE8 custom_equip_cursor_frame_uv_table[];
 extern s32 lbl_805D63F0;
 extern const f32 lbl_805DD550;
 extern const f32 lbl_805DD554;
@@ -65,7 +65,7 @@ void draw_cursor_sprite__21TWindowSubCustomEquipFPvPvif(u8 *arg0, Vec2_80275DE8 
     if (*(s32 *)((s8 *)arg0 + 0x30) < 0) {
         return;
     }
-    t = &lbl_8044F760[arg2 & 0xF];
+    t = &custom_equip_cursor_frame_uv_table[arg2 & 0xF];
     scale = lbl_805DD550 / (lbl_805DD554 * farg0 + *(f32 *)((s8 *)arg0 + 0x38));
     init_xyz_limits__10TObjPlayerFv();
     begin_screen_draw(1);

@@ -155,7 +155,7 @@ void refresh_collision_body_centers(void *);
 void set_parent__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 extern void *tl_05;
-extern s32 lbl_805D543C;
+extern s32 item_ground_placement_enabled;
 extern const f32 lbl_805DAA9C;
 extern const f32 lbl_805DAAA0;
 void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, s32 quiet);
@@ -190,7 +190,7 @@ void place_on_ground__5TItemFPvsPvi(TItem_80102424 *self, s16 client, f32 *pos, 
     self->f60 = (s32)(lbl_805DAA9C * r);
     snap_to_ground__5TItemFPv(self, r);
     refresh_collision_body_centers(self);
-    if (lbl_805D543C != 0) {
+    if (item_ground_placement_enabled != 0) {
         spawn_particle_effect(&self->x, 0x9B);
     }
 }
@@ -344,7 +344,7 @@ s32 is_rare_item__9TItemDataFPv(void *);
 s32 clamp_s32__10TObjPlayerFiii(s32, s32, s32);
 void initialize_linked_object_reference(void *, void *);
 void construct_collider_proxy__10TObjPlayerFPv(void *, void *);
-extern u8 lbl_8043DF68[];
+extern u8 item_collider_body[];
 extern u8 lbl_8043DF94[];
 extern void *__vt__5TItem[];
 extern s32 TItem__name;
@@ -359,7 +359,7 @@ u8 *TItem__ct(u8 *self, void *parent, u8 *item) {
     *(void **)((s8 *)self + 0x18) = __vt__5TItem;
     *(s32 *)((s8 *)self + 0) = TItem__name;
     obj_setFlags30(self, 0x80000000);
-    fn_8002B630(self + 0xAC, lbl_8043DF68);
+    fn_8002B630(self + 0xAC, item_collider_body);
     TItem__sub_801031C0(self + 0x98);
     initialize_linked_object_reference(self, self + 0xAC);
     *(u16 *)((s8 *)self + 0xE4) = 0xFFFF;
@@ -407,7 +407,7 @@ void init_game_resources__10TObjPlayerFv(void);
 void advance_item_system_generation(void);
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
-extern u32 lbl_805D5400;
+extern u32 player_rock_objects_handle;
 void alloc_game_systems__10TObjPlayerFv(void);
 }
 
@@ -471,15 +471,15 @@ int lookup_inventory_item__10TObjPlayerFPv(void* p) { return dispatch_item_by_ty
 
 extern s32 item_registry_count;
 extern u32 item_registry_sorted_entries;
-extern u32 lbl_805D5400;
+extern u32 player_rock_objects_handle;
 
 void free_globals__10TObjPlayerFv(void) {
     free_item_globals__10TObjPlayerFv();
     free_static_buffer__10TObjPlayerFv();
     free_global_805D6FB8__10TObjPlayerFv();
-    if ((u32) lbl_805D5400 != 0U) {
-        free_rock_objects__6TLobbyFis((void*)lbl_805D5400, 1);
-        lbl_805D5400 = 0U;
+    if ((u32) player_rock_objects_handle != 0U) {
+        free_rock_objects__6TLobbyFis((void*)player_rock_objects_handle, 1);
+        player_rock_objects_handle = 0U;
     }
     if ((u32) item_registry_sorted_entries != 0U) {
         free__11TOBoss4RockFUi((void*)item_registry_sorted_entries);
@@ -499,7 +499,7 @@ void alloc_game_systems__10TObjPlayerFv(void) {
     if (p != NULL) {
         p = (void *)init_bosses__6TLobbyFPv(p);
     }
-    lbl_805D5400 = (u32)p;
+    player_rock_objects_handle = (u32)p;
     alloc_and_init_object_b4__10TObjPlayerFv();
     alloc_and_run_object__10TObjPlayerFv();
     init_game_resources__10TObjPlayerFv();

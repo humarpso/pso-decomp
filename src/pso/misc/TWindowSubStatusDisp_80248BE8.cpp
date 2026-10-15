@@ -80,7 +80,7 @@ void render_status_and_children__20TWindowSubStatusDispFPv(u8 *arg0) {
     }
 }
 
-extern s32 lbl_804CE7E8[];
+extern s32 status_disp_window_dispatch_table[];
 
 typedef char RecoveredGlobal_80248CF4_lbl_8050E208_size[sizeof(RecoveredGlobal_80248CF4_lbl_8050E208) == 0x1B0 ? 1 : -1];
 void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
@@ -135,7 +135,7 @@ void handle_input__20TWindowSubStatusDispFPv(u8 *arg0) {
 
 void *TWindowSubStatusDisp__sub_80248FAC(void *arg0, s16 arg1) {
     if (arg0 != NULL) {
-        *(s32 **)((s8 *)arg0 + 0x18) = lbl_804CE7E8;
+        *(s32 **)((s8 *)arg0 + 0x18) = status_disp_window_dispatch_table;
         destroy_item_list_resources__20TWindowSubStatusDispFPvs(arg0, 0);
         if (arg1 > 0) {
             __dl__7TObjectFPv(arg0);

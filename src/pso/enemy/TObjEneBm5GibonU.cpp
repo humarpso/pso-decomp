@@ -752,26 +752,26 @@ void *gibon_collision_body_templates[44] = {
 void *lbl_80493D6C[3] = {
     (void *)lbl_8043BF50, (void *)lbl_8043BF5C, (void *)0x0,
 };
-void *lbl_80493D78[10] = {
+void *gibon_u_animation_name_table[10] = {
     (void *)lbl_8043BF6C, (void *)lbl_8043BF80, (void *)lbl_8043BF90, (void *)lbl_8043BFA4,
     (void *)lbl_8043BFB4, (void *)lbl_8043BFC4, (void *)lbl_8043BFD4, (void *)lbl_8043BFE4,
     (void *)lbl_8043BFF4, (void *)0x0,
 };
 void *lbl_80493DA0[4] = {
-    (void *)lbl_8043C004, (void *)lbl_80493D6C, (void *)lbl_80493D78, (void *)0x20009,
+    (void *)lbl_8043C004, (void *)lbl_80493D6C, (void *)gibon_u_animation_name_table, (void *)0x20009,
 };
 void *lbl_80493DB0[3] = {
     (void *)lbl_8043C01C, (void *)lbl_8043C028, (void *)0x0,
 };
-void *lbl_80493DBC[10] = {
+void *gibon_u_animation_file_table[10] = {
     (void *)lbl_8043BF6C, (void *)lbl_8043BF80, (void *)lbl_8043BF90, (void *)lbl_8043BFA4,
     (void *)lbl_8043BFB4, (void *)lbl_8043BFC4, (void *)lbl_8043BFD4, (void *)lbl_8043BFE4,
     (void *)lbl_8043BFF4, (void *)0x0,
 };
 void *lbl_80493DE4[4] = {
-    (void *)lbl_8043C03C, (void *)lbl_80493DB0, (void *)lbl_80493DBC, (void *)0x20009,
+    (void *)lbl_8043C03C, (void *)lbl_80493DB0, (void *)gibon_u_animation_file_table, (void *)0x20009,
 };
-void *lbl_80493DF4[68] = {
+void *gibon_u_action_table[68] = {
     (void *)0x10000, (void *)0x7, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x8, (void *)0x3f800000, (void *)0x0,
     (void *)0x10000, (void *)0x6, (void *)0x3f800000, (void *)0x0,
@@ -5271,8 +5271,8 @@ Gibon_800D13B8 *TObjEneBm5GibonU__sub_800D13B8(Gibon_800D13B8 *arg0, s16 arg1) {
 #define TObjEneBm5GibonU__movement_parameters ((u8 *)TObjEneBm5GibonU__movement_parameters)
 #undef gibon_collision_body_templates
 #define gibon_collision_body_templates ((Model_800D14AC *)gibon_collision_body_templates)
-#undef lbl_80493DF4
-#define lbl_80493DF4 ((u8 *)lbl_80493DF4)
+#undef gibon_u_action_table
+#define gibon_u_action_table ((u8 *)gibon_u_action_table)
 #undef lbl_80493F04
 #define lbl_80493F04 ((u8 *)lbl_80493F04)
 u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
@@ -5295,7 +5295,7 @@ u8 *TObjEneBm5GibonU__ct(u8 *arg0, s32 arg1, s32 arg2) {
     } else {
         init_model__9TObjEneDDFPv(arg0, &gibon_collision_body_templates[0], 1);
     }
-    set_field_d8__10TObjPlayerFPvi(arg0, lbl_80493DF4);
+    set_field_d8__10TObjPlayerFPvi(arg0, gibon_u_action_table);
     set_field_dc__10TObjPlayerFPvi(arg0, *(s32 *)((s8 *)(*(u8 * *)&TObjEneBm5GibonU__model_archive) + 0x430));
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));

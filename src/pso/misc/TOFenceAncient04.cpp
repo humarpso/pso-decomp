@@ -331,7 +331,7 @@ extern s32 __vt__16TOFenceAncient04[];
 extern s32 __vt__22TOHangceilingCave01Key[];
 extern s32 __vt__25TOHangceilingCave01Normal[];
 extern s32 __vt__27TOHangceilingCave01KeyQuick[];
-extern Q_801681D0 lbl_804417EC;
+extern Q_801681D0 hang_ceiling_cave_scale_params;
 extern RecoveredGlobal_80167878_lbl_804B1F80 ofence_ancient04_collision_parts;
 extern s32 TOFenceAncient04__class_name;
 extern void *TOHangceilingCave01Normal__class_name;

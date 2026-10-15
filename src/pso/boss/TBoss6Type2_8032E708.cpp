@@ -160,8 +160,8 @@ const char *lbl_805D4220 = "TBoss6Mag";
 extern const E_8032E7B4 TBoss6Type2__effect_emitter_id_table[4] = { {555, -1}, {556, -1}, {537, -1}, {542, 0} };
 extern const u32 lbl_804773DC[8] = { 3, 0, 0, 0, 0xFFFFFFFF, 0, 0, 0 };
 extern const u32 lbl_804773FC[2] = { 0xFFFF0000, 1 };
-extern const RecoveredGlobal_803300C8_lbl_80477404 lbl_80477404 = { 0 };
-extern const RecoveredGlobal_803300C8_lbl_80477428 lbl_80477428 = { 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x3D, 0x88, 0x88, 0x89 } };
+extern const RecoveredGlobal_803300C8_lbl_80477404 boss6_type2_zero_vec3_block = { 0 };
+extern const RecoveredGlobal_803300C8_lbl_80477428 boss6_type2_initial_state = { 0, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0x3D, 0x88, 0x88, 0x89 } };
 extern const s32 lbl_80477444[3] = { -0x2000, 0, 0x2000 };
 extern const char lbl_80477450[8] = { 0 };
 }
@@ -1190,8 +1190,8 @@ void update_motion_playback__11TBoss6Type2FPv(O_8032FFC0 *arg0) {
 
 void TBoss6Type2__sub_803300C8(u8 *arg0) {
     s32 temp_r3;
-    copy_vec3__11TBoss6Type2Fii((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&lbl_80477404.value))));
-    copy_state__11TBoss6Type2FPvPv((void*)((void *) (arg0 + 0x3DC)), (void*)((void *) (&lbl_80477428.value)));
+    copy_vec3__11TBoss6Type2Fii((s32)((s32)((void *) (arg0 + 0x3D4))), (s32)((s32)((void *) (&boss6_type2_zero_vec3_block.value))));
+    copy_state__11TBoss6Type2FPvPv((void*)((void *) (arg0 + 0x3DC)), (void*)((void *) (&boss6_type2_initial_state.value)));
     temp_r3 = get_bml_motion((int) (*(s32 *)((s8 *)arg0 + 0x374)), (int) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_803300C8_lbl_804EDD94 *)boss6_type2_motion_table).value) + 8)));
     *(s32 *)((s8 *)arg0 + 0x3F0) = temp_r3;
     *(s32 *)((s8 *)arg0 + 0x3DC) = temp_r3;

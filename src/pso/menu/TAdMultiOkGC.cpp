@@ -86,7 +86,7 @@ extern const f32 lbl_805DF064;
 void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 TWindowShortListCtrl__check_controller_button(void *, int);
 s32 play_sound_effect(int, void *, int, int);
-extern Ports_80306DF4 lbl_80475410;
+extern Ports_80306DF4 multi_ok_player_port_index_table;
 extern Pad_80306DF4 controller_physical_port_bank[];
 void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 s32 set_global_param__8TObjFishFi(s32);
@@ -102,7 +102,7 @@ void draw_entry__12TAdMultiOkGCFPvi(void *arg0, int arg1);
 void __ct__7TObjectFP7TObject(void *, void *);
 extern void *__vt__12TAdMultiOkGC[];
 extern Pos_80307034 ad_multi_ok_layout_table;
-extern Col_80307034 lbl_804753E0;
+extern Col_80307034 multi_ok_button_colors;
 extern const char *lbl_805D4080;
 extern const f32 lbl_805DF05C;
 extern const f32 lbl_805DF060;
@@ -197,7 +197,7 @@ void update_entry_animation__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
 
 void handle_player_buttons__12TAdMultiOkGCFPvi(void *arg0, int arg1) {
     O_80306DF4 *o = (O_80306DF4 *)arg0;
-    Ports_80306DF4 ports = lbl_80475410;
+    Ports_80306DF4 ports = multi_ok_player_port_index_table;
     if (TWindowShortListCtrl__check_controller_button(controller_physical_port_bank[ports.v[o->port[arg1]]].btn, 4) != 0) {
         E_80306DF4 *e = &o->e[arg1];
         if (e->flags & 4) {
@@ -235,7 +235,7 @@ Ok_80307034 *__ct__12TAdMultiOkGCFv(Ok_80307034 *self, void *parent, Cfg_8030703
     __ct__7TObjectFP7TObject(self, parent);
     self->vt = __vt__12TAdMultiOkGC;
     Pos_80307034 pos = ad_multi_ok_layout_table;
-    Col_80307034 cols = lbl_804753E0;
+    Col_80307034 cols = multi_ok_button_colors;
     s32 n;
     s32 i;
     s32 k;

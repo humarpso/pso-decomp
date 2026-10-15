@@ -126,8 +126,8 @@ s32 play_container_break_sound(void *);
 s32 TObjContainerJungEx__sub_8018D900(s32);
 s32 get_model__19TObjContainerJungExFi(s32);
 void *__nw__7TObjectFUl(int);
-extern Spawn_8018CFD4 lbl_804452E8;
-extern Spawn_8018CFD4 lbl_80445334;
+extern Spawn_8018CFD4 container_jung_ex_spawn_params_a;
+extern Spawn_8018CFD4 container_jung_ex_spawn_params_b;
 extern void *tl_05;
 void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self);
 }
@@ -171,7 +171,7 @@ extern const f32 lbl_805DBD9C;
 #pragma push
 #pragma opt_propagation off
 void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
-    Spawn_8018CFD4 a = lbl_804452E8;
+    Spawn_8018CFD4 a = container_jung_ex_spawn_params_a;
     f32 pz;
     f32 py;
     f32 px;
@@ -184,7 +184,7 @@ void TObjContainerJungEx__vt77(const Obj_8018CFD4 *self) {
     a.f38 = py;
     a.f40 = get_model__19TObjContainerJungExFi(1);
     a.f44 = TObjContainerJungEx__sub_8018D900(0);
-    Spawn_8018CFD4 b = lbl_80445334;
+    Spawn_8018CFD4 b = container_jung_ex_spawn_params_b;
     f32 qz;
     f32 qy;
     f32 qx;

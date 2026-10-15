@@ -9,7 +9,7 @@ int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 s32 get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_802C09E0_lbl_804E0878 bm_obj_lobby_pigeon_resource_descriptor;
 extern s32 lobby_pigeon_bml_archive;
-extern s32 lbl_805D67BC;
+extern s32 lobby_pigeon_lobby_type;
 void load_lobby_pigeon_resource__10TObjPlayerFv(void);
 }
 
@@ -24,7 +24,7 @@ void load_lobby_pigeon_resource__10TObjPlayerFv(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_lobby_pigeon_resource_descriptor.value, 0, 0, 0));
     }
     lobby_pigeon_bml_archive = var_r0;
-    lbl_805D67BC = get_lobby_type__6TLobbyFv();
+    lobby_pigeon_lobby_type = get_lobby_type__6TLobbyFv();
 }
 
 }

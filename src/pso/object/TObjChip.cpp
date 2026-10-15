@@ -215,11 +215,11 @@ s32 set_global_param__8TObjFishFi(int);
 s32 draw_ginja_object();
 s32 draw_chunk_object(int, void *);
 extern s32 city_aircar_model_indices[];
-extern s32 lbl_80443B40[];
+extern s32 city_air_car_model_index_table[];
 extern s32 city_traffic_car_chunk_index_table[];
 extern s32 air_car_buffer_pair_table[];
 extern u8 *city_air_car_model_resource;
-extern void **lbl_805D5B24;
+extern void **city_air_car_model_handle;
 extern void **city_common_texture_list;
 void render__18TObjCityAirCar_CarFPv(u8 *arg0);
 void matrix_mult_vec(int, Vec_8018085C *, Vec_8018085C *);
@@ -268,7 +268,7 @@ s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
 s32 queue_destruction__7TObjectFv(void *);
 
 #pragma readonly_strings on
-const char *lbl_805D3240 = "TObjChip";
+const char *obj_chip_class_name_ptr = "TObjChip";
 
 void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
     Chip_8017FE58 *c = o->chips;
@@ -337,7 +337,7 @@ void draw_chips__8TObjChipFPv(Obj_8017FE58 *o) {
     }
 }
 
-extern const u32 lbl_80443AFC[4] = { 0, 0x3F800000, 0x3F800000, 0x3F800000 };
+extern const u32 chip_color_white_c[4] = { 0, 0x3F800000, 0x3F800000, 0x3F800000 };
 
 void render__8TObjChipFPv(u8 *arg0) {
     set_global_param__8TObjFishFi((int) (*(s32 *)((s8 *)arg0 + 0x68)));
@@ -515,7 +515,7 @@ typedef char RecoveredGlobal_80180AA4___vt__8TObjChip_size[sizeof(RecoveredGloba
 u8 *__ct__8TObjChipFv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3240;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
     copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
     *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;
@@ -546,7 +546,7 @@ typedef char RecoveredGlobal_80180BD4___vt__8TObjChip_size[sizeof(RecoveredGloba
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2) {
     __ct__7TObjectFP7TObject(arg0, arg1);
     *(s32 **)((s8 *)arg0 + 0x18) = (s32 *)__vt__8TObjChip;
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D3240;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) obj_chip_class_name_ptr;
     copy_debris_params__8TObjChipFPvPv((u8 *)(arg0 + 0x24), (u8 *)(arg2));
     *(f32 *)((s8 *)arg0 + 0x1C) = (f32) (2e+02f);
     *(f32 *)((s8 *)arg0 + 0x20) = 40.0f;

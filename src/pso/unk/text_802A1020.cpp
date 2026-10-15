@@ -10,7 +10,7 @@ void safe_free__23TAdSinglePlyChrSelectGCFUi(void *);
 u8 *set_stream_and_load_file__6TLobbyFi(s32);
 u32 get_file_size__6TLobbyFv(s32);
 extern Entry_802A1020 file_integrity_table[];
-extern s32 lbl_805D663C;
+extern s32 lobby_cursor_active_flag;
 s32 fn_802A1020(void);
 }
 
@@ -27,14 +27,14 @@ s32 fn_802A1020(void) {
     for (i = 0; i < 11; i++) {
         size = get_file_size__6TLobbyFv(file_integrity_table[i].file);
         if (size != file_integrity_table[i].size) {
-            lbl_805D663C = 1;
+            lobby_cursor_active_flag = 1;
             return 1;
         }
         if (file_integrity_table[i].size <= 1000000) {
             buf = set_stream_and_load_file__6TLobbyFi(file_integrity_table[i].file);
             if (buf == NULL) {
                 safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
-                lbl_805D663C = 0;
+                lobby_cursor_active_flag = 0;
                 return 0;
             }
             crc = 0xFFFFFFFF;
@@ -50,12 +50,12 @@ s32 fn_802A1020(void) {
             }
             safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
             if (~crc != file_integrity_table[i].crc) {
-                lbl_805D663C = 1;
+                lobby_cursor_active_flag = 1;
                 return 1;
             }
         }
     }
-    lbl_805D663C = 0;
+    lobby_cursor_active_flag = 0;
     return 0;
 }
 

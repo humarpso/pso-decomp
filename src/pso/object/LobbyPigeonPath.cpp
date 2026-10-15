@@ -225,7 +225,7 @@ s32 rotate_matrix_y(s32, s32);
 s32 rotate_matrix_z(s32, s32);
 void scale_matrix(void *, f32, f32, f32);
 s32 draw_model_motion(s32, s32, f32);
-extern void *lbl_805D67BC;
+extern void *lobby_pigeon_lobby_type;
 void draw_lobby_pigeon(LobbyPigeon *self);
 }
 
@@ -596,13 +596,13 @@ s32 set_global_flag__10TObjPlayerFv();
 s32 clear_global_state__10TObjPlayerFv();
 
 extern Entry_802C2C48 seabed_dolphin_path_profiles[];
-extern u8 lbl_80471838[];
+extern u8 seabed_dolphin_anim_binding[];
 extern Entry_802C2548 jungle_ebi_path_profiles[];
 extern Entry_802C1E34 lobby_pigeon_path_parameters[];
 extern Entry_802C1660 jungle_seagull_path_profiles[];
 extern Vec_802C17FC lbl_80471908;
 extern Ent_802C0F3C lobby_pigeon_path_profiles[];
-extern Vec_802C0F3C lbl_80471950;
+extern Vec_802C0F3C lobby_pigeon_zero_vec;
 extern const f64 lbl_80471960[];
 extern RecoveredGlobal_8019A9B8_lbl_80446184 lbl_80471978;
 extern RecoveredGlobal_802C1B9C_lbl_80471990 lbl_80471990;
@@ -644,9 +644,9 @@ void draw_lobby_pigeon(LobbyPigeon *self) {
       get_state_flag__9TMainTaskFv() == 0)
     draw_line_strip__10TObjPlayerFPviif((u8 *)(self), (s32)(self->model),
                                         (s32)(self->path), (1.0f));
-  if (self->phase == 0 || lbl_805D67BC == 0)
+  if (self->phase == 0 || lobby_pigeon_lobby_type == 0)
     return;
-  set_global_param__8TObjFishFi((s32)(lbl_805D67BC));
+  set_global_param__8TObjFishFi((s32)(lobby_pigeon_lobby_type));
   push_matrix();
   post_translate_matrix((void *)(self->position));
   rotate_matrix_y((s32)(0), (s32)(self->facing));
@@ -672,7 +672,7 @@ void update_lobby_pigeon(Obj_802C0F3C *self) {
   }
   if (--self->dc < 0) {
     Mtx_802C0F3C m;
-    Vec_802C0F3C v = lbl_80471950;
+    Vec_802C0F3C v = lobby_pigeon_zero_vec;
     set_matrix_identity(&m);
     translate_matrix_vec3(&m, &self->pos);
     ((void (*)(void *, s32))rotate_matrix_y)(&m, self->f60);
@@ -1377,9 +1377,9 @@ void load_seabed_dolphin__10TObjPlayerFv(void) {
     }
     (*(Obj_802C2958 * *)&seabed_dolphin_bml_archive) = o;
     seabed_dolphin_texture_handle = ((s32 (*)(void *))load_gvm_texture_file)(lbl_804719B8);
-    Q_802C2958 q = *(Q_802C2958 *)lbl_80471838;
+    Q_802C2958 q = *(Q_802C2958 *)seabed_dolphin_anim_binding;
     q.a = (*(Obj_802C2958 * *)&seabed_dolphin_bml_archive)->f430;
-    spawn_npc_enemy__6TLobbyFsiiiff(0x40, ((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)lbl_80471838)->c, ((Q_802C2958 *)lbl_80471838)->b, ((Q_802C2958 *)lbl_80471838)->a, lbl_80471838), seabed_dolphin_texture_handle, &q, (16.0f), (1e+01f));
+    spawn_npc_enemy__6TLobbyFsiiiff(0x40, ((s32 (*)(void *, s32, s32, s32, s32, void *))get_bml_model)((*(Obj_802C2958 * *)&seabed_dolphin_bml_archive), 0, ((Q_802C2958 *)seabed_dolphin_anim_binding)->c, ((Q_802C2958 *)seabed_dolphin_anim_binding)->b, ((Q_802C2958 *)seabed_dolphin_anim_binding)->a, seabed_dolphin_anim_binding), seabed_dolphin_texture_handle, &q, (16.0f), (1e+01f));
 }
 
 s32 TObjPlayer__sub_802C2A10(Obj_802C2A10 *self) {

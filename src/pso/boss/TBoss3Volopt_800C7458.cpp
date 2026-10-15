@@ -46,8 +46,8 @@ extern "C" {
 
 void collect_active_nodes__12TBoss3VoloptFPv(void *arg0);
 
-extern void **lbl_805D5190;
-extern s32 lbl_805D5194;
+extern void **volopt_active_node_cursor;
+extern s32 volopt_active_node_counter;
 
 void collect_active_nodes__12TBoss3VoloptFPv(void *arg0) {
     void **temp_r3;
@@ -56,10 +56,10 @@ void collect_active_nodes__12TBoss3VoloptFPv(void *arg0) {
     var_r31 = arg0;
     do {
         if (!(*(s32 *)((s8 *)var_r31 + 0) & 8) && ((u32) *(u32 *)((s8 *)var_r31 + 4) != 0U)) {
-            temp_r3 = lbl_805D5190;
-            lbl_805D5190 = temp_r3 + 1;
+            temp_r3 = volopt_active_node_cursor;
+            volopt_active_node_cursor = temp_r3 + 1;
             *temp_r3 = var_r31;
-            lbl_805D5194 += 1;
+            volopt_active_node_counter += 1;
         }
         if ((u32) *(u32 *)((s8 *)var_r31 + 0x2C) != 0U) {
             collect_active_nodes__12TBoss3VoloptFPv(*(void **)((s8 *)var_r31 + 0x2C));
@@ -119,12 +119,12 @@ s32 query_field_30__12TBoss3VoloptFPvPv(void *arg0, s32 *arg1) {
     }
     temp_r31 = *(s32 *)((s8 *)arg0 + 0x30);
     *(s32 *)((s8 *)arg0 + 0x30) = 0;
-    (*(s32 **)&lbl_805D5190) = arg1;
-    lbl_805D5194 = 0;
+    (*(s32 **)&volopt_active_node_cursor) = arg1;
+    volopt_active_node_counter = 0;
     ((s32 (*)())collect_active_nodes__12TBoss3VoloptFPv)();
     *(s32 *)((s8 *)arg0 + 0x30) = temp_r31;
-    *(*(s32 **)&lbl_805D5190) = 0;
-    return lbl_805D5194;
+    *(*(s32 **)&volopt_active_node_cursor) = 0;
+    return volopt_active_node_counter;
 }
 
 typedef char RecoveredGlobal_800C7698_lbl_8058D490_size[sizeof(RecoveredGlobal_800C7698_lbl_8058D490) == 0x30 ? 1 : -1];

@@ -157,7 +157,7 @@ void TPhotonRainbow__ct(void *, void *, void *, s32);
 void TPhotonYoulla__ct(void *, void *);
 s32 get_global_state__14TOKeyMachine01Fv();
 void play_cue_stream_file(void *);
-extern YPkt_801AD970 lbl_80446E50;
+extern YPkt_801AD970 photon_mylla_packet_template;
 extern u8 lbl_80446E80[];
 extern u8 lbl_80446E8C[];
 extern u8 lbl_804C39D8[];
@@ -353,7 +353,7 @@ void *TPhotonMylla__ct(Mylla_801AD970 *self, Pkt_801AD970 *pkt) {
     F_801AD970(self, s32, 0x19C) = pkt->more;
     F_801AD970(self, s32, 0x1A0) = 0;
     {
-        YPkt_801AD970 y = lbl_80446E50;
+        YPkt_801AD970 y = photon_mylla_packet_template;
         y.pos.x = self->pos.x;
         y.pos.y = self->pos.y;
         y.pos.z = self->pos.z;

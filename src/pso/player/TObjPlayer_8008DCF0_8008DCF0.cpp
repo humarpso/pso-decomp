@@ -251,7 +251,7 @@ void TObjEneBalClawClaw__sub_80090A10(u8 *arg0, u8 *arg1, s32 arg2, s16 arg3);
 void *create__18TObjEneBalClawClawFPvPvPvPvPvPv(void *arg0, void *arg1, void *arg2, void *arg3, void *arg4, void *arg5);
 void set_param__12TObjEneLappyFPvi(void *, s32);
 u8 *get_enemy_entity(u16);
-extern u8 lbl_8048EEA8[];
+extern u8 player_attack_param_table[];
 void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1);
 }
 
@@ -688,7 +688,7 @@ void TObjPlayer__sub_8008E934(void *arg0_, s32 arg1) {
         *(s16 *)((s8 *)arg0 + 0x3D8) = 0;
     }
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    *(u8 **)((s8 *)arg0 + 0x350) = lbl_8048EEA8 + arg1 * 0x1C;
+    *(u8 **)((s8 *)arg0 + 0x350) = player_attack_param_table + arg1 * 0x1C;
     TObjEneBalClawClaw__sub_8008DC90(arg0);
     *(s32 *)((s8 *)arg0 + 0x368) = arg1;
     *(s32 *)((s8 *)arg0 + 0x3D4) = 0;

@@ -2018,7 +2018,7 @@ void set_chunk_material_override_pair(s32, s32);
 void set_chunk_material_color(Color_80020B54 *);
 s32 set_global_state__16TObjEneRe7BeruraFi(s32 *);
 void dragon_capture_node_points(void);
-extern Color_80020B54 lbl_8043534C;
+extern Color_80020B54 dragon_boss1_render_color;
 extern u8 lbl_804FE1D0[0xC];
 extern u8 lbl_804FE1DC[0xC];
 extern u32 TBoss1Dragon__data_805D4B08;
@@ -2027,7 +2027,7 @@ extern s32 TBoss1Dragon__data_805D4B14;
 extern s32 TBoss1Dragon__data_805D4B18;
 extern s32 TBoss1Dragon__data_805D4B1C;
 extern s32 TBoss1Dragon__data_805D4B20;
-extern const f32 lbl_805D4B30;
+extern const f32 boss1_dragon_visibility_distance;
 extern u8 *camera_ctrl_instance;
 extern s32 current_scene_light;
 extern s32 lbl_805D5660;
@@ -2051,7 +2051,7 @@ f32 vec3_dot(void *, void *);
 void subtract_vector(void *, void *);
 extern u8 lbl_804FE1D0[0xC];
 extern u8 lbl_804FE1DC[0xC];
-extern const f32 lbl_805D4B30;
+extern const f32 boss1_dragon_visibility_distance;
 extern const f32 TBoss1Dragon__data_805D7F40;
 extern const f32 TBoss1Dragon__data_805D7F50;
 s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0);
@@ -2216,7 +2216,7 @@ void release_held_player__12TBoss1DragonFPv(u8 *arg0);
 s32 isV2Mode__12TBoss1DragonFv(void);
 s32 TBoss1Dragon__sub_80027514(u8 *arg0, s32 arg1, u8 *arg2, s32 arg3);
 s32 setup__9TObjEneDDFPvii(void *, void *, void *);
-extern const RecoveredGlobal_80027650_lbl_80435338 lbl_80435338;
+extern const RecoveredGlobal_80027650_lbl_80435338 dragon_fireball_impact_damage_params;
 extern RecoveredGlobal_80027634_TBoss1Dragon__data_804FE17C TBoss1Dragon__data_804FE17C;
 void apply_fireball_impact_damage__12TBoss1DragonFPvi(u8 *arg0, s32 arg1);
 s32 isV2Mode__12TBoss1DragonFv(void);
@@ -2484,13 +2484,13 @@ void *lbl_80480D48[10] = {
     (void *)0x2, (void *)0x3, (void *)0x3, (void *)0x3,
     (void *)0x0, (void *)0x0,
 };
-void *lbl_80480D70[14] = {
+void *boss1_dragon_action_sequence_table[14] = {
     (void *)0x5, (void *)0x6,
     (void *)0xf, (void *)0x10, (void *)0x12, (void *)0x11,
     (void *)0x12, (void *)0x11, (void *)0x12, (void *)0x13,
     (void *)0x8, (void *)0x2, (void *)0x3, (void *)0x21,
 };
-void *lbl_80480DA8[12] = {
+void *boss1_dragon_action_sequence_table_b[12] = {
     (void *)0x5, (void *)0x6, (void *)0xf, (void *)0x10,
     (void *)0x12, (void *)0x11, (void *)0x12, (void *)0x23,
     (void *)0x13, (void *)0x8, (void *)0x2, (void *)0x3,
@@ -2503,7 +2503,7 @@ void *lbl_80480DD8[9] = {
 s32 boss1_dragon_base_stat_indices[5] = { 0, 0, 0, 0, 0 };
 s32 boss1_dragon_attack_stat_indices[5] = { 0, 1, 2, 3, 4 };
 s32 boss1_dragon_resistance_stat_indices[5] = { 0, 0, 0, 0, 0 };
-void *lbl_80480E38[7] = {
+void *boss1_dragon_init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -2923,7 +2923,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
             scale_matrix(0, TBoss1Dragon__data_805D7F24, lbl_805D7F34, TBoss1Dragon__data_805D7F24);
             rotate_matrix_x(0, *(s32 *)((s8 *)arg0 + 0x5C));
             rotate_matrix_z(0, *(s32 *)((s8 *)arg0 + 0x64));
-            Color_80020B54 color = lbl_8043534C;
+            Color_80020B54 color = dragon_boss1_render_color;
             saved = *(s32 *)((s8 *)arg0 + 0x34);
             *(s32 *)((s8 *)arg0 + 0x34) = *(s32 *)((s8 *)(*(u8 **)((s8 *)TBoss1Dragon__data_805D4B08 + 0x42C)) + 0x18);
             lbl_805D5660 = model_render_flags;
@@ -2961,7 +2961,7 @@ void render__12TBoss1DragonFv(u8 *arg0) {
                     dist = ((f32 (*)(void *)) clamp_velocity__15TObjBoss2TunnelFPv)(&delta);
                     VecCopy__FP3VecPC3Vec((s32) lbl_804FE1D0, (s32) &origin);
                     VecCopy__FP3VecPC3Vec((s32) lbl_804FE1DC, (s32) &delta);
-                    *(f32 *) &lbl_805D4B30 = dist;
+                    *(f32 *) &boss1_dragon_visibility_distance = dist;
                     points[0] = (f32 *) (arg0 + 0x454);
                     points[1] = (f32 *) (arg0 + 0x460);
                     points[2] = (f32 *) (arg0 + 0x46C);
@@ -3570,7 +3570,7 @@ s32 is_sphere_visible__12TBoss1DragonFf(f32 farg0) {
     stack.spC = TBoss1Dragon__data_805D7F28;
     subtract_vector((void *) (&stack.sp8), (void *) lbl_804FE1D0);
     temp_f1 = ((f32 (*)(void *))clamp_velocity__15TObjBoss2TunnelFPv)((void *) (&stack.sp8));
-    if ((temp_f1 + farg0) < lbl_805D4B30) {
+    if ((temp_f1 + farg0) < boss1_dragon_visibility_distance) {
         temp_f31 = temp_f1 * (TBoss1Dragon__data_805D7F40 / newton_sqrtf((f32) ((temp_f1 * temp_f1) + (farg0 * farg0))));
         if (vec3_dot((void *) (&stack.sp8), (void *) lbl_804FE1DC) >= temp_f31) {
             return 1;
@@ -6421,7 +6421,7 @@ void apply_fireball_impact_damage__12TBoss1DragonFPvi(u8 *arg0, s32 arg1) {
   CopyStack_80027650 copy_storage_80027650;
   s32 temp_r3;
   u8 *temp_r4;
-  temp_r4 = ((u8 *) (&lbl_80435338.value)) - 4;
+  temp_r4 = ((u8 *) (&dragon_fireball_impact_damage_params.value)) - 4;
   *((ByteBlock_14 *) (((s32) (copy_storage_80027650.bytes - 0x4)) + 4)) = *((const ByteBlock_14 *) (temp_r4 + 4));
   *((f32 *) (copy_storage_80027650.bytes + 0x4)) = *((f32 *) (((s8 *) (*(RecoveredGlobal_80027650_TBoss1Dragon__data_804FE17C *)&TBoss1Dragon__data_804FE17C).value) + 4));
   *((s32 *) copy_storage_80027650.bytes) = *((s32 *) (((s8 *) arg0) + 0x770));
@@ -6842,10 +6842,10 @@ s32 next_sequence_action__12TBoss1DragonFv(void *vself) {
         idx = pos - 50;
         switch (isV2Mode__12TBoss1DragonFv()) {
         case 0:
-            seq = (s32 *)lbl_80480D70;
+            seq = (s32 *)boss1_dragon_action_sequence_table;
             break;
         case 1:
-            seq = (s32 *)lbl_80480DA8;
+            seq = (s32 *)boss1_dragon_action_sequence_table_b;
             break;
         }
     }
@@ -7788,7 +7788,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
                             ((s32 *)&TBoss1Dragon__part_hp_stats)[boss1_dragon_attack_stat_indices[0]],
                             (&TBoss1Dragon__data_805D4B04)[boss1_dragon_resistance_stat_indices[0]]);
     check_state_flag_1__9TObjEneDDFPv(arg0);
-    F_29DE4(arg0, s32, 0x350) = (s32)lbl_80480E38;
+    F_29DE4(arg0, s32, 0x350) = (s32)boss1_dragon_init_params;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x2C);
     F_29DE4(arg0, f32, 0x37C) = TBoss1Dragon__data_805D7F1C;
     enemy_init_acquire_period(arg0, 10);

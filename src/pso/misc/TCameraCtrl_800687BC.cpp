@@ -470,7 +470,7 @@ extern const f32 TCameraCtrl__data_805D8FD4;
 extern const f32 TCameraCtrl__data_805D8FD8;
 void TCameraCtrl__sub_800694A8(void);
 s32 set_viewport_scissor__11TCameraCtrlFiPv(int, void *);
-extern RecoveredGlobal_80069534_lbl_804381BC lbl_804381BC;
+extern RecoveredGlobal_80069534_lbl_804381BC camera_ctrl_scissor_default_vec;
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
 void reset_viewport_scissor__11TCameraCtrlFv(void);
 extern RecoveredGlobal_800695E8_TCameraCtrl__data_804FF628 TCameraCtrl__view_state;
@@ -954,10 +954,10 @@ void reset_viewport_scissor__11TCameraCtrlFv(void) {
     typedef char sp10_offset[(offsetof(Stack_80069534, sp10) == 0x8) ? 1 : -1];
     typedef char sp14_offset[(offsetof(Stack_80069534, sp14) == 0xC) ? 1 : -1];
     Stack_80069534 stack;
-    stack.sp8 = *(s32 *)((s8 *)(&lbl_804381BC.value) + 0);
-    stack.spC = *(s32 *)((s8 *)(&lbl_804381BC.value) + 4);
-    stack.sp10 = *(s32 *)((s8 *)(&lbl_804381BC.value) + 8);
-    stack.sp14 = *(s32 *)((s8 *)(&lbl_804381BC.value) + 0xC);
+    stack.sp8 = *(s32 *)((s8 *)(&camera_ctrl_scissor_default_vec.value) + 0);
+    stack.spC = *(s32 *)((s8 *)(&camera_ctrl_scissor_default_vec.value) + 4);
+    stack.sp10 = *(s32 *)((s8 *)(&camera_ctrl_scissor_default_vec.value) + 8);
+    stack.sp14 = *(s32 *)((s8 *)(&camera_ctrl_scissor_default_vec.value) + 0xC);
     if (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80069534_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value) + 8) & 0x200) {
         *(s32 *)((s8 *)(&(*(RecoveredGlobal_80069534_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value) + 8) = (s32) (*(s32 *)((s8 *)(&(*(RecoveredGlobal_80069534_TCameraCtrl__data_804FF628 *)&TCameraCtrl__view_state).value) + 8) & 0xFFFFFDFF);
     }

@@ -9,9 +9,9 @@ struct Entry_800803D4 { u8 data[0x18]; };
 
 extern "C" {
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
-extern RecoveredGlobal_80080438_lbl_80438DD4 lbl_80438DD4;
+extern RecoveredGlobal_80080438_lbl_80438DD4 duel_number_default_layout;
 void render_number_default__17TDuelEffectNumberFPvf(u8 *arg0, f32 farg0);
-extern Entry_800803D4 lbl_80438DEC[];
+extern Entry_800803D4 duel_number_pair_layout[];
 void TDuelEffectNumber__sub_800802F8(void *, void *, f32);
 void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f);
 }
@@ -39,12 +39,12 @@ typedef char RecoveredGlobal_80080438_lbl_80438DD4_size[sizeof(RecoveredGlobal_8
 void render_pair__17TDuelEffectNumberFPvf(void *self, f32 f) {
     s32 i;
     for (i = 0; i < 2; i++) {
-        TDuelEffectNumber__sub_800802F8(self, &lbl_80438DEC[i], f);
+        TDuelEffectNumber__sub_800802F8(self, &duel_number_pair_layout[i], f);
     }
 }
 
 void render_number_default__17TDuelEffectNumberFPvf(u8 *arg0, f32 farg0) {
-    TDuelEffectNumber__sub_800802F8(arg0, &lbl_80438DD4.value, farg0);
+    TDuelEffectNumber__sub_800802F8(arg0, &duel_number_default_layout.value, farg0);
 }
 
 }

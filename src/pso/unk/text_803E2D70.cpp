@@ -114,10 +114,10 @@ s32 pop_matrix();
 s32 set_effect_active__10TObjPlayerFv();
 s32 apply_scene_fog();
 extern s32 ginja_draw_flags;
-extern s32 (*lbl_805D77DC)();
+extern s32 (*player_chunk_draw_end_callback)();
 void end_chunk_draw__10TObjPlayerFv(void);
 s32 load_list_texture(int, int, int, int);
-extern s32 lbl_805D77EC;
+extern s32 chunk_texture_record_index;
 void apply_chunk_texture_command(s32 arg0, s32 arg1);
 void GXSetChanMatColor(s32, ByteColor);
 void convert_color_f32_to_u8(const FloatColor*,ByteColor*);
@@ -130,7 +130,7 @@ extern u32 chunk_strip_dirty_flags;
 void set_chunk_blend(u32 x);
 void GXSetAlphaCompare(int comp0, int ref0, int op, int comp1, int ref1);
 s32 set_chunk_alpha_compare_ref(int ref);
-extern s32 lbl_805D7800;
+extern s32 chunk_vertex_cache_buffer;
 extern s32 lbl_805D77FC;
 extern s32 chunk_render_flags;
 void TObjPlayer__sub_803E492C(s32 a, s32 b);
@@ -182,7 +182,7 @@ extern s32 material_alpha_compare_reference;
 extern u8 *current_render_context;
 extern s32 ginja_draw_flags;
 extern s32 model_render_flags;
-extern s32 lbl_805D77EC;
+extern s32 chunk_texture_record_index;
 extern u32 chunk_blend_header_bits;
 extern s32 chunk_render_flags;
 extern u32 lbl_805E1094;
@@ -535,7 +535,7 @@ void apply_chunk_texture_command(s32 arg0, s32 arg1) {
     var_r4 = var_r6;
     var_r6 = 0;
     load_list_texture((int) (var_r3), (int) (var_r4), (int) (var_r5), (int) (0));
-    lbl_805D77EC = var_r31;
+    chunk_texture_record_index = var_r31;
 }
 #pragma pop
 
@@ -612,7 +612,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
     } else if (var_r31 != 0) {
         var_r6 = 0;
         var_r28 = 1U;
-        temp_r4 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
+        temp_r4 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[chunk_texture_record_index].p->q);
         id = model_render_flags;
         if (((u32) (id & 0x10) != 0) && (lbl_805E109C != model_material_color.a)) {
             var_r28 = 0U;
@@ -670,7 +670,7 @@ void set_chunk_blend_depth_mode(s32 arg0, s32 arg1) {
         if ((u32) chunk_render_flags != 0) {
             chunk_render_flags |= 0x400;
         }
-        temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[lbl_805D77EC].p->q);
+        temp_r3 = (u8 *)((*(Holder_803E3B6C **)(current_render_context + 0x20))->recs[chunk_texture_record_index].p->q);
         if (((u32) *(u32 *)((s8 *)temp_r3 + 4) == 0xEU) && ((u32) (*(s32 *)((s8 *)temp_r3 + 0x1C) & 0x40000000) != 0)) {
             set_chunk_alpha_compare_ref(0x1F);
             GXSetBlendMode((int) (0), (int) (temp_r30), (int) (temp_r29), (int) (0));
@@ -724,8 +724,8 @@ void end_chunk_draw__10TObjPlayerFv(void) {
     GXSetZCompLoc((int) (1));
     GXSetZMode((int) (1), (int) (1), (int) (1));
     set_chunk_alpha_compare_ref((int)((int) (0)));
-    if (((s32 (*)()) lbl_805D77DC) != NULL) {
-        lbl_805D77DC();
+    if (((s32 (*)()) player_chunk_draw_end_callback) != NULL) {
+        player_chunk_draw_end_callback();
     }
 }
 #pragma pop
@@ -736,14 +736,14 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
     s32 count = 0;
     if ((u32)chunk_render_flags & 4) return 0;
     chunk_has_vertex_colors = 0;
-    cache = lbl_805D7800;
+    cache = chunk_vertex_cache_buffer;
     if (lbl_805D77E4 & 4) {
         if (lbl_805D77E8->buffers[lbl_805D77E8->index].bytes != 0) {
-            memmove((void*)lbl_805D7800, lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, lbl_805D77E8->buffers[lbl_805D77E8->index].bytes);
+            memmove((void*)chunk_vertex_cache_buffer, lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, lbl_805D77E8->buffers[lbl_805D77E8->index].bytes);
         }
         lbl_805D77E8->index++;
     } else if (model->vertices != 0) {
-        count = dispatch_chunk_vertex_list(model->vertices, lbl_805D7800);
+        count = dispatch_chunk_vertex_list(model->vertices, chunk_vertex_cache_buffer);
     }
     if (lbl_805D77E4 & 1) {
         if (lbl_805D77E8) {
@@ -759,7 +759,7 @@ s32 draw_chunk_vertices_cached__10TObjPlayerFPv(void* arg) {
         }
     } else {
         if (lbl_805D77E4 & 2) {
-            if (count) memmove(lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, (void*)lbl_805D7800, count << 5);
+            if (count) memmove(lbl_805D77E8->buffers[lbl_805D77E8->index].vertices, (void*)chunk_vertex_cache_buffer, count << 5);
             lbl_805D77E8->index++;
         }
         if (model->polygons) dispatch_chunk_polygon_list(model->polygons, cache);
@@ -886,7 +886,7 @@ void draw_triangle_strips__10TObjPlayerFPvPvUi(s16 *list, Vtx_803E47E0 *verts, u
 #pragma push
 #pragma scheduling off
 void TObjPlayer__sub_803E492C(s32 a, s32 b) {
-    lbl_805D7800 = a;
+    chunk_vertex_cache_buffer = a;
     lbl_805D77FC = b;
     chunk_render_flags = 0;
 }

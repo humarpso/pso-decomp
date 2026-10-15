@@ -50,7 +50,7 @@ extern RecoveredGlobal_80158078_lbl_80440200 lbl_80440200;
 extern RecoveredGlobal_80158078_lbl_804AFB24 bm_fs_obj_lazerguard_resource_descriptor;
 extern u32 barrier_energy_shared_bml_archive;
 extern s32 *TOBarrierEnergy01__texture_lists;
-extern s32 lbl_805D5898;
+extern s32 barrier_energy_model;
 void load_resources__17TOBarrierEnergy01Fv(void);
 u8 *get_bml_motion(s32, s32);
 s32 get_bml_model(void *, s32);
@@ -111,7 +111,7 @@ void load_resources__17TOBarrierEnergy01Fv(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 1, &bm_fs_obj_lazerguard_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&barrier_energy_shared_bml_archive) = (unsigned char *) ((void *) var_r0);
-    lbl_805D5898 = get_bml_model((void *) var_r0, 0);
+    barrier_energy_model = get_bml_model((void *) var_r0, 0);
     (*(s32 *)&TOBarrierEnergy01__texture_lists) = alloc_buffer__11TOBoss4RockFPv((void *)0xC);
     *(u8 **)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 0) = load_gvm_texture_file((s32) &lbl_80440200.value);
     *(s32 *)((s8 *)(*(s32 *)&TOBarrierEnergy01__texture_lists) + 4) = TObjFish__sub_8001EDB0((*(u8 * *)&barrier_energy_shared_bml_archive), 1);

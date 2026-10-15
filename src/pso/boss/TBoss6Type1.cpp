@@ -346,7 +346,7 @@ void randomize_attack__11TBoss6Type1FPvPv(Boss_802B8EE0 *self, Atk_802B8EE0 *atk
 s32 send_6xA4_action__11TBoss6Type1FPviPv(void *o, s32 t, s32 *src);
 void send_flow_action_if_idle__11TBoss6Type1FPvc(u8 *arg0, s8 arg1);
 s32 rand();
-extern u8 lbl_80470EB8[];
+extern u8 boss6_type1_random_action_table[];
 extern const f32 TBoss6Type1__data_805DE304;
 extern const f32 lbl_805DE3D8;
 void TBoss6Type1__sub_802B8BB4(u8 *arg0);
@@ -1223,7 +1223,7 @@ void TBoss6Type1::update_effect_points() {
     set_effect_points__11TBoss6Type1FPvPvPv(effect_point_receiver, points, (void*)lbl_80470FAC);
 }
 
-extern "C" { extern u32 lbl_80470F90[]; }
+extern "C" { extern u32 boss6_type1_trail_point_offsets[]; }
 
 void TBoss6Type1::update_trail_points() {
     Boss6EffectPoint points[7];
@@ -1245,7 +1245,7 @@ void TBoss6Type1::update_trail_points() {
     subtract_vector(&points[2],&delta);
     vec3_add_to(&points[4],&delta);
     VecCopy__FP3VecPC3Vec(&points[6],&points[0]);
-    set_effect_points__11TBoss6Type1FPvPvPv(trail_point_receiver,points,lbl_80470F90);
+    set_effect_points__11TBoss6Type1FPvPvPv(trail_point_receiver,points,boss6_type1_trail_point_offsets);
 }
 
 extern "C" {
@@ -2197,7 +2197,7 @@ void TBoss6Type1__sub_802B8BB4(u8 *arg0) {
             send_6xA4_action__11TBoss6Type1FPviPv(arg0, 4, (s32 *)&s);
             break;
         }
-        r4 = pick_random_entry__11TBoss6Type1Fiii((s32)arg0, (s32)lbl_80470EB8, 5);
+        r4 = pick_random_entry__11TBoss6Type1Fiii((s32)arg0, (s32)boss6_type1_random_action_table, 5);
         switch (r4) {
         case 4:
             if (s.b2 == -2) {
@@ -2437,9 +2437,9 @@ s32 get_fish_count__8TObjFishFv();
 void TBoss6Type1__sub_802B854C(void *);
 s32 create_zanzo__11TBoss6Type1FPvPvPv(void *, int, int);
 extern u8 lbl_80470D1C[];
-extern u8 lbl_80470D48[];
-extern u8 lbl_80470E08[];
-extern u8 lbl_80470E88[];
+extern u8 boss6_type1_model_node_desc[];
+extern u8 boss6_type1_model_node_desc_b[];
+extern u8 boss6_type1_build_table[];
 extern u8 lbl_80470EA0[];
 extern u8 lbl_80470EAC[];
 extern u8 lbl_804DF4E0[];
@@ -2483,9 +2483,9 @@ s32 TBoss6Type1__ct(s32 arg0_, s32 arg1, s32 arg2_) {
     reset_photon_effect__12TBoss3VoloptFPv(arg0);
     set_param__12TObjEneLappyFPvi(arg0, 0x4E);
     TBoss6Type1__sub_802B854C(arg0);
-    *(s32 *)((s8 *)arg0 + 0x654) = TObjFish__sub_800E3124(lbl_80470D48, arg0 + 0x578);
-    *(s32 *)((s8 *)arg0 + 0x650) = TObjFish__sub_800E3124(lbl_80470E08, arg0 + 0x5FC);
-    build_tables__14TBoss6PlotFalzFPvPvi(arg0 + 0x658, lbl_80470E88, 2);
+    *(s32 *)((s8 *)arg0 + 0x654) = TObjFish__sub_800E3124(boss6_type1_model_node_desc, arg0 + 0x578);
+    *(s32 *)((s8 *)arg0 + 0x650) = TObjFish__sub_800E3124(boss6_type1_model_node_desc_b, arg0 + 0x5FC);
+    build_tables__14TBoss6PlotFalzFPvPvi(arg0 + 0x658, boss6_type1_build_table, 2);
     build_tables__14TBoss6PlotFalzFPvPvi(arg0 + 0x66C, lbl_80470EA0, 1);
     *(s32 *)((s8 *)arg0 + 0x400) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 7, 0xF);
     *(s32 *)((s8 *)arg0 + 0x404) = create_zanzo__11TBoss6Type1FPvPvPv(arg0, 2, 0xF);

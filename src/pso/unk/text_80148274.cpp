@@ -117,7 +117,7 @@ void *npc_movement_parameters[7] = {
     (void *)0x42c80000, (void *)0x3f000000, (void *)0x400, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_804A7CF8[11] = {
+void *npc_base_collision_body_desc[11] = {
     (void *)0x0, (void *)0x41200000, (void *)0x0, (void *)0x40a00000,
     (void *)0x0, (void *)0x0, (void *)0x30203, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -125,7 +125,7 @@ void *lbl_804A7CF8[11] = {
 void setup_common__11TObjNpcBaseFv(Obj_80148274 *self) {
     set_motion_params__10TObjPlayerFPvPv(self, npc_default_battle_stats);
     self->anim = npc_movement_parameters;
-    init_collision_body_parts(self, lbl_804A7CF8, 1);
+    init_collision_body_parts(self, npc_base_collision_body_desc, 1);
     reset_photon_effect__10TObjPlayerFPv(self);
     update_prev_position__10TObjPlayerFPv(self);
     copy_position__20TBoss3VoloptHiraisinFi(self);

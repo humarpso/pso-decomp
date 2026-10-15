@@ -35,7 +35,7 @@ s32 copy_vec2__28TWindowSubSymbolChatPartsSetFPvPv(void *, void *);
 int TObjNpcHosa__sub_802A39B0(void);
 extern s32 __vt__17TAdSelectTxtSubGC[];
 extern s32 ad_select_txt_sub_gc_class_name;
-extern s32 lbl_805D6648;
+extern s32 status_disp_texture_handle;
 extern const f32 lbl_805DDF3C;
 extern const f32 lbl_805DDF44;
 extern const f32 lbl_805DDF48;
@@ -100,7 +100,7 @@ Txt_802A37A0 *__ct__17TAdSelectTxtSubGCFv(Txt_802A37A0 *arg0, void *parent, Src_
     arg0->f84 = -1;
     arg0->f74 = lbl_805DDF3C;
     arg0->f78 = lbl_805DDF3C;
-    lbl_805D6648 = TObjNpcHosa__sub_802A39B0();
+    status_disp_texture_handle = TObjNpcHosa__sub_802A39B0();
     arg0->f20 = arg0->f7c > 8;
     arg0->f7c -= (arg0->f7c > 8) ? 9 : 0;
     arg0->f24 = lbl_805DDF44 * (f32) arg0->f1c + arg0->f64;

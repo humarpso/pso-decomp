@@ -47,7 +47,7 @@ extern "C" {
 void *lbl_804858A8[3] = {
     (void *)0x0, (void *)0x0, (void *)0xc2a20000,
 };
-void *lbl_804858B4[3] = {
+void *dark_falz_jisin_zero_vec[3] = {
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
 __declspec(section ".data") void *TObjDFJisin__particle_emitter_id_table[2] = {

@@ -208,7 +208,7 @@ s32 free_if_valid__10TObjPlayerFi(s32);
 
 __declspec(section ".data") u32 lazer_fence_sw_ginja_model_table[2];
 __declspec(section ".data") u32 lazer_fence_beam_motions[2];
-__declspec(section ".data") u32 lbl_8050DCF8[3];
+__declspec(section ".data") u32 lazer_fence_beam_node_table[3];
 #define lazer_fence_beam_motions (*(RecoveredGlobal_80193A84_lbl_8050DCF0 *)lazer_fence_beam_motions)
 extern void *tl_05;
 
@@ -309,7 +309,7 @@ void draw_laser_beam__13TLazerFenceSwFv(void *arg0) {
     s32 i;
 
     for (i = 0; i < 3; i++) {
-        free_children__12TObjDoorJungFPvPv(lbl_8050DCF8[i], self->fE8);
+        free_children__12TObjDoorJungFPvPv(lazer_fence_beam_node_table[i], self->fE8);
     }
     set_global_param__8TObjFishFi(TLazerFenceSw__texture_list);
     if (actor_frame_tick != self->f114 && self->f110 >= lbl_805DBE78) {
@@ -483,16 +483,16 @@ void load_resources__13TLazerFenceSwFv(void) {
     ((u32 *)&lazer_fence_beam_motions)[0] = get_bml_motion(lazer_fence_switch_bml_resource, 0);
     ((u32 *)&lazer_fence_beam_motions)[1] = get_bml_motion(lazer_fence_switch_bml_resource, 1);
     for (j = 0; j < 3; j++) {
-        lbl_8050DCF8[j] = 0;
+        lazer_fence_beam_node_table[j] = 0;
     }
     i = 0;
     n = *(Node_80193CA4 **)(lazer_fence_sw_ginja_model_table[0] + 0x2C);
     if (n != NULL) {
-        lbl_8050DCF8[i] = n->f4;
+        lazer_fence_beam_node_table[i] = n->f4;
         i++;
         n = n->next;
         while (n != NULL && i < 3) {
-            lbl_8050DCF8[i] = n->f4;
+            lazer_fence_beam_node_table[i] = n->f4;
             i++;
             n = n->next;
         }

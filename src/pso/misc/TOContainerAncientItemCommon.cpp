@@ -133,7 +133,7 @@ s32 check_value_equals__13TQuestColCtrlFPvi(void *, s32);
 s32 spawn_particle_effect(void *, int);
 u8 *construct_debris__8TObjChipFPvPvPv(u8 *arg0, u8 *arg1, u8 *arg2);
 void play_container_break_sound(s32 arg0);
-extern Desc_8015C234 lbl_80440700;
+extern Desc_8015C234 fish_break_debris_desc;
 extern Desc_8015C234 lbl_8044074C;
 extern s32 lbl_805D2F00;
 extern Ids_8015C234 *ancient_container_fragment_texture_lists;
@@ -236,7 +236,7 @@ void spawn_break_debris__8TObjFishFPv(Obj_8015C234 *self) {
     if (self->f326 == 1) {
         return;
     }
-    Desc_8015C234 a = lbl_80440700;
+    Desc_8015C234 a = fish_break_debris_desc;
     a.x = self->x;
     a.y = self->y;
     a.z = self->z;

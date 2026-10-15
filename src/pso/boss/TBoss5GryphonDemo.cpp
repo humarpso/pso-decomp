@@ -52,7 +52,7 @@ void register_entity_by_id(void *);
 int refresh_collision_body_centers(void*);
 void construct_collider_proxy__10TObjPlayerFPv(void *);
 s16 alloc_actor_ids__6TLobbyFi(s32);
-extern s32 lbl_80488668[];
+extern s32 gryphon_demo_collision_body_desc[];
 extern s32 lbl_804886AC[];
 extern s32 lbl_805D2808;
 extern const f32 lbl_805D8ED0;
@@ -139,7 +139,7 @@ Obj_800663DC *TBoss5GryphonDemo__sub_800663DC(Obj_800663DC *arg0, s32 arg1, s32 
     i = 0;
     z = len * (f32)(arg0->count - 1);
     for (; i < arg0->count; i++) {
-        fn_8002B630(s, lbl_80488668);
+        fn_8002B630(s, gryphon_demo_collision_body_desc);
         s->f0 = zero;
         s->f4 = zero;
         s->f8 = z;

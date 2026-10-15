@@ -140,24 +140,24 @@ extern "C" const char lbl_80478088[] = "TBoss6Demo21_TYPE2_DEAD";
 extern "C" const u32 lbl_804780A0[3] = {0xc61c4000, 0x0, 0x0};
 extern "C" const u32 lbl_804780AC[3] = {0x0, 0x0, 0xc30e0000};
 extern "C" const u32 lbl_804780B8[3] = {0x0, 0xc0000000, 0x40cccccd};
-extern "C" const u32 lbl_804780C4[8] = {0x24, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
-extern "C" const u32 lbl_804780E4[8] = {0x19, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
-extern "C" const u32 lbl_80478104[12] = {0x2, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 boss6_type2_death_effect_desc_a[8] = {0x24, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 boss6_type2_death_effect_desc_b[8] = {0x19, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
+extern "C" const u32 boss6_type2_death_effect_desc_c[12] = {0x2, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0xffffffff, 0x0, 0x0, 0x0};
 extern "C" const u32 lbl_80478134[3] = {0x0, 0x0, 0x0};
 extern "C" const u32 lbl_80478140[3] = {0x1010000, 0x0, 0x3f333333};
-extern "C" const u32 lbl_8047814C[12] = {0x0, 0x8e, 0x228, 0xfa, 0x13a, 0x22a, 0x11d, 0x1ac, 0x22e, 0xf2, 0x13a, 0x179};
+extern "C" const u32 boss6_type2_death_emitter_ranges[12] = {0x0, 0x8e, 0x228, 0xfa, 0x13a, 0x22a, 0x11d, 0x1ac, 0x22e, 0xf2, 0x13a, 0x179};
 extern "C" const u32 lbl_8047817C[3] = {0xffff4000, 0xffffff60, 0xffff4000};
 extern "C" const char *TBoss6Demo21_TYPE2_DEAD__name = lbl_80478088;
 #define TBoss6Demo21_TYPE2_DEAD__name (*(s32 *)&TBoss6Demo21_TYPE2_DEAD__name)
 #define lbl_804780A0 ((u8 *)lbl_804780A0)
 #define lbl_804780AC ((Vec_8033E0F0 *)lbl_804780AC)
 #define lbl_804780B8 ((Vec_8033E0F0 *)lbl_804780B8)
-#define lbl_804780C4 ((u8 *)lbl_804780C4)
-#define lbl_804780E4 ((u8 *)lbl_804780E4)
-#define lbl_80478104 ((u8 *)lbl_80478104)
+#define boss6_type2_death_effect_desc_a ((u8 *)boss6_type2_death_effect_desc_a)
+#define boss6_type2_death_effect_desc_b ((u8 *)boss6_type2_death_effect_desc_b)
+#define boss6_type2_death_effect_desc_c ((u8 *)boss6_type2_death_effect_desc_c)
 #define lbl_80478134 ((u8 *)lbl_80478134)
 #define lbl_80478140 ((u8 *)lbl_80478140)
-#define lbl_8047814C ((Rng_8033E0F0 *)lbl_8047814C)
+#define boss6_type2_death_emitter_ranges ((Rng_8033E0F0 *)boss6_type2_death_emitter_ranges)
 #define lbl_8047817C ((u8 *)lbl_8047817C)
 #pragma pool_data off
 extern "C" {
@@ -339,9 +339,9 @@ void run_task__23TBoss6Demo21_TYPE2_DEADFv(Fish_8033E0F0 *arg0) {
         ptrs[2] = &arg0->f74;
         ptrs[3] = &arg0->f64;
         for (i = 0; i < 4; i++) {
-            if (arg0->timer >= lbl_8047814C[i].start && arg0->timer < lbl_8047814C[i].end) {
+            if (arg0->timer >= boss6_type2_death_emitter_ranges[i].start && arg0->timer < boss6_type2_death_emitter_ranges[i].end) {
                 if (arg0->emit[i] == 0) {
-                    arg0->emit[i] = create_particle_emitter(ptrs[i], lbl_8047814C[i].id);
+                    arg0->emit[i] = create_particle_emitter(ptrs[i], boss6_type2_death_emitter_ranges[i].id);
                     if (arg0->emit[i] != 0) {
                         set_flags__11TBoss4Type2FPvUi(arg0->emit[i], 0x40);
                     }
@@ -475,9 +475,9 @@ void *TBoss6Demo21_TYPE2_DEAD__ct(void *arg0p, void *arg1, void *arg2) {
     *(s32 *)((s8 *)arg0 + 0x40) = get_bml_model(count, 0xD);
     *(s32 *)((s8 *)arg0 + 0x44) = TObjFish__sub_8001EDB0(count, 0xD);
     *(s32 *)((s8 *)arg0 + 0x48) = get_bml_motion(count, 0x3D);
-    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(lbl_804780C4, arg0 + 0x64);
-    *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(lbl_804780E4, arg0 + 0x74);
-    *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(lbl_80478104, arg0 + 0x84);
+    *(s32 *)((s8 *)arg0 + 0x70) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_a, arg0 + 0x64);
+    *(s32 *)((s8 *)arg0 + 0x80) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_b, arg0 + 0x74);
+    *(s32 *)((s8 *)arg0 + 0x9C) = TObjFish__sub_800E3124(boss6_type2_death_effect_desc_c, arg0 + 0x84);
     activate_camera_mode(5);
     set_scripted_camera_pose(arg0 + 0x58, arg0 + 0x58, lbl_80478134);
     cache_target_and_forward__11TCameraCtrlFii(lbl_80478140, 0x416C);

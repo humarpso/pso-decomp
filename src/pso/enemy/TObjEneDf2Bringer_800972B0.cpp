@@ -83,7 +83,7 @@ extern "C" u8 lbl_8043A078[];
 extern "C" u8 lbl_8043A090[];
 extern void *bm_ene_df2_bringer_model_names[2];
 extern void *bm_ene_df2_bringer_motion_names[12];
-void *lbl_8048FA10[7] = {
+void *bringer_init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
@@ -1158,7 +1158,7 @@ s32 play_sound_effect(void *, void *, int, int);
 void TObjEneDf2Bringer__sub_80097620(u8 *arg0, s32 arg1);
 s32 get_camera_ctrl__9TObjEneDDFPv(void *, int);
 s32 rotate_matrix_x(int, int);
-extern RecoveredGlobal_800975A8_lbl_805008A8 lbl_805008A8;
+extern RecoveredGlobal_800975A8_lbl_805008A8 bringer_camera_ctrl_target_vec;
 extern s32 TObjEneDf2Bringer__render_node_index;
 extern s32 TObjEneDf2Bringer__render_rotation_x;
 extern s32 TObjEneDf2Bringer__render_point_cursor;
@@ -1563,7 +1563,7 @@ void bringer_render_node_callback(void) {
     case 41:
         temp_r4 = TObjEneDf2Bringer__render_point_cursor;
         TObjEneDf2Bringer__render_point_cursor = temp_r4 + 0xC;
-        get_camera_ctrl__9TObjEneDDFPv((void *) (&lbl_805008A8.value), (int) (temp_r4));
+        get_camera_ctrl__9TObjEneDDFPv((void *) (&bringer_camera_ctrl_target_vec.value), (int) (temp_r4));
         break;
     }
     TObjEneDf2Bringer__render_node_index += 1;
@@ -3372,9 +3372,9 @@ void *TBoss8Dragon__sub_800BC5EC(void *, s32);
 void activate_and_dispatch__10TObjPlayerFPv(void *);
 s32 create__12TObjEneSaverFPvPv(s32, s32);
 void set_animation__10TObjPlayerFPvs(void *, s16);
-extern s32 lbl_805D4FA8;
-extern s32 lbl_805D4FAC;
-extern s32 lbl_805D4FB0;
+extern s32 bringer_boss_stats_handle;
+extern s32 bringer_boss_stats_ptr_b;
+extern s32 bringer_object_handle;
 extern u32 TObjEneDf2Bringer__resource_bundle;
 extern const f32 TObjEneDf2Bringer__data_805D97E0;
 extern const f32 lbl_805D9840;
@@ -3426,9 +3426,9 @@ void init_enemy__17TObjEneDf2BringerFPv(u8 *arg0) {
     *(s16 *)((s8 *)arg0 + 0xB8) = 0;
     set_animation__10TObjPlayerFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
     set_field_b8__14TObjEnePanarmsFPvs(arg0, *(s16 *)((s8 *)arg0 + 0xB8));
-    reset_hp__9TObjEneDDFPv(arg0, lbl_805D4FA8, lbl_805D4FAC, lbl_805D4FB0);
+    reset_hp__9TObjEneDDFPv(arg0, bringer_boss_stats_handle, bringer_boss_stats_ptr_b, bringer_object_handle);
     set_state_8__9TObjEneDDFPv(arg0);
-    *(void **)((s8 *)arg0 + 0x350) = lbl_8048FA10;
+    *(void **)((s8 *)arg0 + 0x350) = bringer_init_params;
     initialize_enemy_state__9TObjEneDDFPv(arg0, 0x24);
     *(f32 *)((s8 *)arg0 + 0x37C) = lbl_805D9840;
     enemy_init_acquire_period(arg0, 0x1E);
@@ -3585,7 +3585,7 @@ extern Sp_80099BD4 lbl_8043A0BC[];
 extern u8 lbl_8043A108[];
 extern const f32 lbl_805D9848;
 extern const f32 lbl_805D984C;
-#define lbl_805008A8 (*(Vec_80099BD4 *)&lbl_805008A8)
+#define bringer_camera_ctrl_target_vec (*(Vec_80099BD4 *)&bringer_camera_ctrl_target_vec)
 #define TObjEneDf2Bringer__data_805D4FB4 (*(u8 **)&TObjEneDf2Bringer__data_805D4FB4)
 #pragma push
 #pragma fp_contract on
@@ -3606,9 +3606,9 @@ void load_resources__17TObjEneDf2BringerFv(void) {
   f32 k2;
   f32 s1;
   s32 j;
-  lbl_805008A8.x = TObjEneDf2Bringer__data_805D97E0;
-  lbl_805008A8.y = TObjEneDf2Bringer__data_805D97E0;
-  lbl_805008A8.z = TObjEneDf2Bringer__data_805D97E0;
+  bringer_camera_ctrl_target_vec.x = TObjEneDf2Bringer__data_805D97E0;
+  bringer_camera_ctrl_target_vec.y = TObjEneDf2Bringer__data_805D97E0;
+  bringer_camera_ctrl_target_vec.z = TObjEneDf2Bringer__data_805D97E0;
   if (check_v2_mode__9TObjEneDDFv() != 0)
   {
     TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource_named(bm_ene_df2_bringer_resource_descriptor, lbl_8043A108);
@@ -3617,9 +3617,9 @@ void load_resources__17TObjEneDf2BringerFv(void) {
   {
     TObjEneDf2Bringer__resource_bundle = load_enemy_bml_resource(bm_ene_df2_bringer_resource_descriptor);
   }
-  lbl_805D4FA8 = register_boss__6TLobbyFPv(0xD);
-  lbl_805D4FAC = dispatch_shared_handler_b__6TLobbyFPv(0xD);
-  lbl_805D4FB0 = register_object__6TLobbyFPv(0xD);
+  bringer_boss_stats_handle = register_boss__6TLobbyFPv(0xD);
+  bringer_boss_stats_ptr_b = dispatch_shared_handler_b__6TLobbyFPv(0xD);
+  bringer_object_handle = register_object__6TLobbyFPv(0xD);
   TObjEneDf2Bringer__data_805D4FB4 = dispatch_shared_handler_a__6TLobbyFPv(0xD);
   TObjEneDf2Bringer__render_node_index = 0;
   TObjEneDf2Bringer__render_rotation_x = 0;
@@ -3684,7 +3684,7 @@ void load_resources__17TObjEneDf2BringerFv(void) {
   }
 }
 #pragma pop
-#undef lbl_805008A8
+#undef bringer_camera_ctrl_target_vec
 #undef TObjEneDf2Bringer__data_805D4FB4
 
 }

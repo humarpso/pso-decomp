@@ -320,7 +320,7 @@ int pop_matrix();
 int post_translate_matrix(void *);
 int set_global_param__8TObjFishFi(void *);
 int draw_chunk_object(void *);
-extern Vec_800ECA40 lbl_8043D2E0;
+extern Vec_800ECA40 re4_bit_render_vec;
 extern s32 lbl_805D5660;
 extern s32 model_render_flags;
 extern const f32 lbl_805D9E84;
@@ -450,11 +450,11 @@ void * __dt__13TObjEneRe4BitFv(void *arg0, s16 arg1);
 void run_task__13TObjEneRe4BitFv(u8 *arg0);
 }
 
-void *lbl_80496CD0[7] = {
+void *re4_bit_init_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
 };
-void *lbl_80496CEC[11] = {
+void *re4_bit_model_node_desc[11] = {
     (void *)0x0, (void *)0x0, (void *)0x0, (void *)0x40000000,
     (void *)0x0, (void *)0x0, (void *)0x8003, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -488,8 +488,8 @@ void *__vt__13TObjEneRe4Bit[107] = {
     (void *)&TObjEneDD__vt97, (void *)&TObjEneDD__vt98, (void *)&TObjEneDD__vt99, (void *)&TObjEneDD__vt100,
     (void *)&TObjEneEpsilon__vt101, (void *)&TObjEneRe4Bit__vt103, (void *)&TObjEneRe4Bit__vt104,
 };
-#define lbl_80496CD0 ((u8 *)lbl_80496CD0)
-#define lbl_80496CEC ((u8 *)lbl_80496CEC)
+#define re4_bit_init_params ((u8 *)re4_bit_init_params)
+#define re4_bit_model_node_desc ((u8 *)re4_bit_model_node_desc)
 #define __vt__13TObjEneRe4Bit ((s32 *)__vt__13TObjEneRe4Bit)
 
 void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
@@ -513,7 +513,7 @@ void render__13TObjEneRe4BitFv(Bit_800ECA40 *self) {
         return;
     }
     if (self->flags & 0x800) {
-        Vec_800ECA40 v = lbl_8043D2E0;
+        Vec_800ECA40 v = re4_bit_render_vec;
         render_with_position_override__10TObjPlayerFPvPvi(self, &v, 0);
     }
     update_secondary_light__9TObjEneDDFPv(self);
@@ -1586,11 +1586,11 @@ void init__13TObjEneRe4BitFPv(Bit_800ED7FC *self) {
     init_position_vectors__9TObjEneDDFPv(self);
     self->x34 = TObjEneRe4Bit__model;
     self->x24 = re4_bit_texture_list;
-    init_model__9TObjEneDDFPv(self, lbl_80496CEC, 1);
+    init_model__9TObjEneDDFPv(self, re4_bit_model_node_desc, 1);
     i = self->kind == 1 ? 0 : 1;
     reset_hp__9TObjEneDDFPv(self, TObjEneRe4Bit_boss_handles[i], lbl_80501058[i], lbl_80501060[i]);
     set_state_8__9TObjEneDDFPv(self);
-    self->x350 = lbl_80496CD0;
+    self->x350 = re4_bit_init_params;
     if (self->kind == 1) {
         initialize_enemy_state__9TObjEneDDFPv(self, 0x20);
     } else {

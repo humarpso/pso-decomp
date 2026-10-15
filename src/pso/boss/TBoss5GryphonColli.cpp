@@ -1,7 +1,7 @@
 #include "types.h"
 #include "pso/TBoss5GryphonColli.h"
 extern "C" {
-s32 lbl_80488668[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
+s32 gryphon_demo_collision_body_desc[11] = { 0, 0, 0, 0x3F800000, 0, 0, 0x8003, 0, 0, 0, 0 };
 }
 
 #include "types.h"

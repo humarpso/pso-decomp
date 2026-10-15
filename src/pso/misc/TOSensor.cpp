@@ -329,7 +329,7 @@ extern void *ancient_sensor_resource_pair_table;
 extern s32 lbl_805D5A90;
 extern s32 lbl_805D5A94;
 extern s32 lbl_805D5A98;
-extern s32 lbl_805D5A9C;
+extern s32 sensor_texture_table_index;
 void load_resources__17TOSensorAncient01Fv(void);
 }
 
@@ -379,7 +379,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_2 = (u8 *)(*(u8 **)((s8 *)temp_r30 + 0x2C));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (3e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
+            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_2 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_2 + 4));
@@ -388,7 +388,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_3 = (u8 *)(*(u8 **)((s8 *)temp_r30_2 + 0x30));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (6e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
+            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_3 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_3 + 4));
@@ -397,7 +397,7 @@ void render__17TOSensorAncient01Fv(u8 *arg0) {
         temp_r30_4 = (u8 *)(*(u8 **)((s8 *)temp_r30_3 + 0x30));
         if ((f32) *(s32 *)((s8 *)arg0 + 0xE8) < (9e+01f)) {
             Pair_80175994 *tbl = (Pair_80175994 *)ancient_sensor_resource_pair_table;
-            set_global_param__8TObjFishFi(tbl[lbl_805D5A9C].b);
+            set_global_param__8TObjFishFi(tbl[sensor_texture_table_index].b);
         }
         post_translate_matrix((void *) (temp_r30_4 + 8));
         draw_ginja_model(*(s32 *)((s8 *)temp_r30_4 + 4));
@@ -487,7 +487,7 @@ void load_resources__17TOSensorAncient01Fv(void) {
     lbl_805D5A90 = 0;
     lbl_805D5A94 = 0;
     lbl_805D5A98 = 0;
-    lbl_805D5A9C = 0;
+    sensor_texture_table_index = 0;
 }
 
 extern "C" {

@@ -483,15 +483,15 @@ s32 set_model_node_callback(void *);
 s32 set_chunk_material_override_pair(s32, s32);
 s32 set_chunk_material_color(void *);
 void add_instance__16TObjEneMe3StelthFv();
-extern const Col_800F1CD4 lbl_8043D640;
-extern const Col_800F1CD4 lbl_8043D650;
-extern const Col_800F1CD4 lbl_8043D660;
-extern const Col_800F1CD4 lbl_8043D670;
+extern const Col_800F1CD4 stelth_render_color_a;
+extern const Col_800F1CD4 stelth_render_color_b;
+extern const Col_800F1CD4 me3_stelth_render_color;
+extern const Col_800F1CD4 me3_stelth_secondary_render_color;
 #define TObjEneMe3Stelth__material_color_pointers ((s32 * *)&TObjEneMe3Stelth__material_color_pointers)
 extern u8 saved_model_draw_color[];
 extern u8 model_material_color[];
 extern s32 TObjEneMe3Stelth__render_node_index;
-extern s32 lbl_805D5310;
+extern s32 stelth_projection_texture_handle;
 extern s32 lbl_805D5660;
 extern s32 lbl_805D5664;
 extern s32 lbl_805D5668;
@@ -554,7 +554,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                     VS->m6();
                 } else {
                     model_render_flags |= 0x820;
-                    Col_800F1CD4 c = lbl_8043D640;
+                    Col_800F1CD4 c = stelth_render_color_a;
                     set_chunk_material_color(&c);
                     set_chunk_material_override_pair(0xFF00, 0x800);
                 }
@@ -567,7 +567,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                 }
             } else {
                 model_render_flags |= 0x820;
-                Col_800F1CD4 c = lbl_8043D650;
+                Col_800F1CD4 c = stelth_render_color_b;
                 set_chunk_material_color(&c);
                 set_chunk_material_override_pair(0xFF00, 0x800);
             }
@@ -599,7 +599,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                 if (F(s32, 0x3CC) & 8) {
                     setup_tev_stage__10TObjPlayerFv();
                     model_render_flags |= 0x8021;
-                    Col_800F1CD4 c = lbl_8043D660;
+                    Col_800F1CD4 c = me3_stelth_render_color;
                     set_chunk_material_color(&c);
                     set_color_blend_mode(1, 4, 5, 0);
                 } else {
@@ -607,7 +607,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
                 }
             } else {
                 model_render_flags |= 0x8021;
-                Col_800F1CD4 c = lbl_8043D670;
+                Col_800F1CD4 c = me3_stelth_secondary_render_color;
                 set_chunk_material_color(&c);
                 set_color_blend_mode(1, 4, 5, 0);
             }
@@ -624,7 +624,7 @@ void render__16TObjEneMe3StelthFPv(void *arg0_) {
             rotate_matrix_y(0, F(s32, 0x60));
             TObjEneMe3Stelth__render_node_index = 0;
             F(s32, 0x420) += 0x222;
-            lbl_805D5310 = F(s32, 0x420);
+            stelth_projection_texture_handle = F(s32, 0x420);
             set_model_node_callback((void *)add_instance__16TObjEneMe3StelthFv);
             if (F(s32, 0x3C0) != 0) {
                 set_ginja_draw_list_mask(3);
@@ -669,12 +669,12 @@ void add_instance__16TObjEneMe3StelthFv(void);
 int load_projection_tex_matrix__15TOTrapAncient02Fi(void*);
 
 #define TObjEneMe3Stelth__render_node_index (*(int *)&TObjEneMe3Stelth__render_node_index)
-#define lbl_805D5310 (*(int *)&lbl_805D5310)
-void add_instance__16TObjEneMe3StelthFv(void) { load_projection_tex_matrix__15TOTrapAncient02Fi((void*)(lbl_805D5310)); TObjEneMe3Stelth__render_node_index = (TObjEneMe3Stelth__render_node_index + 0x1); }
+#define stelth_projection_texture_handle (*(int *)&stelth_projection_texture_handle)
+void add_instance__16TObjEneMe3StelthFv(void) { load_projection_tex_matrix__15TOTrapAncient02Fi((void*)(stelth_projection_texture_handle)); TObjEneMe3Stelth__render_node_index = (TObjEneMe3Stelth__render_node_index + 0x1); }
 
 }
 #undef TObjEneMe3Stelth__render_node_index
-#undef lbl_805D5310
+#undef stelth_projection_texture_handle
 
 #include "types.h"
 
@@ -1023,7 +1023,7 @@ s32 trigger_dell_biter_events__10TObjPlayerFPv(void *);
 s32 objInBand__FP7GameObjf(void *, f32);
 f32 sin_table_lookup(int);
 f32 cos_table_lookup(int);
-extern u8 lbl_8043D460[];
+extern u8 me3_stelth_breakup_params[];
 extern s32 TObjEneMe3Stelth__breakup_model;
 extern const f32 lbl_805DA818;
 extern const f32 TObjEneMe3Stelth__data_805DA824;
@@ -1205,7 +1205,7 @@ void handle_breakup_state__16TObjEneMe3StelthFPvi(u8 *arg0, s32 arg1) {
             if (F(s32, 0x428) >= 0x14) {
                 F(s32, 0x424) = 2;
                 F(s32, 0x3CC) |= 2;
-                create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe3Stelth__breakup_model, lbl_8043D460, F(s32, 0x24), arg0 + 0x38, F(s32, 0x60));
+                create_breakup_mdl__12TBoss3VoloptFiiiii(TObjEneMe3Stelth__breakup_model, me3_stelth_breakup_params, F(s32, 0x24), arg0 + 0x38, F(s32, 0x60));
                 VecCopy__FP3VecPC3Vec(&v, arg0 + 0x38);
                 v.x += TObjEneMe3Stelth__data_805DA844 * sin_table_lookup(F(s32, 0x60));
                 v.z += TObjEneMe3Stelth__data_805DA844 * cos_table_lookup(F(s32, 0x60));
@@ -3860,10 +3860,10 @@ extern "C" void update_object_view_visibility();
 extern "C" void update_poison_status__10TObjPlayerFv();
 extern void *lbl_80497710[2];
 extern void *lbl_80497718[12];
-extern void *lbl_80497748[4];
+extern void *stelth_bml_resource_desc[4];
 extern void *lbl_80497758[2];
 extern void *lbl_80497760[12];
-extern void *lbl_80497790[4];
+extern void *me3_stelth_bml_resource_desc[4];
 void *TObjEneMe3Stelth__shared_params[7] = {
     (void *)0x43610000, (void *)0x0, (void *)0x600, (void *)0x0,
     (void *)0x0, (void *)0x0, (void *)0x0,
@@ -3881,7 +3881,7 @@ void *lbl_80497718[12] = {
     (void *)&lbl_8043D50C, (void *)&lbl_8043D524, (void *)&lbl_8043D538, (void *)&lbl_8043D550,
     (void *)&lbl_8043D564, (void *)&lbl_8043D580, (void *)&lbl_8043D594, (void *)0x0,
 };
-void *lbl_80497748[4] = {
+void *stelth_bml_resource_desc[4] = {
     (void *)&lbl_8043D5A8, (void *)&lbl_80497710, (void *)&lbl_80497718, (void *)0x1000b,
 };
 __declspec(section ".data") void *lbl_80497758[2] = {
@@ -3892,7 +3892,7 @@ void *lbl_80497760[12] = {
     (void *)&lbl_8043D50C, (void *)&lbl_8043D524, (void *)&lbl_8043D538, (void *)&lbl_8043D550,
     (void *)&lbl_8043D564, (void *)&lbl_8043D580, (void *)&lbl_8043D594, (void *)0x0,
 };
-void *lbl_80497790[4] = {
+void *me3_stelth_bml_resource_desc[4] = {
     (void *)&lbl_8043D5D8, (void *)&lbl_80497758, (void *)&lbl_80497760, (void *)0x1000b,
 };
 void *TObjEneMe3Stelth__animation_descriptors[52] = {
@@ -4471,8 +4471,8 @@ extern s32 lbl_8043D47C[];
 extern s32 lbl_8043D484[];
 extern s32 lbl_8043D48C[];
 extern s32 lbl_8043D494[];
-extern Atk_800F53E8 lbl_8043D620;
-extern Atk_800F53E8 lbl_8043D630;
+extern Atk_800F53E8 stelth_attack_binding_desc_a;
+extern Atk_800F53E8 stelth_attack_binding_desc_b;
 extern u8 *TObjEneMe3Stelth__bml_resource;
 extern s32 TObjEneMe3Stelth__render_node_index;
 extern s32 TObjEneMe3Stelth__breakup_model;
@@ -4512,9 +4512,9 @@ void load_shared_resources__16TObjEneMe3StelthFv(void) {
     lbl_805010E0[1] = TObjEneMe3Stelth__data_805DA840;
     lbl_805010E0[2] = TObjEneMe3Stelth__data_805DA840;
     if (is_split_screen() != 0) {
-        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(lbl_80497790);
+        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(me3_stelth_bml_resource_desc);
     } else {
-        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(lbl_80497748);
+        TObjEneMe3Stelth__bml_resource = (u8 *)load_enemy_bml_resource(stelth_bml_resource_desc);
     }
     src = *(Arr_800F53E8 **)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 0xC);
     n = src->n;
@@ -4601,9 +4601,9 @@ void load_shared_resources__16TObjEneMe3StelthFv(void) {
         TObjEneMe3ShinowaMirage__sub_800D98D8((u8 *)p, mdl, (s32)ent2, 0x22, (u8 *)&va, (u8 *)&vb);
     }
     {
-        Atk_800F53E8 a = lbl_8043D620;
+        Atk_800F53E8 a = stelth_attack_binding_desc_a;
         a.w[0] = (s32)((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f430;
-        Atk_800F53E8 b = lbl_8043D630;
+        Atk_800F53E8 b = stelth_attack_binding_desc_b;
         b.w[0] = (s32)((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f430;
         spawn_attack__16TObjEneMe3StelthFsiiiff(0x2B, *(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 8), *(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 0xC), (s32)&a, lbl_805DA8A4, TObjEneMe3Stelth__data_805DA840);
         spawn_attack__16TObjEneMe3StelthFsiiiff(0x2D, *(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 8), *(s32 *)(((Res_800F53E8 *)TObjEneMe3Stelth__bml_resource)->f42C + 0xC), (s32)&b, lbl_805DA8A4, TObjEneMe3Stelth__data_805DA840);

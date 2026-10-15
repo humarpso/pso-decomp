@@ -65,7 +65,7 @@ u8 *find_entity_by_id(u16);
 void *__nw__7TObjectFUl(u32);
 Obj_80232B7C *construct_grants_flash(Obj_80232B7C *self, s32 id, void *parent, Vec_80232B7C *pos, f32 scale);
 s32 construct_timed_sound_voice(void *, void *, int, int, int, void *);
-extern SGrp_80232C50 lbl_8044D56C[];
+extern SGrp_80232C50 technique_effect_entry_table[];
 extern void *tl_07;
 extern s32 technique_effect_bml;
 extern s32 lbl_805D63B0;
@@ -115,14 +115,14 @@ void grants_presentation_update(Ctl_80232C50 *arg0) {
         }
     }
     if (arg0->timer >= 30) {
-        for (i = 0; i < lbl_8044D56C[arg0->kind].count; i++) {
+        for (i = 0; i < technique_effect_entry_table[arg0->kind].count; i++) {
             obj = find_entity_by_id(arg0->id);
             if (obj != 0) {
-                SEnt_80232C50 *e = &lbl_8044D56C[arg0->kind].ents[i];
+                SEnt_80232C50 *e = &technique_effect_entry_table[arg0->kind].ents[i];
                 if (e->flags & 0x20) {
                     r = spawn_particle_effect(obj + 0x38, e->a);
                     if (r != 0) {
-                        attach_particle_model(r, get_bml_model(technique_effect_bml, lbl_8044D56C[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
+                        attach_particle_model(r, get_bml_model(technique_effect_bml, technique_effect_entry_table[arg0->kind].ents[i].flags >> 16), lbl_805D63B0, 0, 1, lbl_805DC854);
                     }
                 } else {
                     spawn_particle_effect(obj + 0x38, e->a);

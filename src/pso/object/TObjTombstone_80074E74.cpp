@@ -65,7 +65,7 @@ extern const f32 lbl_805D9180;
 extern f32 TObjTombstone__data_805D9184;
 void update_fade_by_distance__13TObjTombstoneFPv(u8 *arg0);
 void copy_matrix__13TObjTombstoneFPvPv(void* p, void* q);
-extern RecoveredGlobal_80074FAC_lbl_8043878C lbl_8043878C;
+extern RecoveredGlobal_80074FAC_lbl_8043878C tombstone_reset_matrix_template;
 extern RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250 TObjTombstone__base_matrix;
 void reset_matrix__13TObjTombstoneFv(void);
 u32 get_player_by_client_id(int);
@@ -105,7 +105,7 @@ u32 calc_text_width__20TWindowSubStatusDispFPv(const char *);
 void draw_menu_font_string(const char *, u32, s32, f32, f32, f32);
 f32 sin_table_lookup(s32);
 u32 strlen(const char *);
-extern Off_800753DC lbl_8048D2F0[];
+extern Off_800753DC tombstone_name_label_offset_table[];
 extern const f32 TObjTombstone__data_805D9174;
 extern const f32 lbl_805D9180;
 extern const f32 lbl_805D9188;
@@ -131,7 +131,7 @@ typedef char RecoveredGlobal_80074FAC_lbl_8043878C_size[sizeof(RecoveredGlobal_8
 typedef char RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250_size[sizeof(RecoveredGlobal_80074FAC_TObjTombstone__data_8048D250) == 0x28 ? 1 : -1];
 void reset_matrix__13TObjTombstoneFv(void) {
     ByteBlock_28 sp8;
-    sp8 = *(const ByteBlock_28 *)((s32) ((u8 *)(&lbl_8043878C.value) + -4) + 4);
+    sp8 = *(const ByteBlock_28 *)((s32) ((u8 *)(&tombstone_reset_matrix_template.value) + -4) + 4);
     copy_matrix__13TObjTombstoneFPvPv((void*)(&TObjTombstone__base_matrix.value), (void*)(&sp8));
 }
 
@@ -272,7 +272,7 @@ s32 draw_name_labels__13TObjTombstoneFPv(void *arg0_) {
             if (a > TObjTombstone__data_805D9174) {
                 s32 j;
                 for (j = 0; j < 8; j++) {
-                    Off_800753DC o = lbl_8048D2F0[j];
+                    Off_800753DC o = tombstone_name_label_offset_table[j];
                     draw_menu_font_string(name, c1, 1, p.x + o.x, p.y + o.y, lbl_805D918C);
                 }
             }

@@ -25,7 +25,7 @@ u32 __ct__14TAdGameStartGCFv(void *, s32);
 s32 get_or_create_slot_window__22TAdMultiPlyChrSelectGCFii(void *, int);
 s32 create__16TAdChrSelBSlotGCFPv(void *);
 s32 get_move_effect__22TAdMultiPlyChrSelectGCFi(s32);
-extern V2_802DF9B4 lbl_804727A0[];
+extern V2_802DF9B4 multi_chr_select_widget_layout[];
 extern u8 lbl_80472808[];
 extern I2_802DF9B4 lbl_80472828[];
 extern Blk_802DF9B4 multi_chr_select_layout_table[];
@@ -54,7 +54,7 @@ s32 get_chr_select_state__22TAdMultiPlyChrSelectGCFv();
 s32 queue_destruction__7TObjectFv(void *);
 
 extern s8 controller_physical_port_bank[];
-extern u32 lbl_805D68CC;
+extern u32 multi_chr_select_serial_access_state;
 
 void update_state_serial__22TAdMultiPlyChrSelectGCFPv(void *arg0) {
     s32 temp_r5;
@@ -107,7 +107,7 @@ block_19:
         *(s32 *)((s8 *)arg0 + 0x20) = 1;
         if ((s32) *(s32 *)((s8 *)arg0 + 0x9C) != 0) {
             *(s32 *)((s8 *)arg0 + 0x9C) = 0;
-            if ((u32) lbl_805D68CC != get_field_118__22TAdEnterSerialAccessGCFv()) {
+            if ((u32) multi_chr_select_serial_access_state != get_field_118__22TAdEnterSerialAccessGCFv()) {
                 reset_slot_selections__22TAdMultiPlyChrSelectGCFv();
             }
         }
@@ -489,8 +489,8 @@ void create_widgets__22TAdMultiPlyChrSelectGCFPv(u8 *arg0) {
     }
     *(u32 *)((s8 *)arg0 + 0x78) = p;
     V2_802DF9B4 v = lbl_80472848[0];
-    v.x = lbl_804727A0[0].x;
-    v.y = lbl_804727A0[0].y;
+    v.x = multi_chr_select_widget_layout[0].x;
+    v.y = multi_chr_select_widget_layout[0].y;
     *(s32 *)((s8 *)arg0 + 0x5C) = fn_802C6F20(tl_02, &v);
     get_move_effect__22TAdMultiPlyChrSelectGCFi(tl_clipout);
 }

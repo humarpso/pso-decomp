@@ -74,7 +74,7 @@ int init_params__10TTecDebandFPv(void* p);
 void update_effect_params__10TTecDebandFPv(u8 *arg0);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 extern s32 __vt__10TTecDeband[];
-extern s32 lbl_805D37A8;
+extern s32 tec_deband_class_name_ptr;
 extern const f32 lbl_805DC7F0;
 u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3);
 s32 queue_destruction__7TObjectFv(void *);
@@ -96,7 +96,7 @@ void update_effect_params__10TTecDebandFPv(u8 *arg0);
 s32 TTecPlayerInfluence__ct(void *, void *, void *, void *);
 void copy_technique_target_list(void *, void *, s32);
 extern s32 __vt__10TTecDeband[];
-extern s32 lbl_805D37A8;
+extern s32 tec_deband_class_name_ptr;
 extern const f32 lbl_805DC7F0;
 s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4);
 }
@@ -212,7 +212,7 @@ s32 TTecDeband__ct(u32 a0, s32 arg1, s32 arg2, s32 arg3, s32 arg4) {
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg4));
     *(s32 **)((s8 *)arg0 + 0x18) = __vt__10TTecDeband;
     construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
-    s32 g = lbl_805D37A8;
+    s32 g = tec_deband_class_name_ptr;
     *(s32 *)((s8 *)arg0 + 0) = g;
     *(s32 *)((s8 *)arg0 + 0x13C) = 1;
     copy_technique_target_list((void *) (arg0 + 0xE0), (void *) arg3, g);
@@ -240,7 +240,7 @@ u8 *TTecDeband__sub_8022F948(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     TTecPlayerInfluence__ct((void *) (arg0), (void *) (arg1), (void *) (arg2), (void *) (arg3));
     *(s32 **)((s8 *)arg0 + 0x18) = &(*(RecoveredGlobal_8022F948___vt__10TTecDeband *)&__vt__10TTecDeband).value;
     construct_target_cursor_records__10TObjPlayerFi((void *) (arg0 + 0xE0));
-    *(s32 *)((s8 *)arg0 + 0) = (s32) lbl_805D37A8;
+    *(s32 *)((s8 *)arg0 + 0) = (s32) tec_deband_class_name_ptr;
     *(s32 *)((s8 *)arg0 + 0x13C) = 0;
     update_effect_params__10TTecDebandFPv((u8 *)((void *) (arg0)));
     temp_r3 = (u8 *)(*(u8 **)((s8 *)arg0 + 0xDC));

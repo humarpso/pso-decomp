@@ -808,7 +808,7 @@ void init_display__20TWindowSubStatusDispFPvii(void *arg0, s32 arg1, s32 arg2) {
     *(u16 *)((s8 *)arg0 + 0) = (u16) (*(u16 *)((s8 *)arg0 + 0) | 0x45);
 }
 
-    extern unsigned char lbl_8044EE60[];
+    extern unsigned char status_disp_item_icon_coord_table[];
 
 s32 replace_owned_string__20TWindowSubStatusDispFPviiii(void *arg0, s32 src, s32 buf, s32 mask, s32 copy) {
     u16 *flags = (u16 *)arg0;
@@ -846,7 +846,7 @@ void calc_row_width__20TWindowSubStatusDispFv(Row_8025930C *arg0) {
     }
 }
 
-void* get_entry_ptr__20TWindowSubStatusDispFi(int a0) {  return (char*)lbl_8044EE60 + (unsigned char)(a0) * 8; }
+void* get_entry_ptr__20TWindowSubStatusDispFi(int a0) {  return (char*)status_disp_item_icon_coord_table + (unsigned char)(a0) * 8; }
 
 typedef struct ItemListRow ItemListRow;
 typedef struct ItemListPosition ItemListPosition;

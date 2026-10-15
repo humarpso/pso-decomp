@@ -8,7 +8,7 @@ struct Stack_80203470 {
 extern "C" {
 s32 get_floor_map_selection(void *, void *);
 extern s32 current_floor_index;
-extern s32 lbl_805D5FC4;
+extern s32 current_floor_area_type;
 void set_current_floor_area(s32 arg0);
 extern s32 boss_area_id_table[];
 s32 get_global_state__14TOKeyMachine01Fv(void);
@@ -30,7 +30,7 @@ void set_current_floor_area(s32 arg0) {
     Stack_80203470 stack;
     current_floor_index = arg0;
     if (get_floor_map_selection((void *) (arg0), (void *) (&stack.sp8)) == 1) {
-        lbl_805D5FC4 = stack.sp8;
+        current_floor_area_type = stack.sp8;
     }
 }
 

@@ -50,7 +50,7 @@ void play_persistent_sound(s32, void *, Vec_80355570 *, s32, s32);
 void fn_803554F0(void *, Vec_80355570 *);
 extern s32 boss5_gryphon_bml_resource;
 extern s32 boss5_gryphon_texture_list;
-extern s32 *lbl_805D6F10;
+extern s32 *gryphon_tornado_particle_id_table;
 extern const f32 lbl_805D8D48;
 extern const f32 lbl_805DFFAC;
 extern const f32 lbl_805DFFB0;
@@ -99,16 +99,16 @@ void run_task__20TBoss5GryphonTornadoFv(Tornado_80355570 *o) {
             o->pos.y = h;
         }
         if (o->p50 == NULL) {
-            o->p50 = spawn_continuous_particle_effect_with_flags(&o->pos, lbl_805D6F10[0], 0x40);
+            o->p50 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[0], 0x40);
         }
         if (o->p54 == NULL) {
-            o->p54 = spawn_continuous_particle_effect_with_flags(&o->pos, lbl_805D6F10[1], 0x40);
+            o->p54 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[1], 0x40);
             if (o->p54 != NULL) {
                 attach_particle_model(o->p54, get_bml_model(boss5_gryphon_bml_resource, 0), boss5_gryphon_texture_list, get_bml_motion(boss5_gryphon_bml_resource, 0), 0, lbl_805DFFAC);
             }
         }
         if (o->p58 == NULL) {
-            o->p58 = spawn_continuous_particle_effect_with_flags(&o->pos, lbl_805D6F10[2], 0x40);
+            o->p58 = spawn_continuous_particle_effect_with_flags(&o->pos, gryphon_tornado_particle_id_table[2], 0x40);
         }
         if (o->p50 != NULL) {
             copy_pos__11TNowLoadingFPvPv(o->p50, &o->pos);

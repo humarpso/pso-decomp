@@ -39,7 +39,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 s32 rand(void);
 f32 vector_length(Vec_800483F8 *);
 void subtract_vector(Vec_800483F8 *, Vec_800483F8 *);
-extern s32 lbl_80484840[];
+extern s32 direction_line_object_dispatch_table[];
 extern void *tl_05;
 extern const f32 lbl_805D8828;
 extern const f32 lbl_805D882C;
@@ -56,7 +56,7 @@ typedef char RecoveredGlobal_80048560_lbl_804FF1D0_size[sizeof(RecoveredGlobal_8
 #pragma fp_contract on
 Obj_800483F8 *fn_800483F8(Obj_800483F8 *self, Vec_800483F8 *from, Vec_800483F8 *to, s32 n, s32 m) {
     __ct__7TObjectFP7TObject(self, tl_05);
-    self->vt = lbl_80484840;
+    self->vt = direction_line_object_dispatch_table;
     self->from = from;
     self->to = to;
     self->f24 = m;

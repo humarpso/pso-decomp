@@ -38,7 +38,7 @@ struct RecoveredGlobal_8034DC24_lbl_804F07C8
 struct RecoveredGlobal_8034DC24_lbl_804F07C8;
 extern "C" {
 s32 get_instance__6TLobbyFv(void);
-extern RecoveredGlobal_8034DE10_lbl_80478C70 lbl_80478C70;
+extern RecoveredGlobal_8034DE10_lbl_80478C70 party_position_table;
 u8 *get_party_position(void);
 s32 get_instance__6TLobbyFv(void);
 extern RecoveredGlobal_8034DE70_lbl_80478C50 npc_lobby_entry_positions;
@@ -150,7 +150,7 @@ s32 get_party_yaw(void) {
 }
 
 u8 *get_party_position(void) {
-    return (u8 *)&lbl_80478C70.value + (get_instance__6TLobbyFv() * 0xC);
+    return (u8 *)&party_position_table.value + (get_instance__6TLobbyFv() * 0xC);
 }
 typedef char RecoveredGlobal_8034DE70_lbl_80478C50_size[sizeof(RecoveredGlobal_8034DE70_lbl_80478C50) == 0x18 ? 1 : -1];
 

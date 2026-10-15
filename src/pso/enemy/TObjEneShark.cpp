@@ -306,7 +306,7 @@ s32 rotate_vector_by_matrix(int, void *, void *);
 s32 rotate_matrix_y(s32, s32);
 s32 push_matrix_from(void *);
 s32 pop_matrix();
-extern s32 lbl_8043AD00[];
+extern s32 player_sub_800ab7a0_id_table[];
 extern s32 lbl_80491478[];
 extern RecoveredGlobal_800ABA9C_lbl_8058D490 identity_matrix;
 extern void *lbl_805D5090;

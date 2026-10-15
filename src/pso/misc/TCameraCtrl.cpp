@@ -53,7 +53,7 @@ struct C_8006A35C { f32 f0; f32 f4; f32 f8; };
 extern "C" {
 void TCameraCtrl__sub_80068358(void *, void *, f32, f32);
 extern s32 camera_view_state_flag;
-extern s8 lbl_805D4DF8;
+extern s8 camera_ctrl_view_state_byte;
 extern s32 TCameraCtrl__pose_snap_flags;
 extern const f32 TCameraCtrl__data_805D8FA8;
 extern const f32 TCameraCtrl__data_805D8FD8;
@@ -240,7 +240,7 @@ void reset_view_state__11TCameraCtrlFv(void) {
     pc->f4 = TCameraCtrl__data_805D8FAC;
     pc->f8 = TCameraCtrl__data_805D8FA8;
     camera_view_state_flag = 0;
-    lbl_805D4DF8 = -1;
+    camera_ctrl_view_state_byte = -1;
     TCameraCtrl__data_805D4E0A = 0;
 }
 typedef char RecoveredGlobal_8006A5DC_TCameraCtrl__data_804FF628_size[sizeof(RecoveredGlobal_8006A5DC_TCameraCtrl__data_804FF628) == 0xC ? 1 : -1];

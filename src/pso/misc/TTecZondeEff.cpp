@@ -148,7 +148,7 @@ void __ct__7TObjectFP7TObject(void *, void *);
 extern RecoveredGlobal_8023D988___vt__12TTecZondeEff __vt__12TTecZondeEff;
 extern s32 TTecZondeEff_class_name;
 u8 *construct_bolt_effect__9TTecZondeFPvPvPvPviiff(u8 *arg0, u8 *arg1, u8 *arg2, u8 *arg3, s32 arg4, s32 arg5, f32 farg0, f32 farg1);
-extern P_8023DBB4 lbl_805161D8;
+extern P_8023DBB4 tec_zonde_effect_task_list;
 extern char lbl_804CC8C8[];
 extern A_8023DBB4 *shared_effect_texture_list[];
 extern s32 TTecZondeEff__beam_vertex_data;
@@ -163,7 +163,7 @@ s32 is_split_screen(void);
 void spawn_particle_effect(Rec_8023D568 *, s32);
 void init_bolt_points__12TTecZondeEffFPv(void *arg0);
 void queue_destruction__7TObjectFv(void *);
-extern P_8023DBB4 lbl_805161D8;
+extern P_8023DBB4 tec_zonde_effect_task_list;
 extern s32 TTecZondeEff__beam_vertex_data;
 extern const f32 TTecZondeEff__data_805DC990;
 void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0);
@@ -480,7 +480,7 @@ void run_task__12TTecZondeEffFv(Zonde_8023D7A0 *arg0) {
     s32 i;
     f32 s;
     E_8023D7A0 *e;
-    e = (E_8023D7A0 *)lbl_805161D8.vt;
+    e = (E_8023D7A0 *)tec_zonde_effect_task_list.vt;
     e += arg0->idx;
     TTecZondeEff__beam_vertex_data = e->b->c->v;
     if (arg0->timer > 0x78) {
@@ -580,8 +580,8 @@ void clear_zonde_beam_vertex_pointer(void) {
     TTecZondeEff__beam_vertex_data = 0;
 }
 void init_resources__12TTecZondeEffFv(void) {
-    lbl_805161D8.vt = lbl_804CC8C8;
-    lbl_805161D8.n = 0x10;
+    tec_zonde_effect_task_list.vt = lbl_804CC8C8;
+    tec_zonde_effect_task_list.n = 0x10;
     TTecZondeEff__beam_vertex_data = shared_effect_texture_list[0]->b->c->v;
 }
 

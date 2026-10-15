@@ -13,7 +13,7 @@ s32 fn_8010F210(s32);
 void init_resources__9TItemLoadFv(void);
 extern RecoveredGlobal_801058AC_lbl_8049EE60 item_class_load_unload_table;
 extern s32 lbl_805D5440;
-extern int lbl_805D5444;
+extern int item_class_load_handle;
 void init_game_resources__10TObjPlayerFv(void);
 }
 
@@ -31,14 +31,14 @@ int get_item_field_2__9TItemDataFPv(void* p);
 int get_slot_value__10TObjPlayerFPvi(void*, int);
 int test_flag3__9TItemDataFPv(void* p);
 
-    extern int lbl_805D5444;
-void free_item_globals__10TObjPlayerFv(void) { TItemDrop__sub_8010F168((void*)(lbl_805D5444), (void*)1); lbl_805D5444 = 0; free_all__9TItemLoadFv(); free_all_and_init__9TItemBuffFv(); }
+    extern int item_class_load_handle;
+void free_item_globals__10TObjPlayerFv(void) { TItemDrop__sub_8010F168((void*)(item_class_load_handle), (void*)1); item_class_load_handle = 0; free_all__9TItemLoadFv(); free_all_and_init__9TItemBuffFv(); }
 
 typedef char RecoveredGlobal_801058AC_lbl_8049EE60_size[sizeof(RecoveredGlobal_801058AC_lbl_8049EE60) == 0x78 ? 1 : -1];
 void init_game_resources__10TObjPlayerFv(void) {
     fn_80103674();
     init_resources__9TItemLoadFv();
-    (*(s32 *)&lbl_805D5444) = fn_8010F210((s32) &item_class_load_unload_table.value);
+    (*(s32 *)&item_class_load_handle) = fn_8010F210((s32) &item_class_load_unload_table.value);
     clear_id__10TObjPlayerFPv(&lbl_805D5440);
 }
 

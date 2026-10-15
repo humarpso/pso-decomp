@@ -71,7 +71,7 @@ s32 rotate_matrix_y(s32, s32);
 void push_matrix_from(void *);
 s32 pop_matrix();
 extern Vec_800498E8 lbl_804366F8;
-extern u8 lbl_80484A68[];
+extern u8 player_collision_body_desc[];
 extern s32 lbl_80484A94[];
 extern u8 identity_matrix[];
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3);
@@ -228,7 +228,7 @@ void *destroy__10TObjPlayerFPvs(void *arg0, s16 arg1) {
 Obj_800498E8 *TObjPlayer__sub_800498E8(Obj_800498E8 *arg0, Obj_800498E8 *arg1, void *arg2, s32 arg3) {
     construct_collider_proxy__10TObjPlayerFPv();
     arg0->vt = lbl_80484A94;
-    init_collision_body_parts(arg0, lbl_80484A68, 1);
+    init_collision_body_parts(arg0, player_collision_body_desc, 1);
     arg0->fdc = obj_getField1c(arg1);
     VecCopy__FP3VecPC3Vec(&arg0->pos, arg2);
     arg0->fcc = arg3;

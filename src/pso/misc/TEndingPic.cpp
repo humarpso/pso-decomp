@@ -62,7 +62,7 @@ int get_ending_ab_wall_texture_list(void);
 extern RecoveredGlobal_80352F6C___vt__10TEndingPic __vt__10TEndingPic;
 extern s32 lbl_805D4378;
 extern s32 TEndingPic__animation_state;
-extern s32 lbl_805D6EE4;
+extern s32 ending_pic_wall_texture_list;
 u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1);
 extern const f32 lbl_805DFF30;
 void send_obj_position_event__10TEndingPicFPvi(T_80353018 *arg0, s32 arg1);
@@ -201,11 +201,11 @@ void draw_current_pic__10TEndingPicFPv(u8 *arg0) {
 void init_positions__10TEndingPicFPv(void* a0) { *(float*)((char*)a0 + 0x2c) = lbl_805DFEF4; *(float*)((char*)a0 + 0x30) = lbl_805DFEF8; *(float*)((char*)a0 + 0x34) = lbl_805DFEFC; *(float*)((char*)a0 + 0x38) = lbl_805DFF00; *(float*)((char*)a0 + 0x3c) = lbl_805DFF04; *(float*)((char*)a0 + 0x40) = lbl_805DFEF8; *(float*)((char*)a0 + 0x44) = lbl_805DFF08; *(float*)((char*)a0 + 0x48) = lbl_805DFF0C; *(float*)((char*)a0 + 0x4c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x50) = lbl_805DFEF8; *(float*)((char*)a0 + 0x54) = lbl_805DFF10; *(float*)((char*)a0 + 0x58) = lbl_805DFF00; *(float*)((char*)a0 + 0x5c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x60) = lbl_805DFEF8; *(float*)((char*)a0 + 0x64) = lbl_805DFF04; *(float*)((char*)a0 + 0x68) = lbl_805DFF0C; *(float*)((char*)a0 + 0x6c) = lbl_805DFEF4; *(float*)((char*)a0 + 0x70) = lbl_805DFEF8; *(float*)((char*)a0 + 0x74) = lbl_805DFEFC; *(float*)((char*)a0 + 0x78) = lbl_805DFF00; *(float*)((char*)a0 + 0x7c) = lbl_805DFF04; *(float*)((char*)a0 + 0x80) = lbl_805DFEF8; *(float*)((char*)a0 + 0x84) = lbl_805DFF08; *(float*)((char*)a0 + 0x88) = lbl_805DFF0C; *(float*)((char*)a0 + 0x8c) = lbl_805DFEF8; *(float*)((char*)a0 + 0x90) = lbl_805DFEF8; *(float*)((char*)a0 + 0x94) = lbl_805DFF10; *(float*)((char*)a0 + 0x98) = lbl_805DFF00; *(float*)((char*)a0 + 0x9c) = lbl_805DFEF8; *(float*)((char*)a0 + 0xa0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xa4) = lbl_805DFF04; *(float*)((char*)a0 + 0xa8) = lbl_805DFF0C; *(float*)((char*)a0 + 0xac) = lbl_805DFF14; *(float*)((char*)a0 + 0xb0) = lbl_805DFF18; *(float*)((char*)a0 + 0xb4) = lbl_805DFF1C; *(float*)((char*)a0 + 0xb8) = lbl_805DFF20; *(float*)((char*)a0 + 0xbc) = lbl_805DFEF8; *(float*)((char*)a0 + 0xc0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xc4) = lbl_805DFF08; *(float*)((char*)a0 + 0xc8) = lbl_805DFF08; *(float*)((char*)a0 + 0xcc) = lbl_805DFF14; *(float*)((char*)a0 + 0xd0) = lbl_805DFF24; *(float*)((char*)a0 + 0xd4) = lbl_805DFF1C; *(float*)((char*)a0 + 0xd8) = lbl_805DFF28; *(float*)((char*)a0 + 0xdc) = lbl_805DFEF8; *(float*)((char*)a0 + 0xe0) = lbl_805DFEF8; *(float*)((char*)a0 + 0xe4) = lbl_805DFF08; *(float*)((char*)a0 + 0xe8) = lbl_805DFF08; }
 
 extern s32 TEndingPic__animation_state;
-extern s32 lbl_805D6EE4;
+extern s32 ending_pic_wall_texture_list;
 
 void render__10TEndingPicFv(s32 arg0) {
     if ((s32) TEndingPic__animation_state != 0) {
-        set_global_param__8TObjFishFi(lbl_805D6EE4);
+        set_global_param__8TObjFishFi(ending_pic_wall_texture_list);
         draw_current_pic__10TEndingPicFPv((u8 *)(arg0));
     }
 }
@@ -225,7 +225,7 @@ u8 *__ct__10TEndingPicFv(u8 *arg0, u8 *arg1) {
     *(s32 *)((s8 *)arg0 + 0x20) = 0xFF;
     *(s32 *)((s8 *)arg0 + 0x28) = 0;
     *(s32 *)((s8 *)arg0 + 0x24) = 0;
-    lbl_805D6EE4 = ((s32)get_ending_ab_wall_texture_list());
+    ending_pic_wall_texture_list = ((s32)get_ending_ab_wall_texture_list());
     init_positions__10TEndingPicFPv((void*)(arg0));
     temp_r3 = TKeyBoardControl__sub_8000F828();
     switch (temp_r3) {

@@ -34,7 +34,7 @@ void set_global_param__8TObjFishFi(void *);
 void draw_ginja_object(void);
 void set_chunk_material_color(void *, s32);
 extern Vec_80232934 lbl_8044D5A8;
-extern Quad_80232934 lbl_8044D5B4;
+extern Quad_80232934 grants_flash_quad_vertices;
 extern u8 lbl_804CC868[];
 extern u8 technique_ringwave_texture_list[];
 extern s32 lbl_805D5660;
@@ -57,7 +57,7 @@ void grants_flash_render(Obj_80232934 *arg0) {
     }
     init_texture_copy_rect(&ctx, lbl_804CC868, technique_ringwave_texture_list, 0, arg0->f48 + 1);
     Vec_80232934 v = lbl_8044D5A8;
-    Quad_80232934 q = lbl_8044D5B4;
+    Quad_80232934 q = grants_flash_quad_vertices;
     approach_alpha_clamped(arg0->f38, &q, lbl_805DC840);
     approach_position_if_far(&arg0->pos, &v, arg0->f4c);
     fn_800829E0(&ctx);

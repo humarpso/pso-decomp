@@ -56,7 +56,7 @@ s32 set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_object();
 s32 draw_ginja_model_with_motion(s32, s32, f32);
 extern void *TObjLobbyMain__bml_resource;
-extern void *lbl_805D6ECC;
+extern void *lobby_main_lobby_type;
 void render__13TObjLobbyMainFv(u8 *arg0);
 s32 get_bml_motion(void *, s32);
 extern void *TObjLobbyMain__bml_resource;
@@ -212,21 +212,21 @@ void update_particles__13TObjLobbyMainFPv(void *arg0) {
 }
 
 extern s32 actor_frame_tick;
-extern s32 lbl_805D6ED0;
-extern s32 lbl_805D6ED4;
-extern s32 lbl_805D6ED8;
+extern s32 lobby_main_computer_ginja_model;
+extern s32 lobby_main_computer_ginja_model_b;
+extern s32 lobby_computer_last_frame_tick;
 
 void render__13TObjLobbyMainFv(u8 *arg0) {
     s16 idx;
     s32 r;
-    if (lbl_805D6ECC != NULL && ((Obj_8035240C *)arg0)->v8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
+    if (lobby_main_lobby_type != NULL && ((Obj_8035240C *)arg0)->v8(*(f32 *)((s8 *)arg0 + 0xC0), *(f32 *)((s8 *)arg0 + 0xC4)) != 0) {
         push_matrix();
         post_translate_matrix(arg0 + 0x38);
         rotate_matrix_y(0, *(s32 *)((s8 *)arg0 + 0x60));
         if (*(s32 *)((s8 *)arg0 + 0xC8) != 2) {
             scale_matrix(0, *(f32 *)((s8 *)arg0 + 0xD4), (1.0f), *(f32 *)((s8 *)arg0 + 0xD4));
         }
-        set_global_param__8TObjFishFi(lbl_805D6ECC);
+        set_global_param__8TObjFishFi(lobby_main_lobby_type);
         idx = *(s16 *)((s8 *)arg0 + 0xD0);
         r = lbl_80479078[idx];
         if (r != 5) {
@@ -241,10 +241,10 @@ void render__13TObjLobbyMainFv(u8 *arg0) {
 }
 
 void update_computer_machines__13TObjLobbyMainFv(void) {
-    if ((s32) lbl_805D6ED8 != (s32) actor_frame_tick) {
-        lbl_805D6ED8 = actor_frame_tick;
-        scroll_ginja_mesh_uvs(lbl_805D6ED0, 1, 1, 0xA, 1);
-        scroll_ginja_mesh_uvs(lbl_805D6ED4, 0, -0x14, 0x1A, 1);
+    if ((s32) lobby_computer_last_frame_tick != (s32) actor_frame_tick) {
+        lobby_computer_last_frame_tick = actor_frame_tick;
+        scroll_ginja_mesh_uvs(lobby_main_computer_ginja_model, 1, 1, 0xA, 1);
+        scroll_ginja_mesh_uvs(lobby_main_computer_ginja_model_b, 0, -0x14, 0x1A, 1);
         PPCSync();
     }
 }
@@ -302,7 +302,7 @@ void reset_state__13TObjLobbyMainFPv(void *arg0) {
 #define update_particles__13TObjLobbyMainFPv ((s32 (*)(void *))update_particles__13TObjLobbyMainFPv)
 #define enable__13TParticleCtrlFPv ((s32 (*)(int))enable__13TParticleCtrlFPv)
 #define TObjLobbyMain__bml_resource (*(u32 *)&TObjLobbyMain__bml_resource)
-#define lbl_805D6ECC (*(s32 *)&lbl_805D6ECC)
+#define lobby_main_lobby_type (*(s32 *)&lobby_main_lobby_type)
 struct RecoveredGlobal_803527F0_lbl_804F0F24 { s32 value; u8 remaining[0xC]; };
 typedef char RecoveredGlobal_803527F0_lbl_804F0F24_size[sizeof(RecoveredGlobal_803527F0_lbl_804F0F24) == 0x10 ? 1 : -1];
 
@@ -333,9 +333,9 @@ u8 * load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int get_lobby_type__6TLobbyFv(void);
 extern RecoveredGlobal_803527F0_lbl_804F0F24 bm_obj_lobby_main_resource_descriptor;
-extern s32 lbl_805D6ED0;
-extern s32 lbl_805D6ED4;
-extern s32 lbl_805D6ED8;
+extern s32 lobby_main_computer_ginja_model;
+extern s32 lobby_main_computer_ginja_model_b;
+extern s32 lobby_computer_last_frame_tick;
 void load_resources__13TObjLobbyMainFv(void);
 u32 create_particle_emitter(void *, int);
 s32 set_flags__11TBoss4Type2FPvUi(int, int);
@@ -415,10 +415,10 @@ void load_resources__13TObjLobbyMainFv(void) {
         var_r0 = (long) (load_resource_from_descriptor((void *) temp_r3, 5, &bm_obj_lobby_main_resource_descriptor.value, 0, 0, 0));
     }
     (*(u8 * *)&TObjLobbyMain__bml_resource) = (unsigned char *) ((void *) var_r0);
-    lbl_805D6ECC = get_lobby_type__6TLobbyFv();
-    lbl_805D6ED0 = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 6)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 4);
-    lbl_805D6ED4 = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 2)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 4);
-    lbl_805D6ED8 = 0;
+    lobby_main_lobby_type = get_lobby_type__6TLobbyFv();
+    lobby_main_computer_ginja_model = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 6)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 0x30)) + 4);
+    lobby_main_computer_ginja_model_b = *(s32 *)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(*(void **)((s8 *)(get_bml_model((*(u8 * *)&TObjLobbyMain__bml_resource), 2)) + 0x2C)) + 0x30)) + 0x30)) + 0x30)) + 4);
+    lobby_computer_last_frame_tick = 0;
 }
 
 void *__dt__13TObjLobbyMainFv(void *arg0, s16 arg1) {
@@ -483,4 +483,4 @@ u8 *TObjLobbyMain__ct(u8 *arg0, s32 arg1, s32 arg2) {
 #undef update_particles__13TObjLobbyMainFPv
 #undef enable__13TParticleCtrlFPv
 #undef TObjLobbyMain__bml_resource
-#undef lbl_805D6ECC
+#undef lobby_main_lobby_type

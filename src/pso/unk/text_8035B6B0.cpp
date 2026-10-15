@@ -12,9 +12,9 @@ extern "C" {
 u8 *load_resource_from_descriptor(void *, s32, void *, s32, s32, s32);
 u8 *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, int, int, void *, int, void *, f32, f32);
-extern s32 lbl_80479860[];
+extern s32 chao_npc_spawn_descriptor[];
 extern s32 bm_ene_npc_chao_resource_descriptor[];
-extern u8 *lbl_805D6F48;
+extern u8 *chao_npc_instance_handle;
 extern const f32 lbl_805E0138;
 extern const f32 lbl_805E013C;
 void load_and_spawn_chao_npc(void);
@@ -34,14 +34,14 @@ void load_and_spawn_chao_npc(void) {
     if (var_r9 != NULL) {
         var_r9 = (u8 *)(load_resource_from_descriptor(var_r9, 1, bm_ene_npc_chao_resource_descriptor, 0, 0, 0));
     }
-    lbl_805D6F48 = var_r9;
-    stack.sp8 = *(s32 *)((s8 *)lbl_80479860 + 0);
-    stack.spC = *(s32 *)((s8 *)lbl_80479860 + 4);
-    stack.sp10 = *(s32 *)((s8 *)lbl_80479860 + 8);
-    stack.sp14 = *(s32 *)((s8 *)lbl_80479860 + 0xC);
+    chao_npc_instance_handle = var_r9;
+    stack.sp8 = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 0);
+    stack.spC = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 4);
+    stack.sp10 = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 8);
+    stack.sp14 = *(s32 *)((s8 *)chao_npc_spawn_descriptor + 0xC);
     stack.sp8 = *(s32 *)((s8 *)var_r9 + 0x430);
     temp_r5 = (u8 *)(*(u8 **)((s8 *)var_r9 + 0x42C));
-    spawn_npc_enemy__6TLobbyFsiiiff((int) (0xB), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)lbl_80479860 + 0)), (void *) (lbl_80479860), (f32) (lbl_805E0138), (f32) (lbl_805E013C));
+    spawn_npc_enemy__6TLobbyFsiiiff((int) (0xB), (int) (*(s32 *)((s8 *)temp_r5 + 8)), (int) (*(s32 *)((s8 *)temp_r5 + 0xC)), (void *) (&stack.sp8), (int) (*(s32 *)((s8 *)chao_npc_spawn_descriptor + 0)), (void *) (chao_npc_spawn_descriptor), (f32) (lbl_805E0138), (f32) (lbl_805E013C));
 }
 
 }

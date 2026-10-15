@@ -180,14 +180,14 @@ extern "C" {
 struct QLCStage_80289200 { s32 a; s32 b; s32 c; const char *name; };
 struct PairPad_80288DA4 { s32 a; s32 b; s32 c; };
 extern __declspec(section ".rodata") const QLCStage_80289200 TQuestListChallenge__stage_table[5];
-extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450910[9];
-extern __declspec(section ".rodata") const QLCStage_80289200 lbl_80450A20[8];
+extern __declspec(section ".rodata") const QLCStage_80289200 quest_list_challenge_stage_table[9];
+extern __declspec(section ".rodata") const QLCStage_80289200 quest_list_battle_stage_table[8];
 extern const char *TQuestListChallenge__name;
 extern __declspec(section ".rodata") const PairPad_80288DA4 lbl_80450AB4[1];
 }
 #define TQuestListChallenge__stage_table (*(RecoveredGlobal_80289200_lbl_8045080C *)TQuestListChallenge__stage_table)
-#define lbl_80450910 (*(RecoveredGlobal_80289200_lbl_80450910 *)lbl_80450910)
-#define lbl_80450A20 (*(RecoveredGlobal_80289200_lbl_80450A20 *)lbl_80450A20)
+#define quest_list_challenge_stage_table (*(RecoveredGlobal_80289200_lbl_80450910 *)quest_list_challenge_stage_table)
+#define quest_list_battle_stage_table (*(RecoveredGlobal_80289200_lbl_80450A20 *)quest_list_battle_stage_table)
 #define TQuestListChallenge__name (*(s32 *)&TQuestListChallenge__name)
 #define lbl_80450AB4 ((const Pair_80288DA4 *)lbl_80450AB4)
 
@@ -431,7 +431,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
     switch (temp_r3) {
     case 1:
         if (get_instance__6TLobbyFv() == 0) {
-            *(s32 **)((s8 *)arg0 + 0x58) = &lbl_80450910.value;
+            *(s32 **)((s8 *)arg0 + 0x58) = &quest_list_challenge_stage_table.value;
         } else {
             *(s32 **)((s8 *)arg0 + 0x58) = &TQuestListChallenge__stage_table.value;
         }
@@ -448,7 +448,7 @@ u8 *TQuestListChallenge__ct(u8 *arg0, s32 arg1, s32 arg2, s32 arg3) {
         break;
     case 2:
         *(s32 *)((s8 *)arg0 + 0x50) = 0x10;
-        *(s32 **)((s8 *)arg0 + 0x58) = &lbl_80450A20.value;
+        *(s32 **)((s8 *)arg0 + 0x58) = &quest_list_battle_stage_table.value;
         *(s32 *)((s8 *)arg0 + 0x54) = 8;
         break;
     }
@@ -492,8 +492,8 @@ void * TObjNpcKenkyu__create(void *arg0) {
 }
 
 #undef TQuestListChallenge__stage_table
-#undef lbl_80450910
-#undef lbl_80450A20
+#undef quest_list_challenge_stage_table
+#undef quest_list_battle_stage_table
 #undef TQuestListChallenge__name
 #undef lbl_80450AB4
 extern "C" const char lbl_804507A8[] = "challenge2_mlt_stg1";
@@ -517,7 +517,7 @@ extern "C" const char lbl_804508C0[] = "challenge_mlt_stg6";
 extern "C" const char lbl_804508D4[] = "challenge_mlt_stg7";
 extern "C" const char lbl_804508E8[] = "challenge_mlt_stg8";
 extern "C" const char lbl_804508FC[] = "challenge_mlt_stg9";
-extern "C" const QLCStage_80289200 lbl_80450910[9] = {
+extern "C" const QLCStage_80289200 quest_list_challenge_stage_table[9] = {
     {0, 1, 2, lbl_8045085C},
     {3, 4, 5, lbl_80450870},
     {6, 7, 8, lbl_80450884},
@@ -536,7 +536,7 @@ extern "C" const char lbl_804509E0[] = "battle_mlt_stg5";
 extern "C" const char lbl_804509F0[] = "battle_mlt_stg6";
 extern "C" const char lbl_80450A00[] = "battle_mlt_stg7";
 extern "C" const char lbl_80450A10[] = "battle_mlt_stg8";
-extern "C" const QLCStage_80289200 lbl_80450A20[8] = {
+extern "C" const QLCStage_80289200 quest_list_battle_stage_table[8] = {
     {0, 1, 2, lbl_804509A0},
     {3, 4, 5, lbl_804509B0},
     {6, 7, 8, lbl_804509C0},

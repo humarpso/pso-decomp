@@ -13,10 +13,10 @@ void TLobby__sub_800C80D0(void);
 void reset_instance__15TObjEnemyCustomFv(void);
 int init_globals__15TObjEnemyCustomFv(void);
 
-    extern int lbl_805D5198;
+    extern int enemy_custom_camera_active_flag;
 s32 legacy_enemy_kill_received_flags[128];
 
-void reset_instance__15TObjEnemyCustomFv(void) { lbl_805D5198 = 0; init_globals__15TObjEnemyCustomFv(); }
+void reset_instance__15TObjEnemyCustomFv(void) { enemy_custom_camera_active_flag = 0; init_globals__15TObjEnemyCustomFv(); }
 
 void handle_6x09_legacy_kill_enemy(s32 arg0) {
     s32 temp_r5;

@@ -19,7 +19,7 @@ struct Quad_8024FD8C {
 extern "C" {
 extern s32 text_draw_clip_context;
 extern f32 text_draw_depth;
-extern f32 lbl_805D6438;
+extern f32 text_draw_right_limit_x;
 extern s32 text_clip_enabled_flag;
 extern s32 lbl_805D6440;
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1);
@@ -55,7 +55,7 @@ void draw_textured_quad_at_depth(void *, f32);
 extern s32 current_language;
 extern s32 text_draw_clip_context;
 extern f32 text_draw_depth;
-extern f32 lbl_805D6438;
+extern f32 text_draw_right_limit_x;
 extern s32 text_clip_enabled_flag;
 extern s32 lbl_805D6440;
 extern const f32 lbl_805DCCDC;
@@ -184,7 +184,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
         }
         glyph = map_char_to_font_code(code);
         adv = get_font_char_advance(glyph);
-        if (x + (f32)(u8)adv > lbl_805D6438) {
+        if (x + (f32)(u8)adv > text_draw_right_limit_x) {
             x = pos[0];
             y += lbl_805DCCE4;
         }
@@ -222,7 +222,7 @@ s32 draw_window_text(f32 *pos, const char *s, s32 color, s32 mode, f32 width) {
 void set_text_draw_params(s32 arg0, s32 arg1, s32 arg2, f32 farg0, f32 farg1) {
     text_draw_clip_context = arg0;
     text_draw_depth = farg0;
-    lbl_805D6438 = farg1;
+    text_draw_right_limit_x = farg1;
     text_clip_enabled_flag = arg1;
     lbl_805D6440 = arg2;
 }

@@ -216,7 +216,7 @@ s32 TObjEnemyCustom__ct(void *);
 s32 init_collision_body_parts(void *, void *, int);
 extern s32 lbl_805D2740;
 u8 *TBoss3VoloptMonitor__ct(u8 *arg0, s32 arg1, s32 arg2);
-extern G_80042944 *lbl_805D4CA0;
+extern G_80042944 *volopt_monitor_resource_ptr;
 void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i);
 s32 dispatch_shared_handler_a__6TLobbyFPv(s32);
 s32 register_object__6TLobbyFPv(s32);
@@ -229,11 +229,11 @@ extern u8 lbl_80436608[];
 extern s32 volopt_monitor_model_indices[];
 extern s32 lbl_804FEEC0[];
 extern s32 boss3_volopt_resources;
-extern s32 lbl_805D4C90;
-extern s32 lbl_805D4C94;
-extern s32 lbl_805D4C98;
-extern s32 lbl_805D4C9C;
-extern G_80042944 *lbl_805D4CA0;
+extern s32 volopt_monitor_boss_stats_ptr_a;
+extern s32 volopt_monitor_boss_stats_ptr_b;
+extern s32 volopt_monitor_object_handle;
+extern s32 volopt_monitor_node_array_handle;
+extern G_80042944 *volopt_monitor_resource_ptr;
 extern u32 volopt_monitor_texture_list;
 void load_resources__19TBoss3VoloptMonitorFv(void);
 s32 recalc_combat_stats__10TObjPlayerFv(void *, s32, s32, s32, f32, f32);
@@ -246,9 +246,9 @@ s32 update_prev_position__10TObjPlayerFPv(void *);
 s32 rand();
 extern u8 TBoss3VoloptMonitor__init_param_block[];
 extern s8 volopt_target_slot_used[];
-extern s32 lbl_805D4C90;
-extern s32 lbl_805D4C94;
-extern s32 lbl_805D4C98;
+extern s32 volopt_monitor_boss_stats_ptr_a;
+extern s32 volopt_monitor_boss_stats_ptr_b;
+extern s32 volopt_monitor_object_handle;
 extern const f32 lbl_805D8740;
 extern const f32 lbl_805D8748;
 extern const f32 lbl_805D874C;
@@ -263,7 +263,7 @@ s32 pop_matrix();
 s32 set_global_param__8TObjFishFi(void *);
 s32 draw_ginja_object(s32);
 extern s32 volopt_monitor_model_indices[];
-extern s32 lbl_80483EE4[];
+extern s32 volopt_monitor_texture_param[];
 extern s32 vol_opt_active_hit_zone;
 extern u32 volopt_monitor_texture_list;
 extern s32 model_render_flags;
@@ -295,7 +295,7 @@ void run_task__19TBoss3VoloptMonitorFv(u8 *arg0);
 extern "C" {
 
 extern void *__vt__19TBoss3VoloptMonitor[];
-extern void *lbl_80484018[];
+extern void *volopt_monitor_texture_list_desc[];
 void TBoss3VoloptMonitor__sub_800420D8(void);
 void *__dt__19TBoss3VoloptMonitorFv(void *arg0, s16 arg1);
 void *create__19TBoss3VoloptMonitorFPv(void *arg0);
@@ -472,8 +472,8 @@ void render__19TBoss3VoloptMonitorFv(void *arg0) {
                 }
             }
         }
-        lbl_80483EE4[0] = *(s32 *)volopt_monitor_texture_list + v * 0xC;
-        set_global_param__8TObjFishFi(lbl_80483EE4);
+        volopt_monitor_texture_param[0] = *(s32 *)volopt_monitor_texture_list + v * 0xC;
+        set_global_param__8TObjFishFi(volopt_monitor_texture_param);
         set_depth_buffer_settings_id__FUl(3);
         push_matrix();
         model_render_flags &= 0xFFFFFBFF;
@@ -588,17 +588,17 @@ extern void *tl_04;
 
 void load_resources__19TBoss3VoloptMonitorFv(void) {
     s32 i;
-    (*(u8 * *)&volopt_monitor_texture_list) = (u8 *)lbl_80484018;
-    (*(s32 *)&lbl_805D4CA0) = boss3_volopt_resources;
-    TObjGyaranzoMissile__sub_80131488(lbl_80484018);
+    (*(u8 * *)&volopt_monitor_texture_list) = (u8 *)volopt_monitor_texture_list_desc;
+    (*(s32 *)&volopt_monitor_resource_ptr) = boss3_volopt_resources;
+    TObjGyaranzoMissile__sub_80131488(volopt_monitor_texture_list_desc);
     load_texture_pvm_file__6TLobbyFPvi(lbl_80436608, (*(u8 * *)&volopt_monitor_texture_list));
     for (i = 0; i < 4; i++) {
-        lbl_804FEEC0[i] = get_bml_model((*(s32 *)&lbl_805D4CA0), volopt_monitor_model_indices[8 + i])->f4;
+        lbl_804FEEC0[i] = get_bml_model((*(s32 *)&volopt_monitor_resource_ptr), volopt_monitor_model_indices[8 + i])->f4;
     }
-    lbl_805D4C90 = register_boss__6TLobbyFPv(0x23);
-    lbl_805D4C94 = dispatch_shared_handler_b__6TLobbyFPv(0x23);
-    lbl_805D4C98 = register_object__6TLobbyFPv(0x23);
-    lbl_805D4C9C = dispatch_shared_handler_a__6TLobbyFPv(0x23);
+    volopt_monitor_boss_stats_ptr_a = register_boss__6TLobbyFPv(0x23);
+    volopt_monitor_boss_stats_ptr_b = dispatch_shared_handler_b__6TLobbyFPv(0x23);
+    volopt_monitor_object_handle = register_object__6TLobbyFPv(0x23);
+    volopt_monitor_node_array_handle = dispatch_shared_handler_a__6TLobbyFPv(0x23);
 }
 
 void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
@@ -611,8 +611,8 @@ void *create__19TBoss3VoloptMonitorFPv(void *arg0) {
 
 void TBoss3VoloptMonitor__sub_80042510(u8 *arg0) {
     *(u8 **)((s8 *)arg0 + 0x350) = TBoss3VoloptMonitor__init_param_block;
-    *(s16 *)((s8 *)lbl_805D4C90 + 6) = fn_80042960(*(s16 *)((s8 *)arg0 + 0x38C) % 4 != 0);
-    recalc_combat_stats__10TObjPlayerFv(arg0, lbl_805D4C90, lbl_805D4C94, lbl_805D4C98, lbl_805D8748, lbl_805D8748);
+    *(s16 *)((s8 *)volopt_monitor_boss_stats_ptr_a + 6) = fn_80042960(*(s16 *)((s8 *)arg0 + 0x38C) % 4 != 0);
+    recalc_combat_stats__10TObjPlayerFv(arg0, volopt_monitor_boss_stats_ptr_a, volopt_monitor_boss_stats_ptr_b, volopt_monitor_object_handle, lbl_805D8748, lbl_805D8748);
     *(s16 *)((s8 *)arg0 + 0x32C) = *(s16 *)((s8 *)arg0 + 0x2B8);
     *(s16 *)((s8 *)arg0 + 0x32E) = *(s16 *)((s8 *)arg0 + 0x2BA);
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
@@ -644,7 +644,7 @@ s32 volopt_monitor_model_indices[12] = {
     0x1, 0x4, 0x7, 0xa,
     0x3, 0x6, 0x9, 0xc,
 };
-s32 lbl_80483EE4[2] = { 0x0, 0x2 };
+s32 volopt_monitor_texture_param[2] = { 0x0, 0x2 };
 void *lbl_80483EEC[75] = {
     (void *)&lbl_804363AC, (void *)0x0, (void *)0x0, (void *)&lbl_804363C4,
     (void *)0x0, (void *)0x0, (void *)&lbl_804363DC, (void *)0x0,
@@ -667,7 +667,7 @@ void *lbl_80483EEC[75] = {
     (void *)&lbl_804365EC, (void *)0x0, (void *)0x0,
 
 };
-void *lbl_80484018[2] = { (void *)&lbl_80483EEC, (void *)0x19 };
+void *volopt_monitor_texture_list_desc[2] = { (void *)&lbl_80483EEC, (void *)0x19 };
 void *__vt__19TBoss3VoloptMonitor[84] = {
     (void *)0x0, (void *)0x0, (void *)&__dt__19TBoss3VoloptMonitorFv, (void *)&run_task__19TBoss3VoloptMonitorFv,
     (void *)&render__19TBoss3VoloptMonitorFv, (void *)&render_actor_shadows_default, (void *)&TLobby__sub_801A1FD8, (void *)&apply_object_set_data,
@@ -747,7 +747,7 @@ void TBoss3VoloptMonitor__sub_8004292C(u8 *arg0) {
     *(s32 *)((s8 *)arg0 + 0x30) = (s32) (*(s32 *)((s8 *)arg0 + 0x30) & 0xFBFBFFFF);
 }
 void TBoss3VoloptMonitor__sub_80042944(O_80042944 *self, s32 i) {
-    self->f34 = lbl_805D4CA0->entries[i].f8;
+    self->f34 = volopt_monitor_resource_ptr->entries[i].f8;
 }
 
 }

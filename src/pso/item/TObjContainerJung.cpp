@@ -89,8 +89,8 @@ void spawn_particle_effect_with_flags(void *, int, int);
 void construct_debris__8TObjChipFPvPvPv(void *, void *, void *);
 void play_container_break_sound(void *);
 void *__nw__7TObjectFUl(int);
-extern Spawn_8018D4DC lbl_8044523C;
-extern Spawn_8018D4DC lbl_80445288;
+extern Spawn_8018D4DC container_jung_debris_desc;
+extern Spawn_8018D4DC container_jung_spawn_params;
 extern s32 TObjContainerJung__bml_model_resource;
 extern s32 TObjContainerJung__bml_aux_handle;
 extern void *tl_05;
@@ -161,7 +161,7 @@ void load_resources__17TObjContainerJungFv(void) {
 void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
     void *o;
     if (self->f326 != 1) {
-        Spawn_8018D4DC a = lbl_8044523C;
+        Spawn_8018D4DC a = container_jung_debris_desc;
         f32 pz;
         f32 py;
         f32 px;
@@ -174,7 +174,7 @@ void TObjContainerJung__vt77(const Obj_8018D4DC *self) {
         a.f38 = py;
         a.f40 = (s32) get_bml_model((void *) TObjContainerJung__bml_model_resource, 1);
         a.f44 = TObjContainerJung__bml_aux_handle;
-        Spawn_8018D4DC b = lbl_80445288;
+        Spawn_8018D4DC b = container_jung_spawn_params;
         f32 qz;
         f32 qy;
         f32 qx;

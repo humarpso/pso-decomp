@@ -90,8 +90,8 @@ void free_data_60F0__6TLobbyFv(void);
 s32 init_handle__6TLobbyFi(s32);
 extern RecoveredGlobal_8020B118_lbl_8044BBF0 lbl_8044BBF0;
 extern RecoveredGlobal_8020B118_lbl_8044BC04 lbl_8044BC04;
-extern s32 lbl_805D60D8;
-extern s32 lbl_805D60DC;
+extern s32 map_set_data_handle_a;
+extern s32 map_set_data_handle_b;
 extern s32 map_set_object_id_counter;
 extern s32 TLobby__next_enemy_set_actor_id;
 extern s32 map_object_id_counter;
@@ -112,8 +112,8 @@ s32 set_flags_on_matching_entries__6TLobbyFissi(s32 arg0, s16 arg1, s16 arg2, s3
 extern "C" {
 
 void load_set_gsl_files__6TLobbyFv(void) {
-    lbl_805D60D8 = 0;
-    lbl_805D60DC = 0;
+    map_set_data_handle_a = 0;
+    map_set_data_handle_b = 0;
     map_set_object_id_counter = 0;
     TLobby__next_enemy_set_actor_id = 0;
     map_object_id_counter = 0;

@@ -330,7 +330,7 @@ s32 post_translate_matrix(void *);
 s32 set_global_param__8TObjFishFi(u32);
 s32 draw_ginja_object(u32);
 s32 draw_ginja_model_with_motion(u32, u32, f32);
-extern const Ang_8008BAF8 lbl_80439540;
+extern const Ang_8008BAF8 radial_particle_zero_angles;
 extern const f64 lbl_80439560[];
 extern RecoveredGlobal_8008C21C_TParticleCtrl__data_80511F70 TParticleCtrl__data_80511F70;
 extern u8 *camera_ctrl_instance;

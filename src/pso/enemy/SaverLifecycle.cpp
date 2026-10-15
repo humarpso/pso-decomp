@@ -72,13 +72,13 @@ s32 draw_trail_with_colors(s32, void *, void *, int, int);
 s32 init_trail_buffer__11TBoss4Type3FPvifff(void *, int, f32, f32, f32);
 s32 *alloc_buffer__11TOBoss4RockFPv(int);
 s32 spawn_npc_enemy__6TLobbyFsiiiff(int, void *, void *, Init_800A715C *, f32, f32);
-extern const Init_800A715C lbl_8043A894;
+extern const Init_800A715C saver_init_binding_desc;
 extern void *bm_ene_df1_saver_model_names[2];
 extern void *bm_ene_df1_saver_motion_names[12];
 extern RecoveredGlobal_800A6BE0_lbl_80500978 lbl_80500978;
-extern s32 lbl_805D5040;
+extern s32 saver_boss_stat_handle;
 extern s32 *player_object_ptr_array;
-extern s32 lbl_805D5048;
+extern s32 saver_object_stat_handle;
 extern f32 *lbl_805D504C;
 extern u32 saver_bml_resource;
 extern s32 lbl_805D5054;
@@ -126,9 +126,9 @@ void init_collision_body_parts(void *, void *, s32);
 void *__nw__7TObjectFUl(int);
 void *TEneParticleCtrl__ct(void *, void *, s32);
 extern s32 TObjEneSaver__class_name;
-extern s32 lbl_805D5040;
+extern s32 saver_boss_stat_handle;
 extern s32 *player_object_ptr_array;
-extern s32 lbl_805D5048;
+extern s32 saver_object_stat_handle;
 extern u32 saver_bml_resource;
 u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2);
 }
@@ -160,7 +160,7 @@ struct VObj1 : Base1 {
 
 extern "C" {
 extern A_800A4294 lbl_804CC8C8;
-extern G_800A4294 lbl_80500970;
+extern G_800A4294 player_effect_task_list;
 extern int TObjPlayer__effect_count;
 void TObjPlayer__sub_800A4294(void);
 void calc_move_state__10TObjPlayerFPv(void *arg0);
@@ -372,9 +372,9 @@ void *TObjEneSaver__vtable[83] = {
 void reset_effect_count__10TObjPlayerFv(void) { TObjPlayer__effect_count = 0; }
 
 void TObjPlayer__sub_800A4294(void) {
-    lbl_80500970.p = &lbl_804CC8C8;
-    lbl_80500970.n = 0x10;
-    (*(s32 *)&TObjPlayer__effect_count) = lbl_80500970.p->b->c->x0;
+    player_effect_task_list.p = &lbl_804CC8C8;
+    player_effect_task_list.n = 0x10;
+    (*(s32 *)&TObjPlayer__effect_count) = player_effect_task_list.p->b->c->x0;
 }
 
 void TObjPlayer__sub_800A42C0(void) {  }
@@ -2326,13 +2326,13 @@ void initialize_saver_resources(void) {
     dir.y = dir.z = lbl_805D9A14;
     TObjEneMe3ShinowaMirage__sub_800D98D8(lbl_805D506C, RES->sub->f8, RES->ents[TObjEneSaver__trail_record_table[3].idx].b, 0x19, &pos, &dir);
     player_object_ptr_array = alloc_buffer__11TOBoss4RockFPv(0xC);
-    lbl_805D5040 = register_boss__6TLobbyFPv(0x52);
+    saver_boss_stat_handle = register_boss__6TLobbyFPv(0x52);
     player_object_ptr_array[0] = dispatch_shared_handler_b__6TLobbyFPv(0x57);
     player_object_ptr_array[2] = dispatch_shared_handler_b__6TLobbyFPv(0x58);
     player_object_ptr_array[1] = dispatch_shared_handler_b__6TLobbyFPv(0x59);
-    lbl_805D5048 = register_object__6TLobbyFPv(0x51);
+    saver_object_stat_handle = register_object__6TLobbyFPv(0x51);
     lbl_805D504C = (f32 *)dispatch_shared_handler_a__6TLobbyFPv(0x51);
-    Init_800A715C init = lbl_8043A894;
+    Init_800A715C init = saver_init_binding_desc;
     init.w[0] = (s32)RES->ents;
     spawn_npc_enemy__6TLobbyFsiiiff(0x1A, RES->sub->f8, RES->sub->fC, &init, saver_collision_body_part_table[3], lbl_805D9A14);
 }
@@ -2396,7 +2396,7 @@ u8 *TObjEneSaver__ct(u8 *arg0, void *arg1, void *arg2) {
     init_collision_body_parts(arg0, (u8 *)saver_collision_body_part_table, 1);
     *(s16 *)((s8 *)arg0 + 0x37C) = 0;
     *(s16 *)((s8 *)arg0 + 0x37E) = 0;
-    bind_enemy_combat_stats((void *)(arg0), (int)(lbl_805D5040), (int)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (int)(lbl_805D5048));
+    bind_enemy_combat_stats((void *)(arg0), (int)(saver_boss_stat_handle), (int)(player_object_ptr_array[*(s16 *)((s8 *)arg0 + 0x37C)]), (int)(saver_object_stat_handle));
     *(u8 **)((s8 *)arg0 + 0x350) = (u8*)lbl_80490B28;
     *(s16 *)((s8 *)arg0 + 0x33E) = *(s16 *)((s8 *)arg0 + 0x32C);
     update_prev_position__10TObjPlayerFPv(arg0);

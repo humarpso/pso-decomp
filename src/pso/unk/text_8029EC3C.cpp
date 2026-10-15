@@ -21,7 +21,7 @@ void reflect_matrix_in_plane(s32, void *);
 Hit_8029EC3C *csnVecterUnder(void *, s32);
 Hit_8029EC3C *csnVector(void *, void *, s32);
 extern s32 local_client_id;
-extern Vec_8029EC3C lbl_804DC7B8;
+extern Vec_8029EC3C sora_reflection_ray_direction;
 extern const f32 lbl_805DDD88;
 extern const f32 lbl_805DDD8C;
 extern const f32 lbl_805DDD98;
@@ -53,9 +53,9 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
         }
     }
     VecCopy__FP3VecPC3Vec(&a, pos);
-    b.x = scale * lbl_804DC7B8.x + a.x;
-    b.y = a.y - lbl_805DDD88 * lbl_804DC7B8.y;
-    b.z = scale * lbl_804DC7B8.z + a.z;
+    b.x = scale * sora_reflection_ray_direction.x + a.x;
+    b.y = a.y - lbl_805DDD88 * sora_reflection_ray_direction.y;
+    b.z = scale * sora_reflection_ray_direction.z + a.z;
     d.x = b.x - pos->x;
     d.z = b.z - pos->z;
     d.y = b.y - pos->y;
@@ -63,13 +63,13 @@ s32 fn_8029EC3C(Vec_8029EC3C *pos, s32 arg1) {
         ray.o.x = pos->x;
         ray.o.y = pos->y;
         ray.o.z = pos->z;
-        ray.d.x = lbl_804DC7B8.x;
-        ray.d.y = lbl_804DC7B8.y;
-        ray.d.z = lbl_804DC7B8.z;
+        ray.d.x = sora_reflection_ray_direction.x;
+        ray.d.y = sora_reflection_ray_direction.y;
+        ray.d.z = sora_reflection_ray_direction.z;
         reflect_matrix_in_plane(0, &ray);
         return 1;
     }
-    if (lbl_805DDD8C == lbl_804DC7B8.x && lbl_805DDD8C == lbl_804DC7B8.z) {
+    if (lbl_805DDD8C == sora_reflection_ray_direction.x && lbl_805DDD8C == sora_reflection_ray_direction.z) {
         r = csnVecterUnder(&a, arg1);
     } else {
         r = csnVector(&a, &b, arg1);
