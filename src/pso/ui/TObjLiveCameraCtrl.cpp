@@ -26,7 +26,7 @@ void choose_next_camera_shot__12TBoss8DragonFPv(void *);
 void copy_position_vectors__11TCameraCtrlFPvPvPv(void *, void *, void *);
 s32 get_current_floor();
 void subtractive_rng_seed(void *, s32);
-s32 init_single_player_chr_select__6TLobbyFPv(void *);
+s32 __ct__14SubtractiveRngFv(void *);
 void *fn_800832EC(void *, int, int, void *, void *, f32);
 s32 is_room_enemy_set_cleared(s32, int);
 void *__nw__7TObjectFUl(u32);
@@ -92,7 +92,7 @@ Cam_8030BED4 *TObjLiveCameraCtrl__ct(Cam_8030BED4 *arg0, void *parent) {
     s32 n;
     __ct__7TObjectFP7TObject(arg0, parent);
     arg0->vt = __vt__18TObjLiveCameraCtrl;
-    init_single_player_chr_select__6TLobbyFPv(arg0->f54);
+    __ct__14SubtractiveRngFv(arg0->f54);
     arg0->f0 = TObjLiveCameraCtrl__class_name;
     n = live_camera_controller_next_slot;
     *(Cam_8030BED4 **)((s8 *)((u8 *)(&TObjLiveCameraCtrl__instances) + n * 4) + 0) = arg0;

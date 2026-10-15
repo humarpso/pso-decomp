@@ -7384,7 +7384,7 @@ void set_field_b8__14TObjEnePanarmsFPvs(void *, s16);
 void set_field_dc__10TObjPlayerFPvi(void *, s32);
 void set_field_d8__10TObjPlayerFPvi(void *, void *);
 s32 exchange_object_state__6TLobbyFPvis(void *, void *, int);
-void init_single_player_chr_select__6TLobbyFPv(void *);
+void __ct__14SubtractiveRngFv(void *);
 void reset_coords__15TObjBoss2TunnelFPv(void *);
 void reset_coords_pass__15TObjBoss2TunnelFi(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(int);
@@ -7426,7 +7426,7 @@ u8 *TBoss8Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     reset_coords_pass__15TObjBoss2TunnelFi(arg0 + 0x5EC);
     reset_coords_pass__15TObjBoss2TunnelFi(arg0 + 0x610);
     __construct_array(arg0 + 0x6DC, (void *) init_and_activate__10TObjPlayerFPv, (void *) TObjPlayer__sub_800D7C58, 0x1C, 4);
-    init_single_player_chr_select__6TLobbyFPv(arg0 + 0x764);
+    __ct__14SubtractiveRngFv(arg0 + 0x764);
     *(s32 *)((s8 *)arg0 + 0) = lbl_805D4008;
     if (TBoss8Dragon__data_805D69AC == NULL) {
         TBoss8Dragon__data_805D69AC = arg0;

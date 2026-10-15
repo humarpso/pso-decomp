@@ -15,6 +15,7 @@ mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
   - "@28@__dt__17TMedicalCenterMesFv"
+  - "@28@__dt__22TQuestVmDownLoadServerFv"
   - AIGetDSPSampleRate
   - AIGetStreamPlayState
   - AIGetStreamSampleRate
@@ -344,6 +345,8 @@ force_active:
   - TQuestListChallenge__active_instance
   - TQuestListChallenge__name
   - TQuestListChallenge__stage_table
+  - TQuestVmDownLoadServer__download_file_state
+  - TQuestVmDownLoadServer__rng_cipher_state
   - TRKEXICallBack
   - TRKInterruptHandlerEnableInterrupts
   - TRKLoadContext
@@ -558,6 +561,7 @@ force_active:
   - __dt__21TItemReverseTechPart2Fv
   - __dt__21TODummyKeyCave01SoundFv
   - __dt__22TChallenge4PItemSelectFv
+  - __dt__22TQuestVmDownLoadServerFv
   - __dt__23TBoss6Demo21_TYPE2_DEADFv
   - __dt__23TObjOnlineEndingHexMoveFv
   - __dt__23TObjSeabedSuisoBrakableFv
@@ -960,9 +964,14 @@ force_active:
   - boss6_rock_chase_model_radius_table
   - boss6_rock_resource_descriptor
   - boss6_type1_appear_motion_indices
+  - boss6_type1_appear_node_desc
   - boss6_type2_appear_motion_indices
   - boss6_type2_appear_offset_particle_origin
   - boss6_type2_appear_origin
+  - boss6_type2_death_effect_desc_a
+  - boss6_type2_death_effect_desc_b
+  - boss6_type2_death_effect_desc_c
+  - boss6_type2_death_emitter_ranges
   - boss8_collision_segment_desc
   - boss_warp_model_names
   - boss_warp_motion_names
@@ -1121,6 +1130,7 @@ force_active:
   - check_hit_by_id_276__10TObjPlayerFPvi
   - check_hold_player__14TOTrapSeabed01FPv
   - check_local_player_in_range__12TObjRaderColFPv
+  - check_memcard_slot__22TQuestVmDownLoadServerFPv
   - check_open_trigger__19TContainerAncient01FPv
   - check_path_ahead__14TObjEneDolmOlmFPvif
   - check_player_contact__14TOTrapChainSawFPv
@@ -1288,6 +1298,7 @@ force_active:
   - deduct_cap_excess__14TItemEquipBaseFiPvs
   - deliver_chain_hits__11TTecGiZondeFPv
   - deliver_target_hit__10TTecSlicerFPv
+  - depth_buffer_config_copy
   - despawn_state__14TObjEneBm5WolfFPvi
   - destroy__12T_OWEHMS_ExpFs
   - destroy__15TWindowHelpItemFPvs
@@ -1444,6 +1455,7 @@ force_active:
   - drill_launcher_update
   - dspInitCallback
   - dspResumeCallback
+  - duel_number_uv_table
   - duel_result_window_layout_table
   - duel_start_countdown_effect_pos
   - emit_deband_support_effect
@@ -1456,6 +1468,7 @@ force_active:
   - emit_zalure_support_effect
   - empty_state__14TObjEneBm5WolfFv
   - enable_keyboard_polling__16TKeyBoardControlFi
+  - encrypt_download_data__22TQuestVmDownLoadServerFPvi
   - ending_ab_class_name
   - ending_wall_texture_sets
   - enemy_factories_floor_00
@@ -1526,6 +1539,7 @@ force_active:
   - find_chain_targets__11TTecGiZondeFv
   - find_farthest_balloon_slot__11TWindowCtrlFPvUs
   - find_free_chat_log_slot__6TLobbyFv
+  - find_free_file_names__22TQuestVmDownLoadServerFPv
   - find_nearest_enemy__10TObjPlayerFPvPvf
   - find_open_direction__15TObjEneMe1GiGueFPvPv
   - find_placement_obstruction
@@ -1627,6 +1641,7 @@ force_active:
   - format_status_strings__14TAdPlyStatusGCFPv
   - format_trade_out_of_range_message
   - forward_chg_game_mode__17TAdEnterPPPPassGCFPv
+  - free_buffers__22TQuestVmDownLoadServerFv
   - free_item_pmt
   - freeze_shell_grow
   - freeze_shell_hold
@@ -1702,6 +1717,8 @@ force_active:
   - get_total_materials_used
   - get_vidlist
   - get_viewport_offset__19TWindowKeyBoardSoftFi
+  - grass_camera_vec
+  - grass_origin_vec
   - gray_out_unusable_entries__14TWindowSubItemFPv
   - guide_button_atlas_origins
   - guide_button_texture_handle
@@ -1714,6 +1731,7 @@ force_active:
   - handle_buy_confirm__20TShopArmorListWindowFv
   - handle_buy_confirm__24TShopEquipmentListWindowFPv
   - handle_chat_input__11TWindowChatFPv
+  - handle_confirm_input__22TQuestVmDownLoadServerFPv
   - handle_confirm_select__19TQuestListChallengeFv
   - handle_confirm_window__12TQuestListVMFPv
   - handle_cursor_input__19TAdTrialAgreementGCFPv
@@ -1753,6 +1771,7 @@ force_active:
   - handle_trade_state_cancel__6TLobbyFPv
   - handle_withdraw_confirm__18TShopGetItemWindowFPv
   - handle_withdraw_list_input__18TShopGetItemWindowFPv
+  - hang_ceiling_cave_scale_params
   - has_armor_with_unit_slot
   - has_at_most_one_player__15TObjSoloPlayWinFv
   - has_inactive_card__17TWindowSubComCardFPvi
@@ -1885,6 +1904,7 @@ force_active:
   - item_moon_atomizer_vtable
   - item_motion_names
   - item_object_variant_deleting_dtor_80116F10
+  - item_rarity_star_uv_table
   - item_sol_atomizer_vtable
   - item_star_atomizer_vtable
   - item_status_cure_vtable
@@ -1898,12 +1918,17 @@ force_active:
   - labo_door_resource_descriptor
   - labo_door_resource_descriptor_2
   - language_lobby_texture_descriptor
+  - lappy_boss_stats_handles
+  - lappy_boss_stats_ptrs_b
+  - lappy_object_handles
+  - lappy_variant_speed_ptr_table
   - laser_fence_switch_resource_descriptor
   - launch_s_rank_j_cutter
   - launch_s_rank_slicer
   - layercmp
   - layout_entries__17TWindowSubComCardFPv
   - lazer_fence_beam_motions
+  - lazer_fence_beam_node_table
   - lazer_fence_norm_episode1_resource_descriptor
   - lazer_fence_norm_episode2_resource_descriptor
   - lazer_fence_sw_ginja_model_table
@@ -1975,13 +2000,10 @@ force_active:
   - lbl_80496C68
   - lbl_80496C90
   - lbl_80496CB8
-  - slime_one_attack_target_id_table
   - lbl_80497710
   - lbl_80497718
-  - stelth_bml_resource_desc
   - lbl_80497758
   - lbl_80497760
-  - me3_stelth_bml_resource_desc
   - lbl_8049C5E0
   - lbl_8049CBA8
   - lbl_8049CBE8
@@ -2064,7 +2086,6 @@ force_active:
   - lbl_8049D970
   - lbl_8049D984
   - lbl_8049DC28
-  - npc_base_collision_body_desc
   - lbl_804B94BC
   - lbl_804B94E8
   - lbl_804CE820
@@ -2103,22 +2124,16 @@ force_active:
   - lbl_80500B0C
   - lbl_80500B24
   - lbl_80500B2C
-  - wolf_stat_handle_a_table
-  - wolf_stat_handle_b_table
   - lbl_80500B58
   - lbl_80500B60
   - lbl_80500B6C
   - lbl_80500BC4
-  - lappy_boss_stats_ptrs_b
-  - lappy_object_handles
   - lbl_80500C24
   - lbl_80501058
   - lbl_80501060
   - lbl_80501068
   - lbl_80501114
-  - depth_buffer_config_copy
   - lbl_8050C048
-  - lazer_fence_beam_node_table
   - lbl_8050EA64
   - lbl_80513F00
   - lbl_80540BBC
@@ -2203,6 +2218,7 @@ force_active:
   - mcmdVarCalculation
   - mcmdVibrato
   - mcmdWait
+  - me3_stelth_bml_resource_desc
   - megid_projectile_weapon_vtable
   - message_tag_error
   - middleware_interrupt_lock_depth
@@ -2287,8 +2303,12 @@ force_active:
   - network_packet_buffer_storage
   - nights_npc_resource_descriptor
   - notify__10TTcpSocketFss
+  - npc_base_collision_body_desc
+  - npc_bringer_animation_table
   - npc_hosa2_resource_descriptor
   - npc_hosa_resource_descriptor
+  - npc_lappy_animation_table
+  - obj_chip_class_name_ptr
   - object_factories_floor_00
   - object_factories_floor_01
   - object_factories_floor_02
@@ -6817,11 +6837,19 @@ force_active:
   - quest_bgm_nomal_filename
   - quest_bgm_open_filename
   - quest_bgm_smile_filename
+  - quest_download_file_header
+  - quest_download_file_info
+  - quest_download_file_slot
+  - quest_list_battle_stage_table
+  - quest_list_challenge_stage_table
   - queue_thread_main__6TLobbyFv
   - rabarta_band_emitter_table
   - rafoie_burst_table
   - rappy_variant_na_name
+  - re4_bit_init_params
+  - re4_bit_model_node_desc
   - re4_sorcerer_collision_body_part_table
+  - re4_sorcerer_init_params
   - re_b_mark_base_model_names
   - read_byte__24TMessageWindowControllerFv
   - read_stream_u8
@@ -7095,6 +7123,7 @@ force_active:
   - run_task__21TItemEffArmorParticleFv
   - run_task__21TODummyKeyCave01SoundFv
   - run_task__22TChallenge4PItemSelectFv
+  - run_task__22TQuestVmDownLoadServerFv
   - run_task__23TBoss6Demo21_TYPE2_DEADFv
   - run_task__23TObjOnlineEndingHexMoveFv
   - run_task__24TObjCity_Season_FireWorkFv
@@ -7254,6 +7283,9 @@ force_active:
   - sj_version_string
   - skip_name_prefix__11TWindowCtrlFPvPv
   - sleeping_state__14TObjEneBm5WolfFPvi
+  - slime_one_attack_target_id_table
+  - slime_one_motion_state_table
+  - slime_one_part_texture_index_table
   - smpcmp
   - snap_to_ground__10TObjPlayerFii
   - snap_to_ground__13TObjEneMorfosFii
@@ -7525,6 +7557,7 @@ force_active:
   - state_dying__17TObjEneBm3FlyNestFPvi
   - state_initial_emit__17TObjEneBm3FlyNestFPvi
   - state_knockback__18TObjEneMe3SinowZoaFPvi
+  - stelth_bml_resource_desc
   - step_camera_scalar
   - step_effect_sequence__18TObjEneRe4SorcererFv
   - step_fade_opacity_decrease
@@ -7548,6 +7581,7 @@ force_active:
   - submit_selected_item__22TChallenge4PItemSelectFv
   - subtract_network_queue_timeout
   - subtractive_rng_refill
+  - suiso_brakable_linked_switch_counts
   - svm_callback_counts
   - svm_callback_message_buffer
   - svm_callback_single_table
@@ -7674,6 +7708,7 @@ force_active:
   - update_lobby_selection__12TQuestListVMFPv
   - update_lunge__14TObjEneBm5WolfFv
   - update_main_menu_request__11TWindowCtrlFPv
+  - update_mc_select__22TQuestVmDownLoadServerFPv
   - update_move_to_target__18TObjEneBalClawClawFPv
   - update_move_to_target_state__10TBoss4ZakoFv
   - update_movement__15TObjEneMe1GiGueFPv
@@ -7773,7 +7808,14 @@ force_active:
   - varSet32
   - voiceRemovePriority
   - voiceResetLastStarted
+  - volopt_hiraisin_model_data
+  - volopt_hiraisin_object_handle
+  - volopt_hiraisin_shared_handler_b
   - volopt_monitor_model_indices
+  - volopt_monitor_texture_list_desc
+  - volopt_monitor_texture_param
+  - volopt_p01_action_table
+  - volopt_p01_breakup_params
   - vsUpdateBuffer
   - vt0__11TBoss4BishiFv
   - vt0__13TBoss6MagMineFv
@@ -7794,8 +7836,11 @@ force_active:
   - wedding_lobby_resource_descriptor
   - window_label_value_part_vtable
   - window_uv_sprite_part_vtable
+  - wolf_stat_handle_a_table
+  - wolf_stat_handle_b_table
   - worker_callback_flag_table
   - worker_callback_slots
+  - write_memcard_file__22TQuestVmDownLoadServerFPv
   - write_ring_buffer__6TLobbyFPvi
   - write_telepipe_record
   - yasminkov_2000h_ct

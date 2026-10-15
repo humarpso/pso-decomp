@@ -399,7 +399,7 @@ void TObjPlayer__sub_8001951C(void* p);
 void add_flags_2e4__10TObjPlayerFPvUi(void* p, u32 v);
 s32 register_object__10TObjPlayerFi(s32 arg0);
 void subtractive_rng_seed(void *, u16);
-void init_single_player_chr_select__6TLobbyFPv(void *);
+void __ct__14SubtractiveRngFv(void *);
 void TObjMotion__ct(void *, void *);
 void __construct_array(void *, void *, void *, u32, u32);
 void* init_192dc_return_self__10TObjPlayerFPv(void* p);
@@ -4721,7 +4721,7 @@ Obj_80019038 *construct_actor_base__10TObjPlayerFPvPv(Obj_80019038 *self, void *
     TObjMotion__ct(self, parent);
     *(s32 **)((s8 *)self + 0x18) = (s32 *)lbl_804806E8;
     register_object__10TObjPlayerFi((s32)(p + 0x120));
-    init_single_player_chr_select__6TLobbyFPv(p + 0x160);
+    __ct__14SubtractiveRngFv(p + 0x160);
     __construct_array(p + 0x254, (void *)init_192dc_return_self__10TObjPlayerFPv, 0, 0xC, 5);
     *(u8 **)((s8 *)self + 0x90) = p + 0x120;
     *(s16 *)((s8 *)self + 0x326) = 0;

@@ -1139,7 +1139,6 @@ pso/misc/TLockOnCursor_8013EEC8.cpp
 pso/misc/TLogo.cpp
 pso/misc/TLogo_8001C134.cpp
 pso/misc/TLogo_8030818C.cpp
-pso/misc/TMCFormatSequence.cpp
 pso/misc/TMainCursor.cpp
 pso/misc/TMainCursor_8013AE18.cpp
 pso/misc/TMainCursor_8013AF0C.cpp
@@ -1494,9 +1493,6 @@ pso/misc/TQuestVmDownLoadServer_8007EBDC.cpp
 pso/misc/TQuestVmDownLoadServer_80080788.cpp
 pso/misc/TQuestVmDownLoadServer_800F9CE4.cpp
 pso/misc/TQuestVmDownLoadServer_800FA8A4.cpp
-pso/misc/TQuestVmDownLoadServer_801F6B80.cpp
-pso/misc/TQuestVmDownLoadServer_801F6BB0.cpp
-pso/misc/TQuestVmDownLoadServer_801F6BCC.cpp
 pso/misc/TQuestVmDownLoadServer_801F9010.cpp
 pso/misc/TQuestVmDownLoadServer_8033BC88.cpp
 pso/misc/TQuestVmDownLoadServer_8033C22C.cpp
@@ -3373,7 +3369,6 @@ pso/unk/text_801F4830.cpp
 pso/unk/text_801F498C.cpp
 pso/unk/text_801F4C70.cpp
 pso/unk/text_801F6548.cpp
-pso/unk/text_801F6B00.cpp
 pso/unk/text_80203284.cpp
 pso/unk/text_802032AC.cpp
 pso/unk/text_802033DC.cpp

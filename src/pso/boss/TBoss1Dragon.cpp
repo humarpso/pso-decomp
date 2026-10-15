@@ -2313,7 +2313,7 @@ s32 exchange_object_state__6TLobbyFPvis(void *, void *, s32);
 void *TBoss1DragonColli__ct(void *, void *);
 void *TBoss1DragonEffTail__ct(void *, void *, void *);
 void *TObjBoss1MokoHill_SoloM__ct(void *, s32, void *, void *);
-void init_single_player_chr_select__6TLobbyFPv(void *);
+void __ct__14SubtractiveRngFv(void *);
 void reset_coords__15TObjBoss2TunnelFPv(void *);
 void reset_coords_pass__15TObjBoss2TunnelFi(void *);
 void *alloc__23TAdSinglePlyChrSelectGCFPv(s32);
@@ -7764,7 +7764,7 @@ u8 *TBoss1Dragon__ct(u8 *arg0, void *arg1, void *arg2) {
     reset_coords_pass__15TObjBoss2TunnelFi(arg0 + 0x5F4);
     reset_coords_pass__15TObjBoss2TunnelFi(arg0 + 0x618);
     __construct_array(arg0 + 0x6E8, init_and_activate__10TObjPlayerFPv, TObjPlayer__sub_800D7C58, 0x1C, 4);
-    init_single_player_chr_select__6TLobbyFPv(arg0 + 0x77C);
+    __ct__14SubtractiveRngFv(arg0 + 0x77C);
     F_29DE4(arg0, s32, 0) = lbl_805D2650;
     if ((u32)TBoss1Dragon__data_805D4B2C == 0U) {
         TBoss1Dragon__data_805D4B2C = (s32)arg0;

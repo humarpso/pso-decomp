@@ -7,10 +7,10 @@ u16 TAdSinglePlyChrSelectGC__sub_8007C584(void *self, u16 x);
 
 extern "C" {
 
-s32 init_single_player_chr_select__6TLobbyFPv(void* arg0);
+s32 __ct__14SubtractiveRngFv(void* arg0);
 s32 subtractive_rng_seed(void*, int);
 
-s32 init_single_player_chr_select__6TLobbyFPv(void* arg0) {
+s32 __ct__14SubtractiveRngFv(void* arg0) {
     subtractive_rng_seed(arg0, 0);
     return (s32)arg0;
 }

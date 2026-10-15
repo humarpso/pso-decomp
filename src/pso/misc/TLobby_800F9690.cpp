@@ -16,7 +16,7 @@ u32 write_packet_header__6TLobbyFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3);
 s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2);
 s32 subtractive_rng_xor_buffer(s32 *, void *, s32);
 s32 subtractive_rng_seed(s32 *, s32);
-s32 init_single_player_chr_select__6TLobbyFPv(s32 *);
+s32 __ct__14SubtractiveRngFv(s32 *);
 s32 prs_decompress_buffer(void *, s32);
 s32 alloc__22TQuestVmDownLoadServerFPv(s32);
 
@@ -29,7 +29,7 @@ u32 write_packet_header__6TLobbyFPviiUi(u8 *arg0, s32 arg1, s32 arg2, u32 arg3) 
     if (v0 > arg3) {
         return 0U;
     }
-    init_single_player_chr_select__6TLobbyFPv((s32 *)&sp8);
+    __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
     subtractive_rng_xor_buffer((s32 *)&sp8, arg0 + 8, arg1 - 8);
     prs_decompress_buffer(arg0 + 8, arg2);
@@ -47,7 +47,7 @@ s32 alloc_download_quest__6TLobbyFPviPv(u8 *arg0, s32 arg1, s32 *arg2) {
     if (ret == 0) {
         return 0;
     }
-    init_single_player_chr_select__6TLobbyFPv((s32 *)&sp8);
+    __ct__14SubtractiveRngFv((s32 *)&sp8);
     subtractive_rng_seed((s32 *)&sp8, v4);
     subtractive_rng_xor_buffer((s32 *)&sp8, arg0 + 8, arg1 - 8);
     prs_decompress_buffer(arg0 + 8, ret);
@@ -97,7 +97,7 @@ s32 load_encrypted_text_archive(char *arg0, s32 *arg1) {
         safe_free__23TAdSinglePlyChrSelectGCFUi(buf);
         ret = alloc__22TQuestVmDownLoadServerFPv(sp8);
         buf = set_stream_and_load_file__6TLobbyFi((s32)arg0);
-        init_single_player_chr_select__6TLobbyFPv((s32 *)&sel);
+        __ct__14SubtractiveRngFv((s32 *)&sel);
         subtractive_rng_seed((s32 *)&sel, h);
         subtractive_rng_xor_buffer((s32 *)&sel, buf + 8, size - 8);
         prs_decompress_buffer(buf + 8, ret);

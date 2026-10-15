@@ -50,6 +50,38 @@ struct R_803546B0 {
     u32 fE4;
 };
 
+struct Vec_80353F5C
+{
+  f32 x;
+  f32 y;
+  f32 z;
+};
+
+struct Blk_80353F5C
+{
+  Vec_80353F5C v0;
+  Vec_80353F5C v1;
+  Vec_80353F5C v2;
+  Vec_80353F5C v3;
+  s32 a;
+  s32 b;
+};
+
+struct Elem_80353F5C
+{
+  u8 pad[8];
+  f32 f8;
+  f32 fc;
+  s32 x;
+};
+
+struct Obj_80353F5C
+{
+  u8 pad[0xB0];
+  u32 h;
+  s32 idx;
+};
+
 extern "C" {
 void release_object__10TBoss6RockFPv(void* p);
 void TBoss6Rock__sub_803542E8(void *, s32);
@@ -75,7 +107,6 @@ void randomize_motion__10TBoss6RockFPv(u8 *arg0);
 s32 spawn_particle_effect(void *, int);
 s32 play_sound_effect(s32, u32, int, s32);
 s32 apply_radial_effect_to_players__14TBoss6PlotFalzFPvssf(void *, int, int, f32);
-s32 TBoss6Rock__sub_80353F5C(void *);
 void TBoss6Rock__sub_803542E8(void *, s32);
 extern const f32 TBoss6Rock__data_805DFF50;
 extern const f32 lbl_805DFF54;
@@ -146,6 +177,12 @@ extern int TBoss6Rock__data_805D6EF0;
 extern int TBoss6Rock__data_805D6EF4;
 extern const f32 TBoss6Rock__data_805DFF48;
 void draw_model__10TBoss6RockFPv(R_803546B0 *arg0);
+void VecCopy__FP3VecPC3Vec(void *, const void *);
+s32 copy_xyz__10TObjPlayerFPvPv(void *, void *);
+u32 create__10TObjMapCsnFi(void *, void *, f32);
+extern RecoveredGlobal_80354148_TBoss6Rock__data_80479258 TBoss6Rock__data_80479258;
+extern u8 lbl_80479280[];
+void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o);
 }
 
 extern "C" {
@@ -415,6 +452,33 @@ void set_rock_target__10TBoss6RockFiii(s32 i, s32 a, s32 b) {
 
 void release_object__10TBoss6RockFPv(void* p) { if (*(unsigned int*)((char*)p + 0xb0) != 0) { queue_destruction__7TObjectFv(*(void**)((char*)p + 0xb0)); *(int*)((char*)p + 0xb0) = 0; } }
 
+typedef struct Blk_80353F5C Blk_80353F5C;
+typedef struct Elem_80353F5C Elem_80353F5C;
+typedef struct Obj_80353F5C Obj_80353F5C;
+typedef struct Vec_80353F5C Vec_80353F5C;
+void TBoss6Rock__sub_80353F5C(Obj_80353F5C *o) {
+  Elem_80353F5C *new_var;
+  Blk_80353F5C blk;
+  u8 *new_var2;
+  Elem_80353F5C *e;
+ do { } while (0);
+  if (o->h == 0)
+  {
+    VecCopy__FP3VecPC3Vec(&blk.v1, ((u8 *) o) + 0xD4);
+    copy_xyz__10TObjPlayerFPvPv(&blk.v2, lbl_80479280);
+    new_var2 = (u8 *) ((Elem_80353F5C *)&TBoss6Rock__data_80479258);
+    new_var2 = (o->idx * 0x14) + new_var2;
+    new_var = (Elem_80353F5C *) new_var2;
+    e = new_var;
+    blk.a = 2;
+    blk.b = 0;
+    blk.v3.z = e->fc;
+    blk.v3.x = e->fc;
+    blk.v3.y = e->f8;
+    o->h = create__10TObjMapCsnFi(&blk, e, e->fc);
+  }
+}
+
 #pragma push
 #pragma fp_contract on
 void randomize_motion__10TBoss6RockFPv(u8 *arg0) {
@@ -476,7 +540,7 @@ void update_fall__10TBoss6RockFPv(u8 *arg0) {
         *(f32 *)((s8 *)arg0 + 0x3C) = (f32) TBoss6Rock__data_805DFF50;
         *(f32 *)((s8 *)arg0 + 0xCC) = (f32) TBoss6Rock__data_805DFF50;
         TBoss6Rock__sub_803542E8((void *)((void *) (arg0)), (s32)((int) (1)));
-        TBoss6Rock__sub_80353F5C((void *) (arg0));
+        TBoss6Rock__sub_80353F5C((Obj_80353F5C *)((void *) (arg0)));
         play_sound_effect((s32)((int) (0x4006B51E)), (u32)((void *) (arg0 + 0x38)), (int)((int) (0)), (s32)((int) (0)));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x220));
         spawn_particle_effect((void *) (arg0 + 0x38), (int) (0x222));

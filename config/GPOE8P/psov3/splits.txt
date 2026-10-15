@@ -7442,29 +7442,10 @@ pso/misc/TQuestListOnline_801F6530.cpp:
 pso/unk/text_801F6548.cpp:
 	.text       start:0x801F6548 end:0x801F69A0
 
-pso/misc/TMCFormatSequence.cpp:
-	.text       start:0x801F69A0 end:0x801F6B00
-	.data       start:0x804C8690 end:0x804C86B4
-
-pso/unk/text_801F6B00.cpp:
-	.text       start:0x801F6B00 end:0x801F6B80
-
-pso/misc/TQuestVmDownLoadServer_801F6B80.cpp:
-	.text       start:0x801F6B80 end:0x801F6BB0
-
-pso/misc/TQuestVmDownLoadServer_801F6BB0.cpp:
-	.text       start:0x801F6BB0 end:0x801F6BCC
-
-pso/misc/TQuestVmDownLoadServer_801F6BCC.cpp:
-	.text       start:0x801F6BCC end:0x801F6DC4
-
 pso/misc/TQuestVmDownLoadServer.cpp:
-	.text       start:0x801F6DC4 end:0x801F70E4
-
-pso/misc/TQuestVmDownLoadServer_801F70E4.cpp:
-	.text       start:0x801F70E4 end:0x801F8FD4
+	.text       start:0x801F69A0 end:0x801F8FD4
 	.ctors      start:0x80433F98 end:0x80433F9C
-	.data       start:0x804C86B4 end:0x804C8738
+	.data       start:0x804C8690 end:0x804C8738
 	.bss        start:0x80512B28 end:0x80512D08
 
 pso/misc/TWindowSubItem_801F8FD4.cpp:

@@ -5,7 +5,7 @@ struct Hdr_802095EC { s32 type; s32 size; s32 id; s32 x; };
 struct Hdr_8020967C { s32 type; s32 size; s32 id; s32 x; };
 
 extern "C" {
-s32 init_single_player_chr_select__6TLobbyFPv(void *);
+s32 __ct__14SubtractiveRngFv(void *);
 int alloc__23TAdSinglePlyChrSelectGCFPv(void *);
 int alloc_buffer__11TOBoss4RockFPv(void *);
 u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1);
@@ -23,7 +23,7 @@ u8 *TLobby__sub_80209584(u8 *arg0, s32 arg1) {
     temp_r3 = alloc__23TAdSinglePlyChrSelectGCFPv((void *)0xE8);
     var_r0 = temp_r3;
     if (var_r0 != 0) {
-        var_r0 = init_single_player_chr_select__6TLobbyFPv((void *) temp_r3);
+        var_r0 = __ct__14SubtractiveRngFv((void *) temp_r3);
     }
     *(s32 *)((s8 *)arg0 + 0) = var_r0;
     *(s32 *)((s8 *)arg0 + 4) = alloc_buffer__11TOBoss4RockFPv((void *) (arg1 * 4));

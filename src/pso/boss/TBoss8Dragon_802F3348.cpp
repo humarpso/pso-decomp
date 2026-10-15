@@ -14,7 +14,7 @@ extern u8 *boss8_dragon_leader_part;
 u16 get_global_part_count__12TBoss8DragonFi(s32 arg0);
 f32 calc_random_ratio__10TObjPlayerFv(void *);
 void subtractive_rng_seed(void *, s32);
-void init_single_player_chr_select__6TLobbyFPv(void *);
+void __ct__14SubtractiveRngFv(void *);
 s32 get_enemy_entity();
 void spawn_attack_object__12TBoss8DragonFiiiii(void *, Vec_802F33C8 *, u16, s32, s32);
 u16 get_part_count_plus__12TBoss8DragonFPvi(void *, s32);
@@ -48,7 +48,7 @@ void place_parts_in_ring__12TBoss8DragonFiii(s32 n, s32 arg1, s32 arg2) {
     s32 step;
     s32 i;
     Ent_802F33C8 *e;
-    init_single_player_chr_select__6TLobbyFPv(buf);
+    __ct__14SubtractiveRngFv(buf);
     if (n <= 5 && boss8_dragon_leader_part != NULL) {
         subtractive_rng_seed(buf, arg2);
         ang = (s32)(lbl_805DED40 * calc_random_ratio__10TObjPlayerFv(buf));
