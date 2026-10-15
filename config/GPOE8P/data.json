@@ -1,0 +1,3966 @@
+{
+  "schema_version": 1,
+  "version": "GPOE8P",
+  "scope": "runtime_data_dependencies",
+  "disc_sha1": "0ff155311f4cc57951c03baeb1a8cc15de5fe1cd",
+  "files": [
+    {
+      "path": "files/AdEnding.rel",
+      "size": 8128,
+      "sha1": "0911aba64282dea8b9d4b4fdc65953ab7a80b89d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ArmorRandom.rel",
+      "size": 768,
+      "sha1": "4f64e6a37acac0657f8b59adad5f2d57a0bf9877",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo01EnCam.rel",
+      "size": 8576,
+      "sha1": "e8cdd68671d3476e6199350637c32f32cfd4fd3b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo01OpCam.rel",
+      "size": 16768,
+      "sha1": "ad0f8e5609e97f43f3f5ebe41aabe6aa49e01e7a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo02EnCam.rel",
+      "size": 3872,
+      "sha1": "1a27bfde8d2f2a3fe5535ff705da46a08ac23e44",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo02OpCam.rel",
+      "size": 6304,
+      "sha1": "1a147bc706281018020677ffdea91a358a0fe2ed",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo03EnCam.rel",
+      "size": 5728,
+      "sha1": "40d773cd49be15393a89b3813a5add9b10a4baf9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo03OpCam.rel",
+      "size": 5024,
+      "sha1": "198129406ebbc413a44b7a546cdeb12b7fac062f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo04OpCam.rel",
+      "size": 27968,
+      "sha1": "9446ccd0d55d3a168cea4510494f5895374c4f1c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo05EnCam.rel",
+      "size": 4448,
+      "sha1": "46e6e488b0d14b9d8746a9d6e5f69688a6237511",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo05OpCam.rel",
+      "size": 16192,
+      "sha1": "e8b10572089f15320bd049854ce3a1eda2464af1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo06OpCam.rel",
+      "size": 42016,
+      "sha1": "35d7ba308278fbdde2848229fe5d29c966f4527c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo07EnCam.rel",
+      "size": 6624,
+      "sha1": "d65ea91b97feabdc6d92744c7384f85406d9a036",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo08EnCam.rel",
+      "size": 4352,
+      "sha1": "e88c44058b0b4b8f9417dd4dcfa1c536b220c586",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Bo08OpCam.rel",
+      "size": 5632,
+      "sha1": "9baab752f68069999aa942bdb2950302193473b4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/CommonCam.rel",
+      "size": 22048,
+      "sha1": "2a82e01f47f037d79a264231cba087d75dd74c66",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Effect_nt.rel",
+      "size": 480,
+      "sha1": "28829d67f8a6dcc449070ca334dd3270b087e064",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/JudgeItem.rel",
+      "size": 608,
+      "sha1": "0f91141a81f5f07fa7ce0bb43e1ef5cacefff2a8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/PlyEndingMotionData.rel",
+      "size": 52896,
+      "sha1": "f0c38f0739d8283a74904ae06a19404b30e62668",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/PlyMotionNpcTown.rel",
+      "size": 21920,
+      "sha1": "351fc66032b67fd6c5fc648f453a059bf999fcb2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffChallenge.rel",
+      "size": 192,
+      "sha1": "682664ff6d9019b34cdeaffe4c508d880508a00c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffChallenge_j.rel",
+      "size": 960,
+      "sha1": "aab6eac26d01cfc2d37f595b754e0e31304bbae6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffTitleList_e.rel",
+      "size": 11872,
+      "sha1": "c9d10650271e4208addc7969708634bb56fa07c5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffTitleList_f.rel",
+      "size": 11872,
+      "sha1": "9b54c03f827e2e1f61252f345b30a6b5abe9fac4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffTitleList_g.rel",
+      "size": 11872,
+      "sha1": "73bb42cc4a4e8ab15cb41d3f529ee12166c0b70b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffTitleList_j.rel",
+      "size": 11872,
+      "sha1": "69f9aa9972862b341321cb9e4845674365da8096",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/QtOffTitleList_s.rel",
+      "size": 11872,
+      "sha1": "15eb577910ed16a96af6dd6475915ced63ee0ba5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_00c.rel",
+      "size": 461984,
+      "sha1": "bd5cc87807892f401f9ab125e2cad4b1ef7e7f15",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_00n.rel",
+      "size": 704448,
+      "sha1": "e1604187231f51ebae040405f2b9e2f57e0661a6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_00r.rel",
+      "size": 48864,
+      "sha1": "1d9bc500bb108ec45768644679e35bea30cdf781",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_01c.rel",
+      "size": 384096,
+      "sha1": "acdf4fc4f23f00b8a803d72e6344701a720453c7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_01n.rel",
+      "size": 702208,
+      "sha1": "5525b9975e7a367f2a4c3a75ad0fdeb74fe2baf8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_01r.rel",
+      "size": 37760,
+      "sha1": "6eb2cd2d57e7582df79b5b23476683a5ed87b790",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_02c.rel",
+      "size": 426048,
+      "sha1": "d5bfb3068deb9d31337e189a61fd76c8d3bad3f5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_02n.rel",
+      "size": 703328,
+      "sha1": "862e196230189eb5e2e7aa6a97e8c388904a9cf4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_02r.rel",
+      "size": 44128,
+      "sha1": "4e51739f388f61791c2e012298be679929654754",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_03c.rel",
+      "size": 162656,
+      "sha1": "3a8297cdfb49de92d8e6c5b85a5b1f4ba70bb81a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_03n.rel",
+      "size": 696096,
+      "sha1": "4656d8a916f5734c5457a5ffa70a8e5a7140b2e8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_03r.rel",
+      "size": 14112,
+      "sha1": "fcfd0e5c356080af16ec47aa1af21c7f2c3c0b85",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_04c.rel",
+      "size": 191680,
+      "sha1": "2338c531f0d1311c4b92f0d818df943b92e0f134",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_04n.rel",
+      "size": 696416,
+      "sha1": "71b67397ce705e360903728bbd7200cdf2eae936",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient01_04r.rel",
+      "size": 14560,
+      "sha1": "32c55991f101b2d1430ba508f3c653899103518f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_00c.rel",
+      "size": 507776,
+      "sha1": "549c8d0c5a5fee0574cceb19f01d70d16083f2c1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_00n.rel",
+      "size": 546304,
+      "sha1": "f86adf09992fb8ad4e38e14fc31d1fdd8a111524",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_00r.rel",
+      "size": 54752,
+      "sha1": "f28a8f03a792e982dc3e6543a37992c4bf8fd78b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_01c.rel",
+      "size": 481824,
+      "sha1": "55a354945c58d39af3f3855b392ffce740cfe582",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_01n.rel",
+      "size": 545632,
+      "sha1": "d1292209de50469d53eb7aabd6beb2724f311594",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_01r.rel",
+      "size": 52512,
+      "sha1": "26e302fb12dfe10752f1ded61e2dcc7e4e2ec9b0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_02c.rel",
+      "size": 500736,
+      "sha1": "77242a3e4bedfed6796f0378aa0433c1d2a01ea6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_02n.rel",
+      "size": 546400,
+      "sha1": "e4eff2e7007a7c8c440fc42b1f75c33f93d8e7c9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_02r.rel",
+      "size": 55584,
+      "sha1": "52d6a918dbe2cac50e4aab3f1e158fd02e4d36e6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_03c.rel",
+      "size": 190720,
+      "sha1": "92a51dee9ac09935d039541b726eef5055e2b5c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_03n.rel",
+      "size": 537152,
+      "sha1": "4812cac9276359f8a26ef76270eb6d24ba6c7711",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_03r.rel",
+      "size": 19904,
+      "sha1": "219802935756093cd4206b9b851d1a4197ec3c16",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_04c.rel",
+      "size": 165440,
+      "sha1": "27a8b72fba39d8a1cbc789e79792e7bf95d4bd48",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_04n.rel",
+      "size": 537120,
+      "sha1": "41a4bc456c3b98231428205e1e1b1e6a0cde26b0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient02_04r.rel",
+      "size": 16928,
+      "sha1": "5551439b88743f36ecb94340b2eb3af47950c22a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_00c.rel",
+      "size": 462880,
+      "sha1": "d8bcc9f49c437351dcf5425e6f6f70c857e9bb93",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_00n.rel",
+      "size": 572768,
+      "sha1": "4e7e608826f9cf60a769b07d9727665505e8526d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_00r.rel",
+      "size": 52608,
+      "sha1": "1f042047b74214ce24b6738474739c989ec308ed",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_01c.rel",
+      "size": 469696,
+      "sha1": "4e8823e95f72152835265bd6722d3109a4ed988a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_01n.rel",
+      "size": 572416,
+      "sha1": "4f8bde8331091678978b83b3154499d81fdbb30d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_01r.rel",
+      "size": 57376,
+      "sha1": "d76e80037e397573a946c589180cc3c4bb63df8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_02c.rel",
+      "size": 433952,
+      "sha1": "a2d56e7f18288de8094c425cba831f951a53ad5e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_02n.rel",
+      "size": 571776,
+      "sha1": "ad899c5954852dc3037c2336e48c7e49e4f741e7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_02r.rel",
+      "size": 49376,
+      "sha1": "ff667466a8cbec1d918b1e583aaee1de8ba9db76",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_03c.rel",
+      "size": 240128,
+      "sha1": "20ec404ccafc8dc429f22d7ad2d789e27e7df8ba",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_03n.rel",
+      "size": 565568,
+      "sha1": "0b7cfa3571f350884a7154f4d4b04f3b6f703da9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_03r.rel",
+      "size": 21184,
+      "sha1": "8372c7f09c8024b38f23f6c0ce45799f92bdc5ff",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_04c.rel",
+      "size": 221856,
+      "sha1": "60abcc187ff39a976976c78b7f36d5eb863232c7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_04n.rel",
+      "size": 565312,
+      "sha1": "8fecc52470ecce7a2ac50a0cdac371df5a997f9f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aancient03_04r.rel",
+      "size": 19872,
+      "sha1": "c87f4dae066e6f8818b3c9c156eeda333b4e2c07",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss01c.rel",
+      "size": 1216,
+      "sha1": "13e3437f9a14f5826efc0d5e2d9c7f8d7020e186",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss01n.rel",
+      "size": 28800,
+      "sha1": "04f18ca2e1f67f91f051a0f0c6565c2f061fb027",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss01r.rel",
+      "size": 608,
+      "sha1": "10485243d009d9cfb836c0191989111639e7aeda",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss02c.rel",
+      "size": 1216,
+      "sha1": "48464e89df044f2761c2a88de7187d6eed228f92",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss02n.rel",
+      "size": 53984,
+      "sha1": "bcb6d60180fc50b396f4f85f24884b15224efab8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss02r.rel",
+      "size": 480,
+      "sha1": "4634afca39311438c3aa77132542c2170609ddaf",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss03c.rel",
+      "size": 19744,
+      "sha1": "a6bb2b6fdced81b8d93646027d837b2cd0d288a0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss03n.rel",
+      "size": 352160,
+      "sha1": "14c9053332453d1ed3961d7ca0fd99acf129da64",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aboss03r.rel",
+      "size": 3808,
+      "sha1": "a9e79b1c371080db2f644924d7b36ef0c5e36197",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_00c.rel",
+      "size": 363776,
+      "sha1": "0af8861c38a70403ae709c389650ac59de0618cb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_00n.rel",
+      "size": 490304,
+      "sha1": "baecf3188d87f791596b4db88b4eb4fe3d6e7d5b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_00r.rel",
+      "size": 26848,
+      "sha1": "c731afdbe28fa48db032f077167862b815b2c3f4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_01c.rel",
+      "size": 372704,
+      "sha1": "5ef0c8204570fbe18ee25e3ccee987d8d797ab3d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_01n.rel",
+      "size": 491328,
+      "sha1": "956e94f2eec1aede92bca3773205ec83c4fd1d01",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_01r.rel",
+      "size": 29600,
+      "sha1": "94f09605b62ee4491045b5c8c2d299e23dac8d0a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_02c.rel",
+      "size": 387648,
+      "sha1": "09930975e4b79debefe9815dec534bce62a81bbb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_02n.rel",
+      "size": 490624,
+      "sha1": "e2b3c5980279b59e77d3d3f08ccee8806b688345",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_02r.rel",
+      "size": 30048,
+      "sha1": "fc7c87c68c82ae46b3f7d9f44ead2ffd9febf6e1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_03c.rel",
+      "size": 136576,
+      "sha1": "bf055e703fbd89ca83b83bc5dbf504a7f119faec",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_03n.rel",
+      "size": 486752,
+      "sha1": "18d88e196c0a4b718462b1a68e80e5503f0e7bac",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_03r.rel",
+      "size": 11328,
+      "sha1": "6156031b8a8e7c6b881d15d4770cd5b41228b4f8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_04c.rel",
+      "size": 130176,
+      "sha1": "203c10be5463c79ba9c01ab0308865a3ed28c34a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_04n.rel",
+      "size": 487744,
+      "sha1": "25b757afa931949a027a354ab5b19b17d8dcb107",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_04r.rel",
+      "size": 12448,
+      "sha1": "eda64ac2e74145d992b41974791486c07406c0d3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_05c.rel",
+      "size": 596320,
+      "sha1": "fcb4e76f35855df68013c3e4c29e1ca846304ad6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_05n.rel",
+      "size": 493088,
+      "sha1": "11d151eba14714527246790e2580fd0b7f7bcb7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave01_05r.rel",
+      "size": 47616,
+      "sha1": "e5f835cfe3e6897ad098ccd6b3f895dc7797fe3a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_00c.rel",
+      "size": 338016,
+      "sha1": "97d136a0f105260749e386bc0930b79efc293666",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_00n.rel",
+      "size": 516896,
+      "sha1": "d6de75f259e6d4013fc8d2d32e6387fc8e0196dc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_00r.rel",
+      "size": 27008,
+      "sha1": "f7147dba28a4f24e313d4947445ab23abc51d29d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_01c.rel",
+      "size": 312736,
+      "sha1": "6a5c5750f831e7ccd490085a2fe6df1c6ef53c0d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_01n.rel",
+      "size": 516832,
+      "sha1": "75c4264031ba7de8e3ffd99b894c22ab75896375",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_01r.rel",
+      "size": 25952,
+      "sha1": "6ea7836380b41d32bee882f603fab8eb7ac52cf6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_02c.rel",
+      "size": 329792,
+      "sha1": "4d1a4753156f06de3eda36120b4b21e500820a08",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_02n.rel",
+      "size": 516576,
+      "sha1": "ecb4bd1cacd616fca6ab167d74b3921e1a7dee2e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_02r.rel",
+      "size": 26752,
+      "sha1": "972d163fca7e416bcdd49fffb64c65305cbbadb1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_03c.rel",
+      "size": 152032,
+      "sha1": "5a2cb2fa63c77be8523383ec3114b74970c54769",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_03n.rel",
+      "size": 513984,
+      "sha1": "b1c62f1a734bddde5d5f1c04c869229f62105efc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_03r.rel",
+      "size": 12576,
+      "sha1": "dfba9f68c4bd3ee2e2adebeac0083bde704c3826",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_04c.rel",
+      "size": 121152,
+      "sha1": "92e59b16e2ed81661354044e0096c60d836826a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_04n.rel",
+      "size": 509376,
+      "sha1": "95235dcc53ec81405f2674293b45af4ba487487d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave02_04r.rel",
+      "size": 10432,
+      "sha1": "f78322cbc8ab1a9a5088be6beb65a1c7adb581ca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_00c.rel",
+      "size": 347840,
+      "sha1": "ab49f31233f73bc6c2f22f7f698d1472c8786f25",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_00n.rel",
+      "size": 966016,
+      "sha1": "34b2fcdef3e327d3ed68c227d05d11b0157b6af6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_00r.rel",
+      "size": 28608,
+      "sha1": "f37bbd983249c155301da0c218ef2e86c0cb93d5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_01c.rel",
+      "size": 316096,
+      "sha1": "c48e8d48fcfdad13954c54a81b0b663c4f47853d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_01n.rel",
+      "size": 966112,
+      "sha1": "c0dbbf08b530e6b92efa16dcfe7633b096f08e82",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_01r.rel",
+      "size": 27520,
+      "sha1": "781b4b4d0f9c246e7f43052e6dee0cfd13f90b7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_02c.rel",
+      "size": 303360,
+      "sha1": "138fce7b51bbbe519314800901ad26c596c742ae",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_02n.rel",
+      "size": 964928,
+      "sha1": "83d154a043ef9d19194c4c1c162ba21e614764f5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_02r.rel",
+      "size": 25600,
+      "sha1": "6910a9175a38827f2195777a0a40f05480614c96",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_03c.rel",
+      "size": 95360,
+      "sha1": "d4e16dcd5f15c5509bbb1f84dbebc0a1daa8502d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_03n.rel",
+      "size": 960640,
+      "sha1": "e2304f4ee1934ad2d8d8ceb2e7f45c1a24a77c06",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_03r.rel",
+      "size": 10016,
+      "sha1": "5716b591e36b38cd85eb652624944b93255e5de7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_04c.rel",
+      "size": 110880,
+      "sha1": "1af675af54ad63c6d5bf70b1cda68d758af148ef",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_04n.rel",
+      "size": 959872,
+      "sha1": "eab96e29509f611e69a5bef51059411d27d78004",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_04r.rel",
+      "size": 13344,
+      "sha1": "6c2a101f9c5fc636c4661e72fdf160e667672972",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_05c.rel",
+      "size": 345664,
+      "sha1": "a92341a396d93fdba10c1adb6c0d097091e3b23c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_05n.rel",
+      "size": 965696,
+      "sha1": "ce87a8cf15d36e4d12f2d75770d3ad73f69b9558",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acave03_05r.rel",
+      "size": 27904,
+      "sha1": "1aad83eba16636c91d24e9f255523f43a20c7e53",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acity00_00c.rel",
+      "size": 70144,
+      "sha1": "96c8dddda043a0f3a3367d6b2c3a61a04cfd0dc6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_acity00_00n.rel",
+      "size": 485600,
+      "sha1": "a80be1e9f47fcec6e97c85d374b6e132e3aeadfd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest01c.rel",
+      "size": 72096,
+      "sha1": "2f89f3080c6166efca7b88a21d6fd476838f8392",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest01n.rel",
+      "size": 729216,
+      "sha1": "b7035bb27794315bfedbbf13815e438d5b497e18",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest01r.rel",
+      "size": 12896,
+      "sha1": "2bf794aaf95a5f9e7f3c39b9d6807f20d0551971",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest01t.rel",
+      "size": 8416,
+      "sha1": "e92accbc9736793d3d9bdcb56bf757a00cdc95dd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest02c.rel",
+      "size": 73792,
+      "sha1": "3b6d2ee0b5b6249cb2caa49a9d04449ccfe92e24",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest02n.rel",
+      "size": 666976,
+      "sha1": "b340486f733e5ae21f393ff6b0be31b6f1e764a1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_aforest02r.rel",
+      "size": 15872,
+      "sha1": "41c3133862a62b71c7aa82b2b0f0eab02d5ff1d9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_00c.rel",
+      "size": 280736,
+      "sha1": "0774aac70cd2d1c77dceaf0ad4f654f642e78081",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_00n.rel",
+      "size": 988160,
+      "sha1": "e7663e32d080088599058e18f71b58deaa8e9c9c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_00nm.rel",
+      "size": 867936,
+      "sha1": "719fb91fc71438142ae6af3298b93213485f3432",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_00r.rel",
+      "size": 26400,
+      "sha1": "3dff644dfcf64526dada80bd3bf113897da28c3f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_01c.rel",
+      "size": 249824,
+      "sha1": "08acd637e02bbbb3a5107f4df792c5035b3aeacd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_01n.rel",
+      "size": 987456,
+      "sha1": "f59099e7f2801f8a51e3d6d0c5200f7c2cf42a4e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_01nm.rel",
+      "size": 867232,
+      "sha1": "ecaebbca6732ee74bfb3b28b74787840052dd07d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_01r.rel",
+      "size": 24384,
+      "sha1": "1e2416c73039d3bbdfd84beccf0fe219aaea1638",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_02c.rel",
+      "size": 259584,
+      "sha1": "0abd32f043191d630262234b9792114c79b12f7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_02n.rel",
+      "size": 986976,
+      "sha1": "e8f034b800ab49729bccfa80242933687bedf3c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_02nm.rel",
+      "size": 866528,
+      "sha1": "c6d32fdd4706fad96bdfc2301ea66ffcda4212ca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_02r.rel",
+      "size": 24160,
+      "sha1": "f5827961fa90261db8dd93e21d6c753485b316a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_03c.rel",
+      "size": 86592,
+      "sha1": "8b4cf6e847f6ea0addd8bede33af2fb84c36a530",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_03n.rel",
+      "size": 981600,
+      "sha1": "d5a19cd4af6841edd70677d17a90cc0259c34819",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_03nm.rel",
+      "size": 861408,
+      "sha1": "b98bd65027885a75be0565a5fc3ea2e16fb86665",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_03r.rel",
+      "size": 8992,
+      "sha1": "104625febeaa18ddea192ff9d828192c0ff98c96",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_04c.rel",
+      "size": 126368,
+      "sha1": "77bec239315225c5bc39b7e9598a17aec1af8667",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_04n.rel",
+      "size": 982304,
+      "sha1": "3b2725953942344d513c7f599ce520fe5bbe7250",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_04nm.rel",
+      "size": 862752,
+      "sha1": "27aaad150a00f693c0193d618ce38f0daed1652c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_04r.rel",
+      "size": 11200,
+      "sha1": "5306e1524730b9a906d1050e30fef17cc6020ffa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_05c.rel",
+      "size": 275648,
+      "sha1": "fa4e57eeabaa6ebf106983d15993b3a08587e56f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_05n.rel",
+      "size": 987072,
+      "sha1": "6acb6590272a39e113e24f50015a21f0e97d3143",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_05nm.rel",
+      "size": 866656,
+      "sha1": "2625f9e7b9697709a22affe992886e0f6f27d212",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine01_05r.rel",
+      "size": 26048,
+      "sha1": "d95db5bef122726b9e565a997c2c84349ae5673f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_00c.rel",
+      "size": 254720,
+      "sha1": "14667f428521d892a53fd7a168ae3aa620e1e21a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_00n.rel",
+      "size": 856960,
+      "sha1": "702eab09e7c98c19fbb403a87f976b3f07db5db3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_00nm.rel",
+      "size": 856960,
+      "sha1": "702eab09e7c98c19fbb403a87f976b3f07db5db3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_00r.rel",
+      "size": 23936,
+      "sha1": "24ba9c5fd820dce87bbced3533e9b7f1e0a21f93",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_01c.rel",
+      "size": 249152,
+      "sha1": "601006754f845e666f54f68f8951f7e363280018",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_01n.rel",
+      "size": 856576,
+      "sha1": "1a377ace396f7529166767ec6f4e5dd947626d90",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_01nm.rel",
+      "size": 724896,
+      "sha1": "bfd2720b1bd455dbbcd63e8656765b4f81a1aeb9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_01r.rel",
+      "size": 24064,
+      "sha1": "243964508f95713f8f51d774ce86174389d3e05a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_02c.rel",
+      "size": 241216,
+      "sha1": "844009e55b604c22c3db18244183f0973ba5a66a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_02n.rel",
+      "size": 856736,
+      "sha1": "7165821dbdc2d485e2fdaf8c8d5a702794e0843b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_02nm.rel",
+      "size": 725056,
+      "sha1": "016dcd3ff467756cee537ad9e72d488c8c9438a8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_02r.rel",
+      "size": 23712,
+      "sha1": "b957bace43f161388604a35a16aa8a8e9af289fd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_03c.rel",
+      "size": 99968,
+      "sha1": "dcbaaaa7d0dd452cc3b8c19e391f1dc621fe098c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_03n.rel",
+      "size": 851360,
+      "sha1": "97e1eb5bec609e0baad5912c38d032251676f99c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_03nm.rel",
+      "size": 720160,
+      "sha1": "0ea1e9abffebc5b3fdb9ecec46a660f23821e0ee",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_03r.rel",
+      "size": 10432,
+      "sha1": "8ce6020880b7d62c3c08da7555f9c1b9693c2261",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_04c.rel",
+      "size": 136160,
+      "sha1": "b0746eb2d032c1bdfc7edfc3b881ecef4fff972d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_04n.rel",
+      "size": 853440,
+      "sha1": "8c1c07e33abd48e1d8733e1d7a188d1b06972183",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_04nm.rel",
+      "size": 721792,
+      "sha1": "49180a1a31007dc4bbb1c9bdfd438b99f59813b8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_04r.rel",
+      "size": 14528,
+      "sha1": "6669ddc198fb353bfb82833009ed564a1ed41d75",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_05c.rel",
+      "size": 215296,
+      "sha1": "11333dba01f2c2478df4dcdbd25aa6d07f05e91a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_05n.rel",
+      "size": 856928,
+      "sha1": "1fde773a3cb2a44ec457b93f470cc3536aa18d6b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_05nm.rel",
+      "size": 856928,
+      "sha1": "1fde773a3cb2a44ec457b93f470cc3536aa18d6b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_amachine02_05r.rel",
+      "size": 19040,
+      "sha1": "88901fa361a598362dcb3de3e24a5803eaa352fd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_00c.rel",
+      "size": 461984,
+      "sha1": "bd5cc87807892f401f9ab125e2cad4b1ef7e7f15",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_00n.rel",
+      "size": 704448,
+      "sha1": "e1604187231f51ebae040405f2b9e2f57e0661a6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_00r.rel",
+      "size": 48864,
+      "sha1": "1d9bc500bb108ec45768644679e35bea30cdf781",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_01c.rel",
+      "size": 384096,
+      "sha1": "acdf4fc4f23f00b8a803d72e6344701a720453c7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_01n.rel",
+      "size": 702208,
+      "sha1": "5525b9975e7a367f2a4c3a75ad0fdeb74fe2baf8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_01r.rel",
+      "size": 37760,
+      "sha1": "6eb2cd2d57e7582df79b5b23476683a5ed87b790",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_02c.rel",
+      "size": 426048,
+      "sha1": "d5bfb3068deb9d31337e189a61fd76c8d3bad3f5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_02n.rel",
+      "size": 703328,
+      "sha1": "862e196230189eb5e2e7aa6a97e8c388904a9cf4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_02r.rel",
+      "size": 44128,
+      "sha1": "4e51739f388f61791c2e012298be679929654754",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_03c.rel",
+      "size": 162656,
+      "sha1": "3a8297cdfb49de92d8e6c5b85a5b1f4ba70bb81a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_03n.rel",
+      "size": 696096,
+      "sha1": "4656d8a916f5734c5457a5ffa70a8e5a7140b2e8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_03r.rel",
+      "size": 14112,
+      "sha1": "fcfd0e5c356080af16ec47aa1af21c7f2c3c0b85",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_04c.rel",
+      "size": 191680,
+      "sha1": "2338c531f0d1311c4b92f0d818df943b92e0f134",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_04n.rel",
+      "size": 696416,
+      "sha1": "71b67397ce705e360903728bbd7200cdf2eae936",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient01_04r.rel",
+      "size": 14560,
+      "sha1": "32c55991f101b2d1430ba508f3c653899103518f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_00c.rel",
+      "size": 507776,
+      "sha1": "549c8d0c5a5fee0574cceb19f01d70d16083f2c1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_00n.rel",
+      "size": 546304,
+      "sha1": "f86adf09992fb8ad4e38e14fc31d1fdd8a111524",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_00r.rel",
+      "size": 54752,
+      "sha1": "f28a8f03a792e982dc3e6543a37992c4bf8fd78b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_01c.rel",
+      "size": 481824,
+      "sha1": "55a354945c58d39af3f3855b392ffce740cfe582",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_01n.rel",
+      "size": 545632,
+      "sha1": "d1292209de50469d53eb7aabd6beb2724f311594",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_01r.rel",
+      "size": 52512,
+      "sha1": "26e302fb12dfe10752f1ded61e2dcc7e4e2ec9b0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_02c.rel",
+      "size": 500736,
+      "sha1": "77242a3e4bedfed6796f0378aa0433c1d2a01ea6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_02n.rel",
+      "size": 546400,
+      "sha1": "e4eff2e7007a7c8c440fc42b1f75c33f93d8e7c9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_02r.rel",
+      "size": 55584,
+      "sha1": "52d6a918dbe2cac50e4aab3f1e158fd02e4d36e6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_03c.rel",
+      "size": 190720,
+      "sha1": "92a51dee9ac09935d039541b726eef5055e2b5c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_03n.rel",
+      "size": 537152,
+      "sha1": "4812cac9276359f8a26ef76270eb6d24ba6c7711",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_03r.rel",
+      "size": 19904,
+      "sha1": "219802935756093cd4206b9b851d1a4197ec3c16",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_04c.rel",
+      "size": 165440,
+      "sha1": "27a8b72fba39d8a1cbc789e79792e7bf95d4bd48",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_04n.rel",
+      "size": 537120,
+      "sha1": "41a4bc456c3b98231428205e1e1b1e6a0cde26b0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient02_04r.rel",
+      "size": 16928,
+      "sha1": "5551439b88743f36ecb94340b2eb3af47950c22a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_00c.rel",
+      "size": 462880,
+      "sha1": "d8bcc9f49c437351dcf5425e6f6f70c857e9bb93",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_00n.rel",
+      "size": 572768,
+      "sha1": "4e7e608826f9cf60a769b07d9727665505e8526d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_00r.rel",
+      "size": 52608,
+      "sha1": "1f042047b74214ce24b6738474739c989ec308ed",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_01c.rel",
+      "size": 469696,
+      "sha1": "4e8823e95f72152835265bd6722d3109a4ed988a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_01n.rel",
+      "size": 572416,
+      "sha1": "4f8bde8331091678978b83b3154499d81fdbb30d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_01r.rel",
+      "size": 57376,
+      "sha1": "d76e80037e397573a946c589180cc3c4bb63df8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_02c.rel",
+      "size": 433952,
+      "sha1": "a2d56e7f18288de8094c425cba831f951a53ad5e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_02n.rel",
+      "size": 571776,
+      "sha1": "ad899c5954852dc3037c2336e48c7e49e4f741e7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_02r.rel",
+      "size": 49376,
+      "sha1": "ff667466a8cbec1d918b1e583aaee1de8ba9db76",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_03c.rel",
+      "size": 240128,
+      "sha1": "20ec404ccafc8dc429f22d7ad2d789e27e7df8ba",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_03n.rel",
+      "size": 565568,
+      "sha1": "0b7cfa3571f350884a7154f4d4b04f3b6f703da9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_03r.rel",
+      "size": 21184,
+      "sha1": "8372c7f09c8024b38f23f6c0ce45799f92bdc5ff",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_04c.rel",
+      "size": 221856,
+      "sha1": "60abcc187ff39a976976c78b7f36d5eb863232c7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_04n.rel",
+      "size": 565312,
+      "sha1": "8fecc52470ecce7a2ac50a0cdac371df5a997f9f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ancient03_04r.rel",
+      "size": 19872,
+      "sha1": "c87f4dae066e6f8818b3c9c156eeda333b4e2c07",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01c.rel",
+      "size": 1888,
+      "sha1": "e620fc4db16fe037b5d3a333b1763b6b6836e384",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01n.rel",
+      "size": 91200,
+      "sha1": "f03bba7ae394c1c7d83ed0d2cf5814a36114d986",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01r.rel",
+      "size": 608,
+      "sha1": "10485243d009d9cfb836c0191989111639e7aeda",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01swc.rel",
+      "size": 1760,
+      "sha1": "f6eae700559ddb2a14054921af5805ad0933f315",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01swn.rel",
+      "size": 222720,
+      "sha1": "42da6e72bdca118bd90fb07e1cd2457e8baccd34",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss01swr.rel",
+      "size": 608,
+      "sha1": "10485243d009d9cfb836c0191989111639e7aeda",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss02c.rel",
+      "size": 1216,
+      "sha1": "48464e89df044f2761c2a88de7187d6eed228f92",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss02n.rel",
+      "size": 41408,
+      "sha1": "c6bfc1c9085f5bb70dd38f1e45e02ef99e6a679d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss02r.rel",
+      "size": 480,
+      "sha1": "4634afca39311438c3aa77132542c2170609ddaf",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss03c.rel",
+      "size": 19744,
+      "sha1": "a6bb2b6fdced81b8d93646027d837b2cd0d288a0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss03n.rel",
+      "size": 320736,
+      "sha1": "f2d267731507c15907f67fe56916a64d791cb532",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss03r.rel",
+      "size": 3808,
+      "sha1": "a9e79b1c371080db2f644924d7b36ef0c5e36197",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss05c.rel",
+      "size": 151936,
+      "sha1": "42965a228a881def5bbddc9b40d8b72c2087dc9a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss05n.rel",
+      "size": 551936,
+      "sha1": "7c5e73ada648549ca9afbfe4728c1eadcdb32b2c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss05nm.rel",
+      "size": 516224,
+      "sha1": "73dacaeb07c8e2701562bd178d1c81742c88dc98",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss05r.rel",
+      "size": 1120,
+      "sha1": "cba08a93edd222570aa3e43204d1623b52a9da3d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss06c.rel",
+      "size": 25920,
+      "sha1": "508ecf79aee081236f4c13b6bb39b686737716a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss06n.rel",
+      "size": 686368,
+      "sha1": "a7c9c57f00fecb054c9d267dfae6ebe8c9e2ddf0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss06r.rel",
+      "size": 2176,
+      "sha1": "5b1ac38887fe6b2d599c7b4d07193d9c65eba48c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss07c.rel",
+      "size": 3008,
+      "sha1": "5beea1f0437f85509e5b24e6a08c7053b34058b3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss07n.rel",
+      "size": 53824,
+      "sha1": "1b1bc8e8536bbedaf133bbba082f7afb5694a8f1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss07r.rel",
+      "size": 480,
+      "sha1": "4634afca39311438c3aa77132542c2170609ddaf",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss08c.rel",
+      "size": 5440,
+      "sha1": "7b5b1ae200766d06f8789ba7092547f67cb40507",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss08n.rel",
+      "size": 386112,
+      "sha1": "9f33a6bf9be7a6190a0d2e854e8e867ca6b65870",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss08nm.rel",
+      "size": 474048,
+      "sha1": "f49f20c5fc49e73b9525577dee7898c860ae6ffc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_boss08r.rel",
+      "size": 1504,
+      "sha1": "17e15ea819e9c2a4c192a57ac663d44f9513a749",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_00c.rel",
+      "size": 363776,
+      "sha1": "0af8861c38a70403ae709c389650ac59de0618cb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_00n.rel",
+      "size": 490304,
+      "sha1": "baecf3188d87f791596b4db88b4eb4fe3d6e7d5b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_00r.rel",
+      "size": 26848,
+      "sha1": "c731afdbe28fa48db032f077167862b815b2c3f4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_01c.rel",
+      "size": 372704,
+      "sha1": "5ef0c8204570fbe18ee25e3ccee987d8d797ab3d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_01n.rel",
+      "size": 491328,
+      "sha1": "956e94f2eec1aede92bca3773205ec83c4fd1d01",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_01r.rel",
+      "size": 29600,
+      "sha1": "94f09605b62ee4491045b5c8c2d299e23dac8d0a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_02c.rel",
+      "size": 387648,
+      "sha1": "09930975e4b79debefe9815dec534bce62a81bbb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_02n.rel",
+      "size": 490624,
+      "sha1": "e2b3c5980279b59e77d3d3f08ccee8806b688345",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_02r.rel",
+      "size": 30048,
+      "sha1": "fc7c87c68c82ae46b3f7d9f44ead2ffd9febf6e1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_03c.rel",
+      "size": 136576,
+      "sha1": "bf055e703fbd89ca83b83bc5dbf504a7f119faec",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_03n.rel",
+      "size": 486752,
+      "sha1": "18d88e196c0a4b718462b1a68e80e5503f0e7bac",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_03r.rel",
+      "size": 11328,
+      "sha1": "6156031b8a8e7c6b881d15d4770cd5b41228b4f8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_04c.rel",
+      "size": 130176,
+      "sha1": "203c10be5463c79ba9c01ab0308865a3ed28c34a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_04n.rel",
+      "size": 487744,
+      "sha1": "25b757afa931949a027a354ab5b19b17d8dcb107",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_04r.rel",
+      "size": 12448,
+      "sha1": "eda64ac2e74145d992b41974791486c07406c0d3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_05c.rel",
+      "size": 596320,
+      "sha1": "fcb4e76f35855df68013c3e4c29e1ca846304ad6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_05n.rel",
+      "size": 493088,
+      "sha1": "11d151eba14714527246790e2580fd0b7f7bcb7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave01_05r.rel",
+      "size": 47616,
+      "sha1": "e5f835cfe3e6897ad098ccd6b3f895dc7797fe3a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_00c.rel",
+      "size": 338016,
+      "sha1": "97d136a0f105260749e386bc0930b79efc293666",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_00n.rel",
+      "size": 516896,
+      "sha1": "d6de75f259e6d4013fc8d2d32e6387fc8e0196dc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_00r.rel",
+      "size": 27008,
+      "sha1": "f7147dba28a4f24e313d4947445ab23abc51d29d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_01c.rel",
+      "size": 312736,
+      "sha1": "6a5c5750f831e7ccd490085a2fe6df1c6ef53c0d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_01n.rel",
+      "size": 516832,
+      "sha1": "75c4264031ba7de8e3ffd99b894c22ab75896375",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_01r.rel",
+      "size": 25952,
+      "sha1": "6ea7836380b41d32bee882f603fab8eb7ac52cf6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_02c.rel",
+      "size": 329792,
+      "sha1": "4d1a4753156f06de3eda36120b4b21e500820a08",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_02n.rel",
+      "size": 516576,
+      "sha1": "ecb4bd1cacd616fca6ab167d74b3921e1a7dee2e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_02r.rel",
+      "size": 26752,
+      "sha1": "972d163fca7e416bcdd49fffb64c65305cbbadb1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_03c.rel",
+      "size": 152032,
+      "sha1": "5a2cb2fa63c77be8523383ec3114b74970c54769",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_03n.rel",
+      "size": 513984,
+      "sha1": "b1c62f1a734bddde5d5f1c04c869229f62105efc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_03r.rel",
+      "size": 12576,
+      "sha1": "dfba9f68c4bd3ee2e2adebeac0083bde704c3826",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_04c.rel",
+      "size": 121152,
+      "sha1": "92e59b16e2ed81661354044e0096c60d836826a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_04n.rel",
+      "size": 509376,
+      "sha1": "95235dcc53ec81405f2674293b45af4ba487487d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave02_04r.rel",
+      "size": 10432,
+      "sha1": "f78322cbc8ab1a9a5088be6beb65a1c7adb581ca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_00c.rel",
+      "size": 347840,
+      "sha1": "ab49f31233f73bc6c2f22f7f698d1472c8786f25",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_00n.rel",
+      "size": 966016,
+      "sha1": "34b2fcdef3e327d3ed68c227d05d11b0157b6af6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_00r.rel",
+      "size": 28608,
+      "sha1": "f37bbd983249c155301da0c218ef2e86c0cb93d5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_01c.rel",
+      "size": 316096,
+      "sha1": "c48e8d48fcfdad13954c54a81b0b663c4f47853d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_01n.rel",
+      "size": 966112,
+      "sha1": "c0dbbf08b530e6b92efa16dcfe7633b096f08e82",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_01r.rel",
+      "size": 27520,
+      "sha1": "781b4b4d0f9c246e7f43052e6dee0cfd13f90b7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_02c.rel",
+      "size": 303360,
+      "sha1": "138fce7b51bbbe519314800901ad26c596c742ae",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_02n.rel",
+      "size": 964928,
+      "sha1": "83d154a043ef9d19194c4c1c162ba21e614764f5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_02r.rel",
+      "size": 25600,
+      "sha1": "6910a9175a38827f2195777a0a40f05480614c96",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_03c.rel",
+      "size": 95360,
+      "sha1": "d4e16dcd5f15c5509bbb1f84dbebc0a1daa8502d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_03n.rel",
+      "size": 960640,
+      "sha1": "e2304f4ee1934ad2d8d8ceb2e7f45c1a24a77c06",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_03r.rel",
+      "size": 10016,
+      "sha1": "5716b591e36b38cd85eb652624944b93255e5de7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_04c.rel",
+      "size": 110880,
+      "sha1": "1af675af54ad63c6d5bf70b1cda68d758af148ef",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_04n.rel",
+      "size": 959872,
+      "sha1": "eab96e29509f611e69a5bef51059411d27d78004",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_04r.rel",
+      "size": 13344,
+      "sha1": "6c2a101f9c5fc636c4661e72fdf160e667672972",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_05c.rel",
+      "size": 345664,
+      "sha1": "a92341a396d93fdba10c1adb6c0d097091e3b23c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_05n.rel",
+      "size": 965696,
+      "sha1": "ce87a8cf15d36e4d12f2d75770d3ad73f69b9558",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_cave03_05r.rel",
+      "size": 27904,
+      "sha1": "1aad83eba16636c91d24e9f255523f43a20c7e53",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_city00_00c.rel",
+      "size": 70144,
+      "sha1": "96c8dddda043a0f3a3367d6b2c3a61a04cfd0dc6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_city00_00n.rel",
+      "size": 510944,
+      "sha1": "312e2f305391dffce36818e03641f93f4159c67c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_darkfalz00c.rel",
+      "size": 46208,
+      "sha1": "eca98492b9817d193802e0367b43d96eb026059c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_darkfalz00n.rel",
+      "size": 315328,
+      "sha1": "f5e37d5347fe5dfc3e9abcee5dda8e62799956c0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_darkfalz00r.rel",
+      "size": 4288,
+      "sha1": "ada8a350f68bfe2ad8d11e504ebc8a2c9841cc9f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest01c.rel",
+      "size": 72096,
+      "sha1": "2f89f3080c6166efca7b88a21d6fd476838f8392",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest01n.rel",
+      "size": 728768,
+      "sha1": "dcc18bdfb2ae0b6b3802d326b2a4d323d9f20caa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest01r.rel",
+      "size": 12896,
+      "sha1": "2bf794aaf95a5f9e7f3c39b9d6807f20d0551971",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest01t.rel",
+      "size": 8416,
+      "sha1": "e92accbc9736793d3d9bdcb56bf757a00cdc95dd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest02c.rel",
+      "size": 73984,
+      "sha1": "80e110c5c08b3e5c2ab7280a6fd59e31c97b4ce5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest02n.rel",
+      "size": 681472,
+      "sha1": "04a8604d8aaa603518594eb8e8bcac372115496f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_forest02r.rel",
+      "size": 15872,
+      "sha1": "41c3133862a62b71c7aa82b2b0f0eab02d5ff1d9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle01_00c.rel",
+      "size": 46624,
+      "sha1": "ee7314c422f8c642a7be8b5f08a7eade724dc07f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle01_00n.rel",
+      "size": 1193952,
+      "sha1": "49408a2cbf77fb18eedd556045ac62b38a7aa76f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle01_00nm.rel",
+      "size": 642784,
+      "sha1": "b7157c71ec78950271078c8172579787ec5a72f6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle01_00r.rel",
+      "size": 5792,
+      "sha1": "0047d0df94bcbbede7982cc32142eef9db56c127",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle02_00c.rel",
+      "size": 128000,
+      "sha1": "afe29a30d28447803c14a75f6ccf0c5d5bcc3071",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle02_00n.rel",
+      "size": 1456352,
+      "sha1": "d6ba0864066a42f2bdfd6f375ba94c470f3e3557",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle02_00nm.rel",
+      "size": 889504,
+      "sha1": "81c394f19c0d63647b896a79e901808db1a4bc9f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle02_00r.rel",
+      "size": 14592,
+      "sha1": "2a47eb12639ca5d9a5ff20d6578f7b1bbf9d5343",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle03_00c.rel",
+      "size": 201184,
+      "sha1": "6928f14467733ed50dd7975fcc6b645c63f95a0f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle03_00n.rel",
+      "size": 1627840,
+      "sha1": "fc301df378c85784f72e2145ab68e45a96e9cbca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle03_00nm.rel",
+      "size": 672128,
+      "sha1": "084acc55c8a25017535df7e3fc8b9c83d735aa8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle03_00r.rel",
+      "size": 6944,
+      "sha1": "dda956fc05d64c368f5c102a4e9517b66f60a709",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_00c.rel",
+      "size": 124640,
+      "sha1": "c5872bf4b4d93be9d6859ce2c8ed8f71cbe15e14",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_00n.rel",
+      "size": 1132224,
+      "sha1": "02bda271d5cd4d32426ee17aa27efe1261fee11c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_00nm.rel",
+      "size": 669984,
+      "sha1": "f07ba518c8de044bdcb9aefd459b652f025ee838",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_00r.rel",
+      "size": 16544,
+      "sha1": "56f7842e718facedf077252ec2557d821e4d6bad",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_01c.rel",
+      "size": 128096,
+      "sha1": "5378b1bfcc8d7b866b9d5f4b26d6b248e4c6ed13",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_01n.rel",
+      "size": 1130272,
+      "sha1": "5ba26f040362750ad558c41bff559fd1936a34f4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_01nm.rel",
+      "size": 674976,
+      "sha1": "71b6b5e9c8a29ba546926625ddd6aa802b4cd31d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_01r.rel",
+      "size": 17120,
+      "sha1": "7646c596fcd463281881f8e7106912eabf44074b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_02c.rel",
+      "size": 96288,
+      "sha1": "9a7034212e97d38948410864951484bb075ff457",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_02n.rel",
+      "size": 1109856,
+      "sha1": "308c631064f4f1247e16d56b4a5bb63db207ca83",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_02nm.rel",
+      "size": 650272,
+      "sha1": "92d14f0761d0bb67167c17668d5349468c08e847",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle04_02r.rel",
+      "size": 16544,
+      "sha1": "e3c1f9e08540cce9393d85c1c1624182a5fb8b1b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle05_00c.rel",
+      "size": 101184,
+      "sha1": "d7b3e4e95f30b6f3618d2ea356cf42844f714787",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle05_00n.rel",
+      "size": 1583424,
+      "sha1": "eaf813c79c45734e0ae0345d8575ed56865f221c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle05_00nm.rel",
+      "size": 804736,
+      "sha1": "efbd113f5936e3f1e51bb108dd5bf9daf349c42f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle05_00r.rel",
+      "size": 12256,
+      "sha1": "865e73f59dcb82248339922485c7ea821c0c5aaa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle06_00c.rel",
+      "size": 101184,
+      "sha1": "d7b3e4e95f30b6f3618d2ea356cf42844f714787",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle06_00n.rel",
+      "size": 1583424,
+      "sha1": "eaf813c79c45734e0ae0345d8575ed56865f221c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle06_00r.rel",
+      "size": 12256,
+      "sha1": "865e73f59dcb82248339922485c7ea821c0c5aaa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_00c.rel",
+      "size": 174112,
+      "sha1": "496e1d5afc1b83d79182fae9e70695e5f09c9411",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_00n.rel",
+      "size": 347072,
+      "sha1": "f24d1bc03acb348e9912730c6c4ddf9a8dda418c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_00r.rel",
+      "size": 11328,
+      "sha1": "0a6e0659f8e5da733806e2d6e38efef51a27f462",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_01c.rel",
+      "size": 174112,
+      "sha1": "496e1d5afc1b83d79182fae9e70695e5f09c9411",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_01n.rel",
+      "size": 347072,
+      "sha1": "f24d1bc03acb348e9912730c6c4ddf9a8dda418c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_01r.rel",
+      "size": 11328,
+      "sha1": "0a6e0659f8e5da733806e2d6e38efef51a27f462",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_02c.rel",
+      "size": 174112,
+      "sha1": "496e1d5afc1b83d79182fae9e70695e5f09c9411",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_02n.rel",
+      "size": 347072,
+      "sha1": "f24d1bc03acb348e9912730c6c4ddf9a8dda418c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_02r.rel",
+      "size": 11328,
+      "sha1": "0a6e0659f8e5da733806e2d6e38efef51a27f462",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_03c.rel",
+      "size": 174112,
+      "sha1": "496e1d5afc1b83d79182fae9e70695e5f09c9411",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_03n.rel",
+      "size": 347072,
+      "sha1": "f24d1bc03acb348e9912730c6c4ddf9a8dda418c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_03r.rel",
+      "size": 11328,
+      "sha1": "0a6e0659f8e5da733806e2d6e38efef51a27f462",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_04c.rel",
+      "size": 174112,
+      "sha1": "496e1d5afc1b83d79182fae9e70695e5f09c9411",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_04n.rel",
+      "size": 347072,
+      "sha1": "f24d1bc03acb348e9912730c6c4ddf9a8dda418c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_jungle07_04r.rel",
+      "size": 11328,
+      "sha1": "0a6e0659f8e5da733806e2d6e38efef51a27f462",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_labo00_00c.rel",
+      "size": 94944,
+      "sha1": "5a7beabb776eb0e0a6eed66cf282a188439cd74f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_labo00_00n.rel",
+      "size": 1410016,
+      "sha1": "cc55d46f0badfa194e7c347179a4c746b78e79af",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_labo00_00nm.rel",
+      "size": 1350528,
+      "sha1": "d703787e7b1bdc9af4b159e6d1ac6ec0d0b2b4bd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_01c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_01n.rel",
+      "size": 411744,
+      "sha1": "c2a95c024bca57ba126dfef3aa019c212dc59e67",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_02c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_02n.rel",
+      "size": 412544,
+      "sha1": "88302367c41f039251892fcd8d986a3e20ef1791",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_03c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_03n.rel",
+      "size": 412768,
+      "sha1": "0a69c5fd02521b5e5185984e6e6e81f7bc7af4de",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_04c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_04n.rel",
+      "size": 412768,
+      "sha1": "22498f2e238a3d1f8c9d9ade3b9365ae0268f63b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_05c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_05n.rel",
+      "size": 412640,
+      "sha1": "0321ed4fd395f9aa545d0b7a038f72f6ecf8d733",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_06c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_06n.rel",
+      "size": 412736,
+      "sha1": "7efce43861791d834166ed8aae887de3392a2350",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_07c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_07n.rel",
+      "size": 412672,
+      "sha1": "18d7a05295b367d447b9a4284f3992c705c84ca9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_08c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_08n.rel",
+      "size": 412640,
+      "sha1": "c66c74ff6358c2ff9c08f638f915469f3dc46e73",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_09c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_09n.rel",
+      "size": 412640,
+      "sha1": "52ea758cc8fec5104306ca27970bce788a3e6581",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_10c.rel",
+      "size": 38240,
+      "sha1": "853292e870d93c2f3c2489bb7f3e49e5d4c4e6c6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_10n.rel",
+      "size": 414944,
+      "sha1": "ce2303e310fd70f850735ca0e8fcd5dc463a590a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_green_be00c.rel",
+      "size": 14912,
+      "sha1": "cea8dd15c47275fcee02212a282d09ea1b918ce3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_green_be00n.rel",
+      "size": 123808,
+      "sha1": "567fa4c0b9dcf84ee8c0d48ce33a4d20483e103b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_red_be00c.rel",
+      "size": 14912,
+      "sha1": "cea8dd15c47275fcee02212a282d09ea1b918ce3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_red_be00n.rel",
+      "size": 123808,
+      "sha1": "9489e67bb06b66bd9497ddee72d8a24e0bfe254f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_yellow_be00c.rel",
+      "size": 14912,
+      "sha1": "cea8dd15c47275fcee02212a282d09ea1b918ce3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_lobby_yellow_be00n.rel",
+      "size": 123808,
+      "sha1": "8462822c9a405f2ad0b4a9460771050258ee582f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_00c.rel",
+      "size": 280736,
+      "sha1": "0774aac70cd2d1c77dceaf0ad4f654f642e78081",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_00n.rel",
+      "size": 988160,
+      "sha1": "e7663e32d080088599058e18f71b58deaa8e9c9c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_00nm.rel",
+      "size": 867936,
+      "sha1": "719fb91fc71438142ae6af3298b93213485f3432",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_00r.rel",
+      "size": 26400,
+      "sha1": "3dff644dfcf64526dada80bd3bf113897da28c3f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_01c.rel",
+      "size": 249824,
+      "sha1": "08acd637e02bbbb3a5107f4df792c5035b3aeacd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_01n.rel",
+      "size": 987456,
+      "sha1": "f59099e7f2801f8a51e3d6d0c5200f7c2cf42a4e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_01nm.rel",
+      "size": 867232,
+      "sha1": "ecaebbca6732ee74bfb3b28b74787840052dd07d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_01r.rel",
+      "size": 24384,
+      "sha1": "1e2416c73039d3bbdfd84beccf0fe219aaea1638",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_02c.rel",
+      "size": 259584,
+      "sha1": "0abd32f043191d630262234b9792114c79b12f7d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_02n.rel",
+      "size": 986976,
+      "sha1": "e8f034b800ab49729bccfa80242933687bedf3c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_02nm.rel",
+      "size": 866528,
+      "sha1": "c6d32fdd4706fad96bdfc2301ea66ffcda4212ca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_02r.rel",
+      "size": 24160,
+      "sha1": "f5827961fa90261db8dd93e21d6c753485b316a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_03c.rel",
+      "size": 86592,
+      "sha1": "8b4cf6e847f6ea0addd8bede33af2fb84c36a530",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_03n.rel",
+      "size": 981600,
+      "sha1": "d5a19cd4af6841edd70677d17a90cc0259c34819",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_03nm.rel",
+      "size": 861408,
+      "sha1": "b98bd65027885a75be0565a5fc3ea2e16fb86665",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_03r.rel",
+      "size": 8992,
+      "sha1": "104625febeaa18ddea192ff9d828192c0ff98c96",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_04c.rel",
+      "size": 126368,
+      "sha1": "77bec239315225c5bc39b7e9598a17aec1af8667",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_04n.rel",
+      "size": 982304,
+      "sha1": "3b2725953942344d513c7f599ce520fe5bbe7250",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_04nm.rel",
+      "size": 862752,
+      "sha1": "27aaad150a00f693c0193d618ce38f0daed1652c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_04r.rel",
+      "size": 11200,
+      "sha1": "5306e1524730b9a906d1050e30fef17cc6020ffa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_05c.rel",
+      "size": 275648,
+      "sha1": "fa4e57eeabaa6ebf106983d15993b3a08587e56f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_05n.rel",
+      "size": 987072,
+      "sha1": "6acb6590272a39e113e24f50015a21f0e97d3143",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_05nm.rel",
+      "size": 866656,
+      "sha1": "2625f9e7b9697709a22affe992886e0f6f27d212",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine01_05r.rel",
+      "size": 26048,
+      "sha1": "d95db5bef122726b9e565a997c2c84349ae5673f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_00c.rel",
+      "size": 254720,
+      "sha1": "14667f428521d892a53fd7a168ae3aa620e1e21a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_00n.rel",
+      "size": 856960,
+      "sha1": "702eab09e7c98c19fbb403a87f976b3f07db5db3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_00nm.rel",
+      "size": 725280,
+      "sha1": "5f4e6a88303460a2b87a1bb113c4537274a75084",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_00r.rel",
+      "size": 23936,
+      "sha1": "24ba9c5fd820dce87bbced3533e9b7f1e0a21f93",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_01c.rel",
+      "size": 249152,
+      "sha1": "601006754f845e666f54f68f8951f7e363280018",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_01n.rel",
+      "size": 856576,
+      "sha1": "1a377ace396f7529166767ec6f4e5dd947626d90",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_01nm.rel",
+      "size": 724896,
+      "sha1": "bfd2720b1bd455dbbcd63e8656765b4f81a1aeb9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_01r.rel",
+      "size": 24064,
+      "sha1": "243964508f95713f8f51d774ce86174389d3e05a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_02c.rel",
+      "size": 241216,
+      "sha1": "844009e55b604c22c3db18244183f0973ba5a66a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_02n.rel",
+      "size": 856736,
+      "sha1": "7165821dbdc2d485e2fdaf8c8d5a702794e0843b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_02nm.rel",
+      "size": 725056,
+      "sha1": "016dcd3ff467756cee537ad9e72d488c8c9438a8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_02r.rel",
+      "size": 23712,
+      "sha1": "b957bace43f161388604a35a16aa8a8e9af289fd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_03c.rel",
+      "size": 99968,
+      "sha1": "dcbaaaa7d0dd452cc3b8c19e391f1dc621fe098c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_03n.rel",
+      "size": 851360,
+      "sha1": "97e1eb5bec609e0baad5912c38d032251676f99c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_03nm.rel",
+      "size": 720160,
+      "sha1": "0ea1e9abffebc5b3fdb9ecec46a660f23821e0ee",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_03r.rel",
+      "size": 10432,
+      "sha1": "8ce6020880b7d62c3c08da7555f9c1b9693c2261",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_04c.rel",
+      "size": 136160,
+      "sha1": "b0746eb2d032c1bdfc7edfc3b881ecef4fff972d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_04n.rel",
+      "size": 853440,
+      "sha1": "8c1c07e33abd48e1d8733e1d7a188d1b06972183",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_04nm.rel",
+      "size": 721792,
+      "sha1": "49180a1a31007dc4bbb1c9bdfd438b99f59813b8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_04r.rel",
+      "size": 14528,
+      "sha1": "6669ddc198fb353bfb82833009ed564a1ed41d75",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_05c.rel",
+      "size": 215296,
+      "sha1": "11333dba01f2c2478df4dcdbd25aa6d07f05e91a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_05n.rel",
+      "size": 856928,
+      "sha1": "1fde773a3cb2a44ec457b93f470cc3536aa18d6b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_05nm.rel",
+      "size": 856928,
+      "sha1": "1fde773a3cb2a44ec457b93f470cc3536aa18d6b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_machine02_05r.rel",
+      "size": 19040,
+      "sha1": "88901fa361a598362dcb3de3e24a5803eaa352fd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_00c.rel",
+      "size": 421152,
+      "sha1": "ecea033952efda29b3b6571f3f7ac2faa50a2f82",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_00n.rel",
+      "size": 732992,
+      "sha1": "8db11eca4766567feca2aef58b8823b9c9abbdbe",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_00r.rel",
+      "size": 33952,
+      "sha1": "f871bed023d95f6986c4386e6aef8e5abd9cfcb5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_01c.rel",
+      "size": 436352,
+      "sha1": "6d9d9b4086a8808f205e57006bd710417e95f38f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_01n.rel",
+      "size": 733184,
+      "sha1": "a6fdc2fdb6bfc022f6fe5f1a5253cdc1afecc31f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_01r.rel",
+      "size": 34816,
+      "sha1": "a03bbfe6e0c892167cda79b75e21651822d1a7ab",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_02c.rel",
+      "size": 187808,
+      "sha1": "fff12240feccd86118ceb446d3e0eda62f7ac363",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_02n.rel",
+      "size": 729408,
+      "sha1": "6231bbe029130bd2a5a6800f02106cbd252cf4a5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins01_02r.rel",
+      "size": 14144,
+      "sha1": "243a2c16f81a84ba54a1dd374d7714dc66f15425",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_00c.rel",
+      "size": 432768,
+      "sha1": "de748b6ef78c28a8111d66928ad8d59f322a9331",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_00n.rel",
+      "size": 730272,
+      "sha1": "281592d483c562e9d0edfa8e8c6856c97f469e90",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_00r.rel",
+      "size": 36128,
+      "sha1": "59163b0f5aa71c7a3256b7765c0bd8b433a10cad",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_01c.rel",
+      "size": 429920,
+      "sha1": "ee8a3156290c8dc1423b681be53f2b4c9addadbc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_01n.rel",
+      "size": 730464,
+      "sha1": "f1d1e242491bd0856d4b6c70d2e40ccd85cf40a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_01r.rel",
+      "size": 33632,
+      "sha1": "7d476bfcd2fee3df77df599034c7833f6354a7c5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_02c.rel",
+      "size": 204704,
+      "sha1": "16ae830dce23f9ca18e3ccd2b783281c2f71c7fc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_02n.rel",
+      "size": 727456,
+      "sha1": "69a29b07878ca8e420dcaf7e18c262e40d3558fa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_ruins02_02r.rel",
+      "size": 17568,
+      "sha1": "a26112b4d6f4e81373194cdf4827ca39c33a5f76",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_00c.rel",
+      "size": 526912,
+      "sha1": "2de079d57e66781348d944196f5dbd7e1c7963aa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_00n.rel",
+      "size": 1466208,
+      "sha1": "c8445372ab7ebde734f023ea2b1f30085498c078",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_00nm.rel",
+      "size": 1162176,
+      "sha1": "db0ab47c55d4648e0d2cdda9c08fa7f71064dd67",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_00r.rel",
+      "size": 37216,
+      "sha1": "792feb05db2b9c99bb49a6f2f1a5575b19ea66b6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_01c.rel",
+      "size": 513536,
+      "sha1": "64442a5054c0253e9254139101460bca9d7366d4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_01n.rel",
+      "size": 1466048,
+      "sha1": "06e1361858ef966f1866dceaca513c60e61a06f2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_01nm.rel",
+      "size": 1162048,
+      "sha1": "d6d5e28215cf5479f7ed4931eeb6115be093fa7b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_01r.rel",
+      "size": 36256,
+      "sha1": "2edbcc833c8114e621124cb9943d5a7994929c4e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_02c.rel",
+      "size": 465504,
+      "sha1": "133fcbf3fdf7d6a77b5839da78bf369b6148e630",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_02n.rel",
+      "size": 1465248,
+      "sha1": "7dd6f7d2284d8f13aeb158eebe5bb0a4973537bd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_02nm.rel",
+      "size": 1161216,
+      "sha1": "fbff7e75abec62924feaa37aff0107a9256bf27d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed01_02r.rel",
+      "size": 34688,
+      "sha1": "42b3c41eb274f37b559b1d027b861cb2aaa26f06",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_00c.rel",
+      "size": 522400,
+      "sha1": "2999469298909439e7feb24c727893c3e461de99",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_00n.rel",
+      "size": 1549408,
+      "sha1": "45fa0e24a0744f70fd915ae52c6f1f11a3947525",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_00nm.rel",
+      "size": 1233312,
+      "sha1": "810330261d51542f214c6a6f759459af5c42dba5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_00r.rel",
+      "size": 32800,
+      "sha1": "0e7596a6cd0c454b2dc7599b0aac6c8743ee0518",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_01c.rel",
+      "size": 490912,
+      "sha1": "d4f38d3e8fa0bc8b6013ed48438a541c419aad8c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_01n.rel",
+      "size": 1549152,
+      "sha1": "f4fdcfba533de162770ceb9262496ba518bca142",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_01nm.rel",
+      "size": 1233024,
+      "sha1": "af3b09d771c04d6974ecf260ed0be50f0b29085c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_01r.rel",
+      "size": 33568,
+      "sha1": "61b6b8f03366a91af4d5786c55331a1e112f7565",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_02c.rel",
+      "size": 349504,
+      "sha1": "c78fb002fc84da33b232579ca75a9483e1e365d5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_02n.rel",
+      "size": 1547392,
+      "sha1": "41b5899f9d4a2a5f88cbafde06ddaf76d426ae8d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_02nm.rel",
+      "size": 1231264,
+      "sha1": "f2aa8c914aab966ee57c0781b38bb1509ea474af",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_seabed02_02r.rel",
+      "size": 21664,
+      "sha1": "ac6cbd21281b0cf7e032e9cb01e512481dd0b5ca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_soccer11c.rel",
+      "size": 13696,
+      "sha1": "37cc4ff7e34fe717347af2383f684e4953eb0c8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_soccer11n.rel",
+      "size": 108640,
+      "sha1": "0e8db1ed01a2700cf825a91cbfae1f4478aa8eda",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_soccer12c.rel",
+      "size": 13696,
+      "sha1": "37cc4ff7e34fe717347af2383f684e4953eb0c8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_soccer12n.rel",
+      "size": 108640,
+      "sha1": "0e8db1ed01a2700cf825a91cbfae1f4478aa8eda",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_00c.rel",
+      "size": 415616,
+      "sha1": "c14c3270d62c5fc12089b0a58d28dfacc12ffcb0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_00n.rel",
+      "size": 500192,
+      "sha1": "ca6c374ec09061857f276069f2bc6e0b3397bcbf",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_00r.rel",
+      "size": 30688,
+      "sha1": "634731dc99a536ebd4bc551e0cd0d3e9aef46c9d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_01c.rel",
+      "size": 435648,
+      "sha1": "6fd8c0ad9f7030bd67c85440497b8a6897ac0665",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_01n.rel",
+      "size": 500320,
+      "sha1": "7b5cd84beb6a274e80e4291b360d1f058138216e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_01r.rel",
+      "size": 32416,
+      "sha1": "81c8a3e38d77051ab9b8fe7b22d5210a0bf0fdee",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_02c.rel",
+      "size": 239328,
+      "sha1": "b6fcf88d7163347d3167bf706abbc2325939fa11",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_02n.rel",
+      "size": 498688,
+      "sha1": "388ee2966b2f10575ca9902bfe82b2d5597f455d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space01_02r.rel",
+      "size": 18688,
+      "sha1": "1814877110944a0c98600e98fbb42267ac192b49",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_00c.rel",
+      "size": 411296,
+      "sha1": "a7c3d5ddd3a0611058341ea4092a3576550a6484",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_00n.rel",
+      "size": 500128,
+      "sha1": "737d023085300196182232fbbe0b5ad06a42a3c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_00r.rel",
+      "size": 30496,
+      "sha1": "861bc173274edae84aa3a9659228b26973470dc9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_01c.rel",
+      "size": 441344,
+      "sha1": "12aeba1cb801a35ce81a1f4d4038547cccaa9aca",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_01n.rel",
+      "size": 500288,
+      "sha1": "2ab4fe045088799b1ecf491cee9b209d3e5592ab",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_01r.rel",
+      "size": 32480,
+      "sha1": "32733b13a63b2c43dbbd1c3ae01faa6cf0ee95e4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_02c.rel",
+      "size": 312480,
+      "sha1": "55a7e0f41c7d45021a65c53ed8aa18a0cab60e4b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_02n.rel",
+      "size": 499168,
+      "sha1": "1e959ab6558acb19bba2aa87570c8ba309feb504",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_space02_02r.rel",
+      "size": 22848,
+      "sha1": "7fed1c3e01543a63a642bcad09afccf00726487a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_00c.rel",
+      "size": 296928,
+      "sha1": "b3975a97d04db78a82d02eafbf228524e684f4ab",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_00n.rel",
+      "size": 507264,
+      "sha1": "f6d883d84deb389e5e13bd2b0343562a8235d266",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_00r.rel",
+      "size": 29024,
+      "sha1": "8c096d52a072acf7354a3c325f7eb2bb64c946f8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_01c.rel",
+      "size": 424320,
+      "sha1": "1e170f80dbeec6ec2cfd2f299a484d1f1a23eca0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_01n.rel",
+      "size": 508672,
+      "sha1": "352540a8565e3a1945a551615ba49b2603f5e6e5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_01r.rel",
+      "size": 43392,
+      "sha1": "cabe9f5c22c5054b690fc3ba36356bcb51990286",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_02c.rel",
+      "size": 335616,
+      "sha1": "0e1816c6b22edf1b85444bdb60fa5afc9f698a33",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_02n.rel",
+      "size": 507424,
+      "sha1": "89fd517c7b3ae214404aa40bd4bf170ae9a1083b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs01_02r.rel",
+      "size": 27040,
+      "sha1": "91e260566ef86856b6d9f629ed09cc31ebfa758b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_00c.rel",
+      "size": 263552,
+      "sha1": "b780f2ce220ca24a8efe3af41facb6537b4c3b65",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_00n.rel",
+      "size": 729376,
+      "sha1": "1c3c78c8740acf710211e7293f77c5be99203d24",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_00r.rel",
+      "size": 30080,
+      "sha1": "143664b7b23a847bfb7401c482f31c8fc516ce80",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_01c.rel",
+      "size": 325120,
+      "sha1": "ad9aee636d3d62c5d78ac89a20bd4194955502de",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_01n.rel",
+      "size": 731488,
+      "sha1": "2fda24ff15a46de11e7fe82cd865919d34b6484c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_01r.rel",
+      "size": 26304,
+      "sha1": "ad6e2f5363874db2f008df83e1b55e5d77687fc4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_02c.rel",
+      "size": 405920,
+      "sha1": "799923bc2ddb86ffad9e256f68bfe742a6d72682",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_02n.rel",
+      "size": 732736,
+      "sha1": "176dc300101e45e01f8bdb06b6213e43ab6fd0e1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/Scene/map_vs02_02r.rel",
+      "size": 32480,
+      "sha1": "436711206930bf032b464ada4767efb5f2bc076e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/SetDataTableOff.rel",
+      "size": 9120,
+      "sha1": "3b3e60668046cfab9f831dde1f048eafd08fc0c8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/SetDataTableOffUlti.rel",
+      "size": 9056,
+      "sha1": "6b7e0c2303182eec422a06801a027353fa49fc30",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/SetDataTableOn.rel",
+      "size": 9312,
+      "sha1": "36e004fee2d281a36eae9ee574b8e25cec495aee",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/SetDataTableOnUlti.rel",
+      "size": 9344,
+      "sha1": "274cca0c1f5d88994998c7829271266e2015291e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/SetDataTable_TGS2001.rel",
+      "size": 8352,
+      "sha1": "4460a7e8f36be36fa29ae20c595f5b023d403eef",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_English.rel",
+      "size": 2528,
+      "sha1": "9e0d6dbcd636c83c32d124eb4513fa12019a848f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_English_BG.rel",
+      "size": 1376,
+      "sha1": "7e59442c681b5677f9ca81db2ebb07b7874703de",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_English_CG.rel",
+      "size": 1568,
+      "sha1": "cc6b2cffecb5311dabc9ba0bc292956713ba7a2c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_English_HG.rel",
+      "size": 1536,
+      "sha1": "70bddb5b7ec8e92a5e56c0c1a4e76a0e6e06c5bc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_French.rel",
+      "size": 2784,
+      "sha1": "483f3aba7e54d0abf5d3abf5e457459402420001",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_French_BG.rel",
+      "size": 1440,
+      "sha1": "61c216468ec0bded9c28a82f0443b48a4bb6be9c",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_French_CG.rel",
+      "size": 1632,
+      "sha1": "2594c495140121a16484ab7854923caa3fb8ae5e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_French_HG.rel",
+      "size": 1664,
+      "sha1": "37614d68c8f29343ada935e1eaf7cd8f9f8359ba",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_German.rel",
+      "size": 2752,
+      "sha1": "ace2a861a3067cd174bd9ec09a183e5a2b71618a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_German_BG.rel",
+      "size": 1472,
+      "sha1": "94324662a31c40e49f349ba4e60b0bb4be3efcdd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_German_CG.rel",
+      "size": 1568,
+      "sha1": "f467fab789111720b812216d98221c2c2121f62e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_German_HG.rel",
+      "size": 1664,
+      "sha1": "cdf4c11f50bd2f259b027f2b8e54e89b77dcc25d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Japanese.rel",
+      "size": 3040,
+      "sha1": "520146248527fcd1db72a020297253f2230f788b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Japanese_BG.rel",
+      "size": 1248,
+      "sha1": "3de245e4f80d734aa3d0c8f278e4459a1f545de4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Japanese_CG.rel",
+      "size": 1664,
+      "sha1": "cd1f1cb43b43d5f5ddf3ce68c9a3acbc6a54a7c5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Japanese_HG.rel",
+      "size": 1696,
+      "sha1": "b1e7b73cabf98f6818c50ab143e0ea6f9313d3f5",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Spanish.rel",
+      "size": 2560,
+      "sha1": "4ffe259fc1035e1fdf1b1b66d45644a7fe22772a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Spanish_BG.rel",
+      "size": 1408,
+      "sha1": "59196043b6d408976c69decad304c9b02e49c7fe",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Spanish_CG.rel",
+      "size": 1536,
+      "sha1": "6da8f4865e10dc49ce22d687f5409fc473387a83",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/ShopMes_Spanish_HG.rel",
+      "size": 1600,
+      "sha1": "14c430f22696ece8e27df717ae71e01e8543c3fe",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextEnglish.pr2",
+      "size": 45408,
+      "sha1": "90159606e25c4a486f84d189f854ea163b40756e",
+      "format": "text_pr2",
+      "pair": "files/TextEnglish.pr3"
+    },
+    {
+      "path": "files/TextEnglish.pr3",
+      "size": 109,
+      "sha1": "f26ede40afdd5fa2ee4a78be6c52db4797d78723",
+      "format": "text_pr3",
+      "pair": "files/TextEnglish.pr2"
+    },
+    {
+      "path": "files/TextFrench.pr2",
+      "size": 42836,
+      "sha1": "540faa68c79a5cba60d15e9c199f7ff3b88fc66c",
+      "format": "text_pr2",
+      "pair": "files/TextFrench.pr3"
+    },
+    {
+      "path": "files/TextFrench.pr3",
+      "size": 112,
+      "sha1": "cf28c04c0bcfabede6da5d1f64f4c787f50e9a68",
+      "format": "text_pr3",
+      "pair": "files/TextFrench.pr2"
+    },
+    {
+      "path": "files/TextGerman.pr2",
+      "size": 43217,
+      "sha1": "03f38e61227e9fb0d7b82142004b3118751b7130",
+      "format": "text_pr2",
+      "pair": "files/TextGerman.pr3"
+    },
+    {
+      "path": "files/TextGerman.pr3",
+      "size": 111,
+      "sha1": "2fe70887a51639f54014363b2d2e3fef4146a683",
+      "format": "text_pr3",
+      "pair": "files/TextGerman.pr2"
+    },
+    {
+      "path": "files/TextJapanese.pr2",
+      "size": 43358,
+      "sha1": "ff69549613f11bf4617279629c64daf329707b4c",
+      "format": "text_pr2",
+      "pair": "files/TextJapanese.pr3"
+    },
+    {
+      "path": "files/TextJapanese.pr3",
+      "size": 114,
+      "sha1": "1bde4e5e5f95568c51b8f888962e7c87d81c73b2",
+      "format": "text_pr3",
+      "pair": "files/TextJapanese.pr2"
+    },
+    {
+      "path": "files/TextShopEnglish.rel",
+      "size": 17760,
+      "sha1": "c8a359fad849eb52aa079223737a9b065ac712e3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextShopFrench.rel",
+      "size": 19552,
+      "sha1": "c94979a728faee0f2e07a9b75b88ce93ac415f13",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextShopGerman.rel",
+      "size": 20000,
+      "sha1": "9abfbc1e0b88e3ca37e65831309ec11edbe9d825",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextShopJapanese.rel",
+      "size": 20224,
+      "sha1": "9a717450a0f7e7e474eab86269246a070fa7cee8",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextShopSpanish.rel",
+      "size": 19968,
+      "sha1": "88a0684f9f5e34707f650b27d3c21f499857e3b0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/TextSpanish.pr2",
+      "size": 42050,
+      "sha1": "dbb110ebc64a191b33215b61c2eba42226738835",
+      "format": "text_pr2",
+      "pair": "files/TextSpanish.pr3"
+    },
+    {
+      "path": "files/TextSpanish.pr3",
+      "size": 111,
+      "sha1": "aad9cce996b97271119eea81da9bf7da32ad5f1e",
+      "format": "text_pr3",
+      "pair": "files/TextSpanish.pr2"
+    },
+    {
+      "path": "files/ToolRandom.rel",
+      "size": 672,
+      "sha1": "6e9cc74eda6d6250bd54c966d4300ea06a150dc9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/WeaponRandomHard.rel",
+      "size": 2880,
+      "sha1": "8f61dbe63120fcdac17b7f20ff6b2eb13237ad38",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/WeaponRandomNormal.rel",
+      "size": 2496,
+      "sha1": "207ccbb68f87954aa123b1fd976d529f072f899b",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/WeaponRandomUltimate.rel",
+      "size": 3296,
+      "sha1": "238019e8e51725b80ed443a46a3a273ce9d2551e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/WeaponRandomVeryHard.rel",
+      "size": 2720,
+      "sha1": "cb936152f7d5976a3de1ffefe9229ac14e33b160",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/bo07opcam.rel",
+      "size": 4448,
+      "sha1": "f0c395814ac59224398e1299af687e8e6b9fd3cd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes0_english.rel",
+      "size": 736,
+      "sha1": "99766223a121d6e4b8d715db76e81f11cb2790be",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes0_french.rel",
+      "size": 768,
+      "sha1": "3cf4977092b368cb08b776ba42522c24acd771c0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes0_german.rel",
+      "size": 800,
+      "sha1": "8d78dc14f6773e3745dfd487dc9e1e4e848e447a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes0_japanese.rel",
+      "size": 800,
+      "sha1": "d97970a81d9aad378467922e96ffa76975e99d31",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes0_spanish.rel",
+      "size": 768,
+      "sha1": "376cc7ab2e589920ab3deb884ac1364d0197a8d6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes1_english.rel",
+      "size": 736,
+      "sha1": "f6bf8e8d74d015938986b2cfc510c10c900f3bfa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes1_french.rel",
+      "size": 736,
+      "sha1": "743a9fd8e8d93796f6cb2771f849a4b79b4d4ce7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes1_german.rel",
+      "size": 800,
+      "sha1": "3a4addd794133af58eaab4c9ae6e9e985abc72a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes1_japanese.rel",
+      "size": 800,
+      "sha1": "5744410557b2b0b8e0b22074b289218de1bf63be",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes1_spanish.rel",
+      "size": 736,
+      "sha1": "03270780eb11f1bc9cc6921afd5c503f61d46b4a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes2_english.rel",
+      "size": 736,
+      "sha1": "99766223a121d6e4b8d715db76e81f11cb2790be",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes2_french.rel",
+      "size": 768,
+      "sha1": "3cf4977092b368cb08b776ba42522c24acd771c0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes2_german.rel",
+      "size": 800,
+      "sha1": "8d78dc14f6773e3745dfd487dc9e1e4e848e447a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes2_japanese.rel",
+      "size": 800,
+      "sha1": "d97970a81d9aad378467922e96ffa76975e99d31",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes2_spanish.rel",
+      "size": 768,
+      "sha1": "376cc7ab2e589920ab3deb884ac1364d0197a8d6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes3_english.rel",
+      "size": 736,
+      "sha1": "d3f702c3cfb3f86e96f697eb7f1b3695ecb9a3e7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes3_french.rel",
+      "size": 768,
+      "sha1": "9df217e3b5d92c70877cb5672daca2175e20fcbc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes3_german.rel",
+      "size": 832,
+      "sha1": "a8eb90d0c1c929faef5c9643338c74cad4645277",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes3_japanese.rel",
+      "size": 864,
+      "sha1": "8579aa1a0325cf1624771bc131a18d7860924401",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes3_spanish.rel",
+      "size": 736,
+      "sha1": "8000d6590ab44f7c02646786d50e3f2bab6099ce",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes4_english.rel",
+      "size": 736,
+      "sha1": "f6bf8e8d74d015938986b2cfc510c10c900f3bfa",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes4_french.rel",
+      "size": 736,
+      "sha1": "743a9fd8e8d93796f6cb2771f849a4b79b4d4ce7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes4_german.rel",
+      "size": 800,
+      "sha1": "3a4addd794133af58eaab4c9ae6e9e985abc72a2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes4_japanese.rel",
+      "size": 800,
+      "sha1": "5744410557b2b0b8e0b22074b289218de1bf63be",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes4_spanish.rel",
+      "size": 736,
+      "sha1": "03270780eb11f1bc9cc6921afd5c503f61d46b4a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes5_english.rel",
+      "size": 512,
+      "sha1": "4ff51731723826947d5466d28c5ad191c1379bd3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes5_french.rel",
+      "size": 512,
+      "sha1": "ffae8baa62bde390bf22974c4076efb6240a3edd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes5_german.rel",
+      "size": 576,
+      "sha1": "ef6e5d2bad4a63cc102561c95706418f0db11281",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes5_japanese.rel",
+      "size": 480,
+      "sha1": "8c9bbcc9be92496094aeb6ed4c61148785cd6cd6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes5_spanish.rel",
+      "size": 544,
+      "sha1": "f0ef0857ed952f079b48d2ed71452e8e59cd8957",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes6_english.rel",
+      "size": 704,
+      "sha1": "9e09fd6855ca4162747590e342095f374b11145d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes6_french.rel",
+      "size": 704,
+      "sha1": "da6618c0b0b967c4fb9522eccd83a3485de42fa1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes6_german.rel",
+      "size": 768,
+      "sha1": "dad34d20859f48bb8a07ea26780d9cc974c81746",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes6_japanese.rel",
+      "size": 800,
+      "sha1": "86ee6ea560cae23d937e528f8ef8cdf1406f2f1e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes6_spanish.rel",
+      "size": 768,
+      "sha1": "7f02b3c2fe84ba4d73feaf1447eeded2ec7ab825",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes7_english.rel",
+      "size": 512,
+      "sha1": "4ff51731723826947d5466d28c5ad191c1379bd3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes7_french.rel",
+      "size": 512,
+      "sha1": "ffae8baa62bde390bf22974c4076efb6240a3edd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes7_german.rel",
+      "size": 576,
+      "sha1": "ef6e5d2bad4a63cc102561c95706418f0db11281",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes7_japanese.rel",
+      "size": 480,
+      "sha1": "8c9bbcc9be92496094aeb6ed4c61148785cd6cd6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes7_spanish.rel",
+      "size": 544,
+      "sha1": "f0ef0857ed952f079b48d2ed71452e8e59cd8957",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes8_english.rel",
+      "size": 704,
+      "sha1": "9e09fd6855ca4162747590e342095f374b11145d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes8_french.rel",
+      "size": 704,
+      "sha1": "da6618c0b0b967c4fb9522eccd83a3485de42fa1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes8_german.rel",
+      "size": 768,
+      "sha1": "dad34d20859f48bb8a07ea26780d9cc974c81746",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes8_japanese.rel",
+      "size": 800,
+      "sha1": "86ee6ea560cae23d937e528f8ef8cdf1406f2f1e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes8_spanish.rel",
+      "size": 768,
+      "sha1": "7f02b3c2fe84ba4d73feaf1447eeded2ec7ab825",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes9_english.rel",
+      "size": 736,
+      "sha1": "d3f702c3cfb3f86e96f697eb7f1b3695ecb9a3e7",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes9_french.rel",
+      "size": 768,
+      "sha1": "9df217e3b5d92c70877cb5672daca2175e20fcbc",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes9_german.rel",
+      "size": 832,
+      "sha1": "a8eb90d0c1c929faef5c9643338c74cad4645277",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes9_japanese.rel",
+      "size": 864,
+      "sha1": "8579aa1a0325cf1624771bc131a18d7860924401",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/judgemes9_spanish.rel",
+      "size": 736,
+      "sha1": "8000d6590ab44f7c02646786d50e3f2bab6099ce",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_a00_data.rel",
+      "size": 30112,
+      "sha1": "a9e1c3aca4be9afba5d5fd237bd2f7b9b3c98dcb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_b00_data.rel",
+      "size": 33920,
+      "sha1": "9e20e025502d3764dd9c9e0e8e9e53c2df5f2a8a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_b01_data.rel",
+      "size": 33600,
+      "sha1": "133f4959f5b21f9023f7241bb5da5e825008c4a0",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_c01_data.rel",
+      "size": 27168,
+      "sha1": "d312a87f96ea8b0611e38f8f18edeec04bf624c2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_d00_data.rel",
+      "size": 29728,
+      "sha1": "810965218e1f141acd256271391496076ee2a36f",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_d01_data.rel",
+      "size": 29120,
+      "sha1": "bec1ba3b3778917840374462db54c2233f5ffcb4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_e00_data.rel",
+      "size": 29632,
+      "sha1": "f79c1debbc3e213bfdc6ead3a604656d38196dcf",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_f00_data.rel",
+      "size": 30144,
+      "sha1": "9d3a609ae9a9dc3eb3bc4783be5f3f33d6f89054",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_g00_data.rel",
+      "size": 32576,
+      "sha1": "ebaa75fb7d096110696f08276e5975330e65bf88",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_g01_data.rel",
+      "size": 32928,
+      "sha1": "bb42dd82239a08f64447a980bb8449ec26050cf9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_h00_data.rel",
+      "size": 31264,
+      "sha1": "5ff37548008c4aa34703a51dcf8dfd119d00b83a",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_h01_data.rel",
+      "size": 31328,
+      "sha1": "6f1c388adc8f26ccf5a1f15ae9225a84eefce767",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_i00_data.rel",
+      "size": 33600,
+      "sha1": "88851f8b5e2a22ec24eae6a6b59df78fdfb42814",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/npc_i01_data.rel",
+      "size": 33216,
+      "sha1": "f4afa3c3e6e7ad064cc189520165c0161169f774",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plAsmp.rel",
+      "size": 125824,
+      "sha1": "1c7e28d652077a7daa7d23515cb1f275d92f4af2",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plBsmp.rel",
+      "size": 167744,
+      "sha1": "9bb2af4b5bbd3b8b05132b3823eff54c313a85be",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plCsmp.rel",
+      "size": 177376,
+      "sha1": "619bddb3b53c60adb3f040d6ee314564cc834b2e",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plDsmp.rel",
+      "size": 122336,
+      "sha1": "af3d57163ff8aed3bbd7019efb6b6403a89642f4",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plEsmp.rel",
+      "size": 177376,
+      "sha1": "2fc347afe4f5796845fb52ecbfcc6f99490750c9",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plFsmp.rel",
+      "size": 271424,
+      "sha1": "f4299e591cda97b26e41ef6b1d0e24c73316d994",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plGsmp.rel",
+      "size": 157920,
+      "sha1": "fa48ea9e17fc1b69fe51c4dcbfb24a0dada6decd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plHsmp.rel",
+      "size": 135936,
+      "sha1": "2b18118278d7260b744d36fc14142f2c87042e18",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plIsmp.rel",
+      "size": 148576,
+      "sha1": "5d6715a5adf68852b1b92d1092d19071febee5ac",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plJsmp.rel",
+      "size": 270048,
+      "sha1": "2a3bf63b4d2dc832180000a38fc20050f13417bb",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plKsmp.rel",
+      "size": 162400,
+      "sha1": "dc5aa24d7add0d8d5eb6930ee043e8c12a9676b6",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plLsmp.rel",
+      "size": 146272,
+      "sha1": "2bc0d821ce1410441b73a40fcd5ab176ecb0a4b3",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plSsmp.rel",
+      "size": 20032,
+      "sha1": "5d1e7bcf4dd251b11fccf3bf2c8afb6b5ff6a947",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plTsmp.rel",
+      "size": 21632,
+      "sha1": "785355ccc4800c4014b2ed9d198d270697624286",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plUsmp.rel",
+      "size": 18464,
+      "sha1": "1334e6f18854d5c269694354296228a387ac5503",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plVsmp.rel",
+      "size": 16192,
+      "sha1": "bf4e79c3315be02c84bf9c72afbcb824c49753b1",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plWsmp.rel",
+      "size": 15744,
+      "sha1": "af480fc4a423e64ddfb63ab7103536cdebf150fd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plXsmp.rel",
+      "size": 25024,
+      "sha1": "dfeef85b93f4a2abb6509ceb60a0a45d44b8b90d",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/plYsmp.rel",
+      "size": 26880,
+      "sha1": "c9cea1f780b848a123dd9d37ca308284c00931bd",
+      "format": "pso_rel"
+    },
+    {
+      "path": "files/technic.rel",
+      "size": 5792,
+      "sha1": "c1edc2442f502815f67ee0d93092e18c05f90fa4",
+      "format": "pso_rel"
+    }
+  ]
+}

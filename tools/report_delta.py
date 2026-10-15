@@ -11,12 +11,28 @@ import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+CODE_SECTIONS = {".init", ".text", ".fini"}
 
 
-def functions_by_address(report: dict) -> dict:
+def module_name(unit: dict) -> str:
+    metadata = unit.get("metadata") or {}
+    name = metadata.get("module_name")
+    if name:
+        return str(name)
+    module_id = metadata.get("module_id")
+    return f"module:{module_id}" if module_id is not None and int(module_id) else ""
+
+
+def is_code_section(name: str) -> bool:
+    return name in CODE_SECTIONS or name.startswith((".text.", ".init.", ".fini."))
+
+
+def functions_by_address(report: dict, *, complete_only: bool = False) -> dict:
     functions = {}
     for unit in report.get("units", []):
-        module = unit.get("metadata", {}).get("module_name", "")
+        if complete_only and not (unit.get("metadata") or {}).get("complete", False):
+            continue
+        module = module_name(unit)
         for function in unit.get("functions", []):
             address = function.get("metadata", {}).get("virtual_address")
             if address is None:
@@ -28,14 +44,21 @@ def functions_by_address(report: dict) -> dict:
     return functions
 
 
-def data_ranges(report: dict, *, exact_only: bool = False) -> dict:
-    """Original non-text intervals, independent of TU names/boundaries."""
+def data_ranges(report: dict, *, exact_only: bool = False,
+                complete_only: bool = False) -> dict:
+    """Original data intervals, independent of TU names/boundaries.
+
+    complete_only uses objdiff's unit metadata: the build selected the unit's
+    compiled object. This is separate from whether its bytes compare exactly.
+    """
     ranges = {}
     for unit in report.get('units', []):
-        module = unit.get('metadata', {}).get('module_name', '')
+        if complete_only and not (unit.get('metadata') or {}).get('complete', False):
+            continue
+        module = module_name(unit)
         for section in unit.get('sections', []):
             size = int(section.get('size', 0))
-            if section['name'] == '.text' or not size:
+            if is_code_section(section['name']) or not size:
                 continue
             if exact_only and section.get('fuzzy_match_percent') != 100:
                 continue
@@ -61,9 +84,10 @@ def exact_data_ranges(report: dict) -> dict:
     return data_ranges(report, exact_only=True)
 
 
-def lost_data_ranges(before: dict, after: dict, *, exact_only: bool = True) -> list:
-    old = data_ranges(before, exact_only=exact_only)
-    new = data_ranges(after, exact_only=exact_only)
+def lost_data_ranges(before: dict, after: dict, *, exact_only: bool = True,
+                     complete_only: bool = False) -> list:
+    old = data_ranges(before, exact_only=exact_only, complete_only=complete_only)
+    new = data_ranges(after, exact_only=exact_only, complete_only=complete_only)
     lost = []
     for (module, section), ranges in sorted(old.items()):
         for start, end in ranges:
@@ -90,6 +114,8 @@ def compare(before: dict, after: dict) -> dict:
         return {key for key, f in functions.items() if f.get("fuzzy_match_percent") == 100}
 
     old_exact, new_exact = exact(old), exact(new)
+    old_linked = functions_by_address(before, complete_only=True)
+    new_linked = functions_by_address(after, complete_only=True)
 
     def rows(keys, functions):
         return [{"module": key[0], "address": f"0x{key[1]:08X}",
@@ -105,6 +131,8 @@ def compare(before: dict, after: dict) -> dict:
     data_regressions = lost_data_ranges(before, after)
     data_coverage_lost = lost_data_ranges(before, after, exact_only=False)
     data_coverage_gained = lost_data_ranges(after, before, exact_only=False)
+    linked_data_lost = lost_data_ranges(before, after, exact_only=False, complete_only=True)
+    linked_data_gained = lost_data_ranges(after, before, exact_only=False, complete_only=True)
     if data_regressions:
         failures.append('Previously exact data ranges regressed or disappeared')
     if data_coverage_lost:
@@ -113,11 +141,20 @@ def compare(before: dict, after: dict) -> dict:
         failures.append("Previously exact functions regressed or disappeared")
     if old.keys() - new.keys():
         failures.append("Original function addresses disappeared from coverage")
+    if old_linked.keys() - new_linked.keys():
+        failures.append("Previously linked functions are no longer selected from source")
+    if linked_data_lost:
+        failures.append("Previously linked data ranges are no longer selected from source")
     for key, values in metrics.items():
         if key.startswith('total_') and values['delta'] != 0:
             failures.append(f"{key} changed by {values['delta']:+d}; reconcile coverage explicitly")
         elif values["delta"] < 0:
             failures.append(f"{key} decreased by {-values['delta']}")
+    structure = {}
+    for label, field in (("source_bearing_units", "source_path"), ("linked_units", "complete")):
+        first = sum(bool((u.get("metadata") or {}).get(field)) for u in before.get("units", []))
+        last = sum(bool((u.get("metadata") or {}).get(field)) for u in after.get("units", []))
+        structure[label] = {"before": first, "after": last, "delta": last - first}
     return {
         "metrics": metrics,
         "new_matches": rows(new_exact - old_exact, new),
@@ -125,6 +162,18 @@ def compare(before: dict, after: dict) -> dict:
         "data_regressions": data_regressions,
         "data_coverage_lost": data_coverage_lost,
         "data_coverage_gained": data_coverage_gained,
+        "linked_functions_lost": rows(old_linked.keys() - new_linked.keys(), old_linked),
+        "linked_functions_gained": rows(new_linked.keys() - old_linked.keys(), new_linked),
+        "linked_data_lost": linked_data_lost,
+        "linked_data_gained": linked_data_gained,
+        "structure": structure,
+        "structure_note": "Unit counts and renames describe report structure; they do not prove "
+                          "semantic naming or recovery of original translation units.",
+        "renamed_functions": [
+            {"module": key[0], "address": f"0x{key[1]:08X}",
+             "before": old[key]["name"], "after": new[key]["name"]}
+            for key in sorted(old.keys() & new.keys()) if old[key]["name"] != new[key]["name"]
+        ],
         "missing_functions": rows(old.keys() - new.keys(), old),
         "failures": failures,
     }
@@ -147,14 +196,20 @@ def main() -> int:
         for key, values in delta["metrics"].items():
             print(f"{key}: {values['before']} -> {values['after']} ({values['delta']:+d})")
         print(f"New exact functions: {len(delta['new_matches'])}; regressions: {len(delta['regressions'])}")
+        for key, values in delta['structure'].items():
+            print(f"{key}: {values['before']} -> {values['after']} ({values['delta']:+d})")
+        print(f"Renamed functions: {len(delta['renamed_functions'])}. {delta['structure_note']}")
         for row in delta["new_matches"]:
             print(f"  + {row['address']} {row['name']}")
         for failure in delta["failures"]:
             print(f"FAIL: {failure}")
+        for row in delta['linked_functions_lost']:
+            print(f"  unlinked: {row['module']} {row['address']} {row['name']}")
         for row in delta['data_regressions']:
             print(f"  data: {row['module']} {row['section']} {row['address']} +{row['size']} bytes")
         for key, label in (('data_coverage_lost', 'lost coverage'),
-                           ('data_coverage_gained', 'new coverage')):
+                           ('data_coverage_gained', 'new coverage'),
+                           ('linked_data_lost', 'lost linked data')):
             for row in delta[key]:
                 print(f"  {label}: {row['module']} {row['section']} {row['address']} +{row['size']} bytes")
     return 1 if args.check and delta["failures"] else 0

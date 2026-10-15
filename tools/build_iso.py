@@ -15,6 +15,7 @@ Usage:
 import argparse
 import hashlib
 import os
+import shutil
 import struct
 import subprocess
 import sys
@@ -22,6 +23,9 @@ from pathlib import Path
 
 # Project root
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+from tools import pso_assets
+
 ORIG_DIR = ROOT / "orig" / "GPOE8P" / "P-GPOE"
 BUILD_DIR = ROOT / "build" / "GPOE8P"
 
@@ -223,6 +227,21 @@ def cmd_compare_sections(args):
     return 0 if not mismatches else 1
 
 
+def overlay_data_assets(stage_dir: Path, replacements: Path | None,
+                        manifest_path: Path = pso_assets.DEFAULT_MANIFEST) -> dict:
+    """Check current staged inputs and explicitly selected replacements."""
+    report = pso_assets.verify_data(stage_dir, manifest_path, replacements)
+    for entry in report["files"]:
+        if entry["origin"] != "replacement":
+            continue
+        destination = stage_dir / entry["path"]
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(entry["source_path"], destination)
+        if destination.stat().st_size != entry["size"] or sha1_file(destination) != entry["sha1"]:
+            raise ValueError(f"replacement changed during staging: {entry['path']}")
+    return report
+
+
 def cmd_build(args):
     """Build ISO from decompiled DOL + original game files."""
     target = target_info(args)
@@ -256,8 +275,6 @@ def cmd_build(args):
     iso_out = BUILD_DIR / "pso_rebuilt.iso"
 
     # Method: copy original, replace DOL, repack with wit
-    import shutil
-
     # Clean stage
     if stage_dir.exists():
         shutil.rmtree(stage_dir)
@@ -265,11 +282,17 @@ def cmd_build(args):
     # Copy original structure
     shutil.copytree(ORIG_DIR, stage_dir)
 
-    # Replace only the selected executable. Every other DOL, REL, and asset
-    # remains the exact file copied from the legal original extraction.
+    # Replace the selected executable and any explicitly verified data files.
     stage_dol = stage_dir / target["relative_path"]
     shutil.copy2(built_dol, stage_dol)
     print(f"Replaced DOL: {sha1_file(stage_dol)}")
+
+    try:
+        data_report = overlay_data_assets(stage_dir, args.data_replacements)
+    except (OSError, ValueError) as exc:
+        print(f"Data verification failed: {exc}", file=sys.stderr)
+        return 1
+    print(f"Verified data dependencies; overlaid {data_report['summary']['replacement_files']} exact replacements")
 
     # Rebuild ISO with wit
     print(f"Building ISO: {iso_out}")
@@ -328,6 +351,8 @@ def main():
     sub = parser.add_subparsers(dest="command")
 
     build = sub.add_parser("build", help="Build ISO from selected DOL and pass-through disc files")
+    build.add_argument("--data-replacements", type=Path, metavar="DIR",
+                       help="verify and overlay exact data replacements under DIR/files/")
     sub.add_parser("verify", help="Verify built ISO against original")
     check = sub.add_parser("check-dol", help="Quick selected-DOL hash check")
     compare = sub.add_parser("compare-sections", help="Compare selected-DOL sections")

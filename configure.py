@@ -21,6 +21,7 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List
 from tools.compiler_profiles import load_profiles, object_options
+from tools.pso_assets import add_build_steps as add_data_build_steps
 
 from tools.project import (
     Object,
@@ -179,6 +180,8 @@ parser.add_argument(
     default="psov3",
     help="DOL target to build (default: psov3 — the game binary)",
 )
+parser.add_argument("--data-replacements", type=Path, metavar="DIR",
+                    help="verify exact runtime data replacements under DIR/files/")
 args = parser.parse_args()
 
 # ===================================================================
@@ -886,6 +889,10 @@ config.progress_report_args = [
 # ===================================================================
 # Main Dispatch
 # ===================================================================
+if args.target == "psov3":
+    add_data_build_steps(config, Path("orig/GPOE8P/P-GPOE"),
+                         replacements=args.data_replacements)
+
 if args.mode == "configure":
     generate_build(config)
 elif args.mode == "progress":

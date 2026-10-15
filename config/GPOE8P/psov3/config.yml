@@ -1422,8 +1422,13 @@ force_active:
   - draw_value__13TWindowMesetaFPvi
   - draw_window__17TWindowDuelResultFPv
   - draw_window_uv_sprite_part
+  - drill_launcher_create_shot
+  - drill_launcher_ct
   - drill_launcher_marker
+  - drill_launcher_node_callback
   - drill_launcher_return_timer
+  - drill_launcher_shot_render
+  - drill_launcher_update
   - dspInitCallback
   - dspResumeCallback
   - duel_result_window_layout_table
@@ -1739,6 +1744,7 @@ force_active:
   - has_at_most_one_player__15TObjSoloPlayWinFv
   - has_inactive_card__17TWindowSubComCardFPvi
   - has_serial_input__22TAdEnterSerialAccessGCFv
+  - heaven_punisher_strike_locks
   - hide_part__9TObjLukerFPvUs
   - hide_title_layers_and_release
   - hit_object_in_radius__10TObjPlayerFPvPvPv
@@ -2201,6 +2207,7 @@ force_active:
   - modem_ring_response
   - modem_tone_dial_command
   - monument_ancient02_resource_table
+  - morning_glory_ct
   - motorcycle_resource_descriptor
   - move_around_center__15TObjEneMe1GiGueFPvPvf
   - multi_confirm_texture_descriptor
@@ -6772,6 +6779,7 @@ force_active:
   - prepare_heavy_attack_particles
   - process_download_entry__12TQuestListVMFPv
   - prs_read_control_bit
+  - psycho_wand_ct
   - publish_light_color__10TObjPlayerFPv
   - push_attack_target_entry
   - push_list_node__14TObjEneBm5WolfFPvPvPv
@@ -7234,6 +7242,7 @@ force_active:
   - snd_handle_irq
   - solo_play_result_window_depth
   - some_stub__9TProtocolFv
+  - sorcerers_cane_ct
   - sound_bank_file_crc16
   - sound_bank_filename_a_enemy_pool
   - sound_bank_filename_a_enemy_proj
@@ -7770,6 +7779,8 @@ force_active:
   - worker_callback_slots
   - write_ring_buffer__6TLobbyFPvi
   - write_telepipe_record
+  - yasminkov_2000h_ct
+  - yasminkov_7000v_ct
   - yasminkov_9000m_eject_casing
 # --- force_active (END) ---
 # False pointers: packed data words whose values happen to land on code/data
