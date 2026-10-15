@@ -248,3 +248,41 @@ u8 *__dt__17TJudgmentSequenceFv(u8 *arg0, s16 arg1) {
 }
 
 }
+
+extern "C" {
+s32 TShopSequence__ct(void *);
+extern s32 TJudgmentSequence__class_name;
+u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2);
+void TJudgmentSequence__sub_80216030(void);
+void TJudgmentSequence__sub_80216058(void);
+void TShopWindowBase__sub_80216080(void);
+
+u8 *TJudgmentSequence__ct(u8 *arg0, M2C_UNK arg1, s32 arg2) {
+    TShopSequence__ct((void *) (arg0));
+    M2C_FIELD(arg0, M2C_UNK **, 0x18) = &__vt__17TJudgmentSequence.value;
+    M2C_FIELD(arg0, s32 *, 0) = (s32) TJudgmentSequence__class_name;
+    M2C_FIELD(arg0, s32 *, 0x24) = arg2;
+    M2C_FIELD(arg0, s32 *, 0x2C) = 0;
+    M2C_FIELD(arg0, s32 *, 0x30) = 0;
+    lbl_805D61D0 = (s32) arg0;
+    set_field_20__12TQuestListVMFPvi((void *) (arg0), (void *) (0));
+    M2C_FIELD(&TJudgmentSequence__slot_flags.value, M2C_UNK *, (TShopWindowBase__sub_8022397C((void *) (arg0)) * 4)) = 1;
+    return arg0;
+}
+
+void TJudgmentSequence__sub_80216030(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TJudgmentSequence__slot_flags)[i] = 0;
+    }
+}
+
+void TJudgmentSequence__sub_80216058(void) {
+    s32 i;
+    for (i = 0; i < 4; i++) {
+        ((s32 *)&TJudgmentSequence__slot_flags)[i] = 0;
+    }
+}
+
+void TShopWindowBase__sub_80216080(void) {  }
+}

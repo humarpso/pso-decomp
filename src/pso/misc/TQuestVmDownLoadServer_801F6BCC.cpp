@@ -48,7 +48,7 @@ void TQuestVmDownLoadServer__sub_801F6D24(QVm_801F6D24 *self);
 extern "C" {
 
 void create__22TQuestVmDownLoadServerFv(void);
-M2C_UNK TQuestVmDownLoadServer__ct(void *, s32);
+M2C_UNK __ct__22TQuestVmDownLoadServerFP7TObject(void *, s32);
 void *__nw__7TObjectFUl(M2C_UNK);
 
 extern u32 TQuestVmDownLoadServer__instance;
@@ -60,7 +60,7 @@ void create__22TQuestVmDownLoadServerFv(void) {
     if ((u32) TQuestVmDownLoadServer__instance == 0U) {
         temp_r3 = __nw__7TObjectFUl(0x2A8);
         if (temp_r3 != 0) {
-            TQuestVmDownLoadServer__ct(temp_r3, tl_00);
+            __ct__22TQuestVmDownLoadServerFP7TObject(temp_r3, tl_00);
         }
     }
 }

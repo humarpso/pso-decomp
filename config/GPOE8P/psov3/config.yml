@@ -14,6 +14,7 @@ detect_strings: true
 mw_comment_version: 10
 # --- force_active (BEGIN) ---
 force_active:
+  - "@28@__dt__17TMedicalCenterMesFv"
   - AIGetDSPSampleRate
   - AIGetStreamPlayState
   - AIGetStreamSampleRate
@@ -516,6 +517,7 @@ force_active:
   - __dt__17TBoss1DragonColliFv
   - __dt__17TBoss5GryphonDemoFv
   - __dt__17TBoss6EffFlowSoulFv
+  - __dt__17TMedicalCenterMesFv
   - __dt__17TOSwitchAttackSubFv
   - __dt__17TObjBoss8DemoRoomFv
   - __dt__17TObjItemNameEntryFv
@@ -2341,6 +2343,7 @@ force_active:
   - open_greeting__22THunterGuildSeqOfflineFPv
   - open_greeting__22TShopEquipmentSequenceFPv
   - open_greeting__26TShopEquipmentGearSequenceFPv
+  - open_greeting_window__22TMedicalCenterSequenceFPv
   - open_intro_window__19TPlayerBattleCtrl4PFv
   - open_item_list_window__20TShopItemTecSequenceFPv
   - open_judgment_window__17TJudgmentSequenceFPv
@@ -7063,6 +7066,7 @@ force_active:
   - run_task__17TAdSelectTxtSubGCFv
   - run_task__17TBoss5GryphonDemoFv
   - run_task__17TBoss6EffFlowSoulFv
+  - run_task__17TMedicalCenterMesFv
   - run_task__17TOSwitchAttackSubFv
   - run_task__17TObjBoss8DemoRoomFv
   - run_task__17TObjVoloptShutterFv
@@ -7209,6 +7213,9 @@ force_active:
   - shop_weapon_stock_generated_flags
   - shop_weapon_stock_target_counts
   - should_show_warning__14TObjBagWarnWinFPv
+  - show_already_healthy__22TMedicalCenterSequenceFv
+  - show_declined__22TMedicalCenterSequenceFv
+  - show_fee_prompt__22TMedicalCenterSequenceFv
   - show_guide_button__12TAdDialingGCFPv
   - show_intro_text__19TPlayerBattleCtrl4PFv
   - show_message__18TChallenge4PResultFl

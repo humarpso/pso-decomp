@@ -3078,7 +3078,7 @@ s32 reset_key_machine_state__10TObjPlayerFv();
 s32 get_player_ctrl_field__6TSceneFUs(u16);
 s32 get_player_floor__6TLobbyFi(s32);
 s32 get_floor_map_terrain(int);
-M2C_UNK TMedicalCenterMes__ct(void *, void *, void *);
+M2C_UNK __ct__17TMedicalCenterMesFP7TObjectP10TObjPlayer(void *, void *, void *);
 M2C_UNK play_sound_effect(s32, s32, M2C_UNK, M2C_UNK);
 void set_area__6TLobbyFPvi(void *, int, int);
 M2C_UNK TWindowSubStatusDisp__sub_80228F5C(s32);
@@ -8335,7 +8335,7 @@ void TObjPlayer__vt6(s32 arg0) {
             {
                 void *m = ((void * (*)(int))__nw__7TObjectFUl)(0x234);
                 if (m != 0) {
-                    TMedicalCenterMes__ct(m, (void *) (tl_05), (void *) (arg0));
+                    __ct__17TMedicalCenterMesFP7TObjectP10TObjPlayer(m, (void *) (tl_05), (void *) (arg0));
                 }
             }
             break;

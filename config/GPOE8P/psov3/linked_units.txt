@@ -1169,6 +1169,7 @@ pso/misc/TMainTask.cpp
 pso/misc/TMainTask_8001A430.cpp
 pso/misc/TMainTask_80104C40.cpp
 pso/misc/TMapCsnCtrl.cpp
+pso/misc/TMedicalCenterSequence.cpp
 pso/misc/TMessageBox.cpp
 pso/misc/TMotorcycle.cpp
 pso/misc/TMotorcycle_802D712C.cpp
@@ -3401,7 +3402,6 @@ pso/unk/text_8020ED44.cpp
 pso/unk/text_8020EE2C.cpp
 pso/unk/text_8020EEFC.cpp
 pso/unk/text_80211D58.cpp
-pso/unk/text_80215FAC.cpp
 pso/unk/text_80222C28.cpp
 pso/unk/text_80222DE8.cpp
 pso/unk/text_802233F8.cpp
